@@ -21,7 +21,7 @@ The remediation guidance provided in this topic might require additional consult
 
 ###### Contents
 
-- [Misconfiguration traits for Azure Cosmos DB accounts](exposure-azure-cosmos-db.md#misconfiguration "exposure-azure-cosmos-db.md#misconfiguration")
+- [Misconfiguration traits for Azure Cosmos DB accounts](exposure-azure-cosmos-db.md#azure-cosmos-misconfiguration "exposure-azure-cosmos-db.md#azure-cosmos-misconfiguration")
 
   - [The Azure Cosmos DB account has public network access enabled](exposure-azure-cosmos-db.md#cosmos-public-network-access "exposure-azure-cosmos-db.md#cosmos-public-network-access")
   - [The Azure Cosmos DB account does not use continuous backup](exposure-azure-cosmos-db.md#cosmos-continuous-backup-disabled "exposure-azure-cosmos-db.md#cosmos-continuous-backup-disabled")
@@ -34,7 +34,11 @@ Here are misconfiguration traits for Azure Cosmos DB accounts and suggested reme
 
 When public network access is enabled, the Azure Cosmos DB account is reachable through a public endpoint. It can accept connections from the public internet, subject to firewall and virtual network rules.
 A public endpoint increases the attack surface of your account and exposes it to unauthorized connection attempts and potential data exfiltration.
-Following standard security principles, we recommend that you disable public network access and connect to the account privately, or tightly restrict the account firewall rules.
+Following standard security principles, disable public network access and connect to the account privately, or tightly restrict the account firewall rules.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Disable public network access and use Private Link
 
@@ -47,9 +51,9 @@ If you must keep public access enabled, configure IP firewall rules and virtual 
 ### The Azure Cosmos DB account does not use continuous backup
 
 With continuous backup mode, you can use point-in-time restore to recover from an accidental write or delete. You can also restore a deleted database or container to any timestamp within the retention period.
-When the account uses periodic backup mode instead of continuous backup, you can't perform self-service point-in-time restore. This limitation increases recovery time and the risk of data loss after an accidental or malicious change.
-Following data protection best practices, we recommend that you enable continuous backup mode where your workload supports it.
+When the account uses periodic backup mode instead of continuous backup, you cannot perform self-service point-in-time restore. This limitation increases recovery time and the risk of data loss after an accidental or malicious change.
+Following data protection best practices, enable continuous backup mode where your workload supports it.
 
-###### Enable continuous backup mode
+###### Remediation: Enable continuous backup mode
 
 Configure the account to use continuous backup mode (7-day or 30-day tier) so that point-in-time restore is available. Review the current limitations and supported APIs before migrating from periodic to continuous backup. For more information, see [Continuous backup with point-in-time restore](https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction "https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction") in the Microsoft Azure documentation.

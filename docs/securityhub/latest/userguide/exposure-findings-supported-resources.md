@@ -22,6 +22,6 @@ AWS Security Hub generates exposure findings for the following types of AWS reso
 - `microsoft.sql/servers/databases`
 - `microsoft.storage/storageaccounts/blobservices/containers`
 - `microsoft.web/sites`
-  Security Hub generates one exposure finding per primary resource. If a resource doesn't have any
-  exposure traits or has insufficient traits, Security Hub doesn't generate an exposure
+  Security Hub generates one exposure finding per primary resource. If a resource does not have any
+  exposure traits or has insufficient traits, Security Hub does not generate an exposure
   finding for that resource.

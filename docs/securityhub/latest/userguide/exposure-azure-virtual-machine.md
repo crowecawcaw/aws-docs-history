@@ -21,14 +21,14 @@ The remediation guidance provided in this topic might require additional consult
 
 ###### Contents
 
-- [Misconfiguration traits for Azure virtual machines](exposure-azure-virtual-machine.md#misconfiguration "exposure-azure-virtual-machine.md#misconfiguration")
+- [Misconfiguration traits for Azure virtual machines](exposure-azure-virtual-machine.md#azure-vm-misconfiguration "exposure-azure-virtual-machine.md#azure-vm-misconfiguration")
 
   - [The Azure virtual machine has an open network security group](exposure-azure-virtual-machine.md#open-security-group "exposure-azure-virtual-machine.md#open-security-group")
   - [The Azure virtual machine has a security rule that allows SSH or RDP access](exposure-azure-virtual-machine.md#remote-access-allowed "exposure-azure-virtual-machine.md#remote-access-allowed")
   - [The role associated with the Azure virtual machine has an administrative access role assignment](exposure-azure-virtual-machine.md#administrative-access-policy "exposure-azure-virtual-machine.md#administrative-access-policy")
   - [The Azure virtual machine has an End-Of-Life operating system](exposure-azure-virtual-machine.md#end-of-life-operating-system-detected "exposure-azure-virtual-machine.md#end-of-life-operating-system-detected")
 
-- [Reachability traits for Azure virtual machines](exposure-azure-virtual-machine.md#reachability "exposure-azure-virtual-machine.md#reachability")
+- [Reachability traits for Azure virtual machines](exposure-azure-virtual-machine.md#azure-vm-reachability "exposure-azure-virtual-machine.md#azure-vm-reachability")
 
   - [The Azure virtual machine is reachable over the internet](exposure-azure-virtual-machine.md#internet-reachable "exposure-azure-virtual-machine.md#internet-reachable")
 
@@ -46,13 +46,17 @@ Here are misconfiguration traits for Azure virtual machines and suggested remedi
 
 A network security group (NSG) acts as a virtual firewall for your Azure virtual machine, filtering inbound and outbound traffic with a set of prioritized security rules.
 An open network security group contains rules that allow unrestricted access from any source (for example, a source of `Any` or `0.0.0.0/0`). These rules can expose your virtual machine to unauthorized access from the internet.
-Following standard security principles, we recommend that you restrict network security group rules to only the specific IP addresses, ports, and protocols that your workload requires.
+Following standard security principles, restrict network security group rules to only the specific IP addresses, ports, and protocols that your workload requires.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Review network security group rules and assess current configuration
 
 Identify the network security group associated with the virtual machine's network interface or subnet, and review its inbound security rules.
 Evaluate which ports allow traffic from broad source ranges, such as `Any` or `0.0.0.0/0`.
-Rules are processed in priority order, so confirm that a permissive rule isn't taking precedence over a more restrictive one. For more information, see [Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview") in the Microsoft Azure documentation.
+Rules are processed in priority order, so confirm that a permissive rule is not taking precedence over a more restrictive one. For more information, see [Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview") in the Microsoft Azure documentation.
 
 ###### Restrict network security group rules
 
@@ -62,11 +66,15 @@ Modify or remove rules that allow unrestricted access. Replace a broad source su
 
 Remote management protocols such as SSH (port 22) and RDP (port 3389) let users connect to and manage Azure virtual machines from remote locations.
 When a network security group rule permits these ports from the internet (a source of `Any` or `0.0.0.0/0`), your virtual machine's attack surface increases significantly and it becomes exposed to brute-force and credential-based attacks.
-Following standard security principles, we recommend that you limit remote access to specific, trusted IP addresses, or remove direct internet access to these ports entirely.
+Following standard security principles, limit remote access to specific, trusted IP addresses, or remove direct internet access to these ports entirely.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Restrict the network security group rule
 
-Limit SSH and RDP access to specific trusted IP addresses or CIDR ranges instead of `Any`, or remove the inbound rule if remote access from the internet isn't required. For more information, see [Manage network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group") in the Microsoft Azure documentation.
+Limit SSH and RDP access to specific trusted IP addresses or CIDR ranges instead of `Any`, or remove the inbound rule if remote access from the internet is not required. For more information, see [Manage network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group") in the Microsoft Azure documentation.
 
 ###### Use Azure Bastion for secure connectivity
 
@@ -81,7 +89,11 @@ Enable just-in-time (JIT) virtual machine access in Microsoft Defender for Cloud
 You can assign a managed identity to an Azure virtual machine and grant it Azure role-based access control (Azure RBAC) role assignments to access other Azure resources.
 When the associated identity has an administrative role assignment (such as `Owner` or `Contributor`) at a broad scope, it typically grants permissions far beyond what the workload requires.
 If the virtual machine is compromised, an attacker can use these excessive permissions to move laterally across your environment, access data, or manipulate resources.
-Following standard security principles, we recommend that you grant least privilege by assigning only the permissions the workload needs.
+Following standard security principles, grant least privilege by assigning only the permissions the workload needs.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Review and identify administrative role assignments
 
@@ -95,9 +107,9 @@ Replace administrative role assignments with the least-privileged built-in role 
 
 The Azure virtual machine runs an end-of-life operating system that is no longer supported or maintained by its vendor.
 When an operating system reaches end of life, the vendor stops releasing security updates and advisories, which leaves known vulnerabilities permanently unpatched and exposes the virtual machine to attack.
-Following security best practices, we recommend that you upgrade to a supported operating system version.
+Following security best practices, upgrade to a supported operating system version.
 
-###### Upgrade to a supported operating system version
+###### Remediation: Upgrade to a supported operating system version
 
 Plan an in-place upgrade or migrate the workload to a virtual machine running a supported operating system version. Before upgrading, confirm application compatibility and take a backup or snapshot so that you can roll back if needed. For Windows, follow the in-place upgrade guidance; for Linux, follow the upgrade guidance from your distribution vendor. For more information, see [Perform an in-place upgrade of a Windows Server VM](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/upgrade-windows-server "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/upgrade-windows-server") in the Microsoft Azure documentation.
 
@@ -108,11 +120,17 @@ Here are reachability traits for Azure virtual machines and suggested remediatio
 ### The Azure virtual machine is reachable over the internet
 
 An Azure virtual machine with ports that are reachable from the internet might be exposed to attack. A virtual machine becomes reachable when it has a public IP address. It can also become reachable when a load balancer, application gateway, or other network path permits inbound traffic from the internet.
-Following standard security principles, we recommend implementing least-privilege network access controls by restricting inbound traffic to only necessary sources and ports.
+Following standard security principles, implement least-privilege network access controls by restricting inbound traffic to only necessary sources and ports.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Restrict or remove internet exposure
 
-Review whether the virtual machine requires a public IP address. If it doesn't, disassociate the public IP address from the network interface and use a private IP address instead. If outbound internet connectivity is still required, use a NAT gateway. If inbound access is required, place the virtual machine behind a load balancer, Azure Firewall, or application gateway rather than exposing it directly. For more information, see [Public IP addresses](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses") in the Microsoft Azure documentation.
+Review whether the virtual machine requires a public IP address. If it does not, disassociate the public IP address from the network interface and use a private IP address instead. If outbound internet connectivity is still required, use a NAT gateway.
+
+If inbound access is required, place the virtual machine behind a load balancer, Azure Firewall, or application gateway rather than exposing it directly. For more information, see [Public IP addresses](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses") in the Microsoft Azure documentation.
 
 ###### Tighten inbound network security group rules
 
@@ -130,7 +148,11 @@ Here are vulnerability traits for Azure virtual machines and suggested remediati
 
 Common Vulnerabilities and Exposures (CVEs) can affect software packages installed on Azure virtual machines.
 A high-priority vulnerability is network-exploitable with a high likelihood of exploitation. This represents an immediate security threat because exploit code might already be publicly available and actively used by attackers or automated scanning tools.
-We recommend that you patch these vulnerabilities promptly to protect your virtual machine.
+Patch these vulnerabilities promptly to protect your virtual machine.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Review and remediate the finding
 
@@ -138,7 +160,7 @@ Use Microsoft Defender for Cloud vulnerability assessment to review the affected
 
 ###### Apply updates
 
-Use Azure Update Manager to assess and deploy operating system and software updates across your virtual machines on a schedule. If an update isn't available, consider removing or disabling the vulnerable software, or restricting network access to it, until a patch is released. For more information, see [Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/overview "https://learn.microsoft.com/en-us/azure/update-manager/overview") in the Microsoft Azure documentation.
+Use Azure Update Manager to assess and deploy operating system and software updates across your virtual machines on a schedule. If an update is not available, consider removing or disabling the vulnerable software, or restricting network access to it, until a patch is released. For more information, see [Azure Update Manager](https://learn.microsoft.com/en-us/azure/update-manager/overview "https://learn.microsoft.com/en-us/azure/update-manager/overview") in the Microsoft Azure documentation.
 
 ###### Future considerations
 
@@ -148,7 +170,11 @@ To prevent future occurrences, enable Microsoft Defender for Servers to continuo
 
 Common Vulnerabilities and Exposures (CVEs) can affect software packages installed on Azure virtual machines.
 Noncritical vulnerabilities represent security weaknesses with lower severity or exploitability than high-priority vulnerabilities. Although they pose less immediate risk, attackers can still exploit unpatched vulnerabilities to compromise the confidentiality, integrity, or availability of data, or to access other systems.
-Following security best practices, we recommend that you patch these vulnerabilities to protect your virtual machine from attack.
+Following security best practices, patch these vulnerabilities to protect your virtual machine from attack.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Review and remediate the finding
 
@@ -162,8 +188,8 @@ Use Azure Update Manager to assess and deploy operating system and software upda
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your virtual machine, because attackers can execute the malicious code automatically without exploiting a separate vulnerability.
-Following security best practices, we recommend that you remove malicious packages to protect your virtual machine from potential attacks.
+Following security best practices, remove malicious packages to protect your virtual machine from potential attacks.
 
-###### Investigate and remove malicious packages
+###### Remediation: Investigate and remove malicious packages
 
 Review the finding details to understand the threat and identify the affected packages, then remove the identified packages using the appropriate package manager for the operating system. After removal, run a scan to confirm that no related malicious components remain. For more information, see [Microsoft Defender for Servers](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-introduction "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-introduction") in the Microsoft Azure documentation.

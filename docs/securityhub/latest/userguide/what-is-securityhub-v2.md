@@ -1,8 +1,8 @@
 # Introduction to AWS Security Hub
 
 AWS Security Hub is a unified cloud security solution that prioritizes your critical security issues and helps you respond at scale.
-Security Hub detects security issues by automatically correlating and enriching security signals from multiple sources, such as posture management, vulnerability management (Amazon Inspector), sensitive data (Amazon Macie), and threat detection (Amazon GuardDuty).
-This enables security teams to prioritize active risks in their cloud environments through automated analyses and contextual insights.
+Security Hub detects security issues by automatically correlating and enriching security signals from multiple sources. These sources include posture management, vulnerability management (Amazon Inspector), sensitive data (Amazon Macie), and threat detection (Amazon GuardDuty).
+Use Security Hub to prioritize active risks in your cloud environment through automated analyses and contextual insights.
 Through intuitive visualizations, Security Hub transforms complex security signals into actionable insights, which enables you to make informed decisions about your security quickly.
 Security Hub also includes automated response workflows to help you remediate risks, improve team productivity, and minimize operational disruptions.
 
@@ -57,7 +57,7 @@ Security Hub receives findings from the following AWS services.
 - Amazon Macie
 - IAM Access Analyzer
 
-## Accessibility
+## Accessing Security Hub
 
 Security Hub is available in most AWS Regions.
 For a list of Regions where Security Hub is currently available, see [Security Hub endpoints and quotas](../../../general/latest/gr/sechub.md "../../../general/latest/gr/sechub.md") in the _AWS General Reference_.
@@ -85,5 +85,3 @@ In some cases, the AWS CLI can be more useful than the Security Hub console.
 
 [AWS SDKs](https://aws.amazon.com/developertools/ "https://aws.amazon.com/developertools/") consist of libraries and sample code for various programming languages and platforms (C++, Go, Java, .NET, and Python).
 They provide programmatic access to Security Hub and other AWS services in your preferred language and can help you manage tasks such as managing errors, signing requests, and retrying requests.
-
-## Pricing

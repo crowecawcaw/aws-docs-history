@@ -1,7 +1,7 @@
 # Designating a delegated administrator in Security Hub
 
 In the AWS organization management account, you can designate a delegated administrator for your organization.
-As a best practice, we recommend using the same delegated administrator across security services for consistent governance.
+As a best practice, use the same delegated administrator across security services for consistent governance.
 
 The procedure in this topic describes how to designate a delegated administrator in Security Hub.
 It assumes you previously enabled Security Hub but did not designate a delegated administrator during the enablement workflow.
@@ -10,18 +10,15 @@ It assumes you previously enabled Security Hub but did not designate a delegated
 
 Consider the following when designating a delegated administrator in Security Hub:
 
-- The AWS organization management account can designate itself as the delegated administrator in Security Hub CSPM.
-  The AWS organization management account cannot designate itself as the delegated administrator in Security Hub.
-  In this scenario, the AWS organization management account must designate another AWS account as the delegated administrator in Security Hub.
-  As a best practice, we recommend using the same delegated administrator across security services for consistent governance.
+- The AWS organization management account can designate itself as the delegated administrator in Security Hub CSPM, but cannot designate itself as the delegated administrator in Security Hub.
+  In this scenario, the management account must designate another AWS account as the delegated administrator in Security Hub.
 - If the AWS organization management account designates a delegated administrator in Security Hub CSPM, that delegated administrator automatically becomes the delegated administrator in Security Hub.
   In this scenario, Security Hub only allows this particular AWS account to serve as the delegated administrator.
 
 ###### Note
 
-If the AWS organization management account uses the same delegated administrator in Security Hub as it does in Security Hub CSPM, removing it through the Security Hub CSPM console or with the AWS Organizations API also removes it in Security Hub.
-Similarly, removing it through the Security Hub console or with the AWS Organizations API also removes it in Security Hub CSPM.
-When the delegated administrator is removed from Security Hub CSPM, Central Configuration will automatically opt out.
+Removing the delegated administrator through either the Security Hub CSPM console, the Security Hub console, or the AWS Organizations API removes it from both services.
+When the delegated administrator is removed from Security Hub CSPM, Central Configuration automatically opts out.
 
 ## Designating a delegated administrator after enabling Security Hub
 

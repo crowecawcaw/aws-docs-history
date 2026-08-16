@@ -2,7 +2,7 @@
 
 You can use automation rules in Amazon EventBridge to respond to Security Hub findings.
 Security Hub sends findings to EventBridge as events in near real time.
-You can write basic rules that indicate what automated actions to take when an events match the rules.
+You can write basic rules that indicate what automated actions to take when an event matches a rule.
 Actions that can be automatically triggered include the following:
 
 - Configuring an API destination in EventBridge.
@@ -21,8 +21,8 @@ For more information, see [What is EventBridge?](../../../eventbridge/latest/use
 ###### Note
 
 If you have EventBridge rules defined for findings in Security Hub CSPM, the rules could overlap with rules defined for Security Hub.
-To avoid sending duplicate findings, evaluate the rules you have defined for Security Hub CSPM to determine if they overlap with rules you are have defined for Security Hub.
-Where applicable disable any Security Hub CSPM rules that are replaced by Security Hub rules.
+To avoid sending duplicate findings, evaluate the rules you have defined for Security Hub CSPM to determine if they overlap with rules you have defined for Security Hub.
+Where applicable, disable any Security Hub CSPM rules that are replaced by Security Hub rules.
 
 ###### Note
 

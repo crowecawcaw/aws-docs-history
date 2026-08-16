@@ -21,7 +21,7 @@ The remediation guidance provided in this topic might require additional consult
 
 ###### Contents
 
-- [Misconfiguration traits for Azure SQL databases](exposure-azure-sql-database.md#misconfiguration "exposure-azure-sql-database.md#misconfiguration")
+- [Misconfiguration traits for Azure SQL databases](exposure-azure-sql-database.md#azure-sql-misconfiguration "exposure-azure-sql-database.md#azure-sql-misconfiguration")
 
   - [The Azure SQL database has public network access enabled](exposure-azure-sql-database.md#sql-server-public-network-access "exposure-azure-sql-database.md#sql-server-public-network-access")
   - [The Azure SQL database does not enforce Azure AD-only authentication](exposure-azure-sql-database.md#sql-server-azure-ad-only-auth "exposure-azure-sql-database.md#sql-server-azure-ad-only-auth")
@@ -36,7 +36,11 @@ Here are misconfiguration traits for Azure SQL databases and suggested remediati
 
 When public network access is enabled on the logical server, the database is reachable through a public endpoint and can accept connections from the public internet (subject to firewall rules).
 A public endpoint increases the attack surface of your database and exposes it to unauthorized connection attempts.
-Following standard security principles, we recommend that you disable public network access and connect to the database privately, or tightly restrict the server firewall rules.
+Following standard security principles, disable public network access and connect to the database privately, or tightly restrict the server firewall rules.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Disable public network access and use Private Link
 
@@ -44,7 +48,7 @@ Set the logical server's public network access to `Disabled` and connect to the 
 
 ###### Restrict firewall rules if public access is required
 
-If you must keep public access enabled, remove any rule that allows the full internet range, and disable **Allow Azure services and resources to access this server** when it isn't needed. Limit server-level firewall rules to the specific trusted IP addresses your workload requires. For more information, see [Network access controls for Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview "https://learn.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview") in the Microsoft Azure documentation.
+If you must keep public access enabled, remove any rule that allows the full internet range, and disable **Allow Azure services and resources to access this server** when it is not needed. Limit server-level firewall rules to the specific trusted IP addresses your workload requires. For more information, see [Network access controls for Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview "https://learn.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview") in the Microsoft Azure documentation.
 
 ###### Enforce a minimum TLS version
 
@@ -52,11 +56,11 @@ Set the logical server's minimum TLS version to 1.2 so that connections that use
 
 ### The Azure SQL database does not enforce Azure AD-only authentication
 
-When Microsoft Entra-only authentication (formerly Azure AD-only authentication) isn't enforced, the logical server also accepts SQL authentication, which relies on passwords stored and managed within the database.
-SQL authentication is more susceptible to credential theft and brute-force attacks and doesn't benefit from centralized Microsoft Entra controls such as Conditional Access and multifactor authentication.
-Following standard security principles, we recommend that you enforce Microsoft Entra-only authentication so that only Microsoft Entra identities can connect.
+When Microsoft Entra-only authentication (formerly Azure AD-only authentication) is not enforced, the logical server also accepts SQL authentication, which relies on passwords stored and managed within the database.
+SQL authentication is more susceptible to credential theft and brute-force attacks and does not benefit from centralized Microsoft Entra controls such as Conditional Access and multifactor authentication.
+Following standard security principles, enforce Microsoft Entra-only authentication so that only Microsoft Entra identities can connect.
 
-###### Enforce Microsoft Entra-only authentication
+###### Remediation: Enforce Microsoft Entra-only authentication
 
 Set a Microsoft Entra admin for the logical server, then enable Microsoft Entra-only authentication. This disables SQL authentication so that only Microsoft Entra identities can connect to the server and its databases. Confirm that your applications support Microsoft Entra authentication before enforcing this setting. For more information, see [Microsoft Entra-only authentication](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-only-authentication "https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-only-authentication") in the Microsoft Azure documentation.
 
@@ -64,17 +68,21 @@ Set a Microsoft Entra admin for the logical server, then enable Microsoft Entra-
 
 The logical server's administrator login uses a well-known or common username, such as `sqladmin`, `admin`, or `sa`.
 Common administrator usernames are predictable, which makes the server an easier target for brute-force and credential-stuffing attacks because an attacker needs to guess only the password.
-Following standard security principles, we recommend that you avoid default or common administrator usernames and centralize administrative access through Microsoft Entra ID.
+Following standard security principles, avoid default or common administrator usernames and centralize administrative access through Microsoft Entra ID.
 
-###### Use a non-default administrator and Microsoft Entra authentication
+###### Remediation: Use a non-default administrator and Microsoft Entra authentication
 
 Avoid predictable administrator login names. Where possible, enforce Microsoft Entra-only authentication and manage administrative access through Microsoft Entra identities and groups rather than a SQL administrator login. Follow the Azure SQL security best practices for managing logins and least-privilege access. For more information, see [Azure SQL Database security best practices](https://learn.microsoft.com/en-us/azure/azure-sql/database/security-best-practice "https://learn.microsoft.com/en-us/azure/azure-sql/database/security-best-practice") in the Microsoft Azure documentation.
 
 ### The Azure SQL database has geo-redundant backup disabled
 
 Azure SQL Database stores automated backups in geo-redundant storage by default, which replicates backups to a paired region and enables geo-restore during a regional outage.
-When backup storage redundancy is set to locally redundant or zone-redundant storage instead, geo-restore is unavailable. You can't recover the database in another region if the primary region becomes unavailable.
-Following data protection best practices, we recommend that you use geo-redundant backup storage for databases that require resilience to regional outages.
+When backup storage redundancy is set to locally redundant or zone-redundant storage instead, geo-restore is unavailable. You cannot recover the database in another region if the primary region becomes unavailable.
+Following data protection best practices, use geo-redundant backup storage for databases that require resilience to regional outages.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Configure geo-redundant backup storage
 

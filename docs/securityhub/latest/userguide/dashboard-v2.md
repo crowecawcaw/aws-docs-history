@@ -18,7 +18,7 @@ Consider the following if your account is a delegated administrator account for 
 - If your account is the delegated administrator account for an organization, data includes findings for your account and member accounts.
 - If your account is a member account in an organization or a standalone account, data includes findings only for your account.
 
-As a best practice, we recommend not including confidential, sensitive, or personally identifiable information (PII) in saved filter sets, custom widgets, or other related free-form text fields.
+As a best practice, do not include confidential, sensitive, or personally identifiable information (PII) in saved filter sets, custom widgets, or other related free-form text fields.
 
 ## Available widgets
 
@@ -164,11 +164,11 @@ Security Hub retains trends data for one year for all AWS accounts where Securit
 
 Trends data for delegated administrator and standalone accounts is deleted after Security Hub is disabled, or if the accounts are terminated.
 
-Trends data retention secnarios for member accounts with Security Hub enabled:
+Trends data retention scenarios for member accounts with Security Hub enabled:
 
-- If a member account leaves its organization, Security Hub will still store the trends data, up to when the account left the organization, for a year.
-- If Security Hub is disabled for a member account, the trends data, up to when the account was disabled, will be retained for a year.
-- If a member account is terminated, the trends data will be disassociated from the terminated account (e.g., the terminated accountID will be scrubbed) and the rest of the trends data will be retained for one year.
+- If a member account leaves its organization, Security Hub still stores the trends data, up to when the account left the organization, for a year.
+- If Security Hub is disabled for a member account, Security Hub retains the trends data, up to when the account was disabled, for a year.
+- If a member account is terminated, Security Hub disassociates the trends data from the terminated account (for example, scrubbing the terminated account ID) and retains the rest of the trends data for one year.
 
 ### Summary widgets
 

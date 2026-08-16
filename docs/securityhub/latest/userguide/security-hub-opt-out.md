@@ -6,7 +6,7 @@ This documentation page is only applicable to the enhanced AWS Security Hub laun
 If you are a customer of the original AWS Security Hub (now AWS Security Hub CSPM), the data usage described below will apply only after you have enabled the enhanced AWS Security Hub.
 
 You can choose to opt out of having your data (defined as "Security Hub Content" in the Security Hub service terms) used to develop and improve AWS Security Hub and other AWS security services by using the AWS Organizations opt-out policy.
-You can choose to opt out even if Security Hub doesn't currently collect any such Content.
+You can choose to opt out even if Security Hub does not currently collect any such Content.
 For more information about how to opt out, see [AI services opt-out policies](orgs_manage_policies_ai-opt-out.md "orgs_manage_policies_ai-opt-out.md") in the _AWS Organizations User Guide_.
 
 ###### Note

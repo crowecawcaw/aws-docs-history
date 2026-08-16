@@ -21,12 +21,12 @@ The remediation guidance provided in this topic might require additional consult
 
 ###### Contents
 
-- [Misconfiguration traits for Azure Kubernetes Service clusters](exposure-azure-container-managed-cluster.md#misconfiguration "exposure-azure-container-managed-cluster.md#misconfiguration")
+- [Misconfiguration traits for Azure Kubernetes Service clusters](exposure-azure-container-managed-cluster.md#azure-aks-misconfiguration "exposure-azure-container-managed-cluster.md#azure-aks-misconfiguration")
 
   - [The Azure Kubernetes Service cluster is running an unsupported Kubernetes version](exposure-azure-container-managed-cluster.md#aks-unsupported-kubernetes-version "exposure-azure-container-managed-cluster.md#aks-unsupported-kubernetes-version")
   - [The Azure Kubernetes Service cluster has unencrypted Kubernetes secrets](exposure-azure-container-managed-cluster.md#unencrypted-kubernetes-secrets "exposure-azure-container-managed-cluster.md#unencrypted-kubernetes-secrets")
 
-- [Reachability traits for Azure Kubernetes Service clusters](exposure-azure-container-managed-cluster.md#reachability "exposure-azure-container-managed-cluster.md#reachability")
+- [Reachability traits for Azure Kubernetes Service clusters](exposure-azure-container-managed-cluster.md#azure-aks-reachability "exposure-azure-container-managed-cluster.md#azure-aks-reachability")
 
   - [The Azure Kubernetes Service cluster allows public access](exposure-azure-container-managed-cluster.md#internet-reachable "exposure-azure-container-managed-cluster.md#internet-reachable")
 
@@ -38,21 +38,29 @@ Here are misconfiguration traits for Azure Kubernetes Service clusters and sugge
 
 The AKS cluster is running a Kubernetes version that is no longer supported by Microsoft.
 Unsupported Kubernetes versions stop receiving security patches and bug fixes, which leaves known vulnerabilities in the control plane and node components unaddressed and exposes the cluster to attack.
-Following security best practices, we recommend that you keep the cluster on a supported Kubernetes version.
+Following security best practices, keep the cluster on a supported Kubernetes version.
 
-###### Upgrade to a supported Kubernetes version
+###### Remediation: Upgrade to a supported Kubernetes version
 
-Upgrade the cluster control plane and node pools to a supported Kubernetes version. Because minor versions can't be skipped, upgrade sequentially through each minor version and apply the latest patch. Review the breaking changes for each version before upgrading. Consider enabling automatic upgrades to stay current. For more information, see [Supported Kubernetes versions in AKS](https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions") in the Microsoft Azure documentation.
+Upgrade the cluster control plane and node pools to a supported Kubernetes version. Because minor versions cannot be skipped, upgrade sequentially through each minor version and apply the latest patch. Review the breaking changes for each version before upgrading.
+
+Consider enabling automatic upgrades to stay current. For more information, see [Supported Kubernetes versions in AKS](https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions "https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions") in the Microsoft Azure documentation.
 
 ### The Azure Kubernetes Service cluster has unencrypted Kubernetes secrets
 
 By default, the cluster stores Kubernetes secrets in the etcd data store without encryption by a customer-controlled key.
 Without encryption at rest using a key management service, anyone who gains access to the underlying etcd data can read sensitive secret values such as credentials and tokens.
-Following data protection best practices, we recommend that you enable KMS etcd encryption so that Kubernetes secrets are encrypted at rest with a key in Azure Key Vault.
+Following data protection best practices, enable KMS etcd encryption so that Kubernetes secrets are encrypted at rest with a key in Azure Key Vault.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Enable KMS etcd encryption
 
-Configure the cluster to use Key Management Service (KMS) etcd encryption with a key stored in Azure Key Vault. Grant the cluster identity encrypt and decrypt permissions on the key. Re-encrypt existing secrets after you turn on the feature. Enable soft delete and purge protection on the key vault so the key can't be lost. For more information, see [KMS etcd encryption in AKS](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption "https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption") in the Microsoft Azure documentation.
+Configure the cluster to use Key Management Service (KMS) etcd encryption with a key stored in Azure Key Vault. Grant the cluster identity encrypt and decrypt permissions on the key. Re-encrypt existing secrets after you enable the feature. Enable soft delete and purge protection on the key vault so the key can't be lost. For more information, see [KMS etcd encryption in AKS](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption "https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption") in the Microsoft Azure documentation.
+
+Enable soft delete and purge protection on the key vault so the key cannot be lost. For more information, see [KMS etcd encryption in AKS](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption "https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption") in the Microsoft Azure documentation.
 
 ###### Store secrets in Azure Key Vault
 
@@ -66,7 +74,11 @@ Here are reachability traits for Azure Kubernetes Service clusters and suggested
 
 The API server is the endpoint that you use to communicate with your cluster's Kubernetes control plane. The cluster is reachable from the internet when the API server endpoint is public, or when workloads are exposed through a public load balancer or ingress.
 Public endpoints increase your attack surface and the risk of unauthorized access to your Kubernetes API server. Attackers can potentially access or modify cluster resources and read sensitive data.
-Following security best practices, we recommend restricting access to your cluster's API server and workloads to only necessary IP ranges.
+Following security best practices, restrict access to your cluster's API server and workloads to only necessary IP ranges.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Restrict access to the API server
 
@@ -74,4 +86,4 @@ Use a private cluster so the API server is reachable only from within your virtu
 
 ###### Limit public exposure of workloads
 
-Review services exposed through public load balancers or ingress, and restrict or remove public exposure where it isn't required. Use internal load balancers, network security group rules, and a web application firewall on a controlled ingress point for workloads that must be reached from the internet. For more information, see [Networking concepts for AKS](https://learn.microsoft.com/en-us/azure/aks/concepts-network "https://learn.microsoft.com/en-us/azure/aks/concepts-network") in the Microsoft Azure documentation.
+Review services exposed through public load balancers or ingress, and restrict or remove public exposure where it is not required. Use internal load balancers, network security group rules, and a web application firewall on a controlled ingress point for workloads that must be reached from the internet. For more information, see [Networking concepts for AKS](https://learn.microsoft.com/en-us/azure/aks/concepts-network "https://learn.microsoft.com/en-us/azure/aks/concepts-network") in the Microsoft Azure documentation.

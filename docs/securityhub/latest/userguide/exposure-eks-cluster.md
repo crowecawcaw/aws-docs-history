@@ -33,7 +33,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon EKS cluster has a container with software vulnerabilities](exposure-eks-cluster.md#low-priority-vulnerability "exposure-eks-cluster.md#low-priority-vulnerability")
   - [The Amazon EKS cluster has a container with an End-Of-Life operating system](exposure-eks-cluster.md#end-of-life-operating-system-detected "exposure-eks-cluster.md#end-of-life-operating-system-detected")
   - [The Amazon EKS cluster has a container with malicious software packages](exposure-eks-cluster.md#malicious-package "exposure-eks-cluster.md#malicious-package")
-  - [The EKS cluster has malicious files](exposure-eks-cluster.md#malicious-file "exposure-eks-cluster.md#malicious-file")
+  - [The Amazon EKS cluster has malicious files](exposure-eks-cluster.md#malicious-file "exposure-eks-cluster.md#malicious-file")
 
 ## Misconfiguration traits for Amazon EKS clusters
 
@@ -44,14 +44,17 @@ Here are misconfiguration traits for Amazon EKS clusters and suggested remediati
 The Amazon EKS cluster endpoint is the endpoint that you use to communicate with your cluster’s Kubernetes API server.
 By default, this endpoint is public to the internet.
 Public endpoints increase your attack surface area and the risk of unauthorized access to your Kubernetes API server, potentially allowing attackers to access or modify cluster resources or access sensitive data.
-Following security best practices, AWS recommends restricting access to your EKS cluster endpoint to only necessary IP ranges.
+Following security best practices, restrict access to your Amazon EKS cluster endpoint to only necessary IP ranges.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Modify endpoint access
 
-In the exposure finding, open the resource.
-This will open the affected Amazon EKS cluster.
-You can configure your cluster to use private access, public access, or both. With private access, Kubernetes API requests that originate within your cluster’s VPC use the private VPC endpoint.
-With public access, Kubernetes API requests that originate from outside your cluster’s VPC use the public endpoint.
+In the exposure finding, open the resource. This opens the affected Amazon EKS cluster. You can configure your cluster to use private access, public access, or both.
+
+With private access, Kubernetes API requests that originate within your cluster’s VPC use the private VPC endpoint. With public access, Kubernetes API requests that originate from outside your cluster’s VPC use the public endpoint.
 
 ###### Modify or remove public access to the cluster
 
@@ -64,12 +67,12 @@ If limited public access is necessary, restrict access to specific CIDR block ra
 Amazon EKS supports each Kubernetes version for a limited period of time.
 Running clusters with unsupported Kubernetes versions can expose your environment to security vulnerabilities, as CVE patches will stop being released for outdated versions.
 Unsupported versions may contain known security vulnerabilities that can be exploited by attackers and lack security features that may be available in newer versions.
-Following security best practices, AWS recommends keeping your Kubernetes version updated.
+Following security best practices, keep your Kubernetes version updated.
 
-###### Update Kubernetes version
+###### Remediation: Update Kubernetes version
 
 In the exposure finding, open the resource.
-This will open the affected Amazon EKS cluster.
+This opens the affected Amazon EKS cluster.
 Before updating your cluster, review [Available versions on standard support](../../../eks/latest/userguide/kubernetes-versions.md#version-deprecation "../../../eks/latest/userguide/kubernetes-versions.md#version-deprecation") in the _Amazon Elastic Kubernetes Service User Guide_ for a list of currently supported Kubernetes versions.
 
 ### The Amazon EKS cluster uses unencrypted Kubernetes secrets
@@ -78,9 +81,9 @@ Kubernetes secrets are, by default, stored unencrypted in the API server’s und
 Anyone with API access or with access to etcd can retrieve or modify a secret. To prevent this, you should encrypt Kubernetes secrets at rest.
 If Kubernetes Secrets are unencrypted, they are vulnerable to unauthorized access if etcd is compromised.
 Since secrets often contain sensitive information like passwords and API tokens, their exposure could lead to unauthorized access to other applications and data.
-Following security best practices, AWS recommends encrypting all sensitive information stored in Kubernetes secrets.
+Following security best practices, encrypt all sensitive information stored in Kubernetes secrets.
 
-###### Encrypt Kubernetes secrets
+###### Remediation: Encrypt Kubernetes secrets
 
 Amazon EKS supports the encryption of Kubernetes secrets using KMS keys through envelope encryption.
 To enable encryption of Kubernetes secrets for your EKS cluster, see [Encrypt Kubernetes secrets with KMS on existing clusters](../../../eks/latest/userguide/enable-kms.md "../../../eks/latest/userguide/enable-kms.md") in the _Amazon EKS User Guide_.
@@ -91,13 +94,13 @@ Here are the vulnerability traits for Amazon EKS clusters.
 
 ### The Amazon EKS cluster has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation
 
-Software packages that are installed on EKS clusters can be exposed to Common Vulnerabilities and Exposures (CVEs).
+Software packages that are installed on Amazon EKS clusters can be exposed to Common Vulnerabilities and Exposures (CVEs).
 Critical CVEs pose significant security risks to your AWS environment.
 Unauthorized users can exploit these unpatched vulnerabilities to compromise the confidentiality, integrity, or availability of data, or to access other systems.
 Critical vulnerabilities with high exploitation likelihood represent immediate security threats, as exploit code may already be publicly available and actively used by attackers or automated scanning tools.
-Following security best practices, AWS recommends patching these vulnerabilities to protect your instance from attack.
+Following security best practices, patch these vulnerabilities to protect your instance from attack.
 
-###### Update affected instances
+###### Remediation: Update affected instances
 
 Update your container images to newer versions that include security fixes for the identified vulnerabilities.
 This typically involves rebuilding your container images with updated base images or dependencies, then deploying the new images to your Amazon EKS cluster.
@@ -106,10 +109,10 @@ This typically involves rebuilding your container images with updated base image
 
 Software packages that are installed on Amazon EKS clusters can be exposed to Common Vulnerabilities and Exposures (CVEs).
 Noncritical CVEs represent security weaknesses with lower severity or exploitability compared to critical CVEs.
-While these vulnerabilities pose less immediate risk, attackers can still exploit these unpatched vulnerabilities to compromise the confidentiality, integrity, or availability of data, or to access other systems.
-Following security best practices, AWS recommends patching these vulnerabilities to protect your instance from attack.
+Although these vulnerabilities pose less immediate risk, attackers can still exploit these unpatched vulnerabilities to compromise the confidentiality, integrity, or availability of data, or to access other systems.
+Following security best practices, patch these vulnerabilities to protect your instance from attack.
 
-###### Update affected instances
+###### Remediation: Update affected instances
 
 Update your container images to newer versions that include security fixes for the identified vulnerabilities.
 This typically involves rebuilding your container images with updated base images or dependencies, then deploying the new images to your Amazon EKS cluster.
@@ -124,9 +127,9 @@ As a result, Amazon Inspector could potentially stop generating findings for kno
 
 See [Discontinued operating systems](../../../inspector/latest/user/supported.md#formerly-supported-os "../../../inspector/latest/user/supported.md#formerly-supported-os") in the _Amazon Inspector User Guide_ for information about operating systems that have reached end of life that can be detected by Amazon Inspector.
 
-###### Update to a supported operating system version
+###### Remediation: Update to a supported operating system version
 
-We recommend updating to a supported version of the operating system.
+Update to a supported version of the operating system.
 In the exposure finding, open the resource to access the affected resource.
 Before updating the operating system version in your container image, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
 After updating your container image, rebuild and redeploy your containers to the Amazon EKS cluster.
@@ -135,25 +138,23 @@ After updating your container image, rebuild and redeploy your containers to the
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your Amazon EKS cluster, as attackers can execute malicious code automatically without exploiting a vulnerability.
-Following security best practices, AWS recommends removing malicious packages to protect your cluster from potential attacks.
+Following security best practices, remove malicious packages to protect your cluster from potential attacks.
 
-###### Remove malicious packages
+###### Remediation: Remove malicious packages
 
-Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat.
-Remove the identified malicious packages from your container images.
-Then, delete the pods with the compromised image.
-Update your Kubernetes deployments to use the updated container images.
-Then, deploy your changes and redeploy your pods.
+Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat. Remove the identified malicious packages from your container images. Then, delete the pods with the compromised image.
 
-### The EKS cluster has malicious files
+Update your Kubernetes deployments to use the updated container images. Then, deploy your changes and redeploy your pods.
+
+### The Amazon EKS cluster has malicious files
 
 Malicious files contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious files pose an active and critical threat to your cluster, as attackers can execute malicious code automatically without exploiting a vulnerability.
-Following security best practices, AWS recommends removing malicious files to protect your cluster from potential attacks.
+Following security best practices, remove malicious files to protect your cluster from potential attacks.
 
-###### Remove malicious files
+###### Remediation: Remove malicious files
 
 To identify the specific Amazon Elastic Block Store (Amazon EBS) volume that has malicious files, review the **Resources** section of the trait's finding details.
-Once you have identified the volume with the malicious file, remove the identified malicious files.
+After you have identified the volume with the malicious file, remove the identified malicious files.
 After removing the malicious files, consider performing a scan to ensure that all files that may have been installed by the malicious file have been removed.
 For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .

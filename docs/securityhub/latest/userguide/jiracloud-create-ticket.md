@@ -5,8 +5,8 @@ After you create an integration with Jira Cloud, you can create a ticket for a f
 ###### Note
 
 A finding will always be associated with a single ticket through its entire lifecycle.
-All subsequent updates to a finding after initial creation will be sent to the same ticket.
-If a connector associated with an automation rule is changed, the updated connector will only be used for new and incoming findings that match the rule criteria.
+Security Hub sends all subsequent updates to a finding to the same ticket after initial creation.
+If a connector associated with an automation rule is changed, the updated connector is used only for new and incoming findings that match the rule criteria.
 
 ###### To create a ticket for a finding
 

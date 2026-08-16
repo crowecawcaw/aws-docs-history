@@ -56,7 +56,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-Security Hub does not support resource-based policies. You can't attach an IAM policy directly to a Security Hub resource.
+Security Hub does not support resource-based policies. You cannot attach an IAM policy directly to a Security Hub resource.
 
 ## Policy actions for Security Hub
 
@@ -171,7 +171,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-Security Hub doesn't support ACLs, which means you can't attach an ACL to a Security Hub
+Security Hub does not support ACLs, which means you cannot attach an ACL to a Security Hub
 resource.
 
 ## Attribute-based access control (ABAC) with Security Hub
@@ -234,7 +234,7 @@ details about this role, see [Service-linked roles for AWS Security Hub](sh-usin
 
 ## Service roles for Security Hub
 
-Security Hub doesn't assume or use service roles. To perform actions on your behalf,
+Security Hub does not assume or use service roles. To perform actions on your behalf,
 Security Hub uses a service-linked role. For details about this role, see [Service-linked roles for AWS Security Hub](sh-using-service-linked-roles.md "sh-using-service-linked-roles.md").
 
 ###### Warning

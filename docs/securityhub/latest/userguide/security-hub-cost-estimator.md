@@ -1,16 +1,16 @@
 # AWS Security Hub Cost Estimator
 
-The Security Hub cost estimator is a console feature that provides estimates for capabilities across your AWS environnment.
-The cost estimator shows you what your individual service costs are across AWS Security Hub CSPM, Amazon Inspector, and Amazon GuardDuty and what your estimated costs would be in Security Hub with Security Hub's simplied pricing plans.
+The Security Hub cost estimator is a console feature that provides estimates for Security Hub capabilities across your AWS environment.
+The cost estimator shows you what your individual service costs are across AWS Security Hub CSPM, Amazon Inspector, and Amazon GuardDuty and what your estimated costs would be in Security Hub with Security Hub's simplified pricing plans.
 You can adjust estimated usage and resource counts to match your AWS usage to increase the accuracy of your estimate.
 The cost estimator is available in all regions where Security Hub is available.
 
-The cost estimator estimates montly costs for security capabilities using two pricing models:
+The cost estimator estimates monthly costs for security capabilities using two pricing models:
 
 - **Individual services pricing** – Pay for each security feature separately (GuardDuty, Amazon Inspector, Security Hub CSPM).
 - **Security Hub simplified pricing** – Unified pricing across 3 pricing plans, essentials plan with per-resource pricing, threat analytics with per-event and per-GB logs pricing, and Lambda Code scanning with per-resource pricing.
   The estimator uses AWS Cost Explorer data when available. When Cost Explorer data is unavailable, you can manually enter usage data.
-  Cost estimates are based on observed and user provided usage, and public pricing infomation. Estimates may not reflect enterprise discounts.
+  Cost estimates are based on observed and user provided usage, and public pricing information. Estimates might not reflect enterprise discounts.
 
 Key benefits of the cost estimator include:
 
@@ -27,7 +27,7 @@ For Delegated administrator and member accounts, the cost estimator opens in edi
 Management account and standalone accounts open in view mode when Cost Explorer data is available.
 
 This feature automatically retrieves information on actual past usage to estimate the cost for certain account types.
-See below for details on each of the account types and the data that is available for each account type.
+See the following table for details on each of the account types and the data that is available for each account type.
 
 Access permissions by account type| Account Type | Cost Explorer Data | Data Entry | Scope |
 | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ Access permissions by account type| Account Type | Cost Explorer Data | Data Ent
 
 ### Required IAM permissions
 
-In order to use the all of the cost estimator's capabilties your IAM principal must have the following permissions:
+To use all of the cost estimator's capabilities, your IAM principal must have the following permissions:
 
 Required IAM permissions for Cost Estimator| API Operation | Service | Purpose |
 | --- | --- | --- |
@@ -66,9 +66,9 @@ Must be enabled for automatic data population (24-hour processing delay after en
 
 ## Important notes
 
-- **Estimates are based on observed and user provided usage, and public pricing infomation** – Actual costs may vary based on usage patterns and enterprise agreements
+- **Estimates are based on observed and user provided usage, and public pricing information** – Actual costs might vary based on usage patterns and enterprise agreements
 - **30-day look back** – Cost Explorer data reflects the past 30 days of usage
-- **Pricing region** – All estimates use us-east-1 (N. Virgina) rates
+- **Pricing region** – All estimates use us-east-1 (N. Virginia) rates
 - **No impact on settings** – Changes in the estimator do not affect your current Security Hub or service configurations
 - **Enterprise discounts** – Modified estimates do not include enterprise discounts; only Cost Explorer data reflects actual discounted costs
 - **Data refresh** – Cost Explorer data updates daily; refresh the page to see the latest data

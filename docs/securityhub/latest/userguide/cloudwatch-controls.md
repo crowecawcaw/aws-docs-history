@@ -51,7 +51,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -132,7 +132,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -211,7 +211,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -287,7 +287,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -373,7 +373,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -455,7 +455,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -538,7 +538,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -619,7 +619,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -700,7 +700,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -782,7 +782,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -864,7 +864,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -946,7 +946,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -1023,7 +1023,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails
@@ -1111,7 +1111,7 @@ The check results in `FAILED` findings in the following cases:
 - A multi-Region trail is based in a different Region. Security Hub CSPM can only generate findings in the Region where the trail is based.
 - A multi-Region trail belongs to a different account. Security Hub CSPM can only generate findings for the account that owns the trail.
 
-We recommend organization trails to log events from many accounts in an organization. Organization trails are multi-Region
+As a best practice, use organization trails to log events from many accounts in an organization. Organization trails are multi-Region
 trails by default and can only be managed by the AWS Organizations management account or the CloudTrail delegated administrator account. Using an
 organization trail results in a control status of `NO_DATA` for controls evaluated in organization member
 accounts. In member accounts, Security Hub CSPM only generates findings for member-owned resources. Findings that pertain to organization trails

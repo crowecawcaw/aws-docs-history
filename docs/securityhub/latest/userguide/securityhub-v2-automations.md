@@ -11,9 +11,9 @@ Automation rules are helpful when you want to automatically update finding field
 For example, you can use an automation rule to update the severity level of findings for resources with a specific tag.
 Using the automation rule eliminates the need to manually update the severity level of each finding related to the specific tag.
 You can configure automation rules to create tickets in tools like Jira Cloud and ServiceNow when findings match specific attributes.
-This allows findings to be created into tickets as soon as they are sent to Security Hub or created in Security Hub.
+Tickets are created from findings as soon as they arrive in Security Hub.
 
-EventBridge rules are helpful when you want to take actions outside of Security Hub CSPM with regards to specific findings or send specific findings to third-party tools for remediation or additional investigation.
+EventBridge rules are helpful when you want to take actions outside of Security Hub for specific findings or send specific findings to third-party tools for remediation or additional investigation.
 The rules can be used to trigger supported actions, such as invoking an AWS Lambda function or notifying an Amazon Simple Notification Service (Amazon SNS) topic about a specific finding.
 
 Automation rules take effect before EventBridge rules are applied.

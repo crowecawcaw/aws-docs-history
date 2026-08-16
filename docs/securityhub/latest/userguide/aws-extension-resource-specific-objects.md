@@ -28,7 +28,7 @@ AWS Extension adds the following attributes to this object:
 - `launch_time` - The time the instance was launched
 - `uid_alt` - Amazon Resource Name (ARN) of the resource
 
-**Example**
+Example
 
 ```
 {
@@ -64,7 +64,7 @@ AWS Extension adds the following attributes to this object:
 
 ```
 
-## Network Interface
+## Network interface
 
 Network interface details and configuration including attachments and security groups.
 
@@ -87,7 +87,7 @@ AWS Extension adds the following attributes to this object:
 - `security_groups` - Array of security group unique identifiers
 - `uid_alt` - Amazon Resource Name (ARN) of the resource
 
-**Example**
+Example
 
 ```
 {
@@ -119,7 +119,7 @@ AWS Extension adds the following attributes to this object:
 
 ```
 
-## Storage Device
+## Storage device
 
 Storage device details including attachments, encryption, and snapshot information.
 
@@ -138,14 +138,14 @@ New
 The storage device object includes the following attributes:
 
 - `name` - The name of the storage device
-- `uid` - The unique identifier of the storage devices
+- `uid` - The unique identifier of the storage device
 - `attachments` - The storage device attachments
 - `encryption_details` - The storage device encryption key
 - `is_encrypted` - Whether the storage device is encrypted (required)
 - `snapshot_id` - The storage device snapshot identifier
 - `uid_alt` - Amazon Resource Name (ARN) of the resource
 
-**Example**
+Example
 
 ```
 {
@@ -182,20 +182,20 @@ AWS Extension adds the following attributes to this object:
 - `cluster_uid` - The database cluster identifier
 - `db_endpoint` - The database endpoint
 - `encryption_details` - The database encryption details
-- `engine` - The database engine name (e.g. mysql)
+- `engine` - The database engine name (for example, mysql)
 - `is_encrypted` - Whether the database is encrypted
 - `is_iam_authentication` - Whether IAM authentication is enabled
 - `is_public` - Whether the database is publicly accessible
 - `port` - The database port number
 - `security_groups` - Array of VPC security groups associated with the database instance
 - `snapshot_details` - The database snapshot details
-- `status` - The database status (e.g. available)
+- `status` - The database status (for example, available)
 - `subnet_group` - A database subnet group is a collection of subnets in a VPC
 - `uid_alt` - Amazon Resource Name (ARN) of the resource
 - `user` - The database user
 - `version` - The database version
 
-**Example**
+Example
 
 ```
 {
@@ -213,7 +213,7 @@ AWS Extension adds the following attributes to this object:
 
 ```
 
-## Database Cluster
+## Database cluster
 
 Database instance attributes including engine type, endpoint, and user information.
 
@@ -248,7 +248,7 @@ The database object includes the following attributes:
 - `db_endpoint` - The database cluster endpoint
 - `snapshot_details` - Details of the database snapshot
 
-**Example**
+Example
 
 ```
 {
@@ -292,7 +292,7 @@ The database object includes the following attributes:
 
 ```
 
-## Cloud Function
+## Cloud function
 
 Cloud function attributes for serverless functions including handler, layers, and runtime configuration.
 
@@ -323,7 +323,7 @@ The cloud function object includes the following attributes:
 - `version` - The cloud function version
 - `vpc_uid` - The unique identifier of the VPC if the cloud function is in a VPC
 
-**Example**
+Example
 
 ```
 {
@@ -378,7 +378,7 @@ See the OCSF [Databucket](https://schema.ocsf.io/1.6.0/objects/databucket "https
 Note: This object is added to resource\_details by the AWS Extension.
 The core OCSF Databucket object is used without additional attributes.
 
-**Example**
+Example
 
 ```
 {
@@ -413,7 +413,7 @@ AWS Extension adds the following attributes to this object:
 - `platform` - The operating system platform of the image
 - `in_use_count` - Count of resources using this image
 
-**Example**
+Example
 
 ```
 {
@@ -428,7 +428,7 @@ AWS Extension adds the following attributes to this object:
 
 ```
 
-## Subnet Info
+## Subnet info
 
 Details about the subnet where the resource is located.
 
@@ -457,7 +457,7 @@ The subnet info object includes the following attributes:
 - `state` - The state of the subnet
 - `vpc_uid` - The VPC ID where the subnet is located
 
-**Example**
+Example
 
 ```
 {
@@ -499,7 +499,7 @@ The user object includes the following attributes:
 - `instance_profiles` - List of instance profiles attached to an cloud instance
 - `policies` - Policies that assign permissions for users, groups, roles, and resources
 
-**Example**
+Example
 
 ```
 {

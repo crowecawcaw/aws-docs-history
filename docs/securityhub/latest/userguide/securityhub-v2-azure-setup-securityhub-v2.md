@@ -37,7 +37,7 @@ connector, the following events occur:
 To create an Microsoft Azure connector for your environment, complete the following steps by
 using the AWS Security Hub console or the API.
 
-1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/v2](https://console.aws.amazon.com/securityhub/v2 "https://console.aws.amazon.com/securityhub/v2").
+1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1. "https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.").
 2. In the navigation pane, choose **Integrations**.
 3. Choose **Create Azure connector**.
 4. In the **Security capabilities** section, choose whether you want
@@ -66,7 +66,7 @@ using the AWS Security Hub console or the API.
 
 ###### Important
 
-Names and descriptions are used to identify your content, and we recommend you do not
+Names and descriptions are used to identify your content. Do not
 include sensitive, confidential, or personally identifiable information (PII) in
 them.
 
@@ -77,21 +77,21 @@ them.
      enter the ID for each one.
     * For **Regions**, choose **All regions** to
      monitor resources in all Azure regions, or **Specific regions** to
-     monitor only the regions that you specify.
+     monitor only the Regions that you specify.
 
 
     ###### Note
 
     If you already created a connector in Security Hub CSPM or Amazon Inspector for the same Azure
      tenant, the scope of the connector in Security Hub must include the same subscriptions
-     and regions as the connector in Security Hub CSPM or Amazon Inspector.
+     and Regions as the connector in Security Hub CSPM or Amazon Inspector.
 
 
     ###### Note
 
     Controls that evaluate Microsoft Entra ID and Microsoft Graph resources require
-     the global region scope to be included in your integration configuration. If you
-     select specific Azure Regions only, these controls will not generate findings.
+     the global Region scope to be included in your integration configuration. If you
+     select specific Azure Regions only, these controls do not generate findings.
 
 8. Review the connector configuration.
 
@@ -430,8 +430,8 @@ Before you adjust the scope of a connector, note the following:
   match.
 - The scope of a Security Hub connector can never be less than any existing customer-managed
   connector in Security Hub CSPM or Amazon Inspector for the same Azure tenant.
-- If you add a region to the connector scope, you must re-run the setup script to
-  provision Event Hub infrastructure in the new region. Your existing Event Hub
+- If you add a Region to the connector scope, you must re-run the setup script to
+  provision Event Hub infrastructure in the new Region. Your existing Event Hub
   configuration is not affected.
 
 ## Verify the health of an Azure connector
@@ -441,7 +441,7 @@ receiving data from your Azure environment.
 
 ###### To verify the health of a connector
 
-1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/v2](https://console.aws.amazon.com/securityhub/v2 "https://console.aws.amazon.com/securityhub/v2").
+1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1. "https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.").
 2. In the navigation pane, choose **Integrations** and select your Azure
    connector.
 3. Verify that the connector status shows **Active**. If the
@@ -471,7 +471,7 @@ resolutions.
 
 Connector status is Unhealthy
 
-This issue typically occurs if federated credentials aren't configured correctly in
+This issue typically occurs if federated credentials are not configured correctly in
 Azure.
 
 To address this issue, verify that the Token Issuer URL and subject ARN in your
@@ -479,7 +479,7 @@ Azure federated credentials match your AWS account.
 
 No findings after 30 minutes
 
-This issue can occur if the Event Hub isn't receiving Activity Logs.
+This issue can occur if the Event Hub is not receiving Activity Logs.
 
 To address this issue, check that diagnostic settings are configured on your Azure
 subscriptions and that the Event Hub namespace is tagged correctly with
@@ -512,7 +512,7 @@ To address the error, do the following:
 
 Findings appear for some subscriptions only
 
-This issue can occur if Activity Log export isn't configured for all target
+This issue can occur if Activity Log export is not configured for all target
 subscriptions.
 
 To address this issue, confirm that the diagnostic settings cover all subscriptions
@@ -521,10 +521,10 @@ included in the connector scope.
 ## How Security Hub handles resource and finding identifiers
 
 By enabling your Azure integration for AWS Security Hub, resource and security finding
-identifiers from other cloud providers will be stored in AWS Config, Security Hub, and other AWS
+identifiers from other cloud providers are stored in AWS Config, Security Hub, and other AWS
 services (as needed) as metadata related to the management of the corresponding resource
 configuration and security finding data collected from the other cloud providers. Such
-identifiers do not constitute Your Content, and we recommend you do not include sensitive,
+identifiers do not constitute Your Content. Do not include sensitive,
 confidential, or personally identifiable information in them.
 
 The following identifiers from your connected cloud environment are stored and used by

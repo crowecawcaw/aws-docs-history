@@ -35,7 +35,7 @@ Unused access findings appear in the Security Hub console alongside other Securi
 You can filter findings by type to view only unused access findings.
 Unused access findings are formatted in the Open Cybersecurity Schema Framework (OCSF), the same format used by all Security Hub findings.
 
-For UnusedPermission findings, if you remove some unused permissions from the overly permissive policy, but not all, Security Hub will close the existing finding and create a new finding for the revised policy if it's still overly permissive.
+For UnusedPermission findings, if you remove some unused permissions from the overly permissive policy, but not all, Security Hub closes the existing finding and creates a new finding for the revised policy if it is still overly permissive.
 
 Unused access findings are also accessible from the IAM Access Analyzer console.
 Unused access findings in the IAM Access Analyzer console are read only and are only visible in the US East (N. Virginia) region.

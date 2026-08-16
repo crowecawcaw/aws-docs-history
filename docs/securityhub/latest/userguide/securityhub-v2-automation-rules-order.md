@@ -1,7 +1,7 @@
 # Updating the rule order in Security Hub
 
 This topic describes how to update the rule order for automation rules in the console.
-If you want to edit the criteria for an automation rule, see [Editing automation rules in Security Hub](securithub-v2-automation-rules-edit.md "securithub-v2-automation-rules-edit.md").
+If you want to edit the criteria for an automation rule, see [Editing automation rules in Security Hub](securityhub-v2-automation-rules-edit.md "securityhub-v2-automation-rules-edit.md").
 
 You cannot update the rule order for one automation rule without updating the rule order for every automation rule.
 For example, you have four automation rules: Rule A (1), Rule B (2), Rule C (3), and Rule D (4).

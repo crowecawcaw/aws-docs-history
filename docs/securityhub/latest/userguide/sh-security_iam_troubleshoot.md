@@ -13,7 +13,7 @@ encounter when working with AWS Security Hub and IAM.
 
 ## I am not authorized to perform an action in Security Hub
 
-If the AWS Management Console tells you that you're not authorized to perform an
+If the AWS Management Console tells you that you are not authorized to perform an
 action, then you must contact your administrator for assistance. Your
 administrator is the person that provided you with your sign-in
 credentials.

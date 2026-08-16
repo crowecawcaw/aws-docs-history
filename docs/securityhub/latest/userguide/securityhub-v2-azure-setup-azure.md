@@ -2,12 +2,12 @@
 
 After you complete the [prerequisite
 tasks](securityhub-v2-azure-prereqs.md "securityhub-v2-azure-prereqs.md"), you can configure your Microsoft Azure environment to support integration with
-AWS Security Hub. To help you do this, the Security Hub console generates a setup script that's customized
+AWS Security Hub. To help you do this, the Security Hub console generates a setup script that is customized
 for your configuration.
 
-To generate the script, do the following:
+###### To generate the setup script
 
-1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/v2](https://console.aws.amazon.com/securityhub/v2 "https://console.aws.amazon.com/securityhub/v2").
+1. Open the AWS Security Hub console at [https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.](https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1. "https://console.aws.amazon.com/securityhub/advanced/home?region=us-east-1.").
 2. In the navigation pane, choose **Integrations**.
 3. Choose **Create Azure connector**.
 4. Complete the connector configuration (tenant ID, scope, and name), and then copy the
@@ -148,7 +148,7 @@ Key values:
 - **Audience** –
   `api://AzureADTokenExchange` (standard value for workload identity
   federation).
-- **Name** – Any name that's unique within the
+- **Name** – Any name that is unique within the
   application.
 
 ## Step 4: Assign RBAC roles

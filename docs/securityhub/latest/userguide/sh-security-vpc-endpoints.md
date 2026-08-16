@@ -3,7 +3,7 @@
 You can establish a private connection between your VPC and AWS Security Hub by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
 to privately access Security Hub APIs without an internet gateway, NAT device, VPN connection, or
-AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to
+AWS Direct Connect connection. Instances in your VPC do not need public IP addresses to
 communicate with Security Hub APIs. Traffic between your VPC and Security Hub does not leave the Amazon
 network.
 
@@ -71,7 +71,7 @@ on all resources.
 
 ## Shared subnets
 
-You can't create, describe, modify, or delete VPC endpoints in subnets that are shared
+You cannot create, describe, modify, or delete VPC endpoints in subnets that are shared
 with you. However, you can use the VPC endpoints in subnets that are shared with you.
 For information about VPC sharing, see [Share your VPC subnets with other
 accounts](../../../vpc/latest/userguide/vpc-sharing.md "../../../vpc/latest/userguide/vpc-sharing.md") in the _Amazon Virtual Private Cloud Guide_.

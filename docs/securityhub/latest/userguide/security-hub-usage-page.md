@@ -104,7 +104,7 @@ The table lists each account with the following columns:
   Projected costs do not account for any discounts you have negotiated with AWS (EDPs).
 
 If Security Hub was enabled on this account within the last 7 days, the projection is based on the number of days since enablement. After 7 days, the projection uses the full last 7 days of usage.
-The Usage page does not currently detect when Security Hub has been disabled on an account. If Security Hub has recently been disabled on one or more accounts, those accounts will continue to appear in the projection until their usage ages out. Allow 7 days after making these changes for the projection to reflect the updated state of your organization.
+The Usage page does not currently detect when Security Hub has been disabled on an account. If Security Hub has recently been disabled on one or more accounts, those accounts continue to appear in the projection until their usage ages out. Allow 7 days after making these changes for the projection to reflect the updated state of your organization.
 
 ### Account detail view
 

@@ -25,8 +25,8 @@ If you are not a delegated administrator and the finding belongs to a different 
 ## Recommendation lifecycle
 
 - Recommendations are cached for 90 days and remain available as long as the finding is active (not Closed).
-  However, calling `GenerateRecommendedPolicyV2` multiple times will invalidate the cache and kick off a new job which will replace the cached policy.
-  It's recommended you only call `GenerateRecommendedPolicyV2` once per finding.
+  However, calling `GenerateRecommendedPolicyV2` multiple times invalidates the cache and starts a new job that replaces the cached policy.
+  Call `GenerateRecommendedPolicyV2` only once per finding.
 - The recommendation follows a detach-and-attach pattern. It does not modify your existing IAM policies. You review the recommended policy and manually apply it in the IAM console or through the IAM API.
 - If the finding is resolved (for example, because the previously unused permissions are now being used), the recommendation is no longer available.
 
@@ -49,7 +49,7 @@ You can copy the recommended policy in JSON format.
 
 ## API reference
 
-- **GenerateRecommendedPolicyV2** — Initiates asynchronous generation of a least-privilege policy recommendation for an unused permissions finding. Takes the finding's `metadata.uid` as input. Returns HTTP 200 with an empty body on success.
-- **GetRecommendedPolicyV2** — Retrieves the generated policy recommendation. Takes the finding's `metadata.uid` as input. Supports pagination with `maxResults` (1–100) and `nextToken` parameters. Returns the recommendation status (`IN_PROGRESS`, `SUCCEEDED`, or `FAILED`), recommendation steps, the resource ARN, and any errors.
+- [GenerateRecommendedPolicyV2](../../1.0/APIReference/API_GenerateRecommendedPolicyV2.md "../../1.0/APIReference/API_GenerateRecommendedPolicyV2.md") — Initiates asynchronous generation of a least-privilege policy recommendation for an unused permissions finding. Takes the finding's `metadata.uid` as input. Returns HTTP 200 with an empty body on success.
+- [GetRecommendedPolicyV2](../../1.0/APIReference/API_GetRecommendedPolicyV2.md "../../1.0/APIReference/API_GetRecommendedPolicyV2.md") — Retrieves the generated policy recommendation. Takes the finding's `metadata.uid` as input. Supports pagination with `maxResults` (1–100) and `nextToken` parameters. Returns the recommendation status (`IN_PROGRESS`, `SUCCEEDED`, or `FAILED`), recommendation steps, the resource ARN, and any errors.
 
 For detailed API documentation, see the _Security Hub API Reference_.

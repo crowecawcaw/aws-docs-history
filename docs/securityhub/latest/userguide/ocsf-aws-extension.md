@@ -6,7 +6,7 @@ A schema is the aggregation of core schema entities and extensions.
 Extensions to OCSF allow a particular vendor or customer to augment an existing schema by adding attributes to provide domain-specific customization, improve data interoperability, and add more detailed context for security analysis.
 
 The AWS Extension for Open Cybersecurity Schema Framework (OCSF) provides attribute definitions for cloud resources within OCSF events.
-This extension introduces a new `cloud_resources` profile that extends the standard OCSF `resource_details` object with comprehensive cloud-specific resource attributes, enabling security teams to gain deeper insights into resource configurations, potential vulnerabilities, and critical metadata essential for effective threat detection and investigation across cloud environments.
+This extension adds a `cloud_resources` profile that extends the OCSF `resource_details` object with cloud-specific resource attributes. With these attributes, security teams can analyze resource configurations, potential vulnerabilities, and threat detection metadata.
 
 ## Extended `resource_details` object
 

@@ -1,6 +1,6 @@
 # Integrations for AWS Security Hub Jira Cloud
 
-This topic describes how to integrate with Jira Cloud.
+This topic describes how to integrate Security Hub with Jira Cloud.
 Before completing any of the procedures in this topic, you must purchase a Jira Cloud subscription plan.
 For information about subscription plans, see [Pricing](https://www.atlassian.com/software/jira/pricing "https://www.atlassian.com/software/jira/pricing") on the Atlassian website.
 
@@ -28,7 +28,7 @@ Steps for each of these prerequisites are listed below.
 ### 1. Install the AWS Security Hub for Jira Cloud app
 
 Security Hub has an app to support its integration with Jira.
-This app installs custom fields and a custom issue type which allows Security Hub b to populate specific attributes about Security Hub findings.
+This app installs custom fields and a custom issue type. Security Hub uses these to populate specific attributes about findings.
 
 1. Sign in to your Atlassian site as the administrator.
 2. Choose **Settings**, and choose **Apps**.
@@ -50,12 +50,12 @@ Make sure to do the following when creating a new project.
 
 ###### Requirements for existing projects
 
-Any existing projects in your Jira environment, which will be integrated with Security Hub, must be a project type of **Company-managed**.
+Any existing projects in your Jira environment that are integrated with Security Hub must be a project type of **Company-managed**.
 
 ### 3. Add your projects to the AWS Security Hub for Jira Cloud app
 
 In order for Security Hub to be able to successfully send findings to your Jira environment each project that you want to use with Security Hub must be associated with the AWS Security Hub for Jira Cloud app.
-Associating a Jira project with the app ensures that the necessary custom fields for are associated with the project and can be populated when Security Hub sends findings to the project.
+Associating a Jira project with the app ensures that the necessary custom fields for Security Hub are associated with the project and can be populated when Security Hub sends findings to the project.
 
 1. Sign in to your Atlassian site as the administrator.
 2. Choose **Settings**, and choose **Apps**.
@@ -76,12 +76,12 @@ For additional information regarding Jira Cloud, see [Jira Cloud resources](http
 
 ###### Creating a dedicated system account for your Jira environment
 
-Security Hub’s integration with Jira Cloud uses an OAuth connection that is associated with a specific user within your Jira instance.
+The Security Hub integration with Jira Cloud uses an OAuth connection that is associated with a specific user within your Jira instance.
 Creating a dedicated system account to use for your Security Hub OAuth connection is recommended for your connection for the following reasons:
 
 - A dedicated system user ensures that the connection is not associated with an employee who’s permissions to the Jira environment could change over time, impacting the ability for Security Hub to integrate with your Jira environment.
-- Each issue that Security Hub creates in Jira will show a created by that is the username that was used to create the OAuth connection.
-  Using a system account for the OAuth connection will result in this system account showing as the ticket creator, helping to provide visibility that the finding was created through the Security Hub integration and not manually by another Jira user.
+- Each issue that Security Hub creates in Jira shows a Created By field containing the username that was used to create the OAuth connection.
+  Using a system account for the OAuth connection results in this system account appearing as the ticket creator, helping to provide visibility that the finding was created through the Security Hub integration and not manually by another Jira user.
 
 ## Configure an integration between Security Hub and Jira Cloud
 
@@ -100,7 +100,7 @@ Afterwards, you are returned to the AWS Region where the connector is being crea
 4. For **Details**, enter a unique and descriptive name for your integration, and determine whether to enter an optional description for your integration.
 5. For **Encryptions** choose how you want to encrypt your integration credentials within Security Hub.
 
-   - **Use AWS owned key** - With this option a Security Hub owned service key will be used to encrypt your integration credential data within Security Hub.
+   - **Use AWS owned key** - With this option, a Security Hub owned service key is used to encrypt your integration credential data within Security Hub.
    - **Choose a different KMS key (advanced)** - With this option you choose an AWS KMS key that you have created which you want to be used for encrypting your integration credential data within Security Hub.
      For information about how to create an AWS KMS key, see [Create a AWS KMS key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
      If you choose to use your own key you must add policy statements to the KMS key that allow Security Hub access to the key.
@@ -115,8 +115,8 @@ A pop-up appears where you choose **Allow** to complete the authorization.
 After you complete the authorization, a check box appears letting you know the authorization was successful. 8. For **Configurations**, enter the Jira Cloud project ID. 9. Choose **Complete configuration**.
 After you complete the configuration, you can view your configured integrations in the **Configured integrations** tab.
 
-Once you have configured your integration with Jira you can test the connection to confirm that everything is configured properly in your Jira environment and in Security Hub.
-See the [Testing configured ticketing integrations](securityhub-v2-test-ticket-integration.md "securityhub-v2-test-ticket-integration.md") for more details.
+After you configure your integration with Jira, you can test the connection to confirm that everything is configured properly in your Jira environment and in Security Hub.
+For more information, see [Testing configured ticketing integrations](securityhub-v2-test-ticket-integration.md "securityhub-v2-test-ticket-integration.md").
 
 ## Additional Jira integration details
 
@@ -137,7 +137,7 @@ Ensure your application follows Atlassian's security best practices for API inte
 
 Resources:
 
-- Jira Rest APi v3: [https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/ "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/")
-- Implementing OAuth 2.0 (3LO): [https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/")
-- Administer Jira Cloud apps: [https://support.atlassian.com/jira-cloud-administration/resources/](https://support.atlassian.com/jira-cloud-administration/resources/ "https://support.atlassian.com/jira-cloud-administration/resources/")
-- Manage Jira permissions: [https://support.atlassian.com/jira-cloud-administration/docs/manage-project-permissions/](https://support.atlassian.com/jira-cloud-administration/docs/manage-project-permissions/ "https://support.atlassian.com/jira-cloud-administration/docs/manage-project-permissions/")
+- Jira REST API v3: [Jira REST API v3 documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/ "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/") on the Atlassian website
+- Implementing OAuth 2.0 (3LO): [OAuth 2.0 (3LO) implementation guide](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") on the Atlassian website
+- Administer Jira Cloud apps: [Jira Cloud administration resources](https://support.atlassian.com/jira-cloud-administration/resources/ "https://support.atlassian.com/jira-cloud-administration/resources/") on the Atlassian website
+- Manage Jira permissions: [Manage project permissions](https://support.atlassian.com/jira-cloud-administration/docs/manage-project-permissions/ "https://support.atlassian.com/jira-cloud-administration/docs/manage-project-permissions/") on the Atlassian website

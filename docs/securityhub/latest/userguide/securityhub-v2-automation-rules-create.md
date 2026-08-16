@@ -3,8 +3,8 @@
 This topic describes how to create automation rules.
 You can use automation rules to update details for a finding or create a ticket for a third-party integration.
 You must create automation rules individually and in the AWS Region where you want them applied.
-However, if you create an automation rule in an aggregation region, it will be applied in all regions.
-Otherwise, if you create an automation rule in a non-linked region, it will be applied just in that region.
+However, if you create an automation rule in an aggregation Region, it is applied in all Regions.
+Otherwise, if you create an automation rule in a non-linked Region, it is applied only in that Region.
 
 ## Creating a rule that updates finding details
 
@@ -24,8 +24,8 @@ The following procedure describes how to create a rule that updates finding deta
 6. Under **Update finding details**, choose at least one finding detail to update when a finding matches your criteria.
    You can choose **Severity**, **Status**, or **Comment**.
 7. Under **Rule settings**, select **Enabled** or **Disabled**.
-   If you select **Enabled**, the automation rule is enabled and will process new findings.
-   If you select **Disabled**, the automation rule is disabled and will not process any findings.
+   If you select **Enabled**, the automation rule is enabled and processes new findings.
+   If you select **Disabled**, the automation rule is disabled and does not process any findings.
 8. (Optional) Under **Tags**, choose **Add new tag** to enter a key-value pair to be applied to your automation rule.
 9. Choose **Create rule**.
 
@@ -47,7 +47,7 @@ For information about the integrations Security Hub CSPM supports, see [Third-pa
    To check if any findings match your criteria, choose **Preview matching findings**.
 6. Under **Create a ticket**, choose an IT ticketing integration from the dropdown, and then choose **Add integration**.
 7. Under **Rule settings**, select **Enabled** or **Disabled**.
-   If you select **Enabled**, the automation rule is enabled and will process new findings.
-   If you select **Disabled**, the automation rule is disabled and will not process any findings.
+   If you select **Enabled**, the automation rule is enabled and processes new findings.
+   If you select **Disabled**, the automation rule is disabled and does not process any findings.
 8. (Optional) Under **Tags**, choose **Add new tag** to enter a key-value pair to be applied to your automation rule.
 9. Choose **Create rule**.

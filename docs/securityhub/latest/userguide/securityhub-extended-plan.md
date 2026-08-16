@@ -1,7 +1,7 @@
 # Security Hub Extended plan
 
-Security Hub Extended plan helps protect your entire enterprise estate across cloud, endpoint, network, identity,
-data, email, and browser with an integrated security operations experience centered in AWS Security Hub. With the Security Hub Extended plan, you can select partner solutions that address your security needs and sign up
+With the Security Hub Extended plan, you can protect your entire enterprise estate across cloud, endpoint, network, identity,
+data, email, and browser. Use AWS Security Hub as the center of an integrated security operations experience. With the Security Hub Extended plan, you can select partner solutions that address your security needs and sign up
 for flexible pay-as-you-go pricing with no upfront investments or long-term commitments required.
 You can add or remove partner solutions as your business needs evolve.
 
@@ -19,7 +19,7 @@ addition to your Security Hub permissions:
 - `aws-marketplace:ViewSubscriptions`
 - `aws-marketplace:Subscribe`
 
-To unsubscribe to a partner product from the Security Hub Extended plan, you need the following permissions, in
+To unsubscribe from a partner product in the Security Hub Extended plan, you need the following permissions, in
 addition to your Security Hub permissions:
 
 - `license-manager:ListReceivedLicenses`
@@ -49,7 +49,7 @@ onboarding page.
 4. For each partner solution that you want to sign up for, choose **View
    product**.
 5. Review the product pricing details, and then choose **Subscribe**
-   when you're ready to start the process of onboarding to the partner product.
+   when you are ready to start the process of onboarding to the partner product.
 6. After the subscription process completes, choose **Set up your
    account** to be redirected to the partner's sign-up page.
 7. Provide the necessary information for the partner sign-up page, and follow the next steps,
@@ -57,7 +57,7 @@ onboarding page.
 
 ###### Important
 
-You aren't billed for the partner solution until you complete the onboarding process for the partner
+You are not billed for the partner solution until you complete the onboarding process for the partner
 product.
 
 ## Unsubscribing from an Extended plan partner

@@ -1,14 +1,14 @@
 # Service-linked roles for AWS Security Hub
 
 AWS Security Hub uses an AWS Identity and Access Management (IAM) [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") named `AWSServiceRoleForSecurityHubV2`. This
-service-linked role is an IAM role that's linked directly to Security Hub. It's predefined by Security Hub, and it includes all
+service-linked role is an IAM role that is linked directly to Security Hub. It's predefined by Security Hub, and it includes all
 the permissions that Security Hub requires to call other AWS services and monitor AWS resources on your behalf. Security Hub uses
 this service-linked role in all the AWS Regions where Security Hub is available.
 
-A service-linked role makes setting up Security Hub easier because you don't have to manually add
+A service-linked role makes setting up Security Hub easier because you do not have to manually add
 the necessary permissions. Security Hub defines the permissions of its service-linked role, and
 unless defined otherwise, only Security Hub can assume the role. The defined permissions include
-the trust policy and the permissions policy, and you can't attach that permissions policy to
+the trust policy and the permissions policy, and you cannot attach that permissions policy to
 any other IAM entity.
 
 To review the details of the service-linked role, you can use the Security Hub console. In the
@@ -17,7 +17,7 @@ Then, in the **Service permissions** section, choose **View service
 permissions**.
 
 You can delete the Security Hub service-linked role only after you disable Security Hub in all the
-Regions where it's enabled. This protects your Security Hub resources because you can't
+Regions where it is enabled. This protects your Security Hub resources because you cannot
 inadvertently remove permissions to access them.
 
 For information about other services that support service-linked roles, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_ and locate the services that have **Yes** in the **Service-linked roles**
@@ -84,13 +84,13 @@ information about creating the role manually, see [Creating a service-linked rol
 
 ###### Important
 
-The service-linked role that's created for a Security Hub administrator account doesn't
+The service-linked role that is created for a Security Hub administrator account does not
 apply to associated Security Hub member accounts.
 
 ## Editing a service-linked role for Security Hub
 
-Security Hub doesn't allow you to edit the `AWSServiceRoleForSecurityHubV2` service-linked role. After
-you create a service-linked role, you can't change the name of the role because various
+Security Hub does not allow you to edit the `AWSServiceRoleForSecurityHubV2` service-linked role. After
+you create a service-linked role, you cannot change the name of the role because various
 entities might reference the role. However, you can edit the description of the role by
 using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
@@ -98,10 +98,10 @@ _IAM User Guide_.
 ## Deleting a service-linked role for Security Hub
 
 If you no longer need to use a feature or service that requires a service-linked role,
-we recommend that you delete the role. That way, you don't have an unused entity that
-isn't actively monitored or maintained.
+delete the role. That way, you do not have an unused entity that
+is not actively monitored or maintained.
 
-When you disable Security Hub, Security Hub doesn't automatically delete the `AWSServiceRoleForSecurityHubV2`
+When you disable Security Hub, Security Hub does not automatically delete the `AWSServiceRoleForSecurityHubV2`
 service-linked role for you. If you enable Security Hub again, the service can then start using
 the existing service-linked role again. If you no longer need to use Security Hub, you can
 manually delete the service-linked role.
@@ -109,8 +109,8 @@ manually delete the service-linked role.
 ###### Important
 
 Before you delete the `AWSServiceRoleForSecurityHubV2` service-linked role, you must first
-disable Security Hub in all the Regions where it's enabled. For more information, see [Disabling Security Hub](securityhub-v2-disable.md "securityhub-v2-disable.md"). If Security Hub
-isn't disabled when you try to delete the service-linked role, the deletion
+disable Security Hub in all the Regions where it is enabled. For more information, see [Disabling Security Hub](securityhub-v2-disable.md "securityhub-v2-disable.md"). If Security Hub
+is not disabled when you try to delete the service-linked role, the deletion
 fails.
 
 To delete the `AWSServiceRoleForSecurityHubV2` service-linked role, you can use the IAM

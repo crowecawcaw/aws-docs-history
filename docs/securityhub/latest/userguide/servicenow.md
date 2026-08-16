@@ -15,7 +15,7 @@ For accounts not in an organization, all aspects of this feature are available.
 ## Prerequisites - configure ServiceNow environment
 
 You must complete the following prerequisites before configuring an integration for ServiceNow ITSM.
-Otherwise, your integration between ServiceNow ITSM and Security Hub will not work.
+Otherwise, your integration between ServiceNow ITSM and Security Hub does not work.
 
 ### 1. Install Security Hubfindings integration for IT Service Management (ITSM)
 
@@ -38,7 +38,7 @@ For more information, see [Client Credentials grant type for Inbound OAuth is su
 ### 3. Create an OAuth application
 
 If you already created an OAuth application, you can skip this prerequisite.
-For information about creating an OAuth application, see [Setting up OAuth](https://www.servicenow.com/docs/csh?topicname=client-credentials.html&version=latest "https://www.servicenow.com/docs/csh?topicname=client-credentials.html&version=latest").
+For information about creating an OAuth application, see [Setting up OAuth](https://www.servicenow.com/docs/csh?topicname=client-credentials.html&version=latest "https://www.servicenow.com/docs/csh?topicname=client-credentials.html&version=latest") on the ServiceNow website.
 
 ## Prerequisites - configure AWS Secrets Manager
 
@@ -51,7 +51,7 @@ Use the following steps to configure Secrets Manager for your ServiceNow credent
 
 ### Step 1: Attach a policy to your AWS KMS key
 
-To successfully configure your ServiceNow integration, you must first give Security Hub permissions to use the AWS KMS key that will be associated with your ServiceNow credentials in Secrets Manager.
+To successfully configure your ServiceNow integration, you must first give Security Hub permissions to use the AWS KMS key that is associated with your ServiceNow credentials in Secrets Manager.
 
 ###### To modify the AWS KMS key policy for Security Hub to access your ServiceNow credentials
 
@@ -177,7 +177,7 @@ Security Hub can create incidents or problems automatically in ServiceNow ITSM.
 4. For **Details**, enter a name for your integration, and determine whether to enter an optional description for your integration.
 5. For **Encryptions** choose how you want to encrypt your integration credentials within Security Hub.
 
-   - **Use AWS owned key** - With this option a Security Hub owned service key will be used to encrypt your integration credential data within Security Hub.
+   - **Use AWS owned key** - With this option, a Security Hub owned service key is used to encrypt your integration credential data within Security Hub.
    - **Choose a different KMS key (advanced)** - With this option you choose an AWS KMS key that you have created which you want to be used for encrypting your integration credential data within Security Hub.
      For information about how to create an AWS KMS key, see [Create a AWS KMS key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.
      If you choose to use your own key you must add policy statements to the KMS key that allow Security Hub access to the key.
@@ -189,5 +189,5 @@ You cannot change these settings once you complete this configuration.
 However, If you choose **Customized key**, you can edit your customized key policy at any time. 6. For **Credentials**, enter your ServiceNow ITSM URL, and the ARN of your AWS Secrets Manager secret that was generated in the prerequisites section. 7. For **Tags**, determine whether to create and add an optional tag to your integration. 8. Choose **Add integration**.
 After you complete the configuration, you can view your configured integrations in the **Configured integrations** tab.
 
-Once you have configured your integration with ServiceNow you can test the connection to confirm that everything is configured properly in your ServiceNow environment and in Security Hub.
-See the [Testing configured ticketing integrations](securityhub-v2-test-ticket-integration.md "securityhub-v2-test-ticket-integration.md") for more details.
+After you configure your integration with ServiceNow, you can test the connection to confirm that everything is configured properly in your ServiceNow environment and in Security Hub.
+For more information, see [Testing configured ticketing integrations](securityhub-v2-test-ticket-integration.md "securityhub-v2-test-ticket-integration.md").

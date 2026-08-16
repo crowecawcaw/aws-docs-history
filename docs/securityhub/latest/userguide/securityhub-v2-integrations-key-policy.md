@@ -67,9 +67,9 @@ Edit the policy by replacing the following values in the policy example:
 
 ## IAM principal access for Security Hub operations
 
-Any principal that will be assigning customer-managed KMS keys to a Security Hub connector needs to have permissions to perform key operations (describe, generate, decrypt, re-encrypt, and list aliases) for the key being added to the connector.
-This applies to the [`CreateConnectorV2`](../../1.0/APIReference/API_CreateConnectorV2.md "../../1.0/APIReference/API_CreateConnectorV2.md") and [`CreateTicketV2`](../../1.0/APIReference/API_CreateTicketV2.md "../../1.0/APIReference/API_CreateTicketV2.md") APIs.
-The following policy statement should be included as part of the policy for any principal that will be interacting with these APIs.
+Any principal that assigns customer-managed KMS keys to a Security Hub connector needs to have permissions to perform key operations (describe, generate, decrypt, re-encrypt, and list aliases) for the key being added to the connector.
+This applies to the [CreateConnectorV2](../../1.0/APIReference/API_CreateConnectorV2.md "../../1.0/APIReference/API_CreateConnectorV2.md") and [CreateTicketV2](../../1.0/APIReference/API_CreateTicketV2.md "../../1.0/APIReference/API_CreateTicketV2.md") APIs.
+The following policy statement should be included as part of the policy for any principal that interacts with these APIs.
 
 ```
 
@@ -119,7 +119,7 @@ The following policy statement should be included as part of the policy for any 
 
 Edit the policy by replacing the following values in the policy example:
 
-- Replace `RoleName` with the name of the IAM role that's making calls to Security Hub.
+- Replace `RoleName` with the name of the IAM role that is making calls to Security Hub.
 - Replace `CloudProviderName` with `JIRA_CLOUD` or `SERVICENOW`.
 - Replace `AccountId` with the account ID where you are creating the Security Hub connector.
 - Replace `Region` with your AWS region (for example, `us-east-1`).

@@ -1,38 +1,66 @@
 # Exposure findings in Security Hub
 
 An exposure finding in Security Hub represents the correlation of multiple security signals that identify potential security risks in your AWS environment.
-Exposure findings help you understand and prioritize security risks by automatically analyzing combinations of vulnerabilities, configurations, threats, and resource relationships.
+Exposure findings help you understand and prioritize security risks. They automatically analyze combinations of vulnerabilities, configurations, threats, and resource relationships.
 An exposure finding includes traits and signals. A signal can include one or more types of exposure traits.
 Security Hub generates an exposure finding when signals from Security Hub CSPM, Amazon Inspector, GuardDuty, Macie, or other AWS services indicate the presence of an exposure.
 A resource can be the primary resource in, at most, one exposure finding.
-If a resource doesn't have any exposure traits or has insufficient traits, Security Hub doesn't generate an exposure finding for that resource.
+If a resource does not have any exposure traits or has insufficient traits, Security Hub does not generate an exposure finding for that resource.
 
 ## How exposure findings work
 
 Security Hub generates exposure findings by:
 
-- **Analyzing signals from multiple AWS security services**: Security Hub continuously collects and analyzes security signals from multiple AWS security services. It ingests findings from GuardDuty for threat detection, Amazon Inspector for vulnerability assessment, Security Hub CSPM for configuration checks, and Macie for sensitive data exposure. These signals are processed through advanced correlation engines to identify potential security risks.
-- **Evaluating resource configurations and relationships**: The system performs detailed evaluation of resource configurations against security best practices. It examines service-specific settings, compliance requirements, and security controls. This analysis helps identify misconfigurations that could lead to security vulnerabilities when combined with other factors.
-- **Assessing network reachability**: A crucial component of exposure findings is the assessment of network reachability. The system evaluates both internet exposure and internal network access paths. It analyzes security group configurations and network ACL settings to determine potential attack vectors. This analysis helps identify resources that might be inadvertently exposed to unauthorized access.
-- **Correlating related security issues**: The correlation engine maps relationships between AWS resources, analyzing how they interact and identifying potential security implications. It examines IAM permissions, roles, and resource access patterns to understand the broader security context. This process helps identify security risks that might exist due to the combination of seemingly innocent individual configurations.
+Analyzing signals from multiple AWS security services
+
+Security Hub continuously collects and analyzes security signals from multiple AWS security services. It ingests findings from GuardDuty for threat detection, Amazon Inspector for vulnerability assessment, Security Hub CSPM for configuration checks, and Macie for sensitive data exposure. These signals are processed through advanced correlation engines to identify potential security risks.
+
+Evaluating resource configurations and relationships
+
+The system performs detailed evaluation of resource configurations against security best practices. It examines service-specific settings, compliance requirements, and security controls. This analysis helps identify misconfigurations that could lead to security vulnerabilities when combined with other factors.
+
+Assessing network reachability
+
+A crucial component of exposure findings is the assessment of network reachability. The system evaluates both internet exposure and internal network access paths. It analyzes security group configurations and network ACL settings to determine potential attack vectors. This analysis helps identify resources that might be inadvertently exposed to unauthorized access.
+
+Correlating related security issues
+
+The correlation engine maps relationships between AWS resources, analyzing how they interact and identifying potential security implications. It examines IAM permissions, roles, and resource access patterns to understand the broader security context. This process helps identify security risks that might exist due to the combination of seemingly innocent individual configurations.
 
 ## Components of an exposure finding
 
 Each exposure finding includes:
 
-- **Title and description of the potential security risk** - Each exposure finding includes a clear, descriptive title that immediately conveys the nature of the security risk. The description provides detailed information about the potential security impact, affected resources, and the broader context of the exposure. This information helps security teams quickly understand and assess the risk.
-- **Severity classification (Critical, High, Medium, Low)**:
+Title and description of the potential security risk
 
-  - **Critical severity** indicates immediate attention is required due to high likelihood of exploit and significant potential impact. These findings typically represent easily discoverable and exploitable vulnerabilities.
-  - **High severity** suggests priority attention is needed, with moderate to high exploit likelihood and substantial potential impact. These findings might be relatively easy to exploit but might require specific conditions.
-  - **Medium severity** indicates scheduled attention is required, with lower exploit likelihood and moderate potential impact. These findings typically require more complex exploitation methods.
-  - **Low severity** suggests routine attention is needed, with limited exploit potential and minor impact. These findings are typically difficult to exploit and present minimal risk.
+Each exposure finding includes a clear, descriptive title that immediately conveys the nature of the security risk. The description provides detailed information about the potential security impact, affected resources, and the broader context of the exposure. This information helps security teams quickly understand and assess the risk.
 
-- **Contributing traits that led to the exposure**: Contributing traits represent the primary factors that led to the exposure finding. These include direct security vulnerabilities, configuration issues, network exposure conditions, and resource permission settings. Each trait provides specific details about how it contributes to the overall security risk.
-- **Potential attack path and blast radius visualization**: The potential attack path and blast radius visualization provides an interactive diagram showing how potential attackers could exploit the identified exposure. It maps resource relationships, network paths, and privilege escalation paths to downstream resources that are potentially accessible by an attacker if the exposure is exploited.
-- **Detailed remediation guidance**: Each exposure finding includes detailed remediation guidance with specific, actionable steps to address the identified risks. This guidance includes best practice recommendations, configuration correction steps, and prioritized action items. The guidance is tailored to the specific exposure scenario and considers the AWS services involved.
-- **Resource configuration details**: Configuration of the resource at the time the finding was created as well as current configuration of the resource in the Security Hub resource inventory dashboard.
-- **Contextual traits providing additional security context**: Contextual traits are additional security markers that were identified by Security Hub but were not used to create an exposure finding.
+Severity classification (Critical, High, Medium, Low)
+
+- **Critical severity** indicates immediate attention is required due to high likelihood of exploit and significant potential impact. These findings typically represent easily discoverable and exploitable vulnerabilities.
+- **High severity** suggests priority attention is needed, with moderate to high exploit likelihood and substantial potential impact. These findings might be relatively easy to exploit but might require specific conditions.
+- **Medium severity** indicates scheduled attention is required, with lower exploit likelihood and moderate potential impact. These findings typically require more complex exploitation methods.
+- **Low severity** suggests routine attention is needed, with limited exploit potential and minor impact. These findings are typically difficult to exploit and present minimal risk.
+
+Contributing traits that led to the exposure
+
+Contributing traits represent the primary factors that led to the exposure finding. These include direct security vulnerabilities, configuration issues, network exposure conditions, and resource permission settings. Each trait provides specific details about how it contributes to the overall security risk.
+
+Potential attack path and blast radius visualization
+
+The potential attack path and blast radius visualization provides an interactive diagram showing how potential attackers could exploit the identified exposure. It maps resource relationships, network paths, and privilege escalation paths to downstream resources that are potentially accessible by an attacker if the exposure is exploited.
+
+Detailed remediation guidance
+
+Each exposure finding includes detailed remediation guidance with specific, actionable steps to address the identified risks. This guidance includes best practice recommendations, configuration correction steps, and prioritized action items. The guidance is tailored to the specific exposure scenario and considers the AWS services involved.
+
+Resource configuration details
+
+Configuration of the resource at the time the finding was created as well as current configuration of the resource in the Security Hub resource inventory dashboard.
+
+Contextual traits providing additional security context
+
+Contextual traits are additional security markers that were identified by Security Hub but were not used to create an exposure finding.
 
 Unused access information from IAM Access Analyzer can appear as contextual traits in exposure findings. When an IAM role attached to a resource has unused permissions, Security Hub includes this information as a contextual trait in the exposure detail view. For example, if an Amazon EC2 instance has a software vulnerability and its attached IAM role has 47 unused permissions across 5 services, the exposure finding shows the unused permissions as supplementary context. This helps you understand the potential blast radius — a vulnerable resource with an over-privileged IAM role presents a higher risk than one with least-privilege permissions, because a compromised resource could use those unused permissions to escalate access.
 

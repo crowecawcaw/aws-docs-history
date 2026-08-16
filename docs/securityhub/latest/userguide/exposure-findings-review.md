@@ -24,7 +24,7 @@ descriptions for exposure finding details.
   level of the exposure finding. Security Hub uses the number and combination of
   traits for a resource to determine the severity level of an exposure
   finding. The severity level can be `CRITICAL`, `HIGH`,
-  `MEDIUM`, or `LOW`. Security Hub doesn't publish
+  `MEDIUM`, or `LOW`. Security Hub does not publish
   exposure findings with a severity of `INFORMATIONAL`. You can
   update the `Severity` through the Security Hub console or with the
   [BatchUpdateFindingsV2](../../1.0/APIReference/API_BatchUpdateFindingsV2.md "../../1.0/APIReference/API_BatchUpdateFindingsV2.md") API operation.

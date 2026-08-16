@@ -1,11 +1,11 @@
 # Managing configuration of member accounts in an AWS Organization
 
 The delegated administrator for an AWS Organization can configure security capabilities across member accounts and Regions.
-There are two types of configurations that are available, **Policies** and **Deployments**.
+Two types of configurations are available: **Policies** and **Deployments**.
 **Policies** generate AWS Organizations policies for accounts and Regions for AWS Security Hub and Amazon Inspector.
 **Deployments** are a one-time action to enable a security capability across selected accounts and Regions for Amazon GuardDuty and AWS Security Hub CSPM.
-Unlike policies, you cannot view or edit deployments and deployments will not apply to newly enabled accounts.
-As an alternative, auto-enable features, for new member accounts, are available in Amazon GuardDuty and AWS Security Hub CSPM.
+Unlike policies, you cannot view or edit deployments and deployments do not apply to newly enabled accounts.
+As an alternative, auto-enable features for new member accounts are available in Amazon GuardDuty and AWS Security Hub CSPM.
 
 ## Security Hub configuration catalog
 
@@ -32,13 +32,13 @@ It optionally enables additional capabilities.
 
 **Type**: Deployment
 
-**Description**: This configuration turns on Security Hub CSPM's standards and controls which detects when your AWS accounts and resources deviate from security best practices.
+**Description**: This configuration turns on Security Hub CSPM's standards and controls, which detect when your AWS accounts and resources deviate from security best practices.
 
 ### Vulnerability management from Amazon Inspector
 
 **Type**: Policy
 
-**Description**: This configuration turns on selected Amazon Inspector capabilities that automatically discover workloads, instances, container images, etc., and scans them for vulnerabilities and network exposure.
+**Description**: This configuration turns on selected Amazon Inspector capabilities that automatically discover workloads, instances, container images, and other resources, and scans them for vulnerabilities and network exposure.
 
 ## Enabling a configuration with a type of policy
 
@@ -49,10 +49,10 @@ For information about creating the delegated administrator policy in Security Hu
 ###### To create a policy that enables and disables member accounts
 
 1. Sign in using your AWS account with your delegated administrator credentials.
-   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
+   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home "https://console.aws.amazon.com/securityhub/v2/home").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
 3. Choose an item with a type of **policy** or **policy and deployment** from the Configuration catalog.
-   To fully configure Security Hub, we recommend choosing **Security Hub (essential and additional capabilities)**.
+   To fully configure Security Hub, choose **Security Hub (essential and additional capabilities)**.
 4. On the **Configure Security Hub** page, in the **Details** section, enter a name and a description for the policy.
 5. In the **Security capabilities** section, choose one of the following:
 
@@ -88,7 +88,7 @@ The following procedure describes how to create a configuration with a type of d
 ###### To create a deployment that enables member accounts
 
 1. Sign in using your AWS account with your delegated administrator credentials.
-   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
+   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home "https://console.aws.amazon.com/securityhub/v2/home").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
 3. Choose an item with a type of **deployment** from the Configuration catalog.
 4. In the **Security capabilities** section, select the security capabilities to turn on.
@@ -118,9 +118,9 @@ Changes apply only to the capabilities you select in the updated policy. Unselec
 ###### To edit a configuration policy
 
 1. Sign in using your AWS account with your delegated administrator credentials.
-   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
+   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home "https://console.aws.amazon.com/securityhub/v2/home").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
-3. In the **Configured policies** tab, select the radio button for the policy you want to edit, and then choose **Edit**.
+3. In the **Configured policies** tab, choose the radio button for the policy you want to edit, and then choose **Edit**.
 4. In the **Capability** section, choose one of the following:
 
    - **Configure and enable all capabilities** – Enables all capabilities in the policy.
@@ -157,7 +157,7 @@ You can delete a configuration policy. When you delete a policy, the service rem
 ###### To delete a configuration policy
 
 1. Sign in using your AWS account with your delegated administrator credentials.
-   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home? "https://console.aws.amazon.com/securityhub/v2/home?").
+   Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home "https://console.aws.amazon.com/securityhub/v2/home").
 2. From the navigation pane, choose **Management**, and then choose **Configurations**.
 3. In the **Configured policies** tab, select the policy you want to delete, and then choose **Delete**.
 4. Enter `delete` in the confirmation box, and then choose **Delete**.

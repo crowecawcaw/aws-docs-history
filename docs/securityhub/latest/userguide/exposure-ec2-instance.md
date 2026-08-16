@@ -21,7 +21,7 @@ The remediation guidance provided in this topic might require additional consult
 
 ###### Contents
 
-- [Misconfiguration traits for EC2 instances](exposure-ec2-instance.md#misconfiguration "exposure-ec2-instance.md#misconfiguration")
+- [Misconfiguration traits for EC2 instances](exposure-ec2-instance.md#ec2-misconfiguration "exposure-ec2-instance.md#ec2-misconfiguration")
 
   - [The EC2 instance allows access to IMDS using version 1](exposure-ec2-instance.md#metadata-misconfiguration "exposure-ec2-instance.md#metadata-misconfiguration")
   - [The Amazon EC2 instance has a security group or network ACL that allows SSH or RDP access](exposure-ec2-instance.md#remote-access-allowed "exposure-ec2-instance.md#remote-access-allowed")
@@ -68,7 +68,11 @@ Instance metadata is data about your Amazon EC2 instance that applications can u
 The instance metadata service (IMDS) is an on-instance component that code on the instance uses to securely access instance metadata.
 If IMDS is not properly secured, it can become a potential attack vector, as it provides access to temporary credentials and other sensitive configuration data.
 IMDSv2 provides stronger protection against exploitation through session-oriented authentication, requiring a session token for metadata requests and limiting session duration.
-Following standard security principles, AWS recommends that you configure Amazon EC2 instances to use IMDSv2 and disable IMDSv1.
+Following standard security principles, configure Amazon EC2 instances to use IMDSv2 and disable IMDSv1.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Test application compatibility
 
@@ -89,19 +93,23 @@ If your instance is part of an Auto Scaling group, update your launch template o
 
 Remote access protocols like SSH and RDP allow users to connect to and manage Amazon EC2 instances from external locations.
 When security groups permit unrestricted access to these protocols from the internet, they increase the attack surface of your Amazon EC2 instances by allowing internet access to your instance.
-Following standard security principles, AWS recommends you limit remote access to specific, trusted IP addresses or ranges.
+Following standard security principles, limit remote access to specific, trusted IP addresses or ranges.
 
-1. **Modify security group rules**
+###### Remediation: Modify security group rules
 
 Restrict access to your Amazon EC2 instances to specific trusted IP addresses.
-Limit SSH and RDP access to specific trusted IP addresses, or use CIDR notation to specify IP ranges (e.g., 198.168.1.0/24).
+Limit SSH and RDP access to specific trusted IP addresses, or use CIDR notation to specify IP ranges (for example, 192.168.1.0/24).
 To modify security group rules, see [Configure security group rules](../../../AWSEC2/latest/UserGuide/changing-security-group.md#add-remove-security-group-rules "../../../AWSEC2/latest/UserGuide/changing-security-group.md#add-remove-security-group-rules") in the _Amazon Elastic Compute Cloud User Guide_.
 
 ### The Amazon EC2 instance has an open security group
 
 Security groups act as virtual firewalls for your Amazon EC2 instances to control inbound and outbound traffic.
 Open security groups, which allow unrestricted access from any IP address, may expose your instances to unauthorized access.
-Following standard security principles, AWS recommends restricting security group access to specific IP addresses and ports.
+Following standard security principles, restrict security group access to specific IP addresses and ports.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Review security group rules and assess current configuration
 
@@ -121,7 +129,11 @@ Here are reachability traits for EC2 instances and suggested remediation steps.
 ### The EC2 instance is reachable over the internet
 
 Amazon EC2 instances with ports that are reachable from the internet may expose your instance. Reachability can occur through an internet gateway (including instances behind Application Load Balancers or Classic Load Balancers), a VPC peering connection, or a VPN virtual gateway.
-Following standard security principles, we recommend implementing least-privilege network access controls by restricting inbound traffic to only necessary sources and ports.
+Following standard security principles, implement least-privilege network access controls by restricting inbound traffic to only necessary sources and ports.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Modify or remove security group rules
 
@@ -134,7 +146,7 @@ For instructions on managing security group rules, see [Configure security group
 ###### Update network ACLs
 
 Review and modify network access control lists (ACLs) associated with the instance's subnet.
-Verify that the ACL settings align with the security group changes and don't unintentionally allow public access.
+Verify that the ACL settings align with the security group changes and do not unintentionally allow public access.
 For instructions on modifying network ACLs, see [Work with network ACLs](../../../vpc/latest/userguide/nacl-tasks.md "../../../vpc/latest/userguide/nacl-tasks.md") in the _Amazon VPC User Guide_.
 
 ###### Alternative access methods
@@ -142,7 +154,7 @@ For instructions on modifying network ACLs, see [Work with network ACLs](../../.
 Consider the following options for alternative access methods:
 
 - **Use NAT Gateway for outbound internet connectivity** –
-  For instances in private subnets that require access to the internet (e.g., to download updates), consider using a NAT Gateway instead of assigning a public IP address.
+  For instances in private subnets that require access to the internet (for example, to download updates), consider using a NAT Gateway instead of assigning a public IP address.
   A NAT Gateway allows instances in private subnets to initiate outbound connections to the internet while preventing inbound connections from the internet.
 - **Use Systems Manager Session Manager** –
   Session Manager provides secure shell access to your Amazon EC2 instances without the need for inbound ports, managing SSH keys, or maintaining bastion hosts.
@@ -161,9 +173,9 @@ Software packages that are installed on EC2 instances can be exposed to Common V
 Critical CVEs pose significant security risks to your AWS environment.
 Unauthorized principals can exploit these unpatched vulnerabilities to compromise the confidentiality, integrity, or availability of data, or to access other systems.
 Critical vulnerabilities with high exploitation likelihood represent immediate security threats, as exploit code may already be publicly available and actively used by attackers or automated scanning tools.
-We recommend patching these vulnerabilities to protect your instance.
+Patch these vulnerabilities to protect your instance.
 
-###### Update affected instances
+###### Remediation: Update affected instances
 
 Review the **References** section in the **Vulnerability** tab of the trait.
 Vendor documentation may include specific remediation guidance.
@@ -171,11 +183,11 @@ Follow the appropriate remediation using these general guidelines:
 
 Use Systems Manager Patch Manager to apply patches for both operating systems and applications.
 Patch Manager helps you select and deploy operating system and software patches automatically on large groups of instances.
-If you don't have Patch Manager configured, manually update the operating system on each affected instance.
+If you do not have Patch Manager configured, manually update the operating system on each affected instance.
 
 Update the affected applications to their latest secure versions following the vendor’s recommended procedures.
 To manage application updates across multiple instances, consider using Systems Manager State Manager to keep your software in a consistent state.
-If updates aren't available, consider removing or disabling the vulnerable application until a patch is released or other mitigations, such as restricting network access to the application or disabling vulnerable features.
+If updates are not available, consider removing or disabling the vulnerable application until a patch is released or other mitigations, such as restricting network access to the application or disabling vulnerable features.
 
 Follow the specific remediation advice provided in the Amazon Inspector finding.
 This could involve changing security group rules, modifying instance configurations, or adjusting application settings.
@@ -197,17 +209,17 @@ Consider implementing a regular patching schedule using Systems Manager Maintena
 Software packages that are installed on Amazon EC2 instances can be exposed to Common Vulnerabilities and Exposures (CVEs).
 Noncritical CVEs represent security weaknesses with lower severity or exploitability compared to critical CVEs.
 While these vulnerabilities pose less immediate risk, attackers can still exploit these unpatched vulnerabilities to compromise the confidentiality, integrity, or availability of data, or to access other systems.
-Following security best practices, AWS recommends patching these vulnerabilities to protect your instance from attack.
+Following security best practices, patch these vulnerabilities to protect your instance from attack.
 
-###### Update affected instances
+###### Remediation: Update affected instances
 
 Use AWS Systems Manager Patch Manager to apply patches for operating systems.
 Patch Manager helps you select and deploy operating system and software patches automatically on large groups of instances.
-If you don't have Patch Manager configured, manually update the operating system on each affected instance.
+If you do not have Patch Manager configured, manually update the operating system on each affected instance.
 
 Update the affected applications to their latest secure versions following the vendor’s recommended procedures.
 To manage application updates across multiple instances, consider using AWS Systems Manager State Manager to keep your software in a consistent state.
-If updates aren't available, consider removing or disabling the vulnerable application until a patch is released or other mitigations, such as restricting network access to the application or disabling vulnerable features.
+If updates are not available, consider removing or disabling the vulnerable application until a patch is released or other mitigations, such as restricting network access to the application or disabling vulnerable features.
 
 Follow the specific remediation advice provided in the Amazon Inspector finding.
 This could involve changing security group rules, modifying instance configurations, or adjusting application setting.
@@ -234,9 +246,9 @@ As a result, Amazon Inspector could potentially stop generating findings for kno
 
 See [Discontinued operating systems](../../../inspector/latest/user/supported.md#formerly-supported-os "../../../inspector/latest/user/supported.md#formerly-supported-os") in the _Amazon Inspector User Guide_ for information about operating systems that have reached end of life that can be detected by Amazon Inspector.
 
-###### Update to a supported operating system version
+###### Remediation: Update to a supported operating system version
 
-We recommend updating to a supported version of the operating system.
+Update to a supported version of the operating system.
 In the exposure finding, open the resource to access the affected resource.
 Before updating the operating system version on your instance, create a snapshot or AMI backup in case you need to roll back. Then, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
 
@@ -244,9 +256,9 @@ Before updating the operating system version on your instance, create a snapshot
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your instance, as attackers can execute malicious code automatically without exploiting a vulnerability.
-Following security best practices, AWS recommends removing malicious packages to protect your instance from potential attacks.
+Following security best practices, remove malicious packages to protect your instance from potential attacks.
 
-###### Remove malicious packages
+###### Remediation: Remove malicious packages
 
 Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat.
 Remove the identified malicious packages using the appropriate package manager.
@@ -258,12 +270,12 @@ For more information, see [Starting On-demand malware scan in GuardDuty](../../.
 
 Malicious files contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious files pose an active and critical threat to your instance, as attackers can execute malicious code automatically without exploiting a vulnerability.
-Following security best practices, AWS recommends removing malicious files to protect your instance from potential attacks.
+Following security best practices, remove malicious files to protect your instance from potential attacks.
 
-###### Remove malicious files
+###### Remediation: Remove malicious files
 
 To identify the specific Amazon Elastic Block Store (Amazon EBS) volume that has malicious files, review the **Resources** section of the trait's finding details.
-Once you have identified the volume with the malicious file, create a snapshot of the volume before making changes, then remove the identified malicious files.
+After you have identified the volume with the malicious file, create a snapshot of the volume before making changes, then remove the identified malicious files.
 After removing the malicious files, consider performing a scan to ensure that all files that may have been installed by the malicious file have been removed.
 For more information, see [Starting On-demand malware scan in GuardDuty](../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md "../../../guardduty/latest/ug/malware-protection-getting-started-on-demand-scan.md") in the .
 
@@ -276,8 +288,8 @@ is compromised. Each impact trait identifies a specific privilege escalation pat
 To reduce your blast radius, review the permission paths described in each trait and
 remove any unnecessary privileges.
 
-Following standard security principles, AWS recommends that you grant least
-privilege — only the permissions required to perform a task. Replace broad
+Following standard security principles, grant least
+privilege by providing only the permissions required to perform a task. Replace broad
 policies with scoped-down policies that grant only the specific actions and
 resources needed. To identify unused permissions to remove, use IAM Access Analyzer to
 generate recommendations based on access history. For more information, see [Findings for external

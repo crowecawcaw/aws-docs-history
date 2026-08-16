@@ -15,18 +15,18 @@ permissions that you need to monitor your Azure resources.
 
 Verify that you have the following in your AWS account:
 
-AWS Security Hub enabled
+**AWS Security Hub enabled**
 
 Security Hub must be enabled in the AWS account and AWS Region where you want to
-create the connector. Customers must enable Security Hub before creating an Azure
+create the connector. You must enable Security Hub before creating an Azure
 connector.
 
-AWS Security Hub CSPM enabled
+**AWS Security Hub CSPM enabled**
 
 Security Hub CSPM must be enabled in the same AWS account and AWS Region. The Azure
 integration relies on Security Hub CSPM for resource configuration evaluation.
 
-Console IAM permissions
+**Console IAM permissions**
 
 The IAM principal creating the connector must have the following permissions:
 
@@ -34,7 +34,7 @@ The IAM principal creating the connector must have the following permissions:
 - `config:ListConnectors`
 - `config:PutConnector`
 
-IAM Outbound Identity Federation enabled
+**IAM Outbound Identity Federation enabled**
 
 You must enable IAM Outbound Identity Federation in your AWS account. This feature
 allows AWS services to authenticate to external identity providers (such as Microsoft
@@ -54,12 +54,12 @@ Azure.
 
 Verify that you have the following in your Azure environment:
 
-Azure tenant
+**Azure tenant**
 
 You must have an Azure tenant in the Azure commercial cloud. Azure Government and
 Azure China are not supported.
 
-Microsoft Entra ID log availability
+**Microsoft Entra ID log availability**
 
 Resource recording requires Microsoft Graph audit logs and sign-in logs from your
 Microsoft Entra ID tenant. Some Microsoft Entra ID logs require Microsoft Entra ID
@@ -68,7 +68,7 @@ P1 or P2 licensing.
 If the tenant lacks required logs, resource recording might report partial failures.
 The app registration and Azure role assignments do not supply missing log data.
 
-Global Administrator role
+**Global Administrator role**
 
 You must have the **Global Administrator** role in
 Microsoft Entra ID to configure the Azure environment. This role is required to register
@@ -95,4 +95,4 @@ In many organizations, the Azure Global Administrator and the AWS security
 administrator are different people. The Azure setup can be completed independently
 using the generated setup script.
 
-After you complete these tasks, you're ready to [configure your Azure environment](securityhub-v2-azure-setup-azure.md "securityhub-v2-azure-setup-azure.md").
+After you complete these tasks, you are ready to [configure your Azure environment](securityhub-v2-azure-setup-azure.md "securityhub-v2-azure-setup-azure.md").

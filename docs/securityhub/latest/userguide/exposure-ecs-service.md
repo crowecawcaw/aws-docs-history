@@ -30,7 +30,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon ECS service has public IP addresses](exposure-ecs-service.md#public-ip-assigned "exposure-ecs-service.md#public-ip-assigned")
   - [The Amazon ECS service uses a task definition that is configured with host networking mode enabled](exposure-ecs-service.md#host-networking-mode-enabled "exposure-ecs-service.md#host-networking-mode-enabled")
 
-- [Reachability traits for Amazon ECS services](exposure-ecs-service.md#reachability "exposure-ecs-service.md#reachability")
+- [Reachability traits for Amazon ECS services](exposure-ecs-service.md#ecs-service-reachability "exposure-ecs-service.md#ecs-service-reachability")
 
   - [The Amazon ECS service is reachable over the internet](exposure-ecs-service.md#internet-reachable "exposure-ecs-service.md#internet-reachable")
 
@@ -70,37 +70,37 @@ Amazon ECS containers with access to the host root filesystem can potentially re
 modify, or execute critical files on the host system. This configuration increases
 the risk that a compromised container could be used to access or modify resources
 outside its intended scope, potentially exposing sensitive data on the host
-filesystem. Following standard security principles, AWS recommends that you grant
+filesystem. Following standard security principles, grant
 least privileges, which means that you grant only the permissions required to
 perform a task.
 
-###### Review and modify containers with host filesystem access
+###### Remediation: Review and modify containers with host filesystem access
 
 In the exposure finding, identify the task definition ARN. Open the task
 definition in the Amazon ECS console. Look for the volumes section in the task
-definition that defines host path mappings. Review the task definition to
-determine if the host filesystem access is required for container functionality.
-If host filesystem access is not required, create a new task definition revision
-and remove any volume definitions that use host paths.
-If host filesystem access is required, consider configuring the container to use
+definition that defines host path mappings.
+
+Review the task definition to
+determine if the host filesystem access is required for container functionality. If host filesystem access is not required, create a new task definition revision
+and remove any volume definitions that use host paths. If host filesystem access is required, consider configuring the container to use
 a read-only file system to prevent unauthorized modifications.
 
 ### The Amazon ECS service uses a task definition configured to share a host's process namespace
 
 Amazon ECS containers running with exposed namespaces can potentially access host
 system resources and other container namespaces. This configuration could allow a
-compromised container to escape its isolation boundary, which could lead to
-accessing processes, network interfaces, or other resources outside of its intended
-scope. A process ID (PID) namespace provides separation between processes. It
-prevents system processes from being visible, and allows PIDs to be reused,
-including PID 1. If the host's PID namespace is shared with containers, it would
-allow containers to see all of the processes on the host system. This reduces the
-benefit of process level isolation between the host and the containers. These
-factors could lead to unauthorized access to processes on the host itself, including
-the ability to manipulate and terminate them. Following standard security
-principles, AWS recommends maintaining proper namespace isolation for containers.
+compromised container to escape its isolation boundary, accessing processes,
+network interfaces, or other resources outside of its intended scope.
 
-###### Update task definitions with exposed namespaces
+A process ID (PID) namespace provides separation between processes. It
+prevents system processes from being visible, and allows PIDs to be reused,
+including PID 1. If the host PID namespace is shared with containers,
+containers can see all processes on the host system, reducing process-level
+isolation. This could lead to unauthorized access to host processes, including
+the ability to manipulate and terminate them. Following standard security
+principles, maintain proper namespace isolation for containers.
+
+###### Remediation: Update task definitions with exposed namespaces
 
 Open the **Resources** tab of the exposure, identify the task
 definition with the exposed namespace. Open the task definition in the Amazon ECS
@@ -115,6 +115,10 @@ sensitive authentication information that could be compromised if an attacker ga
 access to the task definition, container environment, or container logs. This
 creates a significant security risk, as leaked credentials could be used to access
 other AWS services or resources.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Replace cleartext credentials
 
@@ -142,8 +146,12 @@ Security groups act as virtual firewalls for your Amazon ECS tasks to control in
 and outbound traffic. Open security groups, which allow unrestricted access from any
 IP address, may expose your containers to unauthorized access, increasing the risk
 of exposure to automated scanning tools and targeted attacks. Following standard
-security principles, AWS recommends restricting security group access to specific
+security principles, restrict security group access to specific
 IP addresses and ports.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Review security group rules and assess current configuration
 
@@ -175,6 +183,10 @@ accessible from the internet. While this may be necessary for services that need
 be publicly available, it increases the attack surface and potential for
 unauthorized access.
 
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
+
 ###### Identify services with public IP addresses
 
 In the exposure finding, identify the Amazon ECS service that has public IP
@@ -200,8 +212,12 @@ with the host, allowing direct access to the host's network interfaces, ports, a
 routing tables. This configuration bypasses the network isolation provided by
 containers, potentially exposing services running on the container directly to
 external networks and allowing containers to modify host network settings. Following
-standard security principles, AWS recommends maintaining proper network isolation
+standard security principles, maintain proper network isolation
 for containers.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Disable host networking mode
 
@@ -228,8 +244,12 @@ Here are reachability traits for Amazon ECS services and suggested remediation s
 
 An Amazon ECS service that runs tasks on a public subnet is directly accessible from
 the internet. This increases the attack surface and the risk of unauthorized access.
-Following standard security principles, AWS recommends that you run tasks on
+Following standard security principles, run tasks on
 private subnets and allow only the internet access that your service requires.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Run tasks on a private subnet
 
@@ -287,7 +307,7 @@ findings. 2. **Remediate the exposure**
 
 
     Rebuild and update base container images regularly to keep your
-     containers up to date. When rebuilding an image, don't include
+     containers up to date. When rebuilding an image, do not include
      unnecessary components to reduce the attack surface. For
      instructions on rebuilding a container image, see [Rebuild your images often](https://docs.docker.com/build/building/best-practices/#rebuild-your-images-often "https://docs.docker.com/build/building/best-practices/#rebuild-your-images-often").
 
@@ -296,9 +316,13 @@ findings. 2. **Remediate the exposure**
 Software packages that are installed on Amazon ECS containers can be exposed to Common
 Vulnerabilities and Exposures (CVEs). Low priority vulnerabilities represent
 security weaknesses with lower severity or exploitability compared to high priority
-vulnerabilities. While these vulnerabilities pose less immediate risk, attackers can
+vulnerabilities. Although these vulnerabilities pose less immediate risk, attackers can
 still exploit these unpatched vulnerabilities to compromise the confidentiality,
 integrity, or availability of data, or to access other systems.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Update affected container images
 
@@ -334,9 +358,9 @@ As a result, Amazon Inspector could potentially stop generating findings for kno
 
 See [Discontinued operating systems](../../../inspector/latest/user/supported.md#formerly-supported-os "../../../inspector/latest/user/supported.md#formerly-supported-os") in the _Amazon Inspector User Guide_ for information about operating systems that have reached end of life that can be detected by Amazon Inspector.
 
-###### Update to a supported operating system version
+###### Remediation: Update to a supported operating system version
 
-We recommend updating to a supported version of the operating system.
+Update to a supported version of the operating system.
 In the exposure finding, open the resource to access the affected resource.
 Before updating the operating system version in your container image, review available versions in [Supported Operating Systems](../../../inspector/latest/user/supported.md#supported-os "../../../inspector/latest/user/supported.md#supported-os") in the _Amazon Inspector User Guide_ for a list of currently supported OS versions.
 After updating your container image, push it to your container registry and update your Amazon ECS task definition to use the new image.
@@ -345,15 +369,13 @@ After updating your container image, push it to your container registry and upda
 
 Malicious packages are software components that contain harmful code designed to compromise the confidentiality, integrity, and availability of your systems and data.
 Malicious packages pose an active and critical threat to your Amazon ECS container images, as attackers can execute malicious code automatically without exploiting a vulnerability.
-Following security best practices, AWS recommends removing malicious packages to protect your containers from potential attacks.
+Following security best practices, remove malicious packages to protect your containers from potential attacks.
 
-###### Remove malicious packages
+###### Remediation: Remove malicious packages
 
-Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat.
-Remove the identified malicious packages from your container images then rebuild them.
-For more information, see [ContainerDependency](../../../AmazonECS/latest/APIReference/API_ContainerDependency.md "../../../AmazonECS/latest/APIReference/API_ContainerDependency.md") in the _AWS Amazon ECS API Reference_.
-After updating your container image, push it to your container registry and update your Amazon ECS task definition to use the new image.
-For more information, see [Updating an Amazon ECS task definition using the console](../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md "../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md") in the _AWS Amazon ECS Developer Guide_.
+Review the malicious package details in the **References** section of the **Vulnerability** tab of the trait to understand the threat. Remove the identified malicious packages from your container images then rebuild them. For more information, see [ContainerDependency](../../../AmazonECS/latest/APIReference/API_ContainerDependency.md "../../../AmazonECS/latest/APIReference/API_ContainerDependency.md") in the _AWS Amazon ECS API Reference_.
+
+After updating your container image, push it to your container registry and update your Amazon ECS task definition to use the new image. For more information, see [Updating an Amazon ECS task definition using the console](../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md "../../../AmazonECS/latest/developerguide/update-task-definition-console-v2.md") in the _AWS Amazon ECS Developer Guide_.
 
 ## Impact traits for Amazon ECS services
 
@@ -364,8 +386,8 @@ is compromised. Each impact trait identifies a specific privilege escalation pat
 To reduce your blast radius, review the permission paths described in each trait and
 remove any unnecessary privileges.
 
-Following standard security principles, AWS recommends that you grant least
-privilege — only the permissions required to perform a task. Replace broad
+Following standard security principles, grant least
+privilege by providing only the permissions required to perform a task. Replace broad
 policies with scoped-down policies that grant only the specific actions and
 resources needed. To identify unused permissions to remove, use IAM Access Analyzer to
 generate recommendations based on access history. For more information, see [Findings for external

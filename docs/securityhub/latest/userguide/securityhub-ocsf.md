@@ -1,21 +1,21 @@
-# Security Hub and the Open Cybersecurity Findings Format (OCSF)
+# Security Hub and the Open Cybersecurity Schema Framework (OCSF)
+
+Security Hub uses the Open Cybersecurity Schema Framework (OCSF) as the standard format for all security findings. This topic describes OCSF and how Security Hub implements it.
 
 ## OCSF overview
 
-Security Hub findings are formatted using OCSF which is an open-source project, delivering an extensible framework for developing schemas, along with a vendor-agnostic core security schema.
+Security Hub findings are formatted using OCSF (Open Cybersecurity Schema Framework). OCSF is an open-source project that delivers an extensible framework for developing schemas, along with a vendor-agnostic core security schema.
 Vendors and other data producers can adopt and extend the schema for their specific domains.
 Data producers can map differing schemas to help security teams simplify data ingestion and normalization, so that data scientists and analysts can work with a common language for threat detection and investigation.
 The goal is to provide an open standard, adopted in any environment, application, or solution, while complementing existing security standards and processes.
 
-The framework is made up of a set of data types, an attribute dictionary, and the taxonomy.
-It is not restricted to the cybersecurity domain nor to events, however the initial focus of the framework has been a schema for cybersecurity events.
-OCSF is agnostic to storage format, data collection and Extract-Transform-Load (ETL) processes.
-The core schema for cybersecurity events is intended to be agnostic to implementations.
-The schema framework definition files and the resulting normative schema are written as JSON.
+The framework consists of data types, an attribute dictionary, and a taxonomy.
+Although not limited to cybersecurity or events, the initial focus is on cybersecurity event schemas.
+OCSF is independent of storage format, data collection methods, and ETL processes.
 
 Security Hub currently supports findings in OCSF schema version 1.6.
 
-## Related Resources
+## Related resources
 
 For more information about OCSF and its implementation, see the following resources:
 

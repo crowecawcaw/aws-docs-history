@@ -9,7 +9,7 @@ The following items and information are needed in advance of setting up cross-ac
 
 - Management account must have AWS Cost Explorer enabled.
 - IAM permissions to create roles in the management account.
-- Knowlege of the delegated administrator or member account ID that will be granted cross-account access.
+- Knowledge of the delegated administrator or member account ID that will be granted cross-account access.
 
 ## Setup steps
 
@@ -80,26 +80,26 @@ After creating the role in the management account use the following steps to con
    2. Assume the cross-account role.
    3. Load Cost Explorer data with organization-wide usage.
 
-If successful, you'll see actual usage data instead of manual entry fields.
+If successful, actual usage data appears instead of manual entry fields.
 
 ## Troubleshooting
 
-This section covers common issues and solutions that can occur when settting up cross-account access.
+This section covers common issues and solutions that can occur when setting up cross-account access.
 
 ### Organizational usage data is not available for this account
 
 This alert indicates the cross-account role is not accessible.
-Possibles caused of this alert are:
+Possible causes of this alert are:
 
 1. **Role does not exist:** Management account has not created the role yet.
 
    1. **Solution:** Contact your management account administrator to create the role using the setup guidance.
 
-2. **Role name mismatch:** Role name doesn't match exactly.
+2. **Role name mismatch:** Role name does not match exactly.
 
    1. **Solution:** Verify role name is `AwsSecurityHubCostEstimatorCrossAccountRole`.
 
-3. **Trust policy incorrect:** Trust policy doesn't allow your account to assume the role.
+3. **Trust policy incorrect:** Trust policy does not allow your account to assume the role.
 
    1. **Solution:** Verify trust policy includes your account ID and role name.
 
@@ -107,6 +107,6 @@ Possibles caused of this alert are:
 
    1. **Solution:** Contact your administrator to add `sts:AssumeRole` permission.
 
-**To view detailed setup instructions:** Click "View instructions" link in the alert to open a modal with step-by-step guidance and policy templates.
+**To view detailed setup instructions:** Choose **View instructions** in the alert to open a modal with step-by-step guidance and policy templates.
 
 **Workaround:** You can still use the Cost Estimator by manually entering usage values in edit mode.

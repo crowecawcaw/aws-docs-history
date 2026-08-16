@@ -53,7 +53,11 @@ Here are misconfiguration traits for Amazon SageMaker notebook instances and sug
 
 When `DirectInternetAccess` is enabled on an Amazon SageMaker notebook instance, outbound traffic is routed through a SageMaker-managed network address translation (NAT) gateway to the internet.
 This provides an egress path that can be used for data exfiltration or as a command-and-control channel if the notebook is compromised.
-Following security best practices, AWS recommends disabling direct internet access and placing notebook instances in a VPC with VPC endpoints for required AWS services.
+Following security best practices, disable direct internet access and place notebook instances in a VPC with VPC endpoints for required AWS services.
+
+###### Remediation
+
+Take one or more of the following actions to address this exposure:
 
 ###### Disable direct internet access
 
@@ -70,9 +74,9 @@ For information on VPC endpoints, see [What is AWS PrivateLink?](../../../vpc/la
 
 When `RootAccess` is enabled on an Amazon SageMaker notebook instance, users have full OS-level root privileges.
 Root access allows arbitrary system modifications, persistent backdoors, and unrestricted package installation.
-Following security best practices, AWS recommends disabling root access for notebook instances unless it is explicitly required for your workflow.
+Following security best practices, disable root access for notebook instances unless it is explicitly required for your workflow.
 
-###### Disable root access
+###### Remediation: Disable root access
 
 You cannot change the `RootAccess` setting on a running notebook instance. To disable it, stop the instance, then update the instance configuration to set `RootAccess` to `Disabled`.
 Most notebook workflows, including installing packages with `pip` and running lifecycle configurations, continue to work without root access.
@@ -92,8 +96,8 @@ is compromised. Each impact trait identifies a specific privilege escalation pat
 To reduce your blast radius, review the permission paths described in each trait and
 remove any unnecessary privileges.
 
-Following standard security principles, AWS recommends that you grant least
-privilege — only the permissions required to perform a task. Replace broad
+Following standard security principles, grant least
+privilege by providing only the permissions required to perform a task. Replace broad
 policies with scoped-down policies that grant only the specific actions and
 resources needed. To identify unused permissions to remove, use IAM Access Analyzer to
 generate recommendations based on access history. For more information, see [Findings for external

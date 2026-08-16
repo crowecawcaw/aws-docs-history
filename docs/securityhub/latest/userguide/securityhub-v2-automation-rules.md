@@ -5,65 +5,78 @@ With Security Hub, you can automate tasks like updating finding details and crea
 ## Automation rules and AWS Regions
 
 Automation rules can be created in one AWS Region and then applied in all configured AWS Regions.
-When using region aggregation, you can only create rules in the home region.
-When creating rules in the home region, any rule you define is applied to all linked regions, unless your rule criteria excludes a specific linked region.
-You must create an automation rule for any region that's not a linked region.
+When using Region aggregation, you can only create rules in the home Region.
+When creating rules in the home Region, any rule you define is applied to all linked Regions, unless your rule criteria excludes a specific linked Region.
+You must create an automation rule for any Region that is not a linked Region.
 
 ## Rule actions and criteria
 
 Automation rules in Security Hub use criteria to reference OCSF attributes in Security Hub findings.
-For example, the filters supported for the `Criteria` parameter in [`CreateAutomationRuleV2`](../../1.0/APIReference/API_CreateAutomationRuleV2.md "../../1.0/APIReference/API_CreateAutomationRuleV2.md") match the filters supported for the `Criteria` parameter in [`GetFindingsV2`](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md").
+For example, the filters supported for the `Criteria` parameter in [CreateAutomationRuleV2](../../1.0/APIReference/API_CreateAutomationRuleV2.md "../../1.0/APIReference/API_CreateAutomationRuleV2.md") match the filters supported for the `Filters` parameter in [GetFindingsV2](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md").
 This means filters used in automation rules can be used to get findings.
 Security Hub supports the following OCSF fields for automation rule criteria.
 
-| OCSF field                                | Console filter value                              | Filter operators                                                 | Field type                                     |
-| ----------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------- |
-| `activity_name`                           | `Activity name`                                   | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `class_name`                              | `Finding class name`                              | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `cloud.account.uid`                       | `Account ID`                                      | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `cloud.provider`                          | `Cloud provider`                                  | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `cloud.region`                            | `Region`                                          | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `comment`                                 | `Comment`                                         | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `compliance.assessments.category`         | `Assessment category`                             | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `compliance.assessments.name`             | `Assessment name`                                 | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `compliance.control`                      | `Security control ID`                             | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `compliance.standards`                    | `Applicable standards`                            | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `compliance.status`                       | `Compliance status`                               | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.desc`                       | `Finding description`                             | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.related_events.product.uid` | `Related findings product ID`                     | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.related_events.title`       | `Related findings title`                          | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.related_events.uid`         | `Related findings ID`                             | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.src_url`                    | `Source URL`                                      | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.types`                      | `Finding type`                                    | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.uid`                        | `Provider ID`                                     | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `metadata.product.feature.uid`            | `Generator ID`                                    | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `metadata.product.name`                   | `Product name`                                    | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `metadata.product.uid`                    | `Product ARN`                                     | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `metadata.product.vendor_name`            | `Company name`                                    | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `metadata.uid`                            | `Finding ID`                                      | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `remediation.desc`                        | `Recommendation text`                             | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `remediation.references`                  | `Recommendation URL`                              | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `resources.cloud_partition`               | `Resource partition`                              | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `resources.name`                          | `Resource name`                                   | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `resources.region`                        | `Resource region`                                 | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `resources.type`                          | `Resource type`                                   | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `resources.uid`                           | `Resource ID`                                     | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `severity`                                | `Severity`                                        | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `status`                                  | `Status`                                          | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `vulnerabilities.fix_coverage`            | `Software vulnerabilities coverage`               | `EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`    | `String`                                       |
-| `finding_info.first_seen_time_dt`         | `First observed at`                               | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
-| `finding_info.last_seen_time_dt`          | `Last observed at`                                | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
-| `finding_info.modified_time_dt`           | `Updated at`                                      | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
-| `compliance.assessments.meets_criteria`   | `Compliance assessment meets criteria`            | `True, False`                                                    | `Boolean`                                      |
-| `vulnerabilities.is_exploit_available`    | `Software vulnerabilities with exploit available` | `True, False`                                                    | `Boolean`                                      |
-| `vulnerabilities.is_fix_available`        | `Software vulnerabilities with fix available`     | `True, False`                                                    | `Boolean`                                      |
-| `activity_id`                             | `Activity ID`                                     | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
-| `compliance.status_id`                    | `Compliance status ID`                            | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
-| `confidence_score`                        | `Confidence`                                      | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
-| `severity_id`                             | `Severity ID`                                     | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
-| `status_id`                               | `Status ID`                                       | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
-| `finding_info.related_events_count`       | `Related findings count`                          | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
-| `resources.tags`                          | `Resource tags`                                   | `EQUALS`                                                         | `Map`                                          |
+| OCSF field                                    | Console filter value                              | Filter operators                                                 | Field type                                     |
+| --------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------- |
+| `activity_id`                                 | `Activity ID`                                     | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
+| `activity_name`                               | `Provider status`                                 | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `class_name`                                  | `Finding class name`                              | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `cloud.account.name`                          | `Finding account name`                            | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `cloud.account.uid`                           | `Account ID`                                      | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `cloud.provider`                              | `Cloud provider`                                  | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `cloud.region`                                | `Region`                                          | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `compliance.assessments.category`             | `Assessment category`                             | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `compliance.assessments.meets_criteria`       | `Compliance assessment meets criteria`            | `True, False`                                                    | `Boolean`                                      |
+| `compliance.assessments.name`                 | `Assessment name`                                 | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `compliance.control`                          | `Security control ID`                             | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `compliance.control_parameters`               | `Control parameter name`                          | `EQUALS`                                                         | `Map`                                          |
+| `compliance.standards`                        | `Applicable standards`                            | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `compliance.status`                           | `Compliance status`                               | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `compliance.status_id`                        | `Compliance status ID`                            | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
+| `confidence_score`                            | `Confidence`                                      | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
+| `finding_info.created_time_dt`                | `Created at`                                      | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
+| `finding_info.desc`                           | `Finding description`                             | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.first_seen_time_dt`             | `First observed at`                               | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
+| `finding_info.last_seen_time_dt`              | `Last observed at`                                | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
+| `finding_info.modified_time_dt`               | `Updated at`                                      | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
+| `finding_info.related_events.product.uid`     | `Related findings product ID`                     | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.related_events.title`           | `Related findings title`                          | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.related_events.traits.category` | `Traits category`                                 | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.related_events.uid`             | `Related findings ID`                             | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.related_events_count`           | `Related findings count`                          | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
+| `finding_info.src_url`                        | `Source URL`                                      | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.tags`                           | `Finding info tags`                               | `EQUALS`                                                         | `Map`                                          |
+| `finding_info.title`                          | `Finding title`                                   | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.types`                          | `Finding type`                                    | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `finding_info.uid`                            | `Provider finding ID`                             | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `metadata.product.feature.uid`                | `Generator ID`                                    | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `metadata.product.name`                       | `Product name`                                    | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `metadata.product.uid`                        | `Product ARN`                                     | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `metadata.product.vendor_name`                | `Company name`                                    | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `remediation.desc`                            | `Recommendation text`                             | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `remediation.references`                      | `Recommendation URL`                              | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.cloud_partition`                   | `Resource partition`                              | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.modified_time_dt`                  | `Resource last modified time`                     | `Start, End, DateRange`                                          | `Date (formatted as 2022-12-01T21:47:39.269Z)` |
+| `resources.name`                              | `Resource name`                                   | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.owner.account.name`                | `Account name`                                    | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.owner.account.uid`                 | `Account`                                         | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.owner.org.uid`                     | `Organization`                                    | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.provider`                          | `Cloud provider`                                  | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.region`                            | `Resource region`                                 | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.tags`                              | `Resource tags`                                   | `EQUALS`                                                         | `Map`                                          |
+| `resources.type`                              | `Resource type`                                   | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `resources.uid`                               | `Resource ID`                                     | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `vendor_attributes.severity`                  | `Provider severity`                               | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `vendor_attributes.severity_id`               | `Provider severity ID`                            | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
+| `vulnerabilities.affected_code.file.path`     | `Affected code file path`                         | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `vulnerabilities.affected_packages.name`      | `Affected package name`                           | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `vulnerabilities.cve.cvss.base_score`         | `CVE CVSS base score`                             | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)` | `Number`                                       |
+| `vulnerabilities.cve.epss.score`              | `Epss score`                                      | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `vulnerabilities.cve.uid`                     | `Vulnerability ID`                                | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `vulnerabilities.fix_coverage`                | `Software vulnerabilities coverage`               | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
+| `vulnerabilities.is_exploit_available`        | `Software vulnerabilities with exploit available` | `True, False`                                                    | `Boolean`                                      |
+| `vulnerabilities.is_fix_available`            | `Software vulnerabilities with fix available`     | `True, False`                                                    | `Boolean`                                      |
+| `vulnerabilities.related_vulnerabilities`     | `Related vulnerabilities`                         | `EQUALS, PREFIX, CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS`        | `String`                                       |
 
 For criteria labeled as string fields, using different filter operators on the same field affects the evaluation logic.
 For more information, see [StringFilter](../../1.0/APIReference/API_StringFilter.md "../../1.0/APIReference/API_StringFilter.md") in the _Security Hub API Reference_.
@@ -85,7 +98,7 @@ An automation rule evaluates new and updated findings that Security Hub generate
 
 Automation rules evaluate original, provider-supplied findings.
 Providers can supply new findings and update existing findings through their integration with Security Hub.
-Rules aren't triggered when you update finding fields after rule creation through the `BatchUpdateFindingsV2` operation. If you create an automation rule and make a `BatchUpdateFindingsV2` update that both affect the same finding field, the last update sets the value for that field.
+Rules are not triggered when you update finding fields after rule creation through the `BatchUpdateFindingsV2` operation. If you create an automation rule and make a `BatchUpdateFindingsV2` update that both affect the same finding field, the last update sets the value for that field.
 Take the following example:
 
 You use `BatchUpdateFindingsV2` to update the `Status` field of a finding from `New` to `In Process`.
@@ -108,7 +121,7 @@ When you create a rule in the Security Hub console, Security Hub automatically a
 The first rule you create will have a rule order of 1.
 When more than one rule exists each subsequently created rule will have the next highest available numerical value for rule order.
 
-When you create a rule through [`CreateAutomationRuleV2`](../../1.0/APIReference/API_CreateAutomationRuleV2.md "../../1.0/APIReference/API_CreateAutomationRuleV2.md") API or AWS CLI, Security Hub applies the rule with the lowest numerical value for `RuleOrder` first.
+When you create a rule through [CreateAutomationRuleV2](../../1.0/APIReference/API_CreateAutomationRuleV2.md "../../1.0/APIReference/API_CreateAutomationRuleV2.md") API or AWS CLI, Security Hub applies the rule with the lowest numerical value for `RuleOrder` first.
 It then applies subsequent rules in ascending order.
 If multiple findings have the same `RuleOrder`, Security Hub applies a rule with an earlier value for the `UpdatedAt` field first (that is, the rule that was most recently edited applies last).
 
@@ -158,8 +171,8 @@ The following are scenarios where automation rules do not work.
 
 - The standalone account becomes a member of an organization with a delegated admin
 - The organization management account removes the delegated admin and sets a new delegated admin
-- The aggregator configuration for the delegated admin or standalone account changes when an unlinked region is made a linked region
+- The aggregator configuration for the delegated admin or standalone account changes when an unlinked Region is made a linked Region
 
 During these scenarios, a member of an organization can manage automation rules with list, get, and delete operations in the AWS CLI or APIs.
 
-When an unlinked region is made a linked region, the delegated admin or standalone account can manage resources in a linked region with list, get, and delete operations.
+When an unlinked Region is made a linked Region, the delegated admin or standalone account can manage resources in a linked Region with list, get, and delete operations.
