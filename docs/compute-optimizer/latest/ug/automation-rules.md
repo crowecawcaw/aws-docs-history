@@ -92,7 +92,7 @@ Append `IfExists` to any comparison operator (for example, `StringLikeIfExists`)
 
 ### Rule criteria examples
 
-**Example: Include only recommended actions in specific Regions**
+#### Example: Include only recommended actions in specific Regions
 
 The following rule criteria uses `StringEquals` on the **AWS Region** attribute to match recommended actions for resources in `us-east-1` or `us-west-2`. When you specify more than one value for a condition, the values have an OR relationship — a recommended action matches the condition if its attribute value matches any one of the values.
 
@@ -110,7 +110,7 @@ Evaluation:
 | `us-west-2`     | Match    |
 | `eu-west-1`     | No match |
 
-**Example: Include only recommended actions generated with a minimum lookback period**
+#### Example: Include only recommended actions generated with a minimum lookback period
 
 The following rule criteria uses `NumericGreaterThanEquals` on the **Lookback period (days)** attribute to only automate recommended actions where the lookback period used to generate the recommendation is at least 32 days. This lets you require a longer observation window before a recommended action is automated.
 
@@ -127,7 +127,7 @@ Evaluation:
 | `32`            | Match    |
 | `14`            | No match |
 
-**Example: Include recommended actions unless the resource belongs to a specific team**
+#### Example: Include recommended actions unless the resource belongs to a specific team
 
 Consider a platform team that enables Compute Optimizer Automation across many accounts but wants to leave one team's resources out of the rule. The team already tags resources with a `team` tag for other purposes, but not every resource carries it. They want automation applied broadly while excluding any resource tagged `team` = `TeamA`.
 
@@ -147,7 +147,7 @@ Evaluation:
 | The resource has tag `team` = `web`       | Match    | The tag is present and the value does not match `TeamA`.                                 |
 | The resource has tag `team` = `TeamA`     | No match | The tag is present and the value matches `TeamA`, so the recommended action is excluded. |
 
-**Example: Include recommended actions unless the resource has an opt-out tag**
+#### Example: Include recommended actions unless the resource has an opt-out tag
 
 You can let resource owners exclude individual resources from automation by applying a dedicated opt-out tag. In this example, an owner adds the `automation-opt-out` tag to any resource they want to leave out.
 
@@ -167,7 +167,35 @@ Evaluation:
 | The resource has tag `automation-opt-out` = `true`      | No match | The tag is present, and `*` matches any value, so the recommended action is excluded. |
 | The resource has tag `automation-opt-out` = `temporary` | No match | The tag is present, and `*` matches any value, so the recommended action is excluded. |
 
-**Example: Combine multiple criteria**
+#### Example: Exclude recommended actions on infrastructure-as-code (IaC) managed resources
+
+If you manage resources using an infrastructure-as-code (IaC) tool such as CloudFormation or Terraform, you can create an exclusion rule that filters out IaC-managed resources based on resource tags.
+
+##### CloudFormation
+
+Resources managed using CloudFormation have the system tags `aws:cloudformation:stack-id`, `aws:cloudformation:stack-name`, and `aws:cloudformation:logical-id`. You can filter on one of these tags to identify CloudFormation-managed resources. This example filters on `aws:cloudformation:stack-id`.
+
+The following rule criteria uses `StringNotLikeIfExists` on the **Resource tags** attribute, with the tag key `aws:cloudformation:stack-id` and the value `*`. The `*` wildcard matches any value, so any resource that carries the tag is excluded. A recommended action is included when the resource does not have the `aws:cloudformation:stack-id` tag.
+
+Criteria configuration:
+
+| Attribute     | Operator                | Tag key                       | Values |
+| ------------- | ----------------------- | ----------------------------- | ------ |
+| Resource tags | `StringNotLikeIfExists` | `aws:cloudformation:stack-id` | `*`    |
+
+Evaluation:
+
+| Recommended action state                                                                                                                                 | Result   | Explanation                                                                           |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------- |
+| The resource has tag `aws:cloudformation:stack-id` = `arn:aws:cloudformation:us-east-1:123456789012:stack/my-stack/2ac98f30-5bdd-11e4-949b-50fa5262a838` | No match | The tag is present, and `*` matches any value, so the recommended action is excluded. |
+| The resource does not have the `aws:cloudformation:stack-id` tag                                                                                         | Match    | The attribute is absent, and `IfExists` evaluates absent attributes as true.          |
+| The resource has tag `Environment` = `production`, but not the `aws:cloudformation:stack-id` tag                                                         | Match    | The attribute is absent, and `IfExists` evaluates absent attributes as true.          |
+
+##### Terraform
+
+To exclude Terraform-managed resources from automated actions, add a user tag (for example, `ManagedBy` = `terraform`) to those resources in your Terraform configuration. After tagging, you can apply tag-based rule criteria to exclude them, similar to the preceding CloudFormation example.
+
+#### Example: Combine multiple criteria
 
 You can combine multiple criteria to narrow the scope of your rule. All criteria must match for a recommended action to be included in the rule (AND logic).
 
