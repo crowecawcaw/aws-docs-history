@@ -50,8 +50,8 @@ the existing Legacy CUR strictly conforms to the CID requirements:
 - Prefix: You need to have a specific prefix. Ex: **cur/123412341234**. This will help to combine multiple CURs in one place.
 
 When creating a new CUR with CloudFormation you can request a backfill
-of up to 3 years of data via a support case. If you had an existing CUR
-with the required structure and you need more than 3 years of historical
+of up to 14 months of data via a support case. If you had an existing CUR
+with the required structure and you need more than 14 months of historical
 data, please checkout the [Migration Section](#faq-migration "#faq-migration").
 
 By default, you can have up to 10 CUR configurations in parallel.
@@ -150,7 +150,7 @@ setup](deployment-in-global-regions.md#deployment-in-global-regions-deployment "
 - Step 2: [Deploy CFN "CUR aggregation Stack"](deployment-in-global-regions.md#deploy-in-global-regions-create-cur-and-replication "deployment-in-global-regions.md#deploy-in-global-regions-create-cur-and-replication") in all other Linked accounts specifying
   your Data Collection Account as the Destination. Once done you can
   optionally create a Support Case in each Account asking to Backfill the
-  CUR `cid` with historical data (up to 3 years).
+  CUR `cid` with historical data (up to 14 months).
 - Step 3: [Run CFN "All-in-one Dashboards stack"](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard") that will create the Glue Crawler,
   Athena Database, Athena Tables, Quick Sight DataSets and Dashboards.
   (Quick Sight Enterprise must be activated in this account, [Prepare Amazon Quick Sight](deployment-in-global-regions.md#deploy-in-global-regions-prepare-quicksight "deployment-in-global-regions.md#deploy-in-global-regions-prepare-quicksight"))
@@ -223,7 +223,7 @@ restrict access if needed.
    `SourceAccountIds` all additional Management Account Id(s).
 2. In each Management Account (Payer) you need to install
    CID-CUR-Source as described in [step 2 here](deployment-in-global-regions.md "deployment-in-global-regions.md").
-3. In each Management Account request a backfill of CUR with the name `cid` with up to 3 years of historical data via a support case.
+3. In each Management Account request a backfill of CUR with the name `cid` with up to 14 months of historical data via a support case.
    You can expect the CUR to appear 24h after the backfill request
    completed.
 
@@ -682,7 +682,7 @@ We recommend installation from scratch in case you fully lost access to your Qui
 
 **Backup:**
 
-1. Configure cross-region/cross-account replication to DR region/account for S3 CUR and data collection buckets (cid-\*). For CUR you can request backfill for 3 years of data.
+1. Configure cross-region/cross-account replication to DR region/account for S3 CUR and data collection buckets (cid-\*). For CUR you can request backfill for 14 months of data.
 2. Periodically backup your dashboards using [bundles](https://repost.aws/articles/ARNZN2L2L2SomnCShtJaB-qA/amazon-quicksight-asset-deployments-using-assetbundle-export-and-import-apis-private-datasource-guidelines "https://repost.aws/articles/ARNZN2L2L2SomnCShtJaB-qA/amazon-quicksight-asset-deployments-using-assetbundle-export-and-import-apis-private-datasource-guidelines") or using `cid-cmd export`. Both can be used in bash or python. Store artifacts on S3 in DR region/account.
 3. If you use customization of Athena views, they must be backed up as well.
 

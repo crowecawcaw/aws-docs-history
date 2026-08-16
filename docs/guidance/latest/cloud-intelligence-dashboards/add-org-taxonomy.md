@@ -26,7 +26,7 @@ Confirm the relevant rows below before you start:
 
 | If you want to use…​                                                                                              | You need…​                                                                                                                                        |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Any taxonomy method                                                                                               | `cid-cmd` version 4.4.14 or later (`pip3 install -U cid-cmd`)                                                                                     |
+| Any taxonomy method                                                                                               | `cid-cmd` version 4.4.17 or later (`pip3 install -U cid-cmd`)                                                                                     |
 | Account Tags as Cost Allocation Tags (from CUR 2.0), IAM Principal Tags, IAM<br>Principal ARN, or User Attributes | [Data export stack](data-exports.md "data-exports.md")<br>`v0.11.0` or later (includes the *_Tags_<br>• and<br>`line_item_iam_principal` columns) |
 | OU names, OU tags, or hierarchical tag inheritance                                                                | [CID Data Collection](data-collection.md "data-collection.md") deployed                                                                           |
 
@@ -169,7 +169,7 @@ The `cid-cmd map` command automatically generates an `account_map` Athena view w
 
 - For organization\_data mode: [CID Data Collection](data-collection.md "data-collection.md") must be deployed
 - For CSV mode: A CSV file with at minimum an `account_id` column
-- `cid-cmd` version 4.4.14 or later
+- `cid-cmd` version 4.4.17 or later
 
 **Basic usage:**
 
@@ -209,6 +209,10 @@ $ cid-cmd map --file accounts_mapping.csv
 
 The command will guide you through selecting specific tags, OU levels, and file columns to include as taxonomy dimensions, then preview the resulting SQL before creating the view.
 
+The following recording walks through a full `cid-cmd map --file accounts.csv` session in _Both_ mode — combining `organization_data` with a CSV file, selecting OU tags and hierarchy levels, splitting the account name, and creating the `account_map` view.
+
+![cid-cmd map walkthrough](images/images/account-mapper-full-demo.gif)
+
 ```
 CREATE OR REPLACE VIEW "cid_cur"."account_map" AS
 SELECT
@@ -246,7 +250,7 @@ You can also create a similar view manually if you want to tailor it to your spe
 
 ### Static Account Map from CSV
 
-As an alternative to the dynamic account map based on AWS Organizations data, you can create a static account map from a CSV file. This approach is useful when you have a custom mapping maintained in a CMDB or spreadsheet and you want to bring it into the account map.
+As an alternative to the dynamic account map based on AWS Organizations data, you can create a static account map only from a CSV file. This approach is useful when you have a custom mapping maintained in a CMDB or spreadsheet and you want to bring it into the account map.
 
 **Using `cid-cmd map` with CSV file:**
 
@@ -339,7 +343,15 @@ Scanning line_item_iam_principal in cur2_data.
  line_item_iam_principal | 234 distinct values
 ```
 
-You can then select which of these to include as taxonomy dimensions in your dashboards.
+You can then select which of these to include as taxonomy dimensions in your
+dashboards. During selection the choices are grouped by their source (resource
+tags, IAM principal tags, account tags, user attributes, cost categories), so it
+is easy to see where each field comes from.
+
+If the same business dimension (such as `application` or `team`) appears under
+more than one source, you can combine them into a single dashboard field — see
+[Merging multiple sources into a single
+dimension](#add-org-taxonomy-merging-dimensions "#add-org-taxonomy-merging-dimensions").
 
 ### Performance Considerations
 
@@ -350,6 +362,82 @@ Please note that introducing tags with many unique values can significantly expa
 Each tag added to the dashboard increases the cardinality of data and increases the size of aggregated SPICE datasets in Amazon Quick. This architectural decision directly impacts SPICE caching size and performance. We recommend selecting only the minimum necessary tags to satisfy business requirements.
 
 If your Amazon Quick datasets take too long to refresh after configuring the tags, remove all tags (`cid-cmd update --force --recursive -y`) and try re-adding them one by one.
+
+## Merging multiple sources into a single dimension
+
+The same business dimension often arrives from more than one source. For
+example, an `application` value might be set as a resource tag on some
+resources, as an IAM principal tag on others, and be captured only at the
+account level for the rest. Filtering and grouping by three separate
+`application`-like columns is confusing and splits your costs across controls.
+
+Starting with `cid-cmd` version `4.4.17`, you can merge several taxonomy fields
+into a single dashboard dimension. The merged column takes the **first non-empty
+value** from your ordered list of sources, giving you one clean field to filter
+and group by.
+
+The same capability is also a simple way to normalize inconsistent tag keys.
+When one concept was tagged under different spellings — for example
+`application` on some resources and `app` on others — merging those keys into
+one column lets a single filter and Group By cover every resource, regardless of
+which key was used.
+
+![Merging one business dimension from several sources into a single column](images/images/taxonomy-merge-concept.svg)
+
+###### Note
+
+Merging is applied as an Amazon Quick calculated field at the dataset level. It
+does **not** modify any Athena view, and it does not change the underlying tag or
+account map columns — they remain available individually. This also means
+merging adds no data-cardinality cost of its own.
+
+Alternatively, an [AWS Cost Categories](../../../cost-management/latest/userguide/manage-cost-categories.md "../../../cost-management/latest/userguide/manage-cost-categories.md") rule can group several tags into one category upstream of CID; that cost category can then be added to the dashboard like any other taxonomy dimension.
+
+### How the priority works
+
+You choose the source fields in priority order: the first field that has a value
+"wins". Put the most specific or most trusted source first (typically resource
+tags), then fall back to broader sources (account tags or account map columns).
+
+For example, merging `tag_application`, `iam_principal_tag_Application`, and
+`account_tag_application` (in that order) produces one column resolved as:
+
+```
+application_merged = first non-empty of:
+  1. resource tag        tag_application
+  2. IAM principal tag   iam_principal_tag_Application
+  3. account tag         account_tag_application
+```
+
+Both resource-level tag fields and [Account Map](#add-org-taxonomy-account-level-cost-allocation "#add-org-taxonomy-account-level-cost-allocation")
+columns (such as `business_unit` or `cost_center`) can be combined in the same
+merged column.
+
+### Configure interactively during update
+
+Merging is offered automatically while you run
+`cid-cmd update --force --recursive`, right after you select Cost Allocation
+Tags and Cost Categories:
+
+1. When asked **"Merge some of these columns into single dashboard dimensions?"**,
+   answer **yes**.
+2. Select the source fields for one merged column. Choices are grouped by source,
+   and the **selection order sets the priority**.
+3. Accept the suggested column name (derived from the common part of the field
+   names, for example `application_merged`) or enter your own.
+4. Optionally add more merged columns, then finish.
+
+The merged columns then appear — pre-selected — at the top of the
+**"Select taxonomy fields to add as dashboard filters and group by fields"**
+prompt, so they are added to the dashboard when you confirm.
+
+Your merge configuration is remembered between runs (stored alongside the other
+dashboard parameters), so later `cid-cmd update` runs reuse it and simply ask you
+to confirm rather than reconfigure from scratch.
+
+The following recording walks through `cid-cmd update --force --recursive` — selecting cost allocation tags, merging `tag_application`, `iam_principal_tag_Application`, and `account_tag_application` into a single `application_merged` dimension, and adding it to the dashboard as a filter and Group By field.
+
+![Merging taxonomy fields during update](images/images/cid-update-taxonomy-merge-demo.gif)
 
 ## Adding Taxonomy to the Dashboards
 
@@ -419,6 +507,15 @@ Run [update](#add-account-level-resource-level-taxonomy-dimension "#add-account-
 2. Run `cid-cmd update --force --recursive`.
 3. When prompted to select Cost Allocation Tags, choose the `iam_principal_tag_*` or `user_attribute_tag_*` entries.
 
+### The same dimension (e.g. application) comes from several tags or columns. How do I combine them?
+
+Use taxonomy merging to fold them into one dashboard field. When you run
+`cid-cmd update --force --recursive`, answer **yes** to
+**"Merge some of these columns into single dashboard dimensions?"** and pick the
+sources in priority order, or pass `--taxonomy-merges` on the command line. See
+[Merging multiple sources into a single
+dimension](#add-org-taxonomy-merging-dimensions "#add-org-taxonomy-merging-dimensions").
+
 ### After updating and adding tags, the refresh of SPICE datasets times out or shows an error about a resource limitation
 
 Try to [re-update](#add-account-level-resource-level-taxonomy-dimension "#add-account-level-resource-level-taxonomy-dimension") using tags with less cardinality (less unique values).
@@ -456,3 +553,8 @@ Yes. Just [re-update](#add-account-level-resource-level-taxonomy-dimension "#add
 ### Can CloudFormation Template manage this?
 
 As of now you can only use the CID-CMD command line tool to manage taxonomy as it allows choosing values from existing configuration in interactive way.
+
+## Authors
+
+- Yuriy Prykhodko, Principal Technical Account Manager
+- Martin Trost, Senior Technical Account Manager

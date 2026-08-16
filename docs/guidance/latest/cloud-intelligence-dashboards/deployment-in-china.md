@@ -196,7 +196,7 @@ backfill via Support Cases
 ### Step 4 (optional). Request Data Backfill
 
 You can create a Support Case requesting a back-fill of your Cost And
-Usage Report with up to 36 months of historical data. Case must be
+Usage Report with up to 14 months of historical data. Case must be
 created from each of your Source Accounts (typically Management/Payer
 Accounts).
 

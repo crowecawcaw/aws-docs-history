@@ -17,3 +17,4 @@ Advanced Dashboards require [CID Data Collection Stack](data-collection.md "data
 - [ResilienceVue Dashboard](resiliencevue-dashboard.md "resiliencevue-dashboard.md")
 - [Data Collection Monitor](data-collection-monitor.md "data-collection-monitor.md")
 - [Media Services Insights Hub](media-services-insights.md "media-services-insights.md")
+- [Kiro User Activity Dashboard](kiro-user-activity-dashboard.md "kiro-user-activity-dashboard.md")

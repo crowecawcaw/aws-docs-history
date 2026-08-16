@@ -126,7 +126,7 @@ You can now
 [create
 a Support Case](https://support.console.aws.amazon.com/support/home#/case/create "https://support.console.aws.amazon.com/support/home#/case/create"), requesting a
 [backfill](../../../cur/latest/userguide/troubleshooting.md#backfill-data "../../../cur/latest/userguide/troubleshooting.md#backfill-data")
-of your reports (CUR or FOCUS) with up to 36 months of historical data.
+of your reports (CUR or FOCUS) with up to 14 months of historical data.
 Case must be created from each of your Source Accounts (Typically
 Management/Payer Accounts).
 

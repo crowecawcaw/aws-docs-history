@@ -26,7 +26,7 @@ If you already have Data Exports Stack deployed for other dashboards
 (CORA or FOCUS) please just make sure you have CUR2 option activated.
 
 If you do not have Data Exports Stack please install it using
-[this guide](data-exports.md "data-exports.md"). Please do not forget to request a backfill from source accounts for up to 36 months. If you need more than
+[this guide](data-exports.md "data-exports.md"). Please do not forget to request a backfill from source accounts for up to 14 months. If you need more than
 this it can be possible to migrate your Legacy CUR data to the dataset
 that will be close enough to CUR2 schema.
 

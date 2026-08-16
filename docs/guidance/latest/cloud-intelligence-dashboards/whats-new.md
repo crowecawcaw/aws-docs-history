@@ -17,6 +17,63 @@ Subscribe to the RSS feed to get notified about new releases automatically:
 The highlights below cover notable releases from the past year, most recent
 first.
 
+## cid-cmd v4.4.17: merge taxonomy fields and account mapping (August 14, 2026)
+
+- **Merge taxonomy fields into a single dimension** (since v4.4.16) — combine
+  several sources that represent the same business dimension (a resource tag, an
+  IAM principal tag, an account tag, or an `account_map` column) into one
+  dashboard filter and Group By field. The merged column takes the first non-empty
+  value (COALESCE) and is applied as an Amazon Quick calculated field, with no
+  Athena view changes. It is also a simple way to normalize inconsistent tag keys,
+  such as `application` and `app`.
+- **Account mapping with `cid-cmd map`** — build an enriched `account_map` Athena
+  view without writing SQL, from AWS Organizations data (OU hierarchy levels,
+  hierarchical tag inheritance, and account-name splitting), a CSV file (such as a
+  CMDB export or spreadsheet), or both. Select which columns become taxonomy
+  dimensions.
+
+See [Add organizational taxonomy](add-org-taxonomy.md "add-org-taxonomy.md").
+
+View the [GitHub releases](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/releases "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/releases").
+
+## Kiro User Activity Dashboard v1.0.0: new dashboard and data collection module (August 12, 2026)
+
+A new dashboard that gives you visibility into Kiro adoption, usage, and credit
+consumption across your organization, helping you track engagement and manage
+subscription costs.
+
+- **Executive summary** — active users, messages, and credits (including
+  overage), daily active users by client type, and a daily credit consumption
+  trend.
+- **User engagement and overage tracking** — top users by message count, per-user
+  daily activity, and a per-user overage table with plan credits, caps, and
+  utilization percentages.
+- **Client type breakdown** — daily messages and metrics across IDE, CLI, and
+  Plugin clients, with built-in credit allocations for the Free, Pro, Pro+, and
+  Power tiers.
+- **New data collection module** — the `kiro-user-activity` module in the CID
+  Data Collection framework (v3.14.7) collects Kiro user activity data with
+  support for cross-account collection.
+
+See the [Kiro User Activity Dashboard](kiro-user-activity-dashboard.md "kiro-user-activity-dashboard.md").
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-kiro-user-activity.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-kiro-user-activity.md").
+
+## CUDOS Dashboard v5.9.0: Amazon Bedrock token usage and prompt caching insights (August 12, 2026)
+
+- **Amazon Bedrock token consumption** — new "Tokens Usage per Usage Type Group"
+  visual to monitor how tokens are consumed.
+- **Prompt caching efficiency** — new "Tokens Cache Read and Cache Write Ratio"
+  visual to track how effectively prompt caching is used.
+- **Cost per million tokens fix** — corrected the "Cost per Million Tokens"
+  calculation to account for the change in pricing unit in the CUR.
+- **Total EBS fix** — the period-over-period visual now correctly compares the
+  previous month against the current month.
+
+See the [CUDOS Dashboard](cudos-cid-kpi.md#foundational-cudos-dashboard "cudos-cid-kpi.md#foundational-cudos-dashboard").
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-cudos.md#cudos---590 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-cudos.md#cudos---590").
+
 ## CID Data Collection v3.14.6: Identity Center module, new regions (July 23, 2026)
 
 - **New IAM Identity Center module** — collects Identity Center users and groups,
