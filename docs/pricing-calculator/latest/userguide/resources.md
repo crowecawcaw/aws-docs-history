@@ -12,7 +12,6 @@ service.
   Frequently Asked Questions](https://aws.amazon.com/calculator/calculator-faq/ "https://aws.amazon.com/calculator/calculator-faq/")** – Explore the FAQs
   that are listed in the AWS Marketing pages
 - **[AWS Pricing Calculator pricing assumptions](https://aws.amazon.com/calculator/calculator-assumptions/ "https://aws.amazon.com/calculator/calculator-assumptions/") –** Understand the disclaimers for AWS Pricing Calculator prices.
-- **[AWS IQ](https://aws.amazon.com/iq/?ref=c_pc "https://aws.amazon.com/iq/?ref=c_pc") –** Connect with AWS certified experts on AWS IQ to get help with your estimations.
 - **[Amazon Elastic Compute Cloud
   documentation](https://aws.amazon.com/documentation/ec2/?id=docs_gateway "https://aws.amazon.com/documentation/ec2/?id=docs_gateway")** – Provides the documentation for
   using Amazon Elastic Compute Cloud (Amazon EC2).
