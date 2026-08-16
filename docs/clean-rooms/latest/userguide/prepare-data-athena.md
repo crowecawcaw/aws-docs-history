@@ -6,13 +6,21 @@ Amazon Athena.
 A GDC View is a virtual table, created from one or more underlying AWS Glue tables. It
 must be created using Athena SQL in the Athena `AwsGlueCatalog` catalog.
 
+###### Note
+
+Complex (nested) data types—ARRAY, MAP, and STRUCT—are not supported for
+Amazon Athena data sources in AWS Clean Rooms. If an underlying AWS Glue table or GDC View contains a
+column of a complex data type, queries fail during table setup. This occurs even
+when the query doesn't reference that column. To work around this limitation, create
+a GDC View that excludes the complex-typed columns, or cast them to a supported type
+such as STRING.
+
 Preparing your data tables in Amazon Athena involves the following steps:
 
 ###### Topics
 
 - [Step 1: Complete the prerequisites](#prepare-data-athena-prereq "#prepare-data-athena-prereq")
-- [Step 2: (Optional) Prepare your data for cryptographic computing](#prepare-data-athena-encrypt "#prepare-data-athena-encrypt")
-- [Step 3: Next steps](#prepare-data-athena-next "#prepare-data-athena-next")
+- [Step 2: Next steps](#prepare-data-athena-next "#prepare-data-athena-next")
 
 ## Step 1: Complete the prerequisites
 
@@ -53,15 +61,7 @@ Hive Catalog Types.
   - The service role has Lake Formation Select and Describe access permissions
     on the GDC View or table.
 
-## Step 2: (Optional) Prepare your data for cryptographic computing
-
-(Optional) If you're using cryptographic computing and your data table contains
-sensitive information that you want to encrypt, you must encrypt the data table
-using the C3R encryption client.
-
-To prepare your data for cryptographic computing, follow the procedures in [Preparing encrypted data tables with Cryptographic Computing for Clean Rooms](prepare-encrypted-data.md "prepare-encrypted-data.md").
-
-## Step 3: Next steps
+## Step 2: Next steps
 
 Now that you have prepared your data tables in Amazon Athena, you are ready to:
 

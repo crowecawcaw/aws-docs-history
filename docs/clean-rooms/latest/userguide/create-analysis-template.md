@@ -6,7 +6,7 @@ values.
 
 Analysis templates are collaboration-specific. For each collaboration, members can only see
 the queries in that collaboration. If you plan to use differential privacy in a collaboration,
-you should make sure that your analysis templates are compatible with the [general-purpose query structure](analysis-rules-custom.md#dp-query-structure-syntax "analysis-rules-custom.md#dp-query-structure-syntax") of AWS Clean Rooms
+you should make sure that your analysis templates are compatible with the [general-purpose query structure](custom-diff-privacy.md#dp-query-structure-syntax "custom-diff-privacy.md#dp-query-structure-syntax") of AWS Clean Rooms
 Differential Privacy.
 
 You can create an analysis template in two ways: using SQL code or using Python code for

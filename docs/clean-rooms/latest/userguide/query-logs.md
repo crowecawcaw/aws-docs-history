@@ -8,6 +8,11 @@ With query logs and job logs, members can determine if the queries comply with t
 rules and align with the collaboration agreement. In addition, query logs help support
 audits.
 
+AWS Clean Rooms records an event in the same log group for every log export. You receive this event if
+you ran the query, or if you contributed a table that the query referenced. The event shows who
+requested the export, which query the export was requested for, the destination in Amazon S3, and
+whether the request succeeded. For more information about exporting logs, see [Exporting query analysis logs](export-analysis-logs.md "export-analysis-logs.md").
+
 When the **Analysis logging** option is turned on in the AWS Clean Rooms console, the
 query logs include the following:
 

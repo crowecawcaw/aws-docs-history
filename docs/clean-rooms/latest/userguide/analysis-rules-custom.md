@@ -34,36 +34,56 @@ query directly on the configured table. Query providers could also create querie
 been created by the query providers are automatically allowed to run on the table in all
 collaborations in which the AWS account is present and the table is associated.
 
-Data owners can only allow analysis templates or accounts to create queries, not both. If
-the data owner leaves it empty, the member who can query can't run queries on the configured
-table.
+This page contains the following sections:
 
-###### Disallowed output columns query constraint and CACHE TABLE
+- [Custom analysis rule structure](#custom-predefined-structure "#custom-predefined-structure")
+- [Custom analysis rule example with analysis templates](#custom-example "#custom-example")
+- [Custom analysis rule example with minimum aggregation thresholds](#custom-example-min-agg "#custom-example-min-agg")
+- [Custom analysis rule example with minimum aggregation thresholds and comparison controls](#custom-example-min-agg-comparison "#custom-example-min-agg-comparison")
+- [Putting it all together](#custom-complete-example "#custom-complete-example")
+  The custom analysis rule supports the following privacy-enhancing controls:
 
-The [disallowed output columns constraint](disallowed-columns.md "disallowed-columns.md") in the custom analysis rule is enforced on
-cached tables. A cached table cannot reference a disallowed output column in its SELECT
-clause. To use a column with a disallowed output column constraint in a subsequent part of
-your query, convert the cached table to a common table expression (CTE).
+- [Allowed analyses](custom-allowed-analyses.md "custom-allowed-analyses.md")
+- [Disallowed output columns](disallowed-output-columns.md "disallowed-output-columns.md")
+- [Minimum aggregation thresholds](custom-min-agg-thresholds.md "custom-min-agg-thresholds.md")
+- [Comparison controls](custom-comparison-controls.md "custom-comparison-controls.md")
+- [Custom analysis rule with differential privacy](custom-diff-privacy.md "custom-diff-privacy.md")
+- [Considerations and limitations](custom-considerations.md "custom-considerations.md")
+- [SQL capabilities for minimum aggregation and comparison controls](custom-sql-capabilities.md "custom-sql-capabilities.md")
 
-###### Topics
+## Custom analysis rule structure
 
-- [Custom analysis rule predefined structure](#custom-predefined-structure "#custom-predefined-structure")
-- [Custom analysis rule example](#custom-example "#custom-example")
-- [Custom analysis rule with differential privacy](#custom-diff-privacy "#custom-diff-privacy")
-
-## Custom analysis rule predefined structure
-
-The following example includes a predefined structure that shows you how to complete a
-custom analysis rule with differential privacy turned on. The `userIdentifier`
-value is the column that uniquely identifies your users, such as _user\_id_.
-When you have two or more tables with differential privacy turned on in a collaboration, AWS Clean Rooms
-requires you to configure the same column as the user identifier column in both of the
-analysis rules to maintain a consistent definition of the users across tables.
+The following predefined structure shows the available controls in a custom analysis rule.
+Include only the controls you need for your use case. The `userIdentifier` value
+in the `differentialPrivacy` control is the column that uniquely identifies your
+users, such as _user\_id_. When you have two or more tables with
+differential privacy turned on in a collaboration, AWS Clean Rooms requires you to configure the same
+column as the user identifier column in both analysis rules. This maintains a consistent
+definition of the users across tables.
 
 ```
 {
   "allowedAnalyses": ["ANY_QUERY"] | string[],
   "allowedAnalysisProviders": [],
+  "disallowedOutputColumns": [],
+  "aggregationThresholds": [
+    {
+      "identityColumns": [],
+      "minimumIdentityCount": number,
+      "type": "COUNT_DISTINCT",
+      "allowedAggregateExpressionType": "COLUMNS_ONLY" | "ANY_EXPRESSION",
+      "outputColumnThresholds": [
+        {
+          "outputColumnName": string,
+          "minimumIdentityCount": number
+        }
+      ]
+    }
+  ],
+  "comparisonControls": {
+    "allowedLiteralComparisonColumns": [],
+    "allowedColumnComparisonColumns": []
+  },
   "differentialPrivacy": {
     "columns": [
       {
@@ -95,7 +115,79 @@ You can either:
 }
 ```
 
-## Custom analysis rule example
+You can also configure any of the following controls:
+
+- The columns you do not allow to be projected in the query result. For more
+  information, see [Disallowed output columns](disallowed-output-columns.md "disallowed-output-columns.md").
+
+```
+{
+  disallowedOutputColumns: string[]
+}
+```
+
+- A minimum aggregation threshold that requires each result row to represent at least a
+  minimum number of distinct data subjects. You can override the threshold for individual
+  output columns through `outputColumnThresholds`, and
+  `allowedAggregateExpressionType` controls whether expressions are permitted
+  inside aggregate functions. For more information, see [Minimum aggregation thresholds](custom-min-agg-thresholds.md "custom-min-agg-thresholds.md"), [Overriding the minimum aggregation threshold for specific output columns](custom-min-agg-thresholds.md#custom-min-agg-output-override "custom-min-agg-thresholds.md#custom-min-agg-output-override"), and [Allowing nested expressions in aggregate functions](custom-min-agg-thresholds.md#custom-min-agg-nested-expressions "custom-min-agg-thresholds.md#custom-min-agg-nested-expressions").
+
+```
+{
+  aggregationThresholds: [
+    {
+      identityColumns: string[],
+      minimumIdentityCount: number,
+      type: "COUNT_DISTINCT",
+      allowedAggregateExpressionType: "COLUMNS_ONLY" | "ANY_EXPRESSION",
+      outputColumnThresholds: [
+        {
+          outputColumnName: string,
+          minimumIdentityCount: number
+        }
+      ]
+    }
+  ]
+}
+```
+
+- Comparison controls that define which columns can be compared to a literal value and
+  which can be compared to another column. For more information, see [Comparison controls](custom-comparison-controls.md "custom-comparison-controls.md").
+
+```
+{
+  comparisonControls: {
+    allowedLiteralComparisonColumns: string[],
+    allowedColumnComparisonColumns: string[]
+  }
+}
+```
+
+- A differential privacy configuration that protects the table by identifying the
+  user identifier column. For more information, see [AWS Clean Rooms Differential Privacy](differential-privacy.md#dp-overview "differential-privacy.md#dp-overview").
+
+```
+{
+  differentialPrivacy: {
+    columns: [
+      {
+        name: string
+      }
+    ]
+  }
+}
+```
+
+Configuring minimum aggregation thresholds together with comparison controls is the
+recommended configuration. A threshold on its own still leaves low-cardinality or
+quasi-identifying columns comparable, which can narrow results in unintended ways.
+
+Comparison controls are worth configuring when your table contains low-cardinality or
+quasi-identifying columns — such as postal code or age band — or when the query runner is
+not fully trusted. For a worked example that shows both controls configured together, see
+[Custom analysis rule example with minimum aggregation thresholds and comparison controls](#custom-example-min-agg-comparison "#custom-example-min-agg-comparison").
+
+## Custom analysis rule example with analysis templates
 
 The following example demonstrates how two companies can collaborate in AWS Clean Rooms using
 the custom analysis rule.
@@ -195,94 +287,202 @@ following:
 14. Company A runs the analysis template and uses the parameter value
     `05-01-2023`.
 
-## Custom analysis rule with differential privacy
+## Custom analysis rule example with minimum aggregation thresholds
 
-In AWS Clean Rooms, the custom analysis rule supports differential privacy. Differential privacy
-is a mathematically-rigorous framework for data privacy protection that helps you protect your
-data against re-identification attempts.
+The following example demonstrates how two companies can collaborate in AWS Clean Rooms using
+the custom analysis rule with minimum aggregation thresholds instead of reviewing individual
+analysis templates.
 
-Differential privacy supports aggregate analysis such as ad campaign planning,
-post-ad-campaign measurement, benchmarking in a financial institution consortium, and A/B
-testing for healthcare research.
+Company A is a publisher with an `impressions` table containing
+`user_id`, `campaign_id`, and `event_date`. Company B is an
+advertiser that wants to measure campaign reach — the number of distinct users who saw a given
+campaign. Company A wants to make sure no query result can reveal individuals or small groups,
+so it uses minimum aggregation thresholds rather than reviewing individual analysis
+templates.
 
-The supported query structure and syntax are defined in [Query structure and syntax](#dp-query-structure-syntax "#dp-query-structure-syntax").
+To create a collaboration and run a custom analysis, the companies do the
+following:
 
-### Custom analysis rule with differential privacy example
-
-###### Note
-
-AWS Clean Rooms Differential Privacy is only available for collaborations where the data is stored in Amazon S3.
-
-Consider the [custom
-analysis rule example](#custom-example "#custom-example") presented in the previous section. This example demonstrates
-how you can use differential privacy to protect your data against re-identification attempts
-while allowing your partner to learn business-critical insights from your data. Assume that
-Company B, who has the viewership data, wants to protect their data using differential
-privacy. To complete the differential privacy setup, Company B completes the following
-steps:
-
-1. Company B turns on differential privacy while adding custom analysis rule to the
-   viewership configured table. Company B selects `viewershipdata.hashedemail`
-   as the user identifier column.
-2. Company B [adds a differential privacy
-   policy](configure-differential-privacy.md "configure-differential-privacy.md") in the collaboration to make their viewership data table available for
-   querying. Company B selects the default policy to quickly complete the setup.
-
-Company A, who wants to understand the sales incrementality of an advertising campaign
-on Company B's site, runs the analysis template. Because the query is compatible with the
-general-purpose [query structure](#dp-query-structure-syntax "#dp-query-structure-syntax") of AWS Clean Rooms Differential
-Privacy, the query runs successfully.
-
-### Query structure and syntax
-
-Queries containing at least one table that have the differential privacy turned on must
-adhere to the following syntax.
+1. Company A creates a collaboration with Company B as another member and as the member
+   who can query. Company A enables query logging in the collaboration and in its
+   account.
+2. Company B creates a membership in the collaboration and enables query logging in its
+   account.
+3. Company A creates an `impressions` configured table.
+4. Company A adds a custom analysis rule to the `impressions` configured table
+   with a minimum aggregation threshold so that every returned row represents at least 100
+   distinct users. Company A sets `user_id` as the identity column and overrides the
+   threshold to 5 for the lower-sensitivity `campaign_id` output column. Company A
+   also allows literal comparison on `campaign_id` and `event_date` so
+   that Company B can scope a query to one campaign and a date range. Every column that
+   appears in a literal comparison must be in the allowlist. Finally, Company A adds
+   Company B's account to the allowed analysis providers control so Company B can run
+   queries without per-template review.
 
 ```
-query_statement:
-    [cte, ...] final_select
-
- cte:
-    WITH sub_query AS (
-       inner_select
-       [ UNION | INTERSECT | UNION_ALL | EXCEPT/MINUS ]
-       [ inner_select ]
-    )
-
- inner_select:
-     SELECT [user_id_column, ] expression [, ...]
-     FROM table_reference [, ...]
-     [ WHERE condition ]
-     [ GROUP BY user_id_column[, expression] [, ...] ]
-     [ HAVING condition ]
-
- final_select:
-     SELECT [expression, ...] | COUNT | COUNT_DISTINCT | SUM | AVG | STDDEV
-     FROM table_reference [, ...]
-     [ WHERE condition ]
-     [ GROUP BY expression [, ...] ]
-     [ HAVING COUNT | COUNT_DISTINCT | SUM | AVG | STDDEV | condition ]
-     [ ORDER BY column_list ASC | DESC ]
-     [ OFFSET literal ]
-     [ LIMIT literal ]
-
- expression:
-    column_name [, ...] | expression AS alias | aggregation_functions | window_functions_on_user_id | scalar_function | CASE | column_name math_expression [, expression]
-
- window_functions_on_user_id:
-    function () OVER (PARTITION BY user_id_column, [column_name] [ORDER BY column_list ASC|DESC])
+{
+  "aggregationThresholds": [
+    {
+      "identityColumns": [
+        "user_id"
+      ],
+      "minimumIdentityCount": 100,
+      "type": "COUNT_DISTINCT",
+      "allowedAggregateExpressionType": "COLUMNS_ONLY",
+      "outputColumnThresholds": [
+        {
+          "outputColumnName": "campaign_id",
+          "minimumIdentityCount": 5
+        }
+      ]
+    }
+  ],
+  "comparisonControls": {
+    "allowedLiteralComparisonColumns": [
+      "campaign_id",
+      "event_date"
+    ]
+  },
+  "allowedAnalyses": [
+    "ANY_QUERY"
+  ],
+  "allowedAnalysisProviders": [
+    "444455556666"
+  ]
+}
 ```
 
-###### Note
+5. Company A associates the `impressions` configured table to the
+   collaboration.
+6. Company B runs a reach query grouped by `event_date` and filtered to a
+   campaign:
 
-For differential privacy query structure and syntax, be aware of the following:
+```
+SELECT event_date, COUNT(DISTINCT user_id) AS reach
+FROM impressions
+WHERE event_date >= '2026-01-01' AND campaign_id = 'Holiday Promotion'
+GROUP BY event_date;
+```
 
-- Sub-queries are not supported.
-- Common Table Expressions (CTEs) should emit the user identifier column if a table
-  or CTE involve data protected by differential privacy. Filters, groupings, and
-  aggregations should be done at the user level.
-- Final\_select allows COUNT DISTINCT, COUNT, SUM, AVG, and STDDEV aggregate
-  functions.
+7. AWS Clean Rooms returns only the rows backed by at least 100 distinct users and suppresses the
+   rest, so Company B learns daily reach for the Holiday Promotion campaign without learning
+   about any individual or small group.
 
-For
-more details about which SQL keywords are supported for differential privacy, see [SQL capabilities of AWS Clean Rooms Differential Privacy](dp-sql-capabilities.md "dp-sql-capabilities.md").
+| `event_date` | `reach` |
+| ------------ | ------- |
+| 2026-01-01   | 142     |
+| 2026-01-02   | 118     |
+| 2026-01-04   | 103     |
+
+The date `2026-01-03` does not appear in the results because fewer than
+100 distinct users saw the campaign that day, so AWS Clean Rooms suppressed that row.
+
+The key difference from the analysis-templates approach is that Company A never reviewed a
+specific query. Instead, Company A relies on the threshold to constrain what any query can
+return. For more information, see [Minimum aggregation thresholds](custom-min-agg-thresholds.md "custom-min-agg-thresholds.md") and [Comparison controls](custom-comparison-controls.md "custom-comparison-controls.md").
+
+## Custom analysis rule example with minimum aggregation thresholds and comparison controls
+
+Configuring minimum aggregation thresholds together with comparison controls is the
+recommended baseline configuration. A threshold alone ensures that every result row represents
+a minimum number of distinct data subjects, but it does not prevent comparisons on
+low-cardinality or quasi-identifying columns. Without comparison controls, a query runner can
+still filter or join on those columns, potentially narrowing results in unintended ways.
+
+Comparison controls are worth configuring when your table contains low-cardinality or
+quasi-identifying columns — such as postal code or age band — or when the query runner is not
+fully trusted. Adding comparison controls restricts which columns can appear in literal
+comparisons and column-to-column comparisons, closing the gap that a threshold alone leaves
+open.
+
+The following configuration combines both controls:
+
+```
+{
+  "aggregationThresholds": [
+    {
+      "identityColumns": [
+        "user_id"
+      ],
+      "minimumIdentityCount": 100,
+      "type": "COUNT_DISTINCT",
+      "allowedAggregateExpressionType": "COLUMNS_ONLY"
+    }
+  ],
+  "comparisonControls": {
+    "allowedLiteralComparisonColumns": [
+      "campaign_id"
+    ],
+    "allowedColumnComparisonColumns": [
+      "user_id"
+    ]
+  },
+  "allowedAnalyses": [
+    "ANY_QUERY"
+  ],
+  "allowedAnalysisProviders": [
+    "444455556666"
+  ]
+}
+```
+
+With this configuration, every result row represents at least 100 distinct data subjects.
+The query runner can filter by `campaign_id` using literal comparisons and join on
+`user_id` using column-to-column comparisons. Because the comparison allowlists are
+set, any column not listed — including low-cardinality columns such as postal code or age
+band — cannot be used in a comparison at all.
+
+For more information about each control, see [Minimum aggregation thresholds](custom-min-agg-thresholds.md "custom-min-agg-thresholds.md") and [Comparison controls](custom-comparison-controls.md "custom-comparison-controls.md"). For a fuller configuration that also includes
+disallowed output columns, see [Putting it all together](#custom-complete-example "#custom-complete-example").
+
+## Putting it all together
+
+The following example shows a complete configuration of the custom analysis rule type,
+using disallowed output columns, minimum aggregation thresholds, and comparison controls.
+This configuration enforces minimum aggregation of 100 distinct data subjects, prevents
+`user_id` from being projected in the query result, and allows the query runner to
+analyze the intersection of customers joining on the `user_id` column.
+
+This policy also grants additional flexibility by allowing literal comparison filtering on
+low-sensitivity columns `status` and `price`, and overrides the minimum
+aggregation threshold to 5 for the `campaign_id` column:
+
+```
+{
+  "disallowedOutputColumns": [
+    "user_id"
+  ],
+  "comparisonControls": {
+    "allowedLiteralComparisonColumns": [
+      "status",
+      "price"
+    ],
+    "allowedColumnComparisonColumns": [
+      "user_id"
+    ]
+  },
+  "aggregationThresholds": [
+    {
+      "identityColumns": [
+        "user_id"
+      ],
+      "minimumIdentityCount": 100,
+      "type": "COUNT_DISTINCT",
+      "allowedAggregateExpressionType": "COLUMNS_ONLY",
+      "outputColumnThresholds": [
+        {
+          "outputColumnName": "campaign_id",
+          "minimumIdentityCount": 5
+        }
+      ]
+    }
+  ],
+  "allowedAnalyses": [
+    "ANY_QUERY"
+  ],
+  "allowedAnalysisProviders": [
+    "444455556666",
+    "333366669999"
+  ]
+}
+```

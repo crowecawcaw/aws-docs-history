@@ -22,7 +22,7 @@ returns the results that comply with the defined analysis rules.
 AWS Clean Rooms supports SQL queries that can be different than other query engines. For
 specifications, see the [AWS Clean Rooms SQL Reference](../sql-reference/sql-reference.md "../sql-reference/sql-reference.md"). If you want to run queries on data tables
 protected with differential privacy, you should ensure that your queries are compatible with
-the [general-purpose query structure](analysis-rules-custom.md#dp-query-structure-syntax "analysis-rules-custom.md#dp-query-structure-syntax") of AWS Clean Rooms
+the [general-purpose query structure](custom-diff-privacy.md#dp-query-structure-syntax "custom-diff-privacy.md#dp-query-structure-syntax") of AWS Clean Rooms
 Differential Privacy.
 
 ###### Note
@@ -99,3 +99,4 @@ console.
 - [Viewing the impact of differential privacy](query-data-with-diff-privacy.md "query-data-with-diff-privacy.md")
 - [Viewing recent queries](view-queries-console.md "view-queries-console.md")
 - [Viewing query details](view-query-details.md "view-query-details.md")
+- [Exporting query analysis logs](export-analysis-logs.md "export-analysis-logs.md")
