@@ -103,6 +103,42 @@ JSON
 4. In the navigation pane, choose **Roles**, and then choose
    **Create role**.
 5. For **Select trusted entity**, choose **Custom trust policy** and then enter the following JSON policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "GivePermissionsToServiceCatalog",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "servicecatalog.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ },
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::123456789012:root"
+ },
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "ArnLike": {
+ "aws:PrincipalArn": [
+ "arn:aws:iam::123456789012:role/TerraformEngine/TerraformExecutionRole*",
+ "arn:aws:iam::123456789012:role/TerraformEngine/ServiceCatalogExternalParameterParserRole*",
+ "arn:aws:iam::123456789012:role/TerraformEngine/ServiceCatalogTerraformOSParameterParserRole*"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 6. Choose **Next**.
 7. In the **Policies** list, select the
    `S3ResourceCreationAndArtifactAccessPolicy` you just created.
