@@ -12,4 +12,4 @@ Consider an administrator setting up an Agent Space to assess the security of an
 - Connect to GitHub and enable code review
 - Configure network access by assigning an appropriate VPC, subnet, and security group for penetration testing
 
-When users initiate a penetration test or design review, they can select from these pre-configured resources, working within the guardrails you’ve defined while maintaining flexibility for their specific assessment needs.
+These pre-configured resources become the options available for penetration tests and code reviews in the Agent Space. Your guardrails apply to every assessment, and each one still has flexibility for its specific needs.

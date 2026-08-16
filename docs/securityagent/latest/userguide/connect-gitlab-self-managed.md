@@ -99,5 +99,7 @@ In addition to the troubleshooting steps in [Connect AWS Security Agent to GitLa
 After connecting GitLab Self-Managed to AWS Security Agent:
 
 - Navigate to the Agent Space where you want to use these repositories
-- Choose **Enable code review** or **Setup penetration testing** to connect specific projects
-- Enable **Code remediation** for merge request-based fixes
+- Choose **Enable code review** or **Setup penetration testing** to connect specific projects (see [Enable code review](enable-code-review-scan.md "enable-code-review-scan.md") and [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md"))
+- Enable **Code review comments** to have AWS Security Agent analyze each merge request and post findings in GitLab (see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md"))
+- Enable **Code remediation** for merge request-based fixes (see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md"))
+- Create threat models from connected projects in the web application (see [Enable threat modeling](enable-threat-model.md "enable-threat-model.md"))

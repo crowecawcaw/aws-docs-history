@@ -55,6 +55,8 @@ Access detailed logs of all actions AWS Security Agent executed during the penet
    - **Testing Summary** – High-level summary of the agent actions and results
    - **Penetration test logs** – Detailed logs of all testing activities
 
+Each task reports its own duration and task hours. For more information, see [Pricing and billing](pricing.md "pricing.md").
+
 ###### Note
 
 Validator actions provide logs that validate findings in each category
@@ -263,7 +265,8 @@ After reviewing your penetration test findings:
 - Create tracking tickets in your issue management system with links to finding details and evidence
 - Implement fixes and security controls to address identified vulnerabilities
 - Monitor the penetration test run progress indicator for newly discovered vulnerabilities
-- Schedule a follow-up penetration test to verify that vulnerabilities have been properly remediated
+- Revalidate a finding after you deploy a fix to confirm whether it is still exploitable. See [Revalidate penetration test findings](revalidate-findings.md "revalidate-findings.md").
+- Schedule a follow-up penetration test to verify that broader changes have not introduced new vulnerabilities
 - Update your application security testing process and threat model based on findings
 - Review CVSS metrics to understand your application’s overall security posture
 

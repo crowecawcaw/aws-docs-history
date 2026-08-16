@@ -4,7 +4,7 @@ Organize the security requirements that AWS Security Agent uses to analyze your 
 
 ## Overview
 
-A security requirement defines a security standard or policy that AWS Security Agent evaluates your application against during design reviews and code reviews. When a design or code does not meet a requirement, AWS Security Agent reports a finding. Every security requirement belongs to a security requirement pack. Security requirements are shared across all Agent Spaces and evaluated during design and code reviews.
+A security requirement defines a security standard or policy that AWS Security Agent evaluates your application against during design reviews and code reviews. Code reviews include full scans of your entire codebase and differential (diff) scans of only the changed code. When a design or code does not meet a requirement, AWS Security Agent reports a finding. Every security requirement belongs to a security requirement pack and is shared across all Agent Spaces.
 
 AWS Security Agent provides two types of packs, shown on separate tabs:
 

@@ -332,6 +332,24 @@ To manage resources:
 
 You can sort the table by Name or Type by clicking the column headers. This helps organize resources when working with many files.
 
+## Set a maximum task-hours limit
+
+Limit how much work AWS Security Agent performs for a penetration test by setting a maximum number of task hours. Task hours measure the cumulative time the agent spends actively working on the test, including time across parallel testing. Task hours are not the same as elapsed wall-clock time, because AWS Security Agent runs multiple tasks at once. Total task hours is also the unit that AWS Security Agent bills for a run, so setting a limit caps how much a test can cost. The smallest limit you can set is 20 hours.
+
+1. (Optional) In the **Max task hours** section, choose a limit:
+
+   - Choose a preset value, such as **20** or **30** hours.
+   - Choose **No limit** to run the test to completion without a task-hours limit.
+   - Choose **Custom** to enter your own value. A custom limit must be at least 20 hours.
+
+###### Tip
+
+For larger applications, or to get the most complete results, set a higher limit such as **30** hours or more. AWS Security Agent bills only for the task hours a run actually uses, so a higher limit does not increase cost unless the test needs the extra time.
+
+###### Note
+
+When a test reaches its maximum task hours, AWS Security Agent stops working on the test and keeps the findings already discovered. The run finishes with a status of **Completed**. You can review these findings or create and run a new test.
+
 ## Create the penetration test
 
 Finalize and launch your penetration test configuration.
@@ -356,4 +374,4 @@ Before running a penetration test, verify that:
 
 ###### Note
 
-After the penetration test starts, you can monitor its progress from the **Penetration test runs** section. The test can take several hours to complete. Most complete within 16 hours, depending on the scope and complexity of your application.
+After the penetration test starts, you can monitor its progress from the **Penetration test runs** section. The test can take several hours to complete, depending on the scope and complexity of your application. If you set a maximum task-hours limit, AWS Security Agent stops the test when it reaches that limit. AWS Security Agent preserves the findings discovered so far.

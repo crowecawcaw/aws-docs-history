@@ -140,6 +140,8 @@ On GitLab.com, group access tokens are available only with a Premium or Ultimate
 After connecting GitLab to AWS Security Agent:
 
 - Navigate to the Agent Space where you want to use these repositories
-- Choose **Enable code review** or **Setup penetration testing** to connect specific projects to your Agent Space and configure their usage
-- Enable **Code remediation** to allow AWS Security Agent to submit merge requests with vulnerability fixes
+- Choose **Enable code review** or **Setup penetration testing** to connect specific projects to your Agent Space and configure their usage (see [Enable code review](enable-code-review-scan.md "enable-code-review-scan.md") and [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md"))
+- Enable **Code review comments** to have AWS Security Agent analyze each merge request and post findings in GitLab (see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md"))
+- Enable **Code remediation** to allow AWS Security Agent to submit merge requests with vulnerability fixes (see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md"))
+- Create threat models from connected projects in the web application (see [Enable threat modeling](enable-threat-model.md "enable-threat-model.md"))
 - For privately hosted GitLab instances, see [Connect AWS Security Agent to GitLab Self-Managed](connect-gitlab-self-managed.md "connect-gitlab-self-managed.md")

@@ -15,7 +15,7 @@ A single registration is reused across every Agent Space in your account. If you
 
 When you connect a resource to an Agent Space, that resource is shared across the agent’s capabilities. You do not connect a repository separately for each capability.
 
-- **Read access is granted by connecting the resource.** Connecting a repository lets AWS Security Agent read it for full code scans (code review), penetration testing context, threat modeling, and design review. Connecting a Confluence page lets the agent read it for documentation context in design reviews, threat modeling, and penetration tests.
+- **Read access is granted by connecting the resource.** When you connect a repository, AWS Security Agent can read it for full code scans (code review), penetration testing context, and threat modeling. When you connect a Confluence page, AWS Security Agent can read it for documentation context in design reviews, threat modeling, and penetration tests.
 - **Write actions are opt-in, per repository.** When you connect source code repositories to an Agent Space, you can additionally enable write actions for each repository:
 
   - **Code review comments** - AWS Security Agent posts review findings as comments on pull requests (or merge requests in GitLab).

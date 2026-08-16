@@ -153,18 +153,22 @@ Create a separate forwarding rule for each credential that uses email MFA. The g
 
 Your email provider must forward to an address without verifying it first. Some providers send a verification message to the destination address and require you to open a link in that message before forwarding begins. AWS Security Agent manages the MFA forwarding address, and you cannot read the messages sent to it, so you cannot complete verification.
 
-The following providers support forwarding to the MFA forwarding address:
+The following providers support automatic forwarding to the MFA forwarding address:
 
 - **Microsoft 365 and Outlook** - Create an inbox rule that forwards or redirects matching messages. For more information, see [Use rules to automatically forward messages](https://support.microsoft.com/en-us/office/use-rules-to-automatically-forward-messages-45aa9664-4911-4f96-9663-ece42816d746 "https://support.microsoft.com/en-us/office/use-rules-to-automatically-forward-messages-45aa9664-4911-4f96-9663-ece42816d746") in the Microsoft documentation.
 - **iCloud Mail** - In Mail on iCloud.com, create a rule that forwards matching messages. Each rule forwards to one address. For more information, see [Automatically forward email in Mail on iCloud.com](https://support.apple.com/guide/icloud/automatically-forward-email-mm6b1a3960/icloud "https://support.apple.com/guide/icloud/automatically-forward-email-mm6b1a3960/icloud") in the iCloud User Guide.
 - **Custom domains and self-hosted mail servers** - Add a server-side alias, sieve rule, or filter that forwards only the matching messages. For more information, consult your mail server’s documentation.
 
-The following providers do not support forwarding to the MFA forwarding address:
+The following providers do not support automatic forwarding to the MFA forwarding address, because they verify the destination address before forwarding begins:
 
 - **Gmail and Google Workspace** - Before a Gmail filter can forward to an address, you must add the address under **Settings > Forwarding and POP/IMAP**. Gmail sends a verification message to that address and requires you to open a link in it, which you cannot do. For more information, see [Automatically forward Gmail messages to another account](https://support.google.com/mail/answer/10957 "https://support.google.com/mail/answer/10957") in the Google documentation.
 - **Yahoo Mail** - Forwarding requires a Yahoo Mail Plus subscription, and Yahoo verifies the destination address before forwarding begins. For more information, see [Enable automatic email forwarding in Yahoo Mail](https://help.yahoo.com/kb/SLN3525.html "https://help.yahoo.com/kb/SLN3525.html") in the Yahoo documentation.
 
 Any other provider that forwards to an unverified external address also works. Consult your provider’s documentation for the equivalent steps.
+
+###### Note
+
+Even when your provider does not support automatic forwarding, you can forward MFA messages manually. You do not need to verify the destination address when you forward a single message. Because MFA codes expire quickly, forward each message to the MFA forwarding address as soon as it arrives during login.
 
 ###### Important
 

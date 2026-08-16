@@ -100,5 +100,7 @@ If the registration process is interrupted (browser closed, session timeout), th
 After connecting Bitbucket to AWS Security Agent:
 
 - Navigate to the Agent Space where you want to use these repositories
-- Choose **Enable code review** or **Setup penetration testing** to connect specific repositories to your Agent Space
-- Enable **Code remediation** to allow AWS Security Agent to submit pull requests with vulnerability fixes
+- Choose **Enable code review** or **Setup penetration testing** to connect specific repositories to your Agent Space (see [Enable code review](enable-code-review-scan.md "enable-code-review-scan.md") and [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md"))
+- Enable **Code review comments** to have AWS Security Agent analyze each pull request and post findings in Bitbucket (see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md"))
+- Enable **Code remediation** to allow AWS Security Agent to submit pull requests with vulnerability fixes (see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md"))
+- Create threat models from connected repositories in the web application (see [Enable threat modeling](enable-threat-model.md "enable-threat-model.md"))

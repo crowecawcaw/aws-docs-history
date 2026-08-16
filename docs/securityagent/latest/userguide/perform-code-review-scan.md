@@ -105,6 +105,24 @@ Remediation pull requests submitted to private repositories are visible to every
 
 When disabled, you can still manually trigger code remediation for individual GitHub-sourced findings after the review completes.
 
+### Set a maximum task-hours limit
+
+Limit how much work AWS Security Agent performs for a code review by setting a maximum number of task hours. Task hours measure the cumulative time the agent spends actively working on the review, including time across parallel analysis. Task hours are not the same as elapsed wall-clock time, because AWS Security Agent runs multiple tasks at once. Total task hours is also the unit that AWS Security Agent bills for a run, so setting a limit caps how much a review can cost. The smallest limit you can set is 20 hours.
+
+1. (Optional) In the **Max task hours** section, choose a limit:
+
+   - Choose a preset value, such as **20** or **30** hours.
+   - Choose **No limit** to run the review to completion without a task-hours limit.
+   - Choose **Custom** to enter your own value. A custom limit must be at least 20 hours.
+
+###### Tip
+
+For larger applications, or to get the most complete results, set a higher limit such as **30** hours or more. AWS Security Agent bills only for the task hours a run actually uses, so a higher limit does not increase cost unless the review needs the extra time.
+
+###### Note
+
+When a review reaches its maximum task hours, AWS Security Agent stops working on the review and keeps the findings already discovered. The run finishes with a status of **Completed**. You can review these findings or run the code review again.
+
 ### Configure simulated validation
 
 Enable simulated validation to dynamically confirm whether discovered vulnerabilities are exploitable in a running application.
