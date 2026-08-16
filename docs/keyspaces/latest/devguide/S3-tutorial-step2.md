@@ -1,113 +1,97 @@
-# Step 2: Configure the AWS Glue job that exports the Amazon Keyspaces table
+# Step 2: Run the export job
 
-In the second step of the tutorial you use the script
-`setup-export.sh` available on
-[Github](https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue/export-to-s3/setup-export.sh "https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue/export-to-s3/setup-export.sh")
-to create and configure the AWS Glue job that connects to Amazon Keyspaces using
-the SigV4 plugin and then exports the specified table to your Amazon S3 bucket created in the
-previous step. Using the script allows you to export data from Amazon Keyspaces without setting up
-an Apache Spark cluster.
+In this step, you run the AWS Glue export job created in the previous step. After you start the export,
+you can monitor the job progress with the `status` and `logs` commands.
 
-###### Create an AWS Glue job to export an Amazon Keyspaces table to an Amazon S3 bucket.
+###### To run and monitor the export job
 
-- In this step, you run the `setup-export.sh` shell script located in the `export-to-s3/` directory
-  to use CloudFormation to create and configure the AWS Glue export job. The
-  script takes the following parameters.
+1. Run the export command. Specify the keyspace, table, and the Amazon S3 bucket to export to.
+   Use the bucket that was created by the bootstrap command in the previous step.
+   Replace `YOURACCOUNTID` with your AWS account ID.
 
 ```
-PARENT_STACK_NAME, EXPORT_STACK_NAME, KEYSPACE_NAME, TABLE_NAME, S3_URI, FORMAT
+`$` `./keyspaces-bulk-cli export --keyspace `catalog` --table `book_awards` \
+ --s3-uri s3://amazon-keyspaces-bulk-cli-`aksglue`-`YOURACCOUNTID``
 ```
 
-    + `PARENT_STACK_NAME` – The name of the CloudFormation stack created in the previous step.
-    + `EXPORT_STACK_NAME` – The name of the CloudFormation stack that creates the AWS Glue export job.
-    + `KEYSPACE_NAME` and `TABLE_NAME` – The fully qualified name of the keyspace and table
-     to be exported. For this tutorial, we use `catalog.book_awards`, but you can replace this with your own fully
-     qualified table name.
-    + `S3URI` – The optional URI of the Amazon S3 bucket. The default is the Amazon S3 bucket from the parent stack.
-    + `FORMAT` – The optional data format. The default value is `parquet`. For this tutorial,
-     to make data load and transformation easier, we use the default.
+    * You can override additional parameters when running the export. The following command
+     increases the number of AWS Glue workers. Start with the default of 2 workers
+     and increase as needed based on table size and export duration. Monitor the job with the
+     `status` command and scale up if the export takes longer than expected.
 
-You can use the following command as an example.
 
-```
-setup-export.sh `cfn-setup` `cfn-glue` `catalog` `book_awards`
-```
 
-To confirm that the job has been created, you can use the following statement.
+    ```
+    `$` `./keyspaces-bulk-cli export --keyspace `catalog` --table `book_awards` \
+     --s3-uri s3://amazon-keyspaces-bulk-cli-`aksglue`-`YOURACCOUNTID` --workers `8``
+    ```
+
+2. Monitor the status of the export job. You can check the current run status and view logs.
 
 ```
-aws glue list-jobs
+`$` `./keyspaces-bulk-cli status export`
 ```
 
-The output of the statement should look similar to this.
+The output shows the job run details. Wait until the `State` field shows `SUCCEEDED`:
 
 ```
-`{
- "JobNames": [
- "AmazonKeyspacesExportToS3-cfn-setup-cfn-glue"
- ]
-}`
+ `Job Run: jr_6f8de24d7131da54...
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Field ┃ Value ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Job Name │ AmazonKeyspacesExportToS3-aksglue │
+│ State │ SUCCEEDED │
+│ Started │ 2025-01-30 14:54:22 │
+│ Completed │ 2025-01-30 14:56:45 │
+│ Execution Time │ 143s │
+│ Workers │ 2 │
+│ Worker Type │ G.2X │
+└────────────────┴────────────────────────────────────────────┘`
 ```
 
-To see the details of the job, you can use the following command.
+To view the logs for the running or completed job, use the following command.
 
 ```
-aws glue get-job --job-name `AmazonKeyspacesExportToS3-cfn-setup-cfn-glue`
+`$` `./keyspaces-bulk-cli logs export`
 ```
 
-The output of the command shows all the details of the job. This includes the
-default arguments that you can override when running the job.
+To view only error logs, use the following command.
 
 ```
-`{
- "Job": {
- "Name": "AmazonKeyspacesExportToS3-cfn-setup-cfn-glue",
- "JobMode": "SCRIPT",
- "JobRunQueuingEnabled": false,
- "Description": "export to s3",
- "Role": "iam-export-role",
- "CreatedOn": "2025-01-30T15:53:30.765000+00:00",
- "LastModifiedOn": "2025-01-30T15:53:30.765000+00:00",
- "ExecutionProperty": {
- "MaxConcurrentRuns": 1
- },
- "Command": {
- "Name": "glueetl",
- "ScriptLocation": "s3://s3-keyspaces/scripts/cfn-setup-cfn-glue-export.scala",
- "PythonVersion": "3"
- },
- "DefaultArguments": {
- "--write-shuffle-spills-to-s3": "true",
- "--S3_URI": "s3://s3-keyspaces",
- "--TempDir": "s3://s3-keyspaces/shuffle-space/export-sample/",
- "--extra-jars": "s3://s3-keyspaces/jars/spark-cassandra-connector-assembly_2.12-3.1.0.jar,s3://s3-keyspaces/jars/aws-sigv4-auth-cassandra-java-driver-plugin-4.0.9-shaded.jar,s3://s3-keyspaces/jars/spark-extension_2.12-2.8.0-3.4.jar,s3://s3-keyspaces/jars/amazon-keyspaces-helpers-1.0-SNAPSHOT.jar",
- "--class": "GlueApp",
- "--user-jars-first": "true",
- "--enable-metrics": "true",
- "--enable-spark-ui": "true",
- "--KEYSPACE_NAME": "catalog",
- "--spark-event-logs-path": "s3://s3-keyspaces/spark-logs/",
- "--enable-continuous-cloudwatch-log": "true",
- "--write-shuffle-files-to-s3": "true",
- "--FORMAT": "parquet",
- "--TABLE_NAME": "book_awards",
- "--job-language": "scala",
- "--extra-files": "s3://s3-keyspaces/conf/keyspaces-application.conf",
- "--DRIVER_CONF": "keyspaces-application.conf"
- },
- "MaxRetries": 0,
- "AllocatedCapacity": 4,
- "Timeout": 2880,
- "MaxCapacity": 4.0,
- "WorkerType": "G.2X",
- "NumberOfWorkers": 2,
- "GlueVersion": "3.0"
- }
-}`
+`$` `./keyspaces-bulk-cli logs export --log-type error`
 ```
 
-If the CloudFormation stack process fails, you can review the errors for the failed stack in the CloudFormation console. You can review the details of the
-export job in the AWS Glue console by choosing **ETL jobs** on the left-side menu.
+3. Confirm that the export completed by listing the Amazon S3 bucket contents. Based on the size of the table, the export can take some time.
+   When the export job finishes, you can see the following folders in the bucket.
+   Replace `YOURACCOUNTID` with your AWS account ID.
 
-After you have confirmed the details of the AWS Glue export job, proceed to [Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the AWS CLI](S3-tutorial-step3.md "S3-tutorial-step3.md") to run the job to
-export the data from your Amazon Keyspaces table.
+```
+`$` `aws s3 ls s3://amazon-keyspaces-bulk-cli-`aksglue`-`YOURACCOUNTID``
+```
+
+The output shows the following structure in your bucket:
+
+```
+ `PRE conf/
+ PRE export/
+ PRE jars/
+ PRE scripts/
+ PRE spark-logs/`
+```
+
+Your exported data files are in the following folder structure (date and time values reflect your own export run):
+
+```
+`\------- export
+ \----- catalog
+ \----- book_awards
+ \----- snapshot
+ \----- year=2025
+ \----- month=01
+ \----- day=30
+ \----- hour=14
+ \----- minute=54
+ \--- part-00000-*.snappy.parquet`
+```
+
+To schedule the AWS Glue job you just ran manually, proceed to [Step 3: (Optional) Create a trigger to schedule the export job](S3-tutorial-step3.md "S3-tutorial-step3.md").

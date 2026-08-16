@@ -68,6 +68,75 @@ for individual writes or unlogged batches.
 
 For information about pricing, see [Amazon Keyspaces (for Apache Cassandra) pricing](https://aws.amazon.com/keyspaces/pricing "https://aws.amazon.com/keyspaces/pricing").
 
+### Use prepared statements in logged batches
+
+Logged batches support prepared (bound) statements with full atomic
+(all-or-nothing) execution. You can combine the performance of prepared statements
+with the atomicity guarantees of a logged batch.
+
+You can construct a logged batch of prepared statements in two ways. The
+following examples use a Java driver that is compatible with Apache Cassandra.
+
+In the first approach, you prepare each statement individually and add the bound
+statements to a `BatchStatement`. This approach supports batches that
+span multiple tables in the same AWS account and AWS Region. The following
+Java code example shows this approach:
+
+```
+import com.datastax.driver.core.BatchStatement;
+import com.datastax.driver.core.PreparedStatement;
+import com.datastax.driver.core.Session;
+
+PreparedStatement psInsert = session.prepare(
+    "INSERT INTO my_keyspace.orders (order_id, status) VALUES (?, ?)");
+PreparedStatement psUpdate = session.prepare(
+    "UPDATE my_keyspace.inventory SET qty = ? WHERE sku = ?");
+
+BatchStatement batch = new BatchStatement(BatchStatement.Type.LOGGED);
+batch.add(psInsert.bind(orderId, "CONFIRMED"));
+batch.add(psUpdate.bind(newQty, sku));
+
+try {
+    session.execute(batch);
+} catch (Exception e) {
+    // Handle the batch execution error.
+}
+```
+
+In the second approach, you prepare an entire `BEGIN BATCH ... APPLY
+ BATCH` block as a single statement, and then bind and run it. This approach
+is best suited to a batch whose statements target a single table. To prepare a
+batch that spans multiple tables, use the first approach. The following Java code
+example shows how to prepare a whole batch block as a single statement:
+
+```
+import com.datastax.driver.core.PreparedStatement;
+import com.datastax.driver.core.Session;
+
+PreparedStatement psBatch = session.prepare(
+    "BEGIN BATCH " +
+    "  INSERT INTO my_keyspace.orders (order_id, status) VALUES (?, ?); " +
+    "  INSERT INTO my_keyspace.orders (order_id, status) VALUES (?, ?); " +
+    "APPLY BATCH");
+
+try {
+    session.execute(psBatch.bind(orderId1, "CONFIRMED", orderId2, "PENDING"));
+} catch (Exception e) {
+    // Handle the batch execution error.
+}
+```
+
+You can also use prepared statements in a logged batch with the
+following:
+
+- Conditional statements (`IF NOT EXISTS` or
+  `IF`)
+- Named bind markers
+- A mix of prepared and unprepared statements in the same
+  batch
+- Reuse of a single prepared statement with different bound values
+  across the batch
+
 ### Best practices for batch operations
 
 Consider the following recommended practices when using Amazon Keyspaces batch operations.
@@ -105,6 +174,12 @@ Not supported in logged batches:
 - Multiple statements affecting the same row
 - Counter operations
 - Range deletes
+
+A `DELETE` statement in a logged batch must target a single row by
+specifying the full primary key (all partition key and clustering columns) with
+equality conditions. A range delete, such as a delete by partition key alone or across
+a range of clustering columns, isn't supported in a logged batch. To run a range
+delete, use a standalone `DELETE` statement or an unlogged batch.
 
 ### Failure conditions of logged batch statements
 

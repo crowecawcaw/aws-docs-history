@@ -1,89 +1,86 @@
-# Step 1: Create the Amazon S3 bucket, download the required tools, and configure the environment
+# Step 1: Bootstrap the infrastructure and AWS Glue jobs
 
-In this step, you download the external tools and create and configure the AWS
-resources required for the automated data export solution of an Amazon Keyspaces table to an Amazon S3
-bucket using an AWS Glue job. To perform all these tasks in an efficient way, we
-run a shell script with the name `setup-connector.sh` available on
-[Github](https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue/setup-connector.sh "https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue/setup-connector.sh").
+In this step, you use the `keyspaces-bulk-cli` CLI to create and configure all the AWS
+resources required for the automated data export of an Amazon Keyspaces table to an Amazon S3
+bucket using AWS Glue. The `bootstrap` command performs all setup tasks in a single step.
 
-The script `setup-connector.sh` automates the following steps.
+The `bootstrap` command automates the following tasks.
 
-1. Creates an **Amazon S3 bucket** using CloudFormation. This bucket stores the downloaded jar and configuration files,
-   as well as the exported table data.
-2. Creates an **IAM role** using CloudFormation. AWS Glue jobs use this role to access Amazon Keyspaces and Amazon S3.
-3. Downloads the [Apache Spark Cassandra Connector](https://repo1.maven.org/maven2/com/datastax/spark/ "https://repo1.maven.org/maven2/com/datastax/spark/") and uploads it to the Amazon S3 bucket.
-4. Downloads the [SigV4 Authentication plugin](https://repo1.maven.org/maven2/software/aws/mcs/aws-sigv4-auth-cassandra-java-driver-plugin/ "https://repo1.maven.org/maven2/software/aws/mcs/aws-sigv4-auth-cassandra-java-driver-plugin/") and uploads it to the Amazon S3 bucket.
-5. Downloads the [Apache Spark Extensions](https://repo1.maven.org/maven2/uk/co/gresearch/spark/ "https://repo1.maven.org/maven2/uk/co/gresearch/spark/") and uploads them to the Amazon S3 bucket.
-6. Downloads the [Keyspaces Retry Policy](https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers "https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers") from Github, compiles the code using Maven,
-   and uploads the output to the Amazon S3 bucket.
-7. Uploads the **`keyspaces-application.conf`** file to the Amazon S3 bucket.
+1. Creates an **Amazon S3 bucket** and an **IAM service role** using CloudFormation.
+2. Downloads the [Apache Spark Cassandra Connector](https://repo1.maven.org/maven2/com/datastax/spark/ "https://repo1.maven.org/maven2/com/datastax/spark/"),
+   the [SigV4 Authentication plugin](https://repo1.maven.org/maven2/software/aws/mcs/aws-sigv4-auth-cassandra-java-driver-plugin/ "https://repo1.maven.org/maven2/software/aws/mcs/aws-sigv4-auth-cassandra-java-driver-plugin/"),
+   and the [Apache Spark Extensions](https://repo1.maven.org/maven2/uk/co/gresearch/spark/ "https://repo1.maven.org/maven2/uk/co/gresearch/spark/").
+3. Downloads and builds the [Keyspaces Retry Policy](https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers "https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers") helper using Maven.
+4. Uploads all JAR files and the `keyspaces-application.conf` configuration file to the Amazon S3 bucket.
+5. Deploys three AWS Glue jobs: export (export a table to Amazon S3), import (import data from Amazon S3 into a table), and count (count rows in a table).
+6. Saves the stack configuration to a local `.keyspaces-bulk-cli.json` file for use by subsequent commands.
 
-###### Use the `setup-connector.sh` shell script to automate the setup and configuration steps.
+###### To bootstrap the infrastructure and AWS Glue jobs
 
-1. Copy the files from the [aws-glue](https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue "https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/scala/datastax-v4/aws-glue") repository on Github to your local machine. This directory contains the shell script as well as other
-   required files.
-2. Run the shell script `setup-connector.sh`. You can specify the following three optional parameters.
-
-   1. `SETUP_STACKNAME` – This is the name of the CloudFormation stack used to create the AWS resources.
-   2. `S3_BUCKET_NAME` – This is the name of the Amazon S3 bucket.
-   3. `GLUE_SERVICE_ROLE_NAME` – This is the name of the IAM service role that AWS Glue uses to run jobs that
-      connect to Amazon Keyspaces and Amazon S3.
-      You can use the following command to run the shell script, provide the three parameters with the following names.
+1. Clone the files from the [aws-glue](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue") repository on GitHub to your local machine.
 
 ```
-./setup-connector.sh `cfn-setup` `s3-keyspaces` `iam-export-role`
+`$` `git clone https://github.com/aws-samples/amazon-keyspaces-examples.git`
+`$` `cd amazon-keyspaces-examples/scala/datastax-v4/aws-glue`
 ```
 
-To confirm that your bucket was created, you can use the following AWS CLI command.
+2. Run the `bootstrap` command. The following example uses the default stack name `aksglue`
+   and specifies the keyspace and table as defaults for the deployed jobs. You can override these values
+   when running individual commands such as `export`, `import`, or `count`.
 
 ```
-aws s3 ls s3://s3-keyspaces
+`$` `./keyspaces-bulk-cli bootstrap --stack `aksglue` --keyspace `catalog` --table `book_awards``
 ```
 
-The output of the command should look like this.
+The following table describes the optional parameters you can pass to customize the bootstrap.
+
+| Option        | Default                               | Description                              |
+| ------------- | ------------------------------------- | ---------------------------------------- |
+| `--stack`     | `aksglue`                             | CloudFormation stack name prefix         |
+| `--bucket`    | Auto-generated from stack and account | Amazon S3 bucket for artifacts           |
+| `--role-name` | Auto-generated from stack             | IAM service role name                    |
+| `--keyspace`  | `mykeyspace`                          | Default keyspace for deployed jobs       |
+| `--table`     | `mytable`                             | Default table for deployed jobs          |
+| `--s3-uri`    | `s3://{bucket}/export`                | Default Amazon S3 path for exported data |
+| `--format`    | `parquet`                             | Default data format                      |
+| `--region`    | From AWS config                       | AWS Region                               |
+| `--profile`   | From AWS config                       | AWS named profile                        |
+
+To confirm that the Amazon S3 bucket created by bootstrap exists, you can use the following AWS CLI command.
+Replace `YOURACCOUNTID` with your AWS account ID.
+
+```
+`$` `aws s3 ls s3://amazon-keyspaces-bulk-cli-`aksglue`-`YOURACCOUNTID``
+```
+
+The output of the command looks similar to the following:
 
 ```
  `PRE conf/
- PRE jars/`
+ PRE jars/
+ PRE scripts/`
 ```
 
-To confirm that the IAM role was created and to review the details, you can use the following AWS CLI statement.
+To confirm that the AWS Glue export job was deployed, you can use the following command.
 
 ```
-aws iam get-role --role-name "iam-export-role"
+`$` `aws glue list-jobs`
 ```
+
+The output lists the deployed jobs:
 
 ```
 `{
- "Role": {
- "Path": "/",
- "RoleName": "iam-export-role",
- "RoleId": "AKIAIOSFODNN7EXAMPLE",
- "Arn": "arn:aws:iam::111122223333:role/iam-export-role",
- "CreateDate": "2025-01-28T16:09:03+00:00",
- "AssumeRolePolicyDocument": {
- "Version": "2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "glue.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
+ "JobNames": [
+ "AmazonKeyspacesExportToS3-aksglue",
+ "AmazonKeyspacesImportFromS3-aksglue",
+ "AmazonKeyspacesCount-aksglue"
  ]
- },
- "Description": "AWS Glue service role to import and export data from Amazon Keyspaces",
- "MaxSessionDuration": 3600,
- "RoleLastUsed": {
- "LastUsedDate": "2025-01-29T12:03:54+00:00",
- "Region": "us-east-1"
- }
- }
 }`
 ```
 
 If the CloudFormation stack process fails, you can review the detailed error information about the failed stack in the CloudFormation console.
+To retry, delete the failed stack using `aws cloudformation delete-stack --stack-name `aksglue``,
+fix the underlying issue, and run the bootstrap command again. The bootstrap command is idempotent and skips resources that already exist.
 
-After the Amazon S3 bucket containing all scripts and tools has been created and the IAM
-role is configured, proceed to [Step 2: Configure the AWS Glue job that exports the Amazon Keyspaces table](S3-tutorial-step2.md "S3-tutorial-step2.md").
+After the bootstrap completes and all resources are created, proceed to [Step 2: Run the export job](S3-tutorial-step2.md "S3-tutorial-step2.md").

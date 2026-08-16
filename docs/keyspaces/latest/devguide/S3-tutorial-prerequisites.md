@@ -4,7 +4,7 @@
 
 1. Before you start this tutorial, follow the AWS setup instructions in [Accessing Amazon Keyspaces (for Apache Cassandra)](accessing.md "accessing.md"). These steps include signing up for
    AWS and creating an AWS Identity and Access Management (IAM) principal with access to Amazon Keyspaces.
-2. The scripts in this tutorial use your credentials and default AWS Region stored in a known
+2. The CLI tool in this tutorial uses your credentials and default AWS Region stored in a known
    location. For more information, see [Store access keys for programmatic access](aws.credentials.manage.md "aws.credentials.manage.md").
 
 The following example shows how to store the required values as environment variables for the default user.
@@ -15,13 +15,16 @@ The following example shows how to store the required values as environment vari
 `$` `export AWS_DEFAULT_REGION=`us-east-1``
 ```
 
-3. To run the scripts in this tutorial, you need the following software and tools installed on your machine:
+3. To run the `keyspaces-bulk-cli` CLI in this tutorial, you need the following software and tools installed on your machine:
 
-   - [Java](https://openjdk.org/install/ "https://openjdk.org/install/")
+   - [Python](https://www.python.org/downloads/ "https://www.python.org/downloads/") 3.8 or later
+   - [Java](https://openjdk.org/install/ "https://openjdk.org/install/") (JDK 11 or later)
    - [Apache Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html")
    - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git")
+   - [curl](https://curl.se/download.html "https://curl.se/download.html")
    - [AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
-     This tutorial was tested with AWS CLI 2, Java 17.0.13, and Apache Maven 3.8.7.
+     Java, Git, and Maven are required by the bootstrap step to download and build the retry policy helper.
+     This tutorial was tested with AWS CLI 2, Python 3.11, Java 17.0.13, and Apache Maven 3.8.7.
 
 4. You need an Amazon Keyspaces table with sample data to export later in this tutorial. You can use your
    own Amazon Keyspaces table or create a sample table following the steps in the [Getting started with Amazon Keyspaces (for Apache Cassandra)](getting-started.md "getting-started.md") tutorial.
@@ -42,4 +45,4 @@ The following example shows how to store the required values as environment vari
       [Create a keyspace in Amazon Keyspaces](getting-started.keyspaces.md "getting-started.keyspaces.md").
    4. To create the Amazon Keyspaces table, follow the steps at [Create a table in Amazon Keyspaces](getting-started.tables.md "getting-started.tables.md").
    5. To load sample data into the table to export to Amazon S3, follow the steps at [Inserting and loading data into an Amazon Keyspaces table](getting-started.dml.create.md "getting-started.dml.create.md").
-      After completing the prerequisite steps, proceed to [Step 1: Create the Amazon S3 bucket, download the required tools, and configure the environment](S3-tutorial-step1.md "S3-tutorial-step1.md").
+      After completing the prerequisite steps, proceed to [Step 1: Bootstrap the infrastructure and AWS Glue jobs](S3-tutorial-step1.md "S3-tutorial-step1.md").

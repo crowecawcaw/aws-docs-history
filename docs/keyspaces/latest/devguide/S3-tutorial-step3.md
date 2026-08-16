@@ -1,63 +1,105 @@
-# Step 3: Run the AWS Glue job to export the Amazon Keyspaces table to the Amazon S3 bucket from the AWS CLI
+# Step 3: (Optional) Create a trigger to schedule the export job
 
-In this step, you use the AWS CLI to run the AWS Glue job created in the previous step to export an Amazon Keyspaces table to your bucket in Amazon S3.
+To run the export job on a regular basis, you can create a scheduled trigger using the AWS CLI. For more information, see
+[AWS Glue triggers](../../../glue/latest/dg/about-triggers.md "../../../glue/latest/dg/about-triggers.md") in the AWS Glue Developer Guide.
 
-###### Run the export job from the AWS CLI
+###### To schedule the AWS Glue export job
 
-1. In the following example, the AWS CLI command runs the job created in the previous step.
+1. To find the job name and parameters from a previous run, use the `--json` flag
+   to output the run details including the arguments used.
 
 ```
-aws glue start-job-run --job-name `AmazonKeyspacesExportToS3-cfn-setup-cfn-glue`
+`$` `./keyspaces-bulk-cli runs export --json`
 ```
 
-    * You can override any of the AWS Glue job parameters including the
-     default arguments in the AWS CLI command. To override any default arguments of the job, for example keyspace or
-     table name, you can pass them as arguments. For a full list of arguments,
-     see [start-job-run](../../../cli/latest/reference/glue/start-job-run.md "../../../cli/latest/reference/glue/start-job-run.md") in the AWS Glue Command Line Reference.
+The output includes the job name, worker configuration, and all arguments from each run:
 
+```
+`[
+ {
+ "JobName": "AmazonKeyspacesExportToS3-aksglue",
+ "RunId": "jr_2d827b0637a36b25f32f03b83e107cf8...",
+ "State": "SUCCEEDED",
+ "Started": "2025-01-30T14:54:22.480000-04:00",
+ "Duration": 127,
+ "Workers": 2,
+ "WorkerType": "G.2X",
+ "Arguments": {
+ "--KEYSPACE_NAME": "catalog",
+ "--DRIVER_CONF": "keyspaces-application.conf",
+ "--TABLE_NAME": "book_awards",
+ "--S3_URI": "s3://amazon-keyspaces-bulk-cli-aksglue-111122223333",
+ "--FORMAT": "parquet"
+ }
+ }
+]`
+```
 
-    The following command runs the AWS Glue export job, but overrides the number of AWS Glue workers,
-     worker type, and the table name.
+Use the `JobName`, `Workers`, `WorkerType`, and
+`Arguments` values from the output in the next step to create the trigger. 2. The following AWS CLI command creates a trigger with the name `KeyspacesExportWeeklyTrigger`
+that runs the AWS Glue export job once per week on Monday at 12:00 UTC. Use the values from the
+JSON output of the previous step for the job name, worker configuration, and arguments.
+
+```
+aws glue create-trigger \
+  --name KeyspacesExportWeeklyTrigger \
+  --type SCHEDULED \
+  --schedule "cron(0 12 ? * MON *)" \
+  --start-on-creation \
+  --actions '[{
+     "JobName": "AmazonKeyspacesExportToS3-`aksglue`",
+     "NumberOfWorkers": `2`,
+     "WorkerType": "`G.2X`",
+     "Arguments": {
+       "--KEYSPACE_NAME": "`catalog`",
+       "--DRIVER_CONF": "keyspaces-application.conf",
+       "--TABLE_NAME": "`book_awards`",
+       "--S3_URI": "s3://amazon-keyspaces-bulk-cli-`aksglue`-`YOURACCOUNTID`",
+       "--FORMAT": "`parquet`"
+     }
+  }]'
+```
+
+    * To override specific parameters for the scheduled job, change the values
+     in the `Arguments` block. The following example schedules an export
+     of a different table with more workers.
 
 
 
     ```
-    aws glue start-job-run --job-name AmazonKeyspacesExportToS3-cfn-setup-cfn-glue \
-                        --number-of-workers 8 --worker-type G.2X \
-                        --arguments '{"--TABLE_NAME":"`my_table`"}'
+    aws glue create-trigger \
+      --name KeyspacesExportWeeklyTrigger \
+      --type SCHEDULED \
+      --schedule "cron(0 12 ? * MON *)" \
+      --start-on-creation \
+      --actions '[{
+         "JobName": "AmazonKeyspacesExportToS3-`aksglue`",
+         "NumberOfWorkers": `8`,
+         "WorkerType": "`G.2X`",
+         "Arguments": {
+           "--KEYSPACE_NAME": "`my_keyspace`",
+           "--DRIVER_CONF": "keyspaces-application.conf",
+           "--TABLE_NAME": "`my_table`",
+           "--S3_URI": "s3://amazon-keyspaces-bulk-cli-`aksglue`-`YOURACCOUNTID`",
+           "--FORMAT": "`parquet`"
+         }
+      }]'
     ```
 
-2. Confirm that your table has been exported to your Amazon S3 bucket. Based on the size of the table, this can take some time.
-When the export job is finished, you can see the following folders in the bucket using the example command.
+3. To confirm that the trigger was created, use the following command.
 
 ```
-aws s3 ls s3://s3-keyspaces
+`$` `aws glue list-triggers`
 ```
 
-The output shows the following structure in your bucket.
+The output of the command looks similar to the following:
 
 ```
- `PRE conf/
- PRE export/
- PRE jars/
- PRE scripts/
- PRE spark-logs/`
+`{
+ "TriggerNames": [
+ "KeyspacesExportWeeklyTrigger"
+ ]
+}`
 ```
 
-Your files will be located in the following folder structure under `export`, data/time values will show
-your own values.
-
-```
-`\------- export
- \----- keyspace_name
- \----- table_name
- \----- snapshot
- \----- year=2025
- \----- month=01
- \----- day=02
- \----- hour=09
- \----- minute=22
- \--- YOUR DATA HERE`
-```
-
-To schedule the AWS Glue job you just ran manually, proceed to [Step 4: (Optional) Create a trigger to schedule the export job](S3-tutorial-step4.md "S3-tutorial-step4.md").
+To clean up the AWS resources created in this tutorial, proceed to [Step 4: (Optional) Cleanup](S3-tutorial-step4.md "S3-tutorial-step4.md").
