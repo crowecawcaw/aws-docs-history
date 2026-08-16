@@ -23,3 +23,8 @@ dashboard won't affect your duplicate, and vice versa.
    You can duplicate dashboards that have been shared with you. The duplicated dashboard
    belongs to your account and you have full edit permissions for it, regardless of the
    permissions you had on the original dashboard.
+
+You can also duplicate Managed Dashboards to create custom copies. This is the recommended
+way to customize a Managed Dashboard for your specific needs. The duplicated dashboard belongs
+to your account with full edit permissions, regardless of the read-only status of the original
+Managed Dashboard.

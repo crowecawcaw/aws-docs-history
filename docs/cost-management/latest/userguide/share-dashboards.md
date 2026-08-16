@@ -15,6 +15,12 @@ export PDFs, and schedule their own email delivery configurations for the shared
 Scheduled report configurations are managed independently by each user and are not shared as
 part of the dashboard configuration.
 
+###### Note
+
+Managed Dashboards cannot be shared because they are already available in every account
+automatically. If you want to share a customized version of a Managed Dashboard, duplicate it
+as a custom dashboard and then share that copy.
+
 ###### To share a dashboard
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

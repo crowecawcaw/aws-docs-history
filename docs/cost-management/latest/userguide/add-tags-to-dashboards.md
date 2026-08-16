@@ -26,3 +26,8 @@ as a group.
 8. Choose **Save changes**.
    After you save changes, the tags are applied to your dashboard and can be used for
    filtering and access control.
+
+###### Note
+
+Tags cannot be added to Managed Dashboards. To tag a Managed Dashboard configuration,
+duplicate it as a custom dashboard and then add tags to your copy.

@@ -18,6 +18,7 @@ Key features of Dashboards:
 - Export dashboards as PDF reports for offline viewing and sharing with stakeholders.
 - Schedule automated email delivery of dashboard PDF reports to stakeholders on a daily,
   weekly, or monthly basis.
+- Use Managed Dashboards to get instant visibility into cost trends, service category costs, and commitment performance without any setup.
   Common use cases for Dashboards include:
 
 - Analyzing spending trends across services, Regions, and teams to identify cost
@@ -30,6 +31,7 @@ Key features of Dashboards:
   organization.
 - Creating targeted financial reports for specific teams, projects, or business units.
 - Automating distribution of cost reports to executives, finance teams, and other stakeholders who need regular visibility into cloud costs.
+- Getting started quickly with preconfigured Managed Dashboards that provide immediate cost visibility across spending trends, compute, database, reservations, and savings plans without building dashboards from scratch.
 
 ###### Important
 
@@ -48,6 +50,7 @@ Key features of Dashboards:
 ###### Topics
 
 - [Getting started with dashboards](dashboards-getting-started.md "dashboards-getting-started.md")
+- [Managed Dashboards](managed-dashboards.md "managed-dashboards.md")
 - [Creating custom dashboards](create-custom-dashboards.md "create-custom-dashboards.md")
 - [Adding widgets to dashboards](add-widgets-to-dashboards.md "add-widgets-to-dashboards.md")
 - [Exporting dashboards](export-dashboards.md "export-dashboards.md")

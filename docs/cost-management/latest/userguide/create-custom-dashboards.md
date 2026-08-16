@@ -5,6 +5,13 @@ multiple widgets into a single view. You can create custom dashboards to track s
 compare costs across services or Regions, and share standardized views within or outside your
 organization.
 
+###### Tip
+
+Rather than starting with an empty dashboard, you can duplicate a Managed Dashboard. The
+copy is yours to edit freely, so you begin with widgets that are already configured and
+populated with your data. For more information, see [Managed
+Dashboards](managed-dashboards.md "managed-dashboards.md").
+
 ###### To create a dashboard
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
