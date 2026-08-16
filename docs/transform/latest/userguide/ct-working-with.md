@@ -171,10 +171,12 @@ atx ct remediation delete --id `id`
 ## Remote execution
 
 By default, analyses and remediations run on your local machine. For larger portfolios,
-you can offload work to remote infrastructure in your AWS account — a persistent Amazon EC2
-instance or AWS Batch (Fargate) jobs. The `atx ct remote` commands provision,
-run, monitor, and tear down this infrastructure. Regardless of where execution happens, your
-source code stays under your control in your account.
+you can offload work to remote infrastructure. You can run on AWS Transform-managed infrastructure
+with nothing to provision (analyses only), or on infrastructure you provision and manage in
+your AWS account—a persistent Amazon EC2 instance or AWS Batch (Fargate) jobs. The
+`atx ct remote` commands provision, run, monitor, and tear down customer-managed
+infrastructure. Regardless of where execution happens, you create all resources in your
+AWS account and your source code stays under your control.
 
 ###### Note
 
@@ -185,6 +187,30 @@ already-provisioned infrastructure uses least-privilege executor policies — se
 [Tagging and access control](#ct-tagging "#ct-tagging") and the compute options in
 [How AWS Transform continuous modernization works](continuous-modernization.md#ct-how-it-works "continuous-modernization.md#ct-how-it-works") for the managed policies
 involved.
+
+### Running on AWS Transform-managed infrastructure (no provisioning)
+
+To run an analysis remotely without provisioning anything, use
+`--mode aws-managed`. The submission goes to AWS Transform, which runs the analysis on
+AWS Transform-managed infrastructure. There is no stack to provision, no networking to configure, and
+no credentials to store in AWS Secrets Manager. The submission is the run. Choose the
+AWS Region the workload runs in with `--region`.
+
+```
+# Run an analysis on AWS Transform-managed infrastructure
+atx ct remote analysis --type `type` --mode aws-managed --sources `name` [--repos `repo1,repo2`] [--region `region`]
+
+# Poll the submission (there is no remote status command in this mode)
+atx ct analysis get --id `id` --json
+```
+
+This mode runs analyses only. It does not support remediation, the `custom`
+analysis type, or local sources. Because there is no stack, the `--stack-name`,
+`--tags`, `--existing-instance`, and `--batch-name` options
+don't apply. A single submission covers up to 100 repositories. To cover larger scopes, split
+them across multiple submissions with `--repos`. Unlike Amazon EC2 and Batch runs, you monitor
+progress with `atx ct analysis get` rather than
+`atx ct remote status`.
 
 ### Networking
 
@@ -270,7 +296,7 @@ atx ct remote status --group `ec2-group-id` --wait
 
 # Resume a partially-failed Batch run (re-submits only incomplete repos).
 # On resume, --batch-name takes the existing batch ID reported by "remote status --batch".
-atx ct remote analysis --type `type` --mode batch --sources `name` --resume --batch-name `batch-id`
+atx ct remote analysis --type `type` --mode batch --sources `name` --resume-incomplete --batch-name `batch-id`
 
 # Cancel a running submission
 atx ct remote cancel --mode batch --batch `batch-id` --stack-name `name`
@@ -279,28 +305,88 @@ atx ct remote cancel --mode ec2 --group `ec2-group-id`
 
 ## Scheduling recurring analysis
 
-Use `atx ct schedule` to run analyses automatically on a recurring cadence
-with Amazon EventBridge Scheduler. Only analyses can be scheduled; remediations are not
-scheduled. Scheduling runs on remote infrastructure, so provision an Amazon EC2 or Batch stack
-first (see [Remote execution](#ct-remote-execution "#ct-remote-execution")). Job
-options mirror `atx ct remote analysis`.
+Use `atx ct schedule` to run analyses automatically on a recurring cadence.
+You can schedule analyses but not remediations. Job options mirror
+`atx ct remote analysis`. Schedules run remotely, in one of two ways:
+
+- **AWS Transform-managed**
+  (`--mode aws-managed`)—a server-side schedule that fires analyses on
+  AWS Transform-managed infrastructure. There is no Amazon EventBridge schedule and nothing to
+  provision. It requires an execution role (`--execution-role`) that AWS Transform assumes
+  at each run (see [Execution role for AWS Transform-managed schedules](#ct-schedule-execution-role "#ct-schedule-execution-role")).
+- **Customer-managed**
+  (`--mode ec2|batch`)—an Amazon EventBridge Scheduler schedule in your account
+  dispatches each run to a persistent Amazon EC2 instance or AWS Batch stack that you provision
+  first (see [Remote execution](#ct-remote-execution "#ct-remote-execution")).
 
 The `--recurrence` value accepts `daily`,
 `weekly:`DAY`` (for example,
  `weekly:MONDAY`), or `monthly:`N`` where
-`N` is a day from 1 to 28.
+`N` is a day from 1 to 28. Schedules on AWS Transform-managed infrastructure
+run in UTC.
 
 ```
+# AWS Transform-managed schedule (no infrastructure; requires an execution role)
+atx ct schedule create --name `name` --mode aws-managed --execution-role `role-arn` --recurrence `daily` --type `type` --sources `name` [--repos `repo1,repo2`]
+
+# Customer-managed schedule (EventBridge Scheduler dispatching to your EC2 or Batch stack)
 atx ct schedule create --name `name` --mode `ec2|batch` --recurrence `weekly:MONDAY` --type `type` --sources `name` [--repos `repo1,repo2`]
+
+# Manage schedules of either type by their schedule ID (from schedule list)
 atx ct schedule list
-atx ct schedule get `name`
-atx ct schedule disable `name`
-atx ct schedule enable `name`
-atx ct schedule delete `name`
+atx ct schedule get `schedule-id`
+atx ct schedule disable `schedule-id`
+atx ct schedule enable `schedule-id`
+atx ct schedule delete `schedule-id`
 ```
 
-To remove the scheduler role and schedule group entirely, run
+To view the analyses a schedule has run, use
+`atx ct analysis list --schedule-id `schedule-id``, which
+returns the schedule's fired runs, newest first.
+
+To remove the scheduler role and schedule group used by customer-managed schedules, run
 `atx ct schedule teardown --execute`.
+
+### Execution role for AWS Transform-managed schedules
+
+A schedule created with `--mode aws-managed` requires an
+`--execution-role` ARN that AWS Transform assumes each time the schedule runs. Configure
+the role as follows:
+
+- The identity creating the schedule must have `iam:PassRole`
+  permission on the execution role.
+- The role's trust policy must allow the
+  `transform-custom.amazonaws.com` service principal to assume it.
+- At a minimum, the role must have the AWS managed policy
+  [AWSTransformCustomFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess")
+  attached, plus `secretsmanager:GetSecretValue` and
+  `secretsmanager:DescribeSecret` permissions on secrets under the
+  `atx/*` prefix so that scheduled runs can retrieve the source clone
+  credentials.
+
+The following inline policy grants the AWS Secrets Manager access that scheduled runs
+need to retrieve source clone credentials. Attach it to the execution role alongside the
+[AWSTransformCustomFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformCustomFullAccess")
+managed policy, replacing `region` and
+`account-id` with the AWS Region and account the schedule runs
+in.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AtxSourceCredentials",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+      ],
+      "Resource": "arn:aws:secretsmanager:`region`:`account-id`:secret:atx/*"
+    }
+  ]
+}
+```
 
 ## Tagging and access control
 
@@ -362,11 +448,23 @@ To access the AWS Transform web application, complete the following steps.
 3. Open the left navigation menu and choose **continuous
    modernization**.
 
-### Infrastructure prerequisites
+### Infrastructure modes
 
-The web application requires deployed infrastructure to run analyses. Open the
-**Settings** tab and use the AWS CloudFormation quick-create links to
-deploy the following stacks in order:
+When you create an analysis, choose one of the following infrastructure modes:
+
+- **AWS managed** – Run on infrastructure managed by
+  AWS Transform. You don't need to provision any infrastructure.
+- **Customer owned** – Run on a deployed stack in your own
+  AWS account. Use this mode when you need control over compute, networking, or security
+  configuration.
+
+###### Note
+
+To run security analysis, use customer-owned infrastructure. Security analysis
+runs on the Security Agent deployed in your account.
+
+To use customer-owned infrastructure, open the **Settings** tab.
+Use the AWS CloudFormation quick-create links to deploy the following stacks in order:
 
 1. `AtxDispatcherStack` – Message dispatcher (always
    required).
@@ -382,22 +480,20 @@ For CLI-based provisioning and networking configuration, see
 
 ### Getting started workflow
 
-1. **Provision infrastructure** – Deploy the
-   required stacks from the **Settings** tab.
-2. **Connect sources** – Open the
+1. **Connect sources** – Open the
    **Sources** tab and add repositories from GitHub,
    GitLab, or Bitbucket.
-3. **Run or schedule an analysis** – Open the
+2. **Run or schedule an analysis** – Open the
    **Analyses** tab, select repositories, choose an analysis
-   type, and choose **Run**. To run on a recurring cadence
-   (daily, weekly, or monthly), choose **Schedule**
+   type, select an infrastructure mode, and choose **Run**. To run on a
+   recurring cadence (daily, weekly, or monthly), choose **Schedule**
    instead.
-4. **Review findings** – Open the
+3. **Review findings** – Open the
    **Findings** tab to view results by
    severity.
-5. **Create a remediation** – Select findings
+4. **Create a remediation** – Select findings
    and choose **Create remediation**.
-6. **Review pull requests** – Open the
+5. **Review pull requests** – Open the
    **Remediations** tab to view generated PR links per
    repository.
 

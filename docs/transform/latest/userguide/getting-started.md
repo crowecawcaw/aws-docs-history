@@ -7,6 +7,7 @@
 - [Quick start: Trying AWS Transform](#transform-app-admin-starting-standalone "#transform-app-admin-starting-standalone")
 - [Managing users](transform-user-management.md "transform-user-management.md")
 - [AWS Transform environment](transform-environment.md "transform-environment.md")
+- [AWS Transform Connectors](transform-user-connectors.md "transform-user-connectors.md")
 
 ## Enable AWS Transform
 

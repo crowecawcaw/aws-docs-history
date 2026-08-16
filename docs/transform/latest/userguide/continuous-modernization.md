@@ -35,9 +35,10 @@ AWS Transform continuous modernization provides the following capabilities:
 - **Reporting** — Generate HTML reports showing findings by
   severity, repository, and analysis type. Track remediation progress and finding resolution
   over time.
-- **Continuous Monitoring** — Schedule recurring analyses
-  using Amazon EventBridge Scheduler. Configure daily, weekly, or custom cron schedules to
-  continuously monitor your portfolio for new issues.
+- **Continuous Monitoring** — Schedule recurring analyses to
+  continuously monitor your portfolio for new issues. Run them on AWS Transform-managed infrastructure
+  with no setup, or on a provisioned Amazon EC2 or Batch stack using Amazon EventBridge Scheduler.
+  Configure daily, weekly, or monthly cadences.
 
 ## Analysis types
 
@@ -137,20 +138,53 @@ workflow:
 
 ### Compute options
 
-Continuous modernization supports three compute options for running analyses and
-remediation. The agent skills in the Kiro Power and agent plugin help you set up
-infrastructure for each option.
+Continuous modernization supports several compute options for running analyses and
+remediation. Analyses can run locally, on infrastructure you provision and manage in your
+AWS account (Amazon Amazon EC2 or AWS Batch), or on AWS Transform-managed infrastructure that requires
+no setup. The agent skills in the Kiro Power and agent plugin help you set up each option.
 
 ###### Note
 
-Regardless of compute option, all analysis and remediation happen in your AWS account
-using your credentials. Your source code remains under your control.
+Regardless of compute option, you create and own all resources in your AWS account
+using your credentials, and your source code remains under your control. The infrastructure
+that runs analyses and remediation is either customer-managed—a stack you provision in your
+account—or AWS Transform-managed, where AWS operates the compute for you and there is nothing to
+provision.
 
 #### Local (default)
 
 By default, analyses run on your local machine. This option requires no additional
 infrastructure. The server runs locally and executes analyses using local compute resources.
 Good for trying out the tool, small repositories, or individual use.
+
+#### AWS Transform-managed (no infrastructure to provision)
+
+Run analyses on AWS Transform-managed infrastructure without provisioning or managing a stack.
+With `--mode aws-managed`, you submit the analysis to AWS Transform, which runs it on
+AWS-operated infrastructure. There is no Amazon EC2 instance, no AWS Batch
+stack, and no VPC or subnets to configure. There is nothing to provision or tear down—the
+submission is the run. This is the fastest way to run remotely when you don't want to manage
+any infrastructure.
+
+This option requires a source hosted on a supported SCM provider (GitHub,
+GitLab, or Bitbucket). AWS Transform-managed infrastructure does not
+support local sources because it cannot reach repositories on your machine. You can choose the
+AWS Region the workload runs in with the `--region` option.
+
+AWS Transform-managed infrastructure runs analyses only. For remediation, or to run a custom
+transformation definition (`--type custom`), use AWS Batch or Amazon EC2.
+
+To run on AWS Transform-managed infrastructure, use the
+`atx ct remote analysis --mode aws-managed` command (see
+[Remote execution](ct-working-with.md#ct-remote-execution "ct-working-with.md#ct-remote-execution")), or install the
+Kiro Power or agent plugin (see
+[Developer tools](ct-developer-tools.md "ct-developer-tools.md")) and ask the agent:
+_"Run my analysis on AWS with no infrastructure"_. A recurring analysis on
+AWS Transform-managed infrastructure requires an execution role (see
+[Scheduling recurring analysis](ct-working-with.md#ct-scheduling "ct-working-with.md#ct-scheduling")).
+
+You can also start an analysis on AWS Transform-managed infrastructure from the continuous
+modernization page in the AWS Transform web application (see [AWS Transform web application](ct-working-with.md#ct-web-application "ct-working-with.md#ct-web-application")).
 
 #### AWS Batch (Fargate) (recommended)
 
