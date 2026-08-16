@@ -621,8 +621,10 @@ Type: String
 Required: No
 
 The protocol that's used for the port mapping. Valid
-values are `tcp` and `udp`. The
-default is `tcp`.
+values are `tcp` and `udp`
+(case-sensitive). The default is `tcp`. Amazon
+Amazon ECS treats any other specified value as
+`tcp`.
 
 ###### Important
 
