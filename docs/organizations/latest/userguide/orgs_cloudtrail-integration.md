@@ -291,6 +291,119 @@ account.
 }
 ```
 
+### Example log entries: AcceptResponsibilityTransfer
+
+When AWS Organizations accepts a billing responsibility transfer, it publishes a
+`ResponsibilityTransferAccepted` service event to each affected
+account. For chained transfers, AWS Organizations also notifies upstream participants.
+The `transferChain` field lists the affected transfer IDs from the
+accepted transfer through the highest affected upstream transfer.
+
+The following example shows a CloudTrail log entry delivered to an upstream
+Distributor account (111122223333) after AWS Organizations accepts a downstream transfer
+(rt-5ipg3ess). The `transferChain` field includes both the accepted
+transfer and the affected upstream transfer (rt-9zpzuocg).
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AWSService",
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2026-08-12T19:50:27Z",
+    "eventSource": "organizations.amazonaws.com",
+    "eventName": "ResponsibilityTransferAccepted",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "EXAMPLE8-90ab-cdef-fedc-ba987EXAMPLE",
+    "readOnly": false,
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "EXAMPLEa-121c-425d-bb01-1d94aEXAMPLE",
+    "serviceEventDetails": {
+        "id": "rt-5ipg3ess",
+        "transferChain": [
+            "rt-5ipg3ess",
+            "rt-9zpzuocg"
+        ],
+        "type": "BILLING",
+        "status": "ACCEPTED",
+        "source": {
+            "managementAccountId": "555555555555"
+        },
+        "target": {
+            "managementAccountId": "444455556666"
+        },
+        "requester": "555555555555",
+        "startTimestamp": 1790812800000
+    },
+    "eventCategory": "Management"
+}
+```
+
+### Example log entries: TerminateResponsibilityTransfer
+
+When a billing responsibility transfer ends, AWS Organizations publishes a
+`ResponsibilityTransferTerminated` service event to each affected
+account. For chained transfers, upstream participants such as Distributors also
+receive notification. The `transferChain` field lists the affected
+transfer IDs from the terminated transfer through the highest affected upstream
+transfer.
+
+The following example shows a CloudTrail log entry delivered to an upstream
+Distributor account (111122223333) after AWS Organizations terminates a downstream
+transfer (rt-5ipg3ess). The
+`transferChain` field includes both the terminated transfer and
+the affected upstream transfer (rt-9zpzuocg).
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AWSService",
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2026-08-12T18:17:06Z",
+    "eventSource": "organizations.amazonaws.com",
+    "eventName": "ResponsibilityTransferTerminated",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "EXAMPLE8-90ab-cdef-fedc-ba987EXAMPLE",
+    "readOnly": false,
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "EXAMPLEa-121c-425d-bb01-1d94aEXAMPLE",
+    "serviceEventDetails": {
+        "id": "rt-5ipg3ess",
+        "transferChain": [
+            "rt-5ipg3ess",
+            "rt-9zpzuocg"
+        ],
+        "type": "BILLING",
+        "status": "WITHDRAWN",
+        "source": {
+            "managementAccountId": "444455556666"
+        },
+        "target": {
+            "managementAccountId": "555555555555"
+        },
+        "requester": "444455556666",
+        "startTimestamp": 1790812800000,
+        "endTimestamp": 1790812800000
+    },
+    "eventCategory": "Management"
+}
+```
+
 ### Example log entry: CreateOrganizationalUnit
 
 The following example shows a CloudTrail log entry for a sample
