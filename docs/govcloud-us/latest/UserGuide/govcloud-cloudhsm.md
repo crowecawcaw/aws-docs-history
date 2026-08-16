@@ -4,10 +4,10 @@ AWS CloudHSM offers secure cryptographic key storage for customers by providing 
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS CloudHSM is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How AWS CloudHSM differs
 

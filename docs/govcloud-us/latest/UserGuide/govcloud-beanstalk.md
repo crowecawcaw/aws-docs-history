@@ -4,10 +4,10 @@ With AWS Elastic Beanstalk, you can quickly deploy and manage applications in th
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS Elastic Beanstalk is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How AWS Elastic Beanstalk differs
 

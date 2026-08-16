@@ -4,13 +4,11 @@ Amazon Comprehend uses natural language processing (NLP) to extract insights abo
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Comprehend is available in the following AWS GovCloud (US) Regions:
 
 - AWS GovCloud (US-West)
 
 ## How Amazon Comprehend differs
-
-The following differences apply to Amazon Comprehend:
 
 - In AWS GovCloud (US) Regions, AWS does not use or store AI Content processed by this AI Service to develop and improve that Service or technologies of AWS or its affiliates. Opt-out policies are not currently applicable to these Regions.
 

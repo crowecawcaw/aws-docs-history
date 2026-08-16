@@ -4,10 +4,10 @@ DataSync is a data transfer service that makes it easy for you to automate movin
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS DataSync is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How AWS DataSync differs
 

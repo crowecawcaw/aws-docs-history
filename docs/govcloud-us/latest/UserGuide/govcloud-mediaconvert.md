@@ -4,7 +4,7 @@ AWS Elemental MediaConvert is a file-based video processing service that provide
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS Elemental MediaConvert is available in the following AWS GovCloud (US) Regions:
 
 - AWS GovCloud (US-West)
 

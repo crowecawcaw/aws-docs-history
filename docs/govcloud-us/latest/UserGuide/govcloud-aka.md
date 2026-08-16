@@ -6,10 +6,10 @@ Amazon Managed Service for Apache Flink takes care of everything required to run
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Managed Service for Apache Flink is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How Amazon Managed Service for Apache Flink differs
 

@@ -1,46 +1,46 @@
-# Amazon Quick Suite in AWS GovCloud (US)
+# Amazon Quick in AWS GovCloud (US)
 
-Amazon Quick Suite is a comprehensive business intelligence and analytics platform that combines traditional BI capabilities with advanced AI-powered features. The service includes the core Amazon QuickSight functionality—​cloud-scale business intelligence tools for creating dashboards, visualizations, and data analysis—​along with new AI-driven capabilities for enhanced insights and automation. Quick Suite connects to your data in the cloud and combines data from many different sources, allowing you to include AWS data, third-party data, big data, spreadsheet data, SaaS data, B2B data, and more in a single data dashboard. **In AWS GovCloud (US), only the traditional QuickSight capabilities (dashboards, visualizations, and data analysis) are currently supported.** As a fully managed cloud-based service, the supported features provide enterprise-grade security, global availability, and built-in redundancy, along with user-management tools that scale from 10 users to 10,000, all with no infrastructure to deploy or manage.
+Amazon Quick is a comprehensive, generative AI-powered business intelligence service that makes it easy to analyze data, create visualizations, automate workflows, and collaborate across your organization. The service combines traditional business intelligence capabilities with modern AI assistance, requiring no machine learning expertise to use. You can connect to diverse data sources, create interactive dashboards, build intelligent automations, and get immediate insights through natural language conversations with AI agents. **In AWS GovCloud (US), Amazon Quick offers a limited deployment: in addition to the traditional Quick Sight capabilities (dashboards, visualizations, and data analysis), a subset of Amazon Quick capabilities is supported. Not all Amazon Quick features are available. For the full list of supported and unsupported features, see the differences section below.** As a fully managed cloud-based service, the supported features provide enterprise-grade security, global availability, and built-in redundancy. There is no infrastructure to deploy or manage.
 
-The supported QuickSight capabilities in AWS GovCloud (US) give decision-makers the opportunity to explore and interpret information in an interactive visual environment. They have secure access to dashboards from any device on your network and from mobile devices.
+With the supported Amazon Quick capabilities in AWS GovCloud (US), you can explore and interpret information in an interactive visual environment. You have secure access to dashboards from any device on your network and from mobile devices.
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Quick is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Amazon Quick Suite differs
+## How Amazon Quick differs
 
-The following differences apply to Amazon Quick Suite:
+The following differences apply to Amazon Quick:
 
-- Amazon Quick Suite (formerly Amazon QuickSight) is supported in AWS GovCloud (US) regions with limitations. Only the core business intelligence capabilities are available, including dashboards, visualizations, data analysis, and reporting features. AI-powered features and functionality introduced as part of Amazon Quick Suite are not available in AWS GovCloud (US) regions.
-- Email based user provisioning is not available.
-- Using geospatial visualizations is not available.
-- Using Amazon SageMaker AI integration is not available.
-- The Q AI assistant is not available.
-- Amazon Quick Suite and interface VPC endpoints (AWS PrivateLink) are not available.
+- Amazon Quick Automate is not available.
+- Amazon Quick Flows is not available.
+- Amazon Quick Research is not available.
+- Quick Agents is not available.
+- Quick Integrations and Extensions is not available.
+- Quick Sight - Agentic experiences is not available.
+- Quick Sight - Mobile App for Dashboards is not available.
+- Quick Spaces is not available in AWS GovCloud (US-East).
+
+- Amazon Quick is supported in AWS GovCloud (US) regions with limitations. In addition to the core business intelligence capabilities—​dashboards, visualizations, data analysis, and reporting—​the following Amazon Quick capabilities are available in AWS GovCloud (US): Agents, Spaces, Chat, Browser extensions, Quick Sight Q&A (Dataset Q&A, Dashboard Q&A, and Explainability), Actions, and Knowledge base connectors.
+- The core Quick Sight capabilities (dashboards, visualizations, data analysis, and reporting) are available in both AWS GovCloud (US-East) and AWS GovCloud (US-West). The Amazon Quick agentic capabilities (Agents, Spaces, Chat, Browser extensions, Q&A, Actions, and Knowledge base connectors) are available only in AWS GovCloud (US-West).
+- Microsoft 365 knowledge base connectors are available only with Microsoft GCC High.
+- The Knowledge Base connector for SharePoint/OneDrive is 3LO only (3LO = Three-Legged OAuth; end user authenticates and grants application access).
+- Email-based user provisioning is not available.
+- Geospatial visualizations are not available.
+- Amazon SageMaker AI integration is not available.
+- Amazon Quick and interface VPC endpoints (AWS PrivateLink) are not available.
 - The mobile app is not available for AWS GovCloud (US-East).
-
-Amazon Quick Suite in AWS GovCloud (US) supports user authorization for federated users only. Quick directly supports authentication through AWS Identity and Access Management (IAM), AWS IAM Identity Center (IAM Identity Center), and AWS Directory Service for Microsoft Active Directory. For more information, see [Identity federation in AWS](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/").
-
-If you’re a Amazon Quick Suite administrator, make sure to allow-list the following domains within your organization’s network.
-
-| User type                                            | Domain to allow-list                 |
-| ---------------------------------------------------- | ------------------------------------ |
-| Native Amazon Quite Suite and Active Directory users | awsapps.com and amazonaws-us-gov.com |
-| IAM users                                            | amazonaws-us-gov.com                 |
-
-Specialized configurations that allow users to authenticate with a different identity service can also work, even if not directly supported from inside Amazon Quick Suite. For example, you can use Amazon Cognito as is described in the [Embedded Analytics Tutorial](https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/ "https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/"). This authentication method works because it is compatible and transparent to Amazon Quick Suite. For more information on Amazon Quick Suite authentication, see [Identity and Access Management in Amazon Quick Suite](../../../quicksight/latest/user/identity.md "../../../quicksight/latest/user/identity.md").
-
-###### Note
-
-If you are using the [Embedded Analytics Tutorial](https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/ "https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/"), you can point to AWS GovCloud (US) ARNs and URLs for your resources, but in the step for the static website that uses Amazon CloudFront and Amazon S3, you need to point to a classic AWS Region, for example US East (N. Virginia), for the tutorial to work. This is not necessary outside the tutorial. For more information and additional examples, see [Developing with Amazon Quick](../../../quicksight/latest/user/quicksight_dev.md "../../../quicksight/latest/user/quicksight_dev.md") in the Amazon Quick Suite User Guide.
+- Amazon Quick in AWS GovCloud (US) supports user authorization for federated users only. Amazon Quick directly supports authentication through AWS Identity and Access Management (IAM), AWS IAM Identity Center (IAM Identity Center), and AWS Directory Service for Microsoft Active Directory. For more information, see [Identity federation in AWS](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/").
+- If you’re an Amazon Quick administrator, make sure to allow-list the following domains within your organization’s network: awsapps.com and amazonaws-us-gov.com for native Amazon Quick and Active Directory users; amazonaws-us-gov.com for IAM users.
+- You can also use specialized configurations to authenticate with a different identity service, even if Amazon Quick does not directly support them. For example, you can use Amazon Cognito as is described in the [Embedded Analytics Tutorial](https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/ "https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/"). This authentication method works because it is compatible and transparent to Amazon Quick. For more information about Amazon Quick authentication, see [Identity and Access Management in Amazon Quick](../../../quicksight/latest/user/identity.md "../../../quicksight/latest/user/identity.md").
+- If you are using the [Embedded Analytics Tutorial](https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/ "https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/"), you can point to AWS GovCloud (US) ARNs and URLs for your resources, but in the step for the static website that uses Amazon CloudFront and Amazon S3, you need to point to a classic AWS Region, for example US East (N. Virginia), for the tutorial to work. This is not necessary outside the tutorial. For more information and additional examples, see [Developing with Amazon Quick](../../../quicksight/latest/user/quicksight_dev.md "../../../quicksight/latest/user/quicksight_dev.md") in the Amazon Quick User Guide.
 
 ## Documentation
 
-- [Amazon Quick Suite documentation](../../../quicksuite.md "../../../quicksuite.md")
+- [Amazon Quick documentation](../../../quicksuite.md "../../../quicksuite.md")
 
 ## Export-controlled content
 
