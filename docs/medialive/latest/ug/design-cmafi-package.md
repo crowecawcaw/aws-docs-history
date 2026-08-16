@@ -24,4 +24,4 @@ following:
 This diagram illustrates a CMAF Ingest output group when the captions are sidecar
 captions. Each encode is in its own output.
 
-![Output group containing six outputs: two for video, two for audio, and two for captions.](/images/medialive/latest/ug/images/output14-ABR-2V-2Asep-2C.png)
+![Output group containing six outputs: two for video, two for audio, and two for captions.](images/output14-ABR-2V-2Asep-2C.png)
