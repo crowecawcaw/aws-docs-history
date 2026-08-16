@@ -41,7 +41,7 @@ Knowledge of:
 Skills in:
 
 - Understanding the components of the AWS Cloud Adoption Framework (AWS CAF) (for example, reduced business risk; improved environmental, social, and governance [ESG] performance; increased revenue; increased operational efficiency)
-- Identifying appropriate migration strategies (for example, database replication, use of AWS Snowball)
+- Identifying appropriate migration strategies (for example, database replication)
 
 ## Task Statement 1.4: Understand concepts of cloud economics.
 

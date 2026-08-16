@@ -34,7 +34,7 @@ Knowledge of:
 
 Skills in:
 
-- Understanding the appropriate uses and capabilities of AWS Budgets, and AWS Cost Explorer
+- Understanding the appropriate uses and capabilities of AWS Budgets and AWS Cost Explorer
 - Understanding the appropriate uses and capabilities of AWS Pricing Calculator
 - Understanding AWS Organizations consolidated billing and allocation of costs
 - Understanding various types of cost allocation tags and their relation to billing reports (for example, AWS Cost and Usage Report)
@@ -51,11 +51,11 @@ Knowledge of:
 Skills in:
 
 - Locating AWS whitepapers, blogs, and documentation on official AWS websites
-- Identifying and locating AWS technical resources (for example AWS Prescriptive Guidance, AWS Knowledge Center, AWS re:Post)
+- Identifying and locating AWS technical resources (for example, AWS Prescriptive Guidance, AWS Knowledge Center, AWS re:Post)
 - Identifying AWS Support options for AWS customers (for example, customer service and communities, AWS Developer Support, AWS Business Support, AWS Enterprise On-Ramp Support, AWS Enterprise Support)
 - Identifying the role of AWS Trusted Advisor, AWS Health Dashboard, and the AWS Health API to help manage and monitor environments for cost optimization
 - Identifying the role of the AWS Trust and Safety team to report abuse of AWS resources
-- Understanding the role of AWS Partners (for example AWS Marketplace, independent software vendors, system integrators)
+- Understanding the role of AWS Partners (for example, AWS Marketplace, independent software vendors, system integrators)
 - Identifying the benefits of being an AWS Partner (for example, partner training and certification, partner events, partner volume discounts)
 - Identifying the key services that AWS Marketplace offers (for example, cost management, governance and entitlement)
-- Identifying technical assistance options available at AWS (for example, AWS Professional Services, AWS Solutions Architects)
+- Identifying technical assistance options available at AWS (for example, AWS Professional Services, AWS solutions architects)

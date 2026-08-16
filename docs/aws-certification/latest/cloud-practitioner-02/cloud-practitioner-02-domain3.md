@@ -70,7 +70,7 @@ Skills in:
 - Identifying relational databases (for example, Amazon RDS, Amazon Aurora)
 - Identifying NoSQL databases (for example, Amazon DynamoDB)
 - Identifying memory-based databases (for example, Amazon ElastiCache)
-- Identifying database migration tools (for example AWS Database Migration Service [AWS DMS], AWS Schema Conversion Tool [AWS SCT])
+- Identifying database migration tools (for example, AWS Database Migration Service [AWS DMS], AWS Schema Conversion Tool [AWS SCT])
 
 ## Task Statement 3.5: Identify AWS network services.
 
@@ -83,7 +83,7 @@ Skills in:
 - Identifying the components of a VPC (for example, subnets, gateways)
 - Understanding security in a VPC (for example, network ACLs, security groups, Amazon Inspector)
 - Understanding the purpose of Amazon Route 53
-- Identifying network connectivity options to AWS (for example AWS VPN, AWS Direct Connect)
+- Identifying network connectivity options to AWS (for example, AWS VPN, AWS Direct Connect)
 
 ## Task Statement 3.6: Identify AWS storage services.
 
@@ -110,8 +110,8 @@ Knowledge of:
 
 Skills in:
 
-- Understanding AI/ML services and the tasks that they accomplish (for example, Amazon SageMaker AI, Amazon Lex, Amazon Kendra)
-- Identifying the services for data analytics (for example, Amazon Athena, Amazon Kinesis, AWS Glue, Amazon QuickSight)
+- Understanding AI/ML services and the tasks that they accomplish (for example, Amazon SageMaker AI, Amazon Lex)
+- Identifying the services for data analytics (for example, Amazon Athena, Amazon Kinesis, AWS Glue, Amazon Quick Sight)
 
 ## Task Statement 3.8: Identify services from other in-scope AWS service categories.
 
@@ -122,7 +122,7 @@ Knowledge of:
 - Customer enablement services (for example, AWS Support)
 - Developer tool services and capabilities (for example, AWS CodeBuild, AWS CodePipeline, and AWS X-Ray)
 - End-user computing services of Amazon AppStream 2.0, Amazon WorkSpaces, and Amazon WorkSpaces Secure Browser
-- Frontend web and mobile services of AWS Amplify and AWS AppSync
+- Frontend web and mobile services of AWS Amplify
 - IoT services (for example, AWS IoT Core)
 
 Skills in:

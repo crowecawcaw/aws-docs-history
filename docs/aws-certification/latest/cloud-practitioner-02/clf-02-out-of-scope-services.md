@@ -31,7 +31,6 @@ The following list contains AWS services and features that are out of scope for 
 - AWS Data Exchange
 - Amazon DataZone
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
-- Amazon Timestream for LiveAnalytics
 
 ## Application Integration
 
@@ -41,11 +40,9 @@ The following list contains AWS services and features that are out of scope for 
 ## Business Applications
 
 - Amazon WorkDocs
-- Amazon WorkMail
 
 ## Compute
 
-- AWS App Runner
 - AWS Copilot
 - AWS Wavelength
 
@@ -94,7 +91,6 @@ The following list contains AWS services and features that are out of scope for 
 
 - Amazon Fraud Detector
 - Amazon Lookout for Metrics
-- Amazon Mechanical Turk
 - AWS Panorama
 - Amazon Personalize
 
