@@ -324,12 +324,10 @@ automatically scales them to ensure high performance. However, you
 should account for potential performance issues and limits within
 Kubernetes and quotas in AWS services when running large clusters.
 
-- Clusters with more than 1000 services may experience network latency
-  with using `kube-proxy` in `iptables` mode according to the
-  [tests
-  performed by the ProjectCalico team](https://www.projectcalico.org/comparing-kube-proxy-modes-iptables-or-ipvs/ "https://www.projectcalico.org/comparing-kube-proxy-modes-iptables-or-ipvs/"). The solution is to switch to
+- Clusters with more than 1000 services might experience network latency
+  with using `kube-proxy` in `iptables` mode. The solution is to switch to
   [running
-  kube-proxy in ipvs mode](ipvs.md "ipvs.md").
+  kube-proxy in nftables mode](nftables.md "nftables.md").
 - You may also experience
   [EC2
   API request throttling](../../../AWSEC2/latest/APIReference/throttling.md "../../../AWSEC2/latest/APIReference/throttling.md") if the CNI needs to request IP addresses for

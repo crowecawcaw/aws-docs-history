@@ -482,7 +482,7 @@ zone to enable failover for the entire co-scheduled workload.
 Ensure that:
 
 - Node group balancing is enabled by setting
-  `balance-similar-node-groups=false`
+  `balance-similar-node-groups=true`
 - [Node
   Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity") and/or
   [Pod

@@ -133,7 +133,7 @@ topk(3, ((irate(node_pressure_io_stalled_seconds_total[1m])) * 100))
 
 ###### Note
 
-For more on Pressure stall metrics, see https://facebookmicrosites.github.io/psi/docs/overview\*
+For more information about Pressure Stall Information (PSI) metrics, see [PSI overview](https://facebookmicrosites.github.io/psi/docs/overview "https://facebookmicrosites.github.io/psi/docs/overview") on the Facebook microsite.
 
 With these metrics we can tell if threads are waiting on CPU, or even if every thread on the box is stalled waiting on resource like memory or I/O. For example, we could see what percentage every thread on the instance was stalled waiting on I/O over the period of 1 min.
 

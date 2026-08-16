@@ -829,16 +829,8 @@ your pods to direct them how to find AWS credentials.
 
 #### Working with IAM roles for EKS Pod Identities
 
-- EKS Pod Identities can only directly assume an IAM role that belongs
-  to the same AWS account as the EKS cluster. To access an IAM role in
-  another AWS account, you must assume that role by
-  [configuring
-  a profile in your SDK configuration](../../../sdkref/latest/guide/feature-assume-role-credentials.md "../../../sdkref/latest/guide/feature-assume-role-credentials.md"), or in your
-  [application’s
-  code](../../../IAM/latest/UserGuide/sts_example_sts_AssumeRole_section.md "../../../IAM/latest/UserGuide/sts_example_sts_AssumeRole_section.md").
-- When EKS Pod Identities are being configured for Service Accounts, the
-  person or process configuring the Pod Identity Association must have the
-  `iam:PassRole` entitlement for that role.
+- The caller configuring EKS Pod Identities for service accounts must
+  have the `iam:PassRole` permission for that role.
 - Each Service Account may only have one IAM role associated with it
   through EKS Pod Identities, however you can associate the same IAM role
   with multiple service accounts.
