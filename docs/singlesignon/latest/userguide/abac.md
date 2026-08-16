@@ -9,7 +9,7 @@ AWS and ensures that your workforce gets access only to the AWS resources with
 matching tags.
 
 For example, you can assign developers Bob and Sally, who are from two different
-teams, to the same permission set in IAM Identity Center and then select the team name attribute for
+teams, to the same permission set in IAM Identity Center (or the same IAM role in account access manager) and then select the team name attribute for
 access control. When Bob and Sally sign in to their AWS accounts, IAM Identity Center sends their
 team name attribute in the AWS session so Bob and Sally can access AWS project
 resources only if their team name attribute matches the team name tag on the project
@@ -19,9 +19,9 @@ next time, he will automatically get access to the project resources of his new 
 without requiring any permissions updates in AWS.
 
 This approach also helps in reducing the number of distinct permissions you need to
-create and manage in IAM Identity Center as users associated with the same permission sets can now
+create and manage in IAM Identity Center as users associated with the same permission sets (or in account access manager as users associated with the same IAM role) can now
 have unique permissions based on their attributes. You can use these user attributes in
-IAM Identity Center permission sets and resource-based policies to implement ABAC to AWS resources
+IAM Identity Center permission sets (or IAM roles when using account access manager role assignments) and resource-based policies to implement ABAC to AWS resources
 and simplify permissions management at scale.
 
 ## Benefits
@@ -29,7 +29,7 @@ and simplify permissions management at scale.
 The following are additional benefits of using ABAC in IAM Identity Center.
 
 - **ABAC requires fewer permission sets** – Because you do not have to create different policies for
-  different job functions, you create fewer permission sets. This reduces your
+  different job functions, you create fewer permission sets (or IAM roles when using account access manager). This reduces your
   permissions management complexity.
 - **Using ABAC, teams can change and grow quickly** – Permissions for new resources are automatically granted
   based on attributes when resources are appropriately tagged upon creation.

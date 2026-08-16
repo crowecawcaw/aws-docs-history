@@ -7,11 +7,11 @@ into IAM for use in policy evaluation.
 
 ## aws:PrincipalTag condition key
 
-You can use access control attributes in your permission sets using the
+You can use access control attributes in your permission sets (or IAM roles when using account access manager) using the
 `aws:PrincipalTag` condition key for creating access control
 rules. For example, in the following policy you can tag all the resources in
 your organization with their respective cost centers. You can also use a
-single permission set that grants developers access to their cost center
+single permission set (or IAM role when using account access manager) that grants developers access to their cost center
 resources. Now, whenever developers federate into the account using single
 sign-on and their cost center attribute, they only get access to the
 resources in their respective cost centers. As the team adds more developers

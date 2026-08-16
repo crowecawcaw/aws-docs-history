@@ -34,6 +34,12 @@ boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../
 
 To create a permission set, see [Create, manage, and delete permission sets](permissionsets.md "permissionsets.md").
 
+If your access management requires capabilities beyond what permission sets offer —
+such as custom trust policies, role tags, or configurable role paths — you can use [account
+access manager](../../../IAM/latest/UserGuide/account-access-manager.md "../../../IAM/latest/UserGuide/account-access-manager.md") in IAM. Account access manager lets you assign existing IAM
+roles to IAM Identity Center users and groups. You can use it independently or together with permission
+sets to gain access to the full IAM role feature set.
+
 ## Create a permission set that applies least-privilege permissions
 
 To follow the best practice of applying least-privilege permissions, after you

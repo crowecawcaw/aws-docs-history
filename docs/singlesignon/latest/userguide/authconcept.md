@@ -36,6 +36,11 @@ maintaining security controls. When a user interactive session ends, either thro
 user sign-out or administrator action, the application sessions will end at their
 next refresh attempt, typically within 30 minutes.
 
+If you use [account access manager](../../../IAM/latest/UserGuide/account-access-manager.md "../../../IAM/latest/UserGuide/account-access-manager.md") for access to AWS accounts, its user
+portal is available as the AWS account access application in the AWS access
+portal. The session of the AWS account access application is managed by IAM Identity Center
+as an application session.
+
 ### User background sessions
 
 User background sessions are extended-duration sessions designed for
@@ -58,15 +63,23 @@ AWS managed applications. Depending on when you enabled IAM Identity Center, thi
 
 For information about configuring extended Kiro sessions, see [Extended sessions for Kiro](90-day-extended-session-duration.md "90-day-extended-session-duration.md").
 
-### IAM Identity Center-created IAM role sessions
+### IAM role sessions
+
+**Permission set-based IAM role sessions**
 
 IAM Identity Center creates a different type of session when users access the AWS Management Console or AWS CLI. In these cases, IAM Identity Center
 uses the sign-in session to obtain an IAM session by assuming an IAM role specified in the user's permission set.
 
+**Account access manager-created IAM role sessions**
+
+If you use account access manager for access to AWS accounts, account
+access manager assumes assigned IAM roles and thus initiates IAM role
+sessions.
+
 ###### Important
 
 Unlike application sessions, IAM role sessions operate independently once
-established. They persist for the duration configured in the permission set,
+established. They persist for the duration configured in the permission set (or IAM role when using account access manager),
 which can be up to 12 hours, regardless of the status of the original sign-in
 session. This behavior ensures that long-running CLI operations or console
 sessions aren't unexpectedly ended.
@@ -80,7 +93,7 @@ When a user signs out of the AWS access portal, the sign-in session ends, preven
 Existing application sessions, however, don't end instantly. Instead, they
 will end within approximately 30 minutes, when they attempt their next refresh
 and find the sign-in session is no longer valid. Existing IAM role sessions
-continue until they expire based on the permission set configuration, which
+continue until they expire based on the permission set configuration (or IAM role configuration when using account access manager), which
 could be up to 12 hours later.
 
 ### Administrator-initiated
@@ -94,7 +107,7 @@ When an IAM Identity Center administrator [deletes a user](deleteusers.md "delet
 [disables a user’s access](disableuser.md "disableuser.md"), the user loses access to the
 AWS access portal and is prevented from signing back in to start a new application or IAM role session.
 The user will lose access to existing application sessions within 30 minutes. Any existing IAM
-role sessions will continue based on the session duration configured in the IAM Identity Center permission set.
+role sessions will continue based on the session duration configured in the IAM Identity Center permission set (or IAM role when using account access manager).
 The maximum session duration can be 12 hours.
 
 ## What happens to user access when you end a session
@@ -109,23 +122,23 @@ applications, and AWS account sessions.
 This table summarizes how user management changes affect access to AWS resources,
 application sessions, and AWS account sessions.
 
-| Action                 | User loses IAM Identity Center access    | User can't create new application sessions | User can't access existing application sessions | User loses access to existing AWS account sessions                                                                  |
-| ---------------------- | ---------------------------------------- | ------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| User's access disabled | Effective immediately                    | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
-| User deleted           | Effective immediately                    | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
-| User session revoked   | User must sign in again to regain access | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
-| User signs out         | User must sign in again to regain access | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
+| Action                 | User loses IAM Identity Center access    | User can't create new application sessions | User can't access existing application sessions | User loses access to existing AWS account sessions                                                                                                                  |
+| ---------------------- | ---------------------------------------- | ------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| User's access disabled | Effective immediately                    | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set (or IAM role when using account access manager). |
+| User deleted           | Effective immediately                    | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set (or IAM role when using account access manager). |
+| User session revoked   | User must sign in again to regain access | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set (or IAM role when using account access manager). |
+| User signs out         | User must sign in again to regain access | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set (or IAM role when using account access manager). |
 
 ### Group membership
 
 This table summarizes how changes to user permissions and group memberships affect access to AWS resources, application sessions,
 and AWS account sessions.
 
-| Action                                                                     | User loses IAM Identity Center access                   | User can't create new application sessions | User can't access existing application sessions | User loses access to existing AWS account sessions                                                                  |
-| -------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Application or AWS account access removed from user                        | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
-| User removed from group that had an assigned application or<br>AWS account | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
-| Application or AWS account access removed from group                       | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set. |
+| Action                                                                     | User loses IAM Identity Center access                   | User can't create new application sessions | User can't access existing application sessions | User loses access to existing AWS account sessions                                                                                                                  |
+| -------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Application or AWS account access removed from user                        | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set (or IAM role when using account access manager). |
+| User removed from group that had an assigned application or<br>AWS account | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set (or IAM role when using account access manager). |
+| Application or AWS account access removed from group                       | No<br>• User can continue accessing IAM Identity Center | Effective immediately                      | Within 30 minutes                               | Within 12 hours or less. Duration depends on IAM role session<br>expiry duration configured for the permission set (or IAM role when using account access manager). |
 
 ###### Note
 

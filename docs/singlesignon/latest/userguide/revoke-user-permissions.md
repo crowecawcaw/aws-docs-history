@@ -1,4 +1,4 @@
-# Revoke active IAM role sessions created by permission sets
+# Revoke user access
 
 The following is a general procedure for revoking an active permission set
 session for an IAM Identity Center user. The procedure assumes that you want to remove all access
@@ -24,14 +24,21 @@ operations.
    step prevents the user from assuming any additional IAM roles. If a user
    has an active AWS access portal session and you disable the user, they can
    continue to assume new roles until you remove their access.
-4. If you use an identity provider (IdP) or Microsoft
+4. Remove all IAM role assignments for the user in account access
+   manager. If access is assigned through group memberships, remove the
+   user from all groups and all direct IAM role assignments. This step
+   prevents the user from assuming any additional IAM roles managed in
+   account access manager. If a user has an active AWS account access
+   portal session and you disable the user, they can continue to assume new
+   roles until you remove their access.
+5. If you use an identity provider (IdP) or Microsoft
    Active Directory as an identity source, disable the user in the identity
    source. Disabling the user prevents the creation of additional
    AWS access portal sessions. Use your IdP or Microsoft Active Directory API
    documentation to learn how to automate this step. If you are using the IAM Identity Center
    directory as an identity source, do not disable user access yet. You'll
-   disable user access in step 6.
-5. In the IAM Identity Center console, find the user and delete their
+   disable user access in step 7.
+6. In the IAM Identity Center console, find the user and delete their
    active session.
 
    1. Choose **Users**.
@@ -42,7 +49,7 @@ operations.
       the AWS access portal. Learn about [session
       duration](authconcept.md "authconcept.md").
 
-6. In the IAM Identity Center console, disable user access.
+7. In the IAM Identity Center console, disable user access.
 
    1. Choose **Users**.
    2. Choose the user whose access you want to disable.
@@ -50,7 +57,7 @@ operations.
       information** and choose the **Disable user
       access** button to prevent further logins of the user.
 
-7. Leave the Deny policy in place for at least 12
+8. Leave the Deny policy in place for at least 12
    hours. Otherwise, the user with an active IAM role session
    will have restored actions with the IAM role. If you wait 12 hours, active
    sessions expire and the user will not be able to access the IAM role
@@ -59,7 +66,7 @@ operations.
 ###### Important
 
 If you disable a user’s access before stopping the user session (you completed
-step 6 without completing step 5), you can no longer stop the user session
+step 7 without completing step 6), you can no longer stop the user session
 through the IAM Identity Center console. If you inadvertently disable user access before
 stopping the user session, you can re-enable the user, stop their session, and
 then disable their access again.

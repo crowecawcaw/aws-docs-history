@@ -128,3 +128,10 @@ attached to the role.
 Alternatively, you can use [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md "../../../AWSCloudFormation/latest/UserGuide/AWS_SSO.md") to create and assign permission sets and assign users to
 those permission sets. Users can then [sign in to the
 AWS access portal](howtosignin.md "howtosignin.md") or use [AWS Command Line Interface (AWS CLI)](integrating-aws-cli.md "integrating-aws-cli.md") commands.
+
+###### Note
+
+This topic covers assigning access using permission sets. To assign existing
+IAM roles to IAM Identity Center users and groups — with the full IAM role feature set — see
+[account access
+manager](../../../IAM/latest/UserGuide/account-access-manager.md "../../../IAM/latest/UserGuide/account-access-manager.md") in the _IAM User Guide_.

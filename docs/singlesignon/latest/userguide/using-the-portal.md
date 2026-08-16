@@ -12,6 +12,10 @@ The AWS access portal provides single sign-on access to:
   When users sign in to the portal, they find the AWS accounts and applications they're
   authorized to access without additional sign-in.
 
+The AWS access portal also provides access to the
+AWS account access application — where users can view and access IAM roles assigned to
+them through [account access manager](../../../IAM/latest/UserGuide/account-access-manager.md "../../../IAM/latest/UserGuide/account-access-manager.md").
+
 ## Getting started with the AWS access portal
 
 **For administrators:**

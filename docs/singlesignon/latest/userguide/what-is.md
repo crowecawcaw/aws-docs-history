@@ -36,18 +36,6 @@ on the user and the actions the user initiated. This makes it easier to understa
 accessed what. For information about supported use cases, including end-to-end
 configuration guidance, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md "trustedidentitypropagation-integrations.md").
 
-**One place to assign permissions to multiple
-AWS accounts**
-
-With multi-account permissions, IAM Identity Center provides a single place for you to assign
-permissions to groups of users in multiple AWS accounts. You can create permissions
-based on common job functions or define custom permissions that meet your security
-needs. You can then assign those permissions to workforce users to control their access
-to specific AWS accounts.
-
-This optional feature is available only for [organization instances](organization-instances-identity-center.md "organization-instances-identity-center.md") of
-IAM Identity Center.
-
 **One point of federation to simplify user access to
 AWS**
 
@@ -62,6 +50,20 @@ For information about how to configure commonly used identity providers to work 
 IAM Identity Center, see [IAM Identity Center identity source tutorials](tutorials.md "tutorials.md"). If you don’t have an
 existing identity provider, you can [create and
 manage users directly in IAM Identity Center](quick-start-default-idc.md "quick-start-default-idc.md").
+
+**Ability to manage workforce access to multiple AWS accounts**
+
+IAM Identity Center gives you options to manage centrally your workforce access to
+AWS accounts:
+
+- Your teams can create their IAM roles in AWS accounts and centrally manage
+  role assignments to IAM Identity Center users and groups using the IAM [account access
+  manager](../../../IAM/latest/UserGuide/account-access-manager.md "../../../IAM/latest/UserGuide/account-access-manager.md") feature. See [Why use account access manager](../../../IAM/latest/UserGuide/account-access-manager.md#why-use-account-access-manager "../../../IAM/latest/UserGuide/account-access-manager.md#why-use-account-access-manager") in the _IAM User
+  Guide_ for more information.
+- You can also use IAM Identity Center permission sets to centrally create permissions for common
+  job functions such as admin, provision them across AWS accounts, and assign them to
+  users and groups. This optional feature is available only for organization instances
+  of IAM Identity Center.
 
 **Two instance types**
 

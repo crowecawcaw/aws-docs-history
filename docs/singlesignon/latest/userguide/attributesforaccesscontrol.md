@@ -8,7 +8,7 @@ existing attributes in the users' identity source.
 For example, suppose you want to assign access to S3 buckets based on department
 names. While on the **Attributes for access control** page, you
 select the **Department** user attribute for use with
-attribute-based access control (ABAC). In the IAM Identity Center permission set, you then write a
+attribute-based access control (ABAC). In the IAM Identity Center permission set (or IAM role when using account access manager), you then write a
 policy that grants users access only when the **Department**
 attribute matches the department tag that you assigned to your S3 buckets. IAM Identity Center
 passes the user's department attribute to the account being accessed. The attribute
@@ -23,7 +23,7 @@ ABAC, see [Attribute-based access control](abac.md "abac.md").
 How you get started configuring attributes for access control depends on which
 identity source you are using. Regardless of the identity source you choose,
 after you have selected your attributes you need to create or edit permission
-set policies. These policies must grant user identities access to AWS
+set policies (or IAM role policies when using account access manager). These policies must grant user identities access to AWS
 resources.
 
 ### Choosing attributes when using IAM Identity Center as your identity source
@@ -43,7 +43,7 @@ IAM Identity Center. Next, navigate to the **Attributes for access
 control** page. Then choose which attributes to use in your
 ABAC configuration based on the existing set of SSO attributes mapped from
 Active Directory. Finally, author ABAC rules using the access control
-attributes in permission sets to grant user identities access to AWS
+attributes in permission sets (or IAM roles when using account access manager) to grant user identities access to AWS
 resources. For a list of the default mappings for user attributes in IAM Identity Center
 to the user attributes in your AWS Managed Microsoft AD directory, see [Default mappings between IAM Identity Center and Microsoft AD](attributemappingsconcept.md#defaultattributemappings "attributemappingsconcept.md#defaultattributemappings").
 
