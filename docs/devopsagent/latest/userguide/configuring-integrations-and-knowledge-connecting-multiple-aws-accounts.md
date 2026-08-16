@@ -9,6 +9,37 @@ Before adding a secondary AWS account, ensure you have:
 - Access to the AWS DevOps Agent console in the primary account
 - Administrative access to the secondary AWS account
 - IAM permissions to create roles in the secondary account
+- Permission to pass an IAM role (`iam:PassRole`) in the primary account. See [Required permissions in your primary account](#required-permissions-in-your-primary-account "#required-permissions-in-your-primary-account").
+
+## Required permissions in your primary account
+
+When you connect or update a secondary AWS account, AWS DevOps Agent checks that the calling principal can pass an IAM role. The principal is the IAM user or role that makes the request in the primary account. If the principal does not have `iam:PassRole`, the request fails with an HTTP 403 `AccessDeniedException` that names `iam:PassRole`. This happens even when the principal already has full access to AWS DevOps Agent (for example, `aidevops:*`). Add `iam:PassRole` to your identity policy in the primary account before you add a secondary account.
+
+The following policy grants the smallest set of permissions the check requires:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::<primary-account-id>:role/*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "aidevops.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+Keep the following in mind:
+
+- Scope `Resource` to the role wildcard for your own account: `arn:aws:iam::<primary-account-id>:role/*` (or `*`). Do not use specific role ARNs. The check uses the wildcard resource, and a policy scoped to individual ARNs does not satisfy it.
+- Use the `iam:PassedToService` condition set to `aidevops.amazonaws.com` for least-privilege access. An `iam:PassRole` grant on the role wildcard with no condition also satisfies the check. If you already scope `iam:PassRole` to specific services, add `aidevops.amazonaws.com` to the existing condition.
+- Remember that the check runs when you add a secondary account and each time you update one. Secondary accounts that are already connected continue to work until the next time you update them.
 
 ## Adding a secondary AWS account
 

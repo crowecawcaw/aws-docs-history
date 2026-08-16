@@ -57,6 +57,15 @@ Send webhooks with New Relic [https://newrelic.com/instant-observability/webhook
 
 Learn more: [https://docs.newrelic.com/docs/agentic-ai/mcp/overview/](https://docs.newrelic.com/docs/agentic-ai/mcp/overview/ "https://docs.newrelic.com/docs/agentic-ai/mcp/overview/")
 
+## Updating credentials
+
+If your New Relic credentials expire or need to be rotated, you can update them without deregistering. Your Agent Space associations are preserved. To update your credentials, follow these steps:
+
+1. Go to the **Capability Providers** page (accessible from the side navigation).
+2. Scroll to the **Currently registered** section.
+3. Select New Relic, then choose **Update** from the **Actions** menu.
+4. Enter the new credentials, review, and choose **Update**.
+
 ## Removal
 
 The telemetry source is connected at two levels at the agent space level and at account level. To completely remove it you must first remove from all agent spaces where it is used and then it can be unregistered.

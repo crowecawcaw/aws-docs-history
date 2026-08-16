@@ -293,3 +293,5 @@ Customers are responsible for:
 ## Data usage
 
 AWS does not use agent data, chat messages, or data from integrated data sources to train models or improve the product. The AWS DevOps Agent Space uses customer in-product feedback to improve the agent’s responses and investigations, but AWS does not use it to improve the service itself.
+
+To provide the service and assess its performance, we may collect operational signals about your use of AWS DevOps Agent's Release Manager, such as metrics based on your feedback to the release readiness review comments (such as whether you fixed a flagged issue, agreed to address it later, disagreed with it, or implemented a suggested code change).

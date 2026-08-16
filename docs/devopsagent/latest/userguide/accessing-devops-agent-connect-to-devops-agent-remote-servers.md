@@ -173,6 +173,17 @@ In SigV4 mode, pass `agent_space_id` on each tool call to specify which Agent Sp
 
 The A2A endpoint implements the [A2A v1.0 specification](https://a2a-protocol.org/latest/specification/ "https://a2a-protocol.org/latest/specification/") using HTTP+JSON binding.
 
+### Request headers
+
+Pass the following headers on A2A requests.
+
+| Header             | Required   | Description                                                                                                                                                                            |
+| ------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `A2A-Version`      | Yes        | Must be `1.0`. The server rejects requests that omit it or send another value with HTTP 400.                                                                                           |
+| `Authorization`    | Yes        | Access token (`Bearer <access-token>`) or an AWS SigV4 signature. The `mcp-proxy-for-aws` proxy adds the SigV4 signature for you.                                                      |
+| `X-Agent-Space-Id` | SigV4 only | Target Agent Space ID. With SigV4, the server resolves the Agent Space from this header. With a Bearer token, the token identifies the Agent Space and the server ignores this header. |
+| `Content-Type`     | Body only  | `application/json` for requests that send a body, such as `message:send`.                                                                                                              |
+
 ### Agent card discovery
 
 Retrieve the agent card at:
@@ -340,9 +351,10 @@ To prevent users in your organization from enabling access tokens, create a Serv
 
 ## Troubleshooting
 
-| Symptom                                | Cause                                                                 | Resolution                                                         |
-| -------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| HTTP 401 Unauthorized                  | Token is invalid or expired.                                          | Create a new token or rotate the existing token in the web app.    |
-| HTTP 400 "A2A-Version header required" | Missing protocol version header. Only A2A v1.0 is supported.          | Add `A2A-Version: 1.0` header to A2A requests.                     |
-| Request timeout                        | Initial responses take 5–30 seconds. Investigations take 5–8 minutes. | Set client timeout to at least 120 seconds.                        |
-| Connection refused                     | Incorrect endpoint URL or Region.                                     | Verify the URL format: `https://connect.aidevops.{region}.api.aws` |
+| Symptom                                              | Cause                                                                  | Resolution                                                         |
+| ---------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| HTTP 401 Unauthorized                                | Token is invalid or expired.                                           | Create a new token or rotate the existing token in the web app.    |
+| HTTP 400 "A2A-Version header required"               | Missing protocol version header. Only A2A v1.0 is supported.           | Add `A2A-Version: 1.0` header to A2A requests.                     |
+| HTTP 400 "Agent space not resolved from credentials" | An A2A + SigV4 request does not include the `X-Agent-Space-Id` header. | Add `X-Agent-Space-Id: <agentSpaceId>` to the request.             |
+| Request timeout                                      | Initial responses take 5–30 seconds. Investigations take 5–8 minutes.  | Set client timeout to at least 120 seconds.                        |
+| Connection refused                                   | Incorrect endpoint URL or Region.                                      | Verify the URL format: `https://connect.aidevops.{region}.api.aws` |

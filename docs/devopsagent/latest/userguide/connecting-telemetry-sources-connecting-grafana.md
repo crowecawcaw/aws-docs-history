@@ -115,6 +115,6 @@ If you are using [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https
 
 ## Managing Grafana connections
 
-- **Updating credentials** – If your service account token expires or needs to be updated, deregister Grafana from the Capability Providers page and re-register with the new token.
+- **Updating credentials** – If your service account token expires or needs to be updated, you can rotate it without deregistering. On the **Capability Providers** page, select your Grafana registration, choose **Update** from the **Actions** menu, and enter the new token. Your Agent Space associations are preserved.
 - **Viewing connected instances** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected telemetry sources.
 - **Removing Grafana** – To disconnect Grafana from an Agent Space, select it in the Telemetry section and choose **Remove**. To completely remove the registration, remove it from all Agent Spaces first, then deregister from the Capability Providers page.

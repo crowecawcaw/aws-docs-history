@@ -94,6 +94,6 @@ Once configured, any new merge request in a project with **Auto trigger change r
 
 ## Managing GitLab connections
 
-- **Updating access token** – If your access token expires or needs to be updated, you can update it in the AWS DevOps Agent console by modifying the GitLab registration at the account level.
+- **Updating access token** – If your access token expires or needs to be updated, you can rotate it without deregistering. On the **Capability Providers** page, select your GitLab registration, choose **Update** from the **Actions** menu, and enter the new token. Your Agent Space associations and project connections are preserved.
 - **Viewing connected projects** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected projects in the Pipeline section.
 - **Removing GitLab connection** – To disconnect GitLab projects from an Agent Space, select the connection in the Pipeline section and choose **Remove**. To remove the GitLab registration completely, remove it from all Agent Spaces first, then delete the registration at the account level.

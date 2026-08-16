@@ -144,7 +144,13 @@ AWS DevOps Agent will now be able to use the allowlisted tools from your MCP ser
 
 ## Managing MCP server connections
 
-**Updating authentication credentials** – If your authentication credentials need to be updated, you need to re-register your MCP server. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your MCP server, remove any active associations, and choose **Deregister** from the **Actions** menu. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
+**Updating authentication credentials** – You can update the authentication credentials of a registered MCP server without deregistering it. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, select your MCP server, and choose **Update** from the **Actions** menu. Your Agent Space associations are preserved. What you can update depends on the authentication method:
+
+- **API key** – Enter a new API key value and header name to rotate the credential. The endpoint can't be changed during an update.
+- **OAuth 3LO (Three-Legged OAuth)** – Re-run the authorization flow to refresh the stored token. You don't re-enter the client credentials. When you submit, AWS DevOps Agent redirects you to the provider's consent page to complete the re-authorization. Optionally, you can override the authorization URL. If you leave it blank, AWS DevOps Agent discovers it from your MCP server's metadata.
+- **AWS SigV4** – Update the server name, endpoint, description, AWS Region, service, IAM role, and custom headers.
+
+MCP servers that use OAuth Client Credentials can't be updated in place. To change those credentials, remove any active associations, deregister the MCP server, and re-register it with the new values.
 
 **Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section. You can also update selected tools here.
 
