@@ -26,19 +26,13 @@ For a list of job functions and their descriptions, see [AWS managed policies fo
 
 AppRegistry provides you with `AWSServiceCatalogAppRegistryFullAccess`, an AWS managed policy that grants you full access to AppRegistry capabilities.
 
-In this version of the policy, AppRegistry adds the resource group permissions `resource-groups:AssociateResource` and `resource-groups:DisassociateResource`, which allow you to call the resource groups for the AppRegistry `AssociateResource` and `DisassociateResource` APIs.
-
-###### Note
-
-You can use the AppRegistry `AssociateResource` and `DisassociateResource` APIs to add and remove resources associated with [the `awsApplication` tag](overview-appreg.md#ar-user-tags "overview-appreg.md#ar-user-tags").
-For more information, see [AssociateResource](../dg/API_app-registry_AssociateResource.md "../dg/API_app-registry_AssociateResource.md") and [DisassociateResource](../dg/API_app-registry_DisassociateResource.md "../dg/API_app-registry_DisassociateResource.md") in the _AWS Service Catalog AppRegistry Developer Guide_.
-
-AppRegistry also adds the permission `tag:GetResources`, which allows you to return all tagged resources.
-All tagged resources with defined tag keys and values can be included as resources for applications.
+In this version of the policy, AppRegistry adds the permissions `cloudformation:TagResource` and `cloudformation:UntagResource`.
+These permissions allow AppRegistry to tag and untag a CloudFormation stack when it updates the stack on your behalf.
+These permissions apply only when AppRegistry calls CloudFormation during an `UpdateStack` operation.
 
 ###### Permissions details
 
-- **CloudFormation** – Allows AppRegistry to update a stack in CloudFormation.
+- **CloudFormation** – AppRegistry uses these permissions to update a stack in CloudFormation, and to tag and untag the stack when AppRegistry updates it on your behalf.
 - **Resource Groups** – Allows AppRegistry to create resource groups, return information about resource groups, delete resource groups, tag resource groups, return lists of tags associated with resource groups, remove tags from resource groups, retrieve resource tag information, and retrieve service configurations associated with resource groups.
 - **IAM** – Allows AppRegistry to create an IAM role that's linked to a specific AWS service.
 
@@ -196,6 +190,7 @@ The following table includes information about the updates to the `AWSServiceCat
 
 | Policy                                                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                    | Date              |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSServiceCatalogAppRegistryFullAccess](#full "#full") – Update to an existing policy                                                                  | AppRegistry added the permissions `cloudformation:TagResource` and `cloudformation:UntagResource`, which allow AppRegistry to tag and untag a CloudFormation stack when it updates the stack on your behalf.                                                                                                                                                   | August 11, 2026   |
 | [AWSServiceCatalogAppRegistryFullAccess](#full "#full") – Update to an existing policy                                                                  | Added the resource group permission `tag:GetResources`, which allows you to retrieve resource tag information.                                                                                                                                                                                                                                                 | December 07, 2023 |
 | [AWSServiceCatalogAppRegistryFullAccess](#full "#full") – Update to an existing policy                                                                  | Added the resource group permissions `resource-groups:AssociateResource` and `resource-groups:DisassociateResource`, which allow you to call the resource groups for `AssociateResource` and `DisassociateResource`.                                                                                                                                           | November 13, 2023 |
 | [AWSServiceCatalogAppRegistryFullAccess](#full "#full") – Update to an existing policy                                                                  | Added the following:<br>• `GetConfiguration` to retrieve a `TagKey` configuration from an account.<br>• `PutConfiguration` to associate a `TagKey` configuration with an account.<br>• The resource group actions `AssociateResource` and `DisassociateResource`, which are required to perform `AssociateResource` and `DisassociateResource` on a tag value. | November 17, 2022 |
