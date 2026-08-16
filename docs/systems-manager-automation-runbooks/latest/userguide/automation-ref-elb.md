@@ -15,4 +15,5 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing](automation-aws-enable-nlb-crosszone.md "automation-aws-enable-nlb-crosszone.md")
 - [AWS-UpdateALBDesyncMitigationMode](AWS-UpdateALBDesyncMitigationMode.md "AWS-UpdateALBDesyncMitigationMode.md")
 - [AWS-UpdateCLBDesyncMitigationMode](AWS-UpdateCLBDesyncMitigationMode.md "AWS-UpdateCLBDesyncMitigationMode.md")
+- [AWSSupport-TroubleshootALB5XXErrors](automation-awssupport-troubleshootalb5xxerrors.md "automation-awssupport-troubleshootalb5xxerrors.md")
 - [AWSSupport-TroubleshootELBHealthChecks](automation-aws-troubleshootelbhealthchecks.md "automation-aws-troubleshootelbhealthchecks.md")

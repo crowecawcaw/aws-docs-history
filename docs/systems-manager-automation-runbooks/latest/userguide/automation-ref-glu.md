@@ -6,4 +6,5 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 
 ###### Topics
 
+- [AWSPremiumSupport-CollectAWSGlueMetadata](automation-awspremiumsupport-collectawsgluemetadata.md "automation-awspremiumsupport-collectawsgluemetadata.md")
 - [AWSSupport-TroubleshootGlueConnection](automation-awssupport-troubleshootglueconnection.md "automation-awssupport-troubleshootglueconnection.md")

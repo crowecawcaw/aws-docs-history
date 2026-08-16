@@ -1,22 +1,21 @@
 # `AWSSupport-TroubleshootMWAAEnvironmentCreation`
 
-**Description**
+###### Description
 
 The `AWSSupport-TroubleshootMWAAEnvironmentCreation` runbook provides
 information to debug Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment creation issues, and perform checks
 along with the documented reasons on a best effort basis to help identify the failure.
 
-**How does it work?**
+###### How does it work?
 
 The runbook performs the following steps:
 
 - Retrieves the details of the Amazon MWAA environment.
+- Checks customer managed endpoints if the environment uses customer managed endpoint management.
 - Verifies the execution role permissions.
-- Checks if the environment has permissions to use the provided AWS KMS key for
-  logging, and if the required CloudWatch log group exists.
+- Checks if the environment has permissions to use the provided AWS KMS key for logging, and if the required CloudWatch log group exists.
 - Parses the logs in the provided log group to locate any errors.
-- Checks the network configuration to verify if the Amazon MWAA environment has access to
-  the required endpoints.
+- Checks the network configuration to verify if the Amazon MWAA environment has access to the required endpoints, including Availability Zone diversity.
 - Generates a report with the findings.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootMWAAEnvironmentCreation "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootMWAAEnvironmentCreation")
@@ -46,31 +45,103 @@ use the runbook successfully.
 - `ec2:DescribeRouteTables`
 - `ec2:DescribeSecurityGroups`
 - `ec2:DescribeSubnets`
+- `ec2:DescribeTransitGatewayAttachments`
+- `ec2:DescribeTransitGatewayVpcAttachments`
+- `ec2:DescribeTransitGateways`
+- `ec2:DescribeVpcAttribute`
 - `ec2:DescribeVpcEndpoints`
+- `ec2:DescribeVpcPeeringConnections`
+- `ec2:DescribeVpcs`
+- `ec2:SearchTransitGatewayRoutes`
 - `iam:GetPolicy`
 - `iam:GetPolicyVersion`
 - `iam:GetRolePolicy`
 - `iam:ListAttachedRolePolicies`
 - `iam:ListRolePolicies`
 - `iam:SimulateCustomPolicy`
+- `kms:DescribeKey`
 - `kms:GetKeyPolicy`
 - `kms:ListAliases`
 - `logs:DescribeLogGroups`
 - `logs:FilterLogEvents`
 - `s3:GetBucketAcl`
 - `s3:GetBucketPolicyStatus`
-- `s3:GetPublicAccessBlock`
-- `s3control:GetPublicAccessBlock`
-- `ssm:StartAutomationExecution`
+- `s3:GetBucketPublicAccessBlock`
+- `s3:GetAccountPublicAccessBlock`
 - `ssm:GetAutomationExecution`
+- `ssm:StartAutomationExecution`
+- `sts:GetCallerIdentity`
 
-**Instructions**
+###### Example policy
+
+```
+
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "ReadOnlyPermissions",
+                    "Effect": "Allow",
+                    "Action": [
+                        "airflow:GetEnvironment",
+                        "cloudtrail:LookupEvents",
+                        "ec2:DescribeNatGateways",
+                        "ec2:DescribeNetworkAcls",
+                        "ec2:DescribeNetworkInterfaces",
+                        "ec2:DescribeRouteTables",
+                        "ec2:DescribeSecurityGroups",
+                        "ec2:DescribeSubnets",
+                        "ec2:DescribeTransitGatewayAttachments",
+                        "ec2:DescribeTransitGatewayVpcAttachments",
+                        "ec2:DescribeTransitGateways",
+                        "ec2:DescribeVpcAttribute",
+                        "ec2:DescribeVpcEndpoints",
+                        "ec2:DescribeVpcPeeringConnections",
+                        "ec2:DescribeVpcs",
+                        "ec2:SearchTransitGatewayRoutes",
+                        "iam:GetPolicy",
+                        "iam:GetPolicyVersion",
+                        "iam:GetRolePolicy",
+                        "iam:ListAttachedRolePolicies",
+                        "iam:ListRolePolicies",
+                        "iam:SimulateCustomPolicy",
+                        "kms:DescribeKey",
+                        "kms:GetKeyPolicy",
+                        "kms:ListAliases",
+                        "logs:DescribeLogGroups",
+                        "logs:FilterLogEvents",
+                        "s3:GetBucketAcl",
+                        "s3:GetBucketPolicyStatus",
+                        "s3:GetBucketPublicAccessBlock",
+                        "s3:GetAccountPublicAccessBlock",
+                        "ssm:GetAutomationExecution",
+                        "sts:GetCallerIdentity"
+                    ],
+                    "Resource": "*"
+                },
+                {
+                    "Sid": "SSMStartConnectivityTroubleshooter",
+                    "Effect": "Allow",
+                    "Action": [
+                        "ssm:StartAutomationExecution"
+                    ],
+                    "Resource": [
+                        "arn:<aws|aws-cn|aws-us-gov>:ssm:*:*:automation-execution/*",
+                        "arn:<aws|aws-cn|aws-us-gov>:ssm:*:*:document/AWSSupport-ConnectivityTroubleshooter"
+                    ]
+                }
+            ]
+        }
+
+```
+
+###### Instructions
 
 Follow these steps to configure the automation:
 
-1. Navigate to [`AWSSupport-TroubleshootMWAAEnvironmentCreation`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootMWAAEnvironmentCreation/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootMWAAEnvironmentCreation/description") in
+1. Navigate to [AWSSupport-TroubleshootMWAAEnvironmentCreation](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootMWAAEnvironmentCreation/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootMWAAEnvironmentCreation/description") in
    Systems Manager under Documents.
-2. Select Execute automation.
+2. Choose **Execute automation**. Make sure your IAM role has the required permissions listed in the preceding section before you run the automation.
 3. For the input parameters, enter the following:
 
    - **AutomationAssumeRole (Optional):**
@@ -81,156 +152,152 @@ Follow these steps to configure the automation:
    runbook.
    - **EnvironmentName (Required):**
 
-   Name of the Amazon MWAA environment you wish to evaluate.
+   Name of the Amazon MWAA environment that you want to evaluate.
+   - **LookbackPeriodInHours (Optional):**
 
-![Input parameters section showing AutomationAssumeRole and EnvironmentName fields with descriptions.](images/awssupport-troubleshoot-mwaa-environment-creation_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
+   Specify how far back, in hours, to search CloudTrail events and CloudWatch logs for errors. If you don't specify a value, the automation uses the environment's last update time to determine the lookback window. The default cap is 24 hours. You can specify values above 24, but doing so might result in longer execution times.
 
-    * **`GetMWAAEnvironmentDetails:`**
+4. Choose **Execute**.
+5. The automation initiates.
+6. The document performs the following steps:
 
+   - **`GetMWAAEnvironmentDetails`**:
 
-    Retrieves the details of the Amazon MWAA environment. If this step fails, the
-     automation process will halt and show as `Failed`.
-    * **`CheckIAMPermissionsOnExecutionRole:`**
+   Retrieves the details of the Amazon MWAA environment. If this step fails, the
+   automation process will halt and show as `Failed`.
+   - **`BranchOnEndpointManagement`**:
 
+   Branches the workflow based on whether the Amazon MWAA environment uses customer managed endpoint management. If so, the automation proceeds to check customer managed endpoints.
+   - **`CheckCustomerManagedEndpoints`**:
 
-    Verifies that the execution role has the required permissions for Amazon MWAA,
-     Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. If it detects a customer managed
-     AWS Key Management Service (AWS KMS) key, the automation validates the key's required
-     permissions. This step employs the `iam:SimulateCustomPolicy` API
-     to ascertain if the automation execution role meets all required
-     permissions.
-    * **`CheckKMSPolicyOnKMSKey:`**
+   Verifies the availability and accessibility of customer managed endpoints.
+   - **`CheckIAMPermissionsOnExecutionRole`**:
 
+   Verifies that the execution role has the required permissions for Amazon MWAA,
+   Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. If it detects a customer managed
+   AWS Key Management Service (AWS KMS) key, the automation validates the key's required
+   permissions. This step employs the `iam:SimulateCustomPolicy` API
+   to ascertain if the automation execution role meets all required
+   permissions.
+   - **`CheckKMSPolicyOnKMSKey`**:
 
-    Checks if the AWS KMS key policy allows the Amazon MWAA environment to use the
-     key for encrypting CloudWatch Logs. If the AWS KMS key is AWS-managed, the
-     automation skips this check.
-    * **`CheckIfRequiredLogGroupsExists:`**
+   Checks if the AWS KMS key policy allows the Amazon MWAA environment to use the
+   key for encrypting CloudWatch Logs. If the AWS KMS key is AWS-managed, the
+   automation skips this check.
+   - **`CheckIfRequiredLogGroupsExists`**:
 
+   Checks if the required CloudWatch log groups for the Amazon MWAA environment exist.
+   If not, the automation checks CloudTrail for `CreateLogGroup` and
+   `DeleteLogGroup` events. This step also checks for
+   `CreateLogGroup` events.
+   - **`BranchOnLogGroupsFindings`**:
 
-    Checks if the required CloudWatch log groups for the Amazon MWAA environment exist.
-     If not, the automation checks CloudTrail for `CreateLogGroup` and
-     `DeleteLogGroup` events. This step also checks for
-     `CreateLogGroup` events.
-    * **`BranchOnLogGroupsFindings:`**
+   Branches based on the existence of CloudWatch log groups related to the Amazon MWAA
+   environment. If at least one log group exists, the automation parses it to
+   locate errors. If no log groups are present, the automation skips the next
+   step.
+   - **`CheckForErrorsInLogGroups`**:
 
+   Parses the CloudWatch log groups to locate errors.
+   - **`GetRequiredEndPointsDetails`**:
 
-    Branches based on the existence of CloudWatch log groups related to the Amazon MWAA
-     environment. If at least one log group exists, the automation parses it to
-     locate errors. If no log groups are present, the automation skips the next
-     step.
-    * **`CheckForErrorsInLogGroups:`**
+   Retrieves the service endpoints utilized by the Amazon MWAA environment.
+   - **`CheckNetworkConfiguration`**:
 
+   Verifies that the Amazon MWAA environment's network configuration meets the
+   requirements, including checks on security groups, network ACLs, subnets,
+   route table configurations, and Availability Zone diversity.
+   - **`CheckEndpointsConnectivity`**:
 
-    Parses the CloudWatch log groups to locate errors.
-    * **`GetRequiredEndPointsDetails:`**
+   Invokes the `AWSSupport-ConnectivityTroubleshooter` child
+   automation to validate the Amazon MWAA's connectivity to the required
+   endpoints.
+   - **`CheckS3BlockPublicAccess`**:
 
+   Checks whether the Amazon MWAA environment's Amazon S3 bucket has `Block Public
+  Access` enabled and also reviews the account's overall Amazon S3 Block
+   Public Access settings.
+   - **`GenerateReport`**:
 
-    Retrieves the service endpoints utilized by the Amazon MWAA environment.
-    * **`CheckNetworkConfiguration:`**
+   Gathers information from the automation and prints the result or output of
+   each step.
 
+7. After the automation completes, review the Outputs section for detailed execution results:
 
-    Verifies that the Amazon MWAA environment's network configuration meets the
-     requirements, including checks on security groups, network ACLs, subnets,
-     and route table configurations.
-    * **`CheckEndpointsConnectivity:`**
+   - **Checking the Amazon MWAA environment customer managed
+     endpoints:**
 
-
-    Invokes the `AWSSupport-ConnectivityTroubleshooter` child
-     automation to validate the Amazon MWAA's connectivity to the required
-     endpoints.
-    * **`CheckS3BlockPublicAccess:`**
-
-
-    Checks whether the Amazon MWAA environment's Amazon S3 bucket has `Block Public
-     Access` enabled and also reviews the account's overall Amazon S3 Block
-     Public Access settings.
-    * **`GenerateReport:`**
-
-
-    Gathers information from the automation and prints the result or output of
-     each step.
-
-7. After completed, review the Outputs section for the detailed results of the
-execution:
-
-    * **Checking the Amazon MWAA environment execution role
+   Verifies the availability and accessibility of customer managed endpoints
+   if the environment uses customer managed endpoint management.
+   - **Checking the Amazon MWAA environment execution role
      permissions:**
 
-
-    Verifies if the execution role has the required permissions for Amazon MWAA,
-     Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. If a Customer Managed AWS KMS key
-     is detected, the automation validates the key's required permissions.
-    * **Checking the Amazon MWAA environment AWS KMS key
+   Verifies if the execution role has the required permissions for Amazon MWAA,
+   Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. If a Customer Managed AWS KMS key
+   is detected, the automation validates the key's required permissions.
+   - **Checking the Amazon MWAA environment AWS KMS key
      policy:**
 
-
-    Verifies whether the execution role possesses the necessary permissions
-     for Amazon MWAA, Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. Additionally, if a
-     Customer Managed AWS KMS key is detected, the automation checks for the key's
-     required permissions.
-    * **Checking the Amazon MWAA environment CloudWatch logs
+   Verifies whether the execution role possesses the necessary permissions
+   for Amazon MWAA, Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. Additionally, if a
+   Customer Managed AWS KMS key is detected, the automation checks for the key's
+   required permissions.
+   - **Checking the Amazon MWAA environment CloudWatch logs
      groups:**
 
-
-    Checks whether the required CloudWatch Log Groups for the Amazon MWAA environment
-     exist. If they do not, the automation then checks CloudTrail to locate
-     `CreateLogGroup` and `DeleteLogGroup`
-     events.
-    * **Checking the Amazon MWAA environment Route
+   Checks whether the required CloudWatch Log Groups for the Amazon MWAA environment
+   exist. If they do not, the automation then checks CloudTrail to locate
+   `CreateLogGroup` and `DeleteLogGroup`
+   events.
+   - **Checking the Amazon MWAA environment Route
      Tables:**
 
-
-    Checks whether the Amazon VPC route tables in the Amazon MWAA environment are
-     properly configured.
-    * **Checking the Amazon MWAA environment Security
+   Checks whether the Amazon VPC route tables in the Amazon MWAA environment are
+   properly configured.
+   - **Checking the Amazon MWAA environment Security
      Groups:**
 
-
-    Checks if the Amazon MWAA environment Amazon VPC security groups are properly
-     configured.
-    * **Checking the Amazon MWAA environment Network
+   Checks if the Amazon MWAA environment Amazon VPC security groups are properly
+   configured.
+   - **Checking the Amazon MWAA environment Network
      ACLs:**
 
-
-    Checks whether the Amazon VPC security groups in the Amazon MWAA environment are
-     properly configured.
-    * **Checking the Amazon MWAA environment
+   Checks whether the Amazon VPC security groups in the Amazon MWAA environment are
+   properly configured.
+   - **Checking the Amazon MWAA environment
      Subnets:**
 
+   Verifies whether the Amazon MWAA environment's subnets are private.
+   - **Checking the Amazon MWAA environment Availability Zone
+     diversity:**
 
-    Verifies whether the Amazon MWAA environment's subnets are private.
-    * **Checking the Amazon MWAA environment required endpoints
+   Verifies whether the Amazon MWAA environment's subnets are in different
+   Availability Zones for high availability.
+   - **Checking the Amazon MWAA environment required endpoints
      connectivity:**
 
-
-    Verifies whether the Amazon MWAA environment can access the required endpoints.
-     For this purpose, the automation invokes the
-     `AWSSupport-ConnectivityTroubleshooter` automation.
-    * **Checking the Amazon MWAA environment Amazon S3
+   Verifies whether the Amazon MWAA environment can access the required endpoints.
+   For this purpose, the automation invokes the
+   `AWSSupport-ConnectivityTroubleshooter` automation.
+   - **Checking the Amazon MWAA environment Amazon S3
      bucket:**
 
-
-    Checks whether the Amazon MWAA environment's Amazon S3 bucket has `Block Public
-     Access` enabled and also reviews the account's Amazon S3 Block Public
-     Access settings.
-    * **Checking the Amazon MWAA environment CloudWatch logs groups
+   Checks whether the Amazon MWAA environment's Amazon S3 bucket has `Block Public
+  Access` enabled and also reviews the account's Amazon S3 Block Public
+   Access settings.
+   - **Checking the Amazon MWAA environment CloudWatch logs groups
      errors:**
 
-
-    Parses the existing CloudWatch log groups of the Amazon MWAA environment to locate
-     errors.
+   Parses the existing CloudWatch log groups of the Amazon MWAA environment to locate
+   errors.
 
 ![MMAA environment troubleshooting report showing successful configuration checks and connectivity tests.](images/awssupport-troubleshoot-mwaa-environment-creation_outputs.png)
 
-**References**
+###### References
 
 Systems Manager Automation
 
 - [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootMWAAEnvironmentCreation/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootMWAAEnvironmentCreation/description")
-- [Run an
-  automation](../../../systems-manager/latest/userguide/automation-working-executing.md "../../../systems-manager/latest/userguide/automation-working-executing.md")
-- [Setting up an
-  Automation](../../../systems-manager/latest/userguide/automation-setup.md "../../../systems-manager/latest/userguide/automation-setup.md")
-- [Support Automation
-  Workflows landing page](https://aws.amazon.com/premiumsupport/technology/saw/ "https://aws.amazon.com/premiumsupport/technology/saw/")
+- [Run an automation](../../../systems-manager/latest/userguide/automation-working-executing.md "../../../systems-manager/latest/userguide/automation-working-executing.md")
+- [Setting up an Automation](../../../systems-manager/latest/userguide/automation-setup.md "../../../systems-manager/latest/userguide/automation-setup.md")
+- [Support Automation Workflows](https://aws.amazon.com/premiumsupport/technology/saw/ "https://aws.amazon.com/premiumsupport/technology/saw/")

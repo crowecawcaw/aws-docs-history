@@ -21,4 +21,5 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSSupport-TroubleshootEbsCsiDriversForEks](automation-awssupport-troubleshoot-ebs-csi-drivers-for-eks.md "automation-awssupport-troubleshoot-ebs-csi-drivers-for-eks.md")
 - [AWSSupport-TroubleshootEKSNetwork](automation-awssupport-troubleshooteksnetwork.md "automation-awssupport-troubleshooteksnetwork.md")
 - [AWSSupport-TroubleshootEKSALBControllerIssues](automation-awssupport-troubleshoot-eks-alb-controller-issues.md "automation-awssupport-troubleshoot-eks-alb-controller-issues.md")
+- [AWSSupport-TroubleshootEKSCNI](automation-awssupport-troubleshootekscni.md "automation-awssupport-troubleshootekscni.md")
 - [AWSSupport-TroubleshootEKSDNSFailure](automation-awssupport-troubleshooteksdnsfailure.md "automation-awssupport-troubleshooteksdnsfailure.md")

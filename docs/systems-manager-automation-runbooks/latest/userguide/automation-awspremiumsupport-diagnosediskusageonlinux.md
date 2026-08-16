@@ -23,6 +23,20 @@ Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/prem
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-DiagnoseDiskUsageOnLinux "https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-DiagnoseDiskUsageOnLinux")
 
+**Document type**
+
+Automation
+
+**Owner**
+
+Amazon
+
+**Platforms**
+
+Linux
+
+**Parameters**
+
 **Required IAM permissions**
 
 The `AutomationAssumeRole` parameter requires the following actions to

@@ -74,6 +74,7 @@ For information about running automations, see [Running a simple automation](../
 - [Amazon Kinesis Data Streams](automation-ref-aks.md "automation-ref-aks.md")
 - [AWS KMS](automation-ref-kms.md "automation-ref-kms.md")
 - [Lambda](automation-ref-lam.md "automation-ref-lam.md")
+- [Amazon MSK](automation-ref-msk.md "automation-ref-msk.md")
 - [Amazon Managed Workflows for Apache Airflow](automation-ref-mwaa.md "automation-ref-mwaa.md")
 - [Neptune](automation-ref-neptune.md "automation-ref-neptune.md")
 - [Amazon RDS](automation-ref-rds.md "automation-ref-rds.md")
