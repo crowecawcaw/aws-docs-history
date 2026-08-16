@@ -600,43 +600,344 @@ zip -r MyTests.zip Gemfile vendor/ $(any other source code directory files)
 This is the `MyTests.zip` file that you upload to Device Farm in the following
 procedure.
 
-## Upload your test package to Device Farm
+## Run your Appium tests
 
 You can use the Device Farm console to upload your tests.
 
 1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
-2. On the Device Farm
-   navigation panel,
-   choose **Mobile Device Testing**,
-   then choose
+2. In the navigation pane, choose **Mobile Device Testing**, and then choose
    **Projects**.
-3. If you are a new user, choose **New
-   project**,
-   enter a name for the project, then choose **Submit**.
+3. If you are a new user, choose **New project**, enter a name for the project, and then choose
+   **Submit**. If you already have a project, you can choose it to upload your tests to it.
+4. Open your project, and then choose **Create run**.
+5. Under **Select app and run type**, in the **Run type** section, select your
+   run type. Select **Android app** if you are testing an Android app (.apk file format). Select
+   **iOS app** if you are testing an iOS app (.ipa file format). Select **Web App**
+   if you are testing a mobile web application.
+6. Under **Select app**, in the **App selection options** section, choose
+   **Select sample app provided by Device Farm** if you do not have an app. If you are bringing your
+   own app, select **Upload own app**. Then choose your APK (.apk file format) for Android or your IPA
+   (.ipa file format) for iOS. If you are uploading an iOS app, make sure that you choose **iOS
+   device**, not a simulator.
+7. Under **Configure test**, in the **Select test framework** section, choose
+   the Appium framework that you test with, and then select **Upload your own test package**. Browse
+   to and choose the .zip file that contains your tests. The .zip file must follow the format described in [Configure your Appium test package](#test-types-appium-prepare "#test-types-appium-prepare").
+8. You can use the default test spec, or choose **Upload own test spec** to provide your
+   own.
+9. Under **Select devices**, choose a device selection method. Select **Use Device
+   Pool** to choose from a curated collection of devices or a custom device pool you created. Select
+   **Manually select devices** to pick individual devices to run your tests against. The
+   **Device compatibility** section shows how many devices in the selected pool are compatible with
+   your app. For more information, see [Device support in AWS Device Farm](devices.md "devices.md").
+10. (Optional) To configure run-level properties, update the **Run settings** section:
 
-If you already have a project, you can choose it to upload your tests to it. 4. Open your project, and then choose **Create run**. 5. Under **Run settings**, give your test an appropriate name.
-This may contain any combination of spaces or punctuation. 6. For native Android and iOS tests
+    - Device Farm currently supports test insights only for Appium TestNG. To have Device Farm generate a test report
+      after your run completes, select **Generate test report**. This option is available in a custom
+      test environment only.
 
-Under **Run settings**, choose **Android app** if you are
-testing an Android (.apk) application, or choose **iOS app** if you are testing an
-iOS (.ipa) application. Then, under **Select app**, select **Upload own
-app** to upload your application's distributable package.
+    The following prerequisites apply:
 
-###### Note
+        + Your tests must generate a `testng-results.xml` file and write it to
+         `$DEVICEFARM_LOG_DIR`. For example, pass `-d $DEVICEFARM_LOG_DIR/test-output` to the
+         TestNG command in your test spec file. The default Appium Java
+         TestNG test spec produces
+         and stores this file automatically if you keep the default configuration.
 
-The file must be either an Android `.apk` or an iOS `.ipa`. iOS
-Applications must be built for real devices, not the Simulator.
-
-For Mobile Web application tests
-
-Under **Run settings**, choose **Web App**. 7. Under **Configure test**, in the **Select test framework** section, choose
-the Appium framework that you test with, and then **Upload your own test package**. 8. Browse to and choose the .zip file that contains your tests. The .zip file must follow the format described
-in [Configure your Appium test package](#test-types-appium-prepare "#test-types-appium-prepare"). 9. Follow the instructions to select devices and start the run. For
-more information, see [Creating a test run in Device Farm](how-to-create-test-run.md "how-to-create-test-run.md").
+11. Choose **Confirm and start run**. For more information, see [Creating a test run in Device Farm](how-to-create-test-run.md "how-to-create-test-run.md").
 
 ###### Note
 
 Device Farm does not modify Appium tests.
+
+## View a test report
+
+After your run completes, Device Farm generates a test report for each device. The report shows a per-test
+breakdown, including each test's name, class, result, and duration, plus a stack trace for any failed test. You
+can view the test report in the console or retrieve it through the API.
+
+To open a completed job in the Device Farm console:
+
+1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
+2. In the navigation pane, choose **Mobile Device Testing**, and then choose
+   **Projects**.
+3. Choose the project that contains the run you want to inspect.
+4. Choose the completed run to open its details.
+5. Choose one of the completed jobs to open the results for that device.
+
+What you see in the job results depends on the test framework and whether you enabled test insights. Choose your
+framework tab to view the results.
+
+Java (TestNG)
+
+###### With test insights enabled
+
+The job results include a **Test report** tab. Choose it to see a per-test breakdown. The
+following screenshot shows the **Test report** tab.
+
+![The Test report tab for a completed Appium Java TestNG job.](images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-column.png)
+
+The tab shows the following fields for each test:
+
+`testName`
+The name of the test method.
+
+`testClass`
+The name of the test class.
+
+`result`
+The Device Farm result for the test.
+
+`frameworkResult`
+The result that TestNG reported (`PASS`, `FAIL`, or `SKIP`).
+Device Farm maps this value to the normalized `result` field.
+
+`durationSeconds`
+The duration of the test, in seconds.
+
+`startTimestamp`
+The time when the test started.
+
+`endTimestamp`
+The time when the test ended.
+
+`params`
+For a parameterized test, the parameter values that TestNG passed to the
+test.
+
+`stackTrace`
+For a failed test, the stack trace of the failure.
+
+To download the full test report as a JSON file, choose **Download full summary** at the top
+of the job details.
+
+To choose which columns appear, choose the gear icon. In the settings, you can select the columns to display
+and turn **Group by class** on or off. **Group by class** is on by default,
+which groups the tests by their test class. Turn it off to see a flat list of all tests, as shown in the
+following screenshot.
+
+![The Test report tab with Group by class turned off, showing a flat list of tests.](images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-without-grouping.png)
+
+###### Without test insights enabled
+
+The job results show the standard test output and artifacts, but no **Test report** tab. To
+generate a test report, schedule a new run with test insights enabled.
+
+![The job results for a completed Appium Java TestNG job without test insights enabled.](images/aws-device-farm-test-insights/console-instrumentation-insights-disabled-test-report.png)
+
+###### View a test report (AWS CLI)
+
+Run **get-job** and specify the job ARN:
+
+```
+aws devicefarm get-job --arn `arn:aws:devicefarm:us-west-2:123456789012:job:PROJECT_ID/RUN_ID/00000`
+```
+
+If you did not enable test insights, the response contains the standard job fields, such as the job status,
+result, counters, and device:
+
+```
+{
+    "job": {
+        "arn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
+        "name": "Example Android Phone",
+        "created": "2026-07-31T16:58:20.000000-07:00",
+        "status": "COMPLETED",
+        "result": "FAILED",
+        "counters": {
+            "total": 3,
+            "passed": 1,
+            "failed": 1,
+            "warned": 0,
+            "errored": 0,
+            "stopped": 0,
+            "skipped": 1
+        },
+        "device": {
+            "arn": "arn:aws:devicefarm:us-west-2::device:EXAMPLEDEVICEID",
+            "name": "Example Android Phone",
+            "platform": "ANDROID",
+            "os": "14",
+            "formFactor": "PHONE",
+            "fleetType": "PUBLIC"
+        },
+        "deviceMinutes": {
+            "total": 1.42,
+            "metered": 0.0,
+            "unmetered": 1.17
+        },
+        "videoCapture": true
+    }
+}
+```
+
+If you enabled test insights, the response also includes an `insights` object. This object
+contains the test report status, high-level metrics, and a presigned URL to the detailed report:
+
+```
+{
+    "job": {
+        "arn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
+        "status": "COMPLETED",
+        "result": "FAILED",
+        "counters": { ... },
+        "device": { ... },
+        "deviceMinutes": { ... },
+        "videoCapture": true,
+        "insights": {
+            "status": "COMPLETED",
+            "testReport": {
+                "message": "Results: 3 Executed | 1 passed, 1 failed, 1 skipped. Median test duration: 1.83 seconds.",
+                "metrics": {
+                    "testsTotal": 3,
+                    "testsPassed": 1,
+                    "testsFailed": 1,
+                    "testsSkipped": 1,
+                    "testsErrored": 0,
+                    "testsOther": 0,
+                    "testsPassedPercentage": 33.33
+                },
+                "testDetailsUrl": "https://EXAMPLE-PRESIGNED-URL"
+            }
+        }
+    }
+}
+```
+
+The `testDetailsUrl` field is a presigned URL to the full test report JSON. Download it to get the
+per-test breakdown:
+
+```
+curl -o test-report.json "`PRESIGNED_URL`"
+```
+
+The following is an example test report for an Appium Java TestNG job:
+
+```
+{
+  "version": "1.0",
+  "jobArn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
+  "deviceName": "Google Pixel 7",
+  "deviceArn": "arn:aws:devicefarm:us-west-2::device:EXAMPLEDEVICEID",
+  "deviceOsVersion": "14",
+  "metrics": {
+    "testsTotal": 3,
+    "testsPassed": 1,
+    "testsFailed": 1,
+    "testsSkipped": 1,
+    "testsErrored": 0,
+    "testsOther": 0,
+    "testsPassedPercentage": 33.33,
+    "totalTestExecutionDurationSeconds": 5.421,
+    "medianTestExecutionDurationSeconds": 1.83
+  },
+  "testDetails": [
+    {
+      "testName": "testValidLogin",
+      "testClass": "com.example.app.LoginTest",
+      "frameworkResult": "PASS",
+      "result": "PASSED",
+      "durationSeconds": 1.83,
+      "startTimestamp": "2026-07-31T16:58:26.646000Z",
+      "endTimestamp": "2026-07-31T16:58:28.476000Z"
+    },
+    {
+      "testName": "testCheckout",
+      "testClass": "com.example.app.CheckoutTest",
+      "frameworkResult": "FAIL",
+      "result": "FAILED",
+      "durationSeconds": 3.102,
+      "startTimestamp": "2026-07-31T16:58:28.500000Z",
+      "endTimestamp": "2026-07-31T16:58:31.602000Z",
+      "stackTrace": "java.lang.AssertionError: expected [true] but found [false]\n\tat org.testng.Assert.fail(Assert.java:99)\n\t...",
+      "params": ["premium-user", "US"]
+    },
+    {
+      "testName": "testLogout",
+      "testClass": "com.example.app.LoginTest",
+      "frameworkResult": "SKIP",
+      "result": "SKIPPED",
+      "durationSeconds": 0.489,
+      "startTimestamp": "2026-07-31T16:58:31.700000Z",
+      "endTimestamp": "2026-07-31T16:58:32.189000Z"
+    }
+  ]
+}
+```
+
+The report contains the following top-level fields:
+
+`version`
+The report schema version.
+
+`jobArn`
+The ARN of the job.
+
+`deviceName`, `deviceArn`, `deviceOsVersion`
+The device that the tests ran on, and its operating system version.
+
+`metrics`
+
+Aggregate results for the job. The `metrics` object contains the following fields:
+
+`testsTotal`
+The total number of tests in the job.
+
+`testsPassed`
+The number of tests that passed.
+
+`testsFailed`
+The number of tests that failed.
+
+`testsSkipped`
+The number of tests that were skipped.
+
+`testsErrored`
+The number of tests that errored.
+
+`testsOther`
+The number of tests with another result.
+
+`testsPassedPercentage`
+The percentage of tests that passed.
+
+`totalTestExecutionDurationSeconds`
+The total duration of all tests, in seconds.
+
+`medianTestExecutionDurationSeconds`
+The median duration of a test, in seconds.
+
+`testDetails`
+
+A list of per-test results. Each entry in `testDetails` contains the following fields:
+
+`testName`
+The name of the test method.
+
+`testClass`
+The name of the test class.
+
+`result`
+The Device Farm result for the test.
+
+`frameworkResult`
+The result that TestNG reported (`PASS`, `FAIL`, or `SKIP`).
+Device Farm maps this value to the normalized `result` field.
+
+`durationSeconds`
+The duration of the test, in seconds.
+
+`startTimestamp`
+The time when the test started.
+
+`endTimestamp`
+The time when the test ended.
+
+`params`
+For a parameterized test, the parameter values that TestNG passed to the
+test.
+
+`stackTrace`
+For a failed test, the stack trace of the failure.
 
 ## Take screenshots of your tests (Optional)
 

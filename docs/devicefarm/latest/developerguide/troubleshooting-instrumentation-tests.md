@@ -7,7 +7,11 @@ tests and recommends workarounds to resolve each error.
 
 For important considerations when using Instrumentation tests in AWS Device Farm, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION\_TEST\_PACKAGE\_UNZIP\_FAILED
+## Upload errors
+
+The following errors can occur when you upload your Instrumentation tests.
+
+### INSTRUMENTATION\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -47,7 +51,7 @@ A valid Instrumentation test package will produce output like the following:
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION\_TEST\_PACKAGE\_AAPT\_DEBUG\_BADGING\_FAILED
+### INSTRUMENTATION\_TEST\_PACKAGE\_AAPT\_DEBUG\_BADGING\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -93,7 +97,7 @@ densities: '160'
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION\_TEST\_PACKAGE\_INSTRUMENTATION\_RUNNER\_VALUE\_MISSING
+### INSTRUMENTATION\_TEST\_PACKAGE\_INSTRUMENTATION\_RUNNER\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -135,7 +139,7 @@ E: instrumentation (line=9)
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION\_TEST\_PACKAGE\_AAPT\_DUMP\_XMLTREE\_FAILED
+### INSTRUMENTATION\_TEST\_PACKAGE\_AAPT\_DUMP\_XMLTREE\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -188,7 +192,7 @@ N: android=http://schemas.android.com/apk/res/android
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION\_TEST\_PACKAGE\_TEST\_PACKAGE\_NAME\_VALUE\_MISSING
+### INSTRUMENTATION\_TEST\_PACKAGE\_TEST\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -223,3 +227,53 @@ package: name='com.amazon.aws.adf.android.referenceapp.test' versionCode='' vers
 ```
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
+
+## Test insights
+
+When you opt in to test insights, Device Farm generates a summarized report for your run and each job under it. If the
+service cannot generate the report, the insights report status is `SKIPPED` or
+`ERRORED`, and the report message explains why. The following messages can occur
+when generating insights for Instrumentation tests.
+
+### The job did not run to completion
+
+`Unable to generate test insights because the job was
+ `status`.`
+
+The job ended in a non-successful state (where
+`status` is `STOPPED`, `ERRORED`, or
+`SKIPPED`), so there was no result to summarize. A run that ends in a failed
+state still receives insights.
+
+To resolve this issue, investigate why the job did not run to completion.
+In many cases, the `message` field of the job itself might explain why the job didn't complete.
+
+### The results contained no test cases
+
+`Test insights could not be generated. The test spec output file was
+ parsed successfully but contained no test cases.`
+
+The results artifact parsed successfully but contained zero test cases.
+
+To resolve this issue, verify that your test suite includes at least one test case and
+that results are stored correctly under `$DEVICEFARM_LOG_DIR`.
+
+### The test output exceeds the maximum supported size
+
+`Unable to generate test insights: test output "test spec output" exceeds
+ the maximum supported size of 1GB.`
+
+The test spec output is larger than 1 GB.
+
+To resolve this issue, investigate commands that are generating large numbers
+of lines in your test spec output. Then, remove or modify them.
+
+### No instrumentation output was found in the test spec output
+
+`Unable to generate test insights. No instrumentation test output was
+ found in the test spec output file.`
+
+The test spec output file was present but contained no instrumentation output lines.
+
+To resolve this issue, ensure that your framework emits instrumentation output to
+`stdout` in the test spec file.

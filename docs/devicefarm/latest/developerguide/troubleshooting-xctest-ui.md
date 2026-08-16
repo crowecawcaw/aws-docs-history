@@ -3,11 +3,11 @@
 The following topic lists error messages that occur during the upload of XCTest UI
 tests and recommends workarounds to resolve each error.
 
-###### Note
+## Upload errors
 
-The instructions below are based on Linux x86\_64 and Mac.
+The following errors can occur when you upload your XCTest UI tests.
 
-## XCTEST\_UI\_TEST\_PACKAGE\_UNZIP\_FAILED
+### XCTEST\_UI\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -46,7 +46,7 @@ A valid iOS application package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_PAYLOAD\_DIR\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_PAYLOAD\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -87,7 +87,7 @@ the working directory.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_APP\_DIR\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_APP\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -130,7 +130,7 @@ directory like `swift-sampleUITests-Runner.app` in our example inside the
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_PLUGINS\_DIR\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_PLUGINS\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -173,7 +173,7 @@ directory is called `swift-sampleUITests-Runner.app`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_XCTEST\_DIR\_MISSING\_IN\_PLUGINS\_DIR
+### XCTEST\_UI\_TEST\_PACKAGE\_XCTEST\_DIR\_MISSING\_IN\_PLUGINS\_DIR
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -216,7 +216,7 @@ directory is called `swift-sampleUITests.xctest`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_PLIST\_FILE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_PLIST\_FILE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -260,7 +260,7 @@ called `swift-sampleUITests-Runner.app`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_PLIST\_FILE\_MISSING\_IN\_XCTEST\_DIR
+### XCTEST\_UI\_TEST\_PACKAGE\_PLIST\_FILE\_MISSING\_IN\_XCTEST\_DIR
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -304,7 +304,7 @@ called `swift-sampleUITests.xctest`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_CPU\_ARCHITECTURE\_VALUE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_CPU\_ARCHITECTURE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -369,7 +369,7 @@ A valid XCtest UI package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_PLATFORM\_VALUE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_PLATFORM\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -434,7 +434,7 @@ A valid XCtest UI package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_WRONG\_PLATFORM\_DEVICE\_VALUE
+### XCTEST\_UI\_TEST\_PACKAGE\_WRONG\_PLATFORM\_DEVICE\_VALUE
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -502,7 +502,7 @@ If the XCTest UI package is valid, the value should not contain the keyword `sim
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_FORM\_FACTOR\_VALUE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_FORM\_FACTOR\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -567,7 +567,7 @@ A valid XCtest UI package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_PACKAGE\_NAME\_VALUE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -632,7 +632,7 @@ com.apple.test.swift-sampleUITests-Runner
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_EXECUTABLE\_VALUE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_EXECUTABLE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -697,7 +697,7 @@ XCTRunner
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_TEST\_PACKAGE\_NAME\_VALUE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_TEST\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -762,7 +762,7 @@ com.amazon.swift-sampleUITests
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_TEST\_EXECUTABLE\_VALUE\_MISSING
+### XCTEST\_UI\_TEST\_PACKAGE\_TEST\_EXECUTABLE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -827,7 +827,7 @@ swift-sampleUITests
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_MULTIPLE\_APP\_DIRS
+### XCTEST\_UI\_TEST\_PACKAGE\_MULTIPLE\_APP\_DIRS
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -864,7 +864,7 @@ If the XCTest UI package is valid, you should find only single `.app` directory 
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_MULTIPLE\_IPA\_DIRS
+### XCTEST\_UI\_TEST\_PACKAGE\_MULTIPLE\_IPA\_DIRS
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -897,7 +897,7 @@ If the XCTest UI package is valid, you should find only single `.ipa` directory 
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_BOTH\_APP\_AND\_IPA\_DIR\_PRESENT
+### XCTEST\_UI\_TEST\_PACKAGE\_BOTH\_APP\_AND\_IPA\_DIR\_PRESENT
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -942,7 +942,7 @@ or
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST\_UI\_TEST\_PACKAGE\_PAYLOAD\_DIR\_PRESENT\_IN\_ZIP
+### XCTEST\_UI\_TEST\_PACKAGE\_PAYLOAD\_DIR\_PRESENT\_IN\_ZIP
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -977,3 +977,74 @@ If the XCTest UI package is valid, you should not find a Payload Directory insid
 ```
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
+
+## Test insights
+
+When you opt in to test insights, Device Farm generates a summarized report for your run and each job under it. If the
+service cannot generate the report, the insights report status is `SKIPPED` or
+`ERRORED`, and the report message explains why. The following messages can occur
+when generating insights for XCTest UI tests.
+
+### The job did not run to completion
+
+`Unable to generate test insights because the job was
+ `status`.`
+
+The job ended in a non-successful state (where
+`status` is `STOPPED`, `ERRORED`, or
+`SKIPPED`), so there was no result to summarize. A run that ends in a failed
+state still receives insights.
+
+To resolve this issue, investigate why the job did not run to completion.
+In many cases, the `message` field of the job itself might explain why the job didn't complete.
+
+### The results contained no test cases
+
+`Test insights could not be generated. The xcresult_summary.json file was
+ parsed successfully but contained no test cases.`
+
+The results artifact parsed successfully but contained zero test cases.
+
+To resolve this issue, verify that your test suite includes at least one test case and
+that results are stored correctly under `$DEVICEFARM_LOG_DIR`.
+
+### The test output exceeds the maximum supported size
+
+`Unable to generate test insights: test output "xcresult bundle" exceeds
+ the maximum supported size of 1GB.`
+
+The xcresult bundle is larger than 1 GB.
+
+To resolve this issue, reduce the xcresult bundle size to below 1 GB by trimming logs or
+attachments.
+
+### The xcresult bundle was not found
+
+`Unable to generate test insights. The xctestresult bundle file
+ (.xcresult) was not found in the output artifacts.`
+
+Device Farm could not find an `.xcresult` bundle for this job, so there
+were no results to summarize.
+
+Device Farm looks for the bundle anywhere under
+`$DEVICEFARM_DERIVED_DATA_PATH`. The default XCTest UI test spec produces it
+there automatically, so this message usually indicates that a customized test spec did not
+write results to that location.
+
+To confirm whether a bundle was produced, download the customer artifacts for the job
+and look for an `.xcresult` directory under the derived data
+folder.
+
+### The xcresult test results could not be processed
+
+`Test insights could not be generated because of an error while processing the
+ .xcresult test results.`
+
+Device Farm found an `.xcresult` bundle but could not read the test results
+from it.
+
+To resolve this issue, ensure that your test run produces a valid
+`.xcresult` bundle. Verify that your test spec does not modify,
+truncate, or archive the bundle before the run finishes, and that the
+**xcodebuild** command completes rather than being interrupted by a
+timeout.

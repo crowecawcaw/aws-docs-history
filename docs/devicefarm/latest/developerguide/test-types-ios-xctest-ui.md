@@ -14,7 +14,9 @@ Use the following instructions to integrate Device Farm with the XCTest UI testi
 - [Prepare your iOS XCTest UI tests](#test-types-ios-xctest-ui-prepare "#test-types-ios-xctest-ui-prepare")
 - [Option 1: Creating an XCTest UI .ipa package](#how-to-use-create-XCTestUI-ipa-package "#how-to-use-create-XCTestUI-ipa-package")
 - [Option 2: Creating an XCTest UI .zip package](#how-to-use-create-XCTestUI-zip-package "#how-to-use-create-XCTestUI-zip-package")
-- [Upload your iOS XCTest UI tests](#test-types-ios-xctest-ui-upload "#test-types-ios-xctest-ui-upload")
+- [Run iOS XCTest UI tests (console)](#test-types-ios-xctest-ui-upload "#test-types-ios-xctest-ui-upload")
+- [View a test report (console)](#test-types-ios-xctest-ui-view-insights-console "#test-types-ios-xctest-ui-view-insights-console")
+- [View a test report (AWS CLI)](#test-types-ios-xctest-ui-view-insights-cli "#test-types-ios-xctest-ui-view-insights-cli")
 
 ## Prepare your iOS XCTest UI tests
 
@@ -97,12 +99,12 @@ Here is a sample zip using a `.xcworkspace` file:
 
 Please ensure that you do not have a directory named "Payload" inside your XCTest UI .zip package.
 
-## Upload your iOS XCTest UI tests
+## Run iOS XCTest UI tests (console)
 
 Use the Device Farm console to upload your tests.
 
 1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
-2. On the Device Farm navigation panel, choose **Mobile Device Testing**, then choose
+2. In the navigation pane, choose **Mobile Device Testing**, and then choose
    **Projects**.
 3. In the list of projects, choose the project that you want to upload your tests to.
 
@@ -110,8 +112,8 @@ Use the Device Farm console to upload your tests.
 
 You can use the search bar to filter the project list by name.
 
-To create a project, follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md") 4. Choose **Create run**. 5. Under **Run settings**, in the **Run type** section,
-choose **iOS app**. 6. Under **Select app**, in the **App selection options** section,
+To create a project, follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md") 4. Choose **Create run**. 5. Under **Select app and run type**, in the **Run type** section,
+choose **iOS app**. 6. In the **Select app** section, in **App selection options**,
 select **Upload own app**. Then, select **Choose file** under
 **Upload app**. 7. Browse to and choose your iOS app file. The file must be an .ipa file.
 
@@ -119,5 +121,288 @@ select **Upload own app**. Then, select **Choose file** under
 
 Make sure that your .ipa file is built for an iOS device and not for a simulator. 8. Under **Configure test**, in the **Select test framework**
 section, choose **XCTest UI**. Then, select **Choose
-file** under **Upload app**. 9. Browse to and choose the .ipa or .zip file that contains your iOS XCTest UI test runner. 10. Complete the remaining steps in the run creation process. You will select the devices that you
-want to test on and optionally specify additional configuration. 11. Choose **Create run**. Device Farm runs your test and shows the results in the console.
+file** under **Upload app**. 9. Browse to and choose the .ipa or .zip file that contains your iOS XCTest UI test runner. 10. (Optional) To configure run-level properties, update the **Run settings**
+section:
+
+    1. To have Device Farm generate a Test Insights report after your run completes, enable
+     **Generate test report**. This option is available in a custom test
+     environment only.
+
+
+    The following prerequisites apply:
+
+
+
+
+    	1. Your tests must generate an Xcode `.xcresult` bundle and write it to
+    	 `$DEVICEFARM_DERIVED_DATA_PATH`. For example, pass
+    	 `-derivedDataPath $DEVICEFARM_DERIVED_DATA_PATH` to
+    	 `xcodebuild`. The default XCTest UI test spec produces and stores this
+    	 bundle automatically if you keep the default configuration.
+    For more information about viewing your report, see
+     [View a test report (console)](#test-types-ios-xctest-ui-view-insights-console "#test-types-ios-xctest-ui-view-insights-console").
+
+11. Complete the remaining steps in the run creation process. Select the devices that you
+want to test on and optionally specify additional configuration. 12. Choose **Create run**. Device Farm runs your test and shows the results in the console.
+
+## View a test report (console)
+
+1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
+2. In the navigation pane, choose **Mobile Device
+   Testing**, and then choose **Projects**.
+3. Choose the project that contains the run you want to inspect.
+4. Choose the completed run to open its details.
+5. Choose one of the completed jobs to open the results for that device.
+
+### With test insights enabled
+
+The job results include a **Test report** tab. Choose it to
+see a summary of the test results, including the total number of tests, how many
+passed and failed, the total test execution time, and the median test execution
+time. Below the summary, the **Tests** table shows a per-test
+breakdown.
+
+![The first set of columns on the Test report tab for a completed XCTest UI job.](images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-column-start.png)
+
+![The remaining columns on the Test report tab for a completed XCTest UI job.](images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-column-end.png)
+
+Each row in the **Tests** table includes the following
+columns:
+
+- **Result** – whether the test passed, failed, or was
+  skipped.
+- **Test class** – the class that the test belongs
+  to.
+- **Test name** – the name of the test method.
+- **Stack trace** – for a failed test, a link to the
+  stack trace of the failure.
+- **Duration** – how long the test took to run.
+- **Start time** and **End time** –
+  when the test started and ended.
+- **Framework result** – the result string that the
+  XCTest framework reported for the test.
+- **Test bundle** – the test bundle that the test
+  belongs to.
+- **Node identifier** – the xcresult node identifier
+  for the test case.
+
+You can search for a test by name, class, or status. To choose which columns
+appear, choose the **Settings** icon. In the settings, you can
+select the columns to display and turn **Group by class** on or
+off. **Group by class** is on by default, which groups the tests
+by their test class. Expand a class to see its individual tests, as shown in the
+following screenshot.
+
+![The Test report tab with tests grouped by class, showing each class expanded to its individual tests.](images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-grouped.png)
+
+To download the full test report as a JSON file, choose **Download
+full summary** at the top of the job details.
+
+### Without test insights enabled
+
+The job results show the standard test output and artifacts, such as the
+**Suites**, **Logs**, and
+**Screenshots** tabs, but no **Test report**
+tab. To generate a test report, schedule a new run with test insights
+enabled.
+
+![The job results for a completed XCTest UI job without test insights enabled, showing the standard tabs and no Test report tab.](images/aws-device-farm-test-insights/passing.png)
+
+## View a test report (AWS CLI)
+
+Run **get-job** and specify the job ARN:
+
+```
+aws devicefarm get-job --arn `arn:aws:devicefarm:us-west-2:123456789012:job:PROJECT_ID/RUN_ID/00000`
+```
+
+### Without test insights enabled
+
+If you did not enable test insights, the response contains the standard job
+fields, such as the job status, result, counters, and device:
+
+```
+{
+    "job": {
+        "arn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
+        "name": "Example Apple iPhone",
+        "created": "2026-08-05T14:26:56.959000-07:00",
+        "status": "COMPLETED",
+        "result": "PASSED",
+        "counters": {
+            "total": 3,
+            "passed": 3,
+            "failed": 0,
+            "warned": 0,
+            "errored": 0,
+            "stopped": 0,
+            "skipped": 0
+        },
+        "message": "Successful test lifecycle of Setup Test",
+        "device": {
+            "arn": "arn:aws:devicefarm:us-west-2::device:EXAMPLEDEVICEID",
+            "name": "Example Apple iPhone",
+            "platform": "IOS",
+            "os": "18",
+            "formFactor": "PHONE",
+            "fleetType": "PUBLIC"
+        },
+        "deviceMinutes": {
+            "total": 1.38,
+            "metered": 0.0,
+            "unmetered": 1.13
+        },
+        "videoCapture": true
+    }
+}
+```
+
+### With test insights enabled
+
+If you enabled test insights, the response also includes an
+`insights` object that contains the test report status, high-level
+metrics, and a presigned URL to the detailed report:
+
+```
+{
+    "job": {
+        "arn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
+        "status": "COMPLETED",
+        "result": "PASSED",
+        "counters": { ... },
+        "device": { ... },
+        "deviceMinutes": { ... },
+        "videoCapture": true,
+        "insights": {
+            "status": "COMPLETED",
+            "testReport": {
+                "message": "Results: 2 Executed | 2 passed, Median test duration: 3.214 seconds.",
+                "metrics": {
+                    "testsTotal": 2,
+                    "testsPassed": 2,
+                    "testsFailed": 0,
+                    "testsSkipped": 0,
+                    "testsErrored": 0,
+                    "testsOther": 0,
+                    "testsPassedPercentage": 100.0
+                },
+                "testDetailsUrl": "https://EXAMPLE-PRESIGNED-URL"
+            }
+        }
+    }
+}
+```
+
+The `testDetailsUrl` field is a presigned URL to the full test
+report JSON. Download it to get the per-test breakdown:
+
+```
+curl -o test-report.json "`PRESIGNED_URL`"
+```
+
+The following is an example test report for an XCTest UI job:
+
+```
+{
+  "version": "1.0",
+  "jobArn": "arn:aws:devicefarm:us-west-2:123456789012:job:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE/a1b2c3d4-e5f6-4a7b-8c9d-67890EXAMPLE/00000",
+  "deviceName": "Apple iPhone 15",
+  "deviceArn": "arn:aws:devicefarm:us-west-2::device:A1B2C3D4E5F60718293A4B5C6D7E8F90",
+  "deviceOsVersion": "17.5",
+  "metrics": {
+    "testsTotal": 3,
+    "testsPassed": 2,
+    "testsFailed": 1,
+    "testsSkipped": 0,
+    "testsErrored": 0,
+    "testsOther": 0,
+    "testsPassedPercentage": 66.67,
+    "totalTestExecutionDurationSeconds": 6.914,
+    "medianTestExecutionDurationSeconds": 2.062
+  },
+  "testDetails": [
+    {
+      "testName": "test_execute()",
+      "testClass": "AlertsTest",
+      "frameworkResult": "Passed",
+      "result": "PASSED",
+      "durationSeconds": 2.062,
+      "startTimestamp": "2026-07-31T16:58:26.646000Z",
+      "endTimestamp": "2026-07-31T16:58:28.708000Z",
+      "testBundle": "AWSDeviceFarmiOSReferenceAppSwiftUITests",
+      "nodeIdentifier": "AlertsTest/test_execute()"
+    },
+    {
+      "testName": "test_login()",
+      "testClass": "LoginTest",
+      "frameworkResult": "Failed",
+      "result": "FAILED",
+      "durationSeconds": 3.541,
+      "startTimestamp": "2026-07-31T16:58:29.000000Z",
+      "endTimestamp": "2026-07-31T16:58:32.541000Z",
+      "stackTrace": "LoginTest.swift:88: XCTAssertEqual failed: (\"Welcome\") is not equal to (\"Error\")\nLoginTest.swift:91: XCTAssertTrue failed",
+      "testBundle": "AWSDeviceFarmiOSReferenceAppSwiftUITests",
+      "nodeIdentifier": "LoginTest/test_login()"
+    },
+    {
+      "testName": "test_themeRendering()",
+      "testClass": "ThemeTest",
+      "frameworkResult": "Passed",
+      "result": "PASSED",
+      "durationSeconds": 1.311,
+      "testBundle": "AWSDeviceFarmiOSReferenceAppSwiftUITests",
+      "nodeIdentifier": "ThemeTest/test_themeRendering()",
+      "testArguments": "Dark Appearance, Portrait"
+    }
+  ]
+}
+```
+
+The report contains the following top-level fields:
+
+`version`, `jobArn`
+The report schema version and the ARN of the
+job.
+
+`deviceName`, `deviceArn`,
+`deviceOsVersion`
+The name and ARN of the device that ran the job, and its
+operating system version.
+
+`metrics`
+Aggregate results for the job: the total number of tests
+(`testsTotal`) and how many passed (`testsPassed`),
+failed (`testsFailed`), were skipped (`testsSkipped`),
+errored (`testsErrored`), or had another result
+(`testsOther`), along with the pass rate
+(`testsPassedPercentage`), the total test duration
+(`totalTestExecutionDurationSeconds`), and the median test
+duration (`medianTestExecutionDurationSeconds`).
+
+Each entry in `testDetails` contains the following fields:
+
+`testName`, `testClass`
+The name of the test method and its test
+class.
+
+`result`, `frameworkResult`
+The Device Farm result for the test, and the result string that
+the XCTest framework reported. Device Farm maps `frameworkResult` to
+the normalized `result` field.
+
+`durationSeconds`, `startTimestamp`,
+`endTimestamp`
+The duration of the test in seconds, and the times when it
+started and ended.
+
+`testBundle`, `nodeIdentifier`
+The test bundle that the test belongs to, and the xcresult
+node identifier for the test case.
+
+`testArguments`
+For a parameterized test invocation, the argument label for
+the invocation.
+
+`stackTrace`
+For a failed test, the stack trace of the
+failure.

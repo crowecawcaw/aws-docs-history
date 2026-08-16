@@ -3,10 +3,6 @@
 The following topic lists error messages that occur during the upload of iOS application
 tests and recommends workarounds to resolve each error.
 
-###### Note
-
-The instructions below are based on Linux x86\_64 and Mac.
-
 ## IOS\_APP\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.

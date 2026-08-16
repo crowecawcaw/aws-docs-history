@@ -3,10 +3,6 @@
 The following topic lists error messages that occur during the upload of Appium Java JUnit tests and recommends
 workarounds to resolve each error.
 
-###### Note
-
-The instructions below are based on Linux x86\_64 and Mac.
-
 ## APPIUM\_JAVA\_JUNIT\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
