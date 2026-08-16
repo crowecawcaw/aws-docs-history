@@ -128,7 +128,7 @@ Choose your verification choice, then
 choose **Send SMS (step 4 of 5)
 t**o proceed to verification.
 
-![Interface element requiring manual review.](/images/hands-on/latest/setup-environment/images/interface-1.png) 3. Solve the CAPTCHA
+![Interface element requiring manual review.](images/interface-1.png) 3. Solve the CAPTCHA
 
 Enter the **CAPTCHA** as
 appropriate, then choose
