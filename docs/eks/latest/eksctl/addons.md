@@ -4,7 +4,7 @@ This topic describes how to manage Amazon EKS Add-Ons for your Amazon EKS cluste
 
 ###### Warning
 
-eksctl now installs default addons (vpc-cni, coredns, kube-proxy, metrics-server) as EKS addons instead of self-managed addons. This means you should use `eksctl update addon` instead of `eksctl utils update-*` commands for clusters created with eksctl v0.184.0 and above.
+Starting with eksctl v0.184.0 (and v0.201.0 for metrics-server), eksctl installs default addons (vpc-cni, coredns, kube-proxy, metrics-server) as EKS addons instead of self-managed addons. This means you should use `eksctl update addon` instead of `eksctl utils update-*` commands.
 
 You can create clusters without any default networking addons when you want to use alternative CNI plugins like Cilium and Calico.
 
