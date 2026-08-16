@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ## Prerequisites
 
-1. Make sure the kubecost related Pods' states are "Running".
+1. Make sure the Kubecost-related Pods' states are "Running".
 
 ```
 kubectl get pods --namespace kubecost
@@ -16,17 +16,17 @@ kubectl get pods --namespace kubecost
 
 1. On your device, enable port-forwarding to expose the Kubecost dashboard.
 
-   - If kubecost v3 is installed using helm:
+   - If Kubecost v3 is installed using Helm:
 
    ```
    kubectl port-forward deployment/kubecost-frontend 9090 --namespace kubecost
    ```
-   - If kubecost v1 or v2 is installed using helm:
+   - If Kubecost v1 or v2 is installed using Helm:
 
    ```
    kubectl port-forward deployment/kubecost-cost-analyzer 9090 --namespace kubecost
    ```
-   - If kubecost is installed using Amazon EKS add-on:
+   - If Kubecost is installed using Amazon EKS add-on:
 
    ```
    kubectl port-forward deployment/cost-analyzer 9090 --namespace kubecost

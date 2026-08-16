@@ -98,7 +98,7 @@ An example output is as follows.
 
 ```
 aws eks describe-update \
-    --region region-code\
+    --region region-code \
     --name my-cluster \
     --update-id 883405c8-65c6-4758-8cee-2a7c1340a6d9
 ```

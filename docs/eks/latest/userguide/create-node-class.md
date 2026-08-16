@@ -264,6 +264,7 @@ spec:
 - **Partition placement group** — Partition placement groups are supported with no additional constraints beyond the standard EC2 limits.
 - **Consolidation can move pods out of a placement group** — If a pod has no placement-group scheduling constraints (such as a `nodeSelector` on `eks.amazonaws.com/placement-group-id`), consolidation may move it to a node outside the PG. Applications that require placement group membership should express this via pod-level constraints.
 - **Nonexistent or deleted placement group** — If a `NodeClass` references a placement group that does not exist or has been deleted, no instances are launched. The placement group ID format is validated at admission, but existence is checked only at launch time. If a placement group is deleted while nodes are running, existing nodes are marked as drifted and remain running indefinitely because drift replacement launches are also blocked.
+- **Hugepages** — For information about configuring hugepages on nodes, see [Configure hugepages on nodes](#hugepages "#hugepages").
 
 ## Separate subnets and security groups for Pods
 
@@ -328,7 +329,7 @@ spec:
 - **Reduced Pod density**: Fewer Pods can run on each node because the primary network interface of the node is reserved for the node IP and can’t be used for Pods.
 - **Subnet selector limitations**: The standard `subnetSelectorTerms` and `securityGroupSelectorTerms` configurations don’t apply to Pod subnet or security group selection.
 - **Network planning**: Ensure adequate IP address space in both node and Pod subnets to support your workload requirements.
-- **Routing configuration**: Verify that route table and network Access Control List (ACL) of the Pod subnets are properly configured for communication between node and Pod subnets.
+- **Routing configuration**: Verify that the route table and network Access Control List (ACL) of the Pod subnets are properly configured for communication between node and Pod subnets.
 - **Availability Zones**: Verify that you’ve created Pod subnets across multiple AZs. If you are using a specific Pod subnet, it must be in the same AZ as the node subnet AZ.
 
 ## Secondary IP Mode for Pods
@@ -448,3 +449,39 @@ spec:
       interfaceType: efa-only
       networkCardIndex: 3
 ```
+
+## Configure hugepages on nodes
+
+Use the `advancedCompute.hugepages` field to pre-allocate hugepages on nodes in the `NodeClass`. Hugepages improve memory-access performance for latency-sensitive workloads such as high-performance computing (HPC), databases, and network-intensive applications. To consume hugepages, configure your Pods to explicitly request hugepage resources. For more information, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/ "https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/") in the Kubernetes documentation.
+
+### Example configuration
+
+```
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: hugepages-compute
+spec:
+  role: MyNodeRole
+
+  subnetSelectorTerms:
+    - tags:
+        Name: "private-subnet"
+
+  securityGroupSelectorTerms:
+    - tags:
+        Name: "eks-cluster-sg"
+
+  advancedCompute:
+    hugepages:
+      pages:
+        - size: "2Mi"
+          count: 512
+```
+
+### Hugepages considerations
+
+Consider the following when configuring hugepages on a NodeClass:
+
+- **Memory reservation**: Hugepages count against the instance’s total memory. Amazon EKS marks instance types as incompatible with the NodeClass when the hugepages reservation would exceed 80% of total memory.
+- **EFA mutual exclusion**: EFA and hugepages cannot coexist on the same NodeClass. If you set `interfaceType: efa-only`, NodeClass validation fails. Amazon EKS does not provision Pods that request `vpc.amazonaws.com/efa` from a hugepages NodeClass. Use a separate NodeClass for EFA workloads.

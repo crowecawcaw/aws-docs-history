@@ -8,7 +8,7 @@ The [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") is a co
 
 ## To create an access key
 
-1. Sign into the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. For single-user or multiple-user accounts:
 
    - **Single-user account –**::

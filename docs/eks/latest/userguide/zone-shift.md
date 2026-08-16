@@ -180,7 +180,8 @@ metadata:
   namespace: ecommerce
   labels:
     app.kubernetes.io/version: "0.1.6"
-
+spec:
+  template:
     spec:
       serviceAccountName: graphql-service-account
       affinity:

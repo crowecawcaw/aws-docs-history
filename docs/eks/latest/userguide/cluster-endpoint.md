@@ -33,7 +33,7 @@ The dual-stack cluster endpoint was introduced in October 2024. For more informa
 
 ## `IPv4` cluster endpoint format
 
-EKS creates a unique endpoint in the following format for each cluster that selects `IPv4` in the IP family (ipFamily) setting of the cluster:
+EKS creates a unique endpoint in the following format for each cluster that selects `IPv4` in the IP family (`ipFamily`) setting of the cluster:
 
 ###### Example
 

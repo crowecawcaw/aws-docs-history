@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ## Cost monitoring using AWS split cost allocation data for Amazon EKS
 
-You can use AWS split cost allocation data for Amazon EKS to get granular cost visibility for your Amazon EKS clusters. This enables you to analyze, optimize, and chargeback cost and usage for your Kubernetes applications. You allocate application costs to individual business units and teams based on Amazon EC2 CPU and memory resources consumed by your Kubernetes application. Split cost allocation data for Amazon EKS gives visibility into cost per Pod, and enables you to aggregate the cost data per Pod using namespace, cluster, and other Kubernetes primitives. The following are examples of Kubernetes primitives that you can use to analyze Amazon EKS cost allocation data.
+You can use AWS split cost allocation data for Amazon EKS to get granular cost visibility for your Amazon EKS clusters. This enables you to analyze, optimize, and charge back cost and usage for your Kubernetes applications. You allocate application costs to individual business units and teams based on Amazon EC2 CPU and memory resources consumed by your Kubernetes application. Split cost allocation data for Amazon EKS gives visibility into cost per Pod, and enables you to aggregate the cost data per Pod using namespace, cluster, and other Kubernetes primitives. The following are examples of Kubernetes primitives that you can use to analyze Amazon EKS cost allocation data.
 
 - Cluster name
 - Deployment

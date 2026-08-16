@@ -34,4 +34,4 @@ For multi-cluster deployments with Kubecost v3, you need S3-compatible object st
 
 ## Access Kubecost dashboard
 
-Once the _Amazon EKS optimized Kubecost bundle_ setup is done, you should have access to Kubecost dashboard. For more information, see [Access Kubecost Dashboard](cost-monitoring-kubecost-dashboard.md "cost-monitoring-kubecost-dashboard.md").
+After the _Amazon EKS optimized Kubecost bundle_ setup is complete, you can access the Kubecost dashboard. For more information, see [Access Kubecost Dashboard](cost-monitoring-kubecost-dashboard.md "cost-monitoring-kubecost-dashboard.md").

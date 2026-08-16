@@ -12,6 +12,38 @@ This topic gives important changes to be aware of for each Kubernetes version in
 
 If you roll back from a version under standard support to a version under extended support, extended support charges resume for that cluster.
 
+## Kubernetes 1.33
+
+Kubernetes `1.33` is now available in Amazon EKS. For more information about Kubernetes `1.33`, see the [official release announcement](https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/ "https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/").
+
+###### Important
+
+- The Dynamic Resource Allocation _beta_ Kubernetes API is enabled.
+
+  - This beta API improves the experience of scheduling and monitoring workloads that require resources such as GPUs.
+  - The beta API is defined by the Kubernetes community, and might change in future versions of Kubernetes.
+  - Carefully review [Feature stages](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/#feature-stages "https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/#feature-stages") in the Kubernetes documentation to understand the implications of using beta APIs.
+
+- AWS is not releasing an EKS-optimized Amazon Linux 2 AMI for Kubernetes 1.33.
+
+  - AWS encourages you to migrate to Amazon Linux 2023. Learn how to [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md").
+  - For more information, see [Amazon Linux 2 AMI deprecation](#al2-ami-deprecation "#al2-ami-deprecation").
+
+- **In-Place Pod Resource Resize (Beta):** Kubernetes 1.33 promotes in-place resource resize to beta. This allows dynamic updates to CPU and memory resources for existing Pods without restarts, enabling vertical scaling of stateful workloads with zero downtime.
+- **Sidecar Containers Now Stable:** Sidecar containers have graduated to stable. They are implemented as special init containers with `restartPolicy: Always` that start before application containers, run throughout the Pod lifecycle, and support probes for operational state signaling.
+
+  - For more information, see [Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/ "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/") in the _Kubernetes Documentation_.
+
+- **Endpoints API Deprecation:** The Endpoints API is now officially deprecated and will return warnings when accessed—migrate workloads and scripts to use the EndpointSlices API instead, which supports modern features like dual-stack networking and handles multiple EndpointSlices per Service.
+
+  - For more information, see [Kubernetes v1.33: Continuing the transition from Endpoints to EndpointSlice](https://kubernetes.io/blog/2025/04/24/endpoints-deprecation/ "https://kubernetes.io/blog/2025/04/24/endpoints-deprecation/") on the _Kubernetes Blog_.
+
+- **Elastic Fabric Adapter Support:** The default security group for Amazon EKS clusters now supports Elastic Fabric Adapter (EFA) traffic. The default security group has a new outbound rule that allows EFA traffic with the destination of the same security group. This allows EFA traffic within the cluster.
+
+  - For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") in the Amazon Elastic Compute Cloud User Guide.
+
+For the complete Kubernetes `1.33` changelog, see https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md
+
 ## Kubernetes 1.32
 
 Kubernetes `1.32` is now available in Amazon EKS. For more information about Kubernetes `1.32`, see the [official release announcement](https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/ "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/").
@@ -62,14 +94,3 @@ Kubernetes `1.31` is now available in Amazon EKS. For more information about Kub
 - The PersistentVolume last phase transition time feature has graduated to stable and is now generally available for public use in Kubernetes version `1.31`. This feature introduces a new field, `.status.lastTransitionTime`, in the PersistentVolumeStatus, which provides a timestamp of when a PersistentVolume last transitioned to a different phase. This enhancement allows for better tracking and management of PersistentVolumes, particularly in scenarios where understanding the lifecycle of volumes is important.
 
 For the complete Kubernetes `1.31` changelog, see https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md
-
-## Kubernetes 1.30
-
-Kubernetes `1.30` is now available in Amazon EKS. For more information about Kubernetes `1.30`, see the [official release announcement](https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/ "https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/").
-
-- Starting with Amazon EKS version `1.30` or newer, any newly created managed node groups will automatically default to using Amazon Linux 2023 (AL2023) as the node operating system. For more information about specifying the operating system for a managed node group, see [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md").
-- With Amazon EKS `1.30`, the `topology.k8s.aws/zone-id` label is added to worker nodes. You can use Availability Zone IDs (AZ IDs) to determine the location of resources in one account relative to the resources in another account. For more information, see [Availability Zone IDs for your AWS resources](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") in the _AWS RAM User Guide_.
-- Starting with `1.30`, Amazon EKS no longer includes the `default` annotation on the `gp2 StorageClass` resource applied to newly created clusters. This has no impact if you are referencing this storage class by name. You must take action if you were relying on having a default `StorageClass` in the cluster. You should reference the `StorageClass` by the name `gp2`. Alternatively, you can deploy the Amazon EBS recommended default storage class by setting the `defaultStorageClass.enabled` parameter to true when installing version `1.31.0` or later of the `aws-ebs-csi-driver add-on`.
-- The minimum required IAM policy for the Amazon EKS cluster IAM role has changed. The action `ec2:DescribeAvailabilityZones` is required. For more information, see [Amazon EKS cluster IAM role](cluster-iam-role.md "cluster-iam-role.md").
-
-For the complete Kubernetes `1.30` changelog, see https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.30.md.

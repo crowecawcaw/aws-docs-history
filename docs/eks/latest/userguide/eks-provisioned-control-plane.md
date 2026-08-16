@@ -117,6 +117,10 @@ as shown in the following tables.
 | 4XL                                    | 8000                            | 400                            | 16                         | 99.99%                               |
 | 8XL                                    | 16000                           | 400                            | 16                         | 99.99%                               |
 
+### Retrieving scaling tier values programmatically
+
+You can use the `DescribeClusterVersions` API to retrieve the scaling tier attributes and their values for each Kubernetes version. This is useful when you automate tier selection or need to compare tier capabilities across versions programmatically. For more information, see [DescribeClusterVersions](../APIReference/API_DescribeClusterVersions.md "../APIReference/API_DescribeClusterVersions.md") in the _Amazon EKS API Reference_.
+
 ### Monitoring control plane scaling tier utilization
 
 Amazon EKS provides several metrics to help you monitor your control

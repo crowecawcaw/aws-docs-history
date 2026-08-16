@@ -98,7 +98,7 @@ docker logout public.ecr.aws
 
 ## Console error: the cluster is stuck in the Pending state
 
-If the cluster gets stuck in the `Pending` state on the Amazon EKS console after you’ve registered it, it might be because the Amazon EKS Connector didn’t successfully connect the cluster to AWS yet. For a registered cluster, the `Pending` state means that the connection isn’t successfully established. To resolve this issue, make sure that you have applied the manifest to the target Kubernetes cluster. If you applied it to the cluster, but the cluster is still in the `Pending` state, then the `eks-connector` statefulset might be unhealthy. To troubleshoot this issue, see [Amazon EKS connector Pods are crash looping](#symp-loop "#symp-loop") in this topic.
+If the cluster gets stuck in the `Pending` state on the Amazon EKS console after you’ve registered it, it might be because the Amazon EKS Connector didn’t successfully connect the cluster to AWS yet. For a registered cluster, the `Pending` state means that the connection isn’t successfully established. To resolve this issue, make sure that you have applied the manifest to the target Kubernetes cluster. If you applied it to the cluster, but the cluster is still in the `Pending` state, then the `eks-connector` statefulset might be unhealthy. To troubleshoot this issue, see [Amazon EKS Connector Pods are crash looping](#symp-loop "#symp-loop") in this topic.
 
 ## Console error: User system:serviceaccount:eks-connector:eks-connector can’t impersonate resource users in API group at cluster scope
 
@@ -139,16 +139,16 @@ Or, as the cluster administrator, grant the appropriate level of RBAC privileges
 
 ## Console error: Amazon EKS can’t communicate with your Kubernetes cluster API server. The cluster must be in an ACTIVE state for successful connection. Try again in a few minutes.
 
-If the Amazon EKS service can’t communicate with the Amazon EKS connector in the target cluster, it might be because of one of the following reasons:
+If the Amazon EKS service can’t communicate with the Amazon EKS Connector in the target cluster, it might be because of one of the following reasons:
 
 - The Amazon EKS Connector in the target cluster is unhealthy.
 - Poor connectivity or an interrupted connection between the target cluster and the AWS Region.
 
 To resolve this problem, check the [Amazon EKS Connector logs](#tsc-logs "#tsc-logs"). If you don’t see an error for the Amazon EKS Connector, retry the connection after a few minutes. If you regularly experience high latency or intermittent connectivity for the target cluster, consider re-registering the cluster to an AWS Region that’s located closer to you.
 
-## Amazon EKS connector Pods are crash looping
+## Amazon EKS Connector Pods are crash looping
 
-There are many reasons that can cause an Amazon EKS connector Pod to enter the `CrashLoopBackOff` status. This issue likely involves the `connector-init` container. Check the status of the Amazon EKS connector Pod.
+There are many reasons that can cause an Amazon EKS Connector Pod to enter the `CrashLoopBackOff` status. This issue likely involves the `connector-init` container. Check the status of the Amazon EKS Connector Pod.
 
 ```
 kubectl get pods -n eks-connector
@@ -207,7 +207,7 @@ If the `activationExpiry` passed, deregister the cluster and register it again. 
 
 To work properly, the Amazon EKS Connector requires outbound connectivity to several AWS endpoints. You can’t connect a private cluster without outbound connectivity to a target AWS Region. To resolve this issue, you must add the necessary outbound connectivity. For information about connector requirements, see [Amazon EKS Connector considerations](eks-connector.md#connect-cluster-reqts "eks-connector.md#connect-cluster-reqts").
 
-## Amazon EKS connector Pods are in `ImagePullBackOff` state
+## Amazon EKS Connector Pods are in `ImagePullBackOff` state
 
 If you run the `get pods` command and Pods are in the `ImagePullBackOff` state, they can’t work properly. If the Amazon EKS Connector Pods are in the `ImagePullBackOff` state, they can’t work properly. Check the status of your Amazon EKS Connector Pods.
 

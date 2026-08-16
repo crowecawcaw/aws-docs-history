@@ -300,7 +300,7 @@ To use this query:
 5. Adjust the time range as needed
 6. Run the query
 
-The results will show you a timeline of Karpenter-related events, helping you troubleshoot issues, and understand the behavior of EKS Auto Mode in your cluster. To review Karpenter actions on a specific node, you can add the below line filter specifying the instance ID to the aforementioned query:
+The results show a timeline of Karpenter-related events, helping you troubleshoot issues and understand the behavior of EKS Auto Mode in your cluster. To review Karpenter actions on a specific node, you can add the following line filter specifying the instance ID to the query:
 
 ```
 |filter @message like /[.replaceable]`i-12345678910123456`/

@@ -241,14 +241,13 @@ The following tables provide a detailed comparison of changes in IngressClassPar
 
 ### Ingress annotations
 
-| Previous                                               | New           | Description                                    |
-| ------------------------------------------------------ | ------------- | ---------------------------------------------- |
-| `kubernetes.io/ingress.class`                          | Not supported | Use `spec.ingressClassName` on Ingress objects |
-| `alb.ingress.kubernetes.io/group.name`                 | Not supported | Specify groups in IngressClass only            |
-| `alb.ingress.kubernetes.io/waf-acl-id`                 | Not supported | Use WAF v2 instead                             |
-| `alb.ingress.kubernetes.io/web-acl-id`                 | Not supported | Use WAF v2 instead                             |
-| `alb.ingress.kubernetes.io/shield-advanced-protection` | Not supported | Shield integration disabled                    |
-| `alb.ingress.kubernetes.io/auth-type: oidc`            | Not supported | OIDC Auth Type is currently not supported      |
+| Previous                                    | New           | Description                                    |
+| ------------------------------------------- | ------------- | ---------------------------------------------- |
+| `kubernetes.io/ingress.class`               | Not supported | Use `spec.ingressClassName` on Ingress objects |
+| `alb.ingress.kubernetes.io/group.name`      | Not supported | Specify groups in IngressClass only            |
+| `alb.ingress.kubernetes.io/waf-acl-id`      | Not supported | Use WAF v2 instead                             |
+| `alb.ingress.kubernetes.io/web-acl-id`      | Not supported | Use WAF v2 instead                             |
+| `alb.ingress.kubernetes.io/auth-type: oidc` | Not supported | OIDC Auth Type is currently not supported      |
 
 ### TargetGroupBinding
 

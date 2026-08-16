@@ -18,7 +18,7 @@ When you remove an Amazon EKS add-on from a cluster:
 
 ## Prerequisites
 
-Complete the following before you create an add-on:
+Complete the following before you remove an add-on:
 
 - An existing Amazon EKS cluster. To deploy one, see [Get started with Amazon EKS](getting-started.md "getting-started.md").
 - Check if your add-on requires an IAM role. For more information, see [Retrieve IAM information about an Amazon EKS add-on](retreive-iam-info.md "retreive-iam-info.md").

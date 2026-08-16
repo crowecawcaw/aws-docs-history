@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Connect a Kubernetes cluster to an Amazon EKS Management Console with Amazon EKS Connector
 
-You can use Amazon EKS Connector to register and connect any conformant Kubernetes cluster to AWS and visualize it in the Amazon EKS console. After a cluster is connected, you can see the status, configuration, and workloads for that cluster in the Amazon EKS console. You can use this feature to view connected clusters in Amazon EKS console, but you can’t manage them. The Amazon EKS Connector requires an agent that is an [open source project on Github](https://github.com/aws/amazon-eks-connector "https://github.com/aws/amazon-eks-connector"). For additional technical content, including frequently asked questions and troubleshooting, see [Troubleshoot Amazon EKS Connector issues](troubleshooting-connector.md "troubleshooting-connector.md").
+You can use Amazon EKS Connector to register and connect any conformant Kubernetes cluster to AWS and visualize it in the Amazon EKS console. After a cluster is connected, you can see the status, configuration, and workloads for that cluster in the Amazon EKS console. You can use this feature to view connected clusters in Amazon EKS console, but you can’t manage them. The Amazon EKS Connector requires an agent that is an [open source project on GitHub](https://github.com/aws/amazon-eks-connector "https://github.com/aws/amazon-eks-connector"). For additional technical content, including frequently asked questions and troubleshooting, see [Troubleshoot Amazon EKS Connector issues](troubleshooting-connector.md "troubleshooting-connector.md").
 
 The Amazon EKS Connector can connect the following types of Kubernetes clusters to Amazon EKS.
 

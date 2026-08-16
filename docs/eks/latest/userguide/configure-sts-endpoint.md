@@ -42,7 +42,7 @@ An example output is as follows.
 AWS_STS_REGIONAL_ENDPOINTS: regional
 ```
 
-If the current endpoint is global, then `global` is returned in the output. If no output is returned, then the default endpoint type is in use and has not been overridden. 3. If your cluster or platform version are the same or later than those listed in the table, then you can change the endpoint type used by your service account from the default type to a different type with one of the following commands. Replace `aws-node` with the name of your service account and `kube-system` with the namespace for your service account.
+If the current endpoint is global, then `global` is returned in the output. If no output is returned, then the default endpoint type is in use and has not been overridden. 3. You can change the endpoint type used by your service account from the default type to a different type with one of the following commands. Replace `aws-node` with the name of your service account and `kube-system` with the namespace for your service account.
 
     * If your default or current endpoint type is global and you want to change it to regional:
 

@@ -117,7 +117,7 @@ aws eks list-capabilities \
             "type": "ACK",
             "status": "ACTIVE",
             "createdAt": "2025-11-02T10:30:00.000000-07:00",
-            "modifiedAt": "2025-11-02T10:32:15.000000-07:00",
+            "modifiedAt": "2025-11-02T10:32:15.000000-07:00"
         },
         {
             "capabilityName": "my-kro",
@@ -126,7 +126,7 @@ aws eks list-capabilities \
             "status": "ACTIVE",
             "version": "v0.6.3",
             "createdAt": "2025-11-02T10:30:00.000000-07:00",
-            "modifiedAt": "2025-11-02T10:32:15.000000-07:00",
+            "modifiedAt": "2025-11-02T10:32:15.000000-07:00"
         },
         {
             "capabilityName": "my-argocd",

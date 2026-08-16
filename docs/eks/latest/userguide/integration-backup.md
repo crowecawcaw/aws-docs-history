@@ -10,12 +10,12 @@ An Amazon EKS backup will create a composite recovery point, where a child recov
 - How to back up resources: [Getting started with AWS Backup](../../../aws-backup/latest/devguide/getting-started.md "../../../aws-backup/latest/devguide/getting-started.md")
 - Backup creation by Resource Type: [Amazon EKS Backups](../../../aws-backup/latest/devguide/creating-a-backup.md "../../../aws-backup/latest/devguide/creating-a-backup.md")
 - How to restore Amazon EKS clusters: [Amazon EKS Backups restore](../../../aws-backup/latest/devguide/restoring-a-backup.md "../../../aws-backup/latest/devguide/restoring-a-backup.md")
-  To get started via the EKS console, AWS Backup console or CLI ensure that your IAM role has the following permissions:
+  To get started via the EKS console, AWS Backup console, or CLI, ensure that your IAM role has the following permissions:
 
-- These can be found in AWS Backup’s Managed policy [AWSBackupServiceRolePolicyForBackup](../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup "../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup"). This contains the required permissions to backup your Amazon EKS cluster and EBS and EFS persistent storage
+- These can be found in AWS Backup’s Managed policy [AWSBackupServiceRolePolicyForBackup](../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup "../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup"). This contains the required permissions to back up your Amazon EKS cluster and EBS and EFS persistent storage
 - If your EKS Cluster contains an S3 bucket you will need to ensure the following policies and prerequisites for your S3 bucket are added and enabled as documented:
 - [AWSBackupServiceRolePolicyForS3Backup](../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup "../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup")
-- Prerequisites for [S3 Backups](../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites#AWSBackupServiceRolePolicyForS3Backup "../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites#AWSBackupServiceRolePolicyForS3Backup")
+- Prerequisites for [S3 Backups](../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites "../../../aws-backup/latest/devguide/s3-backups.md#s3-backup-prerequisites")
   Ensure your EKS Clusters have the following settings:
 
 - EKS Cluster [authorization mode](setting-up-access-entries.md "setting-up-access-entries.md") set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](access-entries.md "access-entries.md") to access the EKS cluster.

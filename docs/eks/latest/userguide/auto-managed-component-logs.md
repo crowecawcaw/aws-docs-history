@@ -12,7 +12,7 @@ You can access AWS-managed component logs from EKS Auto Mode to gain deeper obse
 - Pod networking - VPC CNI IP Address Management
   Logs can be delivered to a [delivery destination](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") of your choice.
 
-When you create an EKS Auto cluster, you have the option to enable control plane logging (API server, Audit, Authenticator, Controller manager, Scheduler). EKS Auto managed component logs (such as Compute, Block storage, Load balancing, and IPAM) require separate configuration through log delivery.
+When you create an EKS Auto Mode cluster, you have the option to enable control plane logging (API server, Audit, Authenticator, Controller manager, Scheduler). EKS Auto managed component logs (such as Compute, Block storage, Load balancing, and IPAM) require separate configuration through log delivery.
 
 ## Setting up log delivery
 

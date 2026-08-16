@@ -89,8 +89,8 @@ Get the capability role ARN:
 ```
 CAPABILITY_ROLE_ARN=$(aws eks describe-capability \
   --region `region-code` \
-  --cluster `my-cluster` \
-  --name my-kro \
+  --cluster-name `my-cluster` \
+  --capability-name my-kro \
   --query 'capability.roleArn' \
   --output text)
 ```
@@ -100,7 +100,7 @@ Associate the cluster admin policy:
 ```
 aws eks associate-access-policy \
   --region `region-code` \
-  --cluster `my-cluster` \
+  --cluster-name `my-cluster` \
   --principal-arn $CAPABILITY_ROLE_ARN \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster

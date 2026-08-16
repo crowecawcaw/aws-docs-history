@@ -243,7 +243,7 @@ kubectl logs `POD_NAME`
 
 ```
 
-**Check `kubectl` logs**
+**Check `kubelet` logs**
 
 ```
 systemctl status kubelet

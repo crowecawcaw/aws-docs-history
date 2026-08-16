@@ -26,7 +26,7 @@ You can use YAML manifests when installing the agent. Alternatively, you can use
 
 ## Step 1: Registering the cluster
 
-To register a cluster to Amazon EKS connector, you can use one of these tools:
+To register a cluster to Amazon EKS Connector, you can use one of these tools:
 
 - [AWS CLI](#awscli_register_cluster_connect "#awscli_register_cluster_connect")
 - [AWS Management Console](#console_register_cluster_connect "#console_register_cluster_connect")
@@ -108,10 +108,10 @@ Example output:
 2021-08-19 13:47:26 [ℹ]  run `kubectl apply -f eks-connector.yaml,eks-connector-clusterrole.yaml,eks-connector-console-dashboard-full-access-group.yaml` before expiry to connect the cluster
 ```
 
-This creates files on your local computer. These files must be applied to the external cluster within 3 days, or the registration expires. 3. In a terminal that can access the cluster, apply the `eks-connector-binding.yaml` file:
+This creates files on your local computer. These files must be applied to the external cluster within 3 days, or the registration expires. 3. In a terminal that can access the cluster, apply the generated files:
 
 ```
-kubectl apply -f eks-connector-binding.yaml
+kubectl apply -f eks-connector.yaml,eks-connector-clusterrole.yaml,eks-connector-console-dashboard-full-access-group.yaml
 ```
 
 ## Step 2: Installing the `eks-connector` agent
@@ -119,7 +119,7 @@ kubectl apply -f eks-connector-binding.yaml
 To install the `eks-connector` agent, use one of the following tools:
 
 - [Helm](#helm_agent_cluster_connect "#helm_agent_cluster_connect")
-- [yaml](#yaml_agent_cluster_connect "#yaml_agent_cluster_connect")
+- [YAML](#yaml_agent_cluster_connect "#yaml_agent_cluster_connect")
 
 ### Helm
 
@@ -140,7 +140,7 @@ $ helm install eks-connector \
 
 If you used the AWS Management Console in the previous step, use the command that you copied from the previous step that has these values filled in. 2. Check the healthiness of the installed `eks-connector` deployment and wait for the status of the registered cluster in Amazon EKS to be `ACTIVE`.
 
-### yaml
+### YAML
 
 Complete the connection by applying the Amazon EKS Connector manifest file to your Kubernetes cluster. To do this, you must use the methods described previously. If the manifest isn’t applied within three days, the Amazon EKS Connector registration expires. If the cluster connection expires, the cluster must be deregistered before connecting the cluster again.
 

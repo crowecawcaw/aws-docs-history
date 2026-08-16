@@ -97,7 +97,7 @@ Output:
 3. Delete the cluster.
 
    1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-   2. choose the cluster to delete and choose **Delete**.
+   2. Choose the cluster to delete and choose **Delete**.
    3. On the delete cluster confirmation screen, choose **Delete**.
 
 4. (Optional) Delete the VPC AWS CloudFormation stack.

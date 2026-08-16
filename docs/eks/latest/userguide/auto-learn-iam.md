@@ -50,7 +50,7 @@ The Node IAM role is an AWS Identity and Access Management (IAM) role used by Am
   - `AmazonEKSWorkerNodeMinimalPolicy`
   - `AmazonEC2ContainerRegistryPullOnly`
 
-For more information about the Cluster IAM Role and AWS managed IAM policies, see:
+For more information about the Node IAM Role and AWS managed IAM policies, see:
 
 - [AWS managed policies for Amazon Elastic Kubernetes Service](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Amazon EKS node IAM role](create-node-role.md "create-node-role.md")

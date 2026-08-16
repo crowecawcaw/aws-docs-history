@@ -84,7 +84,7 @@ AWS accounts that vary by region host EKS Auto Mode public AMIs.
 | us-gov-east-1  | 446077414359 |
 | us-gov-west-1  | 446098668741 |
 
-## Associate Public IP address
+## Associate Public IP Address
 
 When `ec2:RunInstances` is called the `AssociatePublicIpAddress` field for an instance launch is determined automatically by the type of subnet that the instance is being launched into.
 An SCP may be used to enforce that this value is explicitly set to false, regardless of the type of subnet being launched into.

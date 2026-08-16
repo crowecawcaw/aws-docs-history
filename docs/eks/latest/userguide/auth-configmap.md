@@ -178,13 +178,13 @@ The previous example is a default `aws-auth`
 
 ###### Important
 
-We recommend using `eksctl`, or another tool, to edit the `ConfigMap`. For information about other tools you can use, see [Use tools to make changes to the aws-authConfigMap](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#use-tools-to-make-changes-to-the-aws-auth-configmap "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#use-tools-to-make-changes-to-the-aws-auth-configmap") in the Amazon EKS best practices guides. An improperly formatted `aws-auth`
+We recommend using `eksctl`, or another tool, to edit the `ConfigMap`. For information about other tools you can use, see [Use tools to make changes to the aws-auth ConfigMap](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#use-tools-to-make-changes-to-the-aws-auth-configmap "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#use-tools-to-make-changes-to-the-aws-auth-configmap") in the Amazon EKS best practices guides. An improperly formatted `aws-auth`
 `ConfigMap` can cause you to lose access to your cluster.
 
     * View steps to [edit configmap with eksctl](#configmap-eksctl "#configmap-eksctl").
     * View steps to [edit configmap manually](#configmap-manual "#configmap-manual").
 
-### Edit Configmap with Eksctl
+### Edit ConfigMap with eksctl
 
 1. You need version `0.215.0` or later of the `eksctl` command line tool installed on your device or AWS CloudShell. To install or update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
 2. View the current mappings in the `ConfigMap`. Replace `my-cluster` with the name of your cluster. Replace `region-code` with the AWS Region that your cluster is in.
@@ -249,7 +249,7 @@ arn:aws:iam::111122223333:role/admin                                            
 arn:aws:iam::111122223333:user/my-user                                                          my-user                                 eks-console-dashboard-restricted-access-group
 ```
 
-### Edit Configmap manually
+### Edit ConfigMap manually
 
 1. Open the `ConfigMap` for editing.
 

@@ -6,12 +6,12 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 With the [Mountpoint for Amazon S3 Container Storage Interface (CSI) driver](https://github.com/awslabs/mountpoint-s3-csi-driver "https://github.com/awslabs/mountpoint-s3-csi-driver"), your Kubernetes applications can access Amazon S3 objects through a file system interface, achieving high aggregate throughput without changing any application code.
 
-This procedure will show you how to deploy the [Mountpoint for Amazon S3 CSI Amazon EKS driver](s3-csi.md "s3-csi.md"). Before proceeding, please review the [Considerations](s3-csi.md#s3-csi-considerations "s3-csi.md#s3-csi-considerations").
+This procedure will show you how to deploy the [Mountpoint for Amazon S3 CSI Amazon EKS driver](s3-csi.md "s3-csi.md"). Before proceeding, review the [Considerations](s3-csi.md#s3-csi-considerations "s3-csi.md#s3-csi-considerations").
 
 ## Prerequisites
 
 - An existing AWS Identity and Access Management (IAM) OpenID Connect (OIDC) provider for your cluster. To determine whether you already have one, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
-- Version 2.12.3 or later of the AWS CLI installed and configured on your device or AWS CloudShell.
+- Version `2.12.3` or later of the AWS CLI installed and configured on your device or AWS CloudShell.
 - The `kubectl` command line tool is installed on your device or AWS CloudShell. The version can be the same as or up to one minor version earlier or later than the Kubernetes version of your cluster. For example, if your cluster version is `1.29`, you can use `kubectl` version `1.28`, `1.29`, or `1.30` with it. To install or upgrade `kubectl`, see [Set up kubectl and eksctl](install-kubectl.md "install-kubectl.md").
 
 ## Step 1: Create an IAM policy

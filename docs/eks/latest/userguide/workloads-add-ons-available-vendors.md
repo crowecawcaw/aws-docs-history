@@ -326,7 +326,7 @@ The add-on name is `kubecost_kubecost` and the namespace is `kubecost`. Kubecost
 
 For information about the add-on, see [AWS Cloud Billing Integration](https://docs.kubecost.com/install-and-configure/install/cloud-integration/aws-cloud-integrations "https://docs.kubecost.com/install-and-configure/install/cloud-integration/aws-cloud-integrations") in the Kubecost documentation.
 
-You must have the [Store Kubernetes volumes with Amazon EBS](ebs-csi.md "ebs-csi.md") installed on your cluster. otherwise you will receive an error.
+You must have the [Store Kubernetes volumes with Amazon EBS](ebs-csi.md "ebs-csi.md") installed on your cluster. Otherwise you will receive an error.
 
 ### Service account name
 
@@ -375,7 +375,7 @@ The add-on name is `kong_konnect-ri` and the namespace is `kong`. Kong publishes
 
 For information about the add-on, see [Installing the Kong Gateway EKS Add-on](https://kong.github.io/aws-marketplace-addon-kong-gateway/ "https://kong.github.io/aws-marketplace-addon-kong-gateway/") in the Kong documentation.
 
-You must have the [Store Kubernetes volumes with Amazon EBS](ebs-csi.md "ebs-csi.md") installed on your cluster. otherwise you will receive an error.
+You must have the [Store Kubernetes volumes with Amazon EBS](ebs-csi.md "ebs-csi.md") installed on your cluster. Otherwise you will receive an error.
 
 ### Service account name
 
@@ -395,7 +395,7 @@ The add-on name is `leaksignal_leakagent` and the namespace is `leakagent`. Leak
 
 For information about the add-on, see https://www.leaksignal.com/docs/LeakAgent/Deployment/AWS%20EKS%20Addon/[Install the LeakAgent add-on] in the LeakSignal documentation
 
-You must have the [Store Kubernetes volumes with Amazon EBS](ebs-csi.md "ebs-csi.md") installed on your cluster. otherwise you will receive an error.
+You must have the [Store Kubernetes volumes with Amazon EBS](ebs-csi.md "ebs-csi.md") installed on your cluster. Otherwise you will receive an error.
 
 ### Service account name
 

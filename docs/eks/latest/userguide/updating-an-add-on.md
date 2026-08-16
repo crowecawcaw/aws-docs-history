@@ -8,7 +8,7 @@ Amazon EKS doesn’t automatically update an add-on when new versions are releas
 
 ## Prerequisites
 
-Complete the following before you create an add-on:
+Complete the following before you update an add-on:
 
 - Check if your add-on requires an IAM role. For more information, see [Amazon EKS add-ons](eks-add-ons.md "eks-add-ons.md").
 - Verify that the Amazon EKS add-on version is compatible with your cluster. For more information, see [Verify Amazon EKS add-on version compatibility with a cluster](addon-compat.md "addon-compat.md").

@@ -119,7 +119,7 @@ The following admission controllers are enabled for all `1.33` platform versions
 | `1.33.2`           | `eks.9`              | New platform version with security fixes and enhancements. 1.33 `eks.7` and 1.33 `eks.8` were discarded internally and never released.                                                                | July 30, 2025      |
 | `1.33.1`           | `eks.6`              | New platform version with security fixes and enhancements.                                                                                                                                            | June 26, 2025      |
 | `1.33.1`           | `eks.5`              | New platform version with security fixes and enhancements.                                                                                                                                            | June 11, 2025      |
-| `1.33.1`           | `eks.4`              | Initial release of Kubernetes version `1.33` for EKS. For more information, see [Kubernetes 1.33](kubernetes-versions-standard.md#kubernetes-1-33 "kubernetes-versions-standard.md#kubernetes-1-33"). | May 28, 2025       |
+| `1.33.1`           | `eks.4`              | Initial release of Kubernetes version `1.33` for EKS. For more information, see [Kubernetes 1.33](kubernetes-versions-extended.md#kubernetes-1-33 "kubernetes-versions-extended.md#kubernetes-1-33"). | May 28, 2025       |
 
 ## Kubernetes version `1.32`
 
@@ -272,17 +272,22 @@ The following admission controllers are enabled for all `1.30` platform versions
 | `1.30.3`           | `eks.7`              | New platform version with security fixes and enhancements.                                                                                                                                                                                                                                                                                                                                                                                                                               | August 28, 2024    |
 | `1.30.3`           | `eks.6`              | New platform version with security fixes and enhancements.                                                                                                                                                                                                                                                                                                                                                                                                                               | August 9, 2024     |
 | `1.30.2`           | `eks.5`              | New platform version with security fixes and enhancements.                                                                                                                                                                                                                                                                                                                                                                                                                               | July 2, 2024       |
-| `1.30.0`           | `eks.2`              | Initial release of Kubernetes version `1.30` for EKS. For more information, see [Kubernetes 1.30](kubernetes-versions-extended.md#kubernetes-1-30 "kubernetes-versions-extended.md#kubernetes-1-30").                                                                                                                                                                                                                                                                                    | May 23, 2024       |
+| `1.30.0`           | `eks.2`              | Initial release of Kubernetes version `1.30` for EKS.                                                                                                                                                                                                                                                                                                                                                                                                                                    | May 23, 2024       |
 
 ## Get current platform version
+
+### Get current platform version (AWS Console)
 
 1. Open the Amazon EKS console.
 2. In the navigation pane, choose **Clusters**.
 3. In the list of clusters, choose the **Cluster Name** to check the platform version of.
 4. Choose the **Overview** tab.
 5. The **Platform Version** is available in the **Details** section.
-6. Determine the **Name** of the cluster you want to check the platform version of.
-7. Run the following command:
+
+### Get current platform version (AWS CLI)
+
+1. Determine the name of the cluster you want to check the platform version of.
+2. Run the following command:
 
 ```
 aws eks describe-cluster --name my-cluster --query cluster.platformVersion

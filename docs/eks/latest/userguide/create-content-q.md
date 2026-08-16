@@ -12,19 +12,19 @@ In the following image, Amazon Q generated the lines marked with green.
 
 ## Install Amazon Q with VS Code
 
-1. Open VS Code
-2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X)
-3. Search for "Amazon Q"
-4. Click Install on the Amazon Q extension
-5. Wait for installation to complete
-6. Restart VS Code when prompted
+1. Open VS Code.
+2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X).
+3. Search for "Amazon Q".
+4. Choose Install on the Amazon Q extension.
+5. Wait for installation to complete.
+6. Restart VS Code when prompted.
 
 ## Log in to Amazon Q
 
 1. After installing, choose the Amazon Q icon in the VS Code activity bar.
 2. Choose **Sign in to Amazon Q**.
 3. Enter your AWS credentials when prompted.
-4. Once authenticated, you’ll see the Amazon Q chat interface.
+4. After you authenticate, the Amazon Q chat interface appears.
 
 ## Use Amazon Q to create content
 

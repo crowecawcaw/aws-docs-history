@@ -24,4 +24,4 @@ In Amazon EKS, each Pod has one network interface assigned by the Amazon VPC CNI
 : `true`
 
 - Multus is compatible with network policies, but the policy has to be enriched to include ports and IP addresses that may be part of additional network interfaces attached to Pods.
-  For an implementation walk through, see the [Multus Setup Guide](https://github.com/aws-samples/eks-install-guide-for-multus/blob/main/README.md "https://github.com/aws-samples/eks-install-guide-for-multus/blob/main/README.md") on GitHub.
+  For an implementation walkthrough, see the [Multus Setup Guide](https://github.com/aws-samples/eks-install-guide-for-multus/blob/main/README.md "https://github.com/aws-samples/eks-install-guide-for-multus/blob/main/README.md") on GitHub.

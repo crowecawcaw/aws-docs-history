@@ -216,7 +216,7 @@ data:
     // Dictionary of 10-letter words for variation (prevents prompt caching)
     const words = [
       'revolution', 'technology', 'javascript', 'kubernetes', 'basketball',
-      'strawberry', 'watermelon', 'blueberries', 'throughout', 'background',
+      'strawberry', 'watermelon', 'blackberry', 'throughout', 'background',
       'playground', 'understand', 'everything', 'protection', 'complexity'
     ];
 

@@ -23,7 +23,7 @@ Before starting this tutorial, you must install and configure the following tool
 - **`kubectl`**
   – A command line tool for working with Kubernetes clusters. For more information, see [Set up kubectl and eksctl](install-kubectl.md "install-kubectl.md").
 - **Required IAM permissions**
-  – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md") and [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the IAM User Guide. You must complete all steps in this guide as the same user. To check the current user, run the following command:
+  – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service-linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md") and [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the IAM User Guide. You must complete all steps in this guide as the same user. To check the current user, run the following command:
 
 ```
 aws sts get-caller-identity

@@ -114,7 +114,7 @@ kubectl get nodeclass network-policy-config
 1. The platform team applies a DNS-based policy to the EKS cluster.
 2. The Network Policy Controller is responsible for monitoring the creation of policies within the cluster and then reconciling policy endpoints. In this use case, the network policy controller instructs the node agent to filter DNS requests based on the allow-listed domains in the created policy. Domain names are allow-listed using the FQDN or a domain name that matches a pattern defined in the Kubernetes resource configuration.
 3. Workload A attempts to resolve the IP for a cluster-external endpoint. The DNS request first goes through a proxy that filters such requests based on the allow list applied through the network policy.
-4. Once the DNS request goes through the DNS filter allow list, it is proxied to CoreDNS,
+4. After the DNS request goes through the DNS filter allow list, the proxy forwards it to CoreDNS,
 5. CoreDNS in turn sends the request to the External DNS Resolver (Amazon Route 53 Resolver) to get the list of IP addresses behind the domain name.
 6. The resolved IPs with TTL are returned in the response to the DNS request. These IPs are then written in an eBPF map which is used in the next step for IP layer enforcement.
 7. The eBPF probes attached to the Pod veth interface will then filter egress traffic from Workload A to the cluster-external endpoint based on the rules in place. This ensures pods can only send cluster-external traffic to the IPs of allow listed domains. The validity of these IPs is based on the TTL retrieved from the External DNS Resolver (Amazon Route 53 Resolver).

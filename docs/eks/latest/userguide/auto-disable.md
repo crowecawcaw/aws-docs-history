@@ -22,7 +22,7 @@ You can disable EKS Auto Mode on an existing EKS Cluster. This is a destructive 
 2. Under **EKS Auto Mode** select **Manage**
 3. Toggle **EKS Auto Mode** to `off`.
 
-If any managed Security Group is not deleted at the end of this process, you can delete it manually using descriptions from [Delete a security group](../../../vpc/latest/userguide/deleting-security-groups.md "../../../vpc/latest/userguide/deleting-security-groups.md").
+If any managed Security Group is not deleted at the end of this process, you can delete it manually using the instructions in [Delete a security group](../../../vpc/latest/userguide/deleting-security-groups.md "../../../vpc/latest/userguide/deleting-security-groups.md").
 
 ## Disable EKS Auto Mode (AWS CLI)
 

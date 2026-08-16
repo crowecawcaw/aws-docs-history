@@ -24,9 +24,9 @@ kubectl delete netpol <policy-name>
 kubectl edit daemonset -n kube-system aws-node
 ```
 
-4. Replace the `true` with `false` in the command argument `--enable-network-policy=true` in the `args:` in the `aws-network-policy-agent` container in the VPC CNI `aws-node` daemonset manifest.
+4. Replace the `true` with `false` in the command argument `--enable-network-policy` in the `args:` in the `aws-network-policy-agent` container in the VPC CNI `aws-node` daemonset manifest.
 
 ```
      - args:
-        - --enable-network-policy=true
+        - --enable-network-policy=false
 ```

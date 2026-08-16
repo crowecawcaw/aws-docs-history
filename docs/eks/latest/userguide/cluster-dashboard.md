@@ -20,7 +20,7 @@ The EKS dashboard integrates with EKS Cluster Insights to surface issues with yo
 
 ###### Note
 
-The EKS Dashboard is not real-time and updates every 12 hours. For real-time cluster monitoring, see [Monitor your cluster performance and view logs](eks-observe.md "eks-observe.md")
+The EKS Dashboard is not real-time and updates every 12 hours. For real-time cluster monitoring, see [Monitor your cluster performance and view logs](eks-observe.md "eks-observe.md").
 
 ## How does the dashboard use AWS Organizations?
 

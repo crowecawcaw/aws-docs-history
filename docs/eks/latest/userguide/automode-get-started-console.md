@@ -17,7 +17,7 @@ You have two options to create a cluster in the console:
 You must be logged into the AWS Management Console with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles.
 
 1. Navigate to the EKS Console
-2. Click **Create cluster**
+2. Choose **Create cluster**
 3. Confirm the **Quick configuration** option is selected
 4. Determine the following values, or use the defaults for a test cluster.
 
