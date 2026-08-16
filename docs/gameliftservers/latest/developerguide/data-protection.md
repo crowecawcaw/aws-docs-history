@@ -104,7 +104,7 @@ Direct communication between game clients and game servers is as follows:
 
 To meet Certificate Authority requirements for TLS certificates, Amazon GameLift Servers will
 adjust the maximum certificate lifetimes for fleets configured to generate a certificate.
-Certificate lifetimes begin on fleet creation and will be changed on the following schedule:
+Certificate lifetimes begin on fleet creation and change on the following schedule:
 
 - Until March 11, 2026, the maximum lifetime for a TLS certificate issued is 398 days.
 - As of March 1, 2026, the maximum lifetime for a TLS certificate issued will be 200 days.

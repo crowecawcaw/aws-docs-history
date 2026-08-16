@@ -318,7 +318,7 @@ copy and paste into the game.
 ![Scenario deployment status update](images/unitypi_deploy_statedone.png) 9. To update game settings, on the Unity menu, choose **Go To Client
 Connection Settings**. This displays an
 **Inspector** tab on the right side of the Unity
-screen. 10. Deselect **Local Testing Mode**. 11. Enter the **API Gateway Endpoint** and the **Coginito
+screen. 10. Deselect **Local Testing Mode**. 11. Enter the **API Gateway Endpoint** and the **Cognito
 Client ID**. Choose the same AWS Region you used for the
 scenario deployment. You can then rebuild and run the game client using the
 deployed scenario resources.

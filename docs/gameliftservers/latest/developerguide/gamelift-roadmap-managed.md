@@ -173,8 +173,7 @@ fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-
     servers.
 
 - **Add the managed fleets to your queue.** In your
-  game session queue, replace the Anywhere fleets with
-  your managed fleets.
+  game session queue, replace the Anywhere fleets with your managed fleets.
 - **Test game hosting with your managed fleets.**
   At this point you should be able to test the entire hosting cycle, with a game
   client requesting a game session, getting connection info, and successfully

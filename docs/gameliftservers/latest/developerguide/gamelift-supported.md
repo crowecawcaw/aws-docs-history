@@ -82,8 +82,8 @@ the included readme files in each package.
 
 
     	- [Plugin guide for Unity](unity-plug-in.md "unity-plug-in.md")
-    	- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")C# server SDK
-    	 reference
+    	- [C# server SDK
+    	 reference](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
     + [Server SDK for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal")
 
 

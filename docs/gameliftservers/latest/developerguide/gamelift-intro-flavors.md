@@ -57,7 +57,7 @@ hosting solution for your containerized game server.](gamelift-roadmap-container
 ###### Characteristics
 
 - Develop a custom architecture with lightweight containers to run your game server build,
-  dependencies and auxillary software.
+  dependencies and auxiliary software.
 - Use Docker tools to create a Linux-based container image. Store images in an Amazon Elastic Container Registry (Amazon ECR)
   repository for deployment.
 - Use Amazon GameLift Servers to deploy and manage your custom game servers to hosting resources

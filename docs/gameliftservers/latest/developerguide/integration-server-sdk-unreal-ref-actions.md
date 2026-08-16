@@ -265,8 +265,8 @@ Returns a generic outcome consisting of success or failure with an error message
 
 ### Example
 
-See the sample code in [Using
-the Unreal Engine Plugin](integration-engines-setup-unreal.md#integration-engines-setup-unreal-code "integration-engines-setup-unreal.md#integration-engines-setup-unreal-code").
+See the sample code in [Using the Unreal Engine
+Plugin](integration-engines-setup-unreal.md#integration-engines-setup-unreal-code "integration-engines-setup-unreal.md#integration-engines-setup-unreal-code").
 
 ## RemovePlayerSession()
 

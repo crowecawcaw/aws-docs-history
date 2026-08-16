@@ -185,7 +185,7 @@ instances.
 A container fleet is configured to run a specific number of concurrent game server
 processes on each fleet instance. (You can calculate this based on (1) the game server
 container groups per instance and (2) the number of game server processes that run in each
-container group.) The number of cncurrent game servers per instance tells you what the
+container group.) The number of concurrent game servers per instance tells you what the
 impact is of adding or removing each fleet instance. For example, if your container fleet
 runs 1 game server process in each game server container group, and each fleet instance
 holds 100 game server containers groups, you increase or decrease your fleet's capacity to

@@ -27,9 +27,9 @@ done for you.
 
 - **Package your game server executable to run on
   Linux.** If you’re developing on Windows and integrating C++
-  server SDK version 5.2.x or earlier, you’ll need to work with the [Unreal cross
-  compile toolkit](http://cross-compile toolkit for your UE version "http://cross-compile toolkit for your UE version"). Alternatively, you might set up a separate
-  Linux workspace or use a tool such as Windows subsystem for Linux (WSL).
+  server SDK version 5.2.x or earlier, you’ll need to use the [Unreal
+  cross-compilation toolchain for your UE version](https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine#version-history "https://dev.epicgames.com/documentation/en-us/unreal-engine/linux-development-requirements-for-unreal-engine#version-history") on the Epic Games developer documentation website. Alternatively, you might set up a
+  separate Linux workspace or use a tool such as Windows subsystem for Linux (WSL).
 - **Gather files to deploy with your game server
   build.** On your local machine, create a working directory to
   organize the files, which will be built into your game server container

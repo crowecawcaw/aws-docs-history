@@ -2,7 +2,7 @@
 
 This topic describes how to create an Amazon GameLift Servers managed EC2 fleet. Managed fleets use
 Amazon Elastic Compute Cloud (Amazon EC2) compute instances that are optimized for multiplayer game hosting. You can
-create managed fleets that deploy computes to globally to AWS Regions and Local Zones
+create managed fleets that deploy computes globally to AWS Regions and Local Zones
 supported by Amazon GameLift Servers.
 
 When you create a new managed EC2 fleet resource, you immediately initiate the first phase
@@ -10,7 +10,7 @@ of fleet creation. Managed fleet creation passes through several phases as Amazo
 EC2 instance, installs a runtime environment and your game server build on the instance, and
 begins launching game servers. Depending on the runtime environment your game server build
 requires, Amazon GameLift Servers deploys the latest version of the Amazon Machine Image (AMI) at the time of
-fleet creation (and all future instances in the fleet will use the same version).You can
+fleet creation (and all future instances in the fleet will use the same version). You can
 monitor a fleet's status in the console or using the AWS Command Line Interface (AWS CLI). When a fleet is
 ready to host game sessions, the status changes to `ACTIVE`. For more
 information about managed fleet creation, see these topics:
@@ -68,7 +68,7 @@ managed EC2 fleet** to start the fleet creation workflow.
    AWS user must have IAM `PassRole` permission (see
    [IAM permission examples for Amazon GameLift Servers](gamelift-iam-policy-examples.md "gamelift-iam-policy-examples.md")). 2. Turn on the **Generate a TLS
    certificate** option to set up
-   authentication and encryption for your game, Game
+   authentication and encryption for your game. Game
    clients use this certificate to authenticate a game
    server when connecting and encrypt all client/server
    communication. For each instance in a TLS-enabled
@@ -288,7 +288,7 @@ fleet and go to the **Events** tab.
 
 You can adjust a fleet's hosting capacity after the fleet reaches
 ACTIVE status. Amazon GameLift Servers initially deploys a fleet with a single
-instance in each fleet location. and you adjust capacity by adding
+instance in each fleet location, and you adjust capacity by adding
 instances to each location. For more information, see [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md "fleets-manage-capacity.md").
 
 AWS CLI
@@ -305,7 +305,7 @@ can connect to. The new fleet has these characteristics:
 
 - It specifies a game server build, which has been uploaded to Amazon GameLift Servers and
   in `READY` status.
-- Is uses c5.large On-Demand Instances with an operating system that
+- It uses c5.large On-Demand Instances with an operating system that
   matches the selected game build.
 - It sets the fleet's home AWS Region to `us-west-2` and
   deploys instances to that Region only.

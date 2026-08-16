@@ -125,7 +125,7 @@ These instances do not provide out-of-the-box support for Mono installation on A
   instances). Also consider how game session capacity might be impacted by adding
   or removing instances during fleet scaling events or when shutting down
   unhealthy instances. If each instance runs many game server processes
-  concurrently, adding or removing an instance can significantly affect ame
+  concurrently, adding or removing an instance can significantly affect game
   hosting capacity.
 
 For more information about instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").

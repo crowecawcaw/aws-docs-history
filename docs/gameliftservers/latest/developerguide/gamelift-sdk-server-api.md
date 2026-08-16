@@ -87,7 +87,7 @@ with the following
      Container fleets automatically capture all container standard output
      as a log stream.
     * The following callback functions that allow Amazon GameLift Servers to send messages or
-     prompts to a game server process. Your must implement each of these
+     prompts to a game server process. You must implement each of these
      functions in your game server code. For more information, see
      `ProcessParameters`([C++](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process")) ([C#](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-dataypes-process "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-dataypes-process")) ([Unreal](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-process "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-process")) ([Go](integration-server-sdk-go-datatypes.md#integration-server-sdk-go-dataypes-process "integration-server-sdk-go-datatypes.md#integration-server-sdk-go-dataypes-process"))
      .
@@ -221,7 +221,7 @@ At the start of the server process shutdown code, call the server API operation
 ([Unreal](integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processending "integration-server-sdk5-unreal-actions.md#integration-server-sdk5-unreal-processending"))
 ([Go](integration-server-sdk-go-actions.md#integration-server-sdk-go-processending "integration-server-sdk-go-actions.md#integration-server-sdk-go-processending"))
 
-g .
+.
 This call notifies Amazon GameLift Servers that the server process is shutting down. Amazon GameLift Servers changes the game session
 status and server process status to `TERMINATED`. After calling
 `ProcessEnding()`, it's safe for the process to shut down.

@@ -49,7 +49,7 @@ servers. For guidance, see [Security best practices for Amazon GameLift Servers]
   keep active.
 - **Game sessions** – The number of active game sessions
   running in the fleet. The data is delayed by five minutes.
-- **Player sessons** – The number of active player sessions
+- **Player sessions** – The number of active player sessions
   in the fleet. The data is delayed by five minutes.
 
 AWS SDK

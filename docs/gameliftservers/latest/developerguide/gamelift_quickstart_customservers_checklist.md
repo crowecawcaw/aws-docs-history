@@ -86,7 +86,7 @@ months before conducting your first load test.
   locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location") based on player latency data and revised
   requirements.
 - Optimize the runtime configuration to run as many games sessions as possible
-  on each computing resource. Mazimizing performance efficiency in this way can
+  on each computing resource. Maximizing performance efficiency in this way can
   directly affect your fleet costs, because you might be able to run more server
   processes with the same compute resources.
 - [Use your analytics data](monitoring-overview.md "monitoring-overview.md") to drive

@@ -74,7 +74,7 @@ location** to open the Create dialog box.
 3. Choose **Create**.
 
 AWS CLI
-Create a custom location using the [`create-location`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-location.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-location.html") command. Provide a
+Create a custom location using the [`create-location`](../../../cli/latest/reference/gamelift/create-location.md "../../../cli/latest/reference/gamelift/create-location.md") command. Provide a
 `location-name` value, which must start with
 `custom-`. As a best practice, use a name that describes a meaningful
 location for a set of compute resources. It might be geographic locations, a
@@ -182,7 +182,7 @@ activation process, assigning a unique ID and placing the fleet in
 the **Fleets** page.
 
 AWS CLI
-Use the [`create-fleet`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-fleet.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-fleet.html") command to create a fleet of
+Use the [`create-fleet`](../../../cli/latest/reference/gamelift/create-fleet.md "../../../cli/latest/reference/gamelift/create-fleet.md") command to create a fleet of
 compute type `ANYWHERE`. Provide a name and at least one custom
 location. Amazon GameLift Servers creates the Anywhere fleet resource in your current default
 AWS Region (or you can add a --region tag to specify a different
@@ -227,8 +227,8 @@ On creation, a new Anywhere fleet quickly moves to fleet status
 
 Notice that the response doesn't include the fleet locations. You can
 retrieve full fleet details by calling
-[`describe-fleet-attributes`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-attributes.html") and
-[`describe-fleet-location-attributes`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-location-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-location-attributes.html").
+[`describe-fleet-attributes`](../../../cli/latest/reference/gamelift/describe-fleet-attributes.md "../../../cli/latest/reference/gamelift/describe-fleet-attributes.md") and
+[`describe-fleet-location-attributes`](../../../cli/latest/reference/gamelift/describe-fleet-location-attributes.md "../../../cli/latest/reference/gamelift/describe-fleet-location-attributes.md").
 
 ## Add a compute to the fleet
 
@@ -277,17 +277,17 @@ the AWS CLI.
 
 **To register a compute**
 
-Call [`register-compute`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/register-compute.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/register-compute.html") to register a compute.
+Call [`register-compute`](../../../cli/latest/reference/gamelift/register-compute.md "../../../cli/latest/reference/gamelift/register-compute.md") to register a compute.
 Identify the ID of the fleet to add the compute to. Provide the following
 compute information: a meaningful name, IP address, and location. The
 compute's location must be a custom location that's already associated with
 the fleet. If you want to use a different custom location, use the Amazon GameLift Servers
-console to update the fleet or call the AWS CLI command [`create-fleet-locations`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-fleet-locations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/create-fleet-locations.html") to add a custom
+console to update the fleet or call the AWS CLI command [`create-fleet-locations`](../../../cli/latest/reference/gamelift/create-fleet-locations.md "../../../cli/latest/reference/gamelift/create-fleet-locations.md") to add a custom
 location to the fleet.
 
 In the following example, replace the placeholder values for your compute
 and fleet. The `fleet-id` value is returned when you create an
-Anywhere fleet. You can retrieve full fleet details by calling [`describe-fleet-attributes`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-attributes.html") and [`describe-fleet-location-attributes`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-location-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-location-attributes.html").
+Anywhere fleet. You can retrieve full fleet details by calling [`describe-fleet-attributes`](../../../cli/latest/reference/gamelift/describe-fleet-attributes.md "../../../cli/latest/reference/gamelift/describe-fleet-attributes.md") and [`describe-fleet-location-attributes`](../../../cli/latest/reference/gamelift/describe-fleet-location-attributes.md "../../../cli/latest/reference/gamelift/describe-fleet-location-attributes.md").
 
 ```
 aws gamelift register-compute \
@@ -317,14 +317,14 @@ Example output
 
 **To request an authentication token**
 
-Call [`get-compute-auth-token`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/get-compute-auth-token.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/get-compute-auth-token.html") to request a valid
+Call [`get-compute-auth-token`](../../../cli/latest/reference/gamelift/get-compute-auth-token.md "../../../cli/latest/reference/gamelift/get-compute-auth-token.md") to request a valid
 authentication token. register a compute. Identify the fleet ID and compute
 name.
 
 In the following example, replace the placeholder values for your compute
 and fleet. The `fleet-id` value is returned when you create an
-Anywhere fleet. You can retrieve full fleet details by calling [`describe-fleet-attributes`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/describe-fleet-attributes.html"). To find compute
-information, call [`list-compute`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/list-compute.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/list-compute.html") with the fleet ID to see all computes
+Anywhere fleet. You can retrieve full fleet details by calling [`describe-fleet-attributes`](../../../cli/latest/reference/gamelift/describe-fleet-attributes.md "../../../cli/latest/reference/gamelift/describe-fleet-attributes.md"). To find compute
+information, call [`list-compute`](../../../cli/latest/reference/gamelift/list-compute.md "../../../cli/latest/reference/gamelift/list-compute.md") with the fleet ID to see all computes
 that are registered to the fleet.
 
 ```
