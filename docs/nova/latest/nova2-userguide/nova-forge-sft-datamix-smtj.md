@@ -18,10 +18,10 @@ Nova 2 Lite text-only SFT, with both LoRA and full-rank fine-tuning.
   buckets so that the service can validate your subscription status. For the
   required IAM policy, see [IAM policy requirements for Amazon Nova recipes](nova-model-recipes.md "nova-model-recipes.md").
 - Training data uploaded to Amazon S3 in Converse API format. For data format
-  details, see [Preparing training data for Nova 2.0](nova-fine-tune-2.md#nova-2-data-preparation "nova-fine-tune-2.md#nova-2-data-preparation").
+  details, see [Preparing training data for Nova 2.0](nova-sft-2-smtj.md#nova-2-data-preparation "nova-sft-2-smtj.md#nova-2-data-preparation").
 - A model package group ARN in your account.
 - A base model ARN from the SageMaker AI Hub.
-- (Optional) The `amzn-nova-forge` Python SDK installed. For
+- (Optional) The SageMaker Python SDK installed. For
   installation instructions, see [Installation](nova-forge-sdk.md#nova-forge-sdk-installation "nova-forge-sdk.md#nova-forge-sdk-installation").
 
 ## Hyperparameters
@@ -146,136 +146,42 @@ The following parameters apply to both LoRA and full-rank fine-tuning unless not
 | `alpha`               | Integer | `64`    | LoRA alpha scaling factor. Options: 32, 64, 96, 128, 160, 192. |
 | `learning_rate_ratio` | Float   | `64.0`  | LoRA+ learning rate scaling factor                             |
 
-## Using the Amazon Nova Forge SDK
+## Using the SageMaker Python SDK
 
-You can also submit serverless SFT jobs with data mixing using the
-`amzn-nova-forge` Python SDK. For installation instructions, see
-[Installing the Amazon Nova Forge SDK](nova-forge-sdk.md#nova-forge-sdk-installation "nova-forge-sdk.md#nova-forge-sdk-installation").
+You can submit serverless SFT jobs with data mixing using the SageMaker Python SDK
+`SFTTrainer` class with `DataMixingConfig`. For installation
+instructions, see [Installation](nova-forge-sdk.md#nova-forge-sdk-installation "nova-forge-sdk.md#nova-forge-sdk-installation").
 
 ```
-from amzn_nova_forge.trainer import ForgeTrainer
-from amzn_nova_forge.manager import SMTJServerlessRuntimeManager
-from amzn_nova_forge.core import ForgeConfig
-from amzn_nova_forge.core.enums import Model, TrainingMethod
+from sagemaker.train import SFTTrainer
+from sagemaker.train.data_mixing_config import DataMixingConfig
 
-infra = SMTJServerlessRuntimeManager(
-    model_package_group_name="your-model-package-group",
-    execution_role="arn:aws:iam::123456789012:role/YourRole",
+data_mixing = DataMixingConfig(
+    customer_data_percent=50.0,
+    nova_data_percentages={
+        "agents": 60.0,
+        "chat": 40.0,
+    },
 )
-
-trainer = ForgeTrainer(
-    model=Model.NOVA_LITE_2,
-    method=TrainingMethod.SFT_LORA,
-    infra=infra,
-    training_data_s3_path="s3://your-bucket/data/train.jsonl",
-    data_mixing_enabled=True,
-    config=ForgeConfig(output_s3_path="s3://your-bucket/output/"),
-)
-
-# Set data mixing percentages — all 23 nova categories must be specified and sum to 100
-trainer.data_mixing.set_config({
-    "customer_data_percent": 50,
-    "nova_agents_percent": 60,
-    "nova_chat_percent": 40,
-    "nova_baseline_percent": 0,
-    "nova_code_percent": 0,
-    "nova_factuality_percent": 0,
-    "nova_identity_percent": 0,
-    "nova_long-context_percent": 0,
-    "nova_math_percent": 0,
-    "nova_rai_percent": 0,
-    "nova_instruction-following_percent": 0,
-    "nova_stem_percent": 0,
-    "nova_planning_percent": 0,
-    "nova_reasoning-chat_percent": 0,
-    "nova_reasoning-code_percent": 0,
-    "nova_reasoning-factuality_percent": 0,
-    "nova_reasoning-instruction-following_percent": 0,
-    "nova_reasoning-math_percent": 0,
-    "nova_reasoning-planning_percent": 0,
-    "nova_reasoning-rag_percent": 0,
-    "nova_reasoning-rai_percent": 0,
-    "nova_reasoning-stem_percent": 0,
-    "nova_rag_percent": 0,
-    "nova_translation_percent": 0,
-})
-
-# Verify the config before training
-current_config = trainer.data_mixing.get_config()
-print(f"Data mixing config: {current_config}")
-
-result = trainer.train(job_name="sft-datamix-serverless")
-print(f"Job ID: {result.job_id}")
-```
-
-For full-rank fine-tuning, use `TrainingMethod.SFT_FULL` instead
-of `TrainingMethod.SFT_LORA`.
-
-## Using the Python SDK (SageMaker)
-
-You can submit serverless SFT jobs with data mixing using the SageMaker AI Python SDK
-`SFTTrainer` class.
-
-```
-from sagemaker.train.sft_trainer import SFTTrainer
-from sagemaker.train.common import TrainingType
-from sagemaker.core.helper.session_helper import Session
-
-sagemaker_session = Session()
 
 trainer = SFTTrainer(
     model="nova-textgeneration-lite-v2",
-    training_type=TrainingType.FULL,
-    model_package_group="my-custom-models",
-    training_dataset="s3://my-bucket/data/train.jsonl",
-    s3_output_path="s3://my-bucket/output/",
-    sagemaker_session=sagemaker_session,
-    role="arn:aws:iam::123456789012:role/SageMakerExecutionRole",
+    training_dataset="s3://your-bucket/data/train.jsonl",
+    s3_output_path="s3://your-bucket/output/",
+    data_mixing_config=data_mixing,
 )
 
-# Set standard training hyperparameters
-trainer.hyperparameters.max_steps = 100
-trainer.hyperparameters.learning_rate = 5e-6
-
-# Set data mixing percentages — nova percents must sum to 100
-trainer.hyperparameters.customer_data_percent = 70
-trainer.hyperparameters.nova_code_percent = 30
-trainer.hyperparameters.nova_math_percent = 20
-trainer.hyperparameters.nova_planning_percent = 10
-setattr(trainer.hyperparameters, 'nova_instruction-following_percent', 10)
-setattr(trainer.hyperparameters, 'nova_reasoning-instruction-following_percent', 20)
-setattr(trainer.hyperparameters, 'nova_reasoning-math_percent', 10)
-
-# Zero out unused categories
-trainer.hyperparameters.nova_agents_percent = 0
-trainer.hyperparameters.nova_baseline_percent = 0
-trainer.hyperparameters.nova_chat_percent = 0
-trainer.hyperparameters.nova_factuality_percent = 0
-trainer.hyperparameters.nova_identity_percent = 0
-trainer.hyperparameters.nova_stem_percent = 0
-trainer.hyperparameters.nova_rai_percent = 0
-trainer.hyperparameters.nova_rag_percent = 0
-trainer.hyperparameters.nova_translation_percent = 0
-for category in ['nova_long-context_percent', 'nova_reasoning-chat_percent',
-                 'nova_reasoning-code_percent', 'nova_reasoning-factuality_percent',
-                 'nova_reasoning-planning_percent', 'nova_reasoning-rag_percent',
-                 'nova_reasoning-rai_percent', 'nova_reasoning-stem_percent']:
-    setattr(trainer.hyperparameters, category, 0)
-
-# Start training
-training_job = trainer.train(wait=True)
-print(f"Training job: {training_job.training_job_name}")
+job = trainer.train(wait=False)
 ```
+
+For full-rank fine-tuning, pass `training_type=TrainingType.FULL` to
+the trainer constructor.
 
 ###### Note
 
-Some parameter names contain hyphens (for example,
-`nova_instruction-following_percent`). Use
-`setattr()` to set these. Parameters without hyphens can be set
-directly (for example, `trainer.hyperparameters.nova_code_percent = 30`).
-
-For LoRA fine-tuning, use `TrainingType.LORA` instead of
-`TrainingType.FULL`.
+When `nova_data_percentages` is provided, only the specified
+categories are used — all unspecified categories default to 0. The percentages
+must sum to 100.
 
 ## Using the AWS CLI
 

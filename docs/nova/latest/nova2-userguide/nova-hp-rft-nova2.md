@@ -1,146 +1,124 @@
-# RFT on Nova 2.0
+# Reinforcement fine-tuning (RFT) on Nova 2.0 on SageMaker HyperPod
 
-RFT training data follows the OpenAI conversational format. Each training example is a
-JSON object containing messages, reference answers, and optional tool definitions. This
-section provides guidance on preparing effective training data for RFT on Nova 2.0.
+This section covers the sample recipe, starting a fine-tuning job, hyperparameter guidance, and training monitoring for RFT on Nova 2.0 Lite on SageMaker HyperPod. For information about the data format, supported features, constraints, and best practices for preparing RFT training data, see
+[Preparing data for RFT on Amazon Nova 2](nova-data-prep-rft-2.md "nova-data-prep-rft-2.md").
+
+To determine whether RFT is a good fit for your use case, see
+[Reinforcement fine-tuning (RFT)](nova-hp-rft.md "nova-hp-rft.md").
 
 ###### Topics
 
-- [Data format and structure](#nova-hp-rft-data-format "#nova-hp-rft-data-format")
-- [Field descriptions](#nova-hp-rft-field-descriptions "#nova-hp-rft-field-descriptions")
+- [Starting a fine-tuning job on SageMaker HyperPod](#nova-rft-2-starting-job "#nova-rft-2-starting-job")
 - [Hyperparameter guidance](#nova-hp-rft-monitoring-hyperparams "#nova-hp-rft-monitoring-hyperparams")
-- [Additional properties](#nova-hp-rft-additional-properties "#nova-hp-rft-additional-properties")
-- [Dataset size recommendations](#nova-hp-rft-dataset-size "#nova-hp-rft-dataset-size")
-- [Characteristics of effective training data](#nova-hp-rft-effective-data "#nova-hp-rft-effective-data")
 - [Monitoring RFT training](nova-hp-rft-monitoring.md "nova-hp-rft-monitoring.md")
 
-## Data format and structure
+```
+# Note:
+# This recipe can run on p5.48xlarge, p5e.48xlarge, and p5en.48xlarge instance types.
+run:
+  name: "my-rft-run"                           # Unique run name (appears in logs and artifacts).
+  model_type: amazon.nova-2-lite-v1:0:256k
+  model_name_or_path: nova-lite-2/prod
+  data_s3_path: s3://<bucket>/<data-file>      # Training dataset in JSONL format.
+  replicas: 4                                   # Number of total training instances.
+  generation_replicas: 2                        # Number of total instances dedicated to response generation.
+  reward_lambda_arn: arn:aws:lambda:<region>:<account-id>:function:<function-name>
 
-Each training example is a JSON object containing the following:
+  ## MLFlow configs
+  mlflow_tracking_uri: "" # Required for MLFlow
+  mlflow_experiment_name: "my-rft-experiment" # Optional for MLFlow. Note: leave this field non-empty
+  mlflow_run_name: "my-rft-run" # Optional for MLFlow. Note: leave this field non-empty
 
-- **messages**: An array of conversational turns using
-  system, user, and optionally assistant roles
-- **reference\_answer**: Expected output or evaluation
-  criteria for reward calculation
-- **tools** (optional): Array of function definitions
-  available to the model
-- **id** (optional): Unique identifier for tracking and
-  deduplication
+## SMHP RFT training configs
+training_config:
+  max_length: 8192                              # Context window (tokens) for inputs and prompt.
+  global_batch_size: 32                         # Total samples per optimizer step across all replicas (16/32/64/128/256).
+  reasoning_effort: high                        # Reasoning mode: high, low, or null for non-reasoning.
 
-Each example should be on a single line in your JSONL file, with one JSON object per
-line.
+  data:
+    shuffle: true                               # Shuffle training data each epoch.
 
-The following example shows a chemistry problem with reference answer containing
-ground truth values:
+  rollout:                                      # Controls how responses are generated for advantage calculation.
+    rollout_strategy:
+      type: off_policy_async                    # Asynchronous rollout for higher throughput.
+      age_tolerance: 2                          # Maximum policy age before regeneration.
+    advantage_strategy:
+      number_generation: 4                      # Samples per prompt to estimate advantages (higher = lower variance but higher cost).
+    generator:
+      max_new_tokens: 6000                      # Cap on tokens generated per sample.
+      set_random_seed: true                     # Seed generation for reproducibility across runs.
+      temperature: 1                            # Softmax temperature for sampling.
+      top_k: 1                                  # Sample only from top-K logits.
+    rewards:
+      preset_reward_function: null              # Preset reward functions: exact_match or null for custom.
+      api_endpoint:
+        lambda_arn: arn:aws:lambda:<region>:<account-id>:function:<function-name>
+        lambda_concurrency_limit: 12             # Max concurrent Lambda invocations (throughput vs. throttling).
+        lambda_batch_size: 128                  # Number of samples per Lambda invocation.
+
+  trainer:
+    max_steps: 2                                # Steps to train for. One step = global_batch_size samples.
+    save_steps: 5                               # Save a checkpoint every N steps.
+    test_steps: 1                               # Run validation every N reference model updates.
+    refit_freq: 4                               # Frequency of reference model updates.
+    clip_ratio_high: 0.2                        # PPO clip ratio for policy updates.
+    loss_scale: 1.0                             # Scaling factor for the policy loss.
+
+    # RL parameters
+    ent_coeff: 0.0                              # Entropy bonus added to the policy loss (higher = more exploration).
+    kl_loss_coef: 0.0                           # Weight on the KL penalty between the current and reference policy.
+
+    optim_config:                               # Optimizer settings.
+        lr: 1e-6                                # Learning rate.
+        weight_decay: 0.0                       # L2 regularization strength (0.0 to 1.0).
+        adam_beta1: 0.9
+        adam_beta2: 0.95
+
+    peft:                                       # Parameter-efficient fine-tuning (LoRA).
+        peft_scheme: "lora"                     # Enable LoRA for PEFT.
+        lora_tuning:
+            alpha: 64                           # LoRA scaling factor.
+            lora_plus_lr_ratio: 64.0            # LoRA+ learning rate scaling factor (0.0 to 100.0).
+```
+
+## Starting a fine-tuning job on SageMaker HyperPod
+
+### Preparing your data
+
+For information about the data format, supported features, constraints, and best practices for preparing RFT training data, see
+[Preparing data for RFT on Amazon Nova 2](nova-data-prep-rft-2.md "nova-data-prep-rft-2.md").
+
+### Uploading your data
+
+Upload your training dataset to an S3 bucket. Specify its location in the recipe's `run` block:
 
 ```
-{
-  "id": "chem-001",
-  "messages": [
-    {
-      "role": "system",
-      "content": "You are a helpful chemistry assistant"
-    },
-    {
-      "role": "user",
-      "content": "Predict hydrogen bond donors and acceptors for this SMILES: CCN(CC)CCC(=O)c1sc(N)nc1C"
-    }
-  ],
-  "reference_answer": {
-    "donor_bond_counts": 2,
-    "acceptor_bond_counts": 4,
-    "explanation": "Calculated using Lipinski's rule of five: N-H groups (2 donors), N and O atoms with lone pairs (4 acceptors)"
-  }
-}
+## Run config
+run:
+  ...
+  data_s3_path: "s3://<bucket-name>/<training-directory>/<training-file>.jsonl"
+
 ```
 
 ###### Note
 
-The reference\_answer contains ground truth values calculated using
-domain-specific rules. Your reward function compares the model's predicted values
-against these reference values to calculate a reward score.
+Replace `<bucket-name>`,
+`<training-directory>`, and `<training-file>` with actual
+S3 paths.
 
-The following example shows a math problem with solution steps:
+### Defining your config
 
-```
-{
-  "id": "math-001",
-  "messages": [
-    {
-      "role": "system",
-      "content": "You are a math tutor"
-    },
-    {
-      "role": "user",
-      "content": "Solve: 2x + 5 = 13"
-    }
-  ],
-  "reference_answer": {
-    "solution": "x = 4",
-    "steps": ["2x = 13 - 5", "2x = 8", "x = 4"]
-  }
-}
-```
-
-The following example shows tool usage with expected behavior:
+Define the base model using the `model_type` and
+`model_name_or_path` fields in the `run` block:
 
 ```
-{
-  "id": "tool-001",
-  "messages": [
-    {
-      "role": "system",
-      "content": "You are a helpful game master assistant"
-    },
-    {
-      "role": "user",
-      "content": "Generate a strength stat for a warrior character. Apply a +2 racial bonus modifier."
-    }
-  ],
-  "tools": [
-    {
-      "type": "function",
-      "function": {
-        "name": "StatRollAPI",
-        "description": "Generates character stats by rolling 4d6, dropping the lowest die result, and applying a modifier.",
-        "parameters": {
-          "type": "object",
-          "properties": {
-            "modifier": {
-              "description": "An integer representing the modifier to apply to the total of the stat roll.",
-              "type": "integer"
-            }
-          },
-          "required": ["modifier"]
-        }
-      }
-    }
-  ],
-  "reference_answer": {
-    "tool_called": "StatRollAPI",
-    "tool_parameters": {
-      "modifier": 2
-    },
-    "expected_behavior": "Call StatRollAPI with modifier=2 and return the calculated stat value"
-  }
-}
+## Run config
+run:
+  ...
+  model_type: amazon.nova-2-lite-v1:0:256k
+  model_name_or_path: nova-lite-2/prod
+  ...
 ```
-
-## Field descriptions
-
-| Field              | Description                                                      | Additional notes                                                                                         | Required |
-| ------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------- |
-| id                 | Unique identifier for this RFT example                           | String (for example, "sample-001"). Useful for tracking and<br>deduplication.                            | No       |
-| messages           | Ordered list of chat messages that define the prompt and context | Array of objects. Model sees them in order. Typically starts with a system<br>message, then user.        | Yes      |
-| messages[].role    | Who is speaking in the message                                   | Common values: "system", "user" (sometimes "assistant" in other<br>contexts)                             | No       |
-| messages[].content | The text content of the message                                  | Plain string. For system it's instructions, for user it's the task or<br>input.                          | No       |
-| tools              | Tool specifications available to the model during this example   | Array. Each item defines a tool's interface and metadata. Types may include<br>"function" or "internal". | No       |
-| reference\_answer  | The expected model output for this example                       | String or object depending on task. Used as target for evaluation or<br>training.                        | No       |
-
-###### Note
-
-Any additional custom fields (for example, task\_id, difficulty\_level, context\_data)
-are not validated and will be passed to your reward function as metadata.
 
 ## Hyperparameter guidance
 
@@ -162,124 +140,3 @@ Use the following recommended hyperparameters based on your training approach:
 
 Adjust these values based on your dataset size and validation performance. Monitor
 training metrics to prevent overfitting.
-
-## Additional properties
-
-The "additionalProperties": true setting allows you to include custom fields beyond
-the core schema requirements, providing flexibility to add any data your reward function
-needs for proper evaluation.
-
-### Common additional fields
-
-You can include the following types of additional fields:
-
-**Metadata:**
-
-- task\_id: Unique identifier for tracking
-- difficulty\_level: Problem complexity indicator
-- domain: Subject area or category
-- expected\_reasoning\_steps: Number of steps in solution
-
-**Evaluation criteria:**
-
-- evaluation\_criteria: Specific grading rubrics
-- custom\_scoring\_weights: Relative importance of different aspects
-- context\_data: Background information for the problem
-- external\_references: Links to relevant documentation or resources
-
-### Example with additional properties
-
-The following example includes custom metadata fields:
-
-```
-{
-  "id": "algebra_001",
-  "messages": [
-    {
-      "role": "system",
-      "content": "You are a math tutor"
-    },
-    {
-      "role": "user",
-      "content": "Solve: 2x + 5 = 13"
-    }
-  ],
-  "reference_answer": {
-    "solution": "x = 4",
-    "steps": ["2x = 13 - 5", "2x = 8", "x = 4"]
-  },
-  "task_id": "algebra_001",
-  "difficulty_level": "easy",
-  "domain": "algebra",
-  "expected_reasoning_steps": 3
-}
-```
-
-## Dataset size recommendations
-
-### Starting point
-
-Begin with the following minimum dataset sizes:
-
-- Minimum 100 training examples
-- Minimum 100 evaluation examples
-
-Prioritize high-quality input data and a reliable reward function that executes
-consistently on model responses.
-
-### Evaluation-first approach
-
-Before investing in large-scale RFT training, evaluate your model's baseline
-performance:
-
-- **High performance (greater than 95% reward)**: RFT
-  may be unnecessary—your model already performs well
-- **Very poor performance (0% reward)**: Switch to
-  SFT first to establish basic capabilities
-- **Moderate performance**: RFT is likely
-  appropriate
-
-This evaluation-first approach ensures your reward function is bug-free and
-determines if RFT is the right method for your use case. Starting small allows you to
-get comfortable with the RFT workflow, identify and fix issues early, validate your
-approach before scaling up, and test reward function reliability. Once validated, you
-can expand to larger datasets to further improve performance.
-
-## Characteristics of effective training data
-
-### Clarity and consistency
-
-Good RFT examples require clear, unambiguous input data that enables accurate reward
-calculation across different model outputs. Avoid noise in your data, including:
-
-- Inconsistent formatting
-- Contradictory labels or instructions
-- Ambiguous prompts
-- Conflicting reference answers
-
-Any ambiguity will mislead the training process and cause the model to learn
-unintended behaviors.
-
-### Diversity
-
-Your dataset should capture the full diversity of production use cases to ensure
-robust real-world performance. Include:
-
-- Various problem types and difficulty levels
-- Different input formats and edge cases
-- Representative samples from all expected scenarios
-
-This diversity helps prevent overfitting and ensures the model handles unfamiliar
-inputs gracefully.
-
-### Reward function considerations
-
-Design your reward function for efficient training:
-
-- Execute within seconds (not minutes)
-- Parallelize effectively with Lambda
-- Return consistent, reliable scores
-- Handle different types of model outputs gracefully
-
-Fast, scalable reward functions enable rapid iteration and cost-effective
-experimentation at scale.

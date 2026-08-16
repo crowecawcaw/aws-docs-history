@@ -8,7 +8,7 @@ The end-to-end customization workflow involves stages like model training, model
 
 SageMaker offers two approaches for customizing Amazon Nova models:
 
-**UI-based experience** – Use to customize Amazon Nova models through a simple, guided interface. This approach provides an end-to-end workflow including training, evaluation, and deployment without writing code. The UI-based experience is ideal for rapid experimentation, proof-of-concept development, and users who prefer a visual workflow.
+**UI-based experience** – Use Amazon SageMaker Studio to customize Amazon Nova models through a simple, guided interface. This approach provides an end-to-end workflow including training, evaluation, and deployment without writing code. The UI-based experience is ideal for rapid experimentation, proof-of-concept development, and users who prefer a visual workflow.
 
 **Code-based experience** – Use the SageMaker Python SDK, Nova SDK and training recipes to customize models programmatically. This approach offers greater flexibility, allowing you to configure advanced hyperparameters, integrate with CI/CD pipelines, and automate training workflows. The code-based experience is recommended for production workloads, complex customization requirements, and teams with established MLOps practices.
 

@@ -116,10 +116,11 @@ Don't use SFT when the gap is knowledge rather than behavior. It doesn't teach t
 
 ###### Topics
 
-- [Nova Forge SDK](nova-hp-forge-sdk.md "nova-hp-forge-sdk.md")
+- [SageMaker Python SDK](nova-hp-forge-sdk.md "nova-hp-forge-sdk.md")
 - [Creating a SageMaker HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
 - [Amazon SageMaker HyperPod Essential Commands Guide](nova-hp-essential-commands-guide.md "nova-hp-essential-commands-guide.md")
-- [Nova Forge access and setup for](nova-forge-hp-access.md "nova-forge-hp-access.md")
-- [Training for Amazon Nova models](nova-hp-training.md "nova-hp-training.md")
+- [Nova Forge access and setup for SageMaker HyperPod](nova-forge-hp-access.md "nova-forge-hp-access.md")
+- [Pre-training for Amazon Nova models](nova-hp-training.md "nova-hp-training.md")
+- [Fine-tuning for Amazon Nova models](nova-hp-fine-tuning.md "nova-hp-fine-tuning.md")
 - [Evaluating your trained model](nova-hp-evaluate.md "nova-hp-evaluate.md")
 - [Monitoring HyperPod jobs with MLflow](nova-hp-mlflow.md "nova-hp-mlflow.md")

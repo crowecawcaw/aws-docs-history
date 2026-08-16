@@ -89,11 +89,18 @@ Use SFT when you can assemble high-quality prompt and response pairs that closel
 
 Don't use SFT when the gap is knowledge rather than behavior. It doesn't teach the model new facts, jargon, or recent events. In those cases, use retrieval-augmented generation to bring external knowledge at inference. Avoid SFT when you can measure quality but can't label a single right answer. Use reinforcement fine-tuning with verifiable rewards or an LLM-as-a-judge to optimize those rewards directly. If your needs or content change frequently, rely on retrieval and tool use rather than retraining the model.
 
+The following table summarizes the customization techniques available on SageMaker Training Jobs for Amazon Nova 2.0 models. For Amazon Nova 1.0 customization on SageMaker Training Jobs, see the [Amazon Nova 1.0 guide](../userguide/nova-model-training-job.md "../userguide/nova-model-training-job.md").
+
+Supported techniques on SageMaker Training Jobs| Technique | Description | SMTJ support | Supported models |
+| --- | --- | --- | --- |
+| Supervised Fine-Tuning (SFT) | Trains a model using labeled input-output pairs to align with specific tasks or behaviors. | Yes | Amazon Nova Lite 2.0 |
+| Reinforcement Fine-Tuning (RFT) | Optimizes model performance through reward-based feedback signals. | Yes | Amazon Nova Lite 2.0 |
+| Continued Pre-Training (CPT) | Extends model knowledge by training on domain-specific unlabeled text. | No. Use SageMaker HyperPod. | — |
+
 ###### Topics
 
-- [Nova Forge SDK](nova-forge-sdk.md "nova-forge-sdk.md")
+- [Customizing with SageMaker Python SDK](nova-forge-sdk.md "nova-forge-sdk.md")
 - [Restricted Model Packages](nova-rmp.md "nova-rmp.md")
-- [Training for Amazon Nova models](smtj-training.md "smtj-training.md")
+- [Fine-tuning for Amazon Nova models](smtj-fine-tuning.md "smtj-fine-tuning.md")
 - [Monitoring Progress Across Iterations](nova-model-monitor.md "nova-model-monitor.md")
 - [Evaluating your SageMaker AI-trained model](nova-model-evaluation.md "nova-model-evaluation.md")
-- [Iterative training](smtj-iterative-training.md "smtj-iterative-training.md")

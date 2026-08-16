@@ -14,6 +14,15 @@ fluency in that domain. Generally, after the CPT stage, the model needs to under
 instruction tuning stages to enable the model to use the newly acquired knowledge and complete
 useful tasks.
 
+###### When to use CPT
+
+Use CPT when you need to teach the model domain-specific knowledge that is not well
+represented in its original training data. CPT is ideal when:
+
+- You have large volumes of domain-specific text (legal, medical, technical, or proprietary content)
+- You want the model to develop native fluency in specialized terminology and writing patterns
+- Your use case requires standard language understanding without advanced reasoning
+
 ###### Supported models
 
 CPT is available for the following Amazon Nova models:
@@ -32,6 +41,11 @@ Choose Nova 2.0 when you need the following:
 - Superior performance on coding, math, and scientific problem-solving
 - Longer context length support
 - Better multilingual performance
+  Choose Nova 1.0 when:
+
+- You want to optimize for lower training and inference costs
+- Your use case requires standard language understanding without advanced reasoning
+- You have already validated performance on Nova 1.0 and don't need additional capabilities
 
 ###### Note
 

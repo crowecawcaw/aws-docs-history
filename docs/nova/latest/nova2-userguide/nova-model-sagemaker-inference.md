@@ -30,7 +30,7 @@ The following features are available for Amazon Nova models on SageMaker inferen
 **Development Tools**
 
 - AWS CLI support – For more information, see [AWS CLI Command Reference for SageMaker](../../../cli/latest/reference/sagemaker.md "../../../cli/latest/reference/sagemaker.md").
-- Notebook integration via SDK support
+- Jupyter Notebook integration via SDK support
 
 ## Supported models and instances
 

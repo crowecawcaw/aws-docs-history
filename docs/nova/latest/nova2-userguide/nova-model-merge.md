@@ -58,7 +58,7 @@ blending from the "base model". The default works well when your training data i
 and closely represents your target task.
 
 You can control how the final model balances specialization versus general knowledge
-by setting the `model_importance_score` in your [hyperparameters](nova-fine-tune-2.md#nova-2-selecting-hyperparameters "nova-fine-tune-2.md#nova-2-selecting-hyperparameters"). For example:
+by setting the `model_importance_score` in your [hyperparameters](nova-sft-2-smtj.md#nova-2-selecting-hyperparameters "nova-sft-2-smtj.md#nova-2-selecting-hyperparameters"). For example:
 
 ```
 

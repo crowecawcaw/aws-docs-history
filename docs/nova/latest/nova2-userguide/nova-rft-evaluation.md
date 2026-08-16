@@ -77,7 +77,7 @@ run:
   model_type: amazon.nova-lite-v1:0:300k
   model_name_or_path: s3://escrow_bucket/model_location # [MODIFIABLE] S3 path to your model or model identifier
   replicas: 1 # [MODIFIABLE] For SageMaker Training jobs only; fixed for HyperPod jobs
-  data_s3_path: "" # [REQUIRED FOR HYPERPOD] Leave empty for SageMaker Training jobs and use TrainingInput in sagemaker python SDK
+  data_s3_path: "" # [REQUIRED FOR HYPERPOD] Leave empty for SageMaker Training jobs and use TrainingInput in SageMaker Python SDK
   output_s3_path: "" # [REQUIRED] Output artifact S3 path for evaluation results
 
 evaluation:

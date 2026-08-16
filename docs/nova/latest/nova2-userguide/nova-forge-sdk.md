@@ -1,51 +1,50 @@
-# Nova Forge SDK
+# Customizing with SageMaker Python SDK
 
-The Nova Forge SDK is a comprehensive Python SDK for customizing Amazon Nova
-models. The SDK provides a unified interface for training, evaluation, monitoring,
-deployment, and inference of Amazon Nova models across different platforms including SageMaker AI
-and Amazon Bedrock. Whether you're adapting models to domain-specific tasks or optimizing performance
-for your use case, this SDK provides everything you need in one unified interface.
+The SageMaker Python SDK v3 introduces a modern, modular API for training,
+fine-tuning, deploying, and managing models on SageMaker. The SDK supports multiple training
+methods including continued pre-training (CPT), supervised fine-tuning (SFT), direct
+preference optimization (DPO), reinforcement fine-tuning (RFT), and multi-turn
+reinforcement learning (MTRL). You can run training jobs on SageMaker Training Jobs and
+SageMaker HyperPod.
 
 ## Quick Links
 
 Follow these steps to go from installation to your first training job:
 
-- **[SDK Reference](https://github.com/aws/nova-forge-sdk/blob/main/docs/spec.md "https://github.com/aws/nova-forge-sdk/blob/main/docs/spec.md")** - Documentation and usage specification
-- **[Quick Start Notebook](https://github.com/aws/nova-forge-sdk/blob/main/samples/nova_quickstart.ipynb "https://github.com/aws/nova-forge-sdk/blob/main/samples/nova_quickstart.ipynb")** – Interactive Python notebook for hands-on exploration
+- [SDK Reference](https://sagemaker.readthedocs.io "https://sagemaker.readthedocs.io") on the Read the Docs website for SageMaker Python SDK
+- [Quick Start Notebook on GitHub](https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/model-customization-examples/sm-studio-nova-training-job-sample-notebook.ipynb "https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/model-customization-examples/sm-studio-nova-training-job-sample-notebook.ipynb") – Interactive Python notebook for hands-on exploration
 
 ## Benefits
 
-- One SDK for the entire model customization lifecycle—from data preparation to
-  deployment and monitoring.
-- Support for multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), direct preference optimization (DPO),
-  and reinforcement fine-tuning (RFT), both single-turn and multi-turn, with both LoRA and full-rank
-  approaches.
-- Built-in support for SageMaker Training Jobs, SageMaker HyperPod, and Amazon Bedrock, with automatic
-  resource management.
+- A modular SDK for the entire model customization lifecycle from
+  training to deployment and monitoring.
+- Multi-platform support for SageMaker Training Jobs and SageMaker HyperPod,
+  with automatic resource management and infrastructure configuration.
 - No more finding the right recipes or container URI for your training
   techniques.
-- Bring your own training recipes or use the SDK's intelligent defaults with
-  parameter overrides.
+- Bring your own training recipes or use the defaults with parameter overrides.
 - The SDK validates your configuration against supported model and instance
-  combinations and provides validation support, preventing errors before training starts.
+  combinations, preventing errors before training starts.
+- Support for multiple training methods including continued pre-training (CPT),
+  supervised fine-tuning (SFT), direct preference optimization (DPO),
+  reinforcement fine-tuning (RFT), and multi-turn reinforcement learning (MTRL),
+  with both LoRA and full-rank approaches.
 - Integrated Amazon CloudWatch monitoring enables you to track training progress in
   real-time.
-- Integrated MLFlow to track training experiments with SageMaker AI MLFlow tracking servers.
+- Integrated MLflow to track training experiments with SageMaker AI MLflow tracking servers.
 
 ## Requirements
 
 **Supported Python Versions**
 
-Nova Forge SDK is tested on:
-
-- Python 3.12
+The SageMaker Python SDK supports Python 3.10 and later.
 
 ## Installation
 
-To install this SDK, please follow below command.
+To install the SageMaker Python SDK, run the following command:
 
 ```
-pip install amzn-nova-forge
+pip install "sagemaker>=3.19.0"
 ```
 
 ## Supported Models and Techniques
@@ -53,17 +52,17 @@ pip install amzn-nova-forge
 The SDK supports the following models and techniques within the Amazon Nova
 family:
 
-| Method                                         | Supported Models                                                                                                                                                                                          |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Continued Pre-training                         | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") (SMHP only)          |
-| Supervised Fine-tuning LoRA                    | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference")                      |
-| Supervised Fine-tuning Full-Rank               | [All Nova Models](../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference "../../../sagemaker/latest/dg/nova-model-recipes.md#nova-model-recipes-reference") (SMHP and SMTJ only) |
-| Direct Preference Optimization LoRA            | Nova 1.0 models (SMHP and SMTJ only)                                                                                                                                                                      |
-| Direct Preference Optimization Full-Rank       | Nova 1.0 models (SMHP and SMTJ only)                                                                                                                                                                      |
-| Reinforcement Fine-tuning LoRA                 | Nova Lite 2.0                                                                                                                                                                                             |
-| Reinforcement Fine-tuning Full-Rank            | Nova Lite 2.0 (SMHP and SMTJ only)                                                                                                                                                                        |
-| Multi-turn Reinforcement Fine-tuning LoRA      | Nova Lite 2.0                                                                                                                                                                                             |
-| Multi-turn Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0                                                                                                                                                                                             |
+| Method                                         | Supported Models                                                                                                                                                                         |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Continued Pre-training                         | [All Nova Models](../nova/latest/nova2-userguide/nova-model-recipes.md#nova-model-get-recipes "../nova/latest/nova2-userguide/nova-model-recipes.md#nova-model-get-recipes") (SMHP only) |
+| Supervised Fine-tuning LoRA                    | [All Nova Models](../nova/latest/nova2-userguide/nova-model-recipes.md#nova-model-get-recipes "../nova/latest/nova2-userguide/nova-model-recipes.md#nova-model-get-recipes")             |
+| Supervised Fine-tuning Full-Rank               | [All Nova Models](../nova/latest/nova2-userguide/nova-model-recipes.md#nova-model-get-recipes "../nova/latest/nova2-userguide/nova-model-recipes.md#nova-model-get-recipes")             |
+| Direct Preference Optimization LoRA            | Nova 1.0 models                                                                                                                                                                          |
+| Direct Preference Optimization Full-Rank       | Nova 1.0 models                                                                                                                                                                          |
+| Reinforcement Fine-tuning LoRA                 | Nova Lite 2.0                                                                                                                                                                            |
+| Reinforcement Fine-tuning Full-Rank            | Nova Lite 2.0                                                                                                                                                                            |
+| Multi-turn Reinforcement Fine-tuning LoRA      | Nova Lite 2.0                                                                                                                                                                            |
+| Multi-turn Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0                                                                                                                                                                            |
 
 ### Multi-turn Reinforcement Learning Output
 
@@ -81,244 +80,330 @@ Model Package Group, rather than an S3 path. This differs from other training
 methods (such as SFT, DPO, or RFT) where the output is an S3 path to the
 model checkpoint.
 
-To use MTRL, specify a `model_package_group_name` in the
-runtime configuration to receive the training output. Once the job
-completes, you can reference the output RMP ARN to evaluate the trained
-model. Using an RMP as input to a subsequent training job — for example,
-to chain MTRL runs into an iterative training workflow — is planned for
-Q3 2026. For more information and code examples, see [Restricted Model Packages](nova-rmp.md "nova-rmp.md").
+To use MTRL, use the `MultiTurnRLTrainer` class. When
+training on SageMaker Training Jobs Serverless, you can optionally specify an
+`output_model_package_group` to control where the output RMP is
+registered. If omitted, the SDK auto-creates a Model Package Group for you.
+For more information and code examples, see [Restricted Model Packages](nova-rmp.md "nova-rmp.md").
 
 ## Getting Started
 
 ###### Topics
 
-- [1. Prepare Your Data](#nova-forge-sdk-prepare-data "#nova-forge-sdk-prepare-data")
-- [2. Configure Your Infrastructure](#nova-forge-sdk-configure-infrastructure "#nova-forge-sdk-configure-infrastructure")
-- [3. Train](#nova-forge-sdk-train "#nova-forge-sdk-train")
-- [4. Monitor](#nova-forge-sdk-monitor "#nova-forge-sdk-monitor")
-- [5. Evaluate](#nova-forge-sdk-evaluate "#nova-forge-sdk-evaluate")
-- [6. Deploy](#nova-forge-sdk-deploy "#nova-forge-sdk-deploy")
+- [1. Configure Your Infrastructure](#nova-forge-sdk-configure-infrastructure "#nova-forge-sdk-configure-infrastructure")
+- [2. Train](#nova-forge-sdk-train "#nova-forge-sdk-train")
+- [3. Monitor](#nova-forge-sdk-monitor "#nova-forge-sdk-monitor")
+- [4. Evaluate](#nova-forge-sdk-evaluate "#nova-forge-sdk-evaluate")
+- [5. Deploy](#nova-forge-sdk-deploy "#nova-forge-sdk-deploy")
 
-### 1. Prepare Your Data
+### 1. Configure Your Infrastructure
 
-Load your dataset from local files or S3, and let the SDK handle the
-transformation to the correct format for your chosen training method. Or, provide
-formatted data and get started immediately.
+The SDK supports three compute platforms. Pass the appropriate configuration
+to the `compute` parameter of your trainer.
 
-```
-from amzn_nova_forge.dataset.dataset_loader import JSONLDatasetLoader
-from amzn_nova_forge.model.model_enums import Model, TrainingMethod, TransformMethod
-
-loader = JSONLDatasetLoader()
-loader.load("s3://your-bucket/training-data.jsonl")
-loader.transform(
-    method=TransformMethod.SCHEMA,
-    training_method=TrainingMethod.SFT_LORA,
-    model=Model.NOVA_LITE_2,
-    column_mappings={"question": "input", "answer": "output"},
-)
-```
-
-### 2. Configure Your Infrastructure
-
-Choose your compute resources—the SDK validates configurations and ensures optimal
-setup.
+**SageMaker HyperPod**
 
 ```
-from amzn_nova_forge.manager.runtime_manager import BedrockRuntimeManager, SMTJRuntimeManager, SMTJServerlessRuntimeManager, SMHPRuntimeManager
+from sagemaker.core.training.configs import HyperPodCompute
 
-# Bedrock
-runtime = BedrockRuntimeManager(
-    execution_role="arn:aws:iam::123456789012:role/ExampleRole"
-)
-
-# SageMaker Training Jobs
-runtime = SMTJRuntimeManager(
-    instance_type="ml.p5.48xlarge",
-    instance_count=4
-)
-
-# SageMaker Training Jobs Serverless
-runtime = SMTJServerlessRuntimeManager(
-    model_package_group_name = "my-package"
-)
-
-# SageMaker HyperPod
-runtime = SMHPRuntimeManager(
-    instance_type="ml.p5.48xlarge",
-    instance_count=4,
+compute = HyperPodCompute(
     cluster_name="my-hyperpod-cluster",
-    namespace="kubeflow"
+    instance_type="ml.p5.48xlarge",
+    node_count=4,
 )
 ```
 
-### 3. Train
-
-Start training with just a few lines of code.
+**SageMaker Training Jobs (Serverful)**
 
 ```
-from amzn_nova_forge.trainer.forge_trainer import ForgeTrainer
-from amzn_nova_forge.model.model_enums import Model, TrainingMethod
-from amzn_nova_forge.core import ForgeConfig
+from sagemaker.core.training.configs import TrainingJobCompute
 
-trainer = ForgeTrainer(
-    model=Model.NOVA_LITE_2,
-    method=TrainingMethod.SFT_LORA,
-    infra=runtime,
-    training_data_s3_path="s3://your-bucket/sft/prepared-data.jsonl",  # Training data path
-    config=ForgeConfig(
-        output_s3_path="s3://your-bucket/output",
-    ),
-)
-
-result = trainer.train(job_name="my-training-job")
-```
-
-### 4. Monitor
-
-Track your training progress directly from the SDK.
-
-```
-from amzn_nova_forge.monitor.log_monitor import CloudWatchLogMonitor
-
-# Monitor training logs
-trainer.get_logs()
-
-# Or monitor directly via CloudWatchLogMonitor
-monitor = CloudWatchLogMonitor.from_job_result(result)
-monitor.show_logs(limit=10)
-
-# Check job status
-result.get_job_status() # InProgress, Completed, Failed
-```
-
-### 5. Evaluate
-
-Evaluate model performance with a variety of [built-in benchmarks](../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-benchmark "../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-benchmark"), or design your
-own evaluations.
-
-```
-from amzn_nova_forge.evaluator import ForgeEvaluator
-from amzn_nova_forge.recipe_config.eval_config import EvaluationTask
-
-evaluator = ForgeEvaluator(
-    model=Model.NOVA_LITE_2,
-    infra=runtime,
-    config=ForgeConfig(
-        output_s3_path="s3://your-bucket/output",
-    ),
-    data_s3_path="s3://your-bucket/eval-data/data.jsonl"
-)
-
-# Evaluate on benchmark tasks
-eval_result = evaluator.evaluate(
-    job_name="model-eval",
-    eval_task=EvaluationTask.MMLU,
-    model_path=result.model_artifacts.checkpoint_s3_path
+compute = TrainingJobCompute(
+    instance_type="ml.p5.48xlarge",
+    instance_count=2,
 )
 ```
 
-### 6. Deploy
+**SageMaker Training Jobs (Serverless)**
 
-Deploy your customized model to production with built-in support for Amazon
-Bedrock or SageMaker.
+Fully managed and no compute configuration required. Omit the
+`compute` parameter and the SDK uses serverless by default:
 
 ```
-from amzn_nova_forge.deployer import ForgeDeployer
-from amzn_nova_forge.model.model_enums import DeployPlatform, Model
+# No compute parameter needed as serverless is the default
+trainer = SFTTrainer(
+    model="nova-textgeneration-lite-v2",
+    training_dataset="s3://my-bucket/sft-data.jsonl",
+    s3_output_path="s3://my-bucket/output/",
+)
+```
 
-deployer = ForgeDeployer(
-    region="us-east-1",
-    model=Model.NOVA_LITE_2,
+### 2. Train
+
+Start supervised fine-tuning with the `SFTTrainer` class. Provide
+your model, compute configuration, training dataset, and output path.
+
+```
+from sagemaker.train import SFTTrainer
+from sagemaker.core.training.configs import HyperPodCompute
+
+compute = HyperPodCompute(
+    cluster_name="my-hyperpod-cluster",
+    instance_type="ml.p5.48xlarge",
+    node_count=4,
 )
 
-# Bedrock provisioned throughput
-deployment = deployer.deploy(
-    model_artifact_path=result.model_artifacts.checkpoint_s3_path,
-    deploy_platform=DeployPlatform.BEDROCK_PT,
-    unit_count=10
+trainer = SFTTrainer(
+    model="nova-textgeneration-lite-v2",
+    compute=compute,
+    training_dataset="s3://my-bucket/sft-data.jsonl",
+    s3_output_path="s3://my-bucket/output/",
 )
 
-# Bedrock On-Demand
-deployment = deployer.deploy(
-    model_artifact_path=result.model_artifacts.checkpoint_s3_path,
-    deploy_platform=DeployPlatform.BEDROCK_OD
+job = trainer.train(wait=False)
+```
+
+The SDK also provides `CPTTrainer` for continued pre-training,
+`DPOTrainer` for direct preference optimization,
+`RLVRTrainer` for reinforcement fine-tuning, and
+`MultiTurnRLTrainer` for multi-turn reinforcement learning. Each
+follows the same pattern: provide a model, compute configuration, training
+dataset, and output path.
+
+### 3. Monitor
+
+Track your training progress directly from the SDK. Use
+`stream_logs()` to stream Amazon CloudWatch logs in real-time, or
+`show_metrics()` to plot training metrics such as loss and
+learning rate after job completion.
+
+```
+# Stream CloudWatch logs in real-time (blocks until job completes)
+trainer.stream_logs(poll=5)
+
+# Or stream only the last N lines
+trainer.stream_logs(tail_lines=50)
+
+# Plot training metrics (training_loss, lr, reward_score)
+df = trainer.show_metrics()
+```
+
+### 4. Evaluate
+
+Evaluate your trained model against built-in benchmark tasks using the
+`BenchMarkEvaluator` class. Supported benchmarks include MMLU
+(Massive Multitask Language Understanding), BBH (Advanced Reasoning Tasks),
+and GPQA (Graduate-Level Google-Proof Q&A). For other evaluation options,
+see [Evaluators](#nova-forge-sdk-evaluation "#nova-forge-sdk-evaluation").
+
+```
+from sagemaker.train.evaluate import BenchMarkEvaluator, get_benchmarks
+
+# Get the trained model s3 path from the completed training job
+s3_path = job.model_artifacts.s3_model_artifacts
+
+Benchmark = get_benchmarks()
+
+evaluator = BenchMarkEvaluator(
+    benchmark=Benchmark.MMLU,
+    model=s3_path,
+    s3_output_path="s3://my-bucket/eval-output/",
 )
 
-# Sagemaker Real-time Inference
-deployment = deployer.deploy(
-    model_artifact_path=result.model_artifacts.checkpoint_s3_path,
-    deploy_platform=DeployPlatform.SAGEMAKER,
-    unit_count=10,
-    sagemaker_instance_type="ml.p5.48xlarge",
-    sagemaker_environment_variables={
-        "CONTEXT_LENGTH": "12000",
-        "MAX_CONCURRENCY": "16",
-    }
+execution = evaluator.evaluate()
+```
+
+### 5. Deploy
+
+After training, deploy your customized model to production. With the
+SageMaker Python SDK, you can deploy to SageMaker Real-time Inference
+endpoints and Amazon Bedrock On-Demand. Choose the deployment option that best fits
+your latency, throughput, and cost requirements.
+
+**SageMaker Real-time Inference**
+
+Deploy to a SageMaker Real-time Inference endpoint for full control over
+instance types, scaling policies, and endpoint configuration. Use
+`ModelBuilder` to create and deploy an SageMaker endpoint:
+
+```
+from sagemaker.serve import ModelBuilder
+
+# Get the trained model checkpoint path
+s3_path = job.model_artifacts.s3_model_artifacts
+
+# Deploy to SageMaker Real-time Inference endpoint
+builder = ModelBuilder(
+    model=s3_path,
+    instance_type="ml.p5.48xlarge",
+    env_vars={
+        "CONTEXT_LENGTH": "8000",
+        "MAX_CONCURRENCY": "2",
+    },
 )
+
+builder.build().deploy()  # Build the model and deploy to an endpoint
+```
+
+**Bedrock On-Demand**
+
+On-Demand inference provides pay-per-use pricing without provisioned
+capacity. This option is applicable to LoRA-based customizations.
+Use On-Demand when you have variable or unpredictable traffic patterns:
+
+```
+from sagemaker.serve import BedrockModelBuilder
+
+# Deploy with Bedrock On-Demand
+builder = BedrockModelBuilder(
+    model=s3_path,
+    throughput_type="on-demand",
+)
+
+deployment = builder.deploy()
 ```
 
 ## Key Capabilities
 
-### On The Fly Recipe Creation
+### Recipe Override Precedence
 
-The SDK eliminates the need to search for the appropriate recipes or container URI
-for specific techniques.
+The SageMaker Python SDK uses a layered configuration system for training
+recipes. When you launch a training job, parameters are resolved in the
+following order of precedence (highest to lowest):
 
-### Intelligent Data Processing
+1. **Parameter overrides** – Values passed
+   directly via the `overrides` dictionary in the trainer
+   constructor. These take the highest priority and override any
+   conflicting value from the recipe YAML or Hub defaults.
+2. **Recipe YAML** – A recipe YAML file
+   you supply (either an S3 path or a local file). This defines the
+   full training configuration but can be selectively overridden by
+   the `overrides` dictionary.
+3. **Hub defaults** – The default recipe
+   automatically resolved from the SageMaker Model Hub based on your
+   model and training method. These provide sensible starting
+   configurations when no custom recipe or overrides are specified.
 
-The SDK automatically transforms your data into the correct format for training.
-Whether you're working with JSON, JSONL, or CSV files, the data loader handles the
-conversion seamlessly. Data Loader supports text as well as multimodal data (images
-and videos).
+For example, to override the maximum training steps and learning rate
+while using Hub defaults for all other parameters:
+
+```
+from sagemaker.train import SFTTrainer
+from sagemaker.core.training.configs import HyperPodCompute
+
+compute = HyperPodCompute(
+    cluster_name="my-hyperpod-cluster",
+    instance_type="ml.p5.48xlarge",
+    node_count=2,
+)
+
+trainer = SFTTrainer(
+    model="nova-textgeneration-lite-v2",
+    training_dataset="s3://my-bucket/sft-data.jsonl",
+    s3_output_path="s3://my-bucket/output/",
+    base_job_name="my-sft-training-job",
+    overrides={
+        "training_config.trainer.max_epochs": 1,
+        "training_config.model.optim.lr": 1e-5,
+    },
+)
+
+job = trainer.train(wait=False)
+```
+
+In this example, `max_epochs` and `optim.lr` are set
+explicitly via overrides. All other training parameters (batch size, warmup
+steps, model-parallel and so on) fall through to the Hub default recipe
+for the `nova-textgeneration-lite-v2` model.
 
 ### Enterprise Infrastructure Support
 
-The SDK works with both SageMaker Training Jobs and SageMaker HyperPod,
-automatically managing:
+The SDK supports multiple compute platforms, automatically managing
+infrastructure configuration, validation, and job orchestration:
 
-- Instance type validation
-- Recipe validation
-- Dataset validation
-- Job orchestration and monitoring
+- **SageMaker Training Jobs** – Fully managed
+  training with automatic instance provisioning and teardown. Supports
+  both on-demand and serverless modes.
+- **SageMaker HyperPod** – Persistent clusters
+  for large-scale distributed training with built-in fault tolerance
+  and automatic node recovery.
 
-The SDK also supports SageMaker Training Jobs serverless and Bedrock customization.
+Across all platforms, the SDK validates instance types, recipe configurations,
+and dataset formats before submitting jobs, preventing errors early in the
+workflow.
 
 ### Comprehensive evaluation
 
-Evaluate your customized models against [standard benchmarks](../../../sagemaker/latest/dg/nova-hp-evaluate.md "../../../sagemaker/latest/dg/nova-hp-evaluate.md") including:
+Evaluate your customized models against [standard benchmarks](nova-model-evaluation.md "nova-model-evaluation.md"). The SDK
+provides the following evaluators:
 
-- MMLU (Massive Multitask Language Understanding)
-- BBH (Advanced Reasoning Tasks)
-- GPQA (Graduate-Level Google-Proof Q&A)
-
-Either use the benchmark defaults, or modify them to fit your needs:
-
-- BYOM (Bring Your Own Metric)
-- BYOD (Bring Your Own Dataset)
+- `BenchMarkEvaluator` – Run standardized performance
+  benchmarks such as MMLU, BBH, and GPQA
+- `LLMAsJudgeEvaluator` – Use large language models to
+  assess model outputs
+- `InspectAIEvaluator` – Run InspectAI or custom benchmark tasks
+- `CustomScorerEvaluator` – Apply custom defined
+  evaluator functions
+- `MultiTurnRLEvaluator` – Evaluate multi-turn agent
+  models with rollout-based metrics
 
 ### Production Deployment
 
-Deploy your models to Amazon Bedrock or SageMaker AI with options for:
+With the SageMaker Python SDK, you can deploy your customized models
+using multiple deployment options:
 
-- **Bedrock Provisioned Throughput** - Dedicated
-  capacity for consistent performance
-- **Bedrock On-Demand (only applicable to LoRA based customization)** - Pay-per-use pricing
-- **SageMaker AI Real-time Inference** - Dedicated capacity for consistent performance
+- **SageMaker Real-time Inference** – Full
+  control over instance types, scaling policies, and endpoint
+  configuration for custom hosting requirements.
+- **Bedrock On-Demand** – Pay-per-use
+  pricing without provisioned capacity. Applicable to LoRA-based
+  customizations.
 
-### Batch Inference
+Use `ModelBuilder` or `BedrockModelBuilder` classes to deploy trained models.
 
-Run large-scale inference jobs efficiently:
+### Data Mixing
 
-- Process thousands of requests in parallel
-- Automatic result aggregation
-- Cost-effective batch processing
+###### Note
 
-### Nova Forge
+Data mixing is available exclusively for Nova Forge subscribers.
 
-For Nova Forge subscribers, the SDK supports data mixing recipes.
+The SageMaker Python SDK provides the
+`DataMixingConfig` class to configure data mixing.
+
+Use `DataMixingConfig` with your trainer to
+specify the percentage of customer data and the distribution across
+Nova data categories:
+
+```
+from sagemaker.train import SFTTrainer
+from sagemaker.train.data_mixing_config import DataMixingConfig
+from sagemaker.core.training.configs import HyperPodCompute
+
+data_mixing = DataMixingConfig(
+    customer_data_percent=70.0,
+    nova_data_percentages={
+        "code": 40.0,
+        "reasoning": 30.0,
+        "instruction-following": 30.0,
+    },
+)
+
+trainer = SFTTrainer(
+    model="nova-textgeneration-lite-v2",
+    compute=HyperPodCompute(
+        cluster_name="my-cluster",
+        instance_type="ml.p5.48xlarge",
+        node_count=4,
+    ),
+    training_dataset="s3://my-bucket/sft-data.jsonl",
+    s3_output_path="s3://my-bucket/output/",
+    data_mixing_config=data_mixing,
+)
+
+job = trainer.train(wait=False)
+```
 
 ## Learn More
 
-Ready to start customizing Nova models with the Nova Forge SDK? Check out our
-GitHub repository for detailed guides, API references, and additional examples: [https://github.com/aws/nova-forge-sdk](https://github.com/aws/nova-forge-sdk "https://github.com/aws/nova-forge-sdk")
+Ready to start customizing Nova models with the SageMaker Python SDK? For
+detailed guides, API references, and additional examples, see [sagemaker-python-sdk](https://github.com/aws/sagemaker-python-sdk "https://github.com/aws/sagemaker-python-sdk") on GitHub.

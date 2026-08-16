@@ -38,48 +38,34 @@ which are planned for future releases.
 When you train a model using multi-turn reinforcement learning (MTRL) on SageMaker
 Training Jobs Serverless, the training output is delivered as an RMP rather than
 an Amazon S3 checkpoint path. The output RMP is automatically created and registered
-in the Model Package Group you specify when configuring the runtime manager. You
-do not create RMPs directly — they are produced by the platform as training job
-outputs.
+in a Model Package Group. You do not create RMPs directly — they are produced
+by the platform as training job outputs.
 
-The `model_package_group_name` parameter is required when
-running MTRL on SageMaker Training Jobs Serverless. You must specify an existing
-Model Package Group with `StorageType: "Restricted"` where the
-output RMP will be registered. Without this parameter, the training job will
-fail. Configure the runtime with a `model_package_group_name` to
-receive the training output:
+Use the `MultiTurnRLTrainer` class to run MTRL training. The
+`output_model_package_group` parameter is optional — if not provided,
+the SDK auto-creates a Model Package Group named
+`{model}-mtrl-mpg` with `StorageType: "Restricted"`.
 
 ```
-from amzn_nova_forge.manager.runtime_manager import SMTJServerlessRuntimeManager
-from amzn_nova_forge.trainer.forge_trainer import ForgeTrainer
-from amzn_nova_forge.model.model_enums import Model, TrainingMethod
-from amzn_nova_forge.core import ForgeConfig
+from sagemaker.train.multi_turn_rl_trainer import MultiTurnRLTrainer
 
-# Configure runtime with the output Model Package Group
-runtime = SMTJServerlessRuntimeManager(
-    model_package_group_name="my-rmp-model-package-group",  # Required for MTRL
-    execution_role="arn:aws:iam::123456789012:role/my-role",
-    agent_core_arn="arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my-agent",  # AgentCore runtime for MTRL execution
+trainer = MultiTurnRLTrainer(
+    model="nova-textgeneration-lite-v2",
+    agent_env="arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/my-agent",
+    training_dataset="s3://your-bucket/prompts/train.parquet",
+    s3_output_path="s3://your-bucket/output/",
+    accept_eula=True,
+    # output_model_package_group is optional — auto-created if not provided
 )
 
-# Train with MTRL
-trainer = ForgeTrainer(
-    model=Model.NOVA_LITE_2,
-    method=TrainingMethod.RFT_MULTITURN_LORA,
-    infra=runtime,
-    training_data_s3_path="s3://your-bucket/prompts/train.parquet",
-    config=ForgeConfig(output_s3_path="s3://your-bucket/output/"),
-)
+job = trainer.train(wait=True)
 
-result = trainer.train(job_name="my-mtrl-job")
-
-# Wait for completion and retrieve the output RMP ARN
-result.wait()
-print(result.model_artifacts.output_model_arn)
+# Retrieve the output RMP ARN
+print(job.output_model_package_arn)
 ```
 
 After training completes, the resulting model is registered as a new version
-in the specified Model Package Group.
+in the Model Package Group.
 
 ## Using an RMP for evaluation
 

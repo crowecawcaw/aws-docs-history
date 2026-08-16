@@ -1,37 +1,39 @@
 # Supervised fine-tuning (SFT)
 
-The SFT training process consists of two main stages:
+Supervised fine-tuning (SFT) trains a model using labeled input-output pairs. The model
+learns from demonstration examples consisting of prompts and responses, refining its
+capabilities to align with specific tasks, instructions, or desired behaviors.
 
-- **Data Preparation**: Follow established guidelines to
-  create, clean, or reformat datasets into the required structure. Ensure that inputs,
-  outputs, and auxiliary information (such as reasoning traces or metadata) are properly
-  aligned and formatted.
-- **Training Configuration**: Define how the model will be
-  trained. When using , this configuration is written in a YAML recipe file that
-  includes:
+###### When to use SFT
 
-  - Data source paths (training and validation datasets)
-  - Key hyperparameters (epochs, learning rate, batch size)
-  - Optional components (distributed training parameters, etc)
+Use SFT when you can specify what the right behavior looks like through labeled examples.
+SFT is ideal when:
 
-## Nova Model Comparison and Selection
+- You have high-quality input-output pairs that demonstrate the desired behavior
+- You want to teach the model a specific response format, tone, or style
+- Your task requires following domain-specific instructions or workflows
+- You need to adapt the model for multimodal tasks (text, image, video, or tool calling)
 
-Amazon Nova 2.0 is a model trained on a larger and more diverse dataset than Amazon Nova 1.0. Key
-improvements include:
+###### Supported models
 
-- **Enhanced reasoning abilities** with explicit
-  reasoning mode support
-- **Broader multilingual performance** across additional
-  languages
-- **Improved performance on complex tasks** including
-  coding and tool use
-- **Extended context handling** with better accuracy and
-  stability at longer context lengths
+SFT is available for the following Amazon Nova models:
 
-## When to Use Nova 1.0 vs. Nova 2.0
+- Nova 1.0 (Micro, Lite, Pro)
+- Nova 2.0 (Lite)
 
-Choose Amazon Nova 2.0 when:
+###### When to use Nova 1.0 versus Nova 2.0
 
-- Superior performance with advanced reasoning capabilities is needed
-- Multilingual support or complex task handling is required
-- Better results on coding, tool calling, or analytical tasks are needed
+The Amazon Nova family of models offers multiple price-performance operating points to
+optimize between accuracy, speed, and cost.
+
+Choose Nova 2.0 when you need the following:
+
+- Enhanced reasoning abilities with explicit reasoning mode support
+- Broader multilingual performance across additional languages
+- Improved performance on complex tasks including coding and tool use
+- Extended context handling with better accuracy and stability at longer context lengths
+
+###### Note
+
+The larger model is not always better. Consider the cost-performance tradeoff and your
+specific business requirements when selecting between Nova 1.0 and Nova 2.0 models.

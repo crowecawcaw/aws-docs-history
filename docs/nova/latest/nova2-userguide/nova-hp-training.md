@@ -1,12 +1,9 @@
-# Training for Amazon Nova models
+# Pre-training for Amazon Nova models
 
-Training Amazon Nova models on SageMaker HyperPod supports multiple techniques including Continued
-Pre-Training (CPT), Supervised Fine-Tuning (SFT), and Reinforcement Fine-Tuning (RFT). Each
-technique serves different customization needs and can be applied to different Amazon Nova model
-versions.
+Pre-training Amazon Nova models on SageMaker HyperPod supports Continued Pre-Training (CPT), which allows
+you to further train a model on domain-specific data to improve its knowledge and performance
+in specialized areas. SageMaker HyperPod additionally supports [Fine-tuning for Amazon Nova models](nova-hp-fine-tuning.md "nova-hp-fine-tuning.md") techniques for task-specific customization.
 
 ###### Topics
 
-- [Continued pre-training (CPT)](nova-cpt.md "nova-cpt.md")
-- [Supervised fine-tuning (SFT)](nova-fine-tune.md "nova-fine-tune.md")
-- [Reinforcement Fine-Tuning (RFT) on SageMaker HyperPod](nova-hp-rft.md "nova-hp-rft.md")
+- [Continued pre-training (CPT) on Nova 2.0 on SageMaker HyperPod](nova-cpt-2.md "nova-cpt-2.md")

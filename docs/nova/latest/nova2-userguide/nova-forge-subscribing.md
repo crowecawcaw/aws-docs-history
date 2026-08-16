@@ -6,7 +6,7 @@ To access Amazon Nova Forge features, complete the following steps:
 2. Navigate to the SageMaker AI console and [request access to Amazon Nova Forge](nova-forge.md "nova-forge.md").
 3. Wait for the Amazon Nova team to email a confirmation after the subscription request is
    approved.
-4. Tag your execution role with the `forge-subscription` tag.
+4. Tag your SageMaker HyperPod execution role with the `forge-subscription` tag.
    This tag is required for accessing Amazon Nova Forge features and checkpoints. Add the following
    tag to your execution role:
 

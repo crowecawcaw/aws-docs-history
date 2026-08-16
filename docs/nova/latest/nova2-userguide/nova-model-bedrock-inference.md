@@ -4,7 +4,7 @@ Once you’ve trained and tested your Amazon Nova model, you can deploy it to Am
 
 After you create a custom model in SageMaker, you can use the CreateCustomModel API to deploy it to Amazon Bedrock from SageMaker escrow to run inference. You can then use CreateCustomModelDeployment to create an OD inference endpoint or set up provisioned throughput inference for a Parameter Efficient Fine Tuned (PEFT) model. You can set up provisioned throughput inference for a Full Rank custom model.
 
-You can also use the Amazon Nova Forge SDK to deploy customized Amazon Nova models. The Amazon Nova Forge SDK provides a streamlined experience for extracting the relevant information from a training job or S3 model checkpoint and publishing it to Amazon Bedrock. For more information, see [Amazon Nova Forge SDK](nova-forge-sdk.md "nova-forge-sdk.md").
+You can also use the SageMaker Python SDK to deploy customized Amazon Nova models. The SageMaker Python SDK provides a streamlined experience for deploying trained models to Amazon Bedrock On-Demand or SageMaker AI Real-time Inference endpoints. For more information, see [Customizing with SageMaker Python SDK](nova-forge-sdk.md "nova-forge-sdk.md").
 
 For detailed steps to set up Amazon Bedrock inference for a custom model, see [Deploying customized Amazon Nova models to Amazon Bedrock](deploy-custom-model.md "deploy-custom-model.md").
 
