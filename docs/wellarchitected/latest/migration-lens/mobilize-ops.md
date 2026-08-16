@@ -90,7 +90,7 @@ Having the requisite skills from day one is paramount to the successful migratio
 **Suggestion 3.1.3**: Consider engaging with AWS ProServe or a
 certified AWS Migration Competency Partner to accelerate your migration readiness.
 
-Education is not something that happens overnight in many cases, and if there is a requirement to move faster, engaging with an [AWS Migration Competency Partner](https://aws.amazon.com/migration/partner-solutions/ "https://aws.amazon.com/migration/partner-solutions/") or [AWS Professional Services](https://aws.amazon.com/professional-services/ "https://aws.amazon.com/professional-services/") could be a worthwhile option. For more detail, contact your AWS account manager. Another great way to find individuals with the specific AWS skills you need is through [AWS IQ for Experts](https://aws.amazon.com/iq/experts/ "https://aws.amazon.com/iq/experts/").
+Education is not something that happens overnight in many cases, and if there is a requirement to move faster, engaging with an [AWS Migration Competency Partner](https://aws.amazon.com/migration/partner-solutions/ "https://aws.amazon.com/migration/partner-solutions/") or [AWS Professional Services](https://aws.amazon.com/professional-services/ "https://aws.amazon.com/professional-services/") could be a worthwhile option. For more detail, contact your AWS account manager.
 
 **Suggestion 3.1.4**: Run an AWS Experience Based Accelerator
 (EBA).
