@@ -98,16 +98,16 @@ timestamp to an LSN or SCN as Oracle and SQL Server do.
 
   - SQL Server
   - PostgreSQL
+  - Amazon Aurora PostgreSQL
   - Oracle
   - MySQL
+  - Amazon Aurora MySQL
   - MariaDB
 
 ###### Note
 
 The following database endpoints do not support CDC native start point functionality:
 
-    + Amazon Aurora MySQL
-    + Amazon Aurora PostgreSQL
     + Amazon DocumentDB (with MongoDB compatibility)
     + Amazon S3
     + IBM Db2 for z/OS
