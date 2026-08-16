@@ -20,7 +20,7 @@ assessment report as either a PDF file or a comma-separated value (CSV) file.
 
 The PDF file contains both the summary and action item information, as shown in the following example.
 
-![Database migration assessment report in the PDF file](/images/SchemaConversionTool/latest/userguide/images/assessment_report.png)
+![Database migration assessment report in the PDF file](images/assessment_report.png)
 
 When you choose the **Save to CSV** option, AWS SCT creates three CSV files.
 
