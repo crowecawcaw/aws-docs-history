@@ -66,7 +66,7 @@ Observe the following considerations about email validation.
   [private hosted
   zone](../../../vpc/latest/userguide/vpc-dns.md#vpc-private-hosted-zones "../../../vpc/latest/userguide/vpc-dns.md#vpc-private-hosted-zones") or any other private domain. For more information, see
   [Troubleshoot certificate validation](certificate-validation.md "certificate-validation.md").
-- After you create a certificate with email validation, you cannot switch to validating it with DNS. To use DNS validation, delete the certificate and then create a new one that uses DNS validation.
+- You can migrate an existing email-validated public certificate to DNS validation while preserving the certificate ARN. For more information, see [Migrating from email to DNS validation](email-to-dns-migration.md "email-to-dns-migration.md").
 
 ## Certificate expiration and renewal
 

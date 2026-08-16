@@ -8,7 +8,7 @@ pair that serves as proof that you control the domain.
 
 ###### Note
 
-After you create a certificate with email validation, you cannot switch to validating it with DNS. To use DNS validation, delete the certificate and then create a new one that uses DNS validation.
+You can migrate an existing email-validated public certificate to DNS validation while preserving the certificate ARN. For more information, see [Migrating from email to DNS validation](email-to-dns-migration.md "email-to-dns-migration.md").
 
 For example, if you request a certificate for the `example.com` domain with
 `www.example.com` as an additional name, ACM creates two CNAME records
