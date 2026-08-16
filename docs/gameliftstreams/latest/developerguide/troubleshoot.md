@@ -64,6 +64,11 @@ terminal connection into the live runtime environment of your stream session usi
 - **Verify that your application is compatible with Proton.** Test your application on a local
   environment without the Amazon GameLift Streams server to verify that it's compatible with Proton. For instructions, see [Testing and troubleshooting compatibility with Proton for Amazon GameLift Streams](troubleshoot-compatibility-wp.md "troubleshoot-compatibility-wp.md").
 
+### Linux issues
+
+If you are running a native Linux application, test it on a local Ubuntu 22.04 LTS machine to verify that it works
+correctly before streaming. For known issues and solutions, see [Troubleshoot Linux applications for Amazon GameLift Streams](troubleshoot-linux.md "troubleshoot-linux.md").
+
 ### Application issues due to screen resolution
 
 Amazon GameLift Streams sets the monitor resolution when a session starts, either at the default 1920 × 1080 or at a custom resolution you
