@@ -22,7 +22,7 @@ The CRM connector supports the following primary AWS Partner Network personas:
 - Doesn’t provide core Salesforce setup access.
 - Some settings in Salesforce require additional access. Specifically,
   named credentials and custom settings that the AWS Partner must provide to their user. However, partners can pair this permission set with a Salesforce system admin profile and enable all of the
-  necessary permissions to configure the application. For more information, refer to [Review and adjust permission sets](upgrade-phase3-salesforce-config.md#upgrade-permission-sets "upgrade-phase3-salesforce-config.md#upgrade-permission-sets")
+  necessary permissions to configure the application. For more information, refer to the [upgrade workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/ea2a0910-436a-4a65-82c4-725657009443/en-US/aws-partner-crm-connector/using-the-ace-integration/upgrade/s3toapi#finalize-setup-and-configuration-within-salesforce "https://catalog.us-east-1.prod.workshops.aws/workshops/ea2a0910-436a-4a65-82c4-725657009443/en-US/aws-partner-crm-connector/using-the-ace-integration/upgrade/s3toapi#finalize-setup-and-configuration-within-salesforce") on the AWS Workshops website.
 
 ## Integration User (APN Integration User)
 

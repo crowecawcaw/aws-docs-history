@@ -6,6 +6,8 @@ The topics in this section assume you've completed the prerequisites for an AWS 
 For more information, refer to [Integration prerequisites](crm-integration-setting-up.md "crm-integration-setting-up.md")
 and [Getting started](crm-integration-getting-started.md "crm-integration-getting-started.md") earlier in this guide.
 
+**Recommended:** Complete these activities in a Sandbox environment first, test thoroughly, and then deploy to Production.
+
 After you install the connector, you configure it to work with the following types of CRM integrations and AWS services:
 
 - An AWS Partner Central API integration
