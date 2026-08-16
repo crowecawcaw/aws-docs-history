@@ -41,7 +41,7 @@ endpoints. For more information, see
 - We recommend that the EC2 instance be in the same availability zone
   as your file system's preferred subnet, as shown in the following graphic.
 
-![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](images/fsx-ontap-iscsi-mnt-client.png)
+![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](/images/fsx/latest/ONTAPGuide/images/fsx-ontap-iscsi-mnt-client.png)
 
 If your EC2 instance runs a different Linux AMI than Amazon Linux 2, some of the utilities used
 in these procedures and examples might already be installed, and you might use different commands to
