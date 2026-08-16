@@ -4,8 +4,10 @@ Use following general best practices when using custom terminologies:
 
 - Keep your custom terminology uncluttered. Only include terms for which you need to control the translated
   values.
-- Custom terminologies are case-sensitive. If you want a target translation for the capitalized
-  and non-capitalized versions of a word, include an entry for each version.
+- Custom terminology matching is case-insensitive, so a single entry covers all
+  capitalizations of a source term. You don't need separate entries for the uppercase
+  and lowercase forms of a word. For how Amazon Translate handles the capitalization of the
+  applied target term, see [Case-insensitive matching](ct-case-insensitive.md "ct-case-insensitive.md").
 - Custom terminology isn't intended as a tool for controlling spacing, punctuation,
   or capitalization. For example, avoid the following types of entries:
 
