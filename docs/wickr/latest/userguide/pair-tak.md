@@ -10,7 +10,7 @@ Complete the following procedure to pair the ATAK application with Wickr after y
 successfully installed the Wickr plugin for ATAK.
 
 1. In the ATAK application, choose the menu icon
-   ![Menu icon](/images/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)
+   ![Menu icon](images/icon-wickr-settings-hamburger.png)
    at the top-right of the screen, and choose **Wickr Plugin**.
 2. Choose **Pair Wickr**.
 
