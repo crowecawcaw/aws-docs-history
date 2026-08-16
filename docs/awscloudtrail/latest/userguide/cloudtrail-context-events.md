@@ -132,7 +132,6 @@ The following AWS services support IAM global condition keys for enriched events
 - Amazon Data Firehose
 - Amazon FSx
 - AWS HealthImaging
-- AWS IoT Events
 - AWS IoT FleetWise
 - AWS IoT SiteWise
 - AWS IoT TwinMaker

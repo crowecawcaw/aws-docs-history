@@ -422,7 +422,7 @@ to logging data events for Amazon S3 buckets, AWS Lambda functions, and Amazon D
 You can't filter on the `eventName` field using basic event
 selectors. You also can't log [network activity events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
 
-![Basic event selectors for data events on a trail](/images/awscloudtrail/latest/userguide/images/cloudtrail-data-basic-selectors.png)
+![Basic event selectors for data events on a trail](images/cloudtrail-data-basic-selectors.png)
 
 Use the following procedure to configure data event settings using basic event selectors.
 
