@@ -24,7 +24,9 @@ on the cluster's own compute resources, providing a unified experience for both 
 and data warehouse use cases.
 
 The integrated data lake query engine eliminates the requirement to use Redshift Spectrum and eliminates
-the associated Redshift Spectrum charges. No additional configuration is required to enable the integrated
+the associated Redshift Spectrum charges. The integrated data lake query engine also supports querying
+data in Amazon S3 buckets located in a different AWS Region. Cross-region queries incur additional
+data transfer charges. No additional configuration is required to enable the integrated
 data lake query engine as it is enabled by default.
 
 ###### Note
