@@ -31,7 +31,7 @@ You must be a Lake Formation data lake administrator or have `CREATE_CATALOG` pe
    - Instance URL – The endpoint URL of your existing Snowflake account.
    - Authentication – Specify the authentication configuration that AWS Glue uses to connect to remote catalog server. AWS Glue supports both OAuth2 and Custom authentication.
    - Token URL – Specify the URL of remote catalog's identity provider.
-   - OAuth2 Client ID – Specify the Client ID of the OAuth2 credential associated with your remote catalog.
+   - OAuth2 Client ID – (Optional) Specify the Client ID of the OAuth2 credential associated with your remote catalog. If you don't provide a client ID, the token request authenticates using only the client secret stored in AWS Secrets Manager.
    - Secret – Store and use OAuth2 client secret using AWS Secrets Manager or enter the secret value in textbox. When you enter the secret manually in console, AWS Glue creates the secret on your behalf.
    - Token URL Scope – Specify the OAuth scope for authentication.
    - Catalog Casing Filter – Choose whether to bring lowercase or uppercase objects from your remote catalog to Data Catalog.
@@ -215,7 +215,9 @@ aws glue create-connection \
 }'
 ```
 
-5. **Register AWS Glue connection as a Lake Formation resource**
+###### Note
+
+The `OAuth2ClientApplication` field is optional. If you omit it, the token request authenticates using only the client secret stored in AWS Secrets Manager, without sending a client ID. 5. **Register AWS Glue connection as a Lake Formation resource**
 
 Using the AWS Glue connection object (created in Step 4) and IAM role (created in Step 3), you can now register the AWS Glue connection object as a Lake Formation managed resource.
 
