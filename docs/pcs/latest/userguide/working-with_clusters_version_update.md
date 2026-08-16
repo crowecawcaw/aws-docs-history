@@ -26,7 +26,8 @@ Before starting, ensure all compute nodes are on the latest patch of Slurm versi
 
 ## Limitations
 
-If your cluster uses Spank plugins (plugstack configuration), AWS PCS doesn't support Option 1. A rolling update might cause a plugstack configuration version mismatch and plugin failures.
+- If your cluster uses [SPANK plugins](spank.md "spank.md") (plugstack configuration), AWS PCS doesn't support Option 1. A rolling update might cause a plugstack configuration version mismatch and plugin failures.
+- If your cluster uses [Slurm CLI Filter Plugins](slurm-cli-filter-plugins.md "slurm-cli-filter-plugins.md"), AWS PCS doesn't support Option 1. During a rolling update, compute nodes that run an earlier Slurm version might not be able to parse the updated cluster configuration and might fail to start.
 
 ## Version compatibility
 
