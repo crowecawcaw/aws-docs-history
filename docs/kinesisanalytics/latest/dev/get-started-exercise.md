@@ -33,7 +33,7 @@ source, several SQL examples in this guide use the demo stream
 that continuously adds sample data (simulated stock trade records) to this
 stream, as shown following.
 
-![Formatted stream sample table showing stock symbols, sectors, and prices.](images/gs-v2-30.png)
+![Formatted stream sample table showing stock symbols, sectors, and prices.](/images/kinesisanalytics/latest/dev/images/gs-v2-30.png)
 
 You can
 use `kinesis-analytics-demo-stream` as the streaming source for your application in this exercise.
