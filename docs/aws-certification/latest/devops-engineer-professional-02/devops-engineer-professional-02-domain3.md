@@ -30,7 +30,7 @@
 
 - Identifying and remediating scaling issues
 - Identifying and implementing appropriate auto scaling, load balancing, and caching solutions
-- Deploying container-based applications (for example, Amazon Elastic Container Service [Amazon ECS], Amazon Elastic Kubernetes Service [Amazon EKS])
+- Deploying container-based applications (for example, Amazon ECS, Amazon EKS)
 - Deploying workloads in multiple Regions for global scalability
 - Configuring serverless applications (for example, Amazon API Gateway, AWS Lambda, AWS Fargate)
 

@@ -40,7 +40,7 @@
 
 ### Skills in:
 
-- Creating and configuring artifact repositories (for example, AWS CodeArtifact, Amazon S3, Amazon Elastic Container Registry [Amazon ECR])
+- Creating and configuring artifact repositories (for example, AWS CodeArtifact, Amazon S3, Amazon ECR)
 - Configuring build tools for generating artifacts (for example, CodeBuild, AWS Lambda)
 - Automating Amazon EC2 instance and container image build processes (for example, EC2 Image Builder)
 
@@ -48,14 +48,14 @@
 
 ### Knowledge of:
 
-- Deployment methodologies for various platforms (for example, Amazon EC2, Amazon Elastic Container Service [Amazon ECS], Amazon Elastic Kubernetes Service [Amazon EKS], Lambda)
-- Application storage patterns (for example, Amazon Elastic File System [Amazon EFS], Amazon S3, Amazon Elastic Block Store [Amazon EBS])
+- Deployment methodologies for various platforms (for example, Amazon EC2, Amazon ECS, Amazon EKS, Lambda)
+- Application storage patterns (for example, Amazon EFS, Amazon S3, Amazon EBS)
 - Mutable deployment patterns in contrast to immutable deployment patterns
 - Tools and services available for distributing code (for example, CodeDeploy, Image Builder)
 
 ### Skills in:
 
-- Configuring security permissions to allow access to artifact repositories (for example, AWS Identity and Access Management [IAM], CodeArtifact)
+- Configuring security permissions to allow access to artifact repositories (for example, IAM, CodeArtifact)
 - Configuring deployment agents (for example, CodeDeploy agent)
 - Troubleshooting deployment issues
 - Using different deployment methods (for example, blue/green, canary)

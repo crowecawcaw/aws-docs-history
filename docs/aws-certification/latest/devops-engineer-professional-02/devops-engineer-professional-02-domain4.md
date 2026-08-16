@@ -7,7 +7,7 @@
 - How to monitor applications and infrastructure
 - Amazon CloudWatch metrics (for example, namespaces, metrics, dimensions, and resolution)
 - Real-time log ingestion
-- Encryption options for at-rest and in-transit logs and metrics (for example, client-side and server-side, AWS Key Management Service [AWS KMS])
+- Encryption options for at-rest and in-transit logs and metrics (for example, client-side and server-side, AWS KMS)
 - Security configurations (for example, IAM roles and permissions to allow for log collection)
 
 ### Skills in:
@@ -43,8 +43,8 @@
 
 ### Knowledge of:
 
-- Event-driven, asynchronous design patterns (for example, S3 Event Notifications or Amazon EventBridge events to Amazon Simple Notification Service [Amazon SNS] or Lambda)
-- Capabilities of auto scaling for a variety of AWS services (for example, EC2 Auto Scaling groups, RDS storage auto scaling, Amazon DynamoDB, Amazon Elastic Container Service [Amazon ECS] capacity provider, Amazon Elastic Kubernetes Service [Amazon EKS] autoscalers)
+- Event-driven, asynchronous design patterns (for example, S3 Event Notifications or Amazon EventBridge events to Amazon SNS or Lambda)
+- Capabilities of auto scaling for a variety of AWS services (for example, EC2 Auto Scaling groups, RDS storage auto scaling, Amazon DynamoDB, Amazon ECS capacity provider, Amazon EKS autoscalers)
 - Alert notification and action capabilities (for example, CloudWatch alarms to Amazon SNS, Lambda, EC2 automatic recovery)
 - Health check capabilities in AWS services (for example, ALB target groups, Amazon Route 53)
 

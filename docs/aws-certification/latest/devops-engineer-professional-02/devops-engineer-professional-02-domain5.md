@@ -10,7 +10,7 @@
 ### Skills in:
 
 - Integrating AWS event sources (for example, AWS Health, EventBridge, CloudTrail)
-- Building event processing workflows (for example, Amazon Simple Queue Service [Amazon SQS], Amazon Kinesis, Amazon Simple Notification Service [Amazon SNS], AWS Lambda, AWS Step Functions)
+- Building event processing workflows (for example, Amazon SQS, Amazon Kinesis, Amazon SNS, AWS Lambda, AWS Step Functions)
 
 ## Task Statement 5.2: Implement configuration changes in response to events.
 
@@ -36,4 +36,4 @@
 ### Skills in:
 
 - Analyzing failed deployments (for example, AWS CodePipeline, AWS CodeBuild, AWS CodeDeploy, AWS CloudFormation, CloudWatch synthetic monitoring)
-- Analyzing incidents regarding failed processes (for example, auto scaling, Amazon Elastic Container Service [Amazon ECS], Amazon Elastic Kubernetes Service [Amazon EKS])
+- Analyzing incidents regarding failed processes (for example, auto scaling, Amazon ECS, Amazon EKS)

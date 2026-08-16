@@ -14,7 +14,7 @@
 - Designing policies to enforce least privilege access
 - Implementing role-based and attribute-based access control patterns
 - Automating credential rotation for machine identities (for example, AWS Secrets Manager)
-- Managing permissions to control access to human and machine identities (for example, enabling multi-factor authentication [MFA], AWS Security Token Service [AWS STS], IAM profiles)
+- Managing permissions to control access to human and machine identities (for example, enabling multi-factor authentication [MFA], AWS STS, IAM profiles)
 
 ## Task Statement 6.2: Apply automation for security controls and data protection.
 
@@ -29,7 +29,7 @@
 - Automating the application of security controls in multi-account and multi-Region environments (for example, AWS Security Hub, AWS Organizations, AWS Control Tower, AWS Systems Manager)
 - Combining security controls to apply defense in depth (for example, AWS Certificate Manager [ACM], AWS WAF, AWS Config, AWS Config rules, Security Hub, Amazon GuardDuty, security groups, network ACLs, Amazon Detective, Network Firewall)
 - Automating the discovery of sensitive data at scale (for example, Amazon Macie)
-- Encrypting data in transit and data at rest (for example, AWS Key Management Service [AWS KMS], AWS CloudHSM, ACM)
+- Encrypting data in transit and data at rest (for example, AWS KMS, AWS CloudHSM, ACM)
 
 ## Task Statement 6.3: Implement security monitoring and auditing solutions.
 

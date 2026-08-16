@@ -43,9 +43,9 @@ The following list contains AWS services and features that are in scope for the 
 
 - AWS App2Container
 - AWS Copilot
-- Amazon Elastic Container Registry (Amazon ECR)
-- Amazon Elastic Container Service (Amazon ECS)
-- Amazon Elastic Kubernetes Service (Amazon EKS)
+- Amazon ECR
+- Amazon ECS
+- Amazon EKS
 - Amazon EKS Distro
 - AWS Fargate
 - Red Hat OpenShift Service on AWS (ROSA)
@@ -54,8 +54,8 @@ The following list contains AWS services and features that are in scope for the 
 
 - Amazon Aurora
 - Amazon Aurora Serverless v2
-- AWS Database Migration Service (AWS DMS)
-- Amazon DocumentDB (with MongoDB compatibility)
+- AWS DMS
+- Amazon DocumentDB
 - Amazon DynamoDB
 - Amazon ElastiCache
 - Amazon MemoryDB for Redis
@@ -65,7 +65,7 @@ The following list contains AWS services and features that are in scope for the 
 ## Developer Tools
 
 - AWS CLI
-- AWS Cloud Development Kit (AWS CDK)
+- AWS CDK
 - AWS CloudShell
 - AWS CodeArtifact
 - AWS CodeBuild
@@ -120,32 +120,32 @@ The following list contains AWS services and features that are in scope for the 
 - AWS Directory Service
 - Amazon GuardDuty
 - AWS IAM Identity Center
-- AWS Identity and Access Management (IAM)
+- IAM
 - Amazon Inspector
-- AWS Key Management Service (AWS KMS)
+- AWS KMS
 - Amazon Macie
 - AWS Network Firewall
 - AWS Resource Access Manager (AWS RAM)
 - AWS Secrets Manager
 - AWS Security Hub
-- AWS Security Token Service (AWS STS)
+- AWS STS
 - AWS Shield
 - AWS WAF
 
 ## Serverless
 
 - AWS Lambda
-- AWS Serverless Application Model (AWS SAM)
-- Amazon Simple Notification Service (Amazon SNS)
-- Amazon Simple Queue Service (Amazon SQS)
+- AWS SAM
+- Amazon SNS
+- Amazon SQS
 - AWS Step Functions
 
 ## Storage
 
 - AWS Backup
-- Amazon Elastic Block Store (Amazon EBS)
+- Amazon EBS
 - AWS Elastic Disaster Recovery
-- Amazon Elastic File System (Amazon EFS)
+- Amazon EFS
 - Amazon FSx for Lustre
 - Amazon FSx for NetApp ONTAP
 - Amazon FSx for OpenZFS
