@@ -152,4 +152,4 @@ included in the carousel.
 
 The following image shows a carousel with two messages:
 
-![An example carousel showing two products and messages.](images/channels-inapp-carousel.png) 16. When you finish, choose **Create**.
+![An example carousel showing two products and messages.](/images/pinpoint/latest/userguide/images/channels-inapp-carousel.png) 16. When you finish, choose **Create**.
