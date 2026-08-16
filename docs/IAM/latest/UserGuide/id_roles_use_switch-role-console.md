@@ -20,10 +20,7 @@ RoleA.
 
 ###### Note
 
-When you sign in as a user in IAM Identity Center, as a SAML-federated role, or as a web-identity
-federated role you assume an IAM role when you start your session. For example, when a
-user in IAM Identity Center signs in to the AWS access portal they must choose a permission set that correlates to
-a role before they can access AWS resources.
+When you sign in as a user in IAM Identity Center, as a SAML-federated role, or as a web-identity federated role you assume an IAM role when you start your session. For example, when a user in IAM Identity Center signs in to the AWS access portal they can choose a permission set or access a role assigned through [account access manager](account-access-manager.md "account-access-manager.md") before they can access AWS resources.
 
 ## Role sessions
 

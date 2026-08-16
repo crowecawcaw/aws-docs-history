@@ -8,15 +8,15 @@ Before building your integration, it's important to understand how delegation re
 
 A delegation request progresses through the following states:
 
-| State            | Description                                                                                                                                                                                                                       |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Unassigned       | Request created but not yet associated with a customer account and an IAM principal. The request may have been created without specifying a target account, or with a target account ID but not yet claimed by the account owner. |
-| Assigned         | Request associated with a customer account and awaiting review                                                                                                                                                                    |
-| Pending Approval | Customer has forwarded the request to an administrator for approval                                                                                                                                                               |
-| Accepted         | Request approved by customer but exchange token not yet released                                                                                                                                                                  |
-| Finalized        | Exchange token released to product provider. The delegation period (exchange token validity) begins when the request reaches Finalized state                                                                                      |
-| Rejected         | Request rejected by customer                                                                                                                                                                                                      |
-| Expired          | Request expired due to inactivity or timeout                                                                                                                                                                                      |
+| State            | Description                                                                                                                                                                                                                         |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unassigned       | Request created but not yet associated with a customer account and an IAM principal. The request might have been created without specifying a target account, or with a target account ID but not yet claimed by the account owner. |
+| Assigned         | Request associated with a customer account and awaiting review                                                                                                                                                                      |
+| Pending Approval | Customer has forwarded the request to an administrator for approval                                                                                                                                                                 |
+| Accepted         | Request approved by customer but exchange token not yet released                                                                                                                                                                    |
+| Finalized        | Exchange token released to product provider. The delegation period (exchange token validity) begins when the request reaches Finalized state                                                                                        |
+| Rejected         | Request rejected by customer                                                                                                                                                                                                        |
+| Expired          | Request expired due to inactivity or timeout                                                                                                                                                                                        |
 
 ### State Transitions
 
@@ -183,9 +183,9 @@ The exchange token can only be redeemed by the product provider account that cre
 
 ### Access Duration
 
-The delegation period starts when customer releases the exchange token, not when the product provider redeems it. Once customer releases the token:
+The delegation period starts when customer releases the exchange token, not when the product provider redeems it. After the customer releases the token:
 
-- The product provider receives the token via SNS notification
+- The product provider receives the token through an SNS notification
 - They can immediately exchange it for credentials
 - Credentials expire at: release time + approved duration
 - The product provider can exchange the token multiple times before expiration to obtain fresh credentials if needed

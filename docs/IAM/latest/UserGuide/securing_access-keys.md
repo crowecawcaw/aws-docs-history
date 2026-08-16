@@ -9,7 +9,7 @@ Expand the following sections for guidance to help you protect your access keys.
 
 ###### Note
 
-Your organization may have different security requirements and policies than those
+Your organization might have different security requirements and policies than those
 described in this topic. The suggestions provided here are intended as general
 guidelines.
 
@@ -142,7 +142,7 @@ Put access keys in one of the following locations:
   sensitive actions. For example, you might have a policy that allows a user to
   perform the Amazon EC2 `RunInstances`, `DescribeInstances`,
   and `StopInstances` actions. But you might want to restrict a
-  destructive action like `TerminateInstances` and ensure that users
+  destructive action like `TerminateInstances` and make sure that users
   can perform that action only if they authenticate with an AWS MFA device. For
   more information, see [Secure API access with MFA](id_credentials_mfa_configure-api-require.md "id_credentials_mfa_configure-api-require.md").
   You can access a limited set of AWS services and features using the AWS mobile

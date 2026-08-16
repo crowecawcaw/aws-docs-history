@@ -27,7 +27,7 @@ password policy](id_credentials_passwords_account-policy.md "id_credentials_pass
 Console
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, click **Account settings**.
+2. In the navigation pane, choose **Account settings**.
 3. In the **Password policy** section, choose
    **Edit**.
 4. Choose **Custom** to use a custom password policy.
@@ -53,7 +53,7 @@ To update the account password policy, call the following operation:
 Console
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, click **Account settings**.
+2. In the navigation pane, choose **Account settings**.
 3. In the **Password policy** section, make sure that **Allow
    users to change their own password** is not selected. If this checkbox is
    selected, all users can change their own passwords. (See the previous procedure.)
@@ -90,7 +90,7 @@ console, the AWS CLI, Tools for Windows PowerShell, or the API. It also grants a
 action, which lets the user view the current password policy; this permission is required so
 that the user can view the account password policy on the **Change
 password** page. The user must be allowed to read the current password policy to
-ensure that the changed password meets the requirements of the policy. 7. Provide users with the following instructions for changing their passwords: [How an IAM user changes their own password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md").
+make sure that the changed password meets the requirements of the policy. 7. Provide users with the following instructions for changing their passwords: [How an IAM user changes their own password](id_credentials_passwords_user-change-own.md "id_credentials_passwords_user-change-own.md").
 
 ### For more information
 

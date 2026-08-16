@@ -81,7 +81,7 @@ automatically approved.
 | Customer managed policies per account | 1500            | 10000           |
 | Groups per account                    | 300             | 500             |
 | Instance profiles per account         | 1000            | 10000           |
-| Managed policies per role             | 10              | 25              |
+| Managed policies per role             | 20              | 25              |
 | Managed policies per user             | 10              | 20              |
 | Managed policies per group            | 10              | 10              |
 | Role trust policy length              | 2048 characters | 8192 characters |

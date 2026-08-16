@@ -4,7 +4,7 @@ This guide shows you how to enable outbound identity federation for your AWS acc
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+Before you begin, make sure you have:
 
 - Latest version of the AWS CLI or Python 3.8 (or later) and Boto3 installed (for AWS SDK examples)
 - An external service account where you can configure trust relationships (such as an external cloud provider, SaaS provider, or a test application)
@@ -91,7 +91,7 @@ This example policy grants access to token generation with specific restrictions
 
 You can request a JSON Web Token using the [GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md") API. You can specify the following parameters when calling the API:
 
-- **Audience (required):** The intended recipient of the token. This value populates the "aud" claim in the JWT. External services validate this claim to ensure the token was intended for them.
+- **Audience (required):** The intended recipient of the token. This value populates the "aud" claim in the JWT. External services validate this claim to make sure the token was intended for them.
 - **SigningAlgorithm (required):** The cryptographic algorithm used to sign the token. Valid values are ES384 and RS256. Use ES384 for optimal security and performance, or RS256 for broader compatibility with systems that do not support ECDSA.
 - **DurationSeconds (optional):** The token lifetime in seconds. Valid values range from 60 to 3600. The default is 300 (5 minutes). We recommend shorter token lifetimes for increased security.
 - **Tags (optional):** A list of key-value pairs to include as custom claims in the token. External services can use these claims for fine-grained authorization.
@@ -206,7 +206,7 @@ We recommend caching these keys to avoid fetching them for every token verificat
 ### Essential claim validations
 
 - **Subject (sub):** Verify the subject claim contains the expected IAM principal ARN pattern.
-- **Expiration (exp):** Ensure the token has not expired. JWT libraries typically handle this automatically.
+- **Expiration (exp):** Make sure the token has not expired. JWT libraries typically handle this automatically.
 - **Audience (aud):** Verify the audience matches your expected value. This prevents tokens intended for other services from being used with yours.
 - **Issuer (iss):** Verify the issuer matches the AWS account(s) you trust. Maintain a list of trusted issuer URLs.
 

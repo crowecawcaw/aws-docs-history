@@ -2,7 +2,7 @@
 
 AWS will evaluate your submitted policies against a set of guidelines. The same evaluation guidelines apply to both policy templates and permission boundaries, with minor differences noted where appropriate.
 
-For the purposes of evaluation, we separate services into distinct groups. The most important distinction is for security-sensitive services, which manage access, credentials, and keys. Policies granting access to these services need to be focused narrowly on the work being done. Security-sensitive services include the following: AWS Identity and Access Management (IAM), AWS Key Management Service (KMS), AWS Resource Access Manager (RAM), AWS IAM Identity Center, AWS Organizations, and AWS Secrets Manager.
+For the purposes of evaluation, services are separated into distinct groups. The most important distinction is for security-sensitive services, which manage access, credentials, and keys. Policies granting access to these services need to be focused narrowly on the work being done. Security-sensitive services include the following: AWS Identity and Access Management (IAM), AWS Key Management Service (KMS), AWS Resource Access Manager (RAM), AWS IAM Identity Center, AWS Organizations, and AWS Secrets Manager.
 
 A secondary distinction is services that can access data across account boundaries. Policies for these services must include protections to prevent unintentional cross-account access.
 
@@ -31,7 +31,7 @@ The following restrictions apply to security-sensitive services mentioned above:
   - AWS RAM write or share operations
   - AWS Secrets Manager operations for retrieving or modifying secrets, or modifying resource policies
 
-- Other actions may use a wildcard resource, such as iam:ListUsers or iam:GetPolicy
+- Other actions might use a wildcard resource, such as iam:ListUsers or iam:GetPolicy
 - Actions that manage credentials, such as iam:CreateAccessKey, are blocked
 
 ## IAM-specific restrictions
@@ -39,9 +39,9 @@ The following restrictions apply to security-sensitive services mentioned above:
 For IAM:
 
 - Only limited write operations are allowed for IAM roles and policies. You can not request permissions on other IAM resources such as users, groups, and certificates.
-- Policy attachment or inline policy management actions are limited to roles with a permission boundary. Permission boundaries must be partner-supplied or on a list of allowed AWS managed policies. AWS managed policies may be allowed if they do not grant highly privileged or administrative permissions. For example, AWS managed policies for specific job functions or the SecurityAudit policy may be acceptable. AWS will review each AWS managed policy on a case-by-case basis during the onboarding process.
+- Policy attachment or inline policy management actions are limited to roles with a permission boundary. Permission boundaries must be partner-supplied or on a list of allowed AWS managed policies. AWS managed policies might be allowed if they do not grant highly privileged or administrative permissions. For example, AWS managed policies for specific job functions or the SecurityAudit policy might be acceptable. AWS will review each AWS managed policy on a case-by-case basis during the onboarding process.
 - Policy management is only allowed for policies with a partner-specific path: arn:aws:iam::@{AccountId}:policy/partner\_domain.com/[feature]\*
-- Tags may only be applied during resource creation, and only for roles and policies
+- Tags might only be applied during resource creation, and only for roles and policies
 - iam:PassRole checks must match a specific name or path prefix
 
 ## AWS STS-specific restrictions

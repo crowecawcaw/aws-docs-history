@@ -12,6 +12,8 @@ As a security best practice, we recommend you manage user access in [IAM Identit
 identity federation instead of creating IAM users. For information about specific situations
 where an IAM user is required, see [When to create an IAM user (instead of a role)](id.md#id_which-to-choose "id.md#id_which-to-choose").
 
+IAM Identity Center permission sets provision IAM role templates that IAM Identity Center manages. [Account access manager](account-access-manager.md "account-access-manager.md") — an IAM feature — lets you assign your own custom IAM roles to IAM Identity Center users and groups, enabling capabilities like custom trust policies, role tags, and configurable role paths. You can use it alongside permission sets or on its own.
+
 ## Federating users of a mobile or web-based app with Amazon Cognito
 
 If you create a mobile or web-based app that accesses AWS resources, the app needs

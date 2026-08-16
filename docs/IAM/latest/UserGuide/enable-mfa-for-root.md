@@ -24,7 +24,7 @@ IAM users, see [AWS Multi-factor authentication in IAM](id_credentials_mfa.md "i
 
 ###### Note
 
-AWS accounts managed using AWS Organizations may have the option to [centrally manage root access](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management") for member
+AWS accounts managed using AWS Organizations might have the option to [centrally manage root access](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management") for member
 accounts to prevent credential recovery and access at scale. If this option is enabled, you
 can delete root user credentials from member accounts, including passwords and MFA, effectively
 preventing sign-in as the root user, password recovery, or setting up MFA. Alternatively, if

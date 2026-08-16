@@ -86,5 +86,7 @@ permission set to those roles. IAM Identity Center manages the role, and allows 
 you’ve defined to assume the role. If you modify the permission set, IAM Identity Center ensures that the
 corresponding IAM policies and roles are updated accordingly.
 
+You can also use [account access manager](account-access-manager.md "account-access-manager.md") — an IAM feature that lets you assign existing IAM roles you create and manage to IAM Identity Center users and groups, giving you access to the full IAM role feature set. You can use it alongside permission sets or on its own.
+
 For more information about IAM Identity Center, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the
 _AWS IAM Identity Center User Guide_.

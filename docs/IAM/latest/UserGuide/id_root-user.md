@@ -62,7 +62,7 @@ If you need to recover root user credentials for a member account, the Organizat
 management account or delegated administrator can perform the **Allow password
 recovery** privileged task. The person with access to the root user email inbox
 for the member account can [reset the root user password](reset-root-password.md "reset-root-password.md")
-to recover root user credentials. We recommend deleting root user credentials once you
+to recover root user credentials. We recommend deleting root user credentials after you
 complete the task that requires access to the root user.
 
 ## Tasks that require root user credentials

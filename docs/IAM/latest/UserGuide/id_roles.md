@@ -23,6 +23,11 @@ role_. This section introduces roles and the different ways you can use them, wh
 and how to choose among approaches, and how to create, manage, switch to (or assume), and delete
 roles.
 
+[Account access manager](account-access-manager.md "account-access-manager.md") is an IAM feature that lets you
+centrally assign IAM roles across your organization's accounts to [IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") users and groups. Account access manager gives
+your workforce access through IAM roles with their full feature set. You can use it alongside
+IAM Identity Center permission sets or on its own.
+
 ###### Note
 
 When you first create your AWS account, no roles are created by default. As you add

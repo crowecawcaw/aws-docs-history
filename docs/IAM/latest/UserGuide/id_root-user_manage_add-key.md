@@ -20,7 +20,7 @@ A newly created access key has the status of _active_, which means that
 you can use the access key for CLI and API calls. You can assign up to two access keys to the
 root user.
 
-Access keys that are not in use should be inactivated. Once an access key is inactive, you
+Access keys that are not in use should be inactivated. After an access key is inactive, you
 can't use it for API calls. Inactive keys still count toward your limit. You can create or
 delete an access key any time. However, when you delete an access key, it's gone forever and
 can't be retrieved.

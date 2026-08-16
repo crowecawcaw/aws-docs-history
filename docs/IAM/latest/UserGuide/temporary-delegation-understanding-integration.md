@@ -61,7 +61,7 @@ You are about to grant [Your Service Name] temporary access to your AWS account.
 Before clicking "Allow" on the AWS consent screen:
 • Verify the request details match your current action
 • Confirm the AWS account ID matches your intended account
-• Ensure you initiated this request from [Your Service Name]
+• Make sure you initiated this request from [Your Service Name]
 
 ```
 
@@ -79,7 +79,7 @@ By following these best practices, you help create a more secure temporary deleg
 
 ## 2. API Integration
 
-Use IAM temporary delegation APIs to send and manage delegation requests. Once your AWS accounts are registered, you can access the following APIs:
+Use IAM temporary delegation APIs to send and manage delegation requests. After your AWS accounts are registered, you can access the following APIs:
 
 - _IAM CreateDelegationRequest_ – Creates a delegation request for a customer's AWS account. This API returns a console link that you redirect customers to for reviewing and approving the request.
 - _AWS STS GetDelegatedAccessToken_ – Retrieves temporary AWS credentials after a customer approves your delegation request. Use these credentials to perform actions in the customer's account.
@@ -88,10 +88,10 @@ Your integration should handle the complete lifecycle of delegation requests, in
 
 ## 3. Resource Configuration and Orchestration
 
-Once you obtain temporary credentials, orchestrate the necessary workflows to configure resources in the customer's AWS account. This may include:
+After you obtain temporary credentials, orchestrate the necessary workflows to configure resources in the customer's AWS account. This might include:
 
 - Calling AWS service APIs directly to create and configure resources
 - Deploying infrastructure using AWS CloudFormation templates
 - Creating IAM roles for ongoing access (requires using permission boundaries)
 
-Your orchestration logic should be idempotent and handle failures gracefully, as customers may need to retry or modify their delegation approvals.
+Your orchestration logic should be idempotent and handle failures gracefully, as customers might need to retry or modify their delegation approvals.

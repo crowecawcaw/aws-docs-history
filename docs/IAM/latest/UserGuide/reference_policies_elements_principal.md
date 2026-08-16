@@ -457,7 +457,7 @@ For example, you have an Amazon SNS topic located in Region `ap-southeast-1` and
 Amazon S3 bucket located in opt-in Region `ap-east-1`. You want to configure S3 bucket
 notifications to publish messages to the SNS topic. To allow the S3 service to post messages
 to the SNS topic you must grant the S3 service principal `sns:Publish` permission
-via the resource-based access policy of the topic.
+through the resource-based access policy of the topic.
 
 If you specify the non-regionalized version of the S3 service principal,
 `s3.amazonaws.com`, in the topic access policy, the `sns:Publish`

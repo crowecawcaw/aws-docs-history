@@ -14,7 +14,7 @@ Temporary permissions limit the permissions assigned to any temporary delegated 
 
 ### Long-Term Permissions
 
-Long-term permissions limit the permissions of any roles that are created or managed via temporary access. Long-term permissions are implemented as IAM permissions boundaries. You may submit one or more permission boundaries to AWS as part of onboarding. Once approved, AWS will share a policy ARN with you that you can reference in your policies.
+Long-term permissions limit the permissions of any roles that are created or managed through temporary access. Long-term permissions are implemented as IAM permissions boundaries. You might submit one or more permission boundaries to AWS as part of onboarding. After approval, AWS will share a policy ARN with you that you can reference in your policies.
 
 These boundary policies have two noteworthy features. First, they are immutable. If you want to update permissions, you can register a new permissions boundary. You can then attach the new permissions boundary to your customers' roles by sending a new delegation request. Second, the policies are not templated. Since the same boundary policy is globally shared, they cannot be altered on a per-customer basis.
 
@@ -24,7 +24,7 @@ Permission boundaries have a maximum size limit of 6,144 characters.
 
 ###### Note
 
-If you would like to update a permission boundary or policy template, contact IAM at aws-iam-partner-onboarding@amazon.com. Once the new permission boundary is registered, you can then send a delegation request to customers to update the IAM role and attach the newly registered permission boundary. See the Examples section for more details.
+If you would like to update a permission boundary or policy template, contact IAM at aws-iam-partner-onboarding@amazon.com. After the new permission boundary is registered, you can then send a delegation request to customers to update the IAM role and attach the newly registered permission boundary. See the Examples section for more details.
 
 ## Example Use Case: Data Processing Workload
 

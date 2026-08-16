@@ -38,6 +38,7 @@ access permissions and policies for each user, group, or role.
 
 For more information, see [Assign user access](../../../singlesignon/latest/userguide/get-started-assign-account-access-user.md "../../../singlesignon/latest/userguide/get-started-assign-account-access-user.md") and [Set up single sign-on access to your applications](../../../singlesignon/latest/userguide/set-up-single-sign-on-access-to-applications.md "../../../singlesignon/latest/userguide/set-up-single-sign-on-access-to-applications.md").
 
+- You can use [account access manager](account-access-manager.md "account-access-manager.md") — an IAM feature that lets you assign existing IAM roles you create and manage to IAM Identity Center users and groups. Account access manager gives you access to the full IAM role feature set. You can use it alongside permission sets or on its own.
 - If you federate your identity provider directly with IAM in your AWS account,
   you must create a role for your users to assume. The role needs a trust
   policy and a permissions policy. The trust policy states who can assume the

@@ -28,7 +28,7 @@ Chrome. If you use another version, you might need to adapt the steps accordingl
 3. Reproduce the issue.
 4. (Optional) If the **Method** column is not visible in the
    **Developer Tools**
-   **Network** log pane, right-click on any column label and choose
+   **Network** log pane, open the context (right-click) menu for any column label and choose
    **Method** to add the column.
 5. Look for a **SAML Post** in the **Developer Tools**
    **Network** log pane. Select that row, and then view the
@@ -51,7 +51,7 @@ another version, you might need to adapt the steps accordingly.
 4. Reproduce the issue.
 5. (Optional) If the **Method** column is not visible in the
    **Web Developer Tools**
-   **Network** log pane, right-click on any column label and choose
+   **Network** log pane, open the context (right-click) menu for any column label and choose
    **Method** to add the column.
 6. Look for a **POST**
    **SAML** in the table. Select that row, and then view the
@@ -76,7 +76,7 @@ you use another version, you might need to adapt the steps accordingly.
    Log**.
 5. (Optional) If the **Method** column is not visible in the
    **Web Inspector**
-   **Network** log pane, right-click on any column label and choose
+   **Network** log pane, open the context (right-click) menu for any column label and choose
    **Method** to add the column.
 6. Reproduce the issue.
 7. Look for a **POST**
@@ -88,7 +88,7 @@ you use another version, you might need to adapt the steps accordingly.
 
 ## What to do with the Base64-encoded SAML response
 
-Once you find the Base64-encoded SAML response element in your browser, copy it and use
+After you find the Base64-encoded SAML response element in your browser, copy it and use
 your favorite Base-64 decoding tool to extract the XML tagged response.
 
 ###### Security tip

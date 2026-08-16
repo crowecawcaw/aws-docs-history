@@ -17,6 +17,11 @@ your organization and to multiple AWS applications. For information about specif
 situations where an IAM user is required, see [When to create an IAM user (instead of a
 role)](id.md#id_which-to-choose "id.md#id_which-to-choose").
 
+You can also use
+[account access manager](account-access-manager.md "account-access-manager.md") — an IAM feature that lets you assign
+existing IAM roles across your organization's accounts to IAM Identity Center users and groups. You can
+use it alongside permission sets or on its own.
+
 If you prefer to use a single AWS account without enabling IAM Identity Center, you can use IAM with
 an external IdP that provides identity information to AWS using either [OpenID Connect (OIDC)](../../../http:/openid.net/connect.md "../../../http:/openid.net/connect.md") or [SAML 2.0 (Security Assertion Markup Language
 2.0)](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security"). OIDC connects applications, like GitHub Actions, that do not run on AWS to

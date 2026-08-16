@@ -28,7 +28,7 @@ stack containing the IdP resource.
 
 First, create the CloudFormation template.
 
-1. In the [Template](#tutorial_saml-idp-template "#tutorial_saml-idp-template") section, click the
+1. In the [Template](#tutorial_saml-idp-template "#tutorial_saml-idp-template") section, choose the
    copy icon on the **JSON** or **YAML** tab
    to copy the template contents.
 2. Paste the template contents into a new file.
@@ -113,7 +113,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
 6. Review the stack details and choose **Submit**.
 
-CloudFormation creates the stack. Once the stack creation is complete, the stack resources
+CloudFormation creates the stack. After the stack creation is complete, the stack resources
 are ready to use. You can use the **Resources** tab on the stack
 detail page to view the resources that were provisioned in your account.
 
@@ -133,7 +133,7 @@ stacks using the `Fn::ImportValue` function.
 
 ## Verify the SAML IdP
 
-Once the SAML IdP has been created, you can verify its configuration and note its ARN
+After the SAML IdP has been created, you can verify its configuration and note its ARN
 for use with federated roles.
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -146,7 +146,7 @@ configuration details. 4. Note the **Provider ARN** displayed on the details
 page.
 
 You will need this ARN when creating federated IAM roles that trust this
-IdP. 5. Review the metadata document to ensure it matches what you provided from your
+IdP. 5. Review the metadata document to make sure it matches what you provided from your
 external IdP.
 
 Your SAML IdP is now ready to be used by federated IAM roles. You can create roles

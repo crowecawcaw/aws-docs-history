@@ -10,7 +10,7 @@ security strategy by ensuring users, roles, and resources adhere to a set of def
 security standards.
 
 A data perimeter is set of permission guardrails in your AWS environment which help
-ensure that only your trusted identities are accessing trusted resources from expected
+make sure that only your trusted identities are accessing trusted resources from expected
 networks.
 
 - Trusted identities: Principals (IAM roles or users) in your AWS accounts and
@@ -22,7 +22,7 @@ networks.
 
 ###### Note
 
-In some cases, you may need to extend your data perimeter to also include access by
+In some cases, you might need to extend your data perimeter to also include access by
 your trusted business partners. You should consider all intended data access patterns
 when you create a definition of trusted identities, trusted resources, and expected
 networks specific to your company and your use of AWS services.
@@ -73,7 +73,7 @@ controls on a wider range of services, consider using `aws:SourceVpc` and
 ## Identity perimeter
 
 An identity perimeter is a set of coarse-grained preventative access controls that
-help ensure only trusted identities can access your resources and only trusted
+help make sure only trusted identities can access your resources and only trusted
 identities are allowed from your network. Trusted identities usually include principals
 (roles or users) in your AWS accounts and AWS services acting on your behalf. All
 other identities are considered untrusted and are prevented by the identity perimeter
@@ -90,15 +90,15 @@ You can use the following condition keys to define IAM principals that you
 create and manage in your AWS accounts.
 
 - [aws:PrincipalOrgID](reference_policies_condition-keys.md#condition-keys-principalorgid "reference_policies_condition-keys.md#condition-keys-principalorgid") – You can use
-  this condition key to ensure that IAM principals making the request belong
+  this condition key to make sure that IAM principals making the request belong
   to the specified organization in AWS Organizations.
 - [aws:PrincipalOrgPaths](reference_policies_condition-keys.md#condition-keys-principalorgpaths "reference_policies_condition-keys.md#condition-keys-principalorgpaths") – You can use
-  this condition key to ensure that the IAM user , IAM role, AWS STS
+  this condition key to make sure that the IAM user , IAM role, AWS STS
   federated user principal, SAML federated principal, OIDC federated
   principal, or AWS account root user making the request belong to the specified
   organizational unit (OU) in AWS Organizations.
 - [aws:PrincipalAccount](reference_policies_condition-keys.md#condition-keys-principalaccount "reference_policies_condition-keys.md#condition-keys-principalaccount") – You can use
-  this condition key to ensure resources can only be accessed by the principal
+  this condition key to make sure resources can only be accessed by the principal
   account that you specify in the policy.
 
 ### Identities of AWS services acting on your behalf
@@ -107,7 +107,7 @@ You can use the following condition keys to allow AWS services to use their own
 identities to access your resources when they act on your behalf.
 
 - [aws:PrincipalIsAWSService](reference_policies_condition-keys.md#condition-keys-principalisawsservice "reference_policies_condition-keys.md#condition-keys-principalisawsservice") and [aws:SourceOrgID](reference_policies_condition-keys.md#condition-keys-sourceorgid "reference_policies_condition-keys.md#condition-keys-sourceorgid") (or [aws:SourceOrgPaths](reference_policies_condition-keys.md#condition-keys-sourceorgpaths "reference_policies_condition-keys.md#condition-keys-sourceorgpaths") and [aws:SourceAccount](reference_policies_condition-keys.md#condition-keys-sourceaccount "reference_policies_condition-keys.md#condition-keys-sourceaccount")) – You can use
-  these condition keys to ensure that when [AWS service principals](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services") access your resources, they do it only
+  these condition keys to make sure that when [AWS service principals](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services") access your resources, they do it only
   on behalf of a resource in the specified organization, organizational unit,
   or an account in AWS Organizations.
 
@@ -117,7 +117,7 @@ access company data](https://aws.amazon.com/blogs/security/establishing-a-data-p
 ## Resource perimeter
 
 A resource perimeter is a set of coarse-grained preventative access controls that help
-ensure your identities can access only trusted resources and only trusted resources can
+make sure your identities can access only trusted resources and only trusted resources can
 be accessed from your network. Trusted resources usually include resources owned by your
 AWS accounts or by AWS services acting on your behalf.
 
@@ -134,18 +134,18 @@ You can use the following condition keys to define AWS resources that you create
 and manage in your AWS accounts.
 
 - [aws:ResourceOrgID](reference_policies_condition-keys.md#condition-keys-resourceorgid "reference_policies_condition-keys.md#condition-keys-resourceorgid") – You can use this
-  condition key to ensure the resource that is being accessed belongs to the
+  condition key to make sure the resource that is being accessed belongs to the
   specified organization in AWS Organizations.
 - [aws:ResourceOrgPaths](reference_policies_condition-keys.md#condition-keys-resourceorgpaths "reference_policies_condition-keys.md#condition-keys-resourceorgpaths") – You can use
-  this condition key to ensure the resource that is being accessed belongs to
+  this condition key to make sure the resource that is being accessed belongs to
   the specified organizational unit(OU) in AWS Organizations.
 - [aws:ResourceAccount](reference_policies_condition-keys.md#condition-keys-resourceaccount "reference_policies_condition-keys.md#condition-keys-resourceaccount") – You can use
-  this condition key to ensure the resource that is being accessed belongs to
+  this condition key to make sure the resource that is being accessed belongs to
   the specified AWS account.
 
 ### Resources of AWS services acting on your behalf
 
-In some cases, you may need to permit access to AWS owned resources, resources
+In some cases, you might need to permit access to AWS owned resources, resources
 that do not belong to your organization and that are accessed by your principals or
 by AWS services acting on your behalf. For more information about these scenarios,
 see [Establishing a data perimeter on AWS: Allow only trusted resources from my
@@ -154,7 +154,7 @@ organization](https://aws.amazon.com/blogs/security/establishing-a-data-perimete
 ## Network perimeter
 
 A network perimeter is a set of coarse-grained preventative access controls that help
-ensure your identities can access resources only from expected networks and your
+make sure your identities can access resources only from expected networks and your
 resources can only be accessed from expected networks. Expected networks usually include
 your on-premises data centers and virtual private clouds (VPCs) and networks of AWS
 services acting on your behalf.
@@ -172,22 +172,22 @@ applications are expected to use to access your resources, such as your corporat
 CIDR range and your VPCs.
 
 - [aws:SourceIp](reference_policies_condition-keys.md#condition-keys-sourceip "reference_policies_condition-keys.md#condition-keys-sourceip") – You can use this
-  condition key to ensure the requester's IP address is within a specified IP
+  condition key to make sure the requester's IP address is within a specified IP
   range.
 - [aws:SourceVpc](reference_policies_condition-keys.md#condition-keys-sourcevpc "reference_policies_condition-keys.md#condition-keys-sourcevpc") – You can use this
-  condition key to ensure the VPC endpoint the request travels through belongs
+  condition key to make sure the VPC endpoint the request travels through belongs
   to the specified VPC.
 - [aws:SourceVpce](reference_policies_condition-keys.md#condition-keys-sourcevpce "reference_policies_condition-keys.md#condition-keys-sourcevpce") – You can use this
-  condition key to ensure the request travels through the specified VPC
+  condition key to make sure the request travels through the specified VPC
   endpoint.
 - [aws:VpceAccount](reference_policies_condition-keys.md#condition-keys-vpceaccount "reference_policies_condition-keys.md#condition-keys-vpceaccount") – You can use this
-  condition key to ensure requests come through VPC endpoints owned by the
+  condition key to make sure requests come through VPC endpoints owned by the
   specified AWS account.
 - [aws:VpceOrgPaths](reference_policies_condition-keys.md#condition-keys-vpceorgpaths "reference_policies_condition-keys.md#condition-keys-vpceorgpaths") – You can use this
-  condition key to ensure that requests come through VPC endpoints owned by
+  condition key to make sure that requests come through VPC endpoints owned by
   accounts that belong to the specified organizational unit (OU) in AWS Organizations.
 - [aws:VpceOrgID](reference_policies_condition-keys.md#condition-keys-vpceorgid "reference_policies_condition-keys.md#condition-keys-vpceorgid") – You can use this
-  condition key to ensure requests come through VPC endpoints owned by
+  condition key to make sure requests come through VPC endpoints owned by
   accounts in the specified organization in AWS Organizations.
 
 `aws:VpceAccount`, `aws:VpceOrgPaths`, and
@@ -202,10 +202,10 @@ You can use the following condition keys to allow AWS services to access your
 resources from their networks when they act on your behalf.
 
 - [aws:ViaAWSService](reference_policies_condition-keys.md#condition-keys-viaawsservice "reference_policies_condition-keys.md#condition-keys-viaawsservice") – You can use this
-  condition key to ensure that AWS services can make requests on behalf of
+  condition key to make sure that AWS services can make requests on behalf of
   your principal using [Forward access sessions](access_forward_access_sessions.md "access_forward_access_sessions.md") (FAS).
 - [aws:PrincipalIsAWSService](reference_policies_condition-keys.md#condition-keys-principalisawsservice "reference_policies_condition-keys.md#condition-keys-principalisawsservice") – You can
-  use this condition key to ensure that AWS services can access your
+  use this condition key to make sure that AWS services can access your
   resources using [AWS service principals](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services").
 
 There are additional scenarios where you need to permit access to AWS services

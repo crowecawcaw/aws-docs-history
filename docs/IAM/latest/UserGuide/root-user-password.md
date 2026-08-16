@@ -21,7 +21,7 @@ To protect your password, it's important to follow these best practices:
 
 ###### Important
 
-AWS accounts managed using AWS Organizations may have [centralized root access](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management") enabled for member
+AWS accounts managed using AWS Organizations might have [centralized root access](id_root-user.md#id_root-user-access-management "id_root-user.md#id_root-user-access-management") enabled for member
 accounts. These member accounts do not have root user credentials, can't sign in as a root user,
 and are prevented from recovering the root user password. Contact your administrator if you
 need to perform a task that requires root user credentials.

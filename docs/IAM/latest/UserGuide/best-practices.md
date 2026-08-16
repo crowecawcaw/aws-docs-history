@@ -19,7 +19,7 @@ validation, resilience, and infrastructure security.
 - [Regularly review and remove unused users, roles, permissions, policies, and credentials](#remove-credentials "#remove-credentials")
 - [Use conditions in IAM policies to further restrict access](#use-policy-conditions "#use-policy-conditions")
 - [Verify public and cross-account access to resources with IAM Access Analyzer](#bp-preview-access "#bp-preview-access")
-- [Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions](#best-practice-policy-validation "#best-practice-policy-validation")
+- [Use IAM Access Analyzer to validate your IAM policies for secure and functional permissions](#best-practice-policy-validation "#best-practice-policy-validation")
 - [Establish permissions guardrails across multiple accounts](#bp-permissions-guardrails "#bp-permissions-guardrails")
 - [Use permissions boundaries to delegate permissions management within an account](#bp-permissions-boundaries "#bp-permissions-boundaries")
 
@@ -30,7 +30,7 @@ administrators, developers, operators, and consumers of your applications. They 
 identity to access your AWS environments and applications. Human users that are members of
 your organization are also known as _workforce identities._ Human users can
 also be external users with whom you collaborate, and who interact with your AWS resources.
-They can do this via a web browser, client application, mobile app, or interactive
+They can do this through a web browser, client application, mobile app, or interactive
 command-line tools.
 
 Require your human users to use temporary credentials when accessing AWS. You can use an
@@ -41,6 +41,8 @@ recommend that you use [AWS IAM Identity Center
 can manage your user identities with IAM Identity Center, or manage access permissions for user identities
 in IAM Identity Center from an external identity provider. For more information, see [What is
 AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
+
+You can use [account access manager](account-access-manager.md "account-access-manager.md") — an IAM feature that lets you assign existing IAM roles across your organization's accounts to IAM Identity Center users and groups. Account access manager gives you access to the full IAM role feature set, including custom trust policies, role tags for ABAC, and configurable role paths. You can use it alongside permission sets or on its own.
 
 For more information about roles, see [Roles terms and concepts](id_roles.md#id_roles_terms-and-concepts "id_roles.md#id_roles_terms-and-concepts").
 
@@ -212,9 +214,9 @@ continuously and generates a finding for resources that allow public or cross-ac
 For more information, see [Previewing access with
 IAM Access Analyzer APIs](access-analyzer-preview-access-apis.md "access-analyzer-preview-access-apis.md").
 
-## Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions
+## Use IAM Access Analyzer to validate your IAM policies for secure and functional permissions
 
-Validate the policies you create to ensure that they adhere to the [IAM policy language](access_policies.md#access_policies-json "access_policies.md#access_policies-json") (JSON) and IAM best practices.
+Validate the policies you create to make sure that they adhere to the [IAM policy language](access_policies.md#access_policies-json "access_policies.md#access_policies-json") (JSON) and IAM best practices.
 You can validate your policies by using IAM Access Analyzer policy validation. IAM Access Analyzer
 provides more than 100 policy checks and actionable recommendations to help you author secure
 and functional policies. As you author new policies or edit existing policies in the console,

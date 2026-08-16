@@ -1,6 +1,6 @@
 # Revoke Temporary delegation access
 
-Although product provider access sessions are designed to expire automatically after their approved duration, you may need to terminate access immediately in certain situations. Revoking active product provider access provides an emergency control mechanism when security concerns arise, when the product provider's work is completed early, or when business requirements change. Both request initiators and administrators can revoke access to maintain security and operational control.
+Although product provider access sessions are designed to expire automatically after their approved duration, you might need to terminate access immediately in certain situations. Revoking active product provider access provides an emergency control mechanism when security concerns arise, when the product provider's work is completed early, or when business requirements change. Both request initiators and administrators can revoke access to maintain security and operational control.
 
 ###### To revoke temporary delegation access
 
@@ -13,7 +13,7 @@ Although product provider access sessions are designed to expire automatically a
 
 ###### Important
 
-Revoking access immediately terminates the product provider access session. Any ongoing work or processes using the access will be interrupted. Ensure that revocation won't disrupt critical operations.
+Revoking access immediately terminates the product provider access session. Any ongoing work or processes using the access will be interrupted. Make sure that revocation won't disrupt critical operations.
 
 ###### Note
 

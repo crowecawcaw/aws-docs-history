@@ -61,7 +61,7 @@ single-valued condition keys. For more information, see [Set operators for multi
 
 The following condition keys are considered sensitive. The use of wildcards in these
 condition keys does not have any valid use cases, even with a substring of the key value
-with a wildcard. This is because the wildcard may match the condition key to any value,
+with a wildcard. This is because the wildcard might match the condition key to any value,
 which could pose a security risk.
 
 - `aws:PrincipalAccount`
@@ -498,7 +498,7 @@ JSON
 This key provides a list of all [service
 principal](reference_policies_elements_principal.md#principal-services "reference_policies_elements_principal.md#principal-services") names that belong to the service. This is an advanced condition
 key. You can use it to restrict the service from accessing your resource from a
-specific Region only. Some services may create Regional service principals to
+specific Region only. Some services might create Regional service principals to
 indicate a particular instance of the service within a specific Region. You can
 limit access to a resource to a particular instance of the service. When a service
 principal makes a direct request to your resource, the
@@ -637,10 +637,10 @@ identity.
 \* The data type depends on your IdP:
 
 - If you're using a built-in AWS IdP, like [Amazon Cognito](../../../cognito/latest/developerguide/iam-roles.md "../../../cognito/latest/developerguide/iam-roles.md"),
-  the key value will be a **string**. The key value may look
+  the key value will be a **string**. The key value might look
   like: `cognito-identity.amazonaws.com`.
 - If you're using an IdP that is not built-in to AWS, like [GitHub](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services "https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services") or [Amazon EKS](../../../eks/latest/userguide/associate-service-account-role.md "../../../eks/latest/userguide/associate-service-account-role.md"), the key value will be **ARN**. The key
-  value may look like:
+  value might look like:
   `arn:aws:iam::`111122223333`:oidc-provider/oidc.eks.`region`.amazonaws.com/id/`OIDC_Provider_ID``.
 
 For more information on external IdPs and `AssumeRoleWithWebIdentity`,
@@ -1008,9 +1008,9 @@ request is made to AWS KMS.
 
 This key identifies the private IPv4 address of the primary elastic network
 interface to which Amazon EC2 IAM role credentials were delivered. You must use this
-condition key with its companion key `aws:Ec2InstanceSourceVpc` to ensure
+condition key with its companion key `aws:Ec2InstanceSourceVpc` to make sure
 that you have a globally unique combination of VPC ID and source private IP. Use
-this key with `aws:Ec2InstanceSourceVpc` to ensure that a request was
+this key with `aws:Ec2InstanceSourceVpc` to make sure that a request was
 made from the same private IP address that the credentials were delivered to.
 
 - **Availability** – This key is included
@@ -1029,7 +1029,7 @@ IP addresses are by definition not globally unique. You should use the
 Amazon EC2 instance credentials can be used from.
 
 The following example is a service control policy (SCP) that denies access to all
-resources unless the request arrives via a VPC Endpoint in the same VPC as the as
+resources unless the request arrives through a VPC Endpoint in the same VPC as the as
 the role credentials. In this example, `aws:Ec2InstanceSourcePrivateIPv4`
 limits the credential source to a particular instance based on the source IP.
 
@@ -1589,7 +1589,7 @@ exclude service principals from your `Deny` statements by adding the
 
 ### aws:SourceVpcArn
 
-Use this key to verify the ARN of the VPC through which a request was made via a VPC endpoint. This key returns the ARN of the VPC to which the VPC endpoint is attached.
+Use this key to verify the ARN of the VPC that a request passed through using a VPC endpoint. This key returns the ARN of the VPC to which the VPC endpoint is attached.
 
 - **Availability** – This key is included in the request context for supported services when a request is made through a VPC endpoint. The key is not included for requests made through public service endpoints. The following services support this key:
 
@@ -1883,7 +1883,7 @@ The following services support this key:
 The following resource control policy example denies access to your Amazon S3 and
 AWS Key Management Service resources unless the request comes through VPC endpoints owned by the
 specified organization or from networks of AWS services that act on your behalf.
-Some organizations may need to further edit this policy to meet the needs of their
+Some organizations might need to further edit this policy to meet the needs of their
 organization, for example, allow third-party partner access. For more information on
 access patterns that need to be accounted for when enforcing access controls based
 on the request origin, see [Establish permissions guardrails using data perimeters](access_policies_data-perimeters.md "access_policies_data-perimeters.md").
@@ -2593,14 +2593,14 @@ condition key supports AWS services.
 The `aws:CalledVia` key is a [multivalued key](reference_policies_condition-single-vs-multi-valued-context-keys.md "reference_policies_condition-single-vs-multi-valued-context-keys.md"). However, you can't enforce order using this key in a
 condition. Using the example above, **User 1** makes a request to
 CloudFormation, which calls DynamoDB, which calls AWS KMS. These are three separate requests. The
-final call to AWS KMS is performed by User 1 _via_
+final call to AWS KMS is performed by User 1 through
 CloudFormation and then DynamoDB.
 
 ![Example using aws:CalledVia.](images/condition-key-calledvia-example-diagram.png)
 
 In this case, the `aws:CalledVia` key in the request context includes
 `cloudformation.amazonaws.com` and `dynamodb.amazonaws.com`,
-in that order. If you care only that the call was made via DynamoDB somewhere in the
+in that order. If you care only that the call was made through DynamoDB somewhere in the
 chain of requests, you can use this condition key in your policy.
 
 For example, the following policy allows managing the AWS KMS key named
@@ -2644,8 +2644,8 @@ If you want to enforce which service makes the first or last call in the chain,
 you can use the `aws:CalledViaFirst` and `aws:CalledViaLast`
 keys. For example, the following policy allows managing the key named
 `my-example-key` in AWS KMS. These AWS KMS operations are allowed only if
-multiple requests were included in the chain. The first request must be made via
-CloudFormation and the last via DynamoDB. If other services make requests in the middle of the
+multiple requests were included in the chain. The first request must be made through
+CloudFormation and the last through DynamoDB. If other services make requests in the middle of the
 chain, the operation is still allowed.
 
 JSON
@@ -2683,8 +2683,8 @@ call another service. They indicate the first and last services that made calls 
 the chain of requests. For example, assume that CloudFormation calls another service named
 `X Service`, which calls DynamoDB, which then calls AWS KMS. The final
 call to AWS KMS is performed by `User 1`
-_via_ CloudFormation, then `X Service`, and then
-DynamoDB. It was first called via CloudFormation and last called via DynamoDB.
+through CloudFormation, then `X Service`, and then
+DynamoDB. It was first called through CloudFormation and last called through DynamoDB.
 
 ![Example using aws:CalledViaFirst and aws:CalledViaLast.](images/condition-key-calledviafirstlast-example-diagram.png)
 
@@ -3090,7 +3090,7 @@ risks.
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - **Value type** – Single-valued
 
-You can use this condition key to help ensure that a calling service can access
+You can use this condition key to help make sure that a calling service can access
 your resource only when the request originates from a specific account. For example,
 you can attach the following resource control policy (RCP) to deny requests by
 service principals against Amazon S3 buckets, unless they were triggered by a resource in
@@ -3178,7 +3178,7 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
 
 - **Value type** – Single-valued
 
-You can use this condition key to help ensure that a calling service can access
+You can use this condition key to help make sure that a calling service can access
 your resource only when the request originates from a specific resource. When using
 a resource-based policy with an AWS service principal as the
 `Principal`, set this condition key's value to the ARN of the
@@ -3220,7 +3220,7 @@ risks.
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - **Value type** – Single-valued
 
-You can use this condition key to help ensure that a calling service can access
+You can use this condition key to help make sure that a calling service can access
 your resource only when the request originates from a specific organization. For
 example, you can attach the following resource control policy (RCP) to deny requests
 by service principals against Amazon S3 buckets, unless they were triggered by a resource
@@ -3296,7 +3296,7 @@ risks.
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") (list)
 - **Value type** – Multivalued
 
-Use this condition key to help ensure that a calling service can access your
+Use this condition key to help make sure that a calling service can access your
 resource only when the request originates from a specific organizational unit (OU)
 in AWS Organizations.
 

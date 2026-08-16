@@ -30,6 +30,16 @@ in the _Amazon Simple Storage Service User Guide_.
 You can use the following condition keys in policies that control access to IAM
 resources:
 
+**iam:AccountPropertyNamespaces**
+
+Works with [string operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
+
+Specifies the account property namespaces being read or modified in the
+request. Account properties are organized into namespaces (for example,
+`RoleManager`). When you call `PutAccountProperties` or
+`GetAccountProperties`, use this condition key to restrict which
+property namespaces a principal can access.
+
 **iam:AssociatedResourceArn**
 
 Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN").
@@ -51,7 +61,7 @@ special considerations apply if the policy is intended to define access for the
 [AddRoleToInstanceProfile](../APIReference/API_AddRoleToInstanceProfile.md "../APIReference/API_AddRoleToInstanceProfile.md") action. In this case, you cannot specify a
 Region or instance ID in the EC2 instance ARN. The ARN value must be
 `arn:aws:ec2:*:CallerAccountId:instance/*`. Using any
-other ARN value may lead to unexpected evaluation results.
+other ARN value might lead to unexpected evaluation results.
 
 Use this condition key in an identity-based policy to allow an entity to pass a
 role, but only if that role is associated with the specified resource. For
@@ -292,7 +302,7 @@ trust policy must specify `cloudwatch.amazonaws.com` in the
 `Principal` element. To view a policy that allows the user to pass
 the role to CloudWatch, see [IAM: Pass an IAM role to a specific AWS service](reference_policies_examples_iam-passrole-service.md "reference_policies_examples_iam-passrole-service.md").
 
-By using this condition key, you can ensure that users create service roles
+By using this condition key, you can make sure that users create service roles
 only for the services that you specify. For example, if a user with the preceding
 policy attempts to create a service role for Amazon EC2, the operation will fail. The
 failure occurs because the user does not have permission to pass the role to
@@ -319,6 +329,17 @@ Works with [ARN operators](reference_policies_elements_condition_operators.md#Co
 
 Checks the Amazon Resource Name (ARN) of a managed policy in requests that
 involve a managed policy. For more information, see [Controlling access to policies](access_controlling.md#access_controlling-policies "access_controlling.md#access_controlling-policies").
+
+**iam:RoleTemplateARN**
+
+Works with [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN "reference_policies_elements_condition_operators.md#Conditions_ARN").
+
+Specifies the ARN of the role template used to create or manage a role. When
+an AWS service acquires a role from a role template, the role template ARN is
+included as a context key in the authorization checks for
+`CreateRole`, `TagRole`, `PutRolePolicy`,
+`AttachRolePolicy`, `PutRolePermissionsBoundary`, and
+`GetRole`.
 
 **iam:RegisterSecurityKey**
 
@@ -652,7 +673,7 @@ You can use OIDC federation to give temporary security credentials to users who 
 been authenticated through an OpenID Connect compatible identity provider (IdP) to an IAM
 OpenID Connect (OIDC) identity provider in your AWS account. Examples of such providers
 include GitHub, Amazon Cognito, Login with Amazon, and Google. Identity tokens and access tokens
-from your own IdP may be used, as well as [service account
+from your own IdP might be used, as well as [service account
 tokens](../../../eks/latest/userguide/service-accounts.md#service-account-tokens "../../../eks/latest/userguide/service-accounts.md#service-account-tokens") granted to Amazon Elastic Kubernetes Service workloads.
 
 You can use AWS OIDC condition context keys to write policies that limit the access of
@@ -813,7 +834,7 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
 `accounts.google.com:email`
 
 This condition key validates the user's email address. The value of
-this claim may not be unique to this account and could change over time,
+this claim might not be unique to this account and could change over time,
 therefore you should not use this value as the primary identifier to
 verify your user record.
 
@@ -1095,7 +1116,7 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
 **Example** –
 `token.actions.githubusercontent.com:job_workflow_ref`
 
-This key contains the reference path to the reusable workflow for jobs using a reusable workflow. Use this to restrict access to specific workflows and to ensure only approved workflows can assume roles.
+This key contains the reference path to the reusable workflow for jobs using a reusable workflow. Use this to restrict access to specific workflows and to make sure only approved workflows can assume roles.
 
 **repository**
 
@@ -1169,7 +1190,7 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
 **Example** –
 `token.actions.githubusercontent.com:enterprise_id`
 
-This key verifies the ID of the enterprise that contains the repository from where the workflow is running. Use this to ensure access is limited to repositories within your GitHub Enterprise organization.
+This key verifies the ID of the enterprise that contains the repository from where the workflow is running. Use this to make sure access is limited to repositories within your GitHub Enterprise organization.
 
 The following example trust policy uses custom claims in GitHub OIDC token to limit access to a role.
 
@@ -1406,7 +1427,7 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
 `gitlab.com:user_email`
 
 This key identifies the email address of the user executing the CI/CD
-job. The value of this claim may change over time; for a stable
+job. The value of this claim might change over time; for a stable
 identifier, use `user_id` instead.
 
 **user\_access\_level**
@@ -1956,7 +1977,7 @@ information about bearer tokens, see [Service bearer tokens](id_credentials_bear
 
 Works with [string operators](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String").
 
-Use this key to specify the audience for which an IAM principal can request JSON Web Tokens (JWTs) using the [GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md") API. When this condition key is present in an IAM policy, IAM principals can only request tokens for the audiences specified in the policy. External services validate the audience ("aud") claim in the JSON Web Token to ensure the token was intended for them.
+Use this key to specify the audience for which an IAM principal can request JSON Web Tokens (JWTs) using the [GetWebIdentityToken](../../../STS/latest/APIReference/API_GetWebIdentityToken.md "../../../STS/latest/APIReference/API_GetWebIdentityToken.md") API. When this condition key is present in an IAM policy, IAM principals can only request tokens for the audiences specified in the policy. External services validate the audience ("aud") claim in the JSON Web Token to make sure the token was intended for them.
 
 **Availability** – This key is present in requests to the GetWebIdentityToken API which is used to obtain JSON Web Tokens (JWTs) for authentication with external services.
 

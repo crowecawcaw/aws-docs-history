@@ -22,7 +22,7 @@ instance. Doing this adds the following layers of protection to the instances:
   We recommend using this approach to enforce the _principle of least
   privilege_. That means restricting the use of elevated permissions to only those
   times when they are needed for specific tasks. With roles you can help prevent accidental
-  changes to sensitive environments, especially if you combine them with [auditing](cloudtrail-integration.md "cloudtrail-integration.md") to help ensure that roles are only used when
+  changes to sensitive environments, especially if you combine them with [auditing](cloudtrail-integration.md "cloudtrail-integration.md") to help make sure that roles are only used when
   needed.
 
 When you create a role for this purpose, you specify the accounts by ID whose users need
@@ -78,7 +78,7 @@ to the role and therefore cannot access the S3 bucket in the production account.
 
     * AWS console: The user chooses the account name on the navigation bar and chooses
      **Switch Role**. The user specifies the account ID (or alias) and
-     role name. Alternatively, the user can click on a link sent in email by the
+     role name. Alternatively, the user can choose a link sent in email by the
      administrator. The link takes the user to the **Switch Role** page
      with the details already filled in.
     * AWS API/AWS CLI: A user in the Developers group of the development account calls
@@ -91,10 +91,10 @@ to the role and therefore cannot access the S3 bucket in the production account.
 4. AWS STS returns temporary credentials:
 
     * AWS console: AWS STS verifies the request with the role's trust policy to
-     ensure that the request is from a trusted entity (which it is: the development
+     make sure that the request is from a trusted entity (which it is: the development
      account). After verification, AWS STS returns [temporary security credentials](../../../STS/latest/UsingSTS/Welcome.md "../../../STS/latest/UsingSTS/Welcome.md") to the AWS
      console.
-    * API/CLI: AWS STS verifies the request against the role's trust policy to ensure
+    * API/CLI: AWS STS verifies the request against the role's trust policy to make sure
      that the request is from a trusted entity (which it is: the Development account).
      After verification, AWS STS returns [temporary security credentials](../../../STS/latest/UsingSTS/Welcome.md "../../../STS/latest/UsingSTS/Welcome.md") to the application.
 

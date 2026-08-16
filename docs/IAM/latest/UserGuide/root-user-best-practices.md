@@ -4,7 +4,7 @@ When you first create an AWS account, you begin with a default set of credential
 complete access to all AWS resources in your account. This identity is called the [AWS account
 root user](id_root-user.md "id_root-user.md"). We strongly recommend you don’t access the AWS account root user unless you have
 a [task that requires root user credentials](root-user-tasks.md#root-user-tasks "root-user-tasks.md#root-user-tasks"). You need to secure your root user credentials and
-your account recovery mechanisms to help ensure you don’t expose your highly privileged
+your account recovery mechanisms to help make sure you don’t expose your highly privileged
 credentials for unauthorized use.
 
 For multiple AWS accounts managed through AWS Organizations, we recommend removing root user
@@ -112,7 +112,7 @@ creating access keys, review the [Alternatives to long-term access keys](securit
 
 ## Use multi-person approval for root user sign-in wherever possible
 
-Consider using multi-person approval to ensure that no one person can access both MFA and
+Consider using multi-person approval to make sure that no one person can access both MFA and
 password for the root user. Some companies add an additional layer of security by setting up one
 group of administrators with access to the password, and another group of administrators with
 access to MFA. One member from each group must come together to sign in as the root user.
@@ -127,10 +127,10 @@ purposes.
 
 ## Restrict access to account recovery mechanisms
 
-Ensure you develop a process to manage root user credential recovery mechanisms in case you
+Make sure you develop a process to manage root user credential recovery mechanisms in case you
 need access to it during an emergency such as takeover of your administrative account.
 
-- Ensure you have access to your root user email inbox so that you can [reset a lost or
+- Make sure you have access to your root user email inbox so that you can [reset a lost or
   forgotten root user password](reset-root-password.md "reset-root-password.md").
 - If MFA for your AWS account root user is lost, damaged, or not working, you can sign in
   using another MFA registered to the same root user credentials. If you lost access to all
@@ -138,7 +138,7 @@ need access to it during an emergency such as takeover of your administrative ac
   be up to date and accessible to recover your MFA. For details, see [Recovering a root user MFA device](id_credentials_mfa_lost-or-broken.md#root-mfa-lost-or-broken "id_credentials_mfa_lost-or-broken.md#root-mfa-lost-or-broken").
 - If you choose not to store your root user password and MFA, then the phone number
   registered in your account can be used as an alternate way to recover root user credentials.
-  Ensure you have access to the contact phone number, keep the phone number updated, and
+  Make sure you have access to the contact phone number, keep the phone number updated, and
   limit who has access to manage the phone number.
 
 No one person should have access to both the email inbox and phone number since both are
@@ -189,7 +189,7 @@ For details, see [Use an SCP to restrict what the root user in your member accou
 
 We recommend you use your current tracking mechanisms to monitor, alert, and report the
 sign in and use of root user credentials, including alerts that announce root user sign-in and
-usage. The following services can help to ensure that root user credential usage is tracked and
+usage. The following services can help to make sure that root user credential usage is tracked and
 perform security checks that can help prevent unauthorized use.
 
 ###### Note
