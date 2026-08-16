@@ -288,7 +288,7 @@ data in the bucket.
 If you recently created the bucket or made significant changes to the bucket's
 objects during the past 24 hours, optionally choose refresh
 (
-![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](images/btn-refresh-object-data.png)
+![The refresh button, which is a button that displays an empty, dark gray circle with an arrow.](/images/macie/latest/user/images/btn-refresh-object-data.png)
 ) to retrieve the latest metadata for the bucket's objects.
 Macie displays the information icon (
 ![The information icon, which is a blue circle that has a lowercase letter i in it.](images/icon-info-blue.png)

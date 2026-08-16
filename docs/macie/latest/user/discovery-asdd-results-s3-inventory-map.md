@@ -35,7 +35,7 @@ data that Macie has found in the bucket, and the amount of data that Macie has a
 bucket. The intensity of the color's hue represents where a score falls in a range of data
 sensitivity values, as shown in the following image.
 
-![The color spectrum for sensitivity scores: blue hues for 1-49, red hues for 51-100, and gray for -1.](/images/macie/latest/user/images/sensitivity-scoring-spectrum.png)
+![The color spectrum for sensitivity scores: blue hues for 1-49, red hues for 51-100, and gray for -1.](images/sensitivity-scoring-spectrum.png)
 
 In general, you can interpret color and hue intensity as follows:
 
