@@ -16,7 +16,7 @@ both the AWS Cloud and on-premises environments.
 
 ## Supported clients
 
-FSx for Windows File Server supports the Server Message Block (SMB) protocol versions 2.0 through 3.1.1, giving you the
+FSx for Windows File Server is compatible with the Server Message Block (SMB) protocol versions 2.0 through 3.1.1, giving you the
 flexibility to connect to your file systems using a wide variety of compute instances
 and operating systems.
 
@@ -32,7 +32,7 @@ The following AWS compute instances are supported for use with Amazon FSx:
   the AWS blog post [Storing and Sharing Files with FSx for Windows File Server in a VMware Cloud on AWS
   Environment](https://aws.amazon.com/blogs/apn/storing-and-sharing-files-with-amazon-fsx-in-a-vmware-cloud-on-aws-environment/ "https://aws.amazon.com/blogs/apn/storing-and-sharing-files-with-amazon-fsx-in-a-vmware-cloud-on-aws-environment/").
 
-The following operating systems are supported for use with Amazon FSx:
+The following operating systems are supported for use with Amazon FSx when using their built-in SMB client:
 
 - Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, Windows
   Server 2012 R2, Windows Server 2016, Windows Server 2019, and Windows Server 2022.
@@ -40,6 +40,8 @@ The following operating systems are supported for use with Amazon FSx:
   the Windows 7 and Windows 10 desktop experiences of WorkSpaces), and Windows 11.
 - Linux, using the `cifs-utils` tool.
 - macOS
+
+Other SMB-compatible clients may function but are not supported by AWS.
 
 ## Accessing data from within the AWS Cloud
 
