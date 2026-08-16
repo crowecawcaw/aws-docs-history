@@ -39,9 +39,9 @@ WorkSpace, while their media framework is offloaded to the supported client for
 direct communication. The following UC applications use this approach on
 Amazon WorkSpaces:
 
-- [Zoom meetings](https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces "https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces")
-- [Cisco Webex meetings](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html "https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html")
-- [Microsoft Teams 2.0 (Public Preview)](https://learn.microsoft.com/en-us/microsoftteams/vdi-2 "https://learn.microsoft.com/en-us/microsoftteams/vdi-2")
+- [Zoom meetings](https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces "https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces") on the Zoom website
+- [Cisco Webex meetings](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html "https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html") on the Cisco website
+- [Microsoft Teams 2.0](https://learn.microsoft.com/en-us/microsoftteams/vdi-2 "https://learn.microsoft.com/en-us/microsoftteams/vdi-2") on the Microsoft website
 
 For Media Optimized RTC mode to function, the UC application vendor should develop
 the integration with WorkSpaces using one of the available Software Development Kits
@@ -131,10 +131,10 @@ responsible for communicating the call's status.
 Amazon WorkSpaces currently supports following applications with Media Optimized RTC
 mode:
 
-- [Zoom meetings](https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces "https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces") (for PCoIP and DCV WorkSpaces)
-- [Cisco Webex meetings](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html "https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html") (for DCV WorkSpaces only)
-- [Microsoft Teams 2.0 (Public Preview)](https://learn.microsoft.com/en-us/microsoftteams/vdi-2 "https://learn.microsoft.com/en-us/microsoftteams/vdi-2")
-  (for DCV WorkSpaces only)
+- [Zoom meetings](https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces "https://support.zoom.us/hc/en-us/articles/10372235268749-Using-Zoom-for-Amazon-WorkSpaces") on the Zoom website (for PCoIP and DCV WorkSpaces)
+- [Cisco Webex meetings](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html "https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide.html") on the Cisco website (for DCV WorkSpaces only)
+- [Microsoft Teams 2.0](https://learn.microsoft.com/en-us/microsoftteams/vdi-2 "https://learn.microsoft.com/en-us/microsoftteams/vdi-2")
+  on the Microsoft website (for DCV WorkSpaces only)
 
 If you are using an application that is not on the list, it is advisable to engage
 the application vendor and request support for WorkSpaces Media Optimized RTC. To

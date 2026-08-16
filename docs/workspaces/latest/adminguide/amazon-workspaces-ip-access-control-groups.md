@@ -29,7 +29,7 @@ create rules that allow traffic from the public IP addresses for the NAT gateway
 - IP access control groups control the IP addresses from which users can connect their streaming sessions
   to WorkSpaces. Users can still execute functionalities, such as restart, rebuild, shutdown, from any IP address
   using Amazon WorkSpaces public APIs.
-- IP access control groups do not apply when VPC endpoint for streaming is configured for a directory.
+- Do not associate IP access control groups with a directory when you configure a VPC endpoint for streaming for that directory.
 - When you change an IP access control, active sessions are not immediately interrupted; changes will
   be applied for new sessions only.
   You can use this feature with Web Access, PCoIP zero clients, and the client applications for macOS, iPad,

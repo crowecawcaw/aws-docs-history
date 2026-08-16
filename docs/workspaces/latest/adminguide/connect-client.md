@@ -24,3 +24,7 @@ There are client applications for the following devices:
 - Chrome 53 and later (Windows and macOS only)
 - Firefox 49 and later
   For more information, see [WorkSpaces Clients](../userguide/amazon-workspaces-clients.md "../userguide/amazon-workspaces-clients.md") in the _Amazon WorkSpaces User Guide_.
+
+###### Topics
+
+- [Control the WorkSpaces client experience for your users](control-client-experience.md "control-client-experience.md")
