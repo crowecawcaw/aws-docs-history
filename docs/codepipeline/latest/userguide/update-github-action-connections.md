@@ -3,7 +3,7 @@
 In AWS CodePipeline, there are two supported versions of the GitHub source action:
 
 - **Recommended:** The GitHub (via GitHub App) action uses
-  Github app-based auth backed by a [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") resource. It
+  GitHub app-based auth backed by a [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") resource. It
   installs an AWS CodeStar Connections application into your GitHub organization so
   that you can manage access in GitHub.
 - **Not recommended:** The GitHub (via OAuth app) action uses
@@ -37,8 +37,8 @@ GitHub (via OAuth app) action:
 - When you create a connection resource to use with your GitHub (via GitHub App) action in
   CodePipeline, you can use the same connection resource to associate other supported
   services, such as CodeGuru Reviewer, with your repository.
-- In Github (via GitHub App), you can clone repositories to access git metadata in
-  subsequent CodeBuild actions, while in Github (via OAuth app) you can only download the
+- In GitHub (via GitHub App), you can clone repositories to access git metadata in
+  subsequent CodeBuild actions, while in GitHub (via OAuth app) you can only download the
   source.
 - An administrator installs the app for your organization's repositories. You no
   longer have to track OAuth tokens that depend on the individual who created the

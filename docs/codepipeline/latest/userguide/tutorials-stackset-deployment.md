@@ -16,7 +16,7 @@ dependable.
 There are two ways to manage permissions for a stack set: self-managed and AWS-managed IAM
 roles. This tutorial provides examples with self-managed permissions.
 
-To most effectively use Stacksets in CodePipeline, you should have a clear understanding of the
+To most effectively use StackSets in CodePipeline, you should have a clear understanding of the
 concepts behind CloudFormation StackSets and how they work. See [StackSets concepts](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md") in the _AWS CloudFormation User Guide_.
 
 ###### Topics
@@ -264,7 +264,7 @@ successfully created your stack set, you can add the second action to your
 ## Step 4: Add a CloudFormationStackInstances action
 
 Create a next action in your pipeline that will allow CloudFormation StackSets to create the
-remainingstack instances.
+remaining stack instances.
 
 ###### To create a next action in your pipeline
 
@@ -306,7 +306,7 @@ action group**. 5. On the **Edit action** page, add the action details:
     8. In **Max concurrent percentage**, enter
      `25`.
     9. Choose **Save**.
-    10. .Manually release a change. Your updated pipeline displays with two actions in the
+    10. Manually release a change. Your updated pipeline displays with two actions in the
      Deploy stage.
 
 ## Step 5: View stack set resources for your deployment

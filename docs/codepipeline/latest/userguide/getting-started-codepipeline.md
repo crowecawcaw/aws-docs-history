@@ -101,7 +101,7 @@ aws configure
 
 When prompted, specify the AWS access key and AWS secret access key of the IAM
 user that you will use with CodePipeline. When prompted for the default region name, specify the
-region where you will create the pipeline, such as `us-east-2`. When prompted
+Region where you will create the pipeline, such as `us-east-2`. When prompted
 for the default output format, specify `json`. For example:
 
 ```

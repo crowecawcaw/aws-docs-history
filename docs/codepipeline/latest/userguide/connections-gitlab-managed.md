@@ -55,7 +55,7 @@ authorize the connection.
 ###### Note
 
 You can create connections to a repository where you have the **Owner** role in GitLab, and then the connection can be
-used with with resources such as CodePipeline. For repositories in groups, you do not
+used with resources such as CodePipeline. For repositories in groups, you do not
 need to be the group owner.
 
 - You must have already created a GitLab personal access token (PAT) with the
@@ -80,7 +80,7 @@ set up the host, you can delete the PAT.
 ## Create a connection to GitLab self-managed (console)
 
 Use these steps to use the CodePipeline console to add a connections action for your GitLab
-self-managedr repository.
+self-managed repository.
 
 ###### Note
 
@@ -167,7 +167,7 @@ your source action with your connection information.
 1. In **Repository name**, choose the name of your
    third-party repository.
 2. Under **Pipeline triggers** you can add triggers if your
-   action is an CodeConnections action. To configure the pipeline trigger configuration
+   action is a CodeConnections action. To configure the pipeline trigger configuration
    and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.

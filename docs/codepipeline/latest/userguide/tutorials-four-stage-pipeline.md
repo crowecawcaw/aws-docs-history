@@ -22,7 +22,7 @@ where you create your pipeline. For example, if you create your pipeline in the 
 Region, your CodeCommit repository must be in the US East (Ohio) Region.
 
 You can add cross-region actions when you create your pipeline. AWS resources for cross-region actions must be in the same AWS Region where you plan to execute the action.
-For more information, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+For more information, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
 ###### Important
 
@@ -91,7 +91,7 @@ This tutorial also assumes that:
    - If you will be deploying your sample to Windows Server instances, choose [CodePipeline-Jenkins-AWSCodeDeploy\_Windows.zip](https://github.com/awslabs/AWSCodePipeline-Jenkins-AWSCodeDeploy_windows "https://github.com/awslabs/AWSCodePipeline-Jenkins-AWSCodeDeploy_windows").
 
 2. From the repository, choose **Fork** to clone the sample repo into
-   a repo in your Github account. For more information, see the [GitHub
+   a repo in your GitHub account. For more information, see the [GitHub
    documentation](https://help.github.com/articles/create-a-repo/ "https://help.github.com/articles/create-a-repo/").
 
 ### Create an IAM role to use for Jenkins integration
@@ -243,7 +243,7 @@ You can use your own CodeDeploy resources or create new ones, but you might incu
 additional costs. 14. In **Step 7: Review**, review the information, and then choose
 **Create pipeline**. 15. The pipeline automatically starts and runs the sample through the pipeline. You can
 view progress and success and failure messages as the pipeline builds the Haml sample to
-HTML and deploys it a webpage to each of the Amazon EC2 instances in the CodeDeploy
+HTML and deploys it as a webpage to each of the Amazon EC2 instances in the CodeDeploy
 deployment.
 
 ## Step 3: Add another stage to your pipeline

@@ -70,14 +70,14 @@ pipeline.
 When you create or edit a pipeline, you must have an artifact bucket in the
 pipeline AWS account and AWS Region, and you must have one artifact bucket
 per Region where you plan to execute an action. If you use the console to create
-a pipeline or cross-Region actions, default artifact buckets are configured by
+a pipeline or cross-region actions, default artifact buckets are configured by
 CodePipeline in the Regions where you have actions.
 
 If you use the AWS CLI to create a pipeline, you can store the artifacts for
 that pipeline in any Amazon S3 bucket as long as that bucket is in the same
 AWS account and AWS Region as the pipeline. You might do this if you are
 concerned about exceeding the limits of Amazon S3 buckets allowed for your account.
-If you use the AWS CLI to create or edit a pipeline, and you add a cross-Region
+If you use the AWS CLI to create or edit a pipeline, and you add a cross-region
 action (an action with an AWS provider in a Region different from your
 pipeline), you must provide an artifact bucket for each additional Region where
 you plan to execute an action.

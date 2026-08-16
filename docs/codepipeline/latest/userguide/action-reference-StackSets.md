@@ -1068,7 +1068,7 @@ parameters.
 
 - You can enter the location of the file containing a list of
   template parameter overrides entered in the format
-  `InputArtifactName::ParameterOverridessFileName`,
+  `InputArtifactName::ParameterOverridesFileName`,
   as shown in the following example.
 
 ```
@@ -1118,7 +1118,7 @@ lower due to service throttling.
 Required: No
 
 You can specify if the stack set should deploy across AWS Regions
-sequentially or in parallel by configuring the region concurrency
+sequentially or in parallel by configuring the Region concurrency
 deployment parameter. When the Region concurrency is specified to deploy
 stacks across multiple AWS Regions in parallel, this can result in
 faster overall deployment times.

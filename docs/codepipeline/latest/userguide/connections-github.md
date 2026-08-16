@@ -23,7 +23,7 @@ can choose either to:
 
 - Use the CodePipeline console **Create pipeline** wizard or
   **Edit action** page to choose the **GitHub (via GitHub
-  App)** provider option. See [Create a connection to GitHub Enterprise Server (console)](connections-ghes.md#connections-ghes-console "connections-ghes.md#connections-ghes-console") to add the action. The console helps
+  App)** provider option. See [Create a connection to GitHub (console)](#connections-github-console "#connections-github-console") to add the action. The console helps
   you create a connections resource.
 
 ###### Note
@@ -150,7 +150,7 @@ action with your connection information.
 1. In **Repository name**, choose the name of your
    third-party repository.
 2. Under **Pipeline triggers** you can add triggers if your
-   action is an CodeConnections action. To configure the pipeline trigger configuration
+   action is a CodeConnections action. To configure the pipeline trigger configuration
    and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.

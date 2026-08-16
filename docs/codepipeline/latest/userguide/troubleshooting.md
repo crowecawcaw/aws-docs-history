@@ -19,7 +19,7 @@ The following information might help you troubleshoot common issues in AWS CodeP
 - [Amazon S3 error: CodePipeline service role <ARN> is getting S3 access denied for the S3 bucket <BucketName>](#troubleshooting-S3-access-denied-list "#troubleshooting-S3-access-denied-list")
 - [Pipelines with an Amazon S3, Amazon ECR, or CodeCommit source no longer start automatically](#troubleshooting-events-identifiers "#troubleshooting-events-identifiers")
 - [Connections error when connecting to GitHub: "A problem occurred, make sure cookies are enabled in your browser" or "An organization owner must install the GitHub app"](#troubleshooting-connections-GitHub-organization-owner "#troubleshooting-connections-GitHub-organization-owner")
-- [Pipelines with execution mode changed to QUEUED or PARALLEL mode fails when run limit reached](#troubleshooting-queued-mode "#troubleshooting-queued-mode")
+- [Pipelines with execution mode changed to QUEUED or PARALLEL mode fail when run limit reached](#troubleshooting-queued-mode "#troubleshooting-queued-mode")
 - [Pipelines in PARALLEL mode have an outdated pipeline definition if edited when changing to QUEUED or SUPERSEDED mode](#troubleshooting-execution-mode-editing "#troubleshooting-execution-mode-editing")
 - [Pipelines changed from PARALLEL mode will display a previous execution mode](#troubleshooting-execution-mode-displayedstate "#troubleshooting-execution-mode-displayedstate")
 - [Pipelines with connections that use trigger filtering by file paths might not start at branch creation](#troubleshooting-file-paths-filtering "#troubleshooting-file-paths-filtering")
@@ -276,7 +276,7 @@ Exception while trying to read the task definition artifact file from: <source
  artifact name>
 
 **Possible fixes:** Make sure the task definition file is
-included as an artifact. If the file already exists, makes sure the compressed size is less
+included as an artifact. If the file already exists, make sure the compressed size is less
 than 3 MB.
 
 ## GitHub (via OAuth app) source action: Repository list shows different repositories
@@ -321,7 +321,7 @@ The CloudTrail logs for the action also log the `AccessDenied` error.
 **Possible fixes:** Do the following:
 
 - For the policy attached to your CodePipeline service role, add `s3:ListBucket` to
-  the list of actions in your policy. For instructions on to view your service role policy,
+  the list of actions in your policy. For instructions on how to view your service role policy,
   see [View the pipeline ARN and service role ARN (console)](pipelines-settings-console.md "pipelines-settings-console.md"). Edit the policy statement for your service role as detailed in [Add permissions to the CodePipeline service role](how-to-custom-role.md#how-to-update-role-new-services "how-to-custom-role.md#how-to-update-role-new-services").
 - For the resource-based policy attached to the Amazon S3 artifact bucket for your pipeline,
   also called the _artifact bucket policy_, add a statement to allow the
@@ -492,7 +492,7 @@ An organization owner must install the GitHub app
 organization, the organization owner must create the connection to the GitHub repository. For
 repositories that are not under an organization, you must be the repository owner.
 
-## Pipelines with execution mode changed to QUEUED or PARALLEL mode fails when run limit reached
+## Pipelines with execution mode changed to QUEUED or PARALLEL mode fail when run limit reached
 
 **Problem:** The maximum number of concurrent executions for
 a pipeline in QUEUED mode is 50 executions. When this limit is reached, the pipeline fails
@@ -508,7 +508,7 @@ For more information about QUEUED or PARALLEL execution mode, see [CodePipeline 
 **Problem:** For pipelines in parallel mode, when editing the
 pipeline execution mode to QUEUED or SUPERSEDED, the pipeline definition for PARALLEL mode
 will not be updated. The updated pipeline definition when updating PARALLEL mode is not used
-in the SUPERSEDED or QUEUED mode
+in the SUPERSEDED or QUEUED mode.
 
 **Possible fixes:** For pipelines in parallel mode, when
 editing the pipeline execution mode to QUEUED or SUPERSEDED, avoid updating the pipeline
@@ -540,7 +540,7 @@ cases, for pipelines with triggers that are filtered on file paths, the pipeline
 start when a branch with a file path filter is first created, since this does not allow the
 CodeConnections connection to resolve the files that changed. When the Git configuration for the trigger
 is set up to filter on file paths the pipeline will not start when the branch with the filter
-has just been created in the source repository, For more information about filtering on file
+has just been created in the source repository. For more information about filtering on file
 paths, see [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 
 **Result:** For example, pipelines in CodePipeline that have a file
@@ -553,7 +553,7 @@ file path filters, the pipeline will still start.
 connections, such as a BitBucket source action, you can set up a trigger with a Git
 configuration that allows you to filter by file paths to start your pipeline. CodePipeline retrieves
 up to the first 100 files; therefore, when the Git configuration for the trigger is set up to
-filter on file paths, the pipeline might not start if there are over 100 files, For more
+filter on file paths, the pipeline might not start if there are over 100 files. For more
 information about filtering on file paths, see [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 
 **Result:** For example, if a diff contains 150 files, CodePipeline

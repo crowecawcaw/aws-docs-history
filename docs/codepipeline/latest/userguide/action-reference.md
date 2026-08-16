@@ -41,5 +41,5 @@ provider:
 - [Amazon Inspector InspectorScan invoke action reference](action-reference-InspectorScan.md "action-reference-InspectorScan.md")
 - [AWS Lambda invoke action reference](action-reference-Lambda.md "action-reference-Lambda.md")
 - [AWS OpsWorks deploy action reference](action-reference-OpsWorks.md "action-reference-OpsWorks.md")
-- [AWS Service Catalogdeploy action reference](action-reference-ServiceCatalog.md "action-reference-ServiceCatalog.md")
+- [AWS Service Catalog deploy action reference](action-reference-ServiceCatalog.md "action-reference-ServiceCatalog.md")
 - [AWS Step Functions](action-reference-StepFunctions.md "action-reference-StepFunctions.md")

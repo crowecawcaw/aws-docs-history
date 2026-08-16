@@ -69,7 +69,7 @@ In this step, you create a cluster in EKS.
 ### Create a private cluster in Amazon EKS
 
 In case you choose to create a cluster with a private endpoint, make sure to
-attach the private subnets only, and make sure they have internet connection.
+attach the private subnets only, and make sure they have an internet connection.
 
 Follow the next five sub-steps for creating a cluster with a private
 endpoint.
@@ -115,7 +115,7 @@ gateway.
 1. Navigate to the VPC console, and then choose
    **Subnets**.
 2. For each private subnet, choose it and then choose the route table for
-   that subnet on the details page, Choose **Edit route
+   that subnet on the details page. Choose **Edit route
    table**.
 3. Update the route table for the private subnet to direct internet traffic
    to the NAT gateway. Choose **Add route**. Choose
@@ -159,14 +159,14 @@ clusters that have ONLY a private endpoint.
 ## Step 3: Update the CodePipeline service role policy in IAM
 
 In this step, you will update an existing CodePipeline service role, such as `**cp-service-role**`, with permissions required by
-CodePipeline to connect with your cluster. If you do not have existing role, create a
+CodePipeline to connect with your cluster. If you do not have an existing role, create a
 new one.
 
 Update your CodePipeline service role with the following steps.
 
 ###### To update your CodePipeline service role policy
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the console dashboard, choose **Roles**.
 3. Look up your CodePipeline service role, such as `**cp-service-role**`.
 4. Add a new inline policy.
@@ -313,7 +313,7 @@ Kubernetes. As a best practice, to scope down permissions in your policy
 with least privilege rather than the administrative policy, attach a custom
 policy instead. 6. On the review page, choose **Create**.
 
-## Step 5: Create a source repository and add the `helm chart` config files
+## Step 5: Create a source repository and add the `Helm chart` config files
 
 In this step, you create a config file that is appropriate for your action (Kubernetes
 manifest files or Helm
@@ -327,7 +327,7 @@ For more information, see [https://kubernetes.io/docs/reference/kubectl/quick-re
 - For Helm, use a Helm chart.
 
 1. Create or use an existing GitHub repository.
-2. Create a new structure in your repository for your helm chart files as shown
+2. Create a new structure in your repository for your Helm chart files as shown
    in the example
    below.
 
@@ -390,7 +390,7 @@ repository.
      chart location**, enter the path
      for
      your
-     helm chart files, such as
+     Helm chart files, such as
      `mychart`.
     3. Choose **Next**.
 

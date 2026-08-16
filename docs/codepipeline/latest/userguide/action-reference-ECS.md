@@ -9,12 +9,12 @@ deploy the image.
 ###### Important
 
 The Amazon ECS standard deployment action for CodePipeline creates its own revision of the task
-definition based on the the revision used by the Amazon ECS service. If you create new
+definition based on the revision used by the Amazon ECS service. If you create new
 revisions for the task definition without updating the Amazon ECS service, the deployment
 action will ignore those revisions.
 
 Before you create your pipeline, you must have already created the Amazon ECS resources, tagged
-and stored the image in your image repository, and uploaded the BuildSpec file to your file
+and stored the image in your image repository, and uploaded the buildspec file to your file
 repository.
 
 ###### Note
@@ -237,7 +237,7 @@ The following related resources can help you as you work with this action.
 - [Tutorial: Continuous Deployment
   with CodePipeline](../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md "../../../AmazonECS/latest/developerguide/ecs-cd-pipeline.md") – This tutorial shows you how to create a
   Dockerfile that you store in a source file repository such as CodeCommit. Next, the
-  tutorial shows you how to incorporate a CodeBuild BuildSpec file that builds and
+  tutorial shows you how to incorporate a CodeBuild buildspec file that builds and
   pushes your Docker image to Amazon ECR and creates your imagedefinitions.json file.
   Finally, you create an Amazon ECS service and task definition, and then you create
   your pipeline with an Amazon ECS deployment action.

@@ -15,7 +15,7 @@ and will be dependable.
 You can add actions to your pipeline that are in an AWS Region different from your
 pipeline. A cross-Region action is one in which an AWS service is the provider for an
 action and the action type or provider type are in an AWS Region different from your
-pipeline. For more information, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+pipeline. For more information, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
 You can also create pipelines that build and deploy container-based applications by using
 Amazon ECS as the deployment provider. Before you create a pipeline that deploys container-based
@@ -482,9 +482,9 @@ This step is optional if you have already created a build stage.
 
      The Amazon ECS deployment action requires an
      `imagedefinitions.json` file as an
-     input to the deployment action. The default ﬁle name for the
-     ﬁle is imagedefinitions.json. If you choose to use a
-     diﬀerent ﬁle name, you must provide it when you create the
+     input to the deployment action. The default file name for the
+     file is imagedefinitions.json. If you choose to use a
+     different file name, you must provide it when you create the
      pipeline deployment stage. For more information, see [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
 
      Choose **Next**.
@@ -548,7 +548,7 @@ This step is optional if you have already created a build stage.
      deploy** is selected, you may optionally enter a
      value for **Deployment path** to which your ZIP
      file will be unzipped. If it is not selected, you are required
-     to to enter a value in **S3 object
+     to enter a value in **S3 object
      key**.
 
      ###### Note
@@ -819,7 +819,7 @@ create these resources for your pipeline. Setting the flag to `false`
 disables periodic checks, which are not necessary when you are using the
 recommended change detection methods. 4. To create a build, test, or deploy action in a Region different from your
 pipeline, you must add the following to your pipeline structure. For
-instructions, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+instructions, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
     * Add the `Region` parameter to your action's pipeline
      structure.
@@ -864,7 +864,7 @@ recommended change detection resources for your pipeline:
 You can create a pipeline in the console that uses a template to configure a pipeline
 with source code and properties that you specify. You must provide the source file
 location and information about the source providers you will use for your actions. You
-can specify a source action for Amazon ECR or any third-party repository supoorted by CodeConnections,
+can specify a source action for Amazon ECR or any third-party repository supported by CodeConnections,
 such as GitHub.
 
 The template will create a stack in CloudFormation for your pipeline that includes the
@@ -927,7 +927,7 @@ CI pipeline.
      automated pipeline. View the options for automation, such as scheduling
      a python build.
 
-2. ![Image showing the choose template option with CloudFormation deployment selecrtedin the wizard](images/create-static-choose-template-depl.png)
+2. ![Image showing the choose template option with CloudFormation deployment selectedin the wizard](images/create-static-choose-template-depl.png)
 
 ![Image showing the choose source page in the wizard](images/create-static-choose-template-CI.png)
 

@@ -36,8 +36,8 @@ recommended event-based change detection method:
 ###### Important
 
 For applicable pipeline action configuration updates, such as pipelines with a GitHub
-(viaOAuth app) action, you must explicitly set the `PollForSourceChanges`
-parameter to _false_ within your Source action’s
+(via OAuth app) action, you must explicitly set the `PollForSourceChanges`
+parameter to _false_ within your Source action's
 configuration to stop a pipeline from polling. As a result, it is possible to
 erroneously configure a pipeline with both event-based change detection _and_ polling by, for example, configuring an EventBridge rule and
 also omitting the `PollForSourceChanges` parameter. This results in duplicate
@@ -243,7 +243,7 @@ polling source to the recommended event-based change detection method.
 Your polling pipelines are determined by the pipeline's action
 configuration for the `PollForSourceChanges` parameter. If
 the pipeline source configuration has the
-`PollForSourceChanges` parameter ommitted, then CodePipeline
+`PollForSourceChanges` parameter omitted, then CodePipeline
 defaults to polling your repository for source changes. This behavior is
 the same as if `PollForSourceChanges` is included and set to
 true. For more information, see the configuration parameters for your
@@ -1195,7 +1195,7 @@ JSON
 
 For a pipeline with an Amazon S3 source, modify the pipeline so that change detection is
 automated through EventBridge and with a source bucket that is enabled for event notifications.
-This is the recommend method if you are using the CLI or CloudFormation to migrate your
+This is the recommended method if you are using the CLI or CloudFormation to migrate your
 pipeline.
 
 ###### Note
@@ -2319,7 +2319,7 @@ following resources to your template:
   AWS CloudTrail trail, bucket, and bucket policy that Amazon S3 can use to log the
   events that occur. For more information, see [Logging data
   events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") and [Logging management events for trails](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md").
-- EventBridge rule and IAM role to allow this event to start our pipeline.
+- EventBridge rule and IAM role to allow this event to start your pipeline.
 
 If you use CloudFormation to create and manage your pipelines, your template includes
 content like the following.

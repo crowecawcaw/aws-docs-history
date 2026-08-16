@@ -1,7 +1,7 @@
 # `ECRBuildAndPublish` build action reference
 
 This build action allows you to automate building and pushing a new image when a change
-occurs in your source. This action builds based on a specified Docker file location and
+occurs in your source. This action builds based on a specified Dockerfile location and
 pushes the image. This build action is not the same as the Amazon ECR source action in CodePipeline,
 which triggers pipeline when a change occurs in your Amazon ECR source repository. For
 information about that action, see [Amazon ECR source action reference](action-reference-ECR.md "action-reference-ECR.md").
@@ -51,8 +51,8 @@ The name of the Amazon ECR repository where the image is pushed.
 
 Required: No
 
-The location of the Docker file used to build the image. Optionally, you
-can provide an alternate docker file location if not at the root
+The location of the Dockerfile used to build the image. Optionally, you
+can provide an alternate Dockerfile location if not at the root
 level.
 
 ###### Note

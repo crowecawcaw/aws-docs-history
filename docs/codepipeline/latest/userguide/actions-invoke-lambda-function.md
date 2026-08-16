@@ -41,7 +41,7 @@ shows you how to:
 
 ###### Note
 
-When using cross-Region Lambda invoke action in CodePipeline, the status of the lambda execution
+When using cross-region Lambda invoke action in CodePipeline, the status of the Lambda execution
 using the
 [PutJobSuccessResult](../APIReference/API_PutJobSuccessResult.md "../APIReference/API_PutJobSuccessResult.md")
 and [PutJobFailureResult](../APIReference/API_PutJobFailureResult.md "../APIReference/API_PutJobFailureResult.md")

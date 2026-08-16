@@ -21,7 +21,7 @@ where you create your pipeline. For example, if you create your pipeline in the 
 Region, your CodeCommit repository must be in the US East (Ohio) Region.
 
 You can add cross-region actions when you create your pipeline. AWS resources for cross-region actions must be in the same AWS Region where you plan to execute the action.
-For more information, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+For more information, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
 You can try this out using your existing iOS app, or you can use the [sample iOS app](samples/s3-ios-test-1.zip.md "samples/s3-ios-test-1.zip.md").
 

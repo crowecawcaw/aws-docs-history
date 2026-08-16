@@ -16,7 +16,7 @@ change to a source location configured in the source stage. For information, see
 You can add actions to your pipeline that are in an AWS Region different from your
 pipeline. When an AWS service is the provider for an action, and this action type/provider
 type are in a different AWS Region from your pipeline, this is a cross-Region action. For more
-information about cross-Region actions, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+information about cross-Region actions, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
 CodePipeline uses change detection methods to start your pipeline when a source code change is
 pushed. These detection methods are based on source type:
@@ -276,7 +276,7 @@ CodePipeline uses Amazon CloudWatch Events to detect changes in your CodeCommit 
 your Amazon S3 source bucket. The next step includes instructions for creating these resources
 manually. Setting the flag to `false` disables periodic checks, which are not
 required when you use the recommended change detection methods. 3. To add a build, test, or deploy action in a Region different from your pipeline, you
-must add the following to your pipeline structure. For detailed instructions, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+must add the following to your pipeline structure. For detailed instructions, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
     * Add the `Region` parameter to your action's pipeline structure.
     * Use the `artifactStores` parameter to specify an artifact bucket for

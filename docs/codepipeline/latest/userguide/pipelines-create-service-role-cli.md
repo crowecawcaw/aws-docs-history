@@ -75,7 +75,7 @@ To save and exit the file, enter the following VIM command:
 
 5. Enter the following command to create the role and attach the trust role
    policy. The policy name format is normally the same as the role name format.
-   This examples uses the role name `MyRole` and the policy
+   This example uses the role name `MyRole` and the policy
    `TrustPolicy` that was created as a separate file.
 
 ```
@@ -84,7 +84,7 @@ aws iam create-role --role-name MyRole --assume-role-policy-document file://Trus
 
 6. Enter the following command to create the role policy and attach it to the
    role. The policy name format is normally the same as the role name format. This
-   examples uses the role name `MyRole` and the policy
+   example uses the role name `MyRole` and the policy
    `MyRole` that was created as a separate file.
 
 ```

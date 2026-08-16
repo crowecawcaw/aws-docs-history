@@ -30,7 +30,7 @@ where you create your pipeline. For example, if you create your pipeline in the 
 Region, your CodeCommit repository must be in the US East (Ohio) Region.
 
 You can add cross-region actions when you create your pipeline. AWS resources for cross-region actions must be in the same AWS Region where you plan to execute the action.
-For more information, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+For more information, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
 Before you begin, you should complete the prerequisites in [Getting started with CodePipeline](getting-started-codepipeline.md "getting-started-codepipeline.md").
 
@@ -144,7 +144,7 @@ and to allow the instance to be managed by SSM.
 
 ###### To create an instance role
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the console dashboard, choose **Roles**.
 3. Choose **Create role**.
 4. Under **Select type of trusted entity**, select
@@ -180,7 +180,7 @@ Choose **Create role**.
 4. Under **Application and OS Images (Amazon Machine Image)**, choose
    the **Windows** option. (This AMI is described as the **Microsoft
    Windows Server 2019 Base** and is labeled "Free tier eligible" and can be found
-   under **Quick Start**..)
+   under **Quick Start**.)
 5. Under **Instance type**, choose the free tier eligible
    `t2.micro` type as the hardware configuration for your instance.
 6. Under **Key pair (login)**, choose a key pair or create one.
@@ -206,7 +206,7 @@ In **Auto-assign Public IP**, make sure the status is
 8. Expand **Advanced details**. In **IAM instance
 profile**, choose the IAM role you created in the previous procedure (for
 example, `EC2InstanceRole`). 9. Under **Summary**, under **Number of instances**,
-enter `2`.. 10. Choose **Launch instance**. 11. Choose **View all instances** to close the confirmation page and
+enter `2`. 10. Choose **Launch instance**. 11. Choose **View all instances** to close the confirmation page and
 return to the console. 12. You can view the status of the launch on the **Instances** page. When
 you launch an instance, its initial state is `pending`. After the instance
 starts, its state changes to `running`, and it receives a public DNS name. (If
@@ -228,7 +228,7 @@ role, you do not need to create another one.
 
 ###### To create a CodeDeploy service role
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the console dashboard, choose **Roles**.
 3. Choose **Create role**.
 4. Under **Select trusted entity**, choose

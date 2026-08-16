@@ -250,7 +250,7 @@ The action provider, such as CodeBuild.
 
 ## `InputArtifacts`
 
-This field is contains the input artifact structure, if supported for the action
+This field contains the input artifact structure, if supported for the action
 category. The input artifact of an action must exactly match the output artifact
 declared in a preceding action. For example, if a preceding action includes the
 following declaration:
@@ -297,7 +297,7 @@ another action that has an output artifact named `"MyBuiltApp"`. However,
 a pipeline cannot include two actions that both have an output artifact named
 `"MyApp"`.
 
-This field is contains the
+This field contains the
 output artifact structure, if supported for the action category. The output artifact
 of an action must exactly match the output artifact declared in a preceding action.
 For example, if a preceding action includes the following declaration:
@@ -412,7 +412,7 @@ and third actions the `runOrder` value of 2.
 
 ###### Note
 
-The numbering of serial actions do not have to be in strict sequence. For
+The numbering of serial actions does not have to be in strict sequence. For
 example, if you have three actions in a sequence and decide to remove the second
 action, you do not need to renumber the `runOrder` value of the third
 action. Because the `runOrder` value of that action (3) is higher

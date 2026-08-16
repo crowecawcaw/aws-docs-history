@@ -1,6 +1,6 @@
 # Amazon S3 deploy action reference
 
-You use an Amazon S3 deploy action to deploy files to an Amazon S3 bucket for static web site
+You use an Amazon S3 deploy action to deploy files to an Amazon S3 bucket for static website
 hosting or archive. You can specify whether to extract deployment files before upload to
 your bucket.
 
@@ -41,7 +41,7 @@ Required: Yes
 
 If true, specifies that files are to be extracted before upload.
 Otherwise, application files remain zipped for upload, such as in the case
-of a hosted static web site. If false, then the `ObjectKey` is
+of a hosted static website. If false, then the `ObjectKey` is
 required.
 
 **ObjectKey**

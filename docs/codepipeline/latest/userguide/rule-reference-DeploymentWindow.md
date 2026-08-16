@@ -45,8 +45,8 @@ you to specify a schedule pattern with a cron expression as follows.
   fields. It is used to specify 'no specific value'. This is useful
   when you need to specify something in one of the two fields, but not
   the other.
-- The '-' character is used to specify ranges For example "10-12" in
-  the hour field means "the hours 10, 11 and 12".
+- The '-' character is used to specify ranges. For example, "10-12"
+  in the hour field means "the hours 10, 11 and 12".
 - The ',' character is used to specify additional values. For
   example "MON,WED,FRI" in the day-of-week field means "the days
   Monday, Wednesday, and Friday".

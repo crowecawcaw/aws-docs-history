@@ -53,7 +53,7 @@ In this section, you create a pipeline with the following actions:
 If you choose instead to use your existing CodePipeline service role, make sure that you
 have added the `codeconnections:UseConnection` IAM permission to your service
 role policy. For instructions for the CodePipeline service role, see [Add permissions
-to the the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Variables**, choose **Add variable**. In
+to the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Variables**, choose **Add variable**. In
 **Name**, enter `timeout`. In **Default**,
 enter 1000. In description, enter the following description:
 `Timeout`.
@@ -76,7 +76,7 @@ Choose **Next**. 9. On the **Step 3: Add source stage** page, add a source stage
     1. In **Source provider**, choose
      **AWS CodeCommit**.
     2. In **Repository name** and **Branch name**,
-     choose the your repository and branch.Choose **Next**.
+     choose your repository and branch.Choose **Next**.
 
 10. In **Step 4: Add build stage**, add a build stage:
 

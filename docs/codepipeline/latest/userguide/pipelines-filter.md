@@ -104,7 +104,7 @@ one of the following options.
 
 
     For a push trigger, specify the branches you're pushing *to*, that is, the *destination* branches. For a pull request trigger,
-     specify destination branches you're opening pull request to.
+     specify destination branches you're opening a pull request to.
     * (Optional) Under **File paths**, specify
      file paths for your trigger. Enter the names in **Include** and **Exclude** as
      appropriate.
@@ -150,7 +150,7 @@ one of the following options.
 
 
     For a push trigger, specify the branches you're pushing *to*, that is, the *destination* branches. For a pull request trigger,
-     specify destination branches you're opening pull request to.
+     specify destination branches you're opening a pull request to.
     * (Optional) Under **File paths**, specify
      file paths for your trigger. Enter the names in **Include** and **Exclude** as
      appropriate.

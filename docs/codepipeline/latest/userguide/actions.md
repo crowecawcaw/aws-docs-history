@@ -22,5 +22,5 @@ CodePipeline provides support for six types of actions:
 - [Tag a custom action in CodePipeline](customactions-tag.md "customactions-tag.md")
 - [Invoke a Lambda function in a pipeline](actions-invoke-lambda-function.md "actions-invoke-lambda-function.md")
 - [Add a manual approval action to a stage](approvals.md "approvals.md")
-- [Add a cross-Region action to a pipeline](actions-create-cross-region.md "actions-create-cross-region.md")
+- [Add a cross-region action to a pipeline](actions-create-cross-region.md "actions-create-cross-region.md")
 - [Working with variables](actions-variables.md "actions-variables.md")

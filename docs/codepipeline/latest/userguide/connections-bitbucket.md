@@ -149,7 +149,7 @@ your source action with your connection information.
    third-party
    repository.
 2. Under **Pipeline triggers** you can add triggers if your
-   action is an CodeConnections action. To configure the pipeline trigger configuration
+   action is a CodeConnections action. To configure the pipeline trigger configuration
    and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.

@@ -149,6 +149,33 @@ For more information, see [EnvironmentVariable](../../../codebuild/latest/APIRef
 example CodeBuild action with an environment variable that resolves to the
 GitHub branch name, see [Example: Use a BranchName variable with CodeBuild environment variables](actions-variables.md#actions-variables-examples-env-branchname "actions-variables.md#actions-variables-examples-env-branchname").
 
+**ServiceRoleArnOverride**
+
+Required: No
+
+An IAM role ARN that CodeBuild uses as the service role for builds
+triggered by this action, overriding the default service role configured
+on the CodeBuild project. When absent, the CodeBuild project uses its default
+service role.
+
+The specified role must have a trust policy that allows the
+`codebuild.amazonaws.com` service to assume it. Both
+the identity used to create or update the pipeline and the pipeline
+service role must have `iam:PassRole` permission for the
+specified role. For an example policy, see [Service role permissions: CodeBuild action](#edit-role-codebuild "#edit-role-codebuild").
+
+As a security best practice, when a CodeBuild project is shared across
+multiple pipelines, we recommend specifying a scoped role for each
+pipeline to follow the principle of least privilege. For pipelines
+using CodeConnections source actions, see [Add CodeBuild GitClone permissions for connections to Bitbucket, GitHub, GitHub Enterprise Server, or GitLab.com](troubleshooting.md#codebuild-role-connections "troubleshooting.md#codebuild-role-connections") for an example of
+scoping the role's connection permissions to a specific
+repository.
+
+###### Note
+
+The role must be in the same AWS account as the CodeBuild
+project.
+
 ## Input artifacts
 
 - **Number of artifacts:**
@@ -232,6 +259,23 @@ JSON
 
 ```
 
+If you use the `ServiceRoleArnOverride` parameter, add the following
+`iam:PassRole` permission to allow CodePipeline to pass the role to
+CodeBuild:
+
+```
+{
+    "Effect": "Allow",
+    "Action": "iam:PassRole",
+    "Resource": "arn:aws:iam::`111122223333`:role/`your-codebuild-override-role`",
+    "Condition": {
+        "StringEquals": {
+            "iam:PassedToService": "codebuild.amazonaws.com"
+        }
+    }
+}
+```
+
 ## Action declaration (CodeBuild example)
 
 YAML
@@ -252,6 +296,7 @@ Actions:
       ProjectName: my-build-project
       PrimarySource: MyApplicationSource1
       EnvironmentVariables: '[{"name":"TEST_VARIABLE","value":"TEST_VALUE","type":"PLAINTEXT"},{"name":"ParamStoreTest","value":"PARAMETER_NAME","type":"PARAMETER_STORE"}]'
+      ServiceRoleArnOverride: 'arn:aws:iam::111122223333:role/my-scoped-codebuild-role'
     OutputArtifacts:
       - Name: MyPipeline-BuildArtifact
     InputArtifacts:
@@ -280,7 +325,8 @@ JSON
                 "CombineArtifacts": "true",
                 "ProjectName": "my-build-project",
                 "PrimarySource": "MyApplicationSource1",
-                "EnvironmentVariables": "[{\"name\":\"TEST_VARIABLE\",\"value\":\"TEST_VALUE\",\"type\":\"PLAINTEXT\"},{\"name\":\"ParamStoreTest\",\"value\":\"PARAMETER_NAME\",\"type\":\"PARAMETER_STORE\"}]"
+                "EnvironmentVariables": "[{\"name\":\"TEST_VARIABLE\",\"value\":\"TEST_VALUE\",\"type\":\"PLAINTEXT\"},{\"name\":\"ParamStoreTest\",\"value\":\"PARAMETER_NAME\",\"type\":\"PARAMETER_STORE\"}]",
+                "ServiceRoleArnOverride": "arn:aws:iam::111122223333:role/my-scoped-codebuild-role"
             },
             "OutputArtifacts": [
                 {

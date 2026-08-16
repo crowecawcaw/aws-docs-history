@@ -151,7 +151,7 @@ open the URL of the commit. Source revisions are made up of the following:
 
 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
 
-The names of all pipelines associated with your AWS accountwill be
+The names of all pipelines associated with your AWS account will be
 displayed. 2. Choose the name of the pipeline for which you want to view source revision
 details. Do one of the following:
 

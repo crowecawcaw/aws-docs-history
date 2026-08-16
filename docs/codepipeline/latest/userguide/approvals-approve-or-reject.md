@@ -32,7 +32,7 @@ comments.
 The **Revisions** tab shows the source revisions for the
 execution.
 
-![TThe Revisions tab shows the source revisions for the execution.](images/manual-approval-review-revisions.png) 4. On
+![The Revisions tab shows the source revisions for the execution.](images/manual-approval-review-revisions.png) 4. On
 the **Details** tab, view the comments
 and URL, if any. The message also displays the URL of content for you to
 review, if one was included. 5. If a URL was provided, choose the

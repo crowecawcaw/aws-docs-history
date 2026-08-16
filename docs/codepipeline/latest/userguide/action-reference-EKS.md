@@ -73,8 +73,8 @@ The chart location for your deployment.
 Required: No (Optional only for **Helm**
 type)
 
-To override for helm values files, enter the comma-separated
-helm values files in the helm chart location.
+To override for Helm values files, enter the comma-separated
+Helm values files in the Helm chart location.
 
 **Options under Kubectl**
 
@@ -89,7 +89,7 @@ type)
 The name of your manifest file, the text file that describes
 your service's container name and the image and tag. You use
 this file to parameterize your image URI and other information.
-You can use environment variable for this purpose.
+You can use an environment variable for this purpose.
 
 You store this file in the source repository for your
 pipeline.
@@ -98,7 +98,7 @@ pipeline.
 
 Required: No
 
-The kubernetes namepsace to be used in `kubectl` or
+The Kubernetes namespace to be used in `kubectl` or
 `helm` commands.
 
 **Subnets**
@@ -124,7 +124,7 @@ here.
   `1`
 - **Description:** The action looks for the
   Kubernetes manifest file or Helm chart in the source file repository for the
-  pipeline. If you want to use helm charts in .tgz format stored in an S3 bucket,
+  pipeline. If you want to use Helm charts in .tgz format stored in an S3 bucket,
   you can do so by configuring the S3 Bucket/Key as your source action. For
   example, the object key provided would be
   `my-chart-0.1.0.tgz`.
@@ -139,7 +139,7 @@ here.
 ## Environment variables
 
 Used to replace variables such as image repositories or image tags in manifest files
-or helm chart values files.
+or Helm chart values files.
 
 **Key**
 

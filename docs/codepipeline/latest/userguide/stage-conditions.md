@@ -164,7 +164,7 @@ following.
 ### Creating Entry conditions with Skip result and `VariableCheck` rule (console)
 
 You can configure Entry conditions for a stage so that if the entry condition is
-not met, the stage is skipped If the condition fails, then the result engages and
+not met, the stage is skipped. If the condition fails, then the result engages and
 the stage is skipped. When a stage is skipped, the stage status is
 **Skipped**, and the action status is **Didn't
 Run**. For considerations for stage conditions with Skip results, see
@@ -227,7 +227,7 @@ update a pipeline as detailed in [Create a pipeline, stages, and actions](pipeli
 - Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
   to run the `update-pipeline` command, specifying the failure
   condition in the pipeline structure. The following example configures an
-  Entry condition for a staged named `Deploy`:
+  Entry condition for a stage named `Deploy`:
 
 ```
 {
@@ -445,7 +445,7 @@ or update a pipeline as detailed in [Create a pipeline, stages, and actions](pip
 - Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
   to run the `update-pipeline` command, specifying the failure
   condition in the pipeline structure. The following example configures an On
-  Failure condition for a staged named `Deploy`:
+  Failure condition for a stage named `Deploy`:
 
 ```
 {
@@ -511,7 +511,7 @@ Reference_.
 ### Creating On Failure conditions (CFN)
 
 To use CloudFormation to configure an On Failure condition, use the `OnFailure`
-parameter. On success, the stage will run the rule and perform the result.
+parameter. On failure, the stage will run the rule and perform the result.
 
 ```
 OnFailure:
@@ -626,7 +626,7 @@ or update a pipeline as detailed in [Create a pipeline, stages, and actions](pip
 - Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
   to run the `update-pipeline` command, specifying the failure
   condition in the pipeline structure. The following example configures an On
-  Success condition for a staged named `Deploy`, where the rule is
+  Success condition for a stage named `Deploy`, where the rule is
   named `MyDeploymentRule`:
 
 ```
@@ -757,7 +757,7 @@ condition**.
 
 You can override stage conditions that have been configured for your pipeline. In the
 console, when the stage and rule are running, you can choose to override the stage
-condition. This results in the stage running
+condition. This results in the stage running.
 
 ###### To override a stage condition
 
@@ -772,4 +772,4 @@ following example shows that the configured result for the condition is Fail,
 which has been overridden. The rule status is Abandoned due to the
 override.
 
-![An example condition details page showing the overriden condition in CodePipeline.](images/stage-condition-onsuccess-deplwin-example-message-review.png)
+![An example condition details page showing the overridden condition in CodePipeline.](images/stage-condition-onsuccess-deplwin-example-message-review.png)

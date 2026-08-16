@@ -18,7 +18,7 @@ that uses the Amazon ECS to CodeDeploy blue/green deployment action in CodePipel
 ###### Note
 
 This tutorial is for the Amazon ECS standard deployment action for CodePipeline with a source
-action. For a tutorial that uses the Amazon ECSstandard deployment action along with the
+action. For a tutorial that uses the Amazon ECS standard deployment action along with the
 ECRBuildAndPublish build action in CodePipeline to push your image, see [Tutorial: Build and push a Docker image to Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md").
 
 ## Prerequisites
@@ -45,7 +45,7 @@ All of these resources should be created within the same AWS Region.
 ###### Important
 
 The Amazon ECS standard deployment action for CodePipeline creates its own revision of
-the task definition based on the the revision used by the Amazon ECS service. If
+the task definition based on the revision used by the Amazon ECS service. If
 you create new revisions for the task definition without updating the Amazon ECS
 service, the deployment action will ignore those revisions.
 

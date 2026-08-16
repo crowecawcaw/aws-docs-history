@@ -18,7 +18,7 @@ Events are composed of rules. A rule is configured by choosing the following:
 - **Event Pattern.** Each rule is expressed as an event
   pattern with the source and type of events to monitor, and event targets. To monitor events,
   you create a rule with the service you are monitoring as the event source, such as CodePipeline.
-  For example, you can create a rule with an event pattern that that uses CodePipeline as an event
+  For example, you can create a rule with an event pattern that uses CodePipeline as an event
   source to trigger the rule when there are changes in the state of a pipeline, stage, or
   action.
 - **Targets.** The new rule receives a selected service as
@@ -1145,10 +1145,10 @@ arn:aws:codepipeline:us-east-2:80398EXAMPLE:MyFirstPipeline 12. To create or spe
 the target associated with your EventBridge rule (in this case, the target is CodePipeline):
 
     * Choose **Create a new role for this specific resource** to
-     create a service role that gives EventBridge permissions to your start your pipeline
+     create a service role that gives EventBridge permissions to start your pipeline
      executions.
     * Choose **Use existing role** to enter a service role that gives
-     EventBridge permissions to your start your pipeline executions.
+     EventBridge permissions to start your pipeline executions.
 
 13. Choose **Next**. 14. On the **Tags** page, choose **Next**. 15. On the **Review and create** page, review the rule configuration.
 If you're satisfied with the rule, choose **Create rule**.
@@ -1173,7 +1173,7 @@ specifying:
    pattern. (See the preceding tables for valid states.)
 
 The following sample command uses **--event-pattern** to create a
-rule called `“MyPipelineStateChanges”` that emits the CloudWatch event when a
+rule called `"MyPipelineStateChanges"` that emits the CloudWatch event when a
 pipeline execution fails for the pipeline named "myPipeline."
 
 ```

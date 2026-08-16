@@ -153,7 +153,7 @@ JSON
     "runOrder": 2,
     "configuration": {
         "PipelineName": "my-s3-pipeline",
-        "SourceRevisions": "[{\"actionName\":\"Source\",\"revisionType\":\"S3_OBJECT_VERSION_ID\",\"revisionValue\":\"zq8mjNEXAMPLE"}]",
+        "SourceRevisions": "[{\"actionName\":\"Source\",\"revisionType\":\"S3_OBJECT_VERSION_ID\",\"revisionValue\":\"zq8mjNEXAMPLE\"}]",
         "Variables": "[{\"name\":\"VAR1\",\"value\":\"VALUE1\"}]"
     }
 },

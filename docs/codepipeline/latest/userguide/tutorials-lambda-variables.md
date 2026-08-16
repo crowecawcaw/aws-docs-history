@@ -59,7 +59,7 @@ the Lambda action to your pipeline after you create the Lambda function.
 5. Choose **Create function**.
 6. To use a variable from another action, it will have to be passed to the
    `UserParameters` in the Lambda invoke action configuration. You
-   will be configuring the action in our pipeline later in the tutorial, but you
+   will be configuring the action in your pipeline later in the tutorial, but you
    will add the code assuming the variable will be passed.
 
 To produce new variables, set a property called `outputVariables`

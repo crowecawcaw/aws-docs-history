@@ -41,7 +41,7 @@ resources.
 
 ###### To create an instance role
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the console dashboard, choose **Roles**.
 3. Choose **Create role**.
 4. Under **Select type of trusted entity**, select

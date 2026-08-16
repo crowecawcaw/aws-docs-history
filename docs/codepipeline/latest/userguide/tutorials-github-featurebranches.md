@@ -61,7 +61,7 @@ In this section, you create a pipeline with the following actions:
 If you choose instead to use your existing CodePipeline service role, make sure that you
 have added the `codeconnections:UseConnection` IAM permission to your
 service role policy. For instructions for the CodePipeline service role, see [Add permissions
-to the the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Advanced settings**, leave the defaults. In
+to the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Advanced settings**, leave the defaults. In
 **Artifact store**, choose **Default location** to use
 the default artifact store, such as the Amazon S3 artifact bucket designated as the default,
 for your pipeline in the Region you selected for your pipeline.

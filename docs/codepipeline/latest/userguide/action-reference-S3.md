@@ -272,7 +272,7 @@ JSON
 The following related resources can help you as you work with this action.
 
 - [Tutorial: Create a simple pipeline (S3 bucket)](tutorials-simple-s3.md "tutorials-simple-s3.md")
-  – This tutorial provides a sample app spec file and sample CodeDeploy
+  – This tutorial provides a sample AppSpec file and sample CodeDeploy
   application and deployment group. Use this tutorial to create a pipeline with an
 
 Amazon S3 source that deploys to Amazon EC2 instances.

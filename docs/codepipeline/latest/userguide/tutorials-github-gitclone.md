@@ -19,7 +19,7 @@ sure that the S3 artifact bucket is owned by AWS accounts that are safe and will
 dependable.
 
 In this tutorial, you will create a pipeline that connects to your GitHub repository, uses
-the full clone option for source data, and run a CodeBuild build that clones your repository and
+the full clone option for source data, and runs a CodeBuild build that clones your repository and
 performs Git commands for the repository.
 
 ###### Note
@@ -51,7 +51,7 @@ After you create your GitHub repository, use these steps to add a README file.
 
 1. Log in to your GitHub repository and choose your repository.
 2. To create a new file, choose **Add file > Create new file**. Name the
-   file `README.md`. file and add the following text.
+   file `README.md` and add the following text.
 
 ```
 This is a GitHub repository!
@@ -91,7 +91,7 @@ In this section, you create a pipeline with the following actions:
 If you choose instead to use your existing CodePipeline service role, make sure that you
 have added the `codestar-connections:UseConnection` IAM permission to your
 service role policy. For instructions for the CodePipeline service role, see [Add permissions
-to the the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Advanced settings**, leave the defaults. In
+to the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Advanced settings**, leave the defaults. In
 **Artifact store**, choose **Default location** to use
 the default artifact store, such as the Amazon S3 artifact bucket designated as the default,
 for your pipeline in the Region you selected for your pipeline.

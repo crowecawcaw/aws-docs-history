@@ -14,7 +14,7 @@ Retrying a failed stage retries all actions in the stage from the first action i
 stage, and retrying failed actions retries all failed actions in the stage. This
 overrides output artifacts of previously successful actions in the same execution.
 
-Although artifacts may be overriden, the execution history of previously successful
+Although artifacts may be overridden, the execution history of previously successful
 actions is still retained.
 
 If you are using the console to view a pipeline, either a **Retry
@@ -235,7 +235,7 @@ commands to create or update a pipeline as detailed in [Create a pipeline, stage
 - Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
   to run the `update-pipeline` command, specifying the failure
   condition in the pipeline structure. The following example configures
-  automatic retry for a staged named `S3Deploy`:
+  automatic retry for a stage named `S3Deploy`:
 
 ```
 {

@@ -50,8 +50,8 @@ You must have already created a version.
 Required: No
 
 The alias of the function that you created in Lambda and is the function to
-be deployed to, such as `live`. The alias must exist and has one
-version behind it when the action executions starts. (It will be the
+be deployed to, such as `live`. The alias must exist and have one
+version behind it when the action execution starts. (It will be the
 rollback target version.)
 
 If not provided, the action deploys the source artifact to
@@ -85,7 +85,7 @@ strategies are canary or linear. Accepted formats:
 
 Shifts all traffic to the updated Lambda functions at once.
 
-If not specified, the default is `AllAtOnce`)
+If not specified, the default is `AllAtOnce`.
 
 - `Canary10Percent5Minutes` - Shifts 10 percent of
   traffic in the first increment. The remaining 90 percent is deployed

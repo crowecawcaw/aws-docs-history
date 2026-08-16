@@ -262,7 +262,7 @@ for your own design.
 4. Get started configuring identity federation. For information, see [Identity Providers and
    Federation](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md") in _IAM User Guide_.
 
-Ceate
+Create
 one of the following to use under
 your
 AWS account

@@ -72,7 +72,7 @@ For more information on S3 source configuration parameters, see [Configuration p
 
 In the following example, to start running the specified change through a
 pipeline named **codecommit-pipeline**, the following command
-species a source action name of Source, a revision type of
+specifies a source action name of Source, a revision type of
 `COMMIT_ID`, and a commit ID of
 `78a25c18755ccac3f2a9eec099dEXAMPLE`.
 

@@ -9,7 +9,7 @@ Git commands for the repository.
 
 ###### Note
 
-CodeBuild actions are the only downstream actions support use of Git metadata available with
+CodeBuild actions are the only downstream actions that support the use of Git metadata available with
 the Git clone option. Also, while your pipeline can contain cross-account actions, the CodeCommit
 action and the CodeBuild action must be in the same account for the full clone option to
 succeed.
@@ -44,7 +44,7 @@ an example source file for the CodeBuild downstream action to read.
 
 1. Log in to your repository and choose your repository.
 2. To create a new file, choose **Add file > Create file**. Name the
-   file `README.md`. file and add the following text.
+   file `README.md` and add the following text.
 
 ```
 This is a CodeCommit repository!
@@ -82,7 +82,7 @@ In this section, you create a pipeline with the following actions:
    - Choose your existing CodePipeline service role. This role must have the
      `codecommit:GetRepository` IAM permission to your service role policy.
      See [Add
-     permissions to the the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services").
+     permissions to the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services").
 
 7. Under **Advanced settings**, leave the defaults. Choose
    **Next**.

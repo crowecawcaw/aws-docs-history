@@ -6,7 +6,7 @@ application alongside the old version, and you can test the new version before y
 traffic to it. You can also monitor the deployment process and rapidly roll back if there is
 an issue.
 
-The completed pipeline detects changes to your images or task definition file and and uses
+The completed pipeline detects changes to your images or task definition file and uses
 CodeDeploy to route and deploy traffic to an Amazon ECS cluster and load balancer. CodeDeploy creates a new
 listener on your load balancer which can target your new task through a special port. You
 can also configure the pipeline to use a source location, such as a CodeCommit repository, where
@@ -125,7 +125,7 @@ Available values for `<Number>` are 1 through 4.
 - **Description:** The `CodeDeployToECS`
   action first looks for the task definition file and the AppSpec file in the
   source file repository, next looks for the image in the image repository, then
-  dynamically generates a new revision of task definition, and finallyruns the
+  dynamically generates a new revision of task definition, and finally runs the
   AppSpec commands to deploy the task set and container to the cluster.
 
 The `CodeDeployToECS` action looks for an

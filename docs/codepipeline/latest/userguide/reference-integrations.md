@@ -450,7 +450,7 @@ The `continuation` token is part of the payload and result of your Lambda
 function. It is a way to pass job state to CodePipeline and indicate that the job needs to be
 continued. For example, after an integrator starts a build for the customer on their
 resource, it does not wait for the build to complete, but indicates to CodePipeline that it does
-not havea terminal result by returning the `result` as `continue` and
+not have a terminal result by returning the `result` as `continue` and
 returning the build’s unique ID to CodePipeline as `continuation` token.
 
 ###### Note

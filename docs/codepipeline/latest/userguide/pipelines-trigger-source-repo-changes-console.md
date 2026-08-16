@@ -71,13 +71,13 @@ is CodePipeline):
 
     * Choose **Create a new role for this specific
      resource** to create a service role that gives EventBridge
-     permissions to your start your pipeline executions.
+     permissions to start your pipeline executions.
     * Choose **Use existing role** to enter a service
-     role that gives EventBridge permissions to your start your pipeline
+     role that gives EventBridge permissions to start your pipeline
      executions.
 
 12. (Optional) To specify source overrides with a specific image ID, use the
-input transformer to pass the data as a JSON parameters. You can also use
+input transformer to pass the data as JSON parameters. You can also use
 the input transformer to pass pipeline variables.
 
     * Expand **Additional settings**.

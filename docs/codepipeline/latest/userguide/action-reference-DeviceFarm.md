@@ -336,7 +336,7 @@ The following related resources can help you as you work with this action.
   _Device Farm API Reference_ can help you work with Device Farm
   projects.
 - [Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm](tutorials-codebuild-devicefarm.md "tutorials-codebuild-devicefarm.md") – This tutorial
-  provides a sample build spec file and sample application to create a pipeline
+  provides a sample buildspec file and sample application to create a pipeline
   with a GitHub source that builds and tests an Android app with CodeBuild and
   Device Farm.
 - [Tutorial: Create a pipeline that tests your iOS app with AWS Device Farm](tutorials-codebuild-devicefarm-S3.md "tutorials-codebuild-devicefarm-S3.md") – This tutorial

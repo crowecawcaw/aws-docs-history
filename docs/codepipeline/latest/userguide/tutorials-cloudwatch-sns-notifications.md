@@ -26,7 +26,7 @@ pipeline.
 Amazon SNS coordinates use of topics to deliver messages to subscribing endpoints or clients.
 Use Amazon SNS to create a notification topic and then subscribe to the topic using your email
 address. The Amazon SNS topic will be added as a target to your CloudWatch Events rule. For more information,
-see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md") .
+see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
 
 Create or identify a topic in Amazon SNS. CodePipeline will use CloudWatch Events to send notifications to this
 topic through Amazon SNS. To create a topic:

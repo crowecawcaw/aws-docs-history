@@ -155,7 +155,7 @@ status of **Stopped**. Subsequent actions do not start. The
 In the history view, the execution status is **Stopped**
 after the in-progress action is completed.
 
-![Image showing the the history view where the execution status is Stopped after the in-progress action is completed](images/stop-exec-wait-hist-1.png)
+![Image showing the history view where the execution status is Stopped after the in-progress action is completed](images/stop-exec-wait-hist-1.png)
 
 **Option 2: Stop and abandon**
 
@@ -174,7 +174,7 @@ progress.
 3. In the history view, the execution status is
    **Stopped**.
 
-![Image showing the the history view where the execution status is Stopped](images/stop-exec-abandon-hist-1.png)
+![Image showing the history view where the execution status is Stopped](images/stop-exec-abandon-hist-1.png)
 
 **Use cases for stopping a pipeline
 execution**
@@ -286,7 +286,7 @@ execution modes, see [Set or change the pipeline execution mode](execution-modes
 ## How executions are processed in PARALLEL mode
 
 For pipelines in PARALLEL mode, executions are independent of one another and
-don’t wait for other executions to complete before starting. There are no queues. To
+don't wait for other executions to complete before starting. There are no queues. To
 view parallel executions in the pipeline, use the execution history view.
 
 Use PARALLEL mode in development environments where each feature has its own

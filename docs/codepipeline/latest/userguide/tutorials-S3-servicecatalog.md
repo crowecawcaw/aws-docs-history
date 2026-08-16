@@ -301,7 +301,7 @@ repository. Make sure you upload this file to your source repository.
 5. On the **Review** page, verify that the information is
    correct, and then choose **Confirm and upload**.
 6. On the **Products** page, in the browser, copy the URL of your new
-   product. This contains the product ID. Copy and retain this product ID. You use when you
+   product. This contains the product ID. Copy and retain this product ID. You use it when you
    create your pipeline in CodePipeline.
 
 Here is the URL for a product named `my-product`. To extract the product

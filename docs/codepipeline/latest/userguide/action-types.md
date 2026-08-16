@@ -371,11 +371,11 @@ file. 8. Choose **Connect to <Action\_Name>**.
 A browser window opens and connects to the website you have created for your
 action type. 9. Log in to your website as a customer and complete the steps a customer takes
 to use your action type. Your steps will vary depending on your action category,
-website, and configuration, but usually includes a completion action that
+website, and configuration, but usually include a completion action that
 returns the customer to the **Edit action** page. 10. In the CodePipeline **Edit action** page, the additional
 configuration fields for the action display. The fields that display are the
 configuration properties that you specified in the action definition file. Enter
-theinformation in the fields that are customized for your action type.
+the information in the fields that are customized for your action type.
 
 For example, if the action definition file specified a property named
 `Host`, then a field with the label **Host** is

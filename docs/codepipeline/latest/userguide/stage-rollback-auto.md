@@ -3,7 +3,7 @@
 You can configure stages in a pipeline to roll back automatically on failure. When the
 stage fails, the stage is rolled back to the most recent successful execution. The
 pipeline can only roll back to a previous execution if the previous execution was
-started in the current pipeline structure version. Since, automatic rollback
+started in the current pipeline structure version. Since automatic rollback
 configuration is part of the pipeline definition, your pipeline stage will auto-rollback
 only after there is a successful pipeline execution in the pipeline stage.
 
@@ -35,7 +35,7 @@ detailed in [Create a pipeline, stages, and actions](pipelines-create.md "pipeli
 - Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
   to run the `update-pipeline` command, specifying the failure
   condition in the pipeline structure. The following example configures
-  automatic rollback for a staged named `S3Deploy`:
+  automatic rollback for a stage named `S3Deploy`:
 
 ```
 {
@@ -86,7 +86,7 @@ OnFailure:
 ```
 
 - Update the template as shown in the following snippet. The following
-  example configures automatic rollback for a staged named
+  example configures automatic rollback for a stage named
   `Release`:
 
 ```

@@ -77,7 +77,7 @@ the same set of changes at different times.
 While a pipeline can process multiple executions at the same time, a pipeline stage
 processes only one execution at a time. To do this, a stage is locked while it processes an
 execution. Two pipeline executions can't occupy the same stage at the same time. The execution
-waiting to enter the occupied stage is referred to an _inbound
+waiting to enter the occupied stage is an _inbound
 execution_. An inbound execution can still fail, be superseded, or be manually
 stopped. For more information about how inbound executions work, see [How Inbound Executions Work](concepts-how-it-works.md#how-it-works-inbound-executions "concepts-how-it-works.md#how-it-works-inbound-executions").
 
@@ -106,7 +106,7 @@ options, see [How pipeline executions are stopped](concepts-how-it-works.md#conc
 ### Failed executions
 
 If an execution fails, it stops and does not completely traverse the pipeline. Its
-status is `FAILED` status and the stage is unlocked. A more recent execution can
+status changes to `FAILED` and CodePipeline unlocks the stage. A more recent execution can
 catch up and enter the unlocked stage and lock it. You can retry a failed execution unless
 the failed execution has been superseded or is not retryable. You can roll back a failed
 stage to a previous successful execution.
@@ -211,8 +211,8 @@ third-party repository events. For example, WebhookV2 is a trigger type that all
 to be used to start pipelines with third-party source providers such as GitHub.com, GitHub
 Enterprise Server, GitLab.com, GitLab self-managed, or Bitbucket Cloud. In the pipeline
 configuration, you can specify a filter for triggers, such as push or pull request. You can
-filter code push events on Git tags, branches, or file paths. You can ﬁlter pull request
-events on event (opened, updated, closed), branches, or ﬁle paths.
+filter code push events on Git tags, branches, or file paths. You can filter pull request
+events on event (opened, updated, closed), branches, or file paths.
 
 For more information about triggers, see [Start a pipeline in CodePipeline](pipelines-about-starting.md "pipelines-about-starting.md"). For a tutorial that walks you through using Git
 tags as triggers for your pipeline, see [Tutorial: Use Git tags to start your pipeline](tutorials-github-tags.md "tutorials-github-tags.md").
@@ -232,7 +232,7 @@ by actions in the pipeline. Variable values are resolved at the time of pipeline
 can be viewed in the execution history. For variables declared at the pipeline level, you can
 either define default values in the pipeline configuration, or override them for a given
 execution. For variables emitted by an action, the value is available after an action
-succesfully completes. For more information, see [Variables reference](reference-variables.md "reference-variables.md").
+successfully completes. For more information, see [Variables reference](reference-variables.md "reference-variables.md").
 
 ## Conditions
 

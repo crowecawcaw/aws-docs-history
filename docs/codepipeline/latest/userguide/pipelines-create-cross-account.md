@@ -438,7 +438,7 @@ is the ARN of the customer-managed key you just created:
 
 ```
 {
-  "artifactStore”: {
+  "artifactStore": {
     "location": "`codepipeline-us-east-2-1234567890`",
     "type": "S3",
     "encryptionKey": {

@@ -1,15 +1,15 @@
 # How do stage conditions work?
 
 For each condition that specifies a rule, the rule is run. If the condition fails, the
-result is engaged. The stage performs the specified result only when the condition
-fails. Optionally, as part of the rule, you also specify which resources CodePipeline
+stage performs the specified result. Optionally, as part of the rule, you also specify
+which resources CodePipeline
 should use for certain cases. For example, the `CloudWatchAlarm` rule will
 use a CloudWatch alarm resource to run checks for the condition.
 
 A condition might match multiple rules, and each rule can specify one of three
 providers.
 
-The high-level flow for creating conditions as as follows.
+The high-level flow for creating conditions is as follows:
 
 1. Choose the type of condition from the available condition types in CodePipeline. For
    example, use an On Success condition type to set up a stage so that after the
@@ -45,7 +45,7 @@ meaning the rules all succeed their checks? In the following flow, an On Failure
 condition is configured with a LambdaInvoke rule and a `CloudWatchAlarm`
 rule. If the rule succeeds, then the configured result, such as Fail, is engaged.
 
-![An example of the On Failure condition type with two rules configured, a Lambda rule and a CloudWatchAlarm rule.](images/conditions-overview-onfailure.png)
+![An example of the On Failure condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](images/conditions-overview-onfailure.png)
 The following diagram shows an example flow for the On Success condition type in
 CodePipeline. Conditions answer the question, What should happen if the condition is met,
 meaning the rules all succeed their checks? In the following flow, an On Success
@@ -53,7 +53,7 @@ condition is configured with a `LambdaInvoke` rule and a
 `CloudWatchAlarm` rule. If the rule succeeds, then the configured result,
 such as Fail, is engaged.
 
-![An example of the On Success condition type with two rules configured, a Lambda rule and a CloudWatchAlarm rule.](images/conditions-overview-onsuccess.png)
+![An example of the On Success condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](images/conditions-overview-onsuccess.png)
 
 ## Rules for stage conditions
 
@@ -80,7 +80,7 @@ The following are managed rules that you can add to stage conditions.
   about this rule, see [LambdaInvoke](rule-reference-LambdaInvoke.md "rule-reference-LambdaInvoke.md").
 - Conditions can use the **AWS CloudWatchAlarm** rule to
   check for alarms configured from CloudWatch events. The rule is met when the check
-  returns an alarm state of OK, ALARM, or INSUFF\_DATA. For On Success
+  returns an alarm state of OK, ALARM, or INSUFFICIENT\_DATA. For On Success
   conditions, OK and INSUFFICIENT\_DATA meet the criteria. ALARM meets the
   criteria for On Failure conditions. For more information about this rule,
   see [CloudWatchAlarm](rule-reference-CloudWatchAlarm.md "rule-reference-CloudWatchAlarm.md").

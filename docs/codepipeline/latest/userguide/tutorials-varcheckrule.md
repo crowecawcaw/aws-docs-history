@@ -21,7 +21,7 @@ where you create your pipeline. For example, if you create your pipeline in the 
 Region, your CodeCommit repository must be in the US East (Ohio) Region.
 
 You can add cross-region actions when you create your pipeline. AWS resources for cross-region actions must be in the same AWS Region where you plan to execute the action.
-For more information, see [Add a cross-Region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
+For more information, see [Add a cross-region action in CodePipeline](actions-create-cross-region.md "actions-create-cross-region.md").
 
 This example uses the example pipeline with a GitHub (Version2) source action and a CodeBuild
 build action where the entry condition for the build stage will check for variables.
@@ -103,7 +103,7 @@ In this section, you create a pipeline with the following actions:
 If you choose instead to use your existing CodePipeline service role, make sure
 that you have added the `codeconnections:UseConnection` IAM
 permission to your service role policy. For instructions for the CodePipeline
-service role, see [Add permissions to the the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Advanced settings**, leave the defaults.
+service role, see [Add permissions to the CodePipeline service role](security-iam.md#how-to-update-role-new-services "security-iam.md#how-to-update-role-new-services"). 7. Under **Advanced settings**, leave the defaults.
 
 Choose **Next**. 8. On the **Step 3: Add source stage** page, add a source
 stage:
@@ -239,4 +239,4 @@ rule.
 
 ![The successful run](images/varcheck-tut-run-succeeded.png) 2. View the variable information on the **Timeline** tab.
 
-![The history page showing the Timline tab with variables succeeded](images/varcheck-tut-history.png)
+![The history page showing the Timeline tab with variables succeeded](images/varcheck-tut-history.png)

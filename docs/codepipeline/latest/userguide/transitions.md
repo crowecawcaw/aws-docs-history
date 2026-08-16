@@ -102,6 +102,6 @@ command similar to the following:
 aws codepipeline enable-stage-transition --pipeline-name `MyFirstPipeline` --stage-name `Staging`  --transition-type Inbound
 ```
 
-The command returns nothing. 2. To verify the transition has been disabled, either view the pipeline in the
+The command returns nothing. 2. To verify the transition has been enabled, either view the pipeline in the
 CodePipeline console or run the **get-pipeline-state** command. For more
 information, see [View pipelines (console)](pipelines-view-console.md "pipelines-view-console.md") and [View pipeline details and history (CLI)](pipelines-view-cli.md "pipelines-view-cli.md").

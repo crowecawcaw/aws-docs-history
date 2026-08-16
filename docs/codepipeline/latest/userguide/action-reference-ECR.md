@@ -100,7 +100,7 @@ The tag used for the image.
 ###### Note
 
 The `ImageTag` output variable is not output when the
-source revision is overridden
+source revision is overridden.
 
 **ImageDigest**
 
@@ -184,7 +184,7 @@ JSON
 The following related resources can help you as you work with this action.
 
 - [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md") – This tutorial
-  provides a sample app spec file and sample CodeDeploy application and deployment
+  provides a sample AppSpec file and sample CodeDeploy application and deployment
 
 group to create a pipeline with a CodeCommit and Amazon ECR source that deploys to Amazon ECS
 instances.

@@ -207,7 +207,7 @@ SSM.
 
 ###### To create an instance role
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the console dashboard, choose **Roles**.
 3. Choose **Create role**.
 4. Under **Select type of trusted entity**, select
@@ -262,7 +262,7 @@ For the created security group, choose **HTTP**, and then under
 **Source type**, choose **My IP**. 8. Expand **Advanced details**. In **IAM instance
 profile**, choose the IAM role you created in the previous procedure (for
 example, `EC2InstanceRole`). 9. Under **Summary**, under **Number of instances**,
-enter `1`.. 10. Choose **Launch instance**. 11. You can view the status of the launch on the **Instances** page. When
+enter `1`. 10. Choose **Launch instance**. 11. You can view the status of the launch on the **Instances** page. When
 you launch an instance, its initial state is `pending`. After the instance
 starts, its state changes to `running`, and it receives a public DNS name. (If
 the **Public DNS** column is not displayed, choose the
@@ -280,7 +280,7 @@ CodeDeploy application.
 
 ###### To create a CodeDeploy service role
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the console dashboard, choose **Roles**.
 3. Choose **Create role**.
 4. Under **Select trusted entity**, choose
@@ -403,7 +403,7 @@ Next, you verify the results.
 2. After **Succeeded** is displayed for the pipeline status, in the
    status area for the **Deploy** stage, choose
    **CodeDeploy**. This opens the CodeDeploy console. If
-   **Succeeded** is not displayed see [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md").
+   **Succeeded** is not displayed, see [Troubleshooting CodePipeline](troubleshooting.md "troubleshooting.md").
 3. On the **Deployments** tab, choose the deployment ID. On the page
    for the deployment, under **Deployment lifecycle events**, choose the
    instance ID. This opens the EC2 console.

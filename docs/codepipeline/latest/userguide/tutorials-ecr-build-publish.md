@@ -121,7 +121,7 @@ CMD /root/run_apache.sh
 
 ## Step 2: Add an imagedefinitions.json file to your source repository
 
-This tutorial uses theAmazon ECS standard deploy action in CodePipeline to deploy your container
+This tutorial uses the Amazon ECS standard deploy action in CodePipeline to deploy your container
 to your Amazon ECS cluster. The Amazon ECS standard deploy action requires an
 imagedefinitions.json file containing your image name and URI. For more information
 about the imagedefinitions.json file, see [imagedefinitions.json file for Amazon ECS standard deployment actions](file-reference.md#pipelines-create-image-definitions "file-reference.md#pipelines-create-image-definitions").
@@ -211,7 +211,7 @@ repository.
       used will be the HEAD commit from the default branch.Choose **Next**.
 
 9. On the **Step 4: Add build stage** page, choose
-   **Other build providers** choose
+   **Other build providers**, and then choose
    **ECRBuildAndPublish**.
 
 ![Add an Amazon ECR build action to your pipeline.](images/ecrbuild-wizard.png)

@@ -335,9 +335,9 @@ Learn more:
 
 ### Amazon Elastic Kubernetes Service `EKS` deploy actions
 
-[Amazon EKS](../../../eks/latest/userguide.md "../../../eks/latest/userguide.md") allows you to create and manage kubernetes
+[Amazon EKS](../../../eks/latest/userguide.md "../../../eks/latest/userguide.md") allows you to create and manage Kubernetes
 clusters. You can add an action to a pipeline that uses Amazon EKS as a deployment provider
-that deploys your image to your cluster. You can use helm templates or kubernetes manifest
+that deploys your image to your cluster. You can use Helm templates or Kubernetes manifest
 files.
 
 Learn more:

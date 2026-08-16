@@ -140,7 +140,7 @@ namespace. For example, for a repository named `myrepo` in a
 group `mygroup`, enter the following:
 `mygroup/myrepo`. You can find the project path with the
 namespace in the URL in GitLab. 10. Under **Pipeline triggers** you can add triggers if your
-action is an CodeConnections action. To configure the pipeline trigger configuration and
+action is a CodeConnections action. To configure the pipeline trigger configuration and
 to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). 11. In **Branch name**, choose the branch where you want your
 pipeline to detect source changes.
 

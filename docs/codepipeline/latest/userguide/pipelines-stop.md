@@ -162,7 +162,7 @@ disabled stage transition.
 
 The names of all pipelines associated with your AWS account will be
 displayed. 2. Choose the name of the pipeline for which you want to stop the inbound
-execution, Do one of the following:
+execution. Do one of the following:
 
     * In the Pipeline view, choose the inbound execution ID and then choose
      to stop the execution.
@@ -190,7 +190,7 @@ parameters:
 Command format:
 
 ```
-aws codepipeline stop-pipeline-execution --pipeline-name `Pipeline_Name` –-pipeline-execution-id `Execution_ID` [--abandon | --no-abandon] [--reason `STOP_EXECUTION_REASON`]
+aws codepipeline stop-pipeline-execution --pipeline-name `Pipeline_Name` --pipeline-execution-id `Execution_ID` [--abandon | --no-abandon] [--reason `STOP_EXECUTION_REASON`]
 
 ```
 
@@ -264,7 +264,7 @@ parameters:
 Command format:
 
 ```
-aws codepipeline stop-pipeline-execution --pipeline-name `Pipeline_Name` –-pipeline-execution-id `Inbound_Execution_ID` [--abandon | --no-abandon] [--reason `STOP_EXECUTION_REASON`]
+aws codepipeline stop-pipeline-execution --pipeline-name `Pipeline_Name` --pipeline-execution-id `Inbound_Execution_ID` [--abandon | --no-abandon] [--reason `STOP_EXECUTION_REASON`]
 
 ```
 
