@@ -3,9 +3,9 @@
 For more details see the [Support
 Policy](support-policy.md "support-policy.md").
 
-###### Security patches not available for PyTorch 2.8 and 2.9 DLAMIs
+###### Security patches not available for PyTorch 2.9 DLAMIs
 
-PyTorch DLAMIs for versions earlier than 2.10 (that is, PyTorch 2.8 and 2.9)
+PyTorch DLAMIs for versions earlier than 2.10 (that is, PyTorch 2.9)
 contain known common vulnerabilities and exposures (CVEs) that cannot be patched.
 Because we maintain a separate DLAMI currency release for each PyTorch version, we
 do not backport security fixes to these images.
@@ -21,7 +21,6 @@ continue to receive security patches.
 | PyTorch   | 2.11.0          | 13.0         | 2026-03-23 | 2027-03-23   |
 | PyTorch   | 2.10.0          | 13.0         | 2026-01-21 | 2027-01-21   |
 | PyTorch   | 2.9.0           | 13.0         | 2025-10-15 | 2026-10-15   |
-| PyTorch   | 2.8.0           | 12.9         | 2025-08-06 | 2026-08-06   |
 
 ## Supported Operating System Versions
 
@@ -38,6 +37,7 @@ Versions listed in this table will appear for 2 years past their support date.
 
 | Framework  | Current version | CUDA version | GitHub GA  | End of patch |
 | ---------- | --------------- | ------------ | ---------- | ------------ |
+| PyTorch    | 2.8.0           | 12.9         | 2025-08-06 | 2026-08-06   |
 | PyTorch    | 2.7.0           | 12.8         | 2025-04-23 | 2026-04-23   |
 | PyTorch    | 2.6.0           | 12.6         | 2025-01-29 | 2026-01-29   |
 | PyTorch    | 2.5.1           | 12.4         | 2024-11-24 | 2025-11-24   |
@@ -98,6 +98,10 @@ historical information for reference purposes.
 
 ###### Release Notes
 
+- [GPU PyTorch 2.8 (Ubuntu 24.04)](aws-deep-learning-x86-gpu-pytorch-2.8-ubuntu-24-04.md "aws-deep-learning-x86-gpu-pytorch-2.8-ubuntu-24-04.md")
+- [GPU PyTorch 2.8 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.8-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.8-amazon-linux-2023.md")
+- [ARM64 AMI GPU PyTorch 2.8 (Ubuntu 24.04)](aws-deep-learning-arm64-gpu-pytorch-2.8-ubuntu-24-04.md "aws-deep-learning-arm64-gpu-pytorch-2.8-ubuntu-24-04.md")
+- [ARM64 AMI GPU PyTorch 2.8 (Amazon Linux 2023)](aws-deep-learning-arm64-gpu-pytorch-2.8-amazon-linux-2023.md "aws-deep-learning-arm64-gpu-pytorch-2.8-amazon-linux-2023.md")
 - [GPU PyTorch 2.7 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-pytorch-2.7-ubuntu-22-04.md "aws-deep-learning-x86-gpu-pytorch-2.7-ubuntu-22-04.md")
 - [GPU PyTorch 2.7 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.7-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.7-amazon-linux-2023.md")
 - [ARM64 AMI GPU PyTorch 2.7 (Ubuntu 22.04)](aws-deep-learning-arm64-gpu-pytorch-2.7-ubuntu-22-04.md "aws-deep-learning-arm64-gpu-pytorch-2.7-ubuntu-22-04.md")
