@@ -162,7 +162,6 @@ The following list contains AWS services and features that are out of scope for 
 - AWS DataSync
 - AWS Mainframe Modernization
 - AWS Migration Hub
-- AWS Snow Family
 - AWS Transfer Family
 
 ## Networking and Content Delivery
