@@ -14,7 +14,7 @@ and deliver better support. More specifically, this enables us to enhance the se
   All this helps Connect Customer partner with you to continuously improve your business performance.
 
 When the following Connect Customer features are enabled, we can use Your Content to develop
-and improve your experience. These feature-level opt-outs will be discontinued on March 31, 2026:
+and improve your experience:
 
 - **Connect Customer conversational analytics**
 - **Connect Customer Customer Profiles**

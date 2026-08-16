@@ -29,3 +29,11 @@ associated evaluations.
 ![The list view of evaluations on the contact details page.](images/evaluation-listView.png)
 
 ![The detail view of an evaluation on the contact details page.](images/evaluation-detailView.png)
+
+###### AI answer details in submitted evaluations
+
+When you view a submitted evaluation that contains answers filled using native
+generative AI, you can also view the AI answer details. These details include the
+reasoning behind each AI answer and the relevant reference points from the
+transcript. AI answer details appear only when the submitted answer matches the
+answer that AI provided.

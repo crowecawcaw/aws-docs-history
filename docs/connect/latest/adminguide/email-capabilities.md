@@ -26,6 +26,8 @@ customer experience.
   threads](#email-capabilities-howthreadsmanaged "#email-capabilities-howthreadsmanaged")
 - [Send
   email](#email-capabilities-howemailssent "#email-capabilities-howemailssent")
+- [Self-addressed
+  emails](#email-capabilities-selfaddressed "#email-capabilities-selfaddressed")
 
 ## Receive emails
 
@@ -190,3 +192,19 @@ agent-initiated outbound email contacts.
 - It requires at least one email address in either the To or CC email
   address attributes and it requires an outbound whisper flow for handling the
   outbound contact.
+
+## Emails that loop back to the same address
+
+###### Automatic behavior
+
+Connect Customer applies this behavior automatically, and you cannot turn it off. It
+prevents duplicate emails from creating unwanted contacts in your contact
+center.
+
+When an agent replies to an email, the reply is sent from the queue's configured
+email address. If an agent CCs or includes that same address in the To field, the
+email is delivered back to your Connect Customer instance.
+
+Connect Customer automatically ignores these emails and does not create new inbound contacts.
+This prevents duplicate contacts and ensures replies or outbound emails are not
+re-routed back to agents.

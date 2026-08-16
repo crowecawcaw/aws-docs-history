@@ -8,6 +8,7 @@ guide.
 ###### Contents
 
 - [Set up outbound caller ID](queues-callerid.md "queues-callerid.md")
+- [Manage outbound caller ID](manage-outbound-callerid.md "manage-outbound-callerid.md")
 - [Set up US emergency
   calling](setup-us-emergency-calling.md "setup-us-emergency-calling.md")
 - [Enable outbound calls](enable-outbound-calls.md "enable-outbound-calls.md")

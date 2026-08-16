@@ -504,7 +504,7 @@ Connect Customer Outbound Campaigns now supports WhatsApp, expanding on the What
 
 Previously, Outbound Campaigns supported SMS, email, and voice channels, while WhatsApp was available only for customers to initiate conversations with your agents. With WhatsApp support in Outbound Campaigns, you can now proactively reach customers through an additional messaging platform while maintaining a unified campaign management experience. You can personalize WhatsApp messages using real-time customer data, track delivery and engagement metrics, and manage communication frequency and timing to ensure compliance. This expansion provides greater flexibility to connect with customers on their preferred platforms while streamlining your omnichannel outreach strategy.
 
-For more information, see [Create an outbound campaign using the console](how-to-create-campaigns.md "how-to-create-campaigns.md").
+For more information, see [Create an outbound campaign using the admin website](how-to-create-campaigns.md "how-to-create-campaigns.md").
 
 ## November 2025 Updates
 
@@ -847,7 +847,7 @@ For more information, see [Forecasting & agent scheduling in Connect Customer](f
 
 Connect Customer now enables you to customize service level calculations to your specific needs. Supervisors and managers can define time thresholds for when a contact is considered to meet service level standards and select which contact outcomes to include in the calculation. For example, managers can choose to count callback contacts, exclude contacts transferred out while waiting in queue, and exclude short abandons using a configurable time threshold. Customization of service level calculation is available from the metric configuration section on the analytics dashboards.With this feature supervisors and managers can now create a service level metric calculation that better aligns with their business operations. With a customized view of service level performance, operations managers can assess how effectively they have met their service standards.
 
-For more information, see [Metrics, dashboards, and reports in Connect Customer](amazon-connect-metrics.md "amazon-connect-metrics.md").
+For more information, see [Metrics, dashboards, and insights in Connect Customer](amazon-connect-metrics.md "amazon-connect-metrics.md").
 
 ## September 2025 Updates
 

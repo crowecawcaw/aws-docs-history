@@ -215,6 +215,15 @@ your Communications widget. For setup details, see [Step 3: Confirm and copy com
   `window.amazon_connect.Web.ClickStream.init()` returns an
   error. Revise your key selection to ensure uniqueness.
 
+###### Set object count limits to prevent eviction issues
+
+If linking with an existing profile, we recommend setting
+`MaxProfileObjectCount` on `WebAnalytics-Clickstream` and
+`_webAnalytics` object types. These data tracker event objects
+accumulate over time. Without this setting, the service does not
+consider them for eviction when a profile reaches its object limit.
+For more information about data limits, see [Customer Profiles data limits](customer-profiles-data-limits.md "customer-profiles-data-limits.md").
+
 ### Grouping events by a custom identifier
 
 If you don't need to link to an existing profile but want to group clickstream

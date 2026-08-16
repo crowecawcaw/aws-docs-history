@@ -13,8 +13,8 @@ Connect Customer provides two ways to create an outbound campaign:
   multiple channels and include branching logic.
 - **Guided Campaign Builder**: Create single-channel campaigns
   with step-by-step guidance. Best for straightforward outreach on a single channel.
-  You can create an outbound campaign using the Connect Customer console or programmatically using the
+  You can create an outbound campaign using the Connect Customer admin website or programmatically using the
   AWS CLI or API. Choose your preferred method:
 
-- [Create an outbound campaign using the console](how-to-create-campaigns.md "how-to-create-campaigns.md")—Step-by-step instructions using the Connect Customer console.
+- [Create an outbound campaign using the admin website](how-to-create-campaigns.md "how-to-create-campaigns.md")—Step-by-step instructions using the Connect Customer admin website.
 - [Create an outbound campaign using the API or CLI](create-campaigns-api-cli.md "create-campaigns-api-cli.md")—CLI commands, flow definitions, and code examples.

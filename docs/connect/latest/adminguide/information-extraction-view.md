@@ -1,5 +1,14 @@
 # View extracted information
 
+Extracted information is available in the following locations:
+
+- **Contact Control Panel (CCP)** – During
+  after-call work
+- **Contact details page** – After the
+  contact ends
+- **Contact search** – Filter and search
+  contacts by extracted values
+
 ## Contact Control Panel (CCP)
 
 During the after-call work process, any information extracted with an ACW
@@ -31,12 +40,9 @@ similarly to a category error.
 
 ### In the UI (Contact details page)
 
-Failed extractions are displayed with:
-
-- Dashed borders and transparent backgrounds
-- An error icon
-
-Hovering over a failed extraction shows why it failed.
+Failed extractions are displayed with dashed borders, transparent
+backgrounds, and an error icon. Hovering over a failed extraction shows
+why it failed.
 
 ### In the S3 analysis output file
 

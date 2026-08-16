@@ -25,7 +25,8 @@ Each form can contain multiple sections and questions.
 - [Step 6: Enable automated evaluations](#step-automate "#step-automate")
 - [Step 7: Preview the evaluation form](#step-preview "#step-preview")
 - [Step 8: Assign weights for final score](#step-weights "#step-weights")
-- [Step 9: Activate an evaluation form](#step-activateform "#step-activateform")
+- [Step 9: Validate the evaluation form](#step-validateform "#step-validateform")
+- [Step 10: Activate an evaluation form](#step-activateform "#step-activateform")
   Before you begin, make sure you have the required security profile permissions. For
   more information, see [Assign security profile permissions for performance evaluations and coaching](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 
@@ -555,7 +556,96 @@ and redistributes the weight among the remaining questions.
 
 ![Score weights for a question.](images/evaluationforms-weightdistribution3.png)
 
-## Step 9: Activate an evaluation form
+## Step 9: Validate the evaluation form
+
+Choose **Save and validate** to save the evaluation form and run
+it through the validation pipeline. Results appear in a side panel. Validation
+happens in two stages. First, the validation pipeline checks the form against the
+same structural and configuration rules that govern activation—for example,
+section and question limits, weight and scoring consistency, and unique identifiers.
+The pipeline reports any issues found here as **Errors**, because they would prevent the form from being activated and
+you must resolve them before you can proceed.
+
+If the pipeline finds no structural **Errors** and
+the form contains Gen AI–automated questions, validation moves to a second
+stage. This stage evaluates the content of those questions against best practices
+for Gen AI automation. The pipeline reports anything identified here as a **Warning**. Warnings do not block activation, but we
+recommend addressing them to improve the quality and reliability of automated
+answers.
+
+Validation checks each Gen AI–automated question against the following best
+practices:
+
+- **Question phrasing** – The question
+  title reads as a complete question (ending in a question mark), not a
+  statement or heading.
+- **Instructions present** – Every Gen
+  AI–answered question includes instructions telling the AI how to
+  evaluate and answer it.
+- **Answer option language** – Answer
+  options use plain, everyday language with no acronyms or
+  abbreviations.
+- **Answer option conciseness** – Answer
+  options are short labels only, with no extra commentary or
+  conditions.
+- **Transcript answerability** – The
+  question can be answered from the transcript and instructions alone, without
+  external data or system lookups.
+- **Positive action framing** – The
+  question asks what the agent did rather than asking the AI to detect the
+  absence of an action.
+- **Plain language** – Instructions
+  avoid abbreviations, acronyms, and company-specific jargon.
+- **Spelling** – Question titles,
+  instructions, and answer options are free of misspelled words.
+- **No external system references** –
+  Instructions don't reference actions or states in external systems the AI
+  can't see in the transcript.
+- **No non-textual cues** – Questions
+  don't require assessing audio-only qualities (volume, pitch, speaking speed,
+  vocal tone). Text-assessable qualities like professionalism or empathy are
+  fine.
+- **No PII references** – Questions and
+  instructions don't contain specific PII values. Evaluating the agent's
+  PII-handling behavior is fine.
+
+###### Note
+
+Gen AI validation is rate limited per Connect Customer instance: no more than 3 Gen AI
+validations can run in parallel, and no more than 30 can run per hour. If you
+exceed either limit, an error message appears in the side panel. Try again
+later. These limits don't affect structural validation.
+
+###### To validate an evaluation form
+
+1. Choose **Save**, **Save and
+   validate**.
+
+![The Save and validate option in the Save menu.](images/evaluationforms-save-and-validate-ingress.png) 2. When validation completes, the results appear at the top of the
+form:
+
+    * If no recommendations are found, a green banner appears at the top
+     of the form confirming that validation passed.
+    * If recommendations are found, they are listed in the side panel,
+     grouped as **Errors** or **Warnings**.
+
+![The validation results side panel showing errors and warnings.](images/evaluationforms-validation-side-panel.png) 3. You can close the side panel at any time. To reopen it, either choose the
+**Findings** button next to a question, or choose
+**Save and validate** again.
+
+![The Findings button next to a question.](images/evaluationforms-findings-button.png) 4. On the side panel, you can mark each finding as resolved once you have
+addressed it. Choose the **Pending resolve** filter to
+focus on the findings that still need attention.
+
+![The side panel with findings and the Pending resolve filter.](images/evaluationforms-resolve-findings.png)
+
+###### Note
+
+Marking a finding as resolved only visually hides it on the panel so you can
+clearly see which findings are left to address. It does not re-run validation or
+change the form's activation state.
+
+## Step 10: Activate an evaluation form
 
 Choose **Activate** to make the form available to evaluators.
 Evaluators will no longer be able to choose the previous version of the form from

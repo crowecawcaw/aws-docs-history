@@ -1,5 +1,15 @@
 # Programmatic access to extracted information
 
+Extracted information can be accessed programmatically through the following
+channels:
+
+- **Amazon S3** – Contact analysis output files
+  (after-call work and post-contact processing)
+- **API** – Real-time contact analysis
+  segments (after-call work only)
+- **Amazon Kinesis** – Real-time event
+  delivery (after-call work only)
+
 ## Extracted information in Amazon S3
 
 Extracted information is included in the contact analysis output written to Amazon S3. This

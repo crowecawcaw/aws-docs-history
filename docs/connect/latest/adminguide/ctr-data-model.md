@@ -1136,6 +1136,14 @@ Type: String
 
 Length: 1-256.
 
+**RingStartTimestamp**
+
+The date and time that ringing started for a campaign call, in UTC time.
+Connect Customer populates this field only for outbound campaign calls.
+
+Type: String
+(_yyyy_-_mm_-*dd*T*hh*:_mm_:*ss*Z)
+
 **ScheduledTimestamp**
 
 The date and time when this contact was scheduled to trigger the flow to

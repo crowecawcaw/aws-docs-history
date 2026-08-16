@@ -1,5 +1,15 @@
 # API workflow
 
+Recording ingestion and conversational analytics uses a workflow of three sequential
+API calls:
+
+- [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") – Create a voice contact to represent the
+  call
+- [CreateAttachedFile](../APIReference/API_CreateAttachedFile.md "../APIReference/API_CreateAttachedFile.md") – Import a recording from your Amazon S3 bucket
+  and attach it to the contact
+- [StartContactConversationalAnalyticsJob](../APIReference/API_StartContactConversationalAnalyticsJob.md "../APIReference/API_StartContactConversationalAnalyticsJob.md") – Create the
+  conversational analytics for the contact
+
 ## Step 1: CreateContact
 
 Use [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") to create a voice contact in `COMPLETED`

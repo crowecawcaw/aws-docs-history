@@ -1,5 +1,13 @@
 # Configure voice and chat information extraction
 
+Configuring information extraction requires two steps:
+
+- **Create information extraction definitions**
+  – Define what information to extract from contacts
+- **Create a rule with the Extract Information
+  action** – Define when to trigger extraction for matching
+  contacts
+
 ## Step 1: Create information extraction definition
 
 Extraction definitions are instance-level resources that define what to extract

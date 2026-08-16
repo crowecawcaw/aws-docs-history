@@ -115,7 +115,7 @@ delivering the notification to the visitor's browser.
 
 Web notifications are delivered through outbound campaigns. Create a campaign that links to
 the widget you configured in Step 1 and the notification view you created in Step 2.
-For a full walkthrough including screenshots, see [Create an outbound campaign using the console](how-to-create-campaigns.md "how-to-create-campaigns.md") and
+For a full walkthrough including screenshots, see [Create an outbound campaign using the admin website](how-to-create-campaigns.md "how-to-create-campaigns.md") and
 [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").
 
 (Optional) Link a recommender to enable AI-driven product suggestions in the

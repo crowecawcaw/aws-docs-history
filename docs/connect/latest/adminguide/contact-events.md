@@ -1003,6 +1003,13 @@ run, in UTC time. This is supported only for the task channel.
 
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
+**RingStartTimestamp**
+
+The date and time that ringing started for a campaign call, in UTC time.
+Connect Customer populates this field only for outbound campaign calls.
+
+Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+
 **GreetingStartTimestamp**
 
 The date and time that measures the beginning of the customer greeting

@@ -1,5 +1,14 @@
 # Configuration
 
+Before you can use the recording ingestion APIs, configure the following:
+
+- **Amazon S3 source bucket policy** – Grant
+  Connect Customer permission to read recordings from your bucket
+- **AWS KMS key policy** – Allow Connect Customer to
+  decrypt recordings if encryption is enabled
+- **IAM permissions** – Grant your
+  users or roles permission to call the recording ingestion APIs
+
 ## Amazon S3 source bucket policy
 
 Your source Amazon S3 bucket must grant Connect Customer permission to read recordings from

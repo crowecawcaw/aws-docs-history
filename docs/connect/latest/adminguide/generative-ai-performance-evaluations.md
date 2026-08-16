@@ -64,6 +64,20 @@ recommend keeping a manual evaluation process in place. This helps you catch any
 drift between AI-filled evaluations and manager-filled evaluations over
 time.
 
+###### Limitations of generative AI-powered performance evaluations
+
+Transcription accuracy affects the accuracy of generative AI-powered
+evaluations. Conversational analytics cannot accurately transcribe conversations that
+include more than one language. It also cannot accurately transcribe
+conversations in which multiple parties speak at the same time. Examples include
+conference calls, warm transfers, and calls where an agent adds a third party.
+Both scenarios lower the accuracy of generative AI-powered performance
+evaluations.
+
+You can use rules to filter out conversations where you expect these scenarios
+to occur, such as conversations in specific queues. For more information, see
+[Create a rule in conversational analytics that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").
+
 ## Use Ask AI to get generative AI answer recommendations
 
 1. Log into Connect Customer with a user account that has [permissions to perform
@@ -133,7 +147,7 @@ your preferred language, you can set the language of an evaluation form, choosin
 **Portuguese**, **French**,
 **German**, **Italian**,
 **Chinese**, **Japanese**,
-and **Korean**.
+**Korean**, and **Malay**.
 By explicitly setting the language of an evaluation, you can also perform cross-language
 evaluations, where generative AI fills a evaluation form in English, even when the
 conversation transcript is in another language, say Spanish. This enables multilingual

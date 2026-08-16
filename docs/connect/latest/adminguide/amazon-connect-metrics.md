@@ -1,4 +1,4 @@
-# Metrics, dashboards, and reports in Connect Customer
+# Metrics, dashboards, and insights in Connect Customer
 
 In Connect Customer, data about contacts are captured in contact records. This data can
 include the amount of time a contact spends in each state: customer on hold, customer in
@@ -23,6 +23,7 @@ For detailed information about the activity of agents in your contact center, us
 - [Assign
   permissions](dashboard-required-permissions.md "dashboard-required-permissions.md")
 - [Dashboards](dashboards.md "dashboards.md")
+- [Manager assistant](manager-assistant.md "manager-assistant.md")
 - [Real-time metrics
   reports](real-time-metrics-reports.md "real-time-metrics-reports.md")
 - [Historical metrics

@@ -38,7 +38,7 @@ If you want to test a chat and use contact attributes, note that the key
 and value pair must be enclosed in quotes, as shown in the following
 image:
 
-![The test settings section, with a name in Contact attributes surrounded by quotes and brackets.](/images/connect/latest/adminguide/images/test-chat-contact-attributes.png) 5. In the chat window, choose the icon as shown in the following image.
+![The test settings section, with a name in Contact attributes surrounded by quotes and brackets.](images/test-chat-contact-attributes.png) 5. In the chat window, choose the icon as shown in the following image.
 
 ![The Connect Customer chat icon on the test page.](images/test-chat-icon.png) 6. Type a message similar to what one of your customers might type. In the agent
 window, type a reply. 7. To see what it's like for an agent to handle multiple chat conversations, copy

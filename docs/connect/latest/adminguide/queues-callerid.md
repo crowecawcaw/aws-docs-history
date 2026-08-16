@@ -59,9 +59,20 @@ identification may be blocked in certain countries such as UK and
 Australia.
 
 To use an
-external phone number as your outbound caller ID number, contact Support to see if
-it's possible. The phone number needs to be in a [country we support](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf") for custom caller ID and you'll need to provide
-[proof of ownership](phone-number-requirements.md "phone-number-requirements.md").
+external phone number as your outbound caller ID number, you must meet the
+following requirements:
+
+- Verify that the phone number is in a country that supports custom
+  caller ID. Check the [Amazon Connect Telecoms Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf") on the AWS
+  website (PDF) to confirm.
+- Provide [proof of
+  ownership](phone-number-requirements.md "phone-number-requirements.md"), such as a recent invoice from
+  your current carrier showing the number. In the US, the carrier
+  might also require Customer Service Records (CSRs).
+- Contact Support to activate the number for custom caller ID use
+  before you configure it.
+
+To request custom outbound caller ID, open an Support case:
 
 1. Choose [Account and billing](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management") to access a pre-populated form in the
    Support console. You must be signed in to your AWS account
@@ -145,19 +156,18 @@ due to local anti-fraud requirements.
 
 ### Anonymous caller ID
 
-Anonymous calls (calls without caller ID) will be blocked by most carriers and
-may fail to connect.
+Connect Customer does not allow anonymous calls (calls without caller ID). You must
+configure a valid phone number in the **Outbound caller ID
+number** field for every queue: the outbound queue for direct
+outbound calling, and the inbound queue for agent-initiated external transfer
+calls. If you do not, the call will fail. You can use only numbers you've
+claimed or ported to Connect Customer.
 
-**Why anonymous calls fail:**
+A valid caller ID is required because:
 
 - Most phone carriers now block anonymous calls as anti-spam measures.
 - Many countries prohibit anonymous calls through regulation.
 - Call success rates are unpredictable and unreliable.
-
-**Prevention:** Always configure a valid phone
-number in the **Outbound caller ID** number field for every
-queue used for outbound calling. Use only numbers you've claimed or ported to
-Amazon Connect.
 
 ### Toll-free numbers for caller ID
 
@@ -182,7 +192,7 @@ access.
 
 ## How outbound parameters are selected
 
-If the call is placed with an external quick connect or quick connect number pad,
+If the call is placed using a quick connect or the number pad,
 the outbound caller ID and caller name depends on if the agent is on an active call
 or not.
 
@@ -194,8 +204,20 @@ or not.
 
 ###### Note
 
-You can override the outbound caller IDs in your agents' routing profiles by
-using the [Call phone number](call-phone-number.md "call-phone-number.md") block in a [custom outbound whisper flow](https://repost.aws/knowledge-center/connect-custom-outbound-whisper-flows "https://repost.aws/knowledge-center/connect-custom-outbound-whisper-flows").
+You can override the outbound caller ID for direct outbound calls (when the
+agent is not on an active call) by using the [Call phone number](call-phone-number.md "call-phone-number.md") block in a [custom outbound whisper flow](https://repost.aws/knowledge-center/connect-custom-outbound-whisper-flows "https://repost.aws/knowledge-center/connect-custom-outbound-whisper-flows"). This override does not apply to
+transfers initiated while the agent is on an active call. In that case, the
+caller ID comes from the inbound queue that serviced the original call and cannot
+be overridden by the outbound whisper flow. To control caller ID for transfers,
+use a [Transfer to phone
+number](transfer-to-phone-number.md "transfer-to-phone-number.md") block with a caller ID
+explicitly configured.
+
+If you use [queued callbacks](setup-queued-cb.md "setup-queued-cb.md"), configure
+an **Outbound caller ID number** on the queue associated with
+the callback. Without a valid caller ID, callbacks display as anonymous to the
+recipient. You can also use an outbound whisper flow to override the queue's
+caller ID for callbacks.
 
 ## How to set the caller ID number dynamically
 
@@ -238,6 +260,13 @@ Phone numbers must be formatted in E.164 or they will not work. They will also
 result in a breach of [Connect Customer Service
 Terms and conditions](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for acceptable use which may result in your
 service being suspended.
+
+Connect Customer transmits caller ID to carriers in E.164 format (the international
+telephone numbering standard). The recipient's carrier and handset control how
+the number appears—with or without country code, and grouped with spaces.
+Connect Customer does not control this display. You don't need any special configuration
+for national format display. The conversion happens automatically when the
+recipient is in the same country as the number.
 
 ## How to specify a custom caller ID number using a [Call phone number](call-phone-number.md "call-phone-number.md") block
 

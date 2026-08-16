@@ -23,11 +23,6 @@ The screen recording files are saved in MP4 format.
 You can generate screen recordings for voice, chat, and task
 contacts. Screen recording is not supported for email contacts.
 
-- **Do you capture the entire screen?**
-
-Screen recording captures only the Connect Customer agent workspace tabs, not the
-entire desktop.
-
 - **Does screen recording support concurrent user
   sessions on Windows using Virtual Desktop Infrastructure (VDI)
   environments?**

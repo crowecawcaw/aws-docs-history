@@ -1,15 +1,15 @@
 # Information extraction
 
-Information extraction uses generative AI to extract information from voice and chat
-contacts. That information could be verbatim — such as preferred name, invoice number, or
+Information extraction uses generative AI to extract information from conversations. That information could be verbatim — such as preferred name, invoice number, or
 reservation ID; or it could be derived – such as reason for contact, resolution provided, or
-next steps promised. The extracted information is associated with the contact as structured
+next steps promised. Information can be extracted from chat contacts or voice contacts
+with human agents. The extracted information is associated with the contact as structured
 data.
 
 ###### Note
 
-Information extraction is not available in [Amazon
-Connect Customer Basic](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") instances.
+Information extraction is only available in [Amazon
+Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") instances.
 
 Extracted information is available in the following locations:
 
@@ -79,19 +79,10 @@ the last 6 digits of the credit card number.
 ## Known limitations
 
 - Maximum information extraction definitions per instance: 100
-- Maximum information extractions per contact: 20
-- Maximum extracted information length: 3000 characters
+- Maximum information extractions per contact with after-call work analytics rules: 20
+- Maximum information extractions per contact with post-contact analytics rules: 20
 
 ## Pricing
 
-Information extraction is included at no additional cost for voice and chat
-contacts.
-
-###### Contents
-
-- [Configure voice and chat
-  information extraction](information-extraction-configure.md "information-extraction-configure.md")
-- [View extracted
-  information](information-extraction-view.md "information-extraction-view.md")
-- [Programmatic access to
-  extracted information](information-extraction-programmatic.md "information-extraction-programmatic.md")
+Information extraction is available in Amazon Connect Customer at no additional cost
+for voice and chat contacts.

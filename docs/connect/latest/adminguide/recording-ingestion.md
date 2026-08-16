@@ -3,14 +3,10 @@
 This guide provides instructions for importing voice recordings from third-party voice
 systems into Connect Customer and generating conversational analytics.
 
-The workflow consists of three sequential API calls:
+###### Note
 
-- [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") – Create a voice contact to represent the
-  call
-- [CreateAttachedFile](../APIReference/API_CreateAttachedFile.md "../APIReference/API_CreateAttachedFile.md") – Import a recording from your Amazon S3 bucket
-  and attach it to the contact
-- [StartContactConversationalAnalyticsJob](../APIReference/API_StartContactConversationalAnalyticsJob.md "../APIReference/API_StartContactConversationalAnalyticsJob.md") – Create the
-  conversational analytics for the contact
+Recording ingestion is only available in [Amazon
+Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") instances.
 
 ## Common use cases
 
@@ -32,6 +28,13 @@ needs:
   analytics within Connect Customer.
 
 ## Getting started
+
+Before using recording ingestion, complete the following configuration steps:
+
+- **Service quotas** – Request increases
+  for required API quotas
+- **Prerequisites** – Verify your instance
+  setup and permissions
 
 ### Service quotas
 
