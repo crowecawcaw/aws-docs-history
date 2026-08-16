@@ -63,6 +63,6 @@ To support job submission, they [set up Deadline Cloud submitters](submitter.md 
 on each workstation, selecting the Maya and Nuke integrations. With Deadline Cloud monitor, they can log into the farm, monitor progress of jobs, and view log outputs
 for diagnosing issues. Both the Maya and Nuke submitters feature integrated dialogs to submit jobs from within the application interface.
 
-When [configuring user access levels](manage-users-by-farm.md "manage-users-by-farm.md") in the
-farm, they give Contributor access to artists so they can submit jobs, view all jobs, and modify properties of their own jobs. They give Manager access
+When configuring user access levels in the
+farm (see [How permissions work in Deadline Cloud](permissions-overview.md "permissions-overview.md")), they give Contributor access to artists so they can submit jobs, view all jobs, and modify properties of their own jobs. They give Manager access
 to render wranglers so they can modify properties of all the jobs. They give Owner access to producers, so they can [track spending and usage](manage-costs.md "manage-costs.md") by creating budgets and exploring usage costs.

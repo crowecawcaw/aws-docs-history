@@ -21,6 +21,7 @@ The following table shows current support levels for Houdini versions:
 | 20.0          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 | 20.5          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 | 21.0          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
+| 22.0          | Windows, macOS, Linux | Linux         | Mantra, Karma CPU, Karma XPU | Usage-based licensing available |
 
 ## Deadline Cloud Conda Channel
 
@@ -32,6 +33,7 @@ The following table lists all conda packages applicable to Houdini available to 
 | Linux | houdini        | 20.0    | Includes Mantra and Karma renderers |
 | Linux | houdini        | 20.5    | Includes Mantra and Karma renderers |
 | Linux | houdini        | 21.0    | Includes Mantra and Karma renderers |
+| Linux | houdini        | 22.0    | Includes Mantra and Karma renderers |
 | Linux | houdini-openjd |         | Includes the Houdini Adaptor        |
 
 ## Getting started

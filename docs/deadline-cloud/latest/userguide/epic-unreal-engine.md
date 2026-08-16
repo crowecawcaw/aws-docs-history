@@ -593,11 +593,12 @@ Per the [Deadline Cloud user guide](create-queue-environment.md "create-queue-en
 
 ```
 specificationVersion: environment-2023-09
-name: P4Credentials
-variables:
-   P4PORT: ssl:my-perforce.com:1666
-   P4USER: j.doe
-   P4PASSWD: MyVeRyS3cretP4ssW0rd
+environment:
+   name: P4Credentials
+   variables:
+      P4PORT: ssl:my-perforce.com:1666
+      P4USER: j.doe
+      P4PASSWD: MyVeRyS3cretP4ssW0rd
 ```
 
 #### Add queue environment using CLI

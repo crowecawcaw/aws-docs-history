@@ -20,7 +20,7 @@ explorer.
 ## Prerequisite
 
 To use the Deadline Cloud usage explorer, you must have either `MANAGER` or
-`OWNER` farm permissions. For more information, see [Understanding access levels](manage-users-by-farm.md "manage-users-by-farm.md").
+`OWNER` farm permissions. For more information, see [How permissions work in Deadline Cloud](permissions-overview.md "permissions-overview.md").
 
 ###### Note
 

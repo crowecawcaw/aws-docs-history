@@ -35,7 +35,7 @@ _Deadline Cloud Developer Guide_. 3. **Grant access** – Assign each user
 or group an access level on the farms, queues, and fleets that they'll use.
 Grants can be as open or as scoped as your organization works: many
 organizations grant everyone broad access across a shared farm, while
-others limit each group to its own queue. See [Understanding access levels](manage-users-by-farm.md "manage-users-by-farm.md"). 4. **Set up their workstations** – Send
+others limit each group to its own queue. See [How permissions work in Deadline Cloud](permissions-overview.md "permissions-overview.md"). 4. **Set up their workstations** – Send
 each user who submits from a digital content creation (DCC) application a
 link to [Set up your workstation](submitter.md "submitter.md"). On that
 page, they install the submitter and the monitor desktop application, sign
@@ -89,7 +89,7 @@ Some users don't need the full checklist:
 
 - To onboard someone who manages the farm for you, such as a technical
   director, grant them manager or owner access so that they can grant
-  permissions and create budgets. See [Understanding access levels](manage-users-by-farm.md "manage-users-by-farm.md").
+  permissions and create budgets. See [How permissions work in Deadline Cloud](permissions-overview.md "permissions-overview.md").
 - To onboard someone who watches and manages work without submitting
   it, such as a coordinator or supervisor, create a sign-in, grant viewer
   or manager access, and share the monitor URL. The web monitor requires

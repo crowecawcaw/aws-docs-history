@@ -30,6 +30,7 @@ The Deadline Cloud monitor also helps you monitor usage and manage costs. For mo
 - [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md "view-queue-and-fleet.md")
 - [Manage jobs, steps, and tasks in Deadline Cloud](view-jobs-steps-tasks.md "view-jobs-steps-tasks.md")
 - [View and manage job details in Deadline Cloud](view-a-job.md "view-a-job.md")
+- [Customize the panels in the job monitor](customize-job-monitor-panels.md "customize-job-monitor-panels.md")
 - [View a step in Deadline Cloud](view-a-step.md "view-a-step.md")
 - [View a task in Deadline Cloud](view-a-task.md "view-a-task.md")
 - [View session and worker logs in Deadline Cloud](view-logs.md "view-logs.md")
