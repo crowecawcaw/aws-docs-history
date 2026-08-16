@@ -17,7 +17,7 @@ RampIDs to another set using either maintained or derived RampIDs.
    1. Enter an **ID mapping workflow name** and an optional
       **Description**.
 
-   ![The name and description fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
+   ![The name and description fields on the Specify ID mapping workflow page](images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
    services**.
 
    AWS Entity Resolution currently offers the LiveRamp provider service as an ID mapping method. If
@@ -38,7 +38,7 @@ RampIDs to another set using either maintained or derived RampIDs.
         * **Client ID manager ARN**
         * **Client secret manager ARN**
 
-   ![The LiveRamp configuration fields on the Specify ID mapping workflow page](images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
+   ![The LiveRamp configuration fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
    **Add new tag**, and then enter the **Key** and
    **Value** pair. 5. Choose **Next**.
 
@@ -65,7 +65,7 @@ RampIDs to another set using either maintained or derived RampIDs.
    ![The Data staging field on the Specify source and target page](images/data-staging.PNG) 4. To specify the **Service access** permissions, choose an option
    and take the recommended action.
 
-   ![The Service access options on the Specify source and target page](/images/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
+   ![The Service access options on the Specify source and target page](images/specify-source-target-service-access.PNG)
 
    | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -85,7 +85,7 @@ RampIDs to another set using either maintained or derived RampIDs.
    2. View the **LiveRamp generated output**.
    3. Choose **Next**.
 
-   ![The Data output destination fields on the Specify data output location page](images/specify-data-ouput-IDM.PNG)
+   ![The Data output destination fields on the Specify data output location page](/images/entityresolution/latest/userguide/images/specify-data-ouput-IDM.PNG)
 
 8. For **Step 4: Review and create**, do the following.
 
