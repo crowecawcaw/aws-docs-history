@@ -24,7 +24,7 @@ requirements. For example, you can do the following:
   criteria.
 - Prioritize how player latency factors into matchmaking. Do you want to set a hard
   limit on latency for all players, or are higher latencies acceptable as long as
-  everyone in the match has similary latency?
+  everyone in the match has similar latency?
 
 ###### Ready to start working with FlexMatch?
 

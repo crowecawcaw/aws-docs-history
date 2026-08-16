@@ -19,7 +19,7 @@ The example rule set describes a match with the following characteristics:
 
   - Players must choose the same game mode.
   - Players must choose the same game map.
-  - Players much choose different characters.
+  - Players must choose different characters.
     Notes on using this rule set:
 
 - To implement the match rule, this example uses comparison rules to check all
