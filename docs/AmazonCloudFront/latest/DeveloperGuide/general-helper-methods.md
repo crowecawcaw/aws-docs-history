@@ -130,8 +130,7 @@ a single execution, CloudFront uses only the last value.
 To receive this data in your CloudFront access logs, you must add the
 `viewer-request-log-data` or `viewer-response-log-data`
 fields to your [real-time log](real-time-logs.md "real-time-logs.md") configuration
-or [standard logging (v2)](standard-logging.md "standard-logging.md") setup. CloudFront Functions
-doesn't support custom data logging for embedded points of presence (POPs).
+or [standard logging (v2)](standard-logging.md "standard-logging.md") setup.
 
 ###### Difference from console.log()
 

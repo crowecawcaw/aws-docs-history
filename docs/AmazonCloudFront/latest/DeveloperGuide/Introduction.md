@@ -136,5 +136,3 @@ Use the following resources to get answers to technical questions about CloudFro
   plans.
 - [AWS Premium Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") – Learn about AWS Premium Support, a one-on-one, fast-response support channel
   that helps you build and run applications on AWS.
-- [AWS IQ](https://iq.aws.amazon.com/?utm=docs "https://iq.aws.amazon.com/?utm=docs") – Get help from
-  AWS certified professionals and experts.
