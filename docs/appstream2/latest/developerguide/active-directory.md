@@ -13,6 +13,15 @@ _AWS Directory Service Administration Guide_.
 Amazon Linux 2 fleets, image builders, elastic fleets, and app block builders
 currently do not support domain join.
 
+###### Active Directory trust requirements
+
+WorkSpaces Applications supports only two-way (bidirectional) trusts between the user
+domain and the WorkSpaces Applications computer object domain. Selective authentication
+may be used if WorkSpaces Applications computer objects are allowed to authenticate to
+the user domain, gather the user's security identifier (SID), and translate the user
+principal name (UPN) to the Security Account Manager account name
+(SAMAccountName).
+
 By joining WorkSpaces Applications to your Active Directory domain, you can:
 
 - Allow your users and applications to access Active Directory resources such
