@@ -69,6 +69,11 @@ You can also update an existing state machine. Refer Step 4 if you're updating a
 
 
     If Workflow Studio can't generate all the required IAM policies, it displays a banner with the message **Permissions for certain actions cannot be auto-generated. An IAM role will be created with partial permissions only.** For information about how to add the missing permissions, see [Resolving role generation problems](#resolve-role-gen-problem "#resolve-role-gen-problem").
+
+
+    ###### Role manager enabled
+
+    If role manager is enabled in your account, Step Functions attaches an execution role for you, and the **Execution role** options described here (**Create new role**, **Review auto-generated permissions**) are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the *IAM User Guide*.
     2. Choose **Create** if you're creating a state machine. Otherwise, choose **Save**.
     3. Choose **Confirm** in the dialog box that appears.
 

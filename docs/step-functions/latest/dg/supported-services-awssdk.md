@@ -7,6 +7,7 @@ With Step Functions' AWS SDK integration, your workflows can call almost any AWS
 - [Using service integrations](#use-awssdk-integ "#use-awssdk-integ")
 - [Supported service integrations](#supported-services-awssdk-list "#supported-services-awssdk-list")
 - [Deprecated service integrations](#deprecated-aws-sdk-integ "#deprecated-aws-sdk-integ")
+- [Release history](awssdk-release-history.md "awssdk-release-history.md")
 
 ## Using AWS SDK service integrations
 
@@ -90,7 +91,7 @@ Task state resource: `arn:aws:states:::aws-sdk:sagemakera2iruntime:`[apiAction]`
 
 Exception prefix: `SageMakerA2IRuntime`
 
-**Amazon AI Operations**
+**Amazon AI Operations `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:aiops:`[apiAction]``
 
@@ -274,7 +275,7 @@ Task state resource: `arn:aws:states:::aws-sdk:bedrock:`[apiAction]``
 
 Exception prefix: `Bedrock`
 
-**Amazon Bedrock AgentCore**
+**Amazon Bedrock AgentCore `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:bedrockagentcore:`[apiAction]``
 
@@ -282,7 +283,7 @@ Exception prefix: `BedrockAgentCore`
 
 **Unsupported operations:** `InvokeCodeInterpreter`, `InvokeAgentRuntimeCommand`, `InvokeHarness`
 
-**Amazon Bedrock AgentCore Control Plane**
+**Amazon Bedrock AgentCore Control Plane `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:bedrockagentcorecontrol:`[apiAction]``
 
@@ -322,7 +323,7 @@ Task state resource: `arn:aws:states:::aws-sdk:billingconductor:`[apiAction]``
 
 Exception prefix: `Billingconductor`
 
-**AWS Billing and Cost Management Dashboards**
+**AWS Billing and Cost Management Dashboards `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:bcmdashboards:`[apiAction]``
 
@@ -334,7 +335,7 @@ Task state resource: `arn:aws:states:::aws-sdk:bcmpricingcalculator:`[apiAction]
 
 Exception prefix: `BcmPricingCalculator`
 
-**AWS Billing and Cost Management Recommended Actions**
+**AWS Billing and Cost Management Recommended Actions `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:bcmrecommendedactions:`[apiAction]``
 
@@ -652,7 +653,7 @@ Task state resource: `arn:aws:states:::aws-sdk:computeoptimizer:`[apiAction]``
 
 Exception prefix: `ComputeOptimizer`
 
-**Compute Optimizer Automation**
+**Compute Optimizer Automation `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:computeoptimizerautomation:`[apiAction]``
 
@@ -700,7 +701,7 @@ Task state resource: `arn:aws:states:::aws-sdk:customerprofiles:`[apiAction]``
 
 Exception prefix: `CustomerProfiles`
 
-**Amazon Connect Health**
+**Amazon Connect Health `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:connecthealth:`[apiAction]``
 
@@ -818,7 +819,7 @@ Task state resource: `arn:aws:states:::aws-sdk:detective:`[apiAction]``
 
 Exception prefix: `Detective`
 
-**AWS DevOps Agent Service**
+**AWS DevOps Agent Service `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:devopsagent:`[apiAction]``
 
@@ -1012,13 +1013,13 @@ Task state resource: `arn:aws:states:::aws-sdk:elasticloadbalancingv2:`[apiActio
 
 Exception prefix: `ElasticLoadBalancingV2`
 
-**Amazon ElasticSearch**
+**Amazon ElasticSearch `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:elasticsearch:`[apiAction]``
 
 Exception prefix: `Elasticsearch`
 
-**AWS Elemental Inference**
+**AWS Elemental Inference `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:elementalinference:`[apiAction]``
 
@@ -1120,7 +1121,7 @@ Task state resource: `arn:aws:states:::aws-sdk:gamelift:`[apiAction]``
 
 Exception prefix: `GameLift`
 
-**Amazon GameLift Streams**
+**Amazon GameLift Streams `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:gameliftstreams:`[apiAction]``
 
@@ -1240,7 +1241,7 @@ Task state resource: `arn:aws:states:::aws-sdk:inspector2:`[apiAction]``
 
 Exception prefix: `Inspector2`
 
-**Interconnect**
+**Interconnect `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:interconnect:`[apiAction]``
 
@@ -1316,7 +1317,7 @@ Task state resource: `arn:aws:states:::aws-sdk:iotjobsdataplane:`[apiAction]``
 
 Exception prefix: `IotJobsDataPlane`
 
-**AWS IoT Managed Integrations**
+**AWS IoT Managed Integrations `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:iotmanagedintegrations:`[apiAction]``
 
@@ -1378,7 +1379,7 @@ Task state resource: `arn:aws:states:::aws-sdk:keyspaces:`[apiAction]``
 
 Exception prefix: `Keyspaces`
 
-**Amazon Keyspaces CDC Streams**
+**Amazon Keyspaces CDC Streams `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:keyspacesstreams:`[apiAction]``
 
@@ -1558,7 +1559,7 @@ Task state resource: `arn:aws:states:::aws-sdk:mwaa:`[apiAction]``
 
 Exception prefix: `Mwaa`
 
-**Amazon MWAA Serverless**
+**Amazon MWAA Serverless `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:mwaaserverless:`[apiAction]``
 
@@ -1612,7 +1613,7 @@ Task state resource: `arn:aws:states:::aws-sdk:marketplacecommerceanalytics:`[ap
 
 Exception prefix: `MarketplaceCommerceAnalytics`
 
-**AWS Marketplace Discovery**
+**AWS Marketplace Discovery `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:marketplacediscovery:`[apiAction]``
 
@@ -1728,7 +1729,7 @@ Task state resource: `arn:aws:states:::aws-sdk:migrationhubstrategy:`[apiAction]
 
 Exception prefix: `MigrationHubStrategy`
 
-**Multi-party Approval**
+**Multi-party Approval `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:mpa:`[apiAction]``
 
@@ -1770,7 +1771,7 @@ Task state resource: `arn:aws:states:::aws-sdk:networkmonitor:`[apiAction]``
 
 Exception prefix: `NetworkMonitor`
 
-**Amazon Nova Act**
+**Amazon Nova Act `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:novaact:`[apiAction]``
 
@@ -1800,13 +1801,13 @@ Task state resource: `arn:aws:states:::aws-sdk:opensearchserverless:`[apiAction]
 
 Exception prefix: `OpenSearchServerless`
 
-**OpsWorks CM**
+**OpsWorks CM `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:opsworkscm:`[apiAction]``
 
 Exception prefix: `OpsWorksCm`
 
-**Oracle Database@AWS**
+**Oracle Database@AWS `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:odb:`[apiAction]``
 
@@ -1836,19 +1837,19 @@ Task state resource: `arn:aws:states:::aws-sdk:pcs:`[apiAction]``
 
 Exception prefix: `Pcs`
 
-**Partner Central Account**
+**Partner Central Account `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:partnercentralaccount:`[apiAction]``
 
 Exception prefix: `PartnerCentralAccount`
 
-**Partner Central Benefits**
+**Partner Central Benefits `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:partnercentralbenefits:`[apiAction]``
 
 Exception prefix: `PartnerCentralBenefits`
 
-**Partner Central Channel**
+**Partner Central Channel `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:partnercentralchannel:`[apiAction]``
 
@@ -2004,7 +2005,7 @@ Task state resource: `arn:aws:states:::aws-sdk:pi:`[apiAction]``
 
 Exception prefix: `Pi`
 
-**AWS RTB Fabric**
+**AWS RTB Fabric `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:rtbfabric:`[apiAction]``
 
@@ -2070,13 +2071,13 @@ Task state resource: `arn:aws:states:::aws-sdk:resourcegroupstaggingapi:`[apiAct
 
 Exception prefix: `ResourceGroupsTaggingApi`
 
-**Route 53**
+**Route 53 `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:route53:`[apiAction]``
 
 Exception prefix: `Route53`
 
-**Route 53 ARC Region Switch**
+**Route 53 ARC Region Switch `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:arcregionswitch:`[apiAction]``
 
@@ -2094,7 +2095,7 @@ Task state resource: `arn:aws:states:::aws-sdk:route53domains:`[apiAction]``
 
 Exception prefix: `Route53Domains`
 
-**Route 53 Global Resolver**
+**Route 53 Global Resolver `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:route53globalresolver:`[apiAction]``
 
@@ -2152,7 +2153,7 @@ Exception prefix: `S3Control`
 
 **Unsupported operations:** `SelectObjectContent`
 
-**Amazon S3 Files**
+**Amazon S3 Files `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:s3files:`[apiAction]``
 
@@ -2170,7 +2171,7 @@ Task state resource: `arn:aws:states:::aws-sdk:s3tables:`[apiAction]``
 
 Exception prefix: `S3Tables`
 
-**Amazon S3 Vectors**
+**Amazon S3 Vectors `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:s3vectors:`[apiAction]``
 
@@ -2212,17 +2213,17 @@ Task state resource: `arn:aws:states:::aws-sdk:sso:`[apiAction]``
 
 Exception prefix: `Sso`
 
-**AWS SSO**
-
-Task state resource: `arn:aws:states:::aws-sdk:identitystore:`[apiAction]``
-
-Exception prefix: `Identitystore`
-
 **AWS SSO Admin**
 
 Task state resource: `arn:aws:states:::aws-sdk:ssoadmin:`[apiAction]``
 
 Exception prefix: `SsoAdmin`
+
+**AWS SSO Identity Store**
+
+Task state resource: `arn:aws:states:::aws-sdk:identitystore:`[apiAction]``
+
+Exception prefix: `Identitystore`
 
 **AWS SSO OIDC**
 
@@ -2268,7 +2269,7 @@ Exception prefix: `SageMakerRuntime`
 
 **Unsupported operations:** `InvokeEndpointWithResponseStream`
 
-**Amazon SageMaker Runtime HTTP2**
+**Amazon SageMaker Runtime HTTP2 `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:sagemakerruntimehttp2:`[apiAction]``
 
@@ -2288,7 +2289,7 @@ Task state resource: `arn:aws:states:::aws-sdk:secretsmanager:`[apiAction]``
 
 Exception prefix: `SecretsManager`
 
-**AWS Security Agent**
+**AWS Security Agent `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:securityagent:`[apiAction]``
 
@@ -2362,7 +2363,7 @@ Exception prefix: `Shield`
 
 **Unsupported operations:** `DeleteSubscription`
 
-**AWS Sign-In Service**
+**AWS Sign-In Service `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:signin:`[apiAction]``
 
@@ -2374,7 +2375,7 @@ Task state resource: `arn:aws:states:::aws-sdk:signer:`[apiAction]``
 
 Exception prefix: `Signer`
 
-**AWS Signer Data Plane**
+**AWS Signer Data Plane `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:signerdata:`[apiAction]``
 
@@ -2386,7 +2387,7 @@ Task state resource: `arn:aws:states:::aws-sdk:simspaceweaver:`[apiAction]``
 
 Exception prefix: `SimSpaceWeaver`
 
-**Amazon SimpleDB v2**
+**Amazon SimpleDB v2 `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:simpledbv2:`[apiAction]``
 
@@ -2434,7 +2435,7 @@ Task state resource: `arn:aws:states:::aws-sdk:supportapp:`[apiAction]``
 
 Exception prefix: `SupportApp`
 
-**AWS Sustainability**
+**AWS Sustainability `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:sustainability:`[apiAction]``
 
@@ -2446,7 +2447,7 @@ Task state resource: `arn:aws:states:::aws-sdk:ssm:`[apiAction]``
 
 Exception prefix: `Ssm`
 
-**Systems Manager GUI Connect**
+**Systems Manager GUI Connect `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:ssmguiconnect:`[apiAction]``
 
@@ -2524,7 +2525,7 @@ Task state resource: `arn:aws:states:::aws-sdk:trustedadvisor:`[apiAction]``
 
 Exception prefix: `TrustedAdvisor`
 
-**AWS User Experience Customization**
+**AWS User Experience Customization `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:uxc:`[apiAction]``
 
@@ -2572,7 +2573,7 @@ Task state resource: `arn:aws:states:::aws-sdk:wellarchitected:`[apiAction]``
 
 Exception prefix: `WellArchitected`
 
-**AWS Wickr**
+**AWS Wickr `New`**
 
 Task state resource: `arn:aws:states:::aws-sdk:wickr:`[apiAction]``
 
