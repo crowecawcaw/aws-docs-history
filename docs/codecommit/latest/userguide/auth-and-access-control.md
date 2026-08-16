@@ -43,7 +43,7 @@ each user. Use access keys when you access AWS services programmatically,
 either through [one of the AWS SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/")
 or by using the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"). The
 SDK and CLI tools use the access keys to cryptographically sign your requests.
-If you don’t use the AWS tools, you must sign the requests yourself.
+If you don't use the AWS tools, you must sign the requests yourself.
 CodeCommit supports _Signature Version 4_, a
 protocol for authenticating inbound API requests. For more information about
 authenticating requests, see [Signature Version 4 Signing Process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the

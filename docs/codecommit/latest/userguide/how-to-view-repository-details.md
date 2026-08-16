@@ -18,8 +18,8 @@ Use the AWS CodeCommit console to quickly view all repositories created with you
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
 2. In **Repositories**, view the details about the repositories in the
    AWS Region where you are signed in. Use the Region selector to choose a different
-   AWS Regiont to view repositories in that Region.
-3. Choose the name of the repoistory for which you want to view more details, and then do one of the following:
+   AWS Region to view repositories in that Region.
+3. Choose the name of the repository for which you want to view more details, and then do one of the following:
 
    - To view the URL for cloning the repository, choose **Clone URL**,
      and then choose the protocol you want to use when cloning the repository. This copies

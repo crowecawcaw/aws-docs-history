@@ -7,7 +7,7 @@ AWS CodeCommit repositories.
 
 - [Access error: I am prompted for a user name and password when I connect to a CodeCommit repository from Windows](#troubleshooting-ae1w "#troubleshooting-ae1w")
 - [Access error: Public key denied when connecting to a CodeCommit repository](#troubleshooting-ae2 "#troubleshooting-ae2")
-- [Access error: “Rate Exceeded” or “429” message when connecting to a CodeCommit repository](#troubleshooting-ae3 "#troubleshooting-ae3")
+- [Access error: "Rate Exceeded" or "429" message when connecting to a CodeCommit repository](#troubleshooting-ae3 "#troubleshooting-ae3")
 
 ## Access error: I am prompted for a user name and password when I connect to a CodeCommit repository from Windows
 
@@ -45,10 +45,10 @@ is that you have not completed setup for SSH connections. Configure a public and
 SSH key pair, and then associate the public key with your IAM user. For more
 information about configuring SSH, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md "setting-up-ssh-unixes.md") and [For SSH connections on Windows](setting-up-ssh-windows.md "setting-up-ssh-windows.md").
 
-## Access error: “Rate Exceeded” or “429” message when connecting to a CodeCommit repository
+## Access error: "Rate Exceeded" or "429" message when connecting to a CodeCommit repository
 
 **Problem:** When you try to communicate with a CodeCommit
-repository, a message appears that says “Rate Exceeded” or with an error code of “429”.
+repository, a message appears that says "Rate Exceeded" or with an error code of "429".
 Communication either slows significantly or fails.
 
 **Cause:** All calls to CodeCommit, whether from an

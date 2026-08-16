@@ -20,7 +20,7 @@ HTTPS Git credentials for AWS CodeCommit. This HTTPS authentication method:
 - [Setting up using Git credentials](#setting-up-standard "#setting-up-standard")
 - [Setting up using other methods](#setting-up-other "#setting-up-other")
 - [Compatibility for CodeCommit, Git, and other components](#setting-up-compat "#setting-up-compat")
-  For information about using CodeCommit and Amazon Virtual Private Cloud, see [Using AWS CodeCommit with interface VPC endpoints](codecommit-and-interface-VPC.md "codecommit-and-interface-VPC.md") .
+  For information about using CodeCommit and Amazon Virtual Private Cloud, see [Using AWS CodeCommit with interface VPC endpoints](codecommit-and-interface-VPC.md "codecommit-and-interface-VPC.md").
 
 ## View and manage your credentials
 

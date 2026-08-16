@@ -354,6 +354,90 @@ aws codecommit get-blob  --repository-name MyDemoRepo  --blob-id 2eb4af3bEXAMPLE
 }
 ```
 
+### To view a line-level diff between two blobs
+
+Use **get-blob-differences** to display a line-level diff between two
+file versions. The command returns an ordered list of hunks—contiguous runs of changed
+lines with surrounding context—that you can use to render side-by-side or unified diff
+views in your tooling.
+
+1. Run the **get-blob-differences** command, specifying:
+
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - The ID of the after blob—the version to compare to (with the
+     `--after-blob-id` option).
+   - Optionally, the ID of the before blob (with the `--before-blob-id`
+     option). If you do not specify a before blob, the command computes the diff against
+     an empty before-state, which is the same as treating the file as newly
+     added.
+   - Optionally, the number of unchanged context lines per hunk (with the
+     `--context-lines` option, integer between 0 and 20; defaults to
+     3).
+   - Optionally, whether to ignore whitespace-only changes (with the
+     `--ignore-whitespace` option).
+   - Optionally, the maximum total number of diff hunks to return in the
+     command's output (with the `--max-items` option, any positive
+     integer). The AWS Command Line Interface (AWS CLI) might make multiple internal
+     service calls to collect results. If more results exist beyond
+     `--max-items`, the output includes a `NextToken` pagination
+     token.
+   - Optionally, the number of results per service call (with the
+     `--page-size` option, integer between 1 and 1000; defaults to
+     100).
+   - Optionally, a pagination token from a previous response (with the
+     `--starting-token` option). Use this value to retrieve the next page
+     when the output includes a `NextToken`.
+     For example, to view the line-level diff between two blob versions of a file in a
+     CodeCommit repository named `MyDemoRepo`, with three lines of
+     context:
+
+```
+aws codecommit get-blob-differences --repository-name MyDemoRepo --before-blob-id bf7fcf28fEXAMPLE --after-blob-id 2eb4af3bEXAMPLE
+```
+
+2. If successful, the output of this command includes the following:
+
+   - The list of diff hunks, each with start lines and counts for both versions and
+     an ordered list of line-level changes (`CONTEXT`, `ADD`, or
+     `DELETE`). `ADD` changes omit
+     `beforeLineNumber`, and `DELETE` changes omit
+     `afterLineNumber`.
+   - Whether the content was treated as binary
+     (`isBinary`).
+   - The size of each blob in bytes (`beforeBlobSize`,
+     `afterBlobSize`).
+   - If the diff spans multiple pages, an opaque `NextToken` that you
+     can pass to a follow-up **get-blob-differences** call (with the
+     `--starting-token` option) to retrieve the next page. When the
+     response contains the final page, `NextToken` is omitted.
+     For example, the output of the previous command might be similar to the
+     following:
+
+```
+{
+    "hunks": [
+        {
+            "beforeStartLine": 1,
+            "beforeLineCount": 4,
+            "afterStartLine": 1,
+            "afterLineCount": 5,
+            "changes": [
+                { "type": "CONTEXT", "beforeLineNumber": 1, "afterLineNumber": 1, "content": "import os" },
+                { "type": "DELETE",  "beforeLineNumber": 2, "content": "DEBUG = False" },
+                { "type": "ADD",     "afterLineNumber": 2, "content": "DEBUG = True" },
+                { "type": "ADD",     "afterLineNumber": 3, "content": "VERBOSE = True" },
+                { "type": "CONTEXT", "beforeLineNumber": 3, "afterLineNumber": 4, "content": "" },
+                { "type": "CONTEXT", "beforeLineNumber": 4, "afterLineNumber": 5, "content": "def main():" }
+            ]
+        }
+    ],
+    "isBinary": false,
+    "beforeBlobSize": 142,
+    "afterBlobSize": 168
+}
+```
+
 ## View commit details (Git)
 
 Before you follow these steps, you should have already connected the local repo to

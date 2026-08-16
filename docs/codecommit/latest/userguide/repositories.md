@@ -18,7 +18,7 @@ your Amazon Web Services account, or set up access for federated access or tempo
 For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account "setting-up-gc.md#setting-up-gc-account")
 and [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md "setting-up-git-remote-codecommit.md").
 
-For information about working with other aspects of your repository in CodeCommit, see [Working with files](files.md "files.md"), [Working with pull requests](pull-requests.md "pull-requests.md") , [Working with commits](commits.md "commits.md"), [Working with branches](branches.md "branches.md"), and
+For information about working with other aspects of your repository in CodeCommit, see [Working with files](files.md "files.md"), [Working with pull requests](pull-requests.md "pull-requests.md"), [Working with commits](commits.md "commits.md"), [Working with branches](branches.md "branches.md"), and
 [Working with user preferences](user-preferences.md "user-preferences.md"). For information about
 migrating to CodeCommit, see [Migrate to CodeCommit](how-to-migrate-repository.md "how-to-migrate-repository.md").
 

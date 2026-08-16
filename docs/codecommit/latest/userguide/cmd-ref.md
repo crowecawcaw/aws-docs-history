@@ -132,6 +132,7 @@ AWS CLI:
 - [evaluate-pull-request-approval-rules](how-to-merge-pull-request.md#evaluate-pull-request-approval-rules "how-to-merge-pull-request.md#evaluate-pull-request-approval-rules")
 - [get-approval-rule-template](how-to-manage-templates.md#get-template "how-to-manage-templates.md#get-template")
 - [get-blob](how-to-view-commit-details.md#how-to-view-commit-details-cli-blob "how-to-view-commit-details.md#how-to-view-commit-details-cli-blob")
+- [get-blob-differences](how-to-view-commit-details.md#how-to-view-commit-details-cli-blob-differences "how-to-view-commit-details.md#how-to-view-commit-details-cli-blob-differences")
 - [get-branch](how-to-view-branch-details.md#how-to-view-branch-details-cli-details "how-to-view-branch-details.md#how-to-view-branch-details-cli-details")
 - [get-comment](how-to-commit-comment.md#how-to-commit-comment-cli-get-comment-info "how-to-commit-comment.md#how-to-commit-comment-cli-get-comment-info")
 - [get-comment-reactions](how-to-commit-comment.md#how-to-commit-comment-cli-commit-emoji-view "how-to-commit-comment.md#how-to-commit-comment-cli-commit-emoji-view")

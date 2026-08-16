@@ -68,7 +68,7 @@ For more information about remote helpers and Git, see the
 environment is externally managed.
 
 **Possible fixes:** The most common reason for this error
-is that you're running a distrobution (distro) of Python that define an EXTERNALLY-MANAGED marker file. The best solution for this is to create and use a virtual
+is that you're running a distribution (distro) of Python that defines an EXTERNALLY-MANAGED marker file. The best solution for this is to create and use a virtual
 environment.
 
 For more information about externally managed environments and Python, see [Externally Managed Environments](https://packaging.python.org/en/latest/specifications/externally-managed-environments/#externally-managed-environments "https://packaging.python.org/en/latest/specifications/externally-managed-environments/#externally-managed-environments")

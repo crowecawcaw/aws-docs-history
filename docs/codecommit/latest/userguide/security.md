@@ -13,7 +13,7 @@ _of_ the cloud and security _in_ the cloud:
   Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility is
   determined by the AWS service that you use. You are also responsible for other factors
-  including the sensitivity of your data, your company’s requirements, and applicable laws and
+  including the sensitivity of your data, your company's requirements, and applicable laws and
   regulations.
   This documentation helps you understand how to apply the shared responsibility model when
   using CodeCommit. The following topics show you how to configure CodeCommit to meet your

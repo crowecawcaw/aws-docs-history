@@ -139,7 +139,7 @@ If successful, this command produces output similar to the following:
 
 ###### Note
 
-This output indicates that a pull request is not mergable because the
+This output indicates that a pull request is not mergeable because the
 requirements of an approval rule have not been satisfied. To merge this pull
 request, you can have reviewers approve it to meet the conditions of the
 rule. Depending on your permissions and how the rule was created, you might

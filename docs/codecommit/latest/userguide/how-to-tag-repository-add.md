@@ -6,7 +6,7 @@ repository. Keep in mind that there are limits on the number of tags you can hav
 repository. There are restrictions on the characters you can use in the key and value
 fields. For more information, see [Limits](limits.md#limits-tags "limits.md#limits-tags"). After you
 have tags, you can create IAM policies to manage access to the repository based on
-these tags. You can use the the CodeCommit console or the AWS CLI to add tags to a repository.
+these tags. You can use the CodeCommit console or the AWS CLI to add tags to a repository.
 
 ###### Important
 

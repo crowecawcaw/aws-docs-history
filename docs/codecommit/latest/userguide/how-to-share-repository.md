@@ -172,7 +172,7 @@ You can use the Search box to quickly find users by name. 8. When you have added
 ## Share the connection information with your users
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
-2. In the region selector, choose the AWS Region where the repository was created.
+2. In the Region selector, choose the AWS Region where the repository was created.
    Repositories are specific to an AWS Region. For more information, see [Regions and Git connection endpoints](regions.md "regions.md").
 3. On the **Repositories** page, choose the repository you
    want to share.

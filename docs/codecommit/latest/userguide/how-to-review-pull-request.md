@@ -24,7 +24,7 @@ You can use the CodeCommit console to review a pull request in a CodeCommit repo
 4. By default, a list of all open pull requests is displayed. Choose the open
    pull request you want to review.
 
-![Open pull requests displayed in the CodeCommit console.](/images/codecommit/latest/userguide/images/codecommit-pull-request-view-list.png)
+![Open pull requests displayed in the CodeCommit console.](images/codecommit-pull-request-view-list.png)
 
 ###### Note
 

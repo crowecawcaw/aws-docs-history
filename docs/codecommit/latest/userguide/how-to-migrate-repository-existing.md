@@ -196,7 +196,7 @@ use for the rest of this tutorial. To use the AWS CLI to create the repository, 
 [Create a repository (AWS CLI)](how-to-create-repository.md#how-to-create-repository-cli "how-to-create-repository.md#how-to-create-repository-cli").
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
-2. In the region selector, choose the AWS Region where you want to create the
+2. In the Region selector, choose the AWS Region where you want to create the
    repository. For more information, see [Regions and Git connection endpoints](regions.md "regions.md").
 3. On the **Repositories** page, choose **Create
    repository**.
@@ -397,7 +397,7 @@ policies you configured, send that user the information required to
 connect to the repository.
 
 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
-2. In the region selector, choose the AWS Region where the repository was created.
+2. In the Region selector, choose the AWS Region where the repository was created.
    Repositories are specific to an AWS Region. For more information, see [Regions and Git connection endpoints](regions.md "regions.md").
 3. On the **Repositories** page, choose the repository you
    want to share.

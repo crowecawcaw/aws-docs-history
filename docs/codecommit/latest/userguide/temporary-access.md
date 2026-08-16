@@ -176,7 +176,7 @@ the AWS CLI](../../../cli/latest/userguide/cli-configure-role.md "../../../cli/l
 Assuming your user has followed the instructions in [Connect to a repository](how-to-connect.md "how-to-connect.md") to connect to the CodeCommit repositories, the user then uses the extended
 functionality provided by **git-remote-codecommit** and Git to call **git
 clone**, **git push**, and **git pull** to clone, push to, and
-pull from, the CodeCommit repositories to which he or she has access. For example, to clone a repository:
+pull from, the CodeCommit repositories to which they have access. For example, to clone a repository:
 
 ```
 git clone codecommit://`CodeAccess`@`MyDemoRepo`

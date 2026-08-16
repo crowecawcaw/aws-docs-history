@@ -173,7 +173,7 @@ named `MyDemoRepo`.
 ## commentOnCommitCreated event
 
 In this example event, a federated user named `Mary_Major` commented on a
-commit. In this example, her federated identity provider configured session tags for
+commit. In this example, their federated identity provider configured session tags for
 `displayName` and `emailAddress`. That information is included in
 the event.
 
@@ -243,7 +243,7 @@ That information is included in the event.
 ## commentOnPullRequestCreated event
 
 In this example event, a federated user named `Saanvi_Sarkar` commented on a
-pull request. In this example, her federated identity provider configured session tags for
+pull request. In this example, their federated identity provider configured session tags for
 `displayName` and `emailAddress`. That information is included in
 the event.
 
@@ -279,7 +279,7 @@ the event.
 ## commentOnPullRequestUpdated event
 
 In this example event, a federated user named `Saanvi_Sarkar` edited a
-comment on a pull request. In this example, her federated identity provider configured
+comment on a pull request. In this example, their federated identity provider configured
 session tags for `displayName` and `emailAddress`. That information is
 included in the event.
 
@@ -958,7 +958,7 @@ IAM user name of `Mary_Major`.
 ## pullRequestApprovalRuleUpdated event
 
 In this example event, an approval rule for a pull request has been edited by a user
-with an IAM user name of `Mary_Major`. She is also the user who authored the
+with an IAM user name of `Mary_Major`. This user also authored the
 pull request.
 
 ```
