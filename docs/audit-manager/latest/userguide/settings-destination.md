@@ -47,7 +47,7 @@ KMS key that's used for data encryption, see [Configuring your data encryption s
 **Cross-account S3 buckets**
 
 Using a cross-account S3 bucket as your assessment report
-destination isn’t supported in the Audit Manager console. It’s possible to
+destination isn't supported in the Audit Manager console. It's possible to
 specify a cross-account bucket as your assessment report destination
 by using the AWS CLI or one of the AWS SDKs, but for simplicity, we
 recommend that you not do this.
@@ -68,7 +68,7 @@ assessment report destination, consider the following points.
   canned access control list (ACL) automatically become owned
   by the bucket owner.
 
-Although it’s not a requirement, we recommend that you
+Although it's not a requirement, we recommend that you
 make the following changes to your cross-account bucket
 settings. Making these changes ensures that the bucket owner
 has full control of the assessment reports that you publish
@@ -124,16 +124,11 @@ JSON
 
 ### Security best practices for your assessment report destination
 
-Audit Manager does not validate S3 bucket ownership. This creates a risk if the
-bucket is deleted and recreated by a different AWS account (known as
-_bucket sniping_). A risk also exists if an unauthorized
-party creates a bucket with an anticipated name before you do (known as
-_bucket squatting_). In either case, Audit Manager continues to
-publish assessment reports to that bucket. The service does not detect the
-ownership change. Under the
-[AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), you are responsible for ensuring
-that your assessment report destination is a bucket that is owned by a trusted
-AWS account.
+Audit Manager publishes your assessment reports to the Amazon S3 bucket that you specify
+as your assessment report destination. Under the AWS Shared Responsibility
+Model, you are responsible for confirming that a trusted AWS account owns
+this bucket. For more information about your security responsibilities, see
+[AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") on the AWS website.
 
 To protect your assessment reports, we recommend that you implement one or
 more of the following controls.
@@ -199,9 +194,9 @@ unreadable without access to your KMS key. For instructions, see
 namespace**
 
 S3 buckets created in your account regional namespace include
-your AWS account ID and AWS Region in the bucket name. These
-buckets cannot be created by another account, which eliminates the
-risk of bucket sniping. For more information, see [Account-level bucket namespaces](../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets "../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets") in the
+your AWS account ID and AWS Region in the bucket name. No
+other account can create these buckets or claim the bucket name.
+For more information, see [Account-level bucket namespaces](../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets "../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets") in the
 _Amazon Simple Storage Service User Guide_.
 
 ## Procedure
@@ -220,7 +215,7 @@ Audit Manager console
    dropdown menu.
 3. To create a new S3 bucket, choose **Create new
    bucket**.
-4. When you’re done, choose **Save**.
+4. When you're done, choose **Save**.
 
 AWS CLI
 

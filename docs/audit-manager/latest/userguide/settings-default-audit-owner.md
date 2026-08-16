@@ -24,7 +24,7 @@ search bar to look for other AWS accounts.
    account name under **Audit owner**.
 3. To remove a default audit owner, clear the check box next to
    the account name under **Audit owner**.
-4. When you’re done, choose **Save**.
+4. When you're done, choose **Save**.
 
 AWS CLI
 

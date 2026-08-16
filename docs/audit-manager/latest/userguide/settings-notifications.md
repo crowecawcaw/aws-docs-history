@@ -35,7 +35,7 @@ Audit Manager console
    dropdown menu.
 3. To create a new SNS topic, choose **Create new
    topic**.
-4. When you’re done, choose **Save**.
+4. When you're done, choose **Save**.
 
 AWS CLI
 

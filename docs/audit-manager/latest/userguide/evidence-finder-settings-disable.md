@@ -18,7 +18,7 @@ CloudTrail Lake that was created when you enabled evidence finder.
 To disable evidence finder, you need permissions to delete an event data store
 in CloudTrail Lake. For an example policy that you can use, see [Permissions to disable evidence finder](security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-disable-evidence-finder").
 
-If you need help with permissions, contact your AWS administrator. If you’re
+If you need help with permissions, contact your AWS administrator. If you're
 an AWS administrator, you can [attach the required permission statement to an IAM policy](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console").
 
 ## Procedure
@@ -29,7 +29,7 @@ Audit Manager API.
 ###### Warning
 
 Disabling evidence finder deletes the CloudTrail Lake event data store that Audit Manager
-created. As a result, you can’t re-enable the feature. To re-use evidence finder
+created. As a result, you can't re-enable the feature. To re-use evidence finder
 after you disable it, you must [disable
 AWS Audit Manager](general-settings.md#disable "general-settings.md#disable"), and then [re-enable](setup-audit-manager.md "setup-audit-manager.md") the service completely.
 

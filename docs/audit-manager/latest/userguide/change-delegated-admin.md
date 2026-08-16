@@ -38,7 +38,7 @@ that account A signs in to Audit Manager and disables evidence finder. Disabling
 evidence finder automatically deletes the event data store that was
 created in the account when evidence finder was enabled.
 
-If this task isn’t completed, the event data store remains in account
+If this task isn't completed, the event data store remains in account
 A. In this case, we recommend that the original delegated administrator
 uses CloudTrail Lake to manually [delete the event data store](../../../awscloudtrail/latest/userguide/query-eds-disable-termination.md "../../../awscloudtrail/latest/userguide/query-eds-disable-termination.md").
 
@@ -50,7 +50,7 @@ continues to incur storage costs from CloudTrail Lake.
 
 - **Data deletion** - When you remove a
   delegated administrator account for Audit Manager, the data for that account
-  isn’t deleted. If you want to delete resource data for a delegated
+  isn't deleted. If you want to delete resource data for a delegated
   administrator account, you must perform that task separately before you
   remove the account. Either, you can do this in the Audit Manager console. Or, you
   can use one of the delete API operations that are provided by Audit Manager. For

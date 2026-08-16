@@ -9,7 +9,7 @@ enable the feature and create an event data store. As soon as the event data sto
 created, all new evidence is ingested into the event data store moving forward.
 
 When evidence finder is enabled and the event data store is created, we backfill the
-newly created event data store with up to two years’ worth of your past evidence. This
+newly created event data store with up to two years' worth of your past evidence. This
 process happens automatically and takes up to seven days to complete.
 
 Follow the steps on this page to check and understand the status of your request to
@@ -82,7 +82,7 @@ This attribute shows the current status of evidence finder.
 This attribute shows the current status of the evidence data
 backfill.
 
-- `NOT_STARTED` – The backfill hasn’t started
+- `NOT_STARTED` – The backfill hasn't started
   yet.
 - `IN_PROGRESS` – The backfill is in progress.
   This takes up to seven days to complete, depending on the amount
@@ -122,7 +122,7 @@ This attribute shows the current status of evidence finder.
 This attribute shows the current status of the evidence data
 backfill.
 
-- `NOT_STARTED` means that the backfill hasn’t
+- `NOT_STARTED` means that the backfill hasn't
   started yet.
 - `IN_PROGRESS` means that the backfill is in
   progress. This takes up to seven days to complete, depending on

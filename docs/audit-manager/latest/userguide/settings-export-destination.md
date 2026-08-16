@@ -34,8 +34,8 @@ change your KMS key, see [Audit Manager data encryption settings](general-settin
 
 **Cross-account S3 buckets**
 
-Using a cross-account S3 bucket as your export destination isn’t
-supported in the Audit Manager console. It’s possible to specify a
+Using a cross-account S3 bucket as your export destination isn't
+supported in the Audit Manager console. It's possible to specify a
 cross-account bucket using the AWS CLI or one of the AWS SDKs, but
 for simplicity, we recommend that you not do this. If you do choose
 to use a cross-account S3 bucket as your export destination,
@@ -49,7 +49,7 @@ consider the following points.
   canned access control list (ACL) automatically become owned
   by the bucket owner.
 
-Although it’s not a requirement, we recommend that you
+Although it's not a requirement, we recommend that you
 make the following changes to your cross-account bucket
 settings. Making these changes ensures that the bucket owner
 has full control of the exported files that you publish to
@@ -146,7 +146,7 @@ then includes this prefix when it adds the CSV file to the
 bucket, and Amazon S3 generates the path specified by the prefix.
 For more information about prefixes in Amazon S3, see [Organizing objects in the Amazon S3 console](../../../AmazonS3/latest/userguide/using-folders.md "../../../AmazonS3/latest/userguide/using-folders.md") in the
 _Amazon Simple Storage Service_ User
-Guide. 4. When you’re done, choose **Save**.
+Guide. 4. When you're done, choose **Save**.
 
 For instructions on how to create an S3 bucket, see [Creating a
 bucket](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md") in the _Amazon S3 User Guide_.
