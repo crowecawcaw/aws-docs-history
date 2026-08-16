@@ -57,3 +57,24 @@ early:
 
 For information about creating CloudWatch alarms, see [Creating CloudWatch alarms](../monitoring/AlarmThatSendsEmail.md "../monitoring/AlarmThatSendsEmail.md")
 in the _CloudWatch User Guide_.
+
+## Viewing syslog metrics on the automatic dashboard
+
+CloudWatch provides an automatic dashboard for CloudWatch Logs that includes a
+**Syslog Ingestion** section. This dashboard appears
+automatically when your account publishes syslog metrics – no manual setup is
+required. The dashboard includes one chart for each metric described in
+[Syslog metrics](#CWL_Syslog_Monitoring_Metrics "#CWL_Syslog_Monitoring_Metrics"). Each chart displays the metric
+rate broken down by the relevant dimensions, such as log group or reason.
+
+### Accessing the dashboard
+
+To view the syslog automatic dashboard:
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Dashboards**,
+   then choose **Automatic dashboards**.
+3. Choose the **CloudWatch Logs** dashboard.
+4. Scroll to the **Syslog Ingestion**
+   section.

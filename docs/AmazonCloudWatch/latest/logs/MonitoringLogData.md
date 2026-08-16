@@ -46,6 +46,11 @@ events that happen after the filter was created. When testing a filter pattern, 
 shows up to the first 50 matching log lines for validation purposes. If the timestamp on the filtered results is
 earlier than the metric creation time, no logs are displayed.
 
+###### Note
+
+Metric filters ensure at least one time delivery of log events to the specified
+metric, while duplicate deliveries may occasionally occur.
+
 ###### Contents
 
 - [Concepts](#search-filter-concepts "#search-filter-concepts")
