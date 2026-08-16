@@ -182,7 +182,7 @@ Nitro v3
 
 Nitro v2
 
-- **General Purpose**: M5 | M5d | M6g | M6gd | Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro | Mac-m4max | A1
+- **General Purpose**: M5 | M5d | M6g | M6gd | Mac1 | Mac2 | Mac2-m1ultra | Mac2-m2 | Mac2-m2pro | Mac-m3ultra | Mac-m4max | A1
 - **Compute Optimized**: C5 | C5d | C6g | C6gd
 - **Memory Optimized**: R5 | R5b | R5d | R6g | R6gd | X2gd | z1d
 - **Storage Optimized**: I3

@@ -65,6 +65,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Mac2-m1ultra    | `mac2-m1ultra.metal`     |
 | Mac2-m2         | `mac2-m2.metal`          |
 | Mac2-m2pro      | `mac2-m2pro.metal`       |
+| Mac-m3ultra     | `mac-m3ultra.metal`      |
 | Mac-m4          | `mac-m4.metal`           |
 | Mac-m4pro       | `mac-m4pro.metal`        |
 | Mac-m4max       | `mac-m4max.metal`        |
@@ -107,7 +108,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M8i-flex        | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8idn           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| M8ine           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
+| M8ine           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | M8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8idb           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M9g             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
@@ -117,6 +118,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | Mac2-m1ultra    | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64\_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac2-m2         | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64\_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac2-m2pro      | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64\_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
+| Mac-m3ultra     | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64\_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac-m4          | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64\_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac-m4pro       | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64\_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac-m4max       | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64\_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
@@ -532,6 +534,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | mac2-m2.metal      | 24.00        | Apple M2 with 8‑core CPU        | 8     | 8         | 1                | ✗ No         | ✗ No               |
 | **Mac2-m2pro**     |
 | mac2-m2pro.metal   | 32.00        | Apple M2 Pro with 12‑core CPU   | 12    | 12        | 1                | ✗ No         | ✗ No               |
+| **Mac-m3ultra**    |
+| mac-m3ultra.metal  | 256.00       | Apple M3 Ultra with 28‑core CPU | 28    | 28        | 1                | ✗ No         | ✗ No               |
 | **Mac-m4**         |
 | mac-m4.metal       | 24.00        | Apple M4 with 10‑core CPU       | 10    | 10        | 1                | ✗ No         | ✗ No               |
 | **Mac-m4pro**      |
@@ -991,6 +995,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | mac2-m2.metal 2       | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
 | **Mac2-m2pro**        |
 | mac2-m2pro.metal 2    | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
+| **Mac-m3ultra**       |
+| mac-m3ultra.metal 2   | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
 | **Mac-m4**            |
 | mac-m4.metal 2        | 10 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
 | **Mac-m4pro**         |
@@ -1482,6 +1488,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | mac2-m2.metal       | 8000.00                             | 1000.00                                           | 55000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 10 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **Mac2-m2pro**      |
 | mac2-m2pro.metal    | 8000.00                             | 1000.00                                           | 55000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 10 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
+| **Mac-m3ultra**     |
+| mac-m3ultra.metal   | 10000.00                            | 1250.00                                           | 55000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 10 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **Mac-m4**          |
 | mac-m4.metal        | 8000.00                             | 1000.00                                           | 55000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 31 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **Mac-m4pro**       |
@@ -2085,6 +2093,8 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | mac2-m2.metal      | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | **Mac2-m2pro**     |
 | mac2-m2pro.metal   | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
+| **Mac-m3ultra**    |
+| mac-m3ultra.metal  | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | **Mac-m4**         |
 | mac-m4.metal       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **Mac-m4pro**      |
