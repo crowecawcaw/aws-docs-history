@@ -17,3 +17,4 @@ maintaining security and compliance requirements.
 - [IAM policy assignments](iam-policy-assignments.md "iam-policy-assignments.md")
 - [Extension access](extension-access.md "extension-access.md")
 - [Custom permissions](custom-permissions.md "custom-permissions.md")
+- [Limit profiles](limit-profiles.md "limit-profiles.md")

@@ -25,6 +25,7 @@ creating SCPs, see the following topics in the _AWS Organizations User Guide_:
 - [Restricting the Quick edition](#security-scp-edition "#security-scp-edition")
 - [Restricting user management options](#security-scp-user "#security-scp-user")
 - [Example SCP](#security-scp-example "#security-scp-example")
+- [Restricting which accounts can create Quick subscriptions](#security-scp-centralize "#security-scp-centralize")
 
 ## Restricting the Quick edition
 
@@ -108,3 +109,60 @@ Amazon Quick Enterprise Edition, and they must use authentication methods other 
 IAM Identity Center. If they try to sign up for Amazon Quick Standard Edition or attempt
 to use IAM Identity Center authentication, they will be restricted from signing up and
 receive a message explaining that they don't have the right permissions.
+
+## Restricting which accounts can create Quick subscriptions
+
+In addition to restricting the edition and the user management options that
+individuals can sign up for, you can use an SCP to control _which_
+AWS accounts in your organization are allowed to create a Amazon Quick subscription.
+This helps you centralize Quick on a set of approved accounts and prevent
+individuals from starting new subscriptions in other accounts.
+
+Two actions can create a Amazon Quick subscription:
+`quicksight:Subscribe` and `quicksight:CreateAccountSubscription`.
+If a policy denies either action, the deny takes effect and the attempt to create a
+subscription fails. To restrict subscription creation, include both actions in your
+`Deny` statement.
+
+The following example SCP denies both actions in every account except the approved
+accounts that you list. The policy uses the `aws:PrincipalAccount` global
+condition key to compare the account of the principal making the request against your
+approved accounts. Replace the example account IDs with the IDs of the accounts where
+you allow Quick subscriptions.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Deny",
+            "Action": [
+                "quicksight:Subscribe",
+                "quicksight:CreateAccountSubscription"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalAccount": [
+                        "111111111111",
+                        "222222222222"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+With this policy in effect, only principals in the listed accounts can create a
+Amazon Quick subscription. Principals in any other account in your organization are
+prevented from signing up, and they receive a message explaining that they don't have
+the right permissions.
+
+As an alternative to using the condition key, you can attach a `Deny`
+statement for the same two actions (without the `aws:PrincipalAccount`
+condition) to every organizational unit (OU) except the OU that contains your approved
+accounts. For more information about where to attach policies, see [Strategies for using SCPs](../../../organizations/latest/userguide/orgs_manage_policies_scps_strategies.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_strategies.md") in the _AWS Organizations User Guide_.

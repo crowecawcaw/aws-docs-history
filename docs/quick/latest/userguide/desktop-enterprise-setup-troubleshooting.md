@@ -31,6 +31,16 @@ Verify that the redirect URI in your IdP is exactly
 `http://localhost:18080` and is configured as a public
 client or native platform.
 
+Access blocked: app not verified (Google Workspace)
+
+This error means the OAuth consent screen is set to
+**External**. In the Google Cloud
+Console, navigate to **Google Auth
+Platform** → **Branding** and
+set the **User type** to
+**Internal**, which restricts sign-in to users in your
+Google Workspace organization.
+
 User not found after sign-in
 
 This error has two common causes:
@@ -98,21 +108,32 @@ the Refresh Token grant type must be enabled and the
 also verify that **Return ID Token On Refresh
 Grant** is selected in the OIDC policy.
 
-`invalid_scope` error (Okta)
-
-Verify that `offline_access` is enabled on your
-authorization server. Navigate to **Security
-→ API → Authorization Servers → default →
-Scopes** and confirm the scope is present. Also verify
-that the access policy for the application allows the Refresh Token
-grant type.
-
 Application not enabled (PingOne)
 
 If authentication fails immediately without reaching the PingOne
 login page, verify that the application toggle is set to
 **Enabled** in the PingOne admin
 console.
+
+User info request failed (HTTP 401) (PingOne)
+
+The required scopes are not enabled on the application's
+**Resources** tab. This is a separate step from the
+**Configuration** tab: PingOne grants
+only the `openid` scope by default. In the
+PingOne admin console, open the application's
+**Resources** tab and add the `email`,
+`profile`, and `offline_access` scopes.
+
+Token validation failure with a PingOne JSON Web Key Set
+(JWKS) URI
+
+Verify that the JWKS URI in your extension access configuration uses
+the `/as/jwks` path (for example,
+`https://auth.pingone.com/<ENV_ID>/as/jwks`). Do not
+use `/.well-known/jwks.json`, which can appear as a
+placeholder in some PingOne forms. PingOne
+does not use this path.
 
 Missing email claim after refresh (PingFederate)
 

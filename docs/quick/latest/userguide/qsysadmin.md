@@ -26,6 +26,7 @@ through the AWS Management Console.
 - [Managing identities](qbs-identity.md "qbs-identity.md")
 - [Managing security](manage-security.md "manage-security.md")
 - [Permissions](permissions.md "permissions.md")
+- [Governance](governance.md "governance.md")
 - [Customizations](customizations.md "customizations.md")
 - [Using the Amazon Quick analytics dashboard](incident-response-logging-and-monitoring-quick-suite.md "incident-response-logging-and-monitoring-quick-suite.md")
 - [AWS security in Quick](security.md "security.md")

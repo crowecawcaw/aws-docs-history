@@ -26,9 +26,9 @@ Repeat this step until you have entered information for everyone you want
 to share the dataset with. 5. For the **Permissions** column, choose a role for each
 user or group to give them permissions on the dataset.
 
-Choose **Viewer** to allow the user to create analyses
+Choose **User** to allow them to create analyses
 and datasets from the dataset. Choose **Owner** to allow
-the user to do that and also refresh, edit, delete, and reshare the
+them to do that and also refresh, edit, delete, and reshare the
 dataset.
 
 Users receive emails with a link to the dataset. Groups don't receive

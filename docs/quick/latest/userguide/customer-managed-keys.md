@@ -25,6 +25,8 @@ The following rules apply to using customer managed KMS keys with Amazon Quick r
 - By default, Amazon Quick resources are encrypted with Amazon Quick–native
   encryption strategies.
 - Data currently encrypted by a customer managed KMS key will stay encrypted by the key.
+- Accounts configured with a customer managed KMS key do not support chat
+  memory. For more information, see [Memory and response personalization](using-quick-chat.md#chat-memory "using-quick-chat.md#chat-memory").
 
 ###### Note
 

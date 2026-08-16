@@ -45,3 +45,27 @@ better control over which values are loaded in an analysis.
   selection** or **On hover** to turn highlighting
   on, or **No highlight** to turn it off.
 - To customize highlighting on a per-sheet level see [Adding and managing sheets](working-with-multiple-sheets.md "working-with-multiple-sheets.md").
+
+###### No data message customization
+
+- Use this setting to control the message displayed when a visual in the
+  analysis returns no data. Customizing this can give readers of the dashboards
+  reasons why no data is shown and potential fixes. Parameters are supported for
+  all text input.
+- **Title and subtitle** – Use these
+  settings to customize the text shown on the message title or subtitle and to
+  toggle visibility of either option.
+- **Hyperlink** – Use this setting to
+  control the hyperlink displayed at the bottom of the message. The link label
+  field controls the displayed text of the hyperlink, while the link URL field
+  controls where the user is redirected when clicking the hyperlink text. Only
+  http://, https://, and mailto: URL schemas are supported.
+- **Pixel-perfect reporting** – In
+  pixel-perfect (paginated) report output, hyperlinks are rendered as clickable
+  links, not as static display text. To show the full URL in a printed report,
+  enter the full URL as the link label so it remains visible in the static
+  output.
+- **Dataset or data refresh errors** – The
+  no data message customization applies only to visuals that return zero rows of
+  data. Dataset or data refresh errors are a separate error type and are not
+  customizable as part of this feature.

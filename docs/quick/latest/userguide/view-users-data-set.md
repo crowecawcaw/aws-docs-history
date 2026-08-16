@@ -15,5 +15,5 @@ view, edit, or change user access to it.
 A list of all users and groups with access to the dataset is
 displayed. 4. (Optional) To change permission roles for a user or group, choose the
 drop-down menu in the **Permissions** column for the user
-or group. Then choose either **Viewer** or
+or group. Then choose either **User** or
 **Owner**.
