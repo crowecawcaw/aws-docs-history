@@ -52,7 +52,7 @@ This configuration means that a user can perform cross-Region searches in _**onl
 `us-west-2`, which contains the aggregator index. Only views from that Region can
 return results from all Regions in the account.
 
-![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](/images/resource-explorer/latest/userguide/images/AREX-Overview-IAD.png)
+![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](images/AREX-Overview-IAD.png)
 
 |                                                                                        |
 | -------------------------------------------------------------------------------------- |
