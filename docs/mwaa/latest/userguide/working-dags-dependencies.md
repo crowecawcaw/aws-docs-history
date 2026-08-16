@@ -86,7 +86,7 @@ Apache Airflow v3
 2. **Review the Apache Airflow package extras**. To access a list of the packages installed for Apache Airflow v3 on Amazon MWAA, refer to [aws-mwaa-docker-images `requirements.txt`](https://github.com/aws/amazon-mwaa-docker-images/blob/main/requirements.txt "https://github.com/aws/amazon-mwaa-docker-images/blob/main/requirements.txt") on the GitHub website.
 3. **Add a constraints statement**. Add the constraints file for your Apache Airflow v3 environment at the top of your `requirements.txt` file. Apache Airflow constraints files specify the provider versions available at the time of a Apache Airflow release.
 
-In the following example, replace `{environment-version}` with your environment's version number, and `{Python-version}` with the version of Python that's compatible with your environment.
+In the following example, replace `{Airflow-version}` with your environment's Airflow version. Replace `{Python-version}` with the Python version compatible with your environment.
 
 For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official "airflow-versions.md#airflow-versions-official").
 
@@ -95,7 +95,11 @@ For information about the version of Python compatible with your Apache Airflow 
 ```
 
 If the constraints file determines that `xyz==1.0` package is not compatible with other packages in your environment, `pip3 install` will fail to
-prevent incompatible libraries from being installed to your environment. If installation fails for any packages, you can access error logs for each Apache Airflow component (the scheduler, worker, and webserver) in the corresponding log stream on CloudWatch Logs. For more information about log types, refer to [Accessing Airflow logs in Amazon CloudWatch](monitoring-airflow.md "monitoring-airflow.md"). 4. **Apache Airflow packages**. Add the [package extras](http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html "http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html") and the version (`==`). This helps to prevent packages of the same name, but different version, from being installed on your environment.
+prevent incompatible libraries from being installed to your environment. If installation fails for any packages, you can access error logs for each Apache Airflow component (the scheduler, worker, and webserver) in the corresponding log stream on CloudWatch Logs. For more information about log types, refer to [Accessing Airflow logs in Amazon CloudWatch](monitoring-airflow.md "monitoring-airflow.md").
+
+###### Updating constraint file versions
+
+If you need to update the versions in the constraint file, refer to [Constraints file](connections-packages.md#connections-packages-constraints "connections-packages.md#connections-packages-constraints"). 4. **Apache Airflow packages**. Add the [package extras](http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html "http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html") and the version (`==`). This helps to prevent packages of the same name, but different version, from being installed on your environment.
 
 ```
 apache-airflow[`package-extra`]==2.5.1
@@ -132,8 +136,7 @@ Apache Airflow v2
 Beginning with Apache Airflow v2.7.2, your requirements file must include a `--constraint` statement. If you do not provide a constraint, Amazon MWAA will specify
 one for you to ensure the packages listed in your requirements are compatible with the version of Apache Airflow you are using.
 
-In the following example, replace `{environment-version}` with your environment's version number, and `{Python-version}`
-with the version of Python that's compatible with your environment.
+In the following example, replace `{Airflow-version}` with your environment's Airflow version. Replace `{Python-version}` with the Python version compatible with your environment.
 
 For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official "airflow-versions.md#airflow-versions-official").
 
@@ -147,7 +150,11 @@ not compatible with other packages in your environment, `pip3
 from being installed to your environment. If installation fails for any
 packages, you can access error logs for each Apache Airflow component (the
 scheduler, worker, and webserver) in the corresponding log stream on
-CloudWatch Logs. For more information about log types, refer to [Accessing Airflow logs in Amazon CloudWatch](monitoring-airflow.md "monitoring-airflow.md"). 4. **Apache Airflow packages**. Add the [package extras](http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html "http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html")
+CloudWatch Logs. For more information about log types, refer to [Accessing Airflow logs in Amazon CloudWatch](monitoring-airflow.md "monitoring-airflow.md").
+
+###### Updating constraint file versions
+
+If you need to update the versions in the constraint file, refer to [Constraints file](connections-packages.md#connections-packages-constraints "connections-packages.md#connections-packages-constraints"). 4. **Apache Airflow packages**. Add the [package extras](http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html "http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html")
 and the version (`==`). This helps to prevent packages of the same name, but different version, from being installed on your environment.
 
 ```

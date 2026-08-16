@@ -34,8 +34,8 @@ To use the sample code in this section, add the following dependency to your `re
 
 ```
 apache-airflow-providers-microsoft-mssql==1.0.1
-			apache-airflow-providers-odbc==1.0.1
-			pymssql==2.2.1
+apache-airflow-providers-odbc==1.0.1
+pymssql==2.2.1
 ```
 
 ## Apache Airflow v2 connection

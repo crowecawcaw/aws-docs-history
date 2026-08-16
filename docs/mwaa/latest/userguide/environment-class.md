@@ -84,7 +84,7 @@ mw1.2xlarge
 
 - Up to 4000 DAG capacity
 - 80 concurrent tasks (by default)
-- Componenets:
+- Components:
 
   - Webservers: 8 vCPU 24GB RAM each
   - Workers: 16 vCPU 48GB RAM each

@@ -89,7 +89,7 @@ The following section displays the steps to attach the VPC endpoints for the AWS
    2. In the _Filter by attributes or search by keyword_ text field, type: `.s3`, then press _Enter_ on your keyboard.
    3. We recommend choosing the service endpoint listed for the **Gateway** type.
 
-   For example, `com.amazonaws.us-west-2.s3 amazon Gateway` 4. Choose your environment's Amazon VPC in **VPC**. 5. Ensure that your two private subnets in different Availability Zones are selected, and that that private DNS is enabled by selecting **Enable DNS name**. 6. Choose your environment's Amazon VPC security groups. 7. Choose **Full Access** in **Policy**. 8. Choose **Create endpoint**.
+   For example, `com.amazonaws.us-west-2.s3 amazon Gateway` 4. Choose your environment's Amazon VPC in **VPC**. 5. Make sure that you choose the route table for your two private subnets. 6. Choose **Full Access** in **Policy**. 7. Choose **Create endpoint**.
 
 4. Create the endpoint for CloudWatch Logs:
 
