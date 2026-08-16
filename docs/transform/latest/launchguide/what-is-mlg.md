@@ -22,6 +22,13 @@ journey. It gives guidance on how to plan your migration, considerations for sta
 you to get acquainted with some of the tools you can use to simplify, automate and guide you
 through your migration.
 
+The section on [Modernization pathways](modernization-pathways.md "modernization-pathways.md") outlines structured approaches to modernizing application
+portfolios after migration. Most organizations choose a combination of pathways to meet specific
+business outcomes.
+
+After implementing a modernization pathway, the [Generative AI insights for modernization pathways](genai-insights-modernization.md "genai-insights-modernization.md") section maps the insights and use
+cases that become available as a natural next step in the journey.
+
 As you progress your [Organizational readiness](organizational-readiness.md "organizational-readiness.md") by using AWS, you can
 find guidance on how to determine where you are on your cloud journey. The tools that help
 identify potential gaps in your organizations’ plan, skills and governance, and allow you to
