@@ -7,7 +7,7 @@ provides basic game hosting functionality to track available game servers and ro
 to low-cost, high-viability game servers.
 
 Amazon GameLift Servers FleetIQ as a standalone feature does not provide advanced features that are offered with
-the fullly managed Amazon GameLift Servers solution, which also uses FleetIQ to minimize hosting costs. If you
+the fully managed Amazon GameLift Servers solution, which also uses FleetIQ to minimize hosting costs. If you
 need features such as matchmaking, latency-based player routing, game session and player
 session management, and versioning, take a look at the Amazon GameLift Servers solutions.
 
@@ -83,7 +83,7 @@ AMI](../../../eks/latest/userguide/eks-optimized-ami.md "../../../eks/latest/use
   availability.** With this balancing strategy in force, no Spot
   Instances are used. This is a useful tool to ensure server availability when you
   need it most, such as during feature launches or other special events. You can
-  swtich a game server group from a Spot to an On-Demand strategy as needed.
+  switch a game server group from a Spot to an On-Demand strategy as needed.
   Also review these AWS best practices:
 
 - [Best Practices for
