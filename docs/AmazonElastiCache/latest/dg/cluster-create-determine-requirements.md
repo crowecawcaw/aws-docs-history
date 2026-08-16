@@ -67,7 +67,7 @@ In addition to the node endpoints, the Memcached cluster itself has an endpoint 
 Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write
 to up to auto discovery.
 
-![Image showing how a Memcached cluster is partitioned across the nodes in the cluster.](/images/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Memcached.png)
+![Image showing how a Memcached cluster is partitioned across the nodes in the cluster.](images/ElastiCache-Cluster-Memcached.png)
 
 For more information, see [Managing clusters in ElastiCache](Clusters.md "Clusters.md").
 
