@@ -12,13 +12,13 @@ You can attach `AWSServiceCatalogAppRegistryFullAccess` to your users, groups, a
 
 - **Type**: AWS managed policy
 - **Creation time**: November 12, 2020, 22:25 UTC
-- **Edited time:** December 07, 2023, 21:50 UTC
+- **Edited time:** August 12, 2026, 10:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSServiceCatalogAppRegistryFullAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -40,6 +40,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : "servicecatalog-appregistry.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "servicecatalog-appregistry.amazonaws.com"
+        },
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "UpdateStack"
+          ]
         }
       }
     },

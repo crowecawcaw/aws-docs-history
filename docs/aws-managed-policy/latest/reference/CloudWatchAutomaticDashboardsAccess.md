@@ -12,13 +12,13 @@ You can attach `CloudWatchAutomaticDashboardsAccess` to your users, groups, and 
 
 - **Type**: AWS managed policy
 - **Creation time**: July 23, 2019, 10:01 UTC
-- **Edited time:** April 20, 2021, 13:05 UTC
+- **Edited time:** August 07, 2026, 10:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchAutomaticDashboardsAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,6 +30,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Effect" : "Allow",
       "Action" : [
         "autoscaling:DescribeAutoScalingGroups",
         "cloudfront:GetDistribution",
@@ -50,7 +51,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "kinesis:DescribeStream",
         "kinesis:ListStreams",
         "lambda:GetFunction",
+        "lambda:GetFunctionConfiguration",
         "lambda:ListFunctions",
+        "lambda:ListTags",
         "rds:DescribeDBClusters",
         "rds:DescribeDBInstances",
         "resource-groups:ListGroupResources",
@@ -66,14 +69,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "synthetics:DescribeCanariesLastRun",
         "tag:GetResources"
       ],
-      "Effect" : "Allow",
       "Resource" : "*"
     },
     {
+      "Effect" : "Allow",
       "Action" : [
         "apigateway:GET"
       ],
-      "Effect" : "Allow",
       "Resource" : [
         "arn:aws:apigateway:*::/restapis*"
       ]

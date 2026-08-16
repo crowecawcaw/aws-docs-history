@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 23, 2022, 17:12 UTC
-- **Edited time:** September 10, 2024, 16:04 UTC
+- **Edited time:** August 14, 2026, 17:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSReachabilityAnalyzerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -61,7 +61,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeTransitGatewayRouteTables",
         "ec2:DescribeTransitGatewayVpcAttachments",
         "ec2:DescribeTransitGateways",
+        "ec2:DescribeTransitGatewayPolicyTables",
+        "ec2:GetTransitGatewayPolicyTableEntries",
+        "ec2:GetTransitGatewayPolicyTableAssociations",
         "ec2:DescribeVpcEndpointServiceConfigurations",
+        "ec2:DescribeAddresses",
         "ec2:DescribeVpcEndpoints",
         "ec2:DescribeVpcPeeringConnections",
         "ec2:DescribeVpcs",
@@ -79,6 +83,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticloadbalancing:DescribeTargetGroups",
         "elasticloadbalancing:DescribeTargetHealth",
         "network-firewall:DescribeFirewall",
+        "network-firewall:DescribeFirewallMetadata",
         "network-firewall:DescribeFirewallPolicy",
         "network-firewall:DescribeResourcePolicy",
         "network-firewall:DescribeRuleGroup",

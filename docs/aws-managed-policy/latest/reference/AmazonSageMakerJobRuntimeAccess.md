@@ -12,13 +12,13 @@ You can attach `AmazonSageMakerJobRuntimeAccess` to your users, groups, and role
 
 - **Type**: AWS managed policy
 - **Creation time**: June 03, 2026, 02:42 UTC
-- **Edited time:** June 03, 2026, 02:42 UTC
+- **Edited time:** August 07, 2026, 18:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonSageMakerJobRuntimeAccess`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -55,6 +55,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "KMSPermissionsForMTRLRuntime",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sagemaker.*.amazonaws.com"
         }
       }
     }

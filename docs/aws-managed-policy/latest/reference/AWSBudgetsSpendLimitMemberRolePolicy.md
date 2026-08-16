@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: July 18, 2026, 00:57 UTC
-- **Edited time:** July 18, 2026, 00:57 UTC
+- **Edited time:** August 13, 2026, 20:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSBudgetsSpendLimitMemberRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -40,7 +40,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVpnGateways",
         "ec2:DescribeAddresses",
         "ec2:DescribeSnapshots",
-        "ec2:DescribeInstanceStatus"
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeVolumes"
       ],
       "Resource" : "*"
     },
@@ -166,12 +167,24 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
+      "Sid" : "CostOptimizationHubActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "cost-optimization-hub:UpdateEnrollmentStatus",
+        "cost-optimization-hub:ListEnrollmentStatuses"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "ComputeOptimizerActions",
       "Effect" : "Allow",
       "Action" : [
         "compute-optimizer:GetIdleRecommendations",
         "compute-optimizer:GetRecommendationSummaries",
-        "compute-optimizer:GetEnrollmentStatus"
+        "compute-optimizer:GetEC2InstanceRecommendations",
+        "compute-optimizer:GetAutoScalingGroupRecommendations",
+        "compute-optimizer:GetEnrollmentStatus",
+        "compute-optimizer:UpdateEnrollmentStatus"
       ],
       "Resource" : "*"
     },
@@ -181,7 +194,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "aco-automation:StartAutomationEvent",
         "aco-automation:ListRecommendedActions",
-        "aco-automation:GetAutomationEvent"
+        "aco-automation:GetAutomationEvent",
+        "aco-automation:GetEnrollmentConfiguration",
+        "aco-automation:UpdateEnrollmentConfiguration"
       ],
       "Resource" : "*"
     },
@@ -201,6 +216,59 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "account:GetPrimaryEmail"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowAWSServiceAccessForCostOptimizationHub",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:EnableAWSServiceAccess"
+      ],
+      "Resource" : "arn:aws:organizations:*:*:*",
+      "Condition" : {
+        "StringLike" : {
+          "organizations:ServicePrincipal" : [
+            "cost-optimization-hub.bcm.amazonaws.com",
+            "compute-optimizer.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowACOAutomationSLRCreation",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "aco-automation.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowComputeOptimizerSLRCreation",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : [
+        "arn:aws:iam::*:role/aws-service-role/cost-optimization-hub.bcm.amazonaws.com/AWSServiceRoleForCostOptimizationHub",
+        "arn:aws:iam::*:role/aws-service-role/compute-optimizer.amazonaws.com/AWSServiceRoleForComputeOptimizer",
+        "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation"
+      ],
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "compute-optimizer.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowCostOptimizationHubSLRCreation",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/cost-optimization-hub.bcm.amazonaws.com/AWSServiceRoleForCostOptimizationHub",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "cost-optimization-hub.bcm.amazonaws.com"
+        }
+      }
     }
   ]
 }

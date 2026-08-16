@@ -12,13 +12,13 @@ You can attach `AmazonVPCNetworkAccessAnalyzerFullAccessPolicy` to your users, g
 
 - **Type**: AWS managed policy
 - **Creation time**: June 15, 2023, 22:56 UTC
-- **Edited time:** May 15, 2024, 21:40 UTC
+- **Edited time:** August 14, 2026, 17:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonVPCNetworkAccessAnalyzerFullAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -68,10 +68,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeTransitGatewayConnects",
         "ec2:DescribeTransitGatewayPeeringAttachments",
         "ec2:DescribeTransitGatewayRouteTables",
+        "ec2:DescribeTransitGatewayPolicyTables",
+        "ec2:GetTransitGatewayPolicyTableEntries",
+        "ec2:GetTransitGatewayPolicyTableAssociations",
         "ec2:DescribeTransitGateways",
         "ec2:DescribeTransitGatewayVpcAttachments",
         "ec2:DescribeVpcEndpoints",
         "ec2:DescribeVpcEndpointServiceConfigurations",
+        "ec2:DescribeAddresses",
         "ec2:DescribeVpcPeeringConnections",
         "ec2:DescribeVpcs",
         "ec2:DescribeVpnConnections",
@@ -131,6 +135,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "network-firewall:DescribeFirewall",
+        "network-firewall:DescribeFirewallMetadata",
         "network-firewall:DescribeFirewallPolicy",
         "network-firewall:DescribeResourcePolicy",
         "network-firewall:DescribeRuleGroup",

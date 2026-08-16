@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** July 29, 2026, 21:12 UTC
+- **Edited time:** August 11, 2026, 20:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v73 (default)
+**Policy version:** v74 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -497,7 +497,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "emr-serverless:GetJobRun",
         "emr-serverless:*Session*",
         "emr-serverless:GetResourceDashboard",
-        "emr-serverless:TagResource"
+        "emr-serverless:TagResource",
+        "emr-serverless:StartJobRun"
       ],
       "Resource" : "*",
       "Condition" : {

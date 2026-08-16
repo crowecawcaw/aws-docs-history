@@ -12,13 +12,13 @@ You can attach `AWSSupplyChainFederationAdminAccess` to your users, groups, and 
 
 - **Type**: Service role policy
 - **Creation time**: March 01, 2023, 18:54 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** August 14, 2026, 21:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSSupplyChainFederationAdminAccess`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -107,6 +107,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sso:GetApplicationAssignmentConfiguration"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "BuilderIDCollaboration",
+      "Effect" : "Allow",
+      "Action" : [
+        "builderid:CreateInvitation",
+        "builderid:ListInvitations",
+        "builderid:DeleteInvitation",
+        "builderid:DisassociateCollaborator"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "IdentityStoreCollaboration",
+      "Effect" : "Allow",
+      "Action" : [
+        "identitystore:ReserveUser",
+        "identitystore:DeleteUser"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
       "Sid" : "AppflowConnectorProfile",

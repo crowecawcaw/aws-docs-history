@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationFSxProxyPolicy` to your users, groups, an
 
 - **Type**: Service role policy
 - **Creation time**: May 31, 2026, 13:12 UTC
-- **Edited time:** May 31, 2026, 13:12 UTC
+- **Edited time:** August 09, 2026, 12:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationFSxProxyPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,7 +45,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "fsx:DescribeVolumes",
-        "fsx:DescribeStorageVirtualMachines"
+        "fsx:DescribeStorageVirtualMachines",
+        "fsx:DescribeSnapshots"
       ],
       "Resource" : "*"
     },
@@ -91,6 +92,50 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "Null" : {
           "aws:ResourceTag/AWSApplicationMigrationServiceManaged" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "FSxCreateSnapshot",
+      "Effect" : "Allow",
+      "Action" : "fsx:CreateSnapshot",
+      "Resource" : "arn:aws:fsx:*:*:snapshot/*/*",
+      "Condition" : {
+        "Null" : {
+          "aws:RequestTag/AWSApplicationMigrationServiceManaged" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "FSxCreateSnapshotVolume",
+      "Effect" : "Allow",
+      "Action" : "fsx:CreateSnapshot",
+      "Resource" : "arn:aws:fsx:*:*:volume/*/*",
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AWSApplicationMigrationServiceManaged" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "FSxDeleteSnapshot",
+      "Effect" : "Allow",
+      "Action" : "fsx:DeleteSnapshot",
+      "Resource" : "arn:aws:fsx:*:*:snapshot/*/*",
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AWSApplicationMigrationServiceManaged" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "FSxTagSnapshot",
+      "Effect" : "Allow",
+      "Action" : "fsx:TagResource",
+      "Resource" : "arn:aws:fsx:*:*:snapshot/*/*",
+      "Condition" : {
+        "Null" : {
+          "aws:RequestTag/AWSApplicationMigrationServiceManaged" : "false"
         }
       }
     }

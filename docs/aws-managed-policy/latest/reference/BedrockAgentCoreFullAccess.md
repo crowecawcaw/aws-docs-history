@@ -12,13 +12,13 @@ You can attach `BedrockAgentCoreFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 16, 2025, 13:37 UTC
-- **Edited time:** July 28, 2026, 16:57 UTC
+- **Edited time:** August 11, 2026, 19:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/BedrockAgentCoreFullAccess`
 
 ## Policy version
 
-**Policy version:** v18 (default)
+**Policy version:** v19 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -99,13 +99,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:kms:*:*:key/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "bedrock-agentcore.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -119,19 +119,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:kms:*:*:key/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "kms:GrantConstraintType" : "EncryptionContextSubset"
-        },
-        "StringLike" : {
-          "kms:ViaService" : [
-            "bedrock-agentcore.*.amazonaws.com"
-          ],
-          "kms:EncryptionContext:aws:bedrock-agentcore-gateway:arn" : "arn:aws:bedrock-agentcore:*:*:gateway/*"
-        },
         "ForAllValues:StringEquals" : {
           "kms:GrantOperations" : [
             "Decrypt",
             "GenerateDataKey"
+          ]
+        },
+        "StringEquals" : {
+          "kms:GrantConstraintType" : "EncryptionContextSubset"
+        },
+        "StringLike" : {
+          "kms:EncryptionContext:aws:bedrock-agentcore-gateway:arn" : "arn:aws:bedrock-agentcore:*:*:gateway/*",
+          "kms:ViaService" : [
+            "bedrock-agentcore.*.amazonaws.com"
           ]
         }
       }
@@ -317,6 +317,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "iam:AWSServiceName" : "runtime-identity.bedrock-agentcore.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateBedrockAgentCoreRuntimeInstancesServiceLinkedRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/runtime-instances.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreRuntimeInstances",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "runtime-instances.bedrock-agentcore.amazonaws.com"
         }
       }
     },

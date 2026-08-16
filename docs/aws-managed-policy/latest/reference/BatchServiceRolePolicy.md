@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: March 10, 2021, 06:55 UTC
-- **Edited time:** December 05, 2023, 22:52 UTC
+- **Edited time:** August 05, 2026, 17:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/BatchServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -57,6 +57,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "autoscaling:DescribeAutoScalingInstances",
         "autoscaling:DescribeScalingActivities",
         "eks:DescribeCluster",
+        "ecs:DescribeCapacityProviders",
         "ecs:DescribeClusters",
         "ecs:DescribeContainerInstances",
         "ecs:DescribeTaskDefinition",
@@ -117,6 +118,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "iam:PassedToService" : [
             "ec2.amazonaws.com",
             "ec2.amazonaws.com.cn",
+            "ecs.amazonaws.com",
             "ecs-tasks.amazonaws.com"
           ]
         }
@@ -133,7 +135,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "spot.amazonaws.com",
             "spotfleet.amazonaws.com",
             "autoscaling.amazonaws.com",
-            "ecs.amazonaws.com"
+            "ecs.amazonaws.com",
+            "ecs-compute.amazonaws.com"
           ]
         }
       }
@@ -196,9 +199,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "ecs:DeleteCluster",
         "ecs:DeregisterContainerInstance",
+        "ecs:PutClusterCapacityProviders",
         "ecs:RunTask",
         "ecs:StartTask",
-        "ecs:StopTask"
+        "ecs:StopTask",
+        "ecs:UpdateCluster"
       ],
       "Resource" : "arn:aws:ecs:*:*:cluster/AWSBatch*"
     },
@@ -283,6 +288,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "AWSBatchPolicyStatement18",
+      "Effect" : "Allow",
+      "Action" : [
+        "ecs:CreateCapacityProvider",
+        "ecs:UpdateCapacityProvider",
+        "ecs:DeleteCapacityProvider"
+      ],
+      "Resource" : "arn:aws:ecs:*:*:capacity-provider/AWSBatch*"
+    },
+    {
+      "Sid" : "AWSBatchPolicyStatement19",
+      "Effect" : "Allow",
+      "Action" : [
+        "ecs:TagResource",
+        "ecs:UntagResource"
+      ],
+      "Resource" : [
+        "arn:aws:ecs:*:*:capacity-provider/AWSBatch*"
+      ]
     }
   ]
 }

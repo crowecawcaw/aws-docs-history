@@ -1,24 +1,24 @@
-# AmazonHealthLakeReadOnlyAccess
+# BedrockAgentCoreRuntimeInstancesInstanceRolePolicy
 
-**Description**: Provides read only access to Amazon HealthLake service.
+**Description**: Default policy for the instance role of instances managed by Bedrock AgentCore Runtime Instances.
 
-`AmazonHealthLakeReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`BedrockAgentCoreRuntimeInstancesInstanceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AmazonHealthLakeReadOnlyAccess` to your users, groups, and roles.
+You can attach `BedrockAgentCoreRuntimeInstancesInstanceRolePolicy` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: February 17, 2021, 02:43 UTC
-- **Edited time:** August 04, 2026, 21:12 UTC
+- **Creation time**: August 05, 2026, 13:27 UTC
+- **Edited time:** August 05, 2026, 13:27 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AmazonHealthLakeReadOnlyAccess`
+  `arn:aws:iam::aws:policy/BedrockAgentCoreRuntimeInstancesInstanceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,24 +30,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "AllowWritingSystemLogs",
       "Effect" : "Allow",
       "Action" : [
-        "healthlake:ListFHIRDatastores",
-        "healthlake:DescribeFHIRDatastore",
-        "healthlake:DescribeFHIRImportJob",
-        "healthlake:DescribeFHIRExportJob",
-        "healthlake:GetCapabilities",
-        "healthlake:ReadResource",
-        "healthlake:SearchWithGet",
-        "healthlake:SearchWithPost",
-        "healthlake:GetDataTransformationProfile",
-        "healthlake:ListDataTransformationProfiles",
-        "healthlake:ListDataTransformationProfileVersions",
-        "healthlake:DescribeDataTransformationJob",
-        "healthlake:ListDataTransformationJobs",
-        "healthlake:ValidateSource"
+        "bedrock-agentcore:PutSystemLogEvents"
       ],
-      "Resource" : "*"
+      "Resource" : "arn:aws:bedrock-agentcore:*:*:capacity-provider/*"
     }
   ]
 }

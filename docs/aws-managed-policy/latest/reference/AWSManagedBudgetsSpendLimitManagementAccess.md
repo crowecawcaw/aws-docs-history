@@ -12,13 +12,13 @@ You can attach `AWSManagedBudgetsSpendLimitManagementAccess` to your users, grou
 
 - **Type**: AWS managed policy
 - **Creation time**: July 17, 2026, 21:12 UTC
-- **Edited time:** July 17, 2026, 21:12 UTC
+- **Edited time:** August 07, 2026, 21:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSManagedBudgetsSpendLimitManagementAccess`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,8 +35,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "organizations:AttachPolicy",
         "organizations:DescribePolicy",
-        "organizations:DetachPolicy",
-        "organizations:ListPolicies"
+        "organizations:DetachPolicy"
       ],
       "Resource" : "arn:aws:organizations::*:policy/*/service_control_policy/*",
       "Condition" : {
@@ -44,6 +43,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/ManagedBy" : "SpendLimit"
         }
       }
+    },
+    {
+      "Sid" : "SCPListPolicyAction",
+      "Effect" : "Allow",
+      "Action" : "organizations:ListPolicies",
+      "Resource" : "*"
     },
     {
       "Sid" : "SCPTargetActions",

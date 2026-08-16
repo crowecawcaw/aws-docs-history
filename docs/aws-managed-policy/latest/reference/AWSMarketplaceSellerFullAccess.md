@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** July 21, 2026, 16:42 UTC
+- **Edited time:** August 12, 2026, 16:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v32 (default)
+**Policy version:** v33 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -136,6 +136,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-marketplace-management:PutAdditionalSellerNotificationRecipients",
         "payments:GetPaymentInstrument",
         "payments:CreatePaymentInstrument",
+        "payments:DeletePaymentInstrument",
         "tax:GetTaxInterview",
         "tax:PutTaxInterview",
         "tax:GetTaxInfoReportingDocument",

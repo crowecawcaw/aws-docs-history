@@ -12,13 +12,13 @@ You can attach `AWSCertificateManagerReadOnly` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: January 21, 2016, 17:07 UTC
-- **Edited time:** June 30, 2026, 16:57 UTC
+- **Edited time:** August 13, 2026, 18:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSCertificateManagerReadOnly`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,7 +45,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "acm:ListAcmeDomainValidations",
       "acm:ListAcmeEndpoints",
       "acm:ListAcmeExternalAccountBindings",
-      "acm:ListTagsForResource"
+      "acm:ListTagsForResource",
+      "acm:ListCertificateDomainValidations"
     ],
     "Resource" : "*"
   }

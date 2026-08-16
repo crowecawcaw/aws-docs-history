@@ -12,13 +12,13 @@ You can attach `AWSManagedSettingsAdminAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 22, 2026, 01:27 UTC
-- **Edited time:** July 23, 2026, 00:42 UTC
+- **Edited time:** August 14, 2026, 20:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSManagedSettingsAdminAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -231,7 +231,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "payments:SearchFinancialRecords",
         "payments:SetPreferredCurrency",
         "payments:UpdatePaymentProfile",
-        "payments:GetAccountBalance"
+        "payments:GetAccountBalance",
+        "payments:GetDefaultPaymentProfile"
       ],
       "Resource" : "*"
     },
@@ -280,7 +281,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "support:DescribeSeverityLevels",
         "support:DescribeCases",
         "support:AddCommunicationToCase",
-        "support:ResolveCase"
+        "support:ResolveCase",
+        "supportplans:GetSupportPlan",
+        "supportplans:StartSupportPlanUpdate",
+        "supportplans:GetSupportPlanUpdateStatus"
       ],
       "Resource" : "*"
     },
@@ -297,7 +301,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "account-access:ListApplications",
         "account-access:CreateApplication",
         "account-access:CreateEntitlement",
-        "signin:DeleteConsoleAuthorizationConfiguration"
+        "signin:DeleteConsoleAuthorizationConfiguration",
+        "signin:DeleteResourcePermissionStatement",
+        "signin:ListResourcePermissionStatements"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -317,7 +323,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:CalledViaLast" : "account.amazonaws.com",
-          "organizations:ServicePrincipal" : "sso.amazonaws.com"
+          "organizations:ServicePrincipal" : [
+            "sso.amazonaws.com",
+            "account-access.amazonaws.com"
+          ]
         }
       }
     },
@@ -373,6 +382,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "organizations:DeletePolicy",
         "organizations:DetachPolicy",
+        "organizations:AttachPolicy",
+        "organizations:CreatePolicy",
         "organizations:ListPolicies",
         "organizations:ListRoots"
       ],
@@ -382,6 +393,68 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:CalledViaLast" : "account.amazonaws.com"
         }
       }
+    },
+    {
+      "Sid" : "AllowAWSServiceAccessForCostOptimizationHub",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:EnableAWSServiceAccess"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "organizations:ServicePrincipal" : [
+            "cost-optimization-hub.bcm.amazonaws.com",
+            "compute-optimizer.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "AllowCreateServiceLinkedRoleForComputeOptimizerAutomation",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/aco-automation.amazonaws.com/AWSServiceRoleForComputeOptimizerAutomation",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "aco-automation.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowCreateServiceLinkedRoleForComputeOptimizer",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/compute-optimizer.amazonaws.com/AWSServiceRoleForComputeOptimizer",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "compute-optimizer.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowCreateServiceLinkedRoleForCostOptimizationHub",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/cost-optimization-hub.bcm.amazonaws.com/AWSServiceRoleForCostOptimizationHub",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "cost-optimization-hub.bcm.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "GetAndUpdateEnrollmentStatusForACOCOH",
+      "Effect" : "Allow",
+      "Action" : [
+        "aco-automation:GetEnrollmentConfiguration",
+        "aco-automation:UpdateEnrollmentConfiguration",
+        "compute-optimizer:GetEnrollmentStatus",
+        "compute-optimizer:UpdateEnrollmentStatus",
+        "cost-optimization-hub:ListEnrollmentStatuses",
+        "cost-optimization-hub:UpdateEnrollmentStatus"
+      ],
+      "Resource" : "*"
     }
   ]
 }

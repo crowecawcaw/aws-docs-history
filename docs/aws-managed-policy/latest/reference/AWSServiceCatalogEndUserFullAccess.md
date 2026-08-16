@@ -12,13 +12,13 @@ You can attach `AWSServiceCatalogEndUserFullAccess` to your users, groups, and r
 
 - **Type**: AWS managed policy
 - **Creation time**: February 15, 2018, 17:22 UTC
-- **Edited time:** July 10, 2019, 20:30 UTC
+- **Edited time:** August 04, 2026, 17:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSServiceCatalogEndUserFullAccess`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,6 +45,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudformation:ListChangeSets",
         "cloudformation:DeleteChangeSet",
         "cloudformation:TagResource",
+        "cloudformation:UntagResource",
         "cloudformation:CreateStackSet",
         "cloudformation:CreateStackInstances",
         "cloudformation:UpdateStackSet",

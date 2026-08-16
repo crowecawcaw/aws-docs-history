@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: July 24, 2026, 20:57 UTC
-- **Edited time:** July 24, 2026, 20:57 UTC
+- **Edited time:** August 10, 2026, 22:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSSDMPServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -121,7 +121,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:iam::*:role/SDMP-*",
-        "arn:aws:iam::*:role/SDMPServiceRole*"
+        "arn:aws:iam::*:role/SDMPServiceRole*",
+        "arn:aws:iam::*:role/aws-service-role/sdmp.amazonaws.com/AWSServiceRoleForSDMP"
       ]
     },
     {

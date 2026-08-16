@@ -1,8 +1,8 @@
-# AWSIAMRoleManagerServiceRolePolicy
+# AWSAgentRegistryServiceRolePolicy
 
-**Description**: Allows IAM Role Manager to manage resources in your account on your behalf.
+**Description**: Allows AWS Agent Registry to access AWS service resources on your behalf
 
-`AWSIAMRoleManagerServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSAgentRegistryServiceRolePolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
@@ -12,14 +12,14 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 ## Policy details
 
 - **Type**: Service-linked role policy
-- **Creation time**: July 15, 2026, 23:57 UTC
-- **Edited time:** August 05, 2026, 19:42 UTC
+- **Creation time**: August 06, 2026, 14:27 UTC
+- **Edited time:** August 06, 2026, 14:27 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/aws-service-role/AWSIAMRoleManagerServiceRolePolicy`
+  `arn:aws:iam::aws:policy/aws-service-role/AWSAgentRegistryServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -31,22 +31,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "ManageServiceLinkedAnalyzer",
+      "Sid" : "AllowPublishCloudWatchMetrics",
       "Effect" : "Allow",
       "Action" : [
-        "access-analyzer:CreateServiceLinkedAnalyzer",
-        "access-analyzer:DeleteServiceLinkedAnalyzer"
+        "cloudwatch:PutMetricData"
       ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "CreateAccessAnalyzerServiceLinkedRole",
-      "Effect" : "Allow",
-      "Action" : "iam:CreateServiceLinkedRole",
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "iam:AWSServiceName" : "access-analyzer.amazonaws.com"
+          "cloudwatch:namespace" : [
+            "AWS/AgentRegistry",
+            "AWS/Usage"
+          ],
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     }
