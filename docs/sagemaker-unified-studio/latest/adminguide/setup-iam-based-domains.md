@@ -278,36 +278,27 @@ details:
 1. You should see a screen with the title **Set up
    Amazon SageMaker Unified Studio**.
 1. Choose and select the Execution IAM Role for the Admin
-1. **Setup S3 table integration with AWS analytics services**. This
-   option is enabled by default, and will allow Amazon SageMaker Unified Studio to access table buckets and
-   integrate the table buckets with AWS analytics services using AWS Glue. If S3 Tables
-   analytics integration has already been configured in your account and Region (that is,
-   the `s3tablescatalog` already exists in the AWS Glue Data Catalog), this
-   option will not be shown. [Learn more](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md").
-1. In the **Data encryption** section, configure your encryption
-   preferences:
-
-   - Leave **Customize encryption settings (advanced)** unchecked to
-     use AWS-managed encryption
-   - Check **Customize encryption settings (advanced)** to specify a
-     custom AWS KMS key
-     If using custom encryption, see [Manage data encryption in IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md")
-
-1. Choose **Set up** to begin the domain creation process.
-1. Monitor the setup progress in the **Setting up Amazon SageMaker Unified Studio**
-   dialog. The process typically takes 1-2 minutes to complete.
-1. Once the setup is completed, project will automatically be created using the same
-   Execution role. Then you will be redirected to the Administrative pages for managing the
-   domain. See [Access the Domain Administration Page](access-domain-administration-page.md "access-domain-administration-page.md") for details.
-1. You can also access the project associated with your Login IAM role by choosing on
-   the first project. See **Navigating within Amazon SageMaker Unified Studio** for
-   details.
 
 ###### Note
 
-To add more IAM roles to the IAM based domain, you can create new projects using the
-IAM role as the Login IAM role. See additional details to setup [Projects in IAM-based domains](projects-iam-based-domains.md "projects-iam-based-domains.md")
-.
+If [role manager](../../../IAM/latest/UserGuide/id_roles_create_role-manager.md "../../../IAM/latest/UserGuide/id_roles_create_role-manager.md") is enabled in your account, Amazon SageMaker Unified Studio attaches the role for you, and the role options described here are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the _IAM User Guide_. 6. **Setup S3 table integration with AWS analytics services**. This
+option is enabled by default, and will allow Amazon SageMaker Unified Studio to access table buckets and
+integrate the table buckets with AWS analytics services using AWS Glue. If S3 Tables
+analytics integration has already been configured in your account and Region (that is,
+the `s3tablescatalog` already exists in the AWS Glue Data Catalog), this
+option will not be shown. [Learn more](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md"). 7. In the **Data encryption** section, configure your encryption
+preferences:
 
+    * Leave **Customize encryption settings (advanced)** unchecked to
+     use AWS-managed encryption
+    * Check **Customize encryption settings (advanced)** to specify a
+     custom AWS KMS key
+
+If using custom encryption, see [Manage data encryption in IAM-based domains](manage-data-encryption-iam-based-domains.md "manage-data-encryption-iam-based-domains.md") 8. Choose **Set up** to begin the domain creation process. 9. Monitor the setup progress in the **Setting up Amazon SageMaker Unified Studio**
+dialog. The process typically takes 1-2 minutes to complete. 10. Once the setup is completed, project will automatically be created using the same
+Execution role. Then you will be redirected to the Administrative pages for managing the
+domain. See [Access the Domain Administration Page](access-domain-administration-page.md "access-domain-administration-page.md") for details. 11. You can also access the project associated with your Login IAM role by choosing on
+the first project. See **Navigating within Amazon SageMaker Unified Studio** for
+details.
 Amazon SageMaker Unified Studio also supports domains configured with AWS IAM Identity Center (IdC).
 Additional details to setup an Identity Center based domain are available in [Identity Center-based domains](identity-center-based-domains.md "identity-center-based-domains.md").
