@@ -63,6 +63,12 @@ better performance.
 
 **Data isolation:** When using managed tiered storage as the L2 cache backend, multiple inference deployments within a cluster share cache storage with no isolation. L2 KV cache data (attention keys and values) from different deployments is not separated. For workloads requiring data isolation (multi-tenant scenarios, different data classification levels), deploy to separate clusters or use dedicated Redis instances.
 
+You can reduce cold start latency when scaling out deployments by caching model weights on
+host-local NVMe storage and pre-pulling the inference server container image onto target
+nodes. You can enable these features independently or together through the
+`modelCacheConfig` field, and they work with models from Amazon SageMaker JumpStart, Amazon S3,
+and Amazon FSx. For more information, see [Model weights caching and image caching](sagemaker-hyperpod-model-deployment-model-caching.md "sagemaker-hyperpod-model-deployment-model-caching.md").
+
 **Multi-instance type deployment with automatic failover**
 
 HyperPod Inference supports multi-instance type deployment to improve deployment reliability and resource utilization.
@@ -92,5 +98,6 @@ We collect certain routine operational metrics to provide essential service avai
 - [Data capture for inference on HyperPod](sagemaker-hyperpod-model-deployment-data-capture.md "sagemaker-hyperpod-model-deployment-data-capture.md")
 - [Disaggregated Prefill and Decode for HyperPod inference](sagemaker-hyperpod-model-deployment-dpd.md "sagemaker-hyperpod-model-deployment-dpd.md")
 - [HyperPod inference troubleshooting](sagemaker-hyperpod-model-deployment-ts.md "sagemaker-hyperpod-model-deployment-ts.md")
+- [Model weights caching and image caching](sagemaker-hyperpod-model-deployment-model-caching.md "sagemaker-hyperpod-model-deployment-model-caching.md")
 - [KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md "sagemaker-hyperpod-model-deployment-caching-routing.md")
 - [Amazon SageMaker HyperPod Inference release notes](sagemaker-hyperpod-inference-release-notes.md "sagemaker-hyperpod-inference-release-notes.md")

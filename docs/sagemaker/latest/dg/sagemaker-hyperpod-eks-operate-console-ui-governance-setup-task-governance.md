@@ -27,9 +27,12 @@ kubernetes-native system that manages quotas and how jobs consume them.
 
 ###### Upgrading from v1.3.x to v1.5
 
-Direct upgrade from v1.3.x to v1.5 is not supported due to CRD schema
-migration requirements. Use the upgrade option in the SageMaker AI HyperPod
-console, which handles the migration automatically.
+You cannot upgrade directly from v1.3.x to v1.5 because of CRD
+schema migration requirements. We recommend using the upgrade option in the
+SageMaker AI HyperPod console, which handles the migration
+automatically. If you cannot use the console, see
+[Upgrade from v1.3.x to v1.5](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15 "sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15") for the
+manual procedure through the Amazon EKS add-on interface.
 
 ###### Note
 

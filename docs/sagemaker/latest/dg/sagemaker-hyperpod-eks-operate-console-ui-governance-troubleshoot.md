@@ -158,22 +158,7 @@ v1alpha1 from status.storedVersions
 ```
 
 **Resolution:** Use the upgrade option in the
-SageMaker AI HyperPod console. The console automatically handles the CRD migration by
-backing up existing resources, migrating storedVersions, upgrading the add-on,
-and restoring resources.
-
-###### Note
-
-If you already attempted a direct v1.3.x to v1.5.0 upgrade and it failed,
-the add-on will be in `UPDATE_FAILED` status with stale CRD
-definitions. To recover:
-
-1. Delete the task governance add-on.
-2. Delete all Kueue CRDs manually:
-
-```
-kubectl get crds -o name | grep kueue | xargs kubectl delete
-```
-
-3. Reinstall the add-on at your target version using the SageMaker AI console
-   or Amazon EKS console.
+SageMaker AI HyperPod console. The console automatically handles the CRD
+migration by backing up existing resources, migrating storedVersions, upgrading
+the add-on, and restoring resources. To perform the migration manually through the
+Amazon EKS add-on interface, see [Upgrade from v1.3.x to v1.5](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15 "sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15").

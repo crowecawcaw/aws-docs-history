@@ -23,5 +23,6 @@ HyperPod task governance for your Amazon EKS clusters.
 - [Tasks](sagemaker-hyperpod-eks-operate-console-ui-governance-tasks.md "sagemaker-hyperpod-eks-operate-console-ui-governance-tasks.md")
 - [Policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies.md")
 - [Example HyperPod task governance AWS CLI commands](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md")
+- [Upgrade the task governance add-on](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md "sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md")
 - [Troubleshoot](sagemaker-hyperpod-eks-operate-console-ui-governance-troubleshoot.md "sagemaker-hyperpod-eks-operate-console-ui-governance-troubleshoot.md")
 - [Attribution document for Amazon SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-attributions.md "sagemaker-hyperpod-eks-operate-console-ui-governance-attributions.md")
