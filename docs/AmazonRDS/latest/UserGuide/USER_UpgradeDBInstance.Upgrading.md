@@ -151,7 +151,7 @@ we recommend that you manually upgrade to the database versions that
 you need according to your required schedule.
 In cases of critical security issues or when a version reaches its end-of-support date,
 Amazon RDS
-might apply a minor version upgrade even if you haven't enabled the **Auto minor version upgrade**
+will apply a minor version upgrade even if you haven't enabled the **Auto minor version upgrade**
 option. For more information, see the upgrade documentation for your specific database engine.
 
 - [Automatic minor version upgrades for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.Minor.md "USER_UpgradeDBInstance.PostgreSQL.Minor.md")

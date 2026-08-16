@@ -20,6 +20,26 @@ You can enable encryption at rest for a MariaDB DB instance by following the ins
 - MyRocks storage engine for MariaDB versions lower than 10.6
 - Password validation plugin, `simple_password_check`, and
   `cracklib_password_check` for MariaDB versions lower than 11.4
+- New binary log implementation in InnoDB for MariaDB version 12.3
+
+RDS for MariaDB doesn't support the binary log implementation in InnoDB that MariaDB
+12.3 introduces. The `binlog_storage_engine` parameter isn't available
+in the `mariadb12.3` parameter group family. For more information about
+this community feature, see [New
+binlog implementation in MariaDB 12.3](https://mariadb.org/new-binlog-implementation-in-mariadb-12-3/ "https://mariadb.org/new-binlog-implementation-in-mariadb-12-3/") on the MariaDB website.
+
+- The `PATH` variable isn't available in the
+  `mariadb12.3` parameter group family, and you can't set it as a
+  global variable. You can still set `PATH` at the session
+  level.
+- Replication user information in the output of `SHOW REPLICA
+ HOSTS`
+
+The `show_slave_auth_info` variable isn't available in the
+`mariadb12.3` parameter group family, so the output of
+`SHOW REPLICA HOSTS` doesn't include user and password
+information.
+
 - Spider storage engine
 - Sphinx storage engine
 - TokuDB storage engine

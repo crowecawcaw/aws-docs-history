@@ -54,8 +54,6 @@ supports.
 | 8.4.7                | 21 October 2025        | 13 November 2025 | 30 November 2026                 |
 | 8.4.6                | 22 July 2025           | 1 August 2025    | 31 October 2026                  |
 | 8.4.5                | 15 April 2025          | 29 April 2025    | 31 October 2026                  |
-| 8.4.4                | 21 January 2025        | 19 February 2025 | 31 May 2026                      |
-| 8.4.3                | 15 October 2024        | 21 November 2024 | 31 May 2026                      |
 
 The following table shows the minor versions of MySQL 8.0 that Amazon RDS currently supports.
 
@@ -70,12 +68,6 @@ dates. We recommend that you upgrade to the latest available minor version as of
 | MySQL engine version | Community release date | RDS release date | RDS end of standard support date |
 | -------------------- | ---------------------- | ---------------- | -------------------------------- |
 | 8.0.46\*             | 21 April 2026          | 8 May 2026       | 31 July 2026                     |
-| 8.0.45               | 20 January 2026        | 3 February 2026  | 31 July 2026                     |
-| 8.0.44               | 21 October 2025        | 13 November 2025 | 31 July 2026                     |
-| 8.0.43               | 22 July 2025           | 1 August 2025    | 31 July 2026                     |
-| 8.0.42               | 15 April 2025          | 29 April 2025    | 31 July 2026                     |
-| 8.0.41               | 21 January 2025        | 19 February 2025 | 31 May 2026                      |
-| 8.0.40               | 15 October 2024        | 13 November 2024 | 31 May 2026                      |
 
 \* Amazon RDS Extended Support eligible minor engine version. For more information, see
 [Using Amazon RDS Extended Support](extended-support.md "extended-support.md").
@@ -119,7 +111,6 @@ the latest available minor version as often as possible for all major versions.
 | 5.7.44-RDS.20250818\* | Not applicable         | 15 September 2025 | 31 October 2026                  |
 | 5.7.44-RDS.20250508\* | Not applicable         | 20 May 2025       | 31 October 2026                  |
 | 5.7.44-RDS.20250213\* | Not applicable         | 12 March 2025     | 31 October 2026                  |
-| 5.7.44-RDS.20250103\* | Not applicable         | 13 February 2025  | 31 May 2026                      |
 
 \* MySQL Community retired major version 5.7 and won't be releasing new minor
 versions. This is a minor version that Amazon RDS released with critical security patches and

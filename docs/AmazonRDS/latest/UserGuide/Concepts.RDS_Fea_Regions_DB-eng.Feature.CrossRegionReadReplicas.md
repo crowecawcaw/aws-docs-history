@@ -26,6 +26,7 @@ Cross-Region read replicas with RDS for Db2 are available in all Regions for the
 Cross-Region read replicas with RDS for MariaDB are available in all Regions for the following
 versions:
 
+- RDS for MariaDB 12.3 (All available versions)
 - RDS for MariaDB 11.8 (All available versions)
 - RDS for MariaDB 11.4 (All available versions)
 - RDS for MariaDB 10.11 (All available versions)

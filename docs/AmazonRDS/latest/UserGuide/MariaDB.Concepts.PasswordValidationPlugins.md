@@ -18,3 +18,22 @@ To disable these plugins, set the value of the parameter
 value is set, the plugin validation rules no longer apply for new passwords.
 
 For information about setting the values of parameters in parameter groups, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md").
+
+After enabling the plugin, reset existing passwords to comply with your new validation
+policies.
+
+Your MariaDB DB instance handles password validation for Amazon RDS. To change a password, you
+first submit a password update request through the AWS Management Console, `modify-db-instance`
+AWS CLI command, or `ModifyDBInstance` API operation. Amazon RDS initially accepts your
+request, even if the password doesn't meet your policies. Amazon RDS then processes the request
+asynchronously. It updates the password in your MariaDB DB instance only if the password
+meets your defined policies. If the password doesn't meet these policies, Amazon RDS keeps the
+existing password and logs an error event.
+
+```
+
+    Unable to reset your password. Error information: Password failed to meet validation rules.
+
+```
+
+For more information about Amazon RDS events, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md").

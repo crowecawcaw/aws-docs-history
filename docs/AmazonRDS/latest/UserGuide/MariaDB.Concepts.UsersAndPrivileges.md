@@ -74,6 +74,29 @@ user is created when the DB instance is created. Attempting to drop, rename, cha
 the password for, or change privileges for the `rdsadmin` account results
 in an error.
 
+Starting with RDS for MariaDB version 12.3, `rdsproxyadmin` is also a reserved user.
+Amazon RDS creates this user the first time you register a DB instance as a target for a proxy.
+Attempting to create, drop, rename, or modify the `rdsproxyadmin` account at any
+host results in an error similar to the following:
+
+```
+mysql> DROP USER 'rdsproxyadmin'@'%';
+ERROR 1396 (HY000): Operation DROP USER failed for 'rdsproxyadmin'@'%'
+
+mysql> DROP USER 'rdsproxyadmin'@'`host`';
+ERROR 1396 (HY000): Operation DROP USER failed for 'rdsproxyadmin'@'`host`'
+```
+
+For more information about the RDS Proxy monitoring user, see [Amazon RDS Proxy](rds-proxy.md "rds-proxy.md").
+
+The `rdsrepladmin` user, which Amazon RDS uses for replication, is also a reserved
+user. Starting with RDS for MariaDB version 12.3, you can't drop this account at any host.
+
+```
+mysql> DROP USER 'rdsrepladmin'@'`host`';
+ERROR 1396 (HY000): Operation DROP USER failed for 'rdsrepladmin'@'`host`'
+```
+
 To allow management of the DB instance, the standard `kill` and
 `kill_query` commands have been restricted. The Amazon RDS
 commands `mysql.rds_kill`,

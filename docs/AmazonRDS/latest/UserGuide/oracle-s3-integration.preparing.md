@@ -162,7 +162,7 @@ aws iam create-policy \
            "kms:Encrypt",
            "kms:ReEncrypt*",
            "kms:GenerateDataKey",
-           "kms:DescribeKey",
+           "kms:DescribeKey"
          ],
          "Effect": "Allow",
          "Resource": [
@@ -218,9 +218,9 @@ aws iam create-policy ^
            "s3:PutObject",
            "kms:Decrypt",
            "kms:Encrypt",
-           "kms:ReEncrypt",
+           "kms:ReEncrypt*",
            "kms:GenerateDataKey",
-           "kms:DescribeKey",
+           "kms:DescribeKey"
          ],
          "Effect": "Allow",
          "Resource": [

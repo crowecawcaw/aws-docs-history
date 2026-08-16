@@ -163,7 +163,7 @@ engine with a db.t3.micro DB instance class.
 3. In the navigation pane, choose **Databases**.
 4. Choose **Create database** and make sure that **Easy create** is chosen.
 
-![Easy create option.](/images/AmazonRDS/latest/UserGuide/images/easy-create-option.png) 5. In **Configuration**, choose **PostgreSQL**. 6. For **DB instance size**, choose **Free tier**.
+![Easy create option.](images/easy-create-option.png) 5. In **Configuration**, choose **PostgreSQL**. 6. For **DB instance size**, choose **Free tier**.
 **Free tier** appears for free plan accounts.
 **Sandbox** appears for paid plan
 accounts. 7. For **DB instance identifier**, enter `database-test1`. 8. For **Master username**, enter a name for the master user, or keep
@@ -185,7 +185,7 @@ _optional_**.
 Select **Connect to an EC2 compute resource**. Choose the EC2
 instance you created previously.
 
-![Set up EC2 connection option.](/images/AmazonRDS/latest/UserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Open **View default settings for Easy create**.
+![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Open **View default settings for Easy create**.
 
 ![Easy create default settings for RDS for PostgreSQL.](images/easy-create-view-default-postgres.png)
 

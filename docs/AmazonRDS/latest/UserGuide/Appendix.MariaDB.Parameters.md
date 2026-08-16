@@ -20,6 +20,7 @@ Using the AWS CLI, you can view the parameters for an RDS for MariaDB version by
 [`describe-engine-default-parameters`](../../../cli/latest/reference/rds/describe-engine-default-parameters.md "../../../cli/latest/reference/rds/describe-engine-default-parameters.md") command. Specify one of the
 following values for the `--db-parameter-group-family` option:
 
+- `mariadb12.3`
 - `mariadb11.8`
 - `mariadb11.4`
 - `mariadb10.11`

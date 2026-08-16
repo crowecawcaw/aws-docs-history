@@ -26,6 +26,7 @@ MariaDB major versions:
 
 ###### Topics
 
+- [MariaDB 12.3 support on Amazon RDS](#MariaDB.Concepts.FeatureSupport.12-3 "#MariaDB.Concepts.FeatureSupport.12-3")
 - [MariaDB 11.8 support on Amazon RDS](#MariaDB.Concepts.FeatureSupport.11-8 "#MariaDB.Concepts.FeatureSupport.11-8")
 - [MariaDB 11.4 support on Amazon RDS](#MariaDB.Concepts.FeatureSupport.11-4 "#MariaDB.Concepts.FeatureSupport.11-4")
 - [MariaDB 10.11 support on Amazon RDS](#MariaDB.Concepts.FeatureSupport.10-11 "#MariaDB.Concepts.FeatureSupport.10-11")
@@ -34,6 +35,82 @@ MariaDB major versions:
 - [MariaDB 10.4 support on Amazon RDS](#MariaDB.Concepts.FeatureSupport.10-4 "#MariaDB.Concepts.FeatureSupport.10-4")
 
 For information about supported minor versions of Amazon RDS for MariaDB, see [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md "MariaDB.Concepts.VersionMgmt.md").
+
+### MariaDB 12.3 support on Amazon RDS
+
+Amazon RDS supports the following new features for your DB instances running MariaDB version 12.3 or higher.
+
+###### Note
+
+MariaDB 12.3 is the first major version that Amazon RDS supports after MariaDB 11.8.
+If you upgrade from MariaDB 11.8, your DB instance also receives the features
+that MariaDB introduced in versions 12.0, 12.1, and 12.2.
+
+- **Reserved user for RDS Proxy** – The
+  `rdsproxyadmin` user is a reserved user in MariaDB 12.3 and higher. You
+  can't modify or drop this user. For more information, see [MariaDB security on Amazon RDS](MariaDB.Concepts.UsersAndPrivileges.md "MariaDB.Concepts.UsersAndPrivileges.md").
+- **Drop protection for the replication user account for
+  any host value** – You can't drop the
+  `rdsrepladmin` user account for any host value. Previously, this
+  protection applied only to `'rdsrepladmin'@'%'`. For more
+  information, see [MariaDB security on Amazon RDS](MariaDB.Concepts.UsersAndPrivileges.md "MariaDB.Concepts.UsersAndPrivileges.md").
+- **Authentication with the
+  `caching_sha2_password` plugin** – You can
+  create users that authenticate with the `caching_sha2_password`
+  plugin, which is the default authentication plugin in RDS for MySQL version 8.4.
+  This plugin provides stronger password hashing than
+  `mysql_native_password`.
+- **Session authorization** – You can use
+  the `SET SESSION AUTHORIZATION` statement to run statements as
+  another user without opening a new connection. To use this statement, a user
+  needs the `SET USER` privilege. This statement cannot be used
+  inside a transaction, a prepared statement, or a stored routine, and cannot be
+  used to set any internal user.
+- **Deprecated or removed parameters** –
+  The `innodb_ft_enable_diag_print` parameter is deprecated and has
+  no effect for MariaDB version 12.3 DB instances. This parameter still exists
+  in the parameter group. For more information, see [innodb\_ft\_enable\_diag\_print](https://mariadb.com/docs/server/reference/storage-engines/innodb/innodb-system-variables#innodb_ft_enable_diag_print "https://mariadb.com/docs/server/reference/storage-engines/innodb/innodb-system-variables#innodb_ft_enable_diag_print") on the MariaDB website.
+- **New valid values for parameters** –
+  The following parameters have new valid values for MariaDB version 12.3 DB
+  instances:
+
+  - The valid values for the [read\_only](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#read_only "https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#read_only") parameter changed from `0` and
+    `1` to `OFF`, `ON`,
+    `NO_LOCK`, and `NO_LOCK_NO_ADMIN`.
+    `NO_LOCK` additionally disallows `LOCK
+   TABLES` and `SELECT ... IN SHARE MODE`, and
+    `NO_LOCK_NO_ADMIN` applies the restriction to users
+    who have the `READ ONLY ADMIN` privilege.
+  - The valid values for the [optimizer\_switch](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#optimizer_switch "https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#optimizer_switch") parameter now include the [duplicateweedout](https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/query-optimizations/optimization-strategies/duplicateweedout-strategy "https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/query-optimizations/optimization-strategies/duplicateweedout-strategy") and [reorder\_outer\_joins](https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/query-optimizations/reorder_outer_joins "https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/query-optimizations/reorder_outer_joins") flags.
+  - The valid values for the [slave\_type\_conversions](https://mariadb.com/docs/server/ha-and-performance/standard-replication/replication-and-binary-log-system-variables#slave_type_conversions "https://mariadb.com/docs/server/ha-and-performance/standard-replication/replication-and-binary-log-system-variables#slave_type_conversions") parameter now include
+    `ERROR_IF_MISSING_FIELD`.
+  - The maximum value of the [group\_concat\_max\_len](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#group_concat_max_len "https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#group_concat_max_len") parameter changed from
+    `18446744073709547520` to
+    `1073741824`.
+
+- **New parameters** – The following
+  parameters are new for MariaDB version 12.3 DB instances:
+
+  - The [max\_open\_cursors](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#max_open_cursors "https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#max_open_cursors") parameter sets the maximum number of
+    open cursors for each session. The default value is `50`
+    and the valid values are `0` to
+    `65536`.
+  - The [aria\_pagecache\_segments](https://mariadb.com/docs/server/reference/storage-engines/aria/aria-system-variables#aria_pagecache_segments "https://mariadb.com/docs/server/reference/storage-engines/aria/aria-system-variables#aria_pagecache_segments") parameter sets the number of
+    segments in the Aria page cache, which reduces mutex contention. The
+    default value is `1` and the valid values are
+    `1` to `128`.
+  - The [metadata\_locks\_instances](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#metadata_locks_instances "https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#metadata_locks_instances") parameter sets the number of
+    fast lanes for metadata locks, which can improve data manipulation
+    language (DML) scalability. The default value is `8` and
+    the valid values are `1` to `256`.
+  - The [create\_tmp\_table\_binlog\_formats](https://mariadb.com/docs/server/ha-and-performance/standard-replication/replication-and-binary-log-system-variables#create_tmp_table_binlog_formats "https://mariadb.com/docs/server/ha-and-performance/standard-replication/replication-and-binary-log-system-variables#create_tmp_table_binlog_formats") parameter sets the
+    binary log formats that are allowed for temporary tables. The
+    default value is `STATEMENT` and the valid values are
+    `MIXED` and `STATEMENT`.
+
+For a list of all MariaDB 12.3 features and their documentation, see [Changes and improvements in MariaDB 12.3](https://mariadb.com/docs/release-notes/community-server/12.3/mariadb-12.3-changes-and-improvements/ "https://mariadb.com/docs/release-notes/community-server/12.3/mariadb-12.3-changes-and-improvements/") and [Release notes - MariaDB 12.3 series](https://mariadb.com/docs/release-notes/community-server/12.3 "https://mariadb.com/docs/release-notes/community-server/12.3") on the MariaDB website.
+
+For a list of unsupported features, see [MariaDB features not supported by Amazon RDS](MariaDB.Concepts.FeatureNonSupport.md "MariaDB.Concepts.FeatureNonSupport.md").
 
 ### MariaDB 11.8 support on Amazon RDS
 

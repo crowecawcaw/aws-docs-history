@@ -11,6 +11,7 @@ In MariaDB 11.8, the default value for `require_secure_transport` is now `1`, re
 
 Amazon RDS supports the following in-place upgrades for major versions of the MariaDB database engine:
 
+- Any MariaDB version to MariaDB 12.3
 - Any MariaDB version to MariaDB 11.8
 - Any MariaDB version to MariaDB 11.4
 - Any MariaDB version to MariaDB 10.11

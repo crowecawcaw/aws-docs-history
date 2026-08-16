@@ -631,14 +631,14 @@ CALL mysql.rds_start_replication;
 ```
 
 7. On the Amazon RDS database, to determine when the replica is up-to-date with
-   the source replication instance, run the [SHOW REPLICA STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html "https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html") command. The results of the `SHOW
+   the source replication instance, run the [SHOW REPLICA STATUS](https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/show/show-replica-status "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/show/show-replica-status") command. The results of the `SHOW
  REPLICA STATUS` command include the
    `Seconds_Behind_Master` field. When the
    `Seconds_Behind_Master` field returns 0, then the replica is
    up-to-date with the source replication instance.
 
-For a MariaDB 10.5, 10.6, 10.11, 11.4, or 11.8 DB instance, use the [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") stored procedure instead of
-running the MySQL command. 8. After the Amazon RDS database is up-to-date, turn on automated backups so you
+For a MariaDB 10.5 or higher DB instance, use the [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") stored procedure instead of
+running the SQL command. 8. After the Amazon RDS database is up-to-date, turn on automated backups so you
 can restore that database if needed. You can turn on or modify automated
 backups for your Amazon RDS database by using the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"). For more information, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
 
@@ -655,15 +655,15 @@ now update your live application to use the Amazon RDS instance.
    of the server that hosts the application. For more information on modifying
    a VPC security group, see [Configure security group rules](../../../vpc/latest/userguide/working-with-security-group-rules.md "../../../vpc/latest/userguide/working-with-security-group-rules.md") in the _Amazon Virtual Private Cloud User
    Guide_.
-2. Verify that the `Seconds_Behind_Master` field in the [SHOW REPLICA STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html "https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html") command results is 0, which indicates that
+2. Verify that the `Seconds_Behind_Master` field in the [SHOW REPLICA STATUS](https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/show/show-replica-status "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/show/show-replica-status") command results is 0, which indicates that
    the replica is up-to-date with the source replication instance.
 
 ```
 SHOW REPLICA STATUS;
 ```
 
-For a MariaDB 10.5, 10.6, 10.11, 11.4, or 11.8 DB instance, use the [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") procedure instead of running
-the MySQL command. 3. Close all connections to the source when their transactions
+For a MariaDB 10.5 or higher DB instance, use the [mysql.rds\_replica\_status](mysql_rds_replica_status.md "mysql_rds_replica_status.md") procedure instead of running
+the SQL command. 3. Close all connections to the source when their transactions
 complete. 4. Update your application to use the Amazon RDS database. This update typically
 involves changing the connection settings to identify the hostname and port
 of the Amazon RDS database, the user account and password to connect with, and

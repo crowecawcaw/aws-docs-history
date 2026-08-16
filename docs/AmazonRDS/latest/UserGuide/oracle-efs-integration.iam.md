@@ -70,7 +70,7 @@ aws iam create-role \
          "Action": "sts:AssumeRole",
          "Condition": {
              "StringEquals": {
-                 "aws:SourceAccount": `my_account_ID`,
+                 "aws:SourceAccount": "`my_account_ID`",
                  "aws:SourceArn": "arn:aws:rds:`Region`:`my_account_ID`:db:`dbname`"
              }
          }
@@ -95,7 +95,7 @@ aws iam create-role ^
          "Action": "sts:AssumeRole",
          "Condition": {
              "StringEquals": {
-                 "aws:SourceAccount": `my_account_ID`,
+                 "aws:SourceAccount": "`my_account_ID`",
                  "aws:SourceArn": "arn:aws:rds:`Region`:`my_account_ID`:db:`dbname`"
              }
          }

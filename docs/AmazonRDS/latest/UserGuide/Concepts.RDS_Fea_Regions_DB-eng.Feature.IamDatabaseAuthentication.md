@@ -21,46 +21,46 @@ IAM database authentication isn't available with the following engines:
 The following Regions and engine versions are available for IAM database authentication
 with RDS for MariaDB.
 
-| Region                     | RDS for MariaDB 11.8   | RDS for MariaDB 11.4   | RDS for MariaDB 10.11  | RDS for MariaDB 10.6 | RDS for MariaDB 10.5 | RDS for MariaDB 10.4 |
-| -------------------------- | ---------------------- | ---------------------- | ---------------------- | -------------------- | -------------------- | -------------------- |
-| US East (N. Virginia)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| US East (Ohio)             | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| US West (N. California)    | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| US West (Oregon)           | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Africa (Cape Town)         | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (Hong Kong)   | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (Hyderabad)   | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
-| Asia Pacific (Jakarta)     | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (Malaysia)    | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
-| Asia Pacific (Melbourne)   | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
-| Asia Pacific (Mumbai)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (New Zealand) | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
-| Asia Pacific (Osaka)       | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (Seoul)       | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (Singapore)   | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (Sydney)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Asia Pacific (Taipei)      | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
-| Asia Pacific (Thailand)    | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
-| Asia Pacific (Tokyo)       | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Canada (Central)           | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Canada West (Calgary)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| China (Beijing)            | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| China (Ningxia)            | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Europe (Frankfurt)         | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Europe (Ireland)           | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Europe (London)            | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Europe (Milan)             | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Europe (Paris)             | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Europe (Spain)             | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
-| Europe (Stockholm)         | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Europe (Zurich)            | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
-| Israel (Tel Aviv)          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
-| Mexico (Central)           | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
-| Middle East (Bahrain)      | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| Middle East (UAE)          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
-| South America (São Paulo)  | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| AWS GovCloud (US-East)     | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
-| AWS GovCloud (US-West)     | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Region                     | RDS for MariaDB 12.3   | RDS for MariaDB 11.8   | RDS for MariaDB 11.4   | RDS for MariaDB 10.11  | RDS for MariaDB 10.6 | RDS for MariaDB 10.5 | RDS for MariaDB 10.4 |
+| -------------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- | -------------------- | -------------------- | -------------------- |
+| US East (N. Virginia)      | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| US East (Ohio)             | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| US West (N. California)    | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| US West (Oregon)           | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Africa (Cape Town)         | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Hong Kong)   | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Hyderabad)   | Not available          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Jakarta)     | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Malaysia)    | All available versions | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Melbourne)   | Not available          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Mumbai)      | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (New Zealand) | All available versions | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Osaka)       | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Seoul)       | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Singapore)   | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Sydney)      | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Asia Pacific (Taipei)      | All available versions | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Thailand)    | All available versions | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Asia Pacific (Tokyo)       | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Canada (Central)           | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Canada West (Calgary)      | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| China (Beijing)            | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| China (Ningxia)            | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Frankfurt)         | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Ireland)           | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (London)            | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Milan)             | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Paris)             | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Spain)             | Not available          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Europe (Stockholm)         | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Europe (Zurich)            | Not available          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Israel (Tel Aviv)          | Not available          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| Mexico (Central)           | All available versions | All available versions | All available versions | Not available          | Not available        | Not available        | Not available        |
+| Middle East (Bahrain)      | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| Middle East (UAE)          | Not available          | Not available          | Not available          | Not available          | Not available        | Not available        | Not available        |
+| South America (São Paulo)  | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| AWS GovCloud (US-East)     | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
+| AWS GovCloud (US-West)     | All available versions | All available versions | All available versions | All available versions | Not available        | Not available        | Not available        |
 
 ## IAM database authentication with RDS for MySQL
 

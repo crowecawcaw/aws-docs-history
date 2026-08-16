@@ -83,7 +83,7 @@ aws kms create-key --description "`test-key`" --policy '{
         "Principal":
           {
             "AWS":
-              ["$USER_ARN","arn:aws:iam:`account_id`::role/Admin"]
+              ["$USER_ARN","arn:aws:iam::`account_id`:role/Admin"]
           },
         "Action":
           [
