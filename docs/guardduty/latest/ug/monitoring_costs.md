@@ -18,8 +18,8 @@ GuardDuty publishes usage metrics to Amazon CloudWatch, enabling you to:
 
 GuardDuty usage metrics are published based on your account configuration:
 
-- For standalone accounts (not part of an organization), you can view your account usage metrics in Amazon CloudWatch
-- For accounts that are part of an organization, metrics are published to the delegated administrator account (organization's GuardDuty administrator), presenting aggregated usage for the entire organization
+- All accounts (standalone, delegated administrator, and member accounts) receive individual account usage metrics in Amazon CloudWatch
+- Delegated administrator accounts additionally receive aggregated usage metrics for the entire organization
 
 GuardDuty usage metrics are published in Amazon CloudWatch within 24 hours.
 
@@ -49,8 +49,8 @@ GuardDuty publishes the following usage metrics `Hourly` to Amazon CloudWatch un
 
 **Metrics Dimensions**
 
-- Standalone GuardDuty accounts: Metrics include `AccountId, DataSource` dimensions
-- Organization-level (Delegated Administrator): Metrics include `DataSource` dimension
+- All accounts (standalone, delegated administrator, and member accounts): Metrics include the `AccountId` and `DataSource` dimensions.
+- Delegated administrator accounts: Metrics also include aggregated `DataSource` dimensions across all member accounts in the organization.
 
 ### Malware Protection for S3
 
