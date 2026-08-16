@@ -71,6 +71,7 @@ Amazon Polly generative voices are available in the following regions:
 - Asia Pacific (Tokyo): ap-northeast-1
 - Asia Pacific (Seoul): ap-northeast-2
 - Asia Pacific (Singapore): ap-southeast-1
+- Asia Pacific (Sydney): ap-southeast-2
 - Europe (London): eu-west-2
 - Canada (Central): ca-central-1
 - Europe (Zurich): eu-central-2
@@ -82,7 +83,7 @@ voices:**
 - Bidirectional Streaming API is now offered in Generative engine and allows for streaming input
   and output at the same time. This API is available in the following AWS regions: US East (N. Virginia),
   Europe (Frankfurt), US West (Oregon), Asia Pacific (Singapore),
-  Europe (London), Canada (Central), and Europe (Zurich). Visit the
+  Asia Pacific (Sydney), Europe (London), Canada (Central), and Europe (Zurich). Visit the
   [documentation](API_StartSpeechSynthesisStream.md "API_StartSpeechSynthesisStream.md")
   to learn more about how to use it.
 - Real-time and asynchronous speech synthesis operations.
