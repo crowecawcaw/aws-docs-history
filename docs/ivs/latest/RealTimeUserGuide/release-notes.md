@@ -3,6 +3,31 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## August 12, 2026
+
+### IVS Broadcast SDK: Web 1.38.1 (Real-Time Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.38.1](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Fixed `PUBLISH_ERROR` (code 1015) caused [by a Simulcast regression in Chrome 152+ for publishers](https://issues.webrtc.org/issues/545191307 "https://issues.webrtc.org/issues/545191307") with simulcast enabled and [two or fewer layers configured](web-publish-subscribe.md#web-publish-subscribe-layered-encoding-simulcast "web-publish-subscribe.md#web-publish-subscribe-layered-encoding-simulcast"). |
+
+## August 11, 2026
+
+### Amazon IVS Broadcast SDK: Android 1.43.1 (Real-Time Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.43.1](broadcast-android.md "broadcast-android.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.43.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.43.1/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.43.1/android/")<br>• Fixed a rare crash that could occur if OpenSL ES audio playback failed to start correctly.<br>• Fixed an issue that could cause audio to play at reduced volume on some Samsung devices. |
+
+#### Broadcast SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 6.041 MB        | 14.669 MB         |
+| armeabi-v7a  | 5.234 MB        | 10.164 MB         |
+| x86\_64      | 6.151 MB        | 15.250 MB         |
+| x86          | 6.427 MB        | 15.875 MB         |
+
 ## July 30, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.45.0, iOS 1.45.0 (Real-Time Streaming)
