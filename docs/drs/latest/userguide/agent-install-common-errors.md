@@ -20,6 +20,7 @@ configuration, IAM, and agent lifecycle. These errors occur on both Linux and Wi
 - [Error: Operating system is not supported](#error-unsupported-os "#error-unsupported-os")
 - [Error: Invalid endpoint](#error-invalid-endpoint "#error-invalid-endpoint")
 - [Error: Connection attempt failed on port 443](#error-connection-timeout "#error-connection-timeout")
+- [Error: Root or administrator privileges required](#error-root-privileges "#error-root-privileges")
 
 ## Error: Outdated agent installer version
 
@@ -329,3 +330,29 @@ Test-NetConnection drs.`region`.amazonaws.com -Port 443
 
 To avoid this error, verify connectivity to these endpoints from the source server
 before you run the AWS Elastic Disaster Recovery agent installer.
+
+## Error: Root or administrator privileges required
+
+**Error:** The installer exits immediately without making
+any changes. On Linux, the installer returns the following error message:
+
+**`You do not have enough privileges to run this application installer. Run the
+ installer again, using root privileges.`**
+
+On Windows, the installer returns the following error message:
+
+**`Please run this script as Administrator.`**
+
+**Cause:** You ran the installer without the privileges it
+requires. The installer checks for sufficient privileges before it does any work, so it
+does not modify the source server.
+
+**Resolution:** On Linux, run the installer with
+`sudo`:
+
+```
+`$` sudo ./aws-replication-installer-init
+```
+
+On Windows, open a Command Prompt or PowerShell window with **Run as
+administrator** and run the installer from there.

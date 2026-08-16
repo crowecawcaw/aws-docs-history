@@ -9,6 +9,12 @@
   change, your recovered instances launch with the same UEFI boot mode as
   your source servers. This eliminates the need for post-launch boot
   configuration adjustments.
+- With AWS Elastic Disaster Recovery, you can now protect source servers that have volumes of up
+  to 64 TiB, increased from 16 TiB. To replicate a volume larger than 16 TiB,
+  choose the gp3 staging disk type.
+- For gp3 staging disks that you configure manually, you can now provision
+  up to 80,000 IOPS and 2,000 MiB/s of throughput, increased from 16,000 IOPS
+  and 1,000 MiB/s.
 
 ## July 2026
 

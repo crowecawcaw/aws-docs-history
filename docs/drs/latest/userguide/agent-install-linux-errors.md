@@ -6,7 +6,6 @@ message, its cause, and the resolution.
 
 ###### Topics
 
-- [Error: Root privileges required](#error-root-privileges "#error-root-privileges")
 - [Error: Invalid disk path format](#error-disk-path-format "#error-disk-path-format")
 - [Error: Kernel headers version mismatch](#error-kernel-headers-mismatch "#error-kernel-headers-mismatch")
 - [Error: GLIBC version not found](#error-glibc-version "#error-glibc-version")
@@ -21,23 +20,8 @@ message, its cause, and the resolution.
 - [Error: Agent driver build configuration failed](#error-driver-build-config-failed "#error-driver-build-config-failed")
 - [Error: Agent driver compilation failed](#error-driver-compile-failed "#error-driver-compile-failed")
 - [Error: SUSE kernel headers package not found](#error-suse-kernel-headers "#error-suse-kernel-headers")
-- [Error: Oracle ASM Filter Driver conflict](#error-oracle-asmfd "#error-oracle-asmfd")
+- [Error: Oracle ASM Filter Driver requires a restart](#error-oracle-asmfd "#error-oracle-asmfd")
 - [Error: Invalid driver state location](#error-driver-state-location "#error-driver-state-location")
-
-## Error: Root privileges required
-
-**Error message:**
-**`You do not have enough privileges to run this application installer. Run the installer again, using root privileges.`**
-
-**Cause:** You ran the installer without root or
-sudo privileges. The installer exits immediately without making any changes.
-
-**Resolution:** Run the installer with
-`sudo`:
-
-```
-`$` sudo ./aws-replication-installer-init
-```
 
 ## Error: Invalid disk path format
 
@@ -583,21 +567,18 @@ not include the required package.
 4. If the error persists, collect the installation log
    (`aws_replication_agent_installer.log`) and contact AWS Support.
 
-## Error: Oracle ASM Filter Driver conflict
+## Error: Oracle ASM Filter Driver requires a restart
 
 **Error message:**
-**`The agent cannot be installed on this server because Oracle ASM Filter Driver is active`**
+**`Oracle ASM Filter Driver detected. Please reboot to start replication.`**
 
-**Cause:** Oracle ASM Filter Driver (ASMFD) conflicts
-with the AWS Elastic Disaster Recovery replication driver at the block device level.
+**Cause:** The Oracle ASM Filter Driver (ASMFD) is loaded,
+but the AWS Elastic Disaster Recovery replication driver has not loaded yet. Installation completes successfully,
+but replication cannot start until the replication driver loads.
 
-**Resolution:** Deactivate ASM Filter Driver, reboot
-the server, then run the installer. You can reactivate ASMFD after replication is
-active.
-
-###### Important
-
-Consult your DBA before disabling ASMFD.
+**Resolution:** Restart the source server. The replication
+driver loads during startup and replication begins automatically. You do not have to
+deactivate ASMFD.
 
 ## Error: Invalid driver state location
 
