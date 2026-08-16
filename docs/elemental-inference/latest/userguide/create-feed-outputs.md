@@ -12,6 +12,233 @@ will be able to filter events using this information, in order to find the
 events for one feed. The string might identify the sports event in the feed, for
 example.
 
+### Aligning clips to plays with Sports Data
+
+To use Sports Data, you find the game in the sports data feed and attach it
+to an event clipping output. Elemental Inference then aligns the clips for that output to
+the plays in the game.
+
+###### Note
+
+You must have a feed on a running MediaLive channel that carries the game.
+You must search for the game and attach it from the same AWS account.
+You can attach one game to each event clipping output.
+
+#### Supported sports and leagues
+
+Sports Data supports the following sports and leagues.
+
+| Sport             | Leagues                                                         |
+| ----------------- | --------------------------------------------------------------- |
+| Basketball        | NBA, WNBA,<br>NCAA Men's Basketball,<br>NCAA Women's Basketball |
+| American football | NFL, NCAA Men's<br>Football                                     |
+
+For each sport, Elemental Inference aligns clips to the following events. The tag is
+the value that identifies the event in the game data.
+
+##### Basketball events
+
+| Event         | Tag            |
+| ------------- | -------------- |
+| Dunk          | `dunk`         |
+| Three-pointer | `threepointer` |
+| Two-pointer   | `twopointer`   |
+
+##### American football events
+
+| Event                    | Tag                      |
+| ------------------------ | ------------------------ |
+| Touchdown                | `touchdown`              |
+| Punt return touchdown    | `puntreturntouchdown`    |
+| Kickoff return touchdown | `kickoffreturntouchdown` |
+| Interception             | `interception`           |
+| Fumble                   | `fumble`                 |
+| Pick six                 | `picksix`                |
+| Strip sack               | `stripsack`              |
+| Turnover on downs        | `turnoverondowns`        |
+
+#### Step 1: Find your game
+
+Use the `SearchFixtures` operation to find the game that you
+want to align clips to. You provide a sport and a date range, and
+optionally filter by team. Each game in the response includes a
+`fixtureId` that you attach to your event clipping output
+in the next step.
+
+The following example searches for basketball games on
+`2026-03-03` and `2026-03-04` that involve the
+Comets.
+
+```
+$ awscurl --service "elemental-inference" --region <`region`> \
+  -X POST "https://elemental-inference.<`region`>.amazonaws.com/v1/fixtures" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sport": "basketball",
+    "startDate": "2026-03-03",
+    "endDate": "2026-03-04",
+    "filters": [{ "name": "COMPETITOR", "values": ["Comets"] }]
+  }'
+```
+
+The response returns the matching games. Note the
+`fixtureId` of the game that you want to clip.
+
+```
+{
+  "fixtures": [
+    {
+      "fixtureId": "NwrW5B17Rw9W25g1jPlobSGdQfBOKyD3227bcsRK0w3Bq7aG2xRrO8qx2XEjl6R1sOH2kwyjbojN4Rk7qHiF2w",
+      "name": "Northport Comets vs. Southport Meteors",
+      "fixtureGroup": "Regular Season",
+      "scheduledStart": "2026-03-04T03:00:00Z",
+      "status": "Scheduled",
+      "competitors": [
+        { "name": "Meteors", "isHome": true },
+        { "name": "Comets", "isHome": false }
+      ]
+    }
+  ]
+}
+```
+
+**CLI example**
+
+The following example makes the same request using the
+AWS CLI:
+
+```
+aws elemental-inference search-fixtures \
+  --sport "basketball" \
+  --start-date "2026-03-03" \
+  --end-date "2026-03-04" \
+  --filters '[{"name": "COMPETITOR", "values": ["Comets"]}]'
+```
+
+##### Request parameters
+
+| Parameter    | Required | Description                                                                                                                                                                                       |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sport`      | Yes      | Either `basketball` or<br>`american-football`.                                                                                                                                                    |
+| `startDate`  | Yes      | The first day to search, in<br>`YYYY-MM-DD` format (UTC).                                                                                                                                         |
+| `endDate`    | No       | The last day to search, in<br>`YYYY-MM-DD` format (UTC). Defaults<br>to `startDate`. The window must be 7<br>days or fewer, inclusive.                                                            |
+| `filters`    | No       | Up to 10 filters, with up to 10 values each.<br>See [Filtering by team](#event-clip-filter-team "#event-clip-filter-team").                                                                       |
+| `maxResults` | No       | The maximum number of games to return, from 1<br>to 100. Defaults to 100. If the response includes<br>a `nextToken` value, pass it in a<br>subsequent request to retrieve the remaining<br>games. |
+
+##### Game status
+
+The `status` of a game tells you whether it is safe
+to attach.
+
+`Scheduled`
+
+The game has not started yet. You can attach it now,
+and clips begin when play starts.
+
+`InProgress`
+
+The game is underway. Clips align to plays as they
+happen.
+
+`Completed`
+
+The game has finished. Attach it to clip an
+already-aired game.
+
+###### Note
+
+Dates are whole UTC days. An evening game in the United
+States can fall on the next UTC day. For example, a game that
+starts at 03:00 UTC on March 4 appears on the March 4 search
+date, not March 3. If you don't see your game, set
+`endDate` to a day later.
+
+You can search for past games the same way. Set
+`startDate` and `endDate` to dates in
+the past, and attach a `Completed` game to clip a game
+that has already aired.
+
+##### Filtering by team
+
+When you filter by team, every word that you send must appear in
+the game's team names. Matching is case-insensitive and matches
+partial words, but does not do fuzzy matching. You can search by city
+name even though the response returns only the team name.
+
+For the game _Northport Comets vs. Southport
+Meteors_, the values `comets`,
+`Comet`, and `Northport` all match, but
+`Cometz` does not.
+
+- **Either team** – use
+  one filter with two values, such as `["Comets",
+ "Meteors"]`.
+- **An exact matchup** –
+  use two filters, with one team in each.
+
+Words match independently, so `Northport Meteors` also
+matches the game in the previous example.
+
+#### Step 2: Attach the game to your output
+
+Attach the game to an event clipping output by including the
+`fixtureId` in the output's
+`dataSourceConfiguration`. You can do this when you create
+the feed, or on an existing feed by using `UpdateFeed`. The
+`fixtureId` is the only value you provide, and you can
+attach one game to each event clipping output.
+
+The following example attaches a game to an event clipping output when
+creating a feed.
+
+```
+aws elemental-inference create-feed \
+  --name "my-feed" \
+  --outputs '[{
+    "name": "clipping",
+    "status": "ENABLED",
+    "outputConfig": {
+      "clipping": {
+        "dataSourceConfiguration": {
+          "fixtureId": "NwrW5B17Rw9W25g1jPlobSGdQfBOKyD3227bcsRK0w3..."
+        }
+      }
+    }
+  }]'
+```
+
+#### Checking that it works
+
+Clips appear only after both of the following are true: the game has
+started, and your channel is sending media. You can confirm the results
+as follows:
+
+- Call `GetFeed` to confirm that the
+  `fixtureId` stored on the output is the game that
+  you picked.
+- As clips are produced, they appear in the metadata that
+  Elemental Inference emits for the output. This is the primary
+  confirmation that Sports Data is working.
+
+If you don't see clips yet, check the following.
+
+Feed isn't receiving media
+
+The feed isn't associated with a running channel yet, so
+no media is arriving. Start the channel, and confirm that it
+is sending to this feed.
+
+Game hasn't started
+
+A `Scheduled` game produces no clips until
+play starts. This is expected, not a fault.
+
+Wrong game attached
+
+Call `GetFeed` and compare the
+`fixtureId` against your search
+result.
+
 ## Configuring smart crop
 
 Smart crop has no required configuration. Optionally, you can add
