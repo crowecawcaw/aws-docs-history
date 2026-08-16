@@ -6,10 +6,16 @@ available as EventBridge targets. Using simple rules, you can match events and s
 response to them. For more information, see [What is EventBridge?](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") in the
 _Amazon EventBridge User Guide_.
 
-You can also use EventBridge to schedule automated actions that are invoked at certain times using
-**cron** or rate expressions. For more information, see [Creating
-an Amazon EventBridge rule that runs on a schedule](../../../eventbridge/latest/userguide/eb-create-rule-schedule.md "../../../eventbridge/latest/userguide/eb-create-rule-schedule.md") in the _Amazon EventBridge User
-Guide_.
+To submit AWS Batch jobs on a schedule, such as at regular intervals using
+**cron** or rate expressions, use Amazon EventBridge Scheduler. For more information,
+see [Tutorial: Create a scheduled AWS Batch job](scheduled-batch-job.md "scheduled-batch-job.md").
+
+###### Note
+
+Scheduled rules are a legacy EventBridge feature. If you have existing scheduled rules that
+submit AWS Batch jobs, they continue to work. For new schedules, we recommend Amazon EventBridge
+Scheduler. For more information, see [What is Amazon EventBridge
+Scheduler?](../../../scheduler/latest/UserGuide/what-is-scheduler.md "../../../scheduler/latest/UserGuide/what-is-scheduler.md") in the _Amazon EventBridge Scheduler User Guide_.
 
 For information about how to create a rule that runs when an event matches an event pattern,
 see [Creating
