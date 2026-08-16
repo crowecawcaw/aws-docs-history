@@ -164,9 +164,9 @@ Save the following as `eval_policy.json`, replacing all placeholder values (`REG
         "sagemaker:InvokeEndpointWithResponseStream"
       ],
       "Resource": [
-        "arn:aws:sagemaker:REGION:ACCOUNT_ID:model/inspectlens-*",
-        "arn:aws:sagemaker:REGION:ACCOUNT_ID:endpoint/inspectlens-*",
-        "arn:aws:sagemaker:REGION:ACCOUNT_ID:endpoint-config/inspectlens-*"
+        "arn:aws:sagemaker:REGION:ACCOUNT_ID:model/*",
+        "arn:aws:sagemaker:REGION:ACCOUNT_ID:endpoint/*",
+        "arn:aws:sagemaker:REGION:ACCOUNT_ID:endpoint-config/*"
       ]
     },
     {
@@ -643,32 +643,20 @@ aws sagemaker create-training-job \
 **Option B: SageMaker Python SDK V3**
 
 ```
-from sagemaker.train import ModelTrainer
-from sagemaker.train.configs import InputData, Compute
-from sagemaker.core.shapes.shapes import StoppingCondition, OutputDataConfig
+from sagemaker.train.evaluate import InspectAIEvaluator
 
-trainer = ModelTrainer(
-    training_image="763104351884.dkr.ecr.us-east-1.amazonaws.com/sagemaker-inspect-ai:latest",
-    compute=Compute(
-        instance_type="ml.m5.large",
-        instance_count=1,
-        volume_size_in_gb=30,
-    ),
-    output_data_config=OutputDataConfig(
-        s3_output_path="s3://your-bucket/eval/output/"
-    ),
-    role="arn:aws:iam::123456789012:role/SageMakerInspectAIRole",
-    stopping_condition=StoppingCondition(max_runtime_in_seconds=86400),
+evaluator = InspectAIEvaluator(
+    model="nova-textgeneration-lite",
+    bedrock_model_id="us.amazon.nova-lite-v1:0",
+    benchmarks_path="s3://your-bucket/benchmarks/my_benchmarks/",
+    tasks=[{"name": "my_task", "limit": 100}],
+    s3_output_path="s3://your-bucket/eval/output/",
+    instance_type="ml.m5.large",
 )
 
-trainer.train(
-    input_data_config=[
-        InputData(
-            channel_name="config",
-            data_source="s3://your-bucket/eval/config/",
-        )
-    ]
-)
+execution = evaluator.evaluate()
+execution.wait()
+execution.show_results()
 ```
 
 **Key parameters**

@@ -290,7 +290,7 @@ aws s3 cp /path/to/input-data/ s3://customer-input-data-bucket/ —recursive
 
 **Data augmentation recipe**
 
-You can get the distillation recipe from the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository. The distillation recipe is under
+You can get the distillation recipe from the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository. The distillation recipe is under
 the directory: `recipes-collection/recipes/fine-tuning/nova`. The
 data augmentation process is controlled by a YAML configuration file. Below is a
 detailed explanation of each parameter. All are required fields.

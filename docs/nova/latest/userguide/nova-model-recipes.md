@@ -1,13 +1,13 @@
 # Amazon Nova recipes
 
-You can get an Amazon Nova recipe from the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository. An Amazon Nova recipe is a [YAML](https://yaml.org/ "https://yaml.org/") configuration file that provides details to
+You can get an Amazon Nova recipe from the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository. An Amazon Nova recipe is a [YAML](https://yaml.org/ "https://yaml.org/") configuration file that provides details to
 SageMaker on how to run your model customization job. It provides the base model name, sets
 training hyperparameters, defines optimization settings, and includes any additional
 options required to fine-tune or train the model successfully.
 
-You can also access Amazon Nova recipes through Amazon SageMaker Studio and by navigating
-to the model hub, selecting AWS, and browsing Amazon Nova models to find
-their associated recipes. Both Amazon SageMaker Studio and provide sample notebooks
+You can also access Amazon Nova recipes through Amazon SageMaker Studio and JumpStart by navigating
+to the SageMaker JumpStart model hub, selecting AWS, and browsing Amazon Nova models to find
+their associated recipes. Both Amazon SageMaker Studio and JumpStart provide sample notebooks
 for each recipe, which include all the necessary steps to modify the recipes and run
 customization jobs using SageMaker training jobs or SageMaker HyperPod environments.
 
@@ -34,9 +34,9 @@ JSON
 
 ```
 
-To execute the sample notebooks on SageMaker training jobs and , use one of the
+To execute the sample notebooks on SageMaker training jobs and SageMaker HyperPod, use one of the
 following SageMaker distribution image versions: `2.7.1+`, `2.8.0+`, `3.2.1+`, `3.3.0+`. This applies
-to both Amazon SageMaker Studio and .
+to both Amazon SageMaker Studio and JumpStart.
 
 ###### Topics
 
@@ -49,7 +49,7 @@ to both Amazon SageMaker Studio and .
 
 ## Getting Amazon Nova recipes
 
-To get a base Amazon Nova recipe, clone the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository by running the following
+To get a base Amazon Nova recipe, clone the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") repository by running the following
 command.
 
 ```
@@ -72,7 +72,7 @@ The Amazon Nova customization recipes are in the following folders.
 
 ## Getting Amazon Nova Forge recipes
 
-To access specialized Amazon Nova Forge recipes for jobs, please [set up your access to Amazon Nova Forge](nova-forge-access.md "nova-forge-access.md") and then follow [this workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge") to set up the Forge version of the CLI. For SageMaker Training Jobs, the AWS Console and Nova Forge SDK will automatically access Forge recipes.
+To access specialized Amazon Nova Forge recipes for SageMaker HyperPod jobs, please [set up your access to Amazon Nova Forge](nova-forge-access.md "nova-forge-access.md") and then follow [this workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US/02-smhp-rig/03-nova-forge") to set up the Forge version of the SageMaker HyperPod CLI. For SageMaker Training Jobs, the AWS Console and SageMaker Python SDK will automatically access Forge recipes.
 
 ## Available models and algorithms
 

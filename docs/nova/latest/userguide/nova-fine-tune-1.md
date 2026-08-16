@@ -298,7 +298,7 @@ hyperparameters](customize-fine-tune-hyperparameters.md "customize-fine-tune-hyp
 The only difference between full-rank SFT and LoRA PEFT in terms of recipe is the
 LoRA PEFT configuration, which is set to 'null' for full rank and set to
 appropriate values if using LoRA PEFT-based fine-tuning. Example recipes are
-available in the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") GitHub repository. The following tables show
+available in the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") GitHub repository. The following tables show
 detailed configurations that you might find helpful.
 
 About **"run" configuration**.
@@ -338,7 +338,7 @@ About **“training\_config” configuration**.
 The only difference between Direct Preference Optimization (DPO) as compared to
 LoRA PEFT and FullRank SFT is in terms of dpo\_cfg configuration and allowed
 values. Refer to the table below the example for allowed specifically for
-DPO. Example recipes are available in the [recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") GitHub repository. The following table
+DPO. Example recipes are available in the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") GitHub repository. The following table
 shows detailed configurations that you might find helpful.
 
 |                                | Root key                         | Child keys                                                                                                         | Definition                                                                                                                                              | Min      | Max   |

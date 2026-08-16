@@ -129,7 +129,7 @@ run:
   accelerates evaluation. If both `instance_count` and
   `replica` are specified, `instance_count`
   takes precedence. Note that multiple replicas only apply to SageMaker AI
-  training jobs, not .
+  training jobs, not SageMaker HyperPod.
 - `data_s3_path`: The input dataset Amazon S3 path. This field is
   required but should always left empty.
 - `mlflow_tracking_uri`: (Optional) The location of the MLflow tracking server (only needed on SMHP)
@@ -757,7 +757,7 @@ evaluation:
 
 ## Running evaluation training jobs
 
-Start a training job using the following sample notebook. Please refer to
+Start a training job using the following sample Jupyter notebook. Please refer to
 below notebook as example to run the evaluation training job. For more information,
 see [Use a SageMaker AI estimator to run a training job](../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md "../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md").
 

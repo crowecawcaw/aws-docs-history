@@ -47,7 +47,7 @@ run:
 - `output_s3_path`: (Required) The S3 path to store output evaluation
   artifacts. Note that the output S3 bucket must be created by the same account that is
   creating the job.
-- `mlflow_tracking_uri`: (Optional) MLflow tracking server ARN for tracking MLFlow runs/experiments. Please ensure you have permission to access the tracking server from SageMaker AI execution role
+- `mlflow_tracking_uri`: (Optional) MLflow tracking server ARN for tracking MLflow runs/experiments. Please ensure you have permission to access the tracking server from SageMaker AI execution role
 
 ###### Evaluation configuration
 
@@ -200,9 +200,9 @@ inference:
   temperature: 0.0
 ```
 
-###### MLFlow configuration
+###### MLflow configuration
 
-The following is an MLFlow configuration and an explanation of the parameters involved. All parameters are optional.
+The following is an MLflow configuration and an explanation of the parameters involved. All parameters are optional.
 
 ```
 run:

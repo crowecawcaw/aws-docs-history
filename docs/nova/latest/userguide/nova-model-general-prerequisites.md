@@ -13,7 +13,7 @@ the following general prerequisites.
 - Access to the [base Amazon Nova model customization recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/ "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes/").
 - Familiarity of [YAML](https://yaml.org/ "https://yaml.org/") configuration
   files.
-- Familiarity of how to run a notebook in your environment.
+- Familiarity of how to run a Jupyter notebook in your environment.
 - Familiarity of how to create AWS resources like [Amazon S3
   buckets](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") and [IAM roles with
   appropriate permissions](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md").

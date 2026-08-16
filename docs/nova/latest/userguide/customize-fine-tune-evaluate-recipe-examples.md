@@ -485,8 +485,8 @@ run:
   model_type: amazon.nova-2-lite-v1:0:256k               # [FIXED] Must be a reasoning-supported model
   model_name_or_path: nova-lite-2/prod                   # [FIXED] Path to model checkpoint or identifier
   replicas: 1                                            # [MODIFIABLE] Number of replicas for SageMaker Training job
-  data_s3_path: ""                                       # [MODIFIABLE] Leave empty for SageMaker Training job; optional for  job
-  output_s3_path: ""                                     # [MODIFIABLE] Output path for  job (not compatible with SageMaker Training jobs)
+  data_s3_path: ""                                       # [MODIFIABLE] Leave empty for SageMaker Training job; optional for SageMaker HyperPod job
+  output_s3_path: ""                                     # [MODIFIABLE] Output path for SageMaker HyperPod job (not compatible with SageMaker Training jobs)
 
 evaluation:
   task: mmlu                                             # [MODIFIABLE] Evaluation task

@@ -24,7 +24,7 @@ pricing](https://aws.amazon.com/sagemaker-ai/pricing/ "https://aws.amazon.com/sa
 
 ## Compute requirements for Amazon Nova 1 models
 
-The following tables summarize the computational requirements for and SageMaker AI
+The following tables summarize the computational requirements for SageMaker HyperPod and SageMaker AI
 training jobs training for Nova 1.0 models.
 
 Pre-training| Model | Sequence length | Nodes | Instance | Accelerator |
@@ -68,10 +68,10 @@ Proximal policy optimization| Model | Critic Model Instance Count | Reward Model
 
 ###### Topics
 
-- [Nova Forge SDK](nova-hp-forge-sdk.md "nova-hp-forge-sdk.md")
+- [SageMaker Python SDK](nova-hp-forge-sdk.md "nova-hp-forge-sdk.md")
 - [Amazon SageMaker HyperPod Essential Commands Guide](nova-hp-essential-commands-guide.md "nova-hp-essential-commands-guide.md")
 - [Creating a SageMaker HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
-- [Nova Forge access and setup for](nova-forge-hp-access.md "nova-forge-hp-access.md")
+- [Nova Forge access and setup for SageMaker HyperPod](nova-forge-hp-access.md "nova-forge-hp-access.md")
 - [Training for Amazon Nova models](nova-hp-training.md "nova-hp-training.md")
 - [Fine-tuning Amazon Nova models on SageMaker HyperPod](nova-hp-fine-tune.md "nova-hp-fine-tune.md")
 - [Evaluating your trained model](nova-hp-evaluate.md "nova-hp-evaluate.md")

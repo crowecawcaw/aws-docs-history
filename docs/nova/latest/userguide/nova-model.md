@@ -36,7 +36,7 @@ If you provide a KMS key to your Amazon Nova model customization training job fo
 
 - [**SageMaker HyperPod**](../../../sagemaker/latest/dg/sagemaker-hyperpod.md "../../../sagemaker/latest/dg/sagemaker-hyperpod.md") offers a
   specialized environment to train Amazon Nova models by requiring you to create and manage
-  EKS clusters with restricted instance groups (RIGs). This environment
+  SageMaker HyperPod EKS clusters with restricted instance groups (RIGs). This environment
   gives you flexibility in configuring your training environment with specialized GPU
   instances and integrated Amazon FSx for Lustre storage, making it particularly well-suited
   for advanced distributed training scenarios and ongoing model development. For more

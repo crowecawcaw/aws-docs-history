@@ -23,7 +23,7 @@ pip install -e .
 1. Verify that you have administrator access to the Amazon Web Services account.
 2. Navigate to the SageMaker AI console and request access to Nova Forge.
 3. Wait for the Nova team to email a confirmation after your subscription request is approved.
-4. Tag your execution role with the `forge-subscription` tag. This tag is required to access Nova Forge features and checkpoints. Add the following tag to your execution role:
+4. Tag your SageMaker HyperPod execution role with the `forge-subscription` tag. This tag is required to access Nova Forge features and checkpoints. Add the following tag to your execution role:
 
    - Key: `forge-subscription`
    - Value: `true`
@@ -101,7 +101,7 @@ Flow: The account user must reach out to the account admin to request admin acce
 
 ## Step 2. Set up HyperPod infrastructure
 
-Set up the necessary infrastructure by following the [workshop instructions](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US") for configuring the environment with Forge-enabled features.
+Set up the necessary SageMaker HyperPod infrastructure by following the [workshop instructions](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US") for configuring the environment with Forge-enabled features.
 
 ## Content moderation settings
 
