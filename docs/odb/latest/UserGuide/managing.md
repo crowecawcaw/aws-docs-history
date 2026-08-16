@@ -139,7 +139,7 @@ Restart the database instance without stopping and starting it manually.
 
 Permanently delete an ADB-S instance. This action cannot be undone.
 
-## Encryption using AWS Key Management Service
+### Encryption using AWS Key Management Service
 
 To use AWS Key Management Service encryption with ADB-S, you need the following:
 
@@ -155,3 +155,33 @@ Additional permissions required for the caller:
 
 - `iam:PassRole` scoped to the above IAM role
 - `kms:DescribeKey` on the AWS Key Management Service key being used
+
+## Managing ExaDB-XS resources
+
+You can perform the following lifecycle operations on Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS)
+resources from the Oracle Database@AWS console, CLI, or APIs.
+
+###### OCI console operations
+
+Some operations might also be available from the OCI console. Check the OCI documentation
+for additional management options.
+
+**Scale compute**
+
+Scale the ECPU count on an Exascale VM cluster up or down to match your workload demand.
+Scaling compute does not require downtime.
+
+**Expand storage**
+
+Expand the storage capacity of an Exascale Storage Vault at any time without downtime. You cannot
+reduce the storage capacity after you expand it.
+
+**Delete an Exascale VM cluster**
+
+Delete an Exascale VM cluster that you no longer need. You must delete all databases on the
+cluster before you can delete it.
+
+**Delete an Exascale Storage Vault**
+
+Delete an Exascale Storage Vault that you no longer need. You must delete all Exascale VM clusters that
+reference the vault before you can delete it.

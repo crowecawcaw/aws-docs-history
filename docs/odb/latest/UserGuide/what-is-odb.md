@@ -1,11 +1,11 @@
 # What is Oracle Database@AWS?
 
-Oracle Database@AWS is an offering that enables you to access Oracle Exadata infrastructure and Oracle
-Autonomous Database Serverless managed by Oracle Cloud Infrastructure (OCI) inside AWS data centers. You can
-migrate your Oracle Exadata workloads, deploy serverless Oracle Autonomous Databases, establish
-low-latency connectivity with applications running on AWS, and integrate with AWS services.
-You get a single invoice through AWS Marketplace, which counts towards AWS commitments and Oracle Support
-rewards.
+With Oracle Database@AWS, you can access Oracle Exadata infrastructure, Oracle Exadata Database Service on Exascale Infrastructure
+(ExaDB-XS), and Oracle Autonomous Database Serverless managed by Oracle Cloud Infrastructure (OCI) inside AWS data centers. You can
+migrate your Oracle Exadata workloads, deploy elastic Exascale databases, and deploy serverless
+Oracle Autonomous Databases. You can also establish low-latency connectivity with applications
+running on AWS and integrate with AWS services. You get a single invoice through AWS Marketplace, which
+counts towards AWS commitments and Oracle Support rewards.
 
 The following diagram shows a high-level overview of an OCI region tied to an AWS data
 center that hosts Oracle Exadata infrastructure. Within an AWS Availability Zone (AZ), you can establish one or more peering connections (up to 45) between your Amazon VPCs and the
@@ -21,20 +21,28 @@ With Oracle Database@AWS, you benefit from the following features:
 **Migration of Oracle Exadata database workloads to AWS**
 
 With Oracle Database@AWS, you can easily migrate your Oracle Exadata workloads to Oracle Exadata Database
-Service on Dedicated Infrastructure or Oracle Autonomous Database on Dedicated Exadata
-Infrastructure within AWS. The migration offers minimal changes, full feature availability,
-architectural compatibility, and the same performance as on-premises Exadata deployments. You
-can use standard Oracle database migration tools such as Recovery Manager (RMAN), Oracle Data
-Guard, transportable tablespaces, Oracle Data Pump, Oracle GoldenGate, AWS Database Migration Service, and Oracle Zero
-Downtime Migration.
+Service on Dedicated Infrastructure or ExaDB-XS for elastic scaling needs. You can also
+migrate to Oracle Autonomous Database on Dedicated Exadata Infrastructure
+within AWS. The
+migration offers minimal changes, full feature availability, architectural compatibility, and
+the same performance as on-premises Exadata deployments. You can use standard Oracle database
+migration tools such as Recovery Manager (RMAN), Oracle Data Guard, transportable tablespaces,
+Oracle Data Pump, Oracle GoldenGate, AWS Database Migration Service, and Oracle Zero Downtime Migration.
 
 **Fully managed serverless Oracle Autonomous Database**
 
 Oracle Autonomous Database Serverless (ADB-S) provides a fully managed, serverless Oracle
 Autonomous Database that auto-scales compute and storage based on workload demand. No
 infrastructure provisioning is required—you go from subscription to a running database
-without creating Exadata infrastructure or VM clusters. ADB-S is available via public offer on
+without creating Exadata infrastructure or VM clusters. ADB-S is available through a public offer on
 AWS Marketplace in addition to private offer.
+
+**Elastic Exadata with consumption-based pricing**
+
+With ExaDB-XS, you can start small with as few as 8 ECPUs and 300 GB of storage.
+You can scale compute and storage independently as your workload grows. You pay for the
+resources you consume rather than provisioning dedicated infrastructure upfront. ExaDB-XS is
+available through a public offer on AWS Marketplace without requiring an Oracle sales representative.
 
 **Reduced application latency**
 
@@ -104,9 +112,11 @@ interface that you can use to access Oracle Database@AWS.
 
 ## Pricing for Oracle Database@AWS
 
-You can purchase Oracle Database@AWS offerings from AWS Marketplace. You first contact an Oracle sales
-representative. Oracle then makes the offer available to you in AWS Marketplace based on the private
-pricing agreement. Your AWS bill shows charges based on your usage.
+You can purchase Oracle Database@AWS offerings from AWS Marketplace. For Oracle Exadata Database Service on
+Dedicated Infrastructure, you first contact an Oracle sales representative. Oracle then makes the
+offer available to you in AWS Marketplace based on the private pricing agreement. ExaDB-XS and
+Autonomous Database Serverless are available through a public offer on AWS Marketplace. You can subscribe directly without contacting
+an Oracle sales representative. Your AWS bill shows charges based on your usage.
 
 There are no data transfer charges when your Oracle application and Oracle database are
 hosted in the same Availability Zone (AZ). Standard data transfer charges apply for communication
@@ -131,12 +141,14 @@ more information, see [Request a private offer for Oracle Database@AWS](setting-
 
 ###### Note
 
-For Autonomous Database Serverless, you can accept a public offer on AWS Marketplace without
-contacting an Oracle sales representative. 3. Create your Oracle Database@AWS resources:
+For Autonomous Database Serverless and ExaDB-XS, you can accept a public offer on AWS Marketplace
+without contacting an Oracle sales representative. 3. Create your Oracle Database@AWS resources:
 
     * For Oracle Exadata Database Service on Dedicated Infrastructure or Autonomous Database on
      Dedicated Exadata Infrastructure, create your ODB network, Oracle Exadata infrastructure, and Exadata VM clusters using the AWS
      console. Create your Exadata databases using OCI tools.
+    * For ExaDB-XS, create an ODB network, an Exascale Storage Vault, and an Exascale VM cluster
+     using the AWS console. Create your Oracle Exadata databases using OCI tools.
     * For Autonomous Database Serverless, create an ODB network and then create an Autonomous
      Database directly from the Oracle Database@AWS console. No Exadata infrastructure or VM cluster provisioning
      is required.

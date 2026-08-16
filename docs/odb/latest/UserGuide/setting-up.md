@@ -58,9 +58,9 @@ access the Oracle activation links directly from AWS Management Console.
 
 ## Accept a public offer for Oracle Database@AWS
 
-Autonomous Database Serverless (ADB-S) is available via public offer on AWS Marketplace. With a
-public offer, you can subscribe directly without waiting for an Oracle sales representative to
-create a private offer.
+Autonomous Database Serverless (ADB-S) and Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS) are available through a public
+offer on AWS Marketplace. With a public offer, you can subscribe directly without waiting for an Oracle
+sales representative to create a private offer.
 
 ###### To accept a public offer for Oracle Database@AWS
 
@@ -72,7 +72,7 @@ create a private offer.
 5. Activate your OCI account using the activation link provided in the AWS Management Console or sent
    via email.
 6. After activation is complete, the Oracle Database@AWS dashboard becomes available and you can begin
-   provisioning Autonomous Database Serverless instances.
+   provisioning Autonomous Database Serverless instances or ExaDB-XS resources.
 
 ###### Note
 
