@@ -10,7 +10,7 @@ SSM Agent then sends status and execution information back to the Systems Manage
 back by the [Amazon Message Delivery Service](../../../service-authorization/latest/reference/list_amazonmessagedeliveryservice.md "../../../service-authorization/latest/reference/list_amazonmessagedeliveryservice.md") (service prefix:
 `ec2messages`).)
 
-If you monitor traffic, you will see that your managed nodes communicate with
+If you monitor traffic, you see that your managed nodes communicate with
 `ssmmessages.*` endpoints and possibly `ec2messages.*` endpoints.
 For more information, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md"). For information about porting
 SSM Agent logs to Amazon CloudWatch Logs, see [Logging and monitoring in AWS Systems Manager](monitoring.md "monitoring.md").

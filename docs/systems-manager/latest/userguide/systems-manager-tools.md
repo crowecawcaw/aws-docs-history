@@ -61,7 +61,7 @@ updates. You can use Patch Manager to apply patches for both operating systems
 and applications. (On Windows Server, application support is limited to updates
 for applications released by Microsoft.)
 
-This tool allows you to scan managed nodes for missing patches and apply
+This tool lets you scan managed nodes for missing patches and apply
 missing patches individually or to large groups of managed nodes by using
 tags. Patch Manager uses _patch baselines_, which can include
 rules for auto-approving patches within days of their release, and a list of
@@ -71,7 +71,7 @@ you can patch your managed nodes on demand at any time.
 
 For Linux operating systems, you can define the repositories that should
 be used for patching operations as part of your patch baseline. This allows
-you to ensure that updates are installed only from trusted repositories
+you to make sure that updates are installed only from trusted repositories
 regardless of what repositories are configured on the managed node. For
 Linux, you also can update any package on the managed node,
 not just those that are classified as operating system security updates. You
@@ -89,7 +89,7 @@ of dozens or hundreds of managed nodes.
 
 Session Manager
 Use [Session Manager](session-manager.md "session-manager.md") to manage your edge
-devices and Amazon Elastic Compute Cloud (Amazon EC2) instances through an interactive one-click
+devices and Amazon Elastic Compute Cloud (Amazon EC2) instances through an interactive single-step
 browser-based shell or through the AWS CLI. Session Manager provides secure and
 auditable edge device and instance management without needing to open
 inbound ports, maintain bastion hosts, or manage SSH keys. Session Manager also
@@ -196,7 +196,7 @@ Application Manager aggregates operations information from multiple AWS services
 Systems Manager tools to a single AWS Management Console.
 
 Parameter Store
-[Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md") enables you to securely store, organize, and retrieve configuration data at scale. It supports a wide range of use cases, from managing plain-text configuration values – such as database connection strings and application settings – to handling sensitive data like secrets for low-risk environments. Parameter Store is designed to simplify configuration management across environments, allowing teams to standardize how applications access critical data without hardcoding values or relying on fragmented storage solutions.
+[Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md") lets you securely store, organize, and retrieve configuration data at scale. It supports a wide range of use cases, from managing plain-text configuration values – such as database connection strings and application settings – to handling sensitive data like secrets for low-risk environments. Parameter Store is designed to simplify configuration management across environments, allowing teams to standardize how applications access critical data without hardcoding values or relying on fragmented storage solutions.
 
 If you manage credentials that require automatic rotation, cross-account access, or fine-grained audit logging, we recommend using [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md"). Secrets Manager is purpose-built for managing secrets such as database credentials, API keys, and supported third-party software-vended secrets. For more information, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _AWS Secrets Manager User Guide_.
 

@@ -94,8 +94,8 @@ steps described in this topic:
 
 ###### Before you begin
 
-Before you begin a migration to the CloudWatch agent for log collection, ensure that
-the nodes on which you will perform the migration meet these
+Before you begin a migration to the CloudWatch agent for log collection, make sure that
+the nodes on which you perform the migration meet these
 requirements:
 
 - The OS is a 64-bit version of Windows Server.
@@ -125,7 +125,7 @@ CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch
 You can use the CloudWatch agent on other supported operating systems, but you won't be
 able to use Systems Manager to perform a tool migration.
 
-After the migration succeeds, check your results in CloudWatch to ensure you're
+After the migration succeeds, check your results in CloudWatch to make sure you're
 receiving the metrics, logs, or Windows event logs you expect. If you're
 satisfied with the results, you can optionally [Store CloudWatch agent configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config "#monitoring-cloudwatch-agent-store-config"). If the migration
 isn't successful or the results aren't as expected, you can try [Rolling back to log collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back "#monitoring-cloudwatch-agent-roll-back").

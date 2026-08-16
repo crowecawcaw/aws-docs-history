@@ -150,7 +150,7 @@ For python runtimes, the environment provides 512MB of memory and
 
 Handler
 
-The name of your function. You must ensure the function defined in the
+The name of your function. You must make sure the function defined in the
 handler has two parameters, `events` and `context`.
 The PowerShell runtime does not support this parameter.
 
@@ -284,7 +284,7 @@ files.
 
 When including Python libraries in your attachment, we recommend adding an
 empty `__init__.py` file in each module directory. This
-allows you to import the modules from the library in your attachment within
+lets you import the modules from the library in your attachment within
 your script content. For example: `from library import
  module`
 
@@ -346,7 +346,7 @@ my-automation-package.zip
 
 For Python packages, you must include an empty
 `__init__.py` file in each directory that contains
-Python modules. This allows you to import modules using standard Python
+Python modules. This lets you import modules using standard Python
 import syntax like `from utils import helper_functions`.
 
 ###### PowerShell package structure
@@ -585,7 +585,7 @@ Use the following guidance to resolve common issues with
 
 If you receive import errors when using multi-module packages:
 
-- Ensure you have included an empty `__init__.py` file in
+- Make sure you have included an empty `__init__.py` file in
   each directory containing Python modules.
 - Verify that your import statements match the actual file and directory
   structure in your zip package.
@@ -601,7 +601,7 @@ If your automation fails to find the attachment:
   the key in your `files` section.
 - Check that your S3 bucket path and file name are correct in the
   `files` section.
-- Ensure your automation role has `s3:GetObject` permission for
+- Make sure your automation role has `s3:GetObject` permission for
   the attachment S3 location.
 - Verify that the checksum in your runbook matches the actual file
   checksum.
@@ -613,7 +613,7 @@ If you receive handler-related errors:
 - For Python: Use the format `filename.function_name` in the
   `Handler` parameter (e.g.,
   `main.process_data`).
-- Ensure your handler function accepts exactly two parameters:
+- Make sure your handler function accepts exactly two parameters:
   `events` and `context`.
 - For PowerShell: Do not specify a `Handler` parameter; the
   script runs directly.

@@ -6,7 +6,7 @@ actions on your resources. We also recommend that you opt in to the adaptive con
 mode in your Automation preferences. Adaptive concurrency automatically scales your
 automation quota to meet your needs. For more information, see [Allowing Automation to adapt to your concurrency needs](adaptive-concurrency.md "adaptive-concurrency.md").
 
-To ensure proper access to AWS Systems Manager Automation, review the following user and service
+To make sure you have proper access to AWS Systems Manager Automation, review the following user and service
 role requirements.
 
 ## Verifying user access for runbooks
@@ -23,7 +23,7 @@ The IAM policy `AmazonSSMFullAccess` grants permissions to Systems Manager
 actions. However, some runbooks require permissions to other services, such as
 the runbook `AWS-ReleaseElasticIP`, which requires IAM permissions
 for `ec2:ReleaseAddress`. Therefore, you must review the actions
-taken in a runbook to ensure your user, group, or role is assigned the necessary
+taken in a runbook to make sure your user, group, or role is assigned the necessary
 permissions to perform the actions included in the runbook.
 
 ## Configuring a service role (assume role) access for automations
@@ -49,12 +49,3 @@ Automation:
 
 If you need to create a service role for Automation, you can use one of the
 following methods.
-
-###### Topics
-
-- [Create service roles for Automation by using CloudFormation](automation-setup-cloudformation.md "automation-setup-cloudformation.md")
-- [Create the service roles for Automation using the console](automation-setup-iam.md "automation-setup-iam.md")
-- [Setting up identity based policies examples](automation-setup-identity-based-policies.md "automation-setup-identity-based-policies.md")
-- [Allowing Automation to adapt to your concurrency needs](adaptive-concurrency.md "adaptive-concurrency.md")
-- [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md")
-- [Implement change controls for Automation](automation-change-calendar-integration.md "automation-change-calendar-integration.md")

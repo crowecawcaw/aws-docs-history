@@ -27,7 +27,7 @@ aws configservice put-connector \
     }'
 ```
 
-Note the `Arn` from the response — you will need it in the
+Note the `Arn` from the response — you need it in the
 next step. 2. Confirm the connector was created:
 
 ```

@@ -17,7 +17,7 @@ and use cases.
 
 ## ASCP with IAM Roles for Service Accounts (IRSA)
 
-The ASCP with IAM Roles for Service Accounts (IRSA) allows you to mount parameters from Parameter Store as
+The ASCP with IAM Roles for Service Accounts (IRSA) lets you mount parameters from Parameter Store as
 files in your Amazon EKS Pods. This approach is suitable when:
 
 - You need to mount parameters as files in your Pods.

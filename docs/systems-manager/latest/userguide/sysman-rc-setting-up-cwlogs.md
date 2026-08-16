@@ -57,7 +57,7 @@ format:
 
 If you run commands by using the AWS CLI, specify the
 `cloud-watch-output-config` section in your command. This section
-allows you to specify the `CloudWatchOutputEnabled` parameter, and
+lets you specify the `CloudWatchOutputEnabled` parameter, and
 optionally, the `CloudWatchLogGroupName` parameter. Here is an
 example.
 
@@ -77,7 +77,7 @@ Windows
 aws ssm send-command ^
     --document-name "AWS-RunPowerShellScript" ^
     --parameters commands=["echo helloWorld"] ^
-    --targets "Key=instanceids,Values=`an instance ID`” ^
+    --targets "Key=instanceids,Values=`an instance ID`" ^
     --cloud-watch-output-config '{"CloudWatchLogGroupName":"`log group name`","CloudWatchOutputEnabled":true}'
 ```
 

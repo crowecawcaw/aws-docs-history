@@ -8,7 +8,7 @@ list of managed nodes where you can run the operation.
 This topic provides information to help you diagnose why a managed node _that you have confirmed is running_ isn't included in your
 lists of managed nodes in Systems Manager.
 
-In order for a node to be managed by Systems Manager and available in lists of managed nodes, it
+For a node to be managed by Systems Manager and available in lists of managed nodes, it
 must meet three requirements:
 
 - SSM Agent must be installed and running on the node with a supported operating
@@ -99,17 +99,6 @@ similar to the following:
 If the command doesn't return results after 5 minutes or so, use the following
 information to help you troubleshoot problems with your managed nodes.
 
-###### Topics
-
-- [Solution 1: Verify that SSM Agent is installed and running on the managed node](#instances-missing-solution-1 "#instances-missing-solution-1")
-- [Solution 2: Verify that an IAM instance profile has been specified for the instance (EC2 instances only)](#instances-missing-solution-2 "#instances-missing-solution-2")
-- [Solution 3: Verify service endpoint connectivity](#instances-missing-solution-3 "#instances-missing-solution-3")
-- [Solution 4: Verify target operating system support](#instances-missing-solution-4 "#instances-missing-solution-4")
-- [Solution 5: Verify you're working in the same AWS Region as the Amazon EC2 instance](#instances-missing-solution-5 "#instances-missing-solution-5")
-- [Solution 6: Verify the proxy configuration you applied to SSM Agent on your managed node](#instances-missing-solution-6 "#instances-missing-solution-6")
-- [Solution 7: Install a TLS certificate on managed instances](#hybrid-tls-certificate "#hybrid-tls-certificate")
-- [Troubleshooting managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md")
-
 ## Solution 1: Verify that SSM Agent is installed and running on the managed node
 
 Make sure the latest version of SSM Agent is installed and running on the managed
@@ -147,11 +136,11 @@ service role instead of an instance profile. For more information, see [Create t
 4. On the **Description** tab in the bottom pane, locate
    **IAM role** and choose the name of the role.
 5. On the role **Summary** page for the instance profile, on
-   the **Permissions** tab, ensure that
+   the **Permissions** tab, make sure that
    `AmazonSSMManagedInstanceCore` is listed under
    **Permissions policies**.
 
-If a custom policy is used instead, ensure that it provides the same
+If a custom policy is used instead, make sure that it provides the same
 permissions as `AmazonSSMManagedInstanceCore`.
 
 [Open `AmazonSSMManagedInstanceCore` in the
@@ -189,7 +178,7 @@ instances are listed and available for selection.
 ## Solution 5: Verify you're working in the same AWS Region as the Amazon EC2 instance
 
 Amazon EC2 instances are created and available in specific AWS Regions, such as the
-US East (Ohio) Region (us-east-2) or Europe (Ireland) Region (eu-west-1). Ensure that you're working
+US East (Ohio) Region (us-east-2) or Europe (Ireland) Region (eu-west-1). Make sure that you're working
 in the same AWS Region as the Amazon EC2 instance that you want to work with. For more
 information, see [Choosing a
 Region](../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region "../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region") in _Getting Started with the AWS Management Console_.

@@ -9,7 +9,7 @@ patches to an AMI that is already considered to be the most up-to-date or
 _latest_ AMI. In the example, the default value of the
 parameter `SourceAmiId` is defined by a AWS Systems Manager Parameter Store parameter
 called `latestAmi`. The value of `latestAmi` is updated by
-an AWS Lambda function invoked at the end of the automation. As a result of this
+an AWS Lambda function invoked at the end of the automation. Because of this
 Automation process, the time and effort spent patching AMIs is minimized
 because patching is always applied to the most up-to-date AMI. Parameter Store and
 Automation are tools of AWS Systems Manager.

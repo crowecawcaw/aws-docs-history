@@ -10,7 +10,7 @@ the manifest is generated for you. The maximum number of files that you can atta
 to a single document is 20. The maximum size of each file is 1 GB. For more
 information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms "distributor.md#what-is-a-package-platforms").
 
-When you create a package, the system creates a new [SSM document](documents.md "documents.md"). This document allows you to
+When you create a package, the system creates a new [SSM document](documents.md "documents.md"). With this document, you can
 deploy the package to managed nodes.
 
 For demonstration purposes only, an example package, [ExamplePackage.zip](samples/ExamplePackage.zip.md "samples/ExamplePackage.zip.md"), is available for you to download from our website.
@@ -629,7 +629,7 @@ directory. A valid package requires the manifest that you created in [Step 2: Cr
 You can use the AWS Systems Manager console, AWS command line tools (AWS CLI and
 AWS Tools for PowerShell), or AWS SDKs to add a new package to Distributor. When you add
 a package, you're adding a new [SSM
-document](documents.md "documents.md"). The document allows you to deploy the package to managed
+document](documents.md "documents.md"). The document lets you deploy the package to managed
 nodes.
 
 ###### Topics

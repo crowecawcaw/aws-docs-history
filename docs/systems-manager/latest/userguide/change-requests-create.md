@@ -129,7 +129,7 @@ instructions or questions for you to answer.
 
 ###### Note
 
-Markdown is a markup language that allows you to add
+Markdown is a markup language that lets you add
 wiki-style descriptions to documents and individual steps within
 the document. For more information about using Markdown, see
 [Using Markdown in
@@ -175,7 +175,7 @@ the following:
     	The permissions specified in the IAM
     	 policies that govern your use of Systems Manager must not
     	 restrict you from submitting auto-approval
-    	 change requests in order for them to run
+    	 change requests for them to run
     	 automatically.
     	* **Specify approvers** –
     	 You must add one or more users, groups, or IAM

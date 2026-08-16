@@ -87,7 +87,7 @@ IAM policies to existing instance profiles attached to your
 instances**.
 
 If you don't choose this option but want Quick Setup to patch your managed
-nodes using this patch policy, you must ensure that the following are
+nodes using this patch policy, you must make sure that the following are
 implemented:
 
 - The IAM managed policy `AmazonSSMManagedInstanceCore`
@@ -196,7 +196,7 @@ example:
 
 ## Random patch baseline IDs in patch policy operations
 
-Patching operations for patch policies utilize the
+Patching operations for patch policies use the
 `BaselineOverride` parameter in the
 `AWS-RunPatchBaseline` SSM Command document.
 
@@ -214,7 +214,7 @@ Run Command tool, the system generates a random ID for each patch baseline. This
 is different for every patch policy patching operation, and the patch baseline
 it represents is not stored or accessible to you in your account.
 
-As a result, you will not see the ID of the patch baseline selected in your
+As a result, the ID of the patch baseline selected in your
 configuration in patching logs. This applies to both AWS managed patch
 baselines and custom patch baselines you might have selected. The baseline ID
 reported in the log is instead that one that was generated for that specific

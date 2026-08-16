@@ -11,7 +11,7 @@ already have permission to use this runbook.
 
 ###### Before you begin
 
-In addition to the standard inputs required by the runbook, the
+Besides the standard inputs required by the runbook, the
 `aws:approve` action requires the following two parameters:
 
 - A list of approvers. The list of approvers must contain at least one approver

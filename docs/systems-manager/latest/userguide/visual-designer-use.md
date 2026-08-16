@@ -17,10 +17,10 @@ You can now design a workflow for your new runbook.
 
 ## Design a runbook
 
-To design a runbook workflow, drag an automation action from
+To design a runbook workflow, move an automation action from
 the **Actions** browser into the canvas. Place it where you want it in
-your workflow. You can re-order actions by dragging them to
-a different location. As you drag an action onto the canvas, a line shows where you can
+your workflow. You can re-order actions by moving them to
+a different location. As you move an action onto the canvas, a line shows where you can
 drop it. After you drop an action, its code is
 auto-generated and added to your runbook's content.
 
@@ -45,7 +45,7 @@ sections:
 
 - The **Runtime** is the language to use for running the provided
   script.
-- The **Handler** is the name of your function. You must ensure that
+- The **Handler** is the name of your function. You must make sure that
   the function defined in the handler has two parameters: `events` and
   `context`. The PowerShell runtime doesn't support this
   parameter.
@@ -86,7 +86,7 @@ automation actions can use. The action consists of the following sections:
 - The **On cancel** property determines which action the automation
   goes to next in the runbook if the action is canceled by a user.
 
-To delete an action, you can use backspace, the toolbar above the canvas, or right-click
+To delete an action, you can use backspace, the toolbar above the canvas, or open the context menu
 and choose **Delete action**.
 
 As your workflow grows, it might not fit in the canvas. To help make the workflow fit in

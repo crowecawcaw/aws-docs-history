@@ -82,7 +82,7 @@ Cloud Connectors currently support Microsoft Azure. For more information, see [S
 
 ###### Onboarding with hybrid activations
 
-A hybrid activation allows you to register individual on-premises servers, edge
+A hybrid activation lets you register individual on-premises servers, edge
 devices, and VMs from any environment as managed nodes. With hybrid activations, you
 create an activation in the Systems Manager console, install SSM Agent on each machine manually,
 and register it using the activation code and ID.

@@ -41,7 +41,7 @@ _manual approval_.
    approval from one level. You also have a manual approval policy that requires two
    approvals from two levels for nodes tagged with the `Demo` key. Systems Manager
    applies the policy that targets the `Demo` tag to the node since it's
-   more specific than the policy that targets all nodes. This allows you to create a
+   more specific than the policy that targets all nodes. This lets you create a
    general policy for all nodes in your account, ensuring users can submit access
    requests while enabling you to create more granular policies as needed.
 

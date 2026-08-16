@@ -121,7 +121,7 @@ Amazon SNS sends a confirmation email from _AWS Notifications_
 to the email address that you specify. Open the email and choose the
 **Confirm subscription** link.
 
-You will receive an acknowledgement message from AWS. Amazon SNS is now
+You receive an acknowledgement message from AWS. Amazon SNS is now
 configured to receive notifications and send the notification as an email to the
 email address that you specified.
 

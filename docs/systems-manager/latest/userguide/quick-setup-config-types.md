@@ -2,14 +2,14 @@
 
 ###### Supported configuration types
 
-Quick Setup walks you through configuring operational best practices for a number of
+Quick Setup walks you through configuring operational best practices for several
 Systems Manager and other AWS services, and automatically deploying those configurations.
 The Quick Setup dashboard displays a real-time view of your configuration deployment
 status.
 
 You can use Quick Setup in an individual AWS account or across multiple AWS accounts
 and Regions by integrating with AWS Organizations. Using Quick Setup across multiple accounts helps
-to ensure that your organization maintains consistent configurations.
+to make sure that your organization maintains consistent configurations.
 
 Quick Setup provides support for the following configuration types.
 

@@ -3,7 +3,7 @@
 You can use Systems Manager OpsCenter to centrally manage OpsItems across multiple
 AWS accounts in a selected AWS Region. This feature is available after you set
 up your organization in AWS Organizations. AWS Organizations is an account management service that
-enables you to consolidate multiple AWS accounts into an organization that you
+lets you consolidate multiple AWS accounts into an organization that you
 create and centrally manage. AWS Organizations includes account management and consolidated
 billing capabilities that enable you to better meet the budgetary, security, and
 compliance needs of your business. For more information, see [What is AWS Organizations?](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") in the _AWS Organizations User Guide_

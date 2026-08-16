@@ -8,7 +8,7 @@ rearranging widgets.
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Review node
    insights**.
-3. To customize the widget layout, choose a widget that you want to move. Click
+3. To customize the widget layout, choose a widget that you want to move. Press
    and hold the drag handle (
    ![The drag handle](images/drag-handle-dashboard.png)
    ) of the widget and then drag it to its new location.

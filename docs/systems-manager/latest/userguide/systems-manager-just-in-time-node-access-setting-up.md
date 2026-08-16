@@ -19,7 +19,7 @@ to specific nodes.
 
 Setting up just-in-time node access doesn't affect existing IAM policies or
 preferences you've configured for Session Manager. You must remove permission to the
-`StartSession` API action from your IAM policies to ensure that only
+`StartSession` API action from your IAM policies to make sure that only
 just-in-time node access is used when users attempt to connect to your nodes. After
 you set up just-in-time node access, we recommend testing your approval policies
 with a subset of users and nodes to verify your policies are working as desired

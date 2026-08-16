@@ -135,7 +135,7 @@ an `Install` operation doesn't list any missing
 updates, but might report updates that are in a failed state if
 the installation of the update didn't succeed for any reason.
 Whenever an update is installed on a managed node, the node is
-rebooted to ensure the update is both installed and active.
+rebooted to make sure the update is both installed and active.
 (Exception: If the `RebootOption` parameter is set to `NoReboot` in
 the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after
 Patch Manager runs. For more information, see [Parameter name: RebootOption](#patch-manager-aws-runpatchbaseline-parameters-norebootoption "#patch-manager-aws-runpatchbaseline-parameters-norebootoption").)
@@ -199,7 +199,7 @@ described in the following table.
 Using `InstallOverrideList`, you specify an https URL or an
 Amazon S3 path-style URL to a list of patches to be installed. This patch
 installation list, which you maintain in YAML format, overrides the patches
-specified by the current default patch baseline. This provides you with more
+specified by the current default patch baseline. This gives you more
 granular control over which patches are installed on your managed nodes.
 
 ###### Important
@@ -229,12 +229,12 @@ Be aware that compliance reports reflect patch states according to what’s
 specified in the patch baseline, not what you specify in an
 `InstallOverrideList` list of patches. In other words, Scan
 operations ignore the `InstallOverrideList` parameter. This is to
-ensure that compliance reports consistently reflect patch states according
+make sure that compliance reports consistently reflect patch states according
 to policy rather than what was approved for a specific patching operation.
 
 ###### Note
 
-When you're patching a node that only uses IPv6, ensure that the
+When you're patching a node that only uses IPv6, make sure that the
 provided URL is reachable from the node. If the SSM Agent config option
 `UseDualStackEndpoint` is set to `true`, then
 a dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more

@@ -41,7 +41,7 @@ the AWS Systems Manager Agent](../../../greengrass/v2/developerguide/uninstall-s
 AWS IoT Greengrass core devices require an AWS Identity and Access Management (IAM) service role to communicate with
 AWS Systems Manager. The role grants AWS Security Token Service (AWS STS) [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md")
 trust to the Systems Manager service. You only need to create the service role once for each
-AWS account. You will specify this role for the `RegistrationRole`
+AWS account. Specify this role for the `RegistrationRole`
 parameter when you configure and deploy the SSM Agent component to your AWS IoT Greengrass devices. If
 you already created this role while setting up non-EC2 nodes for a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types")
 environment, you can skip this step.
@@ -90,7 +90,7 @@ trust policy. Make sure to save the file with the
 
 ###### Note
 
-Make a note of the name. You will specify it when you deploy
+Make a note of the name. Specify it when you deploy
 SSM Agent to your AWS IoT Greengrass core devices.
 
 JSONJSON
@@ -208,7 +208,7 @@ aws iam attach-role-policy ^
 (Optional) Run the following command to allow the CloudWatch agent to run
 on your edge devices. This command makes it possible to read
 information on a device and write it to CloudWatch. Your service role
-needs this policy only if you will use services such as Amazon EventBridge or
+needs this policy only if you use services such as Amazon EventBridge or
 Amazon CloudWatch Logs.
 
 ```
@@ -231,7 +231,7 @@ trust policy. Make sure to save the file with the
 
 ###### Note
 
-Make a note of the name. You will specify it when you deploy
+Make a note of the name. Specify it when you deploy
 SSM Agent to your AWS IoT Greengrass core devices.
 
 JSONJSON
@@ -306,7 +306,7 @@ Register-IAMRolePolicy `
 (Optional) Run the following command to allow the CloudWatch agent to run
 on your edge devices. This command makes it possible to read
 information on a device and write it to CloudWatch. Your service role
-needs this policy only if you will use services such as Amazon EventBridge or
+needs this policy only if you use services such as Amazon EventBridge or
 Amazon CloudWatch Logs.
 
 ```
@@ -318,7 +318,7 @@ Register-IAMRolePolicy `
 ## Configure your edge devices for AWS IoT Greengrass
 
 Set up your edge devices as AWS IoT Greengrass core devices. The setup process involves
-verifying supported operating systems and system requirements, as well as installing and
+verifying supported operating systems and system requirements, and installing and
 configuring the AWS IoT Greengrass Core software on your devices. For more information, see [Setting up
 AWS IoT Greengrass core devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengrass/v2/developerguide/setting-up.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 

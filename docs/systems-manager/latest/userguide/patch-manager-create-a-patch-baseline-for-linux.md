@@ -68,14 +68,14 @@ rules.
 
 
     	+ **Option 1**: The
-    	 broadest approval rule to ensure minor version
+    	 broadest approval rule to make sure minor version
     	 upgrades are installed when available is to
     	 specify **Classification** as
     	 `All` (\*) and choose the
     	 **Include nonsecurity updates**
     	 option.
     	+ **Option 2**: To
-    	 ensure patches for an operating system version are
+    	 make sure patches for an operating system version are
     	 installed, you can use a wildcard (\*) to specify
     	 its kernel format in the **Patch
     	 exceptions** section of the baseline. For
@@ -86,7 +86,7 @@ rules.
     	Enter
     	 `kernel-3.10.0-*.el7.x86_64` in
     	 the **Approved patches** list in
-    	 your patch baseline to ensure all patches,
+    	 your patch baseline to make sure all patches,
     	 including minor version upgrades, are applied to
     	 your RHEL 7.\* managed nodes. (If you know the
     	 exact package name of a minor version patch, you
@@ -147,7 +147,7 @@ rules.
      to the security-related patches.
 
 For more information about working with approval rules in a custom
-patch baseline, see [Custom baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom "patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom"). 9. If you want to explicitly approve any patches in addition to those
+patch baseline, see [Custom baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom "patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom"). 9. If you want to explicitly approve any patches besides those
 meeting your approval rules, do the following in the **Patch
 exceptions** section:
 

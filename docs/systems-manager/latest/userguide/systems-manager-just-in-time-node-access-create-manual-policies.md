@@ -1,7 +1,7 @@
 # Create manual approval policies for just-in-time node access
 
 The following procedure describes how to create manual approval policies.
-Systems Manager allows you to create up to 50 manual approval policies per AWS account
+Systems Manager lets you create up to 50 manual approval policies per AWS account
 and AWS Region.
 
 ###### To create a manual approval policy

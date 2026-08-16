@@ -12,7 +12,7 @@ released on December 22, 2022. Patch group functionality is still available in
 account-Region pairs that began using patch groups before this date.
 
 You can use a _patch group_ to associate managed nodes with a
-specific patch baseline in Patch Manager. Patch groups help ensure
+specific patch baseline in Patch Manager. Patch groups help make sure
 that you're deploying the appropriate patches, based on the associated patch
 baseline rules, to the correct set of nodes. Patch groups can also help you avoid
 deploying patches before they have been adequately tested. For example, you can

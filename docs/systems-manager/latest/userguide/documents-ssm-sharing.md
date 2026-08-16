@@ -107,7 +107,7 @@ before you use the document.
 When you share a document, the system creates a Sha-256 hash and
 assigns it to the document. The system also saves a snapshot of the
 document content. When you send a command using a shared document,
-you can specify the hash in your command to ensure that the
+you can specify the hash in your command to make sure that the
 following conditions are true:
 
 - You're running a command from the correct Systems Manager
@@ -256,7 +256,7 @@ sharing documents from the console, only the default version of the document can
 be shared. You can also share SSM documents programmatically by calling the
 `ModifyDocumentPermission` API operation using the AWS Command Line Interface
 (AWS CLI), AWS Tools for Windows PowerShell, or the AWS SDK. Before you share a document, get the
-AWS account IDs of the people with whom you want to share. You will specify
+AWS account IDs of the people with whom you want to share. Specify
 these account IDs when you share the document.
 
 ### Share a document (console)

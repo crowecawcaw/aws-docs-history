@@ -45,7 +45,7 @@ data:
 
 You can use the AWS Systems Manager [GetInventory](../APIReference/API_GetInventory.md "../APIReference/API_GetInventory.md") API operation to view aggregated counts of nodes that
 collect one or more inventory types and data types. For example, the
-`AWS:InstanceInformation` inventory type allows you to view an
+`AWS:InstanceInformation` inventory type lets you view an
 aggregate of operating systems by using the GetInventory API operation with the
 `AWS:InstanceInformation.PlatformType` data type. Here is an example
 AWS CLI command and output.

@@ -102,7 +102,7 @@ your IAM instance profile with access to the AWS managed S3 bucket that contains
 the document `AWS-ConfigureAWSPackage` for the AWS Region you
 are targeting.
 
-**Solution 2:** Ensure that your IAM instance
+**Solution 2:** Make sure that your IAM instance
 profile provides SSM Agent with access to the AWS managed S3 bucket that contains
 the document `AWS-ConfigureAWSPackage` for the AWS Region you
 are targeting, as explained in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").

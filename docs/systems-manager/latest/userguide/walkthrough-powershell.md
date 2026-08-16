@@ -15,18 +15,6 @@ begins with AWS), then that user also has administrator access to the node.
 For all other users, you should create restrictive documents and share them with
 specific users.
 
-###### Topics
-
-- [Configure AWS Tools for Windows PowerShell session settings](#walkthrough-powershell-settings "#walkthrough-powershell-settings")
-- [List all available documents](#walkthrough-powershell-all-documents "#walkthrough-powershell-all-documents")
-- [Run PowerShell commands or scripts](#walkthrough-powershell-run-script "#walkthrough-powershell-run-script")
-- [Install an application using the AWS-InstallApplication document](#walkthrough-powershell-install-application "#walkthrough-powershell-install-application")
-- [Install a PowerShell module using the AWS-InstallPowerShellModule JSON document](#walkthrough-powershell-install-module "#walkthrough-powershell-install-module")
-- [Join a managed node to a Domain using the AWS-JoinDirectoryServiceDomain JSON document](#walkthrough-powershell-domain-join "#walkthrough-powershell-domain-join")
-- [Send Windows metrics to Amazon CloudWatch Logs using the AWS-ConfigureCloudWatch document](#walkthrough-powershell-windows-metrics "#walkthrough-powershell-windows-metrics")
-- [Turn on or turn off Windows automatic update using the AWS-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update "#walkthrough-powershell-enable-windows-update")
-- [Manage Windows updates using Run Command](#walkthough-powershell-windows-updates "#walkthough-powershell-windows-updates")
-
 ## Configure AWS Tools for Windows PowerShell session settings
 
 ###### Specify your credentials

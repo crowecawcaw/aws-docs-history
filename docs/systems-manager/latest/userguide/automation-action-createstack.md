@@ -235,7 +235,7 @@ create the stack. CloudFormation uses the role's credentials to make calls on
 your behalf. CloudFormation always uses this role for all future operations on
 the stack. As long as users have permission to operate on the stack,
 CloudFormation uses this role even if the users don't have permission to pass
-it. Ensure that the role grants the least amount of privileges.
+it. Make sure that the role grants the least amount of privileges.
 
 If you don't specify a value, CloudFormation uses the role that was previously
 associated with the stack. If no role is available, CloudFormation uses a

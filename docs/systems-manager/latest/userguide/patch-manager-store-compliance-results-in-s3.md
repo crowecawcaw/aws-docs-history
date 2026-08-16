@@ -69,15 +69,6 @@ We recommend against attempting to modify these policies and roles. Doing so
 could cause patch compliance report generation to fail. For more information,
 see [Troubleshooting patch compliance report generation](#patch-compliance-reports-troubleshooting "#patch-compliance-reports-troubleshooting").
 
-###### Topics
-
-- [What's in a generated patch compliance report?](#patch-compliance-reports-to-s3-examples "#patch-compliance-reports-to-s3-examples")
-- [Generating patch compliance reports for a single managed node](#patch-compliance-reports-to-s3-one-instance "#patch-compliance-reports-to-s3-one-instance")
-- [Generating patch compliance reports for all managed nodes](#patch-compliance-reports-to-s3-all-instances "#patch-compliance-reports-to-s3-all-instances")
-- [Viewing patch compliance reporting history](#patch-compliance-reporting-history "#patch-compliance-reporting-history")
-- [Viewing patch compliance reporting schedules](#patch-compliance-reporting-schedules "#patch-compliance-reporting-schedules")
-- [Troubleshooting patch compliance report generation](#patch-compliance-reports-troubleshooting "#patch-compliance-reports-troubleshooting")
-
 ## What's in a generated patch compliance report?
 
 This topic provides information about the types of content included in the
@@ -301,11 +292,6 @@ compliance reporting schedules created in your AWS account.
 Use the following information to help you troubleshoot problems with
 generating patch compliance report generation in Patch Manager, a tool in
 AWS Systems Manager.
-
-###### Topics
-
-- [A message reports that the AWS-SystemsManager-PatchManagerExportRolePolicy policy is corrupted](#patch-compliance-reports-troubleshooting-1 "#patch-compliance-reports-troubleshooting-1")
-- [After deleting patch compliance policies or roles, scheduled reports aren't generated successfully](#patch-compliance-reports-troubleshooting-2 "#patch-compliance-reports-troubleshooting-2")
 
 ### A message reports that the `AWS-SystemsManager-PatchManagerExportRolePolicy` policy is corrupted
 

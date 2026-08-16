@@ -33,7 +33,7 @@ If you send an automation to, for example, 50 instances and set the error
 threshold to 10%, then the system stops sending the command to additional instances
 when the fifth error is received. Invocations that are already running an automation
 when an error threshold is reached are allowed to be completed, but some of these
-automations might fail as well. If you need to ensure that there won’t be more
+automations might fail as well. If you need to make sure that there won’t be more
 errors than the number specified for the error threshold, then set the
 **Concurrency** value to 1 so that automations proceed one at a
 time.

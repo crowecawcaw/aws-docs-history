@@ -12,24 +12,7 @@ result, you can review log data from the console, which can improve the efficien
 of your troubleshooting and systems administration. Additionally, you can create
 directories and copy, cut, paste, rename, or delete files and directories.
 
-We recommend creating regular backups, or taking snapshots of the Amazon Elastic Block Store
-(Amazon EBS) volumes attached to your managed nodes. When copying, or cutting and pasting
-files, existing files and directories in the destination path with the same name as
-the new files or directories are replaced. Serious problems can occur if you replace
-or modify system files and directories. AWS doesn't guarantee that these problems
-can be solved. Modify system files at your own risk. You're responsible for all file
-and directory changes, and ensuring you have backups. Deleting or replacing files
-and directories can't be undone.
-
-###### Note
-
-Fleet Manager uses Session Manager to view text previews and
-`tail` files. For Amazon Elastic Compute Cloud (Amazon EC2) instances, the instance
-profile attached to your managed instances must provide permissions for Session Manager
-to use this feature. For more information about adding Session Manager permissions to
-an instance profile, see [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").
-
-###### Topics
+This section includes the following topics.
 
 - [Viewing the OS file system using Fleet Manager](fleet-manager-viewing-file-system.md "fleet-manager-viewing-file-system.md")
 - [Previewing OS files using Fleet Manager](fleet-manager-preview-os-files.md "fleet-manager-preview-os-files.md")
@@ -39,3 +22,19 @@ an instance profile, see [Add Session Manager permissions to an existing IAM rol
 - [Deleting OS files and directories using Fleet Manager](fleet-manager-deleting-files-and-directories.md "fleet-manager-deleting-files-and-directories.md")
 - [Creating OS directories using Fleet Manager](fleet-manager-creating-directories.md "fleet-manager-creating-directories.md")
 - [Cutting, copying, and pasting OS directories using Fleet Manager](fleet-manager-managing-directories.md "fleet-manager-managing-directories.md")
+  We recommend creating regular backups, or taking snapshots of the Amazon Elastic Block Store
+  (Amazon EBS) volumes attached to your managed nodes. When copying, or cutting and pasting
+  files, existing files and directories in the destination path with the same name as
+  the new files or directories are replaced. Serious problems can occur if you replace
+  or modify system files and directories. AWS doesn't guarantee that these problems
+  can be solved. Modify system files at your own risk. You're responsible for all file
+  and directory changes, and ensuring you have backups. Deleting or replacing files
+  and directories can't be undone.
+
+###### Note
+
+Fleet Manager uses Session Manager to view text previews and
+`tail` files. For Amazon Elastic Compute Cloud (Amazon EC2) instances, the instance
+profile attached to your managed instances must provide permissions for Session Manager
+to use this feature. For more information about adding Session Manager permissions to
+an instance profile, see [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").

@@ -4,13 +4,6 @@ Use the following information to help you troubleshoot problems with AWS Systems
 Automation. This topic includes specific tasks to resolve issues
 based on Automation error messages.
 
-###### Topics
-
-- [Common Automation errors](#automation-trbl-common "#automation-trbl-common")
-- [Automation execution failed to start](#automation-trbl-access "#automation-trbl-access")
-- [Execution started, but status is failed](#automation-trbl-exstrt "#automation-trbl-exstrt")
-- [Execution started, but timed out](#automation-trbl-to "#automation-trbl-to")
-
 ## Common Automation errors
 
 This section includes information about common Automation errors.
@@ -20,7 +13,7 @@ This section includes information about common Automation errors.
 By default, when Automation runs either the `AWS-UpdateLinuxAmi`
 runbook or the `AWS-UpdateWindowsAmi` runbook, the system creates a
 temporary instance in the default VPC (172.30.0.0/16). If you deleted the
-default VPC, you will receive the following error:
+default VPC, you receive the following error:
 
 `VPC not defined 400`
 

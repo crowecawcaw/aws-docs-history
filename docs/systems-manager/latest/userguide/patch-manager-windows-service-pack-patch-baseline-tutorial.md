@@ -50,7 +50,7 @@ use the fields to create one or more auto-approval rules.
     * **Classification**: Choose
      `ServicePacks`.
     * **Severity**: The severity value of patches the
-     rule is to apply to. To ensure that all Service Packs are included
+     rule is to apply to. To make sure that all Service Packs are included
      by the rule, choose `All`.
     * **Auto-approval**: The method for selecting
      patches for automatic approval.

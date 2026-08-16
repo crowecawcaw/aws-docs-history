@@ -73,7 +73,7 @@ a `SecureString` parameter, see [Creating Parameter Store parameters in Systems 
      parameters for the script execution. Here is an
      example.
 
-   `ansible-playbook -i “localhost,” --check -c
+   `ansible-playbook -i \\"localhost,\\" --check -c
   local webserver.yml`
    - (Optional) In the **Working Directory**
      field, enter the name of a directory on the node where you
@@ -152,5 +152,5 @@ Here is an example command to run on a local Linux machine.
 aws ssm send-command \
     --document-name "AWS-RunRemoteScript" \
     --instance-ids "i-02573cafcfEXAMPLE" \
-    --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"TestUser1\", \"repository\": \"GitHubPrivateTest\", \"path\": \"scripts/webserver.yml\", \"tokenInfo\":\"{{ssm-secure:mySecureStringParameter}}\" }"],"commandLine":["ansible-playbook -i “localhost,” --check -c local webserver.yml"]}'
+    --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"TestUser1\", \"repository\": \"GitHubPrivateTest\", \"path\": \"scripts/webserver.yml\", \"tokenInfo\":\"{{ssm-secure:mySecureStringParameter}}\" }"],"commandLine":["ansible-playbook -i \\"localhost,\\" --check -c local webserver.yml"]}'
 ```

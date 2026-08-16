@@ -166,7 +166,7 @@ about using targets, see [Understanding targets and rate controls in State Manag
 
 ###### Note
 
-In order for associations that are created with Automation
+For associations that are created with Automation
 runbooks to be applied when new target nodes are detected, certain
 conditions must be met. For information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates"). 10. In the **Specify schedule** section, choose either
 **On Schedule** or **No
@@ -349,7 +349,7 @@ Note the following information.
 - When you create an association, you specify when the schedule
   runs. Specify the schedule by using a cron or rate expression. For
   more information about cron and rate expressions, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association "reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association").
-- In order for associations that are created with Automation
+- For associations that are created with Automation
   runbooks to be applied when new target nodes are detected, certain
   conditions must be met. For information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates").
 

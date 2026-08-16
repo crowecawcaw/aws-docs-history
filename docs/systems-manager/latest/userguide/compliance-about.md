@@ -11,7 +11,7 @@ information about how to view compliance history and change tracking.
 
 Systems Manager integrates with [Chef
 InSpec](https://www.chef.io/inspec/ "https://www.chef.io/inspec/"). InSpec is an open-source, runtime framework that
-allows you to create human-readable profiles on GitHub or Amazon Simple Storage Service
+lets you create human-readable profiles on GitHub or Amazon Simple Storage Service
 (Amazon S3). Then you can use Systems Manager to run compliance scans and view compliant and
 noncompliant instances. For more information, see [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md "integration-chef-inspec.md").
 

@@ -9,12 +9,6 @@ The formats you can specify for approved and rejected patches in your patch
 baseline vary by Linux type. More specifically, the formats that are supported
 depend on the package manager used by the type of Linux operating system.
 
-###### Topics
-
-- [Amazon Linux 2, Amazon Linux 2023, Oracle Linux, and Red Hat Enterprise Linux (RHEL)](#patch-manager-approved-rejected-package-name-formats-standard "#patch-manager-approved-rejected-package-name-formats-standard")
-- [Debian Server and Ubuntu Server](#patch-manager-approved-rejected-package-name-formats-ubuntu "#patch-manager-approved-rejected-package-name-formats-ubuntu")
-- [SUSE Linux Enterprise Server (SLES)](#patch-manager-approved-rejected-package-name-formats-sles "#patch-manager-approved-rejected-package-name-formats-sles")
-
 ### Amazon Linux 2, Amazon Linux 2023, Oracle Linux, and Red Hat Enterprise Linux (RHEL)
 
 **Package manager**: YUM, except for
@@ -68,7 +62,7 @@ you can specify any of the following:
   - `dbus-1:1.12.28-1.amzn2023.0.1.x86_64`
 
 - We also support package name components with a single wild card in
-  the above formats, such as the following:
+  the preceding formats, such as the following:
 
   - `dbus*`
   - `dbus-1.12.2*`
@@ -113,7 +107,7 @@ you can specify any of the following:
   - `dbus-1:1.12.28-1.amzn2023.0.1.x86_64`
 
 - We also support package name components with a single wild card in
-  the above formats, such as the following:
+  the preceding formats, such as the following:
 
   - `dbus*`
   - `dbus-1.12.2*`

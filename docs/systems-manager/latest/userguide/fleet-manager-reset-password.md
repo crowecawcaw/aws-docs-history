@@ -104,14 +104,6 @@ the [password reset prerequisites](#pw-reset-prereqs "#pw-reset-prereqs"). For
 other problems, use the following information to help you troubleshoot password
 reset issues.
 
-###### Topics
-
-- [Managed node not available](#password-reset-troubleshooting-instances "#password-reset-troubleshooting-instances")
-- [SSM Agent not up-to-date (console)](#password-reset-troubleshooting-ssmagent-console "#password-reset-troubleshooting-ssmagent-console")
-- [Password reset options aren't provided (AWS CLI)](#password-reset-troubleshooting-ssmagent-cli "#password-reset-troubleshooting-ssmagent-cli")
-- [No authorization to run ssm:SendCommand](#password-reset-troubleshooting-sendcommand "#password-reset-troubleshooting-sendcommand")
-- [Session Manager error message](#password-reset-troubleshooting-session-manager "#password-reset-troubleshooting-session-manager")
-
 ### Managed node not available
 
 **Problem**: You want to reset the password
@@ -134,7 +126,7 @@ nodes. For more information, see [Create the IAM service role required for Syste
 version of SSM Agent doesn't support password reset functionality.
 
 - **Solution**: Version 2.3.668.0 or
-  later of SSM Agent is required to perform password resets. In the
+  later of SSM Agent must be installed to perform password resets. In the
   console, you can update the agent on the managed node by choosing
   **Update SSM Agent**.
 

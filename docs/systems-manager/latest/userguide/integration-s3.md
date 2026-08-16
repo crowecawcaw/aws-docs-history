@@ -19,7 +19,7 @@ Note the following important details about running scripts from Amazon S3:
   then downloads and runs the script.
 - Verify that your user, role, or group has been granted the AWS Identity and Access Management
   (IAM) permissions needed to read from the S3 bucket.
-- Ensure that the instance profile on your Amazon Elastic Compute Cloud (Amazon EC2) instances has
+- Make sure that the instance profile on your Amazon Elastic Compute Cloud (Amazon EC2) instances has
   `s3:ListBucket` and `s3:GetObject` permissions. If
   the instance profile doesn't have these permissions, the system fails to
   download your script from the S3 bucket. For more information, see [Using instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") in the

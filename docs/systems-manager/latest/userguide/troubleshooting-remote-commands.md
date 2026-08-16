@@ -4,12 +4,6 @@ Run Command provides status details with each command execution.
 For more information about the details of command statuses, see [Understanding command statuses](monitor-commands.md "monitor-commands.md"). You can also use the
 information in this topic to help troubleshoot problems with Run Command.
 
-###### Topics
-
-- [Some of my managed nodes are missing](#where-are-instances "#where-are-instances")
-- [A step in my script failed, but the overall status is 'succeeded'](#ts-exit-codes "#ts-exit-codes")
-- [SSM Agent isn't running properly](#ts-ssmagent-linux "#ts-ssmagent-linux")
-
 ## Some of my managed nodes are missing
 
 In the **Run a command** page, after you choose an SSM document

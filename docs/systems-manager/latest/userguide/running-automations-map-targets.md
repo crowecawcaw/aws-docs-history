@@ -203,7 +203,7 @@ information.
 ```
 aws ssm start-automation-execution \
     --document-name `runbook name` \
-    --target-maps “`parameter`=`value`, `parameter 2`=`value`, `parameter 3`=`value`”  “`parameter 4`=`value`, `parameter 5`=`value`, `parameter 6`=`value`”
+    --target-maps "`parameter`=`value`, `parameter 2`=`value`, `parameter 3`=`value`"  "`parameter 4`=`value`, `parameter 5`=`value`, `parameter 6`=`value`"
 
 ```
 
@@ -215,9 +215,9 @@ when providing multiple parameter values.
 ```
 [
 
-    {“parameter”: "value", “parameter 2”: "value", “parameter 3”: "value"},
+    {"parameter": "value", "parameter 2": "value", "parameter 3": "value"},
 
-    {“parameter 4”: "value", “parameter 5”: "value", "parameter 6": "value"}
+    {"parameter 4": "value", "parameter 5": "value", "parameter 6": "value"}
 
 ]
 ```

@@ -10,8 +10,8 @@ RHEL 8 and 9 instances.
 Before you install SSM Agent on a RHEL 8, 9, or 10 instance, note the
 following:
 
-- Ensure that either Python 2 or Python 3 is installed on your
-  RHEL 8, 9, or 10 instance. This is required in order for SSM Agent
+- Make sure that either Python 2 or Python 3 is installed on your
+  RHEL 8, 9, or 10 instance. This is required for SSM Agent
   to work properly.
 
 ###### Topics

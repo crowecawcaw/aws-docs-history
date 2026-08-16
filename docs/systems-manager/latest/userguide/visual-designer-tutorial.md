@@ -1,8 +1,8 @@
 # Tutorial: Create a runbook using the visual design experience
 
-In this tutorial, you will learn the basics of working with the visual design experience provided by
+In this tutorial, you learn the basics of working with the visual design experience provided by
 Systems Manager Automation. In the visual design experience, you can create a runbook that uses multiple actions. You
-use the drag and drop feature to arrange actions on the canvas. You also search for, select,
+use the move feature to arrange actions on the canvas. You also search for, select,
 and configure these actions. Then, you can view the auto-generated YAML code for your
 runbook's workflow, exit the visual design experience, run the runbook, and review the execution
 details.
@@ -53,7 +53,7 @@ dropdown, and select **Add a parameter**.
     3. Select the **Required** toggle.
 
 ![Create a parameter for your runbook](images/visual_designer_actions_tutorial_parameter.png) 3. In the **AWS APIs** browser, enter
-`DescribeInstances` in the search bar. 4. Drag an **Amazon EC2 – DescribeInstances** action to the empty
+`DescribeInstances` in the search bar. 4. Move an **Amazon EC2 – DescribeInstances** action to the empty
 canvas. 5. For **Step name**, enter a value. For this tutorial, you can use
 the name `GetInstanceState`.
 
@@ -79,8 +79,8 @@ the name `GetInstanceState`.
     6. In the **Type** dropdown, choose
      **String**.
 
-6. Drag a **Branch** action from the **Actions**
-browser, and drop it below the **`GetInstanceState`** step. 7. For **Step name**, enter a value. For this tutorial, use the name
+6. Move a **Branch** action from the **Actions**
+browser, into the position below the **`GetInstanceState`** step. 7. For **Step name**, enter a value. For this tutorial, use the name
 `BranchOnInstanceState`.
 
 To define the branching logic, do the following:
@@ -126,7 +126,7 @@ To define the branching logic, do the following:
     19. In the **Default rule**, choose **Go to end**
      for the **Default step**.
 
-8. Drag a **Change an instance state** action to the empty
+8. Move a **Change an instance state** action to the empty
 **Drag action here** box under the **{{
  GetInstanceState.InstanceState }} == "stopped"** condition.
 
@@ -138,7 +138,7 @@ To define the branching logic, do the following:
     3. For the **Desired state**, specify
      **`running`**.
 
-9. Drag a **Wait on AWS resource** action to the empty
+9. Move a **Wait on AWS resource** action to the empty
 **Drag action here** box under the **{{
  GetInstanceState.InstanceState }} == "stopping"** condition. 10. For **Step name**, enter a value. For this tutorial, use the name
 `WaitForInstanceStop`.
@@ -156,7 +156,7 @@ To define the branching logic, do the following:
      **StartInstance** from the **Next step**
      dropdown.
 
-11. Drag a **Run command on instances** action to the empty
+11. Move a **Run command on instances** action to the empty
 **Drag action here** box under the **{{
  GetInstanceState.InstanceState }} == "running"** condition. 12. For the **Step name**, enter
 `SayHello`.
@@ -179,7 +179,7 @@ runbook** to save the tutorial runbook.
 
 ## Step 3: Review the auto-generated code
 
-As you drag and drop actions from the **Actions** browser onto the
+As you move actions from the **Actions** browser onto the
 canvas, the visual design experience automatically composes the YAML or JSON content of your runbook in
 real-time. You can view and edit this code. To view the auto-generated code, select
 **Code** for the **Design** and
@@ -221,7 +221,7 @@ the following version options:
 Optionally, you can choose an IAM service role from the
 **AutomationAssumeRole** list. 8. (Optional) Choose a CloudWatch alarm to apply to your automation for monitoring. If your
 alarm enters `ALARM` state, the automation is canceled and any defined
-`onCancel` steps run. If you use AWS CloudTrail, you will see the
+`onCancel` steps run. If you use AWS CloudTrail, you see the
 `StopAutomationExecution` API call in your trail. For more information, see
 [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md"). 9. Choose **Execute**.
 

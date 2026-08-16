@@ -65,7 +65,7 @@ JSON
 
 ResourceIds
 
-The IDs of the resource(s) to be tagged. If resource type isn't “EC2”,
+The IDs of the resource(s) to be tagged. If resource type isn't "EC2",
 this field can contain only a single item.
 
 Type: String List
@@ -83,7 +83,7 @@ Required: Yes
 ResourceType
 
 The type of resource(s) to be tagged. If not supplied, the default value
-of “EC2” is used.
+of "EC2" is used.
 
 Type: String
 

@@ -14,7 +14,7 @@ the following methods:
 
 ## About automation statuses
 
-Automation reports status details for individual automation actions in addition to
+Automation reports status details for individual automation actions besides
 the overall automation.
 
 The overall automation status can be different than the status reported by an
@@ -27,7 +27,7 @@ Detailed status for actions| Status | Details |
 | Waiting | The step is waiting for input. |
 | Success | The step completed successfully. This is a terminal<br>state. |
 | TimedOut | A step or approval wasn't completed before the specified timeout<br>period. This is a terminal state. |
-| Cancelling | The step is in the process of stopping after being canceled by a<br>requester. |
+| Cancelling | The step is currently stopping after being canceled by a<br>requester. |
 | Cancelled | The step was stopped by a requester before it completed. This is<br>a terminal state. |
 | Failed | The step didn't complete successfully. This is a terminal<br>state. |
 | Exited | Only returned by the `aws:loop` action. The loop<br>didn't fully complete. A step inside the loop moved to an<br>outside step using the `nextStep`,<br>`onCancel`, or `onFailure`<br>properties. |
@@ -39,6 +39,6 @@ Detailed status for an automation| Status | Details |
 | Waiting | The automation is waiting for input. |
 | Success | The automation completed successfully. This is a terminal<br>state. |
 | TimedOut | A step or approval wasn't completed before the specified timeout<br>period. This is a terminal state. |
-| Cancelling | The automation is in the process of stopping after being canceled<br>by a requester. |
+| Cancelling | The automation is currently stopping after being canceled<br>by a requester. |
 | Cancelled | The automation was stopped by a requester before it completed.<br>This is a terminal state. |
 | Failed | The automation didn't complete successfully. This is a<br>terminal state. |

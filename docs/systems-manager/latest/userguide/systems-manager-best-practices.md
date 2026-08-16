@@ -3,6 +3,8 @@
 This topic lists common use cases and best practices for AWS Systems Manager tools. If available,
 this topic also includes links to relevant blog posts and technical documentation.
 
+For information about cleaning up resources, see [Deleting Systems Manager resources and artifacts](systems-manager-best-practices-delete-resources.md "systems-manager-best-practices-delete-resources.md").
+
 ###### Note
 
 The title of each section here is an active link to the corresponding section in the

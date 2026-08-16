@@ -6,7 +6,7 @@ are a Red Hat customer. You are considered a Red Hat customer if you run Red Hat
 binaries, and knowledge-share and discussion forums for community support that are
 available only to Red Hat licensed customers.
 
-In addition to the required AWS Identity and Access Management (IAM) permissions for Systems Manager and Fleet Manager, the
+Besides the required AWS Identity and Access Management (IAM) permissions for Systems Manager and Fleet Manager, the
 user or role you use to access the console must allow the `rhelkb:GetRhelURL`
 action to access the Knowledge base portal.
 

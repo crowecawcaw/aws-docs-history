@@ -9,13 +9,6 @@ patch baseline, see [Tutorial: Patch a server environment using the AWS CLI](pat
 For more information about using the AWS CLI for AWS Systems Manager tasks, see the
 [AWS Systems Manager section of the AWS CLI Command Reference](../../../cli/latest/reference/ssm/index.md "../../../cli/latest/reference/ssm/index.md").
 
-###### Topics
-
-- [AWS CLI commands for patch baselines](#patch-baseline-cli-commands "#patch-baseline-cli-commands")
-- [AWS CLI commands for patch groups](#patch-group-cli-commands "#patch-group-cli-commands")
-- [AWS CLI commands for viewing patch summaries and details](#patch-details-cli-commands "#patch-details-cli-commands")
-- [AWS CLI commands for scanning and patching managed nodes](#patch-operations-cli-commands "#patch-operations-cli-commands")
-
 ## AWS CLI commands for patch baselines
 
 ###### Sample commands for patch baselines
@@ -682,7 +675,7 @@ more information about patch groups, see [Patch groups](patch-manager-patch-grou
 
 After you group your managed nodes using tags, you add the patch group value
 to a patch baseline. By registering the patch group with a patch baseline, you
-ensure that the correct patches are installed during the patching
+make sure that the correct patches are installed during the patching
 operation.
 
 #### Task 1: Add EC2 instances to a patch group using tags
@@ -953,7 +946,7 @@ The system returns information like the following.
             "Vendor":"Microsoft",
             "Description":"Windows Server 2012 R2 Update is a cumulative
                set of security updates, critical updates and updates. You
-               must install Windows Server 2012 R2 Update to ensure that
+               must install Windows Server 2012 R2 Update to make sure that
                your computer can continue to receive future Windows Updates,
                including security updates. For a complete listing of the
                issues that are included in this update, see the associated
@@ -1335,7 +1328,7 @@ The system returns information like the following.
 7       i-03823c2fedEXAMPLE
 ```
 
-In addition to `InstalledPendingRebootCount`, the list of count
+Besides `InstalledPendingRebootCount`, the list of count
 types you can search for include the following:
 
 - `CriticalNonCompliantCount`

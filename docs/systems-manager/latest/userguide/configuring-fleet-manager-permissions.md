@@ -34,11 +34,6 @@ identities in your account:
 - [Adding IAM identity permissions (AWS
   API)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policy-api "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policy-api")
 
-###### Topics
-
-- [Sample policy for Fleet Manager administrator access](#admin-policy-sample "#admin-policy-sample")
-- [Sample policy for Fleet Manager read-only access](#read-only-policy-sample "#read-only-policy-sample")
-
 ## Sample policy for Fleet Manager administrator access
 
 The following policy provides permissions to all Fleet Manager features. This means

@@ -6,7 +6,7 @@ a metric as a variable to monitor and the data points as representing the values
 variable over time.
 
 Automation is a tool in AWS Systems Manager. Systems Manager publishes metrics about Automation usage to
-CloudWatch. This allows you to set alarms based on those metrics.
+CloudWatch. This lets you set alarms based on those metrics.
 
 ###### To view Automation metrics in the CloudWatch console
 

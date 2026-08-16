@@ -341,7 +341,7 @@ used.
 
 ## AWS Parameters and Secrets Lambda Extension ARNs
 
-The latest Amazon Resource Name (ARN) for the Lambda extension is published as a public parameter in Systems Manager Parameter Store for each supported architecture. You can retrieve the latest ARN programmatically using the AWS CLI or CloudFormation to ensure that your application always references the most recent extension version without manual updates. This section explains how to retrieve the ARN programmatically and provides tables listing the current ARN values for each architecture for manual reference.
+The latest Amazon Resource Name (ARN) for the Lambda extension is published as a public parameter in Systems Manager Parameter Store for each supported architecture. You can retrieve the latest ARN programmatically using the AWS CLI or CloudFormation to make sure that your application always references the most recent extension version without manual updates. This section explains how to retrieve the ARN programmatically and provides tables listing the current ARN values for each architecture for manual reference.
 
 ### Retrieving the latest Lambda extension ARN version
 

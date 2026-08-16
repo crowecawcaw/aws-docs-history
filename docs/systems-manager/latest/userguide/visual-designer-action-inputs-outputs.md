@@ -1,6 +1,6 @@
 # Configuring inputs and outputs for your actions
 
-Each automation action responds based on input that it receives. In most cases, you then
+Each automation action responds based on input that it receives. Usually, you then
 pass output to the subsequent actions. In the visual design experience, you can configure an action's input
 and output data in the **Inputs** and **Outputs** tabs of
 the **Form** panel.
@@ -19,7 +19,7 @@ Generally, you use actions in your runbook's workflow that return output that yo
 to use in subsequent actions. It's important to make sure your input values are correct to
 avoid errors in your runbook's workflow. Input values are also important because they
 determine whether the action returns the expected output. For example, when using the
-`aws:executeAwsApi` action, you want to ensure you're providing the
+`aws:executeAwsApi` action, you want to make sure you're providing the
 right value for the API operation.
 
 ## Define output data for an action

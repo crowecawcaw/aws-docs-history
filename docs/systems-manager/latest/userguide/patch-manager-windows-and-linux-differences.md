@@ -69,7 +69,7 @@ from. For more information, see [How to specify an alternative patch source repo
 
 ###### Windows
 
-On Windows Server managed nodes, you can apply approval rules, as well as
+On Windows Server managed nodes, you can apply approval rules, and
 _Approved_ and _Rejected_ patch exceptions, for applications released by
 Microsoft, such as Microsoft Word 2016 and Microsoft Exchange Server 2016.
 For more information, see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").

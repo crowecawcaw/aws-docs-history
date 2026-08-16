@@ -211,7 +211,7 @@ procedures.
 
 ###### Note
 
-Make a note of the role name. You will choose this role when you
+Make a note of the role name. Choose this role when you
 create new instances that you want to manage by using Systems Manager. 8. (Optional) For **Description**, update the
 description for this instance profile. 9. (Optional) For **Tags**, add one or more tag-key
 value pairs to organize, track, or control access for this role, and
@@ -356,7 +356,7 @@ following:
 
 In the second `Statement` element, replace
 `amzn-s3-demo-bucket` with the name of an S3
-bucket in your account. You will use this bucket for your Systems Manager operations.
+bucket in your account. Use this bucket for your Systems Manager operations.
 It provides permission for objects in the bucket, using
 `"arn:aws:s3:::my-bucket-name/*"` as the resource. For
 more information about providing permissions for buckets or objects in
@@ -412,7 +412,7 @@ Amazon CloudWatch. These help you monitor, analyze, and quickly respond to issue
 or changes to your AWS resources.
 
 Your default IAM role created by the Default Host Management
-Configuration or instance profile needs this policy only if you will use
+Configuration or instance profile needs this policy only if you use
 features such as Amazon EventBridge or Amazon CloudWatch Logs. (You can also create a more
 restrictive policy that, for example, limits writing access to a
 specific CloudWatch Logs log stream.)

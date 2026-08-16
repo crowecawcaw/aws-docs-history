@@ -1,7 +1,7 @@
 # Using Chef InSpec profiles with Systems Manager Compliance
 
 AWS Systems Manager integrates with [Chef InSpec](https://www.chef.io/products/chef-inspec "https://www.chef.io/products/chef-inspec"). Chef InSpec is an
-open-source testing framework that allows you to create human-readable profiles to
+open-source testing framework that lets you create human-readable profiles to
 store in GitHub or Amazon Simple Storage Service (Amazon S3). Then you can use Systems Manager to run
 compliance scans and view compliant and noncompliant nodes. A
 _profile_ is a security, compliance, or policy requirement

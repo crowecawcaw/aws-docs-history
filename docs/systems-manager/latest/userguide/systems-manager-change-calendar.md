@@ -64,7 +64,7 @@ The following are some benefits of Change Calendar.
 
 - **Review changes before they're applied**
 
-A Change Calendar entry can help ensure that potentially destructive changes to your
+A Change Calendar entry can help make sure that potentially destructive changes to your
 environment are reviewed before they're applied.
 
 - **Apply changes only during appropriate

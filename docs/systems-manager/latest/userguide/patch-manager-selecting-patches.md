@@ -126,7 +126,7 @@ baseline** page, then packages that aren't classified
 in an `updateinfo.xml` file (or a package that
 contains a file without properly formatted Classification, Severity,
 and Date values) can be included in the prefiltered list of patches.
-However, in order for a patch to be applied, the patch must still
+However, for a patch to be applied, the patch must still
 meet the user-specified patch baseline rules.
 
 For more information about the **Include non-security
@@ -293,7 +293,7 @@ baseline** page, then packages that aren't classified
 in an `updateinfo.xml` file (or a package that
 contains a file without properly formatted Classification, Severity,
 and Date values) can be included in the prefiltered list of patches.
-However, in order for a patch to be applied, the patch must still
+However, for a patch to be applied, the patch must still
 meet the user-specified patch baseline rules.
 
 AlmaLinux, RHEL, and Rocky Linux
@@ -314,7 +314,7 @@ baseline** page, then packages that aren't classified
 in an `updateinfo.xml` file (or a package that
 contains a file without properly formatted Classification, Severity,
 and Date values) can be included in the prefiltered list of patches.
-However, in order for a patch to be applied, the patch must still
+However, for a patch to be applied, the patch must still
 meet the user-specified patch baseline rules.
 
 Red Hat Enterprise Linux 7 managed nodes use Yum as the package manager. AlmaLinux,

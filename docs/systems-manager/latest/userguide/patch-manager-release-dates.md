@@ -36,7 +36,7 @@ can't be determined, Patch Manager uses a default date of January 1st, 1970. Thi
 results in Patch Manager bypassing any auto-approval date specifications in patch
 baselines that are configured to approve patches for any date after January 1st, 1970.
 
-In most cases, the auto-approval wait time before patches are installed is
+Usually, the auto-approval wait time before patches are installed is
 calculated from an `Updated Date` value in
 `updateinfo.xml`, not a `Release Date` value. The
 following are important details about these date calculations:
@@ -52,7 +52,7 @@ This means that a package could have an `Update Date` value of
 July 7 but not be available for installation until (for example) July 13.
 Suppose for this case that a patch baseline that specifies a 7-day
 auto-approval delay runs in an `Install` operation on July 14.
-Because the `Update Date` value is 7 days prior to the run date,
+Because the `Update Date` value is 7 days before the run date,
 the patches and updates in the package are installed on July 14. The
 installation happens even though only 1 day has passed since the package
 became available for actual installation.

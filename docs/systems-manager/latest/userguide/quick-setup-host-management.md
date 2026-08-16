@@ -81,7 +81,7 @@ latest released version. Quick Setup doesn't install the agent
 on instances where it's not already present. For information
 about which AMIs have SSM Agent preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
-We encourage you to choose this option to ensure that your
+We encourage you to choose this option to make sure that your
 nodes are always running the most up-to-date version of
 SSM Agent. For more information about SSM Agent, including
 information about how to manually install the agent, see
@@ -181,7 +181,7 @@ pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/clou
 Enables Systems Manager to check every 30 days for a new version of
 the CloudWatch agent. If there is a new version, Systems Manager updates the
 agent on your instance. We encourage you to choose this
-option to ensure that your instances are always running the
+option to make sure that your instances are always running the
 most up-to-date version of the CloudWatch agent.
 
 ###### To configure Amazon EC2 Launch Agent host management options
@@ -198,7 +198,7 @@ most up-to-date version of the CloudWatch agent.
 Enables Systems Manager to check every 30 days for a new version of
 the launch agent installed on your instance. If a new
 version is available, Systems Manager updates the agent on your
-instance. We encourage you to choose this option to ensure
+instance. We encourage you to choose this option to make sure
 that your instances are always running the most up-to-date
 version of the applicable launch agent. For Amazon EC2 Windows
 instances, this option supports EC2Launch, EC2Launch v2, and

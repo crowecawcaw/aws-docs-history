@@ -16,7 +16,7 @@ The benefits of managing your instances with Systems Manager include the followi
 
 Using Default Host Management Configuration, you can manage EC2 instances without
 having to manually create an AWS Identity and Access Management (IAM) instance profile. Instead, Default Host
-Management Configuration creates and applies a default IAM role to ensure that Systems Manager
+Management Configuration creates and applies a default IAM role to make sure that Systems Manager
 has permissions to manage all instances in the AWS account and AWS Region where it's
 activated.
 
@@ -48,13 +48,6 @@ directories or their files will prevent the instance from acquiring the necessar
 credentials to connect to Systems Manager using Default Host Management Configuration. In
 these cases, you must use an IAM instance profile to provide the required
 permissions to your instance, or recreate the instance.
-
-###### Topics
-
-- [Prerequisites](#dhmc-prerequisites "#dhmc-prerequisites")
-- [Activating the Default Host Management Configuration setting](#dhmc-activate "#dhmc-activate")
-- [Deactivating the Default Host Management Configuration setting](#dhmc-deactivate "#dhmc-deactivate")
-- [Least privilege policy examples for Default Host Management Configuration](#least-privilege-examples "#least-privilege-examples")
 
 ## Prerequisites
 

@@ -51,7 +51,7 @@ the AWS Management Console.
 5. Select the button beside a template name, and then choose
    **Next**.
 6. On the **Specify template details** page,
-   verify the details of the template to ensure the process creates
+   verify the details of the template to make sure the process creates
    the resources you want.
 
    - (Optional) In the **Tags** section,

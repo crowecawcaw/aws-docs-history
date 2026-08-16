@@ -14,14 +14,6 @@ begins with `AWS-`), then that user also has administrator access to
 the node. For all other users, you should create restrictive documents and share
 them with specific users.
 
-###### Topics
-
-- [Step 1: Getting started](#walkthrough-cli-settings "#walkthrough-cli-settings")
-- [Step 2: Run shell scripts to view resource details](#walkthrough-cli-run-scripts "#walkthrough-cli-run-scripts")
-- [Step 3: Send simple commands using the AWS-RunShellScript document](#walkthrough-cli-example-1 "#walkthrough-cli-example-1")
-- [Step 4: Run a simple Python script using Run Command](#walkthrough-cli-example-2 "#walkthrough-cli-example-2")
-- [Step 5: Run a Bash script using Run Command](#walkthrough-cli-example-3 "#walkthrough-cli-example-3")
-
 ## Step 1: Getting started
 
 You must either have administrator permissions on the managed node you want to

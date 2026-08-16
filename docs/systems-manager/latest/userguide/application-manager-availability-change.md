@@ -74,7 +74,7 @@ application's health, performance, and dependencies. To learn more, see the
 
 ###### Note
 
-The `awsApplication` tags and AppManager resource groups created via
+The `awsApplication` tags and AppManager resource groups created through
 SSM Application Manager persist indefinitely and can continue to be used for resource grouping,
 cost allocation, and filtering. Customers can use their existing AppManager resource
 groups and `awsApplication` tags in combination with the recommended
@@ -121,5 +121,5 @@ customers and do not need to be removed or replaced. In concert with this
 move of Application Manager to maintenance mode, `awsApplication` is also
 moving to maintenance mode.
 
-If you have additional questions, please contact us via the [AWS Support
+If you have additional questions, contact us through the [AWS Support
 Center](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").

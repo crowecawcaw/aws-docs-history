@@ -44,11 +44,6 @@ the **Patch sources** options, see [Creating a custom patch baseline for Linux](
 For an example of using the `--sources` option with the AWS Command Line Interface
 (AWS CLI), see [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources "patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources").
 
-###### Topics
-
-- [Important considerations for alternative repositories](#alt-source-repository-important "#alt-source-repository-important")
-- [Sample uses for alternative patch source repositories](#patch-manager-alternative-source-repository-examples "#patch-manager-alternative-source-repository-examples")
-
 ## Important considerations for alternative repositories
 
 Keep in mind the following points as you plan your patching strategy using

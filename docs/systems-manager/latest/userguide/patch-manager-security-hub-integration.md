@@ -1,7 +1,7 @@
 # Integrating Patch Manager with AWS Security Hub CSPM
 
 [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
-provides you with a comprehensive view of your security state in AWS. Security Hub CSPM
+gives you a comprehensive view of your security state in AWS. Security Hub CSPM
 collects security data from across AWS accounts, AWS services, and supported
 third-party partner products. With Security Hub CSPM, you can check your environment against
 security industry standards and best practices. Security Hub CSPM helps you to analyze your
@@ -21,19 +21,6 @@ configuration you are using for your patching operations:
 - A maintenance window to run a patch `Scan` or
   `Install` task
 - An on-demand **Patch now** operation
-
-###### Contents
-
-- [How Patch Manager sends findings to Security Hub CSPM](patch-manager-security-hub-integration.md#securityhub-integration-sending-findings "patch-manager-security-hub-integration.md#securityhub-integration-sending-findings")
-
-  - [Types of findings that Patch Manager sends](patch-manager-security-hub-integration.md#securityhub-integration-finding-types "patch-manager-security-hub-integration.md#securityhub-integration-finding-types")
-  - [Latency for sending findings](patch-manager-security-hub-integration.md#securityhub-integration-finding-latency "patch-manager-security-hub-integration.md#securityhub-integration-finding-latency")
-  - [Retrying when Security Hub CSPM isn't available](patch-manager-security-hub-integration.md#securityhub-integration-retry-send "patch-manager-security-hub-integration.md#securityhub-integration-retry-send")
-  - [Viewing findings in Security Hub CSPM](patch-manager-security-hub-integration.md#securityhub-integration-view-findings "patch-manager-security-hub-integration.md#securityhub-integration-view-findings")
-
-- [Typical finding from Patch Manager](patch-manager-security-hub-integration.md#securityhub-integration-finding-example "patch-manager-security-hub-integration.md#securityhub-integration-finding-example")
-- [Turning on and configuring the integration](patch-manager-security-hub-integration.md#securityhub-integration-enable "patch-manager-security-hub-integration.md#securityhub-integration-enable")
-- [How to stop sending findings](patch-manager-security-hub-integration.md#securityhub-integration-disable "patch-manager-security-hub-integration.md#securityhub-integration-disable")
 
 ## How Patch Manager sends findings to Security Hub CSPM
 
@@ -136,7 +123,7 @@ remediation.
 
 ###### Important
 
-At this time, Security Hub CSPM reports the resource type of all managed
+Currently, Security Hub CSPM reports the resource type of all managed
 nodes as `EC2 Instance`. This includes on-premises
 servers and virtual machines (VMs) that you have registered for
 use with Systems Manager.

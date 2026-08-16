@@ -394,7 +394,7 @@ For example,
 
 ###### Important
 
-In order for system tags to be applied, the role ID
+For system tags to be applied, the role ID
 you supply can contain the following characters only:
 Unicode letters, 0-9, space, `_`,
 `.`, `:`, `/`,

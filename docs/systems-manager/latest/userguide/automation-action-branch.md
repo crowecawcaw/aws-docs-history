@@ -1,6 +1,6 @@
 # `aws:branch` – Run conditional automation steps
 
-The `aws:branch` action allows you to create a dynamic automation that
+The `aws:branch` action lets you create a dynamic automation that
 evaluates different choices in a single step and then jumps to a different step in the
 runbook based on the results of that evaluation.
 

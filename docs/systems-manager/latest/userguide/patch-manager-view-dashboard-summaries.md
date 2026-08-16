@@ -1,6 +1,6 @@
 # Viewing patch Dashboard summaries
 
-The **Dashboard** tab in Patch Manager provides you with a summary
+The **Dashboard** tab in Patch Manager gives you a summary
 view in the console that you can use to monitor your patching operations in a
 consolidated view. Patch Manager is a tool in AWS Systems Manager. On the
 **Dashboard** tab, you can view the following:

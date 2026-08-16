@@ -21,11 +21,6 @@ configuration you are using for your patching operations:
   `Install` task
 - An on-demand **Patch now** operation
 
-###### Topics
-
-- [Predefined baselines](#patch-manager-baselines-pre-defined "#patch-manager-baselines-pre-defined")
-- [Custom baselines](#patch-manager-baselines-custom "#patch-manager-baselines-custom")
-
 ## Predefined baselines
 
 The following table describes the predefined patch baselines provided with
@@ -66,11 +61,6 @@ baseline.
 
 Use the following information to help you create custom patch baselines to
 meet your patching goals.
-
-###### Topics
-
-- [Using auto-approvals in custom baselines](#baselines-auto-approvals "#baselines-auto-approvals")
-- [Additional information for creating patch baselines](#baseline-additional-info "#baseline-additional-info")
 
 ### Using auto-approvals in custom baselines
 

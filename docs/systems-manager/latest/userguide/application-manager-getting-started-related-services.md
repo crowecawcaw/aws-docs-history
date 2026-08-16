@@ -37,7 +37,7 @@ them in the **Custom applications** category.
 
 **(Optional) Set up and deploy your AWS resources by using [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")**
 
-CloudFormation allows you to create and provision AWS infrastructure
+CloudFormation lets you create and provision AWS infrastructure
 deployments predictably and repeatedly. It helps you use AWS services
 such as Amazon EC2, Amazon Elastic Block Store (Amazon EBS), Amazon Simple Notification Service (Amazon SNS), Elastic Load Balancing, and AWS
 Auto Scaling. With CloudFormation, you can build reliable, scalable, cost-effective

@@ -1,9 +1,9 @@
 # Using native parameter support in Parameter Store for Amazon Machine Image IDs
 
-When you create a `String` parameter, you can specify the _data type_ as `aws:ec2:image` to ensure that
+When you create a `String` parameter, you can specify the _data type_ as `aws:ec2:image` to make sure that
 the parameter value you enter is a valid Amazon Machine Image (AMI) ID format.
 
-Support for AMI ID formats allows you to avoid updating all your scripts and
+Support for AMI ID formats lets you avoid updating all your scripts and
 templates with a new ID each time the AMI that you want to use in your processes
 changes. You can create a parameter with the data type `aws:ec2:image`,
 and for its value, enter the ID of an AMI. This is the AMI you want to create
@@ -16,7 +16,7 @@ when you run the Amazon Elastic Compute Cloud (Amazon EC2) `run-instances` comma
 ###### Note
 
 The user who runs this command must have AWS Identity and Access Management (IAM) permissions that
-include the `ssm:GetParameters` API operation in order for the
+include the `ssm:GetParameters` API operation for the
 parameter value to be validated. Otherwise, the parameter creation process
 fails.
 
@@ -89,7 +89,7 @@ JSON
 
 When you specify `aws:ec2:image` as the data type for a parameter,
 Systems Manager doesn't create the parameter immediately. It instead performs an
-asynchronous validation operation to ensure that the parameter value meets the
+asynchronous validation operation to make sure that the parameter value meets the
 formatting requirements for an AMI ID, and that the specified AMI is
 available in your AWS account.
 

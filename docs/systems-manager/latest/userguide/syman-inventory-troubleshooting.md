@@ -251,5 +251,5 @@ Data inside the Amazon S3 bucket object is updated when the inventory associatio
 successful and new data is discovered. The Amazon S3 bucket object is updated for each
 node when the association runs and fails, but the data inside the object is not
 updated in this case. Data inside the Amazon S3 bucket object will update only when the
-association runs successfully. When the inventory association fails, you will see
+association runs successfully. When the inventory association fails, you see
 old data in the Amazon S3 bucket object.

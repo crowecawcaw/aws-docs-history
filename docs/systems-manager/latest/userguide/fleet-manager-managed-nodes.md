@@ -3,6 +3,11 @@
 A _managed node_ is any machine configured for AWS Systems Manager. You can
 configure the following machine types as managed nodes:
 
+This section includes the following topics.
+
+- [Resetting passwords on managed nodes](fleet-manager-reset-password.md "fleet-manager-reset-password.md")
+- [Managing the Windows registry on managed nodes](fleet-manager-manage-windows-registry.md "fleet-manager-manage-windows-registry.md")
+
 - Amazon Elastic Compute Cloud (Amazon EC2) instances
 - Servers on your own premises (on-premises servers)
 - AWS IoT Greengrass core devices
@@ -76,14 +81,3 @@ malicious behavior, you can deregister any number of machines at any point. (In
 order to re-register the same machine, you must use a different hybrid Activation
 Code and Activation ID than previously used to register it.) For information about
 deregistering managed nodes, see [Deregistering managed nodes in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md").
-
-###### Topics
-
-- [Resetting passwords on managed nodes](fleet-manager-reset-password.md "fleet-manager-reset-password.md")
-- [Deregistering managed nodes in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md")
-- [Working with OS file systems using Fleet Manager](fleet-manager-file-system-management.md "fleet-manager-file-system-management.md")
-- [Monitoring managed node performance](fleet-manager-monitoring-node-performance.md "fleet-manager-monitoring-node-performance.md")
-- [Working with processes](fleet-manager-manage-processes.md "fleet-manager-manage-processes.md")
-- [Viewing logs on managed nodes](fleet-manager-view-node-logs.md "fleet-manager-view-node-logs.md")
-- [Managing OS user accounts and groups on managed nodes using Fleet Manager](fleet-manager-manage-os-user-accounts.md "fleet-manager-manage-os-user-accounts.md")
-- [Managing the Windows registry on managed nodes](fleet-manager-manage-windows-registry.md "fleet-manager-manage-windows-registry.md")

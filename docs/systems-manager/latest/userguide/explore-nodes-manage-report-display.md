@@ -28,7 +28,7 @@ lists and reports and change how the list is displayed in the console.
 
       - Turn on or off individual columns for your list display and
         reports.
-      - To change the order of columns, click and hold the drag handle (
+      - To change the order of columns, press and hold the drag handle (
         ![The drag handle](images/drag-handle-dashboard.png)
         ) of a column name and drag it up or down in
         the list.

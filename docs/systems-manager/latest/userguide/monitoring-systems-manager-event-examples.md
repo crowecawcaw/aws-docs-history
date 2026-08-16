@@ -121,7 +121,7 @@ Adjacent and overlapping events
 - Creating overlapping events in certain orders might
   generate additional EventBridge events even when no actual state
   change occurs.
-- To ensure predictable behavior, avoid creating or
+- To help ensure predictable behavior, avoid creating or
   modifying calendar events close to their execution
   times.
 

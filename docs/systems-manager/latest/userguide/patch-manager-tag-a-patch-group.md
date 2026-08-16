@@ -23,7 +23,7 @@ can specify any tag value, but the tag key must be `Patch Group` or
 `PatchGroup` (without a space) is required if you have [allowed tags in EC2 instance metadata](../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS "../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS").
 
 After you group your managed nodes using tags, you add the patch group value to a
-patch baseline. By registering the patch group with a patch baseline, you ensure
+patch baseline. By registering the patch group with a patch baseline, you make sure
 that the correct patches are installed during the patching operation. For more
 information about patch groups, see [Patch groups](patch-manager-patch-groups.md "patch-manager-patch-groups.md").
 
@@ -130,7 +130,7 @@ group.
 
 To associate a specific patch baseline with your managed nodes, you must add
 the patch group value to the patch baseline. By registering the patch group with
-a patch baseline, you can ensure that the correct patches are installed during a
+a patch baseline, you can make sure that the correct patches are installed during a
 patching operation. This task is required whether you are patching EC2
 instances, non-EC2 managed nodes, or both.
 

@@ -28,10 +28,3 @@ information, navigate to the **Compliance reporting** tab in
 Patch Manager, locate the row for the managed node you want information about, and
 then choose the baseline ID in the **Baseline ID used**
 column.
-
-###### Topics
-
-- [Viewing patch compliance results](patch-manager-view-compliance-results.md "patch-manager-view-compliance-results.md")
-- [Generating .csv patch compliance reports](patch-manager-store-compliance-results-in-s3.md "patch-manager-store-compliance-results-in-s3.md")
-- [Remediating noncompliant managed nodes with Patch Manager](patch-manager-noncompliant-nodes.md "patch-manager-noncompliant-nodes.md")
-- [Identifying the execution that created patch compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md")

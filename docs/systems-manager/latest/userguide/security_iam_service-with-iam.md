@@ -160,7 +160,7 @@ Note the following exceptions to ARN formats.
     before actions.
 
 - Documents and automation definition resources that are owned
-  by Amazon, as well as public parameters that are provided by
+  by Amazon, and public parameters that are provided by
   both Amazon and third-party sources, do not include account IDs
   in their ARN formats. For example:
 
@@ -211,7 +211,7 @@ Note the following exceptions to ARN formats.
 
 ###### Note
 
-Automation definition resources are being deprecated. Please update your IAM policies
+Automation definition resources are being deprecated. Update your IAM policies
 to include an allow for `ssm:StartAutomationExecution` or `ssm:StartChangeRequestExecution` on
 `document` and `automation-execution` resources. To
 view best practices and examples for setting up IAM permissions, refer to our
@@ -221,16 +221,16 @@ view best practices and examples for setting up IAM permissions, refer to our
 automation definitions, Systems Manager supports a second-level resource,
 _version ID_. In AWS, these second-level resources
 are known as _subresources_. Specifying a version
-subresource for an automation definition resource allows you to provide
+subresource for an automation definition resource lets you provide
 access to certain versions of an automation definition. For example, you
-might want to ensure that only the latest version of an automation
+might want to make sure that only the latest version of an automation
 definition is used in your node management.
 
 **2** To organize
 and manage parameters, you can create names for parameters with a
 hierarchical construction. With hierarchical construction, a parameter name
 can include a path that you define by using forward slashes. You can name a
-parameter resource with a maximum of fifteen levels. We suggest that you
+parameter resource with a maximum of fifteen levels. We recommend that you
 create hierarchies that reflect an existing hierarchical structure in your
 environment. For more information, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
@@ -359,7 +359,7 @@ Systems Manager supports service roles.
 For Systems Manager to interact with your managed nodes, you must choose
 a role to allow Systems Manager to access nodes on your behalf. If you have
 previously created a service role or service-linked role, then
-Systems Manager provides you with a list of roles to choose from. It's
+Systems Manager gives you a list of roles to choose from. It's
 important to choose a role that allows access to start and stop managed
 nodes.
 

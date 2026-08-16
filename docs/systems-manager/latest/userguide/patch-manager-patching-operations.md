@@ -18,12 +18,3 @@ configuration you are using for your patching operations:
 - A maintenance window to run a patch `Scan` or
   `Install` task
 - An on-demand **Patch now** operation
-
-###### Topics
-
-- [How package release dates and update dates are calculated](patch-manager-release-dates.md "patch-manager-release-dates.md")
-- [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md")
-- [How to specify an alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md")
-- [How patches are installed](patch-manager-installing-patches.md "patch-manager-installing-patches.md")
-- [How patch baseline rules work on Linux-based systems](patch-manager-linux-rules.md "patch-manager-linux-rules.md")
-- [Patching operation differences between Linux and Windows Server](patch-manager-windows-and-linux-differences.md "patch-manager-windows-and-linux-differences.md")

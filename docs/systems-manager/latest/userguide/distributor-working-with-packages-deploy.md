@@ -6,7 +6,7 @@ You can deploy one version of one package per command. You can install new packa
 or update existing installations in place. You can choose to deploy a specific
 version or choose to always deploy the latest version of a package for deployment.
 We recommend using State Manager to install packages. Using
-State Manager helps ensure that your managed nodes are always running the most up-to-date
+State Manager helps make sure that your managed nodes are always running the most up-to-date
 version of your package.
 
 ###### Important

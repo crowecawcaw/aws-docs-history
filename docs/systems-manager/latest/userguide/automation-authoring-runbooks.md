@@ -5,11 +5,17 @@ runbooks define the actions that are performed during an automation. In the runb
 content, you define the input parameters, outputs, and actions that Systems Manager performs
 on your managed instances and AWS resources.
 
-Automation includes several pre-defined runbooks that you can use to perform
-common tasks like restarting one or more Amazon Elastic Compute Cloud (Amazon EC2) instances or creating an
-Amazon Machine Image (AMI). However, your use cases might extend beyond the capabilities of
-the pre-defined runbooks. If this is the case, you can create your own runbooks and
-modify them to your needs.
+This section includes the following topics.
+
+- [Creating input parameters that populate AWS resources](populating-input-parameters.md "populating-input-parameters.md")
+- [Deploy VPC architecture and Microsoft Active Directory domain controllers](automation-document-architecture-deployment-example.md "automation-document-architecture-deployment-example.md")
+- [Restore a root volume from the latest snapshot](automation-document-instance-recovery-example.md "automation-document-instance-recovery-example.md")
+- [Create an AMI and cross-Region copy](automation-document-backup-maintenance-example.md "automation-document-backup-maintenance-example.md")
+  Automation includes several pre-defined runbooks that you can use to perform
+  common tasks like restarting one or more Amazon Elastic Compute Cloud (Amazon EC2) instances or creating an
+  Amazon Machine Image (AMI). However, your use cases might extend beyond the capabilities of
+  the pre-defined runbooks. If this is the case, you can create your own runbooks and
+  modify them to your needs.
 
 A runbook consists of automation actions, parameters for those actions, and input
 parameters that you specify. A runbook's content is written in either YAML or JSON.
@@ -54,7 +60,7 @@ For example, the `aws:executeScript` and
 scripts as part of your automation. To choose between them, you might prefer
 `aws:invokeLambdaFunction` because of the additional supported
 runtime languages. However, you might prefer `aws:executeScript`
-because it allows you to author your script content directly in YAML runbooks
+because it lets you author your script content directly in YAML runbooks
 and provide script content as attachments for JSON runbooks. You might also
 consider `aws:executeScript` to be simpler in terms of AWS Identity and Access Management
 (IAM) setup. Because it uses the permissions provided in the
@@ -90,7 +96,7 @@ With your use case identified and environment set up, you're ready to develop
 the content for your runbook. Your use case and preferences will largely dictate
 the automation actions or runbooks you use in your runbook content. Some actions
 support only a subset of input parameters when compared to another action that
-allows you to accomplish a similar task. Other actions have specific outputs,
+lets you accomplish a similar task. Other actions have specific outputs,
 such as `aws:createImage`, where some actions allow you to define
 your own outputs, such as `aws:executeAwsApi`.
 

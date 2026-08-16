@@ -63,7 +63,7 @@ organization.
 6. Follow the steps in [Create an event data store for CloudTrail events](../../../awscloudtrail/latest/userguide/query-event-data-store-cloudtrail.md "../../../awscloudtrail/latest/userguide/query-event-data-store-cloudtrail.md") in the
    _AWS CloudTrail User Guide_.
 
-To ensure that event data for your change requests is stored, make the
+To make sure that event data for your change requests is stored, make the
 following selections as you complete the procedure:
 
     * For **Event type**, leave the defaults

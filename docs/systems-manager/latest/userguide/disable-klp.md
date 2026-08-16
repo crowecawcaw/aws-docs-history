@@ -7,7 +7,7 @@ managed nodes or use Run Command and the custom SSM document
 ###### Note
 
 If you no longer need to use Kernel Live Patching, you can turn it off at any
-time. In most cases, turning off the feature isn't necessary.
+time. Usually, turning off the feature isn't necessary.
 
 For information about turning off Kernel Live Patching by running `yum` commands
 directly on the managed node, see [Enable Kernel Live Patching](../../../AWSEC2/latest/UserGuide/al2-live-patching.md#al2-live-patching-enable "../../../AWSEC2/latest/UserGuide/al2-live-patching.md#al2-live-patching-enable") in the _Amazon EC2 User Guide_.

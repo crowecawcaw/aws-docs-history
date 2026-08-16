@@ -6,10 +6,3 @@ can't customize them), or you can create your own.
 
 The following procedures describe how to create, update, and delete your own
 custom patch baselines. To learn more about patch baselines, see [Predefined and custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
-
-###### Topics
-
-- [Creating a custom patch baseline for Linux](patch-manager-create-a-patch-baseline-for-linux.md "patch-manager-create-a-patch-baseline-for-linux.md")
-- [Creating a custom patch baseline for macOS](patch-manager-create-a-patch-baseline-for-macos.md "patch-manager-create-a-patch-baseline-for-macos.md")
-- [Creating a custom patch baseline for Windows Server](patch-manager-create-a-patch-baseline-for-windows.md "patch-manager-create-a-patch-baseline-for-windows.md")
-- [Updating or deleting a custom patch baseline](patch-manager-update-or-delete-a-patch-baseline.md "patch-manager-update-or-delete-a-patch-baseline.md")

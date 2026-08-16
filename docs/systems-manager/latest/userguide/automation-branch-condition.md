@@ -12,7 +12,7 @@ changes when a step is complete. Here is a list of options that you can use to
 create dynamic automations:
 
 - **`aws:branch`**: This automation
-  action allows you to create a dynamic automation that evaluates multiple
+  action lets you create a dynamic automation that evaluates multiple
   choices in a single step and then jumps to a different step in the runbook
   based on the results of that evaluation.
 - **`nextStep`**: This option

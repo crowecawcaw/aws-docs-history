@@ -3,9 +3,12 @@
 To use AWS Systems Manager in the AWS Management Console, you must have the correct permissions
 configured.
 
-For more information about how to create AWS Identity and Access Management policies and attach them to IAM
-identities, see [Create IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
-_IAM User Guide_
+This section includes the following topics.
+
+- [Setting up Systems Manager unified console for a single account and Region](systems-manager-setting-up-single-account-region.md "systems-manager-setting-up-single-account-region.md")
+  For more information about how to create AWS Identity and Access Management policies and attach them to IAM
+  identities, see [Create IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
+  _IAM User Guide_
 
 ## Systems Manager onboarding policy
 

@@ -6,7 +6,7 @@ make calls to IPv6 service endpoints.
 
 ###### To patch a server in an IPv6 only environment
 
-1. Ensure that SSM Agent version 3.3270.0 or later is installed on the managed
+1. Make sure that SSM Agent version 3.3270.0 or later is installed on the managed
    node.
 2. On the managed node, navigate to the SSM Agent configuration file. You can
    find the `amazon-ssm-agent.json` file in the following
@@ -47,10 +47,10 @@ make calls to IPv6 service endpoints.
      For the full list of commands per operating system, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
 
 5. Execute any patching operation to verify patching operations succeed in
-   your IPv6-only environment. Ensure that the nodes being patched have
+   your IPv6-only environment. Make sure that the nodes being patched have
    connectivity to the patch source. You can check the Run Command output from the
    patching execution to check for warnings about inaccessible repositories.
-   When patching a node that is running in an IPv6 only environment, ensure
+   When patching a node that is running in an IPv6 only environment, make sure
    that the node has connectivity to the patch source. You can check the
    Run Command output from the patching execution to check for warnings about
    inaccessible repositories. For DNF-based operating systems, it is possible
@@ -65,7 +65,7 @@ make calls to IPv6 service endpoints.
 ###### Note
 
 When using the Install Override List or Baseline Override features,
-ensure that the provided URL is reachable from the node. If the SSM Agent
+make sure that the provided URL is reachable from the node. If the SSM Agent
 config option `UseDualStackEndpoint` is set to
 `true`, then a dualstack S3 client is used when an S3 URL
 is provided.

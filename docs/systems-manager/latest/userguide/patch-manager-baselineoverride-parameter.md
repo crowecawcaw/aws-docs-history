@@ -27,7 +27,7 @@ updated for the managed node. For more information about patch policy behaviors,
 
 ###### Note
 
-When you're patching a node that only uses IPv6, ensure that the provided URL
+When you're patching a node that only uses IPv6, make sure that the provided URL
 is reachable from the node. If the SSM Agent config option
 `UseDualStackEndpoint` is set to `true`, then a
 dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more information
@@ -40,7 +40,7 @@ behavior.
 
 ###### Using baseline override and Snapshot Id at the same time
 
-Snapshot Ids ensure that all managed nodes in a particular patching
+Snapshot Ids make sure that all managed nodes in a particular patching
 command all apply the same thing. For example, if you patch 1,000 nodes at
 one time, the patches will be the same.
 

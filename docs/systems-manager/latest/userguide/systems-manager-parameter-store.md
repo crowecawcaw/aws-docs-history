@@ -87,10 +87,10 @@ You can reference parameter values from other AWS services. Here are some exampl
     + Amazon Elastic Container Service and AWS Fargate allow you to [inject environmental variables](../../../AmazonECS/latest/developerguide/secrets-envvar-ssm-paramstore.md "../../../AmazonECS/latest/developerguide/secrets-envvar-ssm-paramstore.md") whose values are managed
      centrally in Parameter Store.
     + AWS CloudFormation templates can reference [parameter values](../../../AWSCloudFormation/latest/UserGuide/dynamic-references-ssm.md "../../../AWSCloudFormation/latest/UserGuide/dynamic-references-ssm.md").
-    + AWS AppConfig enables you to create [configuration profiles that
-     reference parameters](../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md "../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md"), allowing you to safely deploy configuration changes using features such as
+    + AWS AppConfig lets you create [configuration profiles that
+     reference parameters](../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md "../../../appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.md"). You can safely deploy configuration changes using features such as
      gradual rollouts, alarm-based rollbacks, and built-in data validation.
-    + AWS CodeBuild enables you to [define environmental variables](../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store "../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store") whose values are dynamically retrieved
+    + AWS CodeBuild lets you [define environmental variables](../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store "../../../codebuild/latest/userguide/build-spec-ref.md#build-spec.env.parameter-store") whose values are dynamically retrieved
      from Parameter Store at build time.
 
 - **Shared account access**

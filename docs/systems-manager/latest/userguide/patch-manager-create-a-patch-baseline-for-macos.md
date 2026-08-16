@@ -77,7 +77,7 @@ rules.
      level you specified.
 
 For more information about working with approval rules in a custom
-patch baseline, see [Custom baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom "patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom"). 9. If you want to explicitly approve any patches in addition to those
+patch baseline, see [Custom baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom "patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom"). 9. If you want to explicitly approve any patches besides those
 meeting your approval rules, do the following in the **Patch
 exceptions** section:
 

@@ -7,7 +7,7 @@ in multiple accounts and Regions to help you have consistent session preferences
 For information about the schema for session preferences documents, see [Session document schema](session-manager-schema.md "session-manager-schema.md").
 
 For logging purposes, we recommend using the streaming option with Amazon CloudWatch Logs. This
-feature allows you to send a continual stream of session data logs to CloudWatch Logs.
+feature lets you send a continual stream of session data logs to CloudWatch Logs.
 Essential details, such as the commands a user has run in a session, the ID of the
 user who ran the commands, and timestamps for when the session data is streamed to
 CloudWatch Logs, are included when streaming session data. When streaming session data, the

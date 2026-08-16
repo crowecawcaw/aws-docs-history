@@ -247,7 +247,7 @@ part of an `Install` operation doesn't list any
 missing updates, but might report updates that are in a failed
 state if the installation of the update didn't succeed for any
 reason. Whenever an update is installed on a managed node, the
-node is rebooted to ensure the update is both installed and
+node is rebooted to make sure the update is both installed and
 active. (Exception: If the `RebootOption` parameter
 is set to `NoReboot` in the
 `AWS-RunPatchBaselineWithHooks` document, the

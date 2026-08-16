@@ -29,7 +29,7 @@ pair.
 _You lost your EC2 key pair, or you configured SSH access to the
 instance with a key you lost_: To resolve this problem, you can
 use the `AWSSupport-ResetAccess` runbook to create a new SSH key for
-your current instance, which enables you to connect to the instance
+your current instance, which lets you connect to the instance
 again.
 
 ###### Note
@@ -89,7 +89,7 @@ instance by using the SSH key stored in Systems Manager Parameter Store as
 Before you run the following Automation, do the following:
 
 - Copy the instance ID of the instance on which you want to reset
-  the Administrator password. You will specify this ID in the
+  the Administrator password. Specify this ID in the
   procedure.
 - Optionally, collect the ID of a subnet in the same availability
   zone as your unreachable instance. The EC2Rescue instance will be
@@ -267,7 +267,7 @@ been created. You can also choose the refresh icon to check
 the status of the create process. 14. In the stack list, choose the option next to the stack you
 just created, and then choose the
 **Outputs** tab. 15. Copy the **Value**. The is the ARN of the
-AssumeRole. You will specify this ARN when you run the
+AssumeRole. Specify this ARN when you run the
 Automation.
 
 ## Running the Automation

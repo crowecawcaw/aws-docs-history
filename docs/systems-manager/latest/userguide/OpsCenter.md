@@ -15,7 +15,7 @@ OpsCenter is integrated with Amazon EventBridge and Amazon CloudWatch. This mean
 services to automatically create an OpsItem in OpsCenter when a CloudWatch alarm enters the
 `ALARM` state or when EventBridge processes an event from any AWS service that
 publishes events. Configuring CloudWatch alarms and EventBridge events to automatically create OpsItems
-allows you to quickly diagnose and remediate issues with AWS resources from a single
+lets you quickly diagnose and remediate issues with AWS resources from a single
 console.
 
 To help you diagnose issues, each OpsItem includes contextually relevant information such as
@@ -50,7 +50,7 @@ configure CloudWatch alarms that create OpsItems.
 
 Operations engineers and IT professionals can create, view, and edit OpsItems by using the
 OpsCenter page in the AWS Systems Manager console, public API operations, the AWS Command Line Interface (AWS CLI),
-AWS Tools for Windows PowerShell, or the AWS SDKs. OpsCenter public API operations also allows you to integrate
+AWS Tools for Windows PowerShell, or the AWS SDKs. OpsCenter public API operations also lets you integrate
 OpsCenter with your case management systems and health dashboards.
 
 ## How can OpsCenter benefit my organization?

@@ -346,11 +346,6 @@ You can control the rate at which commands are sent to managed nodes in a
 group by using _concurrency controls_ and
 _error controls_.
 
-###### Topics
-
-- [Using concurrency controls](#send-commands-velocity "#send-commands-velocity")
-- [Using error controls](#send-commands-maxerrors "#send-commands-maxerrors")
-
 ### Using concurrency controls
 
 You can control the number of managed nodes that run a command
@@ -422,7 +417,7 @@ additional nodes when the sixth error is received.
 
 Invocations that are already running a command when
 `max-errors` is reached are allowed to complete, but some of
-these invocations might fail as well. If you need to ensure that there won’t
+these invocations might fail as well. If you need to make sure that there won’t
 be more than `max-errors` failed invocations, set
 `max-concurrency` to `1` so the
 invocations proceed one at a time. The default for max-errors is 0. The

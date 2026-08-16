@@ -73,8 +73,8 @@ $ q chat
    you could enter the following prompt:
 
 ```
-Create a Cedar policy statement that allows a principal to use the “getTokenForInstanceAccess" action for a resource
-that has a tag key “Environment” and tag value of “Testing”. Use the following example statement for reference to verify the syntax.
+Create a Cedar policy statement that allows a principal to use the "getTokenForInstanceAccess" action for a resource
+that has a tag key "Environment" and tag value of "Testing". Use the following example statement for reference to verify the syntax.
 
 permit (
     principal in AWS::IdentityStore::Group::"e8c17310-e011-7089-d989-10da1EXAMPLE",

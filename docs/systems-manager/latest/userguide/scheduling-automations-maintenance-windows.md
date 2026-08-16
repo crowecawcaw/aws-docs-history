@@ -111,7 +111,7 @@ You can keep or replace these values.
 For runbooks, you can optionally specify an Automation Assume Role. If
 you don't specify a role for this parameter, then the automation assumes
 the maintenance window service role you choose in step 11. As such, you
-must ensure that the maintenance window service role you choose has the
+must make sure that the maintenance window service role you choose has the
 appropriate AWS Identity and Access Management (IAM) permissions to perform the actions defined
 within the runbook.
 

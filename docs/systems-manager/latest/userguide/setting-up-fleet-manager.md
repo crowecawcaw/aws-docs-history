@@ -10,7 +10,7 @@ configured for use with Systems Manager in [hybrid and multicloud](operating-sys
 This means your nodes must meet certain prerequisites and be configured with the
 AWS Systems Manager Agent (SSM Agent).
 
-Depending on the machine type, refer to one of the following topics to ensure your
+Depending on the machine type, refer to one of the following topics to make sure your
 machines meet the requirements for managed nodes.
 
 - Amazon EC2 instances: [Managing EC2 instances with Systems Manager](systems-manager-setting-up-ec2.md "systems-manager-setting-up-ec2.md")

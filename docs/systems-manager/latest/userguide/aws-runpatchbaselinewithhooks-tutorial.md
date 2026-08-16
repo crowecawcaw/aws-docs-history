@@ -117,7 +117,7 @@ iptables -D INPUT -j DROP -p tcp --syn --destination-port
    5. For **Operation**, choose
       **Install**.
    6. (Optional) For **Snapshot Id**, provide a GUID
-      that you generate to help speed up the operation and ensure
+      that you generate to help speed up the operation and make sure
       consistency. The GUID value can be as simple as
       `00000000-0000-0000-0000-111122223333`.
    7. For **Pre Install Hook Doc Name**, enter
@@ -134,7 +134,7 @@ iptables -D INPUT -j DROP -p tcp --syn --destination-port
    association. For managed node patching, once per week is a common
    cadence.
 7. In the **Rate control** section, choose options to
-   control how the association runs on multiple managed nodes. Ensure that only
+   control how the association runs on multiple managed nodes. Make sure that only
    a portion of managed nodes are updated at a time. Otherwise, all or most of
    your fleet could be taken offline at once. For more information about using
    rate controls, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").

@@ -36,7 +36,7 @@ supported for [Amazon EKS Anywhere](https://aws.amazon.com/eks/eks-anywhere/ "ht
 instances.
 
 - Amazon EKS cluster (version 1.24 or later)
-- Access to AWS CLI and Amazon EKS cluster via `kubectl`
+- Access to AWS CLI and Amazon EKS cluster through `kubectl`
 - (Optional) Access to two AWS accounts for cross-account
   access
 
@@ -126,7 +126,7 @@ defaults to using IAM Roles for Service Accounts (IRSA).
 kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/examples/ExampleDeployment-PodIdentity.yaml
 ```
 
-6. If you use a private Amazon EKS cluster, ensure the VPC that
+6. If you use a private Amazon EKS cluster, make sure the VPC that
    the cluster is in has an AWS STS endpoint. For information about
    creating an endpoint, see [Interface VPC endpoints](../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md "../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md") in the _AWS Identity and Access Management User
    Guide_.

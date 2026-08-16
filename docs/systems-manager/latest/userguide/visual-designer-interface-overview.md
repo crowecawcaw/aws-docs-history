@@ -9,7 +9,7 @@ Get to know the visual design experience with an overview of the interface compo
 
 - The **Actions** browser contains the **Actions**,
   **AWS APIs**, and **Runbooks** tabs.
-- The _canvas_ is where you drag and drop actions into your workflow
+- The _canvas_ is where you move actions into your workflow
   graph. You can also change the order of actions and select them to configure.
 - The **Form** panel is where you can view and edit the properties of
   any action that you selected on the canvas. Select the **Content** toggle
@@ -19,15 +19,15 @@ Get to know the visual design experience with an overview of the interface compo
 
 ## Actions browser
 
-From the **Actions** browser, you can select actions to drag and drop
+From the **Actions** browser, you can select actions to move
 into your workflow graph. You can search all actions using the search field at the top of
 the **Actions** browser. The **Actions** browser contains
 the following tabs:
 
 - The **Actions** tab provides a list of automation actions that you
-  can drag and drop into your runbook's workflow graph in the canvas.
+  can move into your runbook's workflow graph in the canvas.
 - The **AWS APIs** tab lists AWS APIs that you can
-  drag and drop into your runbook's workflow graph.
+  move into your runbook's workflow graph.
 - The **Runbooks** tab provides ready-to-use runbooks
   as building blocks. For example,
   you can use them to perform common remediation tasks on Amazon EC2 instances
@@ -38,14 +38,14 @@ the following tabs:
 ## Canvas
 
 After you choose an action, drag it to the canvas and drop it
-into your workflow graph. You can also drag actions to reorder them.
+into your workflow graph. You can also move actions to reorder them.
 If your workflow is complex, you might not see
 all of it at once. Use the controls at the top to zoom in or
-out. To view other parts, drag the workflow graph in the canvas.
+out. To view other parts, move the workflow graph in the canvas.
 
-Drag an action from the **Actions** browser, and drop it into your
+Move an action from the **Actions** browser into your
 runbook's workflow graph. A line shows where it will be placed in your workflow. To change
-the order of an action, you can drag it to a different place in your workflow. The new
+the order of an action, you can move it to a different place in your workflow. The new
 action has been added to your workflow, and its code is auto-generated.
 
 ![Visual design experience canvas](images/visual_designer_canvas.png)
@@ -53,7 +53,7 @@ action has been added to your workflow, and its code is auto-generated.
 ## Form
 
 After you add an action to your runbook workflow, you can configure it to meet your use
-case. Choose the action that you want to configure, and you will see its parameters and
+case. Choose the action that you want to configure, and you see its parameters and
 options in the **Form** panel. You can also see the YAML or JSON code by
 choosing the **Content** toggle. The code associated with the action you
 have selected is highlighted.

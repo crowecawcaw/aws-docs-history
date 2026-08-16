@@ -3,15 +3,6 @@
 The following tutorials explain how to update Amazon Machine Image (AMIs) to include the
 latest patches.
 
-###### Topics
-
-- [Update a Linux AMI](automation-tutorial-update-patch-linux-ami.md "automation-tutorial-update-patch-linux-ami.md")
-- [Update a Linux AMI (AWS CLI)](#update-patch-linux-ami-cli "#update-patch-linux-ami-cli")
-- [Update a Windows Server AMI](automation-tutorial-update-patch-windows-ami.md "automation-tutorial-update-patch-windows-ami.md")
-- [Update a golden AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md")
-- [Updating AMIs using Automation and Jenkins](automation-tutorial-update-patch-ami-jenkins-integration.md "automation-tutorial-update-patch-ami-jenkins-integration.md")
-- [Updating AMIs for Auto Scaling groups](automation-tutorial-update-patch-windows-ami-autoscaling.md "automation-tutorial-update-patch-windows-ami-autoscaling.md")
-
 ## Update a Linux AMI (AWS CLI)
 
 This AWS Systems Manager Automation walkthrough shows you how to use the AWS Command Line Interface
@@ -23,7 +14,7 @@ configurations. You can update a variety of Linux distributions using this
 walkthrough, including Ubuntu Server, Red Hat Enterprise Linux (RHEL), or Amazon Linux AMIs. For a
 full list of supported Linux versions, see [Patch Manager prerequisites](patch-manager-prerequisites.md "patch-manager-prerequisites.md").
 
-The `AWS-UpdateLinuxAmi` runbook enables you to automate
+The `AWS-UpdateLinuxAmi` runbook lets you automate
 image-maintenance tasks without having to author the runbook in JSON or YAML.
 You can use the `AWS-UpdateLinuxAmi` runbook to perform the following
 types of tasks.
@@ -69,7 +60,7 @@ by default.
 This step launches an instance using Amazon Elastic Compute Cloud (Amazon EC2) user data
 and an IAM instance profile role. User data installs the
 appropriate SSM Agent, based on the operating system. Installing
-SSM Agent enables you to utilize Systems Manager tools such as Run Command,
+SSM Agent lets you use Systems Manager tools such as Run Command,
 State Manager, and Inventory.
 
 **Step 2: updateOSSoftware (`aws:runCommand` action)**
@@ -107,8 +98,8 @@ This step stops the updated instance.
 **Step 4: createImage (`aws:createImage` action)**
 
 This step creates a new AMI with a descriptive name that links
-it to the source ID and creation time. For example: “AMI Generated
-by EC2 Automation on {{global:DATE\_TIME}} from {{SourceAmiId}}”
+it to the source ID and creation time. For example: "AMI Generated
+by EC2 Automation on {{global:DATE\_TIME}} from {{SourceAmiId}}"
 where DATE\_TIME and SourceID represent Automation variables.
 
 **Step 5: terminateInstance (`aws:changeInstanceState`
@@ -125,7 +116,7 @@ The automation returns the new AMI ID as output.
 
 By default, when Automation runs the `AWS-UpdateLinuxAmi`
 runbook, the system creates a temporary instance in the default VPC
-(172.30.0.0/16). If you deleted the default VPC, you will receive the
+(172.30.0.0/16). If you deleted the default VPC, you receive the
 following error:
 
 `VPC not defined 400`
@@ -153,7 +144,7 @@ aws ssm start-automation-execution \
 ```
 
 The command returns an execution ID. Copy this ID to the clipboard.
-You will use this ID to view the status of the automation.
+Use this ID to view the status of the automation.
 
 ```
 {

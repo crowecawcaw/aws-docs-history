@@ -203,7 +203,7 @@ steps needed to support sessions using SSH, see [(Optional) Allow and control pe
 
 The `kms:GenerateDataKey` permission enables the creation
 of a data encryption key that will be used to encrypt session data. If
-you will use AWS Key Management Service (AWS KMS) encryption for your session data, replace
+you use AWS Key Management Service (AWS KMS) encryption for your session data, replace
 `key-name` with the Amazon Resource Name
 (ARN) of the KMS key you want to use, in the format
 `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`.

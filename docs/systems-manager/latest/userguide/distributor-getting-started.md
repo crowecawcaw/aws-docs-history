@@ -36,7 +36,7 @@ profile.
 
 If you already use other Systems Manager tools, such as Run Command and State Manager, an instance
 profile with the required permissions for Distributor is already attached to your
-instances. The simplest way to ensure that you have permissions to perform Distributor
+instances. The simplest way to make sure that you have permissions to perform Distributor
 tasks is to attach the **AmazonSSMManagedInstanceCore**
 policy to your instance profile. For more information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 

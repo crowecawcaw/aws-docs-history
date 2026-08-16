@@ -6,10 +6,22 @@ provider such as Microsoft Azure. After you create a Cloud Connector, Systems Ma
 as Automation and State Manager can target and manage Azure VMs as if they were native managed
 nodes.
 
-Azure VMs onboarded through a Cloud Connector behave as standard hybrid-activated Systems Manager
-managed instances. You can use the same tools and workflows — such as Run Command, Patch
-Manager, and State Manager — to manage them alongside your on-premises and EC2
-nodes.
+This section includes the following topics.
+
+- [Azure prerequisites](cloud-connector-prereqs-azure.md "cloud-connector-prereqs-azure.md")
+- [Manage Cloud Connectors](cloud-connector-manage.md "cloud-connector-manage.md")
+- [Enable VM onboarding (AWS Management Console)](cloud-connector-onboarding-console.md "cloud-connector-onboarding-console.md")
+- [How Systems Manager handles cloud resources](cloud-connector-identifiers.md "cloud-connector-identifiers.md")
+- [Step 1: Create an AWS Config connector](cloud-connector-create-config-connector.md "cloud-connector-create-config-connector.md")
+- [Enable VM onboarding (AWS CLI)](cloud-connector-onboarding-cli.md "cloud-connector-onboarding-cli.md")
+- [AWS prerequisites](cloud-connector-prereqs-aws.md "cloud-connector-prereqs-aws.md")
+- [Prerequisites](cloud-connector-prerequisites.md "cloud-connector-prerequisites.md")
+- [Enable VM onboarding](cloud-connector-enable-vm-onboarding.md "cloud-connector-enable-vm-onboarding.md")
+- Set up a Cloud Connector for Microsoft Azure in Systems Manager
+  Azure VMs onboarded through a Cloud Connector behave as standard hybrid-activated Systems Manager
+  managed instances. You can use the same tools and workflows — such as Run Command, Patch
+  Manager, and State Manager — to manage them alongside your on-premises and EC2
+  nodes.
 
 Creating a Cloud Connector for Azure involves two main steps:
 

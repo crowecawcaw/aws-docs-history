@@ -5,7 +5,7 @@ multi-account environment. You can centrally store and manage your parameters an
 share them with other AWS accounts that need to reference them.
 
 Parameter Store integrates with AWS Resource Access Manager (AWS RAM) to enable advanced parameter sharing.
-AWS RAM is a service that enables you to share resources with other AWS accounts or
+AWS RAM is a service that lets you share resources with other AWS accounts or
 through AWS Organizations.
 
 With AWS RAM, you share resources that you own by creating a resource share. A

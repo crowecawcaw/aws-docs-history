@@ -98,7 +98,7 @@ to the Amazon SNS topic for the next level, and so on.
 
 ###### Important
 
-Ensure that the IAM roles, groups, and users you
+Make sure that the IAM roles, groups, and users you
 designate together provide enough approvers to meet the
 required number of approvals you specify. For example,
 if you designate only a single IAM group as an

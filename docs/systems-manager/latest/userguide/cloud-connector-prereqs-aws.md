@@ -27,5 +27,5 @@ issuer URL for your account. The URL has the following format:
 https://`UNIQUE_ID`.tokens.sts.global.api.aws
 ```
 
-You will need this URL when configuring the federated identity credential
+You need this URL when configuring the federated identity credential
 in Azure.

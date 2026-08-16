@@ -51,7 +51,7 @@ as follows:
 
 Before you run the following Automation, do the following:
 
-- Copy the instance ID of the unreachable instance. You will specify
+- Copy the instance ID of the unreachable instance. Specify
   this ID in the procedure.
 - Optionally, collect the ID of a subnet in the same availability
   zone as your unreachable instance. The EC2Rescue instance will be

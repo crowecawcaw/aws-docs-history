@@ -22,7 +22,7 @@ By default, the page displays all available widgets.
 4. To add a widget to the display, do the following:
 
    1. Choose **Add widgets**.
-   2. In the **Add widgets** pane, click and hold the drag
+   2. In the **Add widgets** pane, press and hold the drag
       handle (
       ![The drag handle](images/drag-handle-dashboard.png)
       ) of the widget to add to the display.

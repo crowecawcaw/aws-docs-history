@@ -34,7 +34,7 @@ local machine or export it to an Amazon S3 bucket. Reports are saved to S3 bucke
 
    For information about managing the columns in your report display,
    see [Managing node report content and appearance](explore-nodes-manage-report-display.md "explore-nodes-manage-report-display.md"). 3. For **File format**, select **CSV**
-   or **JSON**, depending on how you will use the
+   or **JSON**, depending on how you use the
    file. 4. For **Spreadsheet heading**, to include a column
    headings row in a `CSV` file, select **Include row of
    column names**. 5. Choose **Download**.The report is saved to the default download location according to your

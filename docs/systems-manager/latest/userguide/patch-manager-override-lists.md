@@ -24,7 +24,7 @@ With the following strategy, you use the `InstallOverrideList`
 parameter to apply different types of patches to a target group, on different
 schedules, while still using the same patch baseline:
 
-1. In the default patch baseline, ensure that only `Security`
+1. In the default patch baseline, make sure that only `Security`
    updates are specified.
 2. Create a maintenance window that runs `AWS-RunPatchBaseline` or
    `AWS-RunPatchBaselineAssociation` each week. Don't specify an
@@ -40,7 +40,7 @@ schedules, while still using the same patch baseline:
 
 ###### Note
 
-When you're patching a node that only uses IPv6, ensure that the provided URL
+When you're patching a node that only uses IPv6, make sure that the provided URL
 is reachable from the node. If the SSM Agent config option
 `UseDualStackEndpoint` is set to `true`, then a
 dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more information

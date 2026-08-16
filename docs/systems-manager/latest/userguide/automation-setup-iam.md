@@ -44,7 +44,7 @@ instances and perform actions on your behalf.
 8. On the **Roles** page, choose the role you just
    created to open the **Summary** page. Note the
    **Role Name** and **Role ARN**.
-   You will specify the role ARN when you attach the
+   Specify the role ARN when you attach the
    **iam:PassRole** policy to your IAM account in
    the next procedure. You can also specify the role name and the ARN in
    runbooks.

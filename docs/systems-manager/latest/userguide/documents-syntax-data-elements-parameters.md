@@ -4,7 +4,7 @@ This topic describes the data elements used in SSM documents. The schema version
 used to create a document defines the syntax and data elements that the document
 accepts. We recommend that you use schema version 2.2 or later for Command
 documents. Automation runbooks use schema version 0.3. Additionally, Automation
-runbooks support the use of Markdown, a markup language, which allows you to add
+runbooks support the use of Markdown, a markup language, which lets you add
 wiki-style descriptions to documents and individual steps within the document. For
 more information about using Markdown, see [Using Markdown in the Console](../../../general/latest/gr/aws-markdown.md "../../../general/latest/gr/aws-markdown.md")
 in the _AWS Management Console Getting Started Guide_.

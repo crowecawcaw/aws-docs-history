@@ -66,7 +66,7 @@ permissions for your node:
      information, see [Create a Bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") in the
      *Amazon Simple Storage Service User Guide*.
     * **CloudWatchAgentServerPolicy** –
-     Optional. This AWS managed policy allows you to run the CloudWatch agent on
+     Optional. This AWS managed policy lets you run the CloudWatch agent on
      managed nodes. This policy makes it possible to read information on
      a node and write it to Amazon CloudWatch. Your instance profile needs this
      policy only if you use services such as Amazon EventBridge or CloudWatch Logs.

@@ -17,7 +17,7 @@ your Systems Manager operations.
 
 If you already use other AWS services, you have completed some of these steps. However,
 other steps are specific to Systems Manager. Therefore, we recommend reviewing this entire section to
-ensure that you're ready to use all Systems Manager tools.
+make sure that you're ready to use all Systems Manager tools.
 
 ###### Contents
 

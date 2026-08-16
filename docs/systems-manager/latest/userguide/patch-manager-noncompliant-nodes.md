@@ -2,9 +2,3 @@
 
 The topics in this section provide overviews of how to identify managed nodes
 that are out of patch compliance. They also describe how to bring nodes into compliance.
-
-###### Topics
-
-- [Identifying noncompliant managed nodes](patch-manager-find-noncompliant-nodes.md "patch-manager-find-noncompliant-nodes.md")
-- [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md")
-- [Patching noncompliant managed nodes](patch-manager-compliance-remediation.md "patch-manager-compliance-remediation.md")

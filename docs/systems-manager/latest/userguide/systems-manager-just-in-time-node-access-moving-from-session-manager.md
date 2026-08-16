@@ -26,7 +26,7 @@ following sections describe how you can complete this process.
 
 ## Prerequisites
 
-Before you begin, ensure that you have completed the following tasks:
+Before you begin, make sure that you have completed the following tasks:
 
 - Set up the Systems Manager unified console.
 - Verified you have permissions to modify IAM policies in your
@@ -48,7 +48,7 @@ completing the following tasks:
    circumstances.
 3. **Map approval workflows** - Determine
    who should approve access requests for different types of nodes.
-4. **Review tagging strategy** - Ensure your
+4. **Review tagging strategy** - Make sure your
    nodes are properly tagged to support your planned approval
    policies.
 5. **Audit existing IAM policies** -

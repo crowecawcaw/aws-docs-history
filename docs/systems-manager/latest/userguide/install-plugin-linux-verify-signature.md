@@ -148,7 +148,7 @@ sudo apt-get update
 sudo apt-get install gnupg2
 ```
 
-Ensure you have the required GPG version before continuing with the
+Make sure you have the required GPG version before continuing with the
 verification process.
 
 ## Step 4: Verify the Session Manager plugin installer package on a Linux server

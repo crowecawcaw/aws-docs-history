@@ -23,7 +23,7 @@ instances.
   missing patches daily**, the system uses
   `AWS-RunPatchBaselineAssociation` for the operation.
 
-In most cases, however, when setting up your own patching operations, you
+Usually, however, when setting up your own patching operations, you
 should choose [AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md") or [AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md") instead of
 `AWS-RunPatchBaselineAssociation`.
 
@@ -114,7 +114,7 @@ for the operating system account.
 If more than one patch baseline is found with the tags specified in the
 `AWS-RunPatchBaselineAssociation` document, Patch Manager returns an error
 message indicating that only one patch baseline can be tagged with that key-value
-pair in order for the operation to proceed.
+pair for the operation to proceed.
 
 ###### Note
 
@@ -184,7 +184,7 @@ part of an `Install` operation doesn't list any
 missing updates, but might report updates that are in a failed
 state if the installation of the update didn't succeed for any
 reason. Whenever an update is installed on an instance, the
-instance is rebooted to ensure the update is both installed and
+instance is rebooted to make sure the update is both installed and
 active. (Exception: If the `RebootOption` parameter
 is set to `NoReboot` in the
 `AWS-RunPatchBaselineAssociation` document, the
@@ -219,7 +219,7 @@ valid:
 Tag keys and values can't contain the following characters: backtick
 (`), single quote ('), double quote ("), and dollar sign ($).
 
-The `BaselineTags` value is used by Patch Manager to ensure that a
+The `BaselineTags` value is used by Patch Manager to make sure that a
 set of instances that are patched in a single operation all have the exact
 same set of approved patches. When
 the patching operation runs, Patch Manager checks
@@ -346,7 +346,7 @@ Be aware that compliance reports reflect patch states according to what’s
 specified in the patch baseline, not what you specify in an
 `InstallOverrideList` list of patches. In other words, Scan
 operations ignore the `InstallOverrideList` parameter. This is to
-ensure that compliance reports consistently reflect patch states according
+make sure that compliance reports consistently reflect patch states according
 to policy rather than what was approved for a specific patching operation.
 
 **Valid URL formats**

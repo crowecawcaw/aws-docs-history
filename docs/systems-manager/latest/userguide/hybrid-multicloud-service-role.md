@@ -70,7 +70,7 @@ Amazon Simple Storage Service (Amazon S3) buckets, Patch Manager patching operat
 
 ###### Note
 
-Make a note of the role name. You will choose this role when you
+Make a note of the role name. Choose this role when you
 register new machines that you want to manage by using Systems Manager. 8. (Optional) For **Description**, update the description
 for this IAM server role. 9. (Optional) For **Tags**, add one or more tag-key value
 pairs to organize, track, or control access for this role. 10. Choose **Create role**. The system returns you to the
@@ -244,7 +244,7 @@ aws iam attach-role-policy ^
 (Optional) Run the following command to allow the CloudWatch agent to
 run on your managed nodes. This command makes it possible to
 read information on a node and write it to CloudWatch. Your service
-profile needs this policy only if you will use services such as
+profile needs this policy only if you use services such as
 Amazon EventBridge or Amazon CloudWatch Logs.
 
 ```
@@ -354,7 +354,7 @@ Register-IAMRolePolicy `
 (Optional) Run the following command to allow the CloudWatch agent to
 run on your managed nodes. This command makes it possible to
 read information on a node and write it to CloudWatch. Your service
-profile needs this policy only if you will use services such as
+profile needs this policy only if you use services such as
 Amazon EventBridge or Amazon CloudWatch Logs.
 
 ```

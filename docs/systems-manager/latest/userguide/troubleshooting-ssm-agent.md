@@ -145,15 +145,15 @@ For more information about calls to these endpoints, see [Reference: ec2messages
 
 To troubleshoot issues with your VPC endpoints, do the following:
 
-- Ensure that VPC endpoints are included at the VPC level. If the VPC
+- Make sure that VPC endpoints are included at the VPC level. If the VPC
   endpoint with a specific service name is not found on the VPC, first verify
   that DNS support is enabled at the VPC level. Next, create a new VPC
   endpoint and associate it with one subnet in each Availability Zone.
-- Ensure that a private DNS name is enabled at the VPC endpoint level.
+- Make sure that a private DNS name is enabled at the VPC endpoint level.
   Private DNS names are enabled by default but might have been manually
   disabled at some point.
-- Ensure that existing VPC endpoints are associated with the proper subnet.
-  In addition, ensure that the VPCE is already associated with a subnet in
+- Make sure that existing VPC endpoints are associated with the proper subnet.
+  In addition, make sure that the VPCE is already associated with a subnet in
   that Availability Zone.
 
 For more information, see the following topics:
@@ -168,7 +168,7 @@ For more information, see the following topics:
 ## Verify your VPC DNS-related attributes
 
 If you are using a virtual private cloud (VPC), as part of verifying your VPC
-configuration, ensure that the attributes `enableDnsSupport` and
+configuration, make sure that the attributes `enableDnsSupport` and
 `enableDnsHostnames` are enabled.
 
 You can enable these attributes using the Amazon EC2 [ModifyVPCAttribute](../../../AWSEC2/latest/APIReference/API_ModifyVpcAttribute.md "../../../AWSEC2/latest/APIReference/API_ModifyVpcAttribute.md") API action or the AWS CLI command [modify-vpc-attribute](../../../cli/latest/reference/ec2/modify-vpc-attribute.md "../../../cli/latest/reference/ec2/modify-vpc-attribute.md").
@@ -194,7 +194,7 @@ For more information about calls to these endpoints, see [Reference: ec2messages
 
 ## Verify ingress rules on endpoint security groups
 
-Ensure that any VPC endpoints you have configured (`ssm`,
+Make sure that any VPC endpoints you have configured (`ssm`,
 `ssmmessages`, and `ec2messages`) include an ingress rule
 on their security groups to allow traffic in on port 443. If necessary, you can
 create a new security group in the VPC with an ingress rule to allow traffic on port

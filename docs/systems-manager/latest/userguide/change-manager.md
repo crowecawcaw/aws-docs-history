@@ -75,7 +75,7 @@ Change Manager is integrated with [AWS Systems Manager Change Calendar](systems
 approved, the system first determines whether the request conflicts with other scheduled
 business activities. If a conflict is detected, Change Manager can block the change or require
 additional approvals before starting the runbook workflow. For example, you might allow
-changes only during business hours to ensure that teams are available to manage any
+changes only during business hours to make sure that teams are available to manage any
 unexpected problems. For any changes requested to run outside those hours, you can
 require higher-level management approval in the form of _change
 freeze approvers_. For emergency changes, Change Manager can skip the step of
@@ -206,7 +206,7 @@ changes for change requests created with that change template.
 
 Change Manager allows administrators to restrict scheduling changes during specified
 time periods. For instance, you can create a policy that allows changes only
-during business hours to ensure that the team is available to handle any issues.
+during business hours to make sure that the team is available to handle any issues.
 You can also restrict changes during important business events. For example,
 retail businesses might restrict changes during large sales events. You can also
 require additional approvals during restricted periods.

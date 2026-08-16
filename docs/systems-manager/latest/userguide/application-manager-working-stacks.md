@@ -41,7 +41,7 @@ AWS Cost Explorer console.
 Cost Explorer uses tags to track your application costs. If your CloudFormation stack-based
 application isn't configured with the `AppManagerCFNStackKey` tag
 key, Cost Explorer fails to present accurate cost data in Application Manager. When the
-`AppManagerCFNStackKey` tag key is not detected, you will be
+`AppManagerCFNStackKey` tag key is not detected, you be
 prompted in the console to add the tag to your CloudFormation stack to enable
 cost tracking. Adding it maps the tag key to the Amazon Resource Name (ARN) of
 your stack and enables the **Cost** widget to display accurate

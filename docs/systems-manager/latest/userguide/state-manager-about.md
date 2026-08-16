@@ -197,7 +197,7 @@ runbook or an SSM document.
 
 ## About target updates with Automation runbooks
 
-In order for associations that are created with Automation runbooks to be applied
+For associations that are created with Automation runbooks to be applied
 when new target nodes are detected, the following conditions must be true:
 
 - The association must have been created by a [Quick Setup](systems-manager-quick-setup.md "systems-manager-quick-setup.md") configuration.

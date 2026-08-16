@@ -8,7 +8,7 @@ can view different versions after editing, as described in the following procedu
 
 ###### Note
 
-In order for associations that are created with Automation runbooks to be
+For associations that are created with Automation runbooks to be
 applied when new target nodes are detected, certain conditions must be met. For
 information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates").
 
@@ -33,7 +33,7 @@ create a new version of an association.
 
 For associations that use SSM Command documents, not Automation runbooks,
 this procedure requires that you have write access to an existing Amazon S3
-bucket. If you haven't used Amazon S3 before, be aware that you will incur
+bucket. If you haven't used Amazon S3 before, be aware that you incur
 charges for using Amazon S3. For information about how to create a bucket, see
 [Create a
 Bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md").

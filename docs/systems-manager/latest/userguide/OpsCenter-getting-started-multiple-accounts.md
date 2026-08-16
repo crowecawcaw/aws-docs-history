@@ -36,7 +36,7 @@ OpsCenter across accounts.
 
 ## Before you begin
 
-Before you set up OpsCenter to work with OpsItems across accounts, ensure
+Before you set up OpsCenter to work with OpsItems across accounts, make sure
 that you have set up the following:
 
 - A Systems Manager delegated administrator account. For more information, see
@@ -219,7 +219,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) instances or Amazon Simple Storage Ser
 created in the previous Step 4, provides OpsCenter with read-only
 permissions for member accounts to view related resources. You must also
 create an IAM role to provide management accounts with permission to view
-and interact with related resources, which you will complete in this task.
+and interact with related resources, which you complete in this task.
 
 To get started, download and unzip the [`OpsCenterCrossAccountManagementRole.zip`](samples/OpsCenterCrossAccountManagementRole.zip.md "samples/OpsCenterCrossAccountManagementRole.zip.md") file.
 This file contains the `OpsCenterCrossAccountManagementRole.yaml`

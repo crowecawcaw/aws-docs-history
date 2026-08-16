@@ -64,7 +64,7 @@ _IAM User Guide_.
 
 ## AWS managed policy: AmazonSSMServiceRolePolicy
 
-This policy provides access to a number of AWS resources that are managed by
+This policy provides access to several AWS resources that are managed by
 AWS Systems Manager or used in Systems Manager operations.
 
 You can't attach `AmazonSSMServiceRolePolicy` to your AWS Identity and Access Management (IAM)
@@ -124,7 +124,7 @@ operation now uses your runbook execution identity.
 - `lambda` – Allows principals to invoke Lambda functions that
   are configured specifically for use by Systems Manager.
 - `resource-explorer-2` – Allows principals to retrieve data
-  about EC2 instances to determine whether or not each instance is currently
+  about EC2 instances to determine whether each instance is currently
   managed by Systems Manager.
 
 The action `resource-explorer-2:CreateManagedView` is allowed for
@@ -363,9 +363,9 @@ users and IAM groups, or to IAM roles that serve other purposes. For more
 information, see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
 
 This policy grants permissions that allow SSM Agent on your Amazon EC2 instance to
-communicate with the Systems Manager service in the cloud in order to perform a variety of tasks.
+communicate with the Systems Manager service in the cloud to perform a variety of tasks.
 It also grants permissions for the two services that provide authorization tokens to
-ensure that operations are performed on the correct instance.
+make sure that operations are performed on the correct instance.
 
 **Permissions details**
 
@@ -379,12 +379,12 @@ This policy includes the following permissions.
   instance, a personalized authorization token that was created by the _[Amazon Message Gateway Service](../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md "../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md")_. Systems Manager validates the
   personalized authorization token against the Amazon Resource Name (ARN) of the
   instance that was provided in the API operation. This access is necessary to
-  ensure that SSM Agent performs the API operations on the correct instance.
+  make sure that SSM Agent performs the API operations on the correct instance.
 - `ec2messages` – Allows principals to access, for each
   instance, a personalized authorization token that was created by the _[Amazon Message Delivery Service](../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md "../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md")_. Systems Manager validates the
   personalized authorization token against the Amazon Resource Name (ARN) of the
   instance that was provided in the API operation. This access is necessary to
-  ensure that SSM Agent performs the API operations on the correct instance.
+  make sure that SSM Agent performs the API operations on the correct instance.
 
 For related information about the `ssmmessages` and
 `ec2messages` endpoints, including the differences between the two, see
@@ -451,11 +451,11 @@ This policy includes the following permissions.
 
 - `ssm` – Allows principals to read, create, update, and
   delete SSM documents with names beginning with "AWSQuickSetup-" or
-  "AWSOperationsPack-" when called via CloudFormation; to read specific AWS owned
+  "AWSOperationsPack-" when called through CloudFormation; to read specific AWS owned
   documents including "AWSQuickSetupType-ManageInstanceProfile",
   "AWSQuickSetupType-ConfigureDevOpsGuru", and "AWSQuickSetupType-DeployConformancePack";
   to create, update, and delete associations for Quick Setup documents and AWS owned documents
-  when called via CloudFormation; and to clean up legacy resources tagged with
+  when called through CloudFormation; and to clean up legacy resources tagged with
   `QuickSetupID`. This enables Quick Setup to deploy and manage
   automation workflows and associations.
 - `cloudformation` – Allows principals to read information
@@ -465,7 +465,7 @@ This policy includes the following permissions.
   deployments across accounts and regions.
 - `config` – Allows principals to read information about
   AWS Config conformance packs and their status; and to create and delete
-  conformance packs with names beginning with "AWS-QuickSetup-" when called via
+  conformance packs with names beginning with "AWS-QuickSetup-" when called through
   CloudFormation. This enables Quick Setup to deploy compliance monitoring
   configurations.
 - `events` – Allows principals to manage EventBridge rules and
@@ -473,7 +473,7 @@ This policy includes the following permissions.
   to create scheduled automation workflows.
 - `iam` – Allows principals to create service-linked roles for
   AWS Config and Systems Manager; to create, manage, and delete IAM roles with names
-  beginning with "AWS-QuickSetup-" or "AWSOperationsPack-" when called via CloudFormation;
+  beginning with "AWS-QuickSetup-" or "AWSOperationsPack-" when called through CloudFormation;
   to pass these roles to Systems Manager and EventBridge services; to attach specific AWS managed
   policies to these roles; and to set permissions boundaries using specific
   Quick Setup managed policies. This enables Quick Setup to create the necessary service
@@ -1094,12 +1094,12 @@ This policy includes the following permissions.
 - `kms` – Allows principals to use customer-specified
   AWS Key Management Service keys for decryption and data key generation when accessing encrypted
   objects in Amazon S3 buckets used for diagnosis operations. These permissions are
-  restricted to keys tagged with `SystemsManagerManaged` and used via
+  restricted to keys tagged with `SystemsManagerManaged` and used through
   Amazon S3 service with specific encryption context requirements.
 - `sts` – Allows principals to assume diagnosis execution
   roles to run Automation runbooks in the same account. This permission is
   restricted to roles with the `AWS-SSM-DiagnosisExecutionRole` naming
-  pattern and includes a condition to ensure the resource account matches the
+  pattern and includes a condition to make sure the resource account matches the
   principal account.
 - `iam` – Allows principals to pass the diagnosis
   administration role to Systems Manager to run Automation runbooks. This permission is
@@ -1108,7 +1108,7 @@ This policy includes the following permissions.
 - `s3` – Allows principals to access, read, write, and delete
   objects in Amazon S3 buckets used for diagnosis operations. These permissions are
   restricted to buckets with the `do-not-delete-ssm-diagnosis-` naming
-  pattern and include conditions to ensure operations are performed within the
+  pattern and include conditions to make sure operations are performed within the
   same account.
 
 To view more details about the policy, including the latest version of the JSON policy
@@ -1143,7 +1143,7 @@ This policy includes the following permissions.
 - `kms` – Allows principals to use customer-specified
   AWS Key Management Service keys for decryption and data key generation when accessing encrypted
   objects in Amazon S3 buckets used for diagnosis operations. These permissions are
-  restricted to keys tagged with `SystemsManagerManaged` and used via
+  restricted to keys tagged with `SystemsManagerManaged` and used through
   Amazon S3 service with specific encryption context requirements for diagnosis
   buckets.
 - `iam` – Allows principals to pass the diagnosis execution
@@ -1180,12 +1180,12 @@ This policy includes the following permissions.
 - `kms` – Allows principals to use customer-specified
   AWS Key Management Service keys for decryption and data key generation when accessing encrypted
   objects in Amazon S3 buckets used for remediation operations. These permissions are
-  restricted to keys tagged with `SystemsManagerManaged` and used via
+  restricted to keys tagged with `SystemsManagerManaged` and used through
   Amazon S3 service with specific encryption context requirements.
 - `sts` – Allows principals to assume remediation execution
   roles to run Automation runbooks in the same account. This permission is
   restricted to roles with the `AWS-SSM-RemediationExecutionRole`
-  naming pattern and includes a condition to ensure the resource account matches
+  naming pattern and includes a condition to make sure the resource account matches
   the principal account.
 - `iam` – Allows principals to pass the remediation
   administration role to Systems Manager to run Automation runbooks. This permission is
@@ -1194,7 +1194,7 @@ This policy includes the following permissions.
 - `s3` – Allows principals to access, read, write, and delete
   objects in Amazon S3 buckets used for remediation operations. These permissions are
   restricted to buckets with the `do-not-delete-ssm-diagnosis-` naming
-  pattern and include conditions to ensure operations are performed within the
+  pattern and include conditions to make sure operations are performed within the
   same account.
 
 To view more details about the policy, including the latest version of the JSON policy
@@ -1244,7 +1244,7 @@ This policy includes the following permissions.
 - `kms` – Allows principals to use customer-specified
   AWS Key Management Service keys for decryption and data key generation when accessing encrypted
   objects in Amazon S3 buckets used for remediation operations. These permissions are
-  restricted to keys tagged with `SystemsManagerManaged` and used via
+  restricted to keys tagged with `SystemsManagerManaged` and used through
   Amazon S3 service with specific encryption context requirements.
 - `iam` – Allows principals to pass the remediation execution
   role to Systems Manager to run Automation runbooks. This permission is restricted to
@@ -1410,7 +1410,7 @@ Systems Manager to perform actions on your behalf.
 
 This policy includes the following permissions.
 
-- `iam` – Allows principals to to create a service-linked role
+- `iam` – Allows principals to create a service-linked role
   in the AWS Identity and Access Management (IAM) service.
 - `resource-explorer-2` – Allows principals to retrieve
   information about Resource Explorer views and indexes; to create Resource Explorer views and indexes;
@@ -1603,7 +1603,7 @@ permissions for just-in-time node access tokens.
 This policy includes the following permissions.
 
 - `ssm` – Allows principals to start Session Manager sessions using
-  the `SSM-SessionManagerRunShell` document. Also when called first via
+  the `SSM-SessionManagerRunShell` document. Also when called first through
   `ssm-guiconnect`, start sessions using the
   `AWS-StartPortForwardingSession` document, list command
   invocations, and send commands using the `AWSSSO-CreateSSOUser`
@@ -1612,11 +1612,11 @@ This policy includes the following permissions.
   start connections on all resources.
 - `kms` – Allows principals to create grants and generate data
   keys for keys tagged with `SystemsManagerJustInTimeNodeAccessManaged`
-  when called via `ssm-guiconnect` through an AWS service.
+  when called through `ssm-guiconnect` by an AWS service.
 - `sso` – Allows principals to list directory associations
-  when called via `ssm-guiconnect`.
+  when called through `ssm-guiconnect`.
 - `identitystore` – Allows principals to describe a user when
-  called via `ssm-guiconnect`.
+  called through `ssm-guiconnect`.
 
 To view more details about the policy, including the latest version of the JSON policy
 document, see [AWSSystemsManagerJustInTimeAccessTokenSessionPolicy](../../../aws-managed-policy/latest/reference/AWSSystemsManagerJustInTimeAccessTokenSessionPolicy.md "../../../aws-managed-policy/latest/reference/AWSSystemsManagerJustInTimeAccessTokenSessionPolicy.md") in the _AWS
@@ -1774,7 +1774,7 @@ Systems Manager [Document history](systems-manager-release-history.md "systems-m
 | [AWSQuickSetupPatchPolicyTagManagementExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyTagManagementExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyTagManagementExecutionPolicy") –<br>New managed policy                                                                                                                                                                                                                                                                                                                                                                                                                   | Systems Manager added a new managed policy to enable Quick Setup patch policy configurations to track which instances are managed through automated tagging and inventory collection. The policy grants permissions to add or remove QSConfigName-\<br>• tags on Amazon EC2 instances and SSM managed instances, along with SSM inventory retrieval capabilities.                                                                                                                                                                                                                                    | June 3, 2026       |
 | [AWSQuickSetupManagedInstanceProfileExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy") –<br>Updated managed policy                                                                                                                                                                                                                                                                                                                                                                                                                     | Systems Manager updated the managed policy to support Quick Setup PatchPolicy migration from CloudFormation inline policies to managed policies. The update adds automation execution capabilities including instance discovery, role updates, role tagging, and expanded PassRole permissions to Systems Manager. A protective Deny statement prevents modification of Quick Setup automation roles.                                                                                                                                                                                                | June 3, 2026       |
 | [AmazonSSMAutomationRole](#security-iam-awsmanpol-AmazonSSMAutomationRole "#security-iam-awsmanpol-AmazonSSMAutomationRole") – Update to an existing<br>policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Systems Manager added the `cloudformation:TagResource` and `cloudformation:UntagResource`<br>permissions. These permissions allow Automation runbooks that create CloudFormation stacks<br>to add and remove tags from resources.                                                                                                                                                                                                                                                                                                                                                                    | March 20, 2026     |
-| [AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy](#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy "#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy") –<br>Updated managed policy                                                                                                                                                                                                                                                                                                                                                                                                                              | Systems Manager updated the managed policy to add additional EC2 and SSM permissions for enhanced diagnosis capabilities. The policy now includes permissions to describe EC2 instance status and network ACLs, as well as SSM activations and service settings, providing more comprehensive diagnostic information for troubleshooting managed node issues.                                                                                                                                                                                                                                        | December 19, 2025  |
+| [AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy](#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy "#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy") –<br>Updated managed policy                                                                                                                                                                                                                                                                                                                                                                                                                              | Systems Manager updated the managed policy to add additional EC2 and SSM permissions for enhanced diagnosis capabilities. The policy now includes permissions to describe EC2 instance status and network ACLs, and SSM activations and service settings, providing more comprehensive diagnostic information for troubleshooting managed node issues.                                                                                                                                                                                                                                               | December 19, 2025  |
 | [AWSQuickSetupDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy") –<br>Updated managed policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Systems Manager updated the managed policy<br>`AWSQuickSetupDeploymentRolePolicy` to add support for<br>two additional SSM documents:<br>`AWSQuickSetupType-ConfigureDevOpsGuru` and<br>`AWSQuickSetupType-DeployConformancePack`. These additions<br>enable Quick Setup to deploy DevOps Guru configurations and conformance<br>packs through the policy.                                                                                                                                                                                                                                           | December 15, 2025  |
 | [AWSSystemsManagerJustInTimeAccessTokenPolicy](#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessTokenPolicy "#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessTokenPolicy") –<br>Update to an existing policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | Systems Manager updated the managed policy<br>`AWSSystemsManagerJustInTimeAccessTokenPolicy`. The<br>statement (`SID`) `TerminateAndResumeSession`<br>has been renamed to<br>`TerminateAndResumeSessionAndOpenDataChannel` and now<br>includes the `ssmmessages:OpenDataChannel` action,<br>combining session management and data channel permissions into a<br>single statement.                                                                                                                                                                                                                    | September 25, 2025 |
 | Updated managed policies:<br>• [AWSQuickSetupSSMLifecycleManagementExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy")<br>• [AWSQuickSetupPatchPolicyPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyPermissionsBoundary")<br>• [AWSQuickSetupManagedInstanceProfileExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy") | Systems Manager updated three managed policies to add support for<br>starting Automation executions on additional Systems Manager resources,<br>including specific Automation runbooks and SSM Command<br>documents.                                                                                                                                                                                                                                                                                                                                                                                 | September 12, 2025 |
@@ -1825,7 +1825,7 @@ Systems Manager [Document history](systems-manager-release-history.md "systems-m
 | [AWSQuickSetupSSMDeploymentS3BucketRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Systems Manager added a new policy to support managing and retrieving<br>information about specific buckets in the principal account that are<br>managed through CloudFormation templates                                                                                                                                                                                                                                                                                                                                                                                                            | November 21, 2024  |
 | [AWSQuickSetupEnableDHMCExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Systems Manager is introducing a new policy to allow Quick Setup to create an<br>IAM role that itself uses the existing [AmazonSSMManagedEC2InstanceDefaultPolicy](#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy").<br>This policy contains all the permissions required for SSM Agent to<br>communicate with Systems Manager service. The new policy also allows modifications<br>to the Systems Manager service settings.                                                                                     | November 21, 2024  |
 | [AWSQuickSetupEnableAREXExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Systems Manager added a new policy to allow Quick Setup to create a service-linked<br>role for AWS Resource Explorer, for accessing Resource Explorer views and aggregator<br>indexes.                                                                                                                                                                                                                                                                                                                                                                                                               | November 21, 2024  |
-| [AWSQuickSetupManagedInstanceProfileExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | Systems Manager added a new policy to allow Quick Setup to create a default<br>Quick Setup instance profile and to attach it to any Amazon EC2 instances<br>that lack an associated instance profile. This new policy also<br>allows Quick Setup to attach permissions to existing profiles to ensure<br>that all required Systems Manager permissions have been granted.                                                                                                                                                                                                                            | November 21, 2024  |
+| [AWSQuickSetupManagedInstanceProfileExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy")<br>– New policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | Systems Manager added a new policy to allow Quick Setup to create a default<br>Quick Setup instance profile and to attach it to any Amazon EC2 instances<br>that lack an associated instance profile. This new policy also<br>allows Quick Setup to attach permissions to existing profiles to make sure<br>that all required Systems Manager permissions have been granted.                                                                                                                                                                                                                         | November 21, 2024  |
 | [SSMQuickSetupRolePolicy](#security-iam-awsmanpol-SSMQuickSetupRolePolicy "#security-iam-awsmanpol-SSMQuickSetupRolePolicy") – Update<br>to an existing policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Systems Manager added new permissions to allow Quick Setup to check the<br>health of additional AWS CloudFormation stack sets that it has<br>created.                                                                                                                                                                                                                                                                                                                                                                                                                                                | August 13, 2024    |
 | [AmazonSSMManagedEC2InstanceDefaultPolicy](#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy")<br>– Update to an existing policy                                                                                                                                                                                                                                                                                                                                                                                                                                             | Systems Manager has added statement IDs (Sids) to the JSON policy for<br>`AmazonSSMManagedEC2InstanceDefaultPolicy`. These Sids<br>provide inline descriptions of the purpose of each policy statement.                                                                                                                                                                                                                                                                                                                                                                                              | July 18, 2024      |
 | [SSMQuickSetupRolePolicy](#security-iam-awsmanpol-SSMQuickSetupRolePolicy "#security-iam-awsmanpol-SSMQuickSetupRolePolicy") – New<br>policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Systems Manager added a new policy to allow Quick Setup to check the<br>health of deployed resources and remediate instances that have drifted<br>from the original configuration.                                                                                                                                                                                                                                                                                                                                                                                                                   | July 3, 2024       |
@@ -1849,7 +1849,7 @@ Systems Manager [Document history](systems-manager-release-history.md "systems-m
 
 ## Additional managed policies for Systems Manager
 
-In addition to the managed policies described earlier in this topic, the following
+Besides the managed policies described earlier in this topic, the following
 policies are also supported by Systems Manager.
 
 - [`AmazonSSMAutomationApproverAccess`](../../../aws-managed-policy/latest/reference/AmazonSSMAutomationApproverAccess.md "../../../aws-managed-policy/latest/reference/AmazonSSMAutomationApproverAccess.md") –

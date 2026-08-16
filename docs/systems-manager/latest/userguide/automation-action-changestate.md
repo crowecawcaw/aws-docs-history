@@ -6,7 +6,7 @@ This action can be used in assert mode (doesn't run the API to change the state 
 verifies the instance is in the desired state.) To use assert mode, set the
 `CheckStateOnly` parameter to true. This mode is useful when running the
 Sysprep command on Windows Server, which is an asynchronous command that can run in the
-background for a long time. You can ensure that the instance is stopped before you
+background for a long time. You can make sure that the instance is stopped before you
 create an Amazon Machine Image (AMI).
 
 ###### Note

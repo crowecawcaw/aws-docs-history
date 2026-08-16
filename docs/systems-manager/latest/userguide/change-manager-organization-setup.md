@@ -28,7 +28,7 @@ This setup process can't be performed in the following AWS Regions:
 - Middle East (Bahrain) (me-south-1)
 - Africa (Cape Town) (af-south-1)
 - Asia Pacific (Hong Kong) (ap-east-1)
-  Ensure that you're working in a different Region in your management account for
+  Make sure that you're working in a different Region in your management account for
   this procedure.
 
 During the setup procedure, you perform the following major tasks in Quick Setup, a
@@ -190,7 +190,7 @@ create a non-administrative role, do the following:
 
     1. For **Job function**, enter a name to identify
      this role and suggest its permissions. The name you choose should
-     represent scope of the runbooks for which you will provide
+     represent scope of the runbooks for which you provide
      permissions, such as `DBAdmin` or `S3Admin`.
     2. For **Role and permissions option**, choose
      **Custom permissions**.

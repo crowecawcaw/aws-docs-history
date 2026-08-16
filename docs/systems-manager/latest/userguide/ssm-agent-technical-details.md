@@ -200,7 +200,7 @@ Domain Administrator permissions to the user.
 
 ###### Important
 
-In order for the `ssm-user` account to be created, the instance
+For the `ssm-user` account to be created, the instance
 profile attached to the instance must provide the necessary permissions. For
 information, see [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md").
 

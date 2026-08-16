@@ -2,7 +2,7 @@
 
 You can use Fleet Manager to connect to your Windows Server Amazon Elastic Compute Cloud
 (Amazon EC2) instances using the Remote Desktop Protocol (RDP). Fleet Manager
-Remote Desktop, which is powered by [Amazon DCV](../../../dcv/latest/adminguide/what-is-dcv.md "../../../dcv/latest/adminguide/what-is-dcv.md"), provides you with secure
+Remote Desktop, which is powered by [Amazon DCV](../../../dcv/latest/adminguide/what-is-dcv.md "../../../dcv/latest/adminguide/what-is-dcv.md"), gives you secure
 connectivity to your Windows Server instances directly from the Systems Manager console. You can have up
 to four simultaneous connections in a single browser window.
 
@@ -27,16 +27,6 @@ information, see [Remote connection duration and concurrency](#rdp-duration-conc
 
 For information about configuring AWS Identity and Access Management (IAM) permissions to allow your
 instances to interact with Systems Manager, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
-
-###### Topics
-
-- [Setting up your environment](#rdp-prerequisites "#rdp-prerequisites")
-- [Configuring IAM permissions for Remote Desktop](#rdp-iam-policy-examples "#rdp-iam-policy-examples")
-- [Authenticating Remote Desktop connections](#rdp-authentication "#rdp-authentication")
-- [Remote connection duration and concurrency](#rdp-duration-concurrency "#rdp-duration-concurrency")
-- [Systems Manager GUI Connect handling of AWS IAM Identity Center attributes](#iam-identity-center-attribute-handling "#iam-identity-center-attribute-handling")
-- [Connect to a managed node using Remote Desktop](#rdp-connect-to-node "#rdp-connect-to-node")
-- [Viewing information about current and completed connections](#list-connections "#list-connections")
 
 ## Setting up your environment
 
@@ -66,7 +56,7 @@ Desktop.
 - **PSReadLine module version for
   keyboard functionality**
 
-To ensure that your keyboard functions properly in
+To make sure that your keyboard functions properly in
 PowerShell, verify that nodes running Windows Server 2022 have
 PSReadLine module version 2.2.2 or higher installed. If
 they are running an older version, you can install the required version
@@ -108,7 +98,7 @@ Setting up data channel with id SESSION_ID failed: failed to create websocket fo
 
 ## Configuring IAM permissions for Remote Desktop
 
-In addition to the required IAM permissions for Systems Manager and Session Manager, the user or
+Besides the required IAM permissions for Systems Manager and Session Manager, the user or
 role you use must be allowed permissions for initiating connections.
 
 ###### Permissions for initiating connections
@@ -487,7 +477,7 @@ becomes `diego_r`.
   group. This user persists after the remote connection has ended.
 - Remote Desktop does not allow IAM Identity Center authentication for nodes that are
   Microsoft Active Directory domain controllers.
-- Although Remote Desktop allows you to use IAM Identity Center authentication for nodes
+- Although Remote Desktop lets you use IAM Identity Center authentication for nodes
   _joined_ to an Active
   Directory domain, we do not recommend doing so. This
   authentication method grants administrative permissions to users which might

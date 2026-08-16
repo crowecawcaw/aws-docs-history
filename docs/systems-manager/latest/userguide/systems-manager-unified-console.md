@@ -9,7 +9,7 @@ nodes, diagnose and remediate common issues that prevent nodes from reporting as
 by Systems Manager, like connectivity issues.
 
 ![Node data displayed on Systems Manager Review node insights page](images/SYS2-Dashboard-Nodes.png)
-In addition to summaries about your nodes on the **Review node
+Besides summaries about your nodes on the **Review node
 insights** page, you can view specific details about a node from the
 **Explore nodes** page.
 
@@ -46,7 +46,7 @@ An association is a resource type in State Manager that defines the target
 state for a managed node and maintains all managed nodes in your account in
 a consistent state. The association can define the commands, scripts, or
 policies to apply to which managed instances, and how often the association
-should run to ensure the nodes are match the defined configuration for the
+should run to make sure the nodes match the defined configuration for the
 node. An association can drive compliance reporting of required states for
 resources in your account. For more information about State Manager and
 assocations, see [AWS Systems Manager State Manager](systems-manager-state.md "systems-manager-state.md").
@@ -98,3 +98,5 @@ the node tasks you can perform now using the unified console, see [Performing no
 For more information about setting up your nodes for Systems Manager, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md"). After you've set up your nodes,
 you can set up Systems Manager and the unified console. To learn more about setting up Systems Manager, see
 [Setting up AWS Systems Manager](systems-manager-setting-up-console.md "systems-manager-setting-up-console.md").
+
+See also [Supported operating systems and machine types](operating-systems-and-machine-types.md "operating-systems-and-machine-types.md").

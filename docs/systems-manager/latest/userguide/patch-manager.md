@@ -3,6 +3,24 @@
 Patch Manager automates the process of patching managed nodes with both
 security-related updates and other types of updates.
 
+This section includes the following topics.
+
+- [Troubleshooting Patch Manager](patch-manager-troubleshooting.md "patch-manager-troubleshooting.md")
+- [Tutorial: Update application dependencies, patch a managed node, and perform an application-specific health check using the console](aws-runpatchbaselinewithhooks-tutorial.md "aws-runpatchbaselinewithhooks-tutorial.md")
+- [Working with patch baselines](patch-manager-create-a-patch-baseline.md "patch-manager-create-a-patch-baseline.md")
+- [Remediating noncompliant managed nodes with Patch Manager](patch-manager-noncompliant-nodes.md "patch-manager-noncompliant-nodes.md")
+- [Applying kernel live patches using Run Command](install-klp.md "install-klp.md")
+- [AWS Systems Manager Patch Manager tutorials](patch-manager-tutorials.md "patch-manager-tutorials.md")
+- [Turning on Kernel Live Patching using Run Command](enable-klp.md "enable-klp.md")
+- [Patching applications released by Microsoft on Windows Server](patch-manager-patching-windows-applications.md "patch-manager-patching-windows-applications.md")
+- [Working with Patch Manager resources and compliance using the console](patch-manager-console.md "patch-manager-console.md")
+- [Using Kernel Live Patching on Amazon Linux 2 managed nodes](patch-manager-kernel-live-patching.md "patch-manager-kernel-live-patching.md")
+- [Viewing available patches](patch-manager-view-available-patches.md "patch-manager-view-available-patches.md")
+- [Patching operation differences between Linux and Windows Server](patch-manager-windows-and-linux-differences.md "patch-manager-windows-and-linux-differences.md")
+- [Creating a patch policy](patch-manager-create-a-patch-policy.md "patch-manager-create-a-patch-policy.md")
+- [How Patch Manager operations work](patch-manager-patching-operations.md "patch-manager-patching-operations.md")
+- [Updating or deleting a custom patch baseline](patch-manager-update-or-delete-a-patch-baseline.md "patch-manager-update-or-delete-a-patch-baseline.md")
+
 ###### Note
 
 Systems Manager provides support for _patch policies_ in Quick Setup, a tool in
@@ -184,7 +202,7 @@ some major components and features of the tool's patching operations.
 ###### Patch baselines
 
 Patch Manager uses _patch baselines_, which include rules for
-auto-approving patches within days of their release, in addition to optional lists
+auto-approving patches within days of their release, besides optional lists
 of approved and rejected patches. When a patching operation runs, Patch Manager compares
 the patches currently applied to a managed node to those that should be applied
 according to the rules set up in the patch baseline. You can choose for Patch Manager to
@@ -265,16 +283,3 @@ Patch Manager integrates with the following other AWS services:
 - **AWS Config** – Set up recording in AWS Config to
   view Amazon EC2 instance management data in the Patch Manager Dashboard. For more
   information, see [Viewing patch Dashboard summaries](patch-manager-view-dashboard-summaries.md "patch-manager-view-dashboard-summaries.md").
-
-###### Topics
-
-- [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md")
-- [Patch Manager prerequisites](patch-manager-prerequisites.md "patch-manager-prerequisites.md")
-- [How Patch Manager operations work](patch-manager-patching-operations.md "patch-manager-patching-operations.md")
-- [SSM Command documents for patching managed nodes](patch-manager-ssm-documents.md "patch-manager-ssm-documents.md")
-- [Patch baselines](patch-manager-patch-baselines.md "patch-manager-patch-baselines.md")
-- [Using Kernel Live Patching on Amazon Linux 2 managed nodes](patch-manager-kernel-live-patching.md "patch-manager-kernel-live-patching.md")
-- [Working with Patch Manager resources and compliance using the console](patch-manager-console.md "patch-manager-console.md")
-- [Working with Patch Manager resources using the AWS CLI](patch-manager-cli-commands.md "patch-manager-cli-commands.md")
-- [AWS Systems Manager Patch Manager tutorials](patch-manager-tutorials.md "patch-manager-tutorials.md")
-- [Troubleshooting Patch Manager](patch-manager-troubleshooting.md "patch-manager-troubleshooting.md")

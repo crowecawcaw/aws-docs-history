@@ -10,7 +10,7 @@ cloud and security _in_ the cloud:
 
 - **Security of the cloud** – AWS is
   responsible for protecting the infrastructure that runs AWS services in the
-  AWS Cloud. AWS also provides you with services that you can use securely.
+  AWS Cloud. AWS also gives you services that you can use securely.
   Third-party auditors regularly test and verify the effectiveness of our security as
   part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/").
   To learn about the compliance programs that apply

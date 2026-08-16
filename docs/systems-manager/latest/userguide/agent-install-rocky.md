@@ -30,8 +30,8 @@ This procedure uses globally available installation files.
 Before you install SSM Agent on a Rocky Linux instance, note the
 following:
 
-- Ensure that either Python 2 or Python 3 is installed on your
-  Rocky Linux instance. This is required in order for SSM Agent to work
+- Make sure that either Python 2 or Python 3 is installed on your
+  Rocky Linux instance. This is required for SSM Agent to work
   properly.
 
 ###### To install SSM Agent on Rocky Linux

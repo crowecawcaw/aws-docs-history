@@ -1,6 +1,6 @@
 # Allowing Automation to adapt to your concurrency needs
 
-By default, Automation allows you to run up to 100 concurrent automations at a
+By default, Automation lets you run up to 100 concurrent automations at a
 time. Automation also provides an optional setting that you can use to adjust your
 concurrency automation quota automatically. With this setting, your concurrency
 automation quota can accommodate up to 500 concurrent automations, depending on

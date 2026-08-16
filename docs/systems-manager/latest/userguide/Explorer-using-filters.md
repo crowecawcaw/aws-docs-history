@@ -20,7 +20,7 @@ dashboard** page.
    widget or data source.
 6. Choose **Explorer** to view your changes.
    To customize widget layout in Explorer, choose a widget that you want to move.
-   Click and hold the name of the widget and then drag it to its new location.
+   Press and hold the name of the widget and then drag it to its new location.
 
 ![Moving a widget in Systems Manager Explorer](images/explorer-customize.png)
 Repeat this process for each widget that you want to reposition.

@@ -1,11 +1,11 @@
 # Monitoring Systems Manager events with Amazon EventBridge
 
-Amazon EventBridge is a serverless event bus service that allows you to connect your applications
+Amazon EventBridge is a serverless event bus service that lets you connect your applications
 with data from a variety of sources. EventBridge delivers a stream of real-time data from your own
 applications, software-as-a-service (SaaS) applications, and AWS services and routes that
 data to targets such as AWS Lambda. You can set up routing rules to determine where to send
 your data to build application architectures that react in real time to all of your data
-sources. EventBridge allows you to build event driven architectures, which are loosely coupled and
+sources. EventBridge lets you build event driven architectures, which are loosely coupled and
 distributed.
 
 EventBridge was formerly called Amazon CloudWatch Events. EventBridge includes new features that allow you to receive

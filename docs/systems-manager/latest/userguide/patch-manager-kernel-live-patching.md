@@ -1,8 +1,8 @@
 # Using Kernel Live Patching on Amazon Linux 2 managed nodes
 
-Kernel Live Patching for Amazon Linux 2 allows you to apply security vulnerability and critical bug
+Kernel Live Patching for Amazon Linux 2 lets you apply security vulnerability and critical bug
 patches to a running Linux kernel without reboots or disruptions to running
-applications. This allows you to benefit from improved service and application
+applications. This lets you benefit from improved service and application
 availability, while keeping your infrastructure secure and up to date. Kernel Live Patching is
 supported on Amazon EC2 instances, AWS IoT Greengrass core devices, and [on-premises
 virtual machines](../../../AWSEC2/latest/UserGuide/amazon-linux-2-virtual-machine.md "../../../AWSEC2/latest/UserGuide/amazon-linux-2-virtual-machine.md") running Amazon Linux 2.
@@ -16,18 +16,10 @@ alternative to using existing yum workflows on the node to apply the updates.
 
 ###### Before you begin
 
-To use Patch Manager to apply kernel live patches to your Amazon Linux 2 managed nodes, ensure
+To use Patch Manager to apply kernel live patches to your Amazon Linux 2 managed nodes, make sure
 your nodes are based on the correct architecture and kernel version. For
 information, see [Supported configurations and prerequisites](../../../AWSEC2/latest/UserGuide/al2-live-patching.md#al2-live-patching-prereq "../../../AWSEC2/latest/UserGuide/al2-live-patching.md#al2-live-patching-prereq") in the
 _Amazon EC2 User Guide_.
-
-###### Topics
-
-- [Kernel Live Patching  using  Patch Manager](#about-klp "#about-klp")
-- [How Kernel Live Patching using Patch Manager works](#how-klp-works "#how-klp-works")
-- [Turning on Kernel Live Patching using Run Command](enable-klp.md "enable-klp.md")
-- [Applying kernel live patches using Run Command](install-klp.md "install-klp.md")
-- [Turning off Kernel Live Patching using Run Command](disable-klp.md "disable-klp.md")
 
 ## Kernel Live Patching  using  Patch Manager
 

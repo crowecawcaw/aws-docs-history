@@ -23,7 +23,7 @@ services:
 Before you begin, make sure you're not already over the quota for delegated
 administrators for any of these dependent services. Otherwise, you won't be able to register
 the delegated administrator accounts necessary to enable Systems Manager. When you enable Systems Manager for an
-organization, every account in your organization is included. At this time, there is no
+organization, every account in your organization is included. Currently, there is no
 provision for excluding accounts from the setting up process. When you enable Systems Manager, you can
 choose the AWS Regions you want to include. Only Regions that currently support the Systems Manager
 unified console can be selected. To learn more about the Regions where the console
@@ -142,7 +142,7 @@ to the Systems Manager endpoints, and more. For more information, see [Diagnosin
 **Enable Default Host Management Configuration (DHMC)**
 
 Allows Systems Manager to configure DHMC. This feature allows Systems Manager to use an IAM role
-to ensure that all Amazon EC2 instances in the account and Region have the permissions
+to make sure that all Amazon EC2 instances in the account and Region have the permissions
 necessary to be managed by Systems Manager. You can also specify the frequency of drift
 remediation. Configuration drift occurs whenever a user makes any change to a
 service or feature that conflicts with the selections made through your
@@ -153,7 +153,7 @@ IAM role you previously selected. For more information about DHMC, see [Managing
 
 DHMC makes it possible to manage Amazon EC2 instances without your having to
 manually create an AWS Identity and Access Management (IAM) instance profile. We encourage you to choose
-this option to ensure that your EC2 instances have the permissions necessary to be
+this option to make sure that your EC2 instances have the permissions necessary to be
 managed by Systems Manager.
 
 **Enable inventory metadata collection**
@@ -192,7 +192,7 @@ the latest released version. Systems Manager doesn't install the agent on instan
 it's not already present. For information about which AMIs have SSM Agent
 preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
-We encourage you to choose this option to ensure that your nodes are always
+We encourage you to choose this option to make sure that your nodes are always
 running the most up-to-date version of SSM Agent. For more information about
 SSM Agent, including information about how to manually install the agent, see [Working with SSM Agent](ssm-agent.md "ssm-agent.md"). 9. Choose **Submit**.
 

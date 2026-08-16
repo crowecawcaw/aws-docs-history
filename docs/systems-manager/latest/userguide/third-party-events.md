@@ -42,7 +42,7 @@ Time zone
 In addition to a calendar name, a calendar provider, and at least one
 event, your exported `.ics` file should also indicate
 the time zone for the calendar. If it does not, or there is a problem
-identifying the time zone, you will be prompted to specify one after you
+identifying the time zone, you are prompted to specify one after you
 import the file.
 
 Recurring event limitation

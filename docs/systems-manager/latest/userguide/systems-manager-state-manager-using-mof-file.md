@@ -7,7 +7,7 @@ document has two execution modes. With the first mode, you can configure the ass
 to scan and report if the managed nodes are in the desired state defined in the
 specified MOF files. In the second mode, you can run the MOF files and change the
 configuration of your nodes based on the resources and their values defined in the MOF
-files. The `AWS-ApplyDSCMofs` document allows you to download and run MOF
+files. The `AWS-ApplyDSCMofs` document lets you download and run MOF
 configuration files from Amazon Simple Storage Service (Amazon S3), a local share, or from a secure website with
 an HTTPS domain.
 
@@ -61,7 +61,7 @@ in Amazon S3.
 ## Resolving credentials in MOF files
 
 Credentials are resolved by using [AWS Secrets Manager](../../../secretsmanager/latest/userguide.md "../../../secretsmanager/latest/userguide.md") or
-[AWS Systems Manager Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md"). This allows you to set up
+[AWS Systems Manager Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md"). This lets you set up
 automatic credential rotation. This also allows DSC to automatically propagate
 credentials to your servers without redeploying MOFs.
 
@@ -91,7 +91,7 @@ Configuration MyConfig
 Compile your MOF using the PsAllowPlaintextPassword setting in configuration data.
 This is OK because the credential only contains a label.
 
-In Secrets Manager, ensure that the node has GetSecretValue access in an IAM Managed
+In Secrets Manager, make sure that the node has GetSecretValue access in an IAM Managed
 Policy, and optionally in the Secret Resource Policy if one exists. To work with
 DSC, the secret must be in the following format.
 
@@ -104,13 +104,13 @@ but it must at least have the username and password properties.
 
 We recommended that you use a multi-user rotation method, where you have two
 different usernames and passwords, and the rotation AWS Lambda function flips between
-them. This method allows you to have multiple active accounts while eliminating the
+them. This method lets you have multiple active accounts while eliminating the
 risk of locking out a user during rotation.
 
 ## Using tokens in MOF files
 
 Tokens give you the ability to modify resource property values
-_after_ the MOF has been compiled. This allows you to reuse
+_after_ the MOF has been compiled. This lets you reuse
 common MOF files on multiple servers that require similar configurations.
 
 Token substitution only works for Resource Properties of type `String`.
@@ -158,7 +158,7 @@ There are five different types of tokens you can use:
 
 - **tag**: Amazon EC2 or managed node tags.
 - **tagb64**: This is the same as tag, but the
-  system use base64 to decode the value. This allows you to use special
+  system use base64 to decode the value. This lets you use special
   characters in tag values.
 - **env**: Resolves Environment
   variables.
@@ -497,13 +497,13 @@ understand the root cause of the issue. Also, verify the following:
     write compliance reports and compliance status to Amazon S3
     buckets.
 
-- If you're using tags, then ensure that the node has the required IAM
+- If you're using tags, then make sure that the node has the required IAM
   policy. Using tags requires the instance IAM role to have a policy
   allowing the `ec2:DescribeInstances` and
   `ssm:ListTagsForResource` actions.
-- Ensure that the node has the expected tags or SSM parameters
+- Make sure that the node has the expected tags or SSM parameters
   assigned.
-- Ensure that the tags or SSM parameters aren't misspelled.
+- Make sure that the tags or SSM parameters aren't misspelled.
 - Try applying the MOF locally on the node to make sure there isn't an issue
   with the MOF file itself.
 
@@ -540,7 +540,7 @@ follows.
 `bucket-region`:`amzn-s3-demo-bucket`.
 Here is an example: `us-west-1:amzn-s3-demo-bucket;`
 
-- If Region-specific syntax doesn't fix the problem, then ensure the
+- If Region-specific syntax doesn't fix the problem, then make sure the
   targeted nodes can access Amazon S3 in the desired Region. To verify this:
 
   1.  Find the endpoint name for Amazon S3 in the appropriate Amazon S3 Region.

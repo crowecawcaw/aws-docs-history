@@ -121,5 +121,5 @@ Restart-Service AmazonSSMAgent
 To uninstall the SSM Agent from a Windows Server instance, open **Control
 Panel**, **Programs**. Choose the
 **Uninstall a program** option. Open the context
-(right-click) menu for **Amazon SSM Agent** and choose
+menu for **Amazon SSM Agent** and choose
 **Uninstall**.

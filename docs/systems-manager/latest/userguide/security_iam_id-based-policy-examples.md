@@ -2,7 +2,7 @@
 
 By default, AWS Identity and Access Management (IAM) entities (users and roles) don't have permission to
 create or modify AWS Systems Manager resources. They also can't perform tasks using the Systems Manager
-console, AWS Command Line Interface (AWS CLI), or AWS API. An administrator must create IAM
+console, AWS Command Line Interface (AWS CLI), or AWS API. An administrator is needed to create IAM
 policies that grant users and roles permission to perform specific API operations on
 the specified resources they need. The administrator must then attach those policies
 to the users or groups that require those permissions.
@@ -92,7 +92,7 @@ You don't need to allow minimum console permissions for users that are making
 calls only to the AWS CLI or the AWS API. Instead, allow access to only the
 actions that match the API operation that you're trying to perform.
 
-To ensure that users and roles can still use the Systems Manager console, also attach
+To make sure that users and roles can still use the Systems Manager console, also attach
 the [AmazonSSMFullAccess](../../../aws-managed-policy/latest/reference/AmazonSSMFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSSMFullAccess.md") or [AmazonSSMReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonSSMReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonSSMReadOnlyAccess.md") AWS managed policy to the entities. For
 more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.

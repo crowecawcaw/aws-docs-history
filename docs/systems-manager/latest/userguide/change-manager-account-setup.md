@@ -62,7 +62,7 @@ following.
 6. In the **Template reviewer notification** section,
 specify the Amazon Simple Notification Service (Amazon SNS) topics to use to notify template reviewers
 that a new change template or change template version is ready for
-review. Ensure that the Amazon SNS topic you choose is configured to send
+review. Make sure that the Amazon SNS topic you choose is configured to send
 notifications to your template reviewers.
 
 For information about creating and configuring Amazon SNS topics for
@@ -211,7 +211,7 @@ following options.
      templates**
 
 
-    If you want to ensure that all templates for your organization
+    If you want to make sure that all templates for your organization
      or account specify an Amazon CloudWatch alarm to monitor your change
      operation, select the **Enabled** check
      box.
@@ -219,7 +219,7 @@ following options.
      use**
 
 
-    To ensure that no change requests are created, and no
+    To make sure that no change requests are created, and no
      runbook workflows run, without being based on a template that
      has been reviewed and approved, select the
      **Enabled** check box.

@@ -97,7 +97,7 @@ automation on additional targets when the sixth error is received.
 
 Automations that are already running when the `MaxErrors`
 threshold is reached are allowed to complete, but some of these automations
-may fail as well. If you need to ensure that there won't be more failed
+may fail as well. If you need to make sure that there won't be more failed
 automations than the specified `MaxErrors`, set
 `MaxConcurrency` to 1 so the automations proceed one at a
 time.

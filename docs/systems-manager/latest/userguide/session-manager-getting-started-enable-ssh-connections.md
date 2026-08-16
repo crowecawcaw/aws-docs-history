@@ -38,9 +38,9 @@ node.
 1. On the managed node to which you want to allow SSH connections, do the
    following:
 
-   - Ensure that SSH is running on the managed node. (You can close
+   - Make sure that SSH is running on the managed node. (You can close
      inbound ports on the node.)
-   - Ensure that SSM Agent version 2.3.672.0 or later is installed
+   - Make sure that SSM Agent version 2.3.672.0 or later is installed
      on the managed node.
 
    For information about installing or updating SSM Agent on a
@@ -55,7 +55,7 @@ node.
 2. On the local machine from which you want to connect to a managed node
    using SSH, do the following:
 
-   - Ensure that version 1.1.23.0 or later of the Session Manager plugin is
+   - Make sure that version 1.1.23.0 or later of the Session Manager plugin is
      installed.
 
    For information about installing the Session Manager plugin, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").

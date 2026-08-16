@@ -11,7 +11,7 @@ provide the required parameters without having to use JSON or YAML syntax. After
 add steps and create the runbook, the system converts the actions you've added into
 the YAML format that Systems Manager can use to run automation.
 
-Runbooks support the use of Markdown, a markup language, which allows you to add
+Runbooks support the use of Markdown, a markup language, which lets you add
 wiki-style descriptions to runbooks and individual steps within the runbook. For
 more information about using Markdown, see [Using Markdown in
 AWS](../../../general/latest/gr/aws-markdown.md "../../../general/latest/gr/aws-markdown.md").

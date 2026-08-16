@@ -1,6 +1,6 @@
 # Working with file and Windows registry inventory
 
-AWS Systems Manager Inventory allows you to search and inventory files on Windows Server, Linux,
+AWS Systems Manager Inventory lets you search and inventory files on Windows Server, Linux,
 and macOS operating systems. You can also search and inventory the Windows
 Registry.
 

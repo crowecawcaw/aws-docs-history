@@ -36,7 +36,7 @@ operations:
 
 - Operations from Systems Manager Agent (SSM Agent) to the Systems Manager service in the cloud.
 - Operations from SSM Agent to Session Manager in the cloud. This
-  endpoint is required to create and delete session channels with the Session Manager service
+  endpoint is needed to create and delete session channels with the Session Manager service
   in the cloud.
 
 If connectivity is allowed, SSM Agent receives
@@ -91,7 +91,7 @@ Management Configuration](quick-setup-default-host-management-configuration.md "
 If you have provided permissions for both endpoints and monitor API operations using, for
 example, CloudWatch Metrics, you see no calls to `ec2messages:*`.
 
-For AWS Regions launched before 2024: You can safely remove `ec2messages:*` permissions from your policies at this time.
+For AWS Regions launched before 2024: You can safely remove `ec2messages:*` permissions from your policies currently.
 
 ###### Endpoint connection failover
 

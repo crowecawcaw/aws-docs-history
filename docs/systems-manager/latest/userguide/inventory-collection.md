@@ -9,7 +9,7 @@ association. Systems Manager collects the inventory data when the association is
 create the association first, and attempt to invoke the
 `aws:softwareInventory` plugin by using, for example, AWS Systems Manager Run Command,
 the system returns the following error: `The aws:softwareInventory plugin can only
- be invoked via ssm-associate.`
+ be invoked through ssm-associate.`
 
 ###### Note
 
@@ -35,7 +35,7 @@ for a managed node:
 Before you configure inventory collection, complete the following tasks.
 
 - Update AWS Systems Manager SSM Agent on the nodes you want to inventory. By running the
-  latest version of SSM Agent, you ensure that you can collect metadata for all
+  latest version of SSM Agent, you make sure that you can collect metadata for all
   supported inventory types. For information about how to update SSM Agent by using
   State Manager, see [Walkthrough: Automatically update SSM Agent with the AWS CLI](state-manager-update-ssm-agent-cli.md "state-manager-update-ssm-agent-cli.md").
 - Verify that you have completed the setup requirements for your Amazon Elastic Compute Cloud

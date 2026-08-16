@@ -23,7 +23,7 @@ Automation step.
 
 ###### Before you begin
 
-Before you begin, ensure you have completed the following tasks:
+Before you begin, make sure you have completed the following tasks:
 
 - If you're using AWS Organizations to manage change across an organization,
   complete the organization setup tasks described in [Setting up Change Manager for an organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md").

@@ -2,11 +2,6 @@
 
 Use the information in this topic to help you prepare to use Quick Setup.
 
-###### Topics
-
-- [IAM roles and permissions for Quick Setup onboarding](#quick-setup-getting-started-iam "#quick-setup-getting-started-iam")
-- [Manual onboarding for working with Quick Setup API programmatically](#quick-setup-api-manual-onboarding "#quick-setup-api-manual-onboarding")
-
 ## IAM roles and permissions for Quick Setup onboarding
 
 Quick Setup launched a new console experience and a new API. Now you can interact

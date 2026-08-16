@@ -14,7 +14,7 @@ When you use a service role, the automation is allowed to run against the AWS
 resources, but the user who ran the automation has restricted access (or no access) to
 those resources. For example, you can configure a service role and use it with
 Automation to restart one or more Amazon Elastic Compute Cloud (Amazon EC2) instances. Automation is a tool in
-AWS Systems Manager. The automation restarts the instances, but the service role doesn't give the
+AWS Systems Manager. The automation restarts the instances. However, the service role doesn't give the
 user permission to access those instances.
 
 You can specify a service role at runtime when you run an automation, or you can
@@ -82,7 +82,7 @@ Optionally, you can choose an IAM service role from the
 **AutomationAssumeRole** list. 8. (Optional) Choose a CloudWatch alarm to apply to your automation for monitoring.
 If your alarm enters `ALARM` state, the automation is
 canceled and any defined `onCancel` steps run. If you use
-AWS CloudTrail, you will see the `StopAutomationExecution` API call in
+AWS CloudTrail, you see the `StopAutomationExecution` API call in
 your trail. For more information, see [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md"). 9. Choose **Execute**.
 
 The console displays the status of the automation. If the automation fails to run,

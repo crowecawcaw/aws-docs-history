@@ -57,7 +57,7 @@ service-linked role, then we recommend that you delete that role. That way you
 don’t have an unused entity that isn't actively monitored or maintained. You can
 use the IAM console, the AWS CLI, or the IAM API to manually delete the
 service-linked role. To do this, you must first manually clean up the resources
-for your service-linked role, and then you can manually delete it.
+for your service-linked role. Then, you can manually delete it.
 
 ###### Note
 

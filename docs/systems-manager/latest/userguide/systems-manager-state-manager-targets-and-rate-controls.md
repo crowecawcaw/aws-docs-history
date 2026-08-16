@@ -14,7 +14,7 @@ console, as shown here.
 
 If you create an association by using a command line tool such as the
 AWS Command Line Interface (AWS CLI), then you specify the `targets` parameter.
-Targeting nodes allows you to configure tens, hundreds, or thousands of nodes
+Targeting nodes lets you configure tens, hundreds, or thousands of nodes
 with an association without having to specify or choose individual node IDs.
 
 Each managed node can be targeted by a maximum of 20 associations.
@@ -206,7 +206,7 @@ State Manager sends the stop command after the first error result is returned.
 If you specify an error threshold of 10% for 50 associations, then State Manager
 sends the stop command when the sixth error is returned. Associations that are
 already running when an error threshold is reached are allowed to complete, but
-some of these associations might fail. To ensure that there aren't more errors
+some of these associations might fail. To make sure that there aren't more errors
 than the number specified for the error threshold, set the
 **Concurrency** value to 1 so that associations proceed one
 at a time.

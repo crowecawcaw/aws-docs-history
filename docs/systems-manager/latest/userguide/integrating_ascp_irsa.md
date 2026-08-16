@@ -1,16 +1,9 @@
 # Use AWS Secrets and Configuration Provider CSI with IAM Roles for Service Accounts (IRSA)
 
-###### Topics
-
-- [Prerequisites](#prerequisites "#prerequisites")
-- [Set up access control](#integrating_ascp_irsa_access "#integrating_ascp_irsa_access")
-- [Identify which parameters to mount](#integrating_ascp_irsa_mount "#integrating_ascp_irsa_mount")
-- [Troubleshoot](#integrating_ascp_irsa_trouble "#integrating_ascp_irsa_trouble")
-
 ## Prerequisites
 
 - Amazon EKS cluster (version 1.17 or later)
-- Access to AWS CLI and Amazon EKS cluster via `kubectl`
+- Access to AWS CLI and Amazon EKS cluster through `kubectl`
 
 ## Set up access control
 
@@ -32,7 +25,7 @@ associate them with the IAM role.
 3. Create an [IAM role for service account](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md") and attach the policy to
    it. For more information, see [Create an IAM role for a service account](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md") in the
    _Amazon EKS User Guide_.
-4. If you use a private Amazon EKS cluster, ensure the VPC that
+4. If you use a private Amazon EKS cluster, make sure the VPC that
    the cluster is in has an AWS STS endpoint. For information about
    creating an endpoint, see [Interface VPC endpoints](../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md "../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md") in the _AWS Identity and Access Management User
    Guide_.

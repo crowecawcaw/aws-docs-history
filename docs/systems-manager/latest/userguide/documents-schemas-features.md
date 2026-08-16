@@ -23,7 +23,7 @@ Schema version 2.2 document features| Feature | Details |
 | Automatic versioning | Any update to a document creates a new version. This isn't a<br>schema version, but a version of the document. |
 | Default version | If you have multiple versions of a document, you can specify<br>which version is the default document. |
 | Sequencing | Plugins or *steps<br>• in a document run in the<br>order that you specified. |
-| Cross-platform support | Cross-platform support allows you to specify different<br>operating systems for different plugins within the same SSM<br>document. Cross-platform support uses the<br>`precondition` parameter within a step. |
+| Cross-platform support | Cross-platform support lets you specify different<br>operating systems for different plugins within the same SSM<br>document. Cross-platform support uses the<br>`precondition` parameter within a step. |
 | Parameter interpolation | Interpolation means to insert or substitute a variable<br>value into a string. Think of it as filling in a blank space<br>with actual values before the string is used. In the context of<br>SSM documents, parameter interpolation allows string<br>parameters to be interpolated into environment variables before<br>command execution, providing better security against command<br>injections. When set to `ENV_VAR`, the agent creates<br>an environment variable named<br>`SSM_`parameter-name``<br>that contains the parameter's value. |
 
 ###### Note

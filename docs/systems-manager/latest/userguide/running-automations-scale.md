@@ -107,7 +107,7 @@ In the **Concurrency** section, choose an option:
 11. (Optional) Choose a CloudWatch alarm to apply to your automation for monitoring.
 If your alarm enters `ALARM` state, the automation is
 canceled and any defined `onCancel` steps run. If you use
-AWS CloudTrail, you will see the `StopAutomationExecution` API call in
+AWS CloudTrail, you see the `StopAutomationExecution` API call in
 your trail. For more information, see [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md"). 12. Choose **Execute**.
 
 To view automations started by your rate control automation, in the navigation

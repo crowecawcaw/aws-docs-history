@@ -4,7 +4,7 @@ Several automation actions return pre-defined outputs. You can pass these output
 as inputs to later steps in your runbook using the format
 `{{`stepName`.`outputName`}}`.
 You can also define custom outputs for automation actions in your runbooks. This
-allows you to run scripts, or invoke API operations for other AWS services once so
+lets you run scripts, or invoke API operations for other AWS services once so
 you can reuse the values as inputs in later actions. Parameter types in runbooks are
 static. This means the parameter type can't be changed after it's defined. To define
 a step output provide the following fields:
@@ -123,7 +123,7 @@ outputs:
 ...
 ```
 
-Each of the previously described automation actions allows you to call a specific
+Each of the previously described automation actions lets you call a specific
 API operation by specifying the service namespace, the API operation name, the input
 parameters, and the output parameters. Inputs are defined by the API operation that
 you choose. You can view the API operations (also called methods) by choosing a

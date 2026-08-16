@@ -39,7 +39,7 @@ hybrid managed nodes. For more information about pricing, see [AWS Systems Manag
 
 ###### Windows update option for "other Microsoft products"
 
-In order for Patch Manager to be able to patch applications released by Microsoft
+For Patch Manager to be able to patch applications released by Microsoft
 on your Windows Server managed nodes, the Windows Update option **Give me
 updates for other Microsoft products when I update Windows** must
 be activated on the managed node.
@@ -58,7 +58,7 @@ For more information, see [Configuring Automatic Updates in a Non-Active Directo
 the Microsoft technical documentation website.
 
 For a fleet of managed nodes running Windows Server 2012 or 2012 R2 , you can turn on
-the option by using a script, as described in [Enabling and Disabling Microsoft Update in Windows 7 via Script](https://docs.microsoft.com/en-us/archive/blogs/technet/danbuche/enabling-and-disabling-microsoft-update-in-windows-7-via-script "https://docs.microsoft.com/en-us/archive/blogs/technet/danbuche/enabling-and-disabling-microsoft-update-in-windows-7-via-script") on the
+the option by using a script, as described in [Enabling and Disabling Microsoft Update in Windows 7 through Script](https://docs.microsoft.com/en-us/archive/blogs/technet/danbuche/enabling-and-disabling-microsoft-update-in-windows-7-via-script "https://docs.microsoft.com/en-us/archive/blogs/technet/danbuche/enabling-and-disabling-microsoft-update-in-windows-7-via-script") on the
 Microsoft Docs Blog website. For example, you could do the following:
 
 1. Save the script from the blog post in a file.

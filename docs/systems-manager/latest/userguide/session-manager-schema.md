@@ -121,7 +121,7 @@ Required: No
 [runAsEnabled](#run "#run")
 
 If set to `true`, you must specify a user account
-that exists on the managed nodes you will be connecting to in
+that exists on the managed nodes you are connecting to in
 the `runAsDefaultUser` input. Otherwise, sessions
 will fail to start. By default, sessions are started using the
 `ssm-user` account created by the AWS Systems Manager
@@ -138,7 +138,7 @@ The name of the user account to start sessions with on
 Linux and macOS managed nodes when the
 `runAsEnabled` input is set to `true`.
 The user account you specify for this input must exist on the
-managed nodes you will be connecting to; otherwise, sessions
+managed nodes you are connecting to; otherwise, sessions
 will fail to start. When determining which OS user account to
 use, Session Manager checks in the following order: the
 `SSMSessionRunAs` tag on the IAM user's

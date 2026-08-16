@@ -9,9 +9,16 @@ configuration changes at scale. You can use Run Command from the AWS Management 
 started with Run Command, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/run-command "https://console.aws.amazon.com//systems-manager/run-command"). In the navigation pane, choose
 **Run Command**.
 
-Administrators use Run Command to install or bootstrap applications, build a deployment
-pipeline, capture log files when an instance is removed from an Auto Scaling group, and join instances
-to a Windows domain.
+This section includes the following topics.
+
+- [Setting up Run Command](run-command-setting-up.md "run-command-setting-up.md")
+- [Updating software using Run Command](run-command-tutorial-update-software.md "run-command-tutorial-update-software.md")
+- [Using exit codes in commands](run-command-handle-exit-status.md "run-command-handle-exit-status.md")
+- [Running commands using a specific document version](run-command-version.md "run-command-version.md")
+- [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md "troubleshooting-remote-commands.md")
+  Administrators use Run Command to install or bootstrap applications, build a deployment
+  pipeline, capture log files when an instance is removed from an Auto Scaling group, and join instances
+  to a Windows domain.
 
 The Run Command API follows an eventual consistency model, due to the distributed nature of
 the system supporting the API. This means that the result of an API command you run that
@@ -43,12 +50,3 @@ _target_ type in Amazon EventBridge rules. For information, see [Monitoring Syst
 - [Systems Manager service quotas](../../../general/latest/gr/ssm.md#limits_ssm "../../../general/latest/gr/ssm.md#limits_ssm") in the
   _Amazon Web Services General Reference_
 - [AWS Systems Manager API Reference](../APIReference.md "../APIReference.md")
-
-###### Topics
-
-- [Setting up Run Command](run-command-setting-up.md "run-command-setting-up.md")
-- [Running commands on managed nodes](running-commands.md "running-commands.md")
-- [Using exit codes in commands](run-command-handle-exit-status.md "run-command-handle-exit-status.md")
-- [Understanding command statuses](monitor-commands.md "monitor-commands.md")
-- [Run Command walkthroughs](run-command-walkthroughs.md "run-command-walkthroughs.md")
-- [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md "troubleshooting-remote-commands.md")

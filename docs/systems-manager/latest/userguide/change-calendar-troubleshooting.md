@@ -13,7 +13,7 @@ in AWS Systems Manager.
 (`.ics`) file, the system reports that the calendar import
 failed.
 
-- **Solution 1** – Ensure that you are
+- **Solution 1** – Make sure that you are
   importing a file that was exported from a supported third-party calendar
   provider, which include the following:
 
@@ -23,19 +23,19 @@ failed.
   - iCloud Calendar ([Export instructions](https://support.apple.com/guide/calendar/import-or-export-calendars-icl1023/mac "https://support.apple.com/guide/calendar/import-or-export-calendars-icl1023/mac"))
 
 - **Solution 2** – If your source
-  calendar contains any recurring events, ensure that no individual
+  calendar contains any recurring events, make sure that no individual
   occurrences of the event have been canceled or deleted. Currently, Change Calendar
   doesn't support importing recurring events with individual cancellations. To
   resolve the issue, remove the recurring event from the source calendar,
   re-export the calendar and re-import it into Change Calendar, and then add the
   recurring event using the Change Calendar interface. For information, see [Creating a Change Calendar event](change-calendar-create-event.md "change-calendar-create-event.md").
-- **Solution 3** – Ensure that your
+- **Solution 3** – Make sure that your
   source calendar contains at least one event. Uploads of
   `.ics` files that don't contain events don't
   succeed.
 - **Solution 4** – If the system reports
   that the import failed because the `.ics` is too large,
-  ensure that you are exporting only basic details about your calendar
+  make sure that you are exporting only basic details about your calendar
   entries. If necessary, reduce the length of the time period that you
   export.
 - **Solution 5** – If Change Calendar is unable

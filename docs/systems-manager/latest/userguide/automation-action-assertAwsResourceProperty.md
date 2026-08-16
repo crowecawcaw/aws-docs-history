@@ -1,6 +1,6 @@
 # `aws:assertAwsResourceProperty` – Assert an AWS resource state or event state
 
-The `aws:assertAwsResourceProperty` action allows you to assert a specific
+The `aws:assertAwsResourceProperty` action lets you assert a specific
 resource state or event state for a specific Automation step.
 
 ###### Note

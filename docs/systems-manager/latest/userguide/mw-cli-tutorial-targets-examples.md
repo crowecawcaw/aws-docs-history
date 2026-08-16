@@ -120,7 +120,7 @@ can specify the same `Patch Group` or
 `PatchGroup` key-value pair when you register
 targets with a maintenance window. For example: `--target
  "Key=tag:PatchGroup,Values=`my-patch-group``.
-Doing so allows you to use a maintenance window to update
+Doing so lets you use a maintenance window to update
 patches on a group of nodes that are already associated with the
 same patch baseline. For more information, see [Patch groups](patch-manager-patch-groups.md "patch-manager-patch-groups.md").
 

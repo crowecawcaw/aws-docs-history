@@ -28,7 +28,7 @@ Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTE
    `Email` or `SMS` in the previous step, enter
    an email address or an area code and number to receive notifications. 4. Choose **Create subscription**.
 
-6. If you chose `Email`, you will receive an email message asking you
+6. If you chose `Email`, you receive an email message asking you
    to confirm your subscription. Open the message, and follow the directions to
    complete your subscription.
    Whenever a new version of SSM Agent is released, we send notifications to subscribers.

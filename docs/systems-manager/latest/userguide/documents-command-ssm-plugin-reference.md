@@ -78,7 +78,7 @@ following inputs:
 The last step you want the document to run. If this input is
 defined for a step, it takes precedence over an `exit`
 value specified in the `onFailure` or
-`onSuccess` inputs. In order for a step with this
+`onSuccess` inputs. For a step with this
 input to run as expected, the step must be the last one defined in
 the `mainSteps` of your document.
 
@@ -654,7 +654,7 @@ The name of the log file.
 1. To find the name of the log, in Event Viewer, in the
    navigation pane, select **Applications and
    Services Logs**.
-2. In the list of logs, right-click the log you want to
+2. In the list of logs, open the context menu for the log you want to
    upload (for example, `Microsoft` >
    `Windows` >
    `Backup` >
@@ -1372,7 +1372,7 @@ specify the following:**
   using the latest commit in the master branch. If your
   repository was created after October 1, 2020 the default
   branch might be named main instead of master. In this
-  case, you will need to specify values for the getOptions
+  case, you need to specify values for the getOptions
   parameter.
 
 This parameter uses the following format:
@@ -2347,7 +2347,7 @@ first, and attempt to invoke the `aws:softwareInventory` plugin the
 system returns the following error:
 
 ```
-The aws:softwareInventory plugin can only be invoked via ssm-associate.
+The aws:softwareInventory plugin can only be invoked through ssm-associate.
 ```
 
 An instance can have only one inventory association configured at a time. If

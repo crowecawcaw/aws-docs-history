@@ -7,7 +7,7 @@ instances in the organization, and that they can connect to Systems Manager.
 
 ###### Before you begin
 
-Ensure that the following requirements are met before enabling this
+Make sure that the following requirements are met before enabling this
 setting.
 
 - The latest version of SSM Agent is already installed on all EC2 instances

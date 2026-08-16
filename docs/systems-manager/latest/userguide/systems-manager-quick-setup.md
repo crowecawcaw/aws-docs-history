@@ -10,6 +10,18 @@ set up and the usage limits with no fees for the services used to set up your se
 get started with Quick Setup, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/quick-setup "https://console.aws.amazon.com/systems-manager/quick-setup"). In the navigation pane, choose
 **Quick Setup**.
 
+This section includes the following topics.
+
+- [Deregister a delegated administrator for Quick Setup](quick-setup-deregister-delegated-administrator.md "quick-setup-deregister-delegated-administrator.md")
+- [Troubleshooting Quick Setup results](quick-setup-results-troubleshooting.md "quick-setup-results-troubleshooting.md")
+- [Using a delegated administrator for Quick Setup](quick-setup-delegated-administrator.md "quick-setup-delegated-administrator.md")
+- [Configuration for Assume Role for Systems Manager](quick-setup-assume-role.md "quick-setup-assume-role.md")
+- [Register a delegated administrator for Quick Setup](quick-setup-register-delegated-administrator.md "quick-setup-register-delegated-administrator.md")
+- [Using the Quick Setup API to manage configurations and deployments](quick-setup-api.md "quick-setup-api.md")
+- [Getting started with Quick Setup](quick-setup-getting-started.md "quick-setup-getting-started.md")
+- [Learn Quick Setup terminology and details](quick-setup-using.md "quick-setup-using.md")
+- [Supported Quick Setup configuration types](quick-setup-config-types.md "quick-setup-config-types.md")
+
 ###### Note
 
 If you were directed to Quick Setup to help you configure your instances to be managed by
@@ -31,7 +43,7 @@ real-time view of your configuration deployment status.
 
 You can use Quick Setup in an individual AWS account or across multiple
 AWS accounts and AWS Regions by integrating with AWS Organizations. Using Quick Setup
-across multiple accounts helps to ensure that your organization maintains
+across multiple accounts helps to make sure that your organization maintains
 consistent configurations.
 
 - **Eliminate configuration drift**

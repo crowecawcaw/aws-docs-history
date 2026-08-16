@@ -1,7 +1,7 @@
 # Rerunning automation executions
 
 You can rerun AWS Systems Manager automation executions to repeat tasks with either identical or
-modified parameters. The rerun capability allows you to efficiently replicate automation
+modified parameters. The rerun capability lets you efficiently replicate automation
 executions without manually recreating automation configurations, reducing operational
 overhead and potential configuration errors.
 

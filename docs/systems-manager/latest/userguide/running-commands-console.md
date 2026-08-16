@@ -81,7 +81,7 @@ For information about canceling a command, see [Canceling a command](cancel-run-
 Systems Manager includes two options to help you rerun a command from the **Run
 Command** page in the Systems Manager console.
 
-- **Rerun**: This button allows you to run the same
+- **Rerun**: This button lets you run the same
   command without making changes to it.
 - **Copy to new**: This button copies the settings of
   one command to a new command and gives you the option to edit those

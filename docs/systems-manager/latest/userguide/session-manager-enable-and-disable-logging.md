@@ -19,7 +19,7 @@ account.
 
 To disable session logging using the AWS CLI, follow the instructions in [Update Session Manager preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
 
-In your JSON file, ensure that the `s3BucketName` and
+In your JSON file, make sure that the `s3BucketName` and
 `cloudWatchLogGroupName` inputs contain no values. For example:
 
 ```

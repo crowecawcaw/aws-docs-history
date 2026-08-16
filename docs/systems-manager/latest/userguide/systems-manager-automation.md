@@ -5,10 +5,31 @@ remediation tasks for AWS services like Amazon Elastic Compute Cloud (Amazon EC2
 Amazon Simple Storage Service (Amazon S3), and many more. To get started with Automation, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/automation "https://console.aws.amazon.com/systems-manager/automation"). In the navigation
 pane, choose **Automation**.
 
-Automation helps you to build automated solutions to deploy, configure, and manage AWS
-resources at scale. With Automation, you have granular control over the concurrency of your
-automations. This means you can specify how many resources to target concurrently, and how
-many errors can occur before an automation is stopped.
+This section includes the following topics.
+
+- [Implement change controls for Automation](automation-change-calendar-integration.md "automation-change-calendar-integration.md")
+- [Setting up identity based policies examples](automation-setup-identity-based-policies.md "automation-setup-identity-based-policies.md")
+- [Create service roles for Automation by using CloudFormation](automation-setup-cloudformation.md "automation-setup-cloudformation.md")
+- [Learn about statuses returned by Systems Manager Automation](automation-statuses.md "automation-statuses.md")
+- [Schedule automations with maintenance windows](scheduling-automations-maintenance-windows.md "scheduling-automations-maintenance-windows.md")
+- [Using Document Builder to create runbooks](automation-document-builder.md "automation-document-builder.md")
+- [Run an automation that requires approvals](running-automations-require-approvals.md "running-automations-require-approvals.md")
+- [Running automations in multiple AWS Regions and accounts](running-automations-multiple-accounts-regions.md "running-automations-multiple-accounts-regions.md")
+- [Run automations based on EventBridge events](running-automations-event-bridge.md "running-automations-event-bridge.md")
+- [Run an automation step by step](automation-working-executing-manually.md "automation-working-executing-manually.md")
+- [Using scripts in runbooks](automation-document-script-considerations.md "automation-document-script-considerations.md")
+- [Using conditional statements in runbooks](automation-branch-condition.md "automation-branch-condition.md")
+- [Using action outputs as inputs](automation-action-outputs-inputs.md "automation-action-outputs-inputs.md")
+- [Creating webhook integrations for Automation](creating-webhook-integrations.md "creating-webhook-integrations.md")
+- [Updating AMIs](automation-tutorial-update-ami.md "automation-tutorial-update-ami.md")
+- [Updating AMIs using Automation and Jenkins](automation-tutorial-update-patch-ami-jenkins-integration.md "automation-tutorial-update-patch-ami-jenkins-integration.md")
+- [Updating AMIs for Auto Scaling groups](automation-tutorial-update-patch-windows-ami-autoscaling.md "automation-tutorial-update-patch-windows-ami-autoscaling.md")
+- [Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md "automation-ec2rescue.md")
+- [Passing data to Automation using input transformers](automation-tutorial-eventbridge-input-transformers.md "automation-tutorial-eventbridge-input-transformers.md")
+  Automation helps you to build automated solutions to deploy, configure, and manage AWS
+  resources at scale. With Automation, you have granular control over the concurrency of your
+  automations. This means you can specify how many resources to target concurrently, and how
+  many errors can occur before an automation is stopped.
 
 To help you get started with Automation, AWS develops and maintains several pre-defined
 runbooks. Depending on your use case, you can use these pre-defined runbooks that perform a
@@ -132,23 +153,3 @@ following components to run automations.
 | Automation queue quota              | If you attempt to run more automations than the concurrent<br>automation limit, subsequent automations are added to a queue. Each<br>AWS account can queue 5,000 automations. When an automation is<br>complete (or reaches a terminal state), the first automation in the<br>queue is started.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Rate control automation quota       | Each AWS account can run 25 rate control automations<br>simultaneously. If you attempt to run more rate control automations<br>than the concurrent rate control automation limit, Systems Manager adds the<br>subsequent rate control automations to a queue and displays a status<br>of Pending. For more information about running rate control<br>automations, see [Run automated operations at scale](running-automations-scale.md "running-automations-scale.md").                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Rate control automation queue quota | If you attempt to run more automations than the concurrent rate<br>control automation limit, subsequent automations are added to a<br>queue. Each AWS account can queue 1,000 rate control automations.<br>When an automation is complete (or reaches a terminal state), the<br>first automation in the queue is started.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-
-###### Topics
-
-- [Setting up Automation](automation-setup.md "automation-setup.md")
-- [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md")
-- [Rerunning automation executions](automation-rerun-executions.md "automation-rerun-executions.md")
-- [Run an automation that requires approvals](running-automations-require-approvals.md "running-automations-require-approvals.md")
-- [Run automated operations at scale](running-automations-scale.md "running-automations-scale.md")
-- [Running automations in multiple AWS Regions and accounts](running-automations-multiple-accounts-regions.md "running-automations-multiple-accounts-regions.md")
-- [Run automations based on EventBridge events](running-automations-event-bridge.md "running-automations-event-bridge.md")
-- [Run an automation step by step](automation-working-executing-manually.md "automation-working-executing-manually.md")
-- [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md")
-- [Schedule automations with maintenance windows](scheduling-automations-maintenance-windows.md "scheduling-automations-maintenance-windows.md")
-- [Configuring Automations to monitor CloudWatch Alarms](automation-cw-alarm-monitoring.md "automation-cw-alarm-monitoring.md")
-- [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md")
-- [Creating your own runbooks](automation-documents.md "automation-documents.md")
-- [Systems Manager Automation Runbook Reference](automation-documents-reference.md "automation-documents-reference.md")
-- [Tutorials](automation-tutorials.md "automation-tutorials.md")
-- [Learn about statuses returned by Systems Manager Automation](automation-statuses.md "automation-statuses.md")
-- [Troubleshooting Systems Manager Automation](automation-troubleshooting.md "automation-troubleshooting.md")

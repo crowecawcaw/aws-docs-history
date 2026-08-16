@@ -10,7 +10,7 @@ execution environment for high-scale operations. The throttling retry capability
 supports all [automation actions](automation-actions.md "automation-actions.md") except for
 `aws:executeScript`.
 
-The throttling retry setting works in addition to the existing
+The throttling retry setting works alongside the existing
 `maxAttempts` step property. When both are configured, the system
 first attempts throttling retries within the specified time limit, then applies the
 `maxAttempts` setting if the step continues to fail.

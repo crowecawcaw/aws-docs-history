@@ -19,8 +19,3 @@ For example, [`AWSPremiumSupport-TroubleshootEC2DiskUsage`](../../../systems-man
 
 To learn more about AWS Support, see [Getting started with
 AWS Support](../../../awssupport/latest/user/getting-started.md "../../../awssupport/latest/user/getting-started.md").
-
-###### Topics
-
-- [Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md "automation-ec2rescue.md")
-- [Reset passwords and SSH keys on EC2 instances](automation-ec2reset.md "automation-ec2reset.md")

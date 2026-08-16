@@ -23,7 +23,7 @@ On the **Organizational setup** tab, the **Home
 Region** section displays the AWS Region chosen as the home Region during
 setup. In multi-account and multi-Region environments that use AWS Organizations, Systems Manager
 automatically aggregates node data from all accounts and Regions to the home Region.
-Aggregating data in this way enables you to view node data across accounts and Regions
+Aggregating data in this way lets you view node data across accounts and Regions
 in a single location.
 
 ###### Note
@@ -39,7 +39,7 @@ organizational units and Regions display node data in Systems Manager, choose
 
 ## Feature configurations
 
-The **Feature configurations** section allows you to enable and
+The **Feature configurations** section lets you enable and
 configure key Systems Manager capabilities that enhance node management across your organization.
 These features work together to provide automated management, compliance monitoring, and
 maintenance of your managed nodes.
@@ -163,13 +163,13 @@ may increase AWS service usage.
 ###### Important
 
 Inventory collection requires managed nodes to have the necessary
-permissions to gather system information. Ensure your managed nodes have the
+permissions to gather system information. Make sure your managed nodes have the
 appropriate IAM roles and policies. For more information about required
 permissions, see [AWS Systems Manager Inventory](systems-manager-inventory.md "systems-manager-inventory.md").
 
 ### SSM Agent updates
 
-Automatic SSM Agent updates ensure that your managed nodes are running the latest
+Automatic SSM Agent updates make sure that your managed nodes are running the latest
 version of the SSM Agent. Keeping the agent up-to-date provides access to the latest
 features, security improvements, and bug fixes.
 
@@ -211,8 +211,8 @@ and security.
 
 ## Diagnose and remediate settings
 
-The **Diagnose and remediate** settings determine whether or not
-Systems Manager automatically scans your nodes to ensure they can communicate with Systems Manager. If
+The **Diagnose and remediate** settings determine whether
+Systems Manager automatically scans your nodes to make sure they can communicate with Systems Manager. If
 enabled, the feature runs automatically according to a schedule you define. The feature
 identifies which nodes can't connect to Systems Manager and why. This feature also provides
 recommended runbooks for remediating networking issues and other problems preventing
@@ -227,7 +227,7 @@ identify issues related to misconfigurations for a virtual private cloud (VPC), 
 Domain Name Service (DNS) setting, or in an Amazon Elastic Compute Cloud (Amazon EC2) security group.
 
 To simply the task of identifying nodes that can't connect to Systems Manager, the
-**Schedule recurring diagnosis** feature enables you to
+**Schedule recurring diagnosis** feature lets you
 automate a recurring diagnostic scan. The scans help identify which nodes can't
 connect to Systems Manager and why. Use the following procedure to enable and configure a
 recurring diagnostic scan of your nodes.

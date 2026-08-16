@@ -43,7 +43,7 @@ following location:
 2. Change the value of `SessionLogsRetentionDurationHours` to the
    desired number of hours. If `SessionLogsRetentionDurationHours`
    is set to 0, the temporary log file is created during the session and
-   deleted when the session is completed. This setting should ensure the log
+   deleted when the session is completed. This setting should make sure the log
    file doesn't persist after the session ends.
 3. Save your changes.
 4. [Restart](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md") SSM Agent.

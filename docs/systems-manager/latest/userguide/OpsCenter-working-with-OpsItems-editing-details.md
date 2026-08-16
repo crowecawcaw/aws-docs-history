@@ -38,7 +38,7 @@ Generally, you can edit the following configurable data for an OpsItem:
 - Notifications – When you edit an
   OpsItem, you can specify the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic
   in the **Notifications** field. By specifying an ARN, you
-  ensure that all stakeholders receive a notification when the OpsItem is edited,
+  make sure that all stakeholders receive a notification when the OpsItem is edited,
   including a status change. For more information, see the [_Amazon Simple Notification Service Developer Guide_](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
 
 ###### Important
@@ -48,7 +48,7 @@ the topic and the OpsItem are in different Regions, the system returns an
 error.
 OpsCenter has bidirectional integration with AWS Security Hub CSPM. When you update an OpsItem
 status and severity related to a security finding, those changes are automatically
-sent to Security Hub CSPM to ensure you always see the latest and correct information.
+sent to Security Hub CSPM to make sure you always see the latest and correct information.
 
 When an OpsItem is created from a Security Hub CSPM finding, Security Hub CSPM metadata is automatically
 added to the operational data field of the OpsItem. If this metadata is deleted, the

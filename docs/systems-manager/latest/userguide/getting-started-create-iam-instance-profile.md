@@ -135,7 +135,7 @@ Amazon Simple Storage Service (Amazon S3) buckets and Amazon CloudWatch Logs log
 
 To output session logs to an Amazon S3 bucket owned by a different
 AWS account, you must add the `s3:PutObjectAcl` permission
-to the IAM role policy. Additionally, you must ensure that the bucket
+to the IAM role policy. Additionally, you must make sure that the bucket
 policy grants cross-account access to the IAM role used by the owning
 account to grant Systems Manager permissions for managed instances. If the bucket
 uses Key Management Service (KMS) encryption, then the bucket's KMS

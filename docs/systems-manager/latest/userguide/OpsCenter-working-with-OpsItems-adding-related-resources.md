@@ -10,7 +10,7 @@ ARN of the resource. You can manually specify ARNs of related resources. For cer
 ARN types, OpsCenter automatically creates a deep link that displays details about
 the resource directly in the OpsCenter console. For example, if you specify the ARN
 of an Amazon Elastic Compute Cloud (Amazon EC2) instance as a related resource, then OpsCenter pulls in
-details about that EC2 instance. This allows you to view detailed information about
+details about that EC2 instance. This lets you view detailed information about
 your impacted AWS resources without having to leave OpsCenter.
 
 ###### To view and add related resources to an OpsItem

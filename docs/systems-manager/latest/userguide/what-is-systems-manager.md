@@ -7,7 +7,7 @@ AWS accounts and AWS Regions.
 
 To use Systems Manager, nodes must be [managed](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types"), which means SSM Agent is installed on the machine and the agent can
 communicate with the Systems Manager service. To help you identify why nodes aren't reporting as
-_managed_, Systems Manager offers a one-click diagnosis and
+_managed_, Systems Manager offers a diagnosis and
 remediation runbook. You can configure this runbook to run automatically on a schedule.
 This feature helps identify why nodes can't connect to Systems Manager, including networking
 misconfigurations. It also provides recommended runbooks for remediating
@@ -58,7 +58,7 @@ edits, user management, and software and patch installations.
 
 Systems Manager helps you manage nodes across AWS, on-premises, and multicloud
 environments. Schedule automated diagnoses to identify SSM Agent issues and
-remediate them with one-click runbooks. After your nodes are configured as
+remediate them with runbooks. After your nodes are configured as
 _managed_ nodes, you can execute critical operational
 tasks such as applying security patches, initiating logged sessions, and running
 commands remotely.
@@ -83,7 +83,7 @@ individual tools Systems Manager provides to help you manage nodes at scale.
 **Unified console**
 
 The unified console provides a centralized experience to view and manage your nodes.
-This console leverages several Systems Manager tools and more to provide you with the
+This console uses several Systems Manager tools and more to provide you with the
 following:
 
 - Centralized views of your nodes

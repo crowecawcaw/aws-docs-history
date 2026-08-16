@@ -811,7 +811,7 @@ folder.
 
 Because the Windows Update API is used to download and install KBs,
 all Group Policy settings for Windows Update are respected. No Group
-Policy settings are required to use Patch Manager, but any settings that you
+Policy settings are needed to use Patch Manager, but any settings that you
 have defined will be applied, such as to direct managed nodes to a
 Windows Server Update Services (WSUS) server.
 

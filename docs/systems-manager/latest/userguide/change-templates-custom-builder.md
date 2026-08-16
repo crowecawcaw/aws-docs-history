@@ -72,7 +72,7 @@ run runbook workflows.
 
 ###### Note
 
-Markdown is a markup language that allows you to add
+Markdown is a markup language that lets you add
 wiki-style descriptions to documents and individual steps within
 the document. For more information about using Markdown, see
 [Using Markdown in

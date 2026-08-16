@@ -39,7 +39,7 @@ endpoints:
   For more information about dual-stack service endpoints, see [Dual stack endpoints](../../../general/latest/gr/rande.md#dual-stack-endpoints "../../../general/latest/gr/rande.md#dual-stack-endpoints") in the _AWS General Reference
   Guide_.
 
-You must also ensure that the patch operation buckets are reachable from your
+You must also make sure that the patch operation buckets are reachable from your
 nodes, as described in [Reference: Amazon S3 buckets for patching operations](patch-operations-s3-buckets.md "patch-operations-s3-buckets.md").
 
 ###### About Amazon VPC
@@ -148,7 +148,7 @@ endpoints:
   Service).
 - **`com.amazonaws.`region`.ec2`**
   – If you're using Systems Manager to create VSS-enabled snapshots, you need to
-  ensure that you have an endpoint to the EC2 service. Without the EC2
+  make sure that you have an endpoint to the EC2 service. Without the EC2
   endpoint defined, a call to enumerate attached Amazon EBS volumes fails, which
   causes the Systems Manager command to fail.
 - **`com.amazonaws.`region`.s3`**

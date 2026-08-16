@@ -27,12 +27,7 @@ GitHub.
   then downloads and runs the script.
 - You're responsible for ensuring that all GitHub
   requirements are met. This includes refreshing your access token, as needed.
-  Ensure that you don't surpass the number of authenticated or unauthenticated
+  Make sure that you don't surpass the number of authenticated or unauthenticated
   requests. For more information, see the GitHub
   documentation.
 - GitHub Enterprise repositories are not supported.
-
-###### Topics
-
-- [Run Ansible Playbooks from GitHub](integration-github-ansible.md "integration-github-ansible.md")
-- [Run Python scripts from GitHub](integration-github-python.md "integration-github-python.md")

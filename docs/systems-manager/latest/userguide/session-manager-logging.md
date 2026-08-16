@@ -2,7 +2,7 @@
 
 Session logging records information about current and completed sessions in the Systems Manager
 console. You can also log details about commands run during sessions in your
-AWS account. Session logging enables you to do the following:
+AWS account. Session logging lets you do the following:
 
 - Create and store session logs for archival purposes.
 - Generate a report showing details of every connection made to your managed
@@ -38,7 +38,7 @@ $Passwd = Read-Host -AsSecureString
 - If you're using Windows Server 2012 or earlier, the data in your logs might not
   be formatted optimally. We recommend using Windows Server 2012 R2 and later for
   optimal log formats.
-- If you're using Linux or macOS managed nodes, ensure that
+- If you're using Linux or macOS managed nodes, make sure that
   the screen utility is installed. If it isn't,
   your log data might be truncated. On Amazon Linux 2, AL2023 and Ubuntu Server, the
   screen utility is installed by default. To

@@ -9,7 +9,7 @@ You can create a parameter in Parameter Store and use it in multiple application
 services subject to policies and permissions that you design. When you need to
 change a parameter value, you change one instance, rather than managing error-prone
 changes to numerous sources. Parameter Store supports a hierarchical structure for
-parameter names, so you can qualify a parameter for specific uses.
+parameter names. You can then qualify a parameter for specific uses.
 
 To manage sensitive data, you can create `SecureString` parameters.
 Parameter Store uses AWS KMS keys to encrypt the parameter values of
@@ -33,14 +33,6 @@ convert a standard `SecureString` parameter to an advanced parameter, but
 you cannot convert an advanced parameter to a standard one. For more information
 about the difference between standard and advanced `SecureString`
 parameters, see [Choosing parameter tiers in Parameter Store](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
-
-###### Topics
-
-- [Protecting standard SecureString parameters](#kms-encryption-securestring-standard "#kms-encryption-securestring-standard")
-- [Protecting advanced SecureString parameters](#kms-encryption-securestring-advanced "#kms-encryption-securestring-advanced")
-- [Setting permissions to encrypt and decrypt parameter values](#parameter-policy-kms-encryption "#parameter-policy-kms-encryption")
-- [Parameter Store encryption context](#parameter-store-kms-encryption-context "#parameter-store-kms-encryption-context")
-- [Troubleshooting KMS key issues in Parameter Store](#parameter-store-kms-cmk-troubleshooting "#parameter-store-kms-cmk-troubleshooting")
 
 ## Protecting standard SecureString parameters
 
@@ -94,7 +86,7 @@ aws ssm put-parameter \
 
 The following similar example uses the `--key-id` parameter to
 specify a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk"). The example uses a KMS key ID to identify the
-KMS key, but you can use any valid KMS key identifier. Because the command
+KMS key. However, you can use any valid KMS key identifier. Because the command
 omits the `Tier` parameter (`--tier`), Parameter Store creates a
 standard `SecureString` parameter, not an advanced one.
 
@@ -228,7 +220,7 @@ aws ssm put-parameter \
 
 The following similar example uses the `--key-id` parameter to
 specify a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk"). The example uses the Amazon Resource Name (ARN) of the
-KMS key, but you can use any valid KMS key identifier.
+KMS key. However, you can use any valid KMS key identifier.
 
 ```
 aws ssm put-parameter \
@@ -287,7 +279,7 @@ aws ssm get-parameter \
 ```
 
 You cannot convert an advanced `SecureString` parameter to a
-standard one, but you can convert a standard `SecureString` to an
+standard one. However, you can convert a standard `SecureString` to an
 advanced one. To convert a standard `SecureString` parameter to an
 advanced `SecureString`, use the `PutParameter` operation
 with the `Overwrite` parameter. The `Type` must be

@@ -1,6 +1,6 @@
 # Update a Windows Server AMI
 
-The `AWS-UpdateWindowsAmi` runbook enables you to automate image
+The `AWS-UpdateWindowsAmi` runbook lets you automate image
 maintenance tasks on your Amazon Windows Amazon Machine Image (AMI) without having to
 author the runbook in JSON or YAML. This runbook is supported for Windows Server
 2008 R2 or later. You can use the `AWS-UpdateWindowsAmi` runbook to
@@ -26,7 +26,7 @@ profile, see [Configure instance permissions required for Systems Manager](setup
 Updates to AWS Systems Manager SSM Agent are typically rolled out to different
 regions at different times. When you customize or update an AMI, use only
 source AMIs published for the region that you are working in. This will
-ensure that you are working with the latest SSM Agent released for that
+make sure that you are working with the latest SSM Agent released for that
 region and avoid compatibility issues.
 
 The `AWS-UpdateWindowsAmi` runbook accepts the following input
@@ -59,7 +59,7 @@ from the specified `SourceAmiID`.
 
 **Step 2: runPreUpdateScript (`aws:runCommand` action)**
 
-This step enables you to specify a script as a string that runs
+This step lets you specify a script as a string that runs
 before updates are installed.
 
 **Step 3: updateEC2Config (`aws:runCommand` action)**
@@ -99,7 +99,7 @@ the default behavior by specifying one of the following parameters:
 **Step 8: runPostUpdateScript (`aws:runCommand`
 action)**
 
-This step enables you to specify a script as a string that runs
+This step lets you specify a script as a string that runs
 after the updates have been installed.
 
 **Step 9: runSysprepGeneralize (`aws:runCommand` action)**
@@ -118,8 +118,8 @@ This step stops the updated instance.
 **Step 11: createImage (`aws:createImage` action)**
 
 This step creates a new AMI with a descriptive name that links
-it to the source ID and creation time. For example: “AMI Generated
-by EC2 Automation on {{global:DATE\_TIME}} from {{SourceAmiId}}”
+it to the source ID and creation time. For example: "AMI Generated
+by EC2 Automation on {{global:DATE\_TIME}} from {{SourceAmiId}}"
 where DATE\_TIME and SourceID represent Automation variables.
 
 **Step 12: TerminateInstance (`aws:changeInstanceState`
@@ -130,7 +130,7 @@ instance.
 
 **Output**
 
-This section enables you to designate the outputs of various steps
+This section lets you designate the outputs of various steps
 or values of any parameter as the Automation output. By default, the
 output is the ID of the updated Windows AMI created by the
 automation.
@@ -139,7 +139,7 @@ automation.
 
 By default, when Automation runs the `AWS-UpdateWindowsAmi`
 runbook and creates a temporary instance, the system uses the default VPC
-(172.30.0.0/16). If you deleted the default VPC, you will receive the
+(172.30.0.0/16). If you deleted the default VPC, you receive the
 following error:
 
 VPC not defined 400
@@ -168,7 +168,7 @@ aws ssm start-automation-execution \
 ```
 
 The command returns an execution ID. Copy this ID to the clipboard.
-You will use this ID to view the status of the automation.
+Use this ID to view the status of the automation.
 
 ```
 {

@@ -3,16 +3,6 @@
 Make sure that you have met the required prerequisites before using Patch Manager, a tool
 in AWS Systems Manager.
 
-###### Topics
-
-- [SSM Agent version](#agent-versions "#agent-versions")
-- [Python version](#python-version "#python-version")
-- [Additional package requirements](#additional-package-requirements "#additional-package-requirements")
-- [Connectivity to the patch source](#source-connectivity "#source-connectivity")
-- [S3 endpoint access](#s3-endpoint-access "#s3-endpoint-access")
-- [Permissions to install patches locally](#local-installation-permissions "#local-installation-permissions")
-- [Supported operating systems for Patch Manager](#supported-os "#supported-os")
-
 ## SSM Agent version
 
 Version 2.0.834.0 or later of SSM Agent is running on the
@@ -51,13 +41,13 @@ dnf install zstd xz unzip
 ## Connectivity to the patch source
 
 If your managed nodes don't have a direct connection to the Internet and you're
-using an Amazon Virtual Private Cloud (Amazon VPC) with a VPC endpoint, you must ensure that the nodes have
+using an Amazon Virtual Private Cloud (Amazon VPC) with a VPC endpoint, you must make sure that the nodes have
 access to the source patch repositories (repos). On Linux nodes, patch updates are
 typically downloaded from the remote repos configured on the node. Therefore, the
 node must be able to connect to the repos so the patching can be performed. For more
 information, see [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
 
-When patching a node that is running in an IPv6 only environment, ensure that the
+When patching a node that is running in an IPv6 only environment, make sure that the
 node has connectivity to the patch source. You can check the Run Command output from
 the patching execution to check for warnings about inaccessible repositories. For
 DNF-based operating systems, it is possible to configure unavailable repositories to
@@ -87,7 +77,12 @@ or Windows Server Update Services (WSUS). Confirm that your nodes have
 connectivity to the [Microsoft Update
 Catalog](https://www.catalog.update.microsoft.com/home.aspx "https://www.catalog.update.microsoft.com/home.aspx") through an internet gateway, NAT gateway, or NAT instance.
 If you are using WSUS, confirm that the node has connectivity to the WSUS server
-in your environment. For more information, see [Issue: managed node doesn't have access to Windows Update Catalog or WSUS](patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access "patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access").
+in your environment. If a firewall restricts outbound traffic, allow the
+Microsoft domains that Windows Update requires.
+For more information about configuring your firewall, see [Configure your firewall to allow your first WSUS server to
+connect to Microsoft domains on the internet](https://learn.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#211-configure-your-firewall-to-allow-your-first-wsus-server-to-connect-to-microsoft-domains-on-the-internet "https://learn.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#211-configure-your-firewall-to-allow-your-first-wsus-server-to-connect-to-microsoft-domains-on-the-internet") on the
+Microsoft Learn website. For more
+information about connectivity issues, see [Issue: managed node doesn't have access to Windows Update Catalog or WSUS](patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access "patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access").
 
 ## S3 endpoint access
 
@@ -121,7 +116,7 @@ sudo chown -R `$USER`:admin /usr/local
 
 The Patch Manager tool might not support all the same operating systems versions that
 are supported by other Systems Manager tools. (For the full list of Systems Manager-supported operating
-systems, see [Supported operating systems for Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").) Therefore, ensure that the managed
+systems, see [Supported operating systems for Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").) Therefore, make sure that the managed
 nodes you want to use with Patch Manager are running one of the operating systems listed
 in the following table.
 

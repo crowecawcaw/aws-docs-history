@@ -22,7 +22,7 @@ incidents.
 When granting permissions, you decide who is getting what permissions
 to which Systems Manager resources. You allow specific actions that you
 want to allow on those resources. Therefore you should grant only the
-permissions that are required to perform a task. Implementing least
+permissions needed to perform a task. Implementing least
 privilege access is fundamental in reducing security risk and the impact
 that could result from errors or malicious intent.
 
@@ -38,7 +38,7 @@ proxy**
 
 If you configure SSM Agent to use a proxy, use the
 `no_proxy` variable with the IP address of the Systems Manager
-instance metadata service to ensure that calls to Systems Manager don't take on
+instance metadata service to make sure that calls to Systems Manager don't take on
 the identity of the proxy service.
 
 For more information, see [Configuring SSM Agent to use a proxy on Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md") and [Configure SSM Agent to use a proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
@@ -163,7 +163,7 @@ tools.
   recommend verifying the signature of SSM Agent as part of your
   update process. For information, see [Verifying the signature of SSM Agent](verify-agent-signature.md "verify-agent-signature.md").
 - AWS CLI – The AWS Command Line Interface (AWS CLI) is an open source tool
-  that allows you to interact with AWS services using commands
+  that lets you interact with AWS services using commands
   in your command-line shell. To update the AWS CLI, you run the
   same command used to install the AWS CLI. We recommend creating a
   scheduled task on your local machine to run the command
@@ -254,7 +254,7 @@ was made, and additional details. For more information, see [Logging AWS Systems
 
 **Turn on AWS Config**
 
-AWS Config allows you to assess, audit, and evaluate the configurations of
+AWS Config lets you assess, audit, and evaluate the configurations of
 your AWS resources. AWS Config monitors resource configurations, allowing
 you to evaluate the recorded configurations against the required secure
 configurations. Using AWS Config, you can review changes in configurations and
@@ -265,7 +265,7 @@ you simplify compliance auditing, security analysis, change management,
 and operational troubleshooting. For more information, see [Setting Up
 AWS Config with the Console](../../../config/latest/developerguide/gs-console.md "../../../config/latest/developerguide/gs-console.md") in the _AWS Config
 Developer Guide_. When specifying the resource types to
-record, ensure that you include Systems Manager resources.
+record, make sure that you include Systems Manager resources.
 
 **Monitor AWS security advisories**
 

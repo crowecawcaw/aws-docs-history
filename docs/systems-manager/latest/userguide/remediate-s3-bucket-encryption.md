@@ -58,7 +58,7 @@ KMS key to allow AWS Systems Manager roles to encrypt the S3 bucket on your beha
    replace the `placeholder values` with your own
    information.
 
-Ensure that you add all AWS account IDs that are onboarded in your
+Make sure that you add all AWS account IDs that are onboarded in your
 organization to AWS Systems Manager in the `Principal` field.
 
 To locate the correct bucket name in the Amazon S3 console, in the delegated

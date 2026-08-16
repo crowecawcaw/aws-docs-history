@@ -19,11 +19,6 @@ _patch policies_. We recommend using patch policies for
 keeping all your managed nodes in compliance. For more information about working
 with patch policies, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md").
 
-###### Topics
-
-- [How 'Patch now' works](#patch-on-demand-how-it-works "#patch-on-demand-how-it-works")
-- [Running 'Patch now'](#run-patch-now "#run-patch-now")
-
 ## How 'Patch now' works
 
 To run **Patch now**, you specify just two required
@@ -79,7 +74,7 @@ Error threshold: Install operations| Total number of managed nodes in the *_Patc
 
 ### Using 'Patch now' lifecycle hooks
 
-**Patch now** provides you with the ability to run SSM
+**Patch now** gives you the ability to run SSM
 Command documents as lifecycle hooks during an `Install` patching
 operation. You can use these hooks for tasks such as shutting down
 applications before patching or running health checks on your applications
@@ -88,14 +83,14 @@ after patching or after a reboot.
 For more information about using lifecycle hooks, see [SSM Command document for patching: AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md").
 
 The following table lists the lifecycle hooks available for each of the
-three **Patch now** reboot options, in addition to sample
+three **Patch now** reboot options, besides sample
 uses for each hook.
 
 Lifecycle hooks and sample uses| Reboot option | Hook: Before installation | Hook: After installation | Hook: On exit | Hook: After scheduled reboot |
 | --- | --- | --- | --- | --- |
-| **Reboot if needed** | Run an SSM document before patching begins.<br>Example use: Safely shut down applications before the<br>patching process begins. | Run an SSM document at the end of the patching<br>operation and before managed node reboot.<br>Example use: Run operations such as installing<br>third-party applications before a potential<br>reboot. | Run an SSM document after the patching operation is<br>complete and instances are rebooted.<br>Example use: Ensure that applications are running as<br>expected after patching. | _Not available_ |
-| **Do not reboot my instances** | Same as above. | Run an SSM document at the end of the patching<br>operation.<br>Example use: Ensure that applications are running as<br>expected after patching. | _Not available_ | _Not available_ |
-| **Schedule a reboot time** | Same as above. | Same as for **Do not reboot my<br>instances**. | _Not available_ | Run an SSM document immediately after a scheduled<br>reboot is complete.<br>Example use: Ensure that applications are running as<br>expected after the reboot. |
+| **Reboot if needed** | Run an SSM document before patching begins.<br>Example use: Safely shut down applications before the<br>patching process begins. | Run an SSM document at the end of the patching<br>operation and before managed node reboot.<br>Example use: Run operations such as installing<br>third-party applications before a potential<br>reboot. | Run an SSM document after the patching operation is<br>complete and instances are rebooted.<br>Example use: Make sure that applications are running as<br>expected after patching. | _Not available_ |
+| **Do not reboot my instances** | Same as above. | Run an SSM document at the end of the patching<br>operation.<br>Example use: Make sure that applications are running as<br>expected after patching. | _Not available_ | _Not available_ |
+| **Schedule a reboot time** | Same as above. | Same as for **Do not reboot my<br>instances**. | _Not available_ | Run an SSM document immediately after a scheduled<br>reboot is complete.<br>Example use: Make sure that applications are running as<br>expected after the reboot. |
 
 ## Running 'Patch now'
 
@@ -188,7 +183,7 @@ instance, not those of the IAM user performing this task. For more
 information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md") or [Create the IAM
 service role required for Systems Manager in hybrid and multicloud
 environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md"). In addition, if the specified S3 bucket is
-in a different AWS account, ensure the instance profile or
+in a different AWS account, make sure the instance profile or
 IAM service role associated with the managed node has the
 necessary permissions to write to that bucket. 9. (Optional) If you want to run SSM documents as lifecycle hooks
 during specific points of the patching operation, do the

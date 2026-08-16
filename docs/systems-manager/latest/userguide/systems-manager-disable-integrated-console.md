@@ -10,6 +10,8 @@ organization doesn't revoke trusted access or deregister the delegated administr
 for dependent services. The following procedure describes how to disable the setup for the
 unified console.
 
+For related information, see [Setting up Systems Manager console access](systems-manager-setting-up-console-access.md "systems-manager-setting-up-console-access.md").
+
 ###### To disable the setup for the Systems Manager unified console
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
