@@ -49,14 +49,6 @@ option is slightly different than it is in other regions.
 These and other differences are [explained
 here](https://docs.amazonaws.cn/en_us/aws/latest/userguide/api-gateway.html#feature-diff "https://docs.amazonaws.cn/en_us/aws/latest/userguide/api-gateway.html#feature-diff").
 
-## Differences in the Asia Pacific (Hyderabad) region
-
-The following Neptune features are not supported in the Asia Pacific (Hyderabad)
-(`ap-south-2`) region:
-
-- [Neptune global databases](neptune-global-database.md "neptune-global-database.md")
-- Cross-region snapshot copying (see [Copying a Snapshot](backup-restore-copy-snapshot.md "backup-restore-copy-snapshot.md"))
-
 ## Maximum size of storage cluster volumes
 
 A Neptune cluster volume can grow to a maximum size of 128 tebibytes (TiB) in

@@ -39,8 +39,20 @@ step to read in data files in [GraphML](https://tinkerpop.apache.org/docs/curren
 (a JSON format), and other formats.
 
 ```
-g.io("s3://bucket/data.graphml").read().iterate()
+g.io("https://example.com/data/my-graph.graphml").read().iterate()
 ```
+
+Use the `g.io()` step to read from an HTTPS URL. To load a file that
+you store as an Amazon S3 object, first generate a presigned URL. Then pass that HTTPS URL
+to `g.io()`. You can generate a presigned URL with the AWS CLI
+`aws s3 presign` command:
+
+```
+aws s3 presign s3://amzn-s3-demo-bucket/data/vertices.graphml
+```
+
+For more information about presigned URLs, see [Download and upload objects with presigned
+URLs](../../../AmazonS3/latest/userguide/using-presigned-url.md "../../../AmazonS3/latest/userguide/using-presigned-url.md") in the _Amazon S3 User Guide_.
 
 See [TinkerPop
 documentation](https://tinkerpop.apache.org/docs/current/reference/#io-step "https://tinkerpop.apache.org/docs/current/reference/#io-step") for details.

@@ -85,7 +85,7 @@ snapshot was made, regardless of how much of that allocated storage is actually 
 
 In other words, the "high water mark" for which you are billed does not
 change. Resetting the high water mark requires exporting the data from your graph and then
-reloading it onto a new DB cluster (see [Neptune storage billing](feature-overview-storage.md#feature-overview-storage-billing "feature-overview-storage.md#feature-overview-storage-billing")).
+reloading it onto a new DB cluster (see [Neptune storage billing](storage.md#storage-billing "storage.md#storage-billing")).
 
 ## How to restore from a snapshot
 
