@@ -68,5 +68,10 @@ apply:
   VPN Concentrator attachments, Client VPN attachments, security group
   references, and multicast features are not supported with Encryption
   Support.
+- Encryption Support is not supported for VPC attachments in the Availability
+  Zone `use1-az3`. When Encryption Support is enabled on a transit
+  gateway, you cannot create a VPC attachment that uses a subnet in this
+  Availability Zone. To attach a subnet in `use1-az3`, you must first
+  disable Encryption Support on the transit gateway.
 
 Attempting to create incompatible attachments will fail with an API error.
