@@ -70,9 +70,9 @@ actions for all principals on all resources.
          "Principal":"*",
          "Effect":"Allow",
          "Action":[
-            "rds:CreatePerformanceAnalysisReport",
-            "rds:DeletePerformanceAnalysisReport",
-            "rds:GetPerformanceAnalysisReport"
+            "pi:CreatePerformanceAnalysisReport",
+            "pi:DeletePerformanceAnalysisReport",
+            "pi:GetPerformanceAnalysisReport"
          ],
          "Resource":"*"
       }

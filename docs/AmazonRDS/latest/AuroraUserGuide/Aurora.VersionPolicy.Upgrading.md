@@ -17,7 +17,7 @@ we recommend that you manually upgrade to the database versions that
 you need according to your required schedule.
 In cases of critical security issues or when a version reaches its end-of-support date,
 Amazon Aurora
-might apply a minor version upgrade even if you haven't enabled the **Auto minor version upgrade**
+will apply a minor version upgrade even if you haven't enabled the **Auto minor version upgrade**
 option. For more information, see the upgrade documentation for your specific database engine.
 
 See [Upgrading the minor version or patch level of an Aurora MySQL DB cluster](AuroraMySQL.Updates.Patching.md "AuroraMySQL.Updates.Patching.md")
