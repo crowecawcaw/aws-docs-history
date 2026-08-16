@@ -459,11 +459,16 @@ permissions of the pipe, set up pipe logging, and add tags.
       name.
    2. To use an existing execution role, choose **Use existing
       role**. Under **Role name**, choose the
-      role.
+      role.###### Role manager enabled
 
-4. (Optional) If you have specified a Kinesis or DynamoDB
-   stream as the pipe source, you can configure a retry policy and dead-letter
-   queue (DLQ).
+If role manager is enabled in your account, EventBridge attaches the role for you.
+EventBridge replaces the **Create a new role for this specific resource** and
+**Use existing role** options with a **Customize** option.
+To use a different role, choose **Customize**. For more information, see
+[IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md")
+in the _IAM User Guide_. 4. (Optional) If you have specified a Kinesis or DynamoDB
+stream as the pipe source, you can configure a retry policy and dead-letter
+queue (DLQ).
 
 For **Retry policy and Dead-letter queue - optional**, do the
 following:

@@ -156,11 +156,6 @@ To allow EventBridge to publish to an Amazon SNS topic, use the `aws sns
  get-topic-attributes` and the `aws sns set-topic-attributes`
 commands.
 
-###### Note
-
-You can't use `Condition` blocks in Amazon SNS topic policies for
-EventBridge.
-
 ###### To add permissions that enable EventBridge to publish SNS topics
 
 1. To list the attributes of an SNS topic, use the following command.

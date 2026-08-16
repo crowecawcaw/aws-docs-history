@@ -206,12 +206,28 @@ Amazon EC2.
 
 See the following table for a comparison of Policy A and Policy B.
 
-| Event Pattern                                                                                               | Allowed by Policy A | Allowed by Policy B              |
-| ----------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------- |
-| `<br>{<br>"source": [ "aws.ec2" ]<br>}<br>`                                                                 | Yes                 | Yes                              |
-| `<br>{<br>"source": [ "aws.ec2", "aws.s3" ]<br>}<br>`                                                       | Yes                 | No (Source aws.s3 isn't allowed) |
-| `<br>{<br>"source": [ "aws.ec2" ],<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>` | Yes                 | Yes                              |
-| `<br>{<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>`                             | Yes                 | No (Source must be specified)    |
+| Event Pattern                                                                                               | Allowed by Policy A | Allowed by Policy B                                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `<br>{<br>"source": [ "aws.ec2" ]<br>}<br>`                                                                 | Yes                 | Yes                                                                                                                                                          |
+| `<br>{<br>"source": [ "aws.ec2", "aws.s3" ]<br>}<br>`                                                       | Yes                 | No (Source aws.s3 isn't allowed)                                                                                                                             |
+| `<br>{<br>"source": [ "aws.ec2" ],<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>` | Yes                 | Yes                                                                                                                                                          |
+| `<br>{<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>`                             | Yes                 | Yes. `ForAllValues` evaluates an empty set and returns true because<br>the event pattern omits `events:source`. See the following<br>*_Important_<br>• note. |
+
+###### Policy B source restriction can be bypassed without a Null check
+
+Policy B restricts the events a rule can match only when the rule's event pattern
+includes the `events:source` field. Because the condition uses the
+`ForAllValues` set operator without a `Null` check, an event pattern
+that omits `source` entirely causes the condition to evaluate over an empty set
+and return true. For example, an event pattern that specifies only `detail-type`
+triggers this behavior. A principal can therefore bypass the intended source restriction by
+creating rules whose event patterns don't specify a source.
+
+To require that a rule's event pattern always includes a `source`, combine
+`ForAllValues` with a `Null` condition on `events:source`,
+as shown in [Example: Ensuring that the source is defined in the event pattern](#eb-source-defined-events-pattern "#eb-source-defined-events-pattern"). For more information about how set
+operators evaluate a missing condition key, see [Creating a condition with multiple keys or values](../../../IAM/latest/UserGuide/reference_policies_condition_examples-multi-valued-context-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition_examples-multi-valued-context-keys.md") in the _IAM User
+Guide_.
 
 ## Example: Defining multiple sources that can be used in an event pattern individually
 

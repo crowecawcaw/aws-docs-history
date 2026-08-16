@@ -34,7 +34,7 @@ Amazon EventBridge feature availability by AWS Region| Region | Event buses | Sc
 | Asia Pacific (Malaysia) | ✓ | ✓ | | | | | | |
 | Asia Pacific (Thailand) | ✓ | ✓ | | | | | | Public ✓ |
 | Canada (Central) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Public ✓ |
-| Canada West (Calgary) | ✓ | ✓ | ✓ | | ✓ | | | |
+| Canada West (Calgary) | ✓ | ✓ | | | ✓ | | | |
 | China (Beijing) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | Public ✓ |
 | China (Ningxia) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | Public ✓ |
 | Europe (Frankfurt) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Public ✓Private ✓ |
@@ -45,7 +45,7 @@ Amazon EventBridge feature availability by AWS Region| Region | Event buses | Sc
 | Europe (Ireland) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Public ✓Private ✓ |
 | Europe (London) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Public ✓Private ✓ |
 | Europe (Paris) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Public ✓Private ✓ |
-| Israel (Tel Aviv) | ✓ | ✓ | ✓ | | ✓ | | | |
+| Israel (Tel Aviv) | ✓ | ✓ | | | ✓ | | | |
 | Middle East (UAE) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | Public ✓ |
 | Middle East (Bahrain) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | | Public ✓ |
 | Mexico (Central) | ✓ | ✓ | | | | | | |

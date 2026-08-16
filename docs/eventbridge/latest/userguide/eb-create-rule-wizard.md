@@ -554,6 +554,14 @@ AWS service
     				1. Select **Use existing role**.
     				2. Enter or select the name of the execution role to use
     				 from the dropdown list.
+    		###### Role manager enabled
+
+    		If role manager is enabled in your account, EventBridge attaches the role for you.
+    		 EventBridge replaces the **Create a new role for this specific resource** and
+    		 **Use existing role** options with a **Customize** option.
+    		 To use a different role, choose **Customize**. For more information, see
+    		 [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md")
+    		 in the *IAM User Guide*.
     	* For a target in a different account, for **Target type** select **Target in another AWS account**.
 
 
