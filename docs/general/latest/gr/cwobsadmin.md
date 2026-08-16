@@ -45,6 +45,8 @@ The following are the service endpoints and service quotas for this service.
 | Israel (Tel Aviv)          | il-central-1   | observabilityadmin.il-central-1.amazonaws.com   |          |
 | Mexico (Central)           | mx-central-1   | observabilityadmin.mx-central-1.amazonaws.com   |          |
 | South America (São Paulo)  | sa-east-1      | observabilityadmin.sa-east-1.amazonaws.com      |          |
+| AWS GovCloud (US-East)     | us-gov-east-1  | observabilityadmin.us-gov-east-1.amazonaws.com  |          |
+| AWS GovCloud (US-West)     | us-gov-west-1  | observabilityadmin.us-gov-west-1.amazonaws.com  |          |
 
 ## Service quotas
 

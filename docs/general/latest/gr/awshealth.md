@@ -14,7 +14,7 @@ The following are the service endpoints and service quotas for this service.
 | Region Name            | Region        | Endpoint                                                                                                                                           | Protocol                         |
 | ---------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | US East (Ohio)         | us-east-2     | health.us-east-2.amazonaws.com<br>global.health.amazonaws.com<br>health-fips.us-east-2.amazonaws.com<br>health.us-east-2.api.aws                   | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)  | us-east-1     | health.us-east-1.amazonaws.com<br>global.health.amazonaws.com<br>health.us-east-1.api.aws                                                          | HTTPS<br>HTTPS<br>HTTPS          |
+| US East (N. Virginia)  | us-east-1     | health.us-east-1.amazonaws.com<br>global.health.amazonaws.com<br>health-fips.us-east-1.amazonaws.com<br>health.us-east-1.api.aws                   | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | AWS GovCloud (US-East) | us-gov-east-1 | health.us-gov-east-1.amazonaws.com<br>health-fips.us-gov-east-1.api.aws<br>health-fips.us-gov-east-1.amazonaws.com<br>health.us-gov-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | AWS GovCloud (US-West) | us-gov-west-1 | health.us-gov-west-1.amazonaws.com<br>health-fips.us-gov-west-1.api.aws<br>health-fips.us-gov-west-1.amazonaws.com<br>health.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 
