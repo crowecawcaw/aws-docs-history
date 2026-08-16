@@ -15,7 +15,7 @@ following limitations:
 1. At the bottom of the left control bar, choose the **Record meeting** icon
    (
 
-![A rectangular icon showing REC.](images/icon-record-meeting.png)
+![A rectangular icon showing REC.](/images/chime/latest/ug/images/icon-record-meeting.png)
 
 ). 2. To stop recording, choose the **Record meeting** icon again.
 Amazon Chime processes the recording as soon as you stop recording the meeting. By default, the

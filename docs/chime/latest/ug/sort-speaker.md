@@ -7,7 +7,7 @@ tile into view.
 
 1. In the left control bar, choose the **Media layout** icon (
 
-![An icon showing a stylized app screen with three panels.](/images/chime/latest/ug/images/left-control-5.png)
+![An icon showing a stylized app screen with three panels.](images/left-control-5.png)
 
 ). 2. Choose **Sort active speaker into view**.
 

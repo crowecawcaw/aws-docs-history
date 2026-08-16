@@ -17,7 +17,7 @@ phone numbers you can use to dial into a meeting. For more information, see [Usi
 
 **Attendees panel (
 
-![An icon of two overlapping people in a blue circle.](/images/chime/latest/ug/images/left-control-2.png)
+![An icon of two overlapping people in a blue circle.](images/left-control-2.png)
 
 )**
 
