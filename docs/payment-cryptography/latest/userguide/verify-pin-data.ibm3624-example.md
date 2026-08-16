@@ -10,10 +10,10 @@ This command requires that the pin verification key is of type `TR31_V1_IBM3624_
 ###### PIN length validation
 
 The optional `--pin-data-length` parameter specifies the length of the PIN being verified (4 to 12 digits).
-If you do not specify this parameter, the default PIN length used is 4. We recommend explicitly setting the PIN length to ensure
-that the service validates the number of digits that you intended. For example, if a value of 4 is used but the actual PIN is 6 digits,
-only the rightmost 4 digits are validated and 2 digits are not checked. You might do this intentionally if the cardholder PIN is 6 digits
-but the incoming PIN is only 4 digits, such as when the incoming network or merchant only supports a 4-digit PIN.
+If you do not specify this parameter, the service validates the entire PIN length that the offset value protects.
+If you want to validate only a part of the PIN, use the `--pin-data-length` parameter. For example, if
+`--pin-data-length` is set to 4 but the actual PIN is 6 digits, the service validates only the rightmost 4 digits. The remaining 2 digits are not checked. You might do this intentionally if the cardholder PIN is 6 digits but the incoming PIN is only 4 digits, such as
+when the incoming network or merchant only supports a 4-digit PIN.
 
 ###### Example
 

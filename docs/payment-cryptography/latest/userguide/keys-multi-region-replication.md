@@ -35,6 +35,7 @@ replicated to the Replica Region keys.
 
 The following are some Multi-Region key replication limitations and considerations.
 
+- Payment Cryptography keys must be set to exportable to use Multi-Region key replication.
 - You must enable this feature for either an AWS Region or specific
   Payment Cryptography keys.
 
