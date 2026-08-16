@@ -8,6 +8,15 @@ history](doc-history.md "doc-history.md").
 
 ### August 2026
 
+August 13, 2026
+
+🐘 _PostgreSQL Compatibility_ — **Indexes on
+expressions** — Aurora DSQL now supports indexes on expressions. An index key can be an
+expression computed from one or more columns of the table row, so a query that filters on the
+same expression can use the index. For example, an index on `lower(title)` gives
+efficient case-insensitive searches. All functions and operators used in an index definition
+must be immutable. For more information, see [CREATE INDEX](create-index-syntax-support.md "create-index-syntax-support.md").
+
 August 3, 2026
 
 🐘 _PostgreSQL Compatibility_ — **ALTER TABLE DROP
@@ -21,6 +30,19 @@ August 3, 2026
 🐘 _PostgreSQL Compatibility_ — **ALTER TABLE ADD CONSTRAINT and VALIDATE CONSTRAINT** — Aurora DSQL now supports `ALTER TABLE ... ADD CONSTRAINT ... NOT VALID` for adding `CHECK` constraints without validating existing data, and `ALTER TABLE ASYNC ... VALIDATE CONSTRAINT` for validating existing data against constraints later. The `NOT VALID` option allows adding constraints to large tables without blocking operations. The validation runs as an asynchronous DDL job that can be monitored using `sys.jobs`. For more information, see [ALTER TABLE](alter-table-syntax-support.md "alter-table-syntax-support.md").
 
 ### July 2026
+
+July 31, 2026
+
+🌍 _Region Expansion_ — **Aurora DSQL available in
+four additional Regions** — Multi-Region clusters are now available in Europe
+(Stockholm), Europe (Spain), Asia Pacific (Mumbai), and Asia Pacific (Singapore). For a
+complete list of supported Regions, see [Region availability for
+Aurora DSQL](what-is-aurora-dsql.md#region-availability "what-is-aurora-dsql.md#region-availability").
+
+July 30, 2026
+
+✨ _Feature_ — **Cost visibility and alerting** — With the Aurora DSQL console, you can now view accumulated Aurora DSQL distributed processing
+units (DPU) and more easily establish real-time alerts based on DPU usage.
 
 July 15, 2026
 

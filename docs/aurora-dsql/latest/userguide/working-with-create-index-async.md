@@ -29,64 +29,7 @@ When Aurora DSQL finishes an asynchronous index task, it updates the system cata
 that the index is active. If other transactions reference the objects in the same namespace at
 this time, you might see a concurrency error.
 
-## Syntax
-
-`CREATE INDEX ASYNC` uses the following syntax.
-
-```
-CREATE [ UNIQUE ] INDEX ASYNC [ IF NOT EXISTS ] name ON table_name
-     ( { column_name } [ NULLS { FIRST | LAST } ] )
-     [ INCLUDE ( column_name [, ...] ) ]
-     [ NULLS [ NOT ] DISTINCT ]
-```
-
-## Parameters
-
-**`UNIQUE`**
-
-Indicates to Aurora DSQL to check for duplicate values in the table when it creates the
-index and each time you add data. If you specify this parameter, insert and update
-operations that would result in duplicate entries generate an error.
-
-**`IF NOT EXISTS`**
-
-Indicates that Aurora DSQL shouldn't throw an exception if an index with the same name
-already exists. In this situation, Aurora DSQL doesn't create the new index. Note that the
-index you're trying to create could have a very different structure from the index
-that exists. If you specify this parameter, the index name is required.
-
-**`name`**
-
-The name of the index. You can't include the name of your schema in this
-parameter.
-
-Aurora DSQL creates the index in the same schema as its parent table. The name of the
-index must be distinct from the name of any other object, such as a table or index, in
-the schema.
-
-If you don't specify a name, Aurora DSQL generates a name automatically based on the
-name of the parent table and indexed column. For example, if you run `CREATE
- INDEX ASYNC on table1 (col1, col2)`, Aurora DSQL automatically names the index
-`table1_col1_col2_idx`.
-
-**`NULLS FIRST | LAST`**
-
-The sort order of null and non-null columns. `FIRST` indicates that
-Aurora DSQL should sort null columns before non-null columns. `LAST` indicates
-that Aurora DSQL should sort null columns after non-null columns.
-
-**`INCLUDE`**
-
-A list of columns to include in the index as non-key columns. You can't use a
-non-key column in an index scan search qualiﬁcation. Aurora DSQL ignores the column in
-terms of uniqueness for an index.
-
-**`NULLS DISTINCT | NULLS NOT DISTINCT`**
-
-Specifies whether Aurora DSQL should consider null values as distinct in a unique
-index. The default is `DISTINCT`, meaning that a unique index can contain
-multiple null values in a column. `NOT DISTINCT` indicates that an index
-can't contain multiple null values in a column.
+For the supported syntax and a description of each parameter, see [CREATE INDEX](create-index-syntax-support.md "create-index-syntax-support.md").
 
 ## Usage notes
 

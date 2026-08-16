@@ -10,6 +10,7 @@ PostgreSQL syntax elements that Aurora DSQL supports.
 
 - [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md")
 - [ALTER TABLE](alter-table-syntax-support.md "alter-table-syntax-support.md")
+- [CREATE INDEX](create-index-syntax-support.md "create-index-syntax-support.md")
 - [CREATE SEQUENCE](create-sequence-syntax-support.md "create-sequence-syntax-support.md")
 - [ALTER SEQUENCE](alter-sequence-syntax-support.md "alter-sequence-syntax-support.md")
 - [DROP SEQUENCE](drop-sequence-syntax-support.md "drop-sequence-syntax-support.md")
