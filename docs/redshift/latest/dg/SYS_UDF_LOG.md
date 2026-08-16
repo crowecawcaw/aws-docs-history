@@ -12,13 +12,14 @@ SYS\_UDF\_LOG is visible only to superusers. For more information, see [Visibili
 
 ## Table columns
 
-| Column name    | Data type | Description                            |
-| -------------- | --------- | -------------------------------------- |
-| query\_id      | bigint    | The query identifier.                  |
-| function\_name | text      | The name of the user-defined function. |
-| record\_time   | timestamp | The time that the record was created.  |
-| sequence       | integer   | The sequence of a single log message.  |
-| message        | text      | The log message text.                  |
+| Column name    | Data type     | Description                                       |
+| -------------- | ------------- | ------------------------------------------------- |
+| query\_id      | bigint        | The query identifier.                             |
+| function\_name | text          | The name of the user-defined function.            |
+| record\_time   | timestamp     | The time that the record was created.             |
+| sequence       | integer       | The sequence of a single log message.             |
+| message        | text          | The log message text.                             |
+| query\_uuid    | character(36) | A globally unique identifier (UUID) of the query. |
 
 ## Sample queries
 

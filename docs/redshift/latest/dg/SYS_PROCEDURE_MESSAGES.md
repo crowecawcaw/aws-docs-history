@@ -9,14 +9,15 @@ SYS\_PROCEDURE\_MESSAGES is visible to all users. Superusers can see all rows; r
 
 ## Table columns
 
-| Column name     | Data type  | Description                                                                                               |
-| --------------- | ---------- | --------------------------------------------------------------------------------------------------------- |
-| transaction\_id | bigint     | The transaction identifier.                                                                               |
-| query\_id       | integer    | The query identifier of the stored procedure<br>call.                                                     |
-| record\_time    | timestamp  | The time in UTC when the message was<br>generated.                                                        |
-| log\_level      | char(10)   | The log level of the generated message. Possible<br>values are LOG, INFO, NOTICE, WARNING, and EXCEPTION. |
-| message         | char(1024) | The text of the generated message.                                                                        |
-| line\_number    | integer    | The line number of the generated message.                                                                 |
+| Column name     | Data type     | Description                                                                                               |
+| --------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
+| transaction\_id | bigint        | The transaction identifier.                                                                               |
+| query\_id       | integer       | The query identifier of the stored procedure<br>call.                                                     |
+| record\_time    | timestamp     | The time in UTC when the message was<br>generated.                                                        |
+| log\_level      | char(10)      | The log level of the generated message. Possible<br>values are LOG, INFO, NOTICE, WARNING, and EXCEPTION. |
+| message         | char(1024)    | The text of the generated message.                                                                        |
+| line\_number    | integer       | The line number of the generated message.                                                                 |
+| query\_uuid     | character(36) | A globally unique identifier (UUID) of the query.                                                         |
 
 ## Sample queries
 

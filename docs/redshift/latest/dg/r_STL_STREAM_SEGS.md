@@ -21,12 +21,13 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name | Data type | Description                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------- |
-| userid      | integer   | ID of the user who generated the entry.                                       |
-| query       | integer   | Query ID. The query column can be used to join other system tables and views. |
-| stream      | integer   | The set of concurrent segments of a query.                                    |
-| segment     | integer   | Number that identifies the query segment.                                     |
+| Column name | Data type     | Description                                                                   |
+| ----------- | ------------- | ----------------------------------------------------------------------------- |
+| userid      | integer       | ID of the user who generated the entry.                                       |
+| query       | integer       | Query ID. The query column can be used to join other system tables and views. |
+| stream      | integer       | The set of concurrent segments of a query.                                    |
+| segment     | integer       | Number that identifies the query segment.                                     |
+| query\_uuid | character(36) | A globally unique identifier (UUID) of the query.                             |
 
 ## Sample queries
 

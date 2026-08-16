@@ -24,18 +24,20 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name    | Data type       | Description                                                   |
-| -------------- | --------------- | ------------------------------------------------------------- |
-| userid         | integer         | ID of the user who generated the entry.                       |
-| query          | integer         | The query ID.                                                 |
-| slice          | integer         | Number that identifies the slice where the query was running. |
-| pid            | integer         | Process ID associated with the query<br>statement.            |
-| path           | character(1280) | The complete Amazon S3 object path for the<br>file.           |
-| start\_time    | timestamp       | Start time for the transaction.                               |
-| end\_time      | timestamp       | End time for the transaction.                                 |
-| line\_count    | bigint          | Number of lines (rows) unloaded to the<br>file.               |
-| transfer\_size | bigint          | Number of bytes transferred.                                  |
-| file\_format   | character(10)   | Format of unloaded file.                                      |
+| Column name     | Data type       | Description                                                                                                                                                  |
+| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| userid          | integer         | ID of the user who generated the entry.                                                                                                                      |
+| query           | integer         | The query ID.                                                                                                                                                |
+| slice           | integer         | Number that identifies the slice where the query was running.                                                                                                |
+| pid             | integer         | Process ID associated with the query<br>statement.                                                                                                           |
+| path            | character(1280) | The complete Amazon S3 object path for the<br>file.                                                                                                          |
+| start\_time     | timestamp       | Start time for the transaction.                                                                                                                              |
+| end\_time       | timestamp       | End time for the transaction.                                                                                                                                |
+| line\_count     | bigint          | Number of lines (rows) unloaded to the<br>file.                                                                                                              |
+| transfer\_size  | bigint          | Number of bytes transferred.                                                                                                                                 |
+| file\_format    | character(10)   | Format of unloaded file.                                                                                                                                     |
+| user\_query\_id | bigint          | The query identifier of the user-submitted query, as recorded in the query\_id column of [SYS\_UNLOAD\_DETAIL](SYS_UNLOAD_DETAIL.md "SYS_UNLOAD_DETAIL.md"). |
+| transaction\_id | bigint          | The transaction identifier associated with the<br>statement.                                                                                                 |
 
 ## Sample query
 

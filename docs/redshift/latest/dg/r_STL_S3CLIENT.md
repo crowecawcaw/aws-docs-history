@@ -37,6 +37,7 @@ STL\_S3CLIENT is visible to all users. Superusers can see all rows; regular user
 | ip\_address           | char(64)       | IP address of the server (ip V4 or V6).                                                                                                                             |
 | is\_partial           | integer        | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.         |
 | start\_offset         | bigint         | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes).<br>If the file isn't split, this value is 0. |
+| query\_uuid           | character(36)  | A globally unique identifier (UUID) of the query.                                                                                                                   |
 
 ## Sample query
 

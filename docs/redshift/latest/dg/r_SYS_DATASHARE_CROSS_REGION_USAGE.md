@@ -13,15 +13,16 @@ SYS\_DATASHARE\_CROSS\_REGION\_USAGE is visible only to superusers. For more inf
 
 ## Table columns
 
-| Column name            | Data type | Description                                                                                                             |
-| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
-| query\_id              | integer   | The ID of the query. Use this value to join other<br>system tables and views.                                           |
-| child\_query\_sequence | integer   | The sequence of the rewritten user query, starting<br>with 1.                                                           |
-| segment\_id            | bigint    | The number of the segment. A query consists of<br>multiple segments, and each segment consists of one or more<br>steps. |
-| start\_time            | time      | The time in UTC that the data transfer<br>began.                                                                        |
-| end\_time              | time      | The time in UTC that the data transfer<br>ended.                                                                        |
-| transferred\_data      | bigint    | The number of bytes of data transferred from a<br>producer Region to a consumer Region.                                 |
-| source\_region         | char(25)  | The producer Region that the query transferred<br>data from.                                                            |
+| Column name            | Data type     | Description                                                                                                             |
+| ---------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| query\_id              | integer       | The ID of the query. Use this value to join other<br>system tables and views.                                           |
+| child\_query\_sequence | integer       | The sequence of the rewritten user query, starting<br>with 1.                                                           |
+| segment\_id            | bigint        | The number of the segment. A query consists of<br>multiple segments, and each segment consists of one or more<br>steps. |
+| start\_time            | time          | The time in UTC that the data transfer<br>began.                                                                        |
+| end\_time              | time          | The time in UTC that the data transfer<br>ended.                                                                        |
+| transferred\_data      | bigint        | The number of bytes of data transferred from a<br>producer Region to a consumer Region.                                 |
+| source\_region         | char(25)      | The producer Region that the query transferred<br>data from.                                                            |
+| query\_uuid            | character(36) | A globally unique identifier (UUID) of the query.                                                                       |
 
 ## Sample queries
 

@@ -19,14 +19,17 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name | Data type      | Description                                                                                                                                                            |
-| ----------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer        | ID of the user who generated the entry.                                                                                                                                |
-| query       | integer        | Query ID. The query column can be used to join other system tables and views.                                                                                          |
-| nodeid      | integer        | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                         |
-| parentid    | integer        | Plan node identifier for a parent node. A parent<br>node has some number of child nodes. For example, a merge join is<br>the parent of the scans on the joined tables. |
-| plannode    | character(400) | The node text from the EXPLAIN output. Plan nodes<br>that refer to execution on compute nodes are prefixed with<br>`XN` in the EXPLAIN output.                         |
-| info        | character(400) | Qualifier and filter information for the plan<br>node. For example, join conditions and WHERE clause restrictions are<br>included in this column.                      |
+| Column name            | Data type      | Description                                                                                                                                                            |
+| ---------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid                 | integer        | ID of the user who generated the entry.                                                                                                                                |
+| query                  | integer        | Query ID. The query column can be used to join other system tables and views.                                                                                          |
+| nodeid                 | integer        | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                         |
+| parentid               | integer        | Plan node identifier for a parent node. A parent<br>node has some number of child nodes. For example, a merge join is<br>the parent of the scans on the joined tables. |
+| plannode               | character(400) | The node text from the EXPLAIN output. Plan nodes<br>that refer to execution on compute nodes are prefixed with<br>`XN` in the EXPLAIN output.                         |
+| info                   | character(400) | Qualifier and filter information for the plan<br>node. For example, join conditions and WHERE clause restrictions are<br>included in this column.                      |
+| user\_query\_id        | bigint         | The query identifier of the user-submitted query, as recorded in the query\_id column of [SYS\_QUERY\_EXPLAIN](SYS_QUERY_EXPLAIN.md "SYS_QUERY_EXPLAIN.md").           |
+| child\_query\_sequence | integer        | The sequence number of the rewritten child query<br>under the user query, starting with 1.                                                                             |
+| query\_uuid            | character(36)  | A globally unique identifier (UUID) of the query.                                                                                                                      |
 
 ## Sample queries
 

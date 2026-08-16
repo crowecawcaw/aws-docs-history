@@ -16,6 +16,7 @@ Returns the SQL text of a child query.
 | child\_query\_sequence | integer        | The sequence of the rewritten user query, starting with 1. |
 | sequence               | integer        | The sequence number for this query piece.                  |
 | text                   | character(200) | The first 200 characters of the text of the SQL query.     |
+| query\_uuid            | character(36)  | A globally unique identifier (UUID) of the query.          |
 
 ## Sample queries
 

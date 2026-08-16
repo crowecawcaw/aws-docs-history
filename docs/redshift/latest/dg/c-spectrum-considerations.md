@@ -9,7 +9,7 @@ This topic describes limitations for using Redshift Spectrum.
 
 Note the following considerations when you use Redshift Spectrum:
 
-- The Amazon Redshift cluster and the Amazon S3 bucket must be in the same AWS Region.
+- For RA3 and DC2 provisioned clusters using Redshift Spectrum, the cluster and the Amazon S3 bucket must be in the same AWS Region. Provisioned RG clusters and Amazon Redshift Serverless include an integrated data lake query engine that runs on the cluster's own compute resources and supports querying Amazon S3 data across AWS Regions.
 - Redshift Spectrum doesn't support enhanced VPC routing with RA3 and DC2 provisioned clusters. To access your Amazon S3 data, you might need to perform additional
   configuration steps. For more information, see [Redshift Spectrum and enhanced VPC routing](../mgmt/spectrum-enhanced-vpc.md "../mgmt/spectrum-enhanced-vpc.md") in the _Amazon Redshift Management Guide_.
 - Redshift Spectrum supports Amazon S3 access point aliases. For more information,

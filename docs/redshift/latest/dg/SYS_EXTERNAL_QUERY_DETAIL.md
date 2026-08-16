@@ -40,6 +40,7 @@ SYS\_EXTERNAL\_QUERY\_DETAIL is visible to all users. Superusers can see all row
 | is\_nested             | character(1)    | Indicates whether the nested column data type is<br>accessed.                                                            |
 | s3list\_time           | bigint          | The duration of file listing in<br>milliseconds.                                                                         |
 | get\_partition\_time   | long            | Time spent to list and qualify partitions for a<br>given external object from the AWS Glue Data Catalog and Apache Hive. |
+| query\_uuid            | character(36)   | A globally unique identifier (UUID) of the query.                                                                        |
 
 ## Sample queries
 

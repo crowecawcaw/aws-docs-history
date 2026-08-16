@@ -24,6 +24,7 @@ SYS\_QUERY\_TEXT is visible to all users. Superusers can see all rows; regular u
 | start\_time     | timestamp        | The time when the query starts.                                                                                                                                              |
 | sequence        | integer          | When a single statement contains more than 4000<br>characters, additional rows are logged for the statement. Sequence 0<br>is the first row, 1 is the second row, and so on. |
 | text            | character (4000) | The text of the SQL query that is in<br>4000-character increments. This field might contain special<br>characters, such as backslash (\) and newline (\n).                   |
+| query\_uuid     | character(36)    | A globally unique identifier (UUID) of the query.                                                                                                                            |
 
 ## Sample queries
 

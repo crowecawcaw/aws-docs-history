@@ -21,18 +21,19 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name  | Data type       | Description                                                                                                                                                                                  |
-| ------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid       | integer         | ID of the user who generated the entry.                                                                                                                                                      |
-| query        | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                                |
-| slice        | integer         | Node slice number where the replacement<br>occurred.                                                                                                                                         |
-| tbl          | integer         | Table ID.                                                                                                                                                                                    |
-| starttime    | timestamp       | Start time in UTC for the COPY command.                                                                                                                                                      |
-| session      | integer         | Session ID for the session performing the COPY<br>command.                                                                                                                                   |
-| filename     | character(256)  | Complete path to the input file for the COPY<br>command.                                                                                                                                     |
-| line\_number | bigint          | Line number in the input data file that contained<br>an invalid UTF-8 character.<br>A `-1` indicates that the line number is not available, such as, when copying from a columnar data file. |
-| colname      | character(127)  | First field that contained an invalid UTF-8<br>character.                                                                                                                                    |
-| raw\_line    | character(1024) | Raw load data that contained an invalid UTF-8<br>character.                                                                                                                                  |
+| Column name     | Data type       | Description                                                                                                                                                                                  |
+| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid          | integer         | ID of the user who generated the entry.                                                                                                                                                      |
+| query           | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                                |
+| slice           | integer         | Node slice number where the replacement<br>occurred.                                                                                                                                         |
+| tbl             | integer         | Table ID.                                                                                                                                                                                    |
+| starttime       | timestamp       | Start time in UTC for the COPY command.                                                                                                                                                      |
+| session         | integer         | Session ID for the session performing the COPY<br>command.                                                                                                                                   |
+| filename        | character(256)  | Complete path to the input file for the COPY<br>command.                                                                                                                                     |
+| line\_number    | bigint          | Line number in the input data file that contained<br>an invalid UTF-8 character.<br>A `-1` indicates that the line number is not available, such as, when copying from a columnar data file. |
+| colname         | character(127)  | First field that contained an invalid UTF-8<br>character.                                                                                                                                    |
+| raw\_line       | character(1024) | Raw load data that contained an invalid UTF-8<br>character.                                                                                                                                  |
+| user\_query\_id | bigint          | The query identifier of the user-submitted query, as recorded in the query\_id column of [SYS\_COPY\_REPLACEMENTS](SYS_COPY_REPLACEMENTS.md "SYS_COPY_REPLACEMENTS.md").                     |
 
 ## Sample queries
 

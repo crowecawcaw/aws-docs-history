@@ -22,19 +22,20 @@ For more information on dynamic data masking, go to [Dynamic data masking](t_ddm
 
 ## Table columns
 
-| Column name     | Data type | Description                                                                                                                                                 |
-| --------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| policy\_name    | text      | The name of the masking policy.                                                                                                                             |
-| user\_id        | text      | The ID of the user who ran the query.                                                                                                                       |
-| record\_time    | timestamp | The time that the system view entry was<br>recorded.                                                                                                        |
-| session\_id     | int       | The process ID.                                                                                                                                             |
-| transaction\_id | long      | The transaction ID.                                                                                                                                         |
-| query\_id       | int       | The query ID.                                                                                                                                               |
-| database\_name  | text      | The name of the database on which the query was<br>run.                                                                                                     |
-| relation\_name  | text      | The name of the table that the masking policy is<br>applied to.                                                                                             |
-| schema\_name    | text      | The name of the schema that the table is<br>in.                                                                                                             |
-| attachment\_id  | long      | The attached masking policy's ID.                                                                                                                           |
-| relation\_kind  | text      | The type of the relation that the masking policy<br>is applied to. Possible values are `TABLE`,<br>`VIEW`, `LATE BINDING VIEW`, and<br>`MATERIALIZED VIEW`. |
+| Column name     | Data type     | Description                                                                                                                                                 |
+| --------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| policy\_name    | text          | The name of the masking policy.                                                                                                                             |
+| user\_id        | text          | The ID of the user who ran the query.                                                                                                                       |
+| record\_time    | timestamp     | The time that the system view entry was<br>recorded.                                                                                                        |
+| session\_id     | int           | The process ID.                                                                                                                                             |
+| transaction\_id | long          | The transaction ID.                                                                                                                                         |
+| query\_id       | int           | The query ID.                                                                                                                                               |
+| database\_name  | text          | The name of the database on which the query was<br>run.                                                                                                     |
+| relation\_name  | text          | The name of the table that the masking policy is<br>applied to.                                                                                             |
+| schema\_name    | text          | The name of the schema that the table is<br>in.                                                                                                             |
+| attachment\_id  | long          | The attached masking policy's ID.                                                                                                                           |
+| relation\_kind  | text          | The type of the relation that the masking policy<br>is applied to. Possible values are `TABLE`,<br>`VIEW`, `LATE BINDING VIEW`, and<br>`MATERIALIZED VIEW`. |
+| query\_uuid     | character(36) | A globally unique identifier (UUID) of the query.                                                                                                           |
 
 ## Sample queries
 

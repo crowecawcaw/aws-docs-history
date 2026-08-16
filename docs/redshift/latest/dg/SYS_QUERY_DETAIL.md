@@ -66,6 +66,7 @@ LEFT JOIN sys_transaction_history th on qh.transaction_id = th.transaction_id;
 | metrics\_level               | character(64)  | The metric level of the query. Possible values are as follows:<br>• Child query<br>• Stream<br>• Segment<br>• Step                                                                                                                                                 |
 | plan\_parent\_id             | integer        | The identifier of the plan node's parent node.<br>A parent node can have multiple child nodes. For example,<br>a merge join is the parent node of the scans on the joined tables.                                                                                  |
 | plan\_node\_id               | integer        | The identifier of a plan node<br>that maps to one or more steps in the query.                                                                                                                                                                                      |
+| query\_uuid                  | character(36)  | A globally unique identifier (UUID) of the query.                                                                                                                                                                                                                  |
 
 ## Usage notes
 

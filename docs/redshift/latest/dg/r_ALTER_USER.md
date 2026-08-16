@@ -33,6 +33,8 @@ CREATEDB | NOCREATEDB
 | SET *parameter* { TO | = } { *value* | DEFAULT }
 | RESET *parameter*
 | EXTERNALID *external\_id*
+| NOLOGIN
+| LOGIN PASSWORD { '*password*' | '*md5hash*' | '*sha256hash*' }
 ```
 
 ## Parameters
@@ -185,6 +187,35 @@ The identifier for the user, which is associated with an identity provider.
 The user must have their password disabled. For more information, see [Native
 identity provider (IdP) federation for Amazon Redshift](../mgmt/redshift-iam-access-control-native-idp.md "../mgmt/redshift-iam-access-control-native-idp.md").
 
+NOLOGIN
+
+Locks the specified user so that they can't connect to the database. Amazon Redshift
+rejects login for locked users. When you lock a user, Amazon Redshift doesn't end
+that user's existing sessions. To unlock the user, use LOGIN PASSWORD.
+
+Specify NOLOGIN by itself, without PASSWORD. If you include PASSWORD with
+NOLOGIN, Amazon Redshift changes the user's password but still locks the user, which
+leaves the user locked with a new password. To lock a user without changing
+their password, use NOLOGIN alone.
+
+User lockout applies only to password-based database users. Federated
+users can't be locked. This includes users who authenticate through AWS Identity and Access Management
+(IAM) or AWS IAM Identity Center. You also can't lock the admin user. To lock a user, you
+must be a superuser or a user with the ALTER USER privilege. This option is
+available only when user lockout security is enabled for the cluster. For more
+information, see [SHOW USER LOCKOUT](r_SHOW_USER_LOCKOUT.md "r_SHOW_USER_LOCKOUT.md") and [max\_failed\_login\_attempts](max_failed_login_attempts.md "max_failed_login_attempts.md").
+
+LOGIN PASSWORD { '_password_' | '_md5hash_' | '_sha256hash_' }
+
+Unlocks the specified user and sets a new password. You must specify PASSWORD
+when you use LOGIN. When you unlock a user, Amazon Redshift resets that user's failed-login
+counter.
+
+To unlock a user, you must be a superuser or a user with the ALTER USER
+privilege. As with NOLOGIN, this applies only to password-based users. This
+option is available only when user lockout security is enabled for the
+cluster.
+
 ## Usage notes
 
 - **Attempting to alter rdsdb** – You can't
@@ -273,6 +304,20 @@ session.
 
 ```
 ALTER USER odie SET TIMEZONE TO 'Europe/Zurich';
+```
+
+The following example locks the user `data_analyst` so that they can't
+connect to the database:
+
+```
+ALTER USER data_analyst NOLOGIN;
+```
+
+The following example unlocks the user `data_analyst` and sets a new
+password. Unlocking the user resets their failed-login counter:
+
+```
+ALTER USER data_analyst LOGIN PASSWORD 'NewStr0ngP@ssword';
 ```
 
 The following example sets the maximum number of database connections that the user

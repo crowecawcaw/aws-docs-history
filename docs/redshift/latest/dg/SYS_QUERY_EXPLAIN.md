@@ -20,6 +20,7 @@ SYS\_QUERY\_EXPLAIN is visible to all users. Superusers can see all rows; regula
 | plan\_parent\_id       | integer        | The identifier of the plan node's parent node.<br>A parent node can have multiple child nodes. For example, a merge join<br>is the parent node of the scans on the joined tables. |
 | plan\_node             | character(400) | The node text from the EXPLAIN output.<br>Plan nodes that refer to execution on compute nodes are prefixed with XN in the EXPLAIN output.                                         |
 | plan\_info             | character(400) | Qualifier and filter information for the plan node.<br>For example, join conditions and WHERE clause restrictions are included in this column.                                    |
+| query\_uuid            | character(36)  | A globally unique identifier (UUID) of the query.                                                                                                                                 |
 
 ## Sample queries
 
