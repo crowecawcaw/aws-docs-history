@@ -8,9 +8,12 @@ with MGN.
 **Topics**
 
 - [Troubleshooting FSx for ONTAP iSCSI connectivity](#fsx-iscsi-troubleshooting "#fsx-iscsi-troubleshooting")
-- [FSx for ONTAP storage operation timed out](#fsx-storage-timeout-troubleshooting "#fsx-storage-timeout-troubleshooting")
+- [FSx for ONTAP replication errors](#fsx-storage-timeout-troubleshooting "#fsx-storage-timeout-troubleshooting")
+- [Failed to start data transfer](#fsx-failed-to-start-data-transfer "#fsx-failed-to-start-data-transfer")
+- [Not converging](#fsx-not-converging "#fsx-not-converging")
 - [Replication volume not deleted after Finalize cutover/Disconnect from service (FlexClone split blocked by backup)](#fsx-flexclone-split-blocked "#fsx-flexclone-split-blocked")
 - [Orphaned FSx for ONTAP target volumes (FlexClone) after launch cleanup](#fsx-orphaned-flexclone "#fsx-orphaned-flexclone")
+- [Troubleshooting FSx for ONTAP launch errors](#fsx-ontap-launch-troubleshooting "#fsx-ontap-launch-troubleshooting")
 
 ## Troubleshooting FSx for ONTAP iSCSI connectivity
 
@@ -57,22 +60,58 @@ iSCSI LUNs on FSx for ONTAP](../../../fsx/latest/ONTAPGuide/mount-iscsi-luns.md 
 After fixing the issue, launch a new test or cutover from the MGN console. The postboot
 script will run again automatically.
 
-## FSx for ONTAP storage operation timed out
+## FSx for ONTAP replication errors
 
-If a migration operation fails with a storage operation timeout, this indicates that
-MGN could not complete a storage request to the FSx for ONTAP file system within the expected
-time. This can be caused by insufficient capacity, degraded performance, or a network
-connectivity issue between MGN and the file system.
+When MGN encounters storage issues while replicating data to FSx for ONTAP, replication
+stalls and an error is displayed in the MGN console. This section covers the common
+replication stall errors and how to resolve them.
+
+### Failed to start data transfer
+
+If replication stalls with a "Failed to Start Data Transfer" error, MGN could not
+begin writing data to the FSx for ONTAP file system. This may be caused by a storage
+capacity issue.
 
 **Possible causes and resolutions:**
 
-| Cause                                                                 | How to verify                                                                                                                                                                                                                                                                                                                                     | Resolution                                                                                                                                                                                                                                                                                                              |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| File system is out of storage capacity                                | In the [FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),<br>check the file system's *_Storage capacity_<br>• and<br>*_Used storage_<br>• metrics.                                                                                                                                                         | Increase the file system's storage capacity. For more information, see<br>[Managing<br>storage capacity and provisioned IOPS](../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md "../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md").                                                               |
-| Throughput capacity is insufficient for the workload                  | In the FSx console, check the **Throughput**<br>CloudWatch metrics for the file system. Look for sustained throughput near the<br>provisioned limit.                                                                                                                                                                                              | Increase the file system's throughput capacity. You can modify throughput at any<br>time. For more information, see<br>[Managing<br>throughput capacity](../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md "../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md").                              |
-| Network connectivity issue between MGN and the FSx for ONTAP REST API | Verify that the security group attached to the FSx for ONTAP file system allows<br>inbound HTTPS (TCP 443) from the FSx for ONTAP preferred and standby subnet CIDRs. These<br>rules are required for MGN to access the ONTAP REST API. See<br>[1.2 FSx for ONTAP security group](fsx-ontap.md#fsx-ontap-fsx-sg "fsx-ontap.md#fsx-ontap-fsx-sg"). | Add inbound HTTPS (TCP 443) rules to the FSx for ONTAP security group with the<br>preferred and standby subnet CIDRs as the source. For details on identifying these<br>CIDRs, see [Step 1: Configure security<br>groups](fsx-ontap.md#fsx-ontap-step1-security-groups "fsx-ontap.md#fsx-ontap-step1-security-groups"). |
+| Cause                                         | How to verify                                                                                                                                                                             | Resolution                                                                                                                                                                                                                                                |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| File system is out of storage capacity        | In the [FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),<br>check the file system's *_Storage capacity_<br>• and<br>*_Used storage_<br>• metrics. | Increase the file system's storage capacity. For more information, see<br>[Managing<br>storage capacity and provisioned IOPS](../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md "../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md"). |
+| Replication volume is out of storage capacity | In the [FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),<br>check for volume-level errors on the replication volume.                              | Increase the volume size to accommodate the replicated data.                                                                                                                                                                                              |
 
-After resolving the issue, retry the migration operation from the MGN console.
+After resolving the issue, replication recovers automatically. It may take up to a few hours for the stall indicator to clear in the MGN console.
+
+### Not converging
+
+If replication enters a "Not Converging" state, MGN is unable to keep up with
+changes on the source server. The rate of incoming data exceeds the rate at which MGN
+can write to the FSx for ONTAP file system. In addition to the general causes listed in
+[Common replication errors](common-replication-errors.md "common-replication-errors.md"), the following
+FSx for ONTAP-specific causes may apply:
+
+**Possible causes and resolutions:**
+
+| Cause                                                | How to verify                                                                                                                                                                             | Resolution                                                                                                                                                                                                                                                                                 |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| File system is out of storage capacity               | In the [FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),<br>check the file system's *_Storage capacity_<br>• and<br>*_Used storage_<br>• metrics. | Increase the file system's storage capacity. For more information, see<br>[Managing<br>storage capacity and provisioned IOPS](../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md "../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md").                                  |
+| Throughput capacity is insufficient for the workload | In the FSx console, check the **Throughput**<br>CloudWatch metrics for the file system. Look for sustained throughput near the<br>provisioned limit.                                      | Increase the file system's throughput capacity. You can modify throughput at any<br>time. For more information, see<br>[Managing<br>throughput capacity](../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md "../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md"). |
+
+After resolving the issue, replication recovers automatically. It may take up to a few hours for the stall indicator to clear in the MGN console.
+
+### Storage operation timed out
+
+If a migration operation fails with a storage operation timeout, this indicates that
+MGN could not complete a storage request to the FSx for ONTAP file system within the expected
+time. This can be caused by insufficient capacity or degraded performance.
+
+**Possible causes and resolutions:**
+
+| Cause                                                | How to verify                                                                                                                                                                             | Resolution                                                                                                                                                                                                                                                                                 |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| File system is out of storage capacity               | In the [FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),<br>check the file system's *_Storage capacity_<br>• and<br>*_Used storage_<br>• metrics. | Increase the file system's storage capacity. For more information, see<br>[Managing<br>storage capacity and provisioned IOPS](../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md "../../../fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.md").                                  |
+| Throughput capacity is insufficient for the workload | In the FSx console, check the **Throughput**<br>CloudWatch metrics for the file system. Look for sustained throughput near the<br>provisioned limit.                                      | Increase the file system's throughput capacity. You can modify throughput at any<br>time. For more information, see<br>[Managing<br>throughput capacity](../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md "../../../fsx/latest/ONTAPGuide/managing-throughput-capacity.md"). |
+
+After resolving the issue, replication recovers automatically. It may take up to a few hours for the stall indicator to clear in the MGN console.
 
 ## Replication volume not deleted after Finalize cutover/Disconnect from service (FlexClone split blocked by backup)
 
@@ -164,3 +203,57 @@ Delete the orphaned volume manually via the FSx for ONTAP console:
 
 Confirm that no volumes with the `atx_cleanup_required_` prefix remain in your
 FSx for ONTAP file system.
+
+## Troubleshooting FSx for ONTAP launch errors
+
+Use the information in this section to troubleshoot launch errors specific to FSx for ONTAP
+migrations.
+
+### Insufficient file system capacity
+
+Before launching a test or cutover, MGN validates that the FSx for ONTAP file system has
+sufficient capacity. The launch fails if predicted usage would exceed 90% of the aggregate
+capacity, with an error similar to:
+
+```
+Launch check failed: insufficient capacity on file system fs-0123456789abcdef0
+(85% used). This job needs ~50 GB of free space. Expand storage and retry.
+```
+
+###### Cause
+
+The FSx for ONTAP file system does not have enough free SSD storage capacity to create
+FlexClone volumes for all source servers in the launch job.
+
+###### Resolution
+
+Increase the SSD storage capacity of your FSx for ONTAP file system.
+
+1. Open the FSx for ONTAP console at
+   [https://console.aws.amazon.com/fsx/](../../../fsx.md "../../../fsx.md"),
+   and choose **File systems**.
+2. Select the file system shown in the error message.
+3. On the **Summary** panel, choose
+   **Update** next to **SSD storage
+   capacity**.
+4. Enter the new desired capacity. The minimum increase is 10% of the current capacity
+   or 1 TiB, whichever is greater.
+5. Choose **Update**.
+6. Wait for the storage update to complete, then retry the launch from the MGN
+   console.
+
+###### Note
+
+Storage capacity increases are non-disruptive. The file system remains available during
+the scaling operation.
+
+###### Tip
+
+During migration, the file system holds both the replica volumes (used for ongoing
+replication) and the cloned volumes (created at launch). Both coexist until you finalize
+the cutover and delete the replica volumes. Plan your SSD capacity to accommodate both
+sets simultaneously, or reduce the number of source servers in a single launch job.
+
+For more information, see
+[Managing
+SSD storage capacity and provisioned IOPS](../../../fsx/latest/ONTAPGuide/managing-storage-capacity.md "../../../fsx/latest/ONTAPGuide/managing-storage-capacity.md").

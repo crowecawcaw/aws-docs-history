@@ -14,4 +14,3 @@ This section provides help for common communication, credential, installation, a
 - [Other troubleshooting topics](Other-Troubleshooting-Topics.md "Other-Troubleshooting-Topics.md")
 - [Target instance cannot connect to Active Directory after migration](ad-connectivity-after-migration.md "ad-connectivity-after-migration.md")
 - [Troubleshooting FSx for ONTAP issues](fsx-ontap-troubleshooting.md "fsx-ontap-troubleshooting.md")
-- [Troubleshooting FSx for ONTAP launch errors](fsx-ontap-launch-troubleshooting.md "fsx-ontap-launch-troubleshooting.md")
