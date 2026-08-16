@@ -6,6 +6,7 @@
 - [Performing a manual failover for an Amazon DocumentDB global cluster](#manual-failover "#manual-failover")
 - [Performing a switchover for an Amazon DocumentDB global cluster](#global-cluster-switchover "#global-cluster-switchover")
 - [Unblocking a global cluster switchover or failover](#unblocking-gc-so-fo "#unblocking-gc-so-fo")
+- [Managing RPOs for Amazon DocumentDB global clusters](#global-clusters-manage-recovery "#global-clusters-manage-recovery")
   By using a global cluster, you can recover from disasters such as Region failures
   quickly. Recovery from disaster is typically measured using values for RTO and RPO.
 
@@ -434,3 +435,198 @@ Use the following APIs to view and apply maintenance actions:
 1. Run the following on each secondary Region's regional cluster first and then for the primary Regions regional cluster.
 2. Call the [PendingMaintenanceAction](../APIReference/API_PendingMaintenanceAction.md "../APIReference/API_PendingMaintenanceAction.md") API to determine if any maintenance actions are available for your Amazon DocumentDB global cluster.
 3. Apply any changes by calling the [ApplyPendingMaintenanceAction](../APIReference/API_ApplyPendingMaintenanceAction.md "../APIReference/API_ApplyPendingMaintenanceAction.md") API.
+
+## Managing RPOs for Amazon DocumentDB global clusters
+
+With a Amazon DocumentDB global cluster, you can manage the recovery point objective (RPO) by using the
+`global_db_rpo` parameter. RPO represents the maximum amount of data that can be lost
+in the event of an outage.
+
+When you set an RPO for your Amazon DocumentDB global cluster, Amazon DocumentDB monitors the _RPO lag
+time_ of all secondary clusters. This monitoring ensures that at least one secondary cluster stays within
+the target RPO window.
+
+The RPO setting controls how Amazon DocumentDB manages write transactions on the primary cluster to limit potential data loss if a failover occurs.
+Amazon DocumentDB evaluates RPO and RPO lag times to commit (or block) transactions on the primary as follows:
+
+- Commits the transaction if at least one secondary DB cluster has an RPO lag time less than the RPO.
+- Blocks the transaction if all secondary DB clusters have RPO lag times that are larger than the RPO.
+
+In other words, if all secondary clusters are behind the target RPO, Amazon DocumentDB pauses transactions on the
+primary cluster. Amazon DocumentDB resumes and commits paused transactions as soon as the lag time of at
+least one secondary DB cluster drops below the RPO.
+The result is that no transactions can commit until the RPO is met.
+
+The `global_db_rpo` parameter is dynamic. If you decide that you don't want all write
+transactions to stall until the lag decreases sufficiently, you can reset it quickly.
+In this case, Amazon DocumentDB applies the change after a short delay.
+
+###### Important
+
+In a global database with only two AWS Regions, we recommend keeping the
+`global_db_rpo` parameter's default value in the secondary Region's
+parameter group. Otherwise, performing a failover due to a loss of the primary AWS Region could
+cause Amazon DocumentDB to pause transactions. Instead, wait until Amazon DocumentDB completes rebuilding the cluster
+in the old failed AWS Region before changing this parameter to enforce a maximum RPO.
+
+###### Topics
+
+- [Setting the recovery point objective](#global-clusters-set-rpo "#global-clusters-set-rpo")
+- [Viewing the recovery point objective](#global-clusters-view-rpo "#global-clusters-view-rpo")
+- [Disabling the recovery point objective](#global-clusters-disable-rpo "#global-clusters-disable-rpo")
+
+### Setting the recovery point objective
+
+The `global_db_rpo` parameter controls the RPO setting for a Amazon DocumentDB database.
+Valid values range from 20 seconds to 2,147,483,647 seconds (68 years). Choose a realistic value to meet
+your business need. For example, you might want to allow up to 10 minutes for your RPO, in which case
+you set the value to 600.
+
+You can set this value for your Amazon DocumentDB global cluster by using the AWS Management Console, the AWS CLI, or the
+Amazon DocumentDB API.
+
+Using the AWS Management Console
+
+###### To set the RPO
+
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. Choose the primary cluster of your Amazon DocumentDB global cluster and open the
+   **Configuration** tab to find its DB cluster parameter group.
+
+Parameter groups can't be edited directly. Instead, you do the following:
+
+    * Create a custom DB cluster parameter group using the appropriate default
+     parameter group as the starting point.
+    * On your custom DB cluster parameter group, set the value of the
+     **global\_db\_rpo** parameter to meet your use case. Valid
+     values range from 20 seconds up to the maximum integer value of 2,147,483,647
+     (68 years).
+    * Apply the modified DB cluster parameter group to your Amazon DocumentDB DB cluster.
+
+For more information about modifying DB cluster parameter groups, see
+[Modifying Amazon DocumentDB cluster parameter groups](cluster_parameter_groups-modify.md "cluster_parameter_groups-modify.md").
+
+Using the AWS CLI
+
+To set the `global_db_rpo` parameter, use the
+[modify-db-cluster-parameter-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/modify-db-cluster-parameter-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/modify-db-cluster-parameter-group.html")
+CLI command. In the command, specify the name of your primary cluster's parameter group
+and values for the RPO parameter.
+
+The following example sets the RPO to 600 seconds (10 minutes) for the primary DB
+cluster's parameter group named `my_custom_global_parameter_group`.
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb modify-db-cluster-parameter-group \
+    --db-cluster-parameter-group-name `my_custom_global_parameter_group` \
+    --parameters "ParameterName=global_db_rpo,ParameterValue=`600`,ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws docdb modify-db-cluster-parameter-group ^
+    --db-cluster-parameter-group-name `my_custom_global_parameter_group` ^
+    --parameters "ParameterName=global_db_rpo,ParameterValue=`600`,ApplyMethod=immediate"
+```
+
+Using the Amazon DocumentDB API
+
+To modify the `global_db_rpo` parameter, use the
+[ModifyDBClusterParameterGroup](../developerguide/API_ModifyDBClusterParameterGroup.md "../developerguide/API_ModifyDBClusterParameterGroup.md")
+API operation.
+
+### Viewing the recovery point objective
+
+The recovery point objective (RPO) of a global cluster is stored in the
+`global_db_rpo` parameter for each DB cluster.
+
+You can use the CLI to view the `global_db_rpo` parameter for a Amazon DocumentDB DB cluster.
+Use the `--query` option to return only the `global_db_rpo` parameter from
+the parameter group.
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb describe-db-cluster-parameters \
+    --db-cluster-parameter-group-name `my_custom_global_parameter_group` \
+    --query "Parameters[?ParameterName=='global_db_rpo']"
+
+```
+
+For Windows:
+
+```
+aws docdb describe-db-cluster-parameters ^
+    --db-cluster-parameter-group-name `my_custom_global_parameter_group` ^
+    --query "Parameters[?ParameterName=='global_db_rpo']"
+
+```
+
+The command returns output similar to the following.
+
+```
+[
+    {
+        "ParameterName": "global_db_rpo",
+        "Description": "(s) Recovery point objective threshold, in seconds, that blocks user commits when it is violated.",
+        "Source": "engine-default",
+        "ApplyType": "dynamic",
+        "DataType": "integer",
+        "AllowedValues": "20-2147483647",
+        "IsModifiable": true,
+        "ApplyMethod": "immediate"
+    }
+]
+```
+
+For more information about viewing parameters of the cluster parameter group, see
+[Managing Amazon DocumentDB cluster parameter groups](cluster_parameter_groups.md "cluster_parameter_groups.md").
+
+### Disabling the recovery point objective
+
+To disable the RPO, reset the `global_db_rpo` parameter. You can reset parameters
+using the AWS Management Console, the AWS CLI, or the Amazon DocumentDB API.
+
+Using the AWS Management Console
+
+###### To disable the RPO
+
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. In the navigation pane, choose **Parameter groups**.
+3. In the list, choose your primary DB cluster parameter group.
+4. Choose the radio button next to the **global\_db\_rpo** parameter.
+5. Choose **Reset to default** and confirm it.
+
+For more information about how to reset a parameter with the console, see
+[Modifying Amazon DocumentDB cluster parameter groups](cluster_parameter_groups-modify.md "cluster_parameter_groups-modify.md").
+
+Using the AWS CLI
+
+To reset the `global_db_rpo` parameter, use the
+[reset-db-cluster-parameter-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/reset-db-cluster-parameter-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/reset-db-cluster-parameter-group.html")
+command.
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb reset-db-cluster-parameter-group \
+    --db-cluster-parameter-group-name `my_custom_global_parameter_group` \
+    --parameters "ParameterName=global_db_rpo,ApplyMethod=immediate"
+```
+
+For Windows:
+
+```
+aws docdb reset-db-cluster-parameter-group ^
+    --db-cluster-parameter-group-name `my_custom_global_parameter_group` ^
+    --parameters "ParameterName=global_db_rpo,ApplyMethod=immediate"
+```
+
+Using the Amazon DocumentDB API
+
+To reset the `global_db_rpo` parameter, use the
+[ResetDBClusterParameterGroup](../developerguide/API_ResetDBClusterParameterGroup.md "../developerguide/API_ResetDBClusterParameterGroup.md")
+API operation.
