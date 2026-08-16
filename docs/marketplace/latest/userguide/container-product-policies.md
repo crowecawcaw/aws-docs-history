@@ -9,6 +9,7 @@ All products and their related metadata are reviewed when submitted to ensure th
 
 ###### Topics
 
+- [Container product seller policies](#container-product-seller-policies "#container-product-seller-policies")
 - [Security policies](#container-security-requirements "#container-security-requirements")
 - [Customer information requirements](#container-customer-info-requirements "#container-customer-info-requirements")
 - [Product usage requirements](#container-usage-requirements "#container-usage-requirements")
@@ -16,6 +17,14 @@ All products and their related metadata are reviewed when submitted to ensure th
 - [Helm chart structure requirements](#helm-chart-structure-requirements "#helm-chart-structure-requirements")
 - [Container product usage instructions](#container-product-usage-instructions "#container-product-usage-instructions")
 - [Requirements for Amazon EKS add-on products](#publishing-eks-add-on "#publishing-eks-add-on")
+
+## Container product seller policies
+
+As a container product seller, you must adhere to the following policies:
+
+- By default, you are limited to a maximum of 20 public container product listings. If you exceed your limit,
+  your account is subject to periodic performance review, and you might be required to restrict underperforming listings.
+  We grant or revoke increases to this limit at our sole discretion.
 
 ## Security policies
 

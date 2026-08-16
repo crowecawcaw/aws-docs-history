@@ -219,11 +219,12 @@ Letterhead of the company
 POWER TO ACT ON BEHALF OF THE COMPANY
 The undersigned **Enter Company name here** (herein after, the "Company"), duly represented by
 (name, date of birth, and function) **add full name, date of birth, and function of the signatory here**,
-confirms that **add full name of the Person of Contact here** is authorized to open an Amazon Web
-Services Marketplace account with Amazon Payments, accept the User Agreement and other Policies,
-have access to the Amazon Web Services Marketplace account, initiate transactions in the name and
-on behalf of the Company and approve new Secondary users added to the account and if required,
-grant them access to update listings, respond to buyers and initiate refunds.
+confirms that **add full name of the Person of Contact here** is authorized to open Amazon Web
+Services Marketplace account with Amazon Payments, accept the AWS Marketplace related Agreement
+and Policies, have access to the Amazon Web Services Marketplace account, initiate transactions in
+the name and on behalf of the Company and approve new Secondary users added to the account and if
+required, grant them access to update listings, respond to buyers and initiate refunds.
+
 
     Dated this:
 

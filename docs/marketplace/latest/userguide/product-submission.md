@@ -123,6 +123,10 @@ by another vendor, such as an AMI with Windows.
 
 ###### Requirements
 
+- The product must include tangible intellectual property beyond the original software.
+  You cannot publish listings that only add support services, such as maintenance or
+  troubleshooting, without additional software libraries, hardening, other technical
+  modifications, or explicit permission from AWS Marketplace. To offer your support services, we recommend using [Professional services products in AWS Marketplace](proserv-products.md "proserv-products.md").
 - The product title must indicate the value added by your repackaging. Examples of
   product titles include: _Hardened <Product>_, _<Product>
   with added packages_, or _<Product1> on
@@ -133,41 +137,23 @@ by another vendor, such as an AMI with Windows.
   _free_ unless these are substantiated in the product details that you
   provide.
 - The product short description must include a clear statement summarizing the product
-  charges. The short description must begin with the phrase _This product has
-  charges associated with it for..._. For example, if a product includes charges
-  for support from the seller, then the product description should state: _This
-  product has charges associated with it for seller support_.
+  charges. The short description must begin with the phrase _This is a repackaged
+  open source software product wherein additional charges apply for..._. For
+  example: _This is a repackaged open source software product wherein additional
+  charges apply for a pre-hardened, CIS-benchmarked image_. Then, the long
+  description must include a clear statement summarizing what you are charging for, as well
+  as additional details describing those features.
 - The product logo must be same as the company logo that was used during your seller
   registration process. The product logo can differ from your company logo only if you use
   the official software logo, whereby you must receive explicit permission from the original
-  software vendor. If explicit permission is obtained, a link to that documentation must be
-  included in the notes section of the change request, or in the **Enter a brief
-  description** field of the **File Uploads** page when using
-  the product load form.
+  software vendor. If you received explicit permission, provide the documentation to
+  AWS Marketplace.
 - For AMI products, the AMI name must not be reused from the original product. The AMI
   name must begin with the seller name and follow this format: [Seller Name]
   [name-given-to-ami].
 
 If the AMI name does not adhere to the naming convention, you can copy the AMI from the AWS console and rename it. For more information, see
 [Copy an Amazon EC2 AMI](../../../AWSEC2/latest/UserGuide/CopyingAMIs.md "../../../AWSEC2/latest/UserGuide/CopyingAMIs.md"), in the _Amazon EC2 User Guide_.
-
-If the paid listing is for a standalone software product that was not created by your
-company and there is no intellectual property added to the product, such as bundling
-additional software libraries or adding special configuration, then along with the earlier
-requirements, you must also meet the following requirements:
-
-- Product title must include the seller name (along with the value added, as described
-  earlier). The seller name is the name used during seller registration. For example,
-  _<Product> with maintenance support by <seller>_.
-- The first line of the product's long description must begin with the phrase
-  _This is a repackaged software product wherein additional charges apply
-  for..._ (or, if it's open source, _This is a repackaged open source
-  software product wherein additional charges apply for..._). Then, the long
-  description must include a clear statement summarizing what you are charging for, as well
-  as additional details describing those features. For example, the long description of an
-  open source product charging for additional support might start as: _This is a
-  repackaged open source software product wherein additional charges apply for support
-  with {SLA Details}_.
 
 ## Requirements for products with a hardware component
 
