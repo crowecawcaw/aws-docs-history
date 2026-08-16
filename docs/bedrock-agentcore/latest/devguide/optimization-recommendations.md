@@ -45,7 +45,7 @@ When using a configuration bundle, the recommendation result includes a `configu
 
 ## Agent trace sources
 
-The `agentTraces` parameter accepts one of two sources:
+The `agentTraces` parameter accepts one of four sources:
 
 - **CloudWatch Logs:** Use when your agent runtime writes telemetry to CloudWatch. The service reads traces directly from the specified log groups within a required time range. You must provide `logGroupArns`, `serviceNames`, `startTime`, and `endTime`. An optional `rule` field allows you to filter traces (for example, selecting only sessions where `goal_success_rate` is below a threshold).
 
@@ -162,6 +162,57 @@ with open("agent-traces.json") as f:
 
 agent_traces = {
     "sessionSpans": spans
+}
+```
+
+###### Note
+
+The batch evaluation and online evaluation trace sources are available for system prompt recommendations only.
+
+- **Batch evaluation:** Use when you have a completed batch evaluation job whose sessions you want to reuse for optimization. Instead of re-collecting traces from CloudWatch or providing spans inline, you reference the batch evaluation directly by its ARN. This source is available for system prompt recommendations only.
+
+  - If the evaluators used in the batch evaluation job match the evaluators specified in the recommendation request, the service reuses the existing scores.
+  - If the evaluators do not match, the service runs fresh evaluations for the requested evaluators against the batch evaluation sessions.
+
+  | Field                                | Type   | Required | Description                                                                                                                                                                          |
+  | ------------------------------------ | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | `batchEvaluation.batchEvaluationArn` | String | Yes      | ARN of a completed batch evaluation job. The service reuses the sessions from this job as trace input. Format: `arn:aws:bedrock-agentcore:{region}:{account}:batch-evaluation/{id}`. |
+
+  ###### Example
+
+  AWS SDK (boto3)
+
+  ```
+  agent_traces = {
+      "batchEvaluation": {
+          "batchEvaluationArn": "<batch-evaluation-arn>"
+      }
+  }
+  ```
+
+- **Online evaluation:** Use when you have an online evaluation configuration that continuously evaluates live agent sessions. Because online evaluation is a continuous stream, you must specify a time window (`startTime` and `endTime`) to bound which evaluated sessions the recommendation draws from. The service reuses the evaluation scores from the online evaluation sessions within the specified window. This source is available for system prompt recommendations only.
+
+| Field                                        | Type              | Required | Description                                                                                                                                                                                                      |
+| -------------------------------------------- | ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `onlineEvaluation.onlineEvaluationConfigArn` | String            | Yes      | ARN of an online evaluation configuration. The service uses the evaluated sessions from this configuration as trace input. Format: `arn:aws:bedrock-agentcore:{region}:{account}:online-evaluation-config/{id}`. |
+| `onlineEvaluation.startTime`                 | ISO 8601 datetime | Yes      | Start of the evaluation window. Only sessions evaluated after this time are included.                                                                                                                            |
+| `onlineEvaluation.endTime`                   | ISO 8601 datetime | Yes      | End of the evaluation window. Only sessions evaluated before this time are included.                                                                                                                             |
+
+###### Example
+
+AWS SDK (boto3)
+
+```
+from datetime import datetime, timedelta, timezone
+
+now = datetime.now(timezone.utc)
+
+agent_traces = {
+    "onlineEvaluation": {
+        "onlineEvaluationConfigArn": "<online-evaluation-config-arn>",
+        "startTime": now - timedelta(days=7),
+        "endTime": now,
+    }
 }
 ```
 

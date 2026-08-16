@@ -47,7 +47,7 @@ Interactive
 
 ![TUI gateway wizard Name step with text input](images/tui/gateway-add-name.png) 4. Select the authorizer type for your gateway. Choose **None** , **Custom JWT** , or **IAM** , then press **Enter**.
 
-![TUI gateway wizard Authorizer step showing None selected](images/tui/gateway-add-auth-none.png) 5. (Optional) Configure advanced settings such as semantic search and debug exception level. Use **Space** to toggle options, then press **Enter** to continue.
+![TUI gateway wizard Authorizer step showing None selected](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png) 5. (Optional) Configure advanced settings such as semantic search and debug exception level. Use **Space** to toggle options, then press **Enter** to continue.
 
 ![TUI gateway wizard Advanced Configuration step with Semantic Search enabled](images/tui/gateway-add-advanced.png) 6. Review the gateway configuration summary and press **Enter** to confirm.
 

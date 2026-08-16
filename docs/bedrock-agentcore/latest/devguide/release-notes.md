@@ -40,6 +40,22 @@ Rate limit configuration changes propagate to the data plane fleet within 30 sec
 
 Six API operations manage rate limits: `CreateRateLimit`, `GetRateLimit`, `UpdateRateLimit`, `DeleteRateLimit`, `ListRateLimits`, and `BatchPutRateLimitEntries`. See [Configure rate limits for your AgentCore gateway](gateway-rate-limits.md "gateway-rate-limits.md").
 
+### Amazon Bedrock AgentCore Runtime: Simplified and increased API rate quotas
+
+Amazon Bedrock AgentCore Runtime now consolidates its API rate quotas into a smaller set of shared limits with higher default values, making them easier to understand and to scale against.
+
+Data plane requests, including `InvokeAgentRuntime`, now share a single adjustable quota of 1,000 TPS per account, increased from the previous limit of 200 TPS. This single quota is shared across all data plane APIs rather than enforced for each API.
+
+New session creation is now a single adjustable quota of 25 TPS per account, shared across all endpoints. It unifies and replaces the previous per-endpoint limits of 400 transactions per minute for container-image agents and 25 TPS for direct code deployment agents.
+
+Control plane requests are grouped into three shared, non-adjustable quotas, each shared across all APIs in its group rather than enforced for each API: mutation APIs at 50 TPS, Get APIs at 150 TPS, and List APIs at 25 TPS.
+
+Resource quotas (such as active session workloads, agents, versions, and endpoints per account), invocation limits, session storage limits, and lifecycle limits remain unchanged.
+
+### Gateway: Web Search Tool now available in Europe (Ireland) and Asia Pacific (Tokyo)
+
+The Web Search Tool connector on Amazon Bedrock AgentCore Gateway is now available in two new Regions. These Regions are Europe (Ireland) `eu-west-1` and Asia Pacific (Tokyo) `ap-northeast-1`. Agents in these Regions can invoke the `WebSearch` tool to ground responses in current web knowledge without routing traffic outside their Region. The same Amazon-operated web index and knowledge graph that powers US East (N. Virginia) backs these new Regions. AWS infrastructure processes all queries with the same privacy guarantees and zero data egress. All connector versions (`1.1.0` and `1.2.0`) are available, including request-level domain and date filters. Existing agents require no changes—create a gateway and add a `web-search` connector target in the new Region to get started. See [Web Search Tool](gateway-target-connector-web-search-tool.md "gateway-target-connector-web-search-tool.md").
+
 ## July 2026
 
 ### Gateway: Web Search connector version 1.2.0 adds request-level filters and target-level include list

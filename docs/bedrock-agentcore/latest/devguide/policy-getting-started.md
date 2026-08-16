@@ -18,7 +18,8 @@ In this tutorial, you’ll learn how to set up Policy in AgentCore and integrate
 Before starting, make sure you have the following:
 
 - **AWS Account** with credentials configured. To configure credentials, you can install and use the AWS Command Line Interface by following the steps at [Getting started with the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md").
-- **Node.js 18+** installed
+- **Node.js 20+** installed
+- Your AWS account and Region **bootstrapped for AWS CDK**. Replace `<ACCOUNT_ID>` with your 12-digit AWS account ID and `<REGION>` with the AWS Region identifier (for example, `us-east-1`), then run: `npx cdk bootstrap aws://<ACCOUNT_ID>/<REGION>`
 - **IAM permissions** for creating roles, Lambda functions, policy engines, and using Amazon Bedrock AgentCore
 - **A Lambda function** that processes refund requests. You can use an existing function or create one for this tutorial. Note the function ARN for use in Step 2.
 
@@ -92,7 +93,27 @@ Interactive
 
 **Add a Lambda function target with a refund tool**
 
-Register your Lambda function as a gateway target with a tool schema that defines a refund processing tool:
+Register your Lambda function as a gateway target with a tool schema that defines a refund processing tool. Create a `refund_tools.json` file in your project directory with the following contents:
+
+```
+[
+  {
+    "name": "process_refund",
+    "description": "Process a customer refund request for a given dollar amount",
+    "inputSchema": {
+      "type": "object",
+      "description": "Input for processing a refund",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "description": "The refund amount in dollars"
+        }
+      },
+      "required": ["amount"]
+    }
+  }
+]
+```
 
 ###### Example
 
@@ -157,17 +178,28 @@ Interactive
 
 **Create a Cedar policy**
 
-Provide a Cedar policy file directly:
+Provide a Cedar policy file directly. Cedar does not allow wildcard resources in policy statements. This requires a two-phase deployment: first deploy without the policy to create the gateway, then retrieve the gateway ARN. Then add the policy and redeploy.
+
+1. Deploy the gateway first (see [Step 3: Deploy](#policy-getting-started-run-setup "#policy-getting-started-run-setup")), then run **agentcore status** to get the gateway ARN.
+2. Create a `refund_policy.cedar` file in your project directory, substituting the gateway ARN from the previous step:
+
+```
+permit(principal,
+  action == AgentCore::Action::"RefundTarget___process_refund",
+  resource == AgentCore::Gateway::"<gateway-arn>")
+when {
+  context.input.amount < 1000
+};
+```
+
+3. Add the policy and redeploy:
 
 ```
 agentcore add policy --name RefundLimit \
   --engine RefundPolicyEngine \
   --source refund_policy.cedar
+agentcore deploy
 ```
-
-###### Note
-
-Cedar policies that reference specific gateway ARNs in the `resource` field (as shown in the example below) require a two-phase deployment: first deploy without the policy to create the gateway, then retrieve the gateway ARN from **agentcore status** , update the Cedar file, and add the policy before redeploying. Cedar does not allow wildcard resources in policy statements.
 
 Alternatively, after deploying your resources in Step 3, you can generate a Cedar policy from a natural-language description:
 
@@ -208,7 +240,7 @@ The **agentcore add policy-engine** command creates a policy engine — a collec
 
 Cedar is an open-source policy language developed by AWS for writing authorization policies. The **agentcore add policy** command creates a Cedar policy that governs tool calls through the gateway. You can either generate a policy from a natural-language description using `--generate` , or provide a Cedar policy file directly using `--source`.
 
-The following is an example Cedar policy that allows refunds under $1000:
+The following is an example Cedar policy that allows refunds under USD $1000:
 
 ```
 permit(principal,
@@ -225,7 +257,7 @@ The policy uses:
 - `principal` – The entity making the request
 - `action` – The specific tool being called (RefundTarget\_\_\_process\_refund)
 - `resource` – The gateway instance where the policy applies
-- `when` condition – Additional requirements (amount must be < $1000)
+- `when` condition – Additional requirements (amount must be < USD $1000)
 
 #### Attach Policy to Gateway
 
@@ -246,7 +278,7 @@ Deploy all resources to AWS:
 agentcore deploy
 ```
 
-The AgentCore CLI creates the gateway, registers the Lambda target, provisions the policy engine, and attaches the Cedar policy. This process takes approximately 2–3 minutes.
+The AgentCore CLI creates the gateway, registers the Lambda target, and provisions the policy engine. If you provided an ARN-based Cedar policy file, add it after this deploy and run **agentcore deploy** again to attach it. This process takes approximately 2–3 minutes per deploy.
 
 After deployment completes, you can verify the status of your resources:
 
@@ -258,29 +290,31 @@ agentcore status
 
 Test the policy by sending requests to the gateway. Because the gateway uses `--authorizer-type NONE` , you can send requests directly with **curl**.
 
-**Test 1: Refund $500 (should be allowed)**
+The gateway URL shown in the output of **agentcore status** is the base endpoint. MCP requests go to the `/mcp` path on that endpoint, so append `/mcp` to the URL before sending requests.
 
-The refund amount of $500 is under the $1000 limit, so the policy engine permits the request:
+**Test 1: Refund USD $500 (should be allowed)**
+
+The refund amount of USD $500 is under the USD $1000 limit, so the policy engine permits the request:
 
 ```
-curl -X POST ++<GATEWAY_URL>++ \
+curl -X POST ++<GATEWAY_URL>++/mcp \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"RefundTarget___process_refund","arguments":{"amount":500}}}'
 ```
 
-**Test 2: Refund $2000 (should be denied)**
+**Test 2: Refund USD $2000 (should be denied)**
 
-The refund amount of $2000 exceeds the $1000 limit, so the policy engine denies the request:
+The refund amount of USD $2000 exceeds the USD $1000 limit, so the policy engine denies the request:
 
 ```
-curl -X POST ++<GATEWAY_URL>++ \
+curl -X POST ++<GATEWAY_URL>++/mcp \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"RefundTarget___process_refund","arguments":{"amount":2000}}}'
 ```
 
 ###### Note
 
-Replace `<GATEWAY_URL>` with the gateway URL shown in the output of **agentcore status**.
+Replace `<GATEWAY_URL>` with the gateway URL shown in the output of **agentcore status**, then append `/mcp`.
 
 ## What you’ve built
 
@@ -289,7 +323,7 @@ Through this tutorial, you’ve created:
 - **MCP Server (Gateway)** – A managed endpoint for tools
 - **Lambda target** – A refund processing tool registered in the gateway
 - **Policy engine** – Cedar-based policy evaluation system
-- **Cedar policy** – Governance rule allowing refunds under $1000
+- **Cedar policy** – Governance rule allowing refunds under USD $1000
 
 ## Troubleshooting
 

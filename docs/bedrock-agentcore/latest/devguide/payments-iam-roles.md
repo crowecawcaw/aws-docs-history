@@ -249,6 +249,37 @@ When a Payment Manager is created, the following permissions are attached to the
 }
 ```
 
+### KMS permissions
+
+If you configure a customer-managed AWS KMS key on your Payment Manager, add the following permissions to the service role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "KMSPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": [
+                "arn:aws:kms:<region>:<account>:key/<key-id>"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "<account>"
+                },
+                "StringLike": {
+                    "kms:EncryptionContext:aws:payments-manager:arn": "arn:aws:bedrock-agentcore:<region>:<account>:payment-manager/*"
+                }
+            }
+        }
+    ]
+}
+```
+
 ### Per-connector permissions
 
 Each time a payment connector is added to the Payment Manager, the following permissions are appended to the service role. These grant access to the specific payment credential provider and its backing secrets:

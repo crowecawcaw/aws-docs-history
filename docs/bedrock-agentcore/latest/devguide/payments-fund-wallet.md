@@ -1,6 +1,8 @@
 # Fund the wallet and grant agent permissions
 
-After you create a payment instrument, the end user must fund the wallet with USDC and grant the agent permission to sign transactions. Until both steps are complete, the process payment operation fails with a client-side exception.
+After you create a payment instrument, the end user must fund the wallet with USD Coin (USDC) and grant the agent permission to sign transactions. Until the end user completes both steps, the process payment operation fails with a client-side exception.
+
+Your use of third-party wallet providers is governed by their terms. AWS does not have custody or control of, and is not responsible for, wallets, funds, digital assets, or associated private keys. You are solely responsible for any transactions, disputes, or payments liability arising from your use of AgentCore Payments, and for implementing appropriate safeguards (such as human-in-the-loop oversight) as appropriate for your use case. For more details, see Section 50.15 (Amazon Bedrock AgentCore Payments) of the AWS Service Terms.
 
 ###### Tip
 

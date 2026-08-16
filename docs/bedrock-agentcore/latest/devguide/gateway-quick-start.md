@@ -93,7 +93,7 @@ Interactive
 
 ![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 5. Review the configuration and press **Enter** to confirm:
 
-![Gateway wizard: review configuration](images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
 Next, select **add** again and choose **Gateway Target** to add a Lambda function target: 6. Enter the target name. 7. Select **Lambda function** as the target type:
 

@@ -35,6 +35,7 @@ Can’t reach the server:
 
 - "Failed to fetch agent card from URL: %s" — A2A IOException
 - "MCP server returned HTTP <code>" — non-200/202 HTTP response from the MCP server. Please check if the URL is correct and the MCP server can be connected.
+- If the status code is 401 or 403, verify that you have configured the correct credential provider and that your credentials have permission to connect to the MCP server. To troubleshoot, acquire the credentials manually and connect directly to the MCP server.
 - "The provided URL resolves to a non-public IP address" — Registry only supports connecting to public IP address servers.
 - "Failed to connect to MCP server" — IOException/connection failure
 - "Invalid MCP server URL" — malformed URL

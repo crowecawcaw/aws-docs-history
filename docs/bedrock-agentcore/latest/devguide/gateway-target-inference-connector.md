@@ -211,6 +211,8 @@ The gateway routes inference requests based on the `model` field in the request 
 2. **Unqualified routing** – If the model ID does not contain a `/`, the gateway matches it against all configured targets. An exact match takes priority over glob patterns. If exactly one target matches, the request is routed to it.
 3. **Collision handling** – When multiple targets match the same model at the same specificity, the gateway defaults to the Amazon Bedrock target if one is among the matches. Otherwise, it selects one of the matching targets at random on each request, so requests for the same model can land on different targets. To pin requests to a specific target, qualify the model with the target name as a prefix (for example, `bedrock/claude-opus-4-7`).
 
+To customize or override the target that a model routes to, you can rewrite the `model` field in a request interceptor. For more information, see [Customize model routing with a request interceptor](gateway-interceptors-examples.md#gateway-interceptors-examples-model-routing "gateway-interceptors-examples.md#gateway-interceptors-examples-model-routing").
+
 ## Streaming
 
 Streaming follows the OpenAI SSE convention. Set `"stream": true` in the request body, and the gateway passes through the SSE stream from the provider without transformation:

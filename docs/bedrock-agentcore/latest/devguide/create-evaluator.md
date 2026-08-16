@@ -8,8 +8,18 @@ The `CreateEvaluator` API creates a new custom evaluator that defines how to ass
 
 **Evaluator configuration:** You can choose one of two evaluator types:
 
-- **LLM-as-a-judge** – Define evaluation instructions (prompts), model settings, and rating scales. The evaluation logic is executed by a Bedrock foundation model.
-- **Code-based** – Specify an AWS Lambda function ARN to run your own programmatic evaluation logic. For details on the Lambda function contract and configuration, see [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md").
+LLM-as-a-judge
+
+Define evaluation instructions (prompts), model settings, and rating scales. A judge model executes the evaluation logic. The judge model is an Amazon Bedrock foundation model, invoked through either the Amazon Bedrock Runtime endpoint (`bedrock-runtime`) or the Amazon Bedrock Mantle endpoint (`bedrock-mantle`).
+
+Code-based
+
+Specify an AWS Lambda function ARN to run your own programmatic evaluation logic. For details on the Lambda function contract and configuration, see [Custom code-based evaluator](code-based-evaluators.md "code-based-evaluators.md").
+
+For LLM-as-a-judge evaluators, specify the judge model in `modelConfig` using one of the following:
+
+- `bedrockEvaluatorModelConfig` – Use a model on the Amazon Bedrock Runtime endpoint (`bedrock-runtime`). Specify the `modelId` and, optionally, an `inferenceConfig` with `maxTokens`, `temperature`, `topP`, and `stopSequences`.
+- `responsesEvaluatorModelConfig` – Use a model on the Amazon Bedrock Mantle endpoint (`bedrock-mantle`). Specify the `modelId` and, optionally, inference parameters. For a model’s supported endpoints, model IDs, and inference parameters, see its model card in the _Amazon Bedrock User Guide_, for example [GPT-5.6 Sol](../../../bedrock/latest/userguide/model-card-openai-gpt-56-sol.md "../../../bedrock/latest/userguide/model-card-openai-gpt-56-sol.md").
 
 **LLM-as-a-judge instructions:** For LLM-as-a-judge evaluators, the instruction must include at least one placeholder, which is replaced with actual trace information before being sent to the judge model. Each evaluator level supports only a fixed set of placeholder values:
 
@@ -108,7 +118,20 @@ The following code samples demonstrate how to create custom evaluators using dif
 }
 ```
 
-Using the above JSON, you can create the custom evaluator through the API client of your choice:
+The preceding example runs the judge model on the Amazon Bedrock Runtime endpoint with `bedrockEvaluatorModelConfig`. To run it on the Amazon Bedrock Mantle endpoint instead, replace the `bedrockEvaluatorModelConfig` object inside `modelConfig` with a `responsesEvaluatorModelConfig` object:
+
+```
+{
+    "responsesEvaluatorModelConfig": {
+        "modelId": "openai.gpt-oss-120b",
+        "maxOutputTokens": 500
+    }
+}
+```
+
+For a model’s supported endpoints, model IDs, and inference parameters, see its model card in the _Amazon Bedrock User Guide_, for example [GPT-5.6 Sol](../../../bedrock/latest/userguide/model-card-openai-gpt-56-sol.md "../../../bedrock/latest/userguide/model-card-openai-gpt-56-sol.md").
+
+Using either configuration, you can create the custom evaluator through the API client of your choice:
 
 ###### Example
 
@@ -368,14 +391,14 @@ You can create custom evaluators using the Amazon Bedrock AgentCore console’s 
 
 ###### Note
 
-If you load another template, any changes to your existing custom evaluator definition will be overwritten. 6. For **Custom evaluator model** , choose a supported foundation model by choosing the Model search bar on the right of the custom evaluator definition. For more information about supported foundation models, see:
+If you load another template, any changes to your existing custom evaluator definition will be overwritten. 6. For Custom evaluator model, choose a supported model by choosing the Model search bar on the right of the custom evaluator definition. You can choose an Amazon Bedrock foundation model on either the Amazon Bedrock Runtime endpoint or the Amazon Bedrock Mantle endpoint. For more information about supported models, see:
 
-    * Supported Foundation Models
-
-
+    * Supported models
 
 
-    	1. (Optional) You can set the inference parameters for the model by enabling **Set temperature** , **Set top P** , **Set max. output tokens** , and **Set stop sequences**.
+
+
+    	1. (Optional) To set the inference parameters for the model, enable Set temperature, Set top P, Set max. output tokens, and Set stop sequences. The available inference parameters depend on the selected model. For a reasoning model, the console provides Set reasoning effort instead of Set temperature and Set top P.
 
 7. For **Evaluator scale type** , choose either **Define scale as numeric values** or **Define scale as string values**. 8. For **Evaluator scale definitions** , you can have a total of 20 definitions. 9. For **Evaluator evaluation level** , choose one of the following:
 
