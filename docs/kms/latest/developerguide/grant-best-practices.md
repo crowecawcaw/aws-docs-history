@@ -31,7 +31,9 @@ carefully and test the grant constraint to make sure it works as intended.
 - When creating grants for supported AWS services, use the [SourceArn grant constraint](create-grant-overview.md#terms-source-arn-constraint "create-grant-overview.md#terms-source-arn-constraint") to restrict the grant
   to a specific resource.
 - Be aware of duplicate grants. Duplicate grants have the same parameters except for
-  the grant name. Needless duplication can cause you to reach the [Grants per KMS key quota](resource-limits.md#grants-per-key "resource-limits.md#grants-per-key"). To avoid duplicating grants when retrying a
+  the grant name. Needless duplication can cause you to reach the [Grants per KMS key
+  quota](resource-limits.md#grants-per-key "resource-limits.md#grants-per-key").
+  To avoid duplicating grants when retrying a
   `CreateGrant` request, use the [Name
   parameter](create-grant-overview.md#grant-create "create-grant-overview.md#grant-create"). To detect duplicate grants, use the [ListGrants](../APIReference/API_ListGrants.md "../APIReference/API_ListGrants.md") operation.
 

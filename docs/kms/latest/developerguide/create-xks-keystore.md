@@ -416,7 +416,7 @@ authentication credential](#require-credential "#require-credential"), upload a 
 or enter the values manually.
 
     * If you have an optional [proxy configuration
-     file](#proxy-configuration-file "#proxy-configuration-file") that contains values for your [proxy URI path](#require-path.title "#require-path.title") and [proxy authentication
+     file](#proxy-configuration-file "#proxy-configuration-file") that contains values for your [proxy URI path](#require-path "#require-path") and [proxy authentication
      credential](#require-credential "#require-credential"), choose **Upload configuration
      file**. Follow the steps to upload the file.
 

@@ -280,3 +280,16 @@ whether or not you want to delete it.
 
 To see more examples of how AWS KMS API activity appears in your CloudTrail log files, go to [Logging AWS KMS API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"). For more
 information about CloudTrail go to the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+
+### Cost considerations for CloudTrail queries
+
+When you query CloudTrail logs using Amazon CloudWatch Logs Insights, Amazon CloudWatch Logs Insights charges
+you based on the amount of data scanned. Large, unbounded queries can result in unexpectedly
+high costs. To manage costs, scope every query to the narrowest relevant time range. Filter
+by event name, resource ARN, or principal ID. Before attempting to query, consider
+[examining the last successful cryptographic operation
+performed with a KMS key](#examine-last-usage "#examine-last-usage") first to avoid incurring unnecessary query cost. You can
+also set budget alerts in AWS Budgets
+to catch unexpected query volume. For more information about pricing, see
+[Amazon CloudWatch
+Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") on the Amazon Web Services website.
