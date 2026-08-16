@@ -13,7 +13,7 @@ For more information, see [Working with stateful rule groups in AWS Network Fire
 ###### Note
 
 This section and others that describe Suricata-based concepts are not intended to replace or duplicate information from the Suricata documentation.
-For more Suricata-specific information, see the [Suricata documentation](https://docs.suricata.io/en/suricata-7.0.8/ "https://docs.suricata.io/en/suricata-7.0.8/").
+For more Suricata-specific information, see the [Suricata documentation](https://docs.suricata.io/en/suricata-8.0.3/ "https://docs.suricata.io/en/suricata-8.0.3/").
 
 You can use Network Firewall to monitor and protect your Amazon VPC traffic in a number of ways,
 including the following:

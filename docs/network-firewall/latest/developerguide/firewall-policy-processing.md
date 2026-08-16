@@ -47,7 +47,7 @@ in the policy's stateful rules until it finds a match or exhausts all of the rul
 When the engine finds a match, it handles the packet according to the rule's
 configuration. By default, the Suricata stateful rules engine orders rule processing
 according to the rule action setting, processing first the rules with pass action,
-then drop, then alert. For more information, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md") and the [Suricata Action-order documentation](https://suricata.readthedocs.io/en/suricata-7.0.8/configuration/suricata-yaml.html#action-order "https://suricata.readthedocs.io/en/suricata-7.0.8/configuration/suricata-yaml.html#action-order").
+then drop, then alert. For more information, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md") and the [Suricata Action-order documentation](https://suricata.readthedocs.io/en/suricata-8.0.3/configuration/suricata-yaml.html#action-order "https://suricata.readthedocs.io/en/suricata-8.0.3/configuration/suricata-yaml.html#action-order").
 
 Depending on the Suricata compatible rules that you provide, the stateful engine
 might perform deep packet inspection of your traffic. Deep packet inspection works

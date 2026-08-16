@@ -68,6 +68,19 @@ This rule allows any DNS query for domain names ending in `.amazonaws.com` (http
 pass dns $HOME_NET any -> $EXTERNAL_NET any (dns.query; dotprefix; content:".amazonaws.com"; endswith; nocase; msg:"Pass rules do not alert"; sid:118947;)
 ```
 
+###### Allow WebSocket Upgrade traffic
+
+In 8.0.3, WebSocket traffic is identified as its own protocol, separate from HTTP.
+If you have rules that use `app-layer-protocol:!http` to detect
+non-HTTP traffic on HTTP ports, those rules will now match WebSocket traffic.
+To allow WebSocket connections to continue, add a `pass` rule that
+matches the HTTP Upgrade handshake. Place the following rule before any
+`app-layer-protocol:!http` drop or reject rules in your rule group.
+
+```
+pass http $HOME_NET any -> any any (msg:"Allow WebSocket Upgrade"; flow:established; http.connection; content:"Upgrade"; http.header; content:"websocket"; sid:1200001; rev:1;)
+```
+
 ## Stateful rules examples: block traffic
 
 ###### Note
@@ -213,7 +226,7 @@ definitions provided in the rule group declaration.
 ```
 
 The variable `EXTERNAL_NET` is a Suricata standard variable that
-represents the traffic destination. For more Suricata-specific information, see the [Suricata documentation](https://docs.suricata.io/en/suricata-7.0.8/ "https://docs.suricata.io/en/suricata-7.0.8/").
+represents the traffic destination. For more Suricata-specific information, see the [Suricata documentation](https://docs.suricata.io/en/suricata-8.0.3/ "https://docs.suricata.io/en/suricata-8.0.3/").
 
 ## Stateful rules examples: IP set reference
 

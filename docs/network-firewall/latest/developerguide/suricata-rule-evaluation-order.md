@@ -27,16 +27,16 @@ Actions are processed in the following order:
 If a packet within a flow matches a rule containing `pass` action, then Suricata doesn't scan the other packets in that flow and it passes the unscanned packets.
 
 For more information about the action specification, see
-[Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-7.0.8/configuration/suricata-yaml.html?highlight=action+order#action-order "https://docs.suricata.io/en/suricata-7.0.8/configuration/suricata-yaml.html?highlight=action+order#action-order")
-in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html"). 2. The Suricata `priority` keyword. Within a specific action group, you can use the priority
+[Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html?highlight=action+order#action-order "https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html?highlight=action+order#action-order")
+in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html "https://docs.suricata.io/en/suricata-8.0.3/index.html"). 2. The Suricata `priority` keyword. Within a specific action group, you can use the priority
 setting to indicate the processing order. By default, Suricata processes from the lowest
 numbered priority setting on up. The `priority` keyword has a mandatory
 numeric value ranging from 1 to 65535. Note that the `priority` keyword is only valid using
 the default action order.
 
 For more information about priority, see
-[Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-7.0.8/rules/meta.html?highlight=priority#priority "https://docs.suricata.io/en/suricata-7.0.8/rules/meta.html?highlight=priority#priority")
-in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html").
+[Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-8.0.3/rules/meta.html?highlight=priority#priority "https://docs.suricata.io/en/suricata-8.0.3/rules/meta.html?highlight=priority#priority")
+in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html "https://docs.suricata.io/en/suricata-8.0.3/index.html").
 
 For example, Suricata evaluates all `pass` rules before
 evaluating any `drop`, `reject`, or `alert` rules by default,
@@ -50,14 +50,14 @@ the `flow` keyword in your rules. This is needed because,
 for example, a TCP rule might match on the first packet of a TCP
 handshake before the stateful engine can identify the application
 protocol. For information about the `flow` keyword, see
-[Flow Keywords](https://docs.suricata.io/en/suricata-7.0.8/rules/flow-keywords.html "https://docs.suricata.io/en/suricata-7.0.8/rules/flow-keywords.html").
+[Flow Keywords](https://docs.suricata.io/en/suricata-8.0.3/rules/flow-keywords.html "https://docs.suricata.io/en/suricata-8.0.3/rules/flow-keywords.html").
 
 For examples of default rule order management, see [Stateful rules examples: manage rule evaluation order](suricata-examples.md#suricata-example-rule-ordering "suricata-examples.md#suricata-example-rule-ordering").
 
-For additional information about evaluation order for stateful rules, see the following topics in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/ "https://docs.suricata.io/en/suricata-7.0.8/"):
+For additional information about evaluation order for stateful rules, see the following topics in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/ "https://docs.suricata.io/en/suricata-8.0.3/"):
 
-- [Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-7.0.8/configuration/suricata-yaml.html?highlight=action%20order#action-order "https://docs.suricata.io/en/suricata-7.0.8/configuration/suricata-yaml.html?highlight=action%20order#action-order")
-- [Meta Keywords: priority](https://docs.suricata.io/en/suricata-7.0.8/rules/meta.html?highlight=priority#priority "https://docs.suricata.io/en/suricata-7.0.8/rules/meta.html?highlight=priority#priority")
+- [Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html?highlight=action%20order#action-order "https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html?highlight=action%20order#action-order")
+- [Meta Keywords: priority](https://docs.suricata.io/en/suricata-8.0.3/rules/meta.html?highlight=priority#priority "https://docs.suricata.io/en/suricata-8.0.3/rules/meta.html?highlight=priority#priority")
 
 ## Strict evaluation order
 

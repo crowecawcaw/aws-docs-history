@@ -6,7 +6,7 @@ This optional filter matches country codes for the IP addresses of network traff
 Suricata supports filtering for source and destination IPs. You can filter on either of these types by itself, by specifying `dst`
 or `src`. You can filter on the two types together with AND or OR logic, by specifying `both` or `any`.
 For more information see the Suricata `geoip` keyword documentation at
-[IP Keywords: geoip](https://docs.suricata.io/en/suricata-7.0.8/rules/header-keywords.html?highlight=geoip#geoip "https://docs.suricata.io/en/suricata-7.0.8/rules/header-keywords.html?highlight=geoip#geoip").
+[IP Keywords: geoip](https://docs.suricata.io/en/suricata-8.0.3/rules/header-keywords.html?highlight=geoip#geoip "https://docs.suricata.io/en/suricata-8.0.3/rules/header-keywords.html?highlight=geoip#geoip").
 
 To use a Geographic IP filter, you provide the `geoip` keyword, the filter type, and the country codes for the countries that
 you want to filter for, for example `geoip:dst,CN,US;`. For additional examples, see [Stateful rules examples: Geographic IP filter](suricata-examples.md#suricata-example-rule-with-geo-ip-filter "suricata-examples.md#suricata-example-rule-with-geo-ip-filter").

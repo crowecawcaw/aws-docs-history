@@ -27,3 +27,7 @@ With session holding, Network Firewall evaluates TLS.SNI rules first while holdi
 ###### Tip
 
 For best results with session holding, configure TLS rules that match on SNI in a deny list format. Use HTTP-based rules to process connections that aren't in the deny list.
+
+###### Note
+
+With session holding enabled, both `TLS.SNI`-based rules and L3/L4 rules become match candidates. This applies to the packet that contains the `TLS.SNI` when the Client Hello is sent. Because Network Firewall treats this packet as belonging to a not-established flow, Network Firewall can match rules that use keywords such as `flow:not_established`. Your L3/L4 rules must account for this flow state to avoid unexpected behavior.

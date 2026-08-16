@@ -34,7 +34,7 @@ The Network Firewall logs contain the following information:
       Network Firewall adds the custom field `"tls_inspected":
    true` to the log. If your firewall doesn't use TLS
       inspection, Network Firewall omits this field.
-      For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html").
+      For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html "https://docs.suricata.io/en/suricata-8.0.3/index.html").
 
   - **TLS events** – TLS events are produced by a
     dedicated stateful TLS engine, which is separate from Suricata. TLS events
@@ -62,7 +62,7 @@ The Network Firewall logs contain the following information:
          For information about configuring certificate revocation checking, see
          [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
 
-For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html").
+For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html "https://docs.suricata.io/en/suricata-8.0.3/index.html").
 
 ###### Example alert log entry
 

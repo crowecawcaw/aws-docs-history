@@ -42,7 +42,7 @@ Follow the guidance in this section to manage your AWS Network Firewall rule gro
 ###### Note
 
 This section and others that describe Suricata-based concepts are not intended to replace or duplicate information from the Suricata documentation.
-For more Suricata-specific information, see the [Suricata documentation](https://docs.suricata.io/en/suricata-7.0.8/ "https://docs.suricata.io/en/suricata-7.0.8/").
+For more Suricata-specific information, see the [Suricata documentation](https://docs.suricata.io/en/suricata-8.0.3/ "https://docs.suricata.io/en/suricata-8.0.3/").
 
 ###### Topics
 
