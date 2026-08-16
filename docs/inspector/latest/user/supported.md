@@ -57,7 +57,7 @@ When using the agent-based scanning method, you configure the SSM agent to perfo
 Amazon Inspector recommends that you configure a version of the SSM agent that's greater than 3.2.2086.0.
 For more information, see [Working with the SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in the _Amazon EC2 Systems Manager User Guide_.
 
-Linux operating system detections are supported only for the default package manager repository (rpm and dpkg) and don't include third-party applications, extended support repositories, and optional repositories (application streams) unless otherwise specified below.
+Linux operating system detections are supported only for the default package manager repository (rpm and dpkg). Detections don't include third-party applications, extended support repositories, or optional repositories (application streams) unless otherwise specified below.
 Amazon Inspector scans the running kernel for vulnerabilities.
 For some operating systems, like Ubuntu, a reboot is required for upgrades to show in active findings.
 
@@ -73,7 +73,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
 | Fedora                              | 43              | Errata CVE                             | Yes                    | Yes                      |
 | Fedora                              | 44              | Errata CVE                             | Yes                    | Yes                      |
-| Hummingbird OS                      | –               | Errata CVE                             | Yes                    | No                       |
 | Oracle Linux                        | 8               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux                        | 9               | Errata CVE                             | Yes                    | Yes                      |
 | Oracle Linux                        | 10              | Errata CVE                             | Yes                    | Yes                      |
@@ -127,6 +126,7 @@ It also specifies the vendor security advisory for each operating system.
 | Echo                                | 2       | Errata CVE                             | Yes            | Yes               |
 | Fedora                              | 43      | Errata CVE                             | Yes            | Yes               |
 | Fedora                              | 44      | Errata CVE                             | Yes            | Yes               |
+| Hummingbird OS                      | –       | Errata CVE                             | Yes            | No                |
 | MinimOS                             | –       | Errata CVE                             | Yes            | Yes               |
 | Oracle Linux                        | 8       | Errata CVE                             | Yes            | Yes               |
 | Oracle Linux                        | 9       | Errata CVE                             | Yes            | Yes               |
@@ -159,7 +159,7 @@ It also specifies the CIS benchmark version for each operating system.
 ###### Note
 
 CIS standards are intended for x86\_64 operating systems.
-Some checks may not be evaluated or return invalid remediation instructions on ARM-based resources.
+Some checks might not be evaluated or might return invalid remediation instructions on ARM-based resources.
 
 | Operating system                | Version | CIS benchmark version |
 | ------------------------------- | ------- | --------------------- |
@@ -236,12 +236,12 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 The following table lists operating systems that have been discontinued and when they were discontinued.
 
 Even though Amazon Inspector doesn't provide full support for discontinued operating systems, Amazon Inspector continues to scan Amazon EC2 instances and Amazon ECR container images running them.
-As a security best practice, Amazon Inspector will generate a CRITICAL finding for resources using a discontinued operating system and recommends moving to a supported version.
+As a security best practice, Amazon Inspector generates a CRITICAL finding for resources using a discontinued operating system and recommends moving to a supported version.
 Findings that Amazon Inspector generates for discontinued operating systems should be used for informational purposes only.
 
 In accordance with vendor policy, discontinued operating systems no longer receive patch updates or security advisories.
 Vendors can also remove existing security advisories and detections from their feeds for operating systems that reach the end of standard support.
-As a result, Amazon Inspector will stop generating findings for discontinued operating systems 12 months after the associated dates listed below.
+As a result, Amazon Inspector stops generating findings for discontinued operating systems 12 months after the associated dates listed below.
 
 | Operating system                    | Version | Discontinued      |
 | ----------------------------------- | ------- | ----------------- |
@@ -305,7 +305,7 @@ As a result, Amazon Inspector will stop generating findings for discontinued ope
 | SUSE Linux Enterprise Server (SLES) | 15.4    | December 31, 2023 |
 | SUSE Linux Enterprise Server (SLES) | 15.5    | December 31, 2024 |
 | SUSE Linux Enterprise Server (SLES) | 15.6    | December 31, 2025 |
-| Ubuntu (Trusty)                     | 12.04   | April 28, 2017    |
+| Ubuntu (Precise)                    | 12.04   | April 28, 2017    |
 | Ubuntu (Trusty)                     | 14.04   | April 1, 2024     |
 | Ubuntu (Xenial)                     | 16.04   | April 1, 2026     |
 | Ubuntu (Groovy)                     | 20.10   | July 22, 2021     |
@@ -354,7 +354,7 @@ Amazon Inspector currently supports the following programming languages when per
 Deep inspection through the Amazon Inspector SSM plugin supports a subset of the programming languages supported by the Amazon Inspector VM Scanner.
 For more information, see [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md").
 
-The languages listed here apply to deep inspection through the Amazon Inspector SSM plugin on Linux instances. For deep inspection with Enhanced EC2 Scanning (the Amazon Inspector VM Scanner), which supports Linux, Windows, and macOS instances, see [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md").
+The languages listed here apply to deep inspection through the Amazon Inspector SSM plugin on Linux instances. For deep inspection with Enhanced EC2 Scanning (the Amazon Inspector VM Scanner), see [Amazon Inspector VM Scanner](inspector-vm-scanner.md "inspector-vm-scanner.md"). The Amazon Inspector VM Scanner supports Linux, Windows, and macOS instances.
 
 - Java (.ear, .jar, .par, and .war archive formats)
 - JavaScript
@@ -377,16 +377,18 @@ Amazon Inspector currently supports the following programming languages when sca
 
 Amazon Inspector doesn't scan for toolchain vulnerabilities in Rust.
 The version of the programming language compiler used to build the application introduces these vulnerabilities.
-For Python applications using [Chainguard Libraries](https://www.chainguard.dev/libraries "https://www.chainguard.dev/libraries"), Amazon Inspector recognizes back-ported security fixes and excludes them from findings.
+For Python and Java applications using Chainguard Libraries, Amazon Inspector recognizes the back-ported security fixes and excludes them from findings.
+Amazon Inspector also recognizes the back-ported security fixes for Python, Java, and JavaScript applications using Echo Libraries.
+For more information, see [Chainguard Libraries](https://www.chainguard.dev/libraries "https://www.chainguard.dev/libraries") on the Chainguard website and [Echo Libraries](https://www.echo.ai/product/libraries "https://www.echo.ai/product/libraries") on the Echo website.
 
 - C#
 - Go
 - Go toolchain
-- Java
+- Java (including Chainguard and Echo Libraries)
 - Java JDK
-- JavaScript
+- JavaScript (including Echo Libraries)
 - PHP
-- Python (including Chainguard Libraries)
+- Python (including Chainguard and Echo Libraries)
 - Ruby
 - Rust
 
