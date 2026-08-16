@@ -20,11 +20,11 @@ To retrieve the activities Office 365, pipelines needs to authenticate with your
 
 ## Configuring the CloudWatch Pipeline
 
-When configuring the pipeline to read activities from Office 365, choose Microsoft 365 as the data source. Fill in the required information like Tenant Id using Directory (tenant) ID and the secret where `client_id` and `client_secret` are stored. Once you create the pipeline, data will be available in the selected CloudWatch Logs log group.
+When configuring the pipeline to read activities from Office 365, choose Microsoft 365 as the data source. Fill in the required information like Tenant Id using Directory (tenant) ID and the secret where `client_id` and `client_secret` are stored. After you create the pipeline, data will be available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 
-This integration supports OCSF schema version v1.5.0 and the actions from various workloads like Exchange, SharePoint, Teams, and Azure Active Directory are mapped to Account Change (3001), Authentication (3002), User Access Management (3005), Group Management (3006), Email Activity (4009), Web Resources Activity (6001), File Hosting Activity (6006), Application Lifecycle (6002), (2003), Detection Finding (2004), Incident Finding (2005), Vulnerability Finding (2002) and Unknown (0).
+This integration supports OCSF schema version v1.5.0. Actions from various workloads like Exchange, SharePoint, Teams, and Azure Active Directory are mapped to Account Change (3001), Authentication (3002), User Access Management (3005), Group Management (3006), Email Activity (4009), Web Resources Activity (6001), File Hosting Activity (6006), Application Lifecycle (6002), (2003), Detection Finding (2004), Incident Finding (2005), Vulnerability Finding (2002) and Unknown (0).
 
 ### Compliance Finding
 

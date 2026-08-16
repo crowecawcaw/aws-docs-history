@@ -103,7 +103,7 @@ secrets.
 
 Consider the following when using secrets:
 
-- Ensure the IAM role has appropriate permissions to access
+- Make sure the IAM role has appropriate permissions to access
   the secrets
 - Monitor secret access using AWS CloudTrail
 - Use separate secrets for different environments

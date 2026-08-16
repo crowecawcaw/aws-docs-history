@@ -30,7 +30,7 @@ expression can watch only one time series.
    labels**.
 
 By default, the dynamic values you add to the label appear at the beginning of the
-label. You can then click the **Label** value for the metric to edit
+label. You can then choose the **Label** value for the metric to edit
 the label. For more information, see [Use dynamic labels](graph-dynamic-labels.md "graph-dynamic-labels.md"). 9. (Optional) To add a single metric to the graph, choose the **All
 metrics** tab and drill down to the metric you want. 10. (Optional) To change the time range shown on the graph, choose either
 **custom** at the top of the graph or one of the time periods to the

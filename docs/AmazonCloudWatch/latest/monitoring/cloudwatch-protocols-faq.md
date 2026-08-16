@@ -21,25 +21,25 @@ Smithy RPC v2 CBOR (Concise Binary Object Representation) is a protocol develope
 
 To get started, use the latest AWS SDK/CLI version to use the latest supported protocol for CloudWatch. Upgrade your AWS SDK to the specified version or any subsequent version.
 
-SDK Client Protocol Support| Language | Protocol | SDK versions |
-| --- | --- | --- |
-| C++ | RPC v2 CBOR | [1.11.708](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.708 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.708") |
-| Golang 2.x | RPC v2 CBOR | [1.53.0](https://github.com/aws/aws-sdk-go-v2/releases/tag/service%2Fcloudwatch%2Fv1.53.0 "https://github.com/aws/aws-sdk-go-v2/releases/tag/service%2Fcloudwatch%2Fv1.53.0") |
-| Java 1.x | RPC v2 CBOR | [1.12.795](https://github.com/aws/aws-sdk-java/releases/tag/1.12.795 "https://github.com/aws/aws-sdk-java/releases/tag/1.12.795") |
-| Java 2.x | RPC v2 CBOR | [2.40.6](https://github.com/aws/aws-sdk-java-v2/releases/tag/2.40.6 "https://github.com/aws/aws-sdk-java-v2/releases/tag/2.40.6") |
-| JavaScript v3.x | AWS JSON 1.0 | [3.949.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.949.0 "https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.949.0") |
-| .NET v3 | AWS JSON 1.0 | [3.7.1182.0](https://github.com/aws/aws-sdk-net/releases/tag/3.7.1182.0 "https://github.com/aws/aws-sdk-net/releases/tag/3.7.1182.0") |
-| .NET v4 | RPC v2 CBOR | [4.0.150.0](https://github.com/aws/aws-sdk-net/releases/tag/4.0.150.0 "https://github.com/aws/aws-sdk-net/releases/tag/4.0.150.0") |
-| PHP | AWS JSON 1.0 | [3.367.0](https://github.com/aws/aws-sdk-php/releases/tag/3.367.0 "https://github.com/aws/aws-sdk-php/releases/tag/3.367.0") |
-| Python-boto3 | AWS JSON 1.0 | [1.42.7](https://github.com/boto/boto3/releases/tag/1.42.7 "https://github.com/boto/boto3/releases/tag/1.42.7") |
-| Python-botocore | AWS JSON 1.0 | [1.42.7](https://github.com/boto/botocore/releases/tag/1.42.7 "https://github.com/boto/botocore/releases/tag/1.42.7") |
-| AWS CLI v1 | AWS JSON 1.0 | [1.43.13](https://github.com/aws/aws-cli/releases/tag/1.43.13 "https://github.com/aws/aws-cli/releases/tag/1.43.13") |
-| AWS CLI v2 | AWS JSON 1.0 | [2.32.14](https://github.com/aws/aws-cli/releases/tag/2.32.14 "https://github.com/aws/aws-cli/releases/tag/2.32.14") |
-| Ruby | AWS JSON 1.0 | [1.126.0](https://github.com/aws/aws-sdk-ruby/commit/3b09588cf49079453ef372cdcd51eaab8d8114a9 "https://github.com/aws/aws-sdk-ruby/commit/3b09588cf49079453ef372cdcd51eaab8d8114a9") |
-| Powershell | AWS JSON 1.0 | [5.0.114](https://github.com/aws/aws-tools-for-powershell/commit/22b7f44d079b84fd245273ea554ae57d07e8a017 "https://github.com/aws/aws-tools-for-powershell/commit/22b7f44d079b84fd245273ea554ae57d07e8a017") |
-| Rust | RPC v2 CBOR | [1.100.0](https://github.com/awslabs/aws-sdk-rust/releases/tag/release-2025-12-10 "https://github.com/awslabs/aws-sdk-rust/releases/tag/release-2025-12-10") |
-| Swift | RPC v2 CBOR | [1.6.14](https://github.com/awslabs/aws-sdk-swift/releases/tag/1.6.14 "https://github.com/awslabs/aws-sdk-swift/releases/tag/1.6.14") |
-| Kotlin | RPC v2 CBOR | [1.5.100](https://github.com/aws/aws-sdk-kotlin/releases/tag/v1.5.100 "https://github.com/aws/aws-sdk-kotlin/releases/tag/v1.5.100") |
+| Language        | Protocol     | SDK versions                                                                                                                                                                                                 |
+| --------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| C++             | RPC v2 CBOR  | [1.11.708](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.708 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.708")                                                                              |
+| Golang 2.x      | RPC v2 CBOR  | [1.53.0](https://github.com/aws/aws-sdk-go-v2/releases/tag/service%2Fcloudwatch%2Fv1.53.0 "https://github.com/aws/aws-sdk-go-v2/releases/tag/service%2Fcloudwatch%2Fv1.53.0")                                |
+| Java 1.x        | RPC v2 CBOR  | [1.12.795](https://github.com/aws/aws-sdk-java/releases/tag/1.12.795 "https://github.com/aws/aws-sdk-java/releases/tag/1.12.795")                                                                            |
+| Java 2.x        | RPC v2 CBOR  | [2.40.6](https://github.com/aws/aws-sdk-java-v2/releases/tag/2.40.6 "https://github.com/aws/aws-sdk-java-v2/releases/tag/2.40.6")                                                                            |
+| JavaScript v3.x | AWS JSON 1.0 | [3.949.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.949.0 "https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.949.0")                                                                           |
+| .NET v3         | AWS JSON 1.0 | [3.7.1182.0](https://github.com/aws/aws-sdk-net/releases/tag/3.7.1182.0 "https://github.com/aws/aws-sdk-net/releases/tag/3.7.1182.0")                                                                        |
+| .NET v4         | RPC v2 CBOR  | [4.0.150.0](https://github.com/aws/aws-sdk-net/releases/tag/4.0.150.0 "https://github.com/aws/aws-sdk-net/releases/tag/4.0.150.0")                                                                           |
+| PHP             | AWS JSON 1.0 | [3.367.0](https://github.com/aws/aws-sdk-php/releases/tag/3.367.0 "https://github.com/aws/aws-sdk-php/releases/tag/3.367.0")                                                                                 |
+| Python-boto3    | AWS JSON 1.0 | [1.42.7](https://github.com/boto/boto3/releases/tag/1.42.7 "https://github.com/boto/boto3/releases/tag/1.42.7")                                                                                              |
+| Python-botocore | AWS JSON 1.0 | [1.42.7](https://github.com/boto/botocore/releases/tag/1.42.7 "https://github.com/boto/botocore/releases/tag/1.42.7")                                                                                        |
+| AWS CLI v1      | AWS JSON 1.0 | [1.43.13](https://github.com/aws/aws-cli/releases/tag/1.43.13 "https://github.com/aws/aws-cli/releases/tag/1.43.13")                                                                                         |
+| AWS CLI v2      | AWS JSON 1.0 | [2.32.14](https://github.com/aws/aws-cli/releases/tag/2.32.14 "https://github.com/aws/aws-cli/releases/tag/2.32.14")                                                                                         |
+| Ruby            | AWS JSON 1.0 | [1.126.0](https://github.com/aws/aws-sdk-ruby/commit/3b09588cf49079453ef372cdcd51eaab8d8114a9 "https://github.com/aws/aws-sdk-ruby/commit/3b09588cf49079453ef372cdcd51eaab8d8114a9")                         |
+| Powershell      | AWS JSON 1.0 | [5.0.114](https://github.com/aws/aws-tools-for-powershell/commit/22b7f44d079b84fd245273ea554ae57d07e8a017 "https://github.com/aws/aws-tools-for-powershell/commit/22b7f44d079b84fd245273ea554ae57d07e8a017") |
+| Rust            | RPC v2 CBOR  | [1.100.0](https://github.com/awslabs/aws-sdk-rust/releases/tag/release-2025-12-10 "https://github.com/awslabs/aws-sdk-rust/releases/tag/release-2025-12-10")                                                 |
+| Swift           | RPC v2 CBOR  | [1.6.14](https://github.com/awslabs/aws-sdk-swift/releases/tag/1.6.14 "https://github.com/awslabs/aws-sdk-swift/releases/tag/1.6.14")                                                                        |
+| Kotlin          | RPC v2 CBOR  | [1.5.100](https://github.com/aws/aws-sdk-kotlin/releases/tag/v1.5.100 "https://github.com/aws/aws-sdk-kotlin/releases/tag/v1.5.100")                                                                         |
 
 ## What are the risks of enabling these new protocols for my CloudWatch workloads?
 

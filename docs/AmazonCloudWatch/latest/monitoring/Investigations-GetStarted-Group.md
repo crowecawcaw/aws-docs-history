@@ -139,7 +139,7 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
 
     For more information about how these services help CloudWatch investigations, see [X-Ray](Investigations-RecommendedServices.md#Investigations-Xray "Investigations-RecommendedServices.md#Investigations-Xray")
     and [CloudWatch Application Signals](Investigations-RecommendedServices.md#Investigations-ApplicationSignals "Investigations-RecommendedServices.md#Investigations-ApplicationSignals"). 4. If you use Amazon EKS, your CloudWatch investigations investigation group can utilize
-    information directly from your Amazon EKS cluster once you set up access
+    information directly from your Amazon EKS cluster after you set up access
     entries. For more information, see [Integration with Amazon EKS](EKS-Integration.md "EKS-Integration.md"). 5. If you use Amazon RDS, enable the Advanced mode of Database Insights on your database
     instances. Database Insights monitors database load and provides detailed
     performance analysis that helps CloudWatch investigations identify database-related issues

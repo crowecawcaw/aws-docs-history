@@ -3,19 +3,21 @@
 Before you use IAM to manage access to Network Synthetic Monitor, learn what IAM features are
 available to use with Network Synthetic Monitor.
 
-IAM features you can use with Network Synthetic Monitor| IAM feature | Network Synthetic Monitor support |
-| --- | --- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies-nw "#security_iam_service-with-iam-id-based-policies-nw") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies-nw "#security_iam_service-with-iam-resource-based-policies-nw") | No |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions-nw "#security_iam_service-with-iam-id-based-policies-actions-nw") | Yes |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources-nw "#security_iam_service-with-iam-id-based-policies-resources-nw") | Yes |
-| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys-nw "#security_iam_service-with-iam-id-based-policies-conditionkeys-nw") | Yes |
-| [ACLs](#security_iam_service-with-iam-acls-nw "#security_iam_service-with-iam-acls-nw") | No |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags-nw "#security_iam_service-with-iam-tags-nw") | Partial |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds-nw "#security_iam_service-with-iam-roles-tempcreds-nw") | Yes |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions-nw "#security_iam_service-with-iam-principal-permissions-nw") | Yes |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service-nw "#security_iam_service-with-iam-roles-service-nw") | No |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked-nw "#security_iam_service-with-iam-roles-service-linked-nw") | Yes |
+The following table shows the IAM features you can use with this service.
+
+| IAM feature                                                                                                                                                    | Network Synthetic Monitor support |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies-nw "#security_iam_service-with-iam-id-based-policies-nw")                           | Yes                               |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies-nw "#security_iam_service-with-iam-resource-based-policies-nw")               | No                                |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions-nw "#security_iam_service-with-iam-id-based-policies-actions-nw")                    | Yes                               |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources-nw "#security_iam_service-with-iam-id-based-policies-resources-nw")              | Yes                               |
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys-nw "#security_iam_service-with-iam-id-based-policies-conditionkeys-nw") | Yes                               |
+| [ACLs](#security_iam_service-with-iam-acls-nw "#security_iam_service-with-iam-acls-nw")                                                                        | No                                |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags-nw "#security_iam_service-with-iam-tags-nw")                                                  | Partial                           |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds-nw "#security_iam_service-with-iam-roles-tempcreds-nw")                              | Yes                               |
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions-nw "#security_iam_service-with-iam-principal-permissions-nw")                     | Yes                               |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service-nw "#security_iam_service-with-iam-roles-service-nw")                                          | No                                |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked-nw "#security_iam_service-with-iam-roles-service-linked-nw")                        | Yes                               |
 
 To get a high-level view of how Network Synthetic Monitor and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the

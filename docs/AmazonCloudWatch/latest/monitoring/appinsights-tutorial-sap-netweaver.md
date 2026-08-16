@@ -215,7 +215,7 @@ Your SAP NetWeaver application experiences database connectivity issues.
 You can identify the connectivity issue by going to the CloudWatch Application Insights console and
 checking the SAP NetWeaver Application Insights problem dashboard. Select the link under **Problem summary** to see the specific issue.
 
-![Detected problems dashboard for CloudWatch Application Insights with further information under the Detected problems section in the Problem summary column.](images/appinsights-nw-database-connectivity-1.png)
+![Detected problems dashboard for CloudWatch Application Insights with details in the Problem summary column.](images/appinsights-nw-database-connectivity-1.png)
 
 In the following example, under
 **Problem summary**, SAP: Availability is the issue.

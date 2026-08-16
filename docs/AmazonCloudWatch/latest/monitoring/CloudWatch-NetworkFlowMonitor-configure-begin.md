@@ -19,7 +19,7 @@ accounts in your organization.
 
 ## Install agents on instances
 
-To track network performance with Network Flow Monitor, you must initialize the service, but you
+To track network performance with Network Flow Monitor, you must initialize the service. You
 must also install Network Flow Monitor agents on your workload's EC2 instances and add permissions for
 the agents to send networking performance metrics to Network Flow Monitor. After you install the
 agents, wait a short period of time (about 20 minutes), for data to begin being sent

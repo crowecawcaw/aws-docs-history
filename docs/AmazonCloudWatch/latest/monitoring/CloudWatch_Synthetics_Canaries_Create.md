@@ -2,7 +2,7 @@
 
 ###### Important
 
-Ensure that you use Synthetics canaries to monitor only endpoints and APIs where you
+Make sure that you use Synthetics canaries to monitor only endpoints and APIs where you
 have
 ownership or permissions. Depending on the canary frequency settings, these endpoints might
 experience increased traffic.
@@ -72,7 +72,7 @@ it continuously using a rate expression, or schedule it using a cron expression.
 
     * When you use the CloudWatch console
      to create a canary that runs continuously, you can choose a rate anywhere between once
-     a minute and once an hour.
+     a minute and after an hour.
 
 
     * For more information about writing a cron expression for canary scheduling, see [Scheduling canary runs using cron](CloudWatch_Synthetics_Canaries_cron.md "CloudWatch_Synthetics_Canaries_cron.md").

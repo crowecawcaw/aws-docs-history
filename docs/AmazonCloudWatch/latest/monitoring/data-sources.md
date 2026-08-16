@@ -18,19 +18,19 @@ CloudWatch pipelines creation wizard.
 The following table highlights key AWS service data sources. For the complete
 list of 90+ supported services, see [Supported AWS services for data sources](../logs/supported-aws-services-data-sources.md "../logs/supported-aws-services-data-sources.md").
 
-Key AWS service data sources| AWS service | Data type | Description |
-| --- | --- | --- |
-| Amazon Amazon VPC | Flow Logs | Network traffic metadata for Amazon VPCs, subnets, and network<br>interfaces |
-| Amazon Amazon EKS | Control Plane Logs | Kubernetes API server, audit, authenticator, controller manager,<br>and scheduler logs |
-| AWS WAF | Web ACL Logs | Web request inspection logs including rule match details and<br>actions taken |
-| Amazon Route 53 | Resolver Query Logs | DNS query logs for Amazon VPC resources routed through Route 53<br>Resolver |
-| CloudTrail | Management and Data Events | API activity and resource-level operations across AWS<br>services |
-| Amazon Amazon EC2 | Detailed Metrics | Instance-level performance metrics at 1-minute granularity |
-| AWS Security Hub | CSPM Findings | Cloud security posture management findings from AWS and<br>third-party providers |
-| Amazon Bedrock AgentCore | Runtime, Browser, CodeInterpreter, Gateway, Memory | Agent runtime execution, browser interaction, code execution,<br>gateway, and memory operation logs |
-| Amazon CloudFront | Distribution Logs | CDN access logs for content delivery distributions |
-| Network Load Balancer | Access Logs | Network Load Balancer connection and TLS negotiation logs |
-| Amazon RDS | Aurora MySQL and Aurora PostgreSQL Logs | Audit, error, general, slow query, IAM DB authentication<br>error, proxy, and enhanced monitoring logs |
+| AWS service              | Data type                                          | Description                                                                                            |
+| ------------------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Amazon Amazon VPC        | Flow Logs                                          | Network traffic metadata for Amazon VPCs, subnets, and network<br>interfaces                           |
+| Amazon Amazon EKS        | Control Plane Logs                                 | Kubernetes API server, audit, authenticator, controller manager,<br>and scheduler logs                 |
+| AWS WAF                  | Web ACL Logs                                       | Web request inspection logs including rule match details and<br>actions taken                          |
+| Amazon Route 53          | Resolver Query Logs                                | DNS query logs for Amazon VPC resources routed through Route 53<br>Resolver                            |
+| CloudTrail               | Management and Data Events                         | API activity and resource-level operations across AWS<br>services                                      |
+| Amazon Amazon EC2        | Detailed Metrics                                   | Instance-level performance metrics at 1-minute granularity                                             |
+| AWS Security Hub         | CSPM Findings                                      | Cloud security posture management findings from AWS and<br>third-party providers                       |
+| Amazon Bedrock AgentCore | Runtime, Browser, CodeInterpreter, Gateway, Memory | Agent runtime execution, browser interaction, code execution,<br>gateway, and memory operation logs    |
+| Amazon CloudFront        | Distribution Logs                                  | CDN access logs for content delivery distributions                                                     |
+| Network Load Balancer    | Access Logs                                        | Network Load Balancer connection and TLS negotiation logs                                              |
+| Amazon RDS               | Aurora MySQL and Aurora PostgreSQL Logs            | Audit, error, general, slow query, IAM DB authentication<br>error, proxy, and enhanced monitoring logs |
 
 For more information about CloudWatch Logs data sources, see [Data
 source discovery and management](../logs/data-source-discovery-management.md "../logs/data-source-discovery-management.md").
@@ -44,46 +44,46 @@ into CloudWatch Logs for unified analysis.
 
 The following table lists the supported direct third-party integrations:
 
-Direct third-party integrations| Source | Integration pattern | Category |
-| --- | --- | --- |
-| Akamai DataStream 2 | S3 Delivery | CDN and edge security |
-| Check Point NGFW | S3 Delivery | Network security |
-| Cisco Duo | API | Identity and access management |
-| Cisco Meraki | API | Network security |
-| Cisco Umbrella | S3 Delivery | DNS and network security |
-| CrowdStrike Falcon | S3 Delivery | Endpoint security |
-| Drupal Core | API | Content management |
-| Entrust IDaaS | API | Identity and access management |
-| F5 BIG-IP | S3 Delivery | Network security |
-| GitHub | API | Source code and audit logs |
-| GitLab | API | DevSecOps and source code |
-| HashiCorp Vault | S3 Delivery | Secrets management |
-| Jamf Protect | S3 Delivery | Endpoint security |
-| Microsoft Entra ID | API | Identity and access management |
-| Microsoft Office 365 | API | Productivity and audit logs |
-| Microsoft Windows Event Logs | API | Operating system events |
-| Netskope | API | Network security and CASB |
-| Okta Auth0 | API | Identity and access management |
-| Okta SSO | API | Identity and access management |
-| OneLogin Identity | API | Identity and access management |
-| Palo Alto Networks NGFW | API | Network security |
-| Palo Alto Prisma Cloud | API | Cloud security |
-| PingIdentity PingAccess | S3 Delivery | Access management |
-| PingIdentity PingFederate | S3 Delivery | Identity federation |
-| PingIdentity PingOne | API | Identity and access management |
-| Proofpoint TAP | API | Email security |
-| Slack Audit Log | API | Collaboration and audit logs |
-| SentinelOne | S3 Delivery | Endpoint security |
-| ServiceNow CMDB | API | IT service management |
-| Tanium Endpoint Management | S3 Delivery | Endpoint security and management |
-| Tenable Vulnerability Management | API | Vulnerability management |
-| Wazuh Platform | API | Security monitoring and threat detection |
-| Box | API | Content management and file sharing |
-| Jamf Pro | API | Device management (Apple) |
-| Broadcom Carbon Black | S3 Delivery | Endpoint detection and response |
-| Wiz CNAPP | API | Cloud security |
-| Zeek | S3 Delivery | Network security monitoring |
-| Zscaler ZIA/ZPA | S3 Delivery | Network security |
+| Source                           | Integration pattern | Category                                 |
+| -------------------------------- | ------------------- | ---------------------------------------- |
+| Akamai DataStream 2              | S3 Delivery         | CDN and edge security                    |
+| Check Point NGFW                 | S3 Delivery         | Network security                         |
+| Cisco Duo                        | API                 | Identity and access management           |
+| Cisco Meraki                     | API                 | Network security                         |
+| Cisco Umbrella                   | S3 Delivery         | DNS and network security                 |
+| CrowdStrike Falcon               | S3 Delivery         | Endpoint security                        |
+| Drupal Core                      | API                 | Content management                       |
+| Entrust IDaaS                    | API                 | Identity and access management           |
+| F5 BIG-IP                        | S3 Delivery         | Network security                         |
+| GitHub                           | API                 | Source code and audit logs               |
+| GitLab                           | API                 | DevSecOps and source code                |
+| HashiCorp Vault                  | S3 Delivery         | Secrets management                       |
+| Jamf Protect                     | S3 Delivery         | Endpoint security                        |
+| Microsoft Entra ID               | API                 | Identity and access management           |
+| Microsoft Office 365             | API                 | Productivity and audit logs              |
+| Microsoft Windows Event Logs     | API                 | Operating system events                  |
+| Netskope                         | API                 | Network security and CASB                |
+| Okta Auth0                       | API                 | Identity and access management           |
+| Okta SSO                         | API                 | Identity and access management           |
+| OneLogin Identity                | API                 | Identity and access management           |
+| Palo Alto Networks NGFW          | API                 | Network security                         |
+| Palo Alto Prisma Cloud           | API                 | Cloud security                           |
+| PingIdentity PingAccess          | S3 Delivery         | Access management                        |
+| PingIdentity PingFederate        | S3 Delivery         | Identity federation                      |
+| PingIdentity PingOne             | API                 | Identity and access management           |
+| Proofpoint TAP                   | API                 | Email security                           |
+| Slack Audit Log                  | API                 | Collaboration and audit logs             |
+| SentinelOne                      | S3 Delivery         | Endpoint security                        |
+| ServiceNow CMDB                  | API                 | IT service management                    |
+| Tanium Endpoint Management       | S3 Delivery         | Endpoint security and management         |
+| Tenable Vulnerability Management | API                 | Vulnerability management                 |
+| Wazuh Platform                   | API                 | Security monitoring and threat detection |
+| Box                              | API                 | Content management and file sharing      |
+| Jamf Pro                         | API                 | Device management (Apple)                |
+| Broadcom Carbon Black            | S3 Delivery         | Endpoint detection and response          |
+| Wiz CNAPP                        | API                 | Cloud security                           |
+| Zeek                             | S3 Delivery         | Network security monitoring              |
+| Zscaler ZIA/ZPA                  | S3 Delivery         | Network security                         |
 
 For detailed setup procedures, prerequisites, and configuration steps for each
 integration, see [Third-party data sources integration](third-party-integration-setup.md "third-party-integration-setup.md").
@@ -131,7 +131,7 @@ The following metric types are supported:
   that your applications emit through OpenTelemetry instrumentation and send
   to the OTLP endpoint
 - **AWS vended OTel metrics** –
-  Metrics that AWS services emit via OTLP
+  Metrics that AWS services emit through OTLP
 
 ###### Note
 

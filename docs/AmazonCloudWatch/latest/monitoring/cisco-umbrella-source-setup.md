@@ -14,7 +14,7 @@ Configuring Cisco Umbrella to send logs to an Amazon S3 bucket involves several 
 primarily focused on setting up the Amazon S3 bucket, Amazon SQS queue, and IAM roles, then
 configuring the CloudWatch pipeline.
 
-- Ensure Cisco Umbrella logs environment exporter is configured with S3.
+- Make sure Cisco Umbrella logs environment exporter is configured with S3.
   This is typically found under Admin → Logs Management in the Cisco
   Umbrella console.
 - Amazon S3 bucket that stores the Cisco Umbrella logs should reside in the same

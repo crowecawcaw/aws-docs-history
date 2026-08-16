@@ -235,7 +235,7 @@ The following services are used along with CloudWatch Application Insights:
   change the configuration of a volume attached to an instance. For more
   information, see the [Amazon EBS User
   Guide](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md").
-- **Amazon EC2 Auto Scaling** helps ensure that
+- **Amazon EC2 Auto Scaling** helps make sure that
   you have the correct number of EC2 instances available to handle the load
   for your application. For more information, see the [_Amazon EC2 Auto Scaling User
   Guide_](../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md").

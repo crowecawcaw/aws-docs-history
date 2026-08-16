@@ -62,7 +62,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that they're trying to perform.
 
-To ensure that users and roles can still use the Network Synthetic Monitor console, also attach the
+To make sure that users and roles can still use the Network Synthetic Monitor console, also attach the
 Network Synthetic Monitor `ConsoleAccess` or
 `ReadOnly` AWS managed policy to the entities. For
 more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console-nw "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console-nw") in the _IAM User Guide_.

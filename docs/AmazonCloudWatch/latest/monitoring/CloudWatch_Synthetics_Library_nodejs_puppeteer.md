@@ -204,7 +204,7 @@ Node.js and Puppeteer.
 **Changes in syn-nodejs-puppeteer-13.1**
 
 - Synthetics runtime namespace migration.
-- Type definitions are available in npm Registry. Please ensure the type
+- Type definitions are available in npm Registry. Please make sure the type
   definition package version matches your canary's runtime version.
 
   - [@aws/synthetics-puppeteer](https://www.npmjs.com/package/@aws/synthetics-puppeteer "https://www.npmjs.com/package/@aws/synthetics-puppeteer")
@@ -383,7 +383,7 @@ v21.0.0](https://github.com/puppeteer/puppeteer/releases/tag/puppeteer-core-v21.
 
 **Recommended upgrade to AWS SDK v3**
 
-The Lambda nodejs18.x runtime doesn't support AWS SDK v2. We
+The Lambda nodejs18.x runtime doesn't support AWS SDK v2. You
 strongly recommend that you migrate to AWS SDK v3.
 
 ### syn-nodejs-puppeteer-6.2

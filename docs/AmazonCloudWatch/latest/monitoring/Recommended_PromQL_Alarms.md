@@ -2626,7 +2626,7 @@ investigation.
 
 **Alarm description:** Alarm when a Route 53 health check reports an unhealthy endpoint.
 
-**Intent:** Detect unhealthy endpoints via Route 53 health checkers.
+**Intent:** Detect unhealthy endpoints by using Route 53 health checkers.
 
 **PromQL criteria:** `avg({__name__="HealthCheckStatus", "@instrumentation.@name"="cloudwatch.aws/route53", HealthCheckId="HC"}) < 1`
 

@@ -14,7 +14,7 @@ To read the logs, the pipeline needs to authenticate with your Okta SSO tenant. 
 - Navigate to Applications → Applications.
 - Select an existing API Services Application or create a new one.
 - Under General → Client Credentials, upload a public key or generate a new key. This key pair will be used to authenticate using a signed JWT assertion.
-- Ensure the application has the required OAuth scopes assigned, specifically: `okta.logs.read`
+- Make sure the application has the required OAuth scopes assigned, specifically: `okta.logs.read`
 - Admin Roles → Edit assignments → Role(Select Read-only Administrator)
 - Copy the Client ID of the application.
 - Store the client\_id and client\_secret(private key) in AWS Secrets Manager: `client_id` and `client_secret(private_key)` (the RSA private key used to sign the JWT assertion)
@@ -24,7 +24,7 @@ Once configured, the pipeline can authenticate using Okta's OAuth 2.0 Client Cre
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline to read logs, choose Okta SSO as the data source. Fill in the required information like Okta Domain name. Once you create and activate the pipeline, audit log data from Okta SSO will begin flowing into the selected CloudWatch Logs log group.
+To configure the pipeline to read logs, choose Okta SSO as the data source. Fill in the required information like Okta Domain name. After you create and activate the pipeline, audit log data from Okta SSO will begin flowing into the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

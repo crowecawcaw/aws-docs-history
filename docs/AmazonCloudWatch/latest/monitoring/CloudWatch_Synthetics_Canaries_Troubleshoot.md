@@ -158,10 +158,10 @@ aws lambda put-runtime-management-config \
    management configuration**, and copy the the **Runtime version ARN**
    .
 
-![Shows the Runtime settings section of the screen, and shows where the Runtime version ARN appears in this section.](images/SyntheticsManual1.png) 4. Choose **Edit runtime management configuration**, choose **Manual**, paste the runtime version ARN that you copied earlier into the **Runtime
+![Runtime settings section showing where the Runtime version ARN appears.](images/SyntheticsManual1.png) 4. Choose **Edit runtime management configuration**, choose **Manual**, paste the runtime version ARN that you copied earlier into the **Runtime
 version ARN** field. Then choose **Save**.
 
-![Shows the Runtime management configuration screen, and shows where the to paste the Runtime version ARN that you previousl copied..](images/SyntheticsManual2.png)
+![Runtime management configuration screen showing where to paste the Runtime version ARN.](images/SyntheticsManual2.png)
 
 ## My canary is blocked by AWS WAF
 
@@ -169,7 +169,7 @@ To allow canary traffic through AWS WAF,create a AWS WAF string match condition 
 a custom string that you specify. For more information, see [Working with string
 match conditions](../../../waf/latest/developerguide/classic-web-acl-string-conditions.md "../../../waf/latest/developerguide/classic-web-acl-string-conditions.md") in the AWS WAF documentation.
 
-We strongly
+It is strongly
 recommend that you use your own custom user-agent string instead of using default values.
 This provides better control over
 AWS WAF filtering and improves security.
@@ -278,7 +278,7 @@ availability of functions, see [Writing a canary script](CloudWatch_Synthetics_C
 
 When you plan to upgrade or downgrade the runtime version for a canary, we recommend
 that you
-first clone the canary and update the runtime version in the cloned canary. Once you have
+first clone the canary and update the runtime version in the cloned canary. After you have
 verified that the clone
 with the new runtime version works, you can update the runtime version of your original
 canary and delete the clone.
@@ -313,7 +313,7 @@ version `syn-nodejs-2.1` or later.
 
 ## Canary race condition issues
 
-For the best experience when using CloudWatch Synthetics, ensure that the code written for the
+For the best experience when using CloudWatch Synthetics, make sure that the code written for the
 canaries is idempotent. Otherwise, in rare cases,
 canary runs may encounter race conditions when the canary interacts with the same resource
 across different runs.

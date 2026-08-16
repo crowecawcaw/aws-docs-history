@@ -301,8 +301,8 @@ considerations for creating alarms on metrics from connected data sources, see [
 
 #### (Optional) Use AWS Secrets Manager to store credentials
 
-If your Lambda function needs to use credentials to access the data source, we
-recommend using AWS Secrets Manager to store these credentials instead of
+If your Lambda function needs to use credentials to access the data source, use
+AWS Secrets Manager to store these credentials instead of
 hardcoding them into your Lambda function. For more information about using
 AWS Secrets Manager with Lambda, see [Use
 AWS Secrets Manager secrets in AWS Lambda functions](../../../secretsmanager/latest/userguide/retrieving-secrets_lambda.md "../../../secretsmanager/latest/userguide/retrieving-secrets_lambda.md").

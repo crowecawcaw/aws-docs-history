@@ -149,7 +149,7 @@ treated as the same property.
 
 **Platform details**
 
-| Keyword                | Usage                                                       | Domain of Values                                           | Examples                      |
+| Keyword                | Usage                                                       | Domain of values                                           | Examples                      |
 | ---------------------- | ----------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------- |
 | `PlatformType`         | Defines the hosted-in platform.                             | AWS::EKS, AWS::ECS, AWS::EC2, AWS::Lambda, K8s, Generic    | `AWS::EC2`                    |
 | `EKS.Cluster`          | Name of the Amazon EKS cluster.                             | Alphanumeric string with basic delimiters.                 | `FlyingSquad`                 |
@@ -168,20 +168,20 @@ treated as the same property.
 
 **Resource details**
 
-| Keyword            | Usage                     | Domain of Values                           | Examples                                                        |
+| Keyword            | Usage                     | Domain of values                           | Examples                                                        |
 | ------------------ | ------------------------- | ------------------------------------------ | --------------------------------------------------------------- |
 | `AWS.Resource.ARN` | ARN for the AWS resource. | Alphanumeric string with basic delimiters. | `arn:aws:dynamodb:us-east-1:123456789012:table/myDynamoDBTable` |
 
 **Application details**
 
-| Keyword               | Usage                                   | Domain of Values                           | Examples                                                        |
+| Keyword               | Usage                                   | Domain of values                           | Examples                                                        |
 | --------------------- | --------------------------------------- | ------------------------------------------ | --------------------------------------------------------------- |
 | `AWS.Application`     | Name of the application in AppRegistry. | Alphanumeric string with basic delimiters. | `PetClinicApp`                                                  |
 | `AWS.Application.ARN` | ARN of the application in AppRegistry.  | Alphanumeric string with basic delimiters. | `arn:aws:servicecatalog:us-east-1:1234567890:/applications/...` |
 
 **Telemetry provider details**
 
-| Keyword            | Usage                                                                                                                      | Domain of Values                                                                | Examples                                      |
+| Keyword            | Usage                                                                                                                      | Domain of values                                                                | Examples                                      |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------- |
 | `Telemetry.SDK`    | The fingerprint of OTEL SDK version for instrumented services.                                                             | Alphanumeric string with basic delimiters.                                      | `opentelemetry,1.32.0-aws-SNAPSHOT,java,Auto` |
 | `Telemetry.Agent`  | The fingerprint of the Agent used to collect and send telemetry data.                                                      | Alphanumeric string with basic delimiters.                                      | `CWAgent/1.300026.3, ADOTCollector/1.x`       |

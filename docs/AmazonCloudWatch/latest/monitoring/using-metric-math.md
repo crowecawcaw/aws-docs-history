@@ -141,7 +141,7 @@ The following table lists the operators that are supported.
 | Comparison operators | ==<br>!=<br><=<br>>=<br><<br>> |
 | Logical operators    | AND or &&<br>OR or             |     |     |
 
-To see how these operators are used, suppose we have two time series:
+To see how these operators are used, suppose you have two time series:
 **metric1** has values of `[30, 20, 0, 0]` and
 **metric2** has values of `[20, -, 20, -]` where
 `-` indicates that there is no value for that timestamp.

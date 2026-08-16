@@ -54,7 +54,7 @@ OpenTelemetry does. For more information, see **Supported packages** at
 Before you enable Application Signals for your Python applications, be aware of the following considerations.
 
 - In some containerized applications, a missing `PYTHONPATH` environment variable can sometimes
-  cause the application to fail to start. To resolve this, ensure that you set the `PYTHONPATH` environment variable
+  cause the application to fail to start. To resolve this, make sure that you set the `PYTHONPATH` environment variable
   to the location of your application’s working directory. This is due to a known issue with OpenTelemetry auto-instrumentation.
   For more information about this issue, see
   [Python autoinstrumentation setting of PYTHONPATH is not compliant](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
@@ -74,11 +74,11 @@ OpenTelemetry does. For more information, see
 
 ### Known limitations about Node.js with ESM
 
-The AWS Distro for Opentelemetry Node.js supports two module systems: ECMAScript Modules (ESM) and CommonJS (CJS). To enable Application Signals, we
+The AWS Distro for Opentelemetry Node.js supports two module systems: ECMAScript Modules (ESM) and CommonJS (CJS). To enable Application Signals, you
 recommend that you use the CJS module format because OpenTelemetry JavaScript’s support of ESM is experimental and a work in progress.
-For more details, see [ECMAScript Modules vs. CommonJS](https://github.com/open-telemetry/opentelemetry-js/blob/eb3ca4fb07ee31c62093f5fcec56575573c902ce/doc/esm-support.md "https://github.com/open-telemetry/opentelemetry-js/blob/eb3ca4fb07ee31c62093f5fcec56575573c902ce/doc/esm-support.md") on GitHub.
+For more details, see [ECMAScript Modules versus CommonJS](https://github.com/open-telemetry/opentelemetry-js/blob/eb3ca4fb07ee31c62093f5fcec56575573c902ce/doc/esm-support.md "https://github.com/open-telemetry/opentelemetry-js/blob/eb3ca4fb07ee31c62093f5fcec56575573c902ce/doc/esm-support.md") on GitHub.
 
-To determine if your application is using CJS and not ESM, ensure that your application does not fulfill the conditions to enable ESM. For more information
+To determine if your application is using CJS and not ESM, make sure that your application does not fulfill the conditions to enable ESM. For more information
 about these conditions, see [Enabling](https://nodejs.org/api/esm.html#enabling "https://nodejs.org/api/esm.html#enabling") in the Node.js documentation.
 
 The AWS Distro for Opentelemetry Node.js provides limited support for ESM based on OpenTelemetry JavaScript’s experimental support for ESM. This means the following:
@@ -160,7 +160,7 @@ For information on configuring the auto-instrumentation executable, see [Configu
 
 #### Instrumenting HTTP calls
 
-HTTP calls can split traces when Context isn't passed between requests – HTTP clients must use `NewRequestWithContext()` instead of `NewRequest()` to ensure ensures the downstream service uses the same context. When both services have instrumentation agents, the spans connect with the same trace ID to provide end-to-end visibility.
+HTTP calls can split traces when Context isn't passed between requests – HTTP clients must use `NewRequestWithContext()` instead of `NewRequest()` to make sure ensures the downstream service uses the same context. When both services have instrumentation agents, the spans connect with the same trace ID to provide end-to-end visibility.
 
 ```
 func makeDownstreamCall(ctx context.Context, url string) ([]byte, error) {

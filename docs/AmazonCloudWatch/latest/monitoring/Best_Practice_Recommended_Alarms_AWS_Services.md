@@ -192,7 +192,7 @@ there is high integration latency for the API requests in a stage. You can corre
 the `IntegrationLatency` metric value with the corresponding latency metric of your backend such as
 the `Duration` metric for Lambda integrations. This helps you determine whether the API backend is taking more time to process requests from clients due to performance issues, or if there is some other overhead from initialization or cold start. Additionally, consider enabling CloudWatch Logs for your API and checking the logs for any errors that may be causing the high latency issues. Moreover, consider enabling detailed CloudWatch metrics to get a view of this metric per route, to help you narrow down the source of the integration latency.
 
-**Intent:** This alarm can detect when the API Gateway requests in a stage have a high integration latency. We recommend this alarm for WebSocket APIs, and we consider it optional for HTTP APIs because they already have separate alarm recommendations for the Latency metric. If you have detailed CloudWatch metrics enabled and you have different integration latency performance requirements per route, we recommend that you create alternative alarms in order to have more fine-grained monitoring of the integration latency for each route.
+**Intent:** This alarm can detect when the API Gateway requests in a stage have a high integration latency. We recommend this alarm for WebSocket APIs, and it is considered optional for HTTP APIs because they already have separate alarm recommendations for the Latency metric. If you have detailed CloudWatch metrics enabled and you have different integration latency performance requirements per route, we recommend that you create alternative alarms in order to have more fine-grained monitoring of the integration latency for each route.
 
 **Statistic:** p90
 
@@ -574,7 +574,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Recommended threshold:** 0.0
 
-**Threshold justification:** A value greater than 0 indicates a validation error. We recommend setting the threshold to 0 because validation errors imply a problem when CloudFront functions hand off back to CloudFront. For example, CloudFront needs the HTTP Host header in order to process a request. There is nothing stopping a user from deleting the Host header in their CloudFront functions code. But when CloudFront gets the response back and the Host header is missing, CloudFront throws a validation error.
+**Threshold justification:** A value greater than 0 indicates a validation error. We recommend setting the threshold to 0 because validation errors imply a problem when CloudFront functions hand off back to CloudFront. For example, CloudFront needs the HTTP Host header to process a request. There is nothing stopping a user from deleting the Host header in their CloudFront functions code. But when CloudFront gets the response back and the Host header is missing, CloudFront throws a validation error.
 
 **Period:** 60
 
@@ -680,7 +680,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Alarm description:** You can set the threshold value can to suit the traffic of the request as well as to match acceptable throttling for token refresh requests. Throttling is used to protect your system from too many requests. However, it is important to monitor if you are under provisioned for your normal traffic as well. You can analyze historical data to find the acceptable throttling for the application workload, and then you can tune your alarm threshold to be higher than your acceptable throttling level. Throttled requests should be retried by the application/service as they are transient. Therefore, a very low value for the threshold can cause alarm to be sensitive.
 
-**Intent:** This alarm helps to monitor the occurrence of throttled token refresh requests. This can help you know when to take actions to mitigate any potential problems, to ensure a smooth user experience and the health and reliability of your authentication system. Sustained throttling of requests is a bad user authentication experience.
+**Intent:** This alarm helps to monitor the occurrence of throttled token refresh requests. This can help you know when to take actions to mitigate any potential problems, to make sure a smooth user experience and the health and reliability of your authentication system. Sustained throttling of requests is a bad user authentication experience.
 
 **Statistic:** Sum
 
@@ -702,7 +702,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Alarm description:** This alarm monitors the count of throttled identity federation requests. If you consistently see throttling, it might indicate that you need to increase the limit by requesting a service quota increase. Refer to [Quotas in Amazon Cognito](../../../cognito/latest/developerguide/limits.md "../../../cognito/latest/developerguide/limits.md") to learn how to request a quota increase.
 
-**Intent:** This alarm helps to monitor the occurrence of throttled identity federation requests. This can help you take proactive responses to performance bottlenecks or misconfigurations, and ensure a smooth authentication experience for your users. Sustained throttling of requests is a bad user authentication experience.
+**Intent:** This alarm helps to monitor the occurrence of throttled identity federation requests. This can help you take proactive responses to performance bottlenecks or misconfigurations, and make sure a smooth authentication experience for your users. Sustained throttling of requests is a bad user authentication experience.
 
 **Statistic:** Sum
 
@@ -769,7 +769,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 **Dimensions:** TableName, DelegatedOperation
 
 **Alarm description:** This alarm detects the delay in replication to a
-Kinesis data stream. Under normal operation, `AgeOfOldestUnreplicatedRecord` should be only milliseconds. This number grows based on unsuccessful replication attempts caused by customer-controlled configuration choices. Customer-controlled configuration examples that lead to unsuccessful replication attempts are an under-provisioned Kinesis data stream capacity that leads to excessive throttling. or a manual update to the Kinesis data stream’s access policies that prevents DynamoDB from adding data to the data stream. To keep this metric as low as possible, you need to ensure the right provisioning of Kinesis data stream capacity and make sure that DynamoDB’s permissions are unchanged.
+Kinesis data stream. Under normal operation, `AgeOfOldestUnreplicatedRecord` should be only milliseconds. This number grows based on unsuccessful replication attempts caused by customer-controlled configuration choices. Customer-controlled configuration examples that lead to unsuccessful replication attempts are an under-provisioned Kinesis data stream capacity that leads to excessive throttling. or a manual update to the Kinesis data stream’s access policies that prevents DynamoDB from adding data to the data stream. To keep this metric as low as possible, you need to make sure the right provisioning of Kinesis data stream capacity and make sure that DynamoDB’s permissions are unchanged.
 
 **Intent:** This alarm can monitor unsuccessful replication attempts and the resulting delay in replication to the Kinesis data stream.
 
@@ -932,7 +932,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Recommended threshold:** Depends on your situation
 
-**Threshold justification:** You might experience some throttling during exceptional usage peaks, but throttled records should remain as low as possible to avoid higher replication latency (DynamoDB retries sending throttled records to the Kinesis data stream). Set the threshold to a number which can help you catch regular excessive throttling. You can also analyze historical data of this metric to find the acceptable throttling rates for the application workload. Tune the threshold to a value that the application can tolerate based on your use case.
+**Threshold justification:** You might experience some throttling during exceptional usage peaks. However, throttled records should remain as low as possible to avoid higher replication latency (DynamoDB retries sending throttled records to the Kinesis data stream). Set the threshold to a number which can help you catch regular excessive throttling. You can also analyze historical data of this metric to find the acceptable throttling rates for the application workload. Tune the threshold to a value that the application can tolerate based on your use case.
 
 **Period:** 60
 
@@ -1211,7 +1211,7 @@ triggered and evictions might occur based on the policy selected. If no object i
 
 **Alarm description:** This alarm helps to monitor the replication health of your ElastiCache cluster. A high replication lag means that the primary node or the replica can’t keep up the pace of the replication. If your write activity is too high, consider scaling your cluster out by adding more primary nodes, or scaling it up by using a larger node type. Refer to [Scaling ElastiCache for Redis OSS clusters](../../../AmazonElastiCache/latest/red-ug/Scaling.md "../../../AmazonElastiCache/latest/red-ug/Scaling.md") for details. If your read replicas are overloaded by the amount of read requests, consider adding more read replicas.
 
-**Intent:** This alarm is used to detect a delay between data updates on the primary node and their synchronization to replica node. It helps to ensure data consistency of a read replica cluster node.
+**Intent:** This alarm is used to detect a delay between data updates on the primary node and their synchronization to replica node. It helps to make sure data consistency of a read replica cluster node.
 
 **Statistic:** Average
 
@@ -2152,7 +2152,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Alarm description:** This alarm detects when the number of failed `PutRecords` exceeds the threshold. Kinesis Data Streams attempts to process all records in each `PutRecords` request, but a single record failure does not stop the processing of subsequent records. The main reason for these failures is exceeding the throughput of a stream or an individual shard. Common causes are traffic spikes and network latencies that cause records to arrive to the stream unevenly. You should detect unsuccessfully processed records and retry them in a subsequent call. Refer to [Handling Failures When Using PutRecords](../../../streams/latest/dev/developing-producers-with-sdk.md "../../../streams/latest/dev/developing-producers-with-sdk.md") for more details.
 
-**Intent:** This alarm can detect consistent failures when using batch operation to put records to your stream. By setting an alarm on this metric, you can proactively detect an increase in failed records, enabling you to take timely actions to address the underlying problems and ensure a smooth and reliable data ingestion process.
+**Intent:** This alarm can detect consistent failures when using batch operation to put records to your stream. By setting an alarm on this metric, you can proactively detect an increase in failed records, enabling you to take timely actions to address the underlying problems and make sure a smooth and reliable data ingestion process.
 
 **Statistic:** Sum
 
@@ -2172,7 +2172,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Dimensions:** StreamName
 
-**Alarm description:** The alarm tracks the number of records that result in read throughput capacity throttling. If you find that you are being consistently throttled, you should consider adding more shards to your stream to increase your provisioned read throughput. If there is more than one consumer application running on the stream, and they share the `GetRecords` limit, we recommend that you register new consumer applications via Enhanced Fan-Out. If adding more shards does not lower the number of throttles, you may have a “hot” shard that is being read from more than other shards are. Enable enhanced monitoring, find the “hot” shard, and split it.
+**Alarm description:** The alarm tracks the number of records that result in read throughput capacity throttling. If you find that you are being consistently throttled, you should consider adding more shards to your stream to increase your provisioned read throughput. If there is more than one consumer application running on the stream, and they share the `GetRecords` limit, we recommend that you register new consumer applications through Enhanced Fan-Out. If adding more shards does not lower the number of throttles, you may have a “hot” shard that is being read from more than other shards are. Enable enhanced monitoring, find the “hot” shard, and split it.
 
 **Intent:** This alarm can detect if consumers are throttled when they exceed your provisioned read throughput (determined by the number of shards you have). In that case, you won’t be able to read from the stream, and the stream can start backing up.
 
@@ -2196,7 +2196,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Alarm description:** This alarm detects when the delay of record processing in the application breaches the threshold. Transient problems such as API operation failures to a downstream application can cause a sudden increase in the metric. You should investigate if they consistently happen. A common cause is the consumer is not processing records fast enough because of insuﬃcient physical resources or record processing logic that has not scaled with an increase in stream throughput. Blocking calls in critical path is often the cause of slowdowns in record processing. You can increase your parallelism by increasing the number of shards. You should also confirm underlying processing nodes have sufficient physical resources during peak demand.
 
-**Intent:** This alarm can detect delay in the subscription to shard event of the stream. This indicates a processing lag and can help identify potential issues with the consumer application's performance or the overall stream's health. When the processing lag becomes significant, you should investigate and address any bottlenecks or consumer application inefficiencies to ensure real-time data processing and minimize data backlog.
+**Intent:** This alarm can detect delay in the subscription to shard event of the stream. This indicates a processing lag and can help identify potential issues with the consumer application's performance or the overall stream's health. When the processing lag becomes significant, you should investigate and address any bottlenecks or consumer application inefficiencies to make sure real-time data processing and minimize data backlog.
 
 **Statistic:** Average
 

@@ -510,7 +510,7 @@ Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md
 
 ## Deleting a service-linked role for CloudWatch Application Insights
 
-If you no longer need to use a feature or service that requires a service-linked role, we
+If you no longer need to use a feature or service that requires a service-linked role, the service
 recommend that you delete that role. That way you avoid having an unused entity that is not
 actively monitored or maintained. However, you must delete all applications in Application
 Insights before you can manually delete the role.

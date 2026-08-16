@@ -7,19 +7,19 @@ To see tables showing a similar high-level view of how AWS services work with mo
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-IAM features you can use with Network Flow Monitor| IAM feature | Network Flow Monitor support |
-| --- | --- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies-nfm "#security_iam_service-with-iam-id-based-policies-nfm") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies-nfm "#security_iam_service-with-iam-resource-based-policies-nfm") | No |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions-nfm "#security_iam_service-with-iam-id-based-policies-actions-nfm") | Yes |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources-nfm "#security_iam_service-with-iam-id-based-policies-resources-nfm") | Yes |
-| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys-nfm "#security_iam_service-with-iam-id-based-policies-conditionkeys-nfm") | Yes |
-| [ACLs](#security_iam_service-with-iam-acls-nfm "#security_iam_service-with-iam-acls-nfm") | No |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags-nfm "#security_iam_service-with-iam-tags-nfm") | Yes |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds-nfm "#security_iam_service-with-iam-roles-tempcreds-nfm") | Yes |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions-nfm "#security_iam_service-with-iam-principal-permissions-nfm") | Yes |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service-nfm "#security_iam_service-with-iam-roles-service-nfm") | No |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked-nfm "#security_iam_service-with-iam-roles-service-linked-nfm") | Yes |
+| IAM feature                                                                                                                                                                         | Network Flow Monitor support |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies-nfm "#security_iam_service-with-iam-id-based-policies-nfm")                                              | Yes                          |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies-nfm "#security_iam_service-with-iam-resource-based-policies-nfm")                                  | No                           |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions-nfm "#security_iam_service-with-iam-id-based-policies-actions-nfm")                                       | Yes                          |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources-nfm "#security_iam_service-with-iam-id-based-policies-resources-nfm")                                 | Yes                          |
+| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys-nfm "#security_iam_service-with-iam-id-based-policies-conditionkeys-nfm") | Yes                          |
+| [ACLs](#security_iam_service-with-iam-acls-nfm "#security_iam_service-with-iam-acls-nfm")                                                                                           | No                           |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags-nfm "#security_iam_service-with-iam-tags-nfm")                                                                     | Yes                          |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds-nfm "#security_iam_service-with-iam-roles-tempcreds-nfm")                                                 | Yes                          |
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions-nfm "#security_iam_service-with-iam-principal-permissions-nfm")                                        | Yes                          |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service-nfm "#security_iam_service-with-iam-roles-service-nfm")                                                             | No                           |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked-nfm "#security_iam_service-with-iam-roles-service-linked-nfm")                                           | Yes                          |
 
 ## Identity-based policies for Network Flow Monitor
 

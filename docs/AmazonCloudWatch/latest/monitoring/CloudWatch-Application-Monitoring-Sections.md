@@ -101,7 +101,7 @@ You can use Amazon CloudWatch Observability Access Manager to set up one or more
 in your source account by creating a sink in your monitoring account. You use the sink to create a link from your source account to your monitoring account. For more information, see
 [CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md "CloudWatch-Unified-Cross-Account.md").
 
-For proper functionality of Application Signals cross-account observability, ensure that the following telemetry types are shared through the CloudWatch Observability Access Manager.
+For proper functionality of Application Signals cross-account observability, make sure that the following telemetry types are shared through the CloudWatch Observability Access Manager.
 
     + Application Signals services and service level objectives (SLOs)
     + Metrics in Amazon CloudWatch

@@ -126,7 +126,7 @@ on the GitHub website.
 
 ### Prerequisites
 
-To use service events, ensure you have the minimum required versions of the
+To use service events, make sure you have the minimum required versions of the
 following components:
 
 1. **Update the ADOT SDK** — Update the

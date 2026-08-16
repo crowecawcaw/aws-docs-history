@@ -9,11 +9,11 @@ pipelines use the `cloudwatch_metrics` sink.
 For logs pipelines, the `cloudwatch_logs` sink sends processed log events
 to a CloudWatch Logs log group.
 
-Sink behavior by source type| Source Type | Log Group Configuration | Behavior |
-| --- | --- | --- |
-| CloudWatch Logs | Must use `@original` | Events are sent back to their original log group |
-| S3 | Custom log group path | Events are sent to the specified log group |
-| Third-party APIs | Custom log group path | Events are sent to the specified log group |
+| Source Type      | Log group configuration | Behavior                                         |
+| ---------------- | ----------------------- | ------------------------------------------------ |
+| CloudWatch Logs  | Must use `@original`    | Events are sent back to their original log group |
+| S3               | Custom log group path   | Events are sent to the specified log group       |
+| Third-party APIs | Custom log group path   | Events are sent to the specified log group       |
 
 ###### Configuration
 
@@ -113,7 +113,7 @@ Log events are subject to CloudWatch Logs quotas and limitations.
 ## CloudWatch Metrics sink (`cloudwatch_metrics`)
 
 For metrics pipelines, the `cloudwatch_metrics` sink stores processed
-metrics in CloudWatch. Processed metrics are queryable via PromQL in Query Studio and
+metrics in CloudWatch. Processed metrics are queryable through PromQL in Query Studio and
 fully compatible with CloudWatch Alarms, Anomaly Detection, and Dashboards.
 
 ###### Configuration

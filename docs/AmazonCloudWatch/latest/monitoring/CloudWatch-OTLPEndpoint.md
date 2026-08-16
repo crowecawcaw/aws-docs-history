@@ -25,7 +25,7 @@ The endpoint supports the following authentication methods:
 
 - **AWS Signature Version 4 (SigV4)** –
   Recommended for workloads running on AWS. Uses short-term credentials
-  via IAM roles. For more information, see [AWS Signature Version 4
+  by using IAM roles. For more information, see [AWS Signature Version 4
   for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md").
 - **Bearer token (API key)** –
   For workloads running outside AWS or environments that do not support

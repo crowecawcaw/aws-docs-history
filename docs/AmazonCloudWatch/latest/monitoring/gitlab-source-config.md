@@ -13,7 +13,7 @@ To integrate CloudWatch Pipelines with GitLab, complete the following high-level
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, make sure you have the following:
 
 - An active GitLab (SaaS) account with Owner or Admin access
 - A GitLab Personal Access Token (PAT) with the `read_api` scope
@@ -42,7 +42,7 @@ To configure authentication credentials for the pipeline:
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline, choose GitLab as the data source. Provide the Personal Access Token. Once you create and activate the pipeline, audit and activity data from GitLab will begin flowing into the selected CloudWatch Logs log group.
+To configure the pipeline, choose GitLab as the data source. Provide the Personal Access Token. After you create and activate the pipeline, audit and activity data from GitLab will begin flowing into the selected CloudWatch Logs log group.
 
 The following optional parameters are available:
 

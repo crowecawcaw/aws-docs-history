@@ -2,7 +2,7 @@
 
 Query Studio is an interactive query environment in the CloudWatch console where you can write,
 run, and visualize PromQL queries against your CloudWatch metrics. You can use Query Studio to explore
-metrics ingested via OTLP and AWS vended metrics, create visualizations, set up alarms, and
+metrics ingested through OTLP and AWS vended metrics, create visualizations, set up alarms, and
 add widgets to your CloudWatch dashboards.
 
 You can run PromQL queries programmatically using the CloudWatch API, or interactively in Query Studio.
@@ -15,7 +15,7 @@ You can run PromQL queries programmatically using the CloudWatch API, or interac
 2. In the navigation pane, choose **Query Studio**.
 3. In the query editor tool, select **PromQL** from the drop-down menu.
 4. Use the **Builder** mode to browse and select metric names, labels, and aggregation functions.
-5. Or enter your PromQL query via the **Editor** mode, for example `{"http.server.active_requests"}`.
+5. Or enter your PromQL query through the **Editor** mode, for example `{"http.server.active_requests"}`.
 6. (Optional) Adjust the time range using the time interval selector at the top of the page.
 7. Choose **Run** to execute the query and view the results.
 

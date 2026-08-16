@@ -62,7 +62,7 @@ is `m1/SERVICE_QUOTA(m1)*100`. 7. (Optional) To set an alarm that notifies you i
 
 
     The alarm creation page appears.
-    2. Under **Conditions**, ensure that **Threshold
+    2. Under **Conditions**, make sure that **Threshold
      type** is **Static** and **Whenever Expression1
      is** is set to **Greater**. Under
      **than**, enter `80`. This creates an alarm

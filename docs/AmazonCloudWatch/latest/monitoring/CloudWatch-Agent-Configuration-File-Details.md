@@ -1147,7 +1147,7 @@ concurrency can help with throughput.
       - `auto_removal` – Optional. If this is
         `true`, the CloudWatch agent automatically deletes this log file
         after reading it and it has been rotated. Usually the log files are
-        deleted after their entire contents are uploaded to CloudWatch Logs, but if the
+        deleted after their entire contents are uploaded to CloudWatch Logs. However, if the
         agent reaches the EOF (end of file) and also detects another newer log
         file that matches the same `file_path`, the agent deletes the
         OLD file, so you must make sure that you are done writing to the OLD

@@ -67,7 +67,7 @@ make up your database fleets. The Fleet Health Dashboard provides an opinionated
 health and DBLoad utilization for your Limitless shard groups, similar to how it
 presents information for other databases in the fleet.
 
-![Database Insights Fleet Health Dashboard. The main panel shows a hexagonal grid representing database instances, with one highlighted for 'shardgroup2'. It displays DB Load Utilization for Routers and Shards. The top right shows a graph of 'Top 10 instances per DB Load Utilization' over time. Below are details for 'db-microsoftsqlserver-enterprise-1-dbi-advanced' including top queries and wait events. The bottom sections show no critical events and no calling services. The left sidebar indicates 44 total instances with 2 in alarm state, and an average DB Load Utilization of 25.1%.](images/dbi_fhd.png)
+![Database Insights Fleet Health Dashboard showing instance grid, load utilization, and top queries.](images/dbi_fhd.png)
 
 When viewing Aurora Limitless databases in the Fleet Health Dashboard:
 
@@ -86,7 +86,7 @@ This fleet-level view allows you to monitor and compare the performance of your 
 Limitless shard groups with other databases in your fleet, providing a comprehensive
 overview of your entire database fleet.
 
-![Database Insights dashboard showing a list of database instances. The table displays 7 instances with their DB Identifier, Alarm state, Engine type, DB Load Utilization, Last state update, and Database version. Engines include PostgreSQL, SQL Server Enterprise, Oracle Standard, Aurora MySQL, and Aurora PostgreSQL. The SQL Server instance has the highest load at 25.21%. Two Aurora PostgreSQL instances are labeled as 'Limitless' and show separate utilization for Shards and Routers. The interface includes options for filtering, sorting, and viewing additional details.](images/dbi_fhd-limitless-list-view.png)
+![Database Insights dashboard listing database instances with engine type and load utilization.](images/dbi_fhd-limitless-list-view.png)
 
 ## Monitoring Aurora PostgreSQL Limitless Databases in the Instance Dashboard
 
@@ -119,7 +119,7 @@ subcategories of the metric. The most useful dimensions are the following:
 - **Top SQL** – Shows which queries
   contribute the most to DB load.
 
-![Database Insights dashboard showing database performance metrics. The top section displays a line graph tracking database activity from 12:00 to 14:45 on July 14. Below, the DB Load Analysis tab shows a "Top instances" view listing 4 database instances (DTR-3-757, DTR-2-903, DAS-4-112, and DAS-5-992) with their load utilization metrics, all showing values less than 0.01 AAS (Average Active Sessions). The interface includes options for alarm states, filters, and various analysis views.](images/dbi_limitless-top-instances.png)
+![Database Insights dashboard showing performance metrics and top instances by load utilization.](images/dbi_limitless-top-instances.png)
 
 ## Analyze DB load for Aurora PostgreSQL Limitless Databases with Database Insights
 
@@ -131,7 +131,7 @@ router to the maximum vCPU.
 The Absolute view shows the number of Average active sessions (AAS) and the estimated
 vCPU. The Relative view shows the ratio of AAS to the estimated vCPU.
 
-![Database Insights dashboard showing database load distribution for a shardgroup1 Aurora PostgreSQL cluster. The interface displays a time series graph of average active sessions (AAS) and a pie chart showing load distribution across 5 database instances. The pie chart indicates a total of 261 AAS with percentages split between instances DTR-2-103, DTR-3-650, DAS-4-659, DAS-5-784, and DAS-6-336. The dashboard includes filters, alarm states, and database telemetry options.](images/dbi_limitless-doughnut.png)
+![Database Insights dashboard showing database load distribution across instances.](images/dbi_limitless-doughnut.png)
 
 ### Analyzing relative DB load using the Database Insights dashboard
 

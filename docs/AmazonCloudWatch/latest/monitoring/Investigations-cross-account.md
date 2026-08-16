@@ -69,7 +69,7 @@ troubleshoot complex multi-account scenarios.
       - If the monitoring account owner removes a source account
         from the cross-account configuration, the IAM policy will
         not update automatically. You must manually update the IAM
-        role and policy to ensure it always has the minimum
+        role and policy to make sure it always has the minimum
         permissions possible.
       - You might reach the limit of managed policies per role if
         the permissions are not manually updated when a source

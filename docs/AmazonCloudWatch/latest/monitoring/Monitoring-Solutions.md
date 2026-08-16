@@ -71,7 +71,7 @@ the solution.
 
 **How are solutions versioned?**
 
-Each solution provides the most up-to-date instructions and resources. We always recommend using the latest version available. While the solutions themselves are not
+Each solution provides the most up-to-date instructions and resources. Always use the latest version available. While the solutions themselves are not
 versioned, the associated artifacts (such as CloudFormation templates for dashboards and agent installations) are versioned.
 
 You can identify the version of a previously deployed artifact by checking the CloudFormation template's description field or the filename of the template you downloaded.

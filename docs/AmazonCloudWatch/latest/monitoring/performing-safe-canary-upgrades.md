@@ -65,7 +65,7 @@ updates.
 6. On the **Synthetics** list page, you will see a text next to the **Runtime** version for the canary that displays the progress of the dry run
    (this is only displayed for dry runs involving a runtime update).
 
-Once the dry run succeeds, you will see an **Initiate Update**
+After the dry run succeeds, you will see an **Initiate Update**
 text. 7. Choose **Initiate Update** to commit the runtime update. 8. If the dry run fails, you will see an **Update dry run failed**
 text. Choose the text to view the debug link to the canary details page.
 

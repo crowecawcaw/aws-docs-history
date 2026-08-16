@@ -12,15 +12,15 @@ metric must match every expression in the group to enter the pipeline.
 
 The following OTTL paths are supported in selection criteria:
 
-Selection criteria paths| Path | Description |
-| --- | --- |
-| `resource.attributes["key"]` | Resource-level attribute |
-| `instrumentation_scope.name` | Instrumentation scope name |
-| `instrumentation_scope.version` | Instrumentation scope version |
-| `instrumentation_scope.attributes["key"]` | Instrumentation scope attribute |
-| `metric.name` | Metric name |
-| `datapoint.attributes["key"]` | Datapoint-level attribute |
-| `attributes["key"]` | Short form for `datapoint.attributes["key"]` |
+| Path                                      | Description                                  |
+| ----------------------------------------- | -------------------------------------------- |
+| `resource.attributes["key"]`              | Resource-level attribute                     |
+| `instrumentation_scope.name`              | Instrumentation scope name                   |
+| `instrumentation_scope.version`           | Instrumentation scope version                |
+| `instrumentation_scope.attributes["key"]` | Instrumentation scope attribute              |
+| `metric.name`                             | Metric name                                  |
+| `datapoint.attributes["key"]`             | Datapoint-level attribute                    |
+| `attributes["key"]`                       | Short form for `datapoint.attributes["key"]` |
 
 ## Configuration
 
@@ -76,12 +76,12 @@ CloudWatch maps OTLP attribute scopes to PromQL labels using the `@` prefix
 convention. Use this mapping to verify that your pipeline is processing metrics
 as expected in Query Studio:
 
-OTTL path to PromQL label mapping| Pipeline OTTL path | PromQL label prefix | Example |
-| --- | --- | --- |
-| `resource.attributes["key"]` | `@resource.` | `@resource.service.name` |
-| `instrumentation_scope.name` | `@instrumentation.@name` | `@instrumentation.@name` |
-| `instrumentation_scope.attributes["key"]` | `@instrumentation.` | `@instrumentation.library` |
-| `datapoint.attributes["key"]` / `attributes["key"]` | `@datapoint.` or bare | `status_code` |
+| Pipeline OTTL path                                  | PromQL label prefix      | Example                    |
+| --------------------------------------------------- | ------------------------ | -------------------------- |
+| `resource.attributes["key"]`                        | `@resource.`             | `@resource.service.name`   |
+| `instrumentation_scope.name`                        | `@instrumentation.@name` | `@instrumentation.@name`   |
+| `instrumentation_scope.attributes["key"]`           | `@instrumentation.`      | `@instrumentation.library` |
+| `datapoint.attributes["key"]` / `attributes["key"]` | `@datapoint.` or bare    | `status_code`              |
 
 For example, if your pipeline adds `resource.attributes["team"]` with
 value `"platform-engineering"`, you can confirm it was applied:

@@ -9,7 +9,7 @@ ingestion into CloudWatch.
 
 CloudWatch pipelines is fully integrated with the [logs management
 experience](../logs/data-source-discovery-management.md "../logs/data-source-discovery-management.md"), enabling you to consistently process and enrich log data across related
-log groups via data-source and data-type specification. This unlocks use cases such as:
+log groups through data-source and data-type specification. This unlocks use cases such as:
 
 - **Automatic log categorization** – Logs processed
   through pipelines are automatically tagged with data source information, enabling
@@ -29,7 +29,7 @@ log groups via data-source and data-type specification. This unlocks use cases s
   queries, Logs Anomaly Detection, and Live Tail. CloudWatch pipelines works with both Standard and
   Infrequent Access log classes and is backwards compatible with Log Transformers.
 
-For metrics pipelines, processed metrics are fully queryable via PromQL in Query Studio
+For metrics pipelines, processed metrics are fully queryable through PromQL in Query Studio
 and compatible with CloudWatch Alarms and Anomaly Detection.
 
 To get started with CloudWatch pipelines, visit [pipelines

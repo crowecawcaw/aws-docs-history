@@ -97,7 +97,7 @@ For an on-premises host, you will need to provide AWS authorization to your devi
       choose **Next**
    4. On the **Set permissions** page, under **Permissions options**, select **Attach policies directly**.
    5. From the **Permissions policies** list, select the **CloudWatchAgentServerPolicy** policy to add to your user. Then choose **Next**.
-   6. On the **Review and create** page, ensure that you are satisfied with the user name and that the **CloudWatchAgentServerPolicy** policy is in the **Permissions summary**.
+   6. On the **Review and create** page, make sure that you are satisfied with the user name and that the **CloudWatchAgentServerPolicy** policy is in the **Permissions summary**.
    7. Choose **Create user**
 
 2. Create and retrieve your AWS access key and secret key:
@@ -307,7 +307,7 @@ opentelemetry-instrument python `$MY_PYTHON_APP.py`
 Before you enable Application Signals for your Python applications, be aware of the following considerations.
 
     * In some containerized applications, a missing `PYTHONPATH` environment variable can sometimes
-     cause the application to fail to start. To resolve this, ensure that you set the `PYTHONPATH` environment variable
+     cause the application to fail to start. To resolve this, make sure that you set the `PYTHONPATH` environment variable
      to the location of your application's working directory. This is due to a known issue with OpenTelemetry auto-instrumentation.
      For more information about this issue, see
      [Python autoinstrumentation setting of PYTHONPATH is not compliant](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
@@ -641,4 +641,4 @@ For more information about configuring and using the CloudWatch Application Sign
 
 ## (Optional) Monitor your application health
 
-Once you have enabled your applications on Amazon EC2, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").
+After you have enabled your applications on Amazon EC2, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").

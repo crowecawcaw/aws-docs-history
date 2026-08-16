@@ -338,11 +338,11 @@ See [Expression syntax for conditional processing](conditional-processing.md "co
 Consider a lookup table named `network_assets` with the following
 rows:
 
-network\_assets lookup table| ip\_address | hostname | owner | location |
-| --- | --- | --- | --- |
-| 10.0.1.12 | web-server-01 | team-alpha | us-east-1 |
-| 10.0.2.45 | db-server-03 | team-beta | us-west-2 |
-| 10.0.3.78 | cache-node-07 | team-alpha | eu-west-1 |
+| ip\_address | hostname      | owner      | location  |
+| ----------- | ------------- | ---------- | --------- |
+| 10.0.1.12   | web-server-01 | team-alpha | us-east-1 |
+| 10.0.2.45   | db-server-03  | team-beta  | us-west-2 |
+| 10.0.3.78   | cache-node-07 | team-alpha | eu-west-1 |
 
 Given the following log event:
 

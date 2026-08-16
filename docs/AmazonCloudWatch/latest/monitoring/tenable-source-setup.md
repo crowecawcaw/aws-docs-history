@@ -13,7 +13,7 @@ To integrate CloudWatch Pipelines with Tenable Vulnerability Management, complet
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, make sure you have the following:
 
 - An active Tenable account with the Administrator role
 - An AWS account with permissions to create and manage CloudWatch Pipelines
@@ -31,7 +31,7 @@ To configure authentication credentials for the pipeline:
 1. Log in to the Tenable Vulnerability Management UI.
 2. Navigate to Settings > My Account > API Keys.
 3. Generate a new API key pair. Note the Access Key and Secret Key values.
-4. Ensure your account has the Administrator role.
+4. Make sure your account has the Administrator role.
 5. Store the `access_key` and `secret_key` in AWS Secrets Manager.
 
 ## Configuring the CloudWatch Pipeline

@@ -19,7 +19,7 @@ To read the logs, the pipeline needs to authenticate with your PingOne environme
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline to read logs, choose PingOne as the data source. Fill in the required information like Environment ID. Optionally, specify the Region (defaults to NA) and the Range duration format (for example, PT21H for the last 21 hours). The default range is 0 hours, and the maximum is 90 days. Once you create and activate the pipeline, audit log data from PingOne will begin flowing into the selected CloudWatch Logs log group.
+To configure the pipeline to read logs, choose PingOne as the data source. Fill in the required information like Environment ID. Optionally, specify the Region (defaults to NA) and the Range duration format (for example, PT21H for the last 21 hours). The default range is 0 hours, and the maximum is 90 days. After you create and activate the pipeline, audit log data from PingOne will begin flowing into the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

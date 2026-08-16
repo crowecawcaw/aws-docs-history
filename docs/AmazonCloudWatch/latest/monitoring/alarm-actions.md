@@ -110,7 +110,7 @@ PromQL Alarm SNS notification for Contributor example:
 
 Alarm mute rules allow you to automatically mute alarm actions during predefined time windows, such as maintenance periods or operational events. CloudWatch continues monitoring alarm states while preventing unwanted notifications. For more information, see [Alarm Mute Rules](alarm-mute-rules.md "alarm-mute-rules.md").
 
-###### Mute rules vs. disabling alarm actions
+###### Mute rules versus disabling alarm actions
 
 Alarm mute rules temporarily mute actions during scheduled time windows and automatically unmute when the window ends. In contrast, the `DisableAlarmActions` API permanently disables alarm actions until you manually call `EnableAlarmActions`. The `EnableAlarmActions` API does not unmute alarms that are muted by active mute rules.
 

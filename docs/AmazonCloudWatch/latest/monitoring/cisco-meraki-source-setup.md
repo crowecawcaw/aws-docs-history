@@ -19,7 +19,7 @@ your Meraki organization. Cisco Meraki supports API key access.
   API key.
 - In AWS Secrets Manager, create a secret and store the API key under the key
   `api_key`.
-- API keys are permanent and can be scoped down if needed. Ensure the API
+- API keys are permanent and can be scoped down if needed. Make sure the API
   key has at least read-only access to the specific organization and the
   APIs.
 
@@ -33,7 +33,7 @@ as the data source. Fill in the required information including the Organization 
 and the secret where your credentials are stored. You can find your organization ID
 in the Meraki Dashboard under **Organization >
 Settings**, or by calling `GET /organizations` through the Cisco
-Meraki API. Once you create the pipeline, data will be available in the selected
+Meraki API. After you create the pipeline, data will be available in the selected
 CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
@@ -45,7 +45,7 @@ Finding (2004).
 ### Network Activity (4001)
 
 Network Activity maps to Meraki Security Events — IDS/IPS alerts
-(Snort-based), malware detections via Advanced Malware Protection (AMP), and
+(Snort-based), malware detections through Advanced Malware Protection (AMP), and
 file scan results from MX security appliances.
 
 API endpoint: `GET /organizations/{organizationId}/appliance/security/events`
@@ -54,7 +54,7 @@ API endpoint: `GET /organizations/{organizationId}/appliance/security/events`
 
 API Activity maps to Meraki Configuration Changes — an audit log of all
 administrative actions capturing who changed what configuration, when, and the
-before/after values. Covers changes made via the Dashboard UI and API.
+before/after values. Covers changes made through the Dashboard UI and API.
 
 API endpoint: `GET /organizations/{organizationId}/configurationChanges`
 

@@ -44,7 +44,7 @@ see [Condition keys for Contributor Insights log group access](iam-cw-condition-
    You can select
    as many as
    20 log groups. If you are signed in to a monitoring account that is set up for CloudWatch cross-account
-   observability, you can select log groups in source accounts, and you can also set up a single rule
+   observability, you can select log groups in source accounts. You can also set up a single rule
    to analyze log groups in different accounts.
 
    1. (Optional)
@@ -102,7 +102,7 @@ costs. For more information, see [Tagging your Amazon CloudWatch resources](Clou
    You can select
    as many as
    20 log groups. If you are signed in to a monitoring account that is set up for CloudWatch cross-account
-   observability, you can select log groups in source accounts, and you can also set up a single rule
+   observability, you can select log groups in source accounts. You can also set up a single rule
    to analyze log groups in different accounts.
 
    1. (Optional)

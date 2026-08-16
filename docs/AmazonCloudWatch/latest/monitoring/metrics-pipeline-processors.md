@@ -6,12 +6,12 @@ defined.
 
 Processors use OTTL path expressions to target attributes at different scopes:
 
-OTTL path scopes| Path | Scope | Example |
-| --- | --- | --- |
-| `resource.attributes["key"]` | Resource-level | `resource.attributes["service.name"]` |
-| `instrumentation_scope.attributes["key"]` | Scope attribute | `instrumentation_scope.attributes["library"]` |
-| `datapoint.attributes["key"]` | Datapoint-level | `datapoint.attributes["status_code"]` |
-| `attributes["key"]` | Short form for datapoint | `attributes["environment"]` |
+| Path                                      | Scope                    | Example                                       |
+| ----------------------------------------- | ------------------------ | --------------------------------------------- |
+| `resource.attributes["key"]`              | Resource-level           | `resource.attributes["service.name"]`         |
+| `instrumentation_scope.attributes["key"]` | Scope attribute          | `instrumentation_scope.attributes["library"]` |
+| `datapoint.attributes["key"]`             | Datapoint-level          | `datapoint.attributes["status_code"]`         |
+| `attributes["key"]`                       | Short form for datapoint | `attributes["environment"]`                   |
 
 ## add\_attributes processor
 
@@ -162,7 +162,7 @@ New metric name.
 
 ## substitute\_attribute\_values processor
 
-Maps attribute values via a lookup table. **Does not apply to
+Maps attribute values by using a lookup table. **Does not apply to
 cumulative metrics or vended metrics.**
 
 **OTTL equivalent:**

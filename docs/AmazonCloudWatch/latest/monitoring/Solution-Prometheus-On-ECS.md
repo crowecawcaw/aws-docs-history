@@ -33,8 +33,6 @@ This solution is relevant for the following conditions:
 - A security group that allows the collector to reach the metrics port on your tasks.
   If your tasks and the collector share a security group, add a self-referencing ingress
   rule for the metrics port.
-- If you deploy the collector in private subnets that have no internet access, an
-  interface VPC endpoint for CloudWatch. For more information, see [Configure VPC endpoints for private subnets](managed-prometheus-collectors-vpc-setup.md#managed-prometheus-collectors-vpc-endpoints "managed-prometheus-collectors-vpc-setup.md#managed-prometheus-collectors-vpc-endpoints").
 
 ## Enable Prometheus exporters
 

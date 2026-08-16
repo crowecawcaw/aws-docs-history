@@ -22,13 +22,13 @@ To read the audit logs, pipeline needs to authenticate with your GitHub account.
 **Generate the private key to authenticate as GitHub App:**
 
 - Sign in to [GitHub](https://github.com/dashboard "https://github.com/dashboard") using credentials for the GitHub account
-- Ensure the GitHub App has the "Administration" organization [permissions](https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app "https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app") (read) permission
+- Make sure the GitHub App has the "Administration" organization [permissions](https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app "https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app") (read) permission
 - Follow the instructions in [Managing private keys for GitHub Apps](https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps "https://docs.github.com/en/enterprise-cloud@latest/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps") and generate the private key
 - Store this private key in a secret in the AWS Secrets Manager under the key `private_key` and the GitHub App name under the key `app_id`
 
 ## Configuring the CloudWatch Pipeline
 
-When configuring the pipeline to read audit logs from GitHub Enterprise Cloud, choose GitHub Audit Logs as the data source. Select the Source Type as Enterprise or Organization based on the scope of your integration and fill in the required information like Enterprise or Organization name according to the selected scope. Once you create the pipeline, data will be available in the selected CloudWatch Logs log group.
+When configuring the pipeline to read audit logs from GitHub Enterprise Cloud, choose GitHub Audit Logs as the data source. Select the Source Type as Enterprise or Organization based on the scope of your integration and fill in the required information like Enterprise or Organization name according to the selected scope. After you create the pipeline, data will be available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

@@ -57,7 +57,7 @@ JSON
 
 The following policy allows an CloudWatch alarm action to stop or terminate an EC2
 instance. In the sample below, the GetMetricData, ListMetrics, and DescribeAlarms
-actions are optional. It is recommended that you include these actions to ensure
+actions are optional. It is recommended that you include these actions to make sure
 that you have correctly stopped or terminated the instance.
 
 JSON

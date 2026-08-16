@@ -19,7 +19,7 @@ If resources are not appearing in discovery, verify the following:
 
 If enablement rules are not applying to your resources, check the following:
 
-- Verify the rule scope configuration. Ensure the rule targets the correct
+- Verify the rule scope configuration. Make sure the rule targets the correct
   organization, OU, or account.
 - Check tag filters. If the rule uses tag-based filtering, verify that the target
   resources have the expected tags.

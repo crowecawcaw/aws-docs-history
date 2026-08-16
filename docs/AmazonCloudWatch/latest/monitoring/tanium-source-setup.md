@@ -22,7 +22,7 @@ data into CloudWatch Logs for further analysis and alerting.
 
 1. In the AWS Console, create an Amazon S3 bucket in your desired region.
    Create separate prefixes (sub-folders) within the bucket for each log
-   type to ensure clear log segregation and easier downstream
+   type to make sure clear log segregation and easier downstream
    processing.
 2. Create an Amazon SQS Queue for Event Notifications. Create an Amazon SQS queue
    in the same AWS region as your Amazon S3 bucket. Configure Amazon S3 Event
@@ -58,7 +58,7 @@ data into CloudWatch Logs for further analysis and alerting.
 
 When configuring the pipeline to read data from Tanium, choose Tanium as the
 data source. Using Tanium Connect, data from Tanium custom and default reports
-is exported to Amazon S3, with event notifications delivered through Amazon SQS. Once you
+is exported to Amazon S3, with event notifications delivered through Amazon SQS. After you
 create the pipeline, data will be available in the selected CloudWatch Logs log
 group.
 

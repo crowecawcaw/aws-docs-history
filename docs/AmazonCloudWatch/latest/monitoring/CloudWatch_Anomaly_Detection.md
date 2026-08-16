@@ -71,7 +71,7 @@ extend outside of logical values. For example, the band for `MemoryUtilization` 
 tracking CloudFront `Requests`, which can't be negative, will never extend below zero.
 
 After you create a model, CloudWatch anomaly detection continually evaluates the model and makes adjustments to it to
-ensure that it is as accurate as possible. This includes re-training the model to adjust if the metric values evolve over time or have sudden
+make sure that it is as accurate as possible. This includes re-training the model to adjust if the metric values evolve over time or have sudden
 changes, and also includes predictors to improve the models of metrics that are seasonal, spiky, or sparse.
 
 After you enable anomaly detection on a metric, you can choose to exclude specified time

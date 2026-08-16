@@ -18,7 +18,7 @@ unhealthy operation in the Service operations table. She selects this operation 
 Availability graph that there are periodic call volume spikes that seem to correlate to dips in availability.
 
 ![Service operation volume and availability.](images/example-scenario-unhealthy-operation.png)
-In order to look closer at the dips in service availability, Jane selects one of the availability data points
+To look closer at the dips in service availability, Jane selects one of the availability data points
 in the graph. A drawer opens showing X-Ray traces that are correlated to the selected data point. She sees that
 there are multiple traces containing faults.
 
@@ -32,4 +32,4 @@ the right-side drawer.
 Jane sees that a DynamoDB resource is misconfigured, resulting in errors during spikes in customer requests. The
 DynamoDB table's level of provisioned throughput is periodically exceeded, resulting in service availability issues and
 unhealthy SLIs. Based on this information, her team is able to configure a higher level of provisioned throughput
-and ensure high availability of the application.
+and make sure high availability of the application.

@@ -6,7 +6,7 @@ scripts to help you create an Amazon EKS cluster, install a sample application, 
 the sample application to work with Application Signals.
 
 The sample application is a Spring "Pet Clinic" application that is composed of four
-microservices. These services run on Amazon EKS on Amazon EC2 and leverage Application Signals
+microservices. These services run on Amazon EKS on Amazon EC2 and use Application Signals
 enablement scripts to enable the cluster with the Java, Python, or .NET auto-instrumentation
 agent.
 

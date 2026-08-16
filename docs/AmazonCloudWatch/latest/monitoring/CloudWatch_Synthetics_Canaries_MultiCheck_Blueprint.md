@@ -124,7 +124,7 @@ When your canary makes HTTP requests to an authenticated endpoint, you can confi
 the steps of your blueprint canary to use one of four
 authentication types: Basic, API Key, OAuth Client Credentials, and SigV4. Rather than
 setting up request headers yourself, you can specify an authentication type in
-your blueprint definition, and Synthetics follows the specified authentication type to
+your blueprint definition. Synthetics follows the specified authentication type to
 populate the components of your HTTP request with the authentication information
 provided.
 

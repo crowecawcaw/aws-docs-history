@@ -8,7 +8,7 @@ information, see [Fluent Bit](https://fluentbit.io/ "https://fluentbit.io/").
 As of February 10 2025, AWS has deprecated support for FluentD as a log forwarder
 to CloudWatch Logs. We recommend that you use Fluent Bit, which is a lightweight and
 resource-efficient alternative. Existing FluentD deployments will continue to function.
-Migrate your logging pipeline to Fluent Bit to ensure continued support and optimal
+Migrate your logging pipeline to Fluent Bit to make sure continued support and optimal
 performance.
 
 Container Insights previously also supported using FluentD to send logs from your

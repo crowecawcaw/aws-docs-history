@@ -34,8 +34,8 @@ following concepts:
 
 When you enable metrics centralization, CloudWatch automatically centralizes metrics from
 your source accounts to the destination account. Once centralized, a copy of the metrics
-is now owned by your destination account. Metrics ingested via PutMetricData or EMF are
-queryable using GetMetricData. Metrics ingested via OpenTelemetry (OTLP) are queryable
+is now owned by your destination account. Metrics ingested through PutMetricData or EMF are
+queryable using GetMetricData. Metrics ingested through OpenTelemetry (OTLP) are queryable
 using PromQL.
 
 ### Supported metric types
@@ -130,7 +130,7 @@ data from source accounts to your destination account.
 6. Specify destination details by setting the following fields, then choose
    **Next**:
 
-   1. **Metrics**: Ensure Metrics is
+   1. **Metrics**: Make sure Metrics is
       selected (it is enabled by default). If you only want to centralize
       metrics, you can deselect Logs.
    2. **Destination region**: Select a
@@ -202,24 +202,24 @@ Resource-based automatic dashboards (such as EC2 and S3) have partial support.
 These dashboards may show incomplete data for centralized metrics because they depend
 on resource metadata that is not centralized from source accounts.
 
-Fully supported features| Feature | Description |
-| --- | --- |
-| GetMetricData API | Query metric data points programmatically |
-| GetMetricStatistics API | Query metric statistics |
-| ListMetrics API | Discover available centralized metrics |
-| Console Metric Browser | Browse and navigate centralized metrics |
-| Metrics Insights (SQL queries) | Query metrics using SQL-like syntax |
-| Query Studio | Unified query interface for PromQL and metrics |
-| Search Expressions | Dynamic metric discovery via SEARCH() |
-| Metric Math | Arithmetic, comparison, and logical operators on time series |
-| Anomaly Detection | ML-based anomaly detection models and alarms |
-| Metric Alarms | Standard threshold-based alarms |
-| Composite Alarms | Boolean logic combining multiple alarm states |
-| PromQL Alarms | Alarms using PromQL expressions |
-| Alarm Actions (SNS) | SNS notifications on alarm state changes |
-| CloudWatch Dashboards | Add centralized metrics to dashboards |
-| Metric Streams | Stream centralized metrics to Firehose, S3, or partners |
-| PromQL Querying | Prometheus-compatible metric queries |
+| Feature                        | Description                                                  |
+| ------------------------------ | ------------------------------------------------------------ |
+| GetMetricData API              | Query metric data points programmatically                    |
+| GetMetricStatistics API        | Query metric statistics                                      |
+| ListMetrics API                | Discover available centralized metrics                       |
+| Console Metric Browser         | Browse and navigate centralized metrics                      |
+| Metrics Insights (SQL queries) | Query metrics using SQL-like syntax                          |
+| Query Studio                   | Unified query interface for PromQL and metrics               |
+| Search Expressions             | Dynamic metric discovery through SEARCH()                    |
+| Metric Math                    | Arithmetic, comparison, and logical operators on time series |
+| Anomaly Detection              | ML-based anomaly detection models and alarms                 |
+| Metric Alarms                  | Standard threshold-based alarms                              |
+| Composite Alarms               | Boolean logic combining multiple alarm states                |
+| PromQL Alarms                  | Alarms using PromQL expressions                              |
+| Alarm Actions (SNS)            | SNS notifications on alarm state changes                     |
+| CloudWatch Dashboards          | Add centralized metrics to dashboards                        |
+| Metric Streams                 | Stream centralized metrics to Firehose, S3, or partners      |
+| PromQL Querying                | Prometheus-compatible metric queries                         |
 
 ## Monitoring and troubleshooting centralization rules
 

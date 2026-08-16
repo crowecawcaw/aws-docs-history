@@ -15,11 +15,11 @@ To read Wiz Cnapp audit Logs, the pipeline needs to authenticate with your accou
 
 Required scope: `read:issues`, `read:detections`, `read:cloud_events_cloud`, `read:cloud_events_sensor`, `read:security_scans`, `read:vulnerabilities`, `read:cloud_configuration`, `admin:audit`
 
-- Identify your GraphQL API endpoint: To find your specific endpoint check Tenant Info in the Wiz portal. The Wiz GraphQL API endpoint is `https://api.<region>.app.wiz.io/graphql`, where `<region>` corresponds to your Wiz tenant's datacenter (e.g., us1, us2, eu1, eu2).
+- Identify your GraphQL API endpoint: To find your specific endpoint check Tenant Info in the Wiz portal. The Wiz GraphQL API endpoint is `https://api.<region>.app.wiz.io/graphql`, where `<region>` corresponds to your Wiz tenant's datacenter (for example, us1, us2, eu1, eu2).
 
 ## Configuring the CloudWatch Pipeline
 
-When configuring the pipeline to read audit logs from Wiz, choose Wiz CNAPP as the data source. Fill in the required information like Region. Once you create the pipeline, data will be available in the selected CloudWatch Logs log group.
+When configuring the pipeline to read audit logs from Wiz, choose Wiz CNAPP as the data source. Fill in the required information like Region. After you create the pipeline, data will be available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

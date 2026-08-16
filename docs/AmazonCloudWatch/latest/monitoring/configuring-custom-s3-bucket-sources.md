@@ -62,7 +62,7 @@ You can grant access across accounts with Amazon S3 so that CloudWatch pipelines
 can access S3 buckets in another account as a source. To enable cross-account
 access, see [Bucket owner
 granting cross-account bucket permissions](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3
-User Guide_. After you have granted access, ensure that your pipeline
+User Guide_. After you have granted access, make sure that your pipeline
 role has the required permissions.
 
 Then, you can create a pipeline using `bucket_owners` to enable

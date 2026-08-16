@@ -4,6 +4,11 @@ The CloudWatch embedded metric format is a JSON specification used to instruct C
 You can use CloudWatch to graph and create alarms on the extracted metric values.
 This section describes embedded metric format specification conventions and the embedded metric format document structure.
 
+###### Note
+
+Embedded metric format ensures at least one time delivery of metrics extracted from
+log events, while duplicate metric values may occasionally occur.
+
 ## Embedded metric format specification conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this

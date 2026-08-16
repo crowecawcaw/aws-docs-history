@@ -14,7 +14,7 @@ observability and efficiency for operators of all skill levels. When viewing ala
 or anomalies in CloudWatch dashboards, or metrics in AWS, users can quickly find and view
 metrics and logs for related resources in your system.
 
-CloudWatch provides visibility into metrics and logs tied to specific resources, and the
+CloudWatch provides visibility into metrics and logs tied to specific resources. The
 **Explore related** pane extends that by allowing you to correlate
 your infrastructure resources to your workloads with all of their associated
 telemetry. This gives you quick access to the information you need to
@@ -295,4 +295,4 @@ Additionally, you must have at least read-only access (`Describe*`
 and `Get*`) to any resources in the topology map, in order for CloudWatch to
 discover and display relationships.
 
-For more details about using policies to control access, see [Managing access using policies](auth-and-access-control-cw.md#security_iam_access-manage "auth-and-access-control-cw.md#security_iam_access-manage").
+For more details about using policies to control access, see [Identity-based policy examples for Amazon CloudWatch](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

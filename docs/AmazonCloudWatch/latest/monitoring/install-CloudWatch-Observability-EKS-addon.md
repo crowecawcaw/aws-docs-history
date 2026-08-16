@@ -626,7 +626,7 @@ storage.backlog.mem_limit 5M
 ```
 
 The following example configuration includes an extra Fluent bit `conf`
- file. In this example, we are adding a custom `my-service.conf` under
+ file. In this example, you are adding a custom `my-service.conf` under
  `extraFiles` and it will be included in addition to the three default
  `extraFiles`.
 
@@ -663,7 +663,7 @@ The next example removes an existing `conf` file entirely from
  `extraFiles`. This excludes the `application-log.conf` entirely
  by overriding it with an empty string. Simply omitting `application-log.conf`
  from `extraFiles` would instead imply to use the default, which is not what
- we are trying to achieve in this example. The same applies to removing any custom
+ you are trying to achieve in this example. The same applies to removing any custom
  `conf` file that you might have previously added to
  `extraFiles`.
 
@@ -885,7 +885,7 @@ The Amazon CloudWatch Observability EKS add-on and the Helm chart use Kubernetes
  and `Instrumentation` custom resource (CR) requests, and optionally
  Kubernetes pod requests on the cluster if CloudWatch Application Signals is enabled. In
  Kubernetes, webhooks require a TLS certificate that the API server is configured to
- trust to ensure secure communication.
+ trust to make sure secure communication.
 
 
 By default, the Amazon CloudWatch Observability EKS add-on and the Helm chart auto-generate a
@@ -1232,8 +1232,7 @@ The CloudWatch agent supports supplemental OpenTelemetry collector configuration
  bring in your existing OpenTelemetry collector configuration with a single agent.
 
 
-To prevent merge conflicts with pipelines automatically created by CloudWatch agent, we
- recommend that you add a custom suffix to each of the components and pipelines in your
+To prevent merge conflicts with pipelines automatically created by CloudWatch agent, add a custom suffix to each of the components and pipelines in your
  OpenTelemetry collector configuration. This will prevent clashing and merge
  conflicts.
 
@@ -1325,7 +1324,7 @@ Version 5.0.0 of the CloudWatch Observability Amazon EKS add-on and Helm chart i
 
 * *monitorAllServices* – A boolean flag to enable (true)
  or disable (false) monitoring of all service workloads by Auto monitor. Defaults to
- true. Enabling this flag will ensure that all Kubernetes workloads (Deployments,
+ true. Enabling this flag will make sure that all Kubernetes workloads (Deployments,
  DaemonSets, and StatefulSets) in the cluster that are mapped to a Kubernetes Service
  will be in scope for automatic enablement of Application Signals when they are brought
  up for the first time (or when restarted for existing workloads). The system excludes
@@ -1501,7 +1500,7 @@ namespaces: ["python-apps"]
 
 
 If you run large Kubernetes clusters, you might need additional configuration
- to ensure the CloudWatch agent runs reliably. The following sections describe common issues
+ to make sure the CloudWatch agent runs reliably. The following sections describe common issues
  and recommended configurations for large clusters.
 
 

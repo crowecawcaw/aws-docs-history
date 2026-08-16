@@ -56,7 +56,7 @@ Alarm mute rules can be defined using: **rules** and **targets**.
 
 - **Targets** - specify the list of alarm names whose actions will be muted during the defined time windows. You can include both metric alarms and composite alarms in your target list.
 
-You can optionally include start and end timestamps to provide additional boundaries for your mute windows. Start timestamps ensure that mute rules don't activate before a specific date and time, while end timestamps prevent rules from being applied beyond the specified date and time.
+You can optionally include start and end timestamps to provide additional boundaries for your mute windows. Start timestamps make sure that mute rules don't activate before a specific date and time, while end timestamps prevent rules from being applied beyond the specified date and time.
 
 For more information about creating alarm mute rules programmatically, see [PutAlarmMuteRule](../APIReference/API_PutAlarmMuteRule.md "../APIReference/API_PutAlarmMuteRule.md").
 
@@ -77,9 +77,9 @@ Once created, an alarm mute rule can be in one of the below three statuses:
 
 ## Effects of mute rules on alarms
 
-During an active mute window, when a targeted alarm changes state and has actions configured, CloudWatch mutes those actions from executing. Mutes are applied only to alarm actions, meaning that alarms continue to be evaluated and state changes are visible in the CloudWatch console, but configured actions such as Amazon Simple Notification Service notifications, Amazon Elastic Compute Cloud Auto Scaling actions, or Amazon EC2 actions are prevented from executing. CloudWatch continues to evaluate alarm states normally throughout the mute period, and you can view this information through alarm history.
+During an active mute window, when a targeted alarm changes state and has actions configured, CloudWatch mutes those actions from executing. Mutes are applied only to alarm actions, meaning that alarms continue to be evaluated and state changes are visible in the CloudWatch console. However, configured actions such as Amazon Simple Notification Service notifications, Amazon Elastic Compute Cloud Auto Scaling actions, or Amazon EC2 actions are prevented from executing. CloudWatch continues to evaluate alarm states normally throughout the mute period, and you can view this information through alarm history.
 
-When a mute window ends, if the targeted alarm(s) remains in an alarming state (OK/ALARM/INSUFFICIENT\_DATA), CloudWatch automatically re-triggers the alarm actions that were muted during the window. This ensures that your alarm actions are executed for ongoing issues once the planned mute period ends, maintaining the integrity of your monitoring system.
+When a mute window ends, if the targeted alarm(s) remains in an alarming state (OK/ALARM/INSUFFICIENT\_DATA), CloudWatch automatically re-triggers the alarm actions that were muted during the window. This ensures that your alarm actions are executed for ongoing issues after the planned mute period ends, maintaining the integrity of your monitoring system.
 
 ###### Note
 

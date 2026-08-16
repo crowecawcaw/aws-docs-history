@@ -116,7 +116,7 @@ is provided by Amazon Services LLC. For more information, see
      specify **1 out of 1**.
     * For **Missing data treatment**, choose **Treat missing data as missing**.
 
-12. Choose **Next**. 13. Under **Notification**, ensure
+12. Choose **Next**. 13. Under **Notification**, make sure
 that **In alarm** is selected. Then
 specify an Amazon SNS topic
 to be notified

@@ -87,7 +87,6 @@ You can use the procedure in this section to view the list of a service's APIs t
 | AWS Health APIs And Notifications                  | `AWS Health APIs And Notifications` |
 | Amazon Interactive Video Service                   | `IVS`                               |
 | AWS IoT Core                                       | `IoT`                               |
-| AWS IoT Events                                     | `IoT Events`                        |
 | AWS IoT RoboRunner                                 | `IoT RoboRunner`                    |
 | AWS IoT SiteWise                                   | `IoT Sitewise`                      |
 | AWS IoT Wireless                                   | `IoT Wireless`                      |

@@ -57,7 +57,7 @@ If you want to define your own custom grouping, click **Manage groups** to defin
 
 ###### Note
 
-To enable grouping via OTEL resource attributes, the CloudWatch agent version must be v1.300056.0 or later.
+To enable grouping through OTEL resource attributes, the CloudWatch agent version must be v1.300056.0 or later.
 
 ![Create custom grouping panel.](images/explore-application-map-create-custom-grouping.png)
 

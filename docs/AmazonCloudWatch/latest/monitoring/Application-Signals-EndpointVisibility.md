@@ -56,15 +56,15 @@ export OTEL_AWS_HTTP_OPERATION_PATHS="/api/users/{userId}/orders/{orderId}/items
 With this configuration, Application Signals shows distinct operations. Multiple requests can resolve to
 the same configured template:
 
-Example endpoint visibility configuration results| Incoming request | Default operation | With config |
-| --- | --- | --- |
-| `GET /api/users` | `GET /api` | `GET /api/users` |
-| `GET /api/users/42` | `GET /api` | `GET /api/users/{userId}` |
-| `GET /api/users/42/orders` | `GET /api` | `GET /api/users/{userId}/orders` |
-| `POST /api/users/99/orders` | `POST /api` | `POST /api/users/{userId}/orders` |
-| `POST /api/users/42/orders` | `POST /api` | `POST /api/users/{userId}/orders` |
-| `GET /api/users/42/orders/7/items` | `GET /api` | `GET /api/users/{userId}/orders/{orderId}/items` |
-| `GET /api/products` | `GET /api` | `GET /api/products` |
+| Incoming request                   | Default operation | With config                                      |
+| ---------------------------------- | ----------------- | ------------------------------------------------ |
+| `GET /api/users`                   | `GET /api`        | `GET /api/users`                                 |
+| `GET /api/users/42`                | `GET /api`        | `GET /api/users/{userId}`                        |
+| `GET /api/users/42/orders`         | `GET /api`        | `GET /api/users/{userId}/orders`                 |
+| `POST /api/users/99/orders`        | `POST /api`       | `POST /api/users/{userId}/orders`                |
+| `POST /api/users/42/orders`        | `POST /api`       | `POST /api/users/{userId}/orders`                |
+| `GET /api/users/42/orders/7/items` | `GET /api`        | `GET /api/users/{userId}/orders/{orderId}/items` |
+| `GET /api/products`                | `GET /api`        | `GET /api/products`                              |
 
 ## Native OpenTelemetry solution
 

@@ -9,7 +9,7 @@ ingest the data from your source into CloudWatch Logs.
 
 ## Log forwarding setup
 
-Akamai DataStream 2 supports real-time log delivery via DataStream 2 to
+Akamai DataStream 2 supports real-time log delivery through DataStream 2 to
 [forward logs to Amazon S3](https://techdocs.akamai.com/datastream2/v3/docs/stream-amazon-s3 "https://techdocs.akamai.com/datastream2/v3/docs/stream-amazon-s3").
 
 ## Instructions to setup Amazon S3 and Amazon SQS
@@ -22,7 +22,7 @@ and then configuring the CloudWatch pipeline.
   for each log type (for example, DNS, CDN, EdgeWorkers). Create an IAM user
   and grant S3 write permission, then create an access key and secret key for
   this account.
-- Ensure the Akamai DataStream 2 log exporter is configured to send logs to
+- Make sure the Akamai DataStream 2 log exporter is configured to send logs to
   Amazon S3. DataStream 2 uploads logs to Amazon S3 over TLS, so you need to enable
   [server-side
   encryption](../../../AmazonS3/latest/dev/UsingServerSideEncryption.md "../../../AmazonS3/latest/dev/UsingServerSideEncryption.md") for Amazon S3. Refer to the [Akamai S3 streaming setup guide](https://techdocs.akamai.com/datastream2/v3/docs/stream-amazon-s3 "https://techdocs.akamai.com/datastream2/v3/docs/stream-amazon-s3") for detailed instructions.

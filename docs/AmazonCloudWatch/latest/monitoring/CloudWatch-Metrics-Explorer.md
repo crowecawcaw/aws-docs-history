@@ -28,7 +28,7 @@ match the criteria, and whether to show them all in a single graph or on differe
 within one metrics explorer widget.
 
 Metrics explorer includes templates that you can use to see useful visualization graphs
-with one click,
+with a single selection,
 and you can also extend these templates to create completely customized metrics explorer widgets.
 
 You can use metrics explorer across accounts if you are using the

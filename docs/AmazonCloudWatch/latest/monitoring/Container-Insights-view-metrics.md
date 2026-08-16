@@ -140,7 +140,7 @@ STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by P
 
 ```
 
-**Pods requested vs. pods running**
+**Pods requested versus pods running**
 
 ```
 fields @timestamp, @message

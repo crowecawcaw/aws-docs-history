@@ -126,7 +126,7 @@ interface VPC endpoint by default.
 
 A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when
 you create or modify the endpoint. If you don't attach a policy when you create an
-endpoint, we attach a default policy for you that allows full access to the service. An
+endpoint, a default policy is attached that allows full access to the service. An
 endpoint policy doesn't override or replace user policies or service-specific
 policies. It's a separate policy for controlling access from the endpoint to the
 specified service.

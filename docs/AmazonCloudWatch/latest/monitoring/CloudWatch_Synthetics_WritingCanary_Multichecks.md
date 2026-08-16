@@ -21,11 +21,11 @@ series of related checks in sequence.
 The root configuration defines the overall structure of your advanced API blueprint
 canary.
 
-Schema properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `globalSettings` | Object | No | Default configurations applied to all steps |
-| `variables` | Object | No | Reusable values across steps (max 10) |
-| `steps` | Object | **Yes** | Collection of monitoring steps (1-10 steps) |
+| Property         | Type   | Required | Description                                 |
+| ---------------- | ------ | -------- | ------------------------------------------- |
+| `globalSettings` | Object | No       | Default configurations applied to all steps |
+| `variables`      | Object | No       | Reusable values across steps (max 10)       |
+| `steps`          | Object | **Yes**  | Collection of monitoring steps (1-10 steps) |
 
 **Example**
 
@@ -65,9 +65,9 @@ overridden at the step level.
 
 **Properties**
 
-Global setting properties| Property | Type | Default | Range | Description |
-| --- | --- | --- | --- | --- |
-| `stepTimeout` | integer | 30000 | 5000-300000 | Default timeout for all steps (milliseconds) |
+| Property      | Type    | Default | Range       | Description                                  |
+| ------------- | ------- | ------- | ----------- | -------------------------------------------- |
+| `stepTimeout` | integer | 30000   | 5000-300000 | Default timeout for all steps (milliseconds) |
 
 **Example**
 

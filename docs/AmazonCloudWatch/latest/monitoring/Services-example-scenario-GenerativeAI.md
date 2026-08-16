@@ -50,7 +50,7 @@ These attributes help analyze model usage, cost, and response quality, and can b
 
 ![Generative AI attributes using Application Signals.](images/AppSignalsAIExample_1.png)
 
-For example, your can leverage the analytic capability from Transaction Search to compare the token usage and cost across different LLM models for the same prompt, enabling cost-efficient model selection.
+For example, you can use the analytic capability from Transaction Search to compare the token usage and cost across different LLM models for the same prompt, enabling cost-efficient model selection.
 
 ![Generative AI attributes using Application Signals.](images/AppSignalsAIExample_2.png)
 

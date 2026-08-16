@@ -36,7 +36,7 @@ using the `npm` package manager.
 
 Create a `.zip` file that contains the contents of your project
 folder at the root. Use the `r` (recursive) option, as shown in the following
-example, to ensure that `zip` compresses the subfolders.
+example, to make sure that `zip` compresses the subfolders.
 
 ```
 zip -r my_deployment_package.zip .

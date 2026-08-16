@@ -304,7 +304,7 @@ details.
 ### Configure the CloudWatch agent to scrape NGINX Plus Prometheus metrics
 
 The final step is to configure the CloudWatch agent to scrape the NGINX metrics. In
-this example, the CloudWatch agent discovers the task via the service name pattern, and
+this example, the CloudWatch agent discovers the task through the service name pattern, and
 the port 9113, where the exporter exposes the prometheus metrics for NGINX. With
 the task discovered and the metrics available, the CloudWatch agent begins posting the
 collected metrics to the log stream

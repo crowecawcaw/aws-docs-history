@@ -1,6 +1,6 @@
 # Identity
 
-Track identity and access management operations to ensure secure and compliant agent behavior. For more information on Amazon Bedrock Identity,
+Track identity and access management operations to help keep agent behavior secure and compliant. For more information on Amazon Bedrock Identity,
 see [Create agent and tool identities with AgentCore Identity](../../../bedrock-agentcore/latest/devguide/identity.md "../../../bedrock-agentcore/latest/devguide/identity.md") . Identity observability includes monitoring for different
 authentication methods:
 

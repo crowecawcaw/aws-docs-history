@@ -41,7 +41,7 @@ instructions to get started with Slack APIs:
 
 When configuring the pipeline to read logs, choose Slack as the data source.
 Specify the range duration format (for example, PT21H for the last 21 hours) to
-control the time window of logs retrieved. Once you create the pipeline, data will
+control the time window of logs retrieved. After you create the pipeline, data will
 be available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
@@ -49,7 +49,7 @@ be available in the selected CloudWatch Logs log group.
 This integration supports OCSF schema version v1.5.0 and events that map to
 Web Resources Activity (6001), Authentication (3002), Entity Management (3004),
 Account Change (3001), User Access Management (3005), File Hosting Activity (6006),
-and Detection Finding (2004), and these events are sourced from the Slack AuditLogs
+and Detection Finding (2004). These events are sourced from the Slack AuditLogs
 API. Events that are not listed are not mapped to OCSF and will be forwarded to the
 sink as raw logs.
 

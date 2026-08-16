@@ -12,7 +12,7 @@ dashboard, the following happens:
 - The graph is modified to display the amount of data corresponding one complete
   period for that widget, even though this is longer than the dashboard time range. This
   ensures that there is at least one data point on the graph.
-- The start time of the period for this data point is adjusted backwards to ensure
+- The start time of the period for this data point is adjusted backwards to make sure
   that at least one data point can be displayed.
 
 ## Set a relative time range

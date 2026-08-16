@@ -8,7 +8,7 @@ in your source account by creating a sink in your monitoring account. You use th
 
 ###### Required resources
 
-For proper functionality of CloudWatch Application Insights cross-account observability, ensure that the following telemetry types are shared through the CloudWatch Observability Access Manager.
+For proper functionality of CloudWatch Application Insights cross-account observability, make sure that the following telemetry types are shared through the CloudWatch Observability Access Manager.
 
 - Applications in CloudWatch Application Insights
 - Metrics in Amazon CloudWatch

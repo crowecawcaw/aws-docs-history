@@ -12,7 +12,7 @@ To monitor network flows for resources that are owned by different accounts, the
 steps to take. First, as the management account, you must configure CloudWatch with AWS Organizations to turn on trusted access,
 and, typically, you'll also register a delegated administrator account. Then, using the delegated administrator account,
 you can add more accounts in your organization, to set the scope for your network observability to include resources
-in those accounts. (You can also add multiple accounts with a management account, but it's a best practice in Organizations
+in those accounts. (You can also add multiple accounts with a management account. However, it's a best practice in Organizations
 to use the delegated administrator account when you work with resources in a service. We provide steps that follow that guidance in
 the instructions here for Network Flow Monitor.)
 
@@ -137,7 +137,7 @@ To remove or change the delegated administrator account, deregister the account 
 ## Add multiple accounts to your scope
 
 To add accounts to your Network Flow Monitor scope, sign in with the delegated administrator account. (You can add accounts to
-a scope if you're signed in with the management account, but it's a best practice in AWS Organizations to use the delegated
+a scope if you're signed in with the management account. However, it's a best practice in AWS Organizations to use the delegated
 administrator account to work with resources.)
 
 After you sign in, follow the steps to initialize Network Flow Monitor, a process which authorizes the required

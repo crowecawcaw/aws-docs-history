@@ -8,7 +8,7 @@ A pipeline can have at most 20 processors.
 
 Parser placement
 
-Parser processors (OCSF, CSV, Grok, etc.), if used, must be the first processor in a
+Parser processors (OCSF, CSV, Grok, and so on), if used, must be the first processor in a
 pipeline.
 
 Unique processors
@@ -51,15 +51,17 @@ Processor is not relevant for this source type
 
 ## Processor-specific restrictions
 
-Processor restrictions by source type| Processor | Source Type | Restrictions |
-| --- | --- | --- |
-| OCSF | CloudWatch Logs with CloudTrail | • Only allowed when `data_source_name` is<br>`aws_cloudtrail`<br>• Must use CloudTrail-specific schema version<br>• Cannot be combined with other processors |
-| OCSF | API-based Sources | • Must use source-specific schema (e.g.,<br>microsoft\_office365\_management\_activity for Office<br>365)<br>• Requires specific mapping version for each source<br>type<br>• Must be first processor in pipeline |
-| parse\_vpc | CloudWatch Logs | • Only valid for VPC Flow Logs<br>• Must be first processor<br>• Input must contain raw VPC Flow Log<br>format |
-| parse\_route53 | CloudWatch Logs | • Only valid for Route 53 Resolver Query Logs<br>• Must be first processor<br>• Input must contain Route 53 Resolver query log<br>format |
-| parse\_rds | CloudWatch Logs | • Only valid when `data_source_name` is<br>`amazon_rds`<br>• Must be first processor<br>• Takes no parameters; the log type is inferred from<br>the pipeline's `data_source_type` |
-| add\_entries | All Sources | • Maximum one instance per pipeline<br>• Key names must be valid according to field naming<br>rules |
-| copy\_values | All Sources | • Maximum one instance per pipeline<br>• Source fields must exist in the event |
+The following table describes processor restrictions by source type.
+
+| Processor      | Source Type                     | Restrictions                                                                                                                                                                                                             |
+| -------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| OCSF           | CloudWatch Logs with CloudTrail | • Only allowed when `data_source_name` is<br>`aws_cloudtrail`<br>• Must use CloudTrail-specific schema version<br>• Cannot be combined with other processors                                                             |
+| OCSF           | API-based Sources               | • Must use source-specific schema (for example,<br>microsoft\_office365\_management\_activity for Office<br>365)<br>• Requires specific mapping version for each source<br>type<br>• Must be first processor in pipeline |
+| parse\_vpc     | CloudWatch Logs                 | • Only valid for VPC Flow Logs<br>• Must be first processor<br>• Input must contain raw VPC Flow Log<br>format                                                                                                           |
+| parse\_route53 | CloudWatch Logs                 | • Only valid for Route 53 Resolver Query Logs<br>• Must be first processor<br>• Input must contain Route 53 Resolver query log<br>format                                                                                 |
+| parse\_rds     | CloudWatch Logs                 | • Only valid when `data_source_name` is<br>`amazon_rds`<br>• Must be first processor<br>• Takes no parameters; the log type is inferred from<br>the pipeline's `data_source_type`                                        |
+| add\_entries   | All Sources                     | • Maximum one instance per pipeline<br>• Key names must be valid according to field naming<br>rules                                                                                                                      |
+| copy\_values   | All Sources                     | • Maximum one instance per pipeline<br>• Source fields must exist in the event                                                                                                                                           |
 
 ###### Important
 
@@ -69,7 +71,7 @@ When using processors with restrictions:
   `ValidateTelemetryPipelineConfiguration` API before
   deployment
 - Test the pipeline with sample data using the
-  `TestTelemetryPipeline` API to ensure proper
+  `TestTelemetryPipeline` API to make sure proper
   processing
-- Monitor pipeline metrics after deployment to ensure events are being
+- Monitor pipeline metrics after deployment to make sure events are being
   processed as expected

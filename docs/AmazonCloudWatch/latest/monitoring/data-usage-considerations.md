@@ -14,7 +14,7 @@ performance for CloudWatch investigations.
 
 ###### Important
 
-To help CloudWatch investigations provide the most relevant information, we might use certain content
+To help CloudWatch investigations provide the most relevant information, certain content might be used
 from CloudWatch investigations, including but not limited to, questions that you ask CloudWatch investigations and its
 response, insights, user interactions, telemetry, and metadata for service
 improvements. Your trust and privacy, as well as the security of your content, is

@@ -125,7 +125,7 @@ hour.
 
 Metrics that have not had any new data points in the past two weeks do not appear in
 the console. They also do not appear when you type their metric name or dimension names
-in the search box in the **Browse** tab in the console, and they
+in the search box in the **Browse** tab in the console. They
 are not returned in the results of a [list-metrics](../../../cli/latest/reference/cloudwatch/list-metrics.md "../../../cli/latest/reference/cloudwatch/list-metrics.md") command. The best
 way to retrieve these metrics is with the [get-metric-data](../../../cli/latest/reference/cloudwatch/get-metric-data.md "../../../cli/latest/reference/cloudwatch/get-metric-data.md") or [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md")
 commands in the AWS CLI.
@@ -306,7 +306,7 @@ For large datasets, you can insert a pre-aggregated dataset called a _statistic
 set_. With statistic sets, you give CloudWatch the Min, Max, Sum, and SampleCount for
 a number of data points. This is commonly used when you need to collect data many times in a
 minute. For example, suppose you have a metric for the request latency of a web page. It
-doesn't make sense to publish data with every web page hit. We suggest that you collect the
+doesn't make sense to publish data with every web page hit. Consider collecting the
 latency of all hits to that web page, aggregate them once a minute, and send that statistic
 set to CloudWatch.
 
@@ -330,7 +330,7 @@ the data is within two standard deviations from the mean and 99.7 percent of the
 within three standard deviations from the mean. Any data that falls outside three standard
 deviations is often considered to be an anomaly because it differs so greatly from the
 average value. For example, suppose that you are monitoring the CPU utilization of your EC2
-instances to ensure that your customers have a good experience. If you monitor the average,
+instances to make sure that your customers have a good experience. If you monitor the average,
 this can hide anomalies. If you monitor the maximum, a single anomaly can skew the results.
 Using percentiles, you can monitor the 95th percentile of CPU utilization to check for
 instances with an unusually heavy load.

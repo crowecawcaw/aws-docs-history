@@ -10,7 +10,7 @@ investigation is ended, you can't edit or add facts to the investigation.
 
 Before generating an incident confirm the following requirements are met:
 
-- Ensure the investigation group uses the required KMS key and has appropriate
+- Make sure the investigation group uses the required KMS key and has appropriate
   IAM policies attached to its role for decrypting data from AWS services. If
   your AWS resources are encrypted with customer-managed KMS keys, you must add
   IAM policy statements to the investigation group role to grant CloudWatch

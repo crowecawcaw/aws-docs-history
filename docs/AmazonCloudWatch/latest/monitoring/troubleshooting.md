@@ -32,4 +32,4 @@ resource policies are correctly set
 - **Issue:** Processor errors in pipeline
 
 **Solution:** Review processor configuration and
-ensure input data format matches processor expectations
+make sure input data format matches processor expectations

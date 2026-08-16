@@ -91,7 +91,7 @@ If your scraper is not collecting metrics as expected, check the following:
   the scraper configuration.
 - Check that DNS names used in `dns_sd_configs` resolve correctly
   within the VPC.
-- Ensure your targets respond on the configured
+- Make sure your targets respond on the configured
   `metrics_path` with valid Prometheus exposition format.
 
 For additional troubleshooting guidance, see [Troubleshooting

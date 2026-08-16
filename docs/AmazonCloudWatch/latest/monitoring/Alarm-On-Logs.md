@@ -229,17 +229,17 @@ aws cloudwatch put-log-alarm \
 The following table describes the key parameters for the `put-log-alarm`
 command.
 
-put-log-alarm parameters| Parameter | Required | Description |
-| --- | --- | --- |
-| `--alarm-name` | Yes | The name of the alarm. Must contain only UTF-8 characters. |
-| `--comparison-operator` | Yes | The comparison operator for threshold evaluation. Valid values:<br>`GreaterThanThreshold`, `GreaterThanOrEqualToThreshold`,<br>`LessThanThreshold`,<br>`LessThanOrEqualToThreshold`. |
-| `--threshold` | Yes | The numeric threshold value to compare against. |
-| `--query-results-to-evaluate` | Yes | The number of recent query executions to evaluate (N in M-out-of-N). |
-| `--query-results-to-alarm` | Yes | The number of breaching results required to trigger<br>`ALARM` (M in M-out-of-N). |
-| `--treat-missing-data` | No | How to treat missing data. Valid values: `missing` (default),<br>`notBreaching`, `breaching`,<br>`ignore`. |
-| `--scheduled-query-configuration` | Yes | The query configuration including query string, log group<br>identifiers, scheduled query role ARN, aggregation expression, and schedule<br>configuration. |
-| `--action-log-line-count` | No | The number of log lines to include in Amazon SNS email notifications (0–50). Default<br>is 0. |
-| `--action-log-line-role-arn` | No | The ARN of the IAM role that trusts<br>`cloudwatch.amazonaws.com`. Required if<br>`action-log-line-count` is greater than 0. |
+| Parameter                         | Required | Description                                                                                                                                                                          |
+| --------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--alarm-name`                    | Yes      | The name of the alarm. Must contain only UTF-8 characters.                                                                                                                           |
+| `--comparison-operator`           | Yes      | The comparison operator for threshold evaluation. Valid values:<br>`GreaterThanThreshold`, `GreaterThanOrEqualToThreshold`,<br>`LessThanThreshold`,<br>`LessThanOrEqualToThreshold`. |
+| `--threshold`                     | Yes      | The numeric threshold value to compare against.                                                                                                                                      |
+| `--query-results-to-evaluate`     | Yes      | The number of recent query executions to evaluate (N in M-out-of-N).                                                                                                                 |
+| `--query-results-to-alarm`        | Yes      | The number of breaching results required to trigger<br>`ALARM` (M in M-out-of-N).                                                                                                    |
+| `--treat-missing-data`            | No       | How to treat missing data. Valid values: `missing` (default),<br>`notBreaching`, `breaching`,<br>`ignore`.                                                                           |
+| `--scheduled-query-configuration` | Yes      | The query configuration including query string, log group<br>identifiers, scheduled query role ARN, aggregation expression, and schedule<br>configuration.                           |
+| `--action-log-line-count`         | No       | The number of log lines to include in Amazon SNS email notifications (0–50). Default<br>is 0.                                                                                        |
+| `--action-log-line-role-arn`      | No       | The ARN of the IAM role that trusts<br>`cloudwatch.amazonaws.com`. Required if<br>`action-log-line-count` is greater than 0.                                                         |
 
 ### Creating a Log Alarm using AWS CloudFormation
 

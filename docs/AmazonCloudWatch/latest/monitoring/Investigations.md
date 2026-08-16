@@ -96,7 +96,7 @@ When you configure CloudWatch investigations , CloudWatch will use the provided 
 resources in your account for the purpose of mapping resources and telemetry. Some
 services like Lambda will invoke the KMS decrypt API on behalf of CloudWatch for certain API
 calls related to describing or listing resources. This background process is performed
-to ensure that the topology reflects the most recent state of the account and its
+to make sure that the topology reflects the most recent state of the account and its
 dependencies. This refresh occurs regardless of whether there is an active investigation
 or not.
 

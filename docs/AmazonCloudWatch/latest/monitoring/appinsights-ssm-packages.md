@@ -452,7 +452,7 @@ GRANT VIEW SERVER STATE TO
 
 ###### Note
 
-If the password or username contains special characters, you must percent encode the special characters to ensure a successful connection to the database.
+If the password or username contains special characters, you must percent encode the special characters to make sure that the connection to the database succeeds.
 
 ###### Install and configure the `AWSObservabilityExporter-SQLExporterInstallAndConfigure` package
 

@@ -6,8 +6,8 @@ operations or dependencies. By creating SLOs on these services, you will be able
 you an at-a-glance view of your most important operations.
 
 In addition to creating a quick view your operators can use to see the current status of critical operations,
-you can use SLOs to track the longer-term performance of your services, to ensure that they are meeting
-your expectations. If you have service level agreements with customers, SLOs are a great tool to ensure that they are
+you can use SLOs to track the longer-term performance of your services, to make sure that they are meeting
+your expectations. If you have service level agreements with customers, SLOs are a great tool to make sure that they are
 met.
 
 Assessing your services' health with SLOs starts with setting clear, measurable objectives
@@ -92,7 +92,7 @@ rolling intervals.
 For example, a goal of 99% with a calendar interval of one day and a period of 1 minute
 means that the application must meet or achieve the success threshold during 99% of the
 1-minute periods during the day. If it does, then the SLO is met for that day. The next day is
-a new evaluation interval, and the application must meet or achieve the success threshold
+a new evaluation interval. The application must meet or achieve the success threshold
 during 99% of the 1-minute periods during the second day to meet the SLO for that second
 day.
 
@@ -128,7 +128,7 @@ periods. 99% of 43,200 is 42,768, so 42,768 minutes during the month must be hea
 met. So far in the current interval, 130 of the
 1-minute periods were unhealthy.
 
-![A bar chart diagram that shows the total periods in an SLO interval, and the attainment and error budget numbers for this SLO.](images/SLO-budget.png)
+![Bar chart showing total periods in an SLO interval with attainment and error budget numbers.](images/SLO-budget.png)
 
 ### Determine success within each period
 
@@ -160,7 +160,7 @@ with the SLO's goal, and still have your application meet the goal. For a reques
 the ratio of good requests to total requests
 
 The following table illustrates the calculation for a request-based SLO with an
-interval of 5 days and 85% attainment goal. In this example, we assume there is no traffic before Day 1.
+interval of 5 days and 85% attainment goal. In this example, assume there is no traffic before Day 1.
 The SLO did not meet the goal on Day 10.
 
 ###### Note
@@ -199,12 +199,12 @@ that must be achieved to meet the SLO goal. The baseline error rate is (100% - a
 at the end of the SLO's time interval. So an SLO with an attainment goal of 99% would have
 a baseline error rate of 1%.
 
-Monitoring the burn rate tells us how far off we are from the baseline error rate. Again taking the example of an attainment goal of 99%, the following
+Monitoring the burn rate tells us how far off you are from the baseline error rate. Again taking the example of an attainment goal of 99%, the following
 is true:
 
-- **Burn rate = 1**: If the burn rate remains exactly at the baseline error rate all the time, we meet exactly the SLO goal.
-- **Burn rate < 1**: If the burn rate is lower than the baseline error rate, we are on track to exceed the SLO goal.
-- **Burn rate > 1**: If the burn rate is higher than baseline error rate, we have chance to fail the SLO goal.
+- **Burn rate = 1**: If the burn rate remains exactly at the baseline error rate all the time, you meet exactly the SLO goal.
+- **Burn rate < 1**: If the burn rate is lower than the baseline error rate, you are on track to exceed the SLO goal.
+- **Burn rate > 1**: If the burn rate is higher than baseline error rate, you have a chance to fail the SLO goal.
 
 When you create burn rates for your SLOs, you can also choose to create CloudWatch alarms at the same time to monitor the burn rates. You can
 set a threshold for the burn rates and the alarms can automatically notify you if the burn rate metrics are breaching the threshold that you set.
@@ -243,7 +243,7 @@ If you want to get alarmed when X% of the estimated error budget is spent within
 `burn rate threshold = X% * SLO interval length / look-back window size`
 
 For example, 5% of a 30-day (720-hour) error budget spent over one hour requires a burn rate of `5% * 720 / 1 = 36`. Therefore, if the burn rate
-look-back window is1 hour, we set the burn rate threshold to be 36.
+look-back window is1 hour, you set the burn rate threshold to be 36.
 
 You can use the CloudWatch console to create burn rate alarms using this method. You can specify the number X, and the threshold is determined using the above formula.
 
@@ -253,7 +253,7 @@ The SLO interval length is determined based on the SLO interval type:
 - For SLOs with a calendar-based interval:
 
   - If the unit is days or weeks, it's the length of the interval in hours.
-  - If the unit is a month, we take 30 days as the estimated length and convert it to hours.
+  - If the unit is a month, 30 days is taken as the estimated length and convert it to hours.
 
 **Method 2: Determine the time unitl budget exhaustion for the next interval**
 
@@ -262,8 +262,8 @@ is less than X hours away (assuming the budget remaining is currently 100%), you
 
 `burn rate threshold = SLO interval length / X`
 
-We emphasize that the time until budget exhaustion (X) in the above formula assumes that the total budget remaining is currently 100%, and therefore it
-does not take into account the amount of budget that has already been burnt in this interval. We can also think of it as the time till budget exhaustion for the next interval.
+Note that the time until budget exhaustion (X) in the above formula assumes that the total budget remaining is currently 100%, and therefore it
+does not take into account the amount of budget that has already been burnt in this interval. You can also think of it as the time till budget exhaustion for the next interval.
 
 ### Walkthroughs for burn rate alarms
 
@@ -284,7 +284,7 @@ To find the threshold,use the following formula:
 
 `burn rate threshold = X% * SLO interval length/ look-back window size`
 
-In this example, X is 2 because we want to be alerted if 2% of the error budget is consumed within 60 minutes. The interval length is 40,320 minutes (28 days), and 60 minutes is the look-back window,
+In this example, X is 2 because you want to be alerted if 2% of the error budget is consumed within 60 minutes. The interval length is 40,320 minutes (28 days), and 60 minutes is the look-back window,
 so the answer is:
 
 `burn rate threshold = 2% * 40,320 / 60 = 13.44.`
@@ -297,7 +297,7 @@ By setting up alarms on multiple look-back windows, you can quickly detect sharp
 detect smaller error rate increases that eventually deplete the error budget if they remain unnoticed.
 
 Additionally, you could set a _composite alarm_ on a burn rate with long window and on a burn rate with a short window (1/12th of the long window),
-and be informed only when both of the burn rates breach a threshold. This way, you can ensure that you get alerted only for situations that are still happening.
+and be informed only when both of the burn rates breach a threshold. This way, you can make sure that you get alerted only for situations that are still happening.
 For more information about composite alarms in CloudWatch, see [Create a composite alarm](Create_Composite_Alarm.md "Create_Composite_Alarm.md").
 
 ###### Note
@@ -329,7 +329,7 @@ The steps to do this set up are the following:
 For example, if your alarms for the first pair (one-hour window and five-minute window) are named `OneHourBurnRate` and `FiveMinuteBurnRate`,
 the CloudWatch composite alarm rule would be `ALARM(OneHourBurnRate) AND ALARM(FiveMinuteBurnRate)`
 
-The previous strategy is possible only for SLOs with interval length of at least three hours. For SLOs with shorter interval lengths, we
+The previous strategy is possible only for SLOs with interval length of at least three hours. For SLOs with shorter interval lengths, CloudWatch
 recommend that you start with one pair of burn rate alarms where one alarm has a look-back window that is 1/12th of the look-back window of the other alarm. Then set a composite alarm on this pair.
 
 ## Create an SLO
@@ -652,7 +652,7 @@ the button name changes to reflect this.
 
 ### Create an SLO on an app monitor
 
-You can create SLOs to monitor the performance of your CloudWatch RUM app monitors. This allows you to track real user experience metrics and ensure your web and mobile applications meet performance goals. SLOs on app monitors use request-based evaluation, which measures the ratio of good requests to total requests.
+You can create SLOs to monitor the performance of your CloudWatch RUM app monitors. This allows you to track real user experience metrics and make sure your web and mobile applications meet performance goals. SLOs on app monitors use request-based evaluation, which measures the ratio of good requests to total requests.
 
 ###### To create an SLO on an app monitor
 
@@ -678,7 +678,7 @@ You can create SLOs to monitor the performance of your CloudWatch RUM app monito
 
 ### Create an SLO on a canary
 
-You can create SLOs to monitor the performance of your CloudWatch Synthetics canaries. This allows you to track synthetic monitoring results and ensure your endpoints and APIs meet availability and performance goals. SLOs on canaries use period-based evaluation, where each canary run is treated as a discrete evaluation period.
+You can create SLOs to monitor the performance of your CloudWatch Synthetics canaries. This allows you to track synthetic monitoring results and make sure your endpoints and APIs meet availability and performance goals. SLOs on canaries use period-based evaluation, where each canary run is treated as a discrete evaluation period.
 
 ###### To create an SLO on a canary
 

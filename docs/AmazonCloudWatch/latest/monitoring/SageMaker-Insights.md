@@ -3,7 +3,7 @@
 Use CloudWatch SageMaker AI Insights to monitor and troubleshoot SageMaker AI inference endpoints at scale. The dashboard
 displays curated metrics and visualizations across three views—**Performance**,
 **Capacity**, and **Reliability**—so you can quickly identify
-issues, optimize resource utilization, and ensure high availability across your endpoints.
+issues, optimize resource utilization, and make sure high availability across your endpoints.
 
 SageMaker AI Insights supports monitoring across endpoint types (single‐model endpoints and inference
 component (IC)‐based endpoints) and inference frameworks (vLLM, SGLang, TensorRT‐LLM).
@@ -33,7 +33,7 @@ To get started with SageMaker AI Insights, see the following topics.
   utilization, queue depth, batch size—without custom instrumentation.
 - **PromQL query support.** Query in CloudWatch, CloudWatch Query
   Studio, or Amazon Managed Grafana.
-- **Configurable scrape frequency.** Set via
+- **Configurable scrape frequency.** Set through
   `MetricPublishFrequencyInSeconds` (10, 30, 60, 120, 180, 240, or 300 seconds; default
   60). Control plane metrics are event‐driven.
 
@@ -44,9 +44,9 @@ To get started with SageMaker AI Insights, see the following topics.
    Prometheus‐compatible metrics on the instance.
 2. The **OTel Collector** scrapes these endpoints and
    enriches each metric with labels (endpoint name, IC name, instance ID, AZ).
-3. Enriched metrics are **exported via OTLP** to
+3. Enriched metrics are **exported through OTLP** to
    CloudWatch.
-4. Metrics are **queryable via PromQL** in
+4. Metrics are **queryable through PromQL** in
    CloudWatch.
 
 ```

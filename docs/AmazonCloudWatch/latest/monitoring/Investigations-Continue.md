@@ -48,7 +48,7 @@ You have several options:
      CloudWatch Logs Insights query result, the query itself is displayed as part of
      the observation. You can edit the query and re-run it. To do so, choose
      the vertical ellipsis menu icon
-    ![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](images/vmore.png)
+    ![CloudWatch overview home page showing alarm states and metrics graph widgets.](images/vmore.png)
      by the results, and then choose **Open in
      Logs Insights**. For more information, see [Analyzing
      log data with CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md").
@@ -64,7 +64,7 @@ You have several options:
     	2. In the **Monitor** section, find the
     	 metric.
     	3. Open the vertical ellipsis context menu
-    	![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](images/vmore.png)
+    	![CloudWatch overview home page showing alarm states and metrics graph widgets.](images/vmore.png)
     	 for the metric, choose
     	 **Investigate**, **Add to
     	 investigation** Then, in the
@@ -91,7 +91,7 @@ about the issue. Possible actions include the following:
      documentation that can help you understand the issue that you are
      working on, and how to solve it. To view suggested documentation, choose
      its **Review** link
-    * **Runbook suggestions** are suggestions that leverage
+    * **Runbook suggestions** are suggestions that use
      the pre-defined *runbooks* in Systems Manager
      Automation. Each runbook defines a number of steps for performing a task
      on an AWS resource. For information about continuing with a runbook

@@ -147,7 +147,7 @@ information, do the following:
    application logs for the selected point in the graph.
 
 The following image shows the tooltip that appears after hovering over a point in the
-graph, and the diagnostic pane which appears after clicking on a point. The tooltip contains
+graph, and the diagnostic pane which appears after choosing on a point. The tooltip contains
 information about the associated data point in the **Faults and Errors**
 graph. The pane contains **Correlated traces**, **Top
 contributors**, and **Application logs** associated with the

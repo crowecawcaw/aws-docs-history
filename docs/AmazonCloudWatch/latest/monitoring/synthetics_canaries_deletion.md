@@ -31,7 +31,7 @@ The screenshot appears, and you can do one of the following:
     * To remove the screenshot from being used for visual monitoring, select **Remove
      screenshot from visual test baseline**.
     * To designate parts of the screenshot to be ignored during visual comparisons,
-     click and drag to draw areas of the screen to ignore. Once you have done this for all
+     click and drag to draw areas of the screen to ignore. After you have done this for all
      the areas that you want to ignore during comparisons, choose **Save**
      .
 

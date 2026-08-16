@@ -807,7 +807,7 @@ information about the format of `metrics`, see [Metric Widget: Format for Each M
 One metrics array can include no more than one Metrics Insights query.
 
 A single `expression` field can't include both a Metrics Insights query and
-a math expression, but you can use the returned results of a Metrics Insights query from one
+a math expression. However, you can use the returned results of a Metrics Insights query from one
 expression as input in a math expression in a different expression in the array.
 
 Type: Array of arrays
@@ -2169,7 +2169,7 @@ currently in ALARM or INSUFFICIENT\_DATA state:
 
 A widget of type `chart` is a multi-data-source chart widget that supports PromQL queries
 against CloudWatch metrics. Use a chart widget to visualize metrics that are queryable with PromQL, including
-metrics ingested via OpenTelemetry Line Protocol (OTLP) and AWS vended metrics that have been enriched
+metrics ingested through OpenTelemetry Line Protocol (OTLP) and AWS vended metrics that have been enriched
 for OTel. For more information about querying with PromQL, see
 [Query metrics with PromQL](CloudWatch-PromQL.md "CloudWatch-PromQL.md").
 

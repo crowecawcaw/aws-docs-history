@@ -159,7 +159,7 @@ nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
-Once you've successfully validated the updated configuration, reload NGINX (no
+After you've successfully validated the updated configuration, reload NGINX (no
 output is expected):
 
 ```
@@ -310,7 +310,7 @@ scrape_configs:
 
 **CloudWatch agent configuration**
 
-As per the previous CloudWatch agent configuration, these metrics are published via CloudWatch
+As per the previous CloudWatch agent configuration, these metrics are published through CloudWatch
 Logs using the [embedded metric format (EMF)](CloudWatch_Embedded_Metric_Format_Specification.md "CloudWatch_Embedded_Metric_Format_Specification.md"). These logs are configured to use the log group
 `nginx`. You can customize the `log_group_name`
 with a different name that represents the CloudWatch logs.
@@ -348,7 +348,7 @@ If you are using Windows Server, set
 
 ## Deploy the agent for your solution
 
-There are several approaches for installing the CloudWatch agent, depending on the use case. We
+There are several approaches for installing the CloudWatch agent, depending on the use case. You
 recommend using Systems Manager for this solution. It provides a console experience and makes it
 simpler to manage a fleet of managed servers within a single AWS account. The instructions
 in this section use Systems Manager and are intended for when you don't have the CloudWatch agent running with
@@ -375,20 +375,20 @@ provided the solution.
 
 The deployment process includes the following steps:
 
-- Step 1: Ensure that the target EC2 instances have the required IAM
+- Step 1: Make sure that the target EC2 instances have the required IAM
   permissions.
 - Step 2: Store the recommended agent configuration file in the Systems Manager Parameter Store.
 - Step 3: Install the CloudWatch agent on one or more EC2 instances using an CloudFormation
   stack.
 - Step 4: Verify the agent setup is configured properly.
 
-### Step 1: Ensure the target EC2 instances have the required IAM permissions
+### Step 1: Make sure the target EC2 instances have the required IAM permissions
 
 You must grant permission for Systems Manager to install and configure the CloudWatch agent. You must
 grant permission for the CloudWatch agent to publish telemetry from your EC2 instance to CloudWatch.
 You must also grant the CloudWatch agent EC2 read access. EC2 read access is required for the
 EC2 InstanceId to be added as a metric dimension. This additional requirement is driven by
-`prometheus.yaml` as detailed above because it uses `__meta_ec2_instance_id` via EC2 Service Discovery.
+`prometheus.yaml` as detailed above because it uses `__meta_ec2_instance_id` through EC2 Service Discovery.
 
 Make sure that the IAM role attached to the instance has the **CloudWatchAgentServerPolicy**,
 **AmazonSSMManagedInstanceCore**, and **AmazonEC2ReadOnlyAccess** IAM policies attached.
@@ -483,7 +483,7 @@ If you want to edit the template file first to customize it, choose the **Upload
 under **Create Stack Wizard** to upload the edited template. For more information,
 see [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 You can use the following link to download the template:
-[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json " https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json").
+[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json").
 
 ###### Note
 
@@ -504,7 +504,7 @@ You can verify whether the CloudWatch agent is installed by following the steps 
 not installed and running, make sure you have set up everything correctly.
 
 - Be sure you have attached a role with correct permissions for the EC2 instance as
-  described in [Step 1: Ensure the target EC2 instances have the required IAM permissions](#Solution-NGINX-Agent-Step1 "#Solution-NGINX-Agent-Step1").
+  described in [Step 1: Make sure the target EC2 instances have the required IAM permissions](#Solution-NGINX-Agent-Step1 "#Solution-NGINX-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the
   steps in [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
@@ -549,7 +549,7 @@ If you've specified a custom namespace other than `CWAgent` in the CloudWatch ag
 configuration, you'll have to change the CloudFormation template
 for the dashboard to replace `CWAgent` with the customized namespace you are using.
 
-###### To create the dashboard via CloudWatch Console
+###### To create the dashboard through CloudWatch Console
 
 1. Open the CloudWatch Console **Create Dashboard** using this link:
    [https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog](https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog "https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog") .
@@ -559,7 +559,7 @@ for the dashboard to replace `CWAgent` with the customized namespace you are usi
 To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
 in the dashboard name, such as `NGINXDashboard-us-east-1`. 4. Preview the dashboard and choose **Save** to create the dashboard.
 
-###### To create the dashboard via CloudFormation
+###### To create the dashboard through CloudFormation
 
 1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json")
    .
@@ -583,7 +583,7 @@ If you want to edit the template file first to customize it, choose the **Upload
 under **Create Stack Wizard** to upload the edited template. For more information,
 see [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 You can use the following link to download the template:
-[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json " https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 
 ### Get started with the NGINX dashboard
 

@@ -376,8 +376,7 @@ alongside its own configuration files. This feature allows you to use CloudWatch
 such as CloudWatch Application Signals or Container Insights through the CloudWatch agent configuration and bring
 in your existing OpenTelemetry collector configuration with a single agent.
 
-To prevent merge conflicts with pipelines automatically created by CloudWatch agent, we
-recommend that you add a custom suffix to each of the components and pipelines in your
+To prevent merge conflicts with pipelines automatically created by CloudWatch agent, add a custom suffix to each of the components and pipelines in your
 OpenTelemetry collector configuration.
 
 ```

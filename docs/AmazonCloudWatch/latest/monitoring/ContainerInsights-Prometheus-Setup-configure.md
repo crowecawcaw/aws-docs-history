@@ -219,7 +219,7 @@ fields:
     of the labels listed in `source_labels`. The metrics that match
     are enabled for inclusion in the embedded metric format sent to CloudWatch.
 
-  If you have multiple labels specified in `source_labels`, we
+  If you have multiple labels specified in `source_labels`, the agent
   recommend that you do not use `^` or `$` characters in
   the regular expression for `label_matcher`.
   - `source_labels` specifies the value of the labels that are
@@ -448,7 +448,7 @@ cat prometheus-k8s.yaml \
 | kubectl apply -f -
 ```
 
-Once you have done this, you should see a new log stream named **kubernetes-apiservers** in the
+After you have done this, you should see a new log stream named **kubernetes-apiservers** in the
 **/aws/containerinsights/`cluster_name`/prometheus**
 log group. This log stream should include log events with an embedded metric format
 definition like the following:

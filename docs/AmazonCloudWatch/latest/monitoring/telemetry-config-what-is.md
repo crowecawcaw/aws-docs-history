@@ -9,7 +9,7 @@ CloudWatch telemetry configuration gives you two core capabilities:
 - **Enablement rules** – Create rules that
   automatically configure telemetry collection for AWS resources that match your criteria.
   Rules help you standardize telemetry collection across your organization or accounts and
-  ensure consistent monitoring coverage.
+  make sure consistent monitoring coverage.
   Telemetry configuration supports the following data sources:
 
 - Amazon Amazon VPC Flow Logs

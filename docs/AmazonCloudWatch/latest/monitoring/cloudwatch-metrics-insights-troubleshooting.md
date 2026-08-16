@@ -8,7 +8,7 @@ query. In this case, a null group named `Other` is returned. The metrics that
 do not include that label key are probably aggregated metrics that return values
 aggregated across all values of that label key.
 
-For example, suppose we have the following query:
+For example, suppose you have the following query:
 
 ```
 SELECT AVG(Faults)

@@ -20,7 +20,7 @@ For more information, see [Configuring sampling rules](../../../xray/latest/devg
 
 ###### If you're using the OpenTelemetry SDK
 
-To record 100% of spans and get complete visibility, set your sampling configuration to [`always_on`](https://opentelemetry.io/docs/languages/java/sdk/#sampler "https://opentelemetry.io/docs/languages/java/sdk/#sampler").
+To record 100% of spans and get complete visibility, set your sampling configuration to [always\_on](https://opentelemetry.io/docs/languages/java/sdk/#sampler "https://opentelemetry.io/docs/languages/java/sdk/#sampler").
 For more information, see Language APIs & SDKs on the OpenTelemetry website.
 
 ### Features unlocked with head sampling

@@ -84,7 +84,7 @@ ECS_CLUSTER_SUBNET_1=`subnet-xxxxxxxxxxxxxxxxx`
 ECS_CLUSTER_SUBNET_2=`subnet-xxxxxxxxxxxxxxxxx`
 ```
 
-2. In this tutorial, we are going to install the Redis OSS application and the
+2. In this tutorial, you install the Redis OSS application and the
    CloudWatch agent in the default security group of the Amazon ECS cluster's VPC. The default
    security group allows all network connection within the same security group so
    the CloudWatch agent can scrape the Prometheus metrics exposed on the Redis OSS

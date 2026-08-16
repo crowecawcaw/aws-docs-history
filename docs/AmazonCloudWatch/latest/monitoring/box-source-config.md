@@ -15,7 +15,7 @@ To integrate CloudWatch Pipelines with Box, complete the following high-level st
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, make sure you have the following:
 
 - A Box Enterprise account with admin access
 - A Box Custom App configured with Server Authentication (Client Credentials Grant)
@@ -39,7 +39,7 @@ To configure authentication credentials for the pipeline:
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline, choose Box as the data source. Provide the `enterprise_id`, `client_id`, and `client_secret`. Once you create and activate the pipeline, log data from Box will begin flowing into the selected CloudWatch Logs log group.
+To configure the pipeline, choose Box as the data source. Provide the `enterprise_id`, `client_id`, and `client_secret`. After you create and activate the pipeline, log data from Box will begin flowing into the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

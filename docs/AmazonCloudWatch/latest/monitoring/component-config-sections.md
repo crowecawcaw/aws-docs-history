@@ -423,7 +423,7 @@ the log group name constraints, see [CreateLogGroup](../../../AmazonCloudWatchLo
 
 The type of Windows Events to log. It is equivalent to the Windows
 Event log channel name. For example, System, Security,
-CustomEventName, etc. This field is required for each type of
+CustomEventName, and so on. This field is required for each type of
 Windows event to log.
 
 - **eventLevels (required)**

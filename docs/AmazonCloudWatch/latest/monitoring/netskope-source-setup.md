@@ -67,7 +67,7 @@ API token:
 When configuring the pipeline to read event and alert logs from Netskope, choose
 Netskope as the data source. Fill in the required information such as your tenant
 hostname and the AWS Secrets Manager secret ARN for your credentials where api\_token is
-stored. Once you create the pipeline, data will be available in the selected CloudWatch Logs
+stored. After you create the pipeline, data will be available in the selected CloudWatch Logs
 log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes

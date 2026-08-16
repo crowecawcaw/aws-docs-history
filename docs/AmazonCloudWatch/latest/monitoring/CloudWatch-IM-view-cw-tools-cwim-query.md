@@ -14,7 +14,7 @@ or the **Optimize** page—you can query and filter internet data for your appli
 
 If you'd like more flexibility to explore and filter your data than the dashboard provides, you can use the query interface yourself,
 by using Internet Monitor API operations with the AWS Command Line Interface or with an AWS SDK. This section introduces the types of queries that you can use
-with the query interface, and the filters that you can specify to create a subset of data, to get insights about internet traffic
+with the query interface. It also describes the filters that you can specify to create a subset of data, to get insights about internet traffic
 for your application.
 
 ###### Topics

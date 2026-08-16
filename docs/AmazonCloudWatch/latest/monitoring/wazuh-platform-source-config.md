@@ -13,7 +13,7 @@ To integrate CloudWatch Pipelines with Wazuh Platform, complete the following hi
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, make sure you have the following:
 
 - An active Wazuh deployment with Indexer API access (port 9200)
 - Wazuh Indexer credentials with read access to security indices
@@ -33,7 +33,7 @@ To configure authentication credentials for the pipeline:
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline, choose Wazuh Platform as the data source. Provide the `host`, `username`, and `password`. Once you create and activate the pipeline, log data from Wazuh will begin flowing into the selected CloudWatch Logs log group.
+To configure the pipeline, choose Wazuh Platform as the data source. Provide the `host`, `username`, and `password`. After you create and activate the pipeline, log data from Wazuh will begin flowing into the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

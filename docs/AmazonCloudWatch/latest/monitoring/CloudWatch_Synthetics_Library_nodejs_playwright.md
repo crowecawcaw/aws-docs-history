@@ -159,7 +159,7 @@ supported.
 
 - Synthetics runtime namespace migration.
 - Type definition is available in [npm Registry](https://www.npmjs.com/package/@aws/synthetics-playwright "https://www.npmjs.com/package/@aws/synthetics-playwright").
-  Please ensure the type definition package version matches your canary's runtime
+  Please make sure the type definition package version matches your canary's runtime
   version.
 
 ### syn-nodejs-playwright-5.0

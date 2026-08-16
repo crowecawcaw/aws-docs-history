@@ -220,7 +220,7 @@ Python
 Before you enable Application Signals for your Python applications, be aware of the following considerations.
 
 - In some containerized applications, a missing `PYTHONPATH` environment variable can sometimes
-  cause the application to fail to start. To resolve this, ensure that you set the `PYTHONPATH` environment variable
+  cause the application to fail to start. To resolve this, make sure that you set the `PYTHONPATH` environment variable
   to the location of your application's working directory. This is due to a known issue with OpenTelemetry auto-instrumentation.
   For more information about this issue, see
   [Python autoinstrumentation setting of PYTHONPATH is not compliant](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
@@ -1126,4 +1126,4 @@ You should see three containers in the newly created task:
 
 ## (Optional) Step 6: Monitor your application health
 
-Once you have enabled your applications on Amazon ECS, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").
+After you have enabled your applications on Amazon ECS, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").

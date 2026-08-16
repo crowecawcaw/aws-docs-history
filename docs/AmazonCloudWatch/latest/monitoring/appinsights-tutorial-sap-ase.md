@@ -2,7 +2,7 @@
 
 This tutorial demonstrates how to configure CloudWatch Application Insights to set up monitoring for your SAP
 ASE databases. You can use CloudWatch Application Insights automatic dashboards to visualize problem details,
-accelerate troubleshooting, and facilitate mean time to resolution (MTTR) for your SAP
+accelerate troubleshooting, and help mean time to resolution (MTTR) for your SAP
 ASE databases.
 
 ###### Application Insights for SAP ASE topics

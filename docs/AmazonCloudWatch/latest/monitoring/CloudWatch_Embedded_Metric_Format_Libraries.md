@@ -23,4 +23,4 @@ For more information, see
 ###### Note
 
 When using Lambda, no agent is required to send the logs to CloudWatch. Anything logged to STDOUT is
-sent to CloudWatch Logs via the Lambda Logging Agent.
+sent to CloudWatch Logs through the Lambda Logging Agent.

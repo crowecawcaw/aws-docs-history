@@ -9,7 +9,7 @@ Open the CloudWatch console at
 
 The CloudWatch overview home page appears.
 
-![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](images/CW-default-dashboard-update.png)
+![CloudWatch overview home page showing alarm states and metrics graph widgets.](images/CW-default-dashboard-update.png)
 The overview displays the following items, refreshed automatically.
 
 - **Alarms by AWS service** displays a list of AWS services you use in your account, along with

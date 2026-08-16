@@ -64,7 +64,7 @@ OK ("alarm-name or alarm-ARN") is TRUE if the alarm is in OK state.
 
 - INSUFFICIENT\_DATA
 
-INSUFFICIENT\_DATA (“alarm-name or alarm-ARN") is TRUE if the named alarm is in
+INSUFFICIENT\_DATA ("alarm-name or alarm-ARN") is TRUE if the named alarm is in
 INSUFFICIENT\_DATA state.
 
 ###### Note

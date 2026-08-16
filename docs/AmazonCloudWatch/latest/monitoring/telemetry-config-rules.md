@@ -2,7 +2,7 @@
 
 You can create telemetry enablement rules to automatically configure telemetry
 collection for your AWS resources. Rules help you standardize telemetry collection across
-your organization or accounts and ensure consistent monitoring coverage.
+your organization or accounts and make sure consistent monitoring coverage.
 
 ###### Topics
 
@@ -46,7 +46,7 @@ conflicts using these priorities:
 If you update an enablement rule, only new resources that match the rule adopt the
 updated configuration. The existing telemetry settings remain unchanged for existing
 resources. If a resource becomes non-compliant with an existing rule due to manual deletion
-of telemetry data, the new enablement rule is adopted once the resource is brought back
+of telemetry data, the new enablement rule is adopted after the resource is brought back
 into compliance.
 
 For Amazon VPC Flow logs, telemetry config only creates new flow logs for resources that
@@ -306,7 +306,7 @@ group in `eu-west-1`, the service uses
 `arn:aws:kms:eu-west-1:123456789012:key/mrk-1234abcd` for encryption in that
 Region.
 
-You must ensure that the multi-Region key is replicated to all Regions where the rule
+You must make sure that the multi-Region key is replicated to all Regions where the rule
 applies. If the key has not been replicated to a target Region, remediation for resources in
 that Region fails, and the service retries the operation.
 
@@ -421,7 +421,7 @@ When enabling Security Hub logging:
 **Amazon Bedrock AgentCore**
 
 - Enable both logs and traces emitted from all available Bedrock AgentCore
-  primitives such as Runtime, Browser Tools, Code Interpreter Tools, etc. Follow the
+  primitives such as Runtime, Browser Tools, Code Interpreter Tools, and so on. Follow the
   Telemetry Configure console experience for creating a logs delivery rule then followed
   by creating a traces delivery rule.
 - When creating a trace delivery rule, Transaction Search will be enabled and
@@ -468,7 +468,7 @@ When enabling MSK Cluster metrics:
 
 - Only supports METRICS telemetry type
 - You can configure enhanced monitoring levels (PER\_BROKER, PER\_TOPIC\_PER\_BROKER,
-  etc.) to control the granularity of metrics collected
+  and so on) to control the granularity of metrics collected
 - Rules with different enhanced monitoring levels can coexist for the same MSK
   cluster
 

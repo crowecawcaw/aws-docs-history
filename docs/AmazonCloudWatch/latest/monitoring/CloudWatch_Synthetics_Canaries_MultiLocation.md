@@ -10,7 +10,7 @@ view of your application's performance and availability worldwide.
 
 Use multilocation canaries for the following benefits:
 
-- **Ensure consistent user experience**—Run
+- **Make sure consistent user experience**—Run
   canaries from different parts of the world to verify that your users everywhere receive
   a consistent, high-quality experience.
 - **Establish location-specific baselines**—

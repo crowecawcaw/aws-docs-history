@@ -60,7 +60,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that they're trying to perform.
 
-To ensure that users and roles can still use the CloudWatch console, also attach
+To make sure that users and roles can still use the CloudWatch console, also attach
 the CloudWatch `ConsoleAccess` or
 `ReadOnly` AWS managed policy to the
 entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the

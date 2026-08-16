@@ -21,7 +21,7 @@ You can install the add-on by using the console or by using API commands with th
 Regardless of whether you use the console or the CLI to install the AWS Network Flow Monitor
 Agent add-on, there are several requirements for installing the add-on with Kubernetes.
 
-**Ensure that your version of Kubernetes is supported**
+**Make sure that your version of Kubernetes is supported**
 Network Flow Monitor agent installation requires Kubernetes Version 1.25, or a more recent version.
 
 **Amazon EKS Pod Identity Agent add-on installation**
@@ -106,7 +106,7 @@ The result should be similar to the following:
 ```
 
 **4. Make sure that the add-on is active**
-Review the installed AWS Network Flow Monitor Agent add-on to ensure that it's active for your cluster. Run the following command to verify
+Review the installed AWS Network Flow Monitor Agent add-on to make sure that it's active for your cluster. Run the following command to verify
 that the status is `ACTIVE`:
 
 `aws eks describe-addon --cluster-name `CLUSTER NAME`--addon-name aws-network-flow-monitoring-agent --region

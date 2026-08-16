@@ -409,7 +409,7 @@ To collect these metrics, you must meet the following prerequisites:
   instance store volumes. For more information, see [Considerations](../../../eks/latest/userguide/lis-csi.md#lis-csi-considerations "../../../eks/latest/userguide/lis-csi.md#lis-csi-considerations")
   in the Amazon EKS User Guide.
 
-Once the prerequisites are met, the CloudWatch agent automatically discovers and collects
+After the prerequisites are met, the CloudWatch agent automatically discovers and collects
 metrics from the local instance store CSI driver. No additional CloudWatch agent configuration
 is required.
 

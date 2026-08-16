@@ -117,7 +117,7 @@ On the syslog receiver host, install Fluent Bit and configure it to tail the Che
 
 ###### Note
 
-- Logs from `cp_log_export` arrive in JSON format via syslog to the receiver host.
+- Logs from `cp_log_export` arrive in JSON format through syslog to the receiver host.
 - `log_key log` sends only the value of the `log` key to Amazon S3.
 - `storage.path` and `store_dir` provide local buffering.
 - The `DB` parameter tracks file read positions to prevent duplicate ingestion.

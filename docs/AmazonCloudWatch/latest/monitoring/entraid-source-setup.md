@@ -18,7 +18,7 @@ To retrieve the Audit Logs EntraID, pipelines needs to authenticate with your ac
 
 ## Configuring the CloudWatch Pipeline
 
-When configuring the pipeline to read Audit Logs from Microsoft EntraID, choose Microsoft EntraID as the data source. Fill in the required information like Tenant Id using Directory (tenant) ID. Once you create the pipeline, data will be available in the selected CloudWatch Logs log group.
+When configuring the pipeline to read Audit Logs from Microsoft EntraID, choose Microsoft EntraID as the data source. Fill in the required information like Tenant Id using Directory (tenant) ID. After you create the pipeline, data will be available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

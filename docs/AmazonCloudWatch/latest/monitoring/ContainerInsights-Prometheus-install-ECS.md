@@ -31,7 +31,7 @@ roles and permissions are required.
   - `ecs:DescribeTaskDefinition`
 
 - **CloudWatch agent ECS task execution role**—
-  This is the role that Amazon ECS requires to launch and execute your containers. Ensure
+  This is the role that Amazon ECS requires to launch and execute your containers. Make sure
   that your task execution role has the
   **AmazonSSMReadOnlyAccess**,
   **AmazonECSTaskExecutionRolePolicy**, and

@@ -22,7 +22,7 @@ services listed below:
 - Amazon SNS
 - Amazon SQS
 - AWS Step Functions
-  The list of services will continue to be expanded over time. CloudWatch investigations utilizes a wide
+  The list of services will continue to be expanded over time. CloudWatch investigations uses a wide
   range of data sources to determine dependency relationships and plan analysis paths,
   including telemetry data configurations, service configurations, and observed
   relationships through CloudWatch Application Signals and X-Ray. Where none of the above is

@@ -1,7 +1,7 @@
 # CloudWatch service quotas
 
 Amazon CloudWatch provides monitoring and observability for your AWS resources and applications.
-To ensure optimal performance and prevent abuse, CloudWatch imposes service quotas on various
+To help ensure optimal performance and prevent abuse, CloudWatch imposes service quotas on various
 aspects of its functionality. This chapter outlines the key quotas for CloudWatch services,
 including metrics, alarms, API requests, and notifications. Understanding these quotas is
 crucial for effectively planning and managing your CloudWatch usage.

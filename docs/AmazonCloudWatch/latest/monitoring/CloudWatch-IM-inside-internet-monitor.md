@@ -212,7 +212,7 @@ Internet Monitor monitors the top 100 city-networks that have had the most traff
 _before_ the latest one hour window.
 
 To illustrate this, say that the current time is 2:30 PM. In this scenario, the traffic that
-you see in your monitor was captured between 1:00 PM and 2:00 PM, and the traffic volume
+you see in your monitor was captured between 1:00 PM and 2:00 PM. The traffic volume
 measurement that Internet Monitor uses to determine the top 100 city-networks was captured between 12:00 PM and 1:00 PM.
 
 **How the global internet weather map is created (Frequently Asked Questions)**

@@ -100,13 +100,13 @@ statistic_func_expression [by field1, field2, ...] [| sort asc|desc]
 You can specify only a single aggregation expression. The following table lists the
 supported aggregation functions.
 
-Supported aggregation functions| Function | Description | Example |
-| --- | --- | --- |
-| `count(*)` | Count of all matched log lines. | `count(*)` |
-| `avg(field)` | Average value of the specified field. | `avg(duration)` |
-| `sum(field)` | Sum of the specified field. | `sum(bytesSent)` |
-| `min(field)` | Minimum value of the specified field. | `min(latency)` |
-| `max(field)` | Maximum value of the specified field. | `max(latency)` |
+| Function     | Description                           | Example          |
+| ------------ | ------------------------------------- | ---------------- |
+| `count(*)`   | Count of all matched log lines.       | `count(*)`       |
+| `avg(field)` | Average value of the specified field. | `avg(duration)`  |
+| `sum(field)` | Sum of the specified field.           | `sum(bytesSent)` |
+| `min(field)` | Minimum value of the specified field. | `min(latency)`   |
+| `max(field)` | Maximum value of the specified field. | `max(latency)`   |
 
 The `bin()` function is not supported in the aggregation expression
 `by` clause. However, you can use `bin()` in the query string
@@ -177,12 +177,12 @@ You can configure how the alarm treats missing data using the
 `TreatMissingData` parameter. The following table describes the available
 options.
 
-Missing data treatment options| Value | Behavior |
-| --- | --- |
-| `missing` | Treat the datapoint as missing. This is the default. |
-| `notBreaching` | Treat the missing datapoint as not breaching the threshold. |
-| `breaching` | Treat the missing datapoint as breaching the threshold. |
-| `ignore` | Ignore the missing datapoint and evaluate only available data. |
+| Value          | Behavior                                                       |
+| -------------- | -------------------------------------------------------------- |
+| `missing`      | Treat the datapoint as missing. This is the default.           |
+| `notBreaching` | Treat the missing datapoint as not breaching the threshold.    |
+| `breaching`    | Treat the missing datapoint as breaching the threshold.        |
+| `ignore`       | Ignore the missing datapoint and evaluate only available data. |
 
 ## Evaluation states
 
@@ -191,11 +191,11 @@ In addition to the standard `OK`, `ALARM`, and
 states in the `EvaluationState` field. These states provide additional context
 about why the alarm is in its current state.
 
-Log Alarm evaluation states| State | Description |
-| --- | --- |
+| State                | Description                                                                                                                                                                                                                                                                                                                             |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `EVALUATION_FAILURE` | A transient CloudWatch service issue prevented evaluation. This can occur when the<br>service experiences issues in evaluating query results due to service errors, or<br>when some (but not all) query results failed. The alarm transitions to<br>`INSUFFICIENT_DATA`. We recommend manual monitoring until the issue is<br>resolved. |
-| `EVALUATION_ERROR` | A client configuration error prevented evaluation. This can occur due to<br>insufficient permissions, an invalid query, or when all query results have failed.<br>The alarm transitions to `INSUFFICIENT_DATA` immediately. Refer to the<br>`StateReason` field for details. |
-| `PARTIAL_DATA` | The query returned the maximum 500 contributor groups but more matched. The<br>alarm evaluates the available contributors, but results might be<br>incomplete. |
+| `EVALUATION_ERROR`   | A client configuration error prevented evaluation. This can occur due to<br>insufficient permissions, an invalid query, or when all query results have failed.<br>The alarm transitions to `INSUFFICIENT_DATA` immediately. Refer to the<br>`StateReason` field for details.                                                            |
+| `PARTIAL_DATA`       | The query returned the maximum 500 contributor groups but more matched. The<br>alarm evaluates the available contributors, but results might be<br>incomplete.                                                                                                                                                                          |
 
 ## Alarm update
 
@@ -350,7 +350,7 @@ Amazon SNS payload size limit.
 | Log group does not exist or was deleted          | Verify the log group ARNs in the alarm configuration are correct and<br>accessible.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Recently created or updated alarm                | After creation or configuration update, the alarm remains in<br>INSUFFICIENT\_DATA until enough query executions complete to satisfy the M-out-of-N<br>evaluation window.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Scheduled query is not running                   | Check the AWS managed Scheduled Query in the CloudWatch Logs console to verify it is<br>executing on schedule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Aggregation field not present in query results   | The field referenced in the aggregation expression must be present in the<br>query results. For example, if your aggregation is `avg(latency)`,<br>ensure the query produces a `latency` field. If the field is not<br>present, the result is treated as missing data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Aggregation field not present in query results   | The field referenced in the aggregation expression must be present in the<br>query results. For example, if your aggregation is `avg(latency)`,<br>make sure the query produces a `latency` field. If the field is not<br>present, the result is treated as missing data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Log ingestion delay                              | A scheduled query can only evaluate log events that have been ingested<br>by the time it runs. `StartTimeOffset` and `EndTimeOffset`<br>define the query window relative to execution time T —<br>[T − StartTimeOffset, T − EndTimeOffset] — but they do not account for<br>ingestion delay. If events are still being ingested for the window you query, the<br>query runs before they are available and skips them.<br>Use `EndTimeOffset` to shift the window back far enough that<br>ingestion is complete for the entire range.<br>Example: Suppose logs take up to 2 minutes to become queryable after the<br>events occur.<br>• `StartTimeOffset=60, EndTimeOffset=0` — window [T−60s, T].<br>The window ends at execution time, so recent events are not yet ingested<br>and are missed.<br>• `StartTimeOffset=180, EndTimeOffset=120` — window<br>[T−180s, T−120s]. The window ends 2 minutes in the past, by which point<br>all events are ingested and evaluable. |
 
 **Alarm shows EVALUATION\_ERROR**

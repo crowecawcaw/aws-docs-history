@@ -50,7 +50,7 @@ pipeline's source type.
 
 This table lists the supported schema combinations.
 
-| Pipeline Source Type                      | Supported Schemas                          | Version | Mapping Version |
+| Pipeline source type                      | Supported Schemas                          | Version | Mapping Version |
 | ----------------------------------------- | ------------------------------------------ | ------- | --------------- |
 | `cloudwatch_logs`                         | `cloud_trail:`                             | `1.5`   | Not required    |
 | `cloudwatch_logs`                         | `route53_resolver:`                        | `1.5`   | Not required    |

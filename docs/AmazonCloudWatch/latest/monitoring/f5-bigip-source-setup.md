@@ -9,7 +9,7 @@ into CloudWatch Logs.
 
 ## Setup log forwarding
 
-F5 BIG-IP supports real-time log delivery via Telemetry Streaming to [forward logs to Amazon S3](https://clouddocs.f5.com/products/extensions/f5-telemetry-streaming/latest/setting-up-consumer.html#awss3-ref "https://clouddocs.f5.com/products/extensions/f5-telemetry-streaming/latest/setting-up-consumer.html#awss3-ref").
+F5 BIG-IP supports real-time log delivery through Telemetry Streaming to [forward logs to Amazon S3](https://clouddocs.f5.com/products/extensions/f5-telemetry-streaming/latest/setting-up-consumer.html#awss3-ref "https://clouddocs.f5.com/products/extensions/f5-telemetry-streaming/latest/setting-up-consumer.html#awss3-ref").
 
 ## Instructions to setup Amazon S3 and Amazon SQS
 
@@ -17,7 +17,7 @@ Configuring F5 BIG-IP to send logs to an Amazon S3 bucket involves several steps
 These steps focus on setting up the Amazon S3 bucket, Amazon SQS queue, and IAM credentials,
 and then configuring Telemetry Streaming and the CloudWatch pipeline.
 
-- Ensure F5 BIG-IP Telemetry Streaming is installed and configured. Create
+- Make sure F5 BIG-IP Telemetry Streaming is installed and configured. Create
   an Amazon S3 bucket to store logs. It is recommended to enable server-side
   encryption for security.
 - Amazon S3 bucket that stores the F5 BIG-IP logs should reside in the same

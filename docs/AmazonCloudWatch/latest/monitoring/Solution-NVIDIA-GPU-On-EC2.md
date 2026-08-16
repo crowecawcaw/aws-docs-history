@@ -39,7 +39,7 @@ for your operating system type.
 The solution delivers NVIDIA monitoring, providing valuable insights for the following use cases:
 
 - Analyze GPU and memory usage for performance bottlenecks or the need for additional resources.
-- Monitor temperature and power draw to ensure GPUs operate within safe limits.
+- Monitor temperature and power draw to make sure GPUs operate within safe limits.
 - Evaluate encoder performance for GPU video workloads.
 - Verify PCIe connectivity for expected generation and width.
 - Monitor GPU clock speeds to detect scaling and throttling issues.
@@ -166,12 +166,12 @@ The metrics defined in configuration are the minimum required for the dashboard 
 
 The deployment process includes the following steps:
 
-- Step 1: Ensure that the target EC2 instances have the required IAM permissions.
+- Step 1: Make sure that the target EC2 instances have the required IAM permissions.
 - Step 2: Store the recommended agent configuration file in the Systems Manager Parameter Store.
 - Step 3: Install the CloudWatch agent on one or more EC2 instances using an CloudFormation stack.
 - Step 4: Verify the agent setup is configured properly.
 
-### Step 1: Ensure the target EC2 instances have the required IAM permissions
+### Step 1: Make sure the target EC2 instances have the required IAM permissions
 
 You must grant permission for Systems Manager to install and configure the CloudWatch agent. You must also grant permission for the CloudWatch agent
 to publish telemetry from your EC2 instance to CloudWatch. Make sure that the IAM role attached to the instance has the
@@ -250,7 +250,7 @@ You can verify whether the CloudWatch agent is installed by following the steps 
 make sure you have set up everything correctly.
 
 - Be sure you have attached a role with correct permissions for the EC2 instance as described in
-  [Step 1: Ensure the target EC2 instances have the required IAM permissions](#Solution-NVIDIA-GPU-Agent-Step1 "#Solution-NVIDIA-GPU-Agent-Step1").
+  [Step 1: Make sure the target EC2 instances have the required IAM permissions](#Solution-NVIDIA-GPU-Agent-Step1 "#Solution-NVIDIA-GPU-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in
   [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
@@ -289,7 +289,7 @@ create the CloudFormation stack in the Region where your NVIDIA GPU metrics are 
 If you've specified a custom namespace other than CWAgent in the CloudWatch agent configuration, you'll have to change the CloudFormation
 template for the dashboard to replace CWAgent with the customized namespace you are using.
 
-###### To create the dashboard via CloudWatch Console
+###### To create the dashboard through CloudWatch Console
 
 1. Open the CloudWatch Console **Create Dashboard** using this link:
    [https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NvidiaGpuOnEc2&referrer=os-catalog](https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NvidiaGpuOnEc2&referrer=os-catalog "https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NvidiaGpuOnEc2&referrer=os-catalog") .
@@ -299,7 +299,7 @@ template for the dashboard to replace CWAgent with the customized namespace you 
 To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
 in the dashboard name, such as `NVIDIA-GPU-Dashboard-us-east-1`. 4. Preview the dashboard and choose **Save** to create the dashboard.
 
-###### To create the dashboard via CloudFormation
+###### To create the dashboard through CloudFormation
 
 1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA\_GPU\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NVIDIA_GPU_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 2. Verify that the selected Region on the console is the Region where the NVIDIA GPU workload is running.
@@ -337,7 +337,7 @@ indicate potential performance bottlenecks or the need for additional GPU resour
 
 In the **Memory** section, find the **Total Memory**, **Used Memory**, and **Free Memory** widgets. These provide insights into the overall memory
 capacity of the GPUs and how much memory is currently being consumed or available. Memory pressure could lead to performance issues or
-out-of-memory errors, so it's important to monitor these metrics and ensure sufficient memory is available for your workloads.
+out-of-memory errors, so it's important to monitor these metrics and make sure sufficient memory is available for your workloads.
 
 **Monitor temperature and power draw**
 
@@ -347,13 +347,13 @@ your GPUs are operating within safe thermal and power limits.
 **Identify encoder performance**
 
 In the **Encoder** section, find the **Encoder Session Count**, **Average FPS**, and **Average Latency** widgets. These metrics are relevant if
-you're running video encoding workloads on your GPUs. Monitor these metrics to ensure that your encoders are performing optimally and
+you're running video encoding workloads on your GPUs. Monitor these metrics to make sure that your encoders are performing optimally and
 identify any potential bottlenecks or performance issues.
 
 **Check PCIe link status**
 
 In the **PCIe** section, find the **PCIe Link Generation** and **PCIe Link Width** widgets. These metrics provide information about the PCIe
-link connecting the GPU to the host system. Ensure that the link is operating at the expected generation and width to avoid potential
+link connecting the GPU to the host system. Make sure that the link is operating at the expected generation and width to avoid potential
 performance limitations due to PCIe bottlenecks.
 
 **Review GPU clocks**

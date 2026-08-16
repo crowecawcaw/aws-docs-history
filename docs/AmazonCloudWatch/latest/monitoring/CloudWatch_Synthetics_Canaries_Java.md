@@ -49,5 +49,5 @@ The value returned is _CompletableFuture<T>_.
 ###### Note
 
 Synthetics only supports sequential steps. Make sure to call the `.get()`
-method as shown in the example to ensure that the step completes before proceeding to
+method as shown in the example to make sure that the step completes before proceeding to
 the subsequent step.

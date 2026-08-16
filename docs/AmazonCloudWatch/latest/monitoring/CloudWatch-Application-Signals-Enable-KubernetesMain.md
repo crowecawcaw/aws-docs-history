@@ -56,7 +56,7 @@ to add AWS credentials to your Kubernetes environment.
       choose **Next**
    4. On the **Set permissions** page, under **Permissions options**, select **Attach policies directly**.
    5. From the **Permissions policies** list, select the **CloudWatchAgentServerPolicy** policy to add to your user. Then choose **Next**.
-   6. On the **Review and create** page, ensure that you are satisfied with the user name and that the **CloudWatchAgentServerPolicy** policy is in the **Permissions summary**.
+   6. On the **Review and create** page, make sure that you are satisfied with the user name and that the **CloudWatchAgentServerPolicy** policy is in the **Permissions summary**.
    7. Choose **Create user**
 
 2. Create and retrieve your AWS access key and secret key:
@@ -313,4 +313,4 @@ spec:
 
 ## (Optional) Step 5: Monitor your application health
 
-Once you have enabled your applications on Kubernetes, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").
+After you have enabled your applications on Kubernetes, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").

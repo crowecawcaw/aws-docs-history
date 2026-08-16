@@ -60,7 +60,7 @@ You can also find sessions with replays in the **Sessions** tab. Any session tha
 displays a play button next to it. Choose the play button to open the replay
 player.
 
-![The Session replay tab in the CloudWatch RUM console showing a list of recorded sessions with session ID, duration, start time, browser type, and device type.](images/rum-session-replay-console.png)
+![Session replay tab showing a list of recorded sessions with key details.](images/rum-session-replay-console.png)
 
 Choose a session to open the replay player. The player shows a visual playback of
 the user's session, including a timeline of interactions on the right side. The
@@ -69,4 +69,4 @@ and text inputs, along with the timestamp when each interaction occurred. You ca
 use the playback controls to adjust the speed (1x, 2x, 4x, or 8x) and skip
 inactive periods.
 
-![The session replay player showing a visual playback of a user session with playback controls and a timeline of user interactions including scrolls, clicks, and text inputs.](images/rum-session-replay-player.png)
+![Session replay player showing visual playback of a user session with interaction timeline.](images/rum-session-replay-player.png)

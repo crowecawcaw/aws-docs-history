@@ -268,7 +268,7 @@ GROUP BY AvailabilityZone
 ORDER BY MAX() DESC
 ```
 
-You can also use tags to further filter the results. For example, if you want to see results only for load balancers tagged with a specific environment, we can add tag filtering to the
+You can also use tags to further filter the results. For example, if you want to see results only for load balancers tagged with a specific environment, you can add tag filtering to the
 WHERE clause:
 
 ```

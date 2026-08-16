@@ -10,7 +10,7 @@ You use the sink to create a link from your source account to your monitoring ac
 
 ###### Required resources
 
-For proper functionality of CloudWatch Application Insights cross-account observability, ensure that the following telemetry types are shared through the CloudWatch Observability Access Manager.
+For proper functionality of CloudWatch Application Insights cross-account observability, make sure that the following telemetry types are shared through the CloudWatch Observability Access Manager.
 
 - Monitors in Internet Monitor
 - Metrics in Amazon CloudWatch

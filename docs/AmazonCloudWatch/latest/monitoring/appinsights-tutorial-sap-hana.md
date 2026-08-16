@@ -112,7 +112,7 @@ Manual installation of Python 3.8 or higher is required for SuSE Linux 15 SP4, R
 - **Pip3** – Install the installer
   program, pip3, on your operating system. If pip3 is not detected on your
   operating system, it will be installed.
-- **hdbclient** – CloudWatch Application Insights uses the python driver to connect to the SAP HANA database. If the client is not installed under python3, ensure that you have hdbclient tar file version `2.10 or later` under
+- **hdbclient** – CloudWatch Application Insights uses the python driver to connect to the SAP HANA database. If the client is not installed under python3, make sure that you have hdbclient tar file version `2.10 or later` under
   `/hana/shared/SID/hdbclient/`.
 - **Amazon CloudWatch agent** – Make sure that you are not running a preexisting CloudWatch agent on your Amazon EC2 instance.
   If you have CloudWatch agent installed, make sure to remove the configuration of the resources you are using in CloudWatch Application Insights from the existing CloudWatch agent configuration file to avoid a merge conflict. For more information, see
@@ -389,7 +389,7 @@ following examples of the SAP HANA CPU usage.
 ![Log group showing out of memory.](images/appinsights-anomaly-detection.png)
 
 After you create a model, CloudWatch anomaly detection continuously evaluates the model
-and makes adjustments to it to ensure that is it as accurate as possible. This
+and makes adjustments to it to make sure that is it as accurate as possible. This
 includes retraining the model to adjust if the metric values evolve over time or
 experience sudden changes. It also includes predictors to improve the models for
 metrics that are seasonal, spiky, or sparse.

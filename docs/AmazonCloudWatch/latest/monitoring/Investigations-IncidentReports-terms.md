@@ -62,7 +62,7 @@ report completeness and quality.
 Root cause analysis
 
 A systematic process of identifying the fundamental reason for an
-operational issue, leveraging CloudWatch investigations AI-driven hypotheses and correlations
+operational issue, using CloudWatch investigations AI-driven hypotheses and correlations
 across multiple AWS services.
 
 Suggestions tab

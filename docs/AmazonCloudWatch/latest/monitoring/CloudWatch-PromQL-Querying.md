@@ -1,6 +1,6 @@
 # PromQL querying
 
-When you ingest OpenTelemetry metrics into CloudWatch via the [Metrics endpoint](CloudWatch-OTLPEndpoint.md#CloudWatch-MetricsEndpoint "CloudWatch-OTLPEndpoint.md#CloudWatch-MetricsEndpoint"), the
+When you ingest OpenTelemetry metrics into CloudWatch through the [Metrics endpoint](CloudWatch-OTLPEndpoint.md#CloudWatch-MetricsEndpoint "CloudWatch-OTLPEndpoint.md#CloudWatch-MetricsEndpoint"), the
 hierarchical OTLP data model is flattened into PromQL-compatible labels. This section describes
 the label structure, the PromQL syntax for querying these labels, and the UTF-8 support in PromQL.
 
@@ -69,7 +69,7 @@ The following table summarizes the prefix conventions for each OTLP scope:
 To be able to query vended AWS metrics in PromQL, you first need to enable OTel enrichment
 of vended metrics. See: [AWS vended metrics in OpenTelemetry format](CloudWatch-OTelEnrichment.md "CloudWatch-OTelEnrichment.md").
 
-After you enable OTel enrichment, vended AWS metrics become queryable via PromQL with
+After you enable OTel enrichment, vended AWS metrics become queryable through PromQL with
 additional labels. The metric name is the same as the original CloudWatch metric name, and the
 original CloudWatch dimensions are available as datapoint attributes. The following labels are
 available (the example below is for an EC2 instance):

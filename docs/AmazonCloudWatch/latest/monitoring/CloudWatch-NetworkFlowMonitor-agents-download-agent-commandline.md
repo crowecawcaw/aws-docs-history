@@ -126,7 +126,7 @@ gpg: imported: 1 (RSA: 1)`
 
 Make a note of the key value because you need it in the next step. In this
 example, the key value is `3B789C72`. 4. Verify the fingerprint by running the following command. Be sure to replace
-`key-value` with the value from the preceding step. We
+`key-value` with the value from the preceding step. You
 recommend that you use GPG to verify the fingerprint even if you use RPM to verify
 the installer package.
 

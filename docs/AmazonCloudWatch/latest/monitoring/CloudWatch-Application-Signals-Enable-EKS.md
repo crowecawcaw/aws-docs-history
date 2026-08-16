@@ -79,7 +79,7 @@ The **Console** option uses the advanced configuration of the
 Amazon CloudWatch Observability EKS add-on to setup Application Signals for your services.
 For more information about the add-on, see [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
 
-If you don't see a list of workloads and namespaces, ensure you have the right permissions to view them for this cluster.
+If you don't see a list of workloads and namespaces, make sure you have the right permissions to view them for this cluster.
 For more information, see [Required permissions](../../../eks/latest/userguide/view-kubernetes-resources.md#view-kubernetes-resources-permissions "../../../eks/latest/userguide/view-kubernetes-resources.md#view-kubernetes-resources-permissions").
 
 You can either monitor all service workloads by selecting the **Auto monitor** check box or selectively choose specific workloads and namespaces to monitor.
@@ -100,7 +100,7 @@ To monitor a single workload:
      you want to enable Application Signals for, and then choose the check mark icon (✓) to save this selection.
 
 
-    For Python applications, ensure your application follows the required prerequisites before continuing.
+    For Python applications, make sure your application follows the required prerequisites before continuing.
      For more information, see [Python application doesn't start after Application Signals is enabled](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python").
     3. Choose **Done**. The Amazon CloudWatch Observability EKS add-on will immediately inject AWS Distro for OpenTelemetry autoinstrumentation (ADOT)
      SDKs into your pods and trigger pod restarts to enable collection of application metrics and traces.
@@ -113,7 +113,7 @@ To monitor an entire namespace:
      whether they are currently deployed or will be deployed in the future.
 
 
-    For Python applications, ensure your application follows the required prerequisites before continuing.
+    For Python applications, make sure your application follows the required prerequisites before continuing.
      For more information, see [Python application doesn't start after Application Signals is enabled](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python").
     3. Choose **Done**. The Amazon CloudWatch Observability EKS add-on will immediately inject AWS Distro for OpenTelemetry autoinstrumentation (ADOT)
      SDKs into your pods and trigger pod restarts to enable collection of application metrics and traces.
@@ -309,7 +309,7 @@ spec:
 
 4. Deploy the Node.js application to the cluster.
 
-Once you have enabled your applications on the Amazon EKS Clusters, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").
+After you have enabled your applications on the Amazon EKS Clusters, you can monitor your application health. For more information, see [Monitor the operational health of your applications with Application Signals](Services.md "Services.md").
 
 ## Enable Application Signals on an Amazon EKS cluster using the CloudWatch Observability add-on advanced configuration
 
@@ -417,14 +417,14 @@ The MCP server automates the enablement process by understanding your requiremen
 
 ### Prerequisites
 
-Before using the MCP server to enable Application Signals, ensure you have:
+Before using the MCP server to enable Application Signals, make sure you have:
 
 - A Development Environment that supports MCP (such as Kiro, Claude Desktop, VSCode with MCP extensions, or other MCP-compatible tools)
 - The CloudWatch Application Signals MCP server configured in your IDE. For detailed setup instructions, see [CloudWatch Application Signals MCP Server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").
 
 ### Using the MCP server
 
-Once you have configured the CloudWatch Application Signals MCP server in your IDE, you can request enablement guidance using natural language prompts. While the coding assistant can infer context from your project structure, providing specific details in your prompts helps ensure more accurate and relevant guidance. Include information such as your application language, Amazon EKS cluster name, and absolute paths to your infrastructure and application code.
+After you have configured the CloudWatch Application Signals MCP server in your IDE, you can request enablement guidance using natural language prompts. While the coding assistant can infer context from your project structure, providing specific details in your prompts helps make sure that you receive more accurate and relevant guidance. Include information such as your application language, Amazon EKS cluster name, and absolute paths to your infrastructure and application code.
 
 **Best practice prompts (specific and complete):**
 

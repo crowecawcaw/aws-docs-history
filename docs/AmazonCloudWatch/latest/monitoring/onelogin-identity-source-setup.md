@@ -11,13 +11,13 @@ To read the logs, the pipeline needs to authenticate with your OneLogin account.
 **Configure OAuth2 authentication for OneLogin**
 
 - Log in to the OneLogin Admin Portal and navigate to Developers → API Credentials. Create a new API credential pair. Note the Client ID and Client Secret immediately.
-- Assign the appropriate permissions. Select Read All or Manage All scope to ensure the credentials can access event log data.
+- Assign the appropriate permissions. Select Read All or Manage All scope to make sure the credentials can access event log data.
 - In AWS Secrets Manager, create a secret and store the Client ID under key `client_id` and the client secret under key `client_secret`.
 - Note your Account ID (subdomain) from the OneLogin Admin Portal under Settings → Account Settings.
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline to read logs, choose OneLogin as the data source. Fill in the required information like subdomain and authentication credentials. Optionally, specify the Range duration format (for example, PT21H for the last 21 hours). Once you create and activate the pipeline, event log data from OneLogin will begin flowing into the selected CloudWatch Logs log group.
+To configure the pipeline to read logs, choose OneLogin as the data source. Fill in the required information like subdomain and authentication credentials. Optionally, specify the Range duration format (for example, PT21H for the last 21 hours). After you create and activate the pipeline, event log data from OneLogin will begin flowing into the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 
@@ -44,8 +44,8 @@ This integration supports OCSF schema version v1.5.0 and OneLogin events that ma
 - Redirected to an external site for password reset
 - API - password updated for user
 - API - user locked
-- User suspended via API
-- User locked via API
+- User suspended through API
+- User locked through API
 - User enabled adaptive login for account
 - User disabled adaptive login for account
 - Profile change password
@@ -66,17 +66,17 @@ This integration supports OCSF schema version v1.5.0 and OneLogin events that ma
 - User logged into app
 - User logged out of app
 - User authenticated by RADIUS configuration
-- User authenticated via API
+- User authenticated through API
 - User successfully authenticated with VLDAP
-- User signed in into OneLogin via social network
+- User signed in into OneLogin through social network
 - User successfully authenticated with VLDAP (OneLogin Desktop Mac)
 - API - user logged out
 - API - verify factor called
 - API - confirm OTP for user succeeded
 - User was force logged out
 - User successfully logged in on a trusted device
-- User successfully logged in via OneLogin Desktop
-- User denied auth via OTP push request
+- User successfully logged in through OneLogin Desktop
+- User denied auth through OTP push request
 - User challenged for OTP
 - User reauthenticated into app
 - User verified OTP device
@@ -89,18 +89,18 @@ This integration supports OCSF schema version v1.5.0 and OneLogin events that ma
 - User failed authentication
 - User failed to log into app
 - User rejected by RADIUS configuration
-- Failed to login to app via IDP
+- Failed to login to app through IDP
 - Could not authenticate to app
-- User failed authentication via API
+- User failed authentication through API
 - User failed authentication with VLDAP
-- User authentication policy does not allow sign-in via social network
+- User authentication policy does not allow sign-in through social network
 - User failed authentication with VLDAP (OneLogin Desktop Mac)
 - API - user failed to log out
 - API - verify factor failed
 - API - confirm OTP for user failed
 - User failed to log in on a trusted device
-- User failed to login via OneLogin Desktop
-- User failed to authenticate via OneLogin Desktop
+- User failed to login through OneLogin Desktop
+- User failed to authenticate through OneLogin Desktop
 - User failed OTP challenge
 - OIDC implicit flow for app failed
 - OIDC authorization code for app failed
@@ -206,8 +206,8 @@ This integration supports OCSF schema version v1.5.0 and OneLogin events that ma
 - API - user created
 - Updated directory
 - OUs were updated for directory
-- User suspended via API
-- User reactivated via API
+- User suspended through API
+- User reactivated through API
 - App was updated
 - Connector was created
 - Connector was updated
@@ -218,9 +218,9 @@ This integration supports OCSF schema version v1.5.0 and OneLogin events that ma
 - Deleted device for OneLogin Desktop
 - Revoked user certificate
 - Revoked device certificate
-- App was created via API
-- App was updated via API
-- App was destroyed via API
+- App was created through API
+- App was updated through API
+- App was destroyed through API
 - Sandbox deleted
 - Sandbox created
 - Sandbox updated
@@ -277,9 +277,9 @@ This integration supports OCSF schema version v1.5.0 and OneLogin events that ma
 - Parameter could not be created
 - Parameter could not be updated
 - Parameter could not be deleted
-- App failed to create via API
-- App failed to update via API
-- App failed to destroy via API
+- App failed to create through API
+- App failed to update through API
+- App failed to destroy through API
 - Failed to delete sandbox
 - Failed to create sandbox
 - Failed to update sandbox

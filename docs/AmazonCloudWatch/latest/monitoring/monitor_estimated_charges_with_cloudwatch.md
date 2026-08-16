@@ -107,7 +107,7 @@ charges for the current month. 11. Choose **Additional Configuration** and do th
     * For **Missing data treatment**, choose **Treat
      missing data as missing**.
 
-12. Choose **Next**. 13. Under **Notification**, ensure that **In
+12. Choose **Next**. 13. Under **Notification**, make sure that **In
 alarm** is selected. Then specify an Amazon SNS topic to be notified when your
 alarm is in the `ALARM` state. The Amazon SNS topic can include your email
 address so that you receive email when the billing amount crosses the threshold that

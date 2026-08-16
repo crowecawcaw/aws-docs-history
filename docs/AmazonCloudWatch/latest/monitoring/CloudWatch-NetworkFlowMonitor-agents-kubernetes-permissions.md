@@ -22,7 +22,7 @@ When you set up IRSA for Network Flow Monitor agents, use the following informat
     * **Namespace:** For the `namespace`, specify `amazon-network-flow-monitor`.
     * **Temporary credentials deployment:** When you configure
      permissions after you have deployed Network Flow Monitor agent pods, updating the `ServiceAccount` with
-     your IAM role, Kubernetes does not deploy the IAM role credentials. To ensure that the Network Flow Monitor
+     your IAM role, Kubernetes does not deploy the IAM role credentials. To make sure that the Network Flow Monitor
      agents acquire the IAM role credentials that you've specified, you must rolling out a restart of `DaemonSet`.
      For example, use a command like the following:
 

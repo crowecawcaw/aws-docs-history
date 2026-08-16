@@ -390,7 +390,7 @@ any environment — AWS, on-premises, or other cloud providers.
 
 ## Rotating API keys
 
-Regularly rotating your API keys reduces the risk of unauthorized access. We
+Regularly rotating your API keys reduces the risk of unauthorized access. You should
 recommend establishing a rotation schedule that aligns with your organization's
 security policies.
 
@@ -604,7 +604,7 @@ aws cloudtrail start-logging \
 
 The `readOnly: false` filter limits logging to write operations
 (PutMetricData), which includes all OTLP ingestion calls. To identify bearer
-token usage among these events, query your trail logs (via Athena or CloudTrail
+token usage among these events, query your trail logs (through Athena or CloudTrail
 Lake) and filter by the IAM user name associated with your API key (for
 example, `cloudwatch-metrics-api-key-user`). Events from OTLP
 ingestion include `AdditionalEventData.protocol` set to

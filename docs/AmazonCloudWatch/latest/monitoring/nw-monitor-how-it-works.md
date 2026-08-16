@@ -68,7 +68,7 @@ information on the TCP SYN and TCP SYN+ACK messages to
 calculate round-trip time and packet loss metrics. Network Synthetic Monitor periodically
 switches source TCP ports (using ports in the range 1024–65535)
 to increase network coverage, which increases the probability
-of detecting packet loss. Ensure that your firewall rules allow TCP traffic from this
+of detecting packet loss. Make sure that your firewall rules allow TCP traffic from this
 entire source port range to the configured destination port.
 
 ## Network health indicator for AWS

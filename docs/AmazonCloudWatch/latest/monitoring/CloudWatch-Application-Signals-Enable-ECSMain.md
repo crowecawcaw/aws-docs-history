@@ -52,14 +52,14 @@ The MCP server automates the enablement process by understanding your requiremen
 
 ### Prerequisites
 
-Before using the MCP server to enable Application Signals, ensure you have:
+Before using the MCP server to enable Application Signals, make sure you have:
 
 - A Development Environment that supports MCP (such as Kiro, Claude Desktop, VSCode with MCP extensions, or other MCP-compatible tools)
 - The CloudWatch Application Signals MCP server configured in your IDE. For detailed setup instructions, see [CloudWatch Application Signals MCP Server documentation](https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server "https://awslabs.github.io/mcp/servers/cloudwatch-applicationsignals-mcp-server").
 
 ### Using the MCP server
 
-Once you have configured the CloudWatch Application Signals MCP server in your IDE, you can request enablement guidance using natural language prompts. While the coding assistant can infer context from your project structure, providing specific details in your prompts helps ensure more accurate and relevant guidance. Include information such as your application language, Amazon ECS cluster name, deployment strategy (sidecar or daemon), and absolute paths to your infrastructure and application code.
+After you have configured the CloudWatch Application Signals MCP server in your IDE, you can request enablement guidance using natural language prompts. While the coding assistant can infer context from your project structure, providing specific details in your prompts helps make sure that you receive more accurate and relevant guidance. Include information such as your application language, Amazon ECS cluster name, deployment strategy (sidecar or daemon), and absolute paths to your infrastructure and application code.
 
 **Best practice prompts (specific and complete):**
 

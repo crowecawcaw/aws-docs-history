@@ -2,7 +2,7 @@
 
 ## Introduction
 
-You can use the CloudWatch Getting Started console to install and configure the CloudWatch agent on Amazon EC2 instances. The Amazon CloudWatch agent is a lightweight software component that collects system-level metrics, logs, and traces from your Amazon EC2 instances. By automating the collection and delivery of monitoring data to CloudWatch, the agent enables you to gain actionable insights, optimize resource utilization, and ensure your applications are running smoothly with minimal configuration effort.
+You can use the CloudWatch Getting Started console to install and configure the CloudWatch agent on Amazon EC2 instances. The Amazon CloudWatch agent is a lightweight software component that collects system-level metrics, logs, and traces from your Amazon EC2 instances. By automating the collection and delivery of monitoring data to CloudWatch, the agent enables you to gain actionable insights, optimize resource utilization, and make sure your applications are running smoothly with minimal configuration effort.
 
 Configure the CloudWatch agent with pre-defined, workload-specific configurations that leverage automatic workload detection to identify running applications and services on your instances. You can customize data collection with specific metrics, logs, and traces, enabling you to monitor application performance and troubleshoot issues effectively.
 

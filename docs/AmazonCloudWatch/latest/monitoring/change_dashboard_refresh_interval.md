@@ -25,7 +25,7 @@ the graph can affect the periods that you have set.
 
    - Choose **Auto** to have the period of the metrics on each
      graph automatically adapt to the dashboard's time range.
-   - Choose **Do not override** to ensure that the period setting of each
+   - Choose **Do not override** to make sure that the period setting of each
      graph is always obeyed.
    - Choose one of the other options to cause graphs added
      to the dashboard to always adapt that chosen time as their period setting.

@@ -39,11 +39,11 @@ for your operating system type.
 
 The solution delivers Kafka server monitoring, providing valuable insights for the following use cases:
 
-- Monitor Kafka cluster health via replication and sync metrics.
+- Monitor Kafka cluster health through replication and sync metrics.
 - Track broker performance through request failures and latencies along with network traffic.
 - Monitor producer/consumer errors, latencies, and consumer lag.
 - Analyze underlying JVM performance for Kafka clusters.
-- Switch between multiple Kafka clusters, producers, and consumers configured via the solution under the same account.
+- Switch between multiple Kafka clusters, producers, and consumers configured through the solution under the same account.
 
 Below are the key advantages of the solution:
 
@@ -393,7 +393,7 @@ The metrics defined in this solution are the minimum required for the recommende
 
 The deployment process includes the following steps:
 
-- Step 1: Ensure that the target EC2 instances have the required IAM permissions.
+- Step 1: Make sure that the target EC2 instances have the required IAM permissions.
 - Step 2: Store the recommended agent configuration file in the Systems Manager Parameter Store.
 - Step 3: Install the CloudWatch agent on one or more EC2 instances using an CloudFormation stack.
 - Step 4: Verify the agent setup is configured properly.
@@ -402,7 +402,7 @@ You must repeat these steps based on whether your broker, producer, and consumer
 For example, if the Kafka broker, producer, and consumers are getting deployed on separate instances without overlap, you must repeat
 these steps three times with the appropriate agent configurations for broker, producer, and consumer EC2 instances.
 
-### Step 1: Ensure the target EC2 instances have the required IAM permissions
+### Step 1: Make sure the target EC2 instances have the required IAM permissions
 
 You must grant permission for Systems Manager to install and configure the CloudWatch agent. You must also grant permission for the CloudWatch agent to publish telemetry from your
 EC2 instance to CloudWatch. Make sure that the IAM role attached to the instance has the **CloudWatchAgentServerPolicy** and
@@ -502,7 +502,7 @@ You can verify whether the CloudWatch agent is installed by following the steps 
 not installed and running, make sure you have set up everything correctly.
 
 - Be sure you have attached a role with correct permissions for the
-  EC2 instance as described in [Step 1: Ensure the target EC2 instances have the required IAM permissions](Solution-Tomcat-On-EC2.md#Solution-Tomcat-Agent-Step1 "Solution-Tomcat-On-EC2.md#Solution-Tomcat-Agent-Step1").
+  EC2 instance as described in [Step 1: Make sure the target EC2 instances have the required IAM permissions](Solution-Tomcat-On-EC2.md#Solution-Tomcat-Agent-Step1 "Solution-Tomcat-On-EC2.md#Solution-Tomcat-Agent-Step1").
 - Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in
   [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
 
@@ -549,7 +549,7 @@ If you've specified a custom namespace other than `CWAgent` in the CloudWatch ag
 configuration, you'll have to change the CloudFormation template for the dashboard to replace
 `CWAgent` with the customized namespace you are using.
 
-###### To create the dashboard via CloudWatch Console
+###### To create the dashboard through CloudWatch Console
 
 ###### Note
 
@@ -570,7 +570,7 @@ count metric `jvm.gc.collections.count`.
 To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
 in the dashboard name, such as `KafkaDashboard-us-east-1`. 4. Preview the dashboard and choose **Save** to create the dashboard.
 
-###### To create the dashboard via CloudFormation
+###### To create the dashboard through CloudFormation
 
 1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 2. Verify that the selected Region on the console is the Region where the Kafka

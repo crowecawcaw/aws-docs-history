@@ -7,7 +7,7 @@ rich labels.
 
 ###### Note
 
-Detailed observability publishes OpenTelemetry (OTel) metrics to CloudWatch via OTLP. These are not
+Detailed observability publishes OpenTelemetry (OTel) metrics to CloudWatch through OTLP. These are not
 Prometheus metrics. The metrics are natively stored in CloudWatch as OTel metric data and are queryable
 using PromQL syntax.
 

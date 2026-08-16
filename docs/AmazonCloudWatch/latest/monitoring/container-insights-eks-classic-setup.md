@@ -6,7 +6,7 @@ infrastructure metrics, container logs, and performance data.
 
 ###### Maintenance mode
 
-Enhanced Container Insights (Classic) is in maintenance mode. For new deployments, we
+Enhanced Container Insights (Classic) is in maintenance mode. For new deployments, you should
 recommend [OTel Container Insights (Recommended)](container-insights-eks-otel.md "container-insights-eks-otel.md").
 
 ## Prerequisites

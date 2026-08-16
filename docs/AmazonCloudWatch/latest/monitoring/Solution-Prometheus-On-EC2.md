@@ -26,8 +26,6 @@ This solution is relevant for the following conditions:
   Zones for the collector.
 - A security group that allows the collector to reach the exporter ports on your
   instances.
-- If you deploy the collector in private subnets that have no internet access, an
-  interface VPC endpoint for CloudWatch. For more information, see [Configure VPC endpoints for private subnets](managed-prometheus-collectors-vpc-setup.md#managed-prometheus-collectors-vpc-endpoints "managed-prometheus-collectors-vpc-setup.md#managed-prometheus-collectors-vpc-endpoints").
 
 ## Enable Prometheus exporters
 

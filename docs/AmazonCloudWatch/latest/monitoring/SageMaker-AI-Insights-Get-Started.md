@@ -26,7 +26,7 @@ aws observabilityadmin start-telemetry-enrichment
 
 ## Step 2: Verify your endpoint configuration
 
-Ensure that `EnableDetailedObservability` is set to `true` on your
+Make sure that `EnableDetailedObservability` is set to `true` on your
 endpoint configuration. This is the default for new endpoints.
 
 ```

@@ -82,10 +82,11 @@ When working with CloudWatch Log Alarms, be aware of the following limits:
 
 ## Limits that apply to alarms based on PromQL queries
 
-When working with CloudWatch PromQL alarms, be aware of these functional
-limits:
+When working with CloudWatch alarms that use Prometheus Query Language (PromQL) queries, be
+aware of these functional limits:
 
-- Alarms evaluating multiple time series will limit the number of contributors in ALARM to 100
+- Your account can have up to 500 PromQL alarms in each Region by default.
+- Alarms evaluating multiple time series will limit the number of contributors in ALARM to 100.
 
   - If there are fewer than 100 contributors in ALARM (for example 95), the `StateReason`
     will be "95 time series evaluated to ALARM"
@@ -93,8 +94,8 @@ limits:
     will be "100+ time series evaluated to ALARM"
   - Furthermore, if the volume of attributes is too large, the number of contributors in ALARM can be limited to less than 100.
 
-- PromQL query limits on the maximum number of time series analyzed or returned
-  apply
+- PromQL query limits apply to the maximum number of time series that are analyzed or
+  returned.
 - During alarm evaluation, the `EvaluationState` will be set to
   `PARTIAL_DATA` if the PromQL query returns more than 500 time series.
 

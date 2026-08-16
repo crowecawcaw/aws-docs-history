@@ -17,7 +17,7 @@ Prometheus Query Language (PromQL) is a functional query language that lets you 
 aggregate, and transform time series data in real time. PromQL was originally designed for
 Prometheus and has become a popular query language for metrics.
 
-Amazon CloudWatch supports PromQL for querying metrics including metrics ingested via OpenTelemetry
+Amazon CloudWatch supports PromQL for querying metrics including metrics ingested through OpenTelemetry
 Line Protocol (OTLP) and [AWS enriched vended metrics](aws-services-cloudwatch-metrics.md "aws-services-cloudwatch-metrics.md"). When you ingest OTLP metrics, CloudWatch preserves the
 full semantic structure of your telemetry, including resource attributes, instrumentation scope,
 datapoint attributes, and AWS-specific metadata, and exposes them as queryable PromQL labels.

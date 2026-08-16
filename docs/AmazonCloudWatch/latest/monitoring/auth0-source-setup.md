@@ -13,7 +13,7 @@ To read logs, the pipeline needs to authenticate with your Okta Auth0 tenant. Au
 - Sign in to the Auth0 Dashboard using an admin account.
 - Navigate to Applications → Applications.
 - Select an existing Machine-to-Machine Application or create a new one.
-- Ensure the application has the required scope permissions for the Management API, specifically: `read:logs`
+- Make sure the application has the required scope permissions for the Management API, specifically: `read:logs`
 - In the AWS Secrets Manager, create a secret and store the Client ID under the key `client_id` and the Client Secret under the key `client_secret`
 - Identify your Auth0 Tenant Domain (for example: `yourtenant.us.auth0.com`) and give it in pipeline.
 
@@ -21,7 +21,7 @@ Once configured, the pipeline can authenticate using the Client Credentials flow
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline to read logs, choose Okta Auth0 as the data source. Select the Source Type as Tenant and provide the required details such as your Auth0 Tenant Domain and Client Credentials. Once you create the pipeline, log data from Okta Auth0 will be collected and made available in the selected CloudWatch Logs log group.
+To configure the pipeline to read logs, choose Okta Auth0 as the data source. Select the Source Type as Tenant and provide the required details such as your Auth0 Tenant Domain and Client Credentials. After you create the pipeline, log data from Okta Auth0 will be collected and made available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

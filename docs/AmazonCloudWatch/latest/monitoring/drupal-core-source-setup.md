@@ -12,7 +12,7 @@ To read the logs, the pipeline needs to authenticate with your Drupal Core site.
 
 - Log in to your Drupal Core admin interface and navigate to Administration → Extend (`/admin/modules`).
 - Enable the following modules: RESTful Web Services, Serialization, HTTP Basic Authentication, and Views. Choose Install.
-- Install and enable the Admin Audit Trail module via Composer (`composer require drupal/admin_audit_trail`) and run `drush en admin_audit_trail -y && drush cr` to activate it.
+- Install and enable the Admin Audit Trail module by using Composer (`composer require drupal/admin_audit_trail`) and run `drush en admin_audit_trail -y && drush cr` to activate it.
 - Navigate to Structure → Views and create a new View named `Audit Logs API`. Set Show to `Log entries`, enable Provide a REST export, and set the REST export path to `/api/v1/audit-logs`.
 - In the View editor, add two exposed Watchdog: Timestamp filters — one with operator `is greater than or equal to` and filter identifier `starttime`, and another with operator `is less than` and filter identifier `endtime`.
 - In the REST EXPORT SETTINGS section of the View, choose Authentication and enable `basic_auth`.
@@ -27,7 +27,7 @@ To configure the pipeline to read logs, choose Drupal Core as the data source. F
 - **API Endpoint** — The path to the View REST export endpoint (for example, `/api/v1/audit-logs`). Must start with `/`.
 - **Range** — Specify the lookback duration in ISO 8601 format (for example, `PT21H` for the last 21 hours, `P7D` for the last 7 days). The default is 0 hours, and the maximum is 90 days.
 
-Once you create the pipeline, data will be available in the selected CloudWatch Logs log group.
+After you create the pipeline, data will be available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

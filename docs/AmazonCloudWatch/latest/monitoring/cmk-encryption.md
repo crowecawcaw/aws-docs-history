@@ -234,9 +234,9 @@ Your recovery options depend on the key state:
 
 - **Key is disabled** — Re-enable the key in AWS KMS.
   This is the preferred recovery path because CloudWatch can resume decrypting your
-  existing metric data once the key is active again.
+  existing metric data after the key is active again.
 - **Key is pending deletion** — Cancel the key
-  deletion in AWS KMS before the waiting period expires. Once the key returns to an
+  deletion in AWS KMS before the waiting period expires. After the key returns to an
   enabled state, CloudWatch resumes normal operations.
 - **Key has been permanently deleted or is otherwise
   unrecoverable** — Remove the stale association or rotate to a new key

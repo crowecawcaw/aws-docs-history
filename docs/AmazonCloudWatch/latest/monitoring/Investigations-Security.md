@@ -187,7 +187,7 @@ JSON
 ```
 
 For more information about these types of policies and using these context keys,
-see [kms:ViaService](../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-via-service "../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-via-service") and [kms:EncryptionContext:_context-key_](../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-encryption-context "../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-encryption-context") in the
+see [kms:ViaService](../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-through-service "../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-through-service") and [kms:EncryptionContext:_context-key_](../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-encryption-context "../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-encryption-context") in the
 AWS Key Management Service Developer Guide, and [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") in the IAM User Guide.
 
 ## Encryption of investigation data

@@ -190,7 +190,7 @@ aws xray update-indexing-rule --name "Default" --rule '{"Probabilistic": {"Desir
 
 ###### Note
 
-After you enable Transaction Search, it can take ten minutes for spans to
+After you enable Transaction Search, it can take 10 minutes for spans to
 become available for search and analysis.
 
 ### Step 4. Verify spans are available for search and analysis

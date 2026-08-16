@@ -37,7 +37,7 @@ pipeline. For the full list of available receivers, see the OpenTelemetry Collec
 
 ## Getting started
 
-Prerequisite – If using the OTLP endpoint for tracing, ensure that
+Prerequisite – If using the OTLP endpoint for tracing, make sure that
 Transaction Search is enabled.
 
 Steps:
@@ -73,7 +73,7 @@ Setup IAM permissions for on-premise hosts
     5. On the **Set permissions** page, under **Permissions options**, select **Attach policies directly**.
     6. From the **Permissions policies** list, select the **CloudWatchAgentServerPolicy** policy to add to your user.
     7. Choose **Next**.
-    8. On the **Review and create** page, ensure that you are satisfied with the user name and that the **CloudWatchAgentServerPolicy** policy is under the **Permissions summary**.
+    8. On the **Review and create** page, make sure that you are satisfied with the user name and that the **CloudWatchAgentServerPolicy** policy is under the **Permissions summary**.
     9. Choose **Create user**.
     10. **Create and retrieve your AWS access key and secret key** – In the navigation pane in the IAM console, choose **Users** and then select the user name of the user that you created in the previous step.
     11. On the user's page, choose the **Security credentials** tab.

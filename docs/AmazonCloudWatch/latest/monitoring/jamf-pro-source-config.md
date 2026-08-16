@@ -14,7 +14,7 @@ To integrate CloudWatch Pipelines with Jamf Pro, complete the following high-lev
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, make sure you have the following:
 
 - An active Jamf Pro instance (cloud or on-premises)
 - An API Client configured with read permissions for computers, mobile devices, and users
@@ -36,7 +36,7 @@ To configure authentication credentials for the pipeline:
 
 ## Configuring the CloudWatch Pipeline
 
-To configure the pipeline, choose Jamf Pro as the data source. Provide the `hostname`, `client_id`, and `client_secret`. Once you create and activate the pipeline, device inventory data from Jamf Pro will begin flowing into the selected CloudWatch Logs log group.
+To configure the pipeline, choose Jamf Pro as the data source. Provide the `hostname`, `client_id`, and `client_secret`. After you create and activate the pipeline, device inventory data from Jamf Pro will begin flowing into the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
 

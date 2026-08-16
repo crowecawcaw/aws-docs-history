@@ -113,7 +113,7 @@ matched.
 
 The first entry runs when the log level is ERROR. The second entry
 uses `when_else` and runs only when the first entry's
-`when` condition did not match (i.e., the log level is anything
+`when` condition did not match (that is, the log level is anything
 other than ERROR).
 
 ```
@@ -133,40 +133,42 @@ processor:
 The following table shows which processors support conditional processing
 and at what level.
 
-Processor conditional support| Processor | Conditional support | Level |
-| --- | --- | --- |
-| add\_entries | Yes | Processor and entry |
-| copy\_values | Yes | Processor and entry |
-| delete\_entries | Yes | Processor |
-| move\_keys | Yes | Processor and entry |
-| flatten | Yes | Processor |
-| lowercase\_string | Yes | Processor |
-| uppercase\_string | Yes | Processor |
-| trim\_string | Yes | Processor |
-| substitute\_string | Yes | Processor and entry |
-| truncate | Yes | Processor |
-| extract\_value | Yes | Processor and entry |
-| convert\_entry\_type | Yes | Processor |
-| date | Yes | Processor |
-| dissect | Yes | Processor |
-| list\_to\_map | Yes | Processor |
-| rename\_keys | Yes | Processor and entry |
-| select\_entries | Yes | Processor |
-| translate | Yes | Processor |
-| grok | Yes | Processor |
-| drop\_events | Yes | Processor (required) |
-| OCSF, CSV, JSON, KeyValue, WAF, Postgres, CloudFront, VPC, Route53 | No | — |
+| Processor                                                          | Conditional support | Level                |
+| ------------------------------------------------------------------ | ------------------- | -------------------- |
+| add\_entries                                                       | Yes                 | Processor and entry  |
+| copy\_values                                                       | Yes                 | Processor and entry  |
+| delete\_entries                                                    | Yes                 | Processor            |
+| move\_keys                                                         | Yes                 | Processor and entry  |
+| flatten                                                            | Yes                 | Processor            |
+| lowercase\_string                                                  | Yes                 | Processor            |
+| uppercase\_string                                                  | Yes                 | Processor            |
+| trim\_string                                                       | Yes                 | Processor            |
+| substitute\_string                                                 | Yes                 | Processor and entry  |
+| truncate                                                           | Yes                 | Processor            |
+| extract\_value                                                     | Yes                 | Processor and entry  |
+| convert\_entry\_type                                               | Yes                 | Processor            |
+| date                                                               | Yes                 | Processor            |
+| dissect                                                            | Yes                 | Processor            |
+| list\_to\_map                                                      | Yes                 | Processor            |
+| rename\_keys                                                       | Yes                 | Processor and entry  |
+| select\_entries                                                    | Yes                 | Processor            |
+| translate                                                          | Yes                 | Processor            |
+| grok                                                               | Yes                 | Processor            |
+| drop\_events                                                       | Yes                 | Processor (required) |
+| OCSF, CSV, JSON, KeyValue, WAF, Postgres, CloudFront, VPC, Route53 | No                  | —                    |
 
 ## Operators
 
-Supported operators| Category | Operators | Example |
-| --- | --- | --- |
-| Relational | `<`, `<=`, `>`,<br>`>=` | `status_code >= 200 and status_code < 300` |
-| Equality | `==`, `!=` | `log.level == "ERROR"` |
-| Conditional | `and`, `or`, `not` | `log.level == "ERROR" or log.level == "FATAL"` |
-| Arithmetic | `+`, `-`, `*`,<br>`/` | `response_time<br>• 1000 > 5000` |
-| Set membership | `in`, `not in` | `environment in {"prod", "staging", "preprod"}` |
-| Regex matching | `=~`, `!~` | `message =~ "^ERROR.*timeout"` |
+The following table lists the supported operators.
+
+| Category       | Operators               | Example                                         |
+| -------------- | ----------------------- | ----------------------------------------------- |
+| Relational     | `<`, `<=`, `>`,<br>`>=` | `status_code >= 200 and status_code < 300`      |
+| Equality       | `==`, `!=`              | `log.level == "ERROR"`                          |
+| Conditional    | `and`, `or`, `not`      | `log.level == "ERROR" or log.level == "FATAL"`  |
+| Arithmetic     | `+`, `-`, `*`,<br>`/`   | `response_time<br>• 1000 > 5000`                |
+| Set membership | `in`, `not in`          | `environment in {"prod", "staging", "preprod"}` |
+| Regex matching | `=~`, `!~`              | `message =~ "^ERROR.*timeout"`                  |
 
 ## Functions
 

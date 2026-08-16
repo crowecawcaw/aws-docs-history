@@ -78,7 +78,7 @@ environment variable `OTEL_AWS_APPLICATION_SIGNALS_RUNTIME_ENABLED=false` to you
 ## Python application doesn't start after Application Signals is enabled
 
 It is a known issue in OpenTelemetry auto-instrumentation that a missing `PYTHONPATH` environment variable can sometimes cause the application to fail to start
-. To resolve this, ensure that you set the `PYTHONPATH` environment variable to the location of your application's working directory.
+. To resolve this, make sure that you set the `PYTHONPATH` environment variable to the location of your application's working directory.
 For more information about this issue, see
 [Python autoinstrumentation setting of PYTHONPATH is not compliant with Python's module resolution behavior, breaking Django applications](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
 
@@ -170,7 +170,7 @@ after the fork, so that traces, metrics, and logs are exported correctly.
 
 ## My Node.js application is not instrumented or isn't generating Application Signals telemetry
 
-To enable Application Signals for Node.js, you must ensure that your Node.js application uses the CommonJS (CJS) module format.
+To enable Application Signals for Node.js, you must make sure that your Node.js application uses the CommonJS (CJS) module format.
 The AWS Distro for OpenTelemetry Node.js doesn't support the ESM module format, because OpenTelemetry JavaScript's support
 of ESM is experimental and is a work in progress.
 

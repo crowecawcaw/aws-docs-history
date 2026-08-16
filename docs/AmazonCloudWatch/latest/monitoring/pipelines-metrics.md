@@ -113,7 +113,7 @@ Data size limit exceeded.
 The following warning types can occur on a pipeline:
 
 **`THROTTLED`**
-Indicates that the volume of data being sent has exceeded existing rate limits, causing some data points or events to be dropped or delayed to protect the system and ensure stability.
+Indicates that the volume of data being sent has exceeded existing rate limits, causing some data points or events to be dropped or delayed to protect the system and make sure stability.
 
 **`DestructiveOnVended` (metrics pipelines)**
 A destructive processor attempted to modify a vended metric

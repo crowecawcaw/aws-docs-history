@@ -14,7 +14,7 @@ To integrate CloudWatch Pipelines with Palo Alto Prisma Cloud, complete the foll
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, make sure you have the following:
 
 - An active Palo Alto Prisma Cloud Enterprise tenant with API access
 - A Prisma Cloud user with System Admin or Account Group Read Only role

@@ -48,35 +48,35 @@ will be available in the selected CloudWatch Logs log group.
 This integration supports OCSF schema version v1.5.0 and events that map to
 multiple OCSF classes. The following table lists the supported event mappings.
 
-Zeek OCSF event mappings| Event name | OCSF class |
-| --- | --- |
-| conn | Network Activity (4001) |
-| dns | DNS Activity (4003) |
-| http | HTTP Activity (4002) |
-| ssl | Network Activity (4001) |
-| ssh | SSH Activity (4007) |
-| kerberos | Authentication (3002) |
-| rdp | RDP Activity (4005) |
-| files | Network Activity (4001) |
-| notice | Detection Finding (2004) |
-| known\_hosts | Base Event (0) |
-| x509 | Network Activity (4001) |
-| ftp | FTP Activity (4008) |
-| smtp | Email Activity (4009) |
-| dhcp | DHCP Activity (4004) |
-| ntlm | Authentication (3002) |
-| smb\_files | SMB Activity (4006) |
-| smb | SMB Activity (4006) |
-| dce\_rpc | SMB Activity (4006) |
-| ldap | Authentication (3002) |
-| ldap\_search | Network Activity (4001) |
-| quic | Network Activity (4001) |
-| tunnel | Tunnel Activity (4014) |
-| pe | Base Event (0) |
-| weird | Base Event (0) |
-| known\_services | Base Event (0) |
-| software | Software Inventory Info (5020) |
-| reporter | Base Event (0) |
+| Event name      | OCSF class                     |
+| --------------- | ------------------------------ |
+| conn            | Network Activity (4001)        |
+| dns             | DNS Activity (4003)            |
+| http            | HTTP Activity (4002)           |
+| ssl             | Network Activity (4001)        |
+| ssh             | SSH Activity (4007)            |
+| kerberos        | Authentication (3002)          |
+| rdp             | RDP Activity (4005)            |
+| files           | Network Activity (4001)        |
+| notice          | Detection Finding (2004)       |
+| known\_hosts    | Base Event (0)                 |
+| x509            | Network Activity (4001)        |
+| ftp             | FTP Activity (4008)            |
+| smtp            | Email Activity (4009)          |
+| dhcp            | DHCP Activity (4004)           |
+| ntlm            | Authentication (3002)          |
+| smb\_files      | SMB Activity (4006)            |
+| smb             | SMB Activity (4006)            |
+| dce\_rpc        | SMB Activity (4006)            |
+| ldap            | Authentication (3002)          |
+| ldap\_search    | Network Activity (4001)        |
+| quic            | Network Activity (4001)        |
+| tunnel          | Tunnel Activity (4014)         |
+| pe              | Base Event (0)                 |
+| weird           | Base Event (0)                 |
+| known\_services | Base Event (0)                 |
+| software        | Software Inventory Info (5020) |
+| reporter        | Base Event (0)                 |
 
 Events that do not match any OCSF mapping transformation are automatically passed
 through and sent directly to the configured sink without additional processing.

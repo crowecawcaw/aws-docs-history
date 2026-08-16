@@ -149,9 +149,9 @@ printing all the scraped metrics in log](https://github.com/aws/amazon-cloudwatc
 
 ## Latest docker image mentioned in release notes not found from Dockerhub
 
-We update the release note and tag on Github before we start the actual release
+The release note and tag on Github are updated before the actual release
 internally. It usually takes 1-2 weeks to see the latest Docker image on registries after
-we bump the version number on Github. There is no nightly release for the CloudWatch agent
+the version number on Github is bumped. There is no nightly release for the CloudWatch agent
 container image. You can build the image directly from source at the following location:
 [https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile](https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile "https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile")
 

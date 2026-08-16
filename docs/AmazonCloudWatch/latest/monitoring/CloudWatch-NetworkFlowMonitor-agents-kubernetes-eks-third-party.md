@@ -84,7 +84,7 @@ Troubleshooting Steps:
 
 3. Validate your monitoring tool configuration. Consult you monitoring tools user guide for details on how to do the following:
 
-   - Ensure your monitoring tool (such as Prometheus) is configured to scrape the correct endpoint.
+   - Make sure your monitoring tool (such as Prometheus) is configured to scrape the correct endpoint.
    - Check that the scraping interval and timeout settings are appropriate.
    - Verify that your monitoring tool has network access to the pod IP address.
 
@@ -108,12 +108,12 @@ Troubleshooting Steps:
 
    - If set to 127.0.0.1, the endpoint is only accessible from within the pod.
    - If set to 0.0.0.0, the endpoint should be accessible from other pods in the cluster.
-   - Ensure your monitoring tool can reach the configured address.
+   - Make sure your monitoring tool can reach the configured address.
 
 2. Check the OPEN\_METRICS\_PORT configuration:
 
    - Verify that the port number is not already in use by another service.
-   - Ensure the port is within the valid range (1-65535).
+   - Make sure the port is within the valid range (1-65535).
    - Confirm that any security groups or network policies allow traffic on this port.
 
 ### Verification steps

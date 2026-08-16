@@ -34,7 +34,7 @@ do the following:
 1. Open the Lambda console.
 2. In the **Monitor** section, find the metric.
 3. Open the vertical ellipsis context menu
-   ![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](images/vmore.png)
+   ![CloudWatch overview home page showing alarm states and metrics graph widgets.](images/vmore.png)
    for the metric, choose
    **Investigate**, **Add to investigation**
    Then, in the **Investigate** pane, select the name of the

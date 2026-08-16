@@ -27,6 +27,11 @@ Be careful when configuring your metric extraction as it impacts your custom met
 If you unintentionally create metrics based on high-cardinality dimensions (such as `requestId`), the embedded metric format will by design create
 a custom metric corresponding to each unique dimension combination. For more information, see [Dimensions](cloudwatch_concepts.md#Dimension "cloudwatch_concepts.md#Dimension").
 
+###### Note
+
+Embedded metric format ensures at least one time delivery of metrics extracted from
+log events, while duplicate metric values may occasionally occur.
+
 The following topics describe how to publish logs using the embedded metric format, view your metrics and logs in the console, and set alarms on metrics created with the embedded metric format.
 
 ###### Topics

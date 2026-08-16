@@ -1,6 +1,6 @@
 # Using resource tags for telemetry
 
-Once you have enabled resource tags for telemetry, you can leverage this enriched data to create powerful monitoring solutions that scale with your infrastructure. Use tag-based queries to group and filter metrics across multiple resources, create dynamic alarms that
+Once you have enabled resource tags for telemetry, you can use this enriched data to create powerful monitoring solutions that scale with your infrastructure. Use tag-based queries to group and filter metrics across multiple resources, create dynamic alarms that
 automatically adapt to resource changes, and gain insights into your AWS environment organized by meaningful business or operational categories. This approach enables you to monitor resources by team, environment, application, or any other tagging strategy you use in your
 organization.
 
