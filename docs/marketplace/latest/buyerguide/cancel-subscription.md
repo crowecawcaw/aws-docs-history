@@ -1,22 +1,30 @@
 # Canceling product subscriptions
 
-There are two ways to cancel an AWS Marketplace subscription, depending on the type of agreement
-and how the cancellation is initiated:
+How you cancel an AWS Marketplace subscription depends on the type of agreement:
 
 - **Buyer self-service cancellation** — For
-  subscriptions with usage-based pricing (pay-as-you-go) and public contracts within 48
-  hours of purchase, you can cancel directly from the AWS Marketplace console.
+  subscriptions with pay-as-you-go (usage-based) pricing, whether from a public or private
+  offer, you can cancel directly from the AWS Marketplace console at any time.
+- **Cancellation through AWS Customer Service (within 48
+  hours)** — For public offers with contract (upfront) pricing, self-service
+  cancellation isn't available in the console. To cancel within 48 hours of purchase,
+  contact AWS Customer Service. If you cancel a public contract within 48 hours of
+  purchase, AWS Customer Service can also process a full refund without seller
+  involvement. For more information, see [Refunds and cancellations in AWS Marketplace](buyer-refunds.md "buyer-refunds.md").
 - **Seller-initiated cancellation** — For all other
-  agreement types, the seller must initiate the cancellation request. You then approve or
-  deny the request in the AWS Marketplace console. See
-  [Responding to a cancellation request](buyer-refunds.md#buyer-responding-cancellation "buyer-refunds.md#buyer-responding-cancellation").
+  cases (public contracts more than 48 hours after purchase, and private contracts), the
+  seller initiates the cancellation request. You then approve or deny the request in the
+  AWS Marketplace console. See [Responding to a cancellation request](buyer-refunds.md#buyer-responding-cancellation "buyer-refunds.md#buyer-responding-cancellation").
 
 ###### Note
 
-Cancellation only stops future charges from being generated. It doesn't automatically
-refund charges on invoices that have already been issued. If you also need a refund for past
-charges, contact the seller and ask them to submit a billing adjustment (refund) request.
-For more information, see
+Canceling stops future charges from being generated. It doesn't automatically refund
+charges on invoices that have already been issued, and refunds aren't automatic — you
+have to request them. If you canceled a public contract within 48 hours of purchase, contact
+AWS Customer Service to request a full refund. For pay-as-you-go (usage-based)
+subscriptions, you remain responsible for usage you already incurred. In all other cases,
+including private offers and cancellations more than 48 hours after purchase, contact the
+seller of record to request a refund. For more information, see
 [Refunds and cancellations in AWS Marketplace](buyer-refunds.md "buyer-refunds.md").
 
 The following sections explain how to cancel Amazon Machine Image (AMI), Container
