@@ -32,7 +32,8 @@ details illustrate how each applies to Maya.
   Some installers require administrator access. Service-managed fleets do not provide
   administrator access, so you need to install the application on a separate system
   and create an archive of the files for the package build. The Windows installer
-  for Maya requires this approach. The [README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/README.md") in the recipe documents a repeatable procedure using a freshly
+  for Maya requires this approach. The [README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md") in the maya-2025 recipe, the latest with a Windows build,
+  documents a repeatable procedure using a freshly
   launched Amazon Elastic Compute Cloud (Amazon EC2) instance.
 - **Plugin integration** – The sample
   Maya package defines `MAYA_NO_HOME=1` to isolate the
@@ -61,7 +62,7 @@ file:
 - **about** – Metadata about the application
   for browsing or processing the contents of a conda channel.
 
-The build scripts ([build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh") for Linux, [build\_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build_win.sh") for Windows) include comments explaining each step. The
+The build scripts ([build.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/recipe/build.sh") for Linux, [build\_win.sh](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/recipe/build_win.sh "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/recipe/build_win.sh") in the maya-2025 recipe for Windows) include comments explaining each step. The
 scripts perform the following key tasks:
 
 - **Extract the installer** – Extracts the
@@ -101,7 +102,7 @@ scripts perform the following key tasks:
 Before you build the Maya package, download the Maya
 installer from your Autodesk account. For Linux, place the archive
 directly into the `conda_recipes/archive_files` directory. For Windows,
-follow the procedure in the [README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2026/README.md") to create the archive.
+follow the procedure in the [maya-2025 README.md](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/conda_recipes/maya-2025/README.md") to create the archive.
 
 Use `rattler-build publish` to build and publish the package. The
 Maya recipe requires `patchelf` as a build dependency on

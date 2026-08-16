@@ -6,6 +6,9 @@ directory in the deadline-cloud-samples repository contains CloudFormation templ
 that deploy Deadline Cloud farms and supporting infrastructure. Use these templates
 as a starting point and adapt them to your environment.
 
+To compare CloudFormation with the AWS CDK and Terraform for managing Deadline Cloud
+infrastructure, see [Manage Deadline Cloud infrastructure as code](infrastructure-as-code.md "infrastructure-as-code.md").
+
 ###### Topics
 
 - [Deploy a starter Deadline Cloud farm with CloudFormation](examples-cfn-starter-farm.md "examples-cfn-starter-farm.md")

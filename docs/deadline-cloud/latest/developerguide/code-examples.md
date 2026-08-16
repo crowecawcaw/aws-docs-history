@@ -110,6 +110,8 @@ Deadline Cloud.
 - [Job bundle examples for Deadline Cloud](examples-job-bundles.md "examples-job-bundles.md")
 - [Conda recipe examples for Deadline Cloud](examples-conda-recipes.md "examples-conda-recipes.md")
 - [CloudFormation template examples for Deadline Cloud](examples-cloudformation.md "examples-cloudformation.md")
+- [Deploy Deadline Cloud farms with the AWS CDK](examples-cdk.md "examples-cdk.md")
+- [Deploy Deadline Cloud farms with Terraform](examples-terraform.md "examples-terraform.md")
 - [Host configuration script examples for Deadline Cloud](examples-host-config.md "examples-host-config.md")
 - [Queue environment examples for Deadline Cloud](examples-queue-environments.md "examples-queue-environments.md")
 - [Build a worker-equivalent Amazon Linux 2023 Docker image for Deadline Cloud](examples-container-al2023.md "examples-container-al2023.md")

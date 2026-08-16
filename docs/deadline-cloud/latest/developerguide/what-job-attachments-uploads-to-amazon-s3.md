@@ -141,7 +141,7 @@ the value in the object name
 `DeadlineCloud/Data/87cb19095dd5d78fcaf56384ef0e6241.xxh128`. It is used by
 Deadline Cloud to know which object to download for this file's contents.
 
-The full schema for this file is [available in GitHub](https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py "https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py").
+The full schema for this file is [available in GitHub](https://github.com/aws-deadline/deadline-cloud-job-attachments/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py "https://github.com/aws-deadline/deadline-cloud-job-attachments/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py").
 
 When you use the [CreateJob operation](../APIReference/API_CreateJob.md "../APIReference/API_CreateJob.md")
 you can set the location of the manifest objects. You can use the [GetJob

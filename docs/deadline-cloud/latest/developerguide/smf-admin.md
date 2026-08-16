@@ -8,6 +8,13 @@ to configure your workers for your system.
 Deadline Cloud runs the script after the worker enters the `STARTING` state and before
 it runs any tasks.
 
+The script runs after Deadline Cloud sets up usage-based licensing (UBL). Deadline Cloud sets the UBL
+license environment variables when the worker instance launches, before the worker agent
+starts, and the worker agent then runs your host configuration script. The automatic UBL
+setup doesn't overwrite environment variables that your script sets: license variables that
+your script sets system-wide take precedence for the jobs that the worker runs. For more
+information about licensing options, see [Using software licenses with Deadline Cloud](license.md "license.md").
+
 ###### Important
 
 The script runs with elevated permissions. It is your responsibility to ensure that the script

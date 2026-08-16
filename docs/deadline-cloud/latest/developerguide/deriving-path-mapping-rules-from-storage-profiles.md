@@ -102,7 +102,7 @@ systems. Reformatted for readability, the log entry looks like this:
             "destination_path": "/mnt/common"
         }
     ]
-
+}
 ```
 
 You can submit jobs with different storage profiles to see how the path mapping rules

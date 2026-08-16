@@ -121,6 +121,11 @@ aws deadline create-queue-limit-association \
 ```
 specificationVersion: jobtemplate-2023-09
 name: My VRay Render
+parameterDefinitions:
+  - name: SceneFile
+    type: PATH
+    objectType: FILE
+    dataFlow: IN
 steps:
   - name: Render
     hostRequirements:

@@ -510,7 +510,7 @@ licensing.
 ```
 
 AWSTemplateFormatVersion: 2010-09-09
-Description: "Create &ADC; resources for BYOL"
+Description: "Create Deadline Cloud resources for BYOL"
 
 Parameters:
   LicenseInstanceId:
@@ -715,8 +715,8 @@ Resources:
         - name: CondaChannels
           type: STRING
           description: >
-            This is a space-separated list of conda channels from which to install packages. &ADC; SMF packages are
-            installed from the "deadline-cloud" channel that is configured by &ADC;.
+            This is a space-separated list of conda channels from which to install packages. Deadline Cloud SMF packages are
+            installed from the "deadline-cloud" channel that is configured by Deadline Cloud.
 
             Add "conda-forge" to get packages from the https://conda-forge.org/ community, and "defaults" to get packages
             from Anaconda Inc (make sure your usage complies with https://www.anaconda.com/terms-of-use).
@@ -741,7 +741,7 @@ Resources:
       Priority: 10
       QueueId: !GetAtt Queue.QueueId
       TemplateType: YAML
-      Template: !Sub |
+      Template: |
         specificationVersion: "environment-2023-09"
         parameterDefinitions:
         - name: LicenseInstanceId
@@ -761,130 +761,130 @@ Resources:
             instance. Example: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
           default: "2701,2702,7075,2703,6101,1715,1716,1717,7054,7055,30304"
         environment:
-        name: BYOL License Forwarding
-        variables:
-          example_LICENSE: 2701@localhost
-        script:
-          actions:
-          onEnter:
-            command: bash
-            args: [ "{{Env.File.Enter}}" ]
-          onExit:
-            command: bash
-            args: [ "{{Env.File.Exit}}" ]
-          embeddedFiles:
-          - name: Enter
-            type: TEXT
-            runnable: True
-            data: |
-              curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm -Ls | rpm2cpio - | cpio -iv --to-stdout ./usr/local/sessionmanagerplugin/bin/session-manager-plugin > {{Session.WorkingDirectory}}/session-manager-plugin
-              chmod +x {{Session.WorkingDirectory}}/session-manager-plugin
-              conda activate
-              python {{Env.File.StartSession}} {{Session.WorkingDirectory}}/session-manager-plugin
-          - name: Exit
-            type: TEXT
-            runnable: True
-            data: |
-              echo Killing SSM Manager Plugin PIDs: $BYOL_SSM_PIDS
-              for pid in ${BYOL_SSM_PIDS//,/ }; do kill $pid; done
-          - name: StartSession
-            type: TEXT
-            data: |
-              import boto3
-              import json
-              import subprocess
-              import sys
-              import os
-              import tempfile
+          name: BYOL License Forwarding
+          variables:
+            example_LICENSE: 2701@localhost
+          script:
+            actions:
+              onEnter:
+                command: bash
+                args: [ "{{Env.File.Enter}}" ]
+              onExit:
+                command: bash
+                args: [ "{{Env.File.Exit}}" ]
+            embeddedFiles:
+            - name: Enter
+              type: TEXT
+              runnable: True
+              data: |
+                curl https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm -Ls | rpm2cpio - | cpio -iv --to-stdout ./usr/local/sessionmanagerplugin/bin/session-manager-plugin > {{Session.WorkingDirectory}}/session-manager-plugin
+                chmod +x {{Session.WorkingDirectory}}/session-manager-plugin
+                conda activate
+                python {{Env.File.StartSession}} {{Session.WorkingDirectory}}/session-manager-plugin
+            - name: Exit
+              type: TEXT
+              runnable: True
+              data: |
+                echo Killing SSM Manager Plugin PIDs: $BYOL_SSM_PIDS
+                for pid in ${BYOL_SSM_PIDS//,/ }; do kill $pid; done
+            - name: StartSession
+              type: TEXT
+              data: |
+                import boto3
+                import json
+                import subprocess
+                import sys
+                import os
+                import tempfile
 
-              instance_id = "{{Param.LicenseInstanceId}}"
-              region = "{{Param.LicenseInstanceRegion}}"
-              license_ports_list = "{{Param.LicensePorts}}".split(",")
+                instance_id = "{{Param.LicenseInstanceId}}"
+                region = "{{Param.LicenseInstanceRegion}}"
+                license_ports_list = "{{Param.LicensePorts}}".split(",")
 
-              ssm_client = boto3.client("ssm", region_name=region)
-              pids = []
+                ssm_client = boto3.client("ssm", region_name=region)
+                pids = []
 
-              for port in license_ports_list:
-                session_response = ssm_client.start_session(
-                  Target=instance_id,
-                  DocumentName="AWS-StartPortForwardingSession",
-                  Parameters={"portNumber": [port], "localPortNumber": [port]}
-                )
+                for port in license_ports_list:
+                  session_response = ssm_client.start_session(
+                    Target=instance_id,
+                    DocumentName="AWS-StartPortForwardingSession",
+                    Parameters={"portNumber": [port], "localPortNumber": [port]}
+                  )
 
-                cmd = [
-                  sys.argv[1],
-                  json.dumps(session_response),
-                  region,
-                  "StartSession",
-                  "",
-                  json.dumps({"Target": instance_id}),
-                  f"https://ssm.{region}.amazonaws.com"
-                ]
+                  cmd = [
+                    sys.argv[1],
+                    json.dumps(session_response),
+                    region,
+                    "StartSession",
+                    "",
+                    json.dumps({"Target": instance_id}),
+                    f"https://ssm.{region}.amazonaws.com"
+                  ]
 
-                process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                pids.append(process.pid)
-                print(f"SSM Port Forwarding Session started for port {port}")
+                  process = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                  pids.append(process.pid)
+                  print(f"SSM Port Forwarding Session started for port {port}")
 
-              print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")
+                print(f"openjd_env: BYOL_SSM_PIDS={','.join(str(pid) for pid in pids)}")
 
-              # Enabling UBL after the "bring your own license" (BYOL) has run out requires prepending the BYOL configuration to the existing license setup
-              # Remove the sections that do not apply to your pipeline, or you do not want to use UBL after exhausting the BYOL licenses.
-              # The port numbers used may not match what your license server is serving.
+                # Enabling UBL after the "bring your own license" (BYOL) has run out requires prepending the BYOL configuration to the existing license setup
+                # Remove the sections that do not apply to your pipeline, or you do not want to use UBL after exhausting the BYOL licenses.
+                # The port numbers used may not match what your license server is serving.
 
-              # Arnold
-              os.environ["ADSKFLEX_LICENSE_FILE"] = f"2701@localhost:{os.environ.get('ADSKFLEX_LICENSE_FILE', '')}"
-              print(f"openjd_env: ADSKFLEX_LICENSE_FILE={os.environ['ADSKFLEX_LICENSE_FILE']}")
+                # Arnold
+                os.environ["ADSKFLEX_LICENSE_FILE"] = f"2701@localhost:{os.environ.get('ADSKFLEX_LICENSE_FILE', '')}"
+                print(f"openjd_env: ADSKFLEX_LICENSE_FILE={os.environ['ADSKFLEX_LICENSE_FILE']}")
 
-              # Nuke
-              os.environ["foundry_LICENSE"] = f"6101@localhost:{os.environ.get('foundry_LICENSE', '')}"
-              print(f"openjd_env: foundry_LICENSE={os.environ['foundry_LICENSE']}")
+                # Nuke
+                os.environ["foundry_LICENSE"] = f"6101@localhost:{os.environ.get('foundry_LICENSE', '')}"
+                print(f"openjd_env: foundry_LICENSE={os.environ['foundry_LICENSE']}")
 
-              # SideFX
-              os.environ["SESI_LMHOST"] = f"localhost:1715;{os.environ.get('SESI_LMHOST', '')}"
-              print(f"openjd_env: SESI_LMHOST={os.environ['SESI_LMHOST']}")
+                # SideFX
+                os.environ["SESI_LMHOST"] = f"localhost:1715;{os.environ.get('SESI_LMHOST', '')}"
+                print(f"openjd_env: SESI_LMHOST={os.environ['SESI_LMHOST']}")
 
-              # Redshift and Red Giant
-              os.environ["redshift_LICENSE"] = f"7054@localhost:7055@localhost:{os.environ.get('redshift_LICENSE', '')}"
-              print(f"openjd_env: redshift_LICENSE={os.environ['redshift_LICENSE']}")
+                # Redshift and Red Giant
+                os.environ["redshift_LICENSE"] = f"7054@localhost:7055@localhost:{os.environ.get('redshift_LICENSE', '')}"
+                print(f"openjd_env: redshift_LICENSE={os.environ['redshift_LICENSE']}")
 
-              # V-Ray doesn't support multiple license servers in a single environment variable
-              # See https://documentation.chaos.com/space/LIC5/125050770/Sharing+a+License+Configuration+in+a+Network
-              vray_license = os.environ.get('VRAY_AUTH_CLIENT_SETTINGS', '')
-              xml_content = """<VRLClient>
-                <LicServer>
-                  <Host>localhost</Host>
-                  <Port>30304</Port>"""
+                # V-Ray doesn't support multiple license servers in a single environment variable
+                # See https://documentation.chaos.com/space/LIC5/125050770/Sharing+a+License+Configuration+in+a+Network
+                vray_license = os.environ.get('VRAY_AUTH_CLIENT_SETTINGS', '')
+                xml_content = """<VRLClient>
+                  <LicServer>
+                    <Host>localhost</Host>
+                    <Port>30304</Port>"""
 
-              if vray_license and vray_license.startswith('licset://'):
-                  server_parts = vray_license.removeprefix('licset://').split(':')
-                  if len(server_parts) >= 2:
-                      xml_content += f"""
-                  <Host1>{server_parts[0]}</Host1>
-                  <Port1>{server_parts[1]}</Port1>"""
+                if vray_license and vray_license.startswith('licset://'):
+                    server_parts = vray_license.removeprefix('licset://').split(':')
+                    if len(server_parts) >= 2:
+                        xml_content += f"""
+                    <Host1>{server_parts[0]}</Host1>
+                    <Port1>{server_parts[1]}</Port1>"""
 
-              xml_content += """
-                  <User></User>
-                  <Pass></Pass>
-                </LicServer>
-              </VRLClient>"""
+                xml_content += """
+                    <User></User>
+                    <Pass></Pass>
+                  </LicServer>
+                </VRLClient>"""
 
-              temp_dir = tempfile.gettempdir()
-              xml_path = os.path.join(temp_dir, 'vrlclient.xml')
+                temp_dir = tempfile.gettempdir()
+                xml_path = os.path.join(temp_dir, 'vrlclient.xml')
 
-              with open(xml_path, 'w') as f:
-                  f.write(xml_content)
+                with open(xml_path, 'w') as f:
+                    f.write(xml_content)
 
-              os.environ["VRAY_AUTH_CLIENT_FILE_PATH"] = temp_dir
-              print(f"openjd_env: VRAY_AUTH_CLIENT_FILE_PATH={os.environ['VRAY_AUTH_CLIENT_FILE_PATH']}")
+                os.environ["VRAY_AUTH_CLIENT_FILE_PATH"] = temp_dir
+                print(f"openjd_env: VRAY_AUTH_CLIENT_FILE_PATH={os.environ['VRAY_AUTH_CLIENT_FILE_PATH']}")
 
-              # Clear the existing VRAY_AUTH_CLIENT_SETTINGS so only the vrlclient.xml file is used.
-              os.environ["VRAY_AUTH_CLIENT_SETTINGS"] = ''
-              print(f"openjd_env: VRAY_AUTH_CLIENT_SETTINGS={os.environ['VRAY_AUTH_CLIENT_SETTINGS']}")
+                # Clear the existing VRAY_AUTH_CLIENT_SETTINGS so only the vrlclient.xml file is used.
+                os.environ["VRAY_AUTH_CLIENT_SETTINGS"] = ''
+                print(f"openjd_env: VRAY_AUTH_CLIENT_SETTINGS={os.environ['VRAY_AUTH_CLIENT_SETTINGS']}")
 
-              # Print out the created xml file's contents
-              print(f"V-Ray configuration file: {xml_path}")
-              with open(xml_path, 'r') as f:
-                  print(f"{f.read()}")
+                # Print out the created xml file's contents
+                print(f"V-Ray configuration file: {xml_path}")
+                with open(xml_path, 'r') as f:
+                    print(f"{f.read()}")
 ```
 
 3. When deploying the CloudFormation template, provide the following parameters:

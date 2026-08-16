@@ -11,10 +11,8 @@ simulation output, the initial job attachments upload can be slow.
 Because job attachments uses content-addressed storage and never
 re-uploads files that are already in job attachments, you can use
 alternative upload tools like
-[AWS Snowball](https://aws.amazon.com/snowball/ "https://aws.amazon.com/snowball/"),
-[AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/"), or
-[Nimble
-Studio File Transfer](../../../nimble-studio/latest/filetransfer-guide/what-is-file-transfer.md "../../../nimble-studio/latest/filetransfer-guide/what-is-file-transfer.md") to copy data into Amazon S3 first, then use this
+[AWS Snowball](https://aws.amazon.com/snowball/ "https://aws.amazon.com/snowball/") or
+[AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") to copy data into Amazon S3 first, then use this
 job to copy it into the job attachments bucket for your queue.
 
 Submit the bundle and choose how many workers to parallelize across:
