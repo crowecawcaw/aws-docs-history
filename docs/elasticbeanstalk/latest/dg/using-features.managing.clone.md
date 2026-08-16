@@ -58,7 +58,14 @@ If the platform version used in the original environment isn't the one recommend
 for use in the platform branch, you are warned that a different platform version is
 recommended. Choose **Platform version**, and you can see the
 recommended platform version on the list—for example, **3.3.2
-(Recommended)**. 7. When you are ready, choose **Clone**.
+(Recommended)**.
+
+###### Note
+
+If role manager is enabled in your account, Elastic Beanstalk attaches the service role for you, and the **Service role** dropdown and
+**Create role** steps described here are replaced by a **Customize** option. To use a different role, choose
+**Customize**. For more information, see [IAM role
+creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the _IAM User Guide_. 7. When you are ready, choose **Clone**.
 
 ## Elastic Beanstalk command line interface (EB CLI)
 
