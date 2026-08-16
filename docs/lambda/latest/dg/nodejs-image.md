@@ -30,10 +30,11 @@ This page explains how to build, test, and deploy container images for Lambda.
 
 AWS provides the following base images for Node.js:
 
-| Tags | Runtime    | Operating system  | Dockerfile                                                                                                                                                                                                          | Deprecation  |
-| ---- | ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| 24   | Node.js 24 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 24 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs24.x/Dockerfile.nodejs24.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs24.x/Dockerfile.nodejs24.x") | Apr 30, 2028 |
-| 22   | Node.js 22 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 22 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs22.x/Dockerfile.nodejs22.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs22.x/Dockerfile.nodejs22.x") | Apr 30, 2027 |
+| Tags | Runtime    | Operating system  | Dockerfile                                                                                                                                                                                                          | Deprecation   |
+| ---- | ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| 26   | Node.js 26 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 26 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs26.x/Dockerfile.nodejs26.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs26.x/Dockerfile.nodejs26.x") | Not scheduled |
+| 24   | Node.js 24 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 24 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs24.x/Dockerfile.nodejs24.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs24.x/Dockerfile.nodejs24.x") | Apr 30, 2028  |
+| 22   | Node.js 22 | Amazon Linux 2023 | [Dockerfile<br>for Node.js 22 on GitHub](https://github.com/aws/aws-lambda-base-images/blob/nodejs22.x/Dockerfile.nodejs22.x "https://github.com/aws/aws-lambda-base-images/blob/nodejs22.x/Dockerfile.nodejs22.x") | Apr 30, 2027  |
 
 Amazon ECR repository: [gallery.ecr.aws/lambda/nodejs](https://gallery.ecr.aws/lambda/nodejs "https://gallery.ecr.aws/lambda/nodejs")
 

@@ -10,9 +10,9 @@ Lambda supports the following Java runtimes.
 | ------- | --------------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | Java 25 | `java25`        | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Java 21 | `java21`        | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
-| Java 17 | `java17.al2023` | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
-| Java 11 | `java11.al2023` | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
-| Java 8  | `java8.al2023`  | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
+| Java 17 | `java17.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
+| Java 11 | `java11.al2023` | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
+| Java 8  | `java8.al2023`  | Amazon Linux 2023 | Jun 30, 2029     | Jul 31, 2029          | Aug 31, 2029          |
 | Java 17 | `java17`        | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
 | Java 11 | `java11`        | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |
 | Java 8  | `java8.al2`     | Amazon Linux 2    | Jun 30, 2027     | Jul 31, 2027          | Aug 31, 2027          |

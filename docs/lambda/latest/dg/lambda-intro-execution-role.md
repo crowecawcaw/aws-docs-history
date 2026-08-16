@@ -37,6 +37,14 @@ create a custom execution role with the necessary permissions. To do this, selec
 **Use another role** in the **Permissions** section, which
 opens a drawer where you can customize your permissions.
 
+###### Note
+
+If role manager is enabled in your account, the Lambda console attaches an execution
+role for you. To customize permissions, create your
+function, and then edit the function's permissions to select a different role or customize
+the attached role. For more
+information, see [Create roles automatically with role manager](../../../IAM/latest/UserGuide/id_roles_create_role-manager.md "../../../IAM/latest/UserGuide/id_roles_create_role-manager.md") in the IAM User Guide.
+
 ###### To configure an execution role from Console
 
 1. Enter a **role name** in the Role details section.
@@ -112,7 +120,7 @@ to attach a new execution role to an existing function, follow the steps in [Upd
 When you first create an IAM role for your Lambda function during the development phase, you might sometimes
 grant permissions beyond what is required. Before publishing your function in the production environment, as a
 best practice, adjust the policy to include only the required permissions. For more information, see [Apply least-privilege
-permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the _IAM User Guide_.
+permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the IAM User Guide.
 
 Use IAM Access Analyzer to help identify the required permissions for the IAM execution role policy. IAM Access Analyzer
 reviews your AWS CloudTrail logs over the date range that you specify and generates a policy template with only the
@@ -121,4 +129,4 @@ fine-grained permissions, and then attach it to the IAM role. That way, you gran
 role needs to interact with AWS resources for your specific use case.
 
 For more information, see [Generate policies based on access
-activity](../../../IAM/latest/UserGuide/access_policies_generate-policy.md "../../../IAM/latest/UserGuide/access_policies_generate-policy.md") in the _IAM User Guide_.
+activity](../../../IAM/latest/UserGuide/access_policies_generate-policy.md "../../../IAM/latest/UserGuide/access_policies_generate-policy.md") in the IAM User Guide.
