@@ -43,7 +43,7 @@ how you want to be contacted.
    combinations, a prompt appears with related information. Use these links to help
    resolve your issue. For more information, see [Describing your problem](case-management.md#describing-your-problem "case-management.md#describing-your-problem").
 3. **Attachments** – Attach screenshots and other files that
-   can help support agents resolve your case faster. You can attach up to three files. Each file can be up to 5 MB.
+   can help support agents resolve your case faster. You can attach up to 10 files. Each file can be up to 150 MB.
    After you add your case details, you can choose how you want to be contacted.
 
 ![Add more information about a billing issue in the AWS Support Center Console.](images/support-center-choose-contact-method-basic-plan-with-language.png)

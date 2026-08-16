@@ -493,6 +493,14 @@ When a DB instance or DB cluster is stopped, you can view the Amazon RDS recomme
 
 If you delete a DB instance or DB cluster, then recommendations associated with those instances or clusters are not available in Trusted Advisor or the Amazon RDS management console.
 
+###### Note
+
+This check relies on Amazon RDS Recommendations. This check doesn't
+evaluate DB instances in AWS Regions where Amazon RDS Recommendations
+isn't available. For information about regional availability, see
+[Viewing and responding to Amazon RDS
+recommendations](../../../AmazonRDS/latest/UserGuide/monitoring-recommendations.md "../../../AmazonRDS/latest/UserGuide/monitoring-recommendations.md").
+
 **Check ID**
 
 `c1qf5bt005`
@@ -544,6 +552,14 @@ For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations pla
 When a DB instance or DB cluster is stopped, you can view the Amazon RDS recommendations in Trusted Advisor for 3 to 5 days. After five days, the recommendations are not available in Trusted Advisor. To view the recommendations, open the Amazon RDS console, and then choose **Recommendations**.
 
 If you delete a DB instance or DB cluster, then recommendations associated with those instances or clusters are not available in Trusted Advisor or the Amazon RDS management console.
+
+###### Note
+
+This check relies on Amazon RDS Recommendations. This check doesn't
+evaluate DB instances in AWS Regions where Amazon RDS Recommendations
+isn't available. For information about regional availability, see
+[Viewing and responding to Amazon RDS
+recommendations](../../../AmazonRDS/latest/UserGuide/monitoring-recommendations.md "../../../AmazonRDS/latest/UserGuide/monitoring-recommendations.md").
 
 **Check ID**
 
@@ -708,6 +724,14 @@ For AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations pla
 When a DB instance or DB cluster is stopped, you can view the Amazon RDS recommendations in Trusted Advisor for 3 to 5 days. After five days, the recommendations are not available in Trusted Advisor. To view the recommendations, open the Amazon RDS console, and then choose **Recommendations**.
 
 If you delete a DB instance or DB cluster, then recommendations associated with those instances or clusters are not available in Trusted Advisor or the Amazon RDS management console.
+
+###### Note
+
+This check relies on Amazon RDS Recommendations. This check doesn't
+evaluate DB instances in AWS Regions where Amazon RDS Recommendations
+isn't available. For information about regional availability, see
+[Viewing and responding to Amazon RDS
+recommendations](../../../AmazonRDS/latest/UserGuide/monitoring-recommendations.md "../../../AmazonRDS/latest/UserGuide/monitoring-recommendations.md").
 
 **Check ID**
 
