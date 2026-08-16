@@ -3,8 +3,8 @@
 The IVS Low-Latency Streaming Web Broadcast SDK gives developers the tools
 to build interactive, real-time experiences on the web.
 
-**Latest version of Web broadcast SDK:** 1.38.0 ([Release
-Notes](release-notes.md#jul30-26-broadcast-web-ll "release-notes.md#jul30-26-broadcast-web-ll"))
+**Latest version of Web broadcast SDK:** 1.38.1 ([Release
+Notes](release-notes.md#aug12-26-broadcast-web-ll "release-notes.md#aug12-26-broadcast-web-ll"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS Web Broadcast SDK, see [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference"). Make
