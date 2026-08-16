@@ -20,6 +20,6 @@ that action will be taken.
 
 Sensor measurements that show the anomaly are displayed.
 
-![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded.](images/web-understand-sensor-measurement.png) 3. Choose **Acknowledge**.
+![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded.](/images/Monitron/latest/user-guide/images/web-understand-sensor-measurement.png) 3. Choose **Acknowledge**.
 
 The status of the asset changes to **Maintenance**.
