@@ -12,7 +12,7 @@ your own slots (custom slots). You can design logical expressions to
 capture information within the required subslots. For example: city and state
 or zipcode.
 
-The composite slot type is only available in en-US.
+The composite slot type is only available in en-US and [locales with limited feature support](how-languages.md#limited-feature-locales "how-languages.md#limited-feature-locales") via Generative AI.
 
 **Creating a composite slot type**
 
