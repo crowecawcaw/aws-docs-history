@@ -121,6 +121,31 @@ aws glue batch-get-iterable-forms \
     --item-identifiers region email
 ```
 
+Example output:
+
+```
+{
+    "Items": [
+        {
+            "ItemId": "`asset-id`#region",
+            "ItemName": "region",
+            "GlossaryTerms": ["`term-id`"],
+            "Forms": {},
+            "Attachments": {
+                "sensitivity": {"FormTypeId": "DataClassification", "Content": "{\"classification\":\"PII\",\"sensitivity\":\"HIGH\"}"}
+            }
+        },
+        {
+            "ItemId": "`asset-id`#email",
+            "ItemName": "email",
+            "Forms": {},
+            "Attachments": {}
+        }
+    ],
+    "Errors": []
+}
+```
+
 ## Deleting attachments and form types
 
 ### To delete an attachment

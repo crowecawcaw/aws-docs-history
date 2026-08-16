@@ -39,7 +39,7 @@ The error message displayed during the session.
 
 The description of the session.
 
-- `Role` – UTF-8 string, not less than 20 or more than 2048 bytes long, matching the [Custom string pattern #30](aws-glue-api-common.md#regex_30 "aws-glue-api-common.md#regex_30").
+- `Role` – UTF-8 string, not less than 20 or more than 2048 bytes long, matching the [Custom string pattern #51](aws-glue-api-common.md#regex_51 "aws-glue-api-common.md#regex_51").
 
 The name or Amazon Resource Name (ARN) of the IAM role associated with the
 Session.
@@ -50,7 +50,7 @@ The command object.See SessionCommand.
 
 - `DefaultArguments` – A map array of key-value pairs, not more than 75 pairs.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 Each value is a UTF-8 string, not more than 4096 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
 
@@ -74,7 +74,7 @@ that consists of 4 vCPUs of compute capacity and 16 GB memory.
 
 The name of the SecurityConfiguration structure to be used with the session.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 The AWS Glue version determines the versions of Apache Spark
 and Python that AWS Glue supports. The GlueVersion must be greater
@@ -119,6 +119,10 @@ The number of minutes when idle before the session times out.
 
 The name of an AWS Glue usage profile associated with the session.
 
+- `SessionType` – UTF-8 string (valid values: `LIVY=""` | `SPARK_CONNECT=""`).
+
+The type of the session.
+
 ## SessionCommand structure
 
 The `SessionCommand` that runs the job.
@@ -129,7 +133,7 @@ The `SessionCommand` that runs the job.
 
 Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
 
-- `PythonVersion` – UTF-8 string, matching the [Custom string pattern #49](aws-glue-api-common.md#regex_49 "aws-glue-api-common.md#regex_49").
+- `PythonVersion` – UTF-8 string, matching the [Custom string pattern #46](aws-glue-api-common.md#regex_46 "aws-glue-api-common.md#regex_46").
 
 Specifies the Python version. The Python version indicates the version
 supported for jobs of type Spark.
@@ -250,7 +254,7 @@ The ID of the session request.
 
 The description of the session.
 
-- `Role` – _Required:_ UTF-8 string, not less than 20 or more than 2048 bytes long, matching the [Custom string pattern #30](aws-glue-api-common.md#regex_30 "aws-glue-api-common.md#regex_30").
+- `Role` – _Required:_ UTF-8 string, not less than 20 or more than 2048 bytes long, matching the [Custom string pattern #51](aws-glue-api-common.md#regex_51 "aws-glue-api-common.md#regex_51").
 
 The IAM Role ARN
 
@@ -270,7 +274,7 @@ ETL jobs is value of Timeout. Consult the documentation for other job types.
 
 - `DefaultArguments` – A map array of key-value pairs, not more than 75 pairs.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 Each value is a UTF-8 string, not more than 4096 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
 
@@ -323,7 +327,7 @@ notebooks.
 
 The name of the SecurityConfiguration structure to be used with the session
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 The AWS Glue version determines the versions of Apache Spark
 and Python that AWS Glue supports. The GlueVersion must be greater
@@ -345,13 +349,17 @@ Each value is a UTF-8 string, not more than 256 bytes long.
 
 The map of key value pairs (tags) belonging to the session.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request.
 
 - `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
 
 The name of an AWS Glue usage profile associated with the session.
+
+- `SessionType` – UTF-8 string (valid values: `LIVY=""` | `SPARK_CONNECT=""`).
+
+The type of session to create.
 
 ###### Response
 
@@ -369,6 +377,7 @@ Returns the session object in the response.
 - `ValidationException`
 - `AlreadyExistsException`
 - `ResourceNumberLimitExceededException`
+- `OperationNotSupportedException`
 
 ## StopSession action (Python: stop\_session)
 
@@ -380,7 +389,7 @@ Stops the session.
 
 The ID of the session to be stopped.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request.
 
@@ -409,7 +418,7 @@ Deletes the session.
 
 The ID of the session to be deleted.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The name of the origin of the delete session request.
 
@@ -438,7 +447,7 @@ Retrieves the session.
 
 The ID of the session.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request.
 
@@ -478,7 +487,7 @@ Each value is a UTF-8 string, not more than 256 bytes long.
 
 Tags belonging to the session.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request.
 
@@ -517,7 +526,7 @@ The Session Id of the statement to be run.
 
 The statement code to be run.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request.
 
@@ -536,6 +545,8 @@ Returns the Id of the statement that was run.
 - `InvalidInputException`
 - `ValidationException`
 - `ResourceNumberLimitExceededException`
+- `OperationNotSupportedException`
+- `SessionBusyException`
 - `IllegalSessionStateException`
 
 ## CancelStatement action (Python: cancel\_statement)
@@ -552,7 +563,7 @@ The Session ID of the statement to be cancelled.
 
 The ID of the statement to be cancelled.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request to cancel the statement.
 
@@ -583,7 +594,7 @@ The Session ID of the statement.
 
 The Id of the statement.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request.
 
@@ -612,7 +623,7 @@ Lists statements for the session.
 
 The Session ID of the statements.
 
-- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+- `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52 "aws-glue-api-common.md#regex_52").
 
 The origin of the request to list statements.
 
@@ -669,6 +680,11 @@ with the AWS Glue configuration.
 A list of Identity Center scopes that define the permissions and access
 levels for the AWS Glue configuration.
 
+- `UserBackgroundSessionsEnabled` – Boolean.
+
+Indicates whether users can run background sessions when using Identity
+Center authentication with AWS Glue services.
+
 ###### Errors
 
 - `InvalidInputException`
@@ -691,6 +707,11 @@ Request to update an existing AWS Glue Identity Center configuration.
 
 A list of Identity Center scopes that define the updated permissions and
 access levels for the AWS Glue configuration.
+
+- `UserBackgroundSessionsEnabled` – Boolean.
+
+Specifies whether users can run background sessions when using Identity
+Center authentication with AWS Glue services.
 
 ###### Response
 
@@ -724,6 +745,11 @@ with the AWS Glue configuration.
 
 A list of Identity Center scopes that define the permissions and access
 levels for the AWS Glue configuration.
+
+- `UserBackgroundSessionsEnabled` – Boolean.
+
+Specifies whether users can run background sessions when using Identity
+Center authentication with AWS Glue services.
 
 ###### Response
 

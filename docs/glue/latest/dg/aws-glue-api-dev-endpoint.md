@@ -73,7 +73,7 @@ Known issue: when a development endpoint is created with the `G.2X`
 `WorkerType` configuration, the Spark drivers for the development
 endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for
 running your ETL scripts on development endpoints.
@@ -291,7 +291,7 @@ Known issue: when a development endpoint is created with the `G.2X`
 `WorkerType` configuration, the Spark drivers for the development
 endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for
 running your ETL scripts on development endpoints.
@@ -396,7 +396,7 @@ to this DevEndpoint.
 The type of predefined worker that is allocated to the development endpoint.
 May be a value of Standard, G.1X, or G.2X.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for
 running your ETL scripts on development endpoints.

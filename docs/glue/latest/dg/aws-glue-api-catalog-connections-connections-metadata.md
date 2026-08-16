@@ -38,7 +38,11 @@ on the source connection. For example this is `SObjects` for Salesforce
 and `databases` or `schemas` or `tables`
 for sources like Amazon Redshift.
 
-- `CustomProperties` –
+- `CustomProperties` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a UTF-8 string.
 
 An optional map of keys which may be returned for an entity by a connector.
 
@@ -61,7 +65,7 @@ A readable label used for the field.
 
 A description of the field.
 
-- `FieldType` – UTF-8 string (valid values: `INT` | `SMALLINT` | `BIGINT` | `FLOAT` | `LONG` | `DATE` | `BOOLEAN` | `MAP` | `ARRAY` | `STRING` | `TIMESTAMP` | `DECIMAL` | `BYTE` | `SHORT` | `DOUBLE` | `STRUCT`).
+- `FieldType` – UTF-8 string (valid values: `INT` | `SMALLINT` | `BIGINT` | `FLOAT` | `LONG` | `DATE` | `BOOLEAN` | `MAP` | `ARRAY` | `STRING` | `TIMESTAMP` | `DECIMAL` | `BYTE` | `SHORT` | `DOUBLE` | `STRUCT` | `BINARY` | `UNION`).
 
 The type of data in the field.
 
@@ -105,7 +109,7 @@ Indicates whether this field can be upserted as part of a destination write.
 Indicates whether this field is populated automatically when the object
 is created, such as a created at timestamp.
 
-- `SupportedValues` – .
+- `SupportedValues` – An array of UTF-8 strings.
 
 A list of supported values for the field.
 
@@ -113,7 +117,20 @@ A list of supported values for the field.
 
 Indicates the support filter operators for this field.
 
-- `CustomProperties` –
+- `ParentField` – UTF-8 string.
+
+A parent field name for a nested field.
+
+- `NativeDataType` – UTF-8 string.
+
+The data type returned by the SaaS API, such as "picklist" or "textarea"
+from Salesforce.
+
+- `CustomProperties` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a UTF-8 string.
 
 Optional map of keys which may be returned.
 
@@ -148,7 +165,7 @@ takes a fully-qualified path of the entity in order to list the child entities.
 
 A continuation token, included if this is a continuation call.
 
-- `DataStoreApiVersion` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #23](aws-glue-api-common.md#regex_23 "aws-glue-api-common.md#regex_23").
+- `DataStoreApiVersion` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #28](aws-glue-api-common.md#regex_28 "aws-glue-api-common.md#regex_28").
 
 The API version of the SaaS connector.
 
@@ -198,7 +215,7 @@ The name of the entity that you want to describe from the connection type.
 
 A continuation token, included if this is a continuation call.
 
-- `DataStoreApiVersion` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #23](aws-glue-api-common.md#regex_23 "aws-glue-api-common.md#regex_23").
+- `DataStoreApiVersion` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #28](aws-glue-api-common.md#regex_28 "aws-glue-api-common.md#regex_28").
 
 The version of the API used for the data store.
 
@@ -258,15 +275,15 @@ type.
 
 A continuation token, included if this is a continuation call.
 
-- `DataStoreApiVersion` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #23](aws-glue-api-common.md#regex_23 "aws-glue-api-common.md#regex_23").
+- `DataStoreApiVersion` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #28](aws-glue-api-common.md#regex_28 "aws-glue-api-common.md#regex_28").
 
 The API version of the SaaS connector.
 
 - `ConnectionOptions` – A map array of key-value pairs, not more than 100 pairs.
 
-Each key is a UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #18](aws-glue-api-common.md#regex_18 "aws-glue-api-common.md#regex_18").
+Each key is a UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #23](aws-glue-api-common.md#regex_23 "aws-glue-api-common.md#regex_23").
 
-Each value is a UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #17](aws-glue-api-common.md#regex_17 "aws-glue-api-common.md#regex_17").
+Each value is a UTF-8 string, not less than 1 or more than 256 bytes long, matching the [Custom string pattern #22](aws-glue-api-common.md#regex_22 "aws-glue-api-common.md#regex_22").
 
 Connector options that are required to query the data.
 
@@ -277,6 +294,10 @@ A filter predicate that you can apply in the query request.
 - `Limit` – _Required:_ Number (long), not less than 1 or more than 1000.
 
 Limits the number of records fetched with the request.
+
+- `OrderBy` – UTF-8 string.
+
+A parameter that orders the response preview data.
 
 - `SelectedFields` – An array of UTF-8 strings, not less than 1 or more than 1000 strings.
 

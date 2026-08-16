@@ -39,13 +39,8 @@ is assigned as the default value.
 
 Specifies whether job run queuing is enabled for the job runs for this job.
 
-A value of true means job run queuing is enabled, allowing job runs to wait in a queue when resources are unavailable instead of failing immediately. This includes scenarios such as hitting concurrent job run limits, insufficient compute resources (DPUs), or temporary resource constraints.
-
-###### Note
-
-For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
-
-If false or not populated, the job runs will fail immediately when resources are not available.
+A value of true means job run queuing is enabled for the job runs. If false
+or not populated, the job runs will not be considered for queueing.
 
 If this field does not match the value set in the job run, then the value from
 the job run field will be used.
@@ -178,7 +173,7 @@ Spark streaming ETL job:
      you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
      have a fractional DPU allocation.
 
-- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.025X=""` | `G.1X=""` | `G.2X=""` | `G.4X=""` | `G.8X=""` | `G.12X=""` | `G.16X=""` | `R.1X=""` | `R.2X=""` | `R.4X=""` | `R.8X=""` | `Z.2X=""`).
+- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.1X=""` | `G.2X=""` | `G.025X=""` | `G.4X=""` | `G.8X=""` | `Z.2X=""`).
 
 The type of predefined worker that is allocated when a job runs.
 
@@ -187,7 +182,6 @@ workload requirements:
 
 G Worker Types (General-purpose compute workers):
 
-    + G.025X: 0.25 DPU (2 vCPUs, 4 GB memory, 84GB disk)
     + G.1X: 1 DPU (4 vCPUs, 16 GB memory, 94GB disk)
     + G.2X: 2 DPU (8 vCPUs, 32 GB memory, 138GB disk)
     + G.4X: 4 DPU (16 vCPUs, 64 GB memory, 256GB disk)
@@ -197,10 +191,10 @@ G Worker Types (General-purpose compute workers):
 
 R Worker Types (Memory-optimized workers):
 
-    + R.1X: 1 DPU (4 vCPUs, 32 GB memory, 94GB disk)
-    + R.2X: 2 DPU (8 vCPUs, 64 GB memory, 128GB disk)
-    + R.4X: 4 DPU (16 vCPUs, 128 GB memory, 256GB disk)
-    + R.8X: 8 DPU (32 vCPUs, 256 GB memory, 512GB disk)
+    + R.1X: 1 M-DPU (4 vCPUs, 32 GB memory)
+    + R.2X: 2 M-DPU (8 vCPUs, 64 GB memory)
+    + R.4X: 4 M-DPU (16 vCPUs, 128 GB memory)
+    + R.8X: 8 M-DPU (32 vCPUs, 256 GB memory)
 
 - `NumberOfWorkers` – Number (integer).
 
@@ -220,7 +214,7 @@ Specifies configuration properties of a job notification.
 
 This field is reserved for future use.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 In Spark jobs, `GlueVersion` determines the versions of
 Apache Spark and Python that AWS Glue available in a job. The Python
@@ -240,7 +234,7 @@ Jobs that are created without specifying a Glue version default to Glue
 
 - `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode") object.
 
@@ -265,7 +259,7 @@ to `FLEX`. The flexible execution class is available for Spark jobs.
 The details for a source control configuration for a job, allowing synchronization
 of job artifacts to or from a remote repository.
 
-- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #34](aws-glue-api-common.md#regex_34 "aws-glue-api-common.md#regex_34").
+- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
 
 This field specifies a day of the week and hour for a maintenance window
 for streaming jobs. AWS Glue periodically performs maintenance
@@ -321,12 +315,12 @@ must be `glueray`.
 Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
 that runs a job.
 
-- `PythonVersion` – UTF-8 string, matching the [Custom string pattern #49](aws-glue-api-common.md#regex_49 "aws-glue-api-common.md#regex_49").
+- `PythonVersion` – UTF-8 string, matching the [Custom string pattern #46](aws-glue-api-common.md#regex_46 "aws-glue-api-common.md#regex_46").
 
 The Python version being used to run a Python shell job. Allowed values
 are 2 or 3.
 
-- `Runtime` – UTF-8 string, not more than 64 bytes long, matching the [Custom string pattern #33](aws-glue-api-common.md#regex_33 "aws-glue-api-common.md#regex_33").
+- `Runtime` – UTF-8 string, not more than 64 bytes long, matching the [Custom string pattern #34](aws-glue-api-common.md#regex_34 "aws-glue-api-common.md#regex_34").
 
 In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional
 libraries available in your environment. This field is not used in other job types.
@@ -366,13 +360,8 @@ is assigned as the default value.
 
 Specifies whether job run queuing is enabled for the job runs for this job.
 
-A value of true means job run queuing is enabled, allowing job runs to wait in a queue when resources are unavailable instead of failing immediately. This includes scenarios such as hitting concurrent job run limits, insufficient compute resources (DPUs), or temporary resource constraints.
-
-###### Note
-
-For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
-
-If false or not populated, the job runs will fail immediately when resources are not available.
+A value of true means job run queuing is enabled for the job runs. If false
+or not populated, the job runs will not be considered for queueing.
 
 If this field does not match the value set in the job run, then the value from
 the job run field will be used.
@@ -497,10 +486,10 @@ Spark streaming ETL job:
      you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
      have a fractional DPU allocation.
 
-- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.025X=""` | `G.1X=""` | `G.2X=""` | `G.4X=""` | `G.8X=""` | `G.12X=""` | `G.16X=""` | `R.1X=""` | `R.2X=""` | `R.4X=""` | `R.8X=""` | `Z.2X=""`).
+- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.1X=""` | `G.2X=""` | `G.025X=""` | `G.4X=""` | `G.8X=""` | `Z.2X=""`).
 
 The type of predefined worker that is allocated when a job runs. Accepts
-a value of G.025X, G.1X, G.2X, G.4X, G.8X, G.12X, G.16X, R.1X, R.2X, R.4X, or R.8X for Spark jobs. Accepts the value Z.2X
+a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X
 for Ray jobs. For more information, see [Defining
 job properties for Spark jobs](add-job.md#create-job "add-job.md#create-job")
 
@@ -518,7 +507,7 @@ used with this job.
 
 Specifies the configuration properties of a job notification.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 In Spark jobs, `GlueVersion` determines the versions of
 Apache Spark and Python that AWS Glue available in a job. The Python
@@ -538,7 +527,7 @@ from the existing job definition.
 
 - `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode") object.
 
@@ -563,7 +552,7 @@ to `FLEX`. The flexible execution class is available for Spark jobs.
 The details for a source control configuration for a job, allowing synchronization
 of job artifacts to or from a remote repository.
 
-- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #34](aws-glue-api-common.md#regex_34 "aws-glue-api-common.md#regex_34").
+- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
 
 This field specifies a day of the week and hour for a maintenance window
 for streaming jobs. AWS Glue periodically performs maintenance
@@ -658,13 +647,8 @@ is assigned as the default value.
 
 Specifies whether job run queuing is enabled for the job runs for this job.
 
-A value of true means job run queuing is enabled, allowing job runs to wait in a queue when resources are unavailable instead of failing immediately. This includes scenarios such as hitting concurrent job run limits, insufficient compute resources (DPUs), or temporary resource constraints.
-
-###### Note
-
-For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
-
-If false or not populated, the job runs will fail immediately when resources are not available.
+A value of true means job run queuing is enabled for the job runs. If false
+or not populated, the job runs will not be considered for queueing.
 
 If this field does not match the value set in the job run, then the value from
 the job run field will be used.
@@ -807,7 +791,7 @@ For more information about tags in AWS Glue, see [AWS Tags in AWS Glue](monitor-
 
 Specifies configuration properties of a job notification.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 In Spark jobs, `GlueVersion` determines the versions of
 Apache Spark and Python that AWS Glue available in a job. The Python
@@ -830,16 +814,12 @@ Jobs that are created without specifying a Glue version default to Glue
 The number of workers of a defined `workerType` that are allocated
 when a job runs.
 
-- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.025X=""` | `G.1X=""` | `G.2X=""` | `G.4X=""` | `G.8X=""` | `G.12X=""` | `G.16X=""` | `R.1X=""` | `R.2X=""` | `R.4X=""` | `R.8X=""` | `Z.2X=""`).
+- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.1X=""` | `G.2X=""` | `G.025X=""` | `G.4X=""` | `G.8X=""` | `Z.2X=""`).
 
 The type of predefined worker that is allocated when a job runs. Accepts
-a value of G.025X, G.1X, G.2X, G.4X, G.8X, G.12X, G.16X, R.1X, R.2X, R.4X, or R.8X for Spark jobs. Accepts the value Z.2X
+a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X
 for Ray jobs.
 
-    + For the `G.025X` worker type, each worker maps to 0.25 DPU
-     (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We
-     recommend this worker type for low volume streaming jobs. This worker type is
-     only available for AWS Glue version 3.0 or later streaming jobs.
     + For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPUs,
      16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend
      this worker type for workloads such as data transforms, joins, and queries, to
@@ -855,41 +835,22 @@ for Ray jobs.
      West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore),
      Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt),
      Europe (Ireland), Europe (London), Europe (Spain), Europe (Stockholm), and
+     South America (São Paulo).
     + For the `G.8X` worker type, each worker maps to 8 DPU (32 vCPUs,
      128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend
      this worker type for jobs whose workloads contain your most demanding transforms,
      aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs, in the same AWS
      Regions as supported for the `G.4X` worker type.
-    + For the `G.12X` worker type, each worker maps to 12 DPU (48 vCPUs,
-     192 GB of memory) with 768GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs with very large workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `G.16X` worker type, each worker maps to 16 DPU (64 vCPUs,
-     256 GB of memory) with 1024GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs with very large workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.1X` worker type, each worker maps to 1 DPU (4 vCPUs,
-     32 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.2X` worker type, each worker maps to 2 DPU (8 vCPUs,
-     64 GB of memory) with 128GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.4X` worker type, each worker maps to 4 DPU (16 vCPUs,
-     128 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.8X` worker type, each worker maps to 8 DPU (32 vCPUs,
-     256 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
+    + For the `G.025X` worker type, each worker maps to 0.25 DPU
+     (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We
+     recommend this worker type for low volume streaming jobs. This worker type is
+     only available for AWS Glue version 3.0 or later streaming jobs.
     + For the `Z.2X` worker type, each worker maps to 2 M-DPU (8vCPUs,
      64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.
 
 - `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode") object.
 
@@ -914,7 +875,7 @@ to `FLEX`. The flexible execution class is available for Spark jobs.
 The details for a source control configuration for a job, allowing synchronization
 of job artifacts to or from a remote repository.
 
-- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #34](aws-glue-api-common.md#regex_34 "aws-glue-api-common.md#regex_34").
+- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
 
 This field specifies a day of the week and hour for a maintenance window
 for streaming jobs. AWS Glue periodically performs maintenance

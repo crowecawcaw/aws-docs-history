@@ -31,6 +31,10 @@ The Java class that contains the function code.
 
 The owner of the function.
 
+- `FunctionType` – UTF-8 string (valid values: `REGULAR_FUNCTION` | `AGGREGATE_FUNCTION` | `STORED_PROCEDURE`).
+
+The type of the function.
+
 - `OwnerType` – UTF-8 string (valid values: `USER` | `ROLE` | `GROUP`).
 
 The owner type.
@@ -64,6 +68,10 @@ The Java class that contains the function code.
 - `OwnerName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
 
 The owner of the function.
+
+- `FunctionType` – UTF-8 string (valid values: `REGULAR_FUNCTION` | `AGGREGATE_FUNCTION` | `STORED_PROCEDURE`).
+
+The type of the function.
 
 - `OwnerType` – UTF-8 string (valid values: `USER` | `ROLE` | `GROUP`).
 
@@ -234,6 +242,15 @@ is provided, functions from all the databases across the catalog will be returne
 
 An optional function-name pattern string that filters the function definitions
 returned.
+
+- `FunctionType` – UTF-8 string (valid values: `REGULAR_FUNCTION` | `AGGREGATE_FUNCTION` | `STORED_PROCEDURE`).
+
+An optional function-type pattern string that filters the function definitions
+returned from Amazon Redshift Federated Permissions Catalog.
+
+Specify a value of `REGULAR_FUNCTION` or `STORED_PROCEDURE`.
+The `STORED_PROCEDURE` function type is only compatible with Amazon
+Redshift Federated Permissions Catalog.
 
 - `NextToken` – UTF-8 string.
 

@@ -171,7 +171,7 @@ requests to be run in parallel.
 
 ###### Fields
 
-- `SegmentNumber` – _Required:_ Number (integer), not more than None.
+- `SegmentNumber` – _Required:_ Number (integer).
 
 The zero-based index number of the segment. For example, if the total number
 of segments is 4, `SegmentNumber` values range from 0 through 3.
@@ -312,7 +312,7 @@ Registry.
 A structure that contains schema identity fields. Either this or the `SchemaVersionId`
 has to be provided.
 
-- `SchemaVersionId` – UTF-8 string, not less than 36 or more than 36 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
+- `SchemaVersionId` – UTF-8 string, not less than 36 or more than 36 bytes long, matching the [Custom string pattern #42](aws-glue-api-common.md#regex_42 "aws-glue-api-common.md#regex_42").
 
 The unique ID assigned to a version of the schema. Either this or the `SchemaId`
 has to be provided.
@@ -784,7 +784,7 @@ when you are interested only in other partition attributes such as partition
 values or location. This approach avoids the problem of a large response by not
 returning duplicate data.
 
-- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #44](aws-glue-api-common.md#regex_44 "aws-glue-api-common.md#regex_44").
+- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41 "aws-glue-api-common.md#regex_41").
 
 The transaction ID at which to read the partition contents.
 

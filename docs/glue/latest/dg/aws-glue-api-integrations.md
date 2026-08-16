@@ -19,15 +19,15 @@ Describes a zero-ETL integration.
 
 ###### Fields
 
-- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN for the source of the integration.
 
-- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN for the target of the integration.
 
-- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #12](aws-glue-api-common.md#regex_12 "aws-glue-api-common.md#regex_12").
+- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #17](aws-glue-api-common.md#regex_17 "aws-glue-api-common.md#regex_17").
 
 A description for the integration.
 
@@ -113,7 +113,8 @@ operations.
 - `ContinuousSync` – Boolean.
 
 Enables continuous synchronization for on-demand data extractions
-from: 1) SaaS applications to AWS data services like Amazon Redshift and Amazon S3, and 2) DynamoDB to Amazon S3.
+from SaaS applications to AWS data services like Amazon Redshift
+and Amazon S3.
 
 ## IntegrationPartition structure
 
@@ -200,11 +201,11 @@ A structure for an integration that writes data into a resource.
 
 ###### Fields
 
-- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the source resource for the integration.
 
-- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the target resource for the integration.
 
@@ -338,15 +339,15 @@ with Amazon Resource Names (ARNs): the `SourceArn` and `TargetArn`.
 
 A unique name for an integration in AWS Glue.
 
-- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the source resource for the integration.
 
-- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the target resource for the integration.
 
-- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #12](aws-glue-api-common.md#regex_12 "aws-glue-api-common.md#regex_12").
+- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #17](aws-glue-api-common.md#regex_17 "aws-glue-api-common.md#regex_17").
 
 A description of the integration.
 
@@ -378,11 +379,11 @@ The configuration settings.
 
 ###### Response
 
-- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the source resource for the integration.
 
-- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the target resource for the integration.
 
@@ -390,7 +391,7 @@ The ARN of the target resource for the integration.
 
 A unique name for an integration in AWS Glue.
 
-- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #12](aws-glue-api-common.md#regex_12 "aws-glue-api-common.md#regex_12").
+- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #17](aws-glue-api-common.md#regex_17 "aws-glue-api-common.md#regex_17").
 
 A description of the integration.
 
@@ -470,7 +471,7 @@ Modifies a Zero-ETL integration in the caller's account.
 
 The Amazon Resource Name (ARN) for the integration.
 
-- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #12](aws-glue-api-common.md#regex_12 "aws-glue-api-common.md#regex_12").
+- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #17](aws-glue-api-common.md#regex_17 "aws-glue-api-common.md#regex_17").
 
 A description of the integration.
 
@@ -489,11 +490,11 @@ A unique name for an integration in AWS Glue.
 
 ###### Response
 
-- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the source for the integration.
 
-- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the target for the integration.
 
@@ -501,7 +502,7 @@ The ARN of the target for the integration.
 
 A unique name for an integration in AWS Glue.
 
-- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #12](aws-glue-api-common.md#regex_12 "aws-glue-api-common.md#regex_12").
+- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #17](aws-glue-api-common.md#regex_17 "aws-glue-api-common.md#regex_17").
 
 A description of the integration.
 
@@ -628,11 +629,11 @@ The Amazon Resource Name (ARN) for the integration.
 
 ###### Response
 
-- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `SourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the source for the integration.
 
-- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `TargetArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The ARN of the target for the integration.
 
@@ -640,7 +641,7 @@ The ARN of the target for the integration.
 
 A unique name for an integration in AWS Glue.
 
-- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #12](aws-glue-api-common.md#regex_12 "aws-glue-api-common.md#regex_12").
+- `Description` – UTF-8 string, not more than 1000 bytes long, matching the [Custom string pattern #17](aws-glue-api-common.md#regex_17 "aws-glue-api-common.md#regex_17").
 
 A description of the integration.
 
@@ -724,7 +725,7 @@ truncated response.
 
 The total number of items to return in the output.
 
-- `TargetArn` – UTF-8 string, not less than 1 or more than 128 bytes long.
+- `TargetArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The Amazon Resource Name (ARN) of the target resource in the integration.
 
@@ -763,7 +764,7 @@ respectively.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The Amazon Resource Name (ARN) of the target table for which to create integration
 table properties. Currently, this API only supports creating integration table
@@ -814,7 +815,7 @@ The override will be reflected across all the integrations using same
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
 
@@ -852,7 +853,7 @@ and partition for source and target tables.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The Amazon Resource Name (ARN) of the target table for which to retrieve
 integration table properties. Currently, this API only supports retrieving
@@ -867,7 +868,7 @@ The name of the table to be replicated.
 
 ###### Response
 
-- `ResourceArn` – UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The Amazon Resource Name (ARN) of the target table for which to retrieve
 integration table properties. Currently, this API only supports retrieving
@@ -905,7 +906,7 @@ need to be replicated.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
 
@@ -940,7 +941,7 @@ respectively.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
 
@@ -952,11 +953,20 @@ The resource properties associated with the integration source.
 
 The resource properties associated with the integration target.
 
+- `Tags` – An array of [Tag](aws-glue-api-common.md#aws-glue-api-common-Tag "aws-glue-api-common.md#aws-glue-api-common-Tag") objects.
+
+Metadata assigned to the resource consisting of a list of key-value pairs.
+
 ###### Response
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
+
+- `ResourcePropertyArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
+
+The resource ARN created through this create API. The format is something
+like arn:aws:glue:<region>:<account\_id>:integrationresourceproperty/\*
 
 - `SourceProcessingProperties` – A [SourceProcessingProperties](#aws-glue-api-integrations-SourceProcessingProperties "#aws-glue-api-integrations-SourceProcessingProperties") object.
 
@@ -988,7 +998,7 @@ using it.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
 
@@ -1002,9 +1012,14 @@ The resource properties associated with the integration target.
 
 ###### Response
 
-- `ResourceArn` – UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
+
+- `ResourcePropertyArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
+
+The resource ARN created through this create API. The format is something
+like arn:aws:glue:<region>:<account\_id>:integrationresourceproperty/\*
 
 - `SourceProcessingProperties` – A [SourceProcessingProperties](#aws-glue-api-integrations-SourceProcessingProperties "#aws-glue-api-integrations-SourceProcessingProperties") object.
 
@@ -1032,15 +1047,20 @@ ARN (for the target)
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
 
 ###### Response
 
-- `ResourceArn` – UTF-8 string, not less than 1 or more than 128 bytes long.
+- `ResourceArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
 The connection ARN of the source, or the database ARN of the target.
+
+- `ResourcePropertyArn` – UTF-8 string, not less than 1 or more than 512 bytes long.
+
+The resource ARN created through this create API. The format is something
+like arn:aws:glue:<region>:<account\_id>:integrationresourceproperty/\*
 
 - `SourceProcessingProperties` – A [SourceProcessingProperties](#aws-glue-api-integrations-SourceProcessingProperties "#aws-glue-api-integrations-SourceProcessingProperties") object.
 
@@ -1066,7 +1086,7 @@ Removes the specified tags from an integration resource.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 The Amazon Resource Name (ARN) for the integration resource.
 
@@ -1080,7 +1100,9 @@ A list of metadata tags to be removed from the resource.
 
 ###### Errors
 
-- `ResourceNotFoundException`
+- `EntityNotFoundException`
+- `InvalidInputException`
+- `InternalServiceException`
 
 ## ListTagsForResource action (Python: list\_tags\_for\_resource)
 
@@ -1088,7 +1110,7 @@ Lists the metadata tags assigned to the specified resource.
 
 ###### Request
 
-- `ResourceARN` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceARN` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 The resource ARN for the resource.
 
@@ -1100,7 +1122,9 @@ A list of tags.
 
 ###### Errors
 
-- `ResourceNotFoundException`
+- `EntityNotFoundException`
+- `InvalidInputException`
+- `InternalServiceException`
 
 ## Exceptions
 

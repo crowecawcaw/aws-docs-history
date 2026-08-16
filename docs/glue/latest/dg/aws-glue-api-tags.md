@@ -37,14 +37,9 @@ value is case-sensitive, and must not contain the prefix aws.
 Adds tags to a resource. A tag is a label you can assign to an AWS resource. In AWS Glue, you can tag only certain resources. For information
 about what resources you can tag, see [AWS Tags in AWS Glue](monitor-tags.md "monitor-tags.md").
 
-In addition to the tagging permissions to call tag related APIs, you also
-need the `glue:GetConnection` permission to call tagging APIs
-on connections, and the `glue:GetDatabase` permission to call
-tagging APIs on databases.
-
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 The ARN of the AWS Glue resource to which to add the tags. For
 more information about AWS Glue resource ARNs, see the [AWS Glue ARN string pattern](aws-glue-api-common.md#aws-glue-api-regex-aws-glue-arn-id "aws-glue-api-common.md#aws-glue-api-regex-aws-glue-arn-id").
@@ -63,7 +58,9 @@ Tags to add to this resource.
 
 ###### Errors
 
-- `ResourceNotFoundException`
+- `EntityNotFoundException`
+- `InvalidInputException`
+- `InternalServiceException`
 
 ## UntagResource action (Python: untag\_resource)
 
@@ -71,7 +68,7 @@ Removes the specified tags from an integration resource.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 The Amazon Resource Name (ARN) for the integration resource.
 
@@ -85,7 +82,9 @@ A list of metadata tags to be removed from the resource.
 
 ###### Errors
 
-- `ResourceNotFoundException`
+- `EntityNotFoundException`
+- `InvalidInputException`
+- `InternalServiceException`
 
 ## GetTags action (Python: get\_tags)
 
@@ -93,7 +92,7 @@ Retrieves a list of tags associated with a resource.
 
 ###### Request
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 The Amazon Resource Name (ARN) of the resource for which to retrieve tags.
 

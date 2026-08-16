@@ -38,7 +38,7 @@ configured in a AWS Glue usage profile.
 
 ###### Fields
 
-- `DefaultValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #35](aws-glue-api-common.md#regex_35 "aws-glue-api-common.md#regex_35").
+- `DefaultValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55 "aws-glue-api-common.md#regex_55").
 
 A default value for the parameter.
 
@@ -46,11 +46,11 @@ A default value for the parameter.
 
 A list of allowed values for the parameter.
 
-- `MinValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #35](aws-glue-api-common.md#regex_35 "aws-glue-api-common.md#regex_35").
+- `MinValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55 "aws-glue-api-common.md#regex_55").
 
 A minimum allowed value for the parameter.
 
-- `MaxValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #35](aws-glue-api-common.md#regex_35 "aws-glue-api-common.md#regex_35").
+- `MaxValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55 "aws-glue-api-common.md#regex_55").
 
 A maximum allowed value for the parameter.
 

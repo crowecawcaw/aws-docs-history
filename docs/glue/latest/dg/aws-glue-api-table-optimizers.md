@@ -65,7 +65,7 @@ configuration when creating or updating a table optimizer.
 
 ###### Fields
 
-- `roleArn` – UTF-8 string, not less than 20 or more than 2048 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+- `roleArn` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
 
 A role passed by the caller which gives the service permission to update
 the resources associated with the optimizer on the caller's behalf.

@@ -48,7 +48,7 @@ The encryption-at-rest mode for encrypting Data Catalog data.
 
 The ID of the AWS KMS key to use for encryption at rest.
 
-- `CatalogEncryptionServiceRole` – UTF-8 string, matching the [Custom string pattern #53](aws-glue-api-common.md#regex_53 "aws-glue-api-common.md#regex_53").
+- `CatalogEncryptionServiceRole` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
 
 The role that AWS Glue assumes to encrypt and decrypt the Data
 Catalog objects on the caller's behalf.
@@ -124,7 +124,7 @@ encrypted.
 
 The encryption mode to use for Amazon S3 data.
 
-- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #42](aws-glue-api-common.md#regex_42 "aws-glue-api-common.md#regex_42").
+- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #39](aws-glue-api-common.md#regex_39 "aws-glue-api-common.md#regex_39").
 
 The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 
@@ -138,7 +138,7 @@ Specifies how Amazon CloudWatch data should be encrypted.
 
 The encryption mode to use for CloudWatch data.
 
-- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #42](aws-glue-api-common.md#regex_42 "aws-glue-api-common.md#regex_42").
+- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #39](aws-glue-api-common.md#regex_39 "aws-glue-api-common.md#regex_39").
 
 The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 
@@ -152,7 +152,7 @@ Specifies how job bookmark data should be encrypted.
 
 The encryption mode to use for job bookmarks data.
 
-- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #42](aws-glue-api-common.md#regex_42 "aws-glue-api-common.md#regex_42").
+- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #39](aws-glue-api-common.md#regex_39 "aws-glue-api-common.md#regex_39").
 
 The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 
@@ -211,7 +211,7 @@ and observations.
 Valid values are `SSEKMS` for encryption using a customer-managed
 KMS key, or `DISABLED`.
 
-- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #42](aws-glue-api-common.md#regex_42 "aws-glue-api-common.md#regex_42").
+- `KmsKeyArn` – UTF-8 string, matching the [Custom string pattern #39](aws-glue-api-common.md#regex_39 "aws-glue-api-common.md#regex_39").
 
 The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 
@@ -287,7 +287,7 @@ Sets the Data Catalog resource policy for access control.
 
 Contains the policy document to set, in JSON format.
 
-- `ResourceArn` – UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceArn` – UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 Do not use. For internal use only.
 
@@ -337,7 +337,7 @@ Retrieves a specified resource policy.
 
 ###### Request
 
-- `ResourceArn` – UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceArn` – UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 The ARN of the AWS Glue resource for which to retrieve the resource
 policy. If not supplied, the Data Catalog resource policy is returned. Use `GetResourcePolicies`
@@ -379,7 +379,7 @@ Deletes a specified policy.
 
 The hash value returned when this policy was set.
 
-- `ResourceArn` – UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+- `ResourceArn` – UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
 
 The ARN of the AWS Glue resource for the resource policy to be
 deleted.

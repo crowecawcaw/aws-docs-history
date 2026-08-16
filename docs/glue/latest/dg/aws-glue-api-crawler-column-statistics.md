@@ -92,7 +92,7 @@ The end time of the task.
 
 The error message for the job.
 
-- `DPUSeconds` – Number (double), not more than None.
+- `DPUSeconds` – Number (double).
 
 The calculated DPU usage in seconds for all autoscaled workers.
 

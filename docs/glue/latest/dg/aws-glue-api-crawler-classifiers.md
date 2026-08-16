@@ -175,11 +175,11 @@ The time that this classifier was last updated.
 
 The version of this classifier.
 
-- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #26](aws-glue-api-common.md#regex_26 "aws-glue-api-common.md#regex_26").
+- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
 
 A custom symbol to denote what separates each column entry in the row.
 
-- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #26](aws-glue-api-common.md#regex_26 "aws-glue-api-common.md#regex_26").
+- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
 
 A custom symbol to denote what combines content into a single column value.
 It must be different from the column delimiter.
@@ -355,11 +355,11 @@ to create.
 
 The name of the classifier.
 
-- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #26](aws-glue-api-common.md#regex_26 "aws-glue-api-common.md#regex_26").
+- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
 
 A custom symbol to denote what separates each column entry in the row.
 
-- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #26](aws-glue-api-common.md#regex_26 "aws-glue-api-common.md#regex_26").
+- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
 
 A custom symbol to denote what combines content into a single column value.
 Must be different from the column delimiter.
@@ -406,11 +406,11 @@ Specifies a custom CSV classifier to be updated.
 
 The name of the classifier.
 
-- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #26](aws-glue-api-common.md#regex_26 "aws-glue-api-common.md#regex_26").
+- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
 
 A custom symbol to denote what separates each column entry in the row.
 
-- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #26](aws-glue-api-common.md#regex_26 "aws-glue-api-common.md#regex_26").
+- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
 
 A custom symbol to denote what combines content into a single column value.
 It must be different from the column delimiter.

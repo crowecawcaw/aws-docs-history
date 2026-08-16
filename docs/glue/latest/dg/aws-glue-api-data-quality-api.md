@@ -32,6 +32,14 @@ the API for creating, deleting, or updating data quality rulesets, runs and eval
 - [RunIdentifier structure](#aws-glue-api-data-quality-api-RunIdentifier "#aws-glue-api-data-quality-api-RunIdentifier")
 - [StatisticModelResult structure](#aws-glue-api-data-quality-api-StatisticModelResult "#aws-glue-api-data-quality-api-StatisticModelResult")
 - [DataQualityGlueTable structure](#aws-glue-api-data-quality-api-DataQualityGlueTable "#aws-glue-api-data-quality-api-DataQualityGlueTable")
+- [DataQualityRuleRecommendationRunAdditionalRunOptions structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions")
+- [DataQualityRuleResultsOptions structure](#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions "#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions")
+- [DistributionData structure](#aws-glue-api-data-quality-api-DistributionData "#aws-glue-api-data-quality-api-DistributionData")
+- [ObservationResultsOptions structure](#aws-glue-api-data-quality-api-ObservationResultsOptions "#aws-glue-api-data-quality-api-ObservationResultsOptions")
+- [ProfilingResultsOptions structure](#aws-glue-api-data-quality-api-ProfilingResultsOptions "#aws-glue-api-data-quality-api-ProfilingResultsOptions")
+- [RowLevelResultsOptions structure](#aws-glue-api-data-quality-api-RowLevelResultsOptions "#aws-glue-api-data-quality-api-RowLevelResultsOptions")
+- [CatalogTableConfigOptions structure](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions")
+- [DistributionResultsOptions structure](#aws-glue-api-data-quality-api-DistributionResultsOptions "#aws-glue-api-data-quality-api-DistributionResultsOptions")
 
 ## DataSource structure
 
@@ -144,7 +152,7 @@ Filter results by runs that started after this time.
 
 - `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
 
-Filter results by runs associated with a specific ruleset name.
+Filter results by the name of the ruleset.
 
 ## DataQualityEvaluationRunAdditionalRunOptions structure
 
@@ -166,7 +174,37 @@ Set the evaluation method for composite rules in the ruleset to ROW/COLUMN
 
 - `CustomLogGroupPrefix` – UTF-8 string.
 
-A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to `<CustomLogGroupPrefix>/error` and `<CustomLogGroupPrefix>/output` instead of the default `/aws-glue/data-quality/error` and `/aws-glue/data-quality/output` log groups. The total log group name, including the suffix (`/error` or `/output`), must not exceed 512 characters.
+A custom prefix for the CloudWatch log group names. When specified, evaluation
+run logs are written to `<CustomLogGroupPrefix>/error`
+and `<CustomLogGroupPrefix>/output` instead of the default
+`/aws-glue/data-quality/error` and `/aws-glue/data-quality/output`
+log groups.
+
+- `RowLevelResults` – A [RowLevelResultsOptions](#aws-glue-api-data-quality-api-RowLevelResultsOptions "#aws-glue-api-data-quality-api-RowLevelResultsOptions") object.
+
+The configuration for writing row-level evaluation results to a AWS Glue Data Catalog table.
+
+- `ProfilingResults` – A [ProfilingResultsOptions](#aws-glue-api-data-quality-api-ProfilingResultsOptions "#aws-glue-api-data-quality-api-ProfilingResultsOptions") object.
+
+The configuration for writing profiling results to a AWS Glue Data Catalog table.
+
+- `ObservationScope` – UTF-8 string (valid values: `ALL` | `NONE`).
+
+The scope of the observation for the evaluation run. Specifies whether
+anomaly detection is enabled or disabled.
+
+- `ObservationMode` – UTF-8 string (valid values: `SCHEDULED` | `FIXED`).
+
+The observation mode for the evaluation run. Specifies how anomaly detection
+bounds are calculated.
+
+- `DataQualityRuleResults` – A [DataQualityRuleResultsOptions](#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions "#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions") object.
+
+The configuration for writing rule results to a AWS Glue Data Catalog table.
+
+- `ObservationResults` – An [ObservationResultsOptions](#aws-glue-api-data-quality-api-ObservationResultsOptions "#aws-glue-api-data-quality-api-ObservationResultsOptions") object.
+
+The configuration for writing observation results to a AWS Glue Data Catalog table.
 
 ## DataQualityRuleRecommendationRunDescription structure
 
@@ -190,6 +228,10 @@ The date and time when this run started.
 
 The data source (AWS Glue table) associated with the recommendation
 run.
+
+- `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+The name of the ruleset that was created by the recommendation run.
 
 ## DataQualityRuleRecommendationRunFilter structure
 
@@ -310,6 +352,14 @@ Each value is a Number (double).
 
 A map of metrics associated with the evaluation of the analyzer.
 
+- `EvaluatedDistributions` – A map array of key-value pairs.
+
+Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+Each value is a A [DistributionData](#aws-glue-api-data-quality-api-DistributionData "#aws-glue-api-data-quality-api-DistributionData") object.
+
+A map of distribution metrics associated with the evaluation of the analyzer.
+
 ## DataQualityObservation structure
 
 Describes the observation generated after evaluating the rules and analyzers.
@@ -418,6 +468,14 @@ Each value is a Number (double).
 
 A map containing metrics associated with the evaluation of the rule based
 on row-level results.
+
+- `Labels` – A map array of key-value pairs.
+
+Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+Each value is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A map containing labels assigned to the data quality rule.
 
 ## DataQualityResultDescription structure
 
@@ -635,13 +693,17 @@ The Profile ID.
 
 The Run Identifier
 
-- `StatisticName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #16](aws-glue-api-common.md#regex_16 "aws-glue-api-common.md#regex_16").
+- `StatisticName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #21](aws-glue-api-common.md#regex_21 "aws-glue-api-common.md#regex_21").
 
 The name of the statistic.
 
 - `DoubleValue` – Number (double).
 
 The value of the statistic.
+
+- `DistributionValue` – A [DistributionData](#aws-glue-api-data-quality-api-DistributionData "#aws-glue-api-data-quality-api-DistributionData") object.
+
+The distribution value for the statistic.
 
 - `EvaluationLevel` – UTF-8 string (valid values: `Dataset="DATASET"` | `Column="COLUMN"` | `Multicolumn="MULTICOLUMN"`).
 
@@ -757,6 +819,143 @@ Additional options for the table. Currently there are two keys supported:
 
 SQL Query of SparkSQL format that can be used to pre-process the data for
 the table in AWS Glue Data Catalog, before running the Data Quality Operation.
+
+## DataQualityRuleRecommendationRunAdditionalRunOptions structure
+
+Additional run options you can specify for a recommendation run.
+
+###### Fields
+
+- `CustomLogGroupPrefix` – UTF-8 string.
+
+A custom prefix for the CloudWatch log group names. When specified, recommendation
+run logs are written to `<CustomLogGroupPrefix>/error`
+and `<CustomLogGroupPrefix>/output` instead of the default
+`/aws-glue/data-quality/error` and `/aws-glue/data-quality/output`
+log groups.
+
+## DataQualityRuleResultsOptions structure
+
+The configuration for writing data quality rule results.
+
+###### Fields
+
+- `WriteDataQualityRuleResultsEnabled` – Boolean.
+
+Set to true to write data quality rule results.
+
+- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
+
+The AWS Glue Data Catalog table configuration for storing the rule
+results.
+
+## DistributionData structure
+
+The distribution data for a statistic.
+
+###### Fields
+
+- `BinEdges` – An array of UTF-8 strings.
+
+The bin edge values for the distribution.
+
+- `Count` – An array of signed 32-bit integers.
+
+The frequency count for each bin in the distribution.
+
+- `DataType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+The data type of the column for the distribution.
+
+## ObservationResultsOptions structure
+
+The configuration for writing observation results.
+
+###### Fields
+
+- `WriteObservationResultsEnabled` – Boolean.
+
+Set to true to write observation results.
+
+- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
+
+The AWS Glue Data Catalog table configuration for storing the observation
+results.
+
+## ProfilingResultsOptions structure
+
+The configuration for writing profiling results.
+
+###### Fields
+
+- `WriteProfilingResultsEnabled` – Boolean.
+
+Set to true to write profiling results.
+
+- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
+
+The AWS Glue Data Catalog table configuration for storing the profiling
+results.
+
+- `DistributionResults` – A [DistributionResultsOptions](#aws-glue-api-data-quality-api-DistributionResultsOptions "#aws-glue-api-data-quality-api-DistributionResultsOptions") object.
+
+The configuration for writing distribution results.
+
+## RowLevelResultsOptions structure
+
+The configuration for writing row-level evaluation results.
+
+###### Fields
+
+- `MaxRowsToWrite` – Number (integer).
+
+The maximum number of rows to write in the results.
+
+- `ResultType` – UTF-8 string (valid values: `ALL` | `PASSED_ONLY` | `FAILED_ONLY`).
+
+The result type to include in the row-level results output.
+
+- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
+
+The AWS Glue Data Catalog table configuration for storing the results.
+
+## CatalogTableConfigOptions structure
+
+The configuration for a AWS Glue Data Catalog table used to store
+data quality results.
+
+###### Fields
+
+- `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+The name of the database in the AWS Glue Data Catalog.
+
+- `TableName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+The name of the table in the AWS Glue Data Catalog.
+
+- `S3Location` – UTF-8 string.
+
+The Amazon S3 location for storing the results.
+
+- `CatalogId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique identifier for the AWS Glue Data Catalog.
+
+## DistributionResultsOptions structure
+
+The configuration for writing distribution results.
+
+###### Fields
+
+- `WriteDistributionResultsEnabled` – Boolean.
+
+Set to true to write distribution results.
+
+- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
+
+The AWS Glue Data Catalog table configuration for storing the distribution
+results.
 
 ## Operations
 
@@ -1045,6 +1244,10 @@ option.
 Used for idempotency and is recommended to be set to a random ID (such as
 a UUID) to avoid creating or starting multiple instances of the same resource.
 
+- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
+
+Additional run options you can specify for a recommendation run.
+
 ###### Response
 
 - `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
@@ -1157,6 +1360,10 @@ The name of the ruleset that was created by the run.
 The name of the security configuration created with the data quality encryption
 option.
 
+- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
+
+Additional run options you can specify for a recommendation run.
+
 ###### Errors
 
 - `EntityNotFoundException`
@@ -1181,6 +1388,14 @@ A paginated token to offset the results.
 - `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
 The maximum number of results to return.
+
+- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+
+Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+
+Each value is a UTF-8 string, not more than 256 bytes long.
+
+A list of key-value pair tags to filter recommendation runs.
 
 ###### Response
 
@@ -1834,6 +2049,10 @@ option.
 Used for idempotency and is recommended to be set to a random ID (such as
 a UUID) to avoid creating or starting multiple instances of the same resource.
 
+- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
+
+Additional run options you can specify for a recommendation run.
+
 ## GetDataQualityRuleRecommendationRunResponse structure
 
 The response for the Data Quality rule recommendation run.
@@ -1902,6 +2121,10 @@ The name of the ruleset that was created by the run.
 
 The name of the security configuration created with the data quality encryption
 option.
+
+- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
+
+Additional run options you can specify for a recommendation run.
 
 ## BatchPutDataQualityStatisticAnnotation action (Python: batch\_put\_data\_quality\_statistic\_annotation)
 

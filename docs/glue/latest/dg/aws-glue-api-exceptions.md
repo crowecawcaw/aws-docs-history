@@ -355,6 +355,6 @@ There was a version conflict.
 
 ###### Fields
 
-- `message` – UTF-8 string.
+- `Message` – UTF-8 string.
 
 A message describing the problem.

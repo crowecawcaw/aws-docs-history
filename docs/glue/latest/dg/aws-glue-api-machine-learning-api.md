@@ -137,7 +137,7 @@ required by the transform.
      S3) sources, targets, temporary directory, scripts, and any libraries used
      by the task run for this transform.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 This value determines which version of AWS Glue this machine
 learning transform is compatible with. Glue 1.0 is recommended for most customers.
@@ -461,7 +461,7 @@ Filters the list of machine learning transforms by the last known status
 of the transforms (to indicate whether a transform can be used or not). One of "NOT\_READY",
 "READY", or "DELETING".
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 This value determines which version of AWS Glue this machine
 learning transform is compatible with. Glue 1.0 is recommended for most customers.
@@ -768,7 +768,7 @@ required by the transform.
      S3) sources, targets, temporary directory, scripts, and any libraries used
      by the task run for this transform.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 This value determines which version of AWS Glue this machine
 learning transform is compatible with. Glue 1.0 is recommended for most customers.
@@ -910,7 +910,7 @@ The configuration parameters that are specific to the transform type
 The name or Amazon Resource Name (ARN) of the IAM role with the required
 permissions.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 This value determines which version of AWS Glue this machine
 learning transform is compatible with. Glue 1.0 is recommended for most customers.
@@ -1070,7 +1070,7 @@ schema that this transform accepts. Has an upper bound of 100 columns.
 The name or Amazon Resource Name (ARN) of the IAM role with the required
 permissions.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 This value determines which version of AWS Glue this machine
 learning transform is compatible with. Glue 1.0 is recommended for most customers.

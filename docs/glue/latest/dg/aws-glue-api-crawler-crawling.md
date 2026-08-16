@@ -221,7 +221,7 @@ Specifies a target that writes to a Delta Lake data source in the AWS Glue Data 
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -233,19 +233,19 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the connector.
 
@@ -269,7 +269,7 @@ Specifies a target that writes to a Delta Lake data source in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -281,7 +281,7 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon S3 path of your Delta Lake data source to write to.
 
@@ -302,9 +302,9 @@ Specifies the data output format for the target.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the connector.
 
@@ -524,7 +524,7 @@ Metrics for a specified crawler.
 
 The name of the crawler.
 
-- `TimeLeftSeconds` – Number (double), not more than None.
+- `TimeLeftSeconds` – Number (double).
 
 The estimated time left to complete a running crawl.
 
@@ -533,23 +533,23 @@ The estimated time left to complete a running crawl.
 True if the crawler is still estimating how long it will take to complete
 this run.
 
-- `LastRuntimeSeconds` – Number (double), not more than None.
+- `LastRuntimeSeconds` – Number (double).
 
 The duration of the crawler's most recent run, in seconds.
 
-- `MedianRuntimeSeconds` – Number (double), not more than None.
+- `MedianRuntimeSeconds` – Number (double).
 
 The median duration of this crawler's runs, in seconds.
 
-- `TablesCreated` – Number (integer), not more than None.
+- `TablesCreated` – Number (integer).
 
 The number of tables created by this crawler.
 
-- `TablesUpdated` – Number (integer), not more than None.
+- `TablesUpdated` – Number (integer).
 
 The number of tables updated by this crawler.
 
-- `TablesDeleted` – Number (integer), not more than None.
+- `TablesDeleted` – Number (integer).
 
 The number of tables deleted by this crawler.
 
@@ -596,7 +596,7 @@ The log stream associated with the crawl.
 
 The prefix for a CloudWatch message about this crawl.
 
-- `DPUHour` – Number (double), not more than None.
+- `DPUHour` – Number (double).
 
 The number of data processing units (DPU) used in hours for the crawl.
 

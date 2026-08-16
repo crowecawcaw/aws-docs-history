@@ -59,7 +59,7 @@ During preview, you can associate a maximum of 10 glossary terms per asset.
 
 ```
 aws glue associate-glossary-terms \
-    --identifier `asset-id` \
+    --asset-identifier `asset-id` \
     --glossary-term-identifiers '["`term-id-1`", "`term-id-2`"]'
 ```
 
@@ -67,11 +67,8 @@ Example output:
 
 ```
 {
-    "Identifier": "c2fymbu18rtsx5",
-    "GlossaryTerms": [
-        {"Id": "gt-d7xm3np5rk2w9j", "Name": "Active User"},
-        {"Id": "gt-h4kp9wt6mq3v2n", "Name": "PII"}
-    ]
+    "AssetIdentifier": "`asset-id`",
+    "GlossaryTerms": ["`term-id-1`", "`term-id-2`"]
 }
 ```
 
@@ -81,7 +78,52 @@ Use `DisassociateGlossaryTerms` to remove term associations from an asset.
 
 ```
 aws glue disassociate-glossary-terms \
-    --identifier `asset-id` \
+    --asset-identifier `asset-id` \
+    --glossary-term-identifiers '["`term-id`"]'
+```
+
+## Associating glossary terms with a single column
+
+You can scope a glossary term association to a single item of an iterable
+form—for example, one column of a table—instead of the entire asset. To do this,
+pass `--iterable-form-name` and `--item-identifier` alongside
+the asset identifier. Each column is a single item of the `columns`
+iterable form, and the column name is the item identifier.
+
+###### Note
+
+You can associate a maximum of 5 glossary terms per column.
+
+```
+aws glue associate-glossary-terms \
+    --asset-identifier `asset-id` \
+    --iterable-form-name columns \
+    --item-identifier `column-name` \
+    --glossary-term-identifiers '["`term-id`"]'
+```
+
+The response echoes the iterable form name and item identifier along with the
+column's current term list:
+
+```
+{
+    "AssetIdentifier": "`asset-id`",
+    "IterableFormName": "columns",
+    "ItemIdentifier": "`column-name`",
+    "GlossaryTerms": ["`term-id`"]
+}
+```
+
+To remove a term from a column, use the `disassociate-glossary-terms`
+command with the same `--iterable-form-name` and `--item-identifier`
+parameters. Terms associated at the asset level and terms associated on individual
+columns are independent.
+
+```
+aws glue disassociate-glossary-terms \
+    --asset-identifier `asset-id` \
+    --iterable-form-name columns \
+    --item-identifier `column-name` \
     --glossary-term-identifiers '["`term-id`"]'
 ```
 

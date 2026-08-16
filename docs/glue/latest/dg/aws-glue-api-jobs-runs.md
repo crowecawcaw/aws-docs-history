@@ -53,15 +53,10 @@ is assigned as the default value.
 
 - `JobRunQueuingEnabled` – Boolean.
 
-Specifies whether job run queuing is enabled for this job run.
+Specifies whether job run queuing is enabled for the job run.
 
-A value of true means job run queuing is enabled for this job run, allowing it to wait in a queue when resources are unavailable (such as when concurrent job limits are reached or insufficient DPUs are available) instead of failing immediately.
-
-###### Note
-
-For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
-
-If false or not populated, the job run will fail immediately when resources are not available.
+A value of true means job run queuing is enabled for the job run. If false
+or not populated, the job run will not be considered for queueing.
 
 - `StartedOn` – Timestamp.
 
@@ -174,10 +169,10 @@ Spark streaming ETL job:
      you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
      have a fractional DPU allocation.
 
-- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.025X=""` | `G.1X=""` | `G.2X=""` | `G.4X=""` | `G.8X=""` | `G.12X=""` | `G.16X=""` | `R.1X=""` | `R.2X=""` | `R.4X=""` | `R.8X=""` | `Z.2X=""`).
+- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.1X=""` | `G.2X=""` | `G.025X=""` | `G.4X=""` | `G.8X=""` | `Z.2X=""`).
 
 The type of predefined worker that is allocated when a job runs. Accepts
-a value of G.025X, G.1X, G.2X, G.4X, G.8X, G.12X, G.16X, R.1X, R.2X, R.4X, or R.8X for Spark jobs. Accepts the value Z.2X
+a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X
 for Ray jobs.
 
     + For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPUs,
@@ -199,34 +194,10 @@ for Ray jobs.
      this worker type for jobs whose workloads contain your most demanding transforms,
      aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs, in the same AWS
      Regions as supported for the `G.4X` worker type.
-    + For the `G.12X` worker type, each worker maps to 12 DPU (48 vCPUs,
-     192 GB of memory) with 768GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs with very large workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `G.16X` worker type, each worker maps to 16 DPU (64 vCPUs,
-     256 GB of memory) with 1024GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs with very large workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
     + For the `G.025X` worker type, each worker maps to 0.25 DPU
      (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We
      recommend this worker type for low volume streaming jobs. This worker type is
      only available for AWS Glue version 3.0 or later streaming jobs.
-    + For the `R.1X` worker type, each worker maps to 1 DPU (4 vCPUs,
-     32 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.2X` worker type, each worker maps to 2 DPU (8 vCPUs,
-     64 GB of memory) with 128GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.4X` worker type, each worker maps to 4 DPU (16 vCPUs,
-     128 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.8X` worker type, each worker maps to 8 DPU (32 vCPUs,
-     256 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
     + For the `Z.2X` worker type, each worker maps to 2 M-DPU (8vCPUs,
      64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.
 
@@ -252,7 +223,7 @@ then that security configuration is used to encrypt the log group.
 
 Specifies configuration properties of a job run notification.
 
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
+- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
 
 In Spark jobs, `GlueVersion` determines the versions of
 Apache Spark and Python that AWS Glue available in a job. The Python
@@ -295,7 +266,7 @@ Only jobs with AWS Glue version 3.0 and above and command type
 `glueetl` will be allowed to set `ExecutionClass`
 to `FLEX`. The flexible execution class is available for Spark jobs.
 
-- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #34](aws-glue-api-common.md#regex_34 "aws-glue-api-common.md#regex_34").
+- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
 
 This field specifies a day of the week and hour for a maintenance window
 for streaming jobs. AWS Glue periodically performs maintenance
@@ -442,13 +413,8 @@ The name of the job definition to use.
 
 Specifies whether job run queuing is enabled for the job run.
 
-A value of true means job run queuing is enabled for the job run, allowing it to wait in a queue when resources are unavailable (such as when concurrent job limits are reached or insufficient DPUs are available) instead of failing immediately.
-
-###### Note
-
-For VPC-based jobs experiencing IP exhaustion: queuing will activate only if the IP shortage is detected at job launch time. If IP exhaustion occurs after the driver has started (during executor provisioning), the job will fail instead of being queued.
-
-If false or not populated, the job run will fail immediately when resources are not available.
+A value of true means job run queuing is enabled for the job run. If false
+or not populated, the job run will not be considered for queueing.
 
 - `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
 
@@ -570,34 +536,10 @@ for Ray jobs.
      this worker type for jobs whose workloads contain your most demanding transforms,
      aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs, in the same AWS
      Regions as supported for the `G.4X` worker type.
-    + For the `G.12X` worker type, each worker maps to 12 DPU (48 vCPUs,
-     192 GB of memory) with 768GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs with very large workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `G.16X` worker type, each worker maps to 16 DPU (64 vCPUs,
-     256 GB of memory) with 1024GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs with very large workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
     + For the `G.025X` worker type, each worker maps to 0.25 DPU
      (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We
      recommend this worker type for low volume streaming jobs. This worker type is
      only available for AWS Glue version 3.0 or later streaming jobs.
-    + For the `R.1X` worker type, each worker maps to 1 DPU (4 vCPUs,
-     32 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.2X` worker type, each worker maps to 2 DPU (8 vCPUs,
-     64 GB of memory) with 128GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.4X` worker type, each worker maps to 4 DPU (16 vCPUs,
-     128 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
-    + For the `R.8X` worker type, each worker maps to 8 DPU (32 vCPUs,
-     256 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend
-     this worker type for memory-intensive workloads. This worker type is available
-     only for AWS Glue version 4.0 or later Spark ETL jobs.
     + For the `Z.2X` worker type, each worker maps to 2 M-DPU (8vCPUs,
      64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.
 

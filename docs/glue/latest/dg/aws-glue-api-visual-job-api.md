@@ -488,7 +488,7 @@ Additional connection options for the connector.
 
 ###### Fields
 
-- `FilterPredicate` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `FilterPredicate` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Extra condition clause to filter data from source. For example:
 
@@ -497,24 +497,24 @@ Extra condition clause to filter data from source. For example:
 When using a query instead of a table name, you should validate that the
 query works with the specified `filterPredicate`.
 
-- `PartitionColumn` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `PartitionColumn` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of an integer column that is used for partitioning. This option
 works only when it's included with `lowerBound`, `upperBound`,
 and `numPartitions`. This option works the same way as in the Spark
 SQL JDBC reader.
 
-- `LowerBound` – Number (long), not more than None.
+- `LowerBound` – Number (long).
 
 The minimum value of `partitionColumn` that is used to decide
 partition stride.
 
-- `UpperBound` – Number (long), not more than None.
+- `UpperBound` – Number (long).
 
 The maximum value of `partitionColumn` that is used to decide
 partition stride.
 
-- `NumPartitions` – Number (long), not more than None.
+- `NumPartitions` – Number (long).
 
 The number of partitions. This value, along with `lowerBound`
 (inclusive) and `upperBound` (exclusive), form partition strides
@@ -525,7 +525,7 @@ the `partitionColumn`.
 
 The name of the job bookmark keys on which to sort.
 
-- `JobBookmarkKeysSortOrder` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `JobBookmarkKeysSortOrder` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies an ascending or descending sort order.
 
@@ -565,28 +565,28 @@ Specifies a connector to an Amazon Athena data source.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the connection that is associated with the connector.
 
-- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of a connector that assists with accessing the data store in AWS Glue Studio.
 
-- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The type of connection, such as marketplace.athena or custom.athena,
 designating a connection to an Amazon Athena data store.
 
-- `ConnectionTable` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionTable` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the data source.
 
-- `SchemaName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `SchemaName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the Cloudwatch log group to read from. For example, `/aws-glue/jobs/output`.
 
@@ -600,19 +600,19 @@ Specifies a connector to a JDBC data source.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the connection that is associated with the connector.
 
-- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of a connector that assists with accessing the data store in AWS Glue Studio.
 
-- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The type of connection, such as marketplace.jdbc or custom.jdbc, designating
 a connection to a JDBC data store.
@@ -621,11 +621,11 @@ a connection to a JDBC data store.
 
 Additional connection options for the connector.
 
-- `ConnectionTable` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionTable` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the data source.
 
-- `Query` – UTF-8 string, matching the [Custom string pattern #62](aws-glue-api-common.md#regex_62 "aws-glue-api-common.md#regex_62").
+- `Query` – UTF-8 string, matching the [Custom string pattern #67](aws-glue-api-common.md#regex_67 "aws-glue-api-common.md#regex_67").
 
 The table or SQL query to get the data from. You can specify either `ConnectionTable`
 or `query`, but not both.
@@ -640,28 +640,28 @@ Specifies a connector to an Apache Spark data source.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the connection that is associated with the connector.
 
-- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of a connector that assists with accessing the data store in AWS Glue Studio.
 
-- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The type of connection, such as marketplace.spark or custom.spark, designating
 a connection to an Apache Spark data store.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Additional connection options for the connector.
 
@@ -675,19 +675,19 @@ Specifies a data store in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
-- `PartitionPredicate` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `PartitionPredicate` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Partitions satisfying this predicate are deleted. Files within the retention
 period in these partitions are not deleted.
@@ -702,15 +702,15 @@ Specifies a MySQL data source in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
@@ -720,15 +720,15 @@ Specifies a PostgresSQL data source in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
@@ -738,15 +738,15 @@ Specifies an Oracle data source in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
@@ -757,15 +757,15 @@ Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
@@ -775,11 +775,11 @@ Specifies a Kinesis data source in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `WindowSize` – Number (integer), not more than None.
+- `WindowSize` – Number (integer).
 
 The amount of time to spend processing each micro batch.
 
@@ -787,11 +787,11 @@ The amount of time to spend processing each micro batch.
 
 Whether to automatically determine the schema from the incoming data.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
@@ -809,11 +809,11 @@ Specifies a direct Amazon Kinesis data source.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `WindowSize` – Number (integer), not more than None.
+- `WindowSize` – Number (integer).
 
 The amount of time to spend processing each micro batch.
 
@@ -835,19 +835,19 @@ Additional options for the Amazon Kinesis streaming data source.
 
 ###### Fields
 
-- `EndpointUrl` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `EndpointUrl` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The URL of the Kinesis endpoint.
 
-- `StreamName` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `StreamName` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the Kinesis data stream.
 
-- `Classification` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Classification` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 An optional classification.
 
-- `Delimiter` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Delimiter` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the delimiter character.
 
@@ -863,14 +863,14 @@ default value is `"latest"`.
 Note: Using a value that is a timestamp string in UTC format for "startingPosition"
 is supported only for AWS Glue version 4.0 or later.
 
-- `MaxFetchTimeInMs` – Number (long), not more than None.
+- `MaxFetchTimeInMs` – Number (long).
 
 The maximum time spent for the job executor to read records for the current
 batch from the Kinesis data stream, specified in milliseconds (ms). Multiple
 `GetRecords` API calls may be made within this time. The default
 value is `1000`.
 
-- `MaxFetchRecordsPerShard` – Number (long), not more than None.
+- `MaxFetchRecordsPerShard` – Number (long).
 
 The maximum number of records to fetch per shard in the Kinesis data stream
 per microbatch. Note: The client can exceed this limit if the streaming job has
@@ -878,7 +878,7 @@ already read extra records from Kinesis (in the same get-records call). If `MaxF
 needs to be strict then it needs to be a multiple of `MaxRecordPerRead`.
 The default value is `100000`.
 
-- `MaxRecordPerRead` – Number (long), not more than None.
+- `MaxRecordPerRead` – Number (long).
 
 The maximum number of records to fetch from the Kinesis data stream in each
 getRecords operation. The default value is `10000`.
@@ -889,28 +889,28 @@ Adds a time delay between two consecutive getRecords operations. The
 default value is `"False"`. This option is only configurable for
 AWS Glue version 2.0 and above.
 
-- `IdleTimeBetweenReadsInMs` – Number (long), not more than None.
+- `IdleTimeBetweenReadsInMs` – Number (long).
 
 The minimum time delay between two consecutive getRecords operations,
 specified in ms. The default value is `1000`. This option is only
 configurable for AWS Glue version 2.0 and above.
 
-- `DescribeShardInterval` – Number (long), not more than None.
+- `DescribeShardInterval` – Number (long).
 
 The minimum time interval between two ListShards API calls for your script
 to consider resharding. The default value is `1s`.
 
-- `NumRetries` – Number (integer), not more than None.
+- `NumRetries` – Number (integer).
 
 The maximum number of retries for Kinesis Data Streams API requests. The
 default value is `3`.
 
-- `RetryIntervalMs` – Number (long), not more than None.
+- `RetryIntervalMs` – Number (long).
 
 The cool-off time period (specified in ms) before retrying the Kinesis
 Data Streams API call. The default value is `1000`.
 
-- `MaxRetryIntervalMs` – Number (long), not more than None.
+- `MaxRetryIntervalMs` – Number (long).
 
 The maximum cool-off time period (specified in ms) between two retries
 of a Kinesis Data Streams API call. The default value is `10000`.
@@ -920,31 +920,31 @@ of a Kinesis Data Streams API call. The default value is `10000`.
 Avoids creating an empty microbatch job by checking for unread data in
 the Kinesis data stream before the batch is started. The default value is `"False"`.
 
-- `StreamArn` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `StreamArn` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon Resource Name (ARN) of the Kinesis data stream.
 
-- `RoleArn` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RoleArn` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon Resource Name (ARN) of the role to assume using AWS Security
 Token Service (AWS STS). This role must have permissions for describe or read
 record operations for the Kinesis data stream. You must use this parameter when
 accessing a data stream in a different account. Used in conjunction with `"awsSTSSessionName"`.
 
-- `RoleSessionName` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RoleSessionName` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 An identifier for the session assuming the role using AWS STS. You must
 use this parameter when accessing a data stream in a different account. Used in
 conjunction with `"awsSTSRoleARN"`.
 
-- `AddRecordTimestamp` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `AddRecordTimestamp` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 When this option is set to 'true', the data output will contain an additional
 column named "\_\_src\_timestamp" that indicates the time when the corresponding
 record received by the stream. The default value is 'false'. This option is supported
 in AWS Glue version 4.0 or later.
 
-- `EmitConsumerLagMetrics` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `EmitConsumerLagMetrics` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 When this option is set to 'true', for each batch, it will emit the metrics
 for the duration between the oldest record received by the stream and the time
@@ -959,7 +959,7 @@ data from. The possible values are a timestamp string in UTC format of the patte
 `yyyy-mm-ddTHH:MM:SSZ` (where Z represents a UTC timezone offset
 with a +/-. For example: "2023-04-04T08:00:00+08:00").
 
-- `FanoutConsumerARN` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `FanoutConsumerARN` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon Resource Name (ARN) of the Kinesis Data Streams enhanced fan-out
 consumer. When specified, enables enhanced fan-out for dedicated throughput
@@ -971,11 +971,11 @@ Specifies an Apache Kafka data store in the Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
-- `WindowSize` – Number (integer), not more than None.
+- `WindowSize` – Number (integer).
 
 The amount of time to spend processing each micro batch.
 
@@ -983,11 +983,11 @@ The amount of time to spend processing each micro batch.
 
 Whether to automatically determine the schema from the incoming data.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
@@ -1006,7 +1006,7 @@ Specifies an Apache Kafka data store.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
@@ -1014,7 +1014,7 @@ The name of the data store.
 
 Specifies the streaming options.
 
-- `WindowSize` – Number (integer), not more than None.
+- `WindowSize` – Number (integer).
 
 The amount of time to spend processing each micro batch.
 
@@ -1033,79 +1033,79 @@ Additional options for streaming.
 
 ###### Fields
 
-- `BootstrapServers` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `BootstrapServers` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A list of bootstrap server URLs, for example, as `b-1.vpc-test-2.o4q88o.c6.kafka.us-east-1.amazonaws.com:9094`.
 This option must be specified in the API call or defined in the table metadata in
 the Data Catalog.
 
-- `SecurityProtocol` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `SecurityProtocol` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The protocol used to communicate with brokers. The possible values are
 `"SSL"` or `"PLAINTEXT"`.
 
-- `ConnectionName` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the connection.
 
-- `TopicName` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `TopicName` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The topic name as specified in Apache Kafka. You must specify at least one
 of `"topicName"`, `"assign"` or `"subscribePattern"`.
 
-- `Assign` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Assign` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The specific `TopicPartitions` to consume. You must specify
 at least one of `"topicName"`, `"assign"` or `"subscribePattern"`.
 
-- `SubscribePattern` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `SubscribePattern` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A Java regex string that identifies the topic list to subscribe to. You
 must specify at least one of `"topicName"`, `"assign"`
 or `"subscribePattern"`.
 
-- `Classification` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Classification` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 An optional classification.
 
-- `Delimiter` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Delimiter` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the delimiter character.
 
-- `StartingOffsets` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `StartingOffsets` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The starting position in the Kafka topic to read data from. The possible
 values are `"earliest"` or `"latest"`. The default
 value is `"latest"`.
 
-- `EndingOffsets` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `EndingOffsets` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The end point when a batch query is ended. Possible values are either `"latest"`
 or a JSON string that specifies an ending offset for each `TopicPartition`.
 
-- `PollTimeoutMs` – Number (long), not more than None.
+- `PollTimeoutMs` – Number (long).
 
 The timeout in milliseconds to poll data from Kafka in Spark job executors.
 The default value is `512`.
 
-- `NumRetries` – Number (integer), not more than None.
+- `NumRetries` – Number (integer).
 
 The number of times to retry before failing to fetch Kafka offsets. The
 default value is `3`.
 
-- `RetryIntervalMs` – Number (long), not more than None.
+- `RetryIntervalMs` – Number (long).
 
 The time in milliseconds to wait before retrying to fetch Kafka offsets.
 The default value is `10`.
 
-- `MaxOffsetsPerTrigger` – Number (long), not more than None.
+- `MaxOffsetsPerTrigger` – Number (long).
 
 The rate limit on the maximum number of offsets that are processed per trigger
 interval. The specified total number of offsets is proportionally split across
 `topicPartitions` of different volumes. The default value is null,
 which means that the consumer reads all offsets until the known latest offset.
 
-- `MinPartitions` – Number (integer), not more than None.
+- `MinPartitions` – Number (integer).
 
 The desired minimum number of partitions to read from Kafka. The default
 value is null, which means that the number of spark partitions is equal to the number
@@ -1119,14 +1119,14 @@ with type `Array[Struct(key: String, value: String)]`. The default
 value is "false". This option is available in AWS Glue version 3.0
 or later only.
 
-- `AddRecordTimestamp` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `AddRecordTimestamp` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 When this option is set to 'true', the data output will contain an additional
 column named "\_\_src\_timestamp" that indicates the time when the corresponding
 record received by the topic. The default value is 'false'. This option is supported
 in AWS Glue version 4.0 or later.
 
-- `EmitConsumerLagMetrics` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `EmitConsumerLagMetrics` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 When this option is set to 'true', for each batch, it will emit the metrics
 for the duration between the oldest record received by the topic and the time it
@@ -1149,24 +1149,24 @@ Specifies an Amazon Redshift data store.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Amazon Redshift data store.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database table to read from.
 
-- `RedshiftTmpDir` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RedshiftTmpDir` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon S3 path where temporary data can be staged when copying out of
 the database.
 
-- `TmpDirIAMRole` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `TmpDirIAMRole` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The IAM role with permissions.
 
@@ -1176,7 +1176,7 @@ Specifies an Amazon Redshift source.
 
 ###### Fields
 
-- `Name` – UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Amazon Redshift source.
 
@@ -1190,12 +1190,12 @@ Specifies an Amazon Redshift node.
 
 ###### Fields
 
-- `AccessType` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `AccessType` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The access type for the Redshift connection. Can be a direct connection
 or catalog connections.
 
-- `SourceType` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `SourceType` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The source type to specify whether a specific table is the source or a custom
 query.
@@ -1230,7 +1230,7 @@ The Redshift schema name when working with a data catalog.
 
 The database table to read from.
 
-- `TempDir` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `TempDir` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon S3 path where temporary data can be staged when copying out of
 the database.
@@ -1261,7 +1261,7 @@ The SQL used before a MERGE or APPEND with upsert is run.
 
 Specifies how writing to a Redshift cluser will occur.
 
-- `TablePrefix` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `TablePrefix` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Specifies the prefix to a table.
 
@@ -1269,16 +1269,16 @@ Specifies the prefix to a table.
 
 The action used on Redshift sinks when doing an APPEND.
 
-- `MergeAction` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `MergeAction` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The action used when to detemine how a MERGE in a Redshift sink will be handled.
 
-- `MergeWhenMatched` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `MergeWhenMatched` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The action used when to detemine how a MERGE in a Redshift sink will be handled
 when an existing record matches a new record.
 
-- `MergeWhenNotMatched` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `MergeWhenNotMatched` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The action used when to detemine how a MERGE in a Redshift sink will be handled
 when an existing record doesn't match a new record.
@@ -1326,15 +1326,15 @@ Specifies an option value.
 
 ###### Fields
 
-- `Value` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Value` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the value of the option.
 
-- `Label` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Label` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the label of the option.
 
-- `Description` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Description` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the description of the option.
 
@@ -1344,19 +1344,19 @@ Specifies an Amazon S3 data store in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database table to read from.
 
-- `PartitionPredicate` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `PartitionPredicate` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Partitions satisfying this predicate are deleted. Files within the retention
 period in these partitions are not deleted. Set to `""` –
@@ -1388,7 +1388,7 @@ S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
@@ -1407,14 +1407,14 @@ and `"bzip"`).
 A string containing a JSON list of Unix-style glob patterns to exclude.
 For example, "[\"\*\*.pdf\"]" excludes all PDF files.
 
-- `GroupSize` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupSize` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The target group size in bytes. The default is computed based on the input
 data size and the size of your cluster. When there are fewer than 50,000 input files,
 `"groupFiles"` must be set to `"inPartition"` for
 this to take effect.
 
-- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Grouping files is turned on by default when the input contains more than
 50,000 files. To turn on grouping with fewer than 50,000 files, set this parameter
@@ -1426,7 +1426,7 @@ set this parameter to `"none"`.
 If set to true, recursively reads files in all subdirectories under the
 specified paths.
 
-- `MaxBand` – Number (integer), not more than None.
+- `MaxBand` – Number (integer).
 
 This option controls the duration in milliseconds after which the s3 listing
 is likely to be consistent. Files with modification timestamps falling within
@@ -1434,7 +1434,7 @@ the last maxBand milliseconds are tracked specially when using JobBookmarks
 to account for Amazon S3 eventual consistency. Most users don't need to set this
 option. The default is 900000 milliseconds, or 15 minutes.
 
-- `MaxFilesInBand` – Number (integer), not more than None.
+- `MaxFilesInBand` – Number (integer).
 
 This option specifies the maximum number of files to save from the last
 maxBand seconds. If this number is exceeded, extra files are skipped and only
@@ -1449,7 +1449,7 @@ Specifies additional connection options.
 Specifies the delimiter character. The default is a comma: ",", but any
 other character can be specified.
 
-- `Escaper` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Escaper` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies a character to use for escaping. This option is used only when
 reading CSV files. The default value is `none`. If enabled, the character
@@ -1499,19 +1499,19 @@ Specifies the direct JDBC source connection.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the JDBC source connection.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database of the JDBC source connection.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The table of the JDBC source connection.
 
-- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The connection name of the JDBC source.
 
@@ -1519,7 +1519,7 @@ The connection name of the JDBC source.
 
 The connection type of the JDBC source.
 
-- `RedshiftTmpDir` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RedshiftTmpDir` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The temp directory of the JDBC Redshift source.
 
@@ -1546,7 +1546,7 @@ Sets the upper limit for the target number of files that will be processed.
 
 Sets option to enable a sample path.
 
-- `SamplePath` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `SamplePath` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 If enabled, specifies the sample path.
 
@@ -1556,7 +1556,7 @@ Specifies a JSON data store stored in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
@@ -1575,14 +1575,14 @@ and `"bzip"`).
 A string containing a JSON list of Unix-style glob patterns to exclude.
 For example, "[\"\*\*.pdf\"]" excludes all PDF files.
 
-- `GroupSize` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupSize` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The target group size in bytes. The default is computed based on the input
 data size and the size of your cluster. When there are fewer than 50,000 input files,
 `"groupFiles"` must be set to `"inPartition"` for
 this to take effect.
 
-- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Grouping files is turned on by default when the input contains more than
 50,000 files. To turn on grouping with fewer than 50,000 files, set this parameter
@@ -1594,7 +1594,7 @@ set this parameter to `"none"`.
 If set to true, recursively reads files in all subdirectories under the
 specified paths.
 
-- `MaxBand` – Number (integer), not more than None.
+- `MaxBand` – Number (integer).
 
 This option controls the duration in milliseconds after which the s3 listing
 is likely to be consistent. Files with modification timestamps falling within
@@ -1602,7 +1602,7 @@ the last maxBand milliseconds are tracked specially when using JobBookmarks
 to account for Amazon S3 eventual consistency. Most users don't need to set this
 option. The default is 900000 milliseconds, or 15 minutes.
 
-- `MaxFilesInBand` – Number (integer), not more than None.
+- `MaxFilesInBand` – Number (integer).
 
 This option specifies the maximum number of files to save from the last
 maxBand seconds. If this number is exceeded, extra files are skipped and only
@@ -1612,7 +1612,7 @@ processed in the next job run.
 
 Specifies additional connection options.
 
-- `JsonPath` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `JsonPath` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A JsonPath string defining the JSON data.
 
@@ -1634,7 +1634,7 @@ Specifies an Apache Parquet data store stored in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
@@ -1653,14 +1653,14 @@ and `"bzip"`).
 A string containing a JSON list of Unix-style glob patterns to exclude.
 For example, "[\"\*\*.pdf\"]" excludes all PDF files.
 
-- `GroupSize` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupSize` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The target group size in bytes. The default is computed based on the input
 data size and the size of your cluster. When there are fewer than 50,000 input files,
 `"groupFiles"` must be set to `"inPartition"` for
 this to take effect.
 
-- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Grouping files is turned on by default when the input contains more than
 50,000 files. To turn on grouping with fewer than 50,000 files, set this parameter
@@ -1672,7 +1672,7 @@ set this parameter to `"none"`.
 If set to true, recursively reads files in all subdirectories under the
 specified paths.
 
-- `MaxBand` – Number (integer), not more than None.
+- `MaxBand` – Number (integer).
 
 This option controls the duration in milliseconds after which the s3 listing
 is likely to be consistent. Files with modification timestamps falling within
@@ -1680,7 +1680,7 @@ the last maxBand milliseconds are tracked specially when using JobBookmarks
 to account for Amazon S3 eventual consistency. Most users don't need to set this
 option. The default is 900000 milliseconds, or 15 minutes.
 
-- `MaxFilesInBand` – Number (integer), not more than None.
+- `MaxFilesInBand` – Number (integer).
 
 This option specifies the maximum number of files to save from the last
 maxBand seconds. If this number is exceeded, extra files are skipped and only
@@ -1700,7 +1700,7 @@ Specifies a Delta Lake data source stored in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Delta Lake source.
 
@@ -1710,9 +1710,9 @@ A list of the Amazon S3 paths to read from.
 
 - `AdditionalDeltaOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options.
 
@@ -1730,23 +1730,23 @@ Specifies a Delta Lake data source that is registered in the AWS Glue Data Catal
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Delta Lake data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
 - `AdditionalDeltaOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options.
 
@@ -1760,23 +1760,23 @@ Specifies a Delta Lake data source that is registered in the AWS Glue Data Catal
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Delta Lake data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
 - `AdditionalDeltaOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options.
 
@@ -1790,7 +1790,7 @@ Specifies a Hudi data source stored in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Hudi source.
 
@@ -1800,9 +1800,9 @@ A list of the Amazon S3 paths to read from.
 
 - `AdditionalHudiOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options.
 
@@ -1820,23 +1820,23 @@ Specifies a Hudi data source that is registered in the AWS Glue Data Catalog. Th
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Hudi data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
 - `AdditionalHudiOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options.
 
@@ -1850,7 +1850,7 @@ Specifies an S3 Excel data source.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the S3 Excel data source.
 
@@ -1866,11 +1866,11 @@ The compression format used for the Excel files.
 
 Patterns to exclude specific files or paths from processing.
 
-- `GroupSize` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupSize` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Defines the size of file groups for batch processing.
 
-- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `GroupFiles` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies how files should be grouped for processing.
 
@@ -1878,11 +1878,11 @@ Specifies how files should be grouped for processing.
 
 Indicates whether to recursively process subdirectories.
 
-- `MaxBand` – Number (integer), not more than None.
+- `MaxBand` – Number (integer).
 
 The maximum number of processing bands to use.
 
-- `MaxFilesInBand` – Number (integer), not more than None.
+- `MaxFilesInBand` – Number (integer).
 
 The maximum number of files to process in each band.
 
@@ -1894,7 +1894,7 @@ Additional configuration options for S3 direct source processing.
 
 The number of rows to process from each Excel file.
 
-- `SkipFooter` – Number (integer), not more than None.
+- `SkipFooter` – Number (integer).
 
 The number of rows to skip at the end of each Excel file.
 
@@ -1908,23 +1908,23 @@ Specifies a Hudi data source that is registered in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Hudi data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
 - `AdditionalHudiOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options.
 
@@ -1938,15 +1938,15 @@ Specifies a DynamoDB data source in the AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
@@ -1967,15 +1967,15 @@ Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
@@ -1986,7 +1986,7 @@ storage.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -1994,28 +1994,28 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the connection that is associated with the connector.
 
-- `ConnectionTable` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionTable` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the data target.
 
-- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of a connector that will be used.
 
-- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The type of connection, such as marketplace.jdbc or custom.jdbc, designating
 a connection to a JDBC data target.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Additional connection options for the connector.
 
@@ -2029,7 +2029,7 @@ Specifies a target that uses an Apache Spark connector.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2037,24 +2037,24 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of a connection for an Apache Spark connector.
 
-- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectorName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of an Apache Spark connector.
 
-- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The type of connection, such as marketplace.spark or custom.spark, designating
 a connection to an Apache Spark data store.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Additional connection options for the connector.
 
@@ -2068,7 +2068,7 @@ Specifies a target that uses a AWS Glue Data Catalog table.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of your data target.
 
@@ -2081,12 +2081,12 @@ The nodes that are inputs to the data target.
 The partition keys used to distribute data across multiple partitions
 or shards based on a specific key or set of key.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database that contains the table you want to use as the target. This
 database must already exist in the Data Catalog.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The table that defines the schema of your output data. This table must already
 exist in the Data Catalog.
@@ -2097,7 +2097,7 @@ Specifies a target that uses MySQL.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2105,11 +2105,11 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
@@ -2119,7 +2119,7 @@ Specifies a target that uses Postgres SQL.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2127,11 +2127,11 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
@@ -2141,7 +2141,7 @@ Specifies a target that uses Oracle SQL.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2149,11 +2149,11 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
@@ -2163,7 +2163,7 @@ Specifies a target that uses Microsoft SQL.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2171,11 +2171,11 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
@@ -2185,7 +2185,7 @@ Specifies a target that uses Amazon Redshift.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2193,20 +2193,20 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
-- `RedshiftTmpDir` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RedshiftTmpDir` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon S3 path where temporary data can be staged when copying out of
 the database.
 
-- `TmpDirIAMRole` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `TmpDirIAMRole` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The IAM role with permissions.
 
@@ -2221,7 +2221,7 @@ Specifies an Amazon Redshift target.
 
 ###### Fields
 
-- `Name` – UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Amazon Redshift target.
 
@@ -2240,11 +2240,11 @@ target .
 
 ###### Fields
 
-- `TableLocation` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `TableLocation` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The physical location of the Redshift table.
 
-- `ConnectionName` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionName` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the connection to use to write to Redshift.
 
@@ -2258,7 +2258,7 @@ Specifies a data target that writes to Amazon S3 using the AWS Glue Data Catalog
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2270,11 +2270,11 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
@@ -2295,7 +2295,7 @@ storage.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2307,7 +2307,7 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A single Amazon S3 path to write to.
 
@@ -2353,7 +2353,7 @@ Specifies a data target that writes to Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2365,11 +2365,11 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A single Amazon S3 path to write to.
 
-- `Compression` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Compression` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies how the data is compressed. This is generally not necessary
 if the data has a standard file extension. Possible values are `"gzip"`
@@ -2404,7 +2404,7 @@ Specifies a target that writes to a Hudi data source in the AWS Glue Data Catalo
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2416,19 +2416,19 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
 - `AdditionalOptions` – _Required:_ A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the connector.
 
@@ -2452,7 +2452,7 @@ Specifies a target that writes to a Hudi data source in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2460,7 +2460,7 @@ The name of the data target.
 
 The nodes that are inputs to the data target.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon S3 path of your Hudi data source to write to.
 
@@ -2485,9 +2485,9 @@ Specifies the data output format for the target.
 
 - `AdditionalOptions` – _Required:_ A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the connector.
 
@@ -2507,7 +2507,7 @@ Specifies a target that writes to a Delta Lake data source in the AWS Glue Data 
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2519,19 +2519,19 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the connector.
 
@@ -2555,7 +2555,7 @@ Specifies a target that writes to a Delta Lake data source in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -2567,7 +2567,7 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon S3 path of your Delta Lake data source to write to.
 
@@ -2588,9 +2588,9 @@ Specifies the data output format for the target.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the connector.
 
@@ -2610,7 +2610,7 @@ Specifies a HyperDirect data target that writes to Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The unique identifier for the HyperDirect target node.
 
@@ -2626,7 +2626,7 @@ Specifies the data output format for the HyperDirect target.
 
 Defines the partitioning strategy for the output data.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The S3 location where the output data will be written.
 
@@ -2654,7 +2654,7 @@ Specifies a target that writes to an Iceberg data source in Amazon S3.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 Specifies the unique identifier for the Iceberg target node in your data
 pipeline.
@@ -2667,7 +2667,7 @@ Defines the single input source that provides data to this Iceberg target.
 
 Specifies the columns used to partition the Iceberg table data in S3.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Defines the S3 location where the Iceberg table data will be stored.
 
@@ -2678,9 +2678,9 @@ ORC).
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Provides additional configuration options for customizing the Iceberg
 table behavior.
@@ -2718,12 +2718,12 @@ schema.
 
 The update behavior when the crawler finds a changed schema.
 
-- `Table` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the table in the database that the schema change policy applies
 to.
 
-- `Database` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the database that the schema change policy applies to.
 
@@ -2735,7 +2735,7 @@ for keys, and choose which keys to drop from the dataset.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2754,7 +2754,7 @@ Specifies the mapping of data property keys.
 
 ###### Fields
 
-- `ToKey` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ToKey` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 After the apply mapping, what the name of the column should be. Can be the
 same as `FromPath`.
@@ -2763,11 +2763,11 @@ same as `FromPath`.
 
 The table or column to be modified.
 
-- `FromType` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `FromType` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The type of the data to be modified.
 
-- `ToType` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ToType` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The data type that the data is to be modified to.
 
@@ -2802,7 +2802,7 @@ to keep.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2821,7 +2821,7 @@ to drop.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2839,7 +2839,7 @@ Specifies a transform that renames a single data property key.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2861,7 +2861,7 @@ Specifies a transform that writes samples of the data to an Amazon S3 bucket.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2869,7 +2869,7 @@ The name of the transform node.
 
 The data inputs identified by their node names.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A path in Amazon S3 where the transform will write a subset of records from
 the dataset to a JSON file in an Amazon S3 bucket.
@@ -2893,7 +2893,7 @@ left, right, left semi, and left anti joins.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2915,7 +2915,7 @@ Specifies a column to be joined.
 
 ###### Fields
 
-- `From` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `From` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The column to be joined.
 
@@ -2931,7 +2931,7 @@ data property keys, and one with the remaining data property keys.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2950,7 +2950,7 @@ a collection of `DynamicFrames`. The output is the selected `DynamicFrame`
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2958,7 +2958,7 @@ The name of the transform node.
 
 The data inputs identified by their node names.
 
-- `Index` – _Required:_ Number (integer), not more than None.
+- `Index` – _Required:_ Number (integer).
 
 The index for the DynamicFrame to be selected.
 
@@ -2971,7 +2971,7 @@ value should be.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -2979,11 +2979,11 @@ The name of the transform node.
 
 The data inputs identified by their node names.
 
-- `ImputedPath` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ImputedPath` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A JSON path to a variable in the data structure for the dataset that is imputed.
 
-- `FilledPath` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `FilledPath` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A JSON path to a variable in the data structure for the dataset that is filled.
 
@@ -2994,7 +2994,7 @@ condition.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3050,7 +3050,7 @@ data transformation. The output is a collection of DynamicFrames.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3058,11 +3058,11 @@ The name of the transform node.
 
 The data inputs identified by their node names.
 
-- `Code` – _Required:_ UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
+- `Code` – _Required:_ UTF-8 string, matching the [Custom string pattern #59](aws-glue-api-common.md#regex_59 "aws-glue-api-common.md#regex_59").
 
 The custom code that is used to perform the data transformation.
 
-- `ClassName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ClassName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name defined for the custom code node class.
 
@@ -3077,7 +3077,7 @@ to transform the data. The output is a single `DynamicFrame`.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3087,7 +3087,7 @@ The data inputs identified by their node names. You can associate a table
 name with each input node to use in the SQL query. The name you choose must meet the
 Spark SQL naming restrictions.
 
-- `SqlQuery` – _Required:_ UTF-8 string, matching the [Custom string pattern #62](aws-glue-api-common.md#regex_62 "aws-glue-api-common.md#regex_62").
+- `SqlQuery` – _Required:_ UTF-8 string, matching the [Custom string pattern #67](aws-glue-api-common.md#regex_67 "aws-glue-api-common.md#regex_67").
 
 A SQL query that must use Spark SQL syntax and return a single data set.
 
@@ -3112,11 +3112,11 @@ Represents a single entry in the list of values for `SqlAliases`.
 
 ###### Fields
 
-- `From` – _Required:_ UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `From` – _Required:_ UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 A table, or a column in a table.
 
-- `Alias` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Alias` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A temporary name given to a table, or a column in a table.
 
@@ -3130,7 +3130,7 @@ as nulls.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3178,7 +3178,7 @@ as a null placeholder unique to the dataset.
 
 ###### Fields
 
-- `Value` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Value` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The value of the null placeholder.
 
@@ -3192,11 +3192,11 @@ A structure representing the datatype of the value.
 
 ###### Fields
 
-- `Id` – _Required:_ UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `Id` – _Required:_ UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The datatype of the value.
 
-- `Label` – _Required:_ UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `Label` – _Required:_ UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 A label assigned to the datatype.
 
@@ -3209,7 +3209,7 @@ not de-duplicated.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3217,7 +3217,7 @@ The name of the transform node.
 
 The data inputs identified by their node names.
 
-- `Source` – _Required:_ UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `Source` – _Required:_ UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The source `DynamicFrame` that will be merged with a staging
 `DynamicFrame`.
@@ -3234,7 +3234,7 @@ into a single result.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3258,7 +3258,7 @@ Specifies a transform that identifies, removes or masks PII data.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3280,7 +3280,7 @@ USA\_PASSPORT\_NUMBER, PHONE\_NUMBER, BANK\_ACCOUNT, IP\_ADDRESS, MAC\_ADDRESS,
 USA\_CPT\_CODE, USA\_HCPCS\_CODE, USA\_NATIONAL\_DRUG\_CODE, USA\_MEDICARE\_BENEFICIARY\_IDENTIFIER,
 USA\_HEALTH\_INSURANCE\_CLAIM\_NUMBER,CREDIT\_CARD,USA\_NATIONAL\_PROVIDER\_IDENTIFIER,USA\_DEA\_NUMBER,USA\_DRIVING\_LICENSE
 
-- `OutputColumnName` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `OutputColumnName` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Indicates the output column name that will contain any entity type detected
 in that row.
@@ -3294,41 +3294,41 @@ Indicates the fraction of the data to sample when scanning for PII entities.
 Indicates the fraction of the data that must be met in order for a column
 to be identified as PII data.
 
-- `MaskValue` – UTF-8 string, not more than 256 bytes long, matching the [Custom string pattern #58](aws-glue-api-common.md#regex_58 "aws-glue-api-common.md#regex_58").
+- `MaskValue` – UTF-8 string, not more than 256 bytes long, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
 
 Indicates the value that will replace the detected entity.
 
-- `RedactText` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RedactText` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies whether to redact the detected PII text. When set to `true`,
 PII content is replaced with redaction characters.
 
-- `RedactChar` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RedactChar` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The character used to replace detected PII content when redaction is enabled.
 The default redaction character is `*`.
 
-- `MatchPattern` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `MatchPattern` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 A regular expression pattern used to identify additional PII content
 beyond the standard detection algorithms.
 
-- `NumLeftCharsToExclude` – Number (integer), not more than None.
+- `NumLeftCharsToExclude` – Number (integer).
 
 The number of characters to exclude from redaction on the left side of detected
 PII content. This allows preserving context around the sensitive data.
 
-- `NumRightCharsToExclude` – Number (integer), not more than None.
+- `NumRightCharsToExclude` – Number (integer).
 
 The number of characters to exclude from redaction on the right side of
 detected PII content. This allows preserving context around the sensitive data.
 
-- `DetectionParameters` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DetectionParameters` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Additional parameters for configuring PII detection behavior and sensitivity
 settings.
 
-- `DetectionSensitivity` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DetectionSensitivity` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The sensitivity level for PII detection. Higher sensitivity levels detect
 more potential PII but may result in more false positives.
@@ -3340,7 +3340,7 @@ aggregated value by specified function.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3362,7 +3362,7 @@ Specifies a transform that removes rows of repeating data from a data set.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the transform node.
 
@@ -3380,7 +3380,7 @@ Specifies a data target that writes to Amazon S3 using the AWS Glue Data Catalog
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data target.
 
@@ -3392,11 +3392,11 @@ The nodes that are inputs to the data target.
 
 Specifies native partitioning using a sequence of keys.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to write to.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
@@ -3410,19 +3410,19 @@ Specifies the data store in the governed AWS Glue Data Catalog.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data store.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The database table to read from.
 
-- `PartitionPredicate` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `PartitionPredicate` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Partitions satisfying this predicate are deleted. Files within the retention
 period in these partitions are not deleted. Set to `""` –
@@ -3487,7 +3487,7 @@ Specifies a single column in AWS GlueStudio.
 
 ###### Fields
 
-- `Key` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Key` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The key of the column in AWS Glue Studio.
 
@@ -3513,11 +3513,11 @@ Specifies the set of parameters needed to perform the dynamic transform.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the name of the dynamic transform.
 
-- `TransformName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `TransformName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the name of the dynamic transform as it appears in the AWS Glue Studio visual editor.
 
@@ -3529,15 +3529,15 @@ Specifies the inputs for the dynamic transform that are required.
 
 Specifies the parameters of the dynamic transform.
 
-- `FunctionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `FunctionName` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the name of the function of the dynamic transform.
 
-- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Path` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the path of the dynamic transform source and config files.
 
-- `Version` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Version` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 This field is not used and will be deprecated in future release.
 
@@ -3551,7 +3551,7 @@ Specifies the parameters in the config file of the dynamic transform.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the name of the parameter in the config file of the dynamic transform.
 
@@ -3559,11 +3559,11 @@ Specifies the name of the parameter in the config file of the dynamic transform.
 
 Specifies the parameter type in the config file of the dynamic transform.
 
-- `ValidationRule` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ValidationRule` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the validation rule in the config file of the dynamic transform.
 
-- `ValidationMessage` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ValidationMessage` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the validation message in the config file of the dynamic transform.
 
@@ -3587,7 +3587,7 @@ Specifies your data quality evaluation criteria.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data quality evaluation.
 
@@ -3595,7 +3595,7 @@ The name of the data quality evaluation.
 
 The inputs of your data quality evaluation.
 
-- `Ruleset` – _Required:_ UTF-8 string, not less than 1 or more than 65536 bytes long, matching the [Custom string pattern #59](aws-glue-api-common.md#regex_59 "aws-glue-api-common.md#regex_59").
+- `Ruleset` – _Required:_ UTF-8 string, not less than 1 or more than 65536 bytes long, matching the [Custom string pattern #64](aws-glue-api-common.md#regex_64 "aws-glue-api-common.md#regex_64").
 
 The ruleset for your data quality evaluation.
 
@@ -3618,11 +3618,11 @@ Options to configure how your data quality evaluation results are published.
 
 ###### Fields
 
-- `EvaluationContext` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `EvaluationContext` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The context of the evaluation.
 
-- `ResultsS3Prefix` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ResultsS3Prefix` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon S3 prefix prepended to the results.
 
@@ -3652,7 +3652,7 @@ Specifies your data quality evaluation criteria.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the data quality evaluation.
 
@@ -3663,13 +3663,13 @@ is the primary data source.
 
 - `AdditionalDataSources` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+Each key is a UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The aliases of all data sources except primary.
 
-- `Ruleset` – _Required:_ UTF-8 string, not less than 1 or more than 65536 bytes long, matching the [Custom string pattern #59](aws-glue-api-common.md#regex_59 "aws-glue-api-common.md#regex_59").
+- `Ruleset` – _Required:_ UTF-8 string, not less than 1 or more than 65536 bytes long, matching the [Custom string pattern #64](aws-glue-api-common.md#regex_64 "aws-glue-api-common.md#regex_64").
 
 The ruleset for your data quality evaluation.
 
@@ -3697,7 +3697,7 @@ in AWS Glue jobs.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the AWS Glue Studio node.
 
@@ -3719,7 +3719,7 @@ A reference to a AWS Glue DataBrew recipe.
 
 ###### Fields
 
-- `RecipeArn` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `RecipeArn` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The ARN of the DataBrew recipe.
 
@@ -3733,7 +3733,7 @@ Specifies configuration for Snowflake nodes in AWS Glue Studio.
 
 ###### Fields
 
-- `SourceType` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `SourceType` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Specifies how retrieved data is specified. Valid values: `"table"`,
 `"query"`.
@@ -3755,7 +3755,7 @@ Specifies a Snowflake table for your node to use.
 
 Specifies a Snowflake database for your node to use.
 
-- `TempDir` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `TempDir` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Not currently used.
 
@@ -3765,9 +3765,9 @@ Not currently used.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional options passed to the Snowflake connector. If options
 are specified elsewhere in this node, this will take precedence.
@@ -3797,18 +3797,18 @@ Used when Action is `append`. Specifies the resolution behavior
 when a row already exists. If true, preexisting rows will be updated. If false,
 those rows will be inserted.
 
-- `MergeAction` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `MergeAction` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Specifies a merge action. Valid values: `simple`, `custom`.
 If simple, merge behavior is defined by `MergeWhenMatched` and
 `MergeWhenNotMatched`. If custom, defined by `MergeClause`.
 
-- `MergeWhenMatched` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `MergeWhenMatched` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Specifies how to resolve records that match preexisting data when merging.
 Valid values: `update`, `delete`.
 
-- `MergeWhenNotMatched` – UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `MergeWhenNotMatched` – UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 Specifies how to process records that do not match preexisting data when
 merging. Valid values: `insert`, `none`.
@@ -3848,7 +3848,7 @@ Specifies a Snowflake data source.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Snowflake data source.
 
@@ -3866,7 +3866,7 @@ Specifies a Snowflake target.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Snowflake target.
 
@@ -3884,11 +3884,11 @@ Specifies a source generated with standard connection options.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of this source node.
 
-- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The `connectionType`, as provided to the underlying AWS Glue library. This node type supports the following connection types:
 
@@ -3920,11 +3920,11 @@ Specifies a target generated with standard connection options.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of this target node.
 
-- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `ConnectionType` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The `connectionType`, as provided to the underlying AWS Glue library. This node type supports the following connection types:
 
@@ -3972,13 +3972,13 @@ node.
 
 ###### Fields
 
-- `Operation` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #56](aws-glue-api-common.md#regex_56 "aws-glue-api-common.md#regex_56").
+- `Operation` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
 
 The operation of the recipe action.
 
 - `Parameters` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #57](aws-glue-api-common.md#regex_57 "aws-glue-api-common.md#regex_57").
+Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #62](aws-glue-api-common.md#regex_62 "aws-glue-api-common.md#regex_62").
 
 Each value is a UTF-8 string, not less than 1 or more than 32768 bytes long.
 
@@ -3991,7 +3991,7 @@ recipe node.
 
 ###### Fields
 
-- `Condition` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #56](aws-glue-api-common.md#regex_56 "aws-glue-api-common.md#regex_56").
+- `Condition` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
 
 The condition of the condition expression.
 
@@ -4009,23 +4009,23 @@ Specifies an Apache Iceberg data source that is registered in the AWS Glue Data 
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Iceberg data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
 - `AdditionalIcebergOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the Iceberg data source.
 
@@ -4039,23 +4039,23 @@ Specifies an Apache Iceberg data source that is registered in the AWS Glue Data 
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Iceberg data source.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to read from.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table in the database to read from.
 
 - `AdditionalIcebergOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the Iceberg data source.
 
@@ -4069,7 +4069,7 @@ Specifies an Apache Iceberg catalog target that writes data to Amazon S3 and reg
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the Iceberg catalog target.
 
@@ -4081,19 +4081,19 @@ The input connection for the Iceberg catalog target.
 
 A list of partition keys for the Iceberg table.
 
-- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Table` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the table to write to in the catalog.
 
-- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `Database` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the database to write to.
 
 - `AdditionalOptions` – A map array of key-value pairs.
 
-Each key is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each key is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
-Each value is a UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+Each value is a UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies additional connection options for the Iceberg catalog target.
 
@@ -4114,7 +4114,7 @@ tables.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the DynamoDB ELT connector source.
 
@@ -4146,31 +4146,31 @@ during data extraction. When set to `true`, the connector will flatten
 nested JSON structures from DynamoDB items. When set to `false`,
 the original DynamoDB JSON structure is preserved.
 
-- `DynamodbTableArn` – _Required:_ UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DynamodbTableArn` – _Required:_ UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon Resource Name (ARN) of the DynamoDB table to extract data from.
 This parameter specifies the source table for the ELT operation.
 
-- `DynamodbS3Bucket` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DynamodbS3Bucket` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The name of the Amazon S3 bucket used for intermediate storage during the
 DynamoDB ELT process. This bucket is used to temporarily store exported DynamoDB
 data before it is processed by the ELT job.
 
-- `DynamodbS3Prefix` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DynamodbS3Prefix` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The S3 object key prefix for files stored in the intermediate S3 bucket
 during the DynamoDB ELT process. This prefix helps organize and identify the
 temporary files created during data extraction.
 
-- `DynamodbS3BucketOwner` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DynamodbS3BucketOwner` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The AWS account ID of the owner of the S3 bucket specified
 in `DynamodbS3Bucket`. This parameter is required when the S3 bucket
 is owned by a different AWS account than the one running the ELT
 job, enabling cross-account access to the intermediate storage bucket.
 
-- `DynamodbStsRoleArn` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DynamodbStsRoleArn` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The Amazon Resource Name (ARN) of the AWS Security Token
 Service (STS) role to assume for accessing DynamoDB and S3 resources during the
@@ -4183,7 +4183,7 @@ Specifies additional options for DynamoDB ELT catalog operations.
 
 ###### Fields
 
-- `DynamodbExport` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `DynamodbExport` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 Specifies the DynamoDB export configuration for the ELT operation.
 
@@ -4199,7 +4199,7 @@ on defined filtering conditions.
 
 ###### Fields
 
-- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #63](aws-glue-api-common.md#regex_63 "aws-glue-api-common.md#regex_63").
+- `Name` – _Required:_ UTF-8 string, matching the [Custom string pattern #68](aws-glue-api-common.md#regex_68 "aws-glue-api-common.md#regex_68").
 
 The name of the route node.
 
@@ -4219,7 +4219,7 @@ the filters are combined to evaluate routing conditions.
 
 ###### Fields
 
-- `GroupName` – _Required:_ UTF-8 string, matching the [Custom string pattern #60](aws-glue-api-common.md#regex_60 "aws-glue-api-common.md#regex_60").
+- `GroupName` – _Required:_ UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
 
 The name of the filter group.
 
@@ -4246,7 +4246,7 @@ without manual intervention.
 Specifies whether automatic data quality evaluation is enabled. When
 set to `true`, data quality checks are performed automatically.
 
-- `EvaluationContext` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
+- `EvaluationContext` – UTF-8 string, matching the [Custom string pattern #66](aws-glue-api-common.md#regex_66 "aws-glue-api-common.md#regex_66").
 
 The evaluation context for the automatic data quality checks. This defines
 the scope and parameters for the data quality evaluation.
