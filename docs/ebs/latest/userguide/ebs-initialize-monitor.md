@@ -6,22 +6,23 @@ process is complete. You can monitor volume initialization using the following o
 
 ###### Topics
 
-- [AWS CLI and Amazon EC2 console](#ebs-initialize-monitor-ec2 "#ebs-initialize-monitor-ec2")
+- [AWS CLI, AWS Tools for PowerShell, and Amazon EC2 console](#ebs-initialize-monitor-ec2 "#ebs-initialize-monitor-ec2")
 - [Amazon EventBridge](#ebs-initialize-monitor-ev "#ebs-initialize-monitor-ev")
 
-## AWS CLI and Amazon EC2 console
+## AWS CLI, AWS Tools for PowerShell, and Amazon EC2 console
 
-You can use the AWS CLI and Amazon EC2 console to check the status of the volume initialization
-at any time after the volume has been created. The following information is provided:
+You can use the AWS CLI, AWS Tools for PowerShell, and Amazon EC2 console to check the status of the
+volume initialization at any time after the volume has been created. The following information is
+provided:
 
-- **Initialization type** (AWS CLI only) — Indicates
-  the type of volume initialization used. `default` for fast snapshot restore and
-  default volume initialization, `provisioned-rate` for Amazon EBS Provisioned Rate for Volume Initialization, and
+- **Initialization type** (AWS CLI and AWS Tools for PowerShell only)
+  — Indicates the type of volume initialization used. `default` for fast snapshot
+  restore and default volume initialization, `provisioned-rate` for Amazon EBS Provisioned Rate for Volume Initialization, and
   `volume-copy` for volume copy initialization.
-- **Estimated time to completion** (AWS CLI only) —
-  Only for volumes created using a Amazon EBS Provisioned Rate for Volume Initialization. The estimated remaining time, in seconds,
-  for the volume initialization to complete.
-- **Progress** — The progress, as a percentage (0-100),
+- **Estimated time to completion** (AWS CLI and AWS Tools for
+  PowerShell only) — Only for volumes created using an Amazon EBS Provisioned Rate for Volume Initialization. The estimated remaining
+  time, in seconds, for the volume initialization to complete.
+- **Progress** — The progress, as a percentage (0–100),
   for the volume initialization process. For volumes initialized with fast snapshot restore,
   the progress moves to 100 percent immediately after creation.
 - **Initialization state** — The overall state of the
@@ -32,6 +33,8 @@ at any time after the volume has been created. The following information is prov
 ###### Note
 
 It can take up to 5 minutes for the volume initialization information to be updated.
+
+Use the following tabs to check the volume initialization status for your volume.
 
 Console
 
@@ -53,14 +56,14 @@ AWS CLI
 ###### To monitor status of volume initialization
 
 Use the [describe-volume-status](../../../cli/latest/reference/ec2/describe-volume-status.md "../../../cli/latest/reference/ec2/describe-volume-status.md") AWS CLI command to view the initialization status.
-`EstimatedTimeToCompleteInSeconds` is returned only for volumes created with an
+The output includes `EstimatedTimeToCompleteInSeconds` only for volumes created with an
 Amazon EBS Provisioned Rate for Volume Initialization.
 
 For example, the following command checks the initialization status for volume
 `vol-11111111111111111`, which was created with an Amazon EBS Provisioned Rate for Volume Initialization.
 
 ```
-aws ec2 describe-volume-status --volume-ids `vol-01111111111111111`
+aws ec2 describe-volume-status --volume-ids `vol-11111111111111111`
 ```
 
 The following is example output.
@@ -72,7 +75,7 @@ The following is example output.
             "Actions": [],
             "AvailabilityZone": "us-east-1a",
             "Events": [],
-            "VolumeID": "vol-11111111111111111",
+            "VolumeId": "vol-11111111111111111",
             "VolumeStatus": {
                 "Details": [
                     {
@@ -98,6 +101,27 @@ The following is example output.
         }
     ]
 }
+```
+
+PowerShell
+
+###### To monitor status of volume initialization
+
+Use the [Get-EC2VolumeStatus](../../../powershell/latest/reference/items/Get-EC2VolumeStatus.md "../../../powershell/latest/reference/items/Get-EC2VolumeStatus.md")
+cmdlet to view the initialization status. The output includes `EstimatedTimeToCompleteInSeconds`
+only for volumes created with an Amazon EBS Provisioned Rate for Volume Initialization.
+
+For example, the following command checks the initialization status for volume
+`vol-11111111111111111`, which was created with an Amazon EBS Provisioned Rate for Volume Initialization.
+
+```
+(Get-EC2VolumeStatus `
+    -Region us-east-1 `
+    -VolumeId vol-11111111111111111).InitializationStatusDetails |
+    Select-Object `
+        InitializationType,
+        Progress,
+        EstimatedTimeToCompleteInSeconds
 ```
 
 ## Amazon EventBridge

@@ -406,12 +406,11 @@ stored in an AWS Region to an Outpost.
 
 The following table provides an overview of the supported features.
 
-| Resource location | Snapshot destination | Cross-region copy | Fast snapshot restore | Cross-account sharing |
-| ----------------- | -------------------- | ----------------- | --------------------- | --------------------- |
-| To Region         | To Outpost           |
-| Region            | Region               | ✓                 | ✓                     | ✓                     | ✓   |
-| Outpost           | Region               | ✓                 | ✓                     | ✓                     | ✓   |
-| Outpost           | Outpost              | ✗                 | ✗                     | ✗                     | ✗   |
+| Resource location | Snapshot destination | Cross-region copy to Region | Cross-region copy to Outpost | Fast snapshot restore | Cross-account sharing |
+| ----------------- | -------------------- | --------------------------- | ---------------------------- | --------------------- | --------------------- |
+| Region            | Region               | ✓                           | ✓                            | ✓                     | ✓                     |
+| Outpost           | Region               | ✓                           | ✓                            | ✓                     | ✓                     |
+| Outpost           | Outpost              | ✗                           | ✗                            | ✗                     | ✗                     |
 
 ###### Considerations
 

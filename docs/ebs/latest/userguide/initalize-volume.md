@@ -60,6 +60,7 @@ You can specify a volume initialization rate:
 - [Considerations](#consistent-rate-considerations "#consistent-rate-considerations")
 - [Quotas](#consistent-rate-quota "#consistent-rate-quota")
 - [Billing](#consistent-rate-billing "#consistent-rate-billing")
+- [Specify a volume initialization rate](#consistent-rate-specify "#consistent-rate-specify")
 
 ### How it works
 
@@ -112,32 +113,109 @@ of the in-progress requests to complete or request a quota increase. For more in
 
 ### Billing
 
-When you create a volume with a volume initialization rate, you are charged a rate per GiB of snapshot data,
-per MiB of specified initialization rate. The rate varies by Region. For more information, see
-[Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
+When you create a volume with a volume initialization rate, you are charged a per-GiB rate based on the selected
+initialization tier. The rate varies by Region. To determine the rate for your selected initialization
+tier, open [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/"), select your Region, and find
+the **Provisioned Rate for Volume Initialization** section.
 
-You are charged based on the size of the snapshot data, not the size of the volume. For example,
-if you create a snapshot of a volume that is 100 GiB in size, but has only 50 GiB of data, the snapshot
-has a volume size of 100 GiB, but the snapshot data size is 50 GiB. If you use that snapshot to create
-a volume and specify a volume initialization rate, your charges are based on the 50 GiB of snapshot data.
+You are charged based on the full snapshot data size, not the size of the volume. For example, if
+you create a snapshot of a 100 GiB volume that contains 50 GiB of written data, the full snapshot data
+size is 50 GiB. If you use that snapshot to create a volume and specify a volume initialization rate, your charges are
+based on 50 GiB.
 
 ###### Tip
 
-To find a snapshot's data size, check the `FullSnapshotSizeInBytes` field in
-the [describe-snapshots](../../../cli/latest/reference/ec2/describe-snapshots.md "../../../cli/latest/reference/ec2/describe-snapshots.md") command output, or the **Full snapshot size**
+To find the full snapshot data size, check the `FullSnapshotSizeInBytes` field in the
+[describe-snapshots](../../../cli/latest/reference/ec2/describe-snapshots.md "../../../cli/latest/reference/ec2/describe-snapshots.md") command output, or the **Full snapshot size**
 field in the console.
 
 The formula is as follows:
 
 ```
-`rate for Region` x `snapshot data size` x `volume initialization rate`
+`Rate for the selected initialization tier in the Region` × `full snapshot data size`
 ```
 
 You are billed the full amount as soon as the volume enters the `active` state.
 Failed requests are not billed.
 
-If you delete a volume before the volume initialization completes, you are still billed for
-the requested volume initialization rate.
+If you delete a volume before initialization completes, you are still billed for the requested
+volume initialization rate.
+
+### Specify a volume initialization rate
+
+Use one of the following methods to create a volume from a snapshot with a volume initialization rate.
+
+Console
+
+###### To create a volume
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Volumes**, and then choose
+   **Create volume**.
+3. For **Volume type**, choose the type of volume to create.
+4. For **Size**, enter a size that is equal to or larger than the source
+   snapshot's volume size.
+5. For **Availability Zone**, choose the Availability Zone in which to
+   create the volume.
+6. For **Snapshot ID**, select the snapshot to use.
+7. For **Volume initialization rate**, enter a rate of
+   `100`–`300` MiB/s. Specifying a rate incurs additional charges. To use
+   the default initialization rate or fast snapshot restore, if it is enabled for the selected
+   snapshot, leave this field empty.
+
+###### Note
+
+For information about how the rate and full snapshot data size affect initialization
+time, see [How it works](#consistent-rate-how "#consistent-rate-how"). For pricing
+information, see [Billing](#consistent-rate-billing "#consistent-rate-billing"). 8. Configure any other required volume settings and add tags as needed. 9. Choose **Create volume**. 10. In the **Volumes** grid, view the volume's
+**Initialization state** and progress.
+
+AWS CLI
+
+###### To create a volume
+
+Use the [create-volume](../../../cli/latest/reference/ec2/create-volume.md "../../../cli/latest/reference/ec2/create-volume.md") command.
+The following example creates a `gp3` volume from a snapshot in the specified
+Availability Zone with a volume initialization rate of `300` MiB/s. Replace the
+example Region, Availability Zone, and snapshot ID with the values for your resources:
+
+```
+aws ec2 create-volume \
+    --region `us-east-1` \
+    --availability-zone `us-east-1a` \
+    --volume-type gp3 \
+    --snapshot-id `snap-0abcdef1234567890` \
+    --volume-initialization-rate 300
+```
+
+If you omit `--size`, the volume uses the source snapshot's volume size. If you
+specify `--size`, the value must be equal to or larger than the source snapshot's volume
+size.
+
+PowerShell
+
+###### To create a volume
+
+Use the [New-EC2Volume](../../../powershell/latest/reference/items/New-EC2Volume.md "../../../powershell/latest/reference/items/New-EC2Volume.md") cmdlet.
+The following example creates a `gp3` volume from a snapshot in the specified
+Availability Zone with a volume initialization rate of `300` MiB/s. The command
+stores the returned volume object in `$volume`. Replace the example Region,
+Availability Zone, and snapshot ID with the values for your resources:
+
+```
+$volume = New-EC2Volume `
+    -Region `us-east-1` `
+    -AvailabilityZone `us-east-1a` `
+    -VolumeType gp3 `
+    -SnapshotId `snap-0abcdef1234567890` `
+    -VolumeInitializationRate 300
+```
+
+#### Monitor initialization
+
+Volume initialization information can take up to 5 minutes to update. For instructions on
+monitoring initialization, see [Monitor the status of Amazon EBS volume initialization](ebs-initialize-monitor.md "ebs-initialize-monitor.md").
 
 ## Use a snapshot that is enabled for fast snapshot restore
 
