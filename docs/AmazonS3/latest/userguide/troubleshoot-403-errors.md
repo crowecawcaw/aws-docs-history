@@ -46,15 +46,21 @@ If you're trying to troubleshoot a permissions issue, start with the [Access den
 ## Access denied message examples and how to troubleshoot them
 
 Amazon S3 now includes additional context in access denied (HTTP `403 Forbidden`) errors
-for requests made to resources within the same AWS account or same organization in AWS Organizations. This new
+for requests made to resources within the same AWS account or same organization in AWS Organizations. This
 context includes the type of policy that denied access, the reason for denial, and information about the
 IAM user or role that requested access to the resource.
 
-This additional context helps you to troubleshoot access issues, identify the root cause of
+With this additional context, you can troubleshoot access issues, identify the root cause of
 access denied errors, and fix incorrect access controls by updating the relevant policies. This
 additional context is also available in AWS CloudTrail logs. Enhanced access denied error messages for
-same-account or same-organization requests are now available in all AWS Regions, including the
+same-account or same-organization requests are available in all AWS Regions, including the
 AWS GovCloud (US) Regions and the China Regions.
+
+For explicit deny cases, the error message also includes the Amazon Resource Name (ARN) of
+the specific policy that denied the request. With this policy ARN, you can quickly identify the exact
+policy responsible for the denial and navigate directly to it to make the necessary
+changes. The error message includes the policy ARN for Service Control Policies (SCPs), resource control
+policies (RCPs), identity-based policies, session policies, and permissions boundaries.
 
 Most access denied error messages appear in the format `User
  `user-arn`is not authorized to perform
@@ -70,7 +76,8 @@ about the policy type that explains why the policy denied access.
 
 When a policy explicitly denies access because the policy contains a `Deny`
 statement, then the access denied error message includes the phrase `with an
- explicit deny in a `type` policy`. When the policy
+ explicit deny in a `type` policy`, along with
+the ARN of the specific policy that denied the request. When the policy
 implicitly denies access, then the access denied error message includes the phrase
 `because no `type`policy allows the
 `action` action`.
@@ -104,6 +111,10 @@ how to grant cross-account access, see [Example 2: Bucket owner granting cross-a
 - If multiple policies of the same policy type deny an authorization
   request, the access denied error message doesn't specify the number of
   policies.
+- For explicit deny cases, the error message includes the ARN of the specific
+  policy that denied the request. This applies to Service Control Policies (SCPs),
+  resource control policies (RCPs), identity-based policies, session policies, and
+  permissions boundaries.
 - If multiple policy types deny an authorization request, the error message
   includes only one of those policy types.
 - If an access request is denied due to multiple reasons, the error message
@@ -144,8 +155,10 @@ For more information about this setting, see [Blocking or unblocking SSE-C for a
 
 ### Access denied due to a resource control policy – explicit denial
 
-1. Check for a `Deny` statement for the action in your resource
-   control policies (RCPs). For the following example, the action is
+1. Check for an explicit `Deny` statement for the action in your resource
+   control policies (RCPs). The error message includes the policy ARN, which
+   you can use to identify and navigate directly to the policy that denied the
+   request. For the following example, the action is
    `s3:GetObject`.
 2. Update your RCP by removing the `Deny` statement. For more information, see [Update a resource control policy (RCP)](../../../organizations/latest/userguide/orgs_policies_update.md#update_policy-rcp "../../../organizations/latest/userguide/orgs_policies_update.md#update_policy-rcp") in the
    _AWS Organizations User Guide_.
@@ -154,7 +167,8 @@ For more information about this setting, see [Blocking or unblocking SSE-C for a
 An error occurred (AccessDenied) when calling the GetObject operation:
 User: arn:aws:iam::`777788889999`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`"
-with an explicit deny in a resource control policy
+with an explicit deny in a resource control policy, with policy ARN:
+arn:aws:organizations::`777788889999`:policy/`o-exampleorgid`/resource_control_policy/`p-examplepolicyid`
 ```
 
 ### Access denied due to a Service Control Policy – implicit denial
@@ -173,8 +187,10 @@ s3:GetObject because no service control policy allows the s3:GetObject action
 
 ### Access denied due to a Service Control Policy – explicit denial
 
-1. Check for a `Deny` statement for the action in your Service
-   Control Policies (SCPs). For the following example, the action is
+1. Check for an explicit `Deny` statement for the action in your Service
+   Control Policies (SCPs). The error message includes the policy ARN, which
+   you can use to identify and navigate directly to the policy that denied the
+   request. For the following example, the action is
    `s3:GetObject`.
 2. Update your SCP by changing the `Deny` statement to allow the
    user the necessary access. For an example of how you can do this, see [Service control policy examples](https://github.com/aws-samples/service-control-policy-examples "https://github.com/aws-samples/service-control-policy-examples") on GitHub. For more information about
@@ -183,7 +199,8 @@ s3:GetObject because no service control policy allows the s3:GetObject action
 
 ```
 User: arn:aws:iam::`777788889999`:user/`MaryMajor` is not authorized to perform:
-s3:GetObject with an explicit deny in a service control policy
+s3:GetObject with an explicit deny in a service control policy, with policy ARN:
+arn:aws:organizations::`777788889999`:policy/`o-exampleorgid`/service_control_policy/`p-examplepolicyid`
 ```
 
 ### Access denied due to a VPC endpoint policy – implicit denial
@@ -239,7 +256,9 @@ because no permissions boundary allows the s3:GetObject action
 ### Access denied due to a permissions boundary – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
-   permissions boundary. For the following example, the action is
+   permissions boundary. The error message includes the policy ARN, which
+   you can use to identify and navigate directly to the policy that denied the
+   request. For the following example, the action is
    `s3:GetObject`.
 2. Update your permissions boundary by changing the `Deny`
    statement in your IAM policy to allow the user the necessary access. For
@@ -253,7 +272,8 @@ because no permissions boundary allows the s3:GetObject action
 
 ```
 User: arn:aws:iam::`777788889999`:user/`MaryMajor` is not authorized to perform:
-s3:GetObject with an explicit deny in a permissions boundary
+s3:GetObject with an explicit deny in a permissions boundary, with policy ARN:
+arn:aws:iam::`777788889999`:policy/`ExamplePermissionsBoundaryPolicy`
 ```
 
 ### Access denied due to session policies – implicit denial
@@ -274,7 +294,9 @@ s3:GetObject because no session policy allows the s3:GetObject action
 ### Access denied due to session policies – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
-   session policies. For the following example, the action is
+   session policies. The error message includes the policy ARN, which
+   you can use to identify and navigate directly to the policy that denied the
+   request. For the following example, the action is
    `s3:GetObject`.
 2. Update your session policy by changing the `Deny` statement to
    allow the user the necessary access. For example, you can update your
@@ -288,7 +310,8 @@ s3:GetObject because no session policy allows the s3:GetObject action
 ```
 User: arn:aws:iam::`123456789012`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`" with
-an explicit deny in a session policy
+an explicit deny in a session policy, with policy ARN:
+arn:aws:iam::`123456789012`:policy/`ExampleSessionPolicy`
 ```
 
 ### Access denied due to resource-based policies – implicit denial
@@ -364,7 +387,9 @@ s3:GetObject because no identity-based policy allows the s3:GetObject action
 ### Access denied due to identity-based policies – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in
-   identity-based policies attached to the identity. For the following example,
+   identity-based policies attached to the identity. The error message includes
+   the policy ARN, which you can use to identify and navigate directly to the
+   policy that denied the request. For the following example,
    the action is `s3:GetObject` and the identity is the IAM user
    `MaryMajor`.
 2. Update your policy by changing the `Deny` statement to allow
@@ -378,7 +403,8 @@ s3:GetObject because no identity-based policy allows the s3:GetObject action
 ```
 User: arn:aws:iam::`123456789012`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`" with
-an explicit deny in an identity-based policy
+an explicit deny in an identity-based policy, with policy ARN:
+arn:aws:iam::`123456789012`:policy/`ExampleIdentityBasedPolicy`
 ```
 
 ### Access denied due to Block Public Access settings

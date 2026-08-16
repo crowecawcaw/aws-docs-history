@@ -43,7 +43,7 @@ The following figure shows that a simple `DELETE` does not
 actually remove the specified object. Instead, Amazon S3 inserts a delete
 marker.
 
-![A delete marker insertion.](/images/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled.png)
+![A delete marker insertion.](images/versioning_DELETE_versioningEnabled.png)
 
 - To delete versioned objects permanently, you must use `DELETE Object
  versionId`.
