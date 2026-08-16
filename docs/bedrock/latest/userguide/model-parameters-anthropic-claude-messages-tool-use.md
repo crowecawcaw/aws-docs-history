@@ -569,7 +569,7 @@ search mechanism.
 To access this feature, you must include
 `tool-search-tool-2025-10-19` in the
 `anthropic_beta` parameter. Note that this feature is currently only
-available via the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") APIs.
+available through the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") APIs.
 
 Tool definition:
 
@@ -989,11 +989,11 @@ Error examples:
 
 This feature requires the beta flag `mid-conversation-tool-changes-2026-07-01` in `anthropic_beta`. Currently supported on Claude Opus 5 only.
 
-Claude Opus 5 supports adding and removing tools mid-conversation via `tool_addition` and `tool_removal` content blocks on `role: "system"` messages, instead of re-sending the full top-level `tools` array (which would invalidate the prompt cache).
+Claude Opus 5 supports adding and removing tools mid-conversation through `tool_addition` and `tool_removal` content blocks on `role: "system"` messages, instead of re-sending the full top-level `tools` array (which would invalidate the prompt cache).
 
 ### Request shape
 
-`tool_addition` and `tool_removal` blocks appear in the `content` array of a `role: "system"` message, alongside optional `text` blocks. Each block references **one** tool via its `tool` field. Multiple blocks are allowed and are processed in content order.
+`tool_addition` and `tool_removal` blocks appear in the `content` array of a `role: "system"` message, alongside optional `text` blocks. Each block references **one** tool through its `tool` field. Multiple blocks are allowed and are processed in content order.
 
 ```
 {

@@ -20,14 +20,14 @@ details.
 
 ## Prerequisites
 
-Before using the Messages API, ensure you have the following:
+Before using the Messages API, make sure you have the following:
 
 - **Model access** – Request access to
   Claude models in the Amazon Bedrock console. See [Request access to models](model-access.md "model-access.md").
 - **Authentication** – Depends on the endpoint:
 
   - `bedrock-mantle` – Use a Amazon Bedrock API key (see [API keys](api-keys.md "api-keys.md")) or AWS SigV4 credentials.
-  - `bedrock-runtime` – Use AWS SigV4 credentials via the AWS SDK (boto3, etc.).
+  - `bedrock-runtime` – Use AWS SigV4 credentials through the AWS SDK (boto3, etc.).
 
 - **Anthropic version header** – All requests require an API version:
 

@@ -261,7 +261,7 @@ construction**, choose a new model. Choose
 **Choose a model during knowledge base
 creation (API)**
 
-When creating a data source via the `CreateDataSource` API, specify
+When creating a data source through the `CreateDataSource` API, specify
 the `modelArn` in the `bedrockFoundationModelConfiguration`
 within `contextEnrichmentConfiguration`. See the API tab in the
 creation section above for a full example.

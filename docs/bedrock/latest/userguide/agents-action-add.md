@@ -93,7 +93,7 @@ Choose one of the following options:
 
 
     	+ To use an OpenAPI schema that you previously prepared with API descriptions, structures, and parameters for the action group, select **Select API schema** and provide a link to the Amazon S3 URI of the schema.
-    	+ To define the OpenAPI schema with the in-line schema editor, select **Define via in-line schema editor**. A sample schema appears that you can edit.
+    	+ To define the OpenAPI schema with the in-line schema editor, select **Define through in-line schema editor**. A sample schema appears that you can edit.
 
 
 

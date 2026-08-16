@@ -2,7 +2,7 @@
 
 This section describes how to manage entities within your Data Automation Libraries. Entities are domain-specific resources that enhance extraction accuracy for your content processing workloads. Currently, [Custom Vocabulary](bda-library-custom-vocabulary.md "bda-library-custom-vocabulary.md") is the only supported entity type, which improves speech recognition and transcription for audio and video content.
 
-You can perform entity-level operations using the AWS Management Console or AWS CLI. These operations include adding new entities via ingestion jobs with the vocabulary input provided either through S3 manifest files or inline payloads, monitoring status of such ingestion jobs, updating existing entities using UPSERT operations, deleting specific entities, and viewing entity details. Unlike library-level operations that manage the container itself, entity operations focus on the content within your libraries.
+You can perform entity-level operations using the Management Console or CLI. These operations include adding new entities through ingestion jobs with the vocabulary input provided either through S3 manifest files or inline payloads, monitoring status of such ingestion jobs, updating existing entities using UPSERT operations, deleting specific entities, and viewing entity details. Unlike library-level operations that manage the container itself, entity operations focus on the content within your libraries.
 
 Managing library entities can be done using these APIs:
 

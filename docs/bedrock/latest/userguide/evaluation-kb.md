@@ -39,6 +39,12 @@ see [Request access to models](model-access.md "model-access.md").
 - Anthropic Claude 3.5 Haiku – `anthropic.claude-3-5-haiku-20241022-v1:0`
 - Anthropic Claude Haiku 4.5 – `anthropic.claude-haiku-4-5-20251001-v1:0`
 - Anthropic Claude Opus 4.5 – `anthropic.claude-opus-4-5-20251101-v1:0`
+- OpenAI GPT-5.4 – `openai.gpt-5.4`
+- OpenAI GPT-5.5 – `openai.gpt-5.5`
+- Anthropic Claude Sonnet 4.6 – `anthropic.claude-sonnet-4-6`
+- Anthropic Claude Opus 4.6 – `anthropic.claude-opus-4-6-v1`
+- Anthropic Claude Opus 4.7 – `anthropic.claude-opus-4-7`
+- Anthropic Claude Opus 4.8 – `anthropic.claude-opus-4-8`
 - Anthropic Claude Sonnet 4.0 – `anthropic.claude-sonnet-4-20250514-v1:0`
 - Meta Llama 3.1 70B Instruct – `meta.llama3-1-70b-instruct-v1:0`
 - Mistral Large – `mistral.mistral-large-2402-v1:0`
@@ -62,6 +68,12 @@ see [Request access to models](model-access.md "model-access.md").
 - Amazon Nova Premier – `amazon.nova-premier-v1:0`
 - Anthropic Claude Haiku 4.5 – `anthropic.claude-haiku-4-5-20251001-v1:0`
 - Anthropic Claude Opus 4.5 – `anthropic.claude-opus-4-5-20251101-v1:0`
+- OpenAI GPT-5.4 – `openai.gpt-5.4`
+- OpenAI GPT-5.5 – `openai.gpt-5.5`
+- Anthropic Claude Sonnet 4.6 – `anthropic.claude-sonnet-4-6`
+- Anthropic Claude Opus 4.6 – `anthropic.claude-opus-4-6-v1`
+- Anthropic Claude Opus 4.7 – `anthropic.claude-opus-4-7`
+- Anthropic Claude Opus 4.8 – `anthropic.claude-opus-4-8`
 - Anthropic Claude Sonnet 4.0 – `anthropic.claude-sonnet-4-20250514-v1:0`
 
 [Cross Region inference](cross-region-inference.md "cross-region-inference.md") profiles are supported for the listed models. To learn more, see [Supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system "inference-profiles-support.md#inference-profiles-support-system").

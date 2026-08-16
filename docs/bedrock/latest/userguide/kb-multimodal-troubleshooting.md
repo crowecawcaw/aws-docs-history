@@ -35,9 +35,9 @@ bases:
   both text and image is not currently supported. You can use either text or
   image queries, but not both simultaneously.
 - **Guardrail image content filters:** When
-  using image queries with a guardrail that has image content filters
-  configured, the input image will be evaluated against the guardrail and may
-  be blocked if it violates the configured filter thresholds
+  you use image queries with a guardrail that has image content filters
+  configured, the input image is evaluated against the guardrail. The image
+  might be blocked if it violates the configured filter thresholds.
 - **Input and type mismatch:** By default, the
   input is assumed to be text when the type is not specified. When using
   modalities other than text, you must specify the correct type

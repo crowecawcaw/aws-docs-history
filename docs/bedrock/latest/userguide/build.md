@@ -1,15 +1,15 @@
 # Build
 
-This section covers how to interact with Amazon Bedrock programmatically. Choose an endpoint, pick an API, and start making inference requests.
+This section covers how to interact with Amazon Bedrock programmatically. For new applications, we recommend the `bedrock-runtime` endpoint. Pick an API, and start making inference requests.
 
 **Quick start**
 
-| **Your situation**                                    | **Recommended path**                                                                                              |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Use OpenAI APIs                                       | Use the `bedrock-mantle` endpoint with the [Responses API](bedrock-mantle.md "bedrock-mantle.md")                 |
-| Use Anthropic APIs                                    | Use the Messages API (available on both `bedrock-mantle` and `bedrock-runtime`; we recommend `bedrock-mantle`)    |
-| Want a unified AWS-native interface across all models | Use the `bedrock-runtime` endpoint with the [Converse API](conversation-inference.md "conversation-inference.md") |
-| Need direct model control or non-text modalities      | Use the `bedrock-runtime` endpoint with the [Invoke API](inference-invoke.md "inference-invoke.md")               |
+| **Your situation**                                    | **Recommended path**                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Want a unified AWS-native interface across all models | Use the `bedrock-runtime` endpoint with the [Converse API](conversation-inference.md "conversation-inference.md")                                                                                                                                                                                                                                                                                                                        |
+| Need direct model control or non-text modalities      | Use the `bedrock-runtime` endpoint with the [Invoke API](inference-invoke.md "inference-invoke.md")                                                                                                                                                                                                                                                                                                                                      |
+| Migrating from OpenAI APIs                            | Use the `bedrock-runtime` endpoint with the [Responses API](bedrock-mantle.md#bedrock-mantle-responses "bedrock-mantle.md#bedrock-mantle-responses") or [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md") — same OpenAI shape, plus Amazon Bedrock features such as [Guardrails](guardrails.md "guardrails.md") and [cross-Region inference](cross-region-inference.md "cross-region-inference.md"). |
+| Migrating from Anthropic APIs                         | Use the `bedrock-runtime` endpoint with the [Messages API](inference-messages-api.md "inference-messages-api.md")                                                                                                                                                                                                                                                                                                                        |
 
 ###### Topics
 

@@ -61,6 +61,10 @@ The following is an example topic definition that you can provide:
   used to capture individual words or entity types. For more information, see
   [Remove PII from conversations by using sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md"), or [Remove a specific list of words and phrases from conversations with word filters](guardrails-word-filters.md "guardrails-word-filters.md") for these use cases.
 
+###### Note
+
+The order in which the topics are configured can result in varying evaluation outcomes. For example, the same prompt may be blocked under one ordering and allowed under another.
+
 ## Add denied topics to your guardrail
 
 You can add up to 30 denied topics to your guardrail by using the AWS Management Console or

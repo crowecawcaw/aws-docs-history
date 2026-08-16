@@ -189,8 +189,8 @@ The maximum number of entries is 8191.
 
 In nucleus sampling, Anthropic Claude computes the cumulative
 distribution over all the options for each subsequent token in
-decreasing probability order and cuts it off once it reaches a
-particular probability specified by `top_p`. When
+decreasing probability order. It cuts off the distribution after
+it reaches the probability specified by `top_p`. When
 adjusting sampling parameters, modify either
 `temperature` or `top_p`. Do not modify
 both at the same time.

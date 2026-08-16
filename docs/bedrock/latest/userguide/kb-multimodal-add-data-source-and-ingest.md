@@ -9,7 +9,7 @@ When you delete a data source with the deletion policy set to RETAIN, the ingest
 database and will continue to be used for retrieval. The content is only removed if
 you explicitly sync the knowledge base after deleting the data source. Data sources with the default DELETE policy will automatically remove content from the vector database and supplemental storage during deletion. This ensures
 that your knowledge base continues to function even if source files are modified or
-deleted, but you should be aware that deleted data sources with RETAIN policy may still contribute to
+deleted. However, deleted data sources with RETAIN policy might still contribute to
 search results.
 
 ## Add data sources
@@ -41,10 +41,10 @@ Console
 ###### Note
 
 Text embedding models limit retrieval to text-only
-content, but you can enable multimodal retrieval via text by
-selecting either Amazon Bedrock Data Automation (for audio,
-video, and images) or Foundation Model as parsers (for
-images).
+content. However, you can enable multimodal retrieval
+through text by selecting either Amazon Bedrock Data
+Automation (for audio, video, and images) or Foundation
+Model as parsers (for images).
 
 Choose from three parsing strategies:
 

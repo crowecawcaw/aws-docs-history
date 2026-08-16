@@ -11,7 +11,7 @@ This section provides detailed information about the common errors you might enc
 **Solution:**
 
 - Verify that your IAM user or role has the necessary permissions for the action you are attempting.
-- If you are using temporary security credentials, ensure they haven't expired.
+- If you are using temporary security credentials, make sure they haven't expired.
 
 ## FTUFormNotFilled
 
@@ -31,7 +31,7 @@ This section provides detailed information about the common errors you might enc
 
 **Solution:**
 
-- Ensure you are using an AWS SDK version that supports Amazon Bedrock.
+- Make sure you are using an AWS SDK version that supports Amazon Bedrock.
 - Verify that your AWS access key ID and secret key are correctly configured.
 - If you are manually signing requests, we suggest double-checking your signature calculation process.
 
@@ -57,7 +57,7 @@ This section provides detailed information about the common errors you might enc
 
 - We suggest double-checking the spelling and formatting of the action name in your request.
 - Verify that the action calling is supported by Amazon Bedrock and is correctly documented as shown in [Amazon Bedrock API Reference.](../APIReference/API_Operations.md "../APIReference/API_Operations.md")
-- Ensure you are using the most up-to-date version of the AWS SDK or CLI.
+- Make sure you are using the most up-to-date version of the AWS SDK or CLI.
 
 ## InvalidClientTokenId
 
@@ -68,7 +68,7 @@ This section provides detailed information about the common errors you might enc
 **Solution:**
 
 - Verify that you are using the correct AWS access key ID.
-- If you recently created new access keys, ensure you are using the new credentials and not the old ones.
+- If you recently created new access keys, make sure you are using the new credentials and not the old ones.
 
 ## AWS Marketplace Agreement Failed within 15 minutes
 
@@ -110,7 +110,7 @@ This section provides detailed information about the common errors you might enc
 
 **Solution:**
 
-- Review your IAM permissions and ensure you have the necessary rights to perform the requested action on Amazon Bedrock resources.
+- Review your IAM permissions and make sure you have the necessary rights to perform the requested action on Amazon Bedrock resources.
 - If you are using an IAM role, verify that the role has the appropriate permissions and trust relationships.
 - Check for any organizational policies or service control policies that might be restricting your access.
 
@@ -122,7 +122,7 @@ This section provides detailed information about the common errors you might enc
 
 **Solution:**
 
-- Ensure your system clock is correctly synchronized with a reliable time source.
+- Make sure your system clock is correctly synchronized with a reliable time source.
 - If you are making requests from different time zones, be aware of potential timestamp discrepancies.
 
 ## ServiceUnavailable
@@ -141,7 +141,7 @@ This section provides detailed information about the common errors you might enc
 
 **Best practices**
 
-- Ensure your application can handle 503 status codes appropriately in your error handling and retry logic.
+- Make sure your application can handle 503 status codes appropriately in your error handling and retry logic.
 - Check the AWS Service Health Dashboard for any announced issues or scheduled maintenance that might affect the service.
 
 If you experience frequent 503 errors or if they significantly impact your operations, please contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support")for further assistance and guidance tailored to your specific use case.

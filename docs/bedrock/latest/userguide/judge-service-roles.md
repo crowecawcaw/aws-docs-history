@@ -44,7 +44,7 @@ JSON
 
 ## Required Amazon S3 IAM actions and resources
 
-Your service role policy needs to include access to the Amazon S3 bucket where you want the output of model evaluation jobs saved, and access to the prompt dataset you have specified in your `CreateEvaluationJob` request or via the Amazon Bedrock console.
+Your service role policy needs to include access to the Amazon S3 bucket where you want the output of model evaluation jobs saved, and access to the prompt dataset you have specified in your `CreateEvaluationJob` request or through the Amazon Bedrock console.
 
 JSON
 

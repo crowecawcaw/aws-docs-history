@@ -289,7 +289,7 @@ Specify the Lambda ARN in your input JSONL file for each prompt template that sh
 "customEvaluationMetricLabel": "My Custom Metric"
 ```
 
-When you create the job via the API, no additional evaluation configuration is needed in the `CreateAdvancedPromptOptimizationJob` request itself. The evaluation method is determined per-template from the input JSONL file.
+When you create the job through the API, no additional evaluation configuration is needed in the `CreateAdvancedPromptOptimizationJob` request itself. The evaluation method is determined per-template from the input JSONL file.
 
 ### Lambda requirements
 

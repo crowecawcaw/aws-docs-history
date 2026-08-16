@@ -32,9 +32,9 @@ response and AWS CloudTrail logs. You can also view metrics for latency optimize
 requests in Amazon CloudWatch logs under "model-id+latency-optimized".
 
 Latency optimized inference is available for Meta’s Llama 3.1 70B and 405B, as well as
-Anthropic’s Claude 3.5 Haiku in the US East (Ohio) and US West (Oregon) Regions via [cross-Region inference](bedrock/latest/userguide/cross-region-inference.md "bedrock/latest/userguide/cross-region-inference.md").
+Anthropic’s Claude 3.5 Haiku in the US East (Ohio) and US West (Oregon) Regions through [cross-Region inference](bedrock/latest/userguide/cross-region-inference.md "bedrock/latest/userguide/cross-region-inference.md").
 
-Latency optimized inference is available for Amazon Nova Pro in the US East (N. Virginia), US East (Ohio), and US West (Oregon) Regions via [cross-Region inference](bedrock/latest/userguide/cross-region-inference.md "bedrock/latest/userguide/cross-region-inference.md").
+Latency optimized inference is available for Amazon Nova Pro in the US East (N. Virginia), US East (Ohio), and US West (Oregon) Regions through [cross-Region inference](bedrock/latest/userguide/cross-region-inference.md "bedrock/latest/userguide/cross-region-inference.md").
 
 For more information about pricing, visit the [pricing page](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 

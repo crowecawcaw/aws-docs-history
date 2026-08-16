@@ -23,7 +23,7 @@ All four token types must be accounted for when reconciling usage to spend. If y
 
 ### Service tiers
 
-Amazon Bedrock supports different service tiers that affect pricing and availability. The service tier for a request is reflected in the CUR usage type. When reconciling costs, ensure you apply the correct unit price for the service tier associated with each line item.
+Amazon Bedrock supports different service tiers that affect pricing and availability. The service tier for a request is reflected in the CUR usage type. When reconciling costs, make sure you apply the correct unit price for the service tier associated with each line item.
 
 For more information on service tiers and how they affect inference pricing, see [Service tiers for optimizing performance and cost](service-tiers-inference.md "service-tiers-inference.md").
 

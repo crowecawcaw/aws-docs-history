@@ -227,7 +227,7 @@ delete icon (
 
 ) next to the filter.
 
-![Delete a filter or filter group.](images/kb/filter-delete.png)
+![Delete a filter or filter group.](/images/bedrock/latest/userguide/images/kb/filter-delete.png)
 
 The following image shows an example filter configuration that returns
 all documents written after `2018` whose genre is

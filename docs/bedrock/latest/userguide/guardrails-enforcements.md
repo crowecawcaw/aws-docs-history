@@ -128,7 +128,7 @@ Create a management policy that specifies your guardrail and attach it to your t
 
     	###### Important
 
-    	Ensure you are specifying the accurate guardrail ARN in the policy. Specifying an incorrect or invalid ARN will result in policy violations, non-enforcement of safeguards, and the inability to use the models in Amazon Bedrock for inference.
+    	Make sure you are specifying the accurate guardrail ARN in the policy. Specifying an incorrect or invalid ARN will result in policy violations, non-enforcement of safeguards, and the inability to use the models in Amazon Bedrock for inference.
     	4. Configure selective content guarding controls (optional).
 
 

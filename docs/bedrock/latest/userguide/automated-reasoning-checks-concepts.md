@@ -48,7 +48,7 @@ For step-by-step instructions on creating a policy, see [Create your Automated R
 
 A _fidelity report_ measures how accurately an extracted policy
 represents the source documents it was generated from. The report is automatically generated
-when you create a policy from a source document, and provides two key scores along with
+when you create a policy from a source document. It provides two key scores along with
 detailed grounding information that links every rule and variable back to specific statements
 in your source content.
 

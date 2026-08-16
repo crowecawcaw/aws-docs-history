@@ -22,8 +22,9 @@ The following operations can log model invocations.
 ###### Note
 
 Model invocation logging is only supported for calls made through the
-`bedrock-runtime` endpoint. Calls made through other endpoints,
-such as the Responses API on the `bedrock-mantle` endpoint, are
+`bedrock-runtime` endpoint. This includes the OpenAI-compatible
+Responses and Chat Completions APIs on that endpoint. Calls made through
+other endpoints, such as the same APIs on `bedrock-mantle`, are
 not currently captured by invocation logging.
 
 When [using the Converse API](conversation-inference-call.md "conversation-inference-call.md"), any image or document data that you pass is logged in Amazon S3

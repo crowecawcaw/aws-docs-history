@@ -2,6 +2,10 @@
 
 Amazon Bedrock Workspaces provide application-level isolation for your generative AI workloads using the Anthropic-compatible Messages API on the `bedrock-mantle` endpoint. Workspaces enable you to segment your AI applications for cost tracking, observability, and access control.
 
+###### Tip
+
+For new applications, we recommend the `bedrock-runtime` endpoint. If you don't need Workspaces, use the [Converse](conversation-inference.md "conversation-inference.md") or [Invoke](inference-invoke.md "inference-invoke.md") APIs with [Inference Profiles](inference-profiles-create.md "inference-profiles-create.md") for isolation, tagging, and cost tracking on `bedrock-runtime`.
+
 ###### Note
 
 Workspaces can only be used with models that support the Messages API on the `bedrock-mantle` endpoint. To see which models support the Messages API, see [APIs supported by Amazon Bedrock](apis.md "apis.md").
@@ -31,7 +35,7 @@ You should use Workspaces when you need to:
 
 ## Workspaces vs. Projects
 
-Workspaces and [Projects (OpenAI-compatible)](projects.md "projects.md") are the same underlying resource — both are managed via the Projects API. The difference is how you reference them in your inference requests, depending on which API you use:
+Workspaces and [Projects (OpenAI-compatible)](projects.md "projects.md") are the same underlying resource — both are managed through the Projects API. The difference is how you reference them in your inference requests, depending on which API you use:
 
 | Feature        | Workspaces                                              | Projects                                             |
 | -------------- | ------------------------------------------------------- | ---------------------------------------------------- |
@@ -48,7 +52,7 @@ This section walks you through creating a workspace, associating it with Message
 
 ### Prerequisites
 
-Before you begin, ensure you have:
+Before you begin, make sure you have:
 
 - An AWS account with Amazon Bedrock access
 - IAM permissions to create and manage Amazon Bedrock projects
@@ -160,7 +164,7 @@ curl -X GET "https://bedrock-mantle.$BEDROCK_REGION.api.aws/v1/organization/proj
 
 ## Managing Workspaces
 
-Since Workspaces are managed via the Projects API, all project management operations apply. See [Working with Projects](projects.md#projects-working-with "projects.md#projects-working-with") for detailed instructions on:
+Since Workspaces are managed through the Projects API, all project management operations apply. See [Working with Projects](projects.md#projects-working-with "projects.md#projects-working-with") for detailed instructions on:
 
 - **Listing workspaces**: Retrieve all workspaces in your account
 - **Retrieving details**: Get information about a specific workspace

@@ -4,50 +4,7 @@ Amazon Bedrock is a fully managed service that provides secure, enterprise-grade
 
 ## Quickstart
 
-Read the [Quickstart](getting-started.md "getting-started.md") to write your first API call using Amazon Bedrock in under five minutes.
-
-Messages API
-
-```
-import anthropic
-
-client = anthropic.Anthropic()
-
-response = client.messages.create(
-    model="anthropic.claude-opus-4-7",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
-)
-print(response)
-```
-
-Responses API
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="openai.gpt-oss-120b",
-    input="Can you explain the features of Amazon Bedrock?"
-    )
-print(response)
-```
-
-Chat Completions API
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.chat.completions.create(
-    model="openai.gpt-oss-120b",
-    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
-    )
-print(response)
-```
+Read the [Quickstart](getting-started.md "getting-started.md") to write your first API call using Amazon Bedrock in under five minutes. For new applications, we recommend the `bedrock-runtime` endpoint.
 
 Converse API
 
@@ -85,9 +42,52 @@ response = client.invoke_model(
  print(json.loads(response['body'].read()))
 ```
 
+Responses API
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.responses.create(
+    model="openai.gpt-oss-120b",
+    input="Can you explain the features of Amazon Bedrock?"
+    )
+print(response)
+```
+
+Chat Completions API
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="openai.gpt-oss-120b",
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+    )
+print(response)
+```
+
+Messages API
+
+```
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="anthropic.claude-opus-4-7",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+)
+print(response)
+```
+
 ## Supported models
 
-Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
+Amazon Bedrock supports [100+ foundation models](models.md "models.md") from industry-leading providers, including Amazon, Anthropic, DeepSeek, Moonshot AI, MiniMax, and OpenAI.
 
 |                                                                               |                                                                                    |                                |                                                                                    |                                                                        |                            |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------- |
@@ -100,7 +100,7 @@ Bedrock supports [100+ foundation models](models.md "models.md") from industry-l
 - [Claude Opus 4.8 now available in Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/05/claude-opus-4.8-aws/ "https://aws.amazon.com/about-aws/whats-new/2026/05/claude-opus-4.8-aws/"): The latest Opus model from Anthropic, delivering improvements across agentic coding, deep knowledge work, and multi-stage autonomous tasks. See the [Claude Opus 4.8](model-card-anthropic-claude-opus-4-8.md "model-card-anthropic-claude-opus-4-8.md") model card for details.
 - [Claude Mythos Preview (Gated Research Preview)](https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-claude-mythos/ "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-claude-mythos/"): Anthropic's most advanced AI model with state-of-the-art capabilities across cybersecurity, software coding, and complex reasoning tasks. Available in gated preview in US East (N. Virginia).
 
-## Start Building
+## Start building
 
 |                                                                                                             |                                                                                                                                                                         |
 | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

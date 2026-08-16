@@ -115,7 +115,7 @@ For GIF and WebP files, models that support these formats typically use only the
 
 **Limits:** Maximum 100 multimodal files per evaluation sample. You can mix and match so that you have up to 20 text variables and also 100 multimodal files per evaluation sample record.
 
-**Mixing text and multimodal:** You can have both `inputVariables` (text) and `inputVariablesMultimodal` in the same sample. Double curly bracket `{{placeholders}}` are reserved for plaintext only. You cannot reference multimodal files via placeholders. Placeholder variables should not be used to point to an S3 location of a multimodal file. If you have multimodal files, they will be sent to the model in the payload along with the text prompt.
+**Mixing text and multimodal:** You can have both `inputVariables` (text) and `inputVariablesMultimodal` in the same sample. Double curly bracket `{{placeholders}}` are reserved for plaintext only. You cannot reference multimodal files through placeholders. Placeholder variables should not be used to point to an S3 location of a multimodal file. If you have multimodal files, they will be sent to the model in the payload along with the text prompt.
 
 ## Dataset tips
 

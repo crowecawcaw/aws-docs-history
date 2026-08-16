@@ -64,8 +64,16 @@ see [Controlling external web access](#web-search-controlling-external "#web-sea
 
 Web Search is available for OpenAI GPT models served through the Amazon Bedrock
 `bedrock-mantle` endpoint, using the Responses API. It is currently supported on
-`openai.gpt-5.4`, `openai.gpt-5.5`, and `openai.gpt-5.6`
-(luna, terra, and sol). For Web Search pricing, refer to the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
+the GPT-5.6 family — `openai.gpt-5.6-sol`,
+`openai.gpt-5.6-terra`, and `openai.gpt-5.6-luna` — as well as the
+earlier `openai.gpt-5.4` and `openai.gpt-5.5`. Examples in this guide
+use `openai.gpt-5.6-terra`. For Web Search pricing, refer to the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
+
+###### Note
+
+Web Search is a server-side tool, so it isn't available when you call the Responses API on
+the `bedrock-runtime` endpoint. To use it, call the Responses API on
+`bedrock-mantle`. For the other differences between the two endpoints, see [Using the Responses API on the bedrock-runtime endpoint](bedrock-mantle.md#bedrock-mantle-responses-runtime "bedrock-mantle.md#bedrock-mantle-responses-runtime").
 
 ### Regional availability
 
@@ -132,7 +140,7 @@ does not grant `ExternalWebAccess`, this configuration is safe by default.
 
 ```
 response = client.responses.create(
-    model="openai.gpt-5.5",
+    model="openai.gpt-5.6-terra",
     input="Summarize recent guidance on AWS Lambda cold starts.",
     tools=[{"type": "web_search", "external_web_access": False}],
 )
@@ -143,7 +151,7 @@ curl "https://bedrock-mantle.us-west-2.api.aws/openai/v1/responses" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "openai.gpt-5.5",
+    "model": "openai.gpt-5.6-terra",
     "input": "Summarize recent guidance on AWS Lambda cold starts.",
     "tools": [{"type": "web_search", "external_web_access": false}]
   }'
@@ -173,7 +181,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.responses.create(
-    model="openai.gpt-5.5",
+    model="openai.gpt-5.6-terra",
     input="What are the most significant AWS launches announced this month?",
     tools=[{"type": "web_search", "external_web_access": False}],
 )
@@ -234,7 +242,7 @@ curl "https://bedrock-mantle.us-west-2.api.aws/openai/v1/responses" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "openai.gpt-5.5",
+    "model": "openai.gpt-5.6-terra",
     "input": "What are the most significant AWS launches announced this month?",
     "tools": [{"type": "web_search", "external_web_access": false}]
   }'
@@ -252,7 +260,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.responses.create(
-    model="openai.gpt-5.5",
+    model="openai.gpt-5.6-terra",
     input="What are the most significant AWS launches announced this month?",
     tools=[{"type": "web_search", "external_web_access": False}],
 )
@@ -292,7 +300,7 @@ from openai import OpenAI
 client = OpenAI()
 
 stream = client.responses.create(
-    model="openai.gpt-5.5",
+    model="openai.gpt-5.6-terra",
     input="What are the most significant AWS launches announced this month?",
     tools=[{"type": "web_search", "external_web_access": False}],
     stream=True,

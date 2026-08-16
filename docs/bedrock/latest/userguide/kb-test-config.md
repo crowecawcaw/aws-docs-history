@@ -265,7 +265,7 @@ is `"entertainment"` by adding the following filter:
 - To edit a filter, select it, modify the filtering operation,
   and choose **Apply**.
 
-![Edit a filter.](images/kb/filter-edit.png)
+![Edit a filter.](/images/bedrock/latest/userguide/images/kb/filter-edit.png)
 
 - To remove a filter group, choose the trash can icon
   (
@@ -631,7 +631,7 @@ For a detailed explanation of the function of each of these
 parameters, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
 
 Additionally, you can provide custom parameters not supported by
-`textInferenceConfig` via the
+`textInferenceConfig` through the
 `additionalModelRequestFields` map. You can provide
 parameters unique to specific models with this argument, for the unique
 parameters see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").

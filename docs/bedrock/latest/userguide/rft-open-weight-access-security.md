@@ -6,7 +6,7 @@ to its reward function execution capabilities.
 
 ## Prerequisites
 
-Before using Amazon Bedrock's OpenAI-compatible fine-tuning APIs, ensure you have the following:
+Before using Amazon Bedrock's OpenAI-compatible fine-tuning APIs, make sure you have the following:
 
 1. An AWS account with appropriate permissions to access Amazon Bedrock
 2. **Authentication** – You can authenticate using:

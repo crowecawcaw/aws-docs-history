@@ -2,7 +2,7 @@
 
 Amazon Bedrock automatically captures the [IAM principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") identity ([IAM users](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md") and [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")) for every inference request. You can optionally attach tags to your principals for additional cost dimensions like team, department, or cost center. This gives you per-user and per-role cost visibility without code changes or additional resources.
 
-IAM principal attribution currently works with Amazon Bedrock `bedrock-runtime` APIs ([InvokeModel API](inference-api.md "inference-api.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")). Support for `bedrock-mantle` APIs is coming soon.
+IAM principal attribution works with Amazon Bedrock APIs on both the `bedrock-runtime` endpoint ([InvokeModel API](inference-api.md "inference-api.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")) and the `bedrock-mantle` endpoint ([Responses API](bedrock-mantle.md "bedrock-mantle.md") / [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md")).
 
 ## How it works
 
@@ -20,10 +20,10 @@ Amazon Bedrock captures identity from any IAM principal type. The two most commo
 
 **IAM users** call Amazon Bedrock directly using long-lived access keys. The IAM user name and any tags attached to the user are recorded in AWS Billing.
 
-**IAM roles** are assumed by users, applications, or federated identities via AWS STS. When a principal calls `sts:AssumeRole`, the resulting temporary credentials carry the role's identity. Tags can come from two sources:
+**IAM roles** are assumed by users, applications, or federated identities through AWS STS. When a principal calls `sts:AssumeRole`, the resulting temporary credentials carry the role's identity. Tags can come from two sources:
 
 - **Principal tags** – Tags attached directly to the IAM role. These are static and apply to every session.
-- **Session tags** – Tags passed at the time of role assumption via AWS STS. These are dynamic and can vary per session, making them useful for passing user-specific attributes like email, team, or cost center through a shared role.
+- **Session tags** – Tags passed at the time of role assumption through AWS STS. These are dynamic and can vary per session, making them useful for passing user-specific attributes like email, team, or cost center through a shared role.
 
 ###### Important
 
@@ -43,7 +43,7 @@ Tags flow to your billing data in two ways:
 
 To learn more about IAM tagging and best practices, see [Tags for IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md").
 
-**Session tags** are passed dynamically when assuming an IAM role via AWS STS. They are ideal for federated users (authenticating through an identity provider like Okta, Auth0, or Entra) and LLM gateways that proxy requests on behalf of multiple users or tenants. Session tags can be passed in three ways:
+**Session tags** are passed dynamically when assuming an IAM role through AWS STS. They are ideal for federated users (authenticating through an identity provider like Okta, Auth0, or Entra) and LLM gateways that proxy requests on behalf of multiple users or tenants. Session tags can be passed in three ways:
 
 - **AssumeRole** – Pass `--tags` when calling `sts:AssumeRole` (for example, an LLM gateway assuming a Amazon Bedrock role per user or tenant).
 - **AssumeRoleWithWebIdentity (OIDC)** – Embed tags in the `https://aws.amazon.com/tags` claim in the ID token issued by your identity provider.
@@ -73,7 +73,7 @@ To see identity-level cost breakdowns, create a CUR 2.0 data export that include
 1. Open the AWS Billing and Cost Management console.
 2. In the navigation pane, choose **Data Exports**.
 3. Choose **Create** to create a new CUR 2.0 export.
-4. Configure the export and ensure you select the option to include the caller identity ARN.
+4. Configure the export and make sure you select the option to include the caller identity ARN.
 
 ###### Important
 
@@ -170,8 +170,8 @@ IAM principal attribution can be used alongside Projects and application inferen
 
 We recommend using Projects for application-level attribution and IAM principal attribution for user-level attribution within the same account.
 
-| Method                         | Attributes by               | Supported APIs                                                                                                                                                                                                         | `bedrock-runtime`                                                       | `bedrock-mantle`                                                        |
-| ------------------------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| IAM principal attribution      | Identity (user, role, team) | [InvokeModel API](inference-api.md "inference-api.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md") | Green circular icon with a white checkmark symbol inside.               | Red circular icon with an X symbol, indicating cancellation or denial.  |
-| Projects (Recommended)         | Application or workload     | [Responses API](bedrock-mantle.md "bedrock-mantle.md") / [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md")                                                                                                 | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 |
-| Application inference profiles | Application or workload     | [InvokeModel API](inference-api.md "inference-api.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md") | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
+| Method                         | Attributes by               | Supported APIs                                                                                                                                                                                                                                                                                                                                                                          | `bedrock-runtime`                                                       | `bedrock-mantle`                                                        |
+| ------------------------------ | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| IAM principal attribution      | Identity (user, role, team) | [InvokeModel API](inference-api.md "inference-api.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md") on `bedrock-runtime`; [Responses API](bedrock-mantle.md "bedrock-mantle.md") / [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md") on `bedrock-mantle` | Green circular icon with a white checkmark symbol inside.               | Green circular icon with a white checkmark symbol inside.               |
+| Projects (Recommended)         | Application or workload     | [Responses API](bedrock-mantle.md "bedrock-mantle.md") / [Chat Completions API](bedrock-mantle.md "bedrock-mantle.md")                                                                                                                                                                                                                                                                  | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 |
+| Application inference profiles | Application or workload     | [InvokeModel API](inference-api.md "inference-api.md") / [Converse API](conversation-inference.md "conversation-inference.md") / [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md")                                                                                                                                                                  | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |

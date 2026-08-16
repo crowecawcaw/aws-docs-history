@@ -16,7 +16,7 @@ within the standard output configuration by default.
 The Interactive Advertising Bureau (IAB) classification applies a standard
 advertising taxonomy to classify image content. For Preview, BDA will support 24
 top-level (L1) categories and 85 second-level (L2) categories. To download the list
-of IAB categories supported by BDA, click [here](samples/iab-taxonomy.zip.md "samples/iab-taxonomy.zip.md").
+of IAB categories supported by BDA, download the [IAB taxonomy (ZIP)](samples/iab-taxonomy.zip.md "samples/iab-taxonomy.zip.md").
 
 ## Logo Detection
 

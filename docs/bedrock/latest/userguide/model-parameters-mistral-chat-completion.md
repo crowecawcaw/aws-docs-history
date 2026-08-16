@@ -164,7 +164,7 @@ popular songs on a radio station.
 
 - **max\_tokens**
   – Specify the maximum number of tokens to use in the generated
-  response. The model truncates the response once the generated text exceeds
+  response. The model truncates the response after the generated text exceeds
   `max_tokens`.
 
 | Default               | Minimum | Maximum               |

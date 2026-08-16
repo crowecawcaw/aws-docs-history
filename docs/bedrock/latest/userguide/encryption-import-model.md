@@ -54,4 +54,4 @@ imported model encrypted by your key.
 - **Primary grants** have a long lifespan and remain active as long as the associated custom models are still in use. When a custom imported model is deleted,
   the corresponding primary grant is automatically retired.
 - **Secondary grants** are short-lived. They are automatically retired as soon as the operation that Amazon Bedrock performs on behalf of the customers is completed. For example,
-  once a custom model import job is finished, the secondary grant that allowed Amazon Bedrock to encrypt the custom imported model will be retired immediately.
+  after a custom model import job is finished, the secondary grant that allowed Amazon Bedrock to encrypt the custom imported model will be retired immediately.

@@ -11,7 +11,7 @@ SharePoint sites.
 - Automatic detection of common document fields (such as title, author, and created or modified dates)
 - Inclusion content filters using item paths and date ranges
 - Incremental content syncs for added, updated, and deleted content
-- Microsoft Entra ID App-Only and OAuth 2.0 authentication
+- User-managed (3LO), Microsoft Entra ID App-Only, and OAuth 2.0 authentication
 - Document-level access control (ACLs), with Microsoft Entra ID App-Only authentication
 
 ## Use cases and required permissions
@@ -67,10 +67,11 @@ All sites, with ACLs| API | Permission | Purpose |
 
 ## Authentication methods
 
-A SharePoint data source supports two authentication methods. Choose one before you begin, because it determines the credentials you create and whether you can use document-level access control. We recommend Microsoft Entra ID App-Only authentication for new data sources.
+A SharePoint data source supports three authentication methods. Choose one before you begin, because it determines the credentials you create and whether you can use document-level access control. We recommend Microsoft Entra ID App-Only authentication for new data sources.
 
 SharePoint authentication methods| Method | How it authenticates | When to use | Setup |
 | --- | --- | --- | --- |
+| User-managed (3LO) (`MANAGED_OAUTH2`) | You sign in to SharePoint directly to authorize the connection, and Amazon Bedrock Managed Knowledge Base handles authentication. This is the simplest way to get started. | Getting started quickly, when you do not need document-level access control. Not supported with document-level access control. | [User-managed setup (3LO)](kb-managed-sharepoint-3lo-setup.md "kb-managed-sharepoint-3lo-setup.md") |
 | Microsoft Entra ID App-Only (`ENTRA_ID_APP_ONLY`) — recommended | A Microsoft Entra application authenticates with a certificate. No user credentials and no interactive sign-in. | Most data sources, and any data source that uses document-level access control. | [Set up Entra ID App-Only authentication](kb-managed-sharepoint-entra-setup.md "kb-managed-sharepoint-entra-setup.md") |
 | OAuth 2.0 (`OAUTH2_APP`) | An application client ID and secret, plus the user name and password of a Microsoft 365 user account that has access to the sites you want to crawl (the resource-owner password credentials, or ROPC, flow). | Use only if you cannot use Microsoft Entra ID App-Only authentication. The account must not require MFA or Conditional Access. Not supported with document-level access control. | [Set up OAuth 2.0 authentication](kb-managed-sharepoint-oauth2-setup.md "kb-managed-sharepoint-oauth2-setup.md") |
 
@@ -108,7 +109,7 @@ The `OAUTH2_APP` method signs in with a user name and password, so it cannot com
 
 Setting up a SharePoint data source involves the following steps:
 
-1. **Set up authentication.** Follow the page for your chosen method to register a Microsoft Entra application, configure permissions, and store your credentials in AWS: [Set up Microsoft Entra ID App-Only authentication for SharePoint](kb-managed-sharepoint-entra-setup.md "kb-managed-sharepoint-entra-setup.md") or [Set up OAuth 2.0 authentication for SharePoint](kb-managed-sharepoint-oauth2-setup.md "kb-managed-sharepoint-oauth2-setup.md").
+1. **Set up authentication.** Follow the page for your chosen method. With user-managed setup (3LO), you sign in to SharePoint directly — see [User-managed setup (3LO)](kb-managed-sharepoint-3lo-setup.md "kb-managed-sharepoint-3lo-setup.md"). For the other methods, you register a Microsoft Entra application, configure permissions, and store your credentials in AWS — see [Set up Microsoft Entra ID App-Only authentication for SharePoint](kb-managed-sharepoint-entra-setup.md "kb-managed-sharepoint-entra-setup.md") or [Set up OAuth 2.0 authentication for SharePoint](kb-managed-sharepoint-oauth2-setup.md "kb-managed-sharepoint-oauth2-setup.md").
 2. **Connect the data source.** Create the SharePoint data source in the knowledge base using the AWS Management Console or the API. See [Connect a SharePoint data source](kb-managed-ds-sharepoint-connect.md "kb-managed-ds-sharepoint-connect.md").
 3. **(Optional) Enable document-level access control.** Filter query results by each user's SharePoint permissions. See [Document-level access controls](kb-managed-ds-sharepoint-acl.md "kb-managed-ds-sharepoint-acl.md").
 

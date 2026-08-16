@@ -10,7 +10,7 @@ prompt format for your use case when using a LLM on Amazon Bedrock.
 
 ###### Note
 
-All examples in this doc are obtained via API calls. The response may vary due to the
+All examples in this doc are obtained through API calls. The response may vary due to the
 stochastic nature of the LLM generation process. If not otherwise specified, the prompts
 are written by employees of AWS.
 
@@ -335,7 +335,7 @@ Claude)
 
 Notice how the main content of the prompt is wrapped like this: `\n\nHuman:
  {{Main Content}}\n\nAssistant:`. For Anthropic
-Claude models, prompts sent via the API must contain \n\nHuman: and `\n\nAssistant:`.
+Claude models, prompts sent through the API must contain \n\nHuman: and `\n\nAssistant:`.
 
 To use conversational mode on Titan, you can use the format of `User: {{}}
  \n Bot:` when prompting the model.

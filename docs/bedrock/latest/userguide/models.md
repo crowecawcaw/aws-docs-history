@@ -2,6 +2,10 @@
 
 Amazon Bedrock supports a wide catalog of foundation models from leading providers. This chapter explains where each model is available, which APIs and endpoints support it, how to access it, and how to manage models throughout their lifecycle. For an overview of all available models with their capabilities and pricing, see [Models at a glance](model-cards.md "model-cards.md").
 
+###### Tip
+
+For new applications, we recommend the `bedrock-runtime` endpoint. See [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") for details.
+
 **In this chapter**
 
 - [API compatibility by models](models-api-compatibility.md "models-api-compatibility.md") – Which APIs (InvokeModel, Converse, Chat Completions, Responses, Messages) each model supports.
@@ -18,5 +22,5 @@ When picking a model, consider:
 
 - **Capabilities** – modalities (text, image, embeddings), context window, and tool use support.
 - **Endpoint and API** – whether the model is on `bedrock-runtime`, `bedrock-mantle`, or both, and which APIs it supports. See [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md").
-- **Region** – whether the model is available in the AWS Regions you operate in, or via a cross-Region inference profile.
+- **Region** – whether the model is available in the AWS Regions you operate in, or through a cross-Region inference profile.
 - **Cost and throughput** – on-demand pricing vs. [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md").

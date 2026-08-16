@@ -34,7 +34,7 @@ process occurs:
 4. **Response generation** – When
    `generateResponse` is set to `true` (the default), the
    foundation model synthesizes a natural-language answer from the
-   retrieved results. The answer is streamed back to you via `responseEvent` events.
+   retrieved results. The answer is streamed back to you through `responseEvent` events.
 5. **Result event** – The deduplicated retrieval
    results from all iterations, the full synthesized natural-language answer and citations are returned to you.
    Trace events are streamed throughout the process for observability.

@@ -86,7 +86,7 @@ Please rate the quality of the response on the following scale:
 ```
 
 When you create an evaluation job that uses an LLM as a judge, either in the AWS Management Console or using the AWS CLI or one of the AWS SDKs, you can specify an output schema for
-Amazon Bedrock to rate the responses from your generator model. Ensure that any definitions you specify for the output schema are consistent with the scoring guidelines you define in the prompt. For
+Amazon Bedrock to rate the responses from your generator model. Make sure that any definitions you specify for the output schema are consistent with the scoring guidelines you define in the prompt. For
 example, in the preceding example, you would specify the definitions for your output schema as 'Poor', 'Acceptable', and 'Good'. For more guidance on defining output schemas, see
 [Specifying an output schema (rating scale)](#kb-evaluation-custom-metrics-prompt-formats-schema "#kb-evaluation-custom-metrics-prompt-formats-schema").
 

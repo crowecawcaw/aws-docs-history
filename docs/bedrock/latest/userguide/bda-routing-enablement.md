@@ -80,7 +80,7 @@ Settings for JPEG files apply to both ".jpeg" and ".jpg" files. Settings for MP4
 
 ###### Routing with the BDA API
 
-Similar to modality enablement, modality routing is handled via the `overrideConfiguration` request element.
+Similar to modality enablement, modality routing is handled through the `overrideConfiguration` request element.
 Below is an example of the `modalityRouting` portion of `overrideConfiguration`. This example assumes
 all modalities are enabled, and routes JPEG and PNG files to the document modality, and MP4 and MOV files to the audio modality.
 

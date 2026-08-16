@@ -1,6 +1,6 @@
 # Workflow overview
 
-**Step 1 - Subscribe**: Subscribe to a third-party Bedrock serverless model through AWS Marketplace (either via auto-enablement or private offer).
+**Step 1 - Subscribe**: Subscribe to a third-party Bedrock serverless model through AWS Marketplace (either through auto-enablement or private offer).
 
 **Step 2 - License creation**: A license is automatically generated in us-east-1, representing your entitlement. You can view this license in the License Manager console under Granted Licenses.
 
@@ -13,4 +13,4 @@
 
 - Individual grants: Recipient accepts and activates their own grant
 - Organization/OU grants: Management account can bulk-activate all grants, or recipients activate individually
-  **Step 5 - Use the model**: Once activated, users in the entitled accounts can invoke the model using the Amazon Bedrock console, AWS CLI, or AWS SDKs.
+  **Step 5 - Use the model**: After activation, you can invoke the model in your entitled account using the Amazon Bedrock console, AWS CLI, or AWS SDKs.

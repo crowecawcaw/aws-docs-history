@@ -61,8 +61,8 @@ API
 
 ###### To create a knowledge base with an Amazon Kendra GenAI index
 
-To create a knowledge base, send a [CreateKnowledgeBase](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") request (see link for request and
-response formats and field details) with an Agents for [Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").
+To create a knowledge base, send a [CreateKnowledgeBase](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") request with an Agents for [Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). For request and
+response formats and field details, see the [CreateKnowledgeBase](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") API reference.
 
 - In the `roleArn` field, provide the Amazon Resource Name (ARN) of an IAM
   role that has permissions to create an Amazon Bedrock knowledge base.
@@ -83,8 +83,8 @@ information, see [Supported models and Regions for Amazon Bedrock knowledge base
 - To create a knowledge base with an Amazon Kendra GenAI index, provide the
   ARN of your Amazon Kendra GenAI index
 - After you create a knowledge base, create a data source that
-  contains the documents or content for your knowledge base. Note that
-  you can't create a data source using Amazon Bedrock API operations. You must
+  contains the documents or content for your knowledge base. You
+  can't create a data source using Amazon Bedrock API operations. You must
   do so with either the Amazon Bedrock console or the Amazon Kendra [CreateDataSource](../../../kendra/latest/APIReference/API_CreateDataSource.md "../../../kendra/latest/APIReference/API_CreateDataSource.md") API operation. For more information
   about choosing a data source, and for API connection configuration
   examples, see [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md").

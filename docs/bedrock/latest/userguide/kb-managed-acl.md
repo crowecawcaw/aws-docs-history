@@ -35,8 +35,8 @@ ACL support by connector| Connector | Pre-retrieval filter | Real-time ACL | Not
 | [OneDrive](kb-managed-ds-onedrive-acl.md "kb-managed-ds-onedrive-acl.md") | Supported | Supported | Uses application-level permissions (2LO). Requires `ENTRA_APP_ID` auth type. |
 | [Google Drive](kb-managed-ds-googledrive-acl.md "kb-managed-ds-googledrive-acl.md") | Supported | Supported | Uses domain-wide delegation (2LO). Requires `SERVICE_ACCOUNT` auth type. |
 | [Confluence](kb-managed-ds-confluence-acl.md "kb-managed-ds-confluence-acl.md") | Supported | Supported | Uses admin API token for real-time checks. Requires `BASIC` auth type. |
-| [Amazon S3](kb-managed-ds-s3-acl.md "kb-managed-ds-s3-acl.md") | Supported | Not supported | ACLs defined via a customer-provided ACL configuration file in Amazon S3. No real-time verification because the customer-provided metadata file is the source of truth. |
-| [Custom](kb-managed-ds-custom-acl.md "kb-managed-ds-custom-acl.md") | Supported | Not supported | ACLs defined via customer-provided metadata. No real-time verification because the customer-provided metadata is the source of truth. |
+| [Amazon S3](kb-managed-ds-s3-acl.md "kb-managed-ds-s3-acl.md") | Supported | Not supported | ACLs defined through a customer-provided ACL configuration file in Amazon S3. No real-time verification because the customer-provided metadata file is the source of truth. |
+| [Custom](kb-managed-ds-custom-acl.md "kb-managed-ds-custom-acl.md") | Supported | Not supported | ACLs defined through customer-provided metadata. No real-time verification because the customer-provided metadata is the source of truth. |
 | Web Crawler | Not supported | N/A | Web content has no permission model. ACL awareness cannot be enabled for this connector. |
 
 For connector-specific ACL configuration details, see:

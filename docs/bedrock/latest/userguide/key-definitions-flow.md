@@ -6,8 +6,8 @@ The following list introduces you to the basic concepts of Amazon Bedrock Flows.
 - **Node** – A node is a step inside a flow. For each node, you configure its name, description, input, output, and any additional configurations. The configuration of a node differs based on its type. To learn more about different node types, see [Node types for your flow](flows-nodes.md "flows-nodes.md").
 - **Connection** – There are two types of connections used in Amazon Bedrock Flows:
 
-  - A **data connection** is drawn between the output of one node (the _source node_) and the input of another node (the _target node_) and sends data from an upstream node to a downstream node. In the Amazon Bedrock console, data connections are solid gray lines.
-  - A **conditional connection** is drawn between a condition in a condition node and a downstream node and sends data from the node that precedes the condition node to a downstream node if the condition is fulfilled. In the Amazon Bedrock console, conditional connections are dotted purple lines.
+  - A **data connection** is drawn between the output of one node (the _source node_) and the input of another node (the _target node_). It sends data from the upstream node to the downstream node. In the Amazon Bedrock console, data connections are solid gray lines.
+  - A **conditional connection** is drawn between a condition in a condition node and a downstream node. It sends data from the preceding node to the downstream node if the condition is fulfilled. In the Amazon Bedrock console, conditional connections are dotted purple lines.
 
 - **Expressions** – An expression defines how to extract an input from the whole input entering a node. To learn how to write expressions, see [Use expressions to define inputs by extracting the relevant part of a whole input in Amazon Bedrock Flows](flows-expressions.md "flows-expressions.md").
 - **Flow builder** – The Flow builder is a tool on the Amazon Bedrock console to build and edit flows through a visual interface. You use

@@ -29,7 +29,7 @@ To enable ACL awareness for a Google Drive data source, set `aclEnabled` to `tru
 
 ###### Important
 
-ACL configuration is permanent. You cannot enable ACLs on a data source created without ACL support, and you cannot disable ACLs once enabled.
+ACL configuration is permanent. You cannot enable ACLs on a data source created without ACL support, and you cannot disable ACLs after they are enabled.
 
 The AWS Secrets Manager secret must include `adminAccountEmail`, `clientEmail`, and `privateKey`. For step-by-step instructions to create the service account, configure domain-wide delegation, and obtain these values, see [Set up service account authentication for Google Drive](kb-managed-googledrive-service-account-setup.md "kb-managed-googledrive-service-account-setup.md").
 

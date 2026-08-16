@@ -6,7 +6,7 @@ This page provides detailed examples of advanced features available for models i
 
 Structured outputs enable controlled generation following specific formats, schemas, or patterns. This feature ensures that the model's response adheres to predefined constraints, making it ideal for applications requiring consistent data formats, API integrations, or automated processing pipelines.
 
-Structured outputs on Custom Model Import are supported via two parameters:
+Structured outputs on Custom Model Import are supported through two parameters:
 
 - `response_format` - Supports `json_object` and `json_schema` types
 - `structured_outputs` - Supports `json`, `regex`, `choice`, and `grammar` types

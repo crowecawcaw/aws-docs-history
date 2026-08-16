@@ -30,12 +30,12 @@ compute, environment, memory, identity, and observability. The harness
 supports:
 
 - Managed orchestration loop with built-in tool connectivity
-- Action groups exposed as MCP tools via AgentCore gateway (REST APIs, Lambda functions, or code-level @tools)
+- Action groups exposed as MCP tools through AgentCore gateway (REST APIs, Lambda functions, or code-level @tools)
 - Gateway-fronted knowledge base integration
 - Inline function tools for return-of-control and human-in-the-loop patterns
 - Code interpreter for sandboxed code execution
 - Short-term and long-term memory with configurable strategies
-- Guardrail enforcement via AgentCore gateway
+- Guardrail enforcement through AgentCore gateway
 - Persistent, end-to-end tracing of all agent actions
 - System prompt configuration for overall agent behavior
 
@@ -64,8 +64,8 @@ Classic configurations as a starting point for either path.
 | Bedrock Agents Classic                                                                                                    | AgentCore Equivalent                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Managed orchestration loop                                                                                                | Supported out-of-the-box with AgentCore harness                                                                                                                                                                                                                                                                          |
-| Action groups defined via OpenAPI / function schema + optional Lambda executor, called from the managed agent             | Tools exposed via AgentCore gateway as MCP tools wrapping REST APIs and Lambda functions or code-level @tools.                                                                                                                                                                                                           |
-| Association of Bedrock Knowledge Bases directly on the agent config for RAG                                               | Gateway-fronted knowledge base integration in AgentCore. Knowledge base accessible via code-level retrieval tool.                                                                                                                                                                                                        |
+| Action groups defined through OpenAPI / function schema + optional Lambda executor, called from the managed agent         | Tools exposed through AgentCore gateway as MCP tools wrapping REST APIs and Lambda functions or code-level @tools.                                                                                                                                                                                                       |
+| Association of Bedrock Knowledge Bases directly on the agent config for RAG                                               | Gateway-fronted knowledge base integration in AgentCore. Knowledge base accessible through code-level retrieval tool.                                                                                                                                                                                                    |
 | Trace UI and APIs that show pre-processing, orchestration, action group calls, KB queries, and observations end-to-end    | AgentCore provides persistent, end-to-end tracing of all agent actions.                                                                                                                                                                                                                                                  |
 | Prompt override configuration at specific stages (pre-processing, orchestration, KB response generation, post-processing) | System prompt on harness (--system-prompt) covers the overall agent behavior. Stage-specific prompt overrides (pre-processing, KB response generation, post-processing) are not directly replicated. Achieving equivalent behavior requires combining the system prompt with command execution and self-managed scripts. |
 | Built-in AMAZON.UserInput tool for automatic user reprompting and parameter elicitation during orchestration              | Inline function tools in harness. The agent calls the tool, harness pauses and returns tool\_use to client code, which handles user interaction and sends the result back. Equivalent to return-of-control. Requires explicit tool definition rather than automatic elicitation.                                         |
@@ -73,7 +73,7 @@ Classic configurations as a starting point for either path.
 | Session and memory configuration on the agent (idle TTL, memory types, cross-session memory)                              | AgentCore memory for short and long term (with different memory strategies)                                                                                                                                                                                                                                              |
 | Guardrails and agent policy attached declaratively to the agent and enforced during orchestration                         | Guardrail configuration in Bedrock, with policy enforcement on AgentCore gateway                                                                                                                                                                                                                                         |
 | Multi-agent collaboration roles and routing (for example, supervisor agents and orchestration roles)                      | Limited. The supervisor pattern is possible by exposing agents as MCP tools (agent-as-tool). Routing mode multi-agent is not straightforward today. Full multi-agent collaboration requires custom framework code.                                                                                                       |
-| Custom orchestrator                                                                                                       | Supported via AgentCore runtime (deploy custom orchestration code directly). Not available through harness.                                                                                                                                                                                                              |
+| Custom orchestrator                                                                                                       | Supported through AgentCore runtime (deploy custom orchestration code directly). Not available through harness.                                                                                                                                                                                                          |
 | Return of control (agent pauses for external input)                                                                       | Inline function tools in harness. Agent pauses, returns tool\_use to client.                                                                                                                                                                                                                                             |
 
 ## Migration procedure
@@ -148,7 +148,7 @@ agentcore add tool --harness my-research-agent \
   --type agentcore_code_interpreter --name code-interpreter
 ```
 
-To connect existing action groups via gateway:
+To connect existing action groups through gateway:
 
 ```
 agentcore add tool --harness my-research-agent \
@@ -321,7 +321,7 @@ innovation.
 What about my Bedrock Knowledge Bases?
 
 Knowledge Bases continue to work and are not affected by maintenance
-mode. When migrating to AgentCore, connect them via AgentCore gateway.
+mode. When migrating to AgentCore, connect them through AgentCore gateway.
 The underlying Knowledge Base resource is unchanged.
 
 What about my Bedrock Guardrails?
@@ -348,7 +348,7 @@ What about inline agents?
 Accounts with InvokeInlineAgent usage in the past 12 months can
 continue using inline agents. For new development, the AgentCore managed
 harness provides equivalent ephemeral agent capabilities with additional
-features (memory, stateful sessions, tool connectivity via gateway).
+features (memory, stateful sessions, tool connectivity through gateway).
 Migration guidance for inline agents is forthcoming.
 
 In which regions is AgentCore available?

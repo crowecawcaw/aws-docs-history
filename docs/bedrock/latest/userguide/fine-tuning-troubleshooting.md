@@ -7,7 +7,7 @@ This section summarizes errors that you might encounter and what to check if you
 If you encounter an issue with permissions to access an Amazon S3 bucket, check that the following are true:
 
 1. If the Amazon S3 bucket uses a customer managed AWS Key Management Service (KMS key) for
-   server-side encryption, ensure that the IAM role passed to Amazon Bedrock has
+   server-side encryption, make sure that the IAM role passed to Amazon Bedrock has
    `kms:Decrypt` permissions for the KMS key. For example, see
    [Allow a user to enccrypt and decrypt with any AWS KMS key in a specific
    AWS account](../../../kms/latest/developerguide/customer-managed-policies.md#iam-policy-example-encrypt-decrypt-one-account "../../../kms/latest/developerguide/customer-managed-policies.md#iam-policy-example-encrypt-decrypt-one-account").
@@ -65,7 +65,7 @@ If you encounter the preceding error, check that the following are true:
 Input size exceeded in file `fileName.jsonl` for record starting with...
 ```
 
-If you encounter an error beginning with the text above, ensure that the
+If you encounter an error beginning with the text above, make sure that the
 number of characters conforms to the character quota in [Prepare data for fine-tuning your models](model-customization-prepare.md "model-customization-prepare.md").
 
 **Token count exceeded**
@@ -90,7 +90,7 @@ The following errors are related to third-party's license terms and their polici
 Automated tests flagged this fine-tuning job as including materials that are potentially inconsistent with Anthropic's third-party license terms. Please contact support.
 ```
 
-If you encounter the preceding error, ensure your training dataset does not contain content that is inconsistent with Anthropic's usage policies. If the issue persists, contact Support.
+If you encounter the preceding error, make sure your training dataset does not contain content that is inconsistent with Anthropic's usage policies. If the issue persists, contact Support.
 
 ## Internal error
 

@@ -336,7 +336,7 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/chat/completions \
 
 ## Run inference with fine-tuned model
 
-Once your fine-tuning job is complete, you can use the fine-tuned model for inference through the Responses API or Chat Completions API. For complete API details, see [Inference using Responses API](bedrock-mantle.md "bedrock-mantle.md").
+Once your fine-tuning job is complete, you can use the fine-tuned model for inference through the Responses API or Chat Completions API. For complete API details, see [Responses API on the bedrock-mantle endpoint](bedrock-mantle.md "bedrock-mantle.md").
 
 ### Responses API
 

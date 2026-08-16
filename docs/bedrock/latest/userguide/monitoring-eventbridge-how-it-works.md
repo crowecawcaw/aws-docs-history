@@ -8,7 +8,7 @@ Before learning how to use Amazon EventBridge for Amazon Bedrock, review the fol
 - [Creating rules that react to events in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") – Learn how to create rules.
 - [Amazon EventBridge event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") – Learn how to define event patterns.
 - [Amazon EventBridge targets](../../../eventbridge/latest/userguide/eb-targets.md "../../../eventbridge/latest/userguide/eb-targets.md") – Learn about the targets you can send events to.
-  Amazon Bedrock publishes your events via Amazon EventBridge whenever there is a change in the state of a job that you submit. In each case, a new event is created and sent to Amazon EventBridge, which then sends the event to your default event bus. The event shows which job’s state has changed and the current state of the job.
+  Amazon Bedrock publishes your events through Amazon EventBridge whenever there is a change in the state of a job that you submit. In each case, a new event is created and sent to Amazon EventBridge, which then sends the event to your default event bus. The event shows which job’s state has changed and the current state of the job.
 
 Amazon Bedrock events are identified in an event by the value of the `source` being `aws.bedrock`. The `detail-type` for events in Amazon Bedrock include the following:
 

@@ -19,6 +19,10 @@ Nova Sonic is Amazon's speech-to-speech model that enables natural, real-time vo
 | Red circle with white X icon indicating error, cancel, or close action. Text  | Green circle with white checkmark icon. Text                                      | Red circle with white X icon indicating error, cancel, or close action. `Converse`         |                                                                                                          |
 | Red circle with white X icon indicating error, cancel, or close action. Video | Red circle with white X icon indicating error, cancel, or close action. Video     | Green circle with white checkmark icon. `InvokeModelWithBidirectionalStream`               |                                                                                                          |
 
+###### Tip
+
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") for details.
+
 ## Pricing
 
 For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
@@ -35,7 +39,7 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 ## Service Tiers
 
-Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
 
 | **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
 | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |

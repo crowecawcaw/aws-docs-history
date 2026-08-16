@@ -216,7 +216,7 @@ The output includes structured data based on your project configuration and any 
 
 ## Process Documents Synchronously
 
-Before processing documents with BDA, you must first upload your documents to an S3 bucket. Sync API srupports both input via S3 bucket or image bytes (i.e. processing documents without S3). The command returns structured data based on your project configuration and any Blueprints you've applied:
+Before processing documents with BDA, you must first upload your documents to an S3 bucket. Sync API supports both input through S3 bucket or image bytes (that is, processing documents without S3). The command returns structured data based on your project configuration and any Blueprints you've applied:
 
 ```
 aws bedrock-data-automation-runtime invoke-data-automation \

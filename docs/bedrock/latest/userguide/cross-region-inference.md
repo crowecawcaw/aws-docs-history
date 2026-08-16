@@ -1,7 +1,7 @@
 # Route model inference requests across AWS Regions with cross-Region inference
 
-With cross-Region inference, you can choose either a cross-Region inference profile tied
-to a specific geography (such as US or EU), or you can choose a global inference profile.
+With cross-Region inference, you can choose a cross-Region inference profile tied
+to a specific geography (such as US or EU), or a global inference profile.
 When you choose an inference profile tied to a specific geography, Amazon Bedrock automatically
 selects a commercial AWS Region within that geography to process your inference
 request. With global inference profiles, Amazon Bedrock automatically selects a commercial
@@ -54,7 +54,7 @@ Note the following information about cross-Region inference:
 - All data transmitted during cross-Region operations remains on the AWS
   network and does not traverse the public internet. Data is encrypted in transit
   between AWS Regions.
-- All cross-Region inference requests are logged in CloudTrail in your source Region.
+- CloudTrail logs all cross-Region inference requests in your source Region.
   Look for the `additionalEventData.inferenceRegion` field to identify
   where requests were processed.
 - AWS Services powered by Amazon Bedrock may also use CRIS. See service-specific

@@ -8,7 +8,7 @@ You are responsible for the integrity of your own data when you use Bedrock Data
 
 You can find the list of supported languages for Custom Vocabulary in the [Amazon Bedrock Data Automation quotas and limits](bedrock/latest/userguide/bda-limits.md "bedrock/latest/userguide/bda-limits.md") page. Note that only the characters listed in your language's [character set](bda-library-character-sets.md "bda-library-character-sets.md") can be used in a custom vocabulary.
 
-## How to use?
+## Using custom vocabulary
 
 You can use Custom Vocabulary in your BDA project by creating a Data Automation Library, adding domain-specific vocabulary entities/lists for your target language, and associating the library with your project during project creation or by updating an existing project, which enables all audio and video processing jobs executed through that project to apply your custom vocabulary. This results in improved extraction accuracy for your domain-specific terms across both standard output and custom blueprint output.
 

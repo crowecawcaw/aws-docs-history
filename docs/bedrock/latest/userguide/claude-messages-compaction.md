@@ -208,7 +208,7 @@ By default, compaction uses the following summarization prompt:
 You have written a partial transcript for the initial task above. Please write a summary of the transcript. The purpose of this summary is to provide continuity so you can continue to make progress towards solving the task in a future context, where the raw history above may not be accessible and will be replaced with this summary. Write down anything that would be helpful, including the state, next steps, learnings etc. You must wrap your summary in a <summary></summary> block.
 ```
 
-You can provide custom instructions via the `instructions` parameter to replace this prompt entirely. Custom instructions don't supplement the default; they completely replace it:
+You can provide custom instructions through the `instructions` parameter to replace this prompt entirely. Custom instructions don't supplement the default; they completely replace it:
 
 ```
 import boto3

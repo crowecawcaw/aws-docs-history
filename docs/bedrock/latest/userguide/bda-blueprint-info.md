@@ -13,13 +13,13 @@ When using a blueprint for extraction, you can use a catalog blueprint or a cust
 blueprint. If you already know the kind of file you're looking to extract from,
 catalog bluprints provide a premade starting place. You can create custom blueprints for
 files that aren't in the catalog. When creating a blueprint you can use several methods,
-such as a generated blueprint via the blueprint prompt, manual creation by adding individual fields, or
+such as a generated blueprint through the blueprint prompt, manual creation by adding individual fields, or
 creating the JSON of a blueprint using the JSON Editor. These can be saved to your account and
 shared.
 
 ###### Note
 
-Audio blueprints cannot be created via Blueprint Prompts.
+Audio blueprints cannot be created through Blueprint Prompts.
 
 A blueprint's maximum size is 100,000 characters, JSON formatted. For blueprints that are intended to be used with the [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API the maximum fields per blueprint is 100. For Blueprints that are intended to be used with the [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API the maximum fields per blueprint is 15.
 

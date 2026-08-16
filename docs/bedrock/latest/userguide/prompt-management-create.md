@@ -40,9 +40,9 @@ constructing the prompt:
   model, you can cache system instructions, tools, and messages (user and
   assistant). Prompt caching
   creates a cache checkpoint for the prompt if your total prompt prefix meets the
-  minimum number of tokens that the model requires. When a changed variable is
-  encountered in a prompt, prompt caching creates a new cache checkpoint (if the
-  number of input tokens reaches the minimum that the model requires).
+  minimum number of tokens that the model requires. When a variable changes
+  in a prompt, prompt caching creates a new cache checkpoint if the input token
+  count reaches the minimum that the model requires.
   To learn how to create a prompt using Prompt management, choose the tab for your preferred method, and then follow the steps:
 
 Console
@@ -212,4 +212,4 @@ The following fields are optional:
 | clientToken | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md"). |
 | tags        | To associate tags with the flow. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").                                                                                     |
 
-The response creates a `DRAFT` version and returns an ID and ARN that you can use as a prompt identifier for other prompt-related API requests.
+The response creates a `DRAFT` version and returns an ID and ARN. Use these as a prompt identifier for other prompt-related API requests.

@@ -40,7 +40,7 @@ the student model.
 After you've identified your teacher and student models, you can choose how you want
 Amazon Bedrock to create a distilled model for your use case. Amazon Bedrock can either generate teacher
 responses by using the prompts that you provide, or you can use responses from your
-production data via invocation logs. Amazon Bedrock Model Distillation uses these responses to fine-tune the
+production data through invocation logs. Amazon Bedrock Model Distillation uses these responses to fine-tune the
 student model.
 
 ###### Note

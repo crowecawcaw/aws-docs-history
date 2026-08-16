@@ -9,18 +9,18 @@ residency requirements and compliance regulations.
 Note the following information about Geographic cross-Region inference:
 
 - Cross-Region inference requests to an inference profile tied to a
-  geography (such as US, EU, and APAC) are kept within the AWS Regions that are
-  part of the geography where the data originally resides. For example, a
+  geography (such as US, EU, and APAC) stay within that geography. Your data
+  remains in the AWS Regions where it originally resides. For example, a
   request made within the US is kept within the AWS Regions in the US.
-  By default the data remains stored only in the source Region, but your input
+  By default, the data remains stored only in the source Region. However, your input
   prompts and output results might move outside of your source Region during
   cross-Region inference. To the extent we store data for abuse detection,
   your input prompts and output results will be stored in the destination region.
   See [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md")
   for more information on which models require storage. All data will be transmitted
   encrypted across Amazon's secure network.
-- To see the default quotas for cross-Region throughput when using inference
-  profiles tied to a geography (such as US, EU and APAC), refer to the
+- For default cross-Region throughput quotas when using inference
+  profiles tied to a geography (such as US, EU, and APAC), see the
   **Cross-region model inference requests per minute
   for ${Model}** and **Cross-region model
  inference tokens per minute for ${Model}** values in [Amazon Bedrock service quotas](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") in the _AWS General
@@ -107,9 +107,9 @@ Region in the inference profile will prevent cross-Region inference from functio
 properly, even if your source Region remains accessible. For SCP requirements for Global cross-Region inference, see [Service Control Policy requirements for Global cross-Region inference](global-cross-region-inference.md#global-cris-scp-setup "global-cross-region-inference.md#global-cris-scp-setup").
 
 To improve security, consider using the `bedrock:InferenceProfileArn`
-condition to limit access to specific inference profiles. This allows you to grant
-access to the required Regions while restricting which inference profiles can be
-used.
+condition to limit access to specific inference profiles. With this condition, you
+can grant access to the required Regions while restricting which inference profiles
+can be used.
 
 ## Use Geographic cross-Region inference
 

@@ -146,17 +146,19 @@ We will now look at the list of APIs supported by each model.
 
 ## OpenAI
 
-| Model name                                                                                                                | Invoke | Converse | Chat Completions | Responses | Messages |
-| ------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ---------------- | --------- | -------- |
-| **[GPT-5.6 Sol](model-card-openai-gpt-56-sol.md "model-card-openai-gpt-56-sol.md")**                                      |        |          |                  |           |          |
-| **[GPT-5.6 Terra](model-card-openai-gpt-56-terra.md "model-card-openai-gpt-56-terra.md")**                                |        |          |                  |           |          |
-| **[GPT-5.6 Luna](model-card-openai-gpt-56-luna.md "model-card-openai-gpt-56-luna.md")**                                   |        |          |                  |           |          |
-| **[GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md")**                                                  |        |          |                  |           |          |
-| **[GPT-5.4](model-card-openai-gpt-54.md "model-card-openai-gpt-54.md")**                                                  |        |          |                  |           |          |
-| **[GPT OSS Safeguard 120B](model-card-openai-gpt-oss-safeguard-120b.md "model-card-openai-gpt-oss-safeguard-120b.md")\*** |        |          |                  |           |          |
-| **[GPT OSS Safeguard 20B](model-card-openai-gpt-oss-safeguard-20b.md "model-card-openai-gpt-oss-safeguard-20b.md")\***    |        |          |                  |           |          |
-| **[gpt-oss-120b](model-card-openai-gpt-oss-120b.md "model-card-openai-gpt-oss-120b.md")\***                               |        |          |                  |           |          |
-| **[gpt-oss-20b](model-card-openai-gpt-oss-20b.md "model-card-openai-gpt-oss-20b.md")\***                                  |        |          |                  |           |          |
+| Model name                                                                                                                      | Invoke | Converse | Chat Completions | Responses | Messages |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ---------------- | --------- | -------- |
+| **[GPT-5.6 Sol](model-card-openai-gpt-56-sol.md "model-card-openai-gpt-56-sol.md")**                                            |        |          |                  |           |          |
+| **[Daybreak Red: GPT-5.6 Cyber](model-card-openai-gpt-56-cyber.md "model-card-openai-gpt-56-cyber.md")**                        |        |          |                  |           |          |
+| **[Daybreak Blue: GPT-5.6 Sol](model-card-openai-gpt-daybreak-blue-56-sol.md "model-card-openai-gpt-daybreak-blue-56-sol.md")** |        |          |                  |           |          |
+| **[GPT-5.6 Terra](model-card-openai-gpt-56-terra.md "model-card-openai-gpt-56-terra.md")**                                      |        |          |                  |           |          |
+| **[GPT-5.6 Luna](model-card-openai-gpt-56-luna.md "model-card-openai-gpt-56-luna.md")**                                         |        |          |                  |           |          |
+| **[GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md")**                                                        |        |          |                  |           |          |
+| **[GPT-5.4](model-card-openai-gpt-54.md "model-card-openai-gpt-54.md")**                                                        |        |          |                  |           |          |
+| **[GPT OSS Safeguard 120B](model-card-openai-gpt-oss-safeguard-120b.md "model-card-openai-gpt-oss-safeguard-120b.md")\***       |        |          |                  |           |          |
+| **[GPT OSS Safeguard 20B](model-card-openai-gpt-oss-safeguard-20b.md "model-card-openai-gpt-oss-safeguard-20b.md")\***          |        |          |                  |           |          |
+| **[gpt-oss-120b](model-card-openai-gpt-oss-120b.md "model-card-openai-gpt-oss-120b.md")\***                                     |        |          |                  |           |          |
+| **[gpt-oss-20b](model-card-openai-gpt-oss-20b.md "model-card-openai-gpt-oss-20b.md")\***                                        |        |          |                  |           |          |
 
 ## Qwen
 

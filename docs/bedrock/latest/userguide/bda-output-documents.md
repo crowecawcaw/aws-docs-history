@@ -46,7 +46,7 @@ Output settings determine the way your downloaded results will be structured. Th
 
 ## Text Format
 
-Text format determines the different kinds of texts that will be provided via
+Text format determines the different kinds of texts that will be provided through
 various extraction operations. You can select any number of the following options for your
 text format.
 

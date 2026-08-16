@@ -28,7 +28,7 @@ and summarizes each.
 The Interactive Advertising Bureau (IAB) classification applies a standard
 advertising taxonomy to classify video scenes based on visual and audio elements.
 For Preview, BDA will support 24 top-level (L1) categories and 85 second-level (L2)
-categories. To download the list of IAB categories supported by BDA, click [here](samples/iab-taxonomy.zip.md "samples/iab-taxonomy.zip.md").
+categories. To download the list of IAB categories supported by BDA, download the [IAB taxonomy (ZIP)](samples/iab-taxonomy.zip.md "samples/iab-taxonomy.zip.md").
 
 ## Full Audio Transcript
 

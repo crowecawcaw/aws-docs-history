@@ -43,6 +43,13 @@ To further restrict permissions, you can omit actions, or you can specify resour
 
 - `bedrock:InvokeModel` – Required to carry out model invocation. Allows the role to call the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API operations.
 - `bedrock:InvokeModelWithResponseStream` – Required to carry out model invocation and return streaming responses. Allows the role to call the [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") and [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md")Stream API operations.
+- The following actions allow a role to work with responses that the [Responses API](bedrock-mantle.md#bedrock-mantle-responses "bedrock-mantle.md#bedrock-mantle-responses") stored on the `bedrock-runtime` endpoint. Each one authorizes the project that the response belongs to, not a model:
+
+  - `bedrock:GetInvoke` – Required to retrieve a stored response.
+  - `bedrock:CancelInvoke` – Required to cancel a response that is still in progress.
+  - `bedrock:DeleteInvoke` – Required to delete a stored response.
+    Creating a response also requires `bedrock:InvokeModel` on the project, in addition to the inference target. The Converse, Invoke, and Chat Completions APIs store no responses and don't need these actions. For more information, see [Projects (OpenAI-compatible)](projects.md "projects.md").
+
 - The following actions allow a role to run inference with Amazon Bedrock resources other than foundation models:
 
   - `bedrock:GetInferenceProfile` – Required to run inference with an [inference profile](inference-profiles.md "inference-profiles.md").

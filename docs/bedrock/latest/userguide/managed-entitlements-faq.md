@@ -10,7 +10,7 @@ A: Yes, but with limitations. Organizations with consolidated billing can use ma
 
 A: Yes. You can designate a delegated administrator account to manage license distribution. This member account can create and distribute grants independently from the management account. However, only one delegated administrator is supported per organization.
 
-**Q: Do I need to set up managed entitlements in every AWS region?**
+**Q: Do I need to set up managed entitlements in every AWS Region?**
 
 A: No. All license management happens in the us-east-1 (N. Virginia) region regardless of where you use Bedrock models. Once you complete setup in us-east-1, you can invoke licensed models in any supported Bedrock region.
 
@@ -94,12 +94,12 @@ A: Yes. Different accounts can subscribe to the same model independently. Each s
 
 **Q: Why don't I see my license in License Manager after subscribing?**
 
-A: Licenses can take 1-2 minutes to appear after subscription. Ensure you're viewing License Manager in the us-east-1 region, as all licenses are created there regardless of where you subscribed. If it still doesn't appear after 5 minutes, verify your subscription is active in the AWS Marketplace console.
+A: Licenses can take 1-2 minutes to appear after subscription. Make sure you're viewing License Manager in the us-east-1 Region, as all licenses are created there regardless of where you subscribed. If it still doesn't appear after 5 minutes, verify your subscription is active in the AWS Marketplace console.
 
 **Q: My recipient account can't see the grant I created. What should I check?**
 
-A: Verify the recipient is checking License Manager in the us-east-1 region. Confirm you entered the correct 12-digit account ID when creating the grant. Wait 2-3 minutes for grant distribution. For organizations without all features enabled, ensure the recipient account has service-linked roles created.
+A: Verify the recipient is checking License Manager in the us-east-1 Region. Confirm you entered the correct 12-digit account ID when creating the grant. Wait 2-3 minutes for grant distribution. For organizations without all features enabled, ensure the recipient account has service-linked roles created.
 
 **Q: Why can't I activate a grant in my account?**
 
-A: Check that the grant is in Disabled or Pending Acceptance state. If you already have an active license for the same model, deactivate or delete it first. Ensure you have the `license-manager:CreateGrantVersion` IAM permission. For consolidated billing organizations, confirm you accepted the grant before attempting activation.
+A: Check that the grant is in Disabled or Pending Acceptance state. If you already have an active license for the same model, deactivate or delete it first. Make sure you have the `license-manager:CreateGrantVersion` IAM permission. For consolidated billing organizations, confirm you accepted the grant before attempting activation.

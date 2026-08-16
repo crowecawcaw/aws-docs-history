@@ -49,7 +49,7 @@ The following list describes fields in the OpenAPI schema
 - `operationId` – A unique string that identifies an operation in
   an API, like a function name. This is a required field for all new toolUse enabled
   models such as Anthropic Claude 3.5 Sonnet, Meta
-  Llama, etc. Ensure that the identifier (Id) you provide is unique across
+  Llama, etc. Make sure that the identifier (Id) you provide is unique across
   all operations and follows simple alphanumeric pattern with only hyphens or
   underscores as separators.
 - `responses` – Contains properties that the agent returns in the API response. The agent uses the response properties to construct prompts, accurately process the results of an API call, and determine a correct set of steps for performing a task. The agent can use response values from one operation as inputs for subsequent steps in the orchestration.

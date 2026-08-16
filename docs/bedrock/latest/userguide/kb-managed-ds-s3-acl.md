@@ -106,7 +106,7 @@ ACL misconfigurations do not produce explicit errors during retrieval. Retrieval
 
 ACL-enabled Amazon S3 symptoms, causes, and fixes| Symptom | Likely cause | Fix |
 | --- | --- | --- |
-| Retrieve returns 0 results for a user who should have access. | The user's email does not match any ACL entry (email mismatch). | Ensure the ACL `Name` matches the user's email exactly. |
+| Retrieve returns 0 results for a user who should have access. | The user's email does not match any ACL entry (email mismatch). | Make sure the ACL `Name` matches the user's email exactly. |
 | A document is never returned to anyone. | The document has no ACL entry, so it was not ingested. | Add an ACL for the document through the global ACL file or a per-document `.metadata.json` file, then resync. |
 | A per-document ACL is not taking effect. | The `.metadata.json` file is misnamed or in the wrong path. | Name it ``filename`.metadata.json` in the same S3 path; per-document metadata overrides the global file. |
 | ACL changes are not reflected. | Global ACL file changes require reindexing of the affected prefix. | Resync the affected prefix. |

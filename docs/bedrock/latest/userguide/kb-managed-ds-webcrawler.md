@@ -54,7 +54,7 @@ Web Crawler authentication methods| Method | How it authenticates | When to use 
 - If the site requires sign-in, identify the authentication method (basic,
   form, or SAML). For form and SAML, locate the XPath expressions for the
   user name field, password field, and submit button on the login page. To
-  find an XPath, right-click the form element in your browser and choose
+  find an XPath, open the context (right-click) menu for the form element in your browser and choose
   **Inspect**, then copy the XPath from the
   developer tools.
 
@@ -231,9 +231,9 @@ XPath expressions for the form fields.
 
 ###### Note
 
-To find an XPath in your browser, right-click the form element on the login
+To find an XPath in your browser, open the context (right-click) menu for the form element on the login
 page and choose **Inspect**. In the developer
-tools, right-click the highlighted HTML, choose **Copy**, and then choose **Copy
+tools, open the context (right-click) menu for the highlighted HTML, then choose **Copy**, and then choose **Copy
 XPath**.
 
 ## Troubleshooting

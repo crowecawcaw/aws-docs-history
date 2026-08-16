@@ -4,7 +4,7 @@ Custom chat templates and tokenizers are essential components for properly forma
 
 ## Importing Models with Custom Chat Templates
 
-When importing a model with custom chat templates, ensure that you follow the best practices outlined in the main Custom Model Import documentation, including bringing in model weights in safe tensors format and providing all necessary configuration files.
+When importing a model with custom chat templates, make sure that you follow the best practices outlined in the main Custom Model Import documentation, including bringing in model weights in safe tensors format and providing all necessary configuration files.
 
 ### Chat Template Format Requirements
 
@@ -33,7 +33,7 @@ If you provide multiple chat template sources, Amazon Bedrock applies the follow
 
 ###### Note
 
-The chat template file must follow the Hugging Face format and naming conventions. Ensure that your template is compatible with the Transformers library.
+The chat template file must follow the Hugging Face format and naming conventions. Make sure that your template is compatible with the Transformers library.
 
 #### Chat Template Format Examples
 
@@ -71,7 +71,7 @@ For a complete example with multimodal support, see the [Qwen2-VL chat template]
 
 ###### Important
 
-Ensure that your chat template file follows the exact naming convention (`chat_template.jinja` or `chat_template.json`) and format shown in the examples above. Incorrectly formatted templates may cause import or inference failures.
+Make sure that your chat template file follows the exact naming convention (`chat_template.jinja` or `chat_template.json`) and format shown in the examples above. Incorrectly formatted templates may cause import or inference failures.
 
 ## Invoking Models with Custom Chat Templates
 
@@ -212,7 +212,7 @@ When using the manual tokenization approach, you must use the **Completion API**
 - **Validate your chat template** — Before importing your model, test your chat template locally using the Transformers library to ensure it produces the expected output format.
 - **Include all special tokens** — Ensure your chat template includes all necessary special tokens (such as beginning-of-sequence, end-of-sequence, and role markers) that your model expects.
 - **Test with multi-turn conversations** — Validate that your chat template correctly handles multi-turn conversations with alternating user and assistant messages.
-- **Consider vision support** — If your model supports multimodal inputs, ensure your chat template includes logic for handling image and video content markers.
+- **Consider vision support** — If your model supports multimodal inputs, make sure your chat template includes logic for handling image and video content markers.
 
 ###### Warning
 

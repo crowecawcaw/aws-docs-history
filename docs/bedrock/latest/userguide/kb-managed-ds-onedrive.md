@@ -11,7 +11,7 @@ tenant.
 - Automatic detection of common document fields (such as title, author, and created or modified dates)
 - Inclusion and exclusion content filters using user email addresses, drive item paths, MIME types, and date ranges
 - Incremental content syncs for added, updated, and deleted content
-- Microsoft Entra App ID and OAuth 2.0 authentication
+- User-managed (3LO), Microsoft Entra App ID, and OAuth 2.0 authentication
 - Document-level access control (ACLs), with Microsoft Entra App ID authentication
 
 ###### Note
@@ -20,10 +20,11 @@ OneNote notebooks are not currently supported.
 
 ## Authentication methods
 
-A OneDrive data source supports two authentication methods. Choose one before you begin, because it determines the credentials you create and whether you can use document-level access control. We recommend Microsoft Entra App ID authentication for new data sources.
+A OneDrive data source supports three authentication methods. Choose one before you begin, because it determines the credentials you create and whether you can use document-level access control. We recommend Microsoft Entra App ID authentication for new data sources.
 
 OneDrive authentication methods| Method | How it authenticates | When to use | Setup |
 | --- | --- | --- | --- |
+| User-managed (3LO) (`MANAGED_OAUTH2`) | You sign in to OneDrive directly to authorize the connection, and Amazon Bedrock Managed Knowledge Base handles authentication. This is the simplest way to get started. | Getting started quickly, when you do not need document-level access control. Not supported with document-level access control. | [User-managed setup (3LO)](kb-managed-onedrive-3lo-setup.md "kb-managed-onedrive-3lo-setup.md") |
 | Microsoft Entra App ID (`ENTRA_APP_ID`) — recommended | A Microsoft Entra application authenticates with an application client ID and secret, using the OAuth 2.0 client-credentials (application-only) flow. No user sign-in. When document-level access control is enabled, the application additionally authenticates to SharePoint with a certificate. | Most data sources, and any data source that uses document-level access control. | [Set up Entra App ID authentication](kb-managed-onedrive-entra-setup.md "kb-managed-onedrive-entra-setup.md") |
 | OAuth 2.0 (`OAUTH2`) | An application client ID and secret together with a delegated refresh token that you obtain through a user sign-in. The connector uses the refresh token to obtain access tokens for crawling. | Use when a single Microsoft 365 user has access to all the OneDrive content you want to crawl — their own drive, plus any drives shared with them or where they have SharePoint admin access. Microsoft Entra App ID authentication is required to crawl every user's OneDrive in your tenant uniformly. | [Set up OAuth 2.0 authentication](kb-managed-onedrive-oauth2-setup.md "kb-managed-onedrive-oauth2-setup.md") |
 
@@ -52,7 +53,7 @@ The `OAUTH2` method requires a refresh token. Refresh tokens have a finite Micro
 
 Setting up a OneDrive data source involves the following steps:
 
-1. **Set up authentication.** Follow the page for your chosen method to register a Microsoft Entra application, configure permissions, and store your credentials in AWS: [Set up Microsoft Entra App ID authentication for OneDrive](kb-managed-onedrive-entra-setup.md "kb-managed-onedrive-entra-setup.md") or [Set up OAuth 2.0 authentication for OneDrive](kb-managed-onedrive-oauth2-setup.md "kb-managed-onedrive-oauth2-setup.md").
+1. **Set up authentication.** Follow the page for your chosen method. With user-managed setup (3LO), you sign in to OneDrive directly — see [User-managed setup (3LO)](kb-managed-onedrive-3lo-setup.md "kb-managed-onedrive-3lo-setup.md"). For the other methods, you register a Microsoft Entra application, configure permissions, and store your credentials in AWS — see [Set up Microsoft Entra App ID authentication for OneDrive](kb-managed-onedrive-entra-setup.md "kb-managed-onedrive-entra-setup.md") or [Set up OAuth 2.0 authentication for OneDrive](kb-managed-onedrive-oauth2-setup.md "kb-managed-onedrive-oauth2-setup.md").
 2. **Connect the data source.** Create the OneDrive data source in the knowledge base using the AWS Management Console or the API. See [Connect a OneDrive data source](kb-managed-ds-onedrive-connect.md "kb-managed-ds-onedrive-connect.md").
 3. **(Optional) Enable document-level access control.** Filter query results by each user's OneDrive permissions. See [Document-level access controls](kb-managed-ds-onedrive-acl.md "kb-managed-ds-onedrive-acl.md").
 

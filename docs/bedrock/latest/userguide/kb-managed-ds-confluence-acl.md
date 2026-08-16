@@ -30,7 +30,7 @@ To enable ACL awareness for a Confluence data source, set `aclEnabled` to `true`
 
 ###### Important
 
-ACL configuration is permanent. You cannot enable ACLs on a data source created without ACL support, and you cannot disable ACLs once enabled.
+ACL configuration is permanent. You cannot enable ACLs on a data source created without ACL support, and you cannot disable ACLs after they are enabled.
 
 In addition to the standard `username`, `password` (API token), and `hostUrl` fields, the AWS Secrets Manager secret must include the following organization admin fields. For step-by-step instructions to obtain these values, see [Set up Basic authentication for Confluence](kb-managed-confluence-basic-setup.md "kb-managed-confluence-basic-setup.md").
 

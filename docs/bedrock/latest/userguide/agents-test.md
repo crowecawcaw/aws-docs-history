@@ -154,7 +154,7 @@ For agents that are created `after` March 31, 2025:
 
 - If you've created your agent in the console, streaming is enabled
   by default. You can disable streaming anytime.
-- Ensure the Agent execution role includes the
+- Make sure the Agent execution role includes the
   `bedrock:InvokeModelWithResponseStream` permission
   for the configured agent model.
 

@@ -78,6 +78,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 [Amazon Nova Multimodal Embeddings](model-card-amazon-amazon-nova-multimodal-embeddings.md "model-card-amazon-amazon-nova-multimodal-embeddings.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
 | `us-east-1` (N. Virginia) | | | |
+| `us-gov-west-1` (GovCloud) | | | |
 
 [Titan Image Generator G1 v2](model-card-amazon-titan-image-generator-g1-v2.md "model-card-amazon-titan-image-generator-g1-v2.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
@@ -260,6 +261,8 @@ Rerank| Region | In-Region | Geo | Global |
 | `af-south-1` (Cape Town) | | | |
 | `sa-east-1` (São Paulo) | | | |
 | `mx-central-1` (Mexico) | | | |
+| `us-gov-west-1` (GovCloud West) | | | |
+| `us-gov-east-1` (GovCloud East) | | | |
 
 [Claude Sonnet 5](model-card-anthropic-claude-sonnet-5.md "model-card-anthropic-claude-sonnet-5.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
@@ -346,18 +349,29 @@ Rerank| Region | In-Region | Geo | Global |
 
 [Claude Sonnet 4](model-card-anthropic-claude-sonnet-4.md "model-card-anthropic-claude-sonnet-4.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | | | |
-| `us-east-2` (Ohio) | | Legacy (EOL: 2026-10-14) | |
-| `us-west-1` (N. California) | | | |
-| `us-west-2` (Oregon) | | | |
-| `eu-central-1` (Frankfurt) | | | |
-| `eu-north-1` (Stockholm) | | | |
-| `eu-south-1` (Milan) | | | |
-| `eu-south-2` (Spain) | | | |
-| `eu-west-1` (Ireland) | | | |
-| `eu-west-3` (Paris) | | | |
-| `ap-northeast-1` (Tokyo) | | | |
-| `il-central-1` (Tel Aviv) | | | |
+| `us-east-1` (N. Virginia) | | Legacy (EOL: 2026-10-14) | Legacy (EOL: 2026-10-14) |
+| `us-east-2` (Ohio) | | Legacy (EOL: 2026-10-14) | Legacy (EOL: 2026-10-14) |
+| `us-west-1` (N. California) | | Legacy (EOL: 2026-10-14) | |
+| `us-west-2` (Oregon) | | Legacy (EOL: 2026-10-14) | Legacy (EOL: 2026-10-14) |
+| `eu-central-1` (Frankfurt) | | Legacy (EOL: 2026-10-14) | |
+| `eu-north-1` (Stockholm) | | Legacy (EOL: 2026-10-14) | |
+| `eu-south-1` (Milan) | | Legacy (EOL: 2026-10-14) | |
+| `eu-south-2` (Spain) | | Legacy (EOL: 2026-10-14) | |
+| `eu-west-1` (Ireland) | | Legacy (EOL: 2026-10-14) | Legacy (EOL: 2026-10-14) |
+| `eu-west-3` (Paris) | | Legacy (EOL: 2026-10-14) | |
+| `il-central-1` (Tel Aviv) | | Legacy (EOL: 2026-10-14) | |
+| `ap-east-2` (Taipei) | | Legacy (EOL: 2026-10-14) | |
+| `ap-northeast-1` (Tokyo) | | Legacy (EOL: 2026-10-14) | Legacy (EOL: 2026-10-14) |
+| `ap-northeast-2` (Seoul) | | Legacy (EOL: 2026-10-14) | |
+| `ap-northeast-3` (Osaka) | | Legacy (EOL: 2026-10-14) | |
+| `ap-south-1` (Mumbai) | | Legacy (EOL: 2026-10-14) | |
+| `ap-south-2` (Hyderabad) | | Legacy (EOL: 2026-10-14) | |
+| `ap-southeast-1` (Singapore) | | Legacy (EOL: 2026-10-14) | |
+| `ap-southeast-2` (Sydney) | | Legacy (EOL: 2026-10-14) | |
+| `ap-southeast-3` (Jakarta) | | Legacy (EOL: 2026-10-14) | |
+| `ap-southeast-4` (Melbourne) | | Legacy (EOL: 2026-10-14) | |
+| `ap-southeast-5` (Malaysia) | | Legacy (EOL: 2026-10-14) | |
+| `ap-southeast-7` (Thailand) | | Legacy (EOL: 2026-10-14) | |
 
 Claude Opus 4| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
@@ -623,9 +637,9 @@ Claude Opus 4| Region | In-Region | Geo | Global |
 
 [Claude Opus 4.1](model-card-anthropic-claude-opus-4-1.md "model-card-anthropic-claude-opus-4-1.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | | Legacy (EOL: 2026-05-31) | |
-| `us-east-2` (Ohio) | | Legacy (EOL: 2026-05-31) | |
-| `us-west-2` (Oregon) | | Legacy (EOL: 2026-05-31) | |
+| `us-east-1` (N. Virginia) | | Legacy (EOL: 2027-01-08) | |
+| `us-east-2` (Ohio) | | Legacy (EOL: 2027-01-08) | |
+| `us-west-2` (Oregon) | | Legacy (EOL: 2027-01-08) | |
 
 [Claude 3 Haiku](model-card-anthropic-claude-3-haiku.md "model-card-anthropic-claude-3-haiku.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
@@ -638,7 +652,7 @@ Claude Opus 4| Region | In-Region | Geo | Global |
 | `eu-central-1` (Frankfurt) | Legacy (EOL: 2026-09-10) | | |
 | `eu-central-2` (Zurich) | | | |
 | `eu-west-1` (Ireland) | Legacy (EOL: 2026-09-10) | | |
-| `eu-west-2` (London) | | | |
+| `eu-west-2` (London) | Legacy (EOL: 2026-09-10) | | |
 | `eu-west-3` (Paris) | Legacy (EOL: 2026-09-10) | | |
 | `ap-northeast-1` (Tokyo) | Legacy (EOL: 2026-09-10) | | |
 | `ap-northeast-2` (Seoul) | | | |
@@ -649,51 +663,52 @@ Claude Opus 4| Region | In-Region | Geo | Global |
 
 Claude 3 Sonnet| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | | | |
-| `us-west-2` (Oregon) | | | |
+| `us-east-1` (N. Virginia) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `us-west-2` (Oregon) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
 | `ca-central-1` (Canada) | | | |
-| `eu-central-1` (Frankfurt) | | | |
-| `eu-west-1` (Ireland) | | | |
-| `eu-west-3` (Paris) | | | |
+| `eu-central-1` (Frankfurt) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `eu-west-1` (Ireland) | | Legacy (EOL: 2026-07-30) | |
+| `eu-west-2` (London) | | | |
+| `eu-west-3` (Paris) | | Legacy (EOL: 2026-07-30) | |
 | `ap-south-1` (Mumbai) | | | |
-| `ap-southeast-2` (Sydney) | | | |
+| `ap-southeast-1` (Singapore) | | | |
+| `ap-southeast-2` (Sydney) | Legacy (EOL: 2026-07-30) | | |
 | `sa-east-1` (São Paulo) | | | |
 
 Claude 3.7 Sonnet| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | | | |
-| `us-east-2` (Ohio) | | | |
-| `us-west-2` (Oregon) | | | |
-| `eu-central-1` (Frankfurt) | | | |
-| `eu-north-1` (Stockholm) | | | |
-| `eu-west-1` (Ireland) | | | |
+| `us-east-1` (N. Virginia) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `us-east-2` (Ohio) | | Legacy (EOL: 2026-07-30) | |
+| `us-west-2` (Oregon) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `eu-central-1` (Frankfurt) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `eu-north-1` (Stockholm) | | Legacy (EOL: 2026-07-30) | |
+| `eu-west-1` (Ireland) | | Legacy (EOL: 2026-07-30) | |
 | `eu-west-2` (London) | | | |
-| `eu-west-3` (Paris) | | | |
+| `eu-west-3` (Paris) | | Legacy (EOL: 2026-07-30) | |
+| `ap-south-1` (Mumbai) | | | |
 
 Claude 3.5 Sonnet V2:0| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | | | |
-| `us-east-2` (Ohio) | | | |
-| `us-west-2` (Oregon) | | | |
-| `ap-southeast-2` (Sydney) | | | |
-
-[Claude 3.5 Haiku](model-card-anthropic-claude-3-5-haiku.md "model-card-anthropic-claude-3-5-haiku.md")| Region | In-Region | Geo | Global |
-| --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | | Legacy (EOL: 2026-06-19) | |
-| `us-east-2` (Ohio) | | Legacy (EOL: 2026-06-19) | |
-| `us-west-2` (Oregon) | Legacy (EOL: 2026-06-19) | Legacy (EOL: 2026-06-19) | |
+| `us-east-1` (N. Virginia) | | Legacy (EOL: 2026-07-30) | |
+| `us-east-2` (Ohio) | | Legacy (EOL: 2026-07-30) | |
+| `us-west-2` (Oregon) | | Legacy (EOL: 2026-07-30) | |
+| `ap-northeast-2` (Seoul) | | | |
+| `ap-south-1` (Mumbai) | | | |
+| `ap-southeast-1` (Singapore) | | | |
+| `ap-southeast-2` (Sydney) | | Legacy (EOL: 2026-07-30) | |
 
 Claude 3.5 Sonnet| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | | | |
-| `us-east-2` (Ohio) | | | |
-| `us-west-2` (Oregon) | | | |
-| `eu-central-1` (Frankfurt) | | | |
-| `eu-central-2` (Zurich) | | | |
-| `eu-west-1` (Ireland) | | | |
-| `eu-west-3` (Paris) | | | |
-| `ap-northeast-1` (Tokyo) | | | |
+| `us-east-1` (N. Virginia) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `us-east-2` (Ohio) | | Legacy (EOL: 2026-07-30) | |
+| `us-west-2` (Oregon) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `eu-central-1` (Frankfurt) | Legacy (EOL: 2026-07-30) | Legacy (EOL: 2026-07-30) | |
+| `eu-central-2` (Zurich) | Legacy (EOL: 2026-07-30) | | |
+| `eu-west-1` (Ireland) | | Legacy (EOL: 2026-07-30) | |
+| `eu-west-3` (Paris) | | Legacy (EOL: 2026-07-30) | |
+| `ap-northeast-1` (Tokyo) | Legacy (EOL: 2026-07-30) | | |
 | `ap-northeast-2` (Seoul) | | | |
+| `ap-south-1` (Mumbai) | | | |
 | `ap-southeast-1` (Singapore) | | | |
 
 ## Cohere
@@ -1255,18 +1270,114 @@ Mistral Large 2407| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
 | `us-east-1` (N. Virginia) | | | |
 | `us-east-2` (Ohio) | | | |
+| `us-west-1` (N. California) | | | |
+| `us-west-2` (Oregon) | | | |
+| `ca-central-1` (Canada) | | | |
+| `ca-west-1` (Calgary) | | | |
+| `eu-central-1` (Frankfurt) | | | |
+| `eu-central-2` (Zurich) | | | |
+| `eu-north-1` (Stockholm) | | | |
+| `eu-south-1` (Milan) | | | |
+| `eu-south-2` (Spain) | | | |
+| `eu-west-1` (Ireland) | | | |
+| `eu-west-2` (London) | | | |
+| `eu-west-3` (Paris) | | | |
+| `ap-east-2` (Taipei) | | | |
+| `ap-northeast-1` (Tokyo) | | | |
+| `ap-northeast-2` (Seoul) | | | |
+| `ap-northeast-3` (Osaka) | | | |
+| `ap-south-1` (Mumbai) | | | |
+| `ap-south-2` (Hyderabad) | | | |
+| `ap-southeast-1` (Singapore) | | | |
+| `ap-southeast-2` (Sydney) | | | |
+| `ap-southeast-3` (Jakarta) | | | |
+| `ap-southeast-4` (Melbourne) | | | |
+| `ap-southeast-5` (Malaysia) | | | |
+| `ap-southeast-6` (New Zealand) | | | |
+| `ap-southeast-7` (Thailand) | | | |
+| `il-central-1` (Tel Aviv) | | | |
+| `me-central-1` (UAE) | | | |
+| `me-south-1` (Bahrain) | | | |
+| `af-south-1` (Cape Town) | | | |
+| `sa-east-1` (São Paulo) | | | |
+
+[Daybreak Red: GPT-5.6 Cyber](model-card-openai-gpt-56-cyber.md "model-card-openai-gpt-56-cyber.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-2` (Ohio) | | | |
+
+[Daybreak Blue: GPT-5.6 Sol](model-card-openai-gpt-daybreak-blue-56-sol.md "model-card-openai-gpt-daybreak-blue-56-sol.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-2` (Ohio) | | | |
 
 [GPT-5.6 Terra](model-card-openai-gpt-56-terra.md "model-card-openai-gpt-56-terra.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
 | `us-east-1` (N. Virginia) | | | |
 | `us-east-2` (Ohio) | | | |
+| `us-west-1` (N. California) | | | |
 | `us-west-2` (Oregon) | | | |
+| `ca-central-1` (Canada) | | | |
+| `ca-west-1` (Calgary) | | | |
+| `eu-central-1` (Frankfurt) | | | |
+| `eu-central-2` (Zurich) | | | |
+| `eu-north-1` (Stockholm) | | | |
+| `eu-south-1` (Milan) | | | |
+| `eu-south-2` (Spain) | | | |
+| `eu-west-1` (Ireland) | | | |
+| `eu-west-2` (London) | | | |
+| `eu-west-3` (Paris) | | | |
+| `ap-east-2` (Taipei) | | | |
+| `ap-northeast-1` (Tokyo) | | | |
+| `ap-northeast-2` (Seoul) | | | |
+| `ap-northeast-3` (Osaka) | | | |
+| `ap-south-1` (Mumbai) | | | |
+| `ap-south-2` (Hyderabad) | | | |
+| `ap-southeast-1` (Singapore) | | | |
+| `ap-southeast-2` (Sydney) | | | |
+| `ap-southeast-3` (Jakarta) | | | |
+| `ap-southeast-4` (Melbourne) | | | |
+| `ap-southeast-5` (Malaysia) | | | |
+| `ap-southeast-6` (New Zealand) | | | |
+| `ap-southeast-7` (Thailand) | | | |
+| `il-central-1` (Tel Aviv) | | | |
+| `me-central-1` (UAE) | | | |
+| `me-south-1` (Bahrain) | | | |
+| `af-south-1` (Cape Town) | | | |
+| `sa-east-1` (São Paulo) | | | |
 
 [GPT-5.6 Luna](model-card-openai-gpt-56-luna.md "model-card-openai-gpt-56-luna.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
 | `us-east-1` (N. Virginia) | | | |
 | `us-east-2` (Ohio) | | | |
+| `us-west-1` (N. California) | | | |
 | `us-west-2` (Oregon) | | | |
+| `ca-central-1` (Canada) | | | |
+| `ca-west-1` (Calgary) | | | |
+| `eu-central-1` (Frankfurt) | | | |
+| `eu-central-2` (Zurich) | | | |
+| `eu-north-1` (Stockholm) | | | |
+| `eu-south-1` (Milan) | | | |
+| `eu-south-2` (Spain) | | | |
+| `eu-west-1` (Ireland) | | | |
+| `eu-west-2` (London) | | | |
+| `eu-west-3` (Paris) | | | |
+| `ap-east-2` (Taipei) | | | |
+| `ap-northeast-1` (Tokyo) | | | |
+| `ap-northeast-2` (Seoul) | | | |
+| `ap-northeast-3` (Osaka) | | | |
+| `ap-south-1` (Mumbai) | | | |
+| `ap-south-2` (Hyderabad) | | | |
+| `ap-southeast-1` (Singapore) | | | |
+| `ap-southeast-2` (Sydney) | | | |
+| `ap-southeast-3` (Jakarta) | | | |
+| `ap-southeast-4` (Melbourne) | | | |
+| `ap-southeast-5` (Malaysia) | | | |
+| `ap-southeast-6` (New Zealand) | | | |
+| `ap-southeast-7` (Thailand) | | | |
+| `il-central-1` (Tel Aviv) | | | |
+| `me-central-1` (UAE) | | | |
+| `me-south-1` (Bahrain) | | | |
+| `af-south-1` (Cape Town) | | | |
+| `sa-east-1` (São Paulo) | | | |
 
 [GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |

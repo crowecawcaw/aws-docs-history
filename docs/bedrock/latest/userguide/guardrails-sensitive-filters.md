@@ -1,7 +1,7 @@
 # Remove PII from conversations by using sensitive information filters
 
 Amazon Bedrock Guardrails helps detect sensitive information, such as personally identifiable information
-(PII), in input prompts or model responses using sensitive information filters. This filter supports only text output and will not detect PII information when models respond with tool\_use (function call) output parameters via supported APIs. This filter is a probabilistic machine learning (ML) based solution that is context-dependent
+(PII), in input prompts or model responses using sensitive information filters. This filter supports only text output and will not detect PII information when models respond with tool\_use (function call) output parameters through supported APIs. This filter is a probabilistic machine learning (ML) based solution that is context-dependent
 and detects sensitive information based on the context within input prompts or model responses. You can configure by selecting from a set of built-in PIIs offered by Amazon Bedrock Guardrails specific to your use case
 or organization by defining it along with regular expressions (custom regex) that work based on pattern matching to block or mask PII data.
 

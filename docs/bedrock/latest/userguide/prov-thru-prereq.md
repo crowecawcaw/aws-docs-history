@@ -3,7 +3,7 @@
 Before you can purchase and manage Provisioned Throughput, you need to fulfill the following prerequisites:
 
 1. [Request access to the model or models](model-access.md "model-access.md") that you want to purchase Provisioned Throughput for. After access has been granted, you can purchase Provisioned Throughput for the base model and any models customized from it.
-2. Ensure that your IAM role has access to the Provisioned Throughput API actions. If your role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess") AWS-managed policy attached, you can skip this step. Otherwise, do the following:
+2. Make sure that your IAM role has access to the Provisioned Throughput API actions. If your role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess") AWS-managed policy attached, you can skip this step. Otherwise, do the following:
 
    1. Follow the steps at [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") and create the following policy, which allows a role to create a Provisioned Throughput for all foundation and custom models.
 

@@ -37,7 +37,17 @@ This model is available on the `openai/v1/responses` path on the `bedrock-mantle
 
 ## Pricing
 
-For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** |
+| -------------------- | --------- | --------------------------- | ---------------------- | ---------- |
+| In-Region            | $2.75     | —                           | $0.275                 | $16.50     |
+
+**AWS GovCloud (US-West)**
+
+| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** |
+| -------------------- | --------- | --------------------------- | ---------------------- | ---------- |
+| In-Region            | $3.30     | —                           | $0.33                  | $19.80     |
+
+_All prices are per 1 million tokens. Pricing shown is for the Standard tier. Priority and Flex tiers are not supported for this model._
 
 ## Programmatic Access
 
@@ -51,7 +61,7 @@ _For example, if region is us-east-2 (Ohio), then the bedrock-mantle endpoint UR
 
 ## Service Tiers
 
-Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
 
 | **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
 | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -62,6 +72,10 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 **Regional availability at a glance**
 
 Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
+
+Availability differs by endpoint.
+
+**Availability using the `bedrock-mantle` endpoint**
 
 | **Region**                 | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
 | -------------------------- | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -90,7 +104,7 @@ pip install openai
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
 
-Responses API
+bedrock-mantle
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
@@ -99,7 +113,7 @@ OPENAI_BASE_URL="https://bedrock-mantle.us-west-2.api.aws/openai/v1"
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
 
-Responses API
+bedrock-mantle
 
 ```
 from openai import OpenAI

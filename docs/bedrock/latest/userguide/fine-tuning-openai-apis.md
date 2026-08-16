@@ -24,7 +24,7 @@ fine-tuning jobs with Amazon Bedrock models. This page highlights using these AP
 
 ## Reinforcement fine-tuning workflow for open-weight models
 
-Before fine-tuning, ensure you have the pre-requisites as Amazon Bedrock needs specific permissions to create and manage the
+Before fine-tuning, make sure you have the pre-requisites as Amazon Bedrock needs specific permissions to create and manage the
 fine-tuning process. For comprehensive security and permissions information, see [Access and security for open-weight models](rft-open-weight-access-security.md "rft-open-weight-access-security.md").
 
 Run reinforcement fine-tuning for open-weight models in 5 steps:

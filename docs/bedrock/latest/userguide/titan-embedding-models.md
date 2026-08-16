@@ -15,7 +15,7 @@ for text retrieval tasks, but can also be used for additional tasks, such as sem
 
 Amazon Titan Embeddings models generate meaningful semantic representation of documents,
 paragraphs and sentences. Amazon Titan Text Embeddings takes as input a body of text and
-generates a (1 x n) vector. Amazon Titan Text Embeddings is offered via latency-optimized
+generates a (1 x n) vector. Amazon Titan Text Embeddings is offered through latency-optimized
 endpoint invocation for generating vectors at low latency (recommended during the retrieval step) as well as
 throughput optimized batch jobs for faster indexing. The actual similarity computation and retrieval are performed
 by your vector database, not by the embedding model. Amazon Titan Text Embeddings v2 supports long documents,

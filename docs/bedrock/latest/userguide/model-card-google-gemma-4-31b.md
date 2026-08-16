@@ -24,7 +24,7 @@ Gemma 4 31B is Google's 30.7-billion parameter dense model with built-in reasoni
 
 Gemma 4 models are available only on the `bedrock-mantle` endpoint.
 
-This model is available on the `openai/v1/responses` path on the `bedrock-mantle` endpoint. This is different from the `v1/responses` path used by other models on the responses endpoint.
+_On `bedrock-mantle`, this model is served at `/openai/v1/responses`, not the default `/v1/responses`._
 
 ## Capabilities and Features
 
@@ -52,7 +52,7 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-mantle endp
 
 ## Service Tiers
 
-Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
 
 | **Standard**                            | **Priority**                            | **Flex**                                | **Reserved**                                                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------- |

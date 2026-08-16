@@ -8,7 +8,7 @@ Amazon Bedrock console and open it in the playground or invoke the model using t
 information](foundation-models-reference.md "foundation-models-reference.md"). For information about model pricing, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 
 Access to all Amazon Bedrock foundation models is enabled by default with the correct AWS
-Marketplace permissions in all commercial AWS regions. For programmatic access to third-party models, see [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify").
+Marketplace permissions in all commercial AWS Regions. For programmatic access to third-party models, see [Manage model access using SDK and CLI](#model-access-modify "#model-access-modify").
 
 ###### Understanding automatic model access
 
@@ -77,8 +77,7 @@ account, Bedrock attempts to automatically enable the model for your account. Fo
 auto-enablement to work, AWS Marketplace permissions are required.
 
 If you can’t assume AWS Marketplace permission, someone with AWS Marketplace permissions must enable the
-model for the account as a one-time step (either manually or via auto-enablement). Once
-enabled, all users in the account can invoke the model without needing AWS Marketplace
+model for the account as a one-time step (either manually or through auto-enablement). After the model is enabled, you can invoke the model without needing AWS Marketplace
 permissions. Users don't need AWS Marketplace subscription permissions to invoke models after
 they've been enabled. These permissions are only required the first time a model is
 being used in an account.

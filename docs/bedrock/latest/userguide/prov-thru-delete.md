@@ -2,7 +2,7 @@
 
 Your Provisioned Throughput will automatically renew at the end of each commitment term, maintaining your current input and output tokens configurations.
 
-If you don't want to keep your Provisioned Throughput, you can delete it or, for Provisioned Throughput by Tokens, cancel auto renew to prevent it renewing when the current term ends.
+If you don't want to keep your Provisioned Throughput, you can delete it. For Provisioned Throughput by Tokens, you can also cancel auto renew to prevent it from renewing when the current term ends.
 
 ## Deleting a Provisioned Throughput
 
@@ -42,7 +42,7 @@ After you cancel auto renew for a Provisioned Throughput, you can't make any fur
 
 ###### Note
 
-Auto renew cannot be re-enabled once cancelled. If you need Provisioned Throughput after your current term expires, you will need to purchase a new Provisioned Throughput.
+Auto renew cannot be re-enabled after it is cancelled. If you need Provisioned Throughput after your current term expires, you will need to purchase a new Provisioned Throughput.
 
 To learn how to cancel auto renew for a Provisioned Throughput by Tokens, choose the tab for your preferred method, and then follow the steps:
 

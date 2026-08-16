@@ -74,7 +74,7 @@ For more advanced users or those requiring fine-grained control, you can create 
 6. Save and name your Blueprint.
 
 You can also use the Blueprint JSON editor to create or modify a Blueprint. This allows you to adjust the
-JSON of the Blueprint directly via text editor.
+JSON of the Blueprint directly through text editor.
 
 ### Adding blueprints to projects
 

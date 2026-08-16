@@ -12,7 +12,7 @@ prerequisites. For general permissions requirements, see
 
 1. Make sure your data is in a [supported data
    source connector](kb-managed-connect-ds.md "kb-managed-connect-ds.md").
-2. Ensure that the IAM role used to create the knowledge base has the
+2. Make sure that the IAM role used to create the knowledge base has the
    `iam:PassRole` permission to pass the service role to Amazon Bedrock. Add the
    following statement to the role's policy:
 

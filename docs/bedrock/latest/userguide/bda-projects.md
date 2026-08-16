@@ -56,7 +56,7 @@ files.
 For this use case, let's assume that you want to generate standard output summaries for
 documents and audio files, and to also extract custom fields from your documents. After you
 create a project, configure the standard output for audio to enable **Full audio
-summary** and ensure that other extractions are not enabled. Repeat this standard
+summary** and make sure that other extractions are not enabled. Repeat this standard
 output configuration for documents. You can then configure custom output for documents by adding
 a new blueprint or a preexisting blueprint from the BDA global catalog. Documents passed to BDA
 using this project ARN will generate the standard output full document summaries and the

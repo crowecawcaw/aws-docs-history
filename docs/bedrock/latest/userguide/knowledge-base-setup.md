@@ -347,7 +347,7 @@ Note the following considerations when creating your vector bucket and index in 
 
    ###### Note
 
-   The encryption type can't be changed once the vector bucket has been
+   The encryption type can't be changed after the vector bucket has been
    created.
 
    For step-by-step instructions, see [Encryption
@@ -413,7 +413,7 @@ Amazon Aurora (RDS)
    can provide them during knowledge base setup.
 
 You must provide these fields before creating the knowledge base.
-They connot be updated once the knowledge base has been created.
+They cannot be updated after the knowledge base is created.
 
 ###### Important
 

@@ -43,7 +43,7 @@ bases](quotas.md "quotas.md").
 
 ###### Important
 
-SharePoint App-Only authentication via Azure ACS was retired by Microsoft on April 2, 2026 and is no longer functional.
+SharePoint App-Only authentication through Azure ACS was retired by Microsoft on April 2, 2026 and is no longer functional.
 Use Microsoft Entra ID (OAuth2 client credentials) authentication instead. When configuring your data source,
 set the `authType` to `OAUTH2_CLIENT_CREDENTIALS`.
 
@@ -284,7 +284,7 @@ aws bedrock-agent create-data-source \
 
 ###### Important
 
-SharePoint App-Only authentication via Azure ACS was retired by Microsoft on April 2, 2026.
+SharePoint App-Only authentication through Azure ACS was retired by Microsoft on April 2, 2026.
 Use Microsoft Entra ID authentication (`OAUTH2_CLIENT_CREDENTIALS`) as described in the prerequisites above.
 
 Using OAuth 2.0, you can authenticate and authorize access to SharePoint

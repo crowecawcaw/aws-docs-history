@@ -21,9 +21,7 @@ Grok 4.3 is a reasoning-first model that offers always-on and configurable reaso
 | Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Red circle with white X icon indicating error, cancel, or close action. `Converse`        |                                                                                                          |
 | Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |                                                                                           |                                                                                                          |
 
-###### Note
-
-This model is available on the `openai/v1/responses` path on the `bedrock-mantle` endpoint. This is different from the `v1/responses` path used by other models on the responses endpoint.
+_On `bedrock-mantle`, this model is served at `/openai/v1/responses`, not the default `/v1/responses`._
 
 ## Capabilities and Features
 
@@ -51,7 +49,7 @@ _For example, if region is us-west-2 (Oregon), then the bedrock-mantle endpoint 
 
 ## Service Tiers
 
-Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment. **Priority** offers higher throughput with a time-based commitment. **Flex** provides lower-cost access for flexible, non-time-sensitive workloads. **Reserved** provides dedicated throughput with a term commitment for predictable workloads. For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
 
 | **Standard**                            | **Priority**                            | **Flex**                                | **Reserved**                                                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------- |
@@ -145,7 +143,7 @@ print(response)
 
 ## Usage Considerations and Limitations
 
-- **Reasoning effort** — Reasoning is always active by default. You can configure effort via the `reasoning` parameter: `{"effort": "none"}` (disables reasoning), `"low"` (default), `"medium"`, or `"high"`. Reasoning content is encrypted and can be returned by passing `include: ["reasoning.encrypted_content"]` in the Responses API request. You can send the encrypted content back in subsequent turns to provide reasoning context for multi-turn conversations. The Chat Completions API does not return reasoning tokens.
+- **Reasoning effort** — Reasoning is always active by default. You can configure effort through the `reasoning` parameter: `{"effort": "none"}` (disables reasoning), `"low"` (default), `"medium"`, or `"high"`. Reasoning content is encrypted and can be returned by passing `include: ["reasoning.encrypted_content"]` in the Responses API request. You can send the encrypted content back in subsequent turns to provide reasoning context for multi-turn conversations. The Chat Completions API does not return reasoning tokens.
 
 ```
 response = client.responses.create(

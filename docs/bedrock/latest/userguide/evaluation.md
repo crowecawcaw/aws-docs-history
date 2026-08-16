@@ -12,36 +12,35 @@ produce computed scores and metrics that help you assess the effectiveness of a 
 knowledge base. Human-based evaluations use a team of people who provide their ratings and
 preferences in relation to certain metrics.
 
-###### Overview: Programmatic model evaluation jobs
+Programmatic model evaluation jobs
 
-Programmatic model evaluation jobs allow you to quickly evaluate a model's ability to
-perform a task. You can either provide your own custom prompt dataset that you've
-tailored to a specific use case, or you can use an available built-in dataset.
+Programmatic model evaluation jobs allow you to quickly evaluate a model's
+ability to perform a task. You can either provide your own custom prompt dataset
+that you've tailored to a specific use case, or you can use an available
+built-in dataset.
 
-###### Overview: Model evaluation jobs that use human workers
+Model evaluation jobs that use human workers
 
-Model evaluation jobs that use human workers allow you to bring human input to the
-model evaluation process. They can be employees of your company or a group of
-subject-matter experts from your industry.
+Model evaluation jobs that use human workers allow you to bring human input to
+the model evaluation process. They can be employees of your company or a group
+of subject-matter experts from your industry.
 
-###### Overview: Model evaluation jobs that use a judge model
+Model evaluation jobs that use a judge model
 
-Model evaluation jobs that use a judge model allow you to quickly evaluate a model's
-responses via using a second LLM. The second LLM scores the response and provides an
-explanation for each response.
+Model evaluation jobs that use a judge model allow you to quickly evaluate a
+model's responses through using a second LLM. The second LLM scores the response
+and provides an explanation for each response.
 
-###### Overview of RAG evaluations that use Large Language Models (LLMs)
+RAG evaluations that use Large Language Models (LLMs)
 
-LLM-based evaluations compute performance metrics for the knowledge base. The metrics
-reveal if a RAG source or Amazon Bedrock Knowledge Base is able to retrieve highly relevant information and generate
-useful, appropriate responses. You provide a dataset that contains the prompts or user
-queries for evaluating how a knowledge base retrieves information and generates
-responses for those given queries. The dataset must also include ‘ground truth’ or the
-expected retrieved texts and responses for the queries so that the evaluation can check
-if your knowledge base is aligned with what’s expected.
-
-Use the following topic to learn more about creating your first model evaluation
-job.
+LLM-based evaluations compute performance metrics for the knowledge base. The
+metrics reveal if a RAG source or Amazon Bedrock Knowledge Base is able to retrieve highly
+relevant information and generate useful, appropriate responses. You provide a
+dataset that contains the prompts or user queries for evaluating how a knowledge
+base retrieves information and generates responses for those given queries. The
+dataset must also include ‘ground truth’ or the expected retrieved texts and
+responses for the queries so that the evaluation can check if your knowledge
+base is aligned with what’s expected.
 
 Model
 evaluation jobs support using the following types of Amazon Bedrock models:

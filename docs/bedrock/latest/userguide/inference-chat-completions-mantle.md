@@ -1,10 +1,10 @@
-# Inference using Chat Completions API
+# Chat Completions API on the bedrock-mantle endpoint
 
 The OpenAI Chat Completions API generates conversational responses using Amazon Bedrock models.
-You can use the Chat Completions API on both the `bedrock-mantle` and
-`bedrock-runtime` endpoints. We recommend using the `bedrock-mantle`
-endpoint whenever possible. For complete API details, see the [OpenAI Chat
-Completions documentation](https://developers.openai.com/api/reference/chat-completions/overview "https://developers.openai.com/api/reference/chat-completions/overview").
+For new applications, we recommend the `bedrock-runtime` endpoint (see [Chat Completions API (legacy reference)](inference-chat-completions.md "inference-chat-completions.md")). This page documents the API on the
+`bedrock-mantle` endpoint, which is also fully supported. For complete API
+details, see the [OpenAI
+Chat Completions documentation](https://developers.openai.com/api/reference/chat-completions/overview "https://developers.openai.com/api/reference/chat-completions/overview").
 
 | **Endpoint**                   | **Base URL**                                                         | **Authentication**                                |
 | ------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------- |

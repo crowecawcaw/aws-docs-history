@@ -201,7 +201,7 @@ Optimize one large monolithic prompt that owns the entire multi-stage policy. Ea
 
 #### Template shape
 
-The full monolithic, multi-phase system prompt sits literally inside the template. The service rewrites this body during optimization. The history and current turn remain variables. Choose any layout your model handles well; the requirements are only that the instructions to be optimized are part of the template and per-sample data is referenced via `{{name}}`.
+The full monolithic, multi-phase system prompt sits literally inside the template. The service rewrites this body during optimization. The history and current turn remain variables. Choose any layout your model handles well; the requirements are only that the instructions to be optimized are part of the template and per-sample data is referenced through `{{name}}`.
 
 ```
 You are an assistant for {TASK}. The conversation may proceed through phases:
@@ -261,7 +261,7 @@ For composite criteria across many turns or many sub-checks (tool correctness an
 - **Dialog policy / state-machine bugs** (wrong stage transition logic): a flat prompt rewrite cannot fix this. Fix the orchestration layer first.
 - **Tool schemas wrong:** The service won't change tool definitions. It can only change the prompt that asks the model to use them.
 - **Drift between canned history and live history:** If real conversations diverge wildly from your evaluation samples after a few turns, Pattern B's optimization signal is weak. Capturing real acceptable production traces for optimization runs can help here in addition to the ideal state.
-- **Required behavior depends on private state** the optimizer never sees (for example, user-account data the model only learns via tool calls): make that state explicit in `conversation_so_far` for the probe sample, or accept that the service can only tune the surface behavior.
+- **Required behavior depends on private state** the optimizer never sees (for example, user-account data the model only learns through tool calls): make that state explicit in `conversation_so_far` for the probe sample, or accept that the service can only tune the surface behavior.
 
 ### Starter checklist
 
