@@ -285,8 +285,8 @@ The RG node types are available only in the following AWS Regions:
 - Europe (Paris) Region (eu-west-3)
 - Mexico (Central) Region (mx-central-1)
 - South America (São Paulo) Region (sa-east-1)
-- AWS GovCloud (US-East) (us-gov-east-1) (rg.xlarge and rg.4xlarge only)
-- AWS GovCloud (US-West) (us-gov-west-1) (rg.xlarge and rg.4xlarge only)
+- AWS GovCloud (US-East) (us-gov-east-1)
+- AWS GovCloud (US-West) (us-gov-west-1)
 
 ### RA3 node type availability in AWS Regions
 
@@ -479,6 +479,8 @@ To migrate from RA3 to RG, your source cluster must meet the minimum required pa
 **Spectrum workloads**
 
 Clusters with workloads that heavily use Spectrum may observe slower query performance after migrating to RG. Unlike RA3 and DC2, RG runs the integrated data lake query engine directly on cluster compute nodes rather than on a separate Spectrum fleet. If you experience degraded Spectrum performance, increase the number of nodes in your RG cluster or migrate to a larger RG node type.
+
+RG clusters also support querying data in Amazon S3 buckets located in a different AWS Region, removing the same-Region limitation that applies to RA3 and DC2 clusters using Spectrum. Cross-region queries incur additional data transfer charges. For more information, see [Querying your data lake](../gsg/data-lake.md "../gsg/data-lake.md").
 
 **Cursor-based workloads**
 

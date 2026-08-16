@@ -17,6 +17,8 @@ The following describes upcoming behavior changes.
 
 ###### Topics
 
+- [AWS KMS key permission enforcement for Amazon Redshift Serverless APIs after August 17, 2026](#kms-permission-serverless-aug2026 "#kms-permission-serverless-aug2026")
+- [Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 204](#user-lockout-patch204 "#user-lockout-patch204")
 - [Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026](#snapshot-billing-model-jun2026 "#snapshot-billing-model-jun2026")
 - [Iceberg DELETE on Lake Formation tables requires DELETE permission starting with Patch 202](#iceberg-delete-lf-permission-patch202 "#iceberg-delete-lf-permission-patch202")
 - [Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202](#serverless-restore-integrations-patch202 "#serverless-restore-integrations-patch202")
@@ -26,6 +28,70 @@ The following describes upcoming behavior changes.
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
 - [Minimum Transport Layer Security (TLS) version changes effective starting August 30, 2026](#tls-changes-aug2026 "#tls-changes-aug2026")
 - [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
+
+### AWS KMS key permission enforcement for Amazon Redshift Serverless APIs after August 17, 2026
+
+Amazon Redshift Serverless now performs a new authorization check that requires the IAM principal
+calling certain Amazon Redshift Serverless APIs to have explicit AWS KMS permissions on the customer managed
+key that encrypts the target namespace. Previously, Amazon Redshift performed AWS KMS operations on your
+behalf using the Amazon Redshift service role without verifying whether the calling IAM principal was
+itself authorized to use that key.
+
+After the new authorization check is enabled, API calls from principals that lack the
+required AWS KMS permissions will fail with a `ValidationException`:
+`"Insufficient KMS permissions."` You may be impacted by this if you have
+Amazon Redshift Serverless namespaces encrypted with a customer managed key and use IAM principals to call
+the affected APIs listed below.
+
+To avoid disruption, review which IAM principals in your accounts call the APIs listed
+below against namespaces encrypted with a customer managed key, and ensure those principals
+have the required AWS KMS permissions on the key. You can grant these permissions through an
+AWS KMS key policy, an IAM identity-based policy, or an AWS KMS grant.
+
+This change does not affect namespaces encrypted with the default AWS-owned key. If
+your IAM principals already have the required AWS KMS permissions listed below, no action is
+needed.
+
+The affected APIs and required permissions on the namespace's customer managed key are
+listed below:
+
+- `CreateWorkgroup`, `RestoreFromSnapshot`,
+  `RestoreFromRecoveryPoint` – require `kms:Encrypt`,
+  `kms:GenerateDataKey`, `kms:CreateGrant`, and
+  `kms:Decrypt`.
+- `RestoreTableFromSnapshot`,
+  `RestoreTableFromRecoveryPoint` – require
+  `kms:Decrypt`.
+
+For more information, see [Controlling access to AWS KMS
+keys](../../../kms/latest/developerguide/control-access.md "../../../kms/latest/developerguide/control-access.md") in the _AWS Key Management Service Developer Guide_. For more information about Amazon Redshift
+database encryption, see [Amazon Redshift database encryption](working-with-db-encryption.md "working-with-db-encryption.md").
+
+### Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 204
+
+Starting with Amazon Redshift Patch 204, to enhance the security posture of your data
+warehouse, Amazon Redshift automatically locks a database user after it exceeds the configured
+number of consecutive failed login attempts. The feature is enabled by default with a
+threshold of 5 failed attempts (configurable from 2 to 50) and applies to both provisioned
+clusters and serverless workgroups.
+
+You may be impacted by this if you connect using database (password-based) connections.
+Once locked, login attempts are rejected even with the correct password until
+an administrator or superuser unlocks it. Federated identities that authenticate through
+IAM or AWS IAM Identity Center are not affected, because they use short-lived tokens
+rather than static passwords.
+
+To manage this behavior:
+
+- Set the threshold with `ALTER SYSTEM SET max_failed_login_attempts TO
+ *value*;` (2–50, default 5).
+- Check lockout status for all users with `SHOW USER LOCKOUT;`.
+- Unlock user with `ALTER USER *username* LOGIN
+ PASSWORD '*password*';`, which also resets the failed-attempt
+  counter.
+
+For more information, see [SHOW USER LOCKOUT](../dg/r_SHOW_USER_LOCKOUT.md "../dg/r_SHOW_USER_LOCKOUT.md"), [ALTER USER](../dg/r_ALTER_USER.md "../dg/r_ALTER_USER.md"), and
+[max\_failed\_login\_attempts](../dg/max_failed_login_attempts.md "../dg/max_failed_login_attempts.md").
 
 ### Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026
 

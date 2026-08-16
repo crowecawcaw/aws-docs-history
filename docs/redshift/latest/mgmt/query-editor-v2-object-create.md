@@ -19,7 +19,7 @@ For information about databases, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.m
 the _Amazon Redshift Database Developer Guide_.
 
 1. Choose
-   ![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
+   ![Plus sign icon inside a circle, indicating an add or create action.](/images/redshift/latest/mgmt/images/qev2-add.png)
    **Create**, and then choose
    **Database**.
 2. Enter a **Database name**.
@@ -117,7 +117,7 @@ as a consumer for the table `category2` in cluster
     			* Tables: `category2`
 
 4. Choose
-![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
+![Plus sign icon inside a circle, indicating an add or create action.](/images/redshift/latest/mgmt/images/qev2-add.png)
 **Create**, and then choose
 **Database**. 5. Enter `see_datashare_base` for **Database
 name**. 6. Select **Create using a datashare**, and choose a
@@ -175,7 +175,7 @@ uses one cluster, `cluster-view` to contain the database you
 create.
 
 1. Choose
-   ![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
+   ![Plus sign icon inside a circle, indicating an add or create action.](/images/redshift/latest/mgmt/images/qev2-add.png)
    **Create**, and then choose
    **Database**.
 2. Enter `data_catalog_database` for **Database
@@ -238,7 +238,7 @@ For information about schemas, see [Schemas](../dg/r_Schemas_and_tables.md "../d
 _Amazon Redshift Database Developer Guide_.
 
 1. Choose
-   ![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
+   ![Plus sign icon inside a circle, indicating an add or create action.](/images/redshift/latest/mgmt/images/qev2-add.png)
    **Create**, and then choose
    **Schema**.
 2. Enter a **Schema name**.
@@ -289,7 +289,7 @@ Choose **Open query in editor** to view and edit the CREATE
 TABLE statement before you run the query to create the table.
 
 1. Choose
-   ![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
+   ![Plus sign icon inside a circle, indicating an add or create action.](/images/redshift/latest/mgmt/images/qev2-add.png)
    **Create**, and choose
    **Table**.
 2. Choose a schema.
@@ -346,7 +346,7 @@ You can use query editor v2 to create functions in your cluster or workgroup.
 ###### To create a function
 
 1. Choose
-   ![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
+   ![Plus sign icon inside a circle, indicating an add or create action.](/images/redshift/latest/mgmt/images/qev2-add.png)
    **Create**, and choose
    **Function**.
 2. For **Type**, choose **SQL** or

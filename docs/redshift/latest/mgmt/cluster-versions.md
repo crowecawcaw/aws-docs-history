@@ -26,6 +26,7 @@ and avoid potential disruptions to your workloads, see
 
 ###### Topics
 
+- [Amazon Redshift patch 204](#cluster-version-204 "#cluster-version-204")
 - [Amazon Redshift patch 203](#cluster-version-203 "#cluster-version-203")
 - [Amazon Redshift patch 202](#cluster-version-202 "#cluster-version-202")
 - [Amazon Redshift patch 201](#cluster-version-201 "#cluster-version-201")
@@ -63,6 +64,63 @@ and avoid potential disruptions to your workloads, see
 - [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
 - [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
 
+## Amazon Redshift patch 204
+
+Cluster versions in this patch:
+
+- 1.0.394035 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released August 11, 2026
+
+### New features and improvements in this patch
+
+- Added a query\_uuid column to system tables and views, providing a globally unique query identifier that persists across cluster pause/resume cycles.
+- Added user\_query\_id to stl\_udf\_log table to remove dependency on stl\_user\_query\_map joins in sys\_ view definitions.
+- Added two new Amazon CloudWatch metrics, IntegrationLatestDetectedChange and IntegrationLatestAppliedChange, for zero-ETL integrations to allow monitoring of replication health.
+- Added the AUTO\_REMEDIATION option for CREATE DATABASE and ALTER DATABASE on zero-ETL integration databases. When AUTO\_REMEDIATION is set, Amazon Redshift automatically resynchronizes tables that have replication issues. Details appear in svv\_integration\_table\_state.reason.
+- Added user lockout support, including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
+- Added support for reading, creating, and writing to Apache Iceberg v3 tables using the Amazon Redshift native engine. This includes support for default values, row lineage, and deletion vectors across all previously supported data types. Support for the Variant, Geography, and Geometry data types is not included in this release and will be announced in a future patch.
+- Parsing and semantic analysis of queries that reference Late Binding Views (LBVs) now occurs on consumer clusters. This removes a producer-side bottleneck in LBV processing.
+- Amazon Redshift ML now enables the inter-container traffic encryption option when it makes `CreateAutoMLJob` and `CreateProcessingJob` requests to Amazon SageMaker. This aligns with the setting already applied to `BuildTrainingRequest` and prevents security scanner alerts.
+- Improved zero-ETL integration performance for high-frequency workloads to reduce replication lag for tables with many concurrent updates.
+- Zero-ETL integrations now correctly report source data exceeding the target column length as a non-retriable error.
+- Improved zero-ETL integration stability after cluster restarts.
+- Empty schemas are now automatically cleaned up when a table filter change on a zero-ETL integration removes all tables from a schema.
+- Improved the error message when attempting DROP DATABASE on a database with an active zero-ETL integration.
+- DynamoDB zero-ETL integrations now honor the ACCEPTINVCHARS and TRUNCATECOLUMNS options during both initial seeding and ongoing replication. Tables continue to replicate when the source contains invalid UTF-8 characters.
+- Improved query performance on clusters with zero-ETL integrations, especially for workloads that replicate many databases or tables.
+- Improved performance for workloads using temporary tables, reducing catalog access overhead and improving overall throughput.
+- SHOW discovery commands such as SHOW TABLES, SHOW SCHEMAS, SHOW COLUMNS, and SHOW GRANTS now return up to 133,500 objects, so metadata listings on schemas and databases with very large object counts succeed instead of failing with a row-limit error of 10,000.
+- When a DROP USER command is rejected because the user still owns objects or holds privileges, the error message now names the specific blocking object and reports how many other dependencies remain.
+- Amazon Redshift now caches IAM role credentials on the leader node. This reduces retrieval overhead for COPY, UNLOAD, Amazon Redshift Spectrum, and Lambda UDF queries. Frequently used credentials are reused across queries, improving query start-up time.
+- AWS IAM Identity Center authentication now works on clusters and workgroups with enhanced VPC routing enabled.
+- Improved disk-health detection for RG node types to prevent unnecessary automatic hardware remediations on clusters operating under normal disk I/O.
+- Queries that reference user temporary tables can now utilize concurrency scaling.
+- Enhanced Data Sharing performance by skipping an extra copy in the backend process.
+- Expanded consumer size support for multi-warehouse write queries.
+- Enhanced stability for Lambda User-Defined Functions with no arguments in joins.
+- Fixed an issue in MDDL sort key computation when predicates include IDF.
+- Fixed an issue where queries on external tables, data sharing objects, and cross-database references failed with "transaction is read-only" when executed inside BEGIN READ ONLY transactions.
+- Fixed a rare condition where a COPY or INSERT running at the same time as automatic table optimization on the same table could cause a cluster restart.
+- Fixed a rare encoding-mismatch error that could cause automatic table optimization to fail on tables accessed through data sharing that were created on older cluster versions.
+- Fixed a rare condition where automatic vacuum on tables with skewed data distribution could cause a cluster restart.
+- Fixed an issue where an Auto COPY job could stop making progress and block other Auto COPY operations on the same cluster.
+- Fixed a rare condition where a COPY command could cause a cluster restart due to a race condition during query cleanup.
+- Fixed an issue where svl\_s3query\_summary.s3query\_returned\_rows could report one extra row for queries with a LIMIT clause on external tables.
+- Fixed a rare cluster restart that could occur during bootstrap on clusters with zero-ETL integrations and no Auto COPY jobs configured.
+- Fixed an issue with COPY field parsing when using a multi-character delimiter with the ESCAPE option.
+- Fixed an issue where COPY and UNLOAD commands failed when users connected via IAM Identity Center provided explicit temporary credentials using the CREDENTIALS parameter.
+- Fixed an issue in SHOW CONSTRAINTS that could cause cluster restarts.
+- Fixed an issue where CONNECT permission granted to a role did not allow AWS IAM Identity Center users in the mapped group to connect on databases with Amazon Redshift federated permissions enabled.
+- Fixed an issue where queries using UNNEST on SUPER arrays were incorrectly blocked from running on concurrency scaling clusters.
+- Fixed an issue where the ARRAY\_SORT function could fail with a path navigation error when applied to nested SUPER structures.
+- Fixed an issue where deeply nested PartiQL or SUPER expressions could cause a cluster restart.
+- Fixed an issue where the TO\_NUMBER function could fail when the format string specified a precision greater than 38.
+- Fixed an issue where encryption key rotation could corrupt keys for grafted tables, potentially causing data access failures.
+- Fixed deadlock conditions in storage operations that could cause query hangs or node unresponsiveness.
+- Fixed a rare crash during disk block management that could cause node restarts.
+- Fixed a crash caused by out-of-memory during block allocation that could cause node restarts.
+- Fixed a crash on disk-full conditions during block replication assignment that could cause node restarts.
+
 ## Amazon Redshift patch 203
 
 Cluster versions in this patch:
@@ -80,7 +138,6 @@ Cluster versions in this patch:
 
 - A new column was added to stl\_alter\_dist\_sort to indicate whether ALTER DISTKEY and ALTER SORTKEY operations executed on the main cluster, a data sharing consumer, or a concurrency scaling cluster.
 - Added SHOW GRANTS FOR GROUP syntax to discover permissions granted to a specific user group.
-- Added account lockout support including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
 - Enhanced zero-ETL integration observability by adding granular success status for checkpoints, enabling finer-grained monitoring of replication progress in system tables.
 - Introduced graceful handling of unsupported UTF-8 characters in source table schemas and DDL metadata within zero-ETL integrations, preventing integration failures.
 - Amazon Redshift now supports concurrency scaling for refreshes of Amazon Kinesis Data Streams (KDS)-connected streaming materialized views (MV).

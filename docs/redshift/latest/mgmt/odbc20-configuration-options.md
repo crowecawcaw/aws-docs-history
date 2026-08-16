@@ -79,6 +79,7 @@ version 2.x driver:
 - [Password | PWD](#odbc20-password-option "#odbc20-password-option")
 - [plugin\_name](#odbc20-plugin-name-option "#odbc20-plugin-name-option")
 - [Port | PortNumber](#odbc20-port-option "#odbc20-port-option")
+- [Prefer\_PQ](#odbc20-prefer-pq-option "#odbc20-prefer-pq-option")
 - [preferred\_role](#odbc20-preferred-role-option "#odbc20-preferred-role-option")
 - [Profile](#odbc20-profile-option "#odbc20-profile-option")
 - [provider\_name](#odbc20-provider-name-option "#odbc20-provider-name-option")
@@ -878,6 +879,25 @@ The number of the TCP port that the Amazon Redshift server uses to listen for cl
 connections.
 
 This parameter is optional.
+
+## Prefer\_PQ
+
+- Default Value – 1
+- Data Type – Boolean
+
+Specifies whether the driver advertises post-quantum hybrid key-exchange groups
+in the TLS 1.3 ClientHello. When post-quantum groups are offered and the server
+also supports them, the server selects one. Otherwise, the handshake falls back to
+classical key exchange transparently.
+
+- 1 | TRUE: The driver advertises post-quantum hybrid TLS key-exchange
+  groups.
+- 0 | FALSE: The driver does not advertise post-quantum groups. Use this
+  setting if a network middlebox blocks TLS handshakes because it does not
+  recognize the post-quantum key-exchange groups the driver offers.
+
+This parameter is optional. It is available in driver versions 2.2.1 and
+later.
 
 ## preferred\_role
 
