@@ -3,7 +3,6 @@
 You can get support by choosing the question mark icon in the navigation bar. From the support menu, you can choose to:
 
 - Navigate to the Support Center service console
-- Get expert help from AWS IQ
 - View curated knowledge from community articles and the knowledge center on AWS re:Post
 - Go to AWS documentation
 - Navigate to AWS trainings
