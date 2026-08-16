@@ -237,7 +237,7 @@ aws ec2-instance-connect open-tunnel \
 
 3. In your **Downloads** folder, find the RDP desktop file
    that you downloaded, and drag it onto the RDP client window.
-4. Right-click the RDP desktop file and choose
+4. Open the context (right-click) menu for the RDP desktop file and choose
    **Edit**.
 5. In the **Edit PC** window, for **PC
    name** (the instance to connect to), enter
@@ -250,7 +250,7 @@ Note that the following screenshot of the **Edit PC**
 window is from Microsoft Remote Desktop on a Mac. If you are using a Windows
 client, the window might be different.
 
-![The RDP client with localhost:5555 in the PC name field.](images/ec2-instance-connect-endpoint-rdp.png) 6. In the RDP client, right-click the PC (that you just configured) and
+![The RDP client with localhost:5555 in the PC name field.](images/ec2-instance-connect-endpoint-rdp.png) 6. In the RDP client, open the context (right-click) menu for the PC (that you just configured) and
 choose **Connect** to connect to your instance. 7. At the prompt, enter the decrypted password for the administrator
 account.
 

@@ -50,7 +50,7 @@ Console
 3. Add the filter **Local instance storage = true**. The
    **Storage** column indicates the total size of the instance
    storage for the instance type.
-4. (Optional) Click the **Preferences** icon and then turn on
+4. (Optional) Choose the **Preferences** icon and then turn on
    **Storage disk count**. This column indicates the number of
    instance store volumes.
 5. (Optional) Add filters to further scope to specific instance types of interest.

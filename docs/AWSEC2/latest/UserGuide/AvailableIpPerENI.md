@@ -28,7 +28,7 @@ Console
 2. In the navigation pane, choose **Instance Types**.
 3. Add a filter to specify the instance type (**Instance type=c5.12xlarge**)
    or instance family (**Instance family=c5**).
-4. (Optional) Click the **Preferences** icon and then turn on
+4. (Optional) Choose the **Preferences** icon and then turn on
    **Maximum number of network interfaces**. This column indicates
    the maximum number of network interfaces for each instance type.
 5. (Optional) Select the instance type. On the **Networking**

@@ -24,7 +24,7 @@ instance launches by specifying the reservation ID in your launch requests.
 
 You can use all the instances you reserved until 30 minutes (for instance types) or 60
 minutes (for UltraServer type) before the end time of the Capacity Block. With 30 minutes (for instance
-types) or 60 minutes (for UltraServer types) left in your Capacity Block reservation, we begin
-terminating any instances that are running in the Capacity Block. We use this time to clean up
-your instances before delivering the Capacity Block to the next customer. We emit an event through
+types) or 60 minutes (for UltraServer types) left in your Capacity Block reservation, any instances
+that are running in the Capacity Block begin terminating. This time is used to clean up
+your instances before delivering the Capacity Block to the next customer. An event is emitted through
 EventBridge 10 minutes before the termination process begins. For more information, see [Monitor Capacity Blocks using EventBridge](capacity-blocks-monitor.md "capacity-blocks-monitor.md").

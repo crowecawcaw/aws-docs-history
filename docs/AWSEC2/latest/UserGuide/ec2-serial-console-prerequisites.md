@@ -17,7 +17,7 @@ troubleshooting, the following prerequisites must be met:
 
 ## AWS Regions
 
-Supported in all AWS Regions.
+Supported in all AWS Regions except the AWS European Sovereign Cloud.
 
 ## Wavelength Zones
 

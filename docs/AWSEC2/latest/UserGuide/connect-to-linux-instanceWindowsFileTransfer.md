@@ -53,7 +53,7 @@ macOS X
 2. Browse to the RDP file that you downloaded from the Amazon EC2 console
    (when you initially connected to the instance), and drag it onto the
    Remote Desktop Connection client.
-3. Right-click the RDP file, and choose **Edit**.
+3. Open the context (right-click) menu for the RDP file, and choose **Edit**.
 4. Choose the **Folders** tab, and select the
    **Redirect folders** checkbox.
 

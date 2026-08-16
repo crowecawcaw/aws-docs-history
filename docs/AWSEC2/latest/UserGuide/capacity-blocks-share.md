@@ -33,7 +33,7 @@ For more information about AWS RAM, see the _[AWS RAM User Guide](../../../ram/l
 
 ### Permissions for owners
 
-The Capacity Block owner remains responsible for managing the Capacity Block (e.g. extending, sharing), and the instances they launch into it.
+The Capacity Block owner remains responsible for managing the Capacity Block (for example, extending, sharing), and the instances they launch into it.
 Owners cannot modify instances that consumers launch into Capacity Blocks they have shared.
 
 ### Permissions for consumers

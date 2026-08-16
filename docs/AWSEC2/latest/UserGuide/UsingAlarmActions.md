@@ -85,7 +85,7 @@ on instance store volumes is lost when the instance is terminated or stopped.
    and troubleshoot**, **Manage CloudWatch alarms**.
 
 Alternatively, you can choose the plus sign (
-![](images/add-plus.png)
+![Add icon](images/add-plus.png)
 ) in the **Alarm status** column. 4. On the **Manage CloudWatch alarms** page, do the
 following:
 
@@ -138,7 +138,7 @@ for an instance, see [Change instance termination protection](Using_ChangingDisa
    and troubleshoot**, **Manage CloudWatch alarms**.
 
 Alternatively, you can choose the plus sign (
-![](images/add-plus.png)
+![Add icon](images/add-plus.png)
 ) in the **Alarm status** column. 4. On the **Manage CloudWatch alarms** page, do the
 following:
 
@@ -205,7 +205,7 @@ alarm](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarm-
    and troubleshoot**, **Manage CloudWatch alarms**.
 
 Alternatively, you can choose the plus sign (
-![](images/add-plus.png)
+![Add icon](images/add-plus.png)
 ) in the **Alarm status** column. 4. On the **Manage CloudWatch alarms** page, do the
 following:
 
@@ -286,7 +286,7 @@ alarm](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarm-
    and troubleshoot**, **Manage CloudWatch alarms**.
 
 Alternatively, you can choose the plus sign (
-![](images/add-plus.png)
+![Add icon](images/add-plus.png)
 ) in the **Alarm status** column. 4. On the **Manage CloudWatch alarms** page, do the
 following:
 

@@ -192,7 +192,7 @@ users permission to use the `ec2:CreateTags` action, because
 doing so limits your ability to use the `aws:ResourceTag`
 condition key to restrict their use of other resources. If you grant users
 permission to use the `ec2:CreateTags` action, they can change a
-resource's tag in order to bypass those restrictions. For more information,
+resource's tag to bypass those restrictions. For more information,
 see [Control access using attribute-based access](iam-policies-for-amazon-ec2.md#control-access-with-tags "iam-policies-for-amazon-ec2.md#control-access-with-tags").
 
 - To use Systems Manager parameters when selecting an AMI, you must add

@@ -15,7 +15,7 @@ following.
   several hours, the upgrade may have failed and be presenting a prompt to
   **Click OK** to confirm rolling back. Because the console
   is not accessible at this state, there is no way to click the button. To get
-  around this, perform a reboot via the Amazon EC2 console or API. The reboot takes ten
+  around this, perform a reboot through the Amazon EC2 console or API. The reboot takes ten
   minutes or more to initiate. The instance might become available after 25
   minutes.
 - Remove applications or server roles from the server and try again.

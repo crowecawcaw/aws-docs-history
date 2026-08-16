@@ -244,7 +244,7 @@ instance, and is released when you terminate your instance. You cannot reassign 
 address while it's assigned to another network interface—you must first unassign
 it.
 
-You can control whether instances are reachable via their IPv6 addresses by
+You can control whether instances are reachable through their IPv6 addresses by
 controlling the routing for your subnet or by using security group and network ACL
 rules. For more information, see [Internetwork traffic privacy](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
 _Amazon VPC User Guide_.

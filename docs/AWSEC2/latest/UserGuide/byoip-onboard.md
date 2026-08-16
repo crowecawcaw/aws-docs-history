@@ -211,7 +211,7 @@ It can take up to a day to deprovision an address range.
 
 1. Validate the self-signed x.509 key pair
 
-Validate that the certificate has been uploaded and is valid via the whois
+Validate that the certificate has been uploaded and is valid through the whois
 command.
 
 For ARIN, use `whois -h whois.arin.net r +

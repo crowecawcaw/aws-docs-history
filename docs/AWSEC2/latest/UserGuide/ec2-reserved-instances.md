@@ -14,7 +14,7 @@ Guide](../../../savingsplans/latest/userguide.md "../../../savingsplans/latest/u
 Reserved Instances provide you with significant savings on your Amazon EC2 costs compared to On-Demand Instance pricing.
 Reserved Instances are not physical instances, but rather a billing discount applied to the use of On-Demand Instances
 in your account. These On-Demand Instances must match certain attributes, such as instance type and
-Region, in order to benefit from the billing discount.
+Region, to benefit from the billing discount.
 
 ###### Reserved Instances topics
 

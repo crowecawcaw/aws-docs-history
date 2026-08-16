@@ -50,7 +50,7 @@ The following example is based on an instance type that has a default baseline b
 bandwidth weighting for this instance, the weighted baseline bandwidth changes to 50 Gbps,
 and the border bandwidth changes to 25 Gbps.
 
-- This feature is available in all commercial regions, aligned with EC2 instance availablilty and
+- This feature is available in all commercial Regions, aligned with EC2 instance availablilty and
   support.
 - This feature adds no additional cost to your EC2 instance.
 

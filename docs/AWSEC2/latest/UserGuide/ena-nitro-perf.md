@@ -296,7 +296,7 @@ issues. These packets always use the full flow.
 NitroV3 and earlier platforms do not use hardware acceleration for
 traffic between two ENIs in the same subnet where one ENI is using
 the default gateway router and the other is not. NitroV4 and later
-platforms utilize hardware acceleration in this scenario. For better
+platforms use hardware acceleration in this scenario. For better
 performance on NitroV3 or earlier platforms, ensure that either the
 default gateway router used matches between both ENIs, or those ENIs
 are in different subnets.

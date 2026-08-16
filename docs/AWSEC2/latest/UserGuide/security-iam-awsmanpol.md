@@ -136,7 +136,7 @@ To view the permissions for this policy, see [EC2FastLaunchServiceRolePolicy](..
 
 You can attach the `Ec2InstanceConnect` policy to your IAM
 identities. This policy grants permissions that allows customers to call EC2 Instance
-Connect to publish ephemeral keys to their EC2 instances and connect via ssh or the EC2
+Connect to publish ephemeral keys to their EC2 instances and connect through SSH or the EC2
 Instance Connect CLI.
 
 To view the permissions for this policy, see [Ec2InstanceConnect](../../../aws-managed-policy/latest/reference/EC2InstanceConnect.md "../../../aws-managed-policy/latest/reference/EC2InstanceConnect.md") in the _AWS Managed Policy

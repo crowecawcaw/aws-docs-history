@@ -33,16 +33,16 @@ The following table lists the available module attributes.
 
 The following table lists the available environment variables.
 
-| Environment Variable | Description                                                                                                                                                                                                                      |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EC2RL_CALLPATH`     | The path to `ec2rl.py`. This path can be used to locate the<br>lib directory and use vendored Python modules.                                                                                                                    |
-| `EC2RL_WORKDIR`      | The main tmp directory for the diagnostic tool.<br>Default value: `/var/tmp/ec2rl`.                                                                                                                                              |
-| `EC2RL_RUNDIR`       | The directory where all output is stored.<br>Default value:<br>`/var/tmp/ec2rl/<date&timestamp>`.                                                                                                                                |
-| `EC2RL_GATHEREDDIR`  | The root directory for placing gathered module data.<br>Default<br>value:`/var/tmp/ec2rl/<date&timestamp>/mod_out/gathered/`.                                                                                                    |
-| `EC2RL_NET_DRIVER`   | The driver in use for the first, alphabetically ordered, non-virtual network<br>interface on the instance.<br>Examples:<br>• xen\_netfront<br>• ixgbevf<br>• ena                                                                 |
-| `EC2RL_SUDO`         | True if EC2Rescue for Linux is running as root; otherwise, false.                                                                                                                                                                |
-| `EC2RL_VIRT_TYPE`    | The virtualization type as provided by the instance metadata.<br>Examples:<br>• default-hvm<br>• default-paravirtual                                                                                                             |
-| `EC2RL_INTERFACES`   | An enumerated list of interfaces on the system. The value is a string<br>containing names, such as `eth0`, `eth1`, etc. This is<br>generated via the `functions.bash` and is only available for modules<br>that have sourced it. |
+| Environment Variable | Description                                                                                                                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EC2RL_CALLPATH`     | The path to `ec2rl.py`. This path can be used to locate the<br>lib directory and use vendored Python modules.                                                                                                                         |
+| `EC2RL_WORKDIR`      | The main tmp directory for the diagnostic tool.<br>Default value: `/var/tmp/ec2rl`.                                                                                                                                                   |
+| `EC2RL_RUNDIR`       | The directory where all output is stored.<br>Default value:<br>`/var/tmp/ec2rl/<date&timestamp>`.                                                                                                                                     |
+| `EC2RL_GATHEREDDIR`  | The root directory for placing gathered module data.<br>Default<br>value:`/var/tmp/ec2rl/<date&timestamp>/mod_out/gathered/`.                                                                                                         |
+| `EC2RL_NET_DRIVER`   | The driver in use for the first, alphabetically ordered, non-virtual network<br>interface on the instance.<br>Examples:<br>• xen\_netfront<br>• ixgbevf<br>• ena                                                                      |
+| `EC2RL_SUDO`         | True if EC2Rescue for Linux is running as root; otherwise, false.                                                                                                                                                                     |
+| `EC2RL_VIRT_TYPE`    | The virtualization type as provided by the instance metadata.<br>Examples:<br>• default-hvm<br>• default-paravirtual                                                                                                                  |
+| `EC2RL_INTERFACES`   | An enumerated list of interfaces on the system. The value is a string<br>containing names, such as `eth0`, `eth1`, and so on. This is<br>generated by the `functions.bash` and is only available for modules<br>that have sourced it. |
 
 ## Use YAML syntax
 

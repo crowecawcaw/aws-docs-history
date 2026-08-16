@@ -35,7 +35,7 @@ Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing
 
 Billing starts as soon as the Capacity Reservation is provisioned in your account, and it
 continues while the Capacity Reservation remains provisioned in your account. For future-dated
-Capacity Reservations, this means that billing starts only once the Capacity Reservation is provisioned in your
+Capacity Reservations, this means that billing starts only after the Capacity Reservation is provisioned in your
 account at the requested future date.
 
 Capacity Reservations are billed at per-second granularity. This means that you are charged for

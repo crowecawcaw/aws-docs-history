@@ -920,7 +920,7 @@ Multiple versions of the NVIDIA GRID driver are stored in this S3
 bucket. You can download all of the available versions in the bucket if
 you change the value of the `$KeyPrefix` variable from
 _"windows/latest"_ to
-_"windows"_. 3. Navigate to the desktop and double-click the installation file to
+_"windows"_. 3. Navigate to the desktop and open the installation file to
 launch it (choose the driver version that corresponds to your instance
 OS version). Follow the instructions to install the driver and reboot
 your instance as required. To verify that the GPU is working properly,

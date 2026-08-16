@@ -68,7 +68,7 @@ JSON
 
 ###### Important
 
-We currently do not support resource-level permissions for the
+Resource-level permissions are not currently supported for the
 `spot-fleet-request` resource. If you specify
 `spot-fleet-request` as a resource, you will get an unauthorized
 exception when you try to tag the fleet. The following example illustrates how

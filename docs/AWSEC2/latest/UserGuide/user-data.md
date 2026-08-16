@@ -232,7 +232,7 @@ before you test that your user data directives have completed.
    procedure.
 
 In the examples below, the directives create and configure a web server on Amazon Linux. The
-`#cloud-config` line at the top is required in order to
+`#cloud-config` line at the top is required to
 identify the commands as cloud-init directives.
 
 AL2023

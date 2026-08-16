@@ -12,8 +12,8 @@ you specify the following.
   Each Capacity Block can have up to 64 instances, and you can have up to 256 instances
   across Capacity Blocks.
 
-When you request a Capacity Block that matches your specifications, we provide the
-details of up to 6 available blocks. All Capacity Blocks end at 11:30AM UTC, so the
+When you request a Capacity Block that matches your specifications, the
+details of up to 6 available blocks are returned. All Capacity Blocks end at 11:30AM UTC, so the
 blocks starting on the same day will have durations that are the closest match to
 your desired duration. One block will have a duration that is slightly less than
 your desired duration, while the other will have a duration slightly greater than

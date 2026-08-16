@@ -21,7 +21,7 @@ following prerequisites.
 
 The `AWSSupport-TroubleshootSSH` runbook installs EC2Rescue for Linux and
 then uses the tool to check or attempt to fix common issues that prevent a remote connection
-to a Linux machine via SSH. For more information, and to run this automation, see [Support-TroubleshootSSH](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshootssh.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshootssh.md").
+to a Linux machine through SSH. For more information, and to run this automation, see [Support-TroubleshootSSH](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshootssh.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshootssh.md").
 
 If your system has the required Python version, you can install the standard build.
 Otherwise, you can install the bundled build, which includes a minimal copy of Python.

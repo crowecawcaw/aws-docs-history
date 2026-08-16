@@ -66,7 +66,7 @@ can take from a few minutes up to 2 hours. You are charged during the
 
 ## Launch instances on a AMD SEV-SNP Dedicated Host
 
-You can launch an instance with AMD SEV-SNP enabled once the Dedicated Host is
+You can launch an instance with AMD SEV-SNP enabled after the Dedicated Host is
 configured.
 
 ###### Note

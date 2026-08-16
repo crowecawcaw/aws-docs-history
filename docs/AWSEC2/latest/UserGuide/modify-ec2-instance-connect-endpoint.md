@@ -1,7 +1,6 @@
 # Modify an EC2 Instance Connect Endpoint
 
-You can modify existing EC2 Instance Connect Endpoints using the AWS CLI or an SDK. The Amazon EC2 console
-doesn't support endpoint modification.
+You can modify existing EC2 Instance Connect Endpoints using the console, AWS CLI, or an SDK.
 
 Before you begin, you must have the required IAM permissions. For more
 information, see [Permissions to create, describe, modify, and delete EC2 Instance Connect Endpoints](permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint "permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint").
@@ -39,6 +38,24 @@ EC2 Instance Connect Endpoints. When enabling `PreserveClientIp`,
 either the endpoint's existing IP address type must be
 `ipv4`, or if modifying the IP address type in the
 same request, the new value must be `ipv4`.
+
+Console
+
+###### To modify an EC2 Instance Connect Endpoint
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the left navigation pane, choose
+   **Endpoints**.
+3. Select the endpoint.
+4. Choose **Actions**, **Modify endpoint
+   settings**.
+5. Change the endpoint settings.
+6. Choose **Save changes**.
+
+The endpoint enters the **Pending** state.
+When modification completes, the endpoint returns to the
+**Available** state.
 
 AWS CLI
 

@@ -1,6 +1,6 @@
 # Add or replace a public key on your Linux instance
 
-|                                                                                                                                                                                                                                                                                                                                                                                    |
+| Description                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | If you lose a private key, you lose access to any instances that use the key<br>pair. For more information about connecting to an instance using a different key pair<br>than the one that you specified at launch, see [I've lost my private key](TroubleshootingInstancesConnecting.md#replacing-lost-key-pair "TroubleshootingInstancesConnecting.md#replacing-lost-key-pair"). |
 

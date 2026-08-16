@@ -58,7 +58,7 @@ connect the EC2 instance, the VPC, DB subnet group, and public access settings
 for the database are automatically selected. The RDS database is automatically
 created in a private subnet within the same VPC as the EC2 instance.
 
-- Internet users can connect to the EC2 instance by using SSH or HTTP/HTTPS via an Internet
+- Internet users can connect to the EC2 instance by using SSH or HTTP/HTTPS through an Internet
   gateway.
 - Internet users cannot connect directly to the RDS database; only the EC2 instance is
   connected to the RDS database.

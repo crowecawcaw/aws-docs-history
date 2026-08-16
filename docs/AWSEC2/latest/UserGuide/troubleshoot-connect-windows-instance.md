@@ -110,7 +110,7 @@ Try the following to resolve this issue:
 - If the server is running a full-screen application, it might have stopped
   responding. Use Ctrl+Shift+Esc to start Windows Task Manager, and then close
   the application.
-- If the server is over-utilized, it might have stopped responding. To
+- If the server is over-used, it might have stopped responding. To
   monitor the instance using the Amazon EC2 console, select the instance and then
   select the **Monitoring** tab. If you need to change the
   instance type to a larger size, see [Amazon EC2 instance type changes](ec2-instance-resize.md "ec2-instance-resize.md").
@@ -316,7 +316,7 @@ you can use remote registry to enable Remote Desktop.
 `diskmgmt.msc`
 ```
 
-4. Right click the newly attached volume that came from the unreachable instance, and then choose
+4. Open the context (right-click) menu for the newly attached volume that came from the unreachable instance, and then choose
    **Online**.
 5. Open the Windows Registry Editor. You can do so by running the following command in the
    Command Prompt window.
@@ -340,7 +340,7 @@ you can use remote registry to enable Remote Desktop.
 
 10. In Registry Editor, navigate to `HKEY_LOCAL_MACHINE\`your key
     name`\ControlSet001\Control\Terminal Server`, and then,
-    in the details pane, double-click **fDenyTSConnections**.
+    in the details pane, open **fDenyTSConnections**.
 11. In the **Edit DWORD** value box, enter `0` in the **Value data** field.
 12. Choose **OK**.
 

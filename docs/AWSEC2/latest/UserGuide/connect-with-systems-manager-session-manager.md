@@ -1,7 +1,7 @@
 # Connect to your Amazon EC2 instance using Session Manager
 
 Session Manager is a fully-managed AWS Systems Manager capability for managing your Amazon EC2 instances
-through an interactive, one-click, browser-based shell, or through the AWS CLI. You can use
+through an interactive, browser-based shell, or through the AWS CLI. You can use
 Session Manager to start a session with an instance in your account. After the session is
 started, you can run interactive commands on the instance as you would for any other
 connection type. For more information about Session Manager, see [AWS Systems Manager Session

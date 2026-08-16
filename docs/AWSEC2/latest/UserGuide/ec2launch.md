@@ -45,7 +45,7 @@ boot:
 
 If a custom AMI is created from this instance, these routes are captured
 as part of the OS configuration and any new instances launched from the AMI
-will retain the same routes, regardless of subnet placement. In order to
+will retain the same routes, regardless of subnet placement. To
 update the routes, see [Update metadata/KMS routes for Server 2016 and later when launching a custom AMI](ec2launch-sysprep.md#update-metadata-KMS "ec2launch-sysprep.md#update-metadata-KMS").
 
 The following tasks help to maintain backward compatibility with the EC2Config

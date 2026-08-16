@@ -35,8 +35,8 @@ You can specify one of the following allocation strategies for Spot Instances:
 **Price capacity optimized** (recommended)
 
 The fleet identifies the pools with the highest capacity availability
-for the number of instances that are launching. This means that we will
-request Spot Instances from the pools that we believe have the lowest chance of
+for the number of instances that are launching. This means that Spot Instances are
+requested from the pools that are most likely to have the lowest chance of
 interruption in the near term. The fleet then requests Spot Instances from the
 lowest priced of these pools.
 
@@ -52,8 +52,8 @@ If you're using the AWS CLI, the parameter name is
 **Capacity optimized**
 
 The fleet identifies the pools with the highest capacity availability
-for the number of instances that are launching. This means that we will
-request Spot Instances from the pools that we believe have the lowest chance of
+for the number of instances that are launching. This means that Spot Instances are
+requested from the pools that are most likely to have the lowest chance of
 interruption in the near term.
 
 With Spot Instances, pricing changes slowly over time based on long-term trends
@@ -189,8 +189,8 @@ the Spot capacity pools with the highest capacity availability, we recommend
 that you use the **price capacity optimized** allocation
 strategy. This strategy makes decisions about which pools to request Spot Instances from
 based on both the price of the pools and the capacity availability of Spot Instances in
-those pools. This means that we will request Spot Instances from the pools that we
-believe have the lowest chance of interruption in the near term, while still
+those pools. This means that Spot Instances are requested from the pools that are most likely to have
+the lowest chance of interruption in the near term, while still
 taking price into consideration.
 
 If your fleet runs resilient and stateless workloads, including containerized

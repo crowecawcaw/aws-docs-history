@@ -4,7 +4,7 @@ With Amazon EC2 Capacity Blocks for ML, you pay only for what you reserve. The p
 on available supply and demand for Capacity Blocks at the time of purchase. You can view the
 price of a Capacity Block offering before you reserve it. The price of the Capacity Block is charged
 up front at the time the reservation is made. When you search for a Capacity Block across a
-range of dates, we return the lowest-priced Capacity Block offering available. After you've
+range of dates, the lowest-priced Capacity Block offering available is returned. After you've
 reserved a Capacity Block, the price doesn't change.
 
 When you use a Capacity Block, you pay for the operating system you use when your instances

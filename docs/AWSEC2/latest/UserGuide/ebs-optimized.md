@@ -440,6 +440,7 @@ instance types. For more information, see [EC2 instance bandwidth weighting conf
 | mac2-m1ultra.metal 2 | 10000                     | 1250.0                   | 55000                                   |
 | mac2-m2.metal 2      | 8000                      | 1000.0                   | 55000                                   |
 | mac2-m2pro.metal 2   | 8000                      | 1000.0                   | 55000                                   |
+| mac-m3ultra.metal 2  | 10000                     | 1250.0                   | 55000                                   |
 | mac-m4.metal 2       | 8000                      | 1000.0                   | 55000                                   |
 | mac-m4pro.metal 2    | 8000                      | 1000.0                   | 55000                                   |
 | mac-m4max.metal 2    | 10000                     | 1250.0                   | 55000                                   |

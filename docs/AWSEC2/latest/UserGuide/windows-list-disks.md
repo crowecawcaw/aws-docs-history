@@ -30,7 +30,7 @@ Disk Management
    information, see [Connect to your Windows instance using RDP](connecting_to_windows_instance.md "connecting_to_windows_instance.md").
 2. Start the Disk Management utility.
 
-On the taskbar, right-click the Windows
+On the taskbar, open the context (right-click) menu for the Windows
 logo, and then choose **Disk Management**. 3. Review the disks. The root volume is an EBS volume mounted as
 `C:\`. If there are no other disks shown, then you
 didn't specify additional volumes when you created the AMI or launched the
@@ -40,7 +40,7 @@ The following is an example that shows the disks that are available if you
 launch an `m3.medium` instance with an instance store volume
 (Disk 2) and an additional EBS volume (Disk 1).
 
-![Disk Management with a root volume, one instance store volume, and one EBS volume.](images/disk_management.png) 4. Right-click the gray pane labeled Disk 1, and then select
+![Disk Management with a root volume, one instance store volume, and one EBS volume.](images/disk_management.png) 4. Open the context (right-click) menu for the gray pane labeled Disk 1, and then select
 **Properties**. Note the value of
 **Location** and look it up in the tables in [Map non-NVMe disks to volumes](#windows-volume-mapping "#windows-volume-mapping"). For example, the following disk has the location Bus Number 0, Target Id
 9, LUN 0. According to the table for EBS volumes, the device name for this

@@ -20,7 +20,7 @@ The following diagram shows the key components that you'll use in this tutorial:
   Availability Zone.
 - A security group – Acts as a virtual firewall to control inbound and
   outbound traffic.
-- An EBS volume – We require a root volume for the image. You can optionally add data
+- An EBS volume – A root volume is required for the image. You can optionally add data
   volumes.
 
 ![An instance with a security group, key pair, and EBS root volume.](images/get-started-diagram.png)
@@ -32,13 +32,13 @@ When you create your AWS account, you can get started with Amazon EC2 for free u
 
 If you created your AWS account before July 15, 2025, it's less than 12
 months old, and you haven't already exceeded the Free Tier benefits for Amazon EC2, it won't
-cost you anything to complete this tutorial, because we help you select options that are
+cost you anything to complete this tutorial, because this tutorial helps you select options that are
 within the Free Tier benefits. Otherwise, you'll incur the standard Amazon EC2 usage fees from
 the time that you launch the instance (even if it remains idle) until you terminate it.
 
 If you created your AWS account on or after July 15, 2025, it's less than 6 months old,
 and you haven't used up all your credits, it won't cost you anything to complete this
-tutorial, because we help you select options that are within the Free Tier benefits.
+tutorial, because this tutorial helps you select options that are within the Free Tier benefits.
 
 For information on how to determine whether you are eligible for the
 Free Tier, see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md "ec2-free-tier-usage.md").
@@ -60,7 +60,7 @@ so it doesn't cover all possible options.
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation bar at the top of the screen, we display the current AWS Region —
+2. In the navigation bar at the top of the screen, the current AWS Region is displayed —
    for example, **Ohio**. You can use the selected Region, or
    optionally select a Region that is closer to you.
 3. From the EC2 console dashboard, in the **Launch instance** pane,
@@ -87,9 +87,9 @@ so it doesn't cover all possible options.
 
 If you choose **Proceed without a key pair (Not recommended)**,
 you won't be able to connect to your instance using the methods described in
-this tutorial. 8. Under **Network settings**, notice that we selected your default VPC,
-selected the option to use the default subnet in an Availability Zone that we
-choose for you, and configured a security group with a rule that allows
+this tutorial. 8. Under **Network settings**, notice that your default VPC is selected,
+the option to use the default subnet in an Availability Zone that is
+chosen for you, and a security group with a rule that allows
 connections to your instance from anywhere (`0.0.0.0.0/0`).
 
 ###### Warning
@@ -117,7 +117,7 @@ Otherwise, you can update your network settings as follows:
      you won't be able to connect to your instance. For a Linux instance, you must
      allow SSH traffic. For a Windows instance, you must allow RDP traffic.
 
-9. Under **Configure storage**, notice that we configured a root volume
+9. Under **Configure storage**, notice that a root volume is configured
 but no data volumes. This is sufficient for test purposes. 10. Review a summary of your instance configuration in the **Summary** panel,
 and when you're ready, choose **Launch instance**. 11. If the launch is successful, choose the ID of the instance from the **Success**
 notification to open the **Instances** page and monitor the status of the launch. 12. Select the checkbox for the instance. The initial instance state is `pending`.

@@ -1,6 +1,6 @@
 # Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)
 
-These downloads are available to AWS customers only. By downloading, in order to adhere
+These downloads are available to AWS customers only. By downloading, to adhere
 to requirements of the AWS solution referred to in the NVIDIA GRID Cloud End User
 License Agreement (EULA), you agree to use the downloaded software only to develop
 AMIs for use with the NVIDIA L4, NVIDIA L40S, NVIDIA A10G, NVIDIA Tesla T4, or
@@ -765,7 +765,7 @@ will keep version 11.0 and the earlier versions specific to G4dn under
 `g4/latest`.
 
 G5 instances require GRID 13.1 or later (or GRID 12.4 or
-later). 3. Navigate to the desktop and double-click the installation file to
+later). 3. Navigate to the desktop and open the installation file to
 launch it (choose the driver version that corresponds to your instance
 OS version). Follow the instructions to install the driver and reboot
 your instance as required. To verify that the GPU is working properly,

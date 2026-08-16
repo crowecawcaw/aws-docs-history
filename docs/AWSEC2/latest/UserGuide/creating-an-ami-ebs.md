@@ -165,7 +165,7 @@ following information:
     	* If **Reboot instance** is selected, when Amazon EC2 creates the new
     	 AMI, it reboots the instance so that it can take
     	 snapshots of the attached volumes while data is at
-    	 rest, in order to ensure a consistent state.
+    	 rest, to ensure a consistent state.
     	* If **Reboot instance** is cleared, when Amazon EC2 creates the new AMI,
     	 it does not shut down and reboot the
     	 instance.

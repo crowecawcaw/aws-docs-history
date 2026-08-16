@@ -29,12 +29,12 @@ queues, as well as for other system processes, it is possible to spread the CPU 
 over multi-core systems, enabling more network traffic to be processed. On instance
 types with more than 16 vCPUs, we recommend that you use the `Set-NetAdapterRSS`
 PowerShell cmdlet, which manually excludes the boot processor (logical processor 0 and 1
-when hyper-threading is enabled) from the RSS configuration for all elastic network interfaces, in order to prevent
+when hyper-threading is enabled) from the RSS configuration for all elastic network interfaces, to prevent
 contention with various system components.
 
 Windows is hyper-thread aware and ensures that the RSS queues of a single network interface card (NIC) are
 always placed on different physical cores. Therefore, unless hyper-threading is
-disabled, in order to completely prevent contention with other NICs, spread the RSS
+disabled, to completely prevent contention with other NICs, spread the RSS
 configuration of each NIC among a range of 16 logical processors. The
 `Set-NetAdapterRss` cmdlet allows you to define the per-NIC range of
 valid logical processors by defining the values of BaseProcessorGroup,

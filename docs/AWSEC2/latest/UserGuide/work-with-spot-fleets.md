@@ -17,7 +17,7 @@ tag the fleet request, and its instances and volumes, when you create the fleet.
 The fleet launches On-Demand Instances when there is available capacity, and launches Spot Instances when your
 maximum price exceeds the Spot price and capacity is available.
 
-Once your fleet is launched, you can describe the fleet request, the instances in the
+After your fleet is launched, you can describe the fleet request, the instances in the
 fleet, and any fleet events. You can also assign additional tags as needed.
 
 If you need to change any fleet parameters, such as the total target capacity, you can

@@ -22,7 +22,7 @@ You can also replace or detach IAM roles.
 4. Choose **Create role**.
 
 The newly created role is automatically selected and will be attached to your
-instance via an instance profile when the instance launches.
+instance through an instance profile when the instance launches.
 
 ###### Note
 

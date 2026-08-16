@@ -43,11 +43,11 @@ has. For example, an `m5.8xlarge` instance has 32 vCPUs and 10 Gbps network
 bandwidth, and an `m5.16xlarge` instance has 64 vCPUs and 20 Gbps network
 bandwidth. However, instances might not achieve this bandwidth; for example, if they
 exceed network allowances at the instance level, such as packet per second or number of
-tracked connections. How much of the available bandwidth the traffic can utilize depends
+tracked connections. How much of the available bandwidth the traffic can use depends
 on the number of vCPUs and the destination. For example, an `m5.16xlarge`
-instance has 64 vCPUs, so traffic to another instance in the Region can utilize the full
+instance has 64 vCPUs, so traffic to another instance in the Region can use the full
 bandwidth available (20 Gbps). However, traffic that goes through an internet gateway
-or a [local gateway](../../../outposts/latest/userguide/outposts-local-gateways.md "../../../outposts/latest/userguide/outposts-local-gateways.md") can utilize only 50% of the bandwidth available (10 Gbps).
+or a [local gateway](../../../outposts/latest/userguide/outposts-local-gateways.md "../../../outposts/latest/userguide/outposts-local-gateways.md") can use only 50% of the bandwidth available (10 Gbps).
 
 Typically, instances with 16 vCPUs or fewer (size `4xlarge` and smaller) are
 documented as having "up to" a specified bandwidth; for example, "up to 10 Gbps". These

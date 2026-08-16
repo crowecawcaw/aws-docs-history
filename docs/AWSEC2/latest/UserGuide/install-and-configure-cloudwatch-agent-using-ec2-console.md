@@ -1,6 +1,6 @@
 # Install and configure the CloudWatch agent using the Amazon EC2 console to add additional metrics
 
-|                                                                                                                                     |
+| Description                                                                                                                         |
 | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Installing and configuring the CloudWatch agent using the Amazon EC2 console is in beta for<br>Amazon EC2 and is subject to change. |
 
@@ -134,7 +134,7 @@ CloudWatch agent on your selected instances.
 4. **Validate CloudWatch agent** – Amazon EC2 checks that the
    CloudWatch agent is installed and running on each instance. If any instances fail this check,
    Amazon EC2 offers to install and start the CloudWatch agent for you. The CloudWatch agent will collect
-   the selected metrics on each instance once this process is completed.
+   the selected metrics on each instance after this process is completed.
 5. **Select metric configuration** – You select the
    metrics for the CloudWatch agent to emit from your instances. Once selected, Amazon EC2 stores a
    configuration file in Parameter Store, where it remains until the process is completed.

@@ -176,7 +176,7 @@ resolve this issue.
          exist, right-click `CurrentVersion`, point to
          **New**, select
          **Key**, and name the key
-         `RunOnce`.) Right-click, point to
+         `RunOnce`.) Open the context (right-click) menu, point to
          **New**, and select **String
          Value**. Enter `Ec2Install` as the
          name and `C:\Temp\Ec2Install.exe -q` as the

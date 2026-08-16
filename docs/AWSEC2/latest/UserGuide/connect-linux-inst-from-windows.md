@@ -137,7 +137,7 @@ Last tested version – PuTTY .78
 5. Next to **Private key file for authentication**, choose
    **Browse**. In the **Select private key
    file** dialog box, select the `.ppk` file
-   that you generated for your key pair. You can either double-click the file
+   that you generated for your key pair. You can either open the file
    or choose **Open** in the **Select private key
    file** dialog box.
 6. (Optional) If you plan to connect to this instance again after this session,

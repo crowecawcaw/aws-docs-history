@@ -55,7 +55,7 @@ instances.
 
 CPU utilization is the percentage of allocated EC2 compute units that are
 currently in use on the instance. This metric measures the percentage of
-allocated CPU cycles that are being utilized on an instance. The CPU
+allocated CPU cycles that are being used on an instance. The CPU
 Utilization CloudWatch metric shows CPU usage per instance and not CPU usage
 per core. The baseline CPU specification of an instance is also based on the
 CPU usage per instance. To measure CPU utilization using the AWS Management Console or the
@@ -75,7 +75,7 @@ Examples:
 
 **Baseline utilization**
 
-The baseline utilization is the level at which the CPU can be utilized for a
+The baseline utilization is the level at which the CPU can be used for a
 net credit balance of zero, when the number of CPU credits being earned matches
 the number of CPU credits being used. Baseline utilization is also known as the
 baseline. Baseline utilization is expressed as a percentage of vCPU
@@ -233,7 +233,7 @@ percentage of a full core (using a single vCPU).
 | `t4g.xlarge`  | 96                          | 2304                                         | 4           | 40%\*\*                       |
 | `t4g.2xlarge` | 192                         | 4608                                         | 8           | 40%\*\*                       |
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Notes                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \<br>• The number of credits that can be accrued is equivalent to the<br>number of credits that can be earned in a 24-hour period.                                                                                                                                                                                                                                                                                     |
 | \*\<br>• The percentage baseline utilization in the table is per vCPU. In<br>CloudWatch, CPU utilization is shown per vCPU. For example, the CPU utilization<br>for a `t3.large` instance operating at the baseline level is<br>shown as 30% in CloudWatch CPU metrics. For information about how to calculate<br>the baseline utilization, see [Baseline utilization](#baseline_performance "#baseline_performance"). |
@@ -255,7 +255,7 @@ discarded, as indicated by the following image. The full bucket indicates the CP
 balance limit, and the spillover indicates the newly earned credits that exceed the
 limit.
 
-![New credits earned are discarded once the limit is exceeded.](images/t2-t3-bucket.png)
+![New credits earned are discarded after the limit is exceeded.](images/t2-t3-bucket.png)
 
 The CPU credit balance limit differs for each instance size. For example, a
 `t3.micro` instance can accrue a maximum of 288 earned CPU credits in the
@@ -290,7 +290,7 @@ table](burstable-performance-instances-monitoring-cpu-credits.md#burstable-perfo
 ## Baseline utilization
 
 The _baseline utilization_ is the level at which the
-CPU can be utilized for a net credit balance of zero, when the number of CPU credits
+CPU can be used for a net credit balance of zero, when the number of CPU credits
 being earned matches the number of CPU credits being used. Baseline utilization is also
 known as _the baseline_.
 

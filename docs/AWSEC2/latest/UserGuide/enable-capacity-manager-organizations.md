@@ -176,6 +176,6 @@ OrganizationsAccess        : True
 - **Data aggregation:** After enabling organization access, Capacity Manager backfills 14 days of historical
   data from all member accounts. This process typically takes a few minutes to complete.
 - **Regional limitations:** You can only enable Capacity Manager in one Region per organization, but it will
-  aggregate data from all commercial regions.
+  aggregate data from all commercial Regions.
 - **Permissions:** Member accounts don't need to take any action. Capacity Manager uses the service-linked
   role to automatically discover resources across all accounts.

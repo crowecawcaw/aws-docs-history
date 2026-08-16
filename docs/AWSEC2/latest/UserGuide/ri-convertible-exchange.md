@@ -99,7 +99,7 @@ which is a prorated upfront cost of the difference between the Convertible Reser
 and the new Convertible Reserved Instances that you receive from the exchange.
 
 Each Convertible Reserved Instance has a list value. This list value is compared to the list value of the
-Convertible Reserved Instances that you want in order to determine how many instance reservations you can
+Convertible Reserved Instances that you want to determine how many instance reservations you can
 receive from the exchange.
 
 For example: You have 1 x $35-list value Convertible Reserved Instance that you want to exchange for a new

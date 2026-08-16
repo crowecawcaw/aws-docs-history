@@ -176,7 +176,7 @@ To review sub-optimal events in the Windows Event Viewer
    results in the detail sections of the window.
 
 Events with ID `59000` notify you of sub-optimal configuration findings.
-Right-click an event and choose **Event Properties** to open a detailed view,
+Open the context (right-click) menu for an event and choose **Event Properties** to open a detailed view,
 or select **Preview Pane** from the **View** menu to see
 the same detail.
 

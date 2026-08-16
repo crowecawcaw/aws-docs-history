@@ -168,7 +168,7 @@ You may want to modify the default timeouts for any of the following cases:
   high number of connections (greater than 100k) from appliances like network
   firewalls, configuring a similar timeout on an EC2 network interface is
   advised.
-- If you are running a workload that utilizes an asymmetric routing topology,
+- If you are running a workload that uses an asymmetric routing topology,
   we recommend that you configure a TCP Established idle timeout of 60 seconds.
 - If you are running workloads with high numbers of connections like DNS, SIP, SNMP, Syslog, Radius and other services that primarily use UDP to serve requests, setting the ‘UDP-stream’ timeout to 60s provides higher scale/performance for existing capacity and to prevent gray failures.
 - For TCP/UDP connections through Network Load Balancers,

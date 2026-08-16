@@ -16,7 +16,7 @@ Windows login credentials from being extracted from the operating system's memor
 
 ## Prerequisites
 
-Your Windows instance must meet the following prerequisites to utilize Credential Guard.
+Your Windows instance must meet the following prerequisites to use Credential Guard.
 
 **Amazon Machine Images (AMIs)**
 
@@ -115,7 +115,7 @@ scenarios. The following guidance can be applied for each configuration setting 
 - Enabled without lock – Modify the setting to
   **Disabled** to disable memory integrity.
 - Enabled with UEFI lock – Memory integrity has
-  been enabled with UEFI lock. Memory integrity can't be disabled once it has been enabled
+  been enabled with UEFI lock. Memory integrity can't be disabled after it has been enabled
   with UEFI lock. We recommend creating a new instance with memory integrity disabled and
   terminating the unsupported instance if it's not in use.
 

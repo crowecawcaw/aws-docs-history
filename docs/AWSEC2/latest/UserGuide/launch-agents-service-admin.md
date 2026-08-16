@@ -2,7 +2,7 @@
 
 If you've logged into your instance as a user with administrative rights, you can manage the
 EC2Launch v2 and EC2Config launch agents just as you would any other Windows service. EC2Launch v1 is a
-set of PowerShell scripts that is managed via scheduled task by default. This section covers service
+set of PowerShell scripts that is managed through a scheduled task by default. This section covers service
 administration for EC2Launch v2 and EC2Config.
 
 To apply updated settings to your instance, you can stop and restart the EC2Launch v2 agent or the

@@ -13,7 +13,7 @@ third connection, an error occurs.
 
 ###### Tip
 
-If you need to connect to your instance in order to troubleshoot boot, network
+If you need to connect to your instance to troubleshoot boot, network
 configuration, and other issues for instances built on the [AWS Nitro System](https://aws.amazon.com/ec2/nitro/ "https://aws.amazon.com/ec2/nitro/"), you can use the [EC2 Serial Console for instances](ec2-serial-console.md "ec2-serial-console.md").
 
 ###### Contents

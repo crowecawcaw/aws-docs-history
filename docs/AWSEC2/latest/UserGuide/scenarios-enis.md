@@ -84,7 +84,7 @@ You can use dual-homed instances across VPCs in the following use cases:
 
 If one of your instances serving a particular function fails, its network interface can be
 attached to a replacement or hot standby instance pre-configured for the same role
-in order to rapidly recover the service. For example, you can use a network
+to rapidly recover the service. For example, you can use a network
 interface as your primary or secondary network interface to a critical service such
 as a database instance or a NAT instance. If the instance fails, you (or more
 likely, the code running on your behalf) can attach the network interface to a hot

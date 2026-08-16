@@ -448,7 +448,7 @@ parm:		   numa_node_override:Enable/Disable numa node override (0=disable)
 7. On the instance, validate that the ENA driver is installed and enabled as
    follows:
 
-   1. Right-click the network icon and choose **Open Network and
+   1. Open the context (right-click) menu for the network icon and choose **Open Network and
       Sharing Center**.
    2. Choose the Ethernet adapter (for example, **Ethernet
       2**).

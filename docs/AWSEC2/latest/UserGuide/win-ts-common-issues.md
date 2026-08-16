@@ -278,7 +278,7 @@ diskpart
 
 To check the disk number for the volume with the disk signature collision, use the **Disk Management**
 utility. Open a command prompt, type `compmgmt.msc` and press **Enter**. In the left-hand
-navigation panel, double-click **Disk Management**. In the **Disk Management** utility,
+navigation panel, open **Disk Management**. In the **Disk Management** utility,
 check the disk number for the offline volume with the disk signature collision.
 
 ```

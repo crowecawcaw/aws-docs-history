@@ -56,7 +56,7 @@ control the range:
 - **Registry Data Access Protocol (RDAP)** —
   A read-only protocol to query current registration data within a RIR. Entries
   within the queried RIR database are referred to as "RDAP records". Certain
-  record types need to be updated by customers via a RIR-provided mechanism. These
+  record types need to be updated by customers through a RIR-provided mechanism. These
   records are queried by AWS to verify control of an address space in the
   RIR.
 - **Route Origin Authorization (ROA)** — An
@@ -107,7 +107,7 @@ control the range:
 - Do not make any manual changes for BYOIP in RADb or any other IRR. BYOIP will
   automatically update RADb. Any manual changes that include the BYOIP ASN will
   cause the BYOIP provision operation to fail.
-- Once you bring an IPv4 address range to AWS, you can use all of the IP addresses in the range, including the first address (the network address) and the last address (the broadcast address).
+- After you bring an IPv4 address range to AWS, you can use all of the IP addresses in the range, including the first address (the network address) and the last address (the broadcast address).
 
 ## Regional availability
 

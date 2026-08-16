@@ -463,7 +463,7 @@ If you are connecting to a Linux instance from Windows, perform the following st
 computer.
 
 1. Navigate to your .pem file.
-2. Right-click on the .pem file and select **Properties**.
+2. Open the context (right-click) menu for the .pem file and select **Properties**.
 3. Choose the **Security** tab.
 4. Select **Advanced**.
 5. Verify that you are the owner of the file. If not, change the owner to your username.

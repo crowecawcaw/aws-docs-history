@@ -117,7 +117,7 @@ credits.
 
 ![In period 1 for the T2 standard, the credit balance is 102 credits.](images/t2-graph1.png)
 
-|                     |                                                     |
+| Metric              | Value                                               |
 | ------------------- | --------------------------------------------------- |
 | Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)         |
 | Credit Earn Rate    | 72 credits per 24 hours                             |
@@ -143,7 +143,7 @@ accrued earned credits, so newly earned credits are discarded.
 
 ![The credit balance has reached its limit of 72 accrued earned credits.](images/t2-graph2.png)
 
-|                     |                                                                             |
+| Metric              | Value                                                                       |
 | ------------------- | --------------------------------------------------------------------------- |
 | Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)                                 |
 | Credit Earn Rate    | 72 credits per 24 hours (3 credits per hour)                                |
@@ -168,7 +168,7 @@ credit balance is already at its limit of 72 earned credits.
 
 ![Newly earned credits are discarded because the credit balance is already at its limit.](images/t2-graph3.png)
 
-|                     |                                                                                                                              |
+| Metric              | Value                                                                                                                        |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU<br>utilization, 40% of credit earn rate)—30 credits over 25<br>hours |
 | Credit Earn Rate    | 72 credits per 24 hours                                                                                                      |
@@ -198,7 +198,7 @@ accrued launch credits.
 
 ![The balance plateaus at 72 credits, because there are no accrued launch credits.](images/t2-graph4.png)
 
-|                     |                                                                                                                                |
+| Metric              | Value                                                                                                                          |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU<br>utilization, 40% of credit earn rate)—13.2 credits over 11<br>hours |
 | Credit Earn Rate    | 72 credits per 24 hours                                                                                                        |
@@ -221,7 +221,7 @@ the credit balance is 45 accrued earned credits.
 
 ![At the end of three hours, the credit balance is 45 accrued earned credits.](images/t2-graph5.png)
 
-|                     |                                                                                                                                                                                                                       |
+| Metric              | Value                                                                                                                                                                                                                 |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Credit Spend Rate   | 288 credits per 24 hours (12 credits per hour, 20% CPU<br>utilization, 400% of credit earn rate)—36 credits over 3<br>hours                                                                                           |
 | Credit Earn Rate    | 72 credits per 24 hours (9 credits over 3 hours)                                                                                                                                                                      |
@@ -252,7 +252,7 @@ increase in the credit balance.
 
 ![The instance earns more credits than it spends.](images/t2-graph6.png)
 
-|                     |                                                                                                                                |
+| Metric              | Value                                                                                                                          |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU<br>utilization, 40% of credit earn rate)—18 credits over 15<br>hours   |
 | Credit Earn Rate    | 72 credits per 24 hours (45 credits over 15 hours)                                                                             |
@@ -278,7 +278,7 @@ limit are discarded.
 
 ![Earned credits that exceed the limit are discarded.](images/t2-graph7.png)
 
-|                     |                                                    |
+| Metric              | Value                                              |
 | ------------------- | -------------------------------------------------- |
 | Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)        |
 | Credit Earn Rate    | 72 credits per 24 hours                            |

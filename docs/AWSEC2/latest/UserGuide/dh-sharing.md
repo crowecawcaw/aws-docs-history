@@ -66,7 +66,7 @@ For more information about AWS RAM, see the _[AWS RAM User Guide](../../../ram/l
 ## Share across Availability Zones
 
 To ensure that resources are distributed across the Availability Zones for a
-Region, we independently map Availability Zones to names for each account. This
+Region, Availability Zones are independently mapped to names for each account. This
 could lead to Availability Zone naming differences across accounts. For example, the
 Availability Zone `us-east-1a` for your AWS account might not have the
 same location as `us-east-1a` for another AWS account.

@@ -46,7 +46,7 @@ AWS CLI
 ###### To set the boot mode of an AMI
 
 1. Make suitable modifications to the instance's volume and operating system to support
-   booting via the selected boot mode. The modifications that are required are
+   booting by using the selected boot mode. The modifications that are required are
    operating system-specific. For more information, see the manual for your
    operating system.
 
@@ -173,7 +173,7 @@ PowerShell
 ###### To set the boot mode of an AMI
 
 1. Make suitable modifications to the instance's volume and operating system to support
-   booting via the selected boot mode. The modifications that are required are
+   booting by using the selected boot mode. The modifications that are required are
    operating system-specific. For more information, see the manual for your
    operating system.
 

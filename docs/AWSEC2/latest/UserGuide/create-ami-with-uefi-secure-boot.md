@@ -388,7 +388,7 @@ https://github.com/awslabs/python-uefivars
 2. Create a new variable store from your keys by running the
    following command. This will create a base64-encoded binary blob in
    `your_binary_blob`.bin. The tool also
-   supports updating a binary blob via the `-I`
+   supports updating a binary blob by using the `-I`
    parameter.
 
 ```

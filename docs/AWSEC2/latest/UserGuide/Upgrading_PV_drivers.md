@@ -353,7 +353,7 @@ If you create an AMI, make sure that you do the following:
 2. In your instance, [download](https://s3.amazonaws.com/ec2-downloads-windows/Drivers/Citrix-Win_PV.zip "https://s3.amazonaws.com/ec2-downloads-windows/Drivers/Citrix-Win_PV.zip") the Citrix PV upgrade package.
 3. Extract the contents of the upgrade package to a location of your
    choice.
-4. Double-click the **Upgrade.bat** file. If you get a
+4. Open the **Upgrade.bat** file. If you get a
    security warning, choose **Run**.
 5. In the **Upgrade Drivers** dialog box, review the
    information and choose **Yes** if you are ready to start
@@ -428,7 +428,7 @@ If you create an AMI, make sure you do the following:
 2. On your instance, [download](https://s3.amazonaws.com/ec2-downloads-windows/Drivers/Citrix-Win_PV.zip "https://s3.amazonaws.com/ec2-downloads-windows/Drivers/Citrix-Win_PV.zip") the Citrix upgrade package.
 3. Extract the contents of the upgrade package to a location of your
    choice.
-4. Double-click the **Upgrade.bat** file. If you get a
+4. Open the **Upgrade.bat** file. If you get a
    security warning, choose **Run**.
 5. In the **Upgrade Drivers** dialog box, review the
    information and choose **Yes** if you are ready to start

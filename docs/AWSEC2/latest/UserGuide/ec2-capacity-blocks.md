@@ -96,12 +96,12 @@ SDK to purchase a Capacity Block, the following platform options are available:
 
 Before you use Capacity Blocks, consider the following details and limitations.
 
-- If we detect impairment impacting an UltraServer Capacity Block, we will notify you but generally
-  will not take action to terminate your instances on the Capacity Block. This is to minimize
+- If impairment is detected on an UltraServer Capacity Block, you are notified but generally
+  your instances are not terminated on the Capacity Block. This is to minimize
   unintended disruption to your workloads. You can continue using the UltraServer Capacity Block as
   is after receiving this notification or request remediation by terminating all instances
-  on the capacity block and submitting an AWS support case. After we receive your support
-  case, we will notify you when we have completed remediation and you can relaunch instances
+  on the capacity block and submitting an AWS support case. After your support
+  case is received, you are notified when remediation is complete and you can relaunch instances
   onto your UltraServer Capacity Block.
 - For `P6e-GB200` UltraServer Capacity Blocks, you must terminate your instances
   at least 60 minutes before the Capacity Block end time.

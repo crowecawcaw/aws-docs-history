@@ -5,7 +5,7 @@ licenses. When you bring your own license, you are responsible for managing your
 licenses. However, Amazon EC2 has features that help you maintain license compliance, such as
 instance affinity and targeted placement.
 
-These are the general steps to follow in order to bring your own volume licensed
+These are the general steps to follow to bring your own volume licensed
 machine image into Amazon EC2.
 
 1. Verify that the license terms controlling the use of your machine images allow

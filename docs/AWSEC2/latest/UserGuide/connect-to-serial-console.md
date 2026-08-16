@@ -17,7 +17,7 @@ Console console experience, if your IAM credentials expire, terminate the connec
 closing the browser page.
 
 - It takes 30 seconds to tear down a session after you've disconnected from the serial
-  console in order to allow a new session.
+  console to allow a new session.
 - Supported serial console ports: `ttyS0` (Linux instances) and
   `COM1` (Windows instances)
 - When you connect to the serial console, you might observe a slight drop in your
@@ -107,7 +107,7 @@ instance. This starts a serial console session.
 
 If a serial console session has already been started for this instance, the command
 fails because you can only have one session open at a time. It takes 30 seconds to tear
-down a session after you've disconnected from the serial console in order to allow a new
+down a session after you've disconnected from the serial console to allow a new
 session.
 
 ```

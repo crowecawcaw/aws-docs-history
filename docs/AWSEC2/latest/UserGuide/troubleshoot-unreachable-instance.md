@@ -112,7 +112,7 @@ Console
 4. Choose **Actions**, **Monitor and
    troubleshoot**, **Get instance
    screenshot**.
-5. Choose **Download**, or right-click the image to
+5. Choose **Download**, or open the context (right-click) menu for the image to
    download and save it.
 
 AWS CLI

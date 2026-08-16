@@ -3,7 +3,7 @@
 You must sign up for (purchase) a paid AMI before you can launch an Amazon EC2 instance using the AMI.
 
 Typically a seller of a paid AMI presents you with information about the AMI,
-including its price and a link where you can buy it. When you click the link, you're first
+including its price and a link where you can buy it. When you choose the link, you're first
 asked to log into AWS, and then you can purchase the AMI.
 
 ## Purchase a paid AMI using the console

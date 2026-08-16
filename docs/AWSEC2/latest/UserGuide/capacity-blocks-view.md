@@ -8,7 +8,7 @@ in your Capacity Block by the tag value for the tag key
 `aws:ec2capacityreservation:incrementalRequestedQuantity`.
 
 When a Capacity Block reservation begins, the reservation state changes from
-`scheduled` to `active`. We emit an event through Amazon EventBridge
+`scheduled` to `active`. An event is emitted through Amazon EventBridge
 to notify you that the Capacity Block is available to use. For more information, see [Monitor Capacity Blocks using EventBridge](capacity-blocks-monitor.md "capacity-blocks-monitor.md").
 
 Capacity Blocks have the following states:

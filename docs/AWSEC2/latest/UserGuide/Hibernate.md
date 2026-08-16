@@ -14,7 +14,7 @@ attached EBS data volumes. When your instance is started:
   for hibernation](enabling-hibernation.md "enabling-hibernation.md") and it meets the [hibernation prerequisites](hibernating-prerequisites.md "hibernating-prerequisites.md").
 
 If an instance or application takes a long time to bootstrap and build a memory footprint
-in order to become fully productive, you can use hibernation to pre-warm the instance. To
+to become fully productive, you can use hibernation to pre-warm the instance. To
 pre-warm the instance, you:
 
 1. Launch it with hibernation enabled.

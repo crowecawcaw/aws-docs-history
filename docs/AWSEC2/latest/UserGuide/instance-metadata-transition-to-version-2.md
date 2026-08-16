@@ -145,7 +145,7 @@ that contains the condition key, the API or CLI call fails with an
 
 Furthermore, you can choose an additional layer of protection to enforce the change
 from IMDSv1 to IMDSv2. At the access management layer
-with respect to the APIs called via EC2 Role credentials, you can use a
+with respect to the APIs called through EC2 Role credentials, you can use a
 condition key in either IAM policies or AWS Organizations service control
 policies (SCPs). Specifically, by using the condition key
 `ec2:RoleDelivery` with a value of `2.0` in
@@ -153,7 +153,7 @@ your IAM policies, API calls made with EC2 Role credentials obtained
 from IMDSv1 will receive an `UnauthorizedOperation`
 response. The same thing can be achieved more broadly with that
 condition required by an SCP. This ensures that credentials delivered
-via IMDSv1 cannot actually be used to call APIs because any API
+through IMDSv1 cannot actually be used to call APIs because any API
 calls not matching the specified condition will receive an
 `UnauthorizedOperation` error.
 
@@ -218,7 +218,7 @@ aws ec2 describe-instances --filters "Name=metadata-options.http-tokens,Values=o
 
 Use the CloudWatch metric `MetadataNoToken`. This metric shows
 the number of IMDSv1 calls to the IMDS on your instances. For
-more information, see [Instance metrics](../../../en_us/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics "../../../en_us/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics"). 3. **Identify software on your instances making IMDSv1
+more information, see [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics "viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics"). 3. **Identify software on your instances making IMDSv1
 calls:**
 
 Use the open source [IMDS
@@ -345,7 +345,7 @@ Metadata** tab in the [Supported declarative policies](../../../organizations/la
 
 ### Step 5: Enforce instances to require IMDSv2
 
-Once you’ve confirmed that there is no dependency on IMDSv1 on any of your
+After you’ve confirmed that there is no dependency on IMDSv1 on any of your
 instances, we recommend that you enforce IMDSv2 on all new
 instances.
 

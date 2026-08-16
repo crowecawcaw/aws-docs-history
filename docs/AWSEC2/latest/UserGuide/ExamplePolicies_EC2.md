@@ -1544,7 +1544,7 @@ detaching an IAM role requires an association ID, therefore the policy also
 grants users permission to use the
 `ec2:DescribeIamInstanceProfileAssociations` action.
 
-Users must have permission to use the `iam:PassRole` action in order to pass
+Users must have permission to use the `iam:PassRole` action to pass
 the role to the instance.
 
 JSON

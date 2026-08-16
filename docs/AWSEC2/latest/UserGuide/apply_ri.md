@@ -2,7 +2,7 @@
 
 Reserved Instances are not physical instances, but rather a billing discount that is applied to the
 running On-Demand Instances in your account. The On-Demand Instances must match certain specifications of the
-Reserved Instances in order to benefit from the billing discount.
+Reserved Instances to benefit from the billing discount.
 
 If you purchase a Reserved Instance and you already have a running On-Demand Instance that matches the
 specifications of the Reserved Instance, the billing discount is applied immediately and

@@ -87,8 +87,8 @@ EC2 Instance Connect tries to connect using the instance's private IPv4 address 
 
 ###### Note
 
-In the future, we might change the behavior of the `auto` connection type.
-To ensure that your desired connection type is used, we recommend that you explicitly set
+In the future, the behavior of the `auto` connection type might change.
+To make sure that your desired connection type is used, explicitly set
 the `--connection-type` to either `direct` or
 `eice`.
 

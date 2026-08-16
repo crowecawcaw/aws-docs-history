@@ -48,7 +48,10 @@ elastic network interface (ENI) in your VPC. AWS creates one ENI per combination
 ENI when an application status check first requires that combination, and
 removes it when no remaining application status check requires it. The
 managed ENI does not count against your instance ENI limit, but does count
-against your global limit for ENIs per VPC.
+against the _Network interfaces per Region_ quota for your
+account, which is enforced per Availability Zone. For more information, see
+[Amazon VPC
+quotas](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md").
 
 Application status checks reach your instances from a private vantage
 point within your VPC. The scope describes where the check originates, not
@@ -568,8 +571,9 @@ application to be healthy, verify each of the following:
 8. _Available ENI quota._ AWS creates a
    managed elastic network interface (ENI) in your account for each
    source subnet and security group combination. Confirm your account
-   has an available ENI in its quota for the VPC. If your account has
-   reached its ENIs per VPC quota, AWS cannot create the managed ENI
+   has not reached its _Network interfaces per Region_
+   quota, which is enforced per Availability Zone. If your account has
+   reached this quota, AWS cannot create the managed ENI
    and the check cannot run. For more information, see [Amazon VPC quotas](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md").
 
 ### Reason codes

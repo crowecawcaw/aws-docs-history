@@ -107,7 +107,7 @@ Before changing an instance type, consider the following:
   the new instance type are compatible, for example, in terms of virtualization,
   architecture, or network type. For more information, see [Compatibility for changing the instance type](resize-limitations.md "resize-limitations.md").
 - Finally, consider the performance risk rating that's provided for each recommendation.
-  Performance risk indicates the amount of effort you might need to spend in order to
+  Performance risk indicates the amount of effort you might need to spend to
   validate whether the recommended instance type meets the performance requirements of your
   workload. We also recommend rigorous load and performance testing before and after making
   any changes.

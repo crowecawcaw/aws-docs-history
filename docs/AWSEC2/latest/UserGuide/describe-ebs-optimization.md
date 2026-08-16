@@ -10,7 +10,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Instance Types**.
 3. Add the filter **EBS optimization support = default**.
-4. (Optional) Click the **Preferences** icon and then turn on
+4. (Optional) Choose the **Preferences** icon and then turn on
    the relevant columns, such as **EBS Maximum IOPS** and
    **EBS Baseline IOPS**.
 5. (Optional) Add filters to further scope to specific instance types of interest.

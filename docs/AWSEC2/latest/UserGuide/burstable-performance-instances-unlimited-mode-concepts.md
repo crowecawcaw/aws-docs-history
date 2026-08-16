@@ -72,7 +72,7 @@ in the table are labeled A through K.
 | A             | B     | C               | D               | E = D<br>• C     | F                                    | G                                        | H = G / 60             | I = E / H                                   | J = (I / 60) / B           | K = F + J       |
 | t3.large      | 2     | $0.0835         | $0.096          | $0.0125          | 30%                                  | $0.05                                    | $0.000833              | 15                                          | 12.5%                      | 42.5%           |
 
-|                                                  |
+| Notes                                            |
 | ------------------------------------------------ |
 | \<br>• Price is based on us-east-1 and Linux OS. |
 

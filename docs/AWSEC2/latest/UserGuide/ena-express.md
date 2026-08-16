@@ -711,7 +711,7 @@ by default.
   well as the core network socket buffer defaults and maximums, are large
   enough to sustain high throughput. These settings are important
   in environments with increased network latency, where you need larger
-  buffers to utilize the connection.
+  buffers to use the connection.
 - **TCP congestion control**
   – Verifies that the TCP congestion control configuration is optimized
   for use with ENA Express in environments with increased network

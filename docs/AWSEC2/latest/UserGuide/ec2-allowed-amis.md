@@ -439,7 +439,7 @@ specified criteria.
 
 For the console and CLI instructions, see [Find instances launched from AMIs that aren't allowed](manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs "manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs"). 4. **Enable Allowed AMIs**
 
-Once you've confirmed that the criteria will not adversely affect expected
+After you've confirmed that the criteria will not adversely affect expected
 business processes, enable Allowed AMIs. 5. **Monitor instance launches**
 
 Continue to monitor instance launches from AMIs across your applications and

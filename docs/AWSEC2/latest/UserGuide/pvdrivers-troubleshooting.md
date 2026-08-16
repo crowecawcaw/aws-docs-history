@@ -118,7 +118,7 @@ keys:
 
 **HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Control\Class\4d36e97d-e325-11ce-bfc1-08002be10318**
 
-**HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Control\Class\4d36e96a-e325-11ce-bfc1-08002be10318** 12. For each key, double-click **UpperFilters**, enter a
+**HKEY\_LOCAL\_MACHINE\`your_temporary_key_name`\ControlSet001\Control\Class\4d36e96a-e325-11ce-bfc1-08002be10318** 12. For each key, open **UpperFilters**, enter a
 value of XENFILT, and then choose **OK**.
 
 ![Registry key for affected volume.](images/troubleshooting-server2012R2-regedit.png) 13. Locate the following key:
@@ -219,7 +219,7 @@ instance.
 3. Choose **Network and Internet**, then **Network
    and Sharing Center**.
 4. Choose **Change adapter settings**.
-5. Right-click **Citrix PV Ethernet Adapter #0** and select
+5. Open the context (right-click) menu for **Citrix PV Ethernet Adapter #0** and select
    **Properties**.
 
 ![Local area connection properties.](images/citrix-local-area-conn.png) 6. In the **Local Area Connection Properties** dialog box,
@@ -263,7 +263,7 @@ computation required to process an IO varies based on it size and other properti
 Some IOs use more computation in the preparation phase, and others in the completion
 phase. When an instance drives more than 20,000 IOPS, the preparation or completion
 phase may result in a bottleneck, where the CPU upon which it runs is at 100%
-capacity. Whether or not the preparation or completion phase becomes a bottleneck
+capacity. Whether the preparation or completion phase becomes a bottleneck
 depends on the properties of the IOs used by the application.
 
 Starting with AWS PV drivers 8.4.0, the load of the preparation phase and the
@@ -300,7 +300,7 @@ potential bottlenecks to disk IO.
      details** to expand the detailed view.
     6. Choose the **Performance** tab.
     7. Select **CPU** in the left pane.
-    8. Right-click on the graph in the main pane and select
+    8. Open the context (right-click) menu for the graph in the main pane and select
      **Change graph to**>**Logical
      processors** to display each individual core.
     9. Depending on how many cores are on your instance, you may see
@@ -319,11 +319,11 @@ potential bottlenecks to disk IO.
 
 3. ###### Choose which configuration to apply
 
-| Configuration name                                                                       | When to apply this configuration                                                                                                                                                                 | Notes                                                                                                                                                                |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Default configuration](#default-config "#default-config")                               | Workload is driving less than 20,000 IOPS, or other<br>configurations did not improve performance or<br>stability.                                                                               | For this configuration, IO occurs on a few cores,<br>which may benefit smaller workloads by increasing cache<br>locality and reducing context switching.             |
-| [Allow driver to choose whether to distribute completion](#allow-driver "#allow-driver") | Workload is driving more than 20,000 IOPS and moderate or<br>high load is observed on core `0`.                                                                                                  | This configuration is recommended for all Xen instances<br>using PV 8.4.0 or later and leveraging more than 20,000<br>IOPS, whether or not problems are encountered. |
-| [Distribute both preparation and completion](#distribute-both "#distribute-both")        | Workload is driving more than 20,000 IOPS, and either<br>allowing the driver to choose the distribution did not<br>improve performance, or a core other than `0` is<br>experiencing a high load. | This configuration enables distribution of both IO<br>preparation and IO completion.                                                                                 |
+| Configuration name                                                                       | When to apply this configuration                                                                                                                                                                 | Notes                                                                                                                                                         |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Default configuration](#default-config "#default-config")                               | Workload is driving less than 20,000 IOPS, or other<br>configurations did not improve performance or<br>stability.                                                                               | For this configuration, IO occurs on a few cores,<br>which may benefit smaller workloads by increasing cache<br>locality and reducing context switching.      |
+| [Allow driver to choose whether to distribute completion](#allow-driver "#allow-driver") | Workload is driving more than 20,000 IOPS and moderate or<br>high load is observed on core `0`.                                                                                                  | This configuration is recommended for all Xen instances<br>using PV 8.4.0 or later and leveraging more than 20,000<br>IOPS, whether problems are encountered. |
+| [Distribute both preparation and completion](#distribute-both "#distribute-both")        | Workload is driving more than 20,000 IOPS, and either<br>allowing the driver to choose the distribution did not<br>improve performance, or a core other than `0` is<br>experiencing a high load. | This configuration enables distribution of both IO<br>preparation and IO completion.                                                                          |
 
 ###### Note
 
@@ -386,7 +386,7 @@ applying one of the other configurations in this section.
 ###### Allow driver to choose whether to distribute completion
 
 Set `NotiferDistributed` registry key to allow the PV
-storage driver to choose whether or not to distribute IO
+storage driver to choose whether to distribute IO
 completion.
 
     1. Connect to your instance using RDP.

@@ -139,7 +139,7 @@ convert the `.pem` file to `.ppk`, see [Convert your private key using PuTTYgen]
   key pair. For more information, see [Error: Unprotected private key file](TroubleshootingInstancesConnecting.md#troubleshoot-unprotected-key "TroubleshootingInstancesConnecting.md#troubleshoot-unprotected-key").
   - Connect from Windows
 
-  Open File Explorer and right-click on the `.pem` file. Select
+  Open File Explorer and open the context (right-click) menu for the `.pem` file. Select
   **Properties** > **Security
   tab** and choose **Advanced**. Choose
   **Disable inheritance**. Remove access to all

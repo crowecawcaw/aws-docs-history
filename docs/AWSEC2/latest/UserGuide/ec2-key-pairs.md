@@ -31,7 +31,7 @@ private key if you lose it. However, there can still be a way to connect to inst
 which you've lost the private key. For more information, see [I've lost my private key. How can I connect to my instance?](TroubleshootingInstancesConnecting.md#replacing-lost-key-pair "TroubleshootingInstancesConnecting.md#replacing-lost-key-pair")
 
 As an alternative to key pairs, you can use [AWS Systems Manager Session Manager](../../../systems-manager/latest/userguide/session-manager.md "../../../systems-manager/latest/userguide/session-manager.md") to connect to
-your instance with an interactive one-click browser-based shell or the AWS Command Line Interface (AWS CLI).
+your instance with an interactive browser-based shell or the AWS Command Line Interface (AWS CLI).
 
 ###### Contents
 

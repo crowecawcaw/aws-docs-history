@@ -24,7 +24,7 @@ default boot loader for most Linux operating systems. From the GRUB menu, you ca
 which kernel to boot into, or modify menu entries to change how the kernel will boot. This
 can be useful when troubleshooting a failing instance.
 
-The GRUB menu is displayed during the boot process. The menu is not accessible via
+The GRUB menu is displayed during the boot process. The menu is not accessible through
 normal SSH, but you can access it using the EC2 Serial Console.
 
 You can boot into single user mode or emergency mode. Single user mode will boot the

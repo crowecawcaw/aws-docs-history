@@ -148,21 +148,30 @@ choose a subnet ID to open the subnet in the Amazon VPC console.
 
 - **Regions and Zones** – This page allows
   you to view and manage all available Regions, Availability Zones, Local Zones,
-  and Wavelength Zones.
+  and Wavelength Zones. You can switch between **List view** and
+  **Map view** using the **List view**/**Map
+  view** toggle. Your view preference persists across sessions.
 
-From the **Regions** tab, you can view all the AWS Regions.
-The **Status** column shows the Regions that are enabled for
-your AWS account. From this page, you can select a Region to:
+  - **Map view** – Displays all
+    Regions and Zones on an interactive world map, colored by status.
+    To see details for a location, point to it or choose it. Choose a
+    location to take action – you can enable a Region, enable a
+    Zone, or open its detail page. You can also filter the map to show
+    only specific statuses. The map and the detail list stay synchronized
+    – selecting a location on one highlights it on the other.
+  - **List view** – Displays Regions
+    and Zones in a table. From the **Regions** tab, you
+    can view all AWS Regions. The **Status** column shows
+    the Regions that are enabled for your AWS account.
+    From this page, you can select a Region to:
 
-    + View details of the Region such as the Region code, Geography, and
-     number of each type of Zone.
+  - View details of the Region such as the Region code, Geography, and
+    number of each type of Zone.
 
-
-    You can also view the list of Availability Zones, Local Zones, and
-     Wavelength Zones and the list of your resources in the Region.
-    + Enable or disable the Region.
-
-From each zone tab, you can view the list of that zone type. From the **Local Zones** tab, you can opt-in to a Local Zone.
+  You can also view the list of Availability Zones, Local Zones, and
+  Wavelength Zones and the list of your resources in the Region.
+  - Enable or disable the Region.
+    From each zone tab, you can view the list of that zone type. From the **Local Zones** tab, you can opt-in to a Local Zone.
 
 ###### Tip
 

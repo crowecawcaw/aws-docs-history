@@ -388,7 +388,7 @@ criteria.
 
 ###### Filtering considerations
 
-- You can specify up to 50 filters and up to 200 values per filter in a single request.
+- You can specify up to 50 filters and up to 200 total filter values in a single request.
 - Filter strings can be up to 255 characters in length.
 - You can use wildcards with the filter values. An asterisk (\*) matches zero or more
   characters, and a question mark (?) matches zero or one character.

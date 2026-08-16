@@ -1,7 +1,7 @@
 # How host maintenance works for Amazon EC2 Dedicated Hosts
 
 When a degradation is detected on a Dedicated Host that is enabled for host maintenance,
-we automatically allocate a replacement Dedicated Host in your account. The replacement Dedicated Host
+a replacement Dedicated Host is automatically allocated in your account. The replacement Dedicated Host
 receives a new host ID, but retains the same attributes as the original Dedicated Host,
 including:
 
@@ -13,7 +13,7 @@ including:
 - Host recovery settings
 - Instance type
 - Tags
-  After the replacement host has been allocated, we migrate the instances using either
+  After the replacement host has been allocated, the instances are migrated using either
   **live migration host maintenance** or
   **reboot-based host maintenance**, depending on the instance.
 
@@ -35,8 +35,8 @@ instances retain their existing attributes, including:
 Some larger instance sizes might experience a slight performance decrease during the
 migration.
 
-After the instances are automatically migrated to the replacement host, we
-send you email and AWS Health Dashboard notifications. Notifications include the IDs of the
+After the instances are automatically migrated to the replacement host, you
+receive email and AWS Health Dashboard notifications. Notifications include the IDs of the
 degraded and replacement hosts, information about the instances that were automatically
 migrated using live migration host maintenance, and information about the remaining
 instances.
@@ -104,7 +104,7 @@ Some instances can't be automatically migrated to the replacement host.
 
 ###### Instances with EBS-backed root volumes
 
-For these instances, we schedule instance stop events for 28 days from the date of the
+For these instances, instance stop events are scheduled for 28 days from the date of the
 notification. At the date and time of the scheduled event, the instances are stopped. We
 recommend that you manually stop on restart the instance on the replacement host or on a
 different host. You might need to modify your instance's host affinity to restart it on
@@ -112,7 +112,7 @@ a different host.
 
 ###### Instances with an instance store root volume
 
-For these instances, we schedule instance retirement events for 28 days from the date
+For these instances, instance retirement events are scheduled for 28 days from the date
 of the notification. At the date and time of the scheduled event, the instances are
 permanently terminated. We recommend that you manually launch replacement instances on
 the replacement host and then migrate the required data to the replacement instances

@@ -57,7 +57,7 @@ Console
    this ENI will be attached to relies on its IPv6 address not
    changing. AWS will automatically assign an IPv6 address
    associated with the ENI attached to your instance to be the
-   primary IPv6 address. Once you enable an IPv6 GUA address to be
+   primary IPv6 address. After you enable an IPv6 GUA address to be
    a primary IPv6, you can't disable it. When you enable an IPv6
    GUA address to be a primary IPv6, the first IPv6 GUA will be
    made the primary IPv6 address until the instance is terminated

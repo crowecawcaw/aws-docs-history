@@ -29,7 +29,7 @@ more information, see [Avoiding Unexpected Charges](../../../awsaccountbilling/l
 
 When you launch an instance, it enters the `pending` state.
 The instance type that you specified at launch determines the hardware of the host computer for your instance.
-We use the Amazon Machine Image (AMI) you specified at launch to boot the instance.
+The Amazon Machine Image (AMI) you specified at launch is used to boot the instance.
 After the instance is ready for you, it enters the `running` state.
 You can connect to your running instance and use it the way that you'd use a computer sitting in front of you.
 
@@ -66,21 +66,21 @@ For more details about stopping and starting an instance, see [Stop and start Am
 
 ## Hibernated instances
 
-When you hibernate an instance, we signal the operating system to perform hibernation
+When you hibernate an instance, the operating system is signaled to perform hibernation
 (suspend-to-disk), which saves the contents from the instance memory (RAM) to your Amazon EBS
-root volume. We persist the instance's Amazon EBS root volume and any attached Amazon EBS data
-volumes. When you start your instance, the Amazon EBS root volume is restored to its previous
+root volume. The instance's Amazon EBS root volume and any attached Amazon EBS data
+volumes are persisted. When you start your instance, the Amazon EBS root volume is restored to its previous
 state and the RAM contents are reloaded. Previously attached data volumes are reattached
 and the instance retains its instance ID.
 
 When you hibernate your instance, it enters the `stopping` state, and then the
-`stopped` state. We don't charge
-usage for a hibernated instance when it is in the `stopped` state, but we do
-charge while it is in the `stopping` state, unlike when you [stop an instance](#instance-stop-start "#instance-stop-start") without hibernating it. We
-don't charge usage for data transfer fees, but we do charge for the storage for any
+`stopped` state. You are not charged for
+usage for a hibernated instance when it is in the `stopped` state, but you are
+charged while it is in the `stopping` state, unlike when you [stop an instance](#instance-stop-start "#instance-stop-start") without hibernating it. You
+are not charged for data transfer fees, but you are charged for the storage for any
 Amazon EBS volumes, including storage for the RAM data.
 
-When you start your hibernated instance, it enters the `pending` state, and we move the instance to a new host computer (though in some cases, it remains on the current host).
+When you start your hibernated instance, it enters the `pending` state, and the instance is moved to a new host computer (though in some cases, it remains on the current host).
 
 Your instance retains its private IPv4 address, which means that an Elastic IP address
 associated with the private IPv4 address or network interface is still associated with
@@ -140,7 +140,7 @@ hibernating, and terminating your instance.
 
 | Characteristic            | Reboot                                                      | Stop/start (Amazon EBS-backed instances only)                                                                                                                                                                                                                                 | Hibernate (Amazon EBS-backed instances only)                                                                                                                                                                                                                                                                                       | Terminate                                                                                     |
 | ------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Host computer             | The instance stays on the same host computer.               | We move the instance to a new host computer (though in some cases, it remains on the current host).                                                                                                                                                                           | We move the instance to a new host computer (though in some cases, it remains on the current host).                                                                                                                                                                                                                                | None                                                                                          |
+| Host computer             | The instance stays on the same host computer.               | The instance is moved to a new host computer (though in some cases, it remains on the current host).                                                                                                                                                                          | The instance is moved to a new host computer (though in some cases, it remains on the current host).                                                                                                                                                                                                                               | None                                                                                          |
 | Private IPv4 address      | The instance keeps its private IPv4 address.                | The instance keeps its private IPv4 address.                                                                                                                                                                                                                                  | The instance keeps its private IPv4 address.                                                                                                                                                                                                                                                                                       | None                                                                                          |
 | Public IPv4 address       | The instance keeps its public IPv4 address.                 | The instance gets a new public IPv4 address, unless it has a<br>secondary network interface or a secondary private IPv4 address that<br>is associated with an Elastic IP address.                                                                                             | The instance gets a new public IPv4 address, unless it has a<br>secondary network interface or a secondary private IPv4 address that<br>is associated with an Elastic IP address.                                                                                                                                                  | None                                                                                          |
 | Elastic IP address (IPv4) | The Elastic IP address remains associated with the instance | The Elastic IP address remains associated with the instance                                                                                                                                                                                                                   | The Elastic IP address remains associated with the instance                                                                                                                                                                                                                                                                        | The Elastic IP address is disassociated from the instance                                     |

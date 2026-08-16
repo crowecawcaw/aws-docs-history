@@ -55,7 +55,7 @@ Elastic Network Adapter (ENA) family** page on _GitHub_.
 ## Leap seconds
 
 Leap seconds, introduced in 1972, are occasional one-second adjustments to UTC time to
-factor in irregularities in the earth’s rotation in order to accommodate differences
+factor in irregularities in the earth’s rotation to accommodate differences
 between International Atomic Time (TAI) and solar time (Ut1). To manage leap seconds on
 behalf of customers, we designed leap second smearing within the Amazon Time Sync Service. For more
 information, see [Look Before You

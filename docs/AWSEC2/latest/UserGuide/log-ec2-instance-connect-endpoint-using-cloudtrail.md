@@ -21,7 +21,7 @@ with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-clou
 
 ## Use AWS CloudTrail to audit users who connect to an instance using EC2 Instance Connect Endpoint
 
-Connection attempts to instances via EC2 Instance Connect Endpoint are logged in CloudTrail in
+Connection attempts to instances through EC2 Instance Connect Endpoint are logged in CloudTrail in
 **Event history**. When a connection to an instance is
 initiated through an EC2 Instance Connect Endpoint, the connection is logged as a CloudTrail management
 event with the `eventName` of `OpenTunnel`.

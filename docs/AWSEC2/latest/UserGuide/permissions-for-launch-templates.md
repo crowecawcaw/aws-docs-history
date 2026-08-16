@@ -14,9 +14,9 @@ You must grant anyone that will use a launch template the permissions required t
 create and access the resources that are specified in the launch template. For
 example:
 
-- To launch an instance from a shared private Amazon Machine Image (AMI), the user must
+- To launch an instance from a shared private Amazon Machine Image (AMI), the launch template user must
   have launch permission for the AMI.
-- To create EBS volumes with tags from existing snapshots, the user must have
+- To create EBS volumes with tags from existing snapshots, the launch template user must have
   read access to the snapshots, and permissions to create and tag volumes.
 
 ###### Contents

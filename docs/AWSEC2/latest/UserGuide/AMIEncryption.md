@@ -63,7 +63,7 @@ no `KmsKeyId` specified**
 - An encrypted snapshot that you own is restored to an EBS volume encrypted by
   the same KMS key. (In other words, the `Encrypted` parameter has no
   effect.)
-- An encrypted snapshot that you do not own (i.e., the AMI is shared with you)
+- An encrypted snapshot that you do not own (that is, the AMI is shared with you)
   is restored to a volume that is encrypted by your AWS account's default KMS key.
   (In other words, the `Encrypted` parameter has no effect.)
 
@@ -160,7 +160,7 @@ the `Encrypted` parameter results in the following:
   account's default KMS key.
 - An encrypted snapshot is copied to a snapshot encrypted by the same KMS key. (In
   other words, the `Encrypted` parameter has no effect.)
-- An encrypted snapshot that you do not own (i.e., the AMI is shared with you)
+- An encrypted snapshot that you do not own (that is, the AMI is shared with you)
   is copied to a volume that is encrypted by your AWS account's default KMS key. (In
   other words, the `Encrypted` parameter has no effect.)
 

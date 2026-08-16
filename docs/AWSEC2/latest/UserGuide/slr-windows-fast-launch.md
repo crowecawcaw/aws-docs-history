@@ -28,7 +28,7 @@ managed policy to complete the following actions:
 - **Amazon EC2** – Access is granted for
   EC2 Fast Launch to perform the following actions:
 
-  - Launch instances from an Amazon EC2 Windows Server AMI with EC2 Fast Launch enabled, in order to perform
+  - Launch instances from an Amazon EC2 Windows Server AMI with EC2 Fast Launch enabled, to perform
     provisioning steps. Additionally specify resource pattern that allows
     `ec2:RunInstances` for an AMI that's associated with License Manager.
   - Stop and terminate an instance that was launched by EC2 Fast Launch

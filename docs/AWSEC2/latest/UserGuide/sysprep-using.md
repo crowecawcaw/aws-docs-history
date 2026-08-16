@@ -254,7 +254,7 @@ password option that you selected.
 8. Choose **OK**.
 
 When you are asked to confirm that you want to run Windows Sysprep and shut down the
-instance, click **Yes**. You'll notice that EC2Config runs Windows Sysprep.
+instance, choose **Yes**. You'll notice that EC2Config runs Windows Sysprep.
 Next, you are logged off the instance, and the instance is shut down. If you check
 the **Instances** page in the Amazon EC2 console, the instance state
 changes from `Running` to `Stopping`, and then finally to

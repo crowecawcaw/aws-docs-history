@@ -298,7 +298,7 @@ default username is `ec2-user`.
 For more information about connecting to your instance, see
 [Connect to your Linux instance using an SSH client](connect-linux-inst-ssh.md "connect-linux-inst-ssh.md"). 2. Update Homebrew using the following command. The update will
 list the software that Homebrew knows about. The EC2 Instance Connect
-package is provided via Homebrew on macOS instances. For more information, see [Update the operating system and software on Amazon EC2 Mac instances](mac-instance-updates.md "mac-instance-updates.md").
+package is provided through Homebrew on macOS instances. For more information, see [Update the operating system and software on Amazon EC2 Mac instances](mac-instance-updates.md "mac-instance-updates.md").
 
 ```
 `[ec2-user ~]$` brew update

@@ -137,7 +137,7 @@ of the backup. The following actions can help you take a successful snapshot:
 - If there is a high volume of Amazon EC2 API calls in your account within the same
   Region where you're running a snapshot, API throttling might delay snapshot
   operations. To reduce throttling impact, use the latest `AwsVssComponents`
-  package. This package utilizes the EC2 `CreateSnapshots` API action to
+  package. This package uses the EC2 `CreateSnapshots` API action to
   reduce the number of mutating actions like per-volume snapshot creation and tagging.
 - If you have multiple `AWSEC2-CreateVssSnapshot` command scripts
   running at the same time, you can take the following steps to reduce concurrency

@@ -15,7 +15,7 @@ After an AMI is deprecated:
   API calls unless you specify its ID or specify that deprecated AMIs must appear. AMI
   owners continue to see deprecated AMIs in [DescribeImages](../APIReference/API_DescribeImages.md "../APIReference/API_DescribeImages.md")
   API calls.
-- For AMI users, the deprecated AMI is not available to select via the EC2 console.
+- For AMI users, the deprecated AMI is not available to select in the EC2 console.
   For example, a deprecated AMI does not appear in the AMI catalog in the launch
   instance wizard. AMI owners continue to see deprecated AMIs in the EC2
   console.

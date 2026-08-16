@@ -28,7 +28,7 @@ Windows instances:
   run under service accounts, or to use features such as application pool identities
   to access resources locally and remotely across your infrastructure.
 - Least privilege – Determine the minimum set of
-  privileges that instances and accounts need in order to perform their functions.
+  privileges that instances and accounts need to perform their functions.
   Restrict these servers and users to only allow these defined permissions. Use
   techniques such as Role Based Access Controls to reduce the surface area of
   administrative accounts, and create the most limited roles to accomplish a task. Use
@@ -164,7 +164,7 @@ by AWS security researchers.
 When securing Windows instances, we recommend that you implement Active Directory
 Domain Services to enable a scalable, secure, and manageable infrastructure for
 distributed locations. Additionally, after launching instances from the Amazon EC2 console or
-by using an Amazon EC2 provisioning tool, such as AWS CloudFormation, it is good practice to utilize
+by using an Amazon EC2 provisioning tool, such as AWS CloudFormation, it is good practice to use
 native OS features, such as Microsoft Windows PowerShell DSC to maintain configuration state in the
 event that configuration drift occurs.
 

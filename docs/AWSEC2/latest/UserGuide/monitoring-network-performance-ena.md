@@ -255,7 +255,7 @@ packets sent (`ena_srd_tx_pkts`) over a given time period.
 Significant differences between the number of eligible packets and the number of SRD
 packets sent are often caused by resource utilization issues. When the network card
 attached to the instance has used up its maximum resources, or if packets are over the
-MTU limit, eligible packets are not able to transmit via SRD, and must fall back to
+MTU limit, eligible packets are not able to transmit through SRD, and must fall back to
 standard ENA transmission. Packets can also fall into this gap during live migrations or
 live server updates. Additional troubleshooting is required to determine the root
 cause.

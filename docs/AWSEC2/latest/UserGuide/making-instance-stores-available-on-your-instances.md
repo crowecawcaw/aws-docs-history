@@ -66,7 +66,7 @@ see [List non-NVMe disks](windows-list-disks.md#windows-disks "windows-list-disk
 3. If you are prompted to initialize the volume, choose the volume to initialize, select the
    required partition type depending on your use case, and then choose
    **OK**.
-4. In the list of volumes, right-click the volume to mount, and then choose
+4. In the list of volumes, open the context (right-click) menu for the volume to mount, and then choose
    **New Simple Volume**.
 5. On the wizard, choose **Next**.
 6. On the Specify Volume Size screen, choose **Next** to use the
@@ -83,6 +83,6 @@ see [List non-NVMe disks](windows-list-disks.md#windows-disks "windows-list-disk
    - To mount the volume without a drive letter or path, choose
      **Do not assign a drive letter or drive path**.
 
-8. On the Format Partition screen, specify whether or not to format the volume. If you choose to
+8. On the Format Partition screen, specify whether to format the volume. If you choose to
    format the volume, choose the required file system and unit size, and specify a volume label.
 9. Choose **Next**, **Finish**.

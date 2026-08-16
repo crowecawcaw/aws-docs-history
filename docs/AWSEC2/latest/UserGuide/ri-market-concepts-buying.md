@@ -57,7 +57,7 @@ Amazon EC2 supports the following platforms for Reserved Instances:
   **Ubuntu Pro**, you must choose an offering for the
   **Linux/Unix** platform.
 - Reserved Instances are not supported on instances running **macOS** or
-  Ubuntu Pro (EC2 subscription-included, i.e., not BYOS). For saving with
+  Ubuntu Pro (EC2 subscription-included, that is, not BYOS). For saving with
   On-Demand instance pricing, we recommend that you use macOS and Ubuntu Pro
   (EC2 subscription-included) instances with Savings Plans. For more
   information, see [Savings Plans

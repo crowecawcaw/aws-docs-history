@@ -177,7 +177,7 @@ interfaces.
 
 `p5.48xlarge` and `p5e.48xlarge` instances support 32 network
 cards and have a total network bandwidth capacity of 3,200 Gbps, of which up to 800
-Gbps can be utilized for IP network traffic. Because EFA and IP network traffic share
+Gbps can be used for IP network traffic. Because EFA and IP network traffic share
 the same underlying resources, bandwidth used by one will reduce the bandwidth that
 is available to the other. This means that you can distribute the network bandwidth
 between EFA traffic and IP traffic in any combination, as long as the total bandwidth
@@ -277,7 +277,7 @@ $ aws --region $REGION ec2 run-instances \
 ```
 
 P6-B200 instances have a total network bandwidth capacity of 3,200 Gbps, of which up to 1600 Gbps can be
-utilized for ENA. They have 8 GPUs and 8 network cards, where each network card supports up to 400 Gbps EFA
+used for ENA. They have 8 GPUs and 8 network cards, where each network card supports up to 400 Gbps EFA
 bandwidth and 200 Gbps ENA bandwidth. Since EFA and ENA traffic share the same underlying resources, bandwidth
 used by one will reduce the bandwidth that is available to the other.
 

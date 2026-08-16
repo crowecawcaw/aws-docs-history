@@ -34,6 +34,7 @@ For more information, see [Supported instance types](#efa-instance-types "#efa-i
 - [Get started with EFA and NCCL](efa-start-nccl.md "efa-start-nccl.md")
 - [Get started with EFA and NIXL](efa-start-nixl.md "efa-start-nixl.md")
 - [Maximize network bandwidth](efa-acc-inst-types.md "efa-acc-inst-types.md")
+- [Install EFA in container](efa-installer-containers.md "efa-installer-containers.md")
 - [Create and attach an EFA](create-efa.md "create-efa.md")
 - [Detach and delete an EFA](detach-efa.md "detach-efa.md")
 - [Monitor an EFA](efa-working-monitor.md "efa-working-monitor.md")

@@ -11,7 +11,7 @@ As soon as you list your Reserved Instances in the Reserved Instance Marketplace
 buyers to find. All Reserved Instances are grouped according to the duration of the term remaining
 and the hourly price.
 
-To fulfill a buyer's request to purchase a third-party seller’s Reserved Instance via the Reserved Instance
+To fulfill a buyer's request to purchase a third-party seller’s Reserved Instance through the Reserved Instance
 Marketplace, AWS first sells the Reserved Instance with the lowest upfront price in the specified
 grouping. Then, AWS sells the Reserved Instance with the next lowest price, until the buyer's
 entire order is fulfilled. AWS then processes the transactions and transfers ownership
@@ -96,7 +96,7 @@ To sell in the Reserved Instance Marketplace, you must first register as a selle
 registration, you provide the following information:
 
 - Bank information—AWS must have your
-  bank information in order to disburse funds collected when you sell your
+  bank information to disburse funds collected when you sell your
   reservations. The bank you specify must have a US address. For more
   information, see [Bank account for disbursement](#ri-market-concepts-bank "#ri-market-concepts-bank").
 - Tax information—All sellers are
@@ -109,7 +109,7 @@ the Reserved Instance Marketplace.
 
 ## Bank account for disbursement
 
-AWS must have your bank information in order to disburse funds collected when
+AWS must have your bank information to disburse funds collected when
 you sell your Reserved Instance. The bank you specify must have a US address. For more
 information, see [Additional seller requirements for paid products](../../../marketplace/latest/userguide/user-guide-for-sellers.md#additional-seller-requirements-for-paid-products "../../../marketplace/latest/userguide/user-guide-for-sellers.md#additional-seller-requirements-for-paid-products") in the _AWS Marketplace Seller Guide_.
 
@@ -128,7 +128,7 @@ information, see [Additional seller requirements for paid products](../../../mar
 ###### Note
 
 If you are using a corporate bank account, you are prompted to send
-the information about the bank account via fax (1-206-765-3424).
+the information about the bank account by fax (1-206-765-3424).
 
 After registration, the bank account provided is set as the default, pending
 verification with the bank. It can take up to two weeks to verify a new bank
@@ -407,7 +407,7 @@ registered owner account email for the sold Reserved Instance.
 
 AWS sends an Automated Clearing House (ACH) wire transfer to your specified bank
 account. Typically, this transfer occurs between one to three days after your Reserved Instance
-has been sold. Disbursements take place once a day. You will receive an email with a
+has been sold. Disbursements take place one time per day. You will receive an email with a
 disbursement report after the funds are released. Keep in mind that you can't
 receive disbursements until AWS receives verification from your bank. This can
 take up to two weeks.

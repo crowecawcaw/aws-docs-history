@@ -11,7 +11,7 @@ before disconnecting from the serial console.
   it. However, during system maintenance, Amazon EC2 will disconnect the serial console
   session.
 - It takes 30 seconds to tear down a session after you've disconnected from the serial
-  console in order to allow a new session.
+  console to allow a new session.
   The way to disconnect from the serial console depends on the client.
 
 ###### Browser-based client
