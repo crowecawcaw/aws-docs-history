@@ -195,7 +195,7 @@ sudo /opt/bitnami/bncert-tool
 
 
 
-    ![Message confirming the bncert tool is installed](images/run-bncert-tool-success.png)
+    ![Message confirming the bncert tool is installed](/images/lightsail/latest/userguide/images/run-bncert-tool-success.png)
 
 2. Enter the following command to download the `bncert` run file to your
 instance.
@@ -250,7 +250,7 @@ sudo /opt/bitnami/bncert-tool
 
 You should see a message similar to the following example.
 
-![Running the bncert tool](images/run-bncert-tool-success.png)
+![Running the bncert tool](/images/lightsail/latest/userguide/images/run-bncert-tool-success.png)
 
 If the `bncert` tool has been installed on your instance for a while, then
 you might see a message indicating that an updated version of the tool is available.

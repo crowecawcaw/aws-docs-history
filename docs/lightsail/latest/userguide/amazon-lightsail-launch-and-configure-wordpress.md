@@ -13,9 +13,8 @@ Lightsail.
 
 ###### Note
 
-As part of the AWS Free Tier, you can get started with Amazon Lightsail for free on
-select instance bundles. For more information, see **AWS Free Tier**
-on the [Amazon Lightsail Pricing page](https://aws.amazon.com/lightsail/pricing "https://aws.amazon.com/lightsail/pricing").
+As part of the AWS Free Tier, you can get started with Amazon Lightsail for free.
+For more information, see the [AWS Free Tier FAQs](https://aws.amazon.com/free/free-tier-faqs/ "https://aws.amazon.com/free/free-tier-faqs/").
 
 ## Step 1: Sign up for AWS
 

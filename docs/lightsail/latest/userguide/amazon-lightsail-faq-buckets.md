@@ -12,8 +12,8 @@ cost, secure backup solution. For more information, see [Object storage](buckets
 ## What does Lightsail object storage cost?
 
 Lightsail object storage has three different fixed-priced bundles in all AWS Regions
-where Lightsail is available. The first bundle is $1/month and is free for the first 12
- months. This bundle includes 5 GB storage capacity and 25 GB of data transfer. The second
+where Lightsail is available. The first bundle is $1/month. This bundle includes 5 GB
+ storage capacity and 25 GB of data transfer. The second
  bundle is $3 per month and includes 100 GB storage capacity and 250 GB of data transfer.
 Lastly, the third bundle is $5 per month and includes 250 GB of storage capacity and 500 GB
 data transfer. Lightsail object storage includes unlimited data transfer into your bucket,

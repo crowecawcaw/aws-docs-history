@@ -51,8 +51,7 @@ Every Lightsail instance plan includes a data transfer allowance. Both data tran
 IN and data transfer OUT of your instance count toward your data transfer allowance. If you
 exceed your data transfer allowance, you will only be charged for the excess data transfer
 OUT from a Lightsail instance to the Internet or to AWS resources using the public IP
-address of the instance. This additional charge for data transfer beyond allowance is also
-payable for resources that are within their free trial period. Your data transfer allowance
+address of the instance. Your data transfer allowance
 resets every month, and your instance can consume it whenever it needs to within the
 month.
 

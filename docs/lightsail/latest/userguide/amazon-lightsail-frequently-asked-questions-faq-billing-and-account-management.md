@@ -23,35 +23,23 @@ instance plan for 100 hours in a month, you will be charged 46 cents (100\*0.004
 
 ## Can I try Lightsail instances for free?
 
-Yes. Whether you're an existing or new AWS customer, you get 750 hours of free usage
-of the $5 USD Lightsail plan for free. You also can try Lightsail plans that include a
- Windows Server license for free using the $9.50 USD Windows plan. You can use your 750 hours
-of usage across as many instances as you like. For example, you can run a single Lightsail
-instance for a whole month, or 10 Lightsail instances for 75 hours. The free trial offer
-is only applicable to usage within the first calendar month from when you sign up to use
-Lightsail. If your account is linked to an organization (under AWS Organizations), only
-one account within the organization can benefit from the AWS Free Tier offers.
+Yes. As part of the AWS Free Tier, you can get started with Amazon Lightsail for free.
+Check out the [AWS Free Tier
+FAQs](https://aws.amazon.com/free/free-tier-faqs/ "https://aws.amazon.com/free/free-tier-faqs/") to learn more.
 
-Instance plans include a data transfer allowance. Data transferred both in and out of
-your instance counts towards your data transfer allowance. When you exceed your data
-transfer allowance, instances—including those within the free-trial
-period—will incur charges only for the excess data that is transferred out. For more
-information about data transfer costs, see [What does data transfer cost?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost").
+## What happened to Lightsail’s free trial offers?
 
-###### Note
+Lightsail’s short-term free trial offers have been replaced by the AWS Free
+Tier. Previously, Lightsail offered short-term free trial offers on select instance, database,
+container service, CDN distribution, and object storage plans. These offers are no longer available
+to new Lightsail customers. Instead, you can get started with Amazon Lightsail for free with the AWS
+Free Tier where you can get up to $200 USD in free AWS credits. For more information, see the [AWS Free Tier FAQs](https://aws.amazon.com/free/free-tier-faqs/ "https://aws.amazon.com/free/free-tier-faqs/").
 
-As part of the AWS Free Tier, you can get started with Amazon Lightsail for free on
-select instance bundles. For more information, see **AWS Free Tier**
-on the [Amazon Lightsail Pricing page](https://aws.amazon.com/lightsail/pricing "https://aws.amazon.com/lightsail/pricing").
+## What if I am already on a free trial?
 
-## When does the Lightsail free trial start?
-
-The Lightsail free trial benefits start when the first free trial eligible resource is
-launched.
-
-The extended 90 day free trial for instances and databases is applicable only on select
-plans (bundles). The offer applies to new or existing AWS accounts that started using
-Lightsail on or after July 8, 2021. For more information, see the [Lightsail pricing page](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/").
+If you started a free trial before the offer was removed, your trial will continue until
+the end of your trial period. Once your trial ends, you will be charged for your resources monthly.
+For more information, refer to [Amazon Lightsail pricing](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/").
 
 ## What do Lightsail managed databases cost?
 
