@@ -72,7 +72,7 @@ and a label that identifies the object within the bounding box. For an example
 project, see [Brand detection](getting-started.md#gs-brand-detection-example "getting-started.md#gs-brand-detection-example"). The following image is an example
 of some of the brands that the model can detect.
 
-![Diagram showing Lambda service feeding user activity into Amazon Pinpoint for recommendations.](images/brand-detection-lambda.png)
+![Diagram showing Lambda service feeding user activity into Amazon Pinpoint for recommendations.](/images/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
 
 ## Create a model
 

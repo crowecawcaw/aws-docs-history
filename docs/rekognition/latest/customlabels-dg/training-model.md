@@ -96,7 +96,7 @@ be in the **Choose project** edit box. If not, enter the ARN for your project.
 ![Train model button to start training an AI model on the Amazon Rekognition Custom Labels service.](images/tutorial-train-model-page-train-model.jpg) 9. In the **Do you want to train your model?** dialog box, choose
 **Train model**.
 
-![Train model configuration page showing Train Model button.](images/tutorial-dialog-train-model.jpg) 10. In the **Models** section of the project page, you can check the current
+![Train model configuration page showing Train Model button.](/images/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg) 10. In the **Models** section of the project page, you can check the current
 status in the `Model Status` column, where the training's in
 progress. Training a model takes a while to complete.
 
