@@ -325,20 +325,37 @@ by the load balancer.
 
 The load balancer adds the following HTTP headers:
 
-`x-amzn-oidc-accesstoken`
-
-The access token from the token endpoint, in plain text.
-
-`x-amzn-oidc-identity`
-
-The subject field (`sub`) from the user info endpoint, in
-plain text.
-
-**Note:** The sub claim is the best way to identify a given user.
-
 `x-amzn-oidc-data`
 
 The user claims, in JSON web tokens (JWT) format.
+
+To ensure security, you must verify the signature of
+`x-amzn-oidc-data` and confirm that the `signer` field in
+the JWT header matches your Application Load Balancer's ARN. To securely identify a user, verify
+the signature of `x-amzn-oidc-data` and extract the `sub`
+claim from the validated JWT payload. For more information about signature
+verification, see the following section.
+
+Legacy unsigned headers:
+
+`x-amzn-oidc-accesstoken`
+
+The access token from the token endpoint, in plain text. This
+header is unsigned and cannot be independently verified by your
+application.
+
+`x-amzn-oidc-identity`
+
+The subject field (`sub`) from the user info endpoint,
+in plain text. This header is unsigned and cannot be independently
+verified by your application.
+
+###### Note
+
+The Application Load Balancer signs only the `x-amzn-oidc-data` header. The
+`x-amzn-oidc-accesstoken` and `x-amzn-oidc-identity`
+headers are unsigned plaintext headers provided for backward
+compatibility.
 
 Access tokens and user claims are different from ID tokens. Access tokens and user
 claims only allow access to server resources, while ID tokens carry additional
