@@ -10,8 +10,9 @@ best practices](../../../whitepapers/latest/tagging-best-practices/tagging-best-
 
 You can run the following commands from
 [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"), which comes with
-the AWS CLI, PowerShell, and [AWS.Tools for PowerShell](https://aws.amazon.com/powershell/ "https://aws.amazon.com/powershell/") pre-installed, and credentials are automatically
-configured.
+the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") and
+[AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-welcome.md "../../../powershell/latest/userguide/pstools-welcome.md") pre-installed. AWS CloudShell automatically
+configures your credentials.
 
 1. Sign in to the AWS Management Console.
 2. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home").
@@ -25,7 +26,7 @@ AWS CLI
 
 ###### To add tags to your directory with the AWS CLI
 
-- Open the AWS CLI. Run the following command, replacing the directory ID and
+- Run the following command, replacing the directory ID and
   tag values with your own:
 
 ```
@@ -41,7 +42,7 @@ PowerShell
 
 ###### To add tags to your directory with PowerShell
 
-- Open PowerShell. Run the following command, replacing the directory
+- Run the following command, replacing the directory
   ID and tag values with your own:
 
 ```
@@ -61,7 +62,7 @@ AWS CLI
 
 ###### To list tags on your directory with the AWS CLI
 
-- Open the AWS CLI. Run the following command, replacing the directory ID with
+- Run the following command, replacing the directory ID with
   your own:
 
 ```
@@ -75,7 +76,7 @@ PowerShell
 
 ###### To list tags on your directory with PowerShell
 
-- Open PowerShell. Run the following command, replacing the directory
+- Run the following command, replacing the directory
   ID with your own:
 
 ```
@@ -94,7 +95,7 @@ AWS CLI
 
 ###### To update a tag on your directory with the AWS CLI
 
-- Open the AWS CLI. Run the following command, replacing the directory ID, tag
+- Run the following command, replacing the directory ID, tag
   key, and new value with your own:
 
 ```
@@ -109,7 +110,7 @@ PowerShell
 
 ###### To update a tag on your directory with PowerShell
 
-- Open PowerShell. Run the following command, replacing the directory
+- Run the following command, replacing the directory
   ID, tag key, and new value with your own:
 
 ```
@@ -128,7 +129,7 @@ AWS CLI
 
 ###### To remove tags from your directory with the AWS CLI
 
-- Open the AWS CLI. Run the following command, replacing the directory ID and tag
+- Run the following command, replacing the directory ID and tag
   key names with your own:
 
 ```
@@ -143,7 +144,7 @@ PowerShell
 
 ###### To remove tags from your directory with PowerShell
 
-- Open PowerShell. Run the following command, replacing the directory
+- Run the following command, replacing the directory
   ID and tag key names with your own:
 
 ```

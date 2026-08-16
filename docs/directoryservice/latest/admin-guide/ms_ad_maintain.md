@@ -19,3 +19,4 @@ administrative tasks. Ways you can maintain your directory include:
   directory.
 - [Delete your AWS Managed Microsoft AD](ms_ad_delete.md "ms_ad_delete.md") when you no longer need it.
 - [Tag your directory](tag_directory.md "tag_directory.md") to organize and manage your directories using key-value pairs.
+- [Manage DNS conditional forwarders](ms_ad_conditional_forwarders.md "ms_ad_conditional_forwarders.md") to route DNS queries for a remote domain to the correct DNS servers, which is required to set up a trust relationship with another domain.
