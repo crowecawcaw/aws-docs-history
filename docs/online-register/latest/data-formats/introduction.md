@@ -14,6 +14,7 @@ You can also search the AWS documentation website for a product's API reference.
 
 ###### Topics
 
+- [Data retrieval APIs for Account access manager](accountaccessmanager.md "accountaccessmanager.md")
 - [Data retrieval APIs for AWS Account Management](awsaccountmanagement.md "awsaccountmanagement.md")
 - [Data retrieval APIs for AWS Action Recommendations](awsactionrecommendations.md "awsactionrecommendations.md")
 - [Data retrieval APIs for AWS Activate](awsactivate.md "awsactivate.md")
