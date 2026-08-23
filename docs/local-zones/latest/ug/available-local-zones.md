@@ -56,6 +56,7 @@ The following Local Zones are available in North America:
 | US East (Philadelphia)     | `us-east-1-phl-1a` | `use1-phl1-az1` | `us-east-1-phl-1`    | `us-east-1`        | `use1-az1`     | `Pennsylvania, United States of America`  |
 | US West (Denver)           | `us-west-2-den-1a` | `usw2-den1-az1` | `us-west-2-den-1`    | `us-west-2`        | `usw2-az4`     | `Colorado, United States of America`      |
 | US West (Honolulu)         | `us-west-2-hnl-1a` | `usw2-hnl1-az1` | `us-west-2-hnl-1`    | `us-west-2`        | `usw2-az3`     | `Hawaii, United States of America`        |
+| US West (Las Vegas) 2      | `us-west-2-las-2a` | `usw2-las2-az1` | `us-west-2-las-2`    | `us-west-2`        | `usw2-az1`     | `Nevada, United States of America`        |
 | US West (Las Vegas)        | `us-west-2-las-1a` | `usw2-las1-az1` | `us-west-2-las-1`    | `us-west-2`        | `usw2-az3`     | `Nevada, United States of America`        |
 | US West (Los Angeles)      | `us-west-2-lax-1a` | `usw2-lax1-az1` | `us-west-2-lax-1`    | `us-west-2`        | `usw2-az2`     | `California, United States of America`    |
 | US West (Los Angeles)      | `us-west-2-lax-1b` | `usw2-lax1-az2` | `us-west-2-lax-1`    | `us-west-2`        | `usw2-az4`     | `California, United States of America`    |
