@@ -86,7 +86,7 @@ There are two ways to route contacts directly to an agent:
 The main downside of routing criteria is that it impacts queue metrics
 (SLA, queue time, and more). If a contact in QueueA is waiting specifically
 for Agent12, then it won't get picked up by other agents that are available.
-It may breach your defined SLAs. The way you'd see this occurring is by
+It might breach your defined SLAs. The way you'd see this occurring is by
 looking at the real-time metrics report; see [Use one-choose
 drill-downs](one-choose-drill-downs.md "one-choose-drill-downs.md").
 
@@ -335,7 +335,7 @@ export const handler = async(event) => {
    matched with a contact for a particular step, the step status will be set as
    Joined.
 5. **Interrupted:** If a contact has been
-   waiting for too long or an operations leader may decide to interrupt the
+   waiting for too long or an operations leader might decide to interrupt the
    flow and change the routing criteria. This can be done while a particular
    step is active, for example, a task has been waiting for 24 hours and a
    manager wants to change the criteria. The step status will then be set to

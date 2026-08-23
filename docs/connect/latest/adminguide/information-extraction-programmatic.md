@@ -61,7 +61,7 @@ Each extraction includes:
   in the recording where the information was mentioned (voice contacts
   only).
 
-## Extracted information via API
+## Extracted information through API
 
 You can retrieve extracted information generated during after-call work
 programmatically using the following APIs:
@@ -73,7 +73,7 @@ programmatically using the following APIs:
   extracted information segments for **chat**
   contacts during after-contact work.
 
-## Extracted information via Amazon Kinesis
+## Extracted information through Amazon Kinesis
 
 If your Connect Customer instance is configured to send conversational analytics to
 Amazon Kinesis Data Streams, extracted information events generated during

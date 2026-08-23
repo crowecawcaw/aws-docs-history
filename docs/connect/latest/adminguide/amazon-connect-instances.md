@@ -10,7 +10,7 @@ contact center.
   signed up for all services in AWS, including Connect Customer. You are charged only for
   the services that you use. To create an AWS account, see [How/
   do I create and activate an AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/")
-- To allow a user to create an instance, ensure that they have the permissions
+- To allow a user to create an instance, make sure that they have the permissions
   granted by the **AmazonConnect\_FullAccess** policy.
 - For a list of the minimum IAM permissions required to create an instance, see
   [Required permissions for using custom IAM policies to manage access to the Connect Customer console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").

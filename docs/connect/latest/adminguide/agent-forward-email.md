@@ -49,7 +49,7 @@ Common use cases for forwarding to distribution lists include:
 
 Email forwarding capabilities are controlled by your security profile permissions. Your administrator configures which agents can forward emails ("Initiate email conversation" must be enabled on your [Contact Control Panel (CCP)](security-profile-list.md#ccp-permissions-list "security-profile-list.md#ccp-permissions-list")) and to which external addresses (based on checking contact attributes in the [Default outbound flow in Connect Customer: "This call is not being recorded"](default-outbound.md "default-outbound.md")).
 
-Potential restrictions may include:
+Potential restrictions might include:
 
 - Allowed external domains or email addresses
 - Blocked domains to prevent forwarding to unauthorized recipients
@@ -58,7 +58,7 @@ Potential restrictions may include:
 
 ###### Note
 
-If you attempt to forward an email to an address that is not permitted by your organization's policies, you may receive an error message.
+If you attempt to forward an email to an address that is not permitted by your organization's policies, you might receive an error message.
 
 ## Best practices for forwarding emails
 
@@ -67,7 +67,7 @@ Follow these best practices when forwarding email contacts:
 - **Verify recipient addresses**: Double-check that you're forwarding to the correct external address before sending.
 - **Protect customer privacy**: Be mindful of customer data and privacy regulations when forwarding emails to external parties. Only forward to authorized recipients.
 - **Add context**: Include a brief message explaining why you're forwarding the email and what action you expect from the recipients.
-- **Review attachments**: Ensure that any attachments being forwarded are appropriate and don't contain sensitive information that shouldn't be shared externally.
+- **Review attachments**: Make sure that any attachments being forwarded are appropriate and don't contain sensitive information that shouldn't be shared externally.
 - **Follow up**: If you're forwarding an email for action by external parties, make sure to follow up to ensure the issue is resolved.
 - **Document the forward**: Add notes to the contact record indicating that you forwarded the email, to whom, and why.
 

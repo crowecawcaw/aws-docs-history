@@ -1,30 +1,29 @@
-# Customize the home dashboard page
-
-###### Customizing the Home Page
+# Customize the home page
 
 Administrators can:
 
-- Use Views to create home page layouts
-- Assign Views to specific workspaces
+- Use views to create home page layouts
+- Assign views to specific workspaces
 - Assign workspaces to appropriate users
 
-###### Access Control
+## Access control
 
 There are different levels of permission for customizing the home page experience:
 
-1. View resource — Users with this permission can modify the contents of the views related to a given page. For example, they can create 5 different flavors of the home dashboard. Set in Security profiles within the Flows section.
-2. Workspace resource — Users with this permission can choose which view to apply to a given workspace, and what users have access to that workspace. Set in Security profiles within the Users and Permissions section.
-   There are no Security profile permissions specific to the home dashboard page. That UI is provided out of the box and the menu item appears to all admin website users.
+1. View resource – Users with this permission can modify the contents of the views related to a given page. For example, they can create 5 different versions of the home page. Set in Security profiles within the Flows section.
+2. Workspace resource – Users with this permission can choose which view to apply to a given workspace, and what users have access to that workspace. Set in Security profiles within the Users and Permissions section.
 
-###### Widget components
+There are no Security profile permissions specific to the home page. That page is provided out of the box and the menu item appears to all workspace users.
 
-The home page supports widgets that display information and provide quick access to common tasks. An administrator may modify the home page's View to change what is displayed, for example remove some of the widgets provided out of the box, rearrange or resize the page contents, or replace contents with third party apps.
+## Home page components
+
+The home page supports components that display information and provide quick access to common tasks. You can modify the home page's view to change what is displayed. For example, you can remove some of the components provided out of the box, rearrange or resize the page contents, or replace contents with third-party apps.
 
 ###### Note
 
-The default home page blogs widget may appear empty depending on your selected language settings.
+The default home page blogs widget might appear empty depending on your selected language settings.
 
-###### Finding Legacy Home Page Content
+## Find legacy home page content
 
 All functionality from the legacy home page (before re:Invent 2025) remains available through the Connect Customer navigation menu.
 

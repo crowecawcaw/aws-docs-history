@@ -33,7 +33,7 @@ Note the following:
 2. You should observe that messages sent from an iOS device arrive to your
    test business. Employees testing from your support agent desktop should be
    able to respond to these test messages.
-3. Your testers may notice your brand colors are not visible in the Messages
+3. Your testers might notice your brand colors are not visible in the Messages
    header. Brand color is not available while your account is in test mode. The
    colors for your brand will display correctly after your account goes online.
 4. If you send the testing link to someone whose email is not listed in the

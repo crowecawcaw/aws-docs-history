@@ -33,6 +33,13 @@ This flow block is designed to be used in the following scenarios::
     keywords are case-sensitive).
   - In the [Send message](send-message.md "send-message.md") block, select an email template or type in a message to send the automated response.
 
+###### Prevent email loops
+
+If you use automated email responses, make sure that your inbound email flow
+filters out Non-Delivery Reports (NDRs) and other automated emails before
+sending replies. Without filtering, automated replies can create self-sustaining
+email loops. For more information, see [Prevent automated email loops](email-capabilities.md#email-capabilities-preventloops "email-capabilities.md#email-capabilities-preventloops").
+
 ### Properties configuration in CheckContactAttributes
 
 In the [Check contact
@@ -107,7 +114,7 @@ the following error scenarios:
 
   - When the size of the email message in plaintext format is more than 32KB.
   - Connect Customer is unable to download the email body from the S3
-    bucket. This may be due to the S3 bucket policy not being set up
+    bucket. This might be due to the S3 bucket policy not being set up
     correctly (see [Step 4: Enable email and create an Amazon S3 bucket](enable-email1.md#enable-email-buckets "enable-email1.md#enable-email-buckets")),
     Amazon Connect does not have proper access to the S3 bucket (see
     [Step 5: Configure a

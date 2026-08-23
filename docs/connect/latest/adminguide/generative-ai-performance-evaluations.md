@@ -41,11 +41,11 @@ The following is the overview of the automation process:
 3. To improve accuracy, you can provide additional evaluation criteria within
    [instructions to evaluators](create-evaluation-forms.md#step-sections "create-evaluation-forms.md#step-sections"). For
    more information, see [Guidelines to improve generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
-4. Once you have a good understanding of which questions can be accurately
+4. After you have a good understanding of which questions can be accurately
    answered with generative AI, you can do a broader rollout by pre-configuring
    on the evaluation form, whether a question will receive an automated answer
    using generative AI.
-5. Once you have setup automation, any user performing evaluations using the
+5. After you have setup automation, any user performing evaluations using the
    evaluation form will get automated generative AI answers to the
    pre-configured questions (without requiring additional permissions). For
    more information, see [Step 6: Enable automated evaluations](create-evaluation-forms.md#step-automate "create-evaluation-forms.md#step-automate").
@@ -128,7 +128,7 @@ You can also use generative AI to automatically fill and submit evaluations. For
 automatically submitted evaluations, you can use generative AI to answer up to 10
 questions per contact (see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas "amazon-connect-service-limits.md#contactlens-quotas")). Note that this limit does not apply to
 automation using contact categories or metrics (for example, longest
-hold duration, etc.).
+hold duration).
 
 To learn more about setting up automated evaluations using generative AI, see
 [Guidelines to improve generative AI accuracy](#guidelines-to-improve-generative-ai-accuracy "#guidelines-to-improve-generative-ai-accuracy").
@@ -179,7 +179,7 @@ To set the language of the evaluation form:
   customer needing to repeat themselves?" and "Did the agent summarize the
   issue after the customer explained it?".
 - Use conditionally enabled questions to enable or disable questions that
-  are only applicable in certain situations. For example, you may have one
+  are only applicable in certain situations. For example, you might have one
   question, "Did the customer buy a product during the conversation?", and a
   subsequent conditionally enabled question, "Did the agent provide mandatory
   fee disclosures before completing the sale?". For more details, see [Step 4: Conditionally enable questions](create-evaluation-forms.md#step-conditionally-enable-questions "create-evaluation-forms.md#step-conditionally-enable-questions").
@@ -238,7 +238,7 @@ To set the language of the evaluation form:
   should select each answer option. For "Did the agent give a resolution
   timeframe?", add the instruction: _Answer is Yes if the agent gave
   a resolution timeframe, No otherwise._ Not explaining each option
-  may result in AI selecting **Not Applicable**, even if the
+  might result in AI selecting **Not Applicable**, even if the
   question is not optional.
 - Clarify whether all or any of the specified agent behaviors is required.
   "The agent must ask the customer's name and phone number" fails if the
@@ -262,7 +262,7 @@ To set the language of the evaluation form:
 - Don't use acronyms. Spell out the full term, for example "CFPB", so the AI
   can interpret it correctly.
 - Don't use proper nouns likely to be misspelled in the transcript. A
-  product name like _Klarity Pay_ may be transcribed
+  product name like _Klarity Pay_ might be transcribed
   differently, preventing a match.
 - Don't use vague questions. Instead of "Did the agent use appropriate
   language?", ask "Did the agent use profanity?".
@@ -277,7 +277,7 @@ To set the language of the evaluation form:
 - Use simple, short answer options, such as **Yes**, **No**, and
   **Partial**.
 - Enable the **Optional question** setting when a question
-  may not apply. This lets evaluators skip the question or mark it
+  might not apply. This lets evaluators skip the question or mark it
   **Not Applicable**.
 
 ###### Don'ts

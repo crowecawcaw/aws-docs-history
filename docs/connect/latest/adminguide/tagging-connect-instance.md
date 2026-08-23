@@ -30,11 +30,11 @@ the **Add new tag** option if you would like to add tags to
 your instance.
 
 ![You can chose to add tags on this step of instance creation.](images/tag-instance-at-creation-3.png) 5. Enter a `Key` and `Value` pair and choose
-**Next**. 6. Once you have made your desired configurations under the **Set
+**Next**. 6. After you have made your desired configurations under the **Set
 telephony** and **Data storage** steps, review
 your configurations and choose **Create instance**.
 
-![Create you instance after reviewing your desired configurations.](images/tag-instance-at-creation-4.png) 7. Once the instance has been created, navigate to the **Account
+![Create you instance after reviewing your desired configurations.](images/tag-instance-at-creation-4.png) 7. After the instance has been created, navigate to the **Account
 overview** page of the instance and the tags that you added
 will appear in the **Tags** section.
 

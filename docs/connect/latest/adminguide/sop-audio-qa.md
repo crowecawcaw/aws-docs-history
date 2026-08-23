@@ -99,9 +99,9 @@ overall impact:
     same geographical location or office) experience audio quality issues,
     this could be a result of a local network issue (modem/ISP/Router/LAN
     connections) or recent software upgrades to the machines of agents.
-  - Scenario 3: Multiple agents (working remote and/or at office location)
-    may be experiencing the issue. Check the browser/system configurations
-    for any updates along with any network changes that may have occurred at
+  - Scenario 3: Multiple agents (working remote or at office location)
+    might be experiencing the issue. Check the browser/system configurations
+    for any updates along with any network changes that might have occurred at
     the organizational level.
 
 - What percentage of calls are affected in a given day and out of how many
@@ -145,18 +145,18 @@ investigation.
       due to a bad/poor network, congestion in network, constrained
       network bandwidth.
     - It can also occur when there could be other applications on
-      the participant's system that may be causing network bandwidth
+      the participant's system that might be causing network bandwidth
       starvation.
 
 - `HighJitterBuffer`: This is the time delay introduced by a buffer
   built-in the browser to correct the order of audio packets after network
-  traversal. Jitter buffer plays a major role in ensuring that the packets
+  traversal. Jitter buffer plays a major role in making sure that the packets
   received over network at a device are aligned appropriately to provide the audio
   without distortion.
 
   - Causes:
 
-    - If a congestion (network and/or hardware) occurs at the
+    - If a congestion (network or hardware) occurs at the
       participant's end, the `JitterBuffer` increases
       causing audio delays/distorted or choppy audio.
     - Jitter buffer is responsible for delaying the processing media
@@ -178,7 +178,7 @@ investigation.
 
     - The most common cause of high round trip time is a
       low-bandwidth or constrained network.
-    - You may also experience high round-trip time if a certain
+    - You might also experience high round-trip time if a certain
       software program is causing a spike in round-trip time. In the
       past, some of our customers have reported VPN applications being
       cause of the issue.

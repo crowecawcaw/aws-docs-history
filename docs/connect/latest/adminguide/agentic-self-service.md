@@ -59,7 +59,7 @@ You can configure your orchestrator AI agent for self-service with the following
   agent to stop and return control to the contact flow. By default, the
   `SelfServiceOrchestrator` AI agent includes `Complete` (to end the interaction) and
   `Escalate` (to transfer to a human agent). You can remove these
-  defaults and/or create your own. For more information, see [Custom
+  defaults or create your own. For more information, see [Custom
   Return to Control tools](#agentic-self-service-custom-escalate "#agentic-self-service-custom-escalate").
 - **Constant** – Return a configured static
   string value to the AI agent. Useful for testing and rapid iteration during

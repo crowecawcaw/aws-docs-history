@@ -11,7 +11,7 @@ common scenarios.
 
 ## Prerequisites
 
-Before upgrading models, ensure you have the following:
+Before upgrading models, make sure you have the following:
 
 - An Amazon Connect instance with AI agent designer enabled.
 - An admin account, or an account with AI agent designer permissions in its security profile.
@@ -80,7 +80,7 @@ AI agent supports three prompt types: intent labeling generation, query reformul
 answer generation. If you set only some of these to custom prompts and left the rest unset,
 the following applies:
 
-- Prompt types you explicitly set (via the admin website or CLI) are pinned to the
+- Prompt types you explicitly set (through the admin website or CLI) are pinned to the
   specific prompt version you chose. They do not change unless you update them. Follow
   the upgrade steps below for each custom prompt.
 - Prompt types you left unset are not stored in the AI agent configuration. At
@@ -223,7 +223,7 @@ This converts that prompt type into a Scenario 1 configuration.
 
 The _Default AI Agent Configurations_ section on the
 _AI agents_ overview page controls which AI agent version is active for
-each use case (Answer Recommendation, Manual Search, Self Service, etc.).
+each use case (Answer Recommendation, Manual Search, Self Service).
 
 When an Amazon Connect instance is created, each use case is automatically configured with
 a specific system AI agent version. These versions are pinned — they do not auto-update when

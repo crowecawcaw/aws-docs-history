@@ -210,14 +210,14 @@ Configure the following properties on the page to send an SMS message:
 
 - **Link to contact**: This property gives you the
   option to link the outbound contact that is created to the inbound
-  contact that initiated the flow. In some situations, you may not want to
+  contact that initiated the flow. In some situations, you might not want to
   link the outbound contact that is created to avoid repetitive contact
   associations.
 
   - This property gives you the option to link the outbound SMS
     contact to the inbound contact that initiated the flow.
 
-  In some situations, you may not want to link the contact to
+  In some situations, you might not want to link the contact to
   avoid sending repetitive outbound SMS messages. For example, if
   the flow is configured to send the customer the message
   _Thank you for your message! We will get back to
@@ -298,14 +298,14 @@ Configure the following properties on the page to send an WhatsApp message:
 
 - **Link to contact**: This property gives you the
   option to link the outbound contact that is created to the inbound
-  contact that initiated the flow. In some situations, you may not want to
+  contact that initiated the flow. In some situations, you might not want to
   link the outbound contact that is created to avoid repetitive contact
   associations.
 
   - This property gives you the option to link the outbound WhatsApp
     contact to the inbound contact that initiated the flow.
 
-  In some situations, you may not want to link the contact to
+  In some situations, you might not want to link the contact to
   avoid sending repetitive outbound WhatsApp messages. For example, if
   the flow is configured to send the customer the message
   _Thank you for your message! We will get back to
@@ -394,7 +394,7 @@ You can enter only one email address on the cc line.
   - This property gives you the option to link the outbound email
     contact to the inbound contact that initiated the flow.
 
-  In some situations, you may not want to link the contact to
+  In some situations, you might not want to link the contact to
   avoid sending repetitive outbound email messages. For example,
   if the flow is configured to send the customer the message
   _Thank you for your message! We will get back to

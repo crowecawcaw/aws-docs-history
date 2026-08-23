@@ -205,7 +205,7 @@ profiles is dependant on how many profiles exist.
 
   - Due to the near real-time nature of profile matching
     in the system, there is a possibility that a match group
-    for your profile may be found at a lower (less
+    for your profile might be found at a lower (less
     optimized) rule level. Nevertheless, if a match is
     available at a higher (more optimized) rule level, the
     system will assign the profile to that particular

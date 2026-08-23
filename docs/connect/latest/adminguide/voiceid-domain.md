@@ -11,7 +11,7 @@ Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-
 When you enable Connect Customer Voice ID, you create a Voice ID domain: a container for all
 Voice ID data, such as speaker identifiers (which serves as the customer identifier),
 the voiceprints, the customer audio that was used for creating the enrollment
-voiceprints, and the enrollment statuses (enrolled, opted out, etc.) associated with the
+voiceprints, and the enrollment statuses (enrolled, opted out) associated with the
 speaker identifiers. For detection of fraudsters in a watchlist, the Voice ID domain
 stores the fraudster identifiers, voiceprints, and audio used for creating the
 voiceprints.
@@ -29,13 +29,13 @@ Following are guidelines for creating Voice ID domains:
 
   - You are enabling Voice ID for the first time on your account in an
     AWS Region.
-  - You want to ensure that you isolate the Voice ID domains used for
+  - You want to make sure that you isolate the Voice ID domains used for
     your test and production environments.
 
 - We recommend using an existing Voice ID domain when:
 
   - You want to use the same set of enrolled callers and fraudsters across
-    different Connect Customer instances (that may belong to different customer service
+    different Connect Customer instances (that might belong to different customer service
     teams)
   - You want to use the same test environment across different test Connect Customer
     instances.

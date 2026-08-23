@@ -29,8 +29,8 @@ To perform manual evaluations, you can search for a contact, choose the appropri
 1. Log in to Connect Customer with a user account that has [permissions to perform
    evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 2. Access the contact that you want to evaluate. There are a few ways you can do
-   this. For example, someone may have shared the contact URL with you, or assigned you
-   a task that has the URL. Or, you may have the contact ID, which lets you search for
+   this. For example, someone might have shared the contact URL with you, or assigned you
+   a task that has the URL. Or, you might have the contact ID, which lets you search for
    the contact record by doing the following: on the navigation pane, choose
    **Analytics and optimization**, **Contact
    search**, and then search for the contact that you want to

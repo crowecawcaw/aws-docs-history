@@ -82,7 +82,7 @@ is used in the caller ID, local telephony suppliers may reject outbound calls du
 
 **In the UK**: The caller ID must be a
 valid E164 phone number. If the phone number is not provided in the
-caller ID, local telephony suppliers may reject outbound calls due to
+caller ID, local telephony suppliers might reject outbound calls due to
 local anti-fraud requirements.
 
 - **Caller ID name**: You can set a caller ID name, but
@@ -94,8 +94,8 @@ local anti-fraud requirements.
     + Per SIP protocol RFC3261, the following characters are
      reserved: **; / ? : @ & = + $
      ,**. Do not use these characters in the caller ID
-     name. When these characters are included, outbound calls may
-     fail or the caller ID name may display inaccurately.
+     name. When these characters are included, outbound calls might
+     fail or the caller ID name might display inaccurately.
     + When [Transfer to phone
      number](transfer-to-phone-number.md "transfer-to-phone-number.md") block is
      used without specifying a custom caller ID, the caller ID of the

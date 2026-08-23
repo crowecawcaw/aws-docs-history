@@ -1,7 +1,7 @@
 # Accept incoming contacts with Connect Customer Customer Profiles
 
 When a call or chat is connected to your Contact Control Panel (CCP), Connect Customer Customer Profiles, in the
-same browser window, automatically populates the customer profile that may match the
+same browser window, automatically populates the customer profile that might match the
 incoming phone number for a voice interaction and _Name_ for a chat
 interaction.
 
@@ -32,9 +32,9 @@ Customer Profiles into your agent workspace. For more information, see [Enable C
 
 As soon as Connect Customer Customer Profiles matches the phone number (voice) or customer
 name (chat) with an existing customer profile, it automatically displays the profile
-even though you may not have accepted the contact yet.
+even though you might not have accepted the contact yet.
 
-The following image shows what your Contact Control Panel (CCP) may look like when
+The following image shows what your Contact Control Panel (CCP) might look like when
 there's an incoming chat. A customer profile has been found that matches the
 customer, and Connect Customer is loading the data.
 
@@ -98,7 +98,7 @@ contacts, or completing a profile.
 
 ## Example 4: Autopopulate results in multiple profiles found
 
-In some cases, multiple profiles may be returned for the same call or chat. Use
+In some cases, multiple profiles might be returned for the same call or chat. Use
 the profile information to verify the customer's identity. For example, ask the
 customer to verify their email address or account number, and then associate the
 contact with the right customer profile. Agents can also ask customers for

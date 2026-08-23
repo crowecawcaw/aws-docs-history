@@ -22,7 +22,7 @@ instance:**
 4. Open the imported flow in the flow designer.
 5. Locate the **Show View** block in the flow. Select it to
    open its configuration.
-6. Under **View**, a view name may already be displayed, but
+6. Under **View**, a view name might already be displayed, but
    you must select the AWS managed view titled **after contact
    work** from the dropdown.
 7. Save and publish the flow.

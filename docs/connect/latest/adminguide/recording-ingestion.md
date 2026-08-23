@@ -56,7 +56,7 @@ The following service quotas apply to recording ingestion.
   instance in the AWS Console and navigate to **Applications**,
   **Analytics tools**.
 - At least one active agent in your Connect Customer instance to associate with
-  imported contacts. Depending on your requirements, you may want to do one of
+  imported contacts. Depending on your requirements, you might want to do one of
   the following:
 
   - Assign all contacts to a single logical agent
@@ -110,7 +110,7 @@ your instance and navigate to **Data storage**,
   invalid formats are rejected.
 - Wait for the recording attachment to complete before calling
   StartContactConversationalAnalyticsJob. Monitor your contact trace record
-  (CTR) delivery via Amazon Kinesis Data Stream or Amazon Kinesis Data
+  (CTR) delivery through Amazon Kinesis Data Stream or Amazon Kinesis Data
   Firehose to confirm attachment status. For more information, see [Enable data streaming for your Connect Customer instance](data-streaming.md "data-streaming.md").
 - Configure EventBridge to receive analytics job failure notifications. For
   more information, see [Error notifications: When conversational analytics can't analyze a contact](contact-lens-error-notifications.md "contact-lens-error-notifications.md").

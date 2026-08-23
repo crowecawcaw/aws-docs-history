@@ -1,7 +1,7 @@
 # Create an evaluation form in Connect Customer
 
 In Connect Customer, you can create [many different
-evaluation forms](feature-limits.md#evaluationforms-feature-specs "feature-limits.md#evaluationforms-feature-specs"). For example, you may need a different evaluation form for
+evaluation forms](feature-limits.md#evaluationforms-feature-specs "feature-limits.md#evaluationforms-feature-specs"). For example, you might need a different evaluation form for
 each business unit, and for different queues. You can also create different evaluation forms for evaluating the agent interaction and the self-service interaction with a Lex bot or AI agent.
 
 Each form can contain multiple sections and questions.
@@ -67,17 +67,43 @@ later. 6. Continue to the next step to add sections and questions.
 ###### Import evaluation forms from another instance
 
 You can export an evaluation form from one Connect Customer instance
-(say a test instance) and import it into another Connect Customer instance (say a production instance)
-using the Connect UI:
+(say a test instance) and import it into another instance (say a production instance).
 
-1. While viewing an existing evaluation form select **Actions > Export as JSON**
+###### To import an evaluation form from JSON
 
-![The evaluation form page, the export as json action.](images/evaluation-forms-export-json.png) 2. Open the instance where you want to import this form 3. On the page **Evaluation Forms** page, click import form.
-Select **Choose File** to upload the previously exported JSON and click **Import**
+1. While viewing an existing evaluation form, choose **Actions**, **Export as JSON**.
+
+![The evaluation form page, the export as json action.](images/evaluation-forms-export-json.png) 2. Open the instance where you want to import this form. 3. On the **Evaluation forms** page, choose
+**Import form**. Choose **Choose File**
+to upload the previously exported JSON, then choose **Import**.
 
 ![The evaluation forms page, the import form action.](images/evaluation-forms-import-json.png)
-The form will be created including questions, instructions, answers, scoring and automation configuration.
-Note that any instance-specific settings such as rule categories and tags will not be present in the exported/imported file.
+The form is created including questions, instructions, answers, scoring, and automation configuration.
+Instance-specific settings such as rule categories and tags are not present in the exported file.
+
+###### Import an evaluation form from a PDF using AI
+
+You can import an evaluation form from any quality management system by
+uploading a PDF. Connect Customer uses AI to extract the sections, questions, answer
+options, and scoring from the PDF and create a draft evaluation form that you
+can review and edit.
+
+###### To import an evaluation form from a PDF
+
+1. On the **Evaluation forms** page, choose
+   **Import form**, then choose **From PDF**.
+
+The following image shows the **Import form** menu with
+the **From PDF** option.
+
+![The Evaluation forms page showing the Import form button with the From PDF menu option highlighted.](images/evaluation-forms-import-pdf.png) 2. In the **Import evaluation form with AI** dialog:
+
+    * **Evaluation form PDF** – Choose a PDF file (max 2 MB).
+    * **Scoring method** – Choose **Points-based**, **Percentage-based**, or **Not scored**.
+    * **Instructions (optional)** – Provide context to guide the extraction, for example: "This form is for outbound sales calls. Focus on upselling questions."
+
+![The Import evaluation form with AI dialog, showing fields for Evaluation form PDF, Scoring method, and Instructions.](images/evaluation-forms-import-pdf-dialog.png) 3. Choose **Import**. The import typically completes within one minute. 4. After the import completes, the form appears as a draft. Open it to review
+that the sections, questions, and scoring were extracted correctly. 5. Edit the form as needed, then activate it.
 
 ## Step 2: Add sections and questions
 
@@ -93,7 +119,7 @@ information to help the evaluators or generative AI to answer the
 question.
 
 For example, for the question _Did the agent try to validate the
-customer identity?_ you may provide additional instructions
+customer identity?_ you might provide additional instructions
 such as, _The agent is required to always ask a customer their
 membership ID and postal code before addressing the customer's
 questions_. 5. In the **Question type** box, choose one of the following
@@ -404,7 +430,7 @@ For information about automating evaluations of self-service
 - **Metrics**: _Numeric_
   questions (for example, what was the longest that the customer was put on
   hold?) can be automatically answered using metrics such as longest hold
-  time, sentiment score, etc.
+  time, sentiment score.
 
 Following are examples of each type of automation for each type of
 question.
@@ -633,7 +659,7 @@ form:
 **Findings** button next to a question, or choose
 **Save and validate** again.
 
-![The Findings button next to a question.](images/evaluationforms-findings-button.png) 4. On the side panel, you can mark each finding as resolved once you have
+![The Findings button next to a question.](images/evaluationforms-findings-button.png) 4. On the side panel, you can mark each finding as resolved after you have
 addressed it. Choose the **Pending resolve** filter to
 focus on the findings that still need attention.
 

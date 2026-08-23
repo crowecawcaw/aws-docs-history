@@ -35,7 +35,7 @@ When the disconnect event occurs, the corresponding flow runs.
     use this block to decide whether to run the disconnect flow and call
     a [Wait](wait.md "wait.md") block, or end
     the conversation.
-  - In task scenarios where a task may not be completed in 7 days, use
+  - In task scenarios where a task might not be completed in 7 days, use
     this block to run a disconnect flow to determine whether the task
     should be re-queued, or completed/[disconnected](disconnect-hang-up.md "disconnect-hang-up.md") by a flow action.
 

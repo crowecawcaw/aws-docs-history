@@ -59,9 +59,9 @@ For detailed information about porting your numbers, see [Port a current phone n
   setup.
 - **Testing** Thoroughly test all use case
   scenarios, preferably using the same or similar environment as your
-  agents and customers. Ensure that you test several inbound and outbound
+  agents and customers. Make sure that you test several inbound and outbound
   scenarios for quality of experience, Caller ID functionality, and
-  measure latency to ensure it falls within acceptable range for your use
+  measure latency to make sure it falls within acceptable range for your use
   case. Any deviations from your target agent and customer environments
   need to be measured and accounted for. For more information, including
   use case testing instructions and criteria, see [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md").
@@ -72,9 +72,9 @@ The Connect Customer Call Control Panel (CCP) has specific network and hardware
 requirements that must be met to ensure the highest quality of service for your
 agents and contacts:
 
-- Set Up Your Network for CCP use and ensure that your agent hardware
+- Set Up Your Network for CCP use and make sure that your agent hardware
   meets minimum requirements.
-- Ensure that you have used the
+- Make sure that you have used the
   Connect Customer
   Check Connect Customerivity Tool on the same network segment as
   your agents to verify that your network and environment is configured
@@ -120,7 +120,7 @@ automatically when you make your request.
 
 ### AWS Enterprise support
 
-AWS Enterprise Support is recommended for business and/or mission-critical
+AWS Enterprise Support is recommended for business or mission-critical
 workloads on AWS. Both Enterprise Support and Well-Architected Review with an
 AWS Solutions Architect are required to qualify for the Connect Customer Service Level
 Agreement.
@@ -165,7 +165,7 @@ Note the following considerations:
   32KB.
 - Data sensitivity – Note if any attributes being set, queried, and
   referenced are sensitive or fall under any regulatory guidelines and
-  ensure that the data is being treated appropriately for your use case.
+  make sure that the data is being treated appropriately for your use case.
 - Data persistence – Any attributes set using the Set contact attributes
   block will be included in the contact record for your contact and
   available for screen pop to any custom agent desktop using the Streams
@@ -178,9 +178,9 @@ Note the following considerations:
 - Monitor usage – As you implement new functionality, onboard new
   business units, and iterate on existing flows, look up your current
   attribute usage in contact search, copy the attributes to a text editor,
-  add the new attributes, and ensure that you do not exceed the 32KB size
+  add the new attributes, and make sure that you do not exceed the 32KB size
   limitation. Be sure to account for variable length fields like firstName
-  and lastName and ensure that, even when the maximum space is used in a
+  and lastName and make sure that, even when the maximum space is used in a
   field, that you are still below the 32KB limitation.
 - Clean-up – If data persistence isn’t required, you can set an
   attribute with the same name and a blank value to prevent the data from
@@ -209,9 +209,9 @@ appropriately, and implement the best practices, requirements, and
 recommendations located in [Troubleshooting Issues with the Contact Control Panel (CCP)](troubleshooting.md "troubleshooting.md").
 
 If you’re forwarding your existing telephony provider’s phone numbers to
-Connect Customer, ensure that the process to change the forward destination to an
+Connect Customer, make sure that the process to change the forward destination to an
 alternative DID/toll-free number or otherwise remove the forward is defined and
-well-understood by your operations team. Ensure that you have Runbooks and
+well-understood by your operations team. Make sure that you have Runbooks and
 Playbooks specifically for production readiness assessments, phone number
 porting and forwarding processes, and troubleshooting audio issues that could
 arise when transferring calls from your existing telephony provider. You also
@@ -293,10 +293,10 @@ agility, follow these best practices:
   self-service functionality for your contacts, what percentage of
   contacts do you expect to self-serve to consider the workload successful
   or what other metrics are you measuring to determine success?
-- **Rollbacks**: Ensure that there is a
+- **Rollbacks**: Make sure that there is a
   clear, well-defined, and well-understood process to back out any changes
   to the previous state, specific to the change performed. For example, if
-  you publish a new flow version, ensure that the change instructions
+  you publish a new flow version, make sure that the change instructions
   include documentation on how to roll back to the previous flow version.
 
 ### Routing profiles
@@ -327,7 +327,7 @@ and many agents with similar skillset can share the same routing profile:
 ![Routing by skillset.](images/architecture/routingprofile2.png)
 
 Each phone number or chat endpoint will be associated with one flow. The flow
-executes its logic, which may involve prompting the customer for information, to
+executes its logic, which might involve prompting the customer for information, to
 determine the contact’s needs, and eventually routes the contact into an
 appropriate queue. The following diagram depicts how routing profile, queue, and
 flow work together to service a contact:
@@ -434,7 +434,7 @@ diagram:
   center, increasing the likelihood of getting to the correct agent, and
   decreasing the amount of time it takes your contact to reach service. It
   is highly recommended to map defaults as customers could be calling for
-  a reason you haven’t accounted for yet or may respond in a way you don’t
+  a reason you haven’t accounted for yet or might respond in a way you don’t
   expect.
 - **Emergency messages**: After you have
   identified customer intent for call, it is suggested to implement an
@@ -461,9 +461,9 @@ diagram:
   affecting your customers.
 - **Check agent staffing**: Before
   transferring to the queue in your flow, you can check agent staffing to
-  ensure that an agent is logged in to service the contact. For example,
-  you may have an agent busy servicing another contact that might become
-  available in the next five minutes, or you may not have anyone logged
+  make sure that an agent is logged in to service the contact. For example,
+  you might have an agent busy servicing another contact that might become
+  available in the next five minutes, or you might not have anyone logged
   into the system at all. During these instances, you will prefer a
   different customer experience rather than making them wait in the queue
   for an agent to become available.

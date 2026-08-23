@@ -9,8 +9,8 @@ Region.
 
 ###### Note
 
-When you shift telephony traffic, also shift agents and/or agent sign-ins
-to ensure they can handle the calls in the other Region. If you don't shift
+When you shift telephony traffic, also shift agents or agent sign-ins
+to make sure they can handle the calls in the other Region. If you don't shift
 the agents, voice calls will go to the shifted Region but there won't be any
 agents available to receive the calls.
 
@@ -194,7 +194,7 @@ the replica Region, you must use the traffic distribution group ARN.
 Agent Workspace and CCP will provide a UI banner highlighting region switch.
 
 If an agent is **on a contact** when their region changes due to traffic distribution group (TDG) adjustments,
-they will see a banner similar to below. Once they complete the voice contact and close the ACW state,
+they will see a banner similar to below. After they complete the voice contact and close the ACW state,
 the agent will automatically update to the new region—no action is needed. If the agent has trouble closing the contact,
 they can select **Continue in Backup** and a popup will appear seeking confirmation to switch over to the alternate region.
 

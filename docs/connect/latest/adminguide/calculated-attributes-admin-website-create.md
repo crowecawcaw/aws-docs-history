@@ -1,6 +1,6 @@
 # Create calculated attributes in Connect Customer
 
-1. Prerequisites: Ensure you have the necessary security profile
+1. Prerequisites: Make sure you have the necessary security profile
    permissions. For more information, see [Update permissions for calculated attributes in Connect Customer Customer Profiles](security-profile-customer-profile-calc-attribs.md "security-profile-customer-profile-calc-attribs.md").
 2. In Connect Customer admin website, navigate to **Customer Profiles**,
    **Calculated attributes**, choose **Create
@@ -32,7 +32,7 @@ to calculate and combine them by an operator. Specify an operator such
 as _plus_ or _minus_ to combine
 the attribute values.
 
-![The Customer profiles tab in the agent workspace, the Associate button.](images/calculated-attributes-admin-website-create-3.png) 5. Once the calculation is selected, you can optionally configure the
+![The Customer profiles tab in the agent workspace, the Associate button.](images/calculated-attributes-admin-website-create-3.png) 5. After the calculation is selected, you can optionally configure the
 Number of events, Time period, and Source timestamp. By default,
 calculated attributes is configured to use unlimited events, an
 unlimited time period, and a timestamp based on ingestion date.

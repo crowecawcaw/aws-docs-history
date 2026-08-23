@@ -6,7 +6,7 @@ and generate responses.
 
 ###### Important
 
-Although responses are grounded in the data in your instance, AI-generated responses may
+Although responses are grounded in the data in your instance, AI-generated responses might
 contain inaccuracies. Always validate critical insights against your Connect Customer reports and
 dashboards.
 

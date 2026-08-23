@@ -47,7 +47,7 @@ handle time over a period of intervals in time in a time series chart.
      analytics**: This permission enables users to view data
      in the conversational analytics dashboard.
 
-2. In the AWS console, ensure that **Analytics tools**,
+2. In the AWS console, make sure that **Analytics tools**,
    **Enable conversational analytics** is selected, as shown in
    the following image.
 
@@ -161,7 +161,7 @@ The Contacts handled and average handle time trend is a time-series chart that
 displays the count of contacts handled (blue bars) and the average handle time (red
 line) over a given time period broken down by intervals (15min, daily, weekly,
 monthly). You can configure different time range intervals by using the "Interval"
-button directly in the widget. The intervals that you may select depend on the
+button directly in the widget. The intervals that you might select depend on the
 page-level time range filter.
 
 For example:

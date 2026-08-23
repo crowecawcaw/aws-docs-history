@@ -124,7 +124,7 @@ amazon_connect('authenticate', function(callback) {
 
 - Using a JWT to pass contact attributes ensures the integrity of the data.
   If you safeguard the shared secret and follow appropriate security
-  practices, you can help ensure that the data cannot be manipulated by a bad
+  practices, you can help make sure that the data cannot be manipulated by a bad
   actor.
 - Contact attributes are only encoded in the JWT, not encrypted, so it's
   possible to decode and read the attributes.

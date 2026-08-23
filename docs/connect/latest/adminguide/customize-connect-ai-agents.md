@@ -31,7 +31,7 @@ configures and customizes end-to-end AI agent functionality. AI agents determine
 AI prompts and AI guardrails are used in different use cases: answer
 recommendations, manual search, and self-service.
 You can edit or create each of these components independently of each other. However, we
-recommend a happy path where you first customize your AI prompts and/or AI guardrails. Then
+recommend a happy path where you first customize your AI prompts or AI guardrails. Then
 add them to your AI agents. Finally create a Lambda and use the [AWS Lambda
 function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") block to associate the customized
 AI agents with your flows.

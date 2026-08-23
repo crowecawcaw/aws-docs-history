@@ -2,7 +2,7 @@
 
 Configuration of data sharing creates a RAM invitation to the consumer
 account. [RAM](https://aws.amazon.com/ram/ "https://aws.amazon.com/ram/") is a service to help
-you securely share resources across AWS accounts. Ensure that you have
+you securely share resources across AWS accounts. Make sure that you have
 the required AWS Identity and Access Management (IAM) permissions to view and accept
 resource share invitations.
 
@@ -29,7 +29,7 @@ resource share**.
 to the AWS Lake Formation console at [https://console.aws.amazon.com/lakeformation](https://console.aws.amazon.com/lakeformation "https://console.aws.amazon.com/lakeformation"). To configure access
 to the Connect Customer data lake tables, be certain the user configuring the
 following resources has Data lake administrator permissions in Lake Formation.
-For more information, see the - [Lake Formation personas and IAM permissions reference](../../../lake-formation/latest/dg/permissions-reference.md "../../../lake-formation/latest/dg/permissions-reference.md"). 5. Either use an existing lake formation database or create a new database for
+For more information, see [Lake Formation personas and IAM permissions reference](../../../lake-formation/latest/dg/permissions-reference.md "../../../lake-formation/latest/dg/permissions-reference.md"). 5. Either use an existing lake formation database or create a new database for
 the Connect Customer data lake tables. For more information, see [Creating a database](../../../lake-formation/latest/dg/creating-database.md "../../../lake-formation/latest/dg/creating-database.md"). 6. In the AWS Lake Formation console, choose **Tables** on the left navigation menu.
 
 ![AWS Lake Formation console.](images/datalake-tables-3.png) 7. Select **Create table** from the upper right to
@@ -39,7 +39,7 @@ the Connect Customer data lake tables. For more information, see [Creating a dat
 link** radio button. **Resource link
 name** can be any value you wish to name the linked table. For
 example, for the **contact record** data type you
-may want to define the link name as contact\_record. 9. Specify the **Database** previously created
+might want to define the link name as contact\_record. 9. Specify the **Database** previously created
 from step 5. 10. In the **Shared table** choose the shared
 table whose RAM invite was previously accepted and you wish to map to this
 Resource link name.  For example, select the `contact_record` shared

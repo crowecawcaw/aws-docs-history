@@ -29,7 +29,7 @@ You can add the following additional customizations to your web calling widget:
 
 This customization controls the background blur behavior of the customer's video.
 When enabled, the customer's background is blurred when video is active. This helps
-protect their personal information or private spaces that may be visible in the
+protect their personal information or private spaces that might be visible in the
 background during the video call.
 
 To enable background blur, set `videoFilter.backgroundBlur.option` to

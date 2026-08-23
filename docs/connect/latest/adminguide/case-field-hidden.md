@@ -4,7 +4,7 @@ You can create dynamic case templates that show or hide fields based on other fi
 
 To make a field conditionally hidden, you first set up a hidden field condition. Then, on a case template, choose which field the hidden field condition should apply to.
 
-For example, you may want to hide the **Advanced Configuration** field unless the user selects **Advanced** as the **User Level**. To achieve this you would:
+For example, you might want to hide the **Advanced Configuration** field unless the user selects **Advanced** as the **User Level**. To achieve this you would:
 
 1. Create a hidden field condition based on whether the **User Level** field equals **Advanced**.
 2. Apply the hidden field condition to the **Advanced Configuration** field on the case template.

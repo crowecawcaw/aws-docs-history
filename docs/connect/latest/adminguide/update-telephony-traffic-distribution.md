@@ -5,8 +5,8 @@ Regions.
 
 ###### Note
 
-When you shift telephony traffic, also shift agents and/or agent sign-ins to
-ensure they can handle the calls in the other Region. If you don't shift the
+When you shift telephony traffic, also shift agents or agent sign-ins to
+make sure they can handle the calls in the other Region. If you don't shift the
 agents, voice calls will go to the shifted Region but there won't be any agents
 available to receive the calls.
 

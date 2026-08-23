@@ -13,8 +13,8 @@ The view integrations panel allows you to configure and reference data on your v
 
    - Polling live data sources works best in a single-tab environment. If multiple tabs are open with the Guide application, each View will poll the data source, potentially causing throttles and some Views to be out of date
 
-7. Tool input object: A JSON object representing the data sent from the view to the source (e.g., Flow module) to fetch the latest relevant information to update the view
-   Once an integration is configured, you will be able to use that view to reference outputs from the integration. References displayed in the UI builder are based on the output data available from the particular integration.
+7. Tool input object: A JSON object representing the data sent from the view to the source (for example, Flow module) to fetch the latest relevant information to update the view.
+   After an integration is configured, you will be able to use that view to reference outputs from the integration. References displayed in the UI builder are based on the output data available from the particular integration.
 
 To use the reference data from your integration, you must first understand how to reference the data from the UI components and their properties. Similarly to how contact attributes are referenced in Flows and Views `($.Attributes.MyCustomAttribute)`, you can reference output data for the integration using the following syntax: `$.#[IntegrationName].[ReferenceObject]`. Keep in mind that you are responsible to make sure that the reference object used is returned in the right format the view's component property will accept. To understand the integration output reference visit the module configuration page.
 

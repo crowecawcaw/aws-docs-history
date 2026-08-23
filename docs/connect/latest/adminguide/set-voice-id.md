@@ -25,7 +25,7 @@ voice authentication and fraud detection.
   attributes](set-contact-attributes.md "set-contact-attributes.md") block after **Set
   Voice ID** to set the customer ID for the caller.
 
-The `CustomerId` may be a customer number from your CRM, for
+The `CustomerId` might be a customer number from your CRM, for
 example. You can create a Lambda function to pull the unique customer ID of
 the caller from your CRM system. Voice ID uses this attribute as the
 `CustomerSpeakerId` for the caller.
@@ -110,7 +110,7 @@ You can set the authentication response time between 5 and 10 seconds, which
 determines how quickly you want Voice ID authentication analysis to complete.
 Lowering it makes the response time faster at the tradeoff of lower accuracy.
 When you're using self-service IVR options where callers do not talk a lot, you
-may want to reduce this time. You can then increase the time if the call needs
+might want to reduce this time. You can then increase the time if the call needs
 to be transferred to an agent.
 
 The following image shows the Authentication Response time section of the
@@ -119,7 +119,7 @@ block. The response time is set manually to 10 seconds.
 ![The Authentication Response time section of the Set voice ID block.](images/set-voice-id-properties2.png)
 
 Choose **Set dynamically** to set the authentication
-threshold based on certain criteria. For example, you may want to raise the
+threshold based on certain criteria. For example, you might want to raise the
 threshold based on the membership level of the customer, or the type of
 transaction or information they are calling about.
 
@@ -129,7 +129,7 @@ The threshold you set for fraud detection is used to measure risk.
 Scores higher than the threshold are reported as higher risk. Scores lower than the threshold are reported as lower risk. Raising the threshold lowers false positive rates (makes result more certain), but raises false negative rates
 
 Choose **Set dynamically** to set the fraud threshold based
-on certain criteria. For example, you may want to lower the threshold for high
+on certain criteria. For example, you might want to lower the threshold for high
 wealth customers, or the type of transaction or information they are calling
 about.
 
@@ -141,7 +141,7 @@ watch list. For **Set manually**, the watch list ID must be 22
 alphanumeric characters.
 
 Similarly for the watch list, choose **Set dynamically** to
-set the watch list based on criteria given. For example, you may want to use a
+set the watch list based on criteria given. For example, you might want to use a
 stricter watch list given the type of transaction or information they are
 calling about.
 

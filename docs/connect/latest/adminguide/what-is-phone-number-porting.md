@@ -14,7 +14,7 @@ need to update your business contact information.
 The porting process requires the losing carrier to remove your number from
 their systems, the winning carrier to add your number to their systems, and
 for number routing to be updated. Most porting activities complete within
-15-30 minutes, with possible call disruptions. To ensure that they have
+15-30 minutes, with possible call disruptions. To make sure that they have
 engineers available to troubleshoot issues, most losing carriers complete
 porting actions only during normal business hours. Carriers typically
 communicate a two-hour porting window to resolve any issues that could

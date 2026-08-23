@@ -61,7 +61,7 @@ capacity plans and schedules that are created based on the forecast
 group.
 
 The following image shows a sample warning message when adding a queue
-may trigger an immediate change in associated forecasts. You must choose
+might trigger an immediate change in associated forecasts. You must choose
 **Confirm** if you want to continue.
 
 ![The warning message, a prompt to confirm you want to add the forecast group queue.](images/wfm-forcasting-create-forecast-group.png) 8. You can remove the forecast group by using the

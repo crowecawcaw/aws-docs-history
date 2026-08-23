@@ -5,7 +5,7 @@ hosted by Connect Customer. You can configure the communications widget in the C
 and colors, and secure the widget so that it can be launched only from your website. When
 finished, you will have a short code snippet that you add to your website.
 
-Because Connect Customer hosts the widget, it ensures that the latest version is always live on your
+Because Connect Customer hosts the widget, it makes sure that the latest version is always live on your
 website.
 
 ###### Tip

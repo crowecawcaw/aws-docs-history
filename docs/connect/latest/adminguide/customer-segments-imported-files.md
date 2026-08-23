@@ -2,7 +2,7 @@
 
 ###### Note
 
-To access the segmentation builder experience in the Connect Customer admin website, ensure that the
+To access the segmentation builder experience in the Connect Customer admin website, make sure that the
 appropriate security profiles permissions are configured. For more information,
 see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
 
@@ -23,7 +23,7 @@ segment:
 
 ## Create a new segment
 
-1. To create a segment, ensure that you have created security profiles
+1. To create a segment, make sure that you have created security profiles
    permissions as a prerequisite. For more information, see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md").
 2. In the Connect Customer admin website, navigate to
 3. Choose **Create segment** and select **From
@@ -138,8 +138,7 @@ Specify when imported profiles expire.
    - Minimum: 1 day after import
    - Maximum: 90 days after import
 
-Customer Profiles removes expired profiles from the segment and the profiles domain. [Learn
-more](customer-profiles-data-expiration.md "customer-profiles-data-expiration.md").
+Customer Profiles removes expired profiles from the segment and the profiles domain. For more information, see [Data expiration in Customer Profiles](customer-profiles-data-expiration.md "customer-profiles-data-expiration.md").
 
 ###### Note
 
@@ -181,6 +180,6 @@ Monitor import progress
 ###### Note
 
 Imported segments can be used like any other segment for outbound
-campaigns or exports once the import is complete. You can view the segment
+campaigns or exports after the import is complete. You can view the segment
 details, including import status and results, from the segment details
 page.

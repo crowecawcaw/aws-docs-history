@@ -31,8 +31,7 @@ _Key:value_ structure. However, the distinction with an
 access control tag is that it introduces authorization controls that limit a user's
 access, to only specified resources containing resource tags with identical
 _Key:value_ pairs. Access control tags are defined within
-security profiles, by first selecting the resource (routing profile, queue, users,
-etc.) for which to control access to, and then defining the
+security profiles, by first selecting the resource (routing profile, queue, users) for which to control access to, and then defining the
 _Key:value_ pair to match on. Once a security profile with
 access control tags has been applied to a user, it will limit their access
 based on the defined combination of the selected resource(s) and access control
@@ -78,16 +77,16 @@ Connect Customer](connect-slr.md "connect-slr.md") for instructions for how to e
 
 Applying tag-based access controls is an advanced configuration feature that is
 supported by Connect Customer and that follows the AWS shared responsibility model. It is
-important to ensure that you are correctly configuring your instance to comply with
+important to make sure that you are correctly configuring your instance to comply with
 your desired authorization needs. For more information, review the [AWS shared
 responsibilities model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").
 
-Ensure that you have enabled at least _view_ permissions for
-the resources that you enable tag-based access control for. This will ensure that
+Make sure that you have enabled at least _view_ permissions for
+the resources that you enable tag-based access control for. This will make sure that
 you avoid permission inconsistencies that result in denied access requests.
 
 Tag-based access controls are enabled at the resource level, which means that each
-resource can be restricted independently. In certain use cases this may be
+resource can be restricted independently. In certain use cases this might be
 acceptable but it is considered best practice to enable tag-based access controls to
 all resources together. For example, enabling access to users but not security
 profiles, would allow a user to create a security profile with privileges that
@@ -100,7 +99,7 @@ restricted on.
 As a best practice, you should disable access to the following resources/modules
 when applying tag-based access controls within the Connect Customer console. If you do not
 disable access to these resources, users with tag-based access controls on a
-particular resource that view these pages may see an unrestricted list of users,
+particular resource that view these pages might see an unrestricted list of users,
 security profiles, routing profiles, queues, flows, or flow modules. For more
 information on how to manage permissions, see [List of security profile permissions in Connect Customer](security-profile-list.md "security-profile-list.md").
 

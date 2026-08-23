@@ -17,7 +17,7 @@ in this topic, you can configure EventBridge rules to listen and filter for Voic
 that are relevant, and then process them through Amazon Data Firehose to store in a data warehouse
 of your choice.
 
-For example, you may want near real-time tracking of Voice ID analysis. To do that,
+For example, you might want near real-time tracking of Voice ID analysis. To do that,
 you can pull all the `Evaluate-Session` events, and get the
 `authenticationResult` and `fraudDetectionResult`.
 

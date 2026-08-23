@@ -3,7 +3,7 @@
 This topic is for developers who have integrated their external voice system with
 Connect Customer conversational analytics.
 
-Your external voice system may support contact transfers (cold and warm) and
+Your external voice system might support contact transfers (cold and warm) and
 conferencing multiple agents in a single call. You can signal these cases to Connect Customer by
 calling the [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") and
 [StopContact](../APIReference/API_StopContact.md "../APIReference/API_StopContact.md") APIs. These APIs create a contact chain similar to native Connect Customer

@@ -79,7 +79,7 @@ _I have been a member for [num] years._
     + When extracting numbers from chat or audio
      transcripts, only numerical digits (0-9) are
      recognized.
-    + For voice contacts, certain languages may not convert
+    + For voice contacts, certain languages might not convert
      spoken numbers into digital format during [number
      transcription](../../../transcribe/latest/dg/how-numbers.md "../../../transcribe/latest/dg/how-numbers.md"). This means number pattern
      matching might not work in these cases. For a list of
@@ -87,7 +87,7 @@ _I have been a member for [num] years._
      features](../../../transcribe/latest/dg/supported-languages.md "../../../transcribe/latest/dg/supported-languages.md") in the *Amazon Transcribe Developer
      Guide*.
 
-- **Proximity definition**: Finds matches that may
+- **Proximity definition**: Finds matches that might
   be less than 100 percent exact. You can also specify the distance
   between words. For example, if you are looking for contacts where
   the word "credit" was mentioned but you do not want to see any

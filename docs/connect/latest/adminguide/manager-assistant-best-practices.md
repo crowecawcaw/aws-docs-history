@@ -56,7 +56,7 @@ Begin with an overview question, and then drill into specifics. For example:
 | Informal metric names            | May not be recognized.                                      | Use standard Connect Customer metric terminology.                                   |
 | Overly complex compound question | May return partial or inaccurate results.                   | Break the question into multiple sequential<br>questions.                           |
 | Not using follow-up questions    | Repeats full context and loses the investigation<br>thread. | Use follow-up questions such as `Break that down by<br>hour.`                       |
-| Vague resource references        | An incorrect resource may be selected.                      | Use exact names, such as the Premium Support queue instead of<br>the support queue. |
+| Vague resource references        | An incorrect resource might be selected.                    | Use exact names, such as the Premium Support queue instead of<br>the support queue. |
 
 ## Recommended daily workflow
 
@@ -94,5 +94,5 @@ follows.
 
 ###### Important
 
-Responses from manager assistant may contain inaccuracies. Always validate
+Responses from manager assistant might contain inaccuracies. Always validate
 information before you make business decisions.

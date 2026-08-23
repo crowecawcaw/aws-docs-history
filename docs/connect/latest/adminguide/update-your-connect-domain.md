@@ -18,7 +18,7 @@ looks like this:
   responsibility to update all references to your Connect Customer URL from your old domain
   to your new domain.
 - Automatic redirection from the old domain to the new one is only for any
-  references you may have accidentally missed, for example, users still choosing
+  references you might have accidentally missed, for example, users still choosing
   on old favorites.
   **Perform the steps in this topic to help you PREPARE for when we
   automatically change your old domain name** (that is, redirect traffic from

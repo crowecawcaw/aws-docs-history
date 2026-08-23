@@ -67,7 +67,7 @@ Email
    sending.
 4. Select the **Template Alias or Version** number to use
    with the campaign.  If you select an alias, then the contents of emails sent by the
-   campaign may change when the alias is updated to point to a new template version. If you
+   campaign might change when the alias is updated to point to a new template version. If you
    select a version, the campaign will always send the exact same content for the life of the
    campaign.
 
@@ -228,7 +228,7 @@ The start point options change based on the call classification setting:
 ###### Note
 
 Consult your compliance team for jurisdiction-specific requirements when configuring
-abandonment controls. Regulations vary by country and may specify requirements for
+abandonment controls. Regulations vary by country and might specify requirements for
 abandonment rate thresholds, measurement windows, and what constitutes an abandoned
 call.
 
@@ -262,7 +262,7 @@ SMS
    sending.
 3. Select the **Template alias or version** number to use
    with the campaign.  If you select an alias, then the contents of SMS sent by the campaign
-   may change when the alias is updated to point to a new template version.  On the other
+   might change when the alias is updated to point to a new template version.  On the other
    hand, if select a version, the campaign will always send the exact same content for the
    life of the campaign.
 
@@ -300,7 +300,7 @@ For information about adding tags to your WABA, see [Getting started with AWS En
 
 You can control how often each recipient is contacted by setting communication limits for
 the campaign. Simply specify the maximum number of messages a recipient can receive within a
-defined time frame (e.g., per day, week, or month). If a recipient has already received the
+defined time frame (for example, per day, week, or month). If a recipient has already received the
 maximum number of communications within any of the time frames you set, Amazon Connect Outbound
 Campaigns will automatically skip that recipient and they won't receive additional messages
 from the campaign.
@@ -322,7 +322,7 @@ In addition to setting communication limits for individual campaigns, you can al
 how many messages a recipient can receive across **all campaigns** running
 within your Amazon Connect instance over a specific time frame. If a recipient reaches the
 specified limit—for example, 10 communications per week—they will be excluded from further
-messaging across all campaigns until the time window resets. This helps ensure that overall
+messaging across all campaigns until the time window resets. This helps make sure that overall
 message volume stays within acceptable boundaries.
 
 For **critical campaigns**, you have the option to **opt
@@ -335,7 +335,7 @@ campaigns.
 
 - The total count of messages across campaigns will not necessarily be incremented
   immediately, but will eventually be accurate. For example, if two campaigns target the same
-  user at the same moment in time, the first campaign's communication may not be reflected in
+  user at the same moment in time, the first campaign's communication might not be reflected in
   the total communication count by the time the second campaign checks.
 - All communications across all campaigns in the active state are considered when
   determining if a recipient has breached their total limits.
@@ -368,12 +368,12 @@ Following is a list of disposition codes that are available in the
 
 - **Voice channel (Agent and Automated Voice)**
 
-| Disposition code in the UI | Campaign event ID (the AMD status)     | Description                                                                                                                                                                                                             |
-| -------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Busy**                   | `SIT_TONE_BUSY`                        | The number dialed was busy.<br>The retry behavior for busy numbers can vary. For some campaigns you may want to<br>retry busy numbers, others you might not. It will depend on your specific campaign<br>configuration. |
-| **Invalid number**         | `SIT_TONE_INVALID_NUMBER`              | The number dialed was not a valid number.                                                                                                                                                                               |
-| **Unanswered**             | `AMD_UNANSWERED`                       | The number dialed kept ringing, but the call was not picked up.<br>Typically this status triggers a retry to reach the customer again later.                                                                            |
-| **Voicemail**              | `VOICEMAIL_BEEP`<br>`VOICEMAIL_NOBEEP` | The number dialed was answered by voicemail with a beep and without a<br>beep.<br>Typically this status triggers a retry to reach the customer again later.                                                             |
+| Disposition code in the UI | Campaign event ID (the AMD status)     | Description                                                                                                                                                                                                               |
+| -------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Busy**                   | `SIT_TONE_BUSY`                        | The number dialed was busy.<br>The retry behavior for busy numbers can vary. For some campaigns you might want to<br>retry busy numbers, others you might not. It will depend on your specific campaign<br>configuration. |
+| **Invalid number**         | `SIT_TONE_INVALID_NUMBER`              | The number dialed was not a valid number.                                                                                                                                                                                 |
+| **Unanswered**             | `AMD_UNANSWERED`                       | The number dialed kept ringing, but the call was not picked up.<br>Typically this status triggers a retry to reach the customer again later.                                                                              |
+| **Voicemail**              | `VOICEMAIL_BEEP`<br>`VOICEMAIL_NOBEEP` | The number dialed was answered by voicemail with a beep and without a<br>beep.<br>Typically this status triggers a retry to reach the customer again later.                                                               |
 
 ###### Note
 
@@ -516,8 +516,8 @@ day happens to fall in an active communication time.
 
 In order for the Campaign to determine appropriate time to attempt communication with a
 particular recipient, you need to provide a **Time Zone**.  You
-may either select a **Standard time zone**, which will be used for
-all recipients, or you may specify the **Recipient's local time
+might either select a **Standard time zone**, which will be used for
+all recipients, or you might specify the **Recipient's local time
 zone**. Recipients with no time zone specified are excluded from message deliveries. 
 
 - **Standard time zone**:
@@ -528,8 +528,8 @@ same time zone.
 
 - **Recipient's local time zone**:
 
-Connect Customer Outbound Campaigns use the provided [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or the area code from the [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber") to infer the recipients time zone. If the time zone can't be
-determined (for example, if either the Address and/or Phone Number is missing or is invalid),
+Connect Customer Outbound Campaigns use the provided [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") or the area code from the [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber") to infer the recipients time zone. If the time zone can't be
+determined (for example, if either the Address or Phone Number is missing or is invalid),
 the recipient will be dropped from the Campaign. Select this option if it's important to send
 communications to recipients only during their specific local times.
 
@@ -537,7 +537,7 @@ When you select **Recipient's local time zone**, you configure the
 following settings:
 
     + **Detect recipient's local time zone** — Choose the method
-     used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
+     used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
 
 
     To detect a recipient's time zone from their postal code, you must populate the
@@ -552,10 +552,10 @@ following settings:
 
 
 
-    	- **Primary only** — Uses only the primary phone number and/or
+    	- **Primary only** — Uses only the primary phone number or
     	 address attributes from the recipient's customer profile to determine the time
     	 zone.
-    	- **All available** — Uses all phone number and/or address
+    	- **All available** — Uses all phone number or address
     	 attributes from the recipient's customer profile to determine the time zone.
 
 ![Time zone configuration panel for setting campaign contact hours by geographic region.](images/time-zone-1.png)
@@ -563,7 +563,7 @@ following settings:
 ### Active communication time
 
 The **Active communication time** represents the times
-during which Connect Customer Outbound campaigns may send communications for this campaign. To add
+during which Connect Customer Outbound campaigns might send communications for this campaign. To add
 active communication times:
 
 1. Select the channel. Alternatively, select **Apply to all
@@ -608,9 +608,9 @@ Take a moment to review your campaign before publishing.
 
 ###### Important
 
-These settings cannot be changed once your campaign has been published.
+These settings cannot be changed after your campaign has been published.
 
-Once you have reviewed your campaign, choose **Publish** to schedule your campaign.
+After you have reviewed your campaign, choose **Publish** to schedule your campaign.
 
 ![Review and publish screen showing campaign configuration summary before final publication.](images/review-and-publish-1.png)
 
@@ -641,7 +641,7 @@ at 7:03AM EST and use a Daily Frequency, then profiles will be refreshed in the
 
 ###### Important
 
-- A recipient may be active only in a campaign once at any given time. So if they are
+- A recipient can be active only in a campaign once at any given time. So if they are
   still waiting to exit the campaign when the next Segment Snapshot is created, and are a
   member of that Snapshot, they are **NOT** allowed to enter the
   campaign as a part of the second Snapshot.
@@ -687,7 +687,7 @@ Following is a description of each campaign state:
 - **Draft**: The campaign is being developed and hasn't been
   published yet.
 - **Active**: The campaign has been developed and published.
-  Depending on the campaign's schedule, the campaign may currently be running or scheduled to
+  Depending on the campaign's schedule, the campaign might currently be running or scheduled to
   start running at a later time.
 - **Stopped**: The campaign is stopped. You can't resume a campaign
   that is stopped.

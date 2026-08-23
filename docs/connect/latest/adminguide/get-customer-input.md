@@ -643,7 +643,7 @@ configured for DTMF input. It shows two branches for input: **Pressed
 
 ### Touchtone buffering
 
-When touchtone buffering is enabled via the [Set Touchtone Buffer
+When touchtone buffering is enabled through the [Set Touchtone Buffer
 Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md") block, the **Get
 customer input** block integrates with the buffer:
 
@@ -782,7 +782,7 @@ dropped.
 For example, the customer needs to press 5, then wait for a prompt from the second
 flow, then type 123. In this case, 123 is captured without problem. However, if they
 don't wait for the prompt and enter 5123 very quickly, the Store customer input
-block may capture only 23 or 3.
+block might capture only 23 or 3.
 
 To guarantee the **Store customer input** block in second flow
 captures all of the digits, the customer needs to wait for the prompt to be played,

@@ -62,7 +62,7 @@ next day by selecting **Contact status = In progress**,
 
 The following timestamp types are supported: initiated, connected (to agent),
 disconnected and scheduled. When you search for contacts using a certain **Timestamp type**, the search results do not contain contacts that do
-not have that timestamp populated, e.g. if you search for a contact with
+not have that timestamp populated, for example, if you search for a contact with
 **Timestamp type = Disconnected** and **Contact status
 = In progress**, then you will only view contacts that are in After
 Contact Work state.
@@ -97,11 +97,11 @@ results to view details of an in-progress contact.
   refresh as the contact progresses. You need to refresh the page manually
   using your browser.
 - Certain fields on **Contact search** and
-  may have missing or inconsistent information while the contact is in
+  might have missing or inconsistent information while the contact is in
   progress. After a contact is completed, information is eventually made
   consistent with the underlying contact record, after the page is
   manually refreshed.
-- There may be a delay between the contact being
+- There might be a delay between the contact being
   **Completed** and the contact being marked as
   **Completed** on the contact record.
 

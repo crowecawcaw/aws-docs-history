@@ -136,7 +136,7 @@ Connect Customer instance](#enable-cl "#enable-cl"). 4. Choose one of the follow
 
 
     If you choose this option, we recommend setting up alerts
-     based on keywords and phrases that the customer may utter during
+     based on keywords and phrases that the customer might utter during
      the call. conversational analytics analyzes the conversation
      real-time to detect the specified keywords or phrases, and
      alerts supervisors. From there, supervisors can listen in on the
@@ -300,8 +300,8 @@ following image.
 ## Dynamically enable redaction based on the customer's language
 
 You can dynamically enable the redaction of the output files based on the
-language of the customer. For example, for customers using en-US, you may want
-only a redacted file whereas for those using en-GB, you may want both the
+language of the customer. For example, for customers using en-US, you might want
+only a redacted file whereas for those using en-GB, you might want both the
 original and redacted output files.
 
 - Redaction: choose one of the following (they are case
@@ -361,7 +361,7 @@ key to language, set
 
 Transcripts are visible to agents using the Contact Control Panel (CCP)
 depending on whether conversational analytics is enabled in the [Set recording and analytics
-behavior](set-recording-behavior.md "set-recording-behavior.md") in the inbound flow, and/or a
+behavior](set-recording-behavior.md "set-recording-behavior.md") in the inbound flow, or a
 transfer flow.
 
 This section provides three use cases for enabling conversational analytics in

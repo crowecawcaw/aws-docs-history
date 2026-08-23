@@ -1,42 +1,39 @@
-# Iframe permissions when granting third-party applications access to Amazon Connect
+# Iframe permissions for third-party applications
 
-When configuring third-party applications through either the AWS Console's
-`onboarding` UI or API, you have the ability to specify
-`iframe` permission settings. These permissions can be modified even
-after the application has been set up.
+When you configure third-party applications, you can specify
+`iframe` permission settings. You can change these permissions after
+creating the application.
 
-By default, all third-party applications are granted four basic
+By default, Connect Customer grants every third-party application four
 `iframe` permissions: `allow-forms`,
 `allow-popups`, `allow-same-origin`, and
-`allow-scripts`. Since some applications may require enhanced
-functionality, additional `iframe` permissions can be requested during
-the application registration process.
+`allow-scripts`. If an application needs more, you can request
+additional `iframe` permissions when you register it.
 
 ###### Note
 
-The browser compatibility for the following permissions could vary by
-different browser implementations.
+Support for these permissions might vary by browser implementation.
 
-| Permission                              | Description                                                                                                                                                                                                                                     |
-| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Allow**                               |                                                                                                                                                                                                                                                 |
-| clipboard-read                          | Controls whether the application is allowed to read data from the<br>clipboard. Its currently supported by Chrome, but not by Firefox and<br>Safari.                                                                                            |
-| clipboard-write                         | Controls whether the application is allowed to write data to the<br>clipboard. Its currently supported by Chrome, but not by Firefox and<br>Safari.                                                                                             |
-| microphone                              | Controls whether the application is allowed to use audio input<br>devices.                                                                                                                                                                      |
-| camera                                  | Controls whether the application is allowed to use video input<br>devices.                                                                                                                                                                      |
-| **Sandbox**                             |                                                                                                                                                                                                                                                 |
-| allow-forms                             | Allows the page to submit forms. Its supported by<br>default.                                                                                                                                                                                   |
-| allow-popups                            | Allows the application to open popups. Its supported by<br>default.                                                                                                                                                                             |
-| allow-same-origin                       | If this token is not used, the resource is treated as being from<br>a special origin that always fails the same-origin policy<br>(potentially preventing access to data storage/cookies and some<br>JavaScript APIs). Its supported by default. |
-| allow-scripts                           | Allows the page to run scripts. Its supported by default.                                                                                                                                                                                       |
-| allow-downloads                         | Allows downloading files through an <a> or <area><br>element with the download attribute, as well as through the<br>navigation that leads to a download of a file                                                                               |
-| allow-modal                             | Allows the page to open modal windows by Window.alert(),<br>Window.confirm(), Window.print() and Window.prompt(), while opening<br>a <dialog> is allowed regardless of this keyword                                                             |
-| allow-storage-access-by-user-activation | Allows to use the Storage Access API to request access to<br>unpartitioned cookies.                                                                                                                                                             |
-| allow-popups-to-escape-sandbox          | Allows to open a new browsing context without forcing the<br>sandboxing flags upon it                                                                                                                                                           |
+| Permission                              | Description                                                                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Allow`                                 |                                                                                                                                                                                                                                               |
+| clipboard-read                          | Controls whether the application is allowed to read data from the<br>clipboard. This permission is currently supported by Chrome, but not<br>by Firefox or Safari.                                                                            |
+| clipboard-write                         | Controls whether the application is allowed to write data to the<br>clipboard. This permission is currently supported by Chrome, but not<br>by Firefox or Safari.                                                                             |
+| microphone                              | Controls whether the application is allowed to use audio input<br>devices.                                                                                                                                                                    |
+| camera                                  | Controls whether the application is allowed to use video input<br>devices.                                                                                                                                                                    |
+| `Sandbox`                               |                                                                                                                                                                                                                                               |
+| allow-forms                             | Allows the page to submit forms. Supported by default.                                                                                                                                                                                        |
+| allow-popups                            | Allows the application to open popups. Supported by<br>default.                                                                                                                                                                               |
+| allow-same-origin                       | If this token is not used, the resource is treated as being from<br>a special origin that always fails the same-origin policy<br>(potentially preventing access to data storage, cookies, and some<br>JavaScript APIs). Supported by default. |
+| allow-scripts                           | Allows the page to run scripts. Supported by default.                                                                                                                                                                                         |
+| allow-downloads                         | Allows downloading files through an `<a>` or<br>`<area>` element with the<br>`download` attribute, or through navigation that<br>leads to a file download.                                                                                    |
+| allow-modal                             | Allows the page to open modal windows with<br>`Window.alert()`, `Window.confirm()`,<br>`Window.print()`, and<br>`Window.prompt()`. Opening a<br>`<dialog>` element is allowed regardless of<br>this permission.                               |
+| allow-storage-access-by-user-activation | Allows the application to use the Storage Access API to request<br>access to unpartitioned cookies.                                                                                                                                           |
+| allow-popups-to-escape-sandbox          | Allows the application to open a new browsing context without<br>forcing the sandbox flags upon it.                                                                                                                                           |
 
-## Sample Configuration
+## Sample configuration
 
-Iframe permissions can be configured using a similar template to the
+Configure iframe permissions with a template similar to the
 following.
 
 For example, to grant clipboard permissions:
@@ -58,16 +55,16 @@ For example, to grant clipboard permissions:
 }
 ```
 
-###### Important Notes
+###### Important notes
 
-1. By default, if the iframe configuration field is left blank or set to
-   empty curly braces {}, the following sandbox permissions are
-   automatically granted:
+- If you leave the iframe configuration field blank or set it to empty
+  braces (`{}`), Connect Customer grants the following sandbox
+  permissions:
 
-   - allow-forms
-   - allow-popups
-   - allow-same-origin
-   - allow-scripts
+  - allow-forms
+  - allow-popups
+  - allow-same-origin
+  - allow-scripts
 
 ```
 {
@@ -78,9 +75,9 @@ For example, to grant clipboard permissions:
 }
 ```
 
-2. To explicitly configure an application with no permissions, you must
-   set empty arrays for both `Allow` and
-   `Sandbox`:
+- To explicitly configure an application with no permissions, you must
+  set empty arrays for both `Allow` and
+  `Sandbox`:
 
 ```
 {

@@ -38,7 +38,7 @@ override** to redisplay the dialog box), choose
 **Upload CSV**, and then choose
 **Override**. 6. After you upload the .csv file, the metrics in the **Required FTEs
 (without Shrinkage)** row are automatically re-calculated and
-updated. Hover over the blue triangle to see the original value, as shown in
+updated. Pause on the blue triangle to see the original value, as shown in
 the following image.
 
 ![The Plan Outputs section showing a triangle indicator that displays the original value for the required FTEs.](images/wfm-capacity-planning-override-without-shrinkage-blue.png) 7. The rest of the metrics are updated automatically to reflect the latest

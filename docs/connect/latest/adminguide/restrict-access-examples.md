@@ -10,7 +10,7 @@ the bucket must be passed to the [AssociateInstanceStorageConfig](../APIReferenc
 
 For the set of IAM actions defined by Connect Customer, see [Actions defined by Connect Customer](../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonconnect.md#amazonconnect-actions-as-permissions").
 
-Following are some examples of how to restrict access to other resources that may be
+Following are some examples of how to restrict access to other resources that might be
 associated with a Connect Customer instance. They should be applied to the User or Role that is
 interacting with Connect Customer APIs or the Connect Customer console.
 
@@ -73,7 +73,7 @@ JSON
 ## Example 3: Restrict which Amazon Kinesis Data Streams can be associated with a Connect Customer instance
 
 This example follows a similar model to the Amazon S3 example. It restricts which specific
-Kinesis Data Streams may be associated with a given Connect Customer instance for delivering contact
+Kinesis Data Streams might be associated with a given Connect Customer instance for delivering contact
 records.
 
 JSON

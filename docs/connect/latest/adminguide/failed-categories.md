@@ -24,7 +24,7 @@ evaluated during contact analysis:
    category.
    The following image shows that failed categories are denoted with their dashed
    borders, transparent backgrounds, error icons, and failed prefixes. When you
-   hover over a failed category, details about why the category failed to evaluate
+   pause on a failed category, details about why the category failed to evaluate
    are displayed.
 
 ![The failed categories on the Contact details page.](images/failed-categories1.png)
@@ -38,7 +38,7 @@ condition. The two possible reasons are:
    processing failed because it did not satisfy security and quality
    guardrails.
    We recommend adding more conditions to your semantic match rules to narrow
-   down the number of contacts it may apply to. This will help avoid quota exceeded
+   down the number of contacts it might apply to. This will help avoid quota exceeded
    failures.
 
 ## Conversational analytics post-contact analysis output customer S3 file

@@ -1,6 +1,6 @@
 # Troubleshoot issues with your Connect Customer communications widget
 
-This topic is for developers who need to investigate issues that may occur when
+This topic is for developers who need to investigate issues that might occur when
 configuring a communications widget in the Connect Customer admin website.
 
 ###### Contents
@@ -61,7 +61,7 @@ amazon_connect('authenticate', function(callback) {
 
 For instructions on implementing JWT, see [Step 3: Confirm and copy communications widget code and security keys](add-chat-to-website.md#confirm-and-copy-chat-widget-script "add-chat-to-website.md#confirm-and-copy-chat-widget-script").
 
-If you have implemented the callback already, the following scenarios may
+If you have implemented the callback already, the following scenarios might
 still cause a 401:
 
 - Invalid signature

@@ -95,13 +95,13 @@ picture-in-picture.
 ![The zoom in and out controls.](images/screen-recording-zoom.png) 7. If you don't see a video recording, check that the **Show screen
 recording** toggle is on.
 
-If no video appears, then the screen recording may not yet be ready (that
+If no video appears, then the screen recording might not yet be ready (that
 is, uploaded into the Amazon S3 bucket). If the problem persists, contact
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 ## Watch in Picture-in-picture mode
 
-You may want to move the video elsewhere on your monitor while you watch it. For
+You might want to move the video elsewhere on your monitor while you watch it. For
 example, you can reposition the video so you can read the transcript. Use
 **Watch in Picture-in-picture** mode to achieve this.
 

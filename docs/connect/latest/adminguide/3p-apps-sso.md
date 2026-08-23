@@ -1,29 +1,26 @@
-# Set up SSO Federation for third-party apps in your Connect Customer instance
+# Set up SSO federation for third-party applications
 
-A user can use Single-Sign-On to federate into multiple third-party applications
-that have been setup within their Connect Customer instance without the need to
-authenticate separately for each application.
+With single sign-on (SSO), a user can federate into multiple third-party
+applications set up in the agent workspace, without having to authenticate
+separately for each application.
 
 ###### Note
 
-Your third-party (3P) application can seamlessly complete the Sign-On flow
-within an iframe, provided that the Identity Provider supports iframing their
-sign-in page. Refer to the Identity Provider guides for detailed information on
-iframing capabilities.
+Your third-party application can complete the sign-in flow in an iframe if
+your identity provider supports iframing its sign-in page. See your identity
+provider's documentation for its iframing capabilities.
 
-###### Setup SSO for third-party apps that exist within your Connect Customer instances
+###### Set up SSO for third-party applications in your Connect Customer instances
 
-1. Set up an Identity Provider or use an existing Identity Provider.
-2. Set up users within the Identity Provider.
+1. Set up an identity provider, or use an existing one.
+2. Set up users in the identity provider.
 3. Set up a Connect Customer instance and [Configure SAML with IAM for Connect Customer](configure-saml.md "configure-saml.md").
-4. Set up other applications within your Identity Provider which you will be
-   integrating with your Connect Customer instance.
-5. Attach each individual user identity to any applications within the
-   Identity Provider that will be integrated with your Connect Customer instance. You can
-   control which agent has access to an application on the Connect Customer agent
-   workspace by providing more granular application specific permissions in
-   security profiles. For more information, see [Security profile permissions for using third-party applications in Connect Customer](assign-security-profile-3p-apps.md "assign-security-profile-3p-apps.md").
-6. After a user has signed into their Identity Provider, they can federate
-   into their Connect Customer instance which has third-party applications configured and
-   they can federate into each application (if the application has been setup
-   for SSO) without the need of their username and password.
+4. Set up the other applications within your identity provider that you plan
+   to integrate with your Connect Customer instance.
+5. Attach each user identity to the applications in your identity provider
+   that you integrate with your Connect Customer instance. To control which agents can
+   access an application in the agent workspace, set application-specific
+   permissions in security profiles. For more information, see [Assign permissions to use third-party applications](assign-security-profile-3p-apps.md "assign-security-profile-3p-apps.md").
+6. After a user signs in to their identity provider, they can federate into
+   their Connect Customer instance. If an application is set up for SSO, the user can also
+   federate into it without entering a username and password.

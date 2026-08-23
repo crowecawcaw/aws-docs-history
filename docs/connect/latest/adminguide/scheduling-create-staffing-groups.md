@@ -97,7 +97,7 @@ Hours** to start at 9AM, even though the forecast would start it at
     minimum number of agents that should be available, despite what
     the forecast indicates. For example, if the forecast says that
     you do not need any agents in the first half hour that your
-    contact center opens, you can ensure that there is a minimum of
+    contact center opens, you can make sure that there is a minimum of
     one agent during this time.
   - **Shift start time:**
 

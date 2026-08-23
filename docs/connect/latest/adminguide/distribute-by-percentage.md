@@ -7,7 +7,7 @@ percentage.
 
 - This block is useful for doing A/B testing. It routes customers randomly
   based on a percentage.
-- Contacts are distributed randomly, so exact percentage splits may or may
+- Contacts are distributed randomly, so exact percentage splits might or might
   not occur.
 
 ## Supported channels

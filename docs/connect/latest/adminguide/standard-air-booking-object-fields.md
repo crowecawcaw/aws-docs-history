@@ -64,11 +64,11 @@ Channel data type| Standard airBooking field | Type | Description |
 | --- | --- | --- |
 | CreationChannelId | String | ID of the channel used to create the booking |
 | LastUpdatedChannelId | String | ID of the channel used to update the booking |
-| Method | String | Method used via the channel (e.g., web, app,<br>phone) |
+| Method | String | Method used through the channel (for example, web, app,<br>phone) |
 
 Payment data type| Standard airBooking field | Type | Description |
 | --- | --- | --- |
-| Type | String | Payment method type (e.g., card, voucher) |
+| Type | String | Payment method type (for example, card, voucher) |
 | CreditCardToken | String | Tokenized card for secure reference |
 | CreditCardType | String | Type of credit card used |
 | CreditCardExpiration | String | Expiry date of the card |

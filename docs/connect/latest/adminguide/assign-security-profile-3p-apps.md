@@ -1,28 +1,23 @@
-# Security profile permissions for using third-party applications in Connect Customer
+# Assign permissions to use third-party applications
 
-This topic describes the security profiles permissions that are required to access
-third-party applications that you have onboarded and associated. For a list of
-third-party application permissions and their API name, see [List of security profile permissions in Connect Customer](security-profile-list.md "security-profile-list.md").
-
-## Third-party application permissions
+Agents need specific security profile permissions to access third-party
+applications that you have added and associated with your instance. For a list of
+third-party application permissions and their API names, see [List of security profile permissions in Connect Customer](security-profile-list.md "security-profile-list.md").
 
 ###### Note
 
-After associating an application to an instance, you may have to wait up
-to 10 minutes to see the application appear the **Agent
-Applications** section of the **Security
-profiles** page.
+After you associate an application with an instance, the application can take
+up to 10 minutes to appear in the **Agent Applications**
+section of the **Security profiles** page.
 
-Any applications that you have onboarded to AWS and associated
-with your Connect Customer instance appear in the **Agent
-Applications** section of the **Security
-profiles** page, as in the following image.
+Applications that you have onboarded to AWS and associated with your Connect Customer
+instance appear in the **Agent Applications** section of the
+**Security profiles** page. The following image shows an
+example.
 
 ![The Agent applications section of the Security profiles page.](images/SecurityProfile_cloudscape_agent_apps.png)
+You also need to enable the **Access Contact Control Panel**
+permission for third-party apps to appear.
 
-You also need to give access to the CCP in order for the app launcher menu to
-appear.
-
-![Applied access permissions for the CCP Access Contact Control Panel.](images/assign-security-profile-3p-apps-ccp-permissions.png)
-
-After you assign permissions, review how to [Access third-party applications in the Connect Customer agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md").
+![Access Contact Control Panel (CCP) permission.](images/assign-security-profile-3p-apps-ccp-permissions.png)
+After you assign permissions, see [Access third-party applications in the agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md").

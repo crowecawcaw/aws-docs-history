@@ -18,7 +18,7 @@
 
 ###### Note
 
-You can only delete domain object type via APIs. You can delete item
+You can only delete domain object type through APIs. You can delete item
 catalog integration after all recommenders have been deleted first. This
 prevents data dependency issues.
 

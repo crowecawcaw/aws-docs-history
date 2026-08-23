@@ -27,7 +27,7 @@ profile_.
 At the **Queues** table, choose **View
 agents**. Below the **Queues** table, an
 **Agents** table appears. It is filtered to display all the
-agents working that queue, as shown in the following image. The agents may be
+agents working that queue, as shown in the following image. The agents might be
 associated with different routing profiles.
 
 ![The queues table, view agents option, the agents table.](images/rtm-quick-filter-queues-agents.png)

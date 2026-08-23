@@ -53,7 +53,7 @@ JSON
 
 ```
 
-To allow a user to create an instance, ensure that they have the permissions granted
+To allow a user to create an instance, make sure that they have the permissions granted
 by the `AmazonConnect_FullAccess` policy.
 
 When you use `AmazonConnect_FullAccess` policy, note the following:

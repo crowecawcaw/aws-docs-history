@@ -1,6 +1,6 @@
 # How Contact Control Panel (CCP) uses WebRTC
 
-This advanced topic is for IT admins who may be interested in how Contact Control
+This advanced topic is for IT admins who might be interested in how Contact Control
 Panel (CCP) delivers voice calls. It also provides some networking details.
 
 CCP uses WebRTC as the underlying technology for enabling real-time communication
@@ -62,7 +62,7 @@ Session Description Protocol (SDP)
 
 A standard for describing the multimedia content of the connection
 such as resolution, formats, codecs, encryption, and more, so that both
-peers can understand each other once the data is transferring.
+peers can understand each other after the data is transferring.
 
 SDP Offer
 
@@ -145,11 +145,11 @@ WebRTC.
 ## Best practices
 
 - For the most reliable and best audio experience, it is strongly
-  recommended to ensure that media traffic between agent workstation and AWS
+  recommended to make sure that media traffic between agent workstation and AWS
   is exchanged directly and does not traverse through VPNs or other network
   accelerator hops.
 - To ensure your business is able to successfully help WebRTC
-  connections and mitigate error behaviors, ensure you have allow-listed
+  connections and mitigate error behaviors, make sure you have allow-listed
   incoming UDP traffic on port 3478 (SEND/RECEIVE). For more information, see
   [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist](ccp-networking.md#option1 "ccp-networking.md#option1"). In the table, see the
   row for `TurnNlb-*.elb.region.amazonaws.com`.

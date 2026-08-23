@@ -64,7 +64,7 @@ Example conditions that you can use to identify the specific set of agents or co
     * Queues
     * Initiation method
 
-In addition, you can exclude contacts that may have ended prematurely due to connectivity or other issues using conditions such as:
+In addition, you can exclude contacts that might have ended prematurely due to connectivity or other issues using conditions such as:
 
     * Interaction duration (for example, over 30 seconds)
     * Talk time (for example, the customer speaks for over 10 seconds)

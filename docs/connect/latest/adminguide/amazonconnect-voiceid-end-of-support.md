@@ -29,7 +29,7 @@ Connect Customer Voice ID domains, see [Manage Connect Customer Voice ID domains
 For a specific Voice ID domain, you can download data about enrolled callers using
 the `ListSpeakers` API and registered fraudsters using
 `ListFraudsters` API. For more information about speaker and fraudster
-management, see [Connect Customer Voice ID speaker, watchlist, and fraudster management APIs](voiceid-speaker-fraudster-management-apis.md "voiceid-speaker-fraudster-management-apis.md"). You can ensure that all
+management, see [Connect Customer Voice ID speaker, watchlist, and fraudster management APIs](voiceid-speaker-fraudster-management-apis.md "voiceid-speaker-fraudster-management-apis.md"). You can make sure that all
 your customer data on Voice ID is deleted by using the Voice ID
 `DeleteDomain` API. You need to perform this operation for every
 Voice ID domain in every AWS Region and every account.

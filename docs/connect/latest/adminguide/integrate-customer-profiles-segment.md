@@ -26,7 +26,7 @@ application** page.
 of the following:
 
     * **Use existing connection**: This allows
-     you to reuse existing Amazon EventBridge resources that you may have
+     you to reuse existing Amazon EventBridge resources that you might have
      created in your AWS account.
     * **Create new connection**: Enter the
      information required by the external application.
@@ -166,5 +166,5 @@ integration and then re-establish it.
 If an object fails to be sent, choose **Flow details** to
 learn more about what's gone wrong.
 
-You may need to delete the configuration and re-connect to the external
+You might need to delete the configuration and re-connect to the external
 application.

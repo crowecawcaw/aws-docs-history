@@ -151,7 +151,7 @@ For email templates:
 
 1. Under **WhatsApp details**, select the template from dropdown. Please note only Meta approved templates can be used to create message templates. Ensure your imported templates are approved in Meta Business WhatsApp Manager before proceeding.
 2. Define a name for the template and add descriptions if needed.
-3. Once you selected Meta approved template, you will see the details displayed in **Body** and **Template Metadata (JSON)** format.
+3. After you selected Meta approved template, you will see the details displayed in **Body** and **Template Metadata (JSON)** format.
 4. **Attribute mapping:** To enable personalized message delivery in Connect Customer, you will need to map your imported Meta attributes to custom text. By combining your existing Connect attributes with plain text, you can create customized messages for your customers. For example, you might see Hello {{1}} in the **Body**, and you can choose to `Attributes.Customer.FirstName` from Connect attribute list to match.
 5. There are a variety of button types that can be added into a content template. If your selected template includes buttons, such as a Website URL that includes attributes, you can either select Connect attributes to map or type in static text.
 6. When you completed attributes mapping, choose **Save**.

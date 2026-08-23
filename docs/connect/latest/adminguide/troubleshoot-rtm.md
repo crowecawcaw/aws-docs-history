@@ -41,7 +41,7 @@ For example, let's say you have 600 queues in your instance. Of these, 200
 match your criteria; 100 are active and by coincidence all happen to be
 Queues #500-#600. When you run the report, you'd get just 1 row (Queue #500)
 since the other 499 queues that were returned (Queues #1-#499) were
-considered inactive and were not displayed. 3. You're running a report with fewer than 500 queues. While you may expect
+considered inactive and were not displayed. 3. You're running a report with fewer than 500 queues. While you might expect
 to see metrics for all filtered queues, only active queues are shown on the
 real-time metrics report page. Try changing the settings for the report,
 such as changing the time range. 4. If you as a user don't have any tags assigned to you

@@ -66,7 +66,7 @@ The following metrics are displayed on this chart
 
 - **Test case step type:** These step types represent the
   detailed configured simulated interactions within your test cases. Each
-  simulated interaction must have an "observe event" and may optionally
+  simulated interaction must have an "observe event" and can optionally
   include "send instruction," "assert data," and "override system behavior"
   configurations. Test initialization is executed at beginning of each test
   case run.

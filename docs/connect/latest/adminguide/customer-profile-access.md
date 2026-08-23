@@ -38,9 +38,9 @@ Following is an example of what Customer Profiles looks like in the agent worksp
 ## Option 2: Embed Customer Profiles into a custom agent workspace
 
 When you embed your Contact Control Panel (CCP), you have the option of showing or
-hiding the pre-built CCP user interface. For example, you may want to develop a
+hiding the pre-built CCP user interface. For example, you might want to develop a
 custom agent workspace that has a user interface you design, with customized buttons
-to accept and reject calls. Or, you may want to embed the pre-built CCP that's
+to accept and reject calls. Or, you might want to embed the pre-built CCP that's
 included with Connect Customer into another custom app.
 
 Regardless of whether you display the pre-built CCP user interface, or hide it and

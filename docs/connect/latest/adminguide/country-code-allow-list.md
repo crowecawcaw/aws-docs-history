@@ -11,18 +11,18 @@ call.
 
 For a list of all the countries available for outbound calling, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
-If you already have an instance, the countries that you are allowed to call may be
+If you already have an instance, the countries that you are allowed to call might be
 different that those listed in the following sections because we have changed the
 service quotas over time.
 
-**UK** mobile numbers with the following prefix may not
+**UK** mobile numbers with the following prefix might not
 be allowed by default:
 
 - +447
   If you cannot dial these UK mobile numbers, you must submit a service quota increase
   request.
 
-**Japan** mobile numbers with the following prefixes may
+**Japan** mobile numbers with the following prefixes might
 not be allowed by default:
 
 - +8170, 8180, and 8190

@@ -6,7 +6,7 @@ sizes.
 
 Connect Customer has developed policies and requirements governing your the ability to conduct
 your own security assessments (such as penetration tests) and load testing to validate
-your environments and ensure they are production-ready. This topic explains the policies
+your environments and make sure they are production-ready. This topic explains the policies
 and requirements.
 
 ## Security and penetration testing
@@ -61,9 +61,9 @@ The Connect Customer team will review your request. We will:
 
 - Determine whether there are any risks.
 - Validate whether there are any considerations with the load test having
-  the ability to be detected and/or reported as being abusive.
+  the ability to be detected or reported as being abusive.
 - Given where the test is designed, determine whether it might be
-  unintentionally abusive and/or impactful to other entities.
+  unintentionally abusive or impactful to other entities.
 - Determine whether you have mitigations applied to your instances, which
   can impact your tests as well as your production workloads.
 
@@ -88,5 +88,5 @@ Even with approval from AWS, you are responsible for:
   systems.
   Any load test run without approval from AWS will result in mitigation
   actions being taken against the AWS account up to and including suspension of
-  service. Unauthorized testing may also be considered a violation of law and
+  service. Unauthorized testing might also be considered a violation of law and
   subject to criminal prosecution.

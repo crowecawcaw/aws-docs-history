@@ -1,6 +1,6 @@
 # Find your Connect Customer instance ID or ARN
 
-When you open a support ticket, you may be asked to provide your Connect Customer instance ID
+When you open a support ticket, you might be asked to provide your Connect Customer instance ID
 (also called the ARN). Use the following steps to find it.
 
 1. Open the Connect Customer console at

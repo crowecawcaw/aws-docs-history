@@ -13,5 +13,5 @@ queues**, **Agent queues**, and then use the
 drop-down to choose the agent's queues you want to include in the table.
 These options are shown in the following image.
 
-![Tables settings page, Filters tab, show agent queues option.](images/hmr-queues-settings-agent-queues.png) 3. Choose **Apply**. The agent queues you selected appear in
+![Tables settings page, Filters tab, show agent queues option.](/images/connect/latest/adminguide/images/hmr-queues-settings-agent-queues.png) 3. Choose **Apply**. The agent queues you selected appear in
 the Queues table in the historical metrics report.

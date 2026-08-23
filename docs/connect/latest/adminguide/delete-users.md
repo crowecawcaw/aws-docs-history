@@ -22,7 +22,7 @@
 The user's data in contact records and reports is retained. The data is preserved
 for the consistency of the historical metrics. For example, when you search for
 contact records, you'll still see the agent's username, any contact recordings
-involving the agent, etc.
+involving the agent.
 
 In the historical metrics reports, the agent's data will be included in the
 **Agent performance** metrics report. However, you won't be

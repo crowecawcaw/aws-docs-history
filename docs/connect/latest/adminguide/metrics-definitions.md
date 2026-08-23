@@ -21,7 +21,7 @@ weren't connected to an agent. Contacts queued for callback are not counted as
 abandoned.
 
 The abandonment rate helps you identify potential issues with long wait times or
-inefficient queue management. A high abandonment rate may indicate a need for additional
+inefficient queue management. A high abandonment rate might indicate a need for additional
 staffing, improved call routing strategies, or addressing queue bottlenecks.
 
 **Metric type**: String
@@ -214,7 +214,7 @@ configured timeout is reached.
 This column heading appears on Real-time metrics reports. It's not a metric exactly,
 but a indicator of the agent's activity state.
 
-If an agent is handling a single contact, this metric may have the following values:
+If an agent is handling a single contact, this metric might have the following values:
 Available, Incoming, On contact, Rejected, Missed, Error, After contact work, or a
 custom status.
 
@@ -2485,7 +2485,7 @@ contact was connected to the agent during inbound and outbound contacts.
 
 It provides insight into how much time, on average, agents spend pausing contacts,
 which could be an indicator of agent efficiency or the complexity of the contacts they
-handle. A higher average pause time could suggest that agents may need additional
+handle. A higher average pause time could suggest that agents might need additional
 training or support to handle contacts more efficiently.
 
 This metric applies only to tasks. For other channels, you'll notice a value of 0 on
@@ -2542,7 +2542,7 @@ customer messages. It only supports filtering and grouping by channel = CHAT.
 ###### Note
 
 This metric includes the queue wait time. For example, when a customer sends
-the first message, they may wait in the queue until an agent sends their first
+the first message, they might wait in the queue until an agent sends their first
 message. This metric calculation includes the total time from the customer's
 first message to the agent's first message.
 
@@ -3358,7 +3358,7 @@ an agent or queued for callback.
 
 **Average queue abandon time** provides insights into the customer
 experience by measuring how long customers wait in the queue before abandoning the call.
-A high average abandon time may indicate inefficient queue management or insufficient
+A high average abandon time might indicate inefficient queue management or insufficient
 staffing, leading to poor customer satisfaction.
 
 **Metric type**: String (_hh:mm:ss_)
@@ -5011,7 +5011,7 @@ have a contact that goes longer than 7 days.
 
 This metric counts the contacts in a queue. It provides a count of contacts that were
 initiated or created within the Connect Customer instance. It tracks the number of inbound and
-outbound contacts across all channels (voice, chat, task, etc.) that were generated
+outbound contacts across all channels (voice, chat, task) that were generated
 during the specified time period. It can be filtered by initiation methods.
 
 This metric is useful for understanding the overall contact volume and workload within
@@ -6099,8 +6099,8 @@ and contact level (for contacts already in queue).
 
 - Estimated Wait Time (EWT) is an approximation of how long a contact will wait in queue before being connected to an agent.
 - The EWT is vended in seconds.
-- EWT may not be available when the system is unable to establish sufficient confidence in the prediction.
-- When EWT is not available i.e. it cannot be predicted with a high degree of confidence, the result will be empty
+- EWT might not be available when the system is unable to establish sufficient confidence in the prediction.
+- When EWT is not available, that is, it cannot be predicted with a high degree of confidence, the result will be empty
 
 ## Evaluations performed
 
@@ -6504,7 +6504,7 @@ the queue the longest.
 ## Online agents
 
 This metric counts the agents who have set their status in the CCP to something other
-than **Offline**. For example, they may have set their status to
+than **Offline**. For example, they might have set their status to
 Available, or to a custom value such as Break or Training.
 
 **Online agents** helps organizations track agent availability and
@@ -6980,8 +6980,8 @@ This metric helps organizations:
 - The key distinction between this and other metrics like AGENTS\_ONLINE is that
   it specifically excludes agents in custom statuses, providing a more accurate
   view of actual operational capacity.
-- For information about why this metric may appear incorrect in a report, see
-  [Why your Login/Logout report may appear incorrect](login-logout-reports.md#login-logout-incorrect "login-logout-reports.md#login-logout-incorrect").
+- For information about why this metric might appear incorrect in a report, see
+  [Why your Login/Logout report might appear incorrect](login-logout-reports.md#login-logout-incorrect "login-logout-reports.md#login-logout-incorrect").
 
 ## Step contacts queued
 

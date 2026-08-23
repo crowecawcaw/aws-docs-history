@@ -92,7 +92,7 @@ Follow these steps to enable AI agents for self-service:
 
 ## Custom actions for self-service
 
-You can extend AI agents's capabilities by adding custom tools. These tools
+You can extend the capabilities of AI agents by adding custom tools. These tools
 can:
 
 - Surface next best actions for customers.

@@ -141,7 +141,7 @@ don't recommend.
      allows cross-origin PUT and GET requests from your website (for
      example, http://www.example1.com).
 
-   Your CORS policy may look similar to the following example:
+   Your CORS policy might look similar to the following example:
 
    ```
    [
@@ -166,7 +166,7 @@ don't recommend.
      and GET requests from all origins, so you don't have to list your
      endpoints.
 
-   Your CORS policy may look similar to the following example:
+   Your CORS policy might look similar to the following example:
 
    ```
    [

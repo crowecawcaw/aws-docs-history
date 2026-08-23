@@ -17,7 +17,7 @@ be either:
   **Break**. The following image shows an example
   where the **Available** and **Offline** statuses,
   along with some custom statuses, are in the dropdown list of the
-  **Activity** column. Once the new status is selected, it will be reflected within the
+  **Activity** column. After the new status is selected, it will be reflected within the
   **Activity** column itself after the update has finished.
 
 ![The dropdown list of availability statuses for the Agent activity column.](images/rtm-change-agent-activity-state.png)
@@ -27,7 +27,7 @@ When a _contact state_ is displayed in the
 **Agent Activity** column, such as
 **Incoming** or **On contact**, you can
 change it to any other availability status and this will be displayed in the
-**Next activity** column once the update has finished.
+**Next activity** column after the update has finished.
 
 ![The dropdown list of availability statuses when an agent is on contact.](images/rtm-change-agent-activity-state-incoming.png)
 

@@ -115,7 +115,7 @@ type of match:
      **Words or Phrases - Semantic
      Match**.
     * **Words or Phrases - Semantic
-     Match**: Finds words that may be synonyms. For
+     Match**: Finds words that might be synonyms. For
      example, if you enter "upset" it can match "not happy,"
      or "hardly acceptable" can match with "unacceptable,"
      and "unsubscribe" can match with "cancel subscription."
@@ -146,7 +146,7 @@ the card.
 
 The logic that conversational analytics uses to read these phrases
 is: (Hello AND thank AND you AND for AND calling AND Example AND
-Corp) OR (we AND value AND your AND business) OR (how AND may
+Corp) OR (we AND value AND your AND business) OR (how AND might
 AND I AND assist AND you).
 
 Alternatively, use a **Natural Language - Semantic

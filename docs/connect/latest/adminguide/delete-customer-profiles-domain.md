@@ -6,8 +6,8 @@ You must select your Connect Customer instance in the console before the Custome
 
 Deleting mappings will only delete objects and data associated with that specific
 mapping. If there are multiple objects associated with a profile, then deleting a
-specific mapping may not clear the profile data. If you want to delete specific data,
-you would then delete the mapping, but your profiles may still exist if they contain
+specific mapping might not clear the profile data. If you want to delete specific data,
+you would then delete the mapping, but your profiles might still exist if they contain
 data from other mappings. This could result in additional charges for the existing
 profiles. To avoid this from occurring, you can delete your Customer Profiles domain using the
 Connect Customer console by following these steps.

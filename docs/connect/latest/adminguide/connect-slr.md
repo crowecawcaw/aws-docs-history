@@ -111,8 +111,8 @@ domain names within the same instance that do not start with the
 
 - Action: Connect Customer Messaging WhatsApp message template integration. Grants Connect Customer
   permission to call AWS End User Messaging Social APIs. An AWS account's WhatsApp business
-  accounts may be listed. Additionally, the templates of a WhatsApp business account may be
-  listed and a template's details may be retrieved as long as the WhatsApp business account
+  accounts might be listed. Additionally, the templates of a WhatsApp business account might be
+  listed and a template's details might be retrieved as long as the WhatsApp business account
   is tagged `AmazonConnectEnabled: True`.
 
   - `social-messaging:ListLinkedWhatsAppBusinessAccounts`

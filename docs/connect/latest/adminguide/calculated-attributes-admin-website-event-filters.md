@@ -95,7 +95,7 @@ or updated. For instance, if you filter standard asset objects where the
 `PurchaseDate` is within the last week, the relative time
 is calculated as _within the last week from the moment the
 asset object is saved or updated_. This means the
-filtering results may vary depending on when the object is saved or
+filtering results might vary depending on when the object is saved or
 updated.
 
 ## Relationship between event filters
@@ -121,7 +121,7 @@ choose one of two ways to specify how the two event filters are connected:
 
 ## Next steps
 
-- [Use your calculated attribute in your contact center via the
+- [Use your calculated attribute in your contact center through the
   Flow editor](customer-profiles-block.md#customer-profiles-block-properties-get-calculated-attributes "customer-profiles-block.md#customer-profiles-block-properties-get-calculated-attributes")
 - [Use
   your calculated attribute to define a customer

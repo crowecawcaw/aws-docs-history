@@ -38,7 +38,7 @@ permissions.
   control tags](tag-based-access-control.md "tag-based-access-control.md") before applying them to a security
   profile.** Applying access control tags is an advanced
   configuration feature that is supported by Connect Customer and that follows the AWS
-  shared responsibility model. Ensure that you have read the documentation and
+  shared responsibility model. Make sure that you have read the documentation and
   understand the implications of applying granular permission configurations. For
   more information, review the [AWS shared responsibilities
   model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").

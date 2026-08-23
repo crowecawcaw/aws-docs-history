@@ -10,7 +10,7 @@ raw data and information into a more accurate profile by combining data from fir
 and third-party sources. Customer Profiles also improves the quality of the datasets through the
 addition of new data. You can use the improved datasets for additional use cases, such
 as to formulate more informed and targeted marketing, sales, and customer service
-strategies. For example, you may want to use the unified customer profile to:
+strategies. For example, you might want to use the unified customer profile to:
 
 - Audit the customer data you have in the entirety of a domain.
 - Perform in-house analytics, for example, for sales and marketing
@@ -87,7 +87,7 @@ JSON
 You must configure a new or existing bucket in the same AWS Region as the
 KMS key, and configure a resource policy on the S3 bucket.
 
-When configuring the bucket, ensure that you select **Encryption with
+When configuring the bucket, make sure that you select **Encryption with
 SSE-KMS** and use the same KMS key from the previous procedure. In
 addition, do not enable ACLs on the S3 bucket.
 
@@ -157,7 +157,7 @@ two separate data integrations.
 
 ###### Note
 
-Any data that is ingested within the last 30 minutes may not be included
+Any data that is ingested within the last 30 minutes might not be included
 in the export.
 
 The following code sample shows how to run the [create-data-integration](../../../cli/latest/reference/appintegrations/create-data-integration.md "../../../cli/latest/reference/appintegrations/create-data-integration.md") CLI command.
@@ -280,7 +280,7 @@ Following is an example path:
 
 After the job finishes, you can update the data integration association with a
 different data pull start time and data pull end time. This creates a new bulk
-export job. You may want to do this if you performed a bulk export in the past and
+export job. You might want to do this if you performed a bulk export in the past and
 want to export only data that was updated since the previous export. For example, if
 your last bulk export job was three months ago, you can update your data integration
 association with a time range of 3 months ago to today.

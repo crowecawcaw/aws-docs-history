@@ -62,7 +62,7 @@ If you create a domain and associate it with one key, store some data, and
 then change the KMS key to a different key, an asynchronous process will be
 triggered to re-encrypt the old data with the new KMS key. After this process
 completes, all of your domain's data will be encrypted under the new KMS key,
-and you may safely retire the old key. For more information, see [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md").
+and you can safely retire the old key. For more information, see [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md").
 
 ###### Tip
 
@@ -183,7 +183,7 @@ watchlist to be used for known fraudster detection.
 - [Set contact
   attributes](set-contact-attributes.md "set-contact-attributes.md"): Use to pass the
   `CustomerId` attribute to Voice ID. The
-  `CustomerId` may be a customer number from your CRM, for
+  `CustomerId` might be a customer number from your CRM, for
   example. You can create a Lambda function to pull the unique customer ID of
   the caller from your CRM system. Voice ID uses this attribute as the
   `CustomerSpeakerId` for the caller.

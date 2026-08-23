@@ -4,7 +4,7 @@ You can create cascading dropdown fields where the options in a single-select fi
 
 To set up dependent field relationships, you first create a field options condition that defines the relationship between a source field and a target field. Then, on a case template, apply this condition to control the available options.
 
-For example, you may want the **State/Province** field options to change based on the selected **Country**. To achieve this you would:
+For example, you might want the **State/Province** field options to change based on the selected **Country**. To achieve this you would:
 
 1. Create a field options condition that maps country selections to their respective states/provinces.
 2. Apply the field options condition to the **State/Province** field on the case template.

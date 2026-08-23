@@ -4,10 +4,10 @@ WebAnalytics Standard Object Schema| Field | Type | Description |
 | --- | --- | --- |
 | Event Attributes |
 | EventId | String | Unique identifier for a web analytics event. |
-| EventType | String | Type of the web analytics event, like<br>• Page View, form<br>submission, button choose, sPull up<br>mainline\u0000earch bar interaction, app<br>error prompts, cart interactions, purchases, scrolls,<br>etc. |
+| EventType | String | Type of the web analytics event, like<br>• Page View, form<br>submission, button choose, sPull up<br>mainline\u0000earch bar interaction, app<br>error prompts, cart interactions, purchases, scrolls. |
 | EventTimestamp | Number | Epoch millisecond timestamp of the event. |
-| EventDuration | Number | EventDuration represents the amount of time a user spent<br>during a particular interaction, measured in seconds. Common<br>use cases include: Time spent viewing a product, Length of a<br>browsing session on a particular page, Time spent on a<br>feature, etc. |
-| EventValue | Number | EventValue is a numerical attribute that represents the<br>value or importance of an interaction event. Common use<br>cases include: Purchase amount for transaction events,<br>Rating values for product ratings, Percentage completion for<br>video views, etc. |
+| EventDuration | Number | EventDuration represents the amount of time a user spent<br>during a particular interaction, measured in seconds. Common<br>use cases include: Time spent viewing a product, Length of a<br>browsing session on a particular page, Time spent on a<br>feature. |
+| EventValue | Number | EventValue is a numerical attribute that represents the<br>value or importance of an interaction event. Common use<br>cases include: Purchase amount for transaction events,<br>Rating values for product ratings, Percentage completion for<br>video views. |
 | Session Attributes |
 | Session.Id | String | Unique identifier for the session. |
 | Session.StartTimestamp | Number | Epoch millisecond indicating the start timestamp of the<br>session. |
@@ -22,7 +22,7 @@ WebAnalytics Standard Object Schema| Field | Type | Description |
 | Element.Classes | String | CSS Styling Classes of the Element |
 | Element.Text | String | Element text (Useful for buttons, input fields<br>placeholders, etc). |
 | Element.AltText | String | AltText of a HTML element (generally used for<br>images). |
-| Element.Source | String | Source of an video, image, etc. |
+| Element.Source | String | Source of an video, image. |
 | Form |
 | Form.Id | String | Unique Identifier for an input form |
 | Form.Name | String | Name of the Form |
@@ -36,11 +36,11 @@ WebAnalytics Standard Object Schema| Field | Type | Description |
 | Search.ResultsPerPage | Number | Number of results shown per page. |
 | Search.CurrentResultsPage | Number | Current results page that the user is viewing. |
 | Search.FilterExpression | String | Any additional filter expressions used. |
-| Search.SortCriteria | String | Criteria for sorting the search result. For example -<br>Relevance, Price, etc. |
+| Search.SortCriteria | String | Criteria for sorting the search result. For example -<br>Relevance, Price. |
 | Search.SortOrder | String | Sort order for Search results -<br>Ascending/Descending. |
 | Item/Item List |
-| Item | Item | Focused item in an event, indicating, the item added to a<br>cart, item viewed, etc. |
-| ItemsList | List<Item> | Focused list of items in an event, indicating, items<br>purchased, items in a cart, item search results, etc. |
+| Item | Item | Focused item in an event, indicating, the item added to a<br>cart, item viewed. |
+| ItemsList | List<Item> | Focused list of items in an event, indicating, items<br>purchased, items in a cart, item search results. |
 | Item Impressions |
 | AdditionalItemImpressions | List<Item> | Additional Item impressions list |
 | Cart |
@@ -87,14 +87,14 @@ WebAnalytics Item Object Schema| Field | Type | Description |
 | Value | String | Monetary value of the item. |
 | Currency | String | Currency of the item. |
 | Quantity | Number | Quantity of the item. |
-| ImpressionType | String | String identifying the impression type for an event. For<br>example<br>• Featured, Sponsored, Top picks, etc. |
+| ImpressionType | String | String identifying the impression type for an event. For<br>example<br>• Featured, Sponsored, Top picks. |
 | ImpressionId | String | A string identifier for uniquely identifying an<br>impression. |
 
 Device Standard Object Schema| Field | Type | Description |
 | --- | --- | --- |
 | DeviceId | String | A unique identifier for the device. |
-| Type | String | Type of device (e.g., desktop, mobile) |
-| Model | String | Device model, like<br>• Macbook Pro/Air, IPhone 16,<br>etc. |
+| Type | String | Type of device (for example, desktop, mobile) |
+| Model | String | Device model, like<br>• Macbook Pro/Air, IPhone 16. |
 | Manufacturer | String | Manufacturer of the device. |
 | OperatingSystem | String | Indicates Windows, MacOs, IOS, Android. |
 | OperatingSystemVersion | String | OS Version |

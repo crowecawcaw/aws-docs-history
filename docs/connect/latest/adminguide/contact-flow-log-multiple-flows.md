@@ -10,7 +10,7 @@ with their interaction is included with the log for the new flow. You can query 
 for the contact ID to trace the customer interaction through each flow.
 
 In larger, high-volume contact centers, there can be multiple streams for flow logs.
-If a contact is transferred to a different flow, the log may be in a different stream.
+If a contact is transferred to a different flow, the log might be in a different stream.
 To make sure that you are finding all of the log data for a specific contact, you should
 search for the contact ID in the entire CloudWatch log group instead of in a
 specific log stream.

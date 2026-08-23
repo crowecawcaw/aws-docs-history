@@ -21,4 +21,4 @@ PCI-compliant.
   sensitive DTMF information.
 - Use your own KMS key when ingesting data in Connect Customer Customer Profile
   domains.
-- For more information, see [https://www.pcisecuritystandards.org](https://www.pcisecuritystandards.org " https://www.pcisecuritystandards.org").
+- For more information, see [https://www.pcisecuritystandards.org](https://www.pcisecuritystandards.org "https://www.pcisecuritystandards.org").

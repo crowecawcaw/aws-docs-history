@@ -114,7 +114,7 @@ examples.
 
 List view
 The **List view** is for displaying information as a
-list of items with titles and descriptions. Items may also act as links
+list of items with titles and descriptions. Items might also act as links
 with actions attached. It also optionally supports the standard back
 navigation and persistent context header.
 
@@ -128,7 +128,7 @@ with three items in it.
 **Items**
 
 - Required, will display these items as a list.
-- Each item may have a Heading, Description, Icon, and
+- Each item might have a Heading, Description, Icon, and
   Id.
 
   - All properties are optional.
@@ -280,7 +280,7 @@ reservation. It has location and date fields on it.
 
 - Display **ProgressTracker** at the left side
   of the view.
-- Each item may have a Heading, Description, and
+- Each item might have a Heading, Description, and
   Optional.
 
   - Heading is required

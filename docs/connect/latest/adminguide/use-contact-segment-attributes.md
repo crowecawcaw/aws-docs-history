@@ -1,7 +1,7 @@
 # Use contact segment attributes
 
 For scenarios where information for a contact varies between transfers or conferences,
-such as business unit names that may change as a contact moves between departments, you need
+such as business unit names that might change as a contact moves between departments, you need
 to use _contact segment attributes_.
 
 Contact segment attributes keep the values that remain specific to individual contact

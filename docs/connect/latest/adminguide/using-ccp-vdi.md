@@ -56,7 +56,7 @@ user interface, such as a custom CCP.
   susceptible to call quality issues if the underlying route is not optimized
   or the pipe isn't either fast or wide enough. While Direct Connect can improve
   call quality from the edge router to AWS, it will not address internal
-  routing issues. You may need to upgrade or optimize your private LAN/WAN, or
+  routing issues. You might need to upgrade or optimize your private LAN/WAN, or
   redirect to an external device to circumvent call audio issues. In most
   scenarios, if this is required, the CCP is not the only application that is
   having issues.
@@ -65,7 +65,7 @@ user interface, such as a custom CCP.
   resources from activities, such as backups and large file transfers. One way
   to prevent resource contention is by restricting the desktop access to Connect Customer
   users who will be using their environment similarly, instead of sharing
-  resources with other business units who may use those resources
+  resources with other business units who might use those resources
   differently.
 - **Using a soft phone with remote
   connections**—in VDI environments can cause impact to

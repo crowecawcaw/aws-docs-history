@@ -20,7 +20,7 @@ ask for this information to be submitted with the completed LOA.
 
 ## Common reasons why carriers reject an LOA
 
-There are four common reasons that an LOA may be initially rejected by the
+There are four common reasons that an LOA might be initially rejected by the
 losing carrier:
 
 - Unsatisfactory
@@ -44,15 +44,15 @@ the correct information as provided by your existing carrier.
 
 We will work with all Connect Customer carriers in a Region to support the
 porting of your numbers. In some cases, however, specific numbers
-may not be portable because of regulatory restrictions or carrier
+might not be portable because of regulatory restrictions or carrier
 limitations. In these situations, consider claiming a new number
 from Connect Customer.
 
 - Missing information
 
-One or more fields have been left blank on the LOA. This may
+One or more fields have been left blank on the LOA. This might
 include a missing signature, phone number, address information, or
 other requested information. Review all LOAs before submitting them
-to ensure that you have filled out all requested data. After the LOA
+to make sure that you have filled out all requested data. After the LOA
 is updated with all the required information, we will resubmit the
 port request.

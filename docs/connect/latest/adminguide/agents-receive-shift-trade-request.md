@@ -34,9 +34,9 @@ the **Notice period** specified for your [shift trade group](scheduling-create-s
 passed before the trade was completed. No further actions can be taken on that
 shift.
 
-## Why a shift trade request may be Failed
+## Why a shift trade request might be Failed
 
-A shift trade request may have a status of **Failed**.
+A shift trade request might have a status of **Failed**.
 The Info icon provides a brief description why, such as **Shift
 trade affects other shifts**. This means the agent already has
 a shift on the same day you are asking to trade.

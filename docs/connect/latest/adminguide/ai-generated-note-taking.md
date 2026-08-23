@@ -6,7 +6,7 @@ note-taking and bookkeeping tasks, creating a draft summary based on the convers
 transcript.
 
 When enabled, the AI agent analyzes the full conversation transcript and generates a
-structured summary that may include:
+structured summary that might include:
 
 - The customer's issue or intent
 - Relevant account or contextual details discussed

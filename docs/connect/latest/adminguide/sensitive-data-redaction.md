@@ -31,7 +31,7 @@ connect-`instanceARN`/Analysis/Chat
 Redacted email files are stored in your email Amazon S3 bucket, for example:
 connect-`instanceARN`/Analysis/Email
 
-You can access all files (redacted, unredacted, raw, etc.) through the AWS
+You can access all files (redacted, unredacted, raw) through the AWS
 console, by using the Amazon S3 console.
 
 Following is a list of what you can access by using the Connect Customer admin website (such as on the

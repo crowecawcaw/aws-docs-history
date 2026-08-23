@@ -72,7 +72,7 @@ Payment data type| Standard loyalty field | Type | Description |
 | --- | --- | --- |
 | Type | String | Type of payment |
 | CreditCardToken | String | Tokenized credit card reference |
-| CreditCardType | String | Type of credit card (e.g., Visa) |
+| CreditCardType | String | Type of credit card (for example, Visa) |
 | CreditCardExpiration | String | Expiration date of the credit card |
 | Cvv | String | Card verification value |
 | NameOnCreditCard | String | Name on the card |
@@ -86,6 +86,6 @@ PaymentInformation data type| Standard loyalty field | Type | Description |
 | LastPaymentDate | String | Date of last payment |
 | NextPaymentDate | String | Date of next payment |
 | NextBillAmount | String | Amount for the next bill |
-| CurrencyCode | String | Currency code (e.g., USD) |
+| CurrencyCode | String | Currency code (for example, USD) |
 | CurrencyName | String | Full name of the currency |
-| CurrencySymbol | String | Currency symbol (e.g., $) |
+| CurrencySymbol | String | Currency symbol (for example, $) |

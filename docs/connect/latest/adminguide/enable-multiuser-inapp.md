@@ -29,7 +29,7 @@ first user, and four other participants (users or agents).
 
 [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") returns a Bad Request error if the agent
 is not yet connected to the contact. For business applications where
-users may attempt to join before the agent is connected, see [Handling concurrent user joins](#handling-concurrent-joins "#handling-concurrent-joins"). 5. The additional customers can connect at any time after [CreateParticipantConnection](../APIReference/API_connect-participant_CreateParticipantConnection.md "../APIReference/API_connect-participant_CreateParticipantConnection.md") returns. After participants join,
+users might attempt to join before the agent is connected, see [Handling concurrent user joins](#handling-concurrent-joins "#handling-concurrent-joins"). 5. The additional customers can connect at any time after [CreateParticipantConnection](../APIReference/API_connect-participant_CreateParticipantConnection.md "../APIReference/API_connect-participant_CreateParticipantConnection.md") returns. After participants join,
 [all additional voice and recording
 behavior is similar to the multi party capability](multi-party-calls.md "multi-party-calls.md"). The new
 participants can enable their video and screen-share, if their capabilities
@@ -79,10 +79,10 @@ web, in-app or video call.
 
 ## Handling concurrent user joins
 
-Businesses may want to create applications where users can join in any order, at
-any time. For example, your application may email a link with an external
+Businesses might want to create applications where users can join in any order, at
+any time. For example, your application might email a link with an external
 appointment ID to multiple users that should be used to join a call at a scheduled
-time. To achieve this behavior, business backends must ensure that:
+time. To achieve this behavior, business backends must make sure that:
 
 - The first user that joins triggers a StartWebRTCContact request.
 - All additional users use CreateParticipant and CreateParticipantConnection

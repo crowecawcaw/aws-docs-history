@@ -14,7 +14,7 @@ The following are integration options, along with features of each option:
   - Displays partial responses with progressive text (growing text
     bubble)
 
-- Third-party bots via Amazon Lex or Lambda
+- Third-party bots through Amazon Lex or Lambda
 
   - Eliminates Amazon Lex timeout limitations
   - Standard bot response behavior

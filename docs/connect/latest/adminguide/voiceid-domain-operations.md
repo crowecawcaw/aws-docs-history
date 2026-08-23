@@ -46,5 +46,5 @@ status of this process from your domain's
 `ServerSideEncryptionUpdateDetails` attribute using the
 `DescribeDomain` API. While this update process is in
 progress, you must retain your old KMS key in an accessible state,
-otherwise this process may fail. After this process completes, the old
-KMS key may be safely retired.
+otherwise this process might fail. After this process completes, the old
+KMS key might be safely retired.

@@ -31,7 +31,7 @@ as follows:
     	 between the specified hours and minutes.
     	+ **Flex**: This means if Connect Customer predicts
     	 enough contact volume to warrant scheduling the agent, it
-    	 may schedule them to work between the specified hours and
+    	 might schedule them to work between the specified hours and
     	 minutes.
     The following image shows the **Schedule Window**
      section of the **Add shift profile** page. It shows

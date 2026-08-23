@@ -90,10 +90,10 @@ arn:aws:connect:`region`:`account-id`:instance/`instance-id`/contact/`contact-id
 - Attempting to attach a second recording to the same contact will be
   rejected.
 - `FileStatus` will be `PROCESSING` initially. The
-  copy completes asynchronously — monitor your CTR (delivered via Amazon S3
+  copy completes asynchronously — monitor your CTR (delivered through Amazon S3
   or Kinesis) for the final attachment status.
 - Do not attempt Step 3 until the recording is attached.
-- The external voice charge applies once the recording is attached. For
+- The external voice charge applies after the recording is attached. For
   pricing information, see [Connect Customer
   Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 

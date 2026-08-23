@@ -42,10 +42,10 @@ associated with a specific profile by using the [ListProfileObjects](../APIRefe
 
 ## Endpoint data type
 
-| Field           | Data type | Description                                                          |
-| --------------- | --------- | -------------------------------------------------------------------- |
-| EndpointAddress | String    | The address of the endpoint (e.g., email address,<br>phone number).  |
-| EndpointType    | String    | The type of the endpoint such as default email or<br>business email. |
+| Field           | Data type | Description                                                                |
+| --------------- | --------- | -------------------------------------------------------------------------- |
+| EndpointAddress | String    | The address of the endpoint (for example, email address,<br>phone number). |
+| EndpointType    | String    | The type of the endpoint such as default email or<br>business email.       |
 
 ## Event data type
 

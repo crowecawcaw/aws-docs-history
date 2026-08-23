@@ -6,7 +6,7 @@ Following are some examples:
 
 - Review a contact when the customer is fraudulent. For example, you can create a follow-up task when a customer utters words or phrases that makes them appear potentially fraudulent.
 - Follow up when the customer mentions specific topics that you want to later on upsell or provide additional support by reaching out.
-- Evaluate agent performance in specific scenarios, e.g. customer sentiment was very low during the conversation and the customer expressed frustration.
+- Evaluate agent performance in specific scenarios, for example, customer sentiment was very low during the conversation and the customer expressed frustration.
 - Take operational actions, such as assigning additional agents to queues on which avg. queue answer time in the last hour has exceeded acceptable thresholds.
 
 ###### To create a rule that creates a task

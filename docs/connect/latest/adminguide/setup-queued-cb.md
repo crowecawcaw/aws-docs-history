@@ -21,9 +21,9 @@ or to be placed in a separate dedicated queue that you create. This separate que
 enables you to get a clearer delineation between active inbound calls and callbacks in
 real time reports.
 
-You can ensure that the callback maintains its position in queue even when you place
+You can make sure that the callback maintains its position in queue even when you place
 it in a dedicated queue by configuring it at the same priority as the original inbound
-queue in the routing profile. This configuration ensures that Connect Customer continues to look at
+queue in the routing profile. This configuration makes sure that Connect Customer continues to look at
 the original start time of the inbound call to maintain order, regardless of whether the
 customer opted for a callback or to stay on the call for the next available
 agent.

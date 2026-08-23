@@ -22,7 +22,7 @@ offline flow configuration into flow designer, follow these update steps:
   converted, you can freely copy and paste flow components within the updated flow
   designer.
 - If you rely on an offline data store for your flow configuration as your
-  source of truth, please ensure you update your flows configuration to the new
+  source of truth, please make sure you update your flows configuration to the new
   format before the **03/31/2026** deadline.
   To migrate tens or hundreds of flows, use the APIs described in [Migrate flows to an instance, Region, or environment in Connect Customer](migrate-contact-flows.md "migrate-contact-flows.md").
 
@@ -56,7 +56,7 @@ A flow is exported to a JSON file. It has the following characteristics:
 
 - The JSON includes a section for each block in the flow.
 - The name used for a specific block, parameter, or other element of the flow
-  may be different than the label used for it in the flow designer.
+  might be different than the label used for it in the flow designer.
 
 By default, flow export files are created without a file name extension, and saved to
 the default location set for your browser. We suggest saving your exported flows to
@@ -111,7 +111,7 @@ resources used in the flow, such as queues, by using the ARN for the resource.
 - When you import a flow into the same Connect Customer instance that you exported it from,
   the resources used in the flow will resolve to the existing resources in that
   instance.
-- If you delete a resource, or change the permissions for a resource, Connect Customer may
+- If you delete a resource, or change the permissions for a resource, Connect Customer might
   not be able to resolve the resource when you import the flow.
 - When a resource cannot be found using the ARN, Connect Customer attempts to resolve the
   resource by finding a resource with the same name as the one used in the flow.

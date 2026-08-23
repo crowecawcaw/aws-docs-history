@@ -79,7 +79,7 @@ resources across AWS Regions.
 - For instances in Asia Pacific (Tokyo), only phone numbers that are
   explicitly enabled for Connect Customer Global Resiliency (ACGR) will support
   complete replication behavior to Asia Pacific (Osaka). When routing
-  through Asia Pacific (Osaka), inbound calls may experience delivery
+  through Asia Pacific (Osaka), inbound calls might experience delivery
   times of up to 20 seconds.
 - Emergency access to log into the replica instance is available only
   after the default routing profile and queue have been mirrored across
@@ -90,7 +90,7 @@ resources across AWS Regions.
   historical changes** to view an audit trail of changes to
   the users. Audit trails are also available for other
   configurations.
-- You may see the following errors in the CloudTrail log which do not impact
+- You might see the following errors in the CloudTrail log which do not impact
   the configurations mirroring.
 
   - Http 409 (conflict) errors: These errors occur due to
@@ -117,7 +117,7 @@ resource.
   agents to either the default traffic distribution group or a custom
   traffic distribution group.
 - Running [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") does not synchronize Lambda functions or
-  Amazon Lex bots, or other third-party / integrations you may have.
+  Amazon Lex bots, or other third-party / integrations you might have.
 
 ## Characteristics of the replica instance
 
@@ -186,7 +186,7 @@ increase any other quota in the replica instance, submit a request.
 
 - **Saved reports**: While saved reports are replicated, the schedules associated with saved reports are _not_ replicated.
 - **Views**: Only Views in a _published_ state are replicated. Views in a draft state are _not_ replicated.
-- **Data tables**: Data Table values that contain literal ARN references will automatically adjust the region code to the local region when replicated. ARNs constructed using expressions may not automatically adjust the region code.
+- **Data tables**: When you replicate an instance, Connect Customer updates the Region code of a literal Amazon Resource Name (ARN) for an Connect Customer or Connect Customer agent assist resource to the local Region. This applies whether the ARN is stored as a plain data table value or appears within a supported expression (for example, `=HOOP()` or `=XLOOKUP()`).
 
 [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") also replicates the following associations across
 AWS Regions:

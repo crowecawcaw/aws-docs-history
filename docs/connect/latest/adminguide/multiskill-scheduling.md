@@ -1,6 +1,6 @@
 # Multi skill scheduling in Connect Customer
 
-The multi-skill feature moves beyond the previous model, which assumed that all agents could handle all queues within their line of business (Forecast Group), with a skill-aware scheduling system that reflects real-world contact center complexity. It introduces demand groups, which represent distinct work subsets within forecast groups, each comprising specialized skill requirements that are independently forecasted. Agents are scheduled exclusively for their allocated demand groups, ensuring that their unique skills are deployed strategically. Multi-skilled agents can be assigned across multiple relevant demand groups, with their schedules optimized to accommodate demand variations across all assigned areas.
+The multi-skill feature moves beyond the previous model, which assumed that all agents could handle all queues within their line of business (Forecast Group), with a skill-aware scheduling system that reflects real-world contact center complexity. It introduces demand groups, which represent distinct work subsets within forecast groups, each comprising specialized skill requirements that are independently forecasted. Agents are scheduled exclusively for their allocated demand groups, making sure that their unique skills are deployed strategically. Multi-skilled agents can be assigned across multiple relevant demand groups, with their schedules optimized to accommodate demand variations across all assigned areas.
 
 ## Important things to know
 

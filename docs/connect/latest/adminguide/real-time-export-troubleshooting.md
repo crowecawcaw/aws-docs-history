@@ -1,12 +1,12 @@
 # Troubleshoot real-time event exporting to your Kinesis Data Stream
 
-There may be a delay when first exporting events to your Kinesis Data Stream. This
+There might be a delay when first exporting events to your Kinesis Data Stream. This
 is due to the time it takes to propagate IAM permissions for the service-linked
 role. When an actual issue occurs, the streaming status can enter an error
 state.
 
 ![Events unable to reach the destination Kinesis Data Stream, entering an error state.](images/real-time-export-troubleshooting.png)
-The following sections display the possible error messages that you may encounter.
+The following sections display the possible error messages that you might encounter.
 It also provides the cause and resolution for each issue.
 
 ## Error: The Kinesis Data Stream is not Active. Please check the configuration and recreate the event stream later

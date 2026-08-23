@@ -2,7 +2,7 @@
 
 The Check block validates that specific values or conditions in your contact
 flow match your expectations. It's your quality assurance tool within the test,
-ensuring that data, attributes, and system states are exactly what they should be
+making sure that data, attributes, and system states are exactly what they should be
 at any given point.
 
 You can add a Check block. In the interaction group menu (⋮),

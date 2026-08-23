@@ -40,10 +40,10 @@ Configuration options:
   more key-value pairs:
 
   - **Log identifier** –
-    A descriptive name for the logged value (e.g., "Current
+    A descriptive name for the logged value (for example, "Current
     Queue Name")
   - **Log value** –
-    JSONPath to the attribute you want to log (e.g.,
+    JSONPath to the attribute you want to log (for example,
     $.Queue.Name) along with any descriptive text
 
 Use cases:

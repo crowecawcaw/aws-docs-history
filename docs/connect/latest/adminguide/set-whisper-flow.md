@@ -45,7 +45,7 @@ this by:
 
 –OR–
 
-- Disabling the whisper flow from running. You may want to disable the
+- Disabling the whisper flow from running. You might want to disable the
   default whisper flow so customers do not perceive any connection latency,
   for example, as part of an outbound campaign.
 

@@ -19,7 +19,7 @@ shift**. This will open the **Copy shift**
 screen. You can copy shifts from either the day view or week view. 4. In the **Copy this shift** section, select a single date
 or a date range (up to 14 days) that you would like to copy from. 5. In the **Add to** section, select the agents (up to 50
 agents) you would like to copy the shift to. 6. In the **Add to** section, select a single date or date
-range to copy to. Ensure that the number of days selected in **Copy
+range to copy to. Make sure that the number of days selected in **Copy
 from** matches the number of days selected in **Copy
 to**. 7. Choose **Apply** and then
 **Confirm**. 8. Select **Override rules check** if you want the system to

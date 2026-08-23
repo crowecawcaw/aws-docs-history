@@ -125,7 +125,7 @@ you set manually, see to the syntax in [How to persist fields throughout the flo
   - **None found**: No cases are found with the
     search criteria.
   - **Error**: An error was encountered while trying
-    to find the case. This may be due to a system error or how
+    to find the case. This might be due to a system error or how
     **Get case** is configured.
 
 The following images show an example of a Cases **Properties**
@@ -182,7 +182,7 @@ When configuring properties to get a case id:
   - **Contact not linked**: If you specify to link the contact to case, then this error branch will appear. It might be that the contact was not linked after the case is retrieved (partial success/partial failure). If this happens, then the flow will follow this branch.
   - **Multiple found**: Multiple cases are found with the search criteria.
   - **None found**: No cases are found with the search criteria.
-  - **Error**: An error was encountered while trying to find the case. This may be due to a system error or how **Get case id** is configured.
+  - **Error**: An error was encountered while trying to find the case. This might be due to a system error or how **Get case id** is configured.
 
 ## Properties: Update case
 

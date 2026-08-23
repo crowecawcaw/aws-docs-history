@@ -53,7 +53,7 @@ For help finding your instance name, see [Find your Connect Customer instance na
 
 ## Grant microphone access in Chrome, Firefox, or Edge
 
-If agents experience problems with their microphone, they may need to grant microphone
+If agents experience problems with their microphone, they might need to grant microphone
 access in their browser. Choose one of the following articles to get the steps
 appropriate for your browser:
 
@@ -65,7 +65,7 @@ appropriate for your browser:
 
 ###### Important
 
-A change introduced in Google Chrome version 64 may result in issues with
+A change introduced in Google Chrome version 64 might result in issues with
 receiving calls if you are using an embedded Contact Control Panel (CCP) softphone
 using the Connect Customer Streams library. If you are experiencing issues with
 your microphone when using Chrome version 64, you can resolve the issue by building

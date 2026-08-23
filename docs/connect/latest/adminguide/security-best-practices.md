@@ -15,16 +15,16 @@ than prescriptions.
 
 ## Connect Customer preventative security best practices
 
-- Ensure that all profile permissions are as restrictive as possible. Allow
+- Make sure that all profile permissions are as restrictive as possible. Allow
   access to only those resources absolutely required for the user's role. For
   example, don't give agents permissions to create, read, or update users in
   Connect Customer.
-- Ensure that multi-factor authentication (MFA) is set up through your SAML 2.0
+- Make sure that multi-factor authentication (MFA) is set up through your SAML 2.0
   identity provider, or Radius server, if that's more applicable for your use
   case. After MFA is set up, a third text box becomes visible on the Connect Customer login
   page to provide the second factor.
 - If you use an existing directory through Directory Service or SAML-based authentication
-  for identity management, ensure that you follow all security requirements
+  for identity management, make sure that you follow all security requirements
   appropriate for your use case.
 - Use the **Log in for emergency access** URL on the instance
   page of the AWS console only in emergency situations, not for daily use. For
@@ -141,7 +141,7 @@ Therefore, protecting this token is critical.
 
 The following security recommendations can help safeguard against impersonation attacks:
 
-- **Authenticate users before token issuance**. Ensure that robust authentication and authorization checks are performed before vending a participant token to any client or external service.
+- **Authenticate users before token issuance**. Make sure that robust authentication and authorization checks are performed before vending a participant token to any client or external service.
 - **Minimize token exposure**. Do not log participant tokens or embed them in URLs. Use secure transport (HTTPS/TLS) for all token exchanges..
 - **Respond to token leaks quickly**. If a token leak is detected, immediately terminate or stop the associated contact to prevent unauthorized access.
 - **Use least privilege principles**. Limit token lifespan wherever possible, ensuring tokens are valid only for the duration necessary.

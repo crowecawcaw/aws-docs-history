@@ -7,6 +7,15 @@ share attachments on chats, emails, and tasks.
 
 ###### Important
 
+The **Attachments** page in the Connect Customer admin website, where you
+configure attachment file types and size limits, is not available in the legacy
+`https://`your-instance-alias`.awsapps.com/connect/`
+domain. If your instance still uses the legacy domain, update it to the
+`https://`your-instance-alias`.my.connect.aws/`
+domain before you complete step 3 in this topic. For more information, see [Update your Connect Customer domain](update-your-connect-domain.md "update-your-connect-domain.md") in this guide.
+
+###### Important
+
 You must complete steps 1 and 4 in this topic (create an Amazon S3 bucket and configure
 a CORS policy) for email attachments. If you don't do this, yet have selected
 **Enable Attachments sharing** for your instance, the email
@@ -152,7 +161,7 @@ The following image shows the attachment configuration in edit mode.
 - Email attachments cannot exceed 20 MB due to Amazon SES
   limitations.
 - Even if you add a file extension to the allowed list for email,
-  Amazon SES may block certain file types. For a list of file types
+  Amazon SES might block certain file types. For a list of file types
   that SES blocks, see [Unsupported attachment types](../../../ses/latest/dg/mime-types-appendix.md "../../../ses/latest/dg/mime-types-appendix.md") in the
   _Amazon Simple Email Service Developer Guide_.
 
@@ -195,7 +204,7 @@ don't recommend.
      allows cross-origin PUT and GET requests from your website (for
      example, http://www.example1.com).
 
-   Your CORS policy may look similar to the following example:
+   Your CORS policy might look similar to the following example:
 
    ```
    [
@@ -219,7 +228,7 @@ don't recommend.
      and GET requests from all origins, so you don't have to list your
      endpoints.
 
-   Your CORS policy may look similar to the following example:
+   Your CORS policy might look similar to the following example:
 
    ```
    [
@@ -249,7 +258,7 @@ attachments](../APIReference/working-with-acps-api.md "../APIReference/working-w
 ## Next step
 
 We recommend enabling attachment scanning to meet compliance requirements or
-security policies that your organization may have in place for file sharing. For
+security policies that your organization might have in place for file sharing. For
 more information, see [Set up attachment scanning in Connect Customer](setup-attachment-scanning.md "setup-attachment-scanning.md").
 
 ## Attachments not appearing?

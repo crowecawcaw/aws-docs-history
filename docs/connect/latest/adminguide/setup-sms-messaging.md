@@ -106,7 +106,7 @@ Guide_.
 7. Choose **Next**.
 8. On **Review and request** you can verify and edit your
    request before submitting it. Choose **Request**.
-9. A **Registration Required** window may appear depending on
+9. A **Registration Required** window might appear depending on
    the type of phone number you requested. Your phone number is associated with
    this registration and can't send messages until your registration has been
    approved. For more information about registrations requirements, see [Registrations](../../../sms-voice/latest/userguide/registrations.md "../../../sms-voice/latest/userguide/registrations.md").

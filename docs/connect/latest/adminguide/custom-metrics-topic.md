@@ -22,7 +22,7 @@ for your dashboards.
 3. Choose **Custom metrics**.
 4. View the list of all the custom metrics in your instance.
 
-Any custom service level metrics that were created via the custom
+Any custom service level metrics that were created through the custom
 dashboards will be listed here and can be managed here as well.
 
 You can do character matching quick search on the metric name or description by
@@ -134,7 +134,7 @@ metrics, please see [link](metric-primitive-definitions.md "metric-primitive-def
 **Components**
 
 A component represents the metric primitive or base metric expression that can
-be referenced as the variable for the metric formula that will be entered via
+be referenced as the variable for the metric formula that will be entered through
 the definition editor.
 
 - Maximum of 5 metric components can be added.

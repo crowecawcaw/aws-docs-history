@@ -160,13 +160,13 @@ interaction, and any [out of hours messages](https://register.apple.com/resource
   system, provide a message like **This is an automated agent**
   or **I'm an automated agent**. For more information, see [Automated Messaging](https://register.apple.com/resources/messages/messaging-documentation/ux-design#automated-messaging "https://register.apple.com/resources/messages/messaging-documentation/ux-design#automated-messaging").
 - **Terms of Use and Privacy Policy statements:**
-  These should be handled via a [Rich Link](https://register.apple.com/resources/messages/msp-rest-api/type-richlink#rich-link-messages "https://register.apple.com/resources/messages/msp-rest-api/type-richlink#rich-link-messages") to the brand's web site, allowing users to read the full
+  These should be handled through a [Rich Link](https://register.apple.com/resources/messages/msp-rest-api/type-richlink#rich-link-messages "https://register.apple.com/resources/messages/msp-rest-api/type-richlink#rich-link-messages") to the brand's web site, allowing users to read the full
   terms at their convenience. Do not send large bubbles of legal text in the
   conversation. These should only be sent the first time a user engages in the
   channel with the brand, or when the terms have been updated.
 - **Initial triage:** A triage menu should be sent
   at the beginning of the interaction. This is a quick way to guide and help the
-  user. You may use a Quick Reply message (up to 5 options). For more information,
+  user. You might use a Quick Reply message (up to 5 options). For more information,
   see [Triage Customers](https://register.apple.com/resources/messages/messaging-documentation/ux-design#triage-customers "https://register.apple.com/resources/messages/messaging-documentation/ux-design#triage-customers").
 - **Make an introduction:** Always introduce live
   agents when a conversation begins, and after transferring a customer to a new
@@ -192,7 +192,7 @@ interaction, and any [out of hours messages](https://register.apple.com/resource
   thumbnail image and call to action text, so customers are clear on the content
   of the feature and recognize it as a tap-able item.
 - **We encourage the use of satisfaction surveys:**
-  Once you complete an interaction with a customer, you may want to provide them
+  After you complete an interaction with a customer, you might want to provide them
   with a customer service satisfaction (CSAT) survey. For a better customer
   experience, provide the CSAT surveys after the experience and not after every
   FAQ. For more information, see [Satisfaction Surveys](https://register.apple.com/resources/messages/messaging-documentation/ux-design#satisfaction-surveys "https://register.apple.com/resources/messages/messaging-documentation/ux-design#satisfaction-surveys").

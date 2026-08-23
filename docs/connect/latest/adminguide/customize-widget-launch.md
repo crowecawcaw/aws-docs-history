@@ -56,7 +56,7 @@ optional and any combination can be used.
 
 The following example shows changes you would need to make in the widget to
 configure programmatic launch to open only when the user chooses a custom button
-element rendered anywhere on your website. For example, they may choose a button
+element rendered anywhere on your website. For example, they might choose a button
 named **Contact Us** or **Chat With Us**.
 Optionally, you can hide the default Connect Customer widget icon until the widget has been
 opened.

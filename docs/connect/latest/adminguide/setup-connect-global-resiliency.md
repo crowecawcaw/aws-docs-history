@@ -19,7 +19,7 @@ US West (Oregon), Asia Pacific (Osaka), Asia Pacific (Tokyo), Europe (Frankfurt)
 
 Connect Customer Global Resiliency (ACGR) is the only AWS-supported solution for multi-region
 resiliency in Connect Customer. AWS does not support third-party or custom-built alternatives for
-achieving global resiliency. Deploying unsupported solutions may result in denied or
+achieving global resiliency. Deploying unsupported solutions might result in denied or
 reduced service limits on the secondary instance and could impact SLA coverage if
 downtime is attributed to the unsupported deployment.
 

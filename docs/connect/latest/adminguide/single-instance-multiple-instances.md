@@ -13,7 +13,7 @@ customer experience.
   Manage/maintain single system, less duplication of
   setup/config.
 - **Centralized management** – Unified
-  metrics, reporting, queues, routing profiles, users, etc.
+  metrics, reporting, queues, routing profiles, users.
 - **Consistent customer experience** –
   Common IVR, flows, and settings across teams.
 
@@ -34,7 +34,7 @@ customer experience.
 
 Enterprises with geographic, regulatory, or security requirements infeasible
 to implement in single-region (telephony, data segregation, latency due to
-physical distance, etc.).
+physical distance).
 
 ### Pros
 
@@ -56,11 +56,11 @@ physical distance, etc.).
   maintain and update multiple environments.
 - **Fragmented reporting** – Multi-region
   reporting currently needs to be built.
-- **Increased costs** – Each instance may
+- **Increased costs** – Each instance might
   require duplicate resources (Lambda, Amazon Lex, API).
 - **Inconsistent user experience** – Unless
-  strictly governed, each instance may drift in flow design, customer
-  experience, customer security models, etc.
+  strictly governed, each instance might drift in flow design, customer
+  experience, customer security models.
 
 ## Summary
 

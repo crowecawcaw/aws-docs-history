@@ -87,10 +87,10 @@ tasks, and chats.
 
 For chat contacts, if an agent switches their status to offline without
 properly clearing the contact in Contact Control Panel (CCP), the following
-issues may occur:
+issues might occur:
 
     + The COMPLETED event might not be delivered.
-    + The AfterContactWorkEndTimestamp may show discrepancies.
+    + The AfterContactWorkEndTimestamp might show discrepancies.
 
 - DISCONNECTED - A voice call, chat, task, or email is disconnected. For outbound
   calls, the dial attempt is not successful, the attempt is connected but the call
@@ -163,7 +163,7 @@ The date and time when the agent ended After Contact Work for the
 contact, in UTC time. In cases when agent finishes doing
 AfterContactWork for chat contacts and switches their activity status to
 offline or equivalent without clearing the contact in CCP, discrepancies
-may be noticed for `AfterContactWorkEndTimestamp`.
+might be noticed for `AfterContactWorkEndTimestamp`.
 
 Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
@@ -493,7 +493,7 @@ Type: String to string map
 
 **CustomerId**
 
-The customer's identification number. For example, the CustomerId may
+The customer's identification number. For example, the CustomerId might
 be a customer number from your CRM. You can create a Lambda function to
 pull the unique customer ID of the caller from your CRM system. If you
 enable Connect Customer Voice ID capability, this attribute is populated with the
@@ -608,7 +608,7 @@ traffic distribution details.
 
 **ActiveRegion**
 
-The current AWS region in which the contact is active. This indicates
+The current AWS Region in which the contact is active. This indicates
 where the contact is being processed in real-time.
 
 Type: String
@@ -617,8 +617,8 @@ Length Constraints: Minimum length of 0. Maximum length of 1024.
 
 **OriginRegion**
 
-The AWS region where the contact was originally created and initiated.
-This may differ from the `ActiveRegion` if the contact has
+The AWS Region where the contact was originally created and initiated.
+This might differ from the `ActiveRegion` if the contact has
 been transferred across regions.
 
 Type: String

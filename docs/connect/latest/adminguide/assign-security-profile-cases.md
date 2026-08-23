@@ -42,7 +42,7 @@ following two images.
     cases in the agent application. This includes viewing case data (for
     example, status, title, summary), contact history (for example,
     calls, chats, tasks with information such as start time, end time,
-    duration, etc.), and comments.
+    duration), and comments.
   - **Edit case**: Allows the user to edit cases,
     which includes editing case data (for example, update case status),
     add comments, and associate contacts to cases.

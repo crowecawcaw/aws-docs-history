@@ -18,7 +18,7 @@ using an agent's existing telephony.
 ###### Note
 
 If the agent's audio device does not support up to 48kHz and the browser asserts a
-sample rate of 48kHz, audio issues such as an audible humming sound may be present
+sample rate of 48kHz, audio issues such as an audible humming sound might be present
 in the agent's outgoing audio. This has been seen with Firefox but not with Chrome.
 
 For instructions on verifying the sample rate of the agent's headset and browser,
@@ -28,7 +28,7 @@ see [Humming sound in the agent's audio device: Verify the headset and browser s
 
 Underpowered workstations can make it difficult for agents to access the tools and
 resources they need to service contacts. Also, keep in mind the resource requirements
-when scoping workstations to ensure that they can perform under load while appropriately
+when scoping workstations to make sure that they can perform under load while appropriately
 multitasking for the use case.
 
 Following are the minimum system requirements for the workstations using the CCP only.
@@ -76,14 +76,14 @@ browsers.
 
 To determine whether a workstation is the source of problems, you need access to
 various levels of logging information. However, adding logging and monitoring to
-workstations that are already experiencing resource contention may further reduce
+workstations that are already experiencing resource contention might further reduce
 available resources and invalidate test results. We recommended that your workstation
 meet the minimum requirements, so you leave additional resources available for logging,
 monitoring, malware scanning, operating system functions, and any other running
 processes.
 
 Collect additional historical logging and data sources for correlation. If you see a
-correlation between the time of the event and the time the issue was reported, you may
+correlation between the time of the event and the time the issue was reported, you might
 be able to determine the root cause with the following information:
 
 - Round trip time (RTT) and packet loss to endpoints located within your Connect Customer

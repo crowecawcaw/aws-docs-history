@@ -71,7 +71,7 @@ code without enabling widget security.
 ### Using the attributes in contact flows
 
 The [Check contact attributes](check-contact-attributes.md "check-contact-attributes.md")
-flow block provides access to these attributes via the **User
+flow block provides access to these attributes through the **User
 defined** namespace, as shown in the following image. You can use
 the flow block to add branching logic. The full path is
 `$Attribute.HostedWidget-`attributeName``.

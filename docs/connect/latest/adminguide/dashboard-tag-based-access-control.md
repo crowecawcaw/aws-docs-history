@@ -94,7 +94,7 @@ View**, **Test Cases - View**, **Evaluation forms
 - The cases performance dashboard does not support tag-based access controls.
 - Scheduled reports are not supported.
 - Changes to resource tags are eventually consistent. After a data update, a
-  brief delay may occur before the system reflects the latest value.
+  brief delay might occur before the system reflects the latest value.
 - When you apply resource filters with tag-based access controls, you can
   view data only for resources in your security profile. For example, if you
   filter a widget by Queues Q1, Q2, and Q3, but your security profile grants
@@ -111,7 +111,7 @@ View**, **Test Cases - View**, **Evaluation forms
   and you want to share a report with another user with a different security
   profile, use the Tag filter to select the resource(s) and select
   **All accessible tags** before saving the report, see
-  example on the image below. This ensures that the user opening the saved
+  example on the image below. This makes sure that the user opening the saved
   report with a different security profile will only view metrics on the same
   report based on the resource tags configured in their security profile.
 

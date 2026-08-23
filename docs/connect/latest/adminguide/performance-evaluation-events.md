@@ -24,7 +24,7 @@ option under **Event pattern**. This is where you will define
 the pattern to match for triggering the rule. 5. Type and select **Amazon Connect** under the
 **AWS service** dropdown to narrow down the event types.
 Select the desired event type in the dropdown below. Choose **Next**
-once the pattern is set up.
+after the pattern is set up.
 
 To subscribe to EventBridge event types, create a custom EventBridge rule that matches
 the following:
@@ -82,17 +82,17 @@ The following is an example EventBridge payload when the rule is matched:
 
 ## Common errors
 
-The following errors may occur when the system eventually fails to process evaluations
+The following errors might occur when the system eventually fails to process evaluations
 after multiple retry attempts.
 
 ### Automated evaluation submission errors
 
-| Error                         | Error message                                                                                                                                                                                |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AUTOMATED_SUBMISSION_FAILED` | Automated contact evaluation submission failed because some of<br>the questions could not be answered. Please verify the evaluation<br>form and/or the Connect Customer rule configurations. |
-| `ANALYSIS_FILE_ERROR`         | Automated contact evaluation submission failed due to an error<br>when searching/retrieving/parsing the analysis file.                                                                       |
-| `INTERNAL_SERVER_ERROR`       | Automated contact evaluation submission failed due to an internal<br>server error. Please expect delayed processing.                                                                         |
-| `QUOTA_EXCEEDED_ERROR`        | Automated contact evaluation submission failed because the<br>remaining quota for using generative AI to automatically answer evaluation<br>questions for the contact is insufficient.       |
+| Error                         | Error message                                                                                                                                                                            |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AUTOMATED_SUBMISSION_FAILED` | Automated contact evaluation submission failed because some of<br>the questions could not be answered. Please verify the evaluation<br>form or the Connect Customer rule configurations. |
+| `ANALYSIS_FILE_ERROR`         | Automated contact evaluation submission failed due to an error<br>when searching/retrieving/parsing the analysis file.                                                                   |
+| `INTERNAL_SERVER_ERROR`       | Automated contact evaluation submission failed due to an internal<br>server error. Please expect delayed processing.                                                                     |
+| `QUOTA_EXCEEDED_ERROR`        | Automated contact evaluation submission failed because the<br>remaining quota for using generative AI to automatically answer evaluation<br>questions for the contact is insufficient.   |
 
 ### Evaluation S3 export errors
 

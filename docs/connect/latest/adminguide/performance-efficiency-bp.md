@@ -4,7 +4,7 @@ Performance eﬃciency includes the ability to use computing resources eﬃcient
 system requirements, and to maintain that eﬃciency as demand changes and technologies
 evolve. This section provides an overview of design principles, best practices, and
 questions surrounding performance efficiency for Connect Customer workloads. You can ﬁnd
-prescriptive guidance on implementation in the [Performance Eﬃciency Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf "                 https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf") whitepaper.
+prescriptive guidance on implementation in the [Performance Eﬃciency Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf "https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf") whitepaper.
 
 ## Architectural design
 
@@ -19,7 +19,7 @@ designing experiences for the contact center:
 
 The reductionist approach focuses on each individual component (IVR, ACD, Speech
 Recognition) on its own and often results in a disjointed customer experience that,
-when evaluated individually, may meet performance requirements for the use case.
+when evaluated individually, might meet performance requirements for the use case.
 However, when evaluated end-to-end, can result in decreased quality of experience
 for your contacts while funneling development efforts into operational silos. This
 approach complicates regression testing, increases time to market, and limits the
@@ -49,14 +49,14 @@ refactoring your single flow into two to enable future segmentation:
 ![Refactoring your single flow into two.](images/architecture/architecturaldesign2.png)
 
 In your next iteration, identify additional experiences that you need to plan for
-and build routing and, if necessary, flows for each. For example, you may want to
-play different prompts for a contact that is past due on their bill or that may have
+and build routing and, if necessary, flows for each. For example, you might want to
+play different prompts for a contact that is past due on their bill or that might have
 tried to contact multiple times for the same purpose. With this approach, you are
 working towards personalized, dynamic experiences that are pertinent to your
 contacts and why they are contacting you. In addition to improving the quality of
 experience for your contacts and decreasing handle times, you’re encouraging contact
 self-service by providing a more intelligent and flexible experience. Your next
-iteration may look like the following illustration:
+iteration might look like the following illustration:
 
 ![Next iteration of flow.](images/architecture/architecturaldesign3.png)
 
@@ -78,7 +78,7 @@ implementation is illustrated in the following figure:
 Alternatively, you should consider an approach that results in Multiple DNIS to
 one or few flows by using the dynamic nature of Connect Customer Flows. With this approach, you
 can store configuration information like Prompts, Queues, Business Hours, Whisper
-Prompts/Flows, Queues, Queue Treatments and Hold Messages etc., in NoSQL Database
+Prompts/Flows, Queues, Queue Treatments and Hold Messages, in NoSQL Database
 DynamoDB. In Connect Customer, you can associate multiple phone numbers to the same flow and use
 the Lambda function to look up configurations for that phone number. This allows you
 to dynamically define the contact’s experience based on the attributes returned from
@@ -165,10 +165,10 @@ your edge router, it can help solve for latency and connectivity issues between
 your edge router and AWS resources. It can also solve for latency and poor
 call quality between your edge router and AWS resources.
 
-Depending on your VDI environment, you may not be able to take advantage of
+Depending on your VDI environment, you might not be able to take advantage of
 Direct Connect as it requires you to conﬁgure your edge router to redirect AWS traﬃc
 across dedicated ﬁber rather than traversing the public WAN. If the VDI
-environment is hosted outside of your local DXC-enabled network, you may not be
+environment is hosted outside of your local DXC-enabled network, you might not be
 able to take full advantage of Direct Connect.
 
 Do not use Direct Connect for "QoS" or "increased security." Direct Connect can cause
@@ -187,7 +187,7 @@ human-like text-to-speech voices possible.
 ### Amazon Lex
 
 Your contact’s path to service can be a challenging experience that doesn’t
-always meet up to their expectations. Your contacts may wait on hold, repeat
+always meet up to their expectations. Your contacts might wait on hold, repeat
 information, need to be transferred, and ultimately, spend too much time getting
 what they need. AI is playing a role in improving this customer experience in
 call centers to include engagement through chatbots — intelligent, natural
@@ -258,7 +258,7 @@ create a fully searchable archive and surface valuable customer insights.
 
 **Whitepaper**
 
-- [Performance Eﬃciency Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf "                         https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf")
+- [Performance Eﬃciency Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf "https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf")
 
 **Video**
 

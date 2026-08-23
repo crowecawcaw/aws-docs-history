@@ -3,7 +3,7 @@
 ## Description
 
 - This block is useful for doing A/B testing. It routes profiles randomly based on a percentage.
-- Profiles are distributed randomly, so exact percentage splits may or may not occur.
+- Profiles are distributed randomly, so exact percentage splits might or might not occur.
 
 ## How it works
 

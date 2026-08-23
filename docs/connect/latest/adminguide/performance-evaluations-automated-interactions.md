@@ -173,7 +173,7 @@ whether the contact was handled during self-service.
 
 You can use contact metrics to automatically answer questions on the
 self-service experience. For example, you can check for customer sentiment
-during the automated interaction. To use metrics, ensure that the Question Type
+during the automated interaction. To use metrics, make sure that the Question Type
 is chosen as Number.
 
 ![Automation tab showing Option 2: Contact metrics selected with customer sentiment score field.](images/self-service-eval-metrics-automation.png)
@@ -202,7 +202,7 @@ Custom contact attributes and contact segment attributes
 You can also use **custom contact
 attributes** and **contact segment
 attributes** set within flows to identify specific workflows,
-bots, customer intents or outcomes. For example, you may set a contact
+bots, customer intents or outcomes. For example, you might set a contact
 attribute within flows, `pizzaOrderBot = true` if a Lex bot
 called "Pizza Order Bot" is invoked during the conversation.
 

@@ -41,7 +41,7 @@ similarly to a category error.
 ### In the UI (Contact details page)
 
 Failed extractions are displayed with dashed borders, transparent
-backgrounds, and an error icon. Hovering over a failed extraction shows
+backgrounds, and an error icon. Pausing on a failed extraction shows
 why it failed.
 
 ### In the S3 analysis output file

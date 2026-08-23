@@ -131,7 +131,7 @@ tries to resume the chat after 12 hours, in the flow you can have an Amazon Lex 
 if they're contacting you about the same issue or a different one.
 
 By specifying a wait time that's significantly shorter than the chat duration, you
-help ensure that customers have a good experience. For instance, for a 25-hour
+help make sure that customers have a good experience. For instance, for a 25-hour
 duration chat, it's possible for the customer to resume a chat after 24 hours and 58
 minutes, and then be cut off after two minutes because the conversation ends at the
 25-hour limit.
@@ -148,7 +148,7 @@ Guide_.
 
 Chat is charged on a per use basis. There are no required up-front payments,
 long-term commitments, or minimum monthly fees. You pay per chat message,
-independently of the number of agents or customers using it. Regional pricing may
+independently of the number of agents or customers using it. Regional pricing might
 vary. For more information, see [Connect Customer
 pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 

@@ -1,6 +1,6 @@
 # Connect Customer Service Improvement and how to opt out from using your data for service improvement
 
-When you enable Connect Customer, we may use Your Content processed by Connect Customer to develop and improve your experience.
+When you enable Connect Customer, we might use Your Content processed by Connect Customer to develop and improve your experience.
 
 Benefits to allowing AWS to use Your Content for service improvement:
 
@@ -22,7 +22,7 @@ and improve your experience:
 - **Outbound campaigns**
 - **Connect Customer agent assist**
   Only Amazon employees will have access to the data. Your trust, privacy, and the
-  security of Your Content are our highest priority and ensure that our use complies with
+  security of Your Content are our highest priority and make sure that our use complies with
   our commitments to you. For more information, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
 
 You can always choose to opt out of having your data used to develop and improve Connect Customer by

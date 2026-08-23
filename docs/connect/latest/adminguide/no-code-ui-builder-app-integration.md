@@ -1,16 +1,16 @@
 # Use screen pop functionality of third-party applications in the Connect Customer agent workspace
 
 For screen pop functionality of third-party applications, you can use step-by-step
-guides or you can use app pinning. For more information, see [Access third-party
-applications in the agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md"). When the contact comes in, the **Guides** tab opens as the
+guides or you can use app pinning. For more information, see [Access 3P apps in the agent
+workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md"). When the contact comes in, the **Guides** tab opens as the
 first one in the agent workspace. You can [configure the step-by-step guides](how-to-invoke-a-flow-sg.md "how-to-invoke-a-flow-sg.md") using flows.
 
 ###### Note
 
 When you configure a view:
 
-- Ensure that the app name registered in the AWS Management Console exactly matches
-  the app name that you are providing to the [Application](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-application--with-agent-workspace-example "https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-application--with-agent-workspace-example") and/or App Launch component.
+- Make sure that the app name registered in the AWS Management Console exactly matches
+  the app name that you are providing to the [Application](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-application--with-agent-workspace-example "https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-application--with-agent-workspace-example") or App Launch component.
 - If you get errors, and you think the names are matching, edit the
   AWS Management Console application name. Ensure there are no leading or trailing
   spaces.

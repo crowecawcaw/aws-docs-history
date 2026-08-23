@@ -11,7 +11,7 @@ version**. This is to prevent accidentally activating templates that are
 drafts.
 
 When a template version is **Activated**, it is available to be added
-to the [Flow block in Connect Customer: Send message](send-message.md "send-message.md") and may be available
+to the [Flow block in Connect Customer: Send message](send-message.md "send-message.md") and might be available
 to agents through the agent workspace.
 
 ###### To activate a messaging template

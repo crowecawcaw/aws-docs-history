@@ -52,7 +52,7 @@ transfer the call to, or use an attribute to set the queue.
 7. To set an interrupt, choose **Interrupt every**, enter a
    value for the interrupt interval, and then choose a unit, either
    **Minutes** or **Seconds**. We recommend
-   that you use an interval greater than 20 seconds to ensure that queued contacts
+   that you use an interval greater than 20 seconds to make sure that queued contacts
    that are being connected to an agent are not interrupted.
 8. Choose **Save**.
 9. Connect the block to the **Entry point** block in the contact

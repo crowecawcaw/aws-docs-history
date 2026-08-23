@@ -11,8 +11,8 @@ You can control how your AI agent queries content at two levels:
 
 ###### Contents
 
-- [How to configure your orchestration agent to query multiple knowledge bases](#w2aac28c32c13 "#w2aac28c32c13")
-- [Content segmentation](#w2aac28c32c15 "#w2aac28c32c15")
+- [How to configure your orchestration agent to query multiple knowledge bases](#w2aac30c34c13 "#w2aac30c34c13")
+- [Content segmentation](#w2aac30c34c15 "#w2aac30c34c15")
 - [Add citation data
   to your AI agent trace](#add-citation-data-ai-agent-trace "#add-citation-data-ai-agent-trace")
 
@@ -37,7 +37,7 @@ Both configurations require the same initial setup. Complete these steps first, 
 
 ![Selecting the retrieve tool.](images/ai-agents-choosing-retrieve-tool.png) 5. Now select the additional knowledge base that you want to associate beyond the default knowledge base
 
-![Choosing the assistant association for the retrieve tool.](images/ai-agents-picking-assistant-association-in-retrieve-tool2.png) 6. Name each additional Retrieve tool starting with "Retrieve" (e.g., Retrieve2, Retrieve3, RetrieveProducts, RetrievePolicies).
+![Choosing the assistant association for the retrieve tool.](images/ai-agents-picking-assistant-association-in-retrieve-tool2.png) 6. Name each additional Retrieve tool starting with "Retrieve" (for example, Retrieve2, Retrieve3, RetrieveProducts, RetrievePolicies).
 
 ![Naming the retrieve tool.](images/ai-agents-naming-the-retrieve-tool.png) 7. Next, configure the tool instructions and examples. The configuration varies depending on your use case. The following sections cover two scenarios: querying all knowledge bases simultaneously and querying knowledge bases selectively.
 
@@ -92,7 +92,7 @@ Use this configuration when you want the agent to select the appropriate knowled
 
 #### Configuring tool instructions for each knowledge base
 
-Unlike parallel invocation, each Retrieve tool needs distinct instructions that describe when it should be used. This includes the default Retrieve tool—you must update its instructions to differentiate it from the additional Retrieve tools. Use descriptive names that reflect each knowledge base's content (e.g., RetrieveProducts, RetrievePolicies) to help the model select the correct tool.
+Unlike parallel invocation, each Retrieve tool needs distinct instructions that describe when it should be used. This includes the default Retrieve tool—you must update its instructions to differentiate it from the additional Retrieve tools. Use descriptive names that reflect each knowledge base's content (for example, RetrieveProducts, RetrievePolicies) to help the model select the correct tool.
 
 1. For each Retrieve tool, including the default, write specific instructions that describe the content of its associated knowledge base and when to use it.
 
@@ -147,7 +147,7 @@ The model's ability to select the correct Retrieve tool depends on several facto
     * **Be specific in descriptions:** Avoid vague descriptions like "general information." List the specific topics, document types, or question categories each knowledge base handles.
     * **Add example questions:** Include sample questions in the tool instructions to help the model understand intended use cases.
     * **Avoid overlap:** Ensure tool names, descriptions, and examples are mutually exclusive. Overlapping content can cause the model to choose inconsistently.
-    * **Match terminology to user language:** Use the same words and phrases your users typically use, not just internal or technical terminology.Your use case may require additional prompt modifications beyond the examples provided here.
+    * **Match terminology to user language:** Use the same words and phrases your users typically use, not just internal or technical terminology.Your use case might require additional prompt modifications beyond the examples provided here.
 
 ## Content segmentation
 
@@ -171,7 +171,7 @@ For examples of tagging content, see the [content segmentation workshop](https:/
 
 ##### Using tags in the Retrieve tool
 
-Once your content is tagged, you can filter retrieval results by specifying tag filters in the Retrieve tool configuration.
+After your content is tagged, you can filter retrieval results by specifying tag filters in the Retrieve tool configuration.
 
 1. In the Retrieve tool configuration, navigate to the Override Input Values section.
 2. Add key-value pairs to define your tag filter. You need two overrides to filter by a single tag. In this example, we use `equals` as the filter operator:

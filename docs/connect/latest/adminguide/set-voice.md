@@ -17,7 +17,7 @@ voice to use for the contact flow.
     Voices](../../../polly/latest/dg/neural-voices.md#neural-voicelist "../../../polly/latest/dg/neural-voices.md#neural-voicelist") in the
     _Amazon Polly Developer Guide_.
   - Generative voices are the most human-like, emotionally engaged,
-    and adaptive conversational voices available for the use via Amazon
+    and adaptive conversational voices available for the use through Amazon
     Polly
   - For a list of supported generative voices, see [Generative Voices](../../../polly/latest/dg/generative-voices.md#generative-voicelist "../../../polly/latest/dg/generative-voices.md#generative-voicelist") in the _Amazon Polly
     Developer Guide_.
@@ -102,7 +102,7 @@ few configurations that must be followed when modifying the block:
     + Language code is only passed into a flow action if
      **Set language attribute** is selected.
      Therefore, invalid language codes will not take the error
-     branch in this block but they may result in erroneous
+     branch in this block but they might result in erroneous
      behavior when used with Lex V2 bots.
     + If a play prompt is added after the Error branch, the
      voice used for it will default to Joanna/standard.
@@ -149,7 +149,7 @@ Configuration Examples| Language Code | Voice | Engine | Speaking style | Result
 | en-US | Ruth | N/D | N/D | **Error branch:_<br>• engine is not<br>specified, thus it defaults to standard. Ruth does not support<br>standard engine, which results in error branch being taken. |
 | en-US | Ruth | neural | none | \**Success branch:_<br>• Ruth supports<br>neural engine |
 | en-US | Ruth | neural | conversational | **Success branch:_<br>• Even though Ruth<br>does not support conversational speech style, the block does not<br>take the error branch. Instead, when the voice is synthesized, it<br>just uses no speaking style. |
-| ar-AE | Ruth | neural | none | \**Success branch:_<br>• This block does<br>not do validation on language code. Only the voice is used to<br>synthesize speech. However, language code being incorrect may result<br>in erroneous behavior when used with Lex V2 bots. |
+| ar-AE | Ruth | neural | none | \**Success branch:_<br>• This block does<br>not do validation on language code. Only the voice is used to<br>synthesize speech. However, language code being incorrect might result<br>in erroneous behavior when used with Lex V2 bots. |
 
 ## Use an Amazon Lex V2 bot with Connect Customer
 

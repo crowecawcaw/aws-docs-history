@@ -13,7 +13,7 @@ Connect Customer.
 
 You can use AWS Lambda functions to either look up or post data to sources outside
 of Connect Customer. For example, you can look up an inbound caller on Salesforce based on the
-customer’s phone number. The function may return such results as the customer name,
+customer’s phone number. The function might return such results as the customer name,
 membership level (for example, frequent flyer), last order, and order status. Then
 based on that information, the call can be routed to an Amazon Lex bot or an agent.
 

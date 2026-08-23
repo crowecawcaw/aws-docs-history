@@ -211,7 +211,7 @@ You can have multiple order identifiers.
 ###### Tip
 
 If the search attributes in your data source objects contain
-mostly the same value, it may result in slower data ingestion.
+mostly the same value, it might result in slower data ingestion.
 We recommend creating search attributes that are unique in your
 data source objects.
 

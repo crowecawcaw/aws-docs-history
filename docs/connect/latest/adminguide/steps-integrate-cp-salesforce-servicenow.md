@@ -29,7 +29,7 @@ requirements needed for your application.
 of the following:
 
     * **Use existing connection**: This allows
-     you to reuse existing Amazon AppFlow resources you may have created
+     you to reuse existing Amazon AppFlow resources you might have created
      in your AWS account..
     * **Create new connection**: Enter the
      information required by the external application.

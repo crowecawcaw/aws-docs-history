@@ -109,7 +109,7 @@ Your [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference
   the traffic distribution group is not `ACTIVE`, or you do not
   have ownership of the traffic distribution group.
 - The phone number is not available for claiming. In some cases, a phone
-  number found from [SearchAvailablePhoneNumbers](../APIReference/API_SearchAvailablePhoneNumbers.md "../APIReference/API_SearchAvailablePhoneNumbers.md") may have been claimed by
+  number found from [SearchAvailablePhoneNumbers](../APIReference/API_SearchAvailablePhoneNumbers.md "../APIReference/API_SearchAvailablePhoneNumbers.md") might have been claimed by
   another customer.
 
 [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference/API_ClaimPhoneNumber.md") will fail with a

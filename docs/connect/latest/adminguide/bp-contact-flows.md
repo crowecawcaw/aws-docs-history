@@ -22,7 +22,7 @@ creating flows.
 - Use a **Set logging behavior** block to enable or disable
   logging for segments of the flow where sensitive information is collected and
   can't be stored in CloudWatch.
-- Ensure that attributes used in the flow are set and referenced correctly. If
+- Make sure that attributes used in the flow are set and referenced correctly. If
   there are periods prepended to the attribute names, you are likely using
   JSONPath ($.) format while also selecting a variable type from the pick list.
   For example, using:
@@ -38,7 +38,7 @@ creating flows.
   that **Check hours of operation** and **Check
   staffing** blocks are used. They verify that the call is within
   working hours and that agents are staffed to service.
-- Ensure that callbacks are offered before and after queue transfer by using
+- Make sure that callbacks are offered before and after queue transfer by using
   **Check queue status** blocks. Include a condition for
   **Queue capacity** that is greater than X, where X is a
   number representing your expected queue capacity.
@@ -60,15 +60,15 @@ creating flows.
 - Use a **Loop prompts** block in your Customer queue flow to
   interrupt with a queued callback and external transfer option at regular
   intervals.
-- Ensure that all countries referenced in external transfers or used for
+- Make sure that all countries referenced in external transfers or used for
   outbound dialing are added to the service quota for your
   account/instance.
-- Ensure that all numbers referenced in external transfers are in E.164 format.
+- Make sure that all numbers referenced in external transfers are in E.164 format.
   Drop the national trunk prefix that you use when calling locally. This prefix
   would be the leading 0 for most of Europe, 1 for the US. The prefix is replaced
   by the country code. For example, the UK mobile number **07911
   123456** in E.164 format is **+44 7911 123456
   (tel:+447911123456)**.
-- Ensure that there are no infinite loops in the flow logic. Also ensure that
+- Make sure that there are no infinite loops in the flow logic. Also make sure that
   for each call, the flow connects the caller to an agent, bot, or transferred
   externally for further assistance.

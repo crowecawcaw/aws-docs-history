@@ -382,11 +382,11 @@ dashboard:
   GMT for the Telephony delivery mode, November 6, 2024 0:00:00 GMT for the
   Email and SMS delivery modes, December 2, 2025 0:00:00 GMT for the WhatsApp
   delivery mode, and May 28, 2026 0:00:00 GMT for the web notification
-  delivery mode. This may impact dashboard functionalities such as monthly
+  delivery mode. This might impact dashboard functionalities such as monthly
   benchmarks where data won't be available before these dates for
   comparison.
 - Saved reports before November 6, 2024 0:00:00 GMT could contain stale data
-  due to newly added feature enhancements. To ensure you have accurate data
+  due to newly added feature enhancements. To make sure you have accurate data
   from the latest features, we recommend replacing any saved dashboards with
   the most recent version of the Outbound campaigns performance
   dashboard.

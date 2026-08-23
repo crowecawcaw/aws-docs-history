@@ -72,7 +72,7 @@ You shouldn't disable encryption.
 We recommend using the contact ID to search
 for recordings.
 
-Even though many call recordings for specific contact IDs may be named with
+Even though many call recordings for specific contact IDs might be named with
 the contact ID prefix itself (for example, 123456-aaaa-bbbb-3223-2323234.wav),
 there is no guarantee that the contact IDs and name of the contact recording
 file _always_ match. By using **Contact ID**
@@ -85,7 +85,7 @@ contact record.
 When the recording for an agent interaction is enabled, the recording is placed in
 your S3 bucket shortly after the contact is disconnected. When IVR recording is
 enabled, the recording is placed in your S3 bucket shortly after the contact is
-disconnected or once the call is answered by an agent. You can [review the recording](review-recorded-conversations.md "review-recorded-conversations.md") for both
+disconnected or after the call is answered by an agent. You can [review the recording](review-recorded-conversations.md "review-recorded-conversations.md") for both
 agent interactions and automated interactions (IVR)..
 
 ###### Important

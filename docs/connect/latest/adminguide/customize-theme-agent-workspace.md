@@ -6,7 +6,7 @@ To customize the visual appearance of the agent workspace, [create a workspace](
 
 ![The agent workspace with a custom theme.](images/agent-workspace-custom-theme.png)
 Agents can choose between light and dark modes to match their preference.
-To change modes, go to the user settings at the top right of the agent workspace.
+To change modes, open the user settings at the top right of the agent workspace.
 
 ![The agent workspace in light mode.](images/agent-workspace-light-mode.png)
 

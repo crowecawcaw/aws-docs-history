@@ -74,3 +74,12 @@ do this, use the [UpdatePhoneNumber](../APIReference/API_UpdatePhoneNumber.md ".
 traffic distribution group. 4. [Update your traffic
 distribution](update-telephony-traffic-distribution.md "update-telephony-traffic-distribution.md"). Use the [UpdateTrafficDistribution](../APIReference/API_UpdateTrafficDistribution.md "../APIReference/API_UpdateTrafficDistribution.md") API to distribute traffic across the
 linked instances in 10% increments.
+
+###### Perform monthly failover testing
+
+Perform monthly testing to validate your failover procedure and confirm your
+runbook is current.
+
+If a full failover test is not feasible, create a test traffic distribution group pointed to the
+replica Region. Use it to test critical flows monthly without impacting
+production traffic.

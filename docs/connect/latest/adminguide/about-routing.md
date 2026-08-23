@@ -38,17 +38,17 @@ For example:
     + An agent named Joe is idle. He is third in line to receive an inbound
      contact. He would rather handle an inbound contact than an outbound
      contact because he knows he will speak to a customer, whereas an
-     outbound contact may not pick up the phone. Talking to an inbound
+     outbound contact might not pick up the phone. Talking to an inbound
      contact increases his odds of getting recognition in his role.
     + Because he is idle, Joe decides to make an outbound contact to chip
-     away at the backlog. He may or may not reach someone.
+     away at the backlog. He might or might not reach someone.
     + By default, when Joe makes the outbound contact, he moves from third
      in line to the bottom of the list of agents waiting to receive an
      inbound contact. (If there are 10 agents, he is moved to 10th place). If
      instead he should remain in third place, you can override the default
      behavior.
 
-- A routing profile may assign a priority to one queue over another, but the
+- A routing profile might assign a priority to one queue over another, but the
   priority within the queue is always set by the order the contact was added to
   the queue.
 - If the contact belongs to a queue and channel combination that is **only** listed under the manually assigned section of a

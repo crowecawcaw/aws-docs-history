@@ -28,7 +28,7 @@ the voice analysis and the status returned by Voice ID:
     authentication.
   - **Not enrolled**: The caller has not yet been
     enrolled in voice authentication. When this status is returned, for
-    example, you may want to directly route the call to an agent for
+    example, you might want to directly route the call to an agent for
     enrollment.
   - **Opted out**: The caller has opted out of voice
     authentication.
@@ -47,7 +47,7 @@ the voice analysis and the status returned by Voice ID:
     get the required 10 seconds to provide a result for authentication.
   - **Not enrolled**: The caller has not yet been
     enrolled in voice authentication. When this status is returned, for
-    example, you may want to directly route the call to an agent for
+    example, you might want to directly route the call to an agent for
     enrollment.
   - **Opted out**: The caller has opted out of voice
     authentication.

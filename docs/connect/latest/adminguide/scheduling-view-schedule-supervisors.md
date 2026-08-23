@@ -64,7 +64,7 @@ example, after their break. It doesn't indicate how long the breach was.
 - The adherence view displays the agents' non-adherence data alongside
   their scheduled activities. It displays breaches that are longer than a
   minute. The data refreshes approximately every 5 minutes.
-- You can hover over the non-adherence activities to view details such
+- You can pause on the non-adherence activities to view details such
   as start time, end time, duration, scheduled activity, and actual
   activity. You can also view the adherence percentage that is calculated
   for this shift.

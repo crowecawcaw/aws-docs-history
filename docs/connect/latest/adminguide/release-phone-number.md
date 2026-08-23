@@ -15,8 +15,8 @@ When a phone number is released from your Connect Customer instance:
 ###### Tip
 
 If you want to close your Connect Customer account, do these steps for all of your phone
-numbers. This will ensure you aren't billed if people erroneously call numbers
-that you've claimed, and initiate your flows. You may also want to [delete your instances.](delete-connect-instance.md "delete-connect-instance.md")
+numbers. This will make sure you aren't billed if people erroneously call numbers
+that you've claimed, and initiate your flows. You might also want to [delete your instances.](delete-connect-instance.md "delete-connect-instance.md")
 
 ###### To release a phone number
 

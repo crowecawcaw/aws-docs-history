@@ -5,7 +5,7 @@ The level is a numeric value of 1, 2, 3, 4, or 5, where 1 indicates the lowest p
 and 5 indicates the highest. After you have created predefined
 attribute, you can assign one or more proficiencies to an agent.
 
-For example, Agent1 and Agent2 may be proficient in multiple technologies at varying
+For example, Agent1 and Agent2 might be proficient in multiple technologies at varying
 levels. They can be assigned proficiencies to reflect their level of proficiency in those
 technologies as shown in the following table:
 

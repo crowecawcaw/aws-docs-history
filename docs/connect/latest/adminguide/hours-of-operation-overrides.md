@@ -16,7 +16,7 @@ Up to 50 overrides can be created for each hours of operation resource. This quo
 
 If you have view-only permissions, you will not see this action. 4. Build your list of overrides by choosing between:
 
-    1. **Add recurring event** — Use for holidays and other dates that follow a repeating pattern (e.g. early closure the last Friday of every month).
+    1. **Add recurring event** — Use for holidays and other dates that follow a repeating pattern (for example, early closure the last Friday of every month).
     2. **Create temporary hours** — Use for dates with non-standard hours that are not recurring and where the configured hours must supersede all other settings for that date/range.
     3. **Copy from another Hours of Operation** - Use when it is helpful to pull together overrides already configured on other records, but you want the option to make changes (for example, to remove certain dates).
 
@@ -127,7 +127,7 @@ If only a subset of users with permission to edit hours of operations should hav
 
 ###### Dates with competing overrides
 
-There may be times where the overrides on a given hours of operation resource conflict with each other. Connect prioritizes the various types as follows:
+There might be times where the overrides on a given hours of operation resource conflict with each other. Connect prioritizes the various types as follows:
 
 1. Closed recurring overrides are considered first.
 2. Open recurring overrides are considered next.

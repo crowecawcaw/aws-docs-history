@@ -168,7 +168,7 @@ appear.
   trace details show model reasoning and tool call information.
 - Knowledge base citation reference is available under the Prompt
   (inference span) under Span details, when configured and
-  available. To ensure you have your citations configured, see
+  available. To make sure you have your citations configured, see
   [Knowledge base retrieval configuration](multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace "multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace").
 - For each tool call, you can view the Tool metadata along with the
   input parameters passed into the tool call.
@@ -183,7 +183,7 @@ appear.
 
 ![AI agent span details with knowledge base citations.](images/ai-agent-traces-prompt-details-2.png)
 
-The following labels may appear in the trace:
+The following labels might appear in the trace:
 
 - **ESC:** Stands for Escalate. Shows you
   when the AI agent escalated to a human agent.

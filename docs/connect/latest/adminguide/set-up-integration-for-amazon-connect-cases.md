@@ -23,7 +23,7 @@ forward these events to Customer Profiles.
 ![The Cases page, the Domain details section showing the domain ID.](images/stream-data-from-connect-cases-to-event-bridge-2.png)
 
 1. Using the AWS CLI, create a Case event configuration to send Connect Customer
-   Cases Events to your AWS account's default Event Bridge bus.
+   Cases Events to the default EventBridge bus for your AWS account.
 
 ```
 // set up Case Event Configuration including all system fields

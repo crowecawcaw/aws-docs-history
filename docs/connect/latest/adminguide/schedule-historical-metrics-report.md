@@ -24,13 +24,13 @@ know:
 - When the report is exported to your Amazon S3 bucket, the file
   name includes the date and UTC time when the report was created. The
   **Last modified date** for the file is displayed using
-  the time zone for the Amazon S3 bucket, and may not match the
+  the time zone for the Amazon S3 bucket, and might not match the
   creation time for the report, which is in UTC.
 
 ###### There's a 15 minute delay
 
 - For scheduled reports, there is a delay of 15 minutes after the scheduled
-  report time before the report is generated. This is to ensure that the
+  report time before the report is generated. This is to make sure that the
   report includes the data for all of the activity that occurred during the
   time range specified for the report. Data from your contact center is not
   immediately processed and available to include in reports, so some data from
@@ -38,7 +38,7 @@ know:
   at the second the time range ends.
 - For example, if you create a scheduled report for time frame of 8:00 AM to
   5:00 PM, and there is activity in your contact center between 4:46:00 PM and
-  4:59:59 PM, the data about that activity may not be aggregated prior 5:00 PM
+  4:59:59 PM, the data about that activity might not be aggregated prior 5:00 PM
   when the report is scheduled to generate. Instead, the report is generated
   after 5:15 PM, by which time the data for the last 15 minutes of the time
   range is included in the report.

@@ -59,11 +59,11 @@ company couldn't resolve their issue.
        use an attribute to set the name.
 
      In some cases, the caller ID information is provided by the
-     carrier of the party you are calling. The information may not be
-     up-to-date with that carrier, or the number may get passed
+     carrier of the party you are calling. The information might not be
+     up-to-date with that carrier, or the number might get passed
      differently between systems because of hardware or configuration
-     differences. If that is the case, the person you call may not
-     see the phone number, or may see the name of a previously
+     differences. If that is the case, the person you call might not
+     see the phone number, or might see the name of a previously
      registered owner of the number, instead of the name you specify
      in the block.
 

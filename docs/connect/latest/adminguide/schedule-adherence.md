@@ -1,7 +1,7 @@
 # Schedule Adherence for agent productivity in Connect Customer
 
 Contact center supervisors or managers track schedule adherence to understand when
-agents are following the schedule that you have created. This helps ensure you achieve
+agents are following the schedule that you have created. This helps make sure you achieve
 your service level targets, while improving agent productivity and customer
 satisfaction.
 
@@ -9,7 +9,7 @@ Before you begin, note the following:
 
 1. Schedule Adherence requires that schedules are created and published. For more
    information, see [Scheduling in Connect Customer](scheduling.md "scheduling.md").
-2. Ensure you have the right permissions to access metrics and scheduling
+2. Make sure you have the right permissions to access metrics and scheduling
    information. For more information about the required permissions, see [Assign
    permissions](required-optimization-permissions.md "required-optimization-permissions.md").
 
@@ -232,7 +232,7 @@ against configured thresholds:
 - The **Schedule adherence percent** shows the adherence
   calculation taking thresholds into account.
 
-You can hover over the **Using thresholds** indicator to see
+You can pause on the **Using thresholds** indicator to see
 details about the threshold being used.
 
 The following image shows an example **Queue and agent

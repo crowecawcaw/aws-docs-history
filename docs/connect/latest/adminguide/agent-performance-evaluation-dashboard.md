@@ -63,7 +63,7 @@ Save a custom dashboard by:
 ![Add widget dialog showing Performance evaluation category with six widget options.](images/agent-performance-widgets.png)
 
 - **Save** the dashboard.
-- Choose **Share**. **Publish** the dashboard to make it available to other users. You may set the share setting to **Read-only** to prevent others from making edits to the dashboard.
+- Choose **Share**. **Publish** the dashboard to make it available to other users. You might set the share setting to **Read-only** to prevent others from making edits to the dashboard.
 
 ![Share dashboard dialog with Read-only toggle, share link, and Publish toggle options.](images/agent-performance-dashboard-share.png)
 
@@ -312,7 +312,7 @@ Note that you can filter any dashboard widget containing evaluation metrics by t
 ## Agent hierarchy evaluation metrics
 
 On this table, you can drill-down into avg. evaluation score and evaluations performed by agent hierarchy.
-You can configure your agent hierarchy to represent geographical locations, departments, teams, etc.
+You can configure your agent hierarchy to represent geographical locations, departments, teams.
 
 ![Agent hierarchy evaluation metrics table.](images/agent-hierarchy-evaluation-metrics-table.png)
 

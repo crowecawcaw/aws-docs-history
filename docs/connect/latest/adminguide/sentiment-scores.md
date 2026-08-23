@@ -13,7 +13,7 @@ sentiment trend across whole contact.
 
 ## How to investigate sentiment scores
 
-When working to improve your contact center, you may want to focus on the
+When working to improve your contact center, you might want to focus on the
 following:
 
 - Contacts that start with a positive sentiment score but end with a

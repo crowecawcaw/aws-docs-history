@@ -5,6 +5,21 @@ Inbox. Choose the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## August 2026 Updates
+
+### Connect Customer now establishes the persistent connection when the agent logs in
+
+When you select **Enable persistent connection** for an agent, the
+agent's softphone maintains its media connection to Connect Customer for a few minutes after login
+and after each call ends. This enables subsequent calls to connect faster. If the agent
+remains idle for an extended period of time, the softphone drops the media connection to
+reduce agent workstation and network resource consumption. This does not impact the
+agent's ability to receive calls. The media connection is re-established when the agent
+receives the next call.
+
+To learn more, see [Enable persistent
+connection](enable-persistent-connection.md "enable-persistent-connection.md").
+
 ## July 2026 Updates
 
 ### Connect Customer now supports bulk user management enhancements
@@ -103,7 +118,7 @@ Available in all AWS Regions where Connect Customer screen recording is offered.
 
 Connect Customer now lets you route a contact to a specific agent even if that agent is at maximum concurrency or in a custom status, ensuring time-sensitive interactions reach the right person without waiting for availability. For example, an agent handling routine service calls can still receive a callback on their personal extension the moment it comes in, then decide whether to place their current caller on hold to take it.
 
-You configure the behavior in a Customer queue flow by specifying the target agent manually or dynamically via contact attributes, and the routing engine handles the override. This works across voice, chat, task, and email channels.
+You configure the behavior in a Customer queue flow by specifying the target agent manually or dynamically through contact attributes, and the routing engine handles the override. This works across voice, chat, task, and email channels.
 
 Available in all AWS Regions where Connect Customer is offered. To learn more, see [Interrupt agent](interrupt-agent.md "interrupt-agent.md").
 
@@ -291,7 +306,7 @@ This feature is available as a preview. To request access, contact your AWS acco
 
 Connect Customer now supports conversational analytics for email contacts, enabling contact center managers to automatically categorize emails, redact personally identifiable information (PII), and generate contact summaries. This allows you to quickly identify emerging trends, better maintain compliance by protecting sensitive information, and reduce the time spent reviewing agent performance.
 
-To enable this feature, add the Set recording, analytics and processing behavior block to your flows before an email contact is assigned to your agent or sent to your end customer. You can customize which PII types to redact, choose whether redacted content shows specific PII type indicators (e.g., [SSN]) or generic markings ([PII]), opt to store both original and redacted versions in separate storage, and enable contact summaries.
+To enable this feature, add the Set recording, analytics and processing behavior block to your flows before an email contact is assigned to your agent or sent to your end customer. You can customize which PII types to redact, choose whether redacted content shows specific PII type indicators (for example, [SSN]) or generic markings ([PII]), opt to store both original and redacted versions in separate storage, and enable contact summaries.
 
 Connect Customer conversational analytics is available in the US East (N. Virginia), US West (Oregon), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), and Europe (London) regions. For more information, see [the help documentation](analyze-conversations.md "analyze-conversations.md").
 
@@ -351,7 +366,7 @@ only for inbound voice contacts. To learn more, see [Configure agent settings](c
 
 Please note that if you currently integrate with the UpdateUserPhoneConfig API, we recommend you migrate
 to the newly released UpdateUserConfig API instead. Per-channel auto-accept and ACW timeouts can only be
-updated via UpdateUserConfig API.
+updated through UpdateUserConfig API.
 
 ### Audio Enhancement for agents
 
@@ -394,11 +409,11 @@ calling about billing during peak hours with a 15-minute wait is seamlessly tran
 team with 2-minute availability, getting help faster without repeating their issue. The metric works seamlessly
 with routing criteria and agent proficiency configurations.
 
-This feature is available in all [AWS regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") where Amazon Connect is offered.
-To learn more about estimated wait time see the [Amazon Connect Administrator Guide](get-queue-metrics.md "get-queue-metrics.md").
+This feature is available in all [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") where Amazon Connect is offered.
+For more information about estimated wait time, see [Estimated wait time](get-queue-metrics.md "get-queue-metrics.md") in the Connect Customer Administrator Guide.
 To learn more about Amazon Connect, the AWS cloud-based contact center, please visit the [Amazon Connect website](https://aws.amazon.com/connect/ "https://aws.amazon.com/connect/").
 
-### Connect Customer now supports file attachments for tasks via StartTaskContact API
+### Connect Customer now supports file attachments for tasks through StartTaskContact API
 
 Connect Customer now enables you to include file attachments when creating tasks using the StartTaskContact API.
 You can attach up to 5 files per task in various formats such as .pdf, .docx, .csv, .txt, .png, .jpg, .mp4, and more.
@@ -421,7 +436,7 @@ prior contact in the [chain](contacts-contact-chains-attributes.md#contact-chain
 to follow-up contacts more easily.
 
 In addition, you can now use flows to link a related contact to a case. For example, when you
-create a case via a Step-by-Step Guide, you can link that case to the main contact (e.g., voice,
+create a case through a Step-by-Step Guide, you can link that case to the main contact (for example, voice,
 chat, email, or tasks) directly using flows.
 
 ### Recurring overrides and visual calendar for hours of operation
@@ -440,11 +455,11 @@ For more information, see [Set overrides for extended, reduced, and holiday hour
 
 Connect Customer Cases now supports AWS CloudFormation, enabling you to model, provision, and manage case resources as infrastructure as code. With this launch, administrators can create CloudFormation templates to programmatically deploy and update their Cases configuration—such as templates, fields, and layouts—across Connect Customer instances, reducing manual setup time and minimizing configuration errors.
 
-For more information, see [documentation](../../../AWSCloudFormation/latest/TemplateReference/AWS_Cases.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_Cases.md").
+For more information, see [AWS::Cases](../../../AWSCloudFormation/latest/TemplateReference/AWS_Cases.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_Cases.md") in the _AWS CloudFormation Template Reference_.
 
 ### Agent screen recording status tracking
 
-Connect Customer now offers customers the ability to view status of agent screen recordings in near real time in CloudWatch using Amazon EventBridge. With screen recording, supervisors can identify areas for agent coaching (e.g., non-compliance with business processes) by not only listening to customer calls or reviewing chat transcripts, but also watching agents' actions while handling a contact (i.e., a voice call, chat and task). Using Amazon EventBridge, customers can see status of each agent screen recording including success/failure, failure codes with description, installed client version, agent web browser version, agent operating system, screen recording start and end times from CloudWatch.
+Connect Customer now offers customers the ability to view status of agent screen recordings in near real time in CloudWatch using Amazon EventBridge. With screen recording, supervisors can identify areas for agent coaching (for example, non-compliance with business processes) by not only listening to customer calls or reviewing chat transcripts, but also watching agents' actions while handling a contact (that is, a voice call, chat and task). Using Amazon EventBridge, customers can see status of each agent screen recording including success/failure, failure codes with description, installed client version, agent web browser version, agent operating system, screen recording start and end times from CloudWatch.
 
 Customers can start using Connect Customer screen recording status tracking by subscribing to Screen Recording Status Changed event type in Amazon EventBridge event bus.
 
@@ -472,7 +487,7 @@ flows. Guides can then be configured to surface role-specific actions for each b
 within persona based workspaces. Together, these updates enable a business-led operating model
 that keeps contact center operations fast, consistent, and secure, all without relying on IT.
 
-For more information, see [Set up workspaces for your admin website users](amazon-connect-workspaces.md "amazon-connect-workspaces.md").
+For more information, see [Set up workspaces for your business users](amazon-connect-workspaces.md "amazon-connect-workspaces.md").
 
 ### Dashboards now support filtering metrics based on custom business dimensions
 
@@ -521,7 +536,7 @@ For more information, see [Add case field conditions to a case template in Conne
 
 Connect Customer now supports creation of custom metrics, enabling contact center supervisors to
 analyze tailored performance measurements without requiring technical skills. This feature
-provides a simple, no-code interface for performing mathematical operations (e.g., addition,
+provides a simple, no-code interface for performing mathematical operations (for example, addition,
 subtraction, sum, average) on existing Connect data to build metrics that align with your
 organization's specific business requirements. Custom metrics are available to use in the
 dashboards and APIs.
@@ -530,7 +545,7 @@ For more information, see [Custom metric primitives](metric-primitive-definition
 
 ### Native testing and simulation capabilities
 
-Connect Customer now allows you to test and simulate contact center experiences in just a few clicks, making it easy to validate workflows, self-service voice interactions, and their outcomes. For each test, you can configure the test parameters including the caller's phone number or customer profile, the reason for the call (such as "I need to check my order status"), the expected responses (such as "Your request has been processed"), and business conditions like after-hours scenarios or full call queues. After executing tests, results show success or failure based on your defined criteria, along with the path taken by the simulated interaction and detailed logs to quickly diagnose potential issuesWith this launch, you can run multiple tests simultaneously to validate scenarios and workflows at scale, reducing testing time. Companies can view test results and identify common failure patterns across all their tests in Connect's analytics dashboards. These capabilities enable you to rapidly validate changes to your workflows and confidently deploy new experiences to adapt to your ever-changing business needs.
+Connect Customer now allows you to test and simulate contact center experiences in just a few clicks, making it easy to validate workflows, self-service voice interactions, and their outcomes. For each test, you can configure the test parameters including the caller's phone number or customer profile, the reason for the call (such as "I need to check my order status"), the expected responses (such as "Your request has been processed"), and business conditions like after-hours scenarios or full call queues. After executing tests, results show success or failure based on your defined criteria, along with the path taken by the simulated interaction and detailed logs to quickly diagnose potential issuesWith this launch, you can run multiple tests simultaneously to validate scenarios and workflows at scale, reducing testing time. Companies can view test results and identify common failure patterns across all their tests in the analytics dashboards of Connect Customer. These capabilities enable you to rapidly validate changes to your workflows and confidently deploy new experiences to adapt to your ever-changing business needs.
 
 For more information, see [Connect Customer Testing and Simulation](testing-simulation.md "testing-simulation.md").
 
@@ -542,7 +557,7 @@ For more information, see [Evaluate agent and self-service interaction performan
 
 ### Support for third-party speech-to-text and text-to-speech AI models for end-customer self-service
 
-Connect Customer now supports third-party speech providers for end-customer self-service, giving you greater flexibility in how you deliver voice experiences. You can integrate Deepgram for speech-to-text and ElevenLabs for text-to-speech directly within Connect Customer, using them together with Connect Customer's native speech capabilities, built-in orchestration, analytics, and compliance controls. This feature is available in Connect Customer instances and in all commercial AWS regions where Connect Customer is offered.
+Connect Customer now supports third-party speech providers for end-customer self-service, giving you greater flexibility in how you deliver voice experiences. You can integrate Deepgram for speech-to-text and ElevenLabs for text-to-speech directly within Connect Customer, using them together with the native speech capabilities of Connect Customer, built-in orchestration, analytics, and compliance controls. This feature is available in Connect Customer instances and in all commercial AWS Regions where Connect Customer is offered.
 
 For more information, see [Configure third-party speech-to-text (STT) providers](configure-third-party-stt.md "configure-third-party-stt.md").
 
@@ -572,13 +587,13 @@ For more information, see [Enable agent-initiated flows during active chat sessi
 
 ### Agentic self-service with more natural, expressive, and adaptive voice interactions
 
-Connect Customer is introducing agentic self-service capabilities that enable AI agents to understand, reason, and take action across voice and messaging channels to automate routine and complex customer service tasks. Connect enables you to blend deterministic and agentic experiences, allowing you to deploy these AI agents at scale, reliably and safely. With integration with advanced speech models from Amazon Nova Sonic, voice self-service experiences now deliver more natural and adaptive interactions. Connect's self-service voice AI agents understand not only what customers say but how they say it, adapting voice responses to match customer tone and sentiment while maintaining natural conversational pace across multiple languages and accents. For example, when a customer calls about an order issue, your AI agent can greet them by name, ask clarifying questions, look up their order status, and process a refund, with voice interactions that adapt to the customer's tone and respond expressively throughout the conversation. This enables your contact center to automate complex troubleshooting, account management, and consultative interactions while maintaining the ability to escalate to a live representative at any point.Nova Sonic support with Amazon Connect is available in two commercial AWS Regions: US East (N. Virginia) and US West (Oregon) and fully available in English and Spanish and in preview for French, Italian, and German.
+Connect Customer is introducing agentic self-service capabilities that enable AI agents to understand, reason, and take action across voice and messaging channels to automate routine and complex customer service tasks. Connect enables you to blend deterministic and agentic experiences, allowing you to deploy these AI agents at scale, reliably and safely. With integration with advanced speech models from Amazon Nova Sonic, voice self-service experiences now deliver more natural and adaptive interactions. The self-service voice AI agents of Connect Customer understand not only what customers say but how they say it, adapting voice responses to match customer tone and sentiment while maintaining natural conversational pace across multiple languages and accents. For example, when a customer calls about an order issue, your AI agent can greet them by name, ask clarifying questions, look up their order status, and process a refund, with voice interactions that adapt to the customer's tone and respond expressively throughout the conversation. This enables your contact center to automate complex troubleshooting, account management, and consultative interactions while maintaining the ability to escalate to a live representative at any point.Nova Sonic support with Amazon Connect is available in two commercial AWS Regions: US East (N. Virginia) and US West (Oregon) and fully available in English and Spanish and in preview for French, Italian, and German.
 
-For more information, see [this blog post](https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-sonic-next-generation-speech-to-speech-model-for-conversational-ai "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-sonic-next-generation-speech-to-speech-model-for-conversational-ai").
+For more information, see [Introducing Amazon Nova 2 Sonic](https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-sonic-next-generation-speech-to-speech-model-for-conversational-ai "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-2-sonic-next-generation-speech-to-speech-model-for-conversational-ai") on the AWS News Blog.
 
 ### Chat now supports in-flight data redaction and message processing
 
-Connect Customer now supports message processing that intercepts and processes chat messages before they reach any participant. This new capability enables automatic redaction of sensitive data and custom message processing, helping businesses maintain compliance and security standards while delivering personalized customer experiences.The built-in sensitive data redaction can automatically detect and remove sensitive information like credit card numbers and social security numbers across multiple languages, including English, French, Portuguese, German, Italian, and Spanish variants. You can choose to redact selected or all sensitive data entities, with options to replace them with generic or entity-specific placeholders (e.g., [PII] or [NAME]). Businesses can also integrate custom processors for use cases such as language translation or profanity filtering, ensuring compliant and effective communications for their specific business needs.
+Connect Customer now supports message processing that intercepts and processes chat messages before they reach any participant. This new capability enables automatic redaction of sensitive data and custom message processing, helping businesses maintain compliance and security standards while delivering personalized customer experiences.The built-in sensitive data redaction can automatically detect and remove sensitive information like credit card numbers and social security numbers across multiple languages, including English, French, Portuguese, German, Italian, and Spanish variants. You can choose to redact selected or all sensitive data entities, with options to replace them with generic or entity-specific placeholders (for example, [PII] or [NAME]). Businesses can also integrate custom processors for use cases such as language translation or profanity filtering, ensuring compliant and effective communications for their specific business needs.
 
 For more information, see [Enable in-flight sensitive data redaction and message processing](redaction-message-processing.md "redaction-message-processing.md").
 
@@ -590,7 +605,7 @@ For more information, see [How Connect Customer email works](email-capabilities.
 
 ### AI agent assistance and summarization for Agentforce Service
 
-Connect Customer launches real-time AI agent assistance and contact summarization for Salesforce Contact Center with Amazon Connect (SCC-AC). It enables Connect AI agents to automatically use customer information and knowledge base articles from Salesforce CRM for accelerated issue resolution and consistent outcomes across voice and chat interactions.When human intervention is required, the seamless integration within SCC-AC connects customers to agents who have a unified view of customer data, issue context, and interaction history within Agentforce Service and Agentforce Sales. Agents receive real-time voice transcripts and contextual recommendations, while supervisors gain enhanced call monitoring capabilities directly in Salesforce. Upon resolution, automated post-contact summarization enables agents to easily update Salesforce cases, streamlining administrative tasks. Administrators can deploy and configure this integrated contact center solution in minutes, using Amazon Connect's voice, digital channels, and intelligent routing capabilities.
+Connect Customer launches real-time AI agent assistance and contact summarization for Salesforce Contact Center with Amazon Connect (SCC-AC). It enables Connect AI agents to automatically use customer information and knowledge base articles from Salesforce CRM for accelerated issue resolution and consistent outcomes across voice and chat interactions.When human intervention is required, the seamless integration within SCC-AC connects customers to agents who have a unified view of customer data, issue context, and interaction history within Agentforce Service and Agentforce Sales. Agents receive real-time voice transcripts and contextual recommendations, while supervisors gain enhanced call monitoring capabilities directly in Salesforce. Upon resolution, automated post-contact summarization enables agents to easily update Salesforce cases, streamlining administrative tasks. Administrators can deploy and configure this integrated contact center solution in minutes, using the voice, digital channels, and intelligent routing capabilities of Connect Customer.
 
 ### Support for multiple knowledge bases and integrates with your Amazon Bedrock Knowledge Bases
 
@@ -608,7 +623,7 @@ For more information, see [Enable message streaming for AI-powered chat](message
 
 Connect Customer now supports Model Context Protocol (MCP), enabling AI agents for end-customer self-service and employee assistance to use standardized tools for retrieving information and completing actions. With this launch, businesses can enhance their AI agents with extensible tool capabilities that improve issue resolution. For example, an AI agent can automatically look up order status, process refunds, and update customer records during a self-service interaction without requiring human intervention.With this launch, Amazon Connect provides out-of-the-box MCP tools for common tasks such as updating contact attributes and retrieving case information. You can also use flow modules as MCP tools to reuse the same business logic across both deterministic and generative AI workflows. Additionally, you can integrate custom tools or third-party services through flow modules or the Amazon Bedrock AgentCore Gateway.
 
-For more information, see [this blog](https://aws.amazon.com/blogs/contact-center/using-mcp-with-amazon-connect-to-monitor-operational-readiness/ "https://aws.amazon.com/blogs/contact-center/using-mcp-with-amazon-connect-to-monitor-operational-readiness/").
+For more information, see [Using MCP with Amazon Connect to monitor operational readiness](https://aws.amazon.com/blogs/contact-center/using-mcp-with-amazon-connect-to-monitor-operational-readiness/ "https://aws.amazon.com/blogs/contact-center/using-mcp-with-amazon-connect-to-monitor-operational-readiness/") on the AWS Contact Center Blog.
 
 ### Agent workspace now supports custom visual themes
 
@@ -618,25 +633,25 @@ For more information, see [Customize the Connect Customer agent workspace](agent
 
 ### AI-powered case summaries
 
-Connect Customer now provides AI-powered case summaries that give agents complete context into customer issues, reduce manual wrap-up work, and help resolve cases faster. With a single choose, agents can generate a concise case summary even when the case spans multiple interactions, follow-up tasks, and teams, capturing key details such as issue background, actions taken, and next steps. Administrators can configure custom prompts and guardrails to ensure that summaries align with organizational style and preferences.
+Connect Customer now provides AI-powered case summaries that give agents complete context into customer issues, reduce manual wrap-up work, and help resolve cases faster. With a single choose, agents can generate a concise case summary even when the case spans multiple interactions, follow-up tasks, and teams, capturing key details such as issue background, actions taken, and next steps. Administrators can configure custom prompts and guardrails to make sure that summaries align with organizational style and preferences.
 
 For more information, see [Connect Customer Cases](cases.md "cases.md").
 
 ### Outbound Campaigns now supports multi-step, multi-channel customer engagement journey builder
 
-Connect Customer Outbound Campaigns now supports visual journey builder, a new feature that lets you create multi-step, multi-channel customer engagements directly in the Amazon Connect console. You can design end-to-end engagement experiences that combine voice, SMS, email, and WhatsApp interactions to reach customers proactively and reduce inbound contact volume.Outbound Campaigns help you automate personalized communication flows based on customer behavior or time-based triggers. For example, you can send an appointment reminder by SMS, follow up with a voice call if the customer does not respond, and send a confirmation email once the appointment is booked. You can also configure steps in the journey builder that offer customers the option to connect with a live agent through Amazon Connect when additional support is needed. You can use existing Amazon Connect Flow integrations, AI capabilities, and customer data from Amazon Connect Customer Profiles to tailor each interaction. This helps contact centers improve engagement rates, reduce manual effort, and deliver more consistent customer experiences.
+Connect Customer Outbound Campaigns now supports visual journey builder, a new feature that lets you create multi-step, multi-channel customer engagements directly in the Amazon Connect console. You can design end-to-end engagement experiences that combine voice, SMS, email, and WhatsApp interactions to reach customers proactively and reduce inbound contact volume.Outbound Campaigns help you automate personalized communication flows based on customer behavior or time-based triggers. For example, you can send an appointment reminder by SMS, follow up with a voice call if the customer does not respond, and send a confirmation email after the appointment is booked. You can also configure steps in the journey builder that offer customers the option to connect with a live agent through Amazon Connect when additional support is needed. You can use existing Amazon Connect Flow integrations, AI capabilities, and customer data from Amazon Connect Customer Profiles to tailor each interaction. This helps contact centers improve engagement rates, reduce manual effort, and deliver more consistent customer experiences.
 
 For more information, see [Set up Connect Customer outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md").
 
 ### Automated performance evaluations for self-service interactions
 
-Connect Customer now provides businesses with the ability to automatically evaluate the quality of self-service interactions and get aggregated insights to improve customer experience. Managers can define custom criteria to assess the quality of self-service interactions, that can be filled manually or automatically using insights from conversational analytics, and other Connect data. For example, you can automatically assess if the AI agent repeatedly fails to understand the customer, resulting in poor customer sentiment and transfer to a human agent. Managers can review these insights in aggregate and on individual contacts, alongside self-service interaction recordings and transcripts, to identify opportunities to improve AI agent performance.Manually filled evaluations of self-service interactions are available in all regions where Amazon Connect is offered. Automated evaluations of self-service interactions are available in the following AWS regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), and Europe (Frankfurt).
+Connect Customer now provides businesses with the ability to automatically evaluate the quality of self-service interactions and get aggregated insights to improve customer experience. Managers can define custom criteria to assess the quality of self-service interactions, that can be filled manually or automatically using insights from conversational analytics, and other Connect data. For example, you can automatically assess if the AI agent repeatedly fails to understand the customer, resulting in poor customer sentiment and transfer to a human agent. Managers can review these insights in aggregate and on individual contacts, alongside self-service interaction recordings and transcripts, to identify opportunities to improve AI agent performance.Manually filled evaluations of self-service interactions are available in all regions where Amazon Connect is offered. Automated evaluations of self-service interactions are available in the following AWS Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), and Europe (Frankfurt).
 
 For more information, see [Evaluate agent and self-service interaction performance in Connect Customer](evaluations.md "evaluations.md").
 
 ### Improved analytics and monitoring for AI agents
 
-Connect Customer now provides analytics and monitoring capabilities for AI agents across self-service and agent assistance experiences. With this launch, you can measure and continuously improve AI agent performance and customer outcomes through easy to customize dashboards that provide key metrics like number of AI agent led interactions, hand-off rates, conversation turns, and average handle time. You can also compare AI agent performance across versions to identify optimal configurations and review insights to understand where AI agents are performing well and where improvements are needed. Additionally, with this launch, you can configure rules to trigger automated actions, such as sending alerts when self-service contacts are transferred to human agents with low sentiment scores. Amazon Connect also provides AI agent traces via APIs with detailed information such as request and response payloads and tool invocations, enabling you to easily understand AI agent actions and decision-making for faster troubleshooting.
+Connect Customer now provides analytics and monitoring capabilities for AI agents across self-service and agent assistance experiences. With this launch, you can measure and continuously improve AI agent performance and customer outcomes through easy to customize dashboards that provide key metrics like number of AI agent led interactions, hand-off rates, conversation turns, and average handle time. You can also compare AI agent performance across versions to identify optimal configurations and review insights to understand where AI agents are performing well and where improvements are needed. Additionally, with this launch, you can configure rules to trigger automated actions, such as sending alerts when self-service contacts are transferred to human agents with low sentiment scores. Amazon Connect also provides AI agent traces through APIs with detailed information such as request and response payloads and tool invocations, enabling you to easily understand AI agent actions and decision-making for faster troubleshooting.
 
 For more information, see [Dashboards in Connect Customer for getting contact center performance data](dashboards.md "dashboards.md").
 
@@ -644,13 +659,13 @@ For more information, see [Dashboards in Connect Customer for getting contact ce
 
 Connect Customer now gives business users greater control over daily contact center operations without requiring technical resources. With new capabilities to create customer UIs that adjust queues, routing behavior, and customer experience settings in real time, business users can respond to changing conditions immediately while maintaining enterprise-grade governance and security. For example, during a weather disruption, an airline contact center operations manager can shift agents to rebooking queues, update after-hours routing, and activate a pre-approved protocol that refreshes IVR prompts and triggers customer notifications, all in minutes and without technical team intervention. This reduces wait times, increases agent productivity, and improves the customer experience at moments of peak demand.Contact center administrators can start by defining key business configurations such as queue assignments, operating hours, skill mappings, and escalation rules, in data tables that directly drive contact flows. Guides can then be configured to surface role-specific actions for each business user within persona based workspaces. Together, these updates enable a business-led operating model that keeps contact center operations fast, consistent, and secure, all without relying on IT.
 
-For more information, see [Set up workspaces for your admin website users](amazon-connect-workspaces.md "amazon-connect-workspaces.md").
+For more information, see [Set up workspaces for your business users](amazon-connect-workspaces.md "amazon-connect-workspaces.md").
 
 ### Lex now supports LLMs as the primary option for natural language understanding
 
 Amazon Lex now allows you to use Large Language Models (LLMs) as the primary option to understand customer intent across voice and chat interactions. With this capability, your voice and chat bots can better understand customer requests, handle complex utterances, maintain accuracy despite spelling errors, and extract key information from verbose inputs. When customer intent is unclear, bots can intelligently ask follow-up questions to fulfill requests accurately. For example, when a customer says "I need help with my flight," the LLM automatically clarifies whether the customer wants to check their flight status, upgrade their flight, or change their flight.
 
-For more information, see [Amazon Lex documentation](../../../lexv2/latest/dg/intent-structure.md "../../../lexv2/latest/dg/intent-structure.md").
+For more information, see [Intent structure](../../../lexv2/latest/dg/intent-structure.md "../../../lexv2/latest/dg/intent-structure.md") in the _Amazon Lex Developer Guide_.
 
 ### Flow modules now support custom inputs, outputs, and version management
 
@@ -674,7 +689,7 @@ For more information, see [Search for in-progress contacts in Connect Customer](
 
 Amazon Lex now supports wait & continue functionality in 10 new languages, enabling more natural conversational experiences in Chinese, Japanese, Korean, Cantonese, Spanish, French, Italian, Portuguese, Catalan, and German. This feature allows deterministic voice and chat bots to pause while customers gather additional information, then seamlessly resume when ready. For example, when asked for payment details, customers can say "hold on a second" to retrieve their credit card, and the bot will wait before continuing.
 
-For more information, see [Lex documentation](../../../lexv2/latest/dg/wait-and-continue.md "../../../lexv2/latest/dg/wait-and-continue.md").
+For more information, see [Wait and continue](../../../lexv2/latest/dg/wait-and-continue.md "../../../lexv2/latest/dg/wait-and-continue.md") in the _Amazon Lex Developer Guide_.
 
 ### Multi skill agent scheduling
 
@@ -690,19 +705,19 @@ For more information, see [Enable persistent connection for Connect Customer age
 
 ### Conversational analytics for voice and chat bots
 
-Connect Customer now provides conversational analytics for end-customer self-service interactions across voice and digital channels, helping you better understand and improve your customers' self-service experiences. This includes across PSTN/telephony, in-app and web-calling, web and mobile chat, SMS, WhatsApp Business messaging, and Apple Messages for Business.With this launch, Connect now provides rich conversational analytics across both human-agent interactions and end-customer self-service interactions. You can now automatically analyze the quality of automated self-service interactions including customer sentiment, redact sensitive data, discover top contact drivers and themes, identify compliance risks, and proactively identify areas for improvement through easy-to-customize dashboards. Connect's conversational analytics also enables you to use semantic matching rules to categorize interactions based on customer behavior, keywords, sentiment, or issue types, such as billing inquiries or agent escalation requests.
+Connect Customer now provides conversational analytics for end-customer self-service interactions across voice and digital channels, helping you better understand and improve your customers' self-service experiences. This includes across PSTN/telephony, in-app and web-calling, web and mobile chat, SMS, WhatsApp Business messaging, and Apple Messages for Business.With this launch, Connect now provides rich conversational analytics across both human-agent interactions and end-customer self-service interactions. You can now automatically analyze the quality of automated self-service interactions including customer sentiment, redact sensitive data, discover top contact drivers and themes, identify compliance risks, and proactively identify areas for improvement through easy-to-customize dashboards. The conversational analytics of Connect Customer also enables you to use semantic matching rules to categorize interactions based on customer behavior, keywords, sentiment, or issue types, such as billing inquiries or agent escalation requests.
 
 For more information, see [Enable persistent connection for Connect Customer agents](enable-persistent-connection.md "enable-persistent-connection.md").
 
 ### Outbound campaigns supports ring time configuration for unanswered calls
 
-Connect Customer outbound campaigns now offers campaign managers the ability to configure how long voice calls should ring—between a range of 15 and 60 seconds—before marking a call as "no answer" and moving to the next contact. Each contact also records when ringing began and ended for precise reporting and traceability.When ring duration is static, businesses struggle to balance calling efficiency and customer reach. Calls that ring too briefly may miss customers who take longer to answer, while excessive ring times delay overall campaign pacing. This lack of control leads to inconsistent contact rates and reduced agent productivity.With configurable ring time, campaign managers can tune dialing behavior to their audience for each campaign, use analytics to see exactly how long each call rang, and understand where connections were missed. This visibility helps identify patterns, refine calling strategies, and continuously improve campaign effectiveness.
+Connect Customer outbound campaigns now offers campaign managers the ability to configure how long voice calls should ring—between a range of 15 and 60 seconds—before marking a call as "no answer" and moving to the next contact. Each contact also records when ringing began and ended for precise reporting and traceability.When ring duration is static, businesses struggle to balance calling efficiency and customer reach. Calls that ring too briefly might miss customers who take longer to answer, while excessive ring times delay overall campaign pacing. This lack of control leads to inconsistent contact rates and reduced agent productivity.With configurable ring time, campaign managers can tune dialing behavior to their audience for each campaign, use analytics to see exactly how long each call rang, and understand where connections were missed. This visibility helps identify patterns, refine calling strategies, and continuously improve campaign effectiveness.
 
 For more information, see [Set up Connect Customer outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md").
 
 ### Metrics on completion of agent performance evaluations by managers
 
-Connect Customer now provides metrics that measure completion of agent performance evaluations, improving manager productivity and evaluation consistency. Businesses can monitor if the required number of evaluations for their agents have been completed, ensuring compliance with internal policies (e.g., complete 5 evaluations per agent per month), regulatory requirements, and labor union agreements. Additionally, businesses can analyze evaluation scoring patterns across different managers, to identify opportunities to improve evaluation consistency and accuracy. These insights are available in real-time through analytics dashboards in the Connect UI, and APIs.
+Connect Customer now provides metrics that measure completion of agent performance evaluations, improving manager productivity and evaluation consistency. Businesses can monitor if the required number of evaluations for their agents have been completed, ensuring compliance with internal policies (for example, complete 5 evaluations per agent per month), regulatory requirements, and labor union agreements. Additionally, businesses can analyze evaluation scoring patterns across different managers, to identify opportunities to improve evaluation consistency and accuracy. These insights are available in real-time through analytics dashboards in the Connect UI, and APIs.
 
 For more information, see [Evaluate agent and self-service interaction performance in Connect Customer](evaluations.md "evaluations.md").
 
@@ -800,7 +815,7 @@ analytics.
 Agent time-off balance data is available in the Connect Customer data lake, making it easier
 for you to generate reports and insights from this data. You access the latest and historical
 agent time-off balances across different time-off categories (paid time-off, sick leave, leave
-of absence, etc.) in the data lake. You can also view a chronological list of all
+of absence) in the data lake. You can also view a chronological list of all
 transactions that impacted the balance. For example, if an agent starts with 80 hours of paid
 time-off on January 1, submits a 20-hour request on January 3, and later cancels it, you can see
 each transaction's impact on the final 80-hour balance. This makes time-off management easier by
@@ -839,7 +854,7 @@ For more information, see [Enable persistent connection for Connect Customer age
 
 ### Copy and bulk edit of agent scheduling configuration
 
-Connect Customer now supports copy and bulk edit of agent scheduling configuration, making it easier to set up and maintain agent schedules. You can create new scheduling configurations by copying existing ones — for example, copy a weekday shift profile to create a weekend variant, or, copy scheduling configuration (time-zone, weekly working hours, days off, etc.) from an existing agent to multiple new hires. When bulk editing, you can select specific fields to update, such as update time-zone and start date for new hires without changing their weekly working hours. These updates reduce time spent by managers on configuration management, thus improving productivity and operational efficiency.
+Connect Customer now supports copy and bulk edit of agent scheduling configuration, making it easier to set up and maintain agent schedules. You can create new scheduling configurations by copying existing ones — for example, copy a weekday shift profile to create a weekend variant, or, copy scheduling configuration (time-zone, weekly working hours, days off) from an existing agent to multiple new hires. When bulk editing, you can select specific fields to update, such as update time-zone and start date for new hires without changing their weekly working hours. These updates reduce time spent by managers on configuration management, thus improving productivity and operational efficiency.
 
 For more information, see [Forecasting & agent scheduling in Connect Customer](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
 
@@ -870,7 +885,7 @@ performance data](dashboards.md "dashboards.md").
 Use these APIs to programmatically assign queued contacts to available users and list the
 manual assignment queues associated with a routing profile: [AssociateContactWithUser](../APIReference/API_AssociateContactWithUser.md "../APIReference/API_AssociateContactWithUser.md") and [ListRoutingProfileManualAssignmentQueues](../APIReference/API_ListRoutingProfileManualAssignmentQueues.md "../APIReference/API_ListRoutingProfileManualAssignmentQueues.md").
 
-These APIs support the functionality described in [Access the Worklist app in the Connect Customer agent workspace](worklist-app.md "worklist-app.md").
+These APIs support the functionality described in [Access the Worklist app in the agent workspace](worklist-app.md "worklist-app.md").
 
 ### Customize service level calculations
 
@@ -956,7 +971,7 @@ resolve it immediately.
 Supervisors and managers can enable manual assignment by updating agent configuration in
 routing and security profiles. Agents can then use the new worklist application in their agent
 workspace to manually assign themselves the next important chat, task, or email. For more
-information, see [Access the Worklist app in the Connect Customer agent workspace](worklist-app.md "worklist-app.md").
+information, see [Access the Worklist app in the agent workspace](worklist-app.md "worklist-app.md").
 
 ## August 2025 Updates
 
@@ -1066,7 +1081,7 @@ US-West (Oregon), Africa (Cape town), Asia Pacific (Seoul), Asia Pacific (Singap
 Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), and Europe
 (London).
 
-For more information, see [Access third-party applications in the Connect Customer agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md") in the Amazon Connect Administrator Guide and the
+For more information, see [Access third-party applications in the agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md") in the Amazon Connect Administrator Guide and the
 [Amazon
 Connect Agent Workspace Developer Guide](../../../agentworkspace/latest/devguide/what-is-service.md "../../../agentworkspace/latest/devguide/what-is-service.md").
 
@@ -1244,7 +1259,7 @@ users to better follow updates as they happen. On Windows the shortcut is
 
 #### Reflow Mode
 
-Reflow Mode ensures that panels and interface elements automatically rearrange when zoomed
+Reflow Mode makes sure that panels and interface elements automatically rearrange when zoomed
 in. So even at high zoom levels, everything remains visible and can be navigated to.
 
 The following GIF shows how to use Reflow Mode.
@@ -1366,7 +1381,7 @@ customer information. Key features include:
 - Customizable views highlighting relevant customer information
 - AI-generated customer summaries with personalized behavioral insights
 
-Profile Explorer is available in the following AWS regions: US East (N. Virginia), US West
+Profile Explorer is available in the following AWS Regions: US East (N. Virginia), US West
 (Oregon), Africa (Cape Town), Asia Pacific (Seoul), Asia Pacific (Tokyo), Asia Pacific
 (Singapore), Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), and Europe (London).
 Note that AI summary is currently not available in Africa (Cape Town).
@@ -1584,7 +1599,7 @@ For more information, see [How supervisors view published schedules using the Co
 
 Connect Customer outbound campaigns supports event-driven mass notifications, such as severe weather warnings,
 evacuation notices, disaster response communications, or utility disruptions impacting many
-thousands of customers with prior authorization and approval. Additional charges may apply based
+thousands of customers with prior authorization and approval. Additional charges might apply based
 on your location and anticipated notification volumes.
 
 For more information, see [Set up Connect Customer outbound campaigns](enable-outbound-campaigns.md "enable-outbound-campaigns.md").
@@ -1592,7 +1607,7 @@ For more information, see [Set up Connect Customer outbound campaigns](enable-ou
 ### Track agent acknowledgements of performance evaluations
 
 You can capture and review agent acknowledgements of performance evaluations within
-conversational analytics. This helps you ensure that agents have reviewed evaluation feedback and
+conversational analytics. This helps you make sure that agents have reviewed evaluation feedback and
 understand performance expectations. Agents can acknowledge their review of performance
 evaluations within the Connect Customer admin website, and add optional notes (for example, "reviewed and accepted
 feedback on being more empathetic towards angry customers"). Managers can then track agent
@@ -1818,7 +1833,7 @@ providing managers with comprehensive insights on agent performance. For more in
 You can define widget level filters and groupings, re-order and re-size columns, and delete
 or add new metrics. With these dashboards, you can view and compare real-time and historical
 aggregated performance, trends, and insights using custom-defined time periods (for example,
-week over week), summary charts, time-series chart, etc. For example, you can create a single
+week over week), summary charts, time-series chart. For example, you can create a single
 line chart that combines contacts queued, average queue answer time, and abandoned contacts,
 filtered for your most important queues, so you can quickly see how increasing contact volumes
 impact both wait time and customer abandonment rates. For more information, see [Customize your Connect Customer dashboard](dashboard-customize-widgets.md "dashboard-customize-widgets.md").
@@ -2084,7 +2099,7 @@ For more information, see [Integrate Connect Customer conversational analytics w
 Connect Customer Email provides built-in capabilities that make it easy for you to
 prioritize, assign, and automate the resolution of customer service emails, improving customer
 satisfaction and agent productivity. With Amazon Connect Email, you can receive and respond to
-emails sent by customers to business addresses or submitted via web forms on your website or
+emails sent by customers to business addresses or submitted through web forms on your website or
 mobile app.
 
 You can configure auto-responses, prioritize emails, create or update cases, and route
@@ -2252,7 +2267,7 @@ the request contained groupings attributes that were not defined in the filters.
 information, see the [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API
 documentation.
 
-#### Programmatically set routing criteria on a contact via the UpdateContactRoutingData API
+#### Programmatically set routing criteria on a contact through the UpdateContactRoutingData API
 
 You can now use the `UpdateContactRoutingData` API to programmatically update
 the routing criteria on a contact. Previously, you could only set the routing criteria on a
@@ -2354,7 +2369,7 @@ Connect Customer automatically returned users that matched the first two charact
 You can create a pattern of shifts that agents will repeatedly rotate through (for
 example, morning shift, afternoon shift, night shift). You can define how many weeks each shift
 should be scheduled before moving to the next one in the rotation. This feature makes it easier
-to administrate schedules and ensure that agents receive a business-defined sequence of shifts.
+to administrate schedules and make sure that agents receive a business-defined sequence of shifts.
 For more information, see [Set up shift rotation patterns in Connect Customer](shift-rotations.md "shift-rotations.md").
 
 ### June 2024 Updates
@@ -2407,7 +2422,7 @@ your agents with a more streamlined user experience.
 
 With this launch, you can also easily build and embed third-party applications that have a
 consistent look and feel with the agent workspace by using Cloudscape Design System components.
-For more information, see [Access third-party applications in the Connect Customer agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md").
+For more information, see [Access third-party applications in the agent workspace](3p-apps-agent-workspace.md "3p-apps-agent-workspace.md").
 
 ### May 2024 Updates
 
@@ -2569,9 +2584,9 @@ more information, see [Deploy step-by-step guides in Connect Customer chats](ste
 #### Connect Customer agent workspace supports third-party applications in general availability
 
 The Connect Customer agent workspace now supports third-party applications in general availability.
-Agents can use Connect Customer's native agent applications (Q in Connect, Cases, Customer Profiles, and Step-by-step
+Agents can use the native agent applications of Connect Customer (Q in Connect, Cases, Customer Profiles, and Step-by-step
 Guides) alongside internal or custom-built agent applications, all within a unified agent
-workspace. For more information, see [Integrate third-party applications (3p apps) in the Connect Customer agent workspace](3p-apps.md "3p-apps.md"), [Use screen pop functionality of third-party applications in the Connect Customer agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md"), the [Agent Workspace developer
+workspace. For more information, see [Integrate third-party applications in the agent workspace](3p-apps.md "3p-apps.md"), [Use screen pop functionality of third-party applications in the Connect Customer agent workspace](no-code-ui-builder-app-integration.md "no-code-ui-builder-app-integration.md"), the [Agent Workspace developer
 guide](../../../agentworkspace/latest/devguide/what-is-service.md "../../../agentworkspace/latest/devguide/what-is-service.md"), the [Connect Customer API reference
 guide](../APIReference/API_CreateSecurityProfile.md "../APIReference/API_CreateSecurityProfile.md"), and the [Amazon AppIntegrations API
 reference](../../../appintegrations/latest/APIReference/API_CreateApplication.md "../../../appintegrations/latest/APIReference/API_CreateApplication.md").
@@ -2708,7 +2723,7 @@ Added [AWS::Connect::PredefinedAttribute](../../../AWSCloudFormation/latest/User
 #### Connect Customer conversational analytics provides an API to programmatically search for contacts
 
 Programmatically search for contacts using filters such as contact attributes (time range,
-agent, channel, queue, etc.) and keywords within a conversation. Using this API, you can build
+agent, channel, queue) and keywords within a conversation. Using this API, you can build
 custom user interfaces that enable managers and agents to search for completed or in progress
 contacts. For more information, see the [SearchContacts](../APIReference/API_SearchContacts.md "../APIReference/API_SearchContacts.md") API.
 
@@ -2926,7 +2941,7 @@ dashboard](queue-performance-dashboard.md "queue-performance-dashboard.md").
 The prompts configuration user interface has been updated to make it more efficient for
 you to manage prompts. In addition, when you add, update or delete a prompt from the Connect Customer admin website, a
 record of that activity is available in AWS CloudTrail for visibility, reporting, and compliance. For
-example, you may notice a discrepancy in the IVR prompt that customers hear when they call your
+example, you might notice a discrepancy in the IVR prompt that customers hear when they call your
 support line. To investigate, you can use AWS CloudTrail to answer questions such as, "who saved
 this recording?" and "when was this prompt changed?" For more information about the new prompts
 page, see [Create prompts in Connect Customer](prompts.md "prompts.md").
@@ -2965,7 +2980,7 @@ persistent contact association](create-persistent-contact-association-block.md "
 #### Optimization to how the CCP detects and handles stale WebSocket connections
 
 When an agent initializes the CCP, a WebSocket connection is opened and it is used during
-subsequent contact handling. If that agent experiences poor network conditions, this may result
+subsequent contact handling. If that agent experiences poor network conditions, this might result
 in the agent becoming unreachable without the backend detecting it. With this release the
 WebSocket connections for these agents are detected as stale and cleaned in 1-2 minutes.
 
@@ -3011,7 +3026,7 @@ a description of the additional actions, see [Connect Customer updates to AWS ma
 #### Third-party applications preview
 
 You can integrate third-party applications into the agent workspace. For more information,
-see [Integrate third-party applications (3p apps) in the Connect Customer agent workspace](3p-apps.md "3p-apps.md") and the [Amazon Connect agent workspace
+see [Integrate third-party applications in the agent workspace](3p-apps.md "3p-apps.md") and the [Amazon Connect agent workspace
 third-party developer guide](../../../agentworkspace/latest/devguide/what-is-service.md "../../../agentworkspace/latest/devguide/what-is-service.md").
 
 #### Added actions to `AmazonConnectServiceLinkedRolePolicy`
@@ -3179,7 +3194,7 @@ information, see [Agent activity audit tag-based access control in Connect Custo
 
 You can update up to 100 user records on the Connect Customer admin website in less than half the time it used to
 take to make bulk updates. This enhancement is especially useful during contact surges when you
-may need to change the routing profile for many agents. For more information, see [Edit users in bulk in Amazon Connect Customer](edit-users-in-bulk.md "edit-users-in-bulk.md").
+might need to change the routing profile for many agents. For more information, see [Edit users in bulk in Amazon Connect Customer](edit-users-in-bulk.md "edit-users-in-bulk.md").
 
 #### Connect Customer scheduling supports agent group activities
 
@@ -3401,7 +3416,7 @@ see [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/AP
 #### Search for existing tags within an Connect Customer instance
 
 Connect Customer provides the ability to search for existing tags within an instance, both
-programmatically via API and within the UI. When tagging resources, you can search from
+programmatically through API and within the UI. When tagging resources, you can search from
 pre-existing key:value pairs before creating new ones. For more information, see the [SearchResourceTags](../APIReference/API_SearchResourceTags.md "../APIReference/API_SearchResourceTags.md") API.
 
 #### Added screen recording capabilities to conversational analytics
@@ -3448,7 +3463,7 @@ require supervisors follow-up with agents on their team. For more information, s
 #### Interactive messages: Rich formatting in chat titles and subtitles
 
 You can add rich formatting to the titles and subtitles of your chat messages. For
-example, you can add links, italics, bold, numbered lists, and bulleted lists. You use [markdown](https://commonmark.org/help/ " https://commonmark.org/help/") to format your text. For more
+example, you can add links, italics, bold, numbered lists, and bulleted lists. You use [markdown](https://commonmark.org/help/ "https://commonmark.org/help/") to format your text. For more
 information, see [Rich formatting
 in titles and subtitles](interactive-messages.md#rich-link-formatting "interactive-messages.md#rich-link-formatting") in the _Add interactive messages to chat_
 topic.
@@ -3672,8 +3687,8 @@ added ApproximateTotalCount.
 #### Added chat timeouts for chat participants
 
 When a chat conversation between an agent and a customer has been inactive (no messages
-sent) for a certain amount of time, you may want to consider a chat participant to be idle, and
-you may even want to automatically disconnect an agent from the chat. To set up chat timeout
+sent) for a certain amount of time, you might want to consider a chat participant to be idle, and
+you might even want to automatically disconnect an agent from the chat. To set up chat timeout
 timers, see [Set up chat timeouts for chat
 participants](setup-chat-timeouts.md "setup-chat-timeouts.md").
 
@@ -3817,7 +3832,7 @@ saved reports (admin)](manage-saved-reports-admin.md "manage-saved-reports-admin
 
 #### Search for profiles using multiple search keys
 
-In addition to searching for profiles with a single search key (i.e., a key-values(s)
+In addition to searching for profiles with a single search key (that is, a key-values(s)
 pair), the SearchProfiles API has been enhanced to support searching for profiles using
 multiple keys and logical operators. This new functionality allows you to use between 1 and 5
 search keys with `AND` or `OR` logic to find profiles with attributes
@@ -3914,7 +3929,7 @@ options:
 
 
     This option is most useful for scenarios where you have stored your flows in JSON
-     offline. For example, for configuration control, you may have flow configurations in an
+     offline. For example, for configuration control, you might have flow configurations in an
      offline data store. To copy a part of that flow and paste it into the updated flow
      designer, you need to import it into the updated flow designer. The importing process
      converts it to the new flow language. After that, you can copy and paste within the
@@ -3987,7 +4002,7 @@ see [SearchSecurityProfiles](../APIReference/API_SearchSecurityProfiles.md "../A
 #### Released Schedule Adherence (Preview)
 
 Contact center supervisors or managers track schedule adherence to understand when agents
-are following the schedule that you have created. This helps ensure you achieve your service
+are following the schedule that you have created. This helps make sure you achieve your service
 level targets, while improving agent productivity and customer satisfaction. For more
 information, see [Schedule Adherence](schedule-adherence.md "schedule-adherence.md").
 
@@ -5205,7 +5220,7 @@ Occupancy no longer appears on the **Dashboard** page.
 
   - DTMF input is passed to all lines in a three-way call. Any party can enter DTMF input.
   - Resolved an issue where the DTMF tone degraded when agents interacted with Quick
-    connect and/or Number pad during a session.
+    connect or Number pad during a session.
   - Resolved an issue where quick connects sometimes did not appear on a page, even after
     an agent refreshed it.
   - Improved the experience when a manager "listens in" to multiple chat conversations.

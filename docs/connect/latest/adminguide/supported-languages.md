@@ -111,7 +111,7 @@ for the country code).
   not supported for real-time call analytics.
 - † You can manually complete performance evaluations in any language. Automated
   performance evaluations filled using generative AI is not available in instances in
-  the following AWS regions: Africa (Cape Town), Asia Pacific (Mumbai), Asia Pacific
+  the following AWS Regions: Africa (Cape Town), Asia Pacific (Mumbai), Asia Pacific
   (Seoul) and AWS GovCloud (US-West).
 
 ### Language support for agent assist

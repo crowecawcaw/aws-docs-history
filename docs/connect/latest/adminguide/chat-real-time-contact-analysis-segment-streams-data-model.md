@@ -8,10 +8,10 @@ contact:
 
 - STARTED events—Each conversational analytics session publishes
   one STARTED event at the beginning of the session.
-- SEGMENTS events—Each conversational analytics session may
+- SEGMENTS events—Each conversational analytics session might
   publish zero or more SEGMENTS events during the session. These events
   contain a list of segments with analyzed information. For chat contacts,
-  the list of segments may include "`Attachments`,"
+  the list of segments might include "`Attachments`,"
   "`Transcript`," "`Categories`,"
   "`Events`," "`Issues`," or
   "`PostContactSummary`" segments.

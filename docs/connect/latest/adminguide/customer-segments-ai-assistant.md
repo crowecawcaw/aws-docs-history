@@ -29,7 +29,7 @@ segmentation workflow:
 - To use the segment AI assistant, users will need the permission for
   segment creation **CustomerProfiles.Segments.Create**.
 - While these AI-powered tools offer valuable suggestions, it's
-  important to review and adjust the recommended segments to ensure they
+  important to review and adjust the recommended segments to make sure they
   align with the organization's specific business objectives and comply
   with its data usage policies.
 
@@ -62,7 +62,7 @@ attributes.
   - **Retention**: Identify segments
     for customer retention efforts.
   - **Support**: Highlight customer
-    groups that may need specialized attention for customer service.
+    groups that might need specialized attention for customer service.
 
 - **Insight-based recommendations**: Use
   historical trends, data insights and generative AI to create meaningful,
@@ -131,7 +131,7 @@ mind:
 
 - Write specific descriptions. Segment AI assistant generates more
   accurate conditions when you use the names of existing attributes.
-- Ensure that all attributes you reference exist in your domain.
+- Make sure that all attributes you reference exist in your domain.
 - Start with simple prompts and try different prompts. If you don't
   receive what you want on the first try, rewrite your prompt. Submitting
   a new prompt replaces existing conditions, or by choosing **New
@@ -143,14 +143,14 @@ mind:
 
 The segment AI assistant is designed to work with general descriptors and
 criteria. Always adhere to data protection regulations and company policies
-when describing segments. Ensure that your prompts and descriptions do not
+when describing segments. Make sure that your prompts and descriptions do not
 contain any sensitive or personal information. 
 
 ## Provide feedback on generated segments
 
 After a segment is generated, users are encouraged to evaluate the feature's
 performance and provide feedback. This feedback mechanism helps improve the
-segment generation process and ensures it meets business needs effectively. The
+segment generation process and makes sure it meets business needs effectively. The
 following image shows a feedback page.
 
 ![An example of a message that your feedback has been recorded.](images/providing-feedback-on-generated-segments-1.png)
@@ -181,7 +181,7 @@ more effective customer segmentation and targeted marketing strategies.
 
 ## Error handling
 
-When using the segment AI assistant to generate customer segments, you may
+When using the segment AI assistant to generate customer segments, you might
 occasionally encounter an error message stating: **We can't process your
 request right now.** This error can occur even after providing a
 valid prompt for segment creation.
@@ -196,7 +196,7 @@ error.
 **Possible causes:**
 
 - **High system load**: The segment AI
-  assistant may be experiencing high demand or processing multiple
+  assistant might be experiencing high demand or processing multiple
   requests simultaneously.
 - **Temporary service disruption**: There
   could be a brief interruption in the service's ability to process new
@@ -227,7 +227,7 @@ error.
   your segment criteria or breaking it down into smaller, more manageable
   requests.
 - Try to avoid making repeated requests in quick succession, as this
-  may contribute to system overload.
+  might contribute to system overload.
 - If the issue continues, reach out to customer support for further
   assistance.
 
@@ -243,7 +243,7 @@ suggestions.
 
 **Data processing and quality impact:** Segment AI
 assistant evolves through two main phases: initial data ingestion and
-post-processing. During initial ingestion, the system may not fully use
+post-processing. During initial ingestion, the system might not fully use
 actual attribute values, relying more on prompt interpretation. For example, a
 prompt for _VIP customers_ might suggest a
 _VIP_ segment instead of using the existing
@@ -261,7 +261,7 @@ Profiles. The system flags any missing attributes in its responses.
 
 **System performance:**During high-volume periods,
 expect potential delays in segment generation. The system is optimized for
-typical workloads, but businesses with extensive segmentation needs may need to
+typical workloads, but businesses with extensive segmentation needs might need to
 adjust their processes accordingly.
 
 **Attribute availability**: The quality of the
@@ -272,18 +272,18 @@ there is an attribute that does not exist, we will return a message with the
 missing attribute. 
 
 **Prompt complexity**: For very complex or nuanced
-segment definitions, the natural language processing may have limitations.
+segment definitions, the natural language processing might have limitations.
 Customers should start with relatively straightforward prompts and gradually
 increase the complexity as they gain experience with the feature.
 
 **Segment refinement**: Although the
-system-generated segments are a great starting point, customers may still want
+system-generated segments are a great starting point, customers might still want
 to review and refine the details to ensure the segment aligns perfectly with
 their business objectives. The segmentation interface allows for full
 customization after the initial generation.
 
 **Performance and scaling**: Under high
-concurrency, there may be some latency in the segment generation process as the
+concurrency, there might be some latency in the segment generation process as the
 language model needs to process each prompt. The system is designed to handle
 typical segmentation workloads, but customers with extremely high segmentation
-demands may need to adjust their workflows accordingly
+demands might need to adjust their workflows accordingly

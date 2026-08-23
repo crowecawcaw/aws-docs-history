@@ -29,7 +29,7 @@ hierarchy** - **Create** permission.
 
 ###### Note
 
-Since agent hierarchies may include location and skill set data, you also need
+Since agent hierarchies might include location and skill set data, you also need
 **Agent hierarchy** - **View** permission
 to view the agent hierarchy information in a real-time metrics report.
 
@@ -113,7 +113,7 @@ Angeles and San Francisco.
 
 Choose **View historical changes** to view the change history.
 You can filter changes by date (between two dates) or by user name. If you cannot
-see the link, ensure that you have the proper permissions to view these
+see the link, make sure that you have the proper permissions to view these
 changes.
 
 ## Delete an agent hierarchy

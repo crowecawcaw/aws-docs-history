@@ -69,7 +69,7 @@ customer-managed AWS KMS key (service-managed keys are not supported). The key p
 must grant the `connect.amazonaws.com` service principal the
 `kms:Decrypt`, `kms:Encrypt`,
 `kms:GenerateDataKey`, and `kms:DescribeKey` actions,
-scoped to your AWS account via the `aws:SourceAccount`
+scoped to your AWS account through the `aws:SourceAccount`
 condition.
 
 Example key policy statement:

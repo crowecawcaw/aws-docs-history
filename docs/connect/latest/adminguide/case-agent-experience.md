@@ -27,9 +27,9 @@ For help finding your instance name, see [Find your Connect Customer instance na
 ## Option 2: Embed Cases into a custom agent application
 
 When you embed your Contact Control Panel (CCP), you have the option of showing or
-hiding the pre-built CCP user interface. For example, you may want to develop a
+hiding the pre-built CCP user interface. For example, you might want to develop a
 custom agent application that has a user interface you design, with customized
-buttons to accept and reject calls. Or, you may want to embed the pre-built CCP
+buttons to accept and reject calls. Or, you might want to embed the pre-built CCP
 that's included with Connect Customer into another custom app.
 
 You can display the pre-built CCP user interface, or hide it and build your own.

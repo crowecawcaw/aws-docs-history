@@ -30,7 +30,7 @@ contacts.
   customer response times. The response times and sentiments help you investigate
   the customer's experience with the bot versus the agent, and identify areas for
   improvement.
-- Each processed chat message is charged the same way. While not all messages may have
+- Each processed chat message is charged the same way. While not all messages might have
   all features applied (for example, summarization is applied to `text/plain`
   messages only), if conversational analytics is enabled on the
   contact, the message is counted for billing. For more information about pricing, see

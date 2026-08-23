@@ -50,7 +50,7 @@ application** page, choose **Next**. 7. On the **Establish connection** page, ch
 following:
 
     * **Use an existing connection**. This allows you to
-     reuse existing EventBridge resources that are linked to Amazon AppFlow flows that you may
+     reuse existing EventBridge resources that are linked to Amazon AppFlow flows that you might
      have created in your AWS account.
     * **Create a new connection**: Enter the information
      required by the external application.

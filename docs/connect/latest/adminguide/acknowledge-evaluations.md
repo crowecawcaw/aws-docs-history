@@ -20,16 +20,16 @@ This topic explains the steps for agents to view and acknowledge an evaluation.
 2. Access the contact evaluation that you want to acknowledge. There are a few
    ways you can do this:
 
-   - Someone may have shared the contact URL with you.
+   - Someone might have shared the contact URL with you.
 
 - OR -
 
-  - You may have been assigned a task or received an email notification
+  - You might have been assigned a task or received an email notification
     containing the URL for the contact that received an evaluations.
 
 - OR -
 
-  - You may have the contact ID and evaluation form name. You can use this
+  - You might have the contact ID and evaluation form name. You can use this
     information to search for the contact that received the evaluations
     using the following steps.
 

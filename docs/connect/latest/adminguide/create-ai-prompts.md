@@ -216,7 +216,7 @@ the `MESSAGES` format.
     content of the conversation turn.
 
 - **tools** - (Optional) List of tools that
-  the model may use.
+  the model might use.
 
   - **name** – (Required) The name of
     the tool.

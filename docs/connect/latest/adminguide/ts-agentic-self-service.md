@@ -6,7 +6,7 @@ self-service](agentic-self-service.md "agentic-self-service.md").
 ## AI agent is not responding to customers
 
 If your AI agent is processing requests but customers are not seeing any
-responses, the orchestration prompt may be missing the required message
+responses, the orchestration prompt might be missing the required message
 formatting instructions.
 
 Orchestrator AI agents only display messages to customers when the model's

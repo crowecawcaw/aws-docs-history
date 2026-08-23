@@ -88,7 +88,7 @@ number claiming process.
      the previous operation has completed.
     * `FAILED` indicates that the previous [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference/API_ClaimPhoneNumber.md") or [UpdatePhoneNumber](../APIReference/API_UpdatePhoneNumber.md "../APIReference/API_UpdatePhoneNumber.md") operation has failed. It will
      include a message indicating the failure reason. A common reason
-     for a failure may be that the `TargetArn` value you
+     for a failure might be that the `TargetArn` value you
      are claiming or updating a phone number to has reached its limit
      of total claimed numbers. If you received a `FAILED`
      status from a `ClaimPhoneNumber` API call, you have

@@ -24,6 +24,7 @@ available.
 - [Customer Profiles](#customerprofiles_region "#customerprofiles_region")
 - [Customer Profiles
   calculated attributes API](#customerprofiles_calculatedattributesregion "#customerprofiles_calculatedattributesregion")
+- [External Tool](#externaltool_region "#externaltool_region")
 - [Forecasting & agent scheduling](#optimization_region "#optimization_region")
 - [Amazon Connect agentic voice](#gv_region "#gv_region")
 - [Global Resiliency](#gr_region "#gr_region")
@@ -165,19 +166,19 @@ available.
 
 ## Conversational analytics availability by Region
 
-| Region Name              | Region         | Endpoint                                            | Protocol |
-| ------------------------ | -------------- | --------------------------------------------------- | -------- |
-| US East (N. Virginia)    | us-east-1      | contact-lens.us-east-1.amazonaws.com                | HTTPS    |
-| US West (Oregon)         | us-west-2      | contact-lens.us-west-2.amazonaws.com                | HTTPS    |
-| Africa (Cape Town)       | af-south-1     | Real-time voice API is not available in this Region | N/A      |
-| Asia Pacific (Seoul)     | ap-northeast-2 | contact-lens.ap-northeast-2.amazonaws.com           | HTTPS    |
-| Asia Pacific (Singapore) | ap-southeast-1 | contact-lens.ap-southeast-1.amazonaws.com           | HTTPS    |
-| Asia Pacific (Sydney)    | ap-southeast-2 | contact-lens.ap-southeast-2.amazonaws.com           | HTTPS    |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | contact-lens.ap-northeast-1.amazonaws.com           | HTTPS    |
-| Canada (Central)         | ca-central-1   | contact-lens.ca-central-1.amazonaws.com             | HTTPS    |
-| Europe (Frankfurt)       | eu-central-1   | contact-lens.eu-central-1.amazonaws.com             | HTTPS    |
-| Europe (London)          | eu-west-2      | contact-lens.eu-west-2.amazonaws.com                | HTTPS    |
-| AWS GovCloud (US-West)   | us-gov-west-1  | contact-lens.us-gov-west-1.amazonaws.com            | HTTPS    |
+| Region Name              | Region         | Endpoint                                  | Protocol |
+| ------------------------ | -------------- | ----------------------------------------- | -------- |
+| US East (N. Virginia)    | us-east-1      | contact-lens.us-east-1.amazonaws.com      | HTTPS    |
+| US West (Oregon)         | us-west-2      | contact-lens.us-west-2.amazonaws.com      | HTTPS    |
+| Africa (Cape Town)       | af-south-1     | contact-lens.af-south-1.amazonaws.com     | HTTPS    |
+| Asia Pacific (Seoul)     | ap-northeast-2 | contact-lens.ap-northeast-2.amazonaws.com | HTTPS    |
+| Asia Pacific (Singapore) | ap-southeast-1 | contact-lens.ap-southeast-1.amazonaws.com | HTTPS    |
+| Asia Pacific (Sydney)    | ap-southeast-2 | contact-lens.ap-southeast-2.amazonaws.com | HTTPS    |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | contact-lens.ap-northeast-1.amazonaws.com | HTTPS    |
+| Canada (Central)         | ca-central-1   | contact-lens.ca-central-1.amazonaws.com   | HTTPS    |
+| Europe (Frankfurt)       | eu-central-1   | contact-lens.eu-central-1.amazonaws.com   | HTTPS    |
+| Europe (London)          | eu-west-2      | contact-lens.eu-west-2.amazonaws.com      | HTTPS    |
+| AWS GovCloud (US-West)   | us-gov-west-1  | contact-lens.us-gov-west-1.amazonaws.com  | HTTPS    |
 
 ### Conversational analytics features by Region
 
@@ -185,7 +186,7 @@ available.
 | ------------------------ | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------- | ------------------- | ------------------- | ------------------------ | ----------------------- | --------------------------------------------- | ---------------- | --------------- | -------------------- |
 | US East (N. Virginia)    | Yes                                          | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Recording, Streaming |
 | US West (Oregon)         | Yes                                          | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Recording, Streaming |
-| Africa (Cape Town)       | -                                            | -                                            | -                                            | Yes                  | Yes                 | Yes                 | -                        | Yes                     | -                                             | Yes              | -               | Recording            |
+| Africa (Cape Town)       | -                                            | Yes                                          | -                                            | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | -                                             | Yes              | -               | Recording            |
 | Asia Pacific (Seoul)     | Yes                                          | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | -                                             | Yes              | Yes             | Recording            |
 | Asia Pacific (Singapore) | -                                            | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Recording            |
 | Asia Pacific (Sydney)    | Yes                                          | Yes                                          | Yes                                          | Yes                  | Yes                 | Yes                 | Yes                      | Yes                     | Yes                                           | Yes              | Yes             | Recording, Streaming |
@@ -234,6 +235,18 @@ The calculated attributes API is available in the following AWS Regions:
 - Asia Pacific (Singapore)
 - Asia Pacific (Sydney)
 - Asia Pacific (Tokyo)
+- Canada (Central)
+- Europe (Frankfurt)
+- Europe (London)
+
+## External Tool
+
+- US East (N. Virginia)
+- US West (Oregon)
+- Asia Pacific (Tokyo)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
 - Canada (Central)
 - Europe (Frankfurt)
 - Europe (London)
@@ -328,7 +341,7 @@ your Connect Customer instance is created.
 - From instances created in Asia Pacific (Sydney) you can call phone numbers
   based in Australia and New Zealand. There are a few specific restrictions
   explained in [Make predictive and progressive calls using Connect Customer
-  outbound campaigns](https://aws.amazon.com/blogs//contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/ "https://aws.amazon.com/blogs//contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/")).
+  outbound campaigns](https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/ "https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/")).
 - From instances created in Europe (Frankfurt) or Europe (London) you can
   call all phone numbers based in the Belgium, Denmark, France, Germany, Ireland,
   Italy, Netherlands, Poland, Portugal, Spain, and UK.

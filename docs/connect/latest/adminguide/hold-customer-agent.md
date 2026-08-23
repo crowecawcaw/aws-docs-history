@@ -20,7 +20,7 @@ custom CCP and communication widget. For more information, see [Integrate in-app
 
 ###### Hold flows do not play
 
-Configured hold flows (either default or custom set via the
+Configured hold flows (either default or custom set through the
 **Set hold flow** block) do not play when you use this
 block. The participant on hold experiences silence.
 

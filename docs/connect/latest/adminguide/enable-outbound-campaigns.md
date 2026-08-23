@@ -13,13 +13,13 @@ high-volume outbound communications.
   several thousand of customers.
 
 This review process helps ensure the reliable delivery of these critical messages while
-maintaining service quality for all customers. While we may support these use-cases, they
+maintaining service quality for all customers. While we might support these use-cases, they
 require additional technical validation due to their unique nature and implications, such as
 the impact on carrier networks for voice or SMS communications.
 
 Follow the instructions in [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_ to open a ticket that contains a
-detailed description of your requirements. Additional charges may apply based on your location
+detailed description of your requirements. Additional charges might apply based on your location
 and anticipated notification volumes.
 
 ## Before you begin
@@ -105,7 +105,7 @@ The following best practices can help you comply with regulations.
 
 **Meet the minimum ring duration requirements**
 
-Regulations may require unanswered calls to ring for a minimum amount of time, such as 15
+Regulations might require unanswered calls to ring for a minimum amount of time, such as 15
 seconds, so the customer has time to pick up the call. Connect Customer outbound campaigns let unanswered
 calls ring until they go to voicemail or automatically terminate.
 

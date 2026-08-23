@@ -15,5 +15,5 @@ To create a UI condition, visit the UI builder and drag a supported component on
 2. Select trigger component: The component that will trigger the applied condition
 3. Apply condition when: The operation evaluated based on the value of the trigger component
 4. Apply when value matches: The value of the trigger component that will be evaluated to trigger the condition
-5. Apply results: The desired change to the selected component once the evaluation on the trigger component is met
+5. Apply results: The desired change to the selected component after the evaluation on the trigger component is met
    When conditions are set on a component, it will be outlined in dashed lines in the UI builder. You can remove conditions by choosing the trash icon in the conditions tab in the component's settings panel.

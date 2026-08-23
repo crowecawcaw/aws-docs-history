@@ -125,10 +125,10 @@ Configuration options:
 
 ###### Important
 
-(Voice) Test results may vary slightly between runs. The system
+(Voice) Test results might vary slightly between runs. The system
 breaks down audio into segments based on pauses and natural speech
 patterns, which can differ depending on how long someone pauses or how
-they structure their sentences. This means you may see variations in
+they structure their sentences. This means you might see variations in
 how prompts appear across test executions.
 
 ![Observe block configuration showing Message Received event type with matching criteria options.](images/test-observe-message-received.png)

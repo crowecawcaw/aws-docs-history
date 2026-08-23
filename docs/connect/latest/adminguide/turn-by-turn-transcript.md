@@ -11,7 +11,7 @@ image shows a voice contact, the same features apply to chat contacts.
 ![An analysis of a voice contact.](images/contact-lens-navigate-transcripts2.png)
 
 1. Use [Show key
-   highlights](#contact-lens-contact-summarization "#contact-lens-contact-summarization") to review only the issue, outcome, and/or action
+   highlights](#contact-lens-contact-summarization "#contact-lens-contact-summarization") to review only the issue, outcome, or action
    item.
 2. Use [Autoscroll](#autoscroll "#autoscroll") for voice contacts, to
    jump around the audio or transcript. The two always stay in sync.

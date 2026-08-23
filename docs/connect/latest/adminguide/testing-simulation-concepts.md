@@ -52,7 +52,7 @@ Messages received in other languages are not supported at this
 time and will cause the observe block to fail during test
 execution.
 
-![](images/test-observe-block.png)
+![The Observe block in the test simulation configuration.](images/test-observe-block.png)
 
 Check
 
@@ -60,7 +60,7 @@ This block is optional and is used to validate metadata such as user
 defined attributes, system attributes, and segment attributes. You can
 validate more than one attribute in the check block.
 
-![](images/test-check-block.png)
+![The Check block in the test simulation configuration.](images/test-check-block.png)
 
 Actions
 
@@ -77,4 +77,4 @@ experience, such as text/utterance or DTMF tone. Additionally, you
 can use test control action types to log data and end the test case
 execution at any point.
 
-![](images/test-action-block.png)
+![The Actions block in the test simulation configuration.](images/test-action-block.png)

@@ -11,7 +11,7 @@ Historical contact metrics can be found in the [Metric definitions](metrics-defi
 page by looking for metrics that have a category of **Contact record-driven metric** and are
 available on the dashboard page.
 
-Real time contact metrics include: [Contacts in queue](metrics-definitions.md#contacts-in-queue "metrics-definitions.md#contacts-in-queue"), [Contacts scheduled](metrics-definitions.md#scheduled "metrics-definitions.md#scheduled"), [Oldest contact age](metrics-definitions.md#oldest-real-time "metrics-definitions.md#oldest-real-time"), etc.
+Real time contact metrics include: [Contacts in queue](metrics-definitions.md#contacts-in-queue "metrics-definitions.md#contacts-in-queue"), [Contacts scheduled](metrics-definitions.md#scheduled "metrics-definitions.md#scheduled"), [Oldest contact age](metrics-definitions.md#oldest-real-time "metrics-definitions.md#oldest-real-time").
 
 ###### Contents
 

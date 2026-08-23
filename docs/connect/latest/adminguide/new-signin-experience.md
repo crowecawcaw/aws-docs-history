@@ -28,7 +28,7 @@ The migration to the new sign-in experience will occur in the following phases:
 
 ## Testing instructions
 
-Before testing the new sign-in experience, allowlist the following endpoints to ensure they are accessible from your network:
+Before testing the new sign-in experience, allowlist the following endpoints to make sure they are accessible from your network:
 
 - `*.apps.signin.aws`
 - `*.signin.aws`
@@ -86,7 +86,7 @@ When seeking support, prepare your instance ID and document any error messages y
 
 ### Will I need to update any configuration on my end to support this new page?
 
-You may need to allowlist the URLs listed in the [Testing instructions](#new-signin-testing "#new-signin-testing") section to ensure the new sign-in endpoint is accessible from your network.
+You might need to allowlist the URLs listed in the [Testing instructions](#new-signin-testing "#new-signin-testing") section to ensure the new sign-in endpoint is accessible from your network.
 
 ### Will my existing users credentials be affected in any way by this update?
 

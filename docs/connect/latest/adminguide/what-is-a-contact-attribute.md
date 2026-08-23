@@ -41,7 +41,7 @@ Here are some common use cases for where contact attributes are used:
   database.
 - Use the customer phone number to identify the status of a
   customer (for example, are they a member), or the status of their order (shipped,
-  delayed, etc.) to route them to the appropriate queue.
+  delayed) to route them to the appropriate queue.
 - Based on a customer interaction with a bot, identify the slot (for
   example, the type of flowers to order) to be used in a flow.
 

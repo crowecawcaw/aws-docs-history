@@ -37,7 +37,7 @@ and FAILED events that occur during a chat contact.
 - EventType: [SEGMENTS](chat-real-time-contact-analysis-segment-streams-data-model.md#chat-segment-streams-data-model-segments-event "chat-real-time-contact-analysis-segment-streams-data-model.md#chat-segment-streams-data-model-segments-event")
 - Published during a conversational analytics session. This event
   contains a list of [RealtimeContactAnalysisSegment](../APIReference/API_RealtimeContactAnalysisSegment.md "../APIReference/API_RealtimeContactAnalysisSegment.md") objects with analyzed
-  information. The list of segments may include
+  information. The list of segments might include
   `"Transcript"`, `"Categories"`,
   `"Issue"`, `"Event"`,
   `"Attachment"`, or "PostContactSummary"

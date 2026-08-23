@@ -38,7 +38,7 @@ passed from the SIP header. For example,
 - Per SIP protocol RFC3261, the following characters are reserved:
   **; / ? : @ & = + $ ,**. Do not
   use these characters in the caller ID name. When these characters
-  are included, outbound calls may fail or the caller ID name may
+  are included, outbound calls might fail or the caller ID name might
   display inaccurately.
 - Connect Customer runs on a SIP-only infrastructure through our carrier
   partners. However, the caller ID name can be delivered to your
@@ -55,7 +55,7 @@ passed from the SIP header. For example,
 
 Only phone numbers that you've [claimed](get-connect-number.md "get-connect-number.md") or [ported to Connect Customer](port-phone-number.md "port-phone-number.md")
 can be used as your caller ID number. Outbound calls without proper
-identification may be blocked in certain countries such as UK and
+identification might be blocked in certain countries such as UK and
 Australia.
 
 To use an
@@ -135,7 +135,7 @@ caller ID number based on the customer's account type.
 
 - Telecom regulations in various countries limit the telephone
   numbers that you can use to make outbound calls. If you set up a
-  number and you can't make outbound calls, check the [Connect Customer Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf") and [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md") to ensure that you
+  number and you can't make outbound calls, check the [Connect Customer Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf "https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf") and [Region requirements for ordering and porting phone numbers in Connect Customer](phone-number-requirements.md "phone-number-requirements.md") to make sure that you
   have correct type of number.
 - Telecom regulations in certain countries require the carrier to
   identify the caller and block unidentifiable outbound calls. Make
@@ -151,7 +151,7 @@ is used in the caller ID, local telephony suppliers may reject outbound calls du
 
 **In the UK**: The caller ID must be
 a valid E164 phone number. If the phone number is not provided in
-the caller ID, local telephony suppliers may reject outbound calls
+the caller ID, local telephony suppliers might reject outbound calls
 due to local anti-fraud requirements.
 
 ### Anonymous caller ID
@@ -174,7 +174,7 @@ A valid caller ID is required because:
 Toll-free numbers for outbound communications have a number of limitations.
 For example, using a toll-free number to dial other toll-free numbers in the
 United States can result in the number being filtered, blocked, or not properly
-routed to the destination by carriers. Toll-free numbers may be terminated at a
+routed to the destination by carriers. Toll-free numbers might be terminated at a
 higher than expected rate. If you know you need to call toll-free numbers in the
 United States you must use DIDs to guarantee call delivery.
 
@@ -258,7 +258,7 @@ the correct formatting for numbers automatically.
 
 Phone numbers must be formatted in E.164 or they will not work. They will also
 result in a breach of [Connect Customer Service
-Terms and conditions](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for acceptable use which may result in your
+Terms and conditions](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for acceptable use which might result in your
 service being suspended.
 
 Connect Customer transmits caller ID to carriers in E.164 format (the international
@@ -303,10 +303,10 @@ flow. 4. Select the [Call phone number](call-phone-number.md "call-phone-number.
     * The value of any attribute you use must be a phone number
      claimed for your instance. The number must be in E.164 format.
      If the number used from an attribute is not in E.164 format,
-     calls may be terminated by the destination networks.
+     calls might be terminated by the destination networks.
     * It is your responsibility to ensure the numbers you are using
      are legally permissible. Certain numbers, such as +44870 numbers
-     in the UK, are not legally permissible. You must ensure you're
+     in the UK, are not legally permissible. You must make sure you're
      not using them.
 
 6. Add any additional blocks to complete your flow, and connect the

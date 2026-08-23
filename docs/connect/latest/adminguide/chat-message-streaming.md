@@ -193,7 +193,7 @@ the next steps.
   - When you call [StartContactStreaming](../APIReference/API_StartContactStreaming.md "../APIReference/API_StartContactStreaming.md"), you'll need to provide the Amazon
     Resource Name (ARN) of the SNS topic (see [Step 1: Create a standard SNS topic](#step1-chat-streaming "#step1-chat-streaming")).
 
-  A single SNS topic ARN may be used across multiple AWS accounts, but it must be in the same Region as your Connect Customer
+  A single SNS topic ARN might be used across multiple AWS accounts, but it must be in the same Region as your Connect Customer
   instance. For example, if your topic ARN is in
   **us-east-1**, your Connect Customer instance must be in
   **us-east-1**.
@@ -225,7 +225,7 @@ You are all set for working with the message streaming APIs.
    [Monitoring Amazon SNS
    topics using CloudWatch](../../../sns/latest/dg/sns-monitoring-using-cloudwatch.md "../../../sns/latest/dg/sns-monitoring-using-cloudwatch.md").
 2. Because SNS has [limited
-   retention](https://aws.amazon.com/blogs//aws/sns-ttl-control/ "https://aws.amazon.com/blogs//aws/sns-ttl-control/"), we recommend that you set up [Amazon Simple Queue Service (Amazon SQS)](https://aws.amazon.com/sqs/ "https://aws.amazon.com/sqs/")
+   retention](https://aws.amazon.com/blogs/aws/sns-ttl-control/ "https://aws.amazon.com/blogs/aws/sns-ttl-control/"), we recommend that you set up [Amazon Simple Queue Service (Amazon SQS)](https://aws.amazon.com/sqs/ "https://aws.amazon.com/sqs/")
    [Amazon Kinesis](https://aws.amazon.com/kinesis/ "https://aws.amazon.com/kinesis/"), or another service to
    retain messages.
 3. Using [StopContactStreaming](../APIReference/API_StopContactStreaming.md "../APIReference/API_StopContactStreaming.md") is optional and not required if the chats are

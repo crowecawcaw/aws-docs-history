@@ -34,8 +34,8 @@ Voice and other channels are not currently supported.
   agent-initiated workflow. The workflow needs to be either completed or
   cancelled before adding a new agent or contact.
 - Only one agent-initiated flow can execute at a time per contact
-- The following flow blocks are not supported: [**Connect assistant**](connect-assistant-block.md "connect-assistant-block.md"), [**Authenticate Customer**](authenticate-customer.md "authenticate-customer.md"), [**Create Persistent Contact
-  Association**](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md"), [**Get Customer Input**](get-customer-input.md "get-customer-input.md")
+- The following flow blocks are not supported: [Connect assistant](connect-assistant-block.md "connect-assistant-block.md"), [Authenticate Customer](authenticate-customer.md "authenticate-customer.md"), [Create Persistent Contact
+  Association](create-persistent-contact-association-block.md "create-persistent-contact-association-block.md"), [Get Customer Input](get-customer-input.md "get-customer-input.md")
 - Limited to 10 Agent-initiated flows per Chat
 
 ## Security profile permissions for agent-initiated flows
@@ -86,7 +86,7 @@ For additional details on quick connects, see [Create quick connects in Connect 
 
 ![Form and Add to chat.](images/agent-initiated-flows-agent-example-2.png)
 
-When the form is active, the agent may cancel the workflow. Agents will see events
+When the form is active, the agent might cancel the workflow. Agents will see events
 for the status of the workflow.
 
 ![Active workflow status.](images/agent-initiated-flows-agent-example-3.png)

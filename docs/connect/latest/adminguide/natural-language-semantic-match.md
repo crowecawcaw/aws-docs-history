@@ -35,7 +35,7 @@ Generative AI as true or false by matching with the conversation
 transcript.
 
 ![Import from word collection option in the UI.](images/enter-natural-language-statement.png) 7. Add any additional conditions, for example, queues, custom contact
-attributes, etc. 8. Choose **Next** and provide a category name (with
+attributes. 8. Choose **Next** and provide a category name (with
 no spaces) that would be used to label contacts with the natural
 language statement, for example,
 **CustomerAddressChange**. 9. You can specify additional actions, such as [generating

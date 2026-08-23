@@ -1,6 +1,6 @@
 # Enable post-chat survey
 
-Post-chat survey enables you to collect end customer feedback immediately after a chat conversation ends. With the **`DisconnectOnCustomerExit`** parameter in the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API, you can configure automatic agent disconnection when end customer disconnects, ensuring that disconnect flow is triggered consistently regardless of which participant disconnects first.
+Post-chat survey enables you to collect end customer feedback immediately after a chat conversation ends. With the **`DisconnectOnCustomerExit`** parameter in the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API, you can configure automatic agent disconnection when end customer disconnects, making sure that disconnect flow is triggered consistently regardless of which participant disconnects first.
 
 ## Implementation options
 
@@ -42,7 +42,7 @@ There are two ways to implement a survey in your disconnect flow:
 
 ###### Note
 
-For supervisor barge-in scenarios, ensure you add a [Flow block in Connect Customer: Set working queue](set-working-queue.md "set-working-queue.md") block before **Transfer to Queue**. Omitting it will cause chat contacts to terminate rather than transfer for this feature.
+For supervisor barge-in scenarios, make sure you add a [Flow block in Connect Customer: Set working queue](set-working-queue.md "set-working-queue.md") block before **Transfer to Queue**. Omitting it will cause chat contacts to terminate rather than transfer for this feature.
 
 ![A flow diagram showing the Set Working Queue block before Transfer to Queue for supervisor barge-in scenarios.](images/post-chat-survey-set-working-queue-block.png)
 

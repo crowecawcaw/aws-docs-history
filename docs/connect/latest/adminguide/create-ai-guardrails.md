@@ -25,15 +25,15 @@ Connect Customer admin website.
   Evaluating text content in other languages will be ineffective.
 - When configuring or editing a guardrail, we strongly recommend that you
   experiment and benchmark with different configurations. It's possible that
-  some of your combinations may have unintended consequences. Test the
-  guardrail to ensure that the results meet your use-case requirements.
+  some of your combinations might have unintended consequences. Test the
+  guardrail to make sure that the results meet your use-case requirements.
 - When guardrails are enabled with streaming responses, there is additional
   latency because text chunks must be buffered and scanned before being
   delivered. This primarily affects time-to-first-token (TTFT), as the system
   needs to accumulate enough text to perform a meaningful guardrail evaluation
   before streaming the first chunk to the end user. Minor additional latency
   on top of TTFT is expected, depending on guardrail configurations. Shorter
-  responses may experience proportionally more noticeable latency since the
+  responses might experience proportionally more noticeable latency since the
   guardrail scan must still process a minimum buffer of text. This is an
   inherent tradeoff between content safety accuracy and response speed. If
   your use case is latency-sensitive, consider whether guardrails are necessary
@@ -71,7 +71,7 @@ Connect Customer admin website.
      source and relevance to the user query.
    - **Word filters**: Configure filters to help block
      undesirable words, phrases, and profanity (exact match). Such words
-     can include offensive terms, competitor names, etc.
+     can include offensive terms, competitor names.
    - **Sensitive information filters**: Configure
      filters to help block or mask sensitive information, such as
      personally identifiable information (PII), or custom regex in user
@@ -79,7 +79,7 @@ Connect Customer admin website.
 
    Blocking or masking is done based on probabilistic detection of
    sensitive information in standard formats in entities such as SSN
-   number, Date of Birth, address, etc. This also allows configuring
+   number, Date of Birth, address. This also allows configuring
    regular expression based detection of patterns for
    identifiers.
    - **Blocked messaging**: Customize the default

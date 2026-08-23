@@ -33,7 +33,7 @@ For more information, see [Object type mapping for Item Catalog](standard-loyalt
 
 Connect Customer enables you to build and deploy specialized AI models tailored to
 your specific product recommendation needs. These models can be configured through
-either the Connect Web UI or programmatically via APIs to match your unique business
+either the Connect Web UI or programmatically through APIs to match your unique business
 scenarios. Predictive Insights offers several types of recommendations:
 
 1. **Recommended for you** - provides
@@ -58,7 +58,7 @@ scenarios. Predictive Insights offers several types of recommendations:
 ###### Note
 
 Enabling AI models with Predictive Insights is available under preview.
-Additional pricing may apply in future.
+Additional pricing might apply in future.
 
 **Item Limits by Recommendation Type**
 
@@ -88,7 +88,7 @@ has the following properties to configure:
 A Profile ID is required for this block to function. The **Get profile recommendations** flow block
 generates recommendations for the Profile ID provided here. You have the
 option to manually input the Profile ID or use a pre-defined value
-stored in an attribute. If using a pre-defined value, ensure you provide
+stored in an attribute. If using a pre-defined value, make sure you provide
 the Profile ID by using a preceding **Get
 profile** block Use the **Get
 profile** block to pinpoint the specific profile before
@@ -112,7 +112,7 @@ recommendations for the given Profile ID. Item ID is only required when
 using a “_Similar items”_ or “_Frequently paired items”_ recommender type.
 You have the option to manually input the Profile ID or use a
 pre-defined value stored in an attribute. If using a pre-defined value,
-ensure you provide the Item ID by using a preceding **Get calculated attributes** block. Use the
+make sure you provide the Item ID by using a preceding **Get calculated attributes** block. Use the
 **Get calculated attributes** block to
 pinpoint the specific Item ID before moving forward to generate
 recommendations in the subsequent block.
@@ -129,7 +129,7 @@ ID. Selected recommendation attributes were persisted to contact
 attribute $.Customer.Recommendations. 2. **Error:**
 
 An error was encountered while trying to generate recommendations.
-This may be due to a system error or how **Get
+This might be due to a system error or how **Get
 profile recommendations** block is configured. 3. **None Found:**
 
 No recommendations could be generated.
@@ -189,7 +189,7 @@ def flatten(recommendation, index):
     return flat
 ```
 
-Once you have set up your flow with the **Get profile
+After you have set up your flow with the **Get profile
 recommendations** block, you can start using it to generate
 recommendations for your customers during their contacts.
 

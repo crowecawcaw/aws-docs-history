@@ -6,10 +6,10 @@ look up a customer's contact ID, and welcome them with a personalized greeting.
 
 ###### Important
 
-Features that are provided by Connect Customer or third parties may rely on call data for
+Features that are provided by Connect Customer or third parties might rely on call data for
 identifying inbound callers for personalizing customer interaction or detecting
-fraud and may be subject to additional terms and conditions. Network-related call
-data that is not displayed to call recipients may not be used for any purpose other
+fraud and might be subject to additional terms and conditions. Network-related call
+data that is not displayed to call recipients might not be used for any purpose other
 than fraud detection.
 
 ## Use telephony call metadata attributes
@@ -35,7 +35,7 @@ information about using attributes, see [Use Connect Customer contact attributes
 ## Troubleshoot issues
 
 The availability of telephony metadata is not consistent across all telephony
-providers and may not be available in all cases.
+providers and might not be available in all cases.
 
 Before opening an AWS Support case:
 

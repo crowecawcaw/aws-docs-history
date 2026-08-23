@@ -83,7 +83,7 @@ the shift profile override, shift rotation pattern, and starting step in a
 
 ###### Note
 
-Ensure that your pop-up blocker is off so you can download the .csv
+Make sure that your pop-up blocker is off so you can download the .csv
 file template.
 
 - On the **Staff rules** page, choose one of the

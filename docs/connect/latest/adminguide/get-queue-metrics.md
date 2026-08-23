@@ -1,6 +1,6 @@
 # Flow block in Connect Customer: Get metrics
 
-By default, this block returns queue metrics for the current queue. You can optionally choose to return metrics for a different queue/channel combination, or contact-level metrics such as the contact's position in queue. Metrics are returned as attributes that can be referenced via JSONPath or the Check contact attributes block.
+By default, this block returns queue metrics for the current queue. You can optionally choose to return metrics for a different queue/channel combination, or contact-level metrics such as the contact's position in queue. Metrics are returned as attributes that can be referenced through JSONPath or the Check contact attributes block.
 
 ## Description
 
@@ -75,7 +75,7 @@ metrics for the **Voice** channel.
 
 ![The properties page of the Get metrics block.](images/get-metrics-properties1.png)
 
-You can retrieve metrics by channel, and/or by queue or agent.
+You can retrieve metrics by channel, or by queue or agent.
 
 - If you don't specify a channel, it returns metrics for all channels.
 - If you don't specify a queue, it returns metrics for the current

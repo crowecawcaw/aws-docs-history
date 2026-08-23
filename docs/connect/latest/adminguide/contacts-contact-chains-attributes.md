@@ -94,7 +94,7 @@ For more information, see [How contact attributes work in Connect Customer](what
   specific to individual contact segments.
 
 Use contact segment attributes in use cases where information varies
-between transfers or conferences, such as business unit names that may
+between transfers or conferences, such as business unit names that might
 change as a contact moves between departments. You can use contact segment
 attributes for common information such as account details as well, as long
 as you don't need to propagate the information to previous interaction

@@ -34,13 +34,13 @@ shared:
 
 ## Important things to know
 
-- The launch of new features results in additional to data fields and/or
+- The launch of new features results in additional to data fields or
   values to be added to the tables. When you develop applications that consume
   data lake data, we recommend that you build them to ignore the addition of
   new fields.
-- Connect Customer delivers contact records at least once. Contact records may be
+- Connect Customer delivers contact records at least once. Contact records might be
   delivered again for multiple reasons, such as new information arriving after
-  initial delivery which may update the data in the record. For example, when
+  initial delivery which might update the data in the record. For example, when
   you use the [update-contact-attributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/update-contact-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/update-contact-attributes.html") CLI command to update a contact
   record, Connect Customer delivers a new contact record.
 - For information about data retention, see [Data retention in the Connect Customer analytics data lake](data-lake-data-retention.md "data-lake-data-retention.md").

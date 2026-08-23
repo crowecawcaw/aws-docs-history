@@ -25,7 +25,7 @@ You can integrate with other AWS services to get analytical or monitoring insigh
 
 ### Event with screen recording status - INITIATED
 
-This event is emitted when a contact is accepted by the agent, which may be before recording starts, for every contact with agent screen recording enabled.
+This event is emitted when a contact is accepted by the agent, which might be before recording starts, for every contact with agent screen recording enabled.
 
 ```
 {

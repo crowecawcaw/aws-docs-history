@@ -91,7 +91,7 @@ example:
 ## "We couldn't find this agent. Use the agent's user name to identify them."
 
 On occasion, in the **Contact summary** the
-**Agent** field may say **"We couldn't find this agent.
+**Agent** field might say **"We couldn't find this agent.
 Use the agent's user name to identify them." This message is shown in the
 following image of the **Contact summary**.**
 

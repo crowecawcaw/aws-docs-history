@@ -168,9 +168,9 @@ The request is divided into two parts:
 - Contact data—This is always passed by Connect Customer for every contact. Some
   parameters are optional.
 
-This section may include attributes that have been previously associated with
+This section might include attributes that have been previously associated with
 a contact, such as when using a **Set contact attributes**
-block in a flow. This map may be empty if there aren't any saved
+block in a flow. This map might be empty if there aren't any saved
 attributes.
 
 The following image shows where these attributes would appear in the
@@ -347,7 +347,7 @@ JSON, for example:
 }
 ```
 
-You may return any result as long as they are simple key-value pairs.
+You can return any result as long as they are simple key-value pairs.
 
 ## Consume the Lambda function response
 

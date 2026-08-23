@@ -83,7 +83,7 @@ In the routing profile:
       choosing a **User-defined** attribute.
 
   - **Link to contact**: Choose if you want to link the
-    inbound contact email to the outbound contact email. You may not want to
+    inbound contact email to the outbound contact email. You might not want to
     choose this option for automatic reply emails.
 
 - Use the attributes in the [Check contact

@@ -7,7 +7,7 @@ profile should always use their Connect Customer instance URL to login:
   This method ensures the appropriate levels security.
 
 However, if there's an emergency, you can log in from the Connect Customer console using your AWS
-account credentials. For example, you may need to login in this way in the following
+account credentials. For example, you might need to login in this way in the following
 situations:
 
 - You forgot your Connect Customer administrator password and no other Connect Customer administrators

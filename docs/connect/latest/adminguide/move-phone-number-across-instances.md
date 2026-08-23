@@ -17,7 +17,7 @@ Connect Customer supports the following scenarios for migrating phone numbers:
 
 - [Important things to know](#move-number-important "#move-number-important")
 - [Self-move: same Region and AWS account](#move-number-same-region-account "#move-number-same-region-account")
-- [Different Regions and/or AWS account](#move-number-different-region-account "#move-number-different-region-account")
+- [Different Regions or AWS account](#move-number-different-region-account "#move-number-different-region-account")
 
 ## Important things to know
 
@@ -33,10 +33,10 @@ performed by AWS Support.
 - When the migration date and time arrives, you must make sure the phone
   number is no longer configured as the outbound callback number on any of
   your queues. Otherwise, this will prevent AWS Support from migrating the
-  number and it may delay the process.
+  number and it might delay the process.
 - The migration of each phone number takes between 20-30 minutes. During
-  a phone number migration, **calls may be blocked and
-  may fail for the number being migrated**.
+  a phone number migration, **calls might be blocked and
+  might fail for the number being migrated**.
 - To eliminate additional downtime, if you're associating a flow to a
   migrated phone number in the new Connect Customer instance, make sure the flow
   exists and is published in the new Connect Customer instance. Provide AWS Support
@@ -66,7 +66,7 @@ AWS CLI version](../../../cli/latest/userguide/cli-chap-troubleshooting.md "../.
 For instructions and sample CLI commands, see [How
 do I migrate phone numbers from one Connect Customer instance to another?](https://repost.aws/knowledge-center/connect-migrate-phone-number "https://repost.aws/knowledge-center/connect-migrate-phone-number")
 
-## Different Regions and/or AWS account
+## Different Regions or AWS account
 
 When the old and new Connect Customer instances are located in different Regions, but the
 same AWS account, complete the following steps to create a single AWS Support

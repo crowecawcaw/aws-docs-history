@@ -191,7 +191,7 @@ similar to the following example:
   },
 ```
 
-Following is a list of error messages that may be displayed on the Contact
+Following is a list of error messages that might be displayed on the Contact
 details or search pages if a summary is not generated. Also listed is the
 associated reason code that appears in the conversational analytics output file.
 
@@ -228,7 +228,7 @@ unsupported locale.
 This error can occur in Connect Customer for Concurrent post-contact summary
 jobs. Connect Customer passes contact data to Amazon Bedrock for summary generation. If the
 contact data contains unredacted Personally Identifiable Information
-(PII), Amazon Bedrock's safety guidelines are triggered. As a result, Amazon Bedrock refuses
+(PII), the safety guidelines of Amazon Bedrock are triggered. As a result, Amazon Bedrock refuses
 to generate the summary to protect sensitive information, leading to the
 error in Connect Customer.
 

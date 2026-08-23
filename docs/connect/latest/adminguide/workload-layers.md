@@ -46,7 +46,7 @@ and metrics, user configuration, call recordings, and the Contact Control Panel
 
 - Single Sign-On (SSO) integration user authentication
 - Custom desktop applications created using the [Connect Customer
-  Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API that may provide additional functionality and/or
+  Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API that might provide additional functionality or
   integrate with existing Customer Relationship Management (CRM) systems
   including the [Connect Customer Salesforce CTI
   Adapter](salesforce-integration.md "salesforce-integration.md").

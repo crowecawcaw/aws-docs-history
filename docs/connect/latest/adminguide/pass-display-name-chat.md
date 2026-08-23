@@ -10,9 +10,9 @@ their name in the agent's CCP.
 
 ![The customers name in their chat experience, the customer name in the agents CCP.](images/chatwidget-displayname.png)
 
-1. How the customer display name may appear to the customer using the chat user
+1. How the customer display name might appear to the customer using the chat user
    interface.
-2. How the customer display name may appear to the agent using the CCP.
+2. How the customer display name might appear to the agent using the CCP.
 
 ## How to pass a customer display name in the communications widget
 

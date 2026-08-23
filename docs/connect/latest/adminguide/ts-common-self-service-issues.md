@@ -4,11 +4,11 @@
 
 If you are calling AI agents APIs directly from Lambda functions,
 you must package and bundle the latest version of the AWS SDK along with your
-function code. The Lambda runtime environment may include an older version of the
+function code. The Lambda runtime environment might include an older version of the
 SDK that does not support the latest AI agents API models and
 features.
 
-**Symptoms**: You may experience parameter
+**Symptoms**: You might experience parameter
 validation exceptions or request input parameters being silently ignored when
 using an outdated SDK version.
 

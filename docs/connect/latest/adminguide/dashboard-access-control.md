@@ -29,7 +29,7 @@ have the following two options:
 - **Enforce hierarchy-based access control based on the
   user's hierarchy**
 
-This option ensures that the user being given access can only manage
+This option makes sure that the user being given access can only manage
 agents that belong to this hierarchy. For example, enabling this
 configuration for a given user enables them to manage other agents that
 either belong to their hierarchy group or a child hierarchy group.
@@ -37,7 +37,7 @@ either belong to their hierarchy group or a child hierarchy group.
 - **Enforce hierarchy-based access control based on a
   specific/custom user hierarchy**
 
-This option ensures that the user being given access can only manage
+This option makes sure that the user being given access can only manage
 agents that belong to the hierarchy defined in the security profile. For
 example, enabling this configuration for a given user enables them to manage
 other users that either belong to the hierarchy group specified in the

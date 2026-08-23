@@ -1,7 +1,7 @@
 # Integrate a published dashboard into the agent workspace
 
 You can create a customized dashboard, and then surface it in the agent workspace. You
-may want to do this if you don't want agents to have access to all the widgets or
+might want to do this if you don't want agents to have access to all the widgets or
 metrics on the default **Agent workspace performance
 dashboard**.
 
@@ -18,7 +18,7 @@ dashboard**.
 
 1. Publish your Connect Customer dashboard. For instructions, see [Publish reports](publish-reports.md "publish-reports.md").
 2. Integrate your published Connect Customer dashboard into the agent workspace. For
-   instructions, see [Integrate third-party applications (3p
+   instructions, see [Integrate third-party applications (3P
    apps)](3p-apps.md "3p-apps.md").
 
 ###### Note

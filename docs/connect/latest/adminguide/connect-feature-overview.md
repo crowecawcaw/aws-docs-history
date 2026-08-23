@@ -83,7 +83,7 @@ a seamless transition.
   When finished, you will have a short code snippet that you add to your
   website.
 
-Because Connect Customer hosts the widget, it ensures that the latest version is
+Because Connect Customer hosts the widget, it makes sure that the latest version is
 always live on your website.
 
 - **SMS**. You can [set up two-way SMS messaging](setup-sms-messaging.md "setup-sms-messaging.md")
@@ -161,7 +161,7 @@ the logo to their emails.
 ![An email signature template.](images/overviewemailtemplate.png)
 
 Both agents and contact center managers can easily view an entire email
-thread. Email threading ensures that outgoing emails and incoming responses
+thread. Email threading makes sure that outgoing emails and incoming responses
 related to a customer inquiry are associated with each other in a [chronological and organized
 fashion](email-capabilities.md#email-capabilities-howthreadsmanaged "email-capabilities.md#email-capabilities-howthreadsmanaged"). Agents can view an email thread in the agent workspace and
 CCP, and for added security, when they reply to an email, they can't manipulate
@@ -226,7 +226,7 @@ track and manage customer issues that require multiple interactions.
 
 You can also easily integrate other applications directly into the agent
 workspace, thus further increasing agent efficiency. For more information, see
-[Integrate third-party applications (3p apps) in the Connect Customer agent workspace](3p-apps.md "3p-apps.md")
+[Integrate third-party applications in the agent workspace](3p-apps.md "3p-apps.md")
 
 The following image shows the agent workspace with callouts indicating the
 features on the page.
@@ -273,7 +273,7 @@ satisfaction. Agents can also use natural language to search across connected
 knowledge sources to receive generated responses, recommended actions, and links
 to more information.
 
-The following image shows how an article may appear in the agent application
+The following image shows how an article might appear in the agent application
 when the agent is on a call.
 
 ![The agent application with an article displayed in it.](images/wisdom-concepts-intro2.png)

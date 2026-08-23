@@ -98,4 +98,4 @@ If no audio recording is available, the Play option does not
 appear. 5. Quickly see where errors have occurred including customer timeouts or
 Lambda function errors. 6. See where bot intents are detected and resolved. 7. Knowledge base citation reference is available under the Prompt
 (inference span) under Span details, when configured and available. To
-ensure you have your citations configured, see [Knowledge base retrieval configuration](multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace "multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace"). 8. To learn more about enabling AI agent traces, see [AI agent traces](ai-agent-traces.md "ai-agent-traces.md").
+make sure you have your citations configured, see [Knowledge base retrieval configuration](multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace "multiple-knowledge-base-setup-and-content-segmentation.md#add-citation-data-ai-agent-trace"). 8. To learn more about enabling AI agent traces, see [AI agent traces](ai-agent-traces.md "ai-agent-traces.md").

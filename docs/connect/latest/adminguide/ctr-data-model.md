@@ -19,7 +19,7 @@ historical metrics are based on the data captured in the contact records.
   backward compatible. When you develop applications, we recommend that you build
   them to ignore the addition of new fields in the contact records data model.
   This will help ensure your applications are resilient.
-- Connect Customer delivers contact records at least once. Contact records may
+- Connect Customer delivers contact records at least once. Contact records might
   be delivered again for multiple reasons, such as new information arriving after
   initial delivery. For example, when you use the [update-contact-attributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/update-contact-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/update-contact-attributes.html") CLI command to update a contact record,
   Connect Customer delivers a new contact record. This contact record is
@@ -619,7 +619,7 @@ Type: [ContactLens](#ctr-ContactLens "#ctr-ContactLens")
 
 **CustomerId**
 
-The customer's identification number. For example, the CustomerId may be a
+The customer's identification number. For example, the CustomerId might be a
 customer number from your CRM. You can create a Lambda function to pull the
 unique customer ID of the caller from your CRM system. If you enable Connect Customer
 Voice ID capability, this attribute is populated with the CustomerSpeakerId
@@ -713,7 +713,7 @@ reasons, see [Segment attributes](connect-attrib-list.md#attribs-segment-attribu
 
 Amazon Connect helps customers flag spam blocking based on its
 own best practice. Because spam blocking lacks global
-unification, a very small number of false positives may occur in
+unification, a very small number of false positives might occur in
 this category. Amazon Connect expects to see around 1% of calls
 have this effect. If blocking occurs, we recommend you review
 the carrier network you are calling, and you should contact the
@@ -722,7 +722,7 @@ faced blocking. Due to blocking rules, AWS cannot unblock
 networks on your behalf.
 
 - `TELECOM_UNANSWERED` – Amazon Connect attempts to
-  deliver the call via multiple routes and currently receives messages
+  deliver the call through multiple routes and currently receives messages
   from either the network or the handset confirming that the system
   cannot deliver the call at this time.
 - `TELECOM_TIMEOUT` – If the call attempt occurs on
@@ -737,7 +737,7 @@ networks on your behalf.
   call before connecting, or when the call remains unanswered after 60
   seconds.
 - `TELECOM_PROBLEM` – If we try to reach this customer
-  via multiple networks and receive responses from the PSTN that
+  through multiple networks and receive responses from the PSTN that
   indicate a problem exists with the destination network where we
   cannot reach the end network but believe the number remains valid,
   this reason code applies.
@@ -984,7 +984,7 @@ with agent.
 You can configure flows so there is processing done on the task before a
 contact is queued. For example, this processing can take one minute or maybe
 several days. Many tasks, especially those used for backoffice processing
-aren't queued so they may have an InitiationTimestamp but not
+aren't queued so they might have an InitiationTimestamp but not
 an EnqueueTimestamp.
 
 Scheduled tasks get initiated when a contact is created, however they only
@@ -1626,7 +1626,7 @@ traffic distribution details.
 
 **ActiveRegion**
 
-The current AWS region in which the contact is active. This indicates
+The current AWS Region in which the contact is active. This indicates
 where the contact is being processed in real-time.
 
 Type: String
@@ -1635,8 +1635,8 @@ Length Constraints: Minimum length of 0. Maximum length of 1024.
 
 **OriginRegion**
 
-The AWS region where the contact was originally created and initiated.
-This may differ from the `ActiveRegion` if the contact has been
+The AWS Region where the contact was originally created and initiated.
+This might differ from the `ActiveRegion` if the contact has been
 transferred across regions.
 
 Type: String

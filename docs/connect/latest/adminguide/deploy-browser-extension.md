@@ -3,7 +3,7 @@
 The Connect Customer browser extension reports the URL of each browser window to the Connect Customer Client Application so
 that URL rules configured in your flow block can be evaluated. Without the extension, URLs
 are not reported and URL rules cannot match, so browser pages that should be redacted by
-URL may appear in the recording. Window title rules do not depend on the extension; they
+URL might appear in the recording. Window title rules do not depend on the extension; they
 match on native window titles and work without the extension installed.
 
 If any of your flow blocks use URL rules, install the extension on every browser that
@@ -321,7 +321,7 @@ deployed.
 
 If the extension is uninstalled or disabled while a recorded contact is active,
 browser URLs stop being reported to the Connect Customer Client Application for the remainder of the contact.
-URL rules can no longer match, and browser pages that should be redacted by URL may
+URL rules can no longer match, and browser pages that should be redacted by URL might
 appear in the recording. Window title rules continue to match as normal.
 
 To restore redaction for new contacts, reinstall or re-enable the extension before

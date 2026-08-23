@@ -10,7 +10,7 @@ Auto-accept for agent-first callbacks are covered under the Agent-first callback
 ## How long until the contact is connected to the agent?
 
 Less than one second. When a contact arrives to an available agent who has auto-accept enabled for
-that channel, the Contact Control Panel (CCP) may briefly show the options **Accept**
+that channel, the Contact Control Panel (CCP) might briefly show the options **Accept**
 or **Reject**. This is expected behavior. After less than a second, the contact is
 automatically accepted and these options disappear. Additionally, if the contact is a chat, task,
 or email, an audio notification will be played to notify the agent that the contact has been auto-accepted.
@@ -19,7 +19,7 @@ For voice calls, the auto-accept audio notification does not play, only the [age
 ## Enable auto-accept for existing agents
 
 You can enable auto-accept using the Edit or Bulk Edit features in Amazon Connect. Please note that
-you cannot configure per-channel auto-accept on user creation when creating users via importing a .csv
+you cannot configure per-channel auto-accept on user creation when creating users through importing a .csv
 template; instead, first create the users then use Bulk Edit to modify their per-channel auto-accept settings.
 
 To Edit or Bulk Edit:
@@ -51,7 +51,7 @@ connect to the user's microphone when CCP tab is in focus.
 
 ## Bulk upload new users
 
-You cannot configure per-channel auto-accept on user creation when creating users via importing a
+You cannot configure per-channel auto-accept on user creation when creating users through importing a
 .csv template; instead, first create the users then use Bulk Edit to modify their per-channel auto-accept
 settings.
 

@@ -23,7 +23,7 @@ page.
 
 ![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. On the left navigation menu, choose **Applications**,
 **Customer Authentication**. If you don't see this
-option, it may not be available in your AWS Region. For information about
+option, it might not be available in your AWS Region. For information about
 where customer authentication is available, see [Customer authentication availability by Region](regions.md#customerauthentication_region "regions.md#customerauthentication_region"). 4. On the **Customer authentication** page, choose
 **Create user pool in Amazon Cognito**. This opens the Amazon Cognito
 console. 5. Create a new user pool with your identity provider. For instructions, see

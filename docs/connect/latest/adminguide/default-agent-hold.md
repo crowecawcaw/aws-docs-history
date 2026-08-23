@@ -11,7 +11,7 @@ messages is 10 seconds. To make the time between longer, add multiple prompts to
 loop. For example, if you want 20 seconds between **You are on hold**
 messages:
 
-- The first prompt may say **You are on hold** with
+- The first prompt might say **You are on hold** with
   **break time="10s"**
 - Add another prompt with a blank message and break time="10s".
 

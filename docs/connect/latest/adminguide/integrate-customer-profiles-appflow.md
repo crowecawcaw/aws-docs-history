@@ -153,5 +153,5 @@ integration and then re-establish it.
 If an object fails to be sent, choose **Flow details** to
 learn more about what's gone wrong.
 
-You may need to delete the configuration and re-connect to the external
+You might need to delete the configuration and re-connect to the external
 application.

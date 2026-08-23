@@ -85,7 +85,7 @@ These options are shown in the following image.
 ![The agent workspace when an agent chooses Reply all to an email contact.](images/qic-generated-email-responses.png)
 
 By default, the content copied from generated email responses in raw HTML format
-works best with Connect Customer's rich text editor for agents responding to email contacts. To
+works best with the Connect Customer rich text editor for agents responding to email contacts. To
 customize the output of this response, edit
 **QinConnectEmailGenerativeAnswerPrompt** as part of the
 **QinConnectEmailGenerativeAnswerAIAgent** to output the
@@ -111,7 +111,7 @@ agent can:
   more information, see [TRANSCRIPT\_RESULT\_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
 - Choose **Copy** to copy the contents of the response. By
   default, the content copied from any of the responses are in raw HTML format
-  to work best with Connect Customer's rich text editor for agents responding to email
+  to work best with the Connect Customer rich text editor for agents responding to email
   contacts. To customize the output of this response, edit the prompts and
   agents to output the response in your preferred format (for example, plain
   text or markdown).

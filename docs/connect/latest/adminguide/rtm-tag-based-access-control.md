@@ -30,7 +30,7 @@ You can configure tag-based access controls by using the Connect Customer admin 
     who have the appropriate tags, and then displays only those
     agents in that group of 500 **who are
     active** (Online or On Contact). Because not all of
-    the 500 tagged agents may be active, it is very likely fewer
+    the 500 tagged agents might be active, it is very likely fewer
     than 500 tagged agents will be displayed in the table.
   - For example, you have 1000 tagged agents. In the first group
     of 500 tagged agents only 50 are online. Connect Customer selects the first
@@ -85,7 +85,7 @@ applied.
 
 ![The table filters page, set to filter by agent.](images/filterbyagent.png) 3. You will be able to view the data for all 2500 resources across the 5
 tables. When tags are applied to agents, each table will likely display
-fewer than 500 agents because not all of them may be active at the same
+fewer than 500 agents because not all of them might be active at the same
 time.
 
 ## How to transition to tag-based access control

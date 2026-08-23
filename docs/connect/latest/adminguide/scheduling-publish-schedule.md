@@ -64,10 +64,10 @@ and **LOW**.
      not been successfully scheduled.
     2. **MEDIUM** warnings indicate an agent was scheduled
      but could not meet all the given requirements
-     (e.g. an agent's schedule for a day not meeting the minimum
+     (for example, an agent's schedule for a day not meeting the minimum
      working hours required for them).
     3. **LOW** warnings indicate minor problems
-     with the schedule (e.g. overstaffing occurring for a given day).
+     with the schedule (for example, overstaffing occurring for a given day).
 
 ![The schedule calendar, the warnings icon, an example of schedule warnings.](images/wfm-scheduling-warnings.png) 11. When the status is **Complete**, choose the draft
 schedule to view it. The following image shows a sample schedule for one
@@ -102,8 +102,8 @@ one is scheduled to take contacts.
 
 You can:
 
-- Change agent shift start and/or end time, duration.
-- Change activity shift start and/or end time, duration.
+- Change agent shift start or end time, duration.
+- Change activity shift start or end time, duration.
 - Add an activity to one or more agents shift.
 - Remove or replace activity from an agent shift.
 - Copy an entire shift from one agent to another.

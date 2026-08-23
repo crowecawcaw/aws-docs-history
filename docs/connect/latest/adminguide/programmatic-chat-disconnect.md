@@ -55,7 +55,7 @@ resources are cleaned up.
 across all major browsers and operating systems. `beforeunload` is an
 alternative event to try if the `pagehide` event fails to call
 disconnect consistently. `beforeunload` is triggered before
-`pagehide` which may provide additional reliability if the
+`pagehide` which might provide additional reliability if the
 `disconnect` function is failing to complete before the browser
 is closed. There have been reliability issues regarding
 `beforeunload` especially on iOS devices.

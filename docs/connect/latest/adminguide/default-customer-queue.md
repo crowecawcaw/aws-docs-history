@@ -43,7 +43,7 @@ for calling. Did you know you can reset your own password at the login
 page? Choose Reset now, and following the prompts._"
 
 ![Loop prompts block configured with a text-to-speech message.](images/customize-default-contact-flow3.png) 5. Choose **Save** at the bottom of the properties page. 6. Choose **Publish**. Connect Customer starts playing the new message
-almost immediately (it may take a few moments for it to fully take
+almost immediately (it might take a few moments for it to fully take
 effect).
 
 ![The publish button on the flow designer.](images/customize-default-contact-flow4.png)

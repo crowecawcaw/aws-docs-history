@@ -7,7 +7,7 @@ you built for your agents to customers for better configuration management.
 
 ## Enable step-by-step Guides in Connect Customer chats
 
-1. Ensure that you have enabled and configured [step-by-step Guides](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md") for
+1. Make sure that you have enabled and configured [step-by-step Guides](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md") for
    agents. After you configure the guides, confirm that they pop up when a
    contact is reserved for an agent to answer.
 2. Set up your flow to invoke Views in the chat flow by using the Show View

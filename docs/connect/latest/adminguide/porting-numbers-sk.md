@@ -5,8 +5,8 @@ requirements in South Korea, here are some helpful hints.
 
 - When planning your Connect Customer project in South Korea one of the most important
   things you will need to do is plan and request information up front. To port
-  numbers in South Korea, you may need to complete and submit more than 5
-  forms and you may need to engage with the local regulatory authority before
+  numbers in South Korea, you might need to complete and submit more than 5
+  forms and you might need to engage with the local regulatory authority before
   approvals are granted to port numbers.
 - All geographic numbers (that is, other than toll-free, national,
   representative, or 070 VOIP) must be in place on a physical termination for

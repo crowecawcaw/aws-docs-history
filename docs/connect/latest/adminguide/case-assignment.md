@@ -102,7 +102,7 @@ queue**. You must enter the full ARN of the queue.
 
 ![The Cases block with request field set to Assigned queue.](images/cases-block-assigned-queue.png)
 
-There are situations where you may want to set the assigned queue or assigned user
+There are situations where you might want to set the assigned queue or assigned user
 dynamically. For example, when the customer enters a DTMF number for a fraud issue,
 you can create cases where the Fraud department is automatically set as the case
 owner.

@@ -63,5 +63,5 @@ them or both from the Identity Resolution page. For more information, see [Disab
      domain, we recommend checking your profile metrics to make sure
      that profiles have been created. Otherwise, there won't be any
      matching results.
-    2. You may want to set up consolidation criteria for auto-merging
+    2. You might want to set up consolidation criteria for auto-merging
      matching profiles. If so, see [Set up consolidation criteria for Identity Resolution in Connect Customer](create-consolidation-criteria.md "create-consolidation-criteria.md").

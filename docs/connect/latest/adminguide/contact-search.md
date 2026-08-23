@@ -93,7 +93,7 @@ on the next hierarchy level(s).
   the subject **Customer Inquiry**.
 - Filters for [conversation analytics](analyze-conversations.md "analyze-conversations.md").
   You can search for contacts that have conversational analytics enabled.
-  e.g. **Conversational analytics: Voice - Agent interaction** returns contacts where the agent interaction has been analyzed by conversational analytics.
+  for example, **Conversational analytics: Voice - Agent interaction** returns contacts where the agent interaction has been analyzed by conversational analytics.
   You can [search for Contact categories](search-conversations.md#contact-category-search "search-conversations.md#contact-category-search") by specifying the full category name. Choose to search using
   **Match any** or **Match all** or **Match none**.
   For example, you can search contacts with both "category A" and "category B", or with either one of the two categories.
@@ -119,14 +119,14 @@ list, remove the following permissions from their security profile:
      summarize conversational analytics.
 
 - Filters for recordings. Using the **recording** filter, you can filter for contacts with a screen recording (video) or audio recording (voice).
-- Filter for Active Region. Search for contacts by the AWS region where they
+- Filter for Active Region. Search for contacts by the AWS Region where they
   were handled. This filter is available for Connect Customer instances using global
-  resiliency, where contacts may be handled in a different AWS region than the
+  resiliency, where contacts might be handled in a different AWS Region than the
   region you are logged into.
 
 ###### Important
 
-Some Connect Customer features may be unavailable when accessing cross-region contact
+Some Connect Customer features might be unavailable when accessing cross-region contact
 data. For complete details, refer to the [Set up Connect Customer Global Resiliency](setup-connect-global-resiliency.md "setup-connect-global-resiliency.md").
 
 - Filters for [Voice ID](voice-id.md "voice-id.md"). You can search for the
@@ -184,7 +184,7 @@ For more information about hierarchy groups, see [Organize agents into teams and
 
     + Deleting a hierarchy level severs the link to existing contacts.
      This action can not be reversed.
-    + When you change a user's hierarchy group, it may take a couple of
+    + When you change a user's hierarchy group, it might take a couple of
      minutes for their contact search results to reflect their new
      permissions.
 
@@ -218,7 +218,7 @@ what is shown in the preceding table.
 - **Call recordings (unredacted) - Access**: Use this
   permission to manage who can access recordings on the **Contact
   search** and **Contact details** pages. If
-  desired, you can use **Restrict contact access** to ensure they
+  desired, you can use **Restrict contact access** to make sure they
   only have access to detailed information for those contacts handled by their
   hierarchy group.
 - **Contact transcripts (unredacted) - Access**: Use this
@@ -226,7 +226,7 @@ what is shown in the preceding table.
   unredacted voice transcripts produced by conversational analytics on the
   **Contact search** and **Contact details**
   pages. If desired, you can use **Restrict contact access** to
-  ensure they only have access to detailed information for those contacts handled
+  make sure they only have access to detailed information for those contacts handled
   by their hierarchy group.
 - **Evaluation forms - perform evaluations**: Allows users to
   [search for](search-evaluations.md "search-evaluations.md") evaluations by

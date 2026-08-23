@@ -7,7 +7,7 @@ conversational analytics is enabled, the recommendations appear for calls as wel
 The recommendations point you to information related to the current conversation with
 the customer.
 
-The following image shows how an article may appear in the agent workspace when you're
+The following image shows how an article might appear in the agent workspace when you're
 on a call.
 
 ![An article displayed in the agent workspace.](images/wisdom-concepts-intro2.png)

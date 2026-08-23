@@ -180,7 +180,7 @@ played, and then enter their type DTMF input.
 
 ## Touchtone buffering
 
-When touchtone buffering is enabled via the [Set Touchtone Buffer
+When touchtone buffering is enabled through the [Set Touchtone Buffer
 Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md") block, the **Store
 customer input** block integrates with the buffer:
 

@@ -26,7 +26,7 @@ and FAILED events that can occur during a voice contact.
 - EventType: SEGMENTS
 - Published during a conversational analytics session. This event
   contains a list of segments with analyzed information. The list of
-  segments may include "`Utterance`,"
+  segments might include "`Utterance`,"
   "`Transcript`," "`Categories`" or
   "`PostContactSummary`" segments.
 

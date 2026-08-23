@@ -45,7 +45,7 @@ Choose from the following options:
 
     * **Exact Match**: Finds only the exact
      words or phrases.
-    * **Pattern Match**: Finds matches that may
+    * **Pattern Match**: Finds matches that might
      be less than 100 percent exact. You can also specify the
      distance between words. For example, you might look for
      contacts where the word "credit" was mentioned, but you do
@@ -67,7 +67,7 @@ a comma gets its own line.
 
 The logic that conversational analytics uses to read these words or
 phrases is: (Talk OR to OR your OR manager) OR (this OR is OR not OR
-helpful) OR (speak OR to OR your OR supervisor), etc. 9. To add more words or phrases, choose **Add group of words
+helpful) OR (speak OR to OR your OR supervisor). 9. To add more words or phrases, choose **Add group of words
 or phrases**. In the following image, the first group
 of words or phrases are what the agent might mention. The second
 group is what the customer might mention.

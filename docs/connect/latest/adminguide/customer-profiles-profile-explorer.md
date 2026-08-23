@@ -8,7 +8,7 @@ industries like travel and hospitality can use Profile explorer to better unders
 engage with their customers through this intuitive interface.
 
 - **Find customers instantly** using multiple
-  identifiers simultaneously (email, phone, booking reference etc.) with real-time
+  identifiers simultaneously (email, phone, booking reference) with real-time
   search results.
 - **Customize views** to prioritize the most relevant
   information for specific business needs, design a domain-specific layout that

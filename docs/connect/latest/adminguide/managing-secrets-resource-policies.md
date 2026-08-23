@@ -19,7 +19,7 @@ provider's API key. Creating the secret is a two step process:
     `aws:SourceAccount` and `aws:SourceArn` confused deputy conditions
     (see [The confused
     deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md")) and that the resource-based policy for the KMS key includes the
-    `kms:EncryptionContext:SecretARN` condition. This will ensure that Connect Customer can
+    `kms:EncryptionContext:SecretARN` condition. This will make sure that Connect Customer can
     only access your API key secret in context of a single specific instance, and can only access
     your KMS key in context of both that instance and the specific secret.
 
@@ -115,4 +115,4 @@ situations.
 To rotate an API key, you must rotate the secret in which it is contained. See [Rotate Secrets Manager secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") in the _Secrets Manager User Guide_ for more
 information on how to rotate secrets. When you rotate an API key, it is recommended that
 you wait for the previous key's usage to drop to zero before revoking the old API key to
-ensure that ongoing requests are not impacted.
+make sure that ongoing requests are not impacted.

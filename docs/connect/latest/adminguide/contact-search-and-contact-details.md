@@ -100,7 +100,7 @@ The contact's active Region is displayed on the contact details page under
 
 ###### Note
 
-If the contact's active Region is impaired, some information may be
+If the contact's active Region is impaired, some information might be
 unavailable, including screen and audio recordings, chat transcripts, IVR
 interactions, email attachments and transcripts, and conversational analytics
 data.

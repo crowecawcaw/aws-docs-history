@@ -9,7 +9,7 @@ Here's how you can set up a flow to test live media streaming:
 3. Add a **Stop media streaming** block to where you want to
    stop streaming.
 4. Configure both blocks to specify what you want to stream: **From the
-   customer** and/or **To the customer**.
+   customer** or **To the customer**.
 
 ![A Start media streaming block.](images/start-media-streaming.png)
 Customer audio is captured until a **Stop media streaming** block is

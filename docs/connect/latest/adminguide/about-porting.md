@@ -2,7 +2,7 @@
 
 The following steps are for a typical porting request. This process requires
 timely communication to make progress. If you take longer than 30 days to
-respond to requests for information, your porting request may be cancelled,
+respond to requests for information, your porting request might be cancelled,
 rescheduled, or restarted from the beginning.
 
 **Documentation requirements**: For a list of
@@ -202,7 +202,7 @@ submits the porting request on your behalf to the winning carrier.
 
 ###### Important
 
-If your LOA contains multiple phone numbers, some numbers may
+If your LOA contains multiple phone numbers, some numbers might
 be given different "mutually agreed dates." Check the status and
 dates/times for each one.
 
@@ -236,7 +236,7 @@ following steps:
 3. [Submit a service
 quota request](amazon-connect-service-limits.md "amazon-connect-service-limits.md") at least five days in advance of the
 mutually agreed date for any changes to your service quotas required
-to support your use case. For example, you may need to increase the
+to support your use case. For example, you might need to increase the
 number of concurrent calls per instance, or enable countries for
 outbound calling.
 

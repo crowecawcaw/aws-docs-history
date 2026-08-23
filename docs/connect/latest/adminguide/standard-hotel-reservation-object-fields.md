@@ -8,8 +8,8 @@ Hotel Reservation| Standard hotelReservation field | Type | Description |
 | ReservationId | String | Unique identifier of the stanndard hotel<br>reservation |
 | ConfirmationNumber | String | Confirmation number provided by the hotel or booking<br>engine |
 | PreferenceRef | String | The identifier referencing the Preference object for the<br>reservation |
-| Status | String | Current status of the reservation (e.g., confirmed,<br>cancelled) |
-| TripType | String | Purpose or nature of the trip (e.g., leisure,<br>business) |
+| Status | String | Current status of the reservation (for example, confirmed,<br>cancelled) |
+| TripType | String | Purpose or nature of the trip (for example, leisure,<br>business) |
 | BrandCode | String | Code representing the hotel brand |
 | HotelCode | String | Code identifying the specific hotel |
 | PhoneNumber | String | Contact phone number for the reservation |
@@ -85,9 +85,9 @@ CheckIn data type| Standard hotelReservation field | Type | Description |
 
 Payment data type| Standard hotelReservation field | Type | Description |
 | --- | --- | --- |
-| Type | String | Payment method type (e.g., credit, debit,<br>voucher) |
+| Type | String | Payment method type (for example, credit, debit,<br>voucher) |
 | CreditCardToken | String | Tokenized credit card number |
-| CreditCardType | String | Type of credit card (e.g., Visa, Amex) |
+| CreditCardType | String | Type of credit card (for example, Visa, Amex) |
 | CreditCardExpiration | String | Credit card expiration date |
 | Cvv | String | Card verification value |
 | NameOnCreditCard | String | Name printed on the credit card |
@@ -99,9 +99,9 @@ Payment data type| Standard hotelReservation field | Type | Description |
 
 Currency data type| Standard hotelReservation field | Type | Description |
 | --- | --- | --- |
-| Code | String | ISO code for the currency (e.g., USD) |
-| Name | String | Full name of the currency (e.g., US Dollar) |
-| Symbol | String | Symbol of the currency (e.g., $) |
+| Code | String | ISO code for the currency (for example, USD) |
+| Name | String | Full name of the currency (for example, US Dollar) |
+| Symbol | String | Symbol of the currency (for example, $) |
 
 Cancellation data type| Standard hotelReservation field | Type | Description |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ Channel data type| Standard hotelReservation field | Type | Description |
 | --- | --- | --- |
 | CreationChannelId | String | ID for the channel through which the reservation was<br>made |
 | LastUpdatedChannelId | String | ID for the channel that last updated the<br>reservation |
-| Method | String | Method used for booking (e.g., web, mobile app) |
+| Method | String | Method used for booking (for example, web, mobile app) |
 
 RatePlan data type| Standard hotelReservation field | Type | Description |
 | --- | --- | --- |
@@ -122,7 +122,7 @@ RatePlan data type| Standard hotelReservation field | Type | Description |
 
 Service data type| Standard hotelReservation field | Type | Description |
 | --- | --- | --- |
-| ServiceType | String | Type of service (e.g., spa, breakfast) |
+| ServiceType | String | Type of service (for example, spa, breakfast) |
 | Description | String | Description of the service |
 | Cost | String | Cost of the service |
 

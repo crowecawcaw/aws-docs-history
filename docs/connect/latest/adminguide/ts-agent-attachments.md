@@ -1,10 +1,10 @@
 # Internal firewall or missing CORS policy prevents access to chat, email, task, or case attachments
 
-This topic is for developers who need to investigate issues that may occur when using
+This topic is for developers who need to investigate issues that might occur when using
 attachments with the chat, email, or task channels in Connect Customer, or when using attachments to
 upload files to cases.
 
-The following issues may cause attachments to not display for your agents using Connect Customer
+The following issues might cause attachments to not display for your agents using Connect Customer
 chat, email, or tasks, or Connect Customer Cases.
 
 ## Configure a CORS policy on your attachments bucket
@@ -16,7 +16,7 @@ policy hasn't been configured on your attachments bucket. For instructions, see
 ## Internal firewall settings are preventing access
 
 Check that your firewall isn't preventing agents from accessing the files in your
-Amazon S3 bucket. You may need to add the Amazon S3 bucket where your files are stored to your
+Amazon S3 bucket. You might need to add the Amazon S3 bucket where your files are stored to your
 domain allowlist. For more information, see [Set up your network to use the Connect Customer Contact Control Panel (CCP)](ccp-networking.md "ccp-networking.md").
 
 ## Attachments are too large, too many, or don't meet file type requirements

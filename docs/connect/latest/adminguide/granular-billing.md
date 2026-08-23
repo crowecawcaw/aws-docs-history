@@ -65,7 +65,7 @@ view them in the AWS Billing dashboard.
   scenarios like transfers or contact re-hydration (for example, persistent chat,
   and tasks related to contacts).
 - Use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API to list the tags on a contact.
-- You can remove and/or overwrite the tags by using the [Contact tags](contact-tags-block.md "contact-tags-block.md")
+- You can remove or overwrite the tags by using the [Contact tags](contact-tags-block.md "contact-tags-block.md")
   block or the [TagContact](../APIReference/API_TagContact.md "../APIReference/API_TagContact.md") and
   [UntagContact](../APIReference/API_UntagContact.md "../APIReference/API_UntagContact.md")APIs.
 - By using the [TagContact](../APIReference/API_TagContact.md "../APIReference/API_TagContact.md") and

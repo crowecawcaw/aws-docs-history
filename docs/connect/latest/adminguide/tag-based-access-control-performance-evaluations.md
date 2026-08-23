@@ -27,12 +27,12 @@ on the Contact Details page.
 
 ###### Important Notes
 
-- Once you enable tag based access control on evaluations, users will lose
+- After you enable tag based access control on evaluations, users will lose
   access to any evaluations before tagging the evaluation form. If you are already
   using performance evaluations, we recommend to first tag evaluation forms and
   accumulate evaluations over several months, before enabling tag based access to
   evaluations.
-- We recommend using a single tag on an evaluation form (e.g. "Department: New customer")
+- We recommend using a single tag on an evaluation form (for example, "Department: New customer")
   while configuring tag-based access. While assigning and permitting access on multiple tags is
   possible, it creates complexity. This is discussed in more detail below.
 
@@ -112,13 +112,13 @@ in individuals who already have access to evaluations losing access to historica
 access to historical evaluations you can:
 
 - Start by tagging forms. This would result in any evaluations performed subsequently carrying
-  the same tag. Once you have accumulated several months' evaluations you can enable tag-based-access.
+  the same tag. After you have accumulated several months' evaluations you can enable tag-based-access.
 - Your technical administrator can use the [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") API to tag any
   historical evaluations.
 - Enable tag-based access on **evaluation forms** but not
-  **contact evaluations**. This may be desirable in situations where there is already
-  security that limits access to which contacts are accessible. For example, supervisors may already
-  be restricted to access contacts within their own hierarchy, and you may want to grant your
+  **contact evaluations**. This might be desirable in situations where there is already
+  security that limits access to which contacts are accessible. For example, supervisors might already
+  be restricted to access contacts within their own hierarchy, and you might want to grant your
   supervisors access to all evaluations on those contacts.
 
 If you have enabled tag-based access control on **Contact Evaluations**, it is
@@ -143,8 +143,8 @@ already using evaluation forms in production. An example setup is as follows:
 
 ###### Note
 
-Before enabling tag-based-access-control, you may want sufficient history to accumulate,
-e.g. 2 months of evaluations, as this would result in a loss in historical evaluations
+Before enabling tag-based-access-control, you might want sufficient history to accumulate,
+for example, 2 months of evaluations, as this would result in a loss in historical evaluations
 
 - Automated evaluation forms that are still under testing can be tagged as "Live:No",
   preventing them from being visible by agents and supervisors
@@ -157,9 +157,9 @@ e.g. 2 months of evaluations, as this would result in a loss in historical evalu
   - The second would grant them access to **Evaluation Forms**
     and **Evaluations** with the tag "Live: Yes"
 
-- Once you are ready to go live with automated evaluations, you can duplicate the form,
+- After you are ready to go live with automated evaluations, you can duplicate the form,
   and change the tag to "Live: Yes". The original form when it was under testing should
-  continue carrying the tag "Live: No". This ensures that supervisors and agents cannot
+  continue carrying the tag "Live: No". This makes sure that supervisors and agents cannot
   see historical aggregated evaluation scores in **Dashboards** when the
   form was under testing.
 

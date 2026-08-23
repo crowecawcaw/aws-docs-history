@@ -42,7 +42,7 @@ The rest of this topic describes each step in detail.
 
 The following steps are typically performed by an IT admin.
 
-- Ensure that agents or back-office workers who you want to evaluate are
+- Make sure that agents or back-office workers who you want to evaluate are
   users on Connect Customer. To add new users, see [Add users to Connect Customer](user-management.md "user-management.md").
 - Use the [CreateContact](../APIReference/API_CreateContact.md "../APIReference/API_CreateContact.md") API to ingest all external activities completed
   by these agents into Connect Customer as completed Connect Customer tasks.
@@ -88,7 +88,7 @@ awscurl \
 ```
 
 - You can add additional activity information within attributes. This
-  information may be useful for quality managers who are searching and
+  information might be useful for quality managers who are searching and
   evaluating contacts. For example, the previous API call includes the a
   custom attribute called `ExternalContactType`. It enables
   managers to distinguish between different types of external activities

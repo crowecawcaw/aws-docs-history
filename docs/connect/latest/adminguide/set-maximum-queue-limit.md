@@ -11,14 +11,14 @@ and email:
   To increase one of these quotas, you must request a quota increase. For more
   information, see [Connect Customer service quotas](amazon-connect-service-limits.md "amazon-connect-service-limits.md").
 
-There may be situations where you want a specific queue to allow fewer contacts than
+There might be situations where you want a specific queue to allow fewer contacts than
 the allowed quota. For example:
 
 - You have a queue that is dedicated to calls about complicated issues that take
-  an average of 15 minutes to resolve, you may want to limit the number of calls
+  an average of 15 minutes to resolve, you might want to limit the number of calls
   allowed in the queue to be less than **Concurrent active calls per
   instance**. This prevents customers from waiting for hours.
-- You may have a queue dedicated to chats. Your service quota is 100 but you
+- You might have a queue dedicated to chats. Your service quota is 100 but you
   want only up to 20 chats at a time. You can set that value so Connect Customer limits the
   number of active chats routed to that queue.
 - You have a queue that combines more than one channel, and you set a custom
@@ -96,7 +96,7 @@ There are times when you can add more contacts to a queue than the set
 **Maximum contacts in queue** limit.
 
 - There
-  may be a slight delay between the time that a queue reaches its capacity
+  might be a slight delay between the time that a queue reaches its capacity
   limit and when this limit is enforced in the flow. This delay could cause
   incoming contacts to be queued during that time, particularly during bursts
   of traffic.

@@ -54,13 +54,13 @@ enforce tag-based access controls.
 
 ![The access control section of the security profile page.](images/SecurityProfile_cloudscape_access_control_tab.png) 3. Enter the **Key** and **Value**
 combination for the resource tags that you want to restrict access
-to. 4. Ensure that you have enabled _View_ permissions for the
+to. 4. Make sure that you have enabled _View_ permissions for the
 resources that you have selected. 5. Choose **Save**.
 
 ###### Note
 
 It is mandatory to specify both a resource type and an access control tag when
-configuring tag-based access controls. As a best practice, ensure that you have
+configuring tag-based access controls. As a best practice, make sure that you have
 matching resource tags on a security profile that has tag-based access controls
 configured. To learn more about tag-based access controls in Connect Customer, see [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 

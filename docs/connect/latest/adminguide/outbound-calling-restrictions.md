@@ -31,7 +31,7 @@ If you are using Amazon Connect to redirect calls: If you are receiving calls wi
 Anonymous (withheld CLI), you must use a Connect Customer number for the transfer.
 
 **Important:** Anonymous calls (calls without caller
-ID) are increasingly blocked by carriers as anti-spam measures and may violate
+ID) are increasingly blocked by carriers as anti-spam measures and might violate
 telecommunications regulations in many countries. Always configure a valid caller ID
 number from your Amazon Connect instance to ensure reliable call delivery.
 
@@ -127,7 +127,7 @@ the following steps:
 
   ###### Note
 
-  The preceding list may change at any time.
+  The preceding list might change at any time.
 
 - Any number used to call Chinese telephone numbers must be able to
   called back. You must also implement a call back message that

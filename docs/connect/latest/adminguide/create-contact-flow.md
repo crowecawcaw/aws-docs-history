@@ -44,7 +44,7 @@ transferring to a queue contains only the appropriate flow blocks for that type 
 ###### Important
 
 - When you create a flow, you need to choose the right type for your
-  scenario. Otherwise, the blocks you need may not be available.
+  scenario. Otherwise, the blocks you need might not be available.
 - You can't import flows of different types. This means if you start with
   one type and need to switch to another to get the right blocks, you have to
   start over.

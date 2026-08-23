@@ -95,7 +95,7 @@ before deploying screen recording in production.
   world?**
 
 Screen recording is available in AWS GovCloud (US) and all AWS commercial
-Regions where Connect Customer is available. However, your use of screen recording may
+Regions where Connect Customer is available. However, your use of screen recording might
 be subject to compliance with privacy and other laws. Please consult your
 compliance team before enabling this capability for your agents.
 
@@ -114,7 +114,7 @@ use.
   contact, or immediately after a contact ends?**
 
 If the browser is closed at the beginning of contact before any screen
-capture data can be uploaded to Connect Customer, the final screen recording may not be
+capture data can be uploaded to Connect Customer, the final screen recording might not be
 published. If the browser is closed immediately after a contact ends but
 before the final screen capture data can be uploaded, the screen recording
 is published when the agent next logs in to CCP.
@@ -161,7 +161,7 @@ enable a percentage of contacts for screen recording.
   per minute in S3?**
 
 The average size of screen recording is 1.5MB/minute. This size can vary
-depending on factors like video encoding etc.
+depending on factors like video encoding.
 
 - **What is the frame rate for screen recording and is
   this configurable?**
@@ -235,7 +235,7 @@ network bandwidth to account for additional agent workstation traffic.
   machine?**
 
 Screen recording in general is a CPU intensive application and hence CPU
-use increase is expected. We recommend ensuring you provide
+use increase is expected. We recommend making sure you provide
 sufficient resources as documented in [System requirements](sr-system-req.md#sr-requirements "sr-system-req.md#sr-requirements") to avoid any resource contention
 issues.
 
@@ -326,7 +326,7 @@ actively using:
      inactive tab, there is nothing on screen to mask.
     + On the first contact after an agent begins their session, if a
      matching page was opened before the extension observed it, that window
-     may briefly not be masked at the start of the recording. Redaction
+     might briefly not be masked at the start of the recording. Redaction
      applies as soon as the agent selects any tab in the window, and
      subsequent contacts are unaffected.
 
@@ -378,7 +378,7 @@ desktop. The possible failure cases are:
 
     + If the extension is not installed or not running, URLs are not
      reported, so URL rules cannot match and browser pages that should be
-     redacted by URL may appear in the recording. Window title rules do not
+     redacted by URL might appear in the recording. Window title rules do not
      depend on the extension and continue to work.
     + The extension does not connect to Connect Customer directly; it communicates
      with the Connect Customer Client Application on the agent's workstation. If the Connect Customer Client Application is not
@@ -441,7 +441,7 @@ with rule-based redaction.
 
 Your unredacted screen recording is unaffected — it is captured, delivered,
 and available on the same timeline as before. Redaction runs as a separate
-post-processing step, so the redacted recording becomes available once both
+post-processing step, so the redacted recording becomes available after both
 the redacted screen recording and the redacted call recording have finished
 processing.
 

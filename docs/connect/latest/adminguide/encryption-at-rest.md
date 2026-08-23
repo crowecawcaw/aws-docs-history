@@ -125,7 +125,7 @@ Voice ID API.
 
 When you change the KMS key, an asynchronous process will be triggered to
 re-encrypt the old data with the new KMS key. After this process completes, all of
-your domain's data will be encrypted under the new KMS key, and you may safely
+your domain's data will be encrypted under the new KMS key, and you can safely
 retire the old key. For more information, see [UpdateDomain](../../../voiceid/latest/APIReference/API_UpdateDomain.md "../../../voiceid/latest/APIReference/API_UpdateDomain.md").
 
 Voice ID creates a grant to the customer managed key that grants it access to the key. For

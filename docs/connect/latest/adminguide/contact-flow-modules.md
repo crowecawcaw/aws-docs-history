@@ -36,7 +36,7 @@ You can use modules across all [flow types](create-contact-flow.md#contact-flow-
   - Stored customer input
 
 - When using one module to invoke other modules: A module being used as a tool can only invoke other modules used as tools.
-- If your module contains blocks that are not supported by the specific flow type, this incompatibility may lead the blocks to take the error branch.
+- If your module contains blocks that are not supported by the specific flow type, this incompatibility might lead the blocks to take the error branch.
 
 To pass any data to a module, or to get any data from a module, you
 need to pass and retrieve attributes.

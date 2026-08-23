@@ -20,7 +20,7 @@
   Connect Customer provides two ways to build customer segments: 1/ Define segments through
   Spark SQL (Beta; requires Data store to be enabled); 2/ Define segments through
   audience groups and filters (Classic Segmentation). For both, you can use natural
-  language prompts via Generative AI-powered Segment AI assistant. If you define
+  language prompts through Generative AI-powered Segment AI assistant. If you define
   segments in one of the ways, you move that segment to the other and would have
   to start again.
 
@@ -75,7 +75,7 @@ The following steps describe creating and configuring a customer segment:
 
 ### Step 1: Build a new segment
 
-1. To create a segment, ensure that you have created security
+1. To create a segment, make sure that you have created security
    profiles permissions as a prerequisite. For more information,
    see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md "security-profile-customer-profile-segmentation.md"). In addition, to best visualize the membership of your segment,
    we recommend data ingestion before segment creation. To ingest
@@ -162,8 +162,8 @@ following call sequence:
     2. If John doesn't answer, then calls Sally (ID: 3) as a
      backup contact
 
-3. Once you choose a starting audience, the **Estimated audience** section updates to display the
-eligible profiles. Once you edit the audience groups, you can
+3. After you choose a starting audience, the **Estimated audience** section updates to display the
+eligible profiles. After you edit the audience groups, you can
 choose **Refresh** button in the
 Estimated audience section to re-fetch the estimate.
 
@@ -201,7 +201,7 @@ attributes.
 
    We store up to 1000 most recent profile attributes
    within the domain. If your domain contains a large
-   amount of attributes the oldest attributes may not be
+   amount of attributes the oldest attributes might not be
    displayed in this list.
 
 2. Choose the **Operator**. Operators
@@ -385,7 +385,7 @@ When you use a Spark SQL segment in a segment membership call, Flow
 block, or Outbound Campaign initiated by a customer event, it uses the
 last exported segment (segment snapshot). The segment snapshot used for
 membership expires 1 year after creation. If you receive a 4XX error,
-ensure you have exported the segment (segment snapshot).
+make sure you have exported the segment (segment snapshot).
 
 ###### Note
 
@@ -423,7 +423,7 @@ Review the data the Segment AI assistant used and the steps the AI model
 it took to generate your segment. You can also review the SQL it created to
 define the segment in the query editor. If it was not able to create the
 segment, address the feedback it provided to help it create an accurate
-segment. Once it has generated a segment, Customer Profiles will
+segment. After it has generated a segment, Customer Profiles will
 automatically create a segment estimate for you.
 
 If you want to make edits, you can provide a new prompt by choosing “New
@@ -437,13 +437,13 @@ button below the query editor.
 
 Segments powered by Spark SQL will take time depending on the amount
 of profile data you use in the segment and the SQL used, similar to
-other query engines (e.g., multiple joins across objects usually take
+other query engines (for example, multiple joins across objects usually take
 more time).
 
 ### Step 4: Create segment
 
-Once you have build a segment and are satisfied, select “Create segment”
-button on the top right. Once you have created the segment, you can select
+After you have build a segment and are satisfied, select “Create segment”
+button on the top right. After you have created the segment, you can select
 Actions - exporting to .csv, using the segment in Flows and using the
 segment in Outbound Campaigns.
 

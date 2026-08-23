@@ -54,10 +54,10 @@ If you haven't done this yet, see the instructions for your browser.
 Following are the top tips for resolving issues with audio devices.
 
 - Check that your headset is properly connected to your desktop.
-- Ensure that Windows exclusive mode is not enabled. For instructions that
+- Make sure that Windows exclusive mode is not enabled. For instructions that
   are appropriate for your device, search the internet for turning off Windows
   exclusive mode for your audio device.
-- Ensure that the device is not muted or disabled in your operating system
+- Make sure that the device is not muted or disabled in your operating system
   settings. Following are instructions for a Windows computer:
 
   1.  Press **Windows** + **I** to

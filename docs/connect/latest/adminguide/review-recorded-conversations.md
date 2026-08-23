@@ -42,7 +42,7 @@ bots).
 ###### Tip
 
 We recommend using the **Contact ID** filter to [search for recordings](search-recordings.md "search-recordings.md"). This is the
-best way to ensure you get the right recording for the contact. Many
+best way to make sure you get the right recording for the contact. Many
 recordings have the same name as the contact ID, but not all. 4. Conversations that were recorded have icons in the
 **Recording/Transcript** column, as shown in the following
 image. If you don't have the appropriate permissions, you won't see these
@@ -96,7 +96,7 @@ records of the interaction for compliance purposes. To review automated interact
    modules**.
 2. On the navigation menu, choose **Analytics and optimization, Contact
    search**.
-3. Search for the contact you want to review, e.g. use can search by contact
+3. Search for the contact you want to review, for example, use can search by contact
    queues, the name of the initial flow for the contact, or user-defined [custom contact attributes](search-custom-attributes.md "search-custom-attributes.md").
 4. Choose the contact ID to view the **Contact details**
    page.

@@ -60,7 +60,7 @@ improve.
 
 When you need to reduce answer speeds, use progressive mode. A progressive mode campaign
 dials the next phone number in a list after an agent completes the previous call. If there are
-multiple campaigns targeting the same set of agents, then each of them may end up dialing
+multiple campaigns targeting the same set of agents, then each of them might end up dialing
 contacts for the same agents. There are two ways to prevent this:
 
 - Change the bandwidth allocation of the campaigns so the sum of the bandwidth allocation
@@ -101,9 +101,9 @@ Best Practice for Preview Dialing Mode: disable call classification.
 When call recipients answer a call and hear silence in return, they often hang up. For
 predictive campaigns, use the following best practices to help reduce that silence:
 
-- Ensure that you have enough agents logged in to your call queue. For more information
+- Make sure that you have enough agents logged in to your call queue. For more information
   about staffing, see [Forecasting & agent scheduling in Connect Customer](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
-- Consider using Connect Customer's machine learning services.
+- Consider using the machine learning services of Connect Customer.
 
   - [Forecasting](forecasting.md "forecasting.md"). Analyze and predict contact volume
     based on historical data. What will future demand—the contact volume and handle time—look
@@ -125,7 +125,7 @@ predictive campaigns, use the following best practices to help reduce that silen
 
 Successful outbound calling campaigns avoid silent calls, the period of silence after a
 person answers a call and before an agent comes on the line. Legal requirements to limit the
-number of silent or abandoned calls and keep the called party informed may also apply. You can
+number of silent or abandoned calls and keep the called party informed might also apply. You can
 configure Connect Customer in different ways to reduce call connection delays.
 
 ###### Contents
@@ -169,7 +169,7 @@ you with an agent."
 ### Outbound agentless calling
 
 Outbound campaigns often use custom greetings and self service functions. Do not use
-Lambda functions to get contact attributes. Instead, provide customer data (attributes) via the
+Lambda functions to get contact attributes. Instead, provide customer data (attributes) through the
 campaign segment. Use these attributes from the campaign segment to play custom
 greetings.
 
@@ -241,12 +241,12 @@ user** page.
 The following best practices can help optimize agent efficiency by ensuring adequate
 hardware and network resources.
 
-- Ensure that agent workstations meet the minimum requirements. For more information, see
+- Make sure that agent workstations meet the minimum requirements. For more information, see
   [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md "ccp-agent-hardware.md").
-- Ensure that the agent has the CCP or agent workspace open and present on their desktop.
+- Make sure that the agent has the CCP or agent workspace open and present on their desktop.
   This reduces the time spent bringing the screen to the front before greeting the
   caller.
-- On the local network, ensure that the agents are connected to a LAN. This mitigates
+- On the local network, make sure that the agents are connected to a LAN. This mitigates
   potential wireless network latency
 - If possible, minimize the geographic distance between the AWS Region that hosts your
   Connect Customer instance and the agents that interact with the outbound campaigns. The greater the
@@ -297,7 +297,7 @@ of voicemail calls over live calls. However, the detection accuracy has limitati
 
 ### The pros, cons, and best uses of Answering Machine Detection
 
-The use of Answering Machine Detection (AMD) may not comply with telemarketing laws. You
+The use of Answering Machine Detection (AMD) might not comply with telemarketing laws. You
 are responsible for implementing AMD in a manner that is compliant with applicable laws, and
 you should always consult your legal advisor regarding your specific use case.
 
@@ -311,7 +311,7 @@ Use case 1: AMD is on and leaving automatic voicemails
   answering machine types. Also, AMD can irritate customers because it adds a short delay to
   live calls.
 - **Best uses** – Calling consumers during the day
-  when you may get a large quantity of answering machines and it's not urgent to ensure every
+  when you might get a large quantity of answering machines and it's not urgent to ensure every
   call receives a voicemail.
 
 Use case 2: AMD is on but not leaving automatic voicemails
@@ -321,7 +321,7 @@ Use case 2: AMD is on but not leaving automatic voicemails
 - **Cons** – Cannot leave any voicemails. Adds a delay
   to live calls which can annoy customers.
 - **Best uses** – Calling consumers during the day
-  when you may get a large quantity of voicemails and you don't want to leave any
+  when you might get a large quantity of voicemails and you don't want to leave any
   voicemails.
 
 Use case 3: AMD is off and agents can leave manual voicemails
@@ -408,7 +408,7 @@ journey starts sending messages at 08:00 America/Los\_Angeles (11:00 America/New
 stops sending messages at 17:00 America/Los\_Angeles (20:00 America/New\_York).
 
 To optimize participant engagement in a journey that has a scheduled start and end time,
-configure the journey to use each participant's local time zone. This helps to ensure that
+configure the journey to use each participant's local time zone. This helps to make sure that
 journey activities occur when a participant is most likely to participate in those
 activities.
 
@@ -490,10 +490,10 @@ call center from spammers.
 ### Automate workflows and use multiple channels
 
 As a best practice, don't persistently call leads and hope the contact answers. The more
-you call, the less likely the contact may be to answer. Instead, use automation to move the
+you call, the less likely the contact might be to answer. Instead, use automation to move the
 contact to another list and call back 30 days later, then perhaps 60 days later.
 
-Also, look at the number of times a call goes to voicemail. At some point, you may want to
+Also, look at the number of times a call goes to voicemail. At some point, you might want to
 stop calling that lead.
 
 An optimal strategy uses automated workflows with multiple communication channels to build

@@ -7,35 +7,35 @@ Loyalty Transaction| Standard loyaltyTransaction field | Type | Description |
 | --- | --- | --- |
 | TransactionId | String | Unique identifier of the standard loyalty<br>transaction. |
 | TransactionName | String | Name or label of the transaction. |
-| TransactionType | String | Type of transaction (e.g., earn, redeem, adjust). |
+| TransactionType | String | Type of transaction (for example, earn, redeem, adjust). |
 | ProgramRef | String | Reference to the associated loyalty program. |
 | MembershipRef | String | Reference to the loyalty membership used in the<br>transaction. |
 | PromotionRef | String | Reference to a promotion that influenced this<br>transaction. |
 | CreatedDate | String | Date the transaction was created. |
 | TransactionDate | String | Date the transaction occurred. |
-| Industry | String | Industry associated with the transaction (e.g., airline,<br>hotel). |
+| Industry | String | Industry associated with the transaction (for example, airline,<br>hotel). |
 | Location | String | Location where the transaction occurred. |
 | CreatedBy | String | Identifier for who created the transaction. |
 | UpdatedDate | String | Last date the transaction was updated. |
 | UpdatedBy | String | Identifier of who last updated the transaction. |
 | Status | String | Current status of the transaction. |
-| AccrualType | String | Method of accrual (manual, automated, etc.). |
-| Category | String | Category of the transaction (e.g., flight, hotel<br>stay). |
-| Channel | String | Channel where the transaction was initiated (e.g.,<br>online, in-store). |
+| AccrualType | String | Method of accrual (manual, automated). |
+| Category | String | Category of the transaction (for example, flight, hotel<br>stay). |
+| Channel | String | Channel where the transaction was initiated (for example,<br>online, in-store). |
 | ProductId | String | Identifier of the product or service tied to the<br>transaction. |
 | Amount | String | Amount spent or transacted in the transaction. |
 | OriginValue | String | Original value before any conversion or offset. |
 | OriginValueCurrency | String | Currency of the original transaction value. |
-| OriginValueOffset | String | Adjustment to the original value for promotions, refunds,<br>etc. |
+| OriginValueOffset | String | Adjustment to the original value for promotions, refunds. |
 | PointsEarned | String | Total points earned from this transaction. |
-| PointOffset | String | Points adjusted (e.g., bonuses, penalties). |
+| PointOffset | String | Points adjusted (for example, bonuses, penalties). |
 | QualifyingPointsEarned | String | Points that count toward tier qualification. |
 | TierBefore | String | Customer tier before the transaction. |
 | TierAfter | String | Customer tier after the transaction. |
 | Brand | String | Brand associated with the transaction. |
 | Description | String | Narrative description of the transaction. |
 | AdditionalInformation | String | Freeform additional information related to the<br>transaction. |
-| PaymentMethod | String | Payment method used (e.g., card, voucher). |
+| PaymentMethod | String | Payment method used (for example, card, voucher). |
 | PointTransfer | PointTransfer | Point transfer details |
 | Attributes | Map<String, String> | Additional attributes. |
 

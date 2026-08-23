@@ -49,7 +49,7 @@ details such as:
     * **Staff start date** and **Staff end
      date**: Schedule agents based on respective start
      and end dates. For example, if someone is starting on May 15th,
-     set this start date as May 15th to ensure that schedules are not
+     set this start date as May 15th to make sure that schedules are not
      generated for this agent before this date.
     * **Eligible to request time-off**: Specify
      whether this agent is eligible to request time-off.
@@ -63,7 +63,7 @@ that must be applied when scheduling this agent. For example, they must
 get 2 consecutive days off every week, they cannot work more than 40
 hours per week, they must have a gap of 11 hours between consecutive
 shifts, and more. 7. Choose **Apply to Staff**. This saves the rules, and
-ensures they are applied during the next scheduling cycle.
+makes sure they are applied during the next scheduling cycle.
 
 ## Import time off balance for individuals
 

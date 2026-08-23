@@ -37,7 +37,7 @@ in the following image.
     * You can add up to 2 Metrics cards. This enables you to
      create a condition where one card evaluates real-time
      metrics and another evaluates trailing windows of time. For
-     example, you may want an alert when several agents on are
+     example, you might want an alert when several agents on are
      lunch break (Agent activity = Lunch break for 1 hour) and
      Average handle time is greater than 5 minutes.
     * You can add up to 10 metrics to each

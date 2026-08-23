@@ -43,7 +43,7 @@ conversational analytics rules. The following are some of the available conditio
      that run when the score for a specific question and answer is met.
     * **Evaluation - Results available**: Build rules
      that run on any evaluation submissions.
-    * **Agent hierarchy**: Build rules that run on a specific agent hierarchy. Agent hierarchies may represent geographical locations, departments, products, or teams.
+    * **Agent hierarchy**: Build rules that run on a specific agent hierarchy. Agent hierarchies might represent geographical locations, departments, products, or teams.
 
 
     To see list of agent hierarchies so you can add them to rules, you need **Agent hierarchy - View** permissions in your security profile.

@@ -15,7 +15,7 @@ The following image shows an example of a voice contact.
 
 ![An analysis of a voice contact.](images/contact-lens-category-hit.png)
 The following image shows an example of a chat contact. **System
-Message** applies to chat, where the participant may be a Lex bot or
+Message** applies to chat, where the participant might be a Lex bot or
 prompt.
 
 ![An analysis of a chat contact.](images/contact-lens-category-hit-chat.png)
@@ -36,7 +36,7 @@ prompt.
    sections of the **Contact details** page, review what was
    spoken or written, when, and their sentiment.
 6. For calls, if desired, choose the play prompt to listen to the recording.
-   Or, click on the relevant part of the recording to listen to the portion
+   Or, choose the relevant part of the recording to listen to the portion
    you're interested in.
 7. For chats, if desired, use the graph to navigate to the portion of the
    transcript you're interested in.

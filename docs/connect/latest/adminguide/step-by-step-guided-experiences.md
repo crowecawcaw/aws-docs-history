@@ -13,6 +13,27 @@ To learn more about the pricing of step-by-step guides, on the Connect Customer 
 **Agent productivity** section, and then choose the
 **Guides** tab.
 
+###### Contents
+
+- [Overview](#step-by-step-guided-experiences-overview "#step-by-step-guided-experiences-overview")
+- [Complex JSON Object support](#step-by-step-guided-experiences-complex-json "#step-by-step-guided-experiences-complex-json")
+- [Enable step-by-step
+  guides](enable-guided-experiences-sg.md "enable-guided-experiences-sg.md")
+- [View resource](view-resources-sg.md "view-resources-sg.md")
+- [UI builder](no-code-ui-builder.md "no-code-ui-builder.md")
+- [Invoke a guide at the start of a
+  contact](how-to-invoke-a-flow-sg.md "how-to-invoke-a-flow-sg.md")
+- [Deploy step-by-step guides in
+  chats](step-by-step-guides-chat.md "step-by-step-guides-chat.md")
+- [Display contact attributes
+  in the agent workspace](display-contact-attributes-sg.md "display-contact-attributes-sg.md")
+- [Enable agents to enter disposition
+  codes](disposition-codes-sg.md "disposition-codes-sg.md")
+- [PII
+  Redaction](step-by-step-guides-pii-redaction.md "step-by-step-guides-pii-redaction.md")
+- [View Integrations](integrate-views-with-connect-resources.md "integrate-views-with-connect-resources.md")
+- [Use Guides in Workspace for Managers](use-guides-in-manager-workspace.md "use-guides-in-manager-workspace.md")
+
 ## Overview
 
 You create workflows for agents by a creating a flow that uses the [Show view](show-view-block.md "show-view-block.md"). The

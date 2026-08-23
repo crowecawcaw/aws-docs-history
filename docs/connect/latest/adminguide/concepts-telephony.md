@@ -27,14 +27,14 @@ on the [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https
 page.
 
 AWS manages the connectivity to our network of carriers providing diverse
-connections to multiple carriers in each region supported by Connect Customer. When Connect Customer is
+connections to multiple carriers in each Region supported by Connect Customer. When Connect Customer is
 deployed in a Region, we take advantage of the built-in redundancy of the AWS
 Availability Zone design to provide multiple carrier interfaces into multiple data
 centers. You can see how AWS manages the design of a Region [here](https://infrastructure.aws/ "https://infrastructure.aws/").
 
 In addition to the Connect Customer service being spread across multiple Availability Zones,
 AWS also has multiple telephony providers. These providers have multiple links
-into the data centers in those Availability Zones. This ensures that if a single or
+into the data centers in those Availability Zones. This makes sure that if a single or
 even multiple links fail from a carrier, there are alternate routes available to
 ensure the service remains available.
 
@@ -45,12 +45,12 @@ To learn more about Connect Customer architecture, see [Architectural guidance f
 
 These numbers are phone numbers with distinct prefix codes that can be
 dialed with no charge to the person placing the call. Such numbers allow
-callers to reach businesses and/or individuals out of the area without being
+callers to reach businesses or individuals out of the area without being
 charged a long-distance fee for the call.
 
 In the United States, the [Federal Communications Commission](https://www.fcc.gov/consumers/guides/what-toll-free-number-and-how-does-it-work "https://www.fcc.gov/consumers/guides/what-toll-free-number-and-how-does-it-work") provides rules for obtaining
 and using toll-free numbers. In other countries, similar governing bodies
-ensure that such numbers are managed and distributed in accordance with
+make sure that such numbers are managed and distributed in accordance with
 local laws.
 
 When you claim or port a US toll-free number into Connect Customer, we register that
@@ -92,14 +92,14 @@ multiple Availability Zones, so in the event of a link failure that carrier
 still has facilities available in another location to deliver calls. DID
 numbers also have a capacity limitation on how many calls a single number
 can accommodate, and this number does vary by Region. It is important to
-work with your AWS account team to ensure you are properly enabled with
+work with your AWS account team to make sure you are properly enabled with
 the right type of DID numbers if you plan on using DID numbers as your
 primary inbound channel, and have an expectation of over 100 concurrent
 calls per number.
 
 DID numbers are less expensive than toll-free numbers, but don't have the
 redundancy and broad geographical coverage of them. The ability to localize
-numbers may be an attractive option for your business.
+numbers might be an attractive option for your business.
 
 ## Use cases for different configurations
 
@@ -120,7 +120,7 @@ proof of concept, and migrating to Connect Customer over time.
 
 ### Maintaining two separate platforms
 
-In some cases, you may have more than one Contact Center platform requiring
+In some cases, you might have more than one Contact Center platform requiring
 telephony. Here's an overview of how to configure this:
 
 - Choose which platform is the initial call-handling service, and

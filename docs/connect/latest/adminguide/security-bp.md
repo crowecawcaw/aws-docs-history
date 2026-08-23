@@ -64,7 +64,7 @@ security requirements of your organization. See the following resources:
 
 ## Data Security in Connect Customer
 
-During your security journey, your security teams may require a deeper
+During your security journey, your security teams might require a deeper
 understanding of how data is handled in Connect Customer. See the following resources:
 
 - [Detailed network paths for Connect Customer](detailed-network-paths.md "detailed-network-paths.md")
@@ -88,7 +88,7 @@ performed.
 ![Types of Connect Customer personas.](images/architecture/amazonconnectpersonas.png)
 
 1. AWS administrator – AWS administrators create or modify Connect Customer
-   resources and may also delegate administrative access to other
+   resources and might also delegate administrative access to other
    principals by using the AWS Identity and Access Management (IAM) service. The scope of this
    persona is focused on creating and administering your Connect Customer
    instance.
@@ -99,7 +99,7 @@ performed.
    persona is focused on creating and administering your Connect Customer contact
    center.
 3. Connect Customer agent – Agents interact with Connect Customer to perform their job duties.
-   Service users may be contact center agents or supervisors.
+   Service users might be contact center agents or supervisors.
 4. Connect Customer Service contact – The customer who interacts with your Connect Customer
    contact center.
 
@@ -144,7 +144,7 @@ be reflected in Connect Customer when they are made in the source identity provi
 
 ### Access to Integrated Applications
 
-Steps within your flows may need credentials to access information in external
+Steps within your flows might need credentials to access information in external
 applications and systems. To provide credentials to access other AWS services
 in a secure way, use IAM roles. An IAM role is an entity that has its own
 set of permissions, but that isn't a user or group. Roles also don't have their
@@ -189,7 +189,7 @@ action, such as disconnecting a contact because they are a blocked contact.
 Although there is no infrastructure to manage in Connect Customer, there could be scenarios
 where your Connect Customer instance needs to interact with other components or applications
 deployed in infrastructure residing on-premises. Consequently, it is important to
-ensure that networking boundaries are considered under this assumption. Review and
+make sure that networking boundaries are considered under this assumption. Review and
 implement specific Connect Customer infrastructure security considerations. Also, review
 contact center agent and supervisor desktops or VDI solutions for security
 considerations.
@@ -225,7 +225,7 @@ You can specify AWS KMS keys to be used for encryption including bring your own 
 
 ### Protecting Data Using Client-Side Encryption
 
-Your use case may require encryption of sensitive data that is collected by
+Your use case might require encryption of sensitive data that is collected by
 flows. For example, to gather appropriate personal information to customize the
 customer experience when they interact with your IVR. To do this you can use
 public-key cryptography with the [AWS
@@ -235,9 +235,9 @@ using open standards and best practices.
 
 ### Input validation
 
-Perform input validation to ensure that only properly formed data is entering
+Perform input validation to make sure that only properly formed data is entering
 the flow. This should happen as early as possible in the flow. For example, when
-prompting a customer to say or enter a telephone number, they may or may not
+prompting a customer to say or enter a telephone number, they might or might not
 include the country code.
 
 ## Connect Customer security vectors
@@ -283,12 +283,12 @@ with special attention to the following:
 
 3. **External**: The External layer includes
 contact points including chat, click-to-call endpoints, and the PSTN for
-voice calls, integrations you may have with legacy contact center solutions
-in a Hybrid contact center architecture, and integrations you may have with
+voice calls, integrations you might have with legacy contact center solutions
+in a Hybrid contact center architecture, and integrations you might have with
 other third-party solutions. Any entry point or exit point for a third party
 in your workload is considered the external layer.
 
-This layer also covers integrations customers may have with other
+This layer also covers integrations customers might have with other
 third-party solutions and applications such as CRM systems, work force
 management (WFM), and reporting and visualization tools and applications,
 such as Tableau and Kibana. You should consider the following areas when

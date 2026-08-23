@@ -32,7 +32,7 @@ activity.
 **Phone number portability**
 
 Number portability allows you to transfer your telelphone numbers to
-other carriers. Carriers and countries may have unique processes and
+other carriers. Carriers and countries might have unique processes and
 procedures required.
 
 **Winning

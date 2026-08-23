@@ -23,7 +23,7 @@ contention.
 ###### Note
 
 When Windows multi-session configuration is enabled allowing multiple agents
-to use a single Windows host, ensure that the agent's workstation has the
+to use a single Windows host, make sure that the agent's workstation has the
 recommended resource availability for each concurrent session.
 
 ## Network requirements
@@ -45,7 +45,7 @@ We recommend the wildcard
 If you prefer not to use wildcards, the full list of endpoints is available
 at [https://screenrecording.connect.aws/config/connect-recording-endpoint-allowlist.json](https://screenrecording.connect.aws/config/connect-recording-endpoint-allowlist.json "https://screenrecording.connect.aws/config/connect-recording-endpoint-allowlist.json")
 
-This list may be updated in the future. Refer to the
+This list might be updated in the future. Refer to the
 `createDate` field at the top of the file to check for
 updates.
 

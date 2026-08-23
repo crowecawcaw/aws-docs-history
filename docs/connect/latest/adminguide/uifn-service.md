@@ -6,7 +6,7 @@ provides toll-free calling from international locations to your contact center.
 You can use UIFN with Connect Customer in [many
 countries](#list-of-uifn-countries "#list-of-uifn-countries") registered with the International Telecommunications Union (ITU).
 The ITU supports the administration of the UIFN service. Availability depends on
-carrier support and may vary by country.
+carrier support and might vary by country.
 
 ###### Note
 
@@ -45,7 +45,7 @@ Agency_ document.
 Connect Customer can route UIFNs to multiple AWS Regions. For example, if a UIFN is enabled
 for Australia, it can be routed to your Connect Customer instance that is located in the
 Asia Pacific (Sydney) Region. If a UIFN is enabled for **more**
-countries, each country can be routed to your Connect Customer instance, which may be in any
+countries, each country can be routed to your Connect Customer instance, which might be in any
 supported AWS Region.
 
 The following image shows the body of a sample UIFN request submitted to
@@ -62,7 +62,7 @@ Asia Pacific (Singapore) Region.
 **UIFN is an inbound-only service**. Before
 opening a ticket to request a UIFN:
 
-1. Ensure you understand that this number cannot be used for
+1. Make sure you understand that this number cannot be used for
    outbound.
 2. Check the National reachability of the country in the following
    section.
@@ -95,7 +95,7 @@ opening a ticket to request a UIFN:
 | Greece                    | 00-800-XXXX-XXXX<br>National reachability: all fixed; Cosmotel mobile<br>network                                                                                                                                                                                                    | 10-15                                      |
 | Guadeloupe                | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
 | Hong Kong                 | 006-800-XXXX-XXXX<br>National reachability: full<br>CLI not guaranteed.                                                                                                                                                                                                             | 20-40                                      |
-| Hungary                   | 00-800-XXXX-XXXX<br>National reachability: full<br>Activation of international direct dialing service is required<br>for calling parties for both fixed and mobile lines.<br>Airtime charges may apply when calling from mobiles.                                                   | 10-15                                      |
+| Hungary                   | 00-800-XXXX-XXXX<br>National reachability: full<br>Activation of international direct dialing service is required<br>for calling parties for both fixed and mobile lines.<br>Airtime charges might apply when calling from mobiles.                                                 | 10-15                                      |
 | Iceland                   | 00-800-XXXX-XXXX<br>National reachability: all fixed; Iceland Telecom, IMC,<br>Vodafone mobile networks.                                                                                                                                                                            | 10-20                                      |
 | Israel                    | Dialing format:<br>• LANLI: 012800XXXXXXX<br>• BEZEQ: 013800XXXXXXX<br>• BARAK: 014800XXXXXXX<br>National reachability: full                                                                                                                                                        | 20-50                                      |
 | Italy                     | 00-800-XXXX-XXXX<br>National reachability: all fixed networks, including Vatican<br>and San Marino                                                                                                                                                                                  | 10-15                                      |
@@ -117,7 +117,7 @@ opening a ticket to request a UIFN:
 | Reunion                   | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
 | Romania                   | 00-800-XXXX-XXXX<br>National reachability: Orange fixed and mobile network, Rodasy<br>fixed and mobile network, Romtelekom fixed and mobile network,<br>Cosmote mobile network                                                                                                      | 10-30                                      |
 | Saint Pierre And Miquelon | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 30-60                                      |
-| Singapore                 | 001 800 XXXX XXXX<br>Activation of international direct dialing service is required<br>for calling parties of both fixed and mobile lines.<br>Airtime charges may apply when calling from mobiles.<br>Calling from Starhub payphones is not supported.                              | 20-30                                      |
+| Singapore                 | 001 800 XXXX XXXX<br>Activation of international direct dialing service is required<br>for calling parties of both fixed and mobile lines.<br>Airtime charges might apply when calling from mobiles.<br>Calling from Starhub payphones is not supported.                            | 20-30                                      |
 | Slovakia                  | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-30                                      |
 | Slovenia                  | 00-800-XXXX-XXXX<br>National reachability: full                                                                                                                                                                                                                                     | 15-30                                      |
 | South Africa              | 00-800-XXXX-XXXX<br>National reachability: partial<br>Not reachable from MTN and prepaid subscribers.                                                                                                                                                                               | 10-15                                      |

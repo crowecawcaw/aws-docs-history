@@ -111,7 +111,7 @@ This block does not support fragmented action.
 
 ## Known error scenarios
 
-Because this is a terminal block there are no error scenarios that the flow may
+Because this is a terminal block there are no error scenarios that the flow might
 encounter when this block is run.
 
 ## What this block looks like in a flow log

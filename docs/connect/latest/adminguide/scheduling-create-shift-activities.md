@@ -50,11 +50,10 @@ shift activities** page.
     	 working on tasks in another system.
     	+ **Non-productive**: Use this
     	 type for activities that represent time spent by agents on
-    	 activities such as meetings, training, 1:1s, etc.
+    	 activities such as meetings, training, 1:1s.
     	+ **Time off**: Use this for
     	 activities that agents and supervisors use for creating
-    	 time-off requests such as PTO, sick leave, leave of absence,
-    	 etc.
+    	 time-off requests such as PTO, sick leave, leave of absence.
     * **Sub-type**
 
 

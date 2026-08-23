@@ -121,7 +121,7 @@ When you're done, go to [Part 3: Build and test the Amazon Lex bot](#tutorial-le
 Build and test your bot to make sure that it works as intended before you
 publish it.
 
-1. In the Amazon Lex console, choose **Build**. The build may
+1. In the Amazon Lex console, choose **Build**. The build might
    take a minute or two.
 
 ![The Amazon Lex console, the Build button.](images/tutorial1-lex-custom-bot11.png) 2. When it's finished building, choose **Test**. 3. Test the **PasswordReset** intent. In the

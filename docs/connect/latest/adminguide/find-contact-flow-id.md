@@ -23,7 +23,7 @@ For more information about flows, see [Flows in Connect Customer](connect-contac
 Only choose flows that are type **Flow (inbound)**. Apple Messages for Business
 doesn't work with other flow types, such as **Customer
 queue**, **Customer hold**, **Customer
-whisper**, etc. 4. In the flow designer, expand **Show additional flow
+whisper**. 4. In the flow designer, expand **Show additional flow
 information**.
 
 ![A sample flow, the show additional flow information section.](images/abc-find-contactflow-id.png) 5. Under the ARN (Amazon Resource Number), copy everything after contact-flow/.

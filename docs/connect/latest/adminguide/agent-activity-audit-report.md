@@ -34,7 +34,7 @@ permissions](dashboard-required-permissions.md "dashboard-required-permissions.m
 
 ## Status definitions
 
-The following values may appear in the **Status** column on
+The following values might appear in the **Status** column on
 agent activity audit report.
 
 - **Available**: The agent has set their status in the

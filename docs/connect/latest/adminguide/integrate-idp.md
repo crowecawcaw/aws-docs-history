@@ -20,7 +20,7 @@ Console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-saml.md
 - You will also need to know the source Region of your Connect Customer
   instances. For instructions about how to find it, see [How to find the source Region of your Connect Customer instances](create-replica-connect-instance.md#how-to-find-source-region-of-instances "create-replica-connect-instance.md#how-to-find-source-region-of-instances").
 - If you are embedding your Connect application within an iframe,
-  you must ensure that your domain is present in the list of Approved
+  you must make sure that your domain is present in the list of Approved
   Origins in both your source and replica instance in order for global
   sign-in to work.
 

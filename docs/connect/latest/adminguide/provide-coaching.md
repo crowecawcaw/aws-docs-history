@@ -5,7 +5,7 @@ feedback to agents based on performance evaluations. For upcoming one-on-one ses
 supervisors can share detailed coaching feedback with concrete examples, and set performance goals
 directly within Connect Customer. Quality management teams can also assign coaching to supervisors with due dates
 when they identify improvement opportunities, such as showing greater empathy towards customer issues.
-Once coaching is completed, agents can acknowledge the feedback in Connect Customer, ensuring that they understand
+After coaching is completed, agents can acknowledge the feedback in Connect Customer, making sure that they understand
 next steps for improvement. Past coaching feedback is centrally accessible, making it easier for agents,
 supervisors, and quality managers to track agent progress over time.
 
@@ -109,10 +109,10 @@ notes.
 right pane. 5. Open an evaluation and choose **Coach on this
 evaluation**.
 
-![The Coach on this evaluation button on an evaluation.](images/coaching-coach-on-this-evaluation-button.png) 6. You can add the entire evaluation, a specific section and/or question to a
+![The Coach on this evaluation button on an evaluation.](images/coaching-coach-on-this-evaluation-button.png) 6. You can add the entire evaluation, a specific section or question to a
 coaching session:
 
-![Adding evaluation items to a coaching session.](images/coaching-add-evaluation-items.png) 7. You can link the evaluation, its sections and/or questions to an existing coaching
+![Adding evaluation items to a coaching session.](images/coaching-add-evaluation-items.png) 7. You can link the evaluation, its sections or questions to an existing coaching
 session, or create a new session. Items can be linked as strength or growth
 opportunities.
 

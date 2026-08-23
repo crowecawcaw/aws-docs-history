@@ -54,7 +54,7 @@ associate the user pool that will be used for the authentication.
 
 **Enable Customer Profiles**
 
-On the **Customer Profiles** page in Connect Customer console, ensure that
+On the **Customer Profiles** page in Connect Customer console, make sure that
 Customer Profiles is enabled for your instance. If **No Customer Profiles domain associated with this
 instance of Connect Customer.** is displayed, then see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 

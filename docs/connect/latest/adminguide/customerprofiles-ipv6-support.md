@@ -58,7 +58,7 @@ If you enable private DNS for the endpoint, you can make API requests to
 Connect Customer Customer Profiles using its IPv4 and IPv6 supported DNS name for the Region, for example,
 profile.us-east-1.api.aws.
 
-Alternatively, old DNS name for the region is also supported as IPv4
+Alternatively, old DNS name for the Region is also supported as IPv4
 only.
 
 **For example:**

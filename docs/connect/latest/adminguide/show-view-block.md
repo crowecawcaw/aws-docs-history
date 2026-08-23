@@ -204,7 +204,7 @@ of dynamic inputs through the **Set JSON** option. When
 doing this, you can choose **Apply Sample Data** to
 pre-populate the input with a JSON schema that contains sample data.
 
-Ensure you [configure
+Make sure you [configure
 dynamic references](no-code-ui-builder-properties-dynamic-fields.md "no-code-ui-builder-properties-dynamic-fields.md") for dynamic data (for example, $.Channel)
 in the UI builder to be populated at run time.
 

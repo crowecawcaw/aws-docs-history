@@ -119,7 +119,7 @@ To register the device with a chat contact, we recommend that you do the followi
       immediately after starting the chat (at the beginning of the flow) if
       you want the end user to receive push notifications immediately, or
       right before routing the contact to a queue so that they will receive
-      the contact only an when agent is about to join. Once the API call is
+      the contact only an when agent is about to join. After the API call is
       made, the device will start receiving push notifications when a new
       message comes from the agent or system. By default, push notifications
       will be sent for all the system and agent messages.
@@ -127,7 +127,7 @@ To register the device with a chat contact, we recommend that you do the followi
    ![Invoke lambda function flow block in the Connect Customer admin website flow designer.](images/step-4-set-up-push-notifications-for-mobile-chat-1.png)
 
 3. (optional)  Embed a call to the [DeletePushNotificationRegistration](../APIReference/API_DeletePushNotificationRegistration.md "../APIReference/API_DeletePushNotificationRegistration.md") action in a Lambda function in a
-   flow. Once the API call is made, the device will stop receiving push
+   flow. After the API call is made, the device will stop receiving push
    notifications when a new message comes from the agent or system.
 
 ## Step 5: Receive push notification on your mobile applications

@@ -53,7 +53,7 @@ Voice ID.
 
 ## Authentication status = Not authenticated
 
-When an enrolled caller calls your contact center, Voice ID may return a result
+When an enrolled caller calls your contact center, Voice ID might return a result
 of **Not authenticated**. This means Voice ID was unable to
 authenticate a caller's speech. The authentication score for the caller is lower
 than the configured threshold.
@@ -66,7 +66,7 @@ the caller is authenticated.
 
 ## Authentication status: Inconclusive
 
-When an enrolled customer calls your contact center, Voice ID may return a result
+When an enrolled customer calls your contact center, Voice ID might return a result
 of **Inconclusive**: Voice ID was unable to analyze a caller's
 speech for authentication. This is usually because Voice ID did not get the
 required 10 seconds to provide a result for verification.

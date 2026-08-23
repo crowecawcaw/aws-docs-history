@@ -15,7 +15,7 @@ questions for forecasting & agent scheduling.
 
 Forecasts are processed automatically, delivering short-term forecasts
 daily, and long-term forecasts weekly, so users don't need to worry
-about running forecasts manually. However, you may want to see how a
+about running forecasts manually. However, you might want to see how a
 forecast is updated when you add or modify historical data.
 
 For example, if you had an anomaly in your historical contact volume,
@@ -36,10 +36,10 @@ or adds/removes queues from a forecast group.
 - **When I import historical data it returns
   errors.**
 
-Select **download details** to ensure that the
+Select **download details** to make sure that the
 imported data is in the correct format: If there are any errors, check
 the error details. It provides additional details for the specific
-error. You must ensure that your file is in `.csv` format,
+error. You must make sure that your file is in `.csv` format,
 contains no decimals, no extra rows, or column fields. For more
 information on the required format, see [Import historical data for forecasting](import-data-for-forecasting.md "import-data-for-forecasting.md").
 
@@ -82,7 +82,7 @@ reasons:
   forecast.**
 
 Most likely, you do not have the correct permissions. Check with your
-admin to ensure you have permissions for **Analytics,
+admin to make sure you have permissions for **Analytics,
 Forecasting - Edit**.
 
 - **Forecasting override upload
@@ -120,7 +120,7 @@ independent. The daily interval data is for long-term forecast only.
 First, check if you uploaded the 15 or 30 minute interval historical
 data for short-term forecast and the file has more than 6 consecutive
 month data. Second, check what is the forecast interval setting in
-`.csv` file to ensure it matches the historical intervals
+`.csv` file to make sure it matches the historical intervals
 on the UI.
 
 - **Why am I unable to publish a
@@ -156,7 +156,7 @@ forecasts.
   scheduling?**
 
 The forecast that is used in capacity planning is the most recent
-published long-term forecast. You may see a different forecast in
+published long-term forecast. You might see a different forecast in
 forecasting if you are looking at the most recent computed forecast in
 comparison to a published forecast. You will see a different forecast in
 scheduling, as that is the most recently published short-term
@@ -229,11 +229,11 @@ match the actual forecast group names in forecasting module.
   or all of my agents. What should I check?**
 
 This can occur because the last date an agent can be
-scheduled is before the time of the schedule and/or the agent's maximum
+scheduled is before the time of the schedule or the agent's maximum
 working hours don't allow them to work in that shift profile. Review the
 following steps to address this issue.
 
-    1. Check **Staff Rules** to ensure that the
+    1. Check **Staff Rules** to make sure that the
      **End date** is not configured for agents
      who do not have a schedule. **End date** allows
      schedulers to specify the last date that an agent can be
@@ -273,9 +273,9 @@ allowlist the following endpoints:
 
 This can be caused by having overlaps in the break and lunch
 activities. Check the specific shift profile to see if the placement
-window for both activities overlap. For example, you may have configured
+window for both activities overlap. For example, you might have configured
 a break activity to be placed between 11am and 1pm and a lunch activity
-to be placed between 10am and 3pm, so the system may choose to place the
+to be placed between 10am and 3pm, so the system might choose to place the
 break at 12:30pm and the lunch at 11:30am. Remove or minimize the
 overlap of activity placement windows to solve this issue.
 
@@ -332,7 +332,7 @@ belongs to a staff group that operates 12 hours per day and 6 days per
 week, then the agent is likely to have some days without schedules. The
 service optimizes schedules based on forecasts. As long as the minimum
 amount of 40 hours per week (4 days with 10 hours per day) is met, the
-agent may not be staffed on some days when the call volume is low. In
+agent might not be staffed on some days when the call volume is low. In
 cases where you see that an agent doesn't have a schedule for a day,
 check the agent's minimum working hours. Also, check if the agent has
 been added to the roster for the remainder of the week.

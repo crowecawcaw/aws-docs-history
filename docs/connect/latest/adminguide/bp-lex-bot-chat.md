@@ -3,7 +3,7 @@
 Following are some recommended best practices for using the chat channel and Amazon Lex
 together.
 
-- You can use the same bot for both the voice and chat channels. However, you may want
+- You can use the same bot for both the voice and chat channels. However, you might want
   the bot to respond differently based on the channel. For example, you want to return
   SSML for voice so a number is read as a phone number, but you want to return normal
   text to chat. You can do this by passing the **Channel** attribute.

@@ -22,7 +22,7 @@ is created or updated.
 
    ###### Note
 
-   To ensure that Cases SLA Breach rules work properly, you must set
+   To make sure that Cases SLA Breach rules work properly, you must set
    `relatedItemData.includeContent` to
    `true`, as shown in the following example.
 

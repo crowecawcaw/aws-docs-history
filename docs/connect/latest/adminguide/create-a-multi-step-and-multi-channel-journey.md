@@ -44,7 +44,7 @@ The following steps show you how to create a journey with the Visual Journey Bui
 
 You can control how often each recipient is contacted by setting communication limits for
 the Journey. Simply specify the maximum number of messages a recipient can receive within a
-defined time frame (e.g., per day, week, or month). If a recipient has already received the
+defined time frame (for example, per day, week, or month). If a recipient has already received the
 maximum number of communications within any of the time frames you set, Connect Customer Outbound
 Campaigns will automatically skip that recipient and they won't receive additional messages
 from the Journey.
@@ -65,7 +65,7 @@ journeys, you can also define **Total Communication Limits** at the instance lev
 control how many messages a recipient can receive across all journeys running within your
 Amazon Connect instance over a specific time frame. If a recipient reaches the specified
 limit—for example, 10 communications per week—they will be excluded from further messaging
-across **all journeys** until the time window resets. This helps ensure that overall message volume
+across **all journeys** until the time window resets. This helps make sure that overall message volume
 stays within acceptable boundaries.
 
 For **critical journeys**, you have the option to
@@ -78,7 +78,7 @@ being blocked by other ongoing journeys.
 
 The total count of messages across journeys will not necessarily be incremented
 immediately, but will eventually be accurate. For example, if two journeys target the same
-user at the same moment in time, the first journey's communication may not be reflected in the
+user at the same moment in time, the first journey's communication might not be reflected in the
 total communication count by the time the second campaign checks.
 
 All communications across
@@ -104,8 +104,8 @@ communications sent, even if that day happens to fall in an active communication
 
 In order for the Journey to determine appropriate time to attempt communication with a
 particular recipient, you need to provide a
-**Time Zone**. You may either select a **Standard time
-zone**, which will be used for all recipients, or you may specify the
+**Time Zone**. You might either select a **Standard time
+zone**, which will be used for all recipients, or you might specify the
 **Recipient's local time zone**. Recipients with no time zone specified are excluded from message deliveries.
 
 - **Standard
@@ -121,7 +121,7 @@ When you select **Recipient's local time zone**, you configure the
 following settings:
 
     + **Detect recipient's local time zone** — Choose the method
-     used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") and/or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
+     used to detect the recipient's time zone. Connect Customer Outbound Campaigns use a profile's [Address](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-Address") or [Phone Number](../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber "../APIReference/API_connect-customer-profiles_CreateProfile.md#connect-connect-customer-profiles_CreateProfile-request-PhoneNumber")'s area code to infer the recipient's time zone.
 
 
     To detect a recipient's time zone from their postal code, you must populate the
@@ -136,16 +136,16 @@ following settings:
 
 
 
-    	- **Primary only** — Uses only the primary phone number and/or
+    	- **Primary only** — Uses only the primary phone number or
     	 address attributes from the recipient's customer profile to determine the time
     	 zone.
-    	- **All available** — Uses all phone number and/or address
+    	- **All available** — Uses all phone number or address
     	 attributes from the recipient's customer profile to determine the time zone.
 
 #### Active communication time (optional)
 
 The **Active communication time** represents the times during which
-Connect Customer Outbound campaigns may send communications for this journey. To add active
+Connect Customer Outbound campaigns might send communications for this journey. To add active
 communication times: Select the channel. Alternatively, select Apply to all channels to apply
 the active communication times to each channel. Select the day of the week to configure. You
 can add multiple active communication times for each day, if desired. Select the time frame
@@ -168,9 +168,9 @@ Take a moment to review your journey before publishing.
 
 ###### Important
 
-These settings cannot be changed once your journey has been published.
+These settings cannot be changed after your journey has been published.
 
-Once you have reviewed your journey, choose
+After you have reviewed your journey, choose
 **Publish** to schedule your journey.
 
 #### Schedule journey
@@ -196,7 +196,7 @@ profiles will be refreshed in the segment daily at 7:03AM EST.
 
 ###### Important
 
-A recipient may be active only in a journey once at any given time. So if they are still
+A recipient can be active only in a journey once at any given time. So if they are still
 waiting to exit the journey when the next Segment Snapshot is created, and are a member of
 that Snapshot, they are **NOT** allowed to enter the journey as a part of the second Snapshot. If
 a recipient is a part of a segment Snapshot and is not currently in the journey, they are

@@ -400,7 +400,7 @@ situations:
 - If a callback contact without an agent or customer is routed to this
   block, the contact is routed down the **Error**
   branch.
-- Connect Customer is unable to download the prompt from S3. This may be due to an
+- Connect Customer is unable to download the prompt from S3. This might be due to an
   incorrect file path, or the S3 bucket policy is not set up correctly and
   Connect Customer does not have access. For instructions about how to apply the policy,
   and a template you can use, see [Set up prompts to play from an S3 bucket in Connect Customer](setup-prompts-s3.md "setup-prompts-s3.md").

@@ -1,6 +1,6 @@
 # Allow the Connect Customer Contact Control Panel (CCP) to access cookies
 
-When logging into the CCP you may see one of these banners:
+When logging into the CCP you might see one of these banners:
 
 ![A Grant access banner.](images/3pcookies-default-grant-access.png)
 OR
@@ -12,7 +12,7 @@ of Connect Customer cookies.
 1. When you log in to the CCP, on the **Allow access to
    cookies** banner choose **Grant access**.
 2. At the next prompt, choose **Allow**.
-   You may need to repeat these steps periodically, for example, if your organization
+   You might need to repeat these steps periodically, for example, if your organization
    requires it every 30 days.
 
 ## What happens if you don't choose Grant access when prompted?

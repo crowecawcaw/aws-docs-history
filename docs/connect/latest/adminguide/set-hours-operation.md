@@ -4,7 +4,7 @@ This topic explains how to set hours of operating by using the Connect Customer 
 programmatically, see [Hours of operations actions](../APIReference/hours-of-operation-api.md "../APIReference/hours-of-operation-api.md").
 
 The first thing you need to do when you set up a queue is to specify the hours of
-operation and timezone. The hours may be referenced in flows. For example, when routing
+operation and timezone. The hours might be referenced in flows. For example, when routing
 contacts to agents, you might use the [Check hours of
 operation](check-hours-of-operation.md "check-hours-of-operation.md") block first, and then route the
 contact to the appropriate queue.
@@ -125,7 +125,7 @@ behind Coordinated Universal Time (UTC).
 Time (EDT)](https://en.wikipedia.org/wiki/Eastern_Time_Zone "https://en.wikipedia.org/wiki/Eastern_Time_Zone") is used when observing daylight saving time. It is four
 hours behind Coordinated Universal Time (UTC).
 
-We recommend researching your choice of timezone to ensure you understand
+We recommend researching your choice of timezone to make sure you understand
 it.
 
 ### Example

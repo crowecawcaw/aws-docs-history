@@ -50,7 +50,7 @@ page.
   Guide_.
 - Any new instances will automatically have this feature enabled.
 - Before enabling **Enhanced contact monitoring capabilities**,
-  ensure that you are using the latest version of the [Contact
+  make sure that you are using the latest version of the [Contact
   Control Panel](upgrade-to-latest-ccp.md "upgrade-to-latest-ccp.md") (CCP) or [Agent
   workspace](agent-user-guide.md "agent-user-guide.md"). If you are using [StreamsJS](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") to customize or embed the CCP, upgrade to version
   2.4.2 or later.

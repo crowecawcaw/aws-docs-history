@@ -82,7 +82,7 @@ properties :
 
 - If you enter 0 for the loop count, the **Complete**
   branch is followed the first time this block runs.
-- If a loop name is provided, it must be unique i.e. no other loop should be
+- If a loop name is provided, it must be unique, that is, no other loop should be
   active with the same loop name.
 
 ## Configured block

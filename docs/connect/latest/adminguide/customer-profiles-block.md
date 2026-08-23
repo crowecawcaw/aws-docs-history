@@ -116,7 +116,7 @@ following:
   - **Success:** one profile was found.
     Response fields are stored to contact attributes
   - **Error:** An error was encountered
-    while trying to find the profile. This may be due to a system error
+    while trying to find the profile. This might be due to a system error
     or how **Get profile** is configured.
   - **Multiple Found:** multiple profiles
     were found.
@@ -207,7 +207,7 @@ and BatchGetCalculatedAttributeForProfile in either of the following Policies:
 
 ###### Important
 
-If you are checking segment membership for a segment powered by Spark SQL, the segment checked is the last segment created and not updated in real-time. The lastComputedAt API attributes provides the last time the segment snapshot was created. You can run a new segment snapshot to refresh the segment. If you receive a 4XX error, ensure you have created a segment snapshot.
+If you are checking segment membership for a segment powered by Spark SQL, the segment checked is the last segment created and not updated in real-time. The lastComputedAt API attributes provides the last time the segment snapshot was created. You can run a new segment snapshot to refresh the segment. If you receive a 4XX error, make sure you have created a segment snapshot.
 
 When configuring properties to **Check segment
 membership**, consider the following:
@@ -215,7 +215,7 @@ membership**, consider the following:
 - **Mandatory Profile ID:** A Profile ID is
   required for this block to function. The **Get profile
   object** action retrieves an object associated with the
-  provided **ProfileID**. Ensure you provide the
+  provided **ProfileID**. Make sure you provide the
   **ProfileID** by using a preceding
   **Get profile** block. Use the **Get profile** block to pinpoint the specific
   profile before moving forward to retrieve the profile's object in the
@@ -255,7 +255,7 @@ on the **View segment details** page.
 - **Not in segment**: The profile does not belong
   to the customer segment.
 - **Error**: An error occurred while attempting
-  to check the segment membership. This may be due to a system error or
+  to check the segment membership. This might be due to a system error or
   misconfiguration of the **Check segment
   membership** action. To learn more about flow error logging,
   see [Enable Connect Customer flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md").
@@ -268,7 +268,7 @@ the following:
 - **Mandatory Profile ID:** A Profile ID is required for
   this block to function. The **Get profile object** action
   retrieves an object associated with the provided
-  **ProfileID**. Ensure you provide the
+  **ProfileID**. Make sure you provide the
   **ProfileID** by using a preceding **Get
   profile** block, as illustrated in the following image. Use the
   **Get profile** block to pinpoint the specific profile
@@ -299,7 +299,7 @@ Contacts can be routed down the following branches:
   located, and **Response fields** are stored in contact
   attributes.
 - **Error:** An error occurred during the attempt
-  to retrieve the profile object. This may be due to a system error or
+  to retrieve the profile object. This might be due to a system error or
   misconfiguration of the **Get Profile** action.
 - **None Found:** no object is found.
 
@@ -328,7 +328,7 @@ consider the following:
 - **Mandatory Profile ID:** A Profile ID is required for
   this block to function. The **Get calculated attributes**
   action retrieves an object associated with the provided
-  **ProfileID**. Ensure you provide the
+  **ProfileID**. Make sure you provide the
   **ProfileID** by using a preceding **Get
   profile** block, as illustrated in the following image. Use the
   **Get profile** block to pinpoint the specific profile
@@ -360,7 +360,7 @@ Contacts can be routed down the following branches:
 - **Success:** A calculated attribute is found,
   and Response fields are stored in contact attributes.
 - **Error:** An error occurred while attempting
-  to retrieve the calculated attribute. This may be due to a system error or
+  to retrieve the calculated attribute. This might be due to a system error or
   misconfiguration of the **Get calculated
   attribute** action.
 - **None Found:** no calculated attribute is
@@ -396,7 +396,7 @@ consider the following:
   profile** block to find the profile first, then associate the
   contact and profile in the next block.
 - **Mandatory Profile ID:** A Profile ID is required for
-  this block to function. Ensure you provide the
+  this block to function. Make sure you provide the
   **ProfileID** by using a preceding **Get
   profile** block, as illustrated in the following image. Use the
   **Get profile** block to pinpoint the specific profile
@@ -414,7 +414,7 @@ Contacts can be routed down the following branches:
 - **Success:** Associated the contact to
   profile.
 - **Error:** An error was encountered while
-  attempting to associate the contact to profile. This may be due to a system
+  attempting to associate the contact to profile. This might be due to a system
   error or misconfiguration of the **Associate contact to
   profile** action.
 

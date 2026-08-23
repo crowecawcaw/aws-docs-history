@@ -16,7 +16,7 @@ you the following information:
 
 After you have that information, here's how to log in and get started.
 
-1. Ensure that your USB headset is securely connected to your computer.
+1. Make sure that your USB headset is securely connected to your computer.
 2. Using Chrome or Firefox, open the CCP by using the URL that you received from
    your administrator.
 3. Enter your agent ID and password, and then choose **Sign

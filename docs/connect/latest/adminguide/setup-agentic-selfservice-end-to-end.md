@@ -48,7 +48,7 @@ Connect Customer instances created **after December 2025** have AI Message Strea
 
 ###### Important
 
-If you're using an AWS account with a Connect Customer instance created **before December 2025**, you may need to manually enable AI Message Streaming. Follow the instructions in the [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md") documentation to check your instance's `MESSAGE_STREAMING` attribute and enable it if needed.
+If you're using an AWS account with a Connect Customer instance created **before December 2025**, you might need to manually enable AI Message Streaming. Follow the instructions in the [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md "message-streaming-ai-chat.md") documentation to check your instance's `MESSAGE_STREAMING` attribute and enable it if needed.
 
 ### Amazon Lex Bot Permissions
 
@@ -58,7 +58,7 @@ AI Message Streaming requires the `lex:RecognizeMessageAsync` permission to func
 
 ###### Important
 
-If you have an Amazon Lex bot that was associated with your Connect Customer instance **before** AI Message Streaming was enabled, you may need to update the bot's resource-based policy to include the `lex:RecognizeMessageAsync` permission.
+If you have an Amazon Lex bot that was associated with your Connect Customer instance **before** AI Message Streaming was enabled, you might need to update the bot's resource-based policy to include the `lex:RecognizeMessageAsync` permission.
 
 To update your existing Lex bot policy:
 
@@ -81,7 +81,7 @@ The Connect Customer Communications Widget is an embeddable chat interface that 
 
 ###### Note
 
-**What is the Communications Widget?** The Communications Widget is Connect Customer's out-of-the-box chat solution. It provides a fully functional chat interface that you can embed in websites using a simple JavaScript snippet. The widget handles all the complexity of establishing connections, managing sessions, and displaying messages.
+**What is the Communications Widget?** The Communications Widget is the out-of-the-box chat solution of Connect Customer. It provides a fully functional chat interface that you can embed in websites using a simple JavaScript snippet. The widget handles all the complexity of establishing connections, managing sessions, and displaying messages.
 
 ### Step 2: Create a New Widget
 
@@ -118,7 +118,7 @@ The Communications Widget only loads on websites that are explicitly allowed. Th
    - `http://localhost`
 
 3. Select **No** under security
-4. If you plan to deploy to a production website later, add those domains as well and ensure you configure security (e.g., `https://www.example.com`)
+4. If you plan to deploy to a production website later, add those domains as well and make sure you configure security (for example, `https://www.example.com`)
 
 ### Step 5: Save and Get Widget Code
 
@@ -134,7 +134,7 @@ The Communications Widget only loads on websites that are explicitly allowed. Th
 
 To test the widget locally, you'll create a simple HTML file that loads the Communications Widget.
 
-1. Create a new folder on your computer for testing (e.g., `ai-streaming-test`)
+1. Create a new folder on your computer for testing (for example, `ai-streaming-test`)
 2. Download the background image for the demo page and save it as `background.jpg` in your test folder
 3. Create a new file called `index.html` in your test folder with the following content:
 

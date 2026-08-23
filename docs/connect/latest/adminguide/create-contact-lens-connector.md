@@ -29,7 +29,7 @@ types.
 ![The conversational analytics connector page, the voice system type dropdown list.](images/contact-lens-voice-system-types.png) 7. Enable **Encryption** and **Logging** of the
 SIP and Media metric messages.
 
-    * Amazon Chime SDK Voice Connector uses TLS server certificates issued by Amazon Trust Services. Most modern operating systems trust Amazon Trust Services by default. If this is not the case for your SIP infrastructure and you enable encryption, you may need to add the Starfield and Amazon Trust Services root CA certificates, excluding the EU roots, to your trust stores. You can find these certificates [here](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/").
+    * Amazon Chime SDK Voice Connector uses TLS server certificates issued by Amazon Trust Services. Most modern operating systems trust Amazon Trust Services by default. If this is not the case for your SIP infrastructure and you enable encryption, you might need to add the Starfield and Amazon Trust Services root CA certificates, excluding the EU roots, to your trust stores. You can find these certificates [here](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/").
     * Although logging is optional, we recommend you enable it to help you
      debug integration issues.
 

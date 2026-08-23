@@ -118,7 +118,7 @@ on your Amazon S3 bucket, which we don't recommend.
      the name of your business web site. This rule allows cross-origin PUT and GET requests from
      your website (for example, http://www.example1.com).
 
-   Your CORS policy may look similar to the following example:
+   Your CORS policy might look similar to the following example:
 
    ```
    [
@@ -142,7 +142,7 @@ on your Amazon S3 bucket, which we don't recommend.
      allows cross-origin PUT and GET requests from all origins, so you don't have to list your
      endpoints.
 
-   Your CORS policy may look similar to the following example:
+   Your CORS policy might look similar to the following example:
 
    ```
    [

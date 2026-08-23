@@ -34,7 +34,7 @@ notification work together, see [Web data tracker and web notification](customer
 ## Step 2: Embed the widget and initialize tracking
 
 Embed the widget snippet in your website's HTML. After the snippet loads, initialize
-the tracker once you have obtained visitor consent.
+the tracker after you have obtained visitor consent.
 
 ```
 // Start tracking visitor behavior (after obtaining consent)
@@ -167,7 +167,7 @@ await amazon_connect.Web.ClickStream.recordBusinessMetric('clear_cart', {
 });
 ```
 
-## Associate clickstream with authenticated users
+## Associate clickstream with Customer Profile
 
 Clickstream data captured by the web data tracker is continuously streamed to Customer Profiles.
 How data is associated with a profile depends on whether profile keys are provided
@@ -182,7 +182,7 @@ during widget initialization.
 
 To associate tracking with a known profile, set `profileKeys` in
 your JWT claims to search for and associate with an existing profile at
-connection time, and the service uses these keys to find a matching profile via
+connection time, and the service uses these keys to find a matching profile through
 the `SearchProfiles` API. This requires security to be enabled on
 your Communications widget. For setup details, see [Step 3: Confirm and copy communications widget code and security keys](add-chat-to-website.md#confirm-and-copy-chat-widget-script "add-chat-to-website.md#confirm-and-copy-chat-widget-script").
 

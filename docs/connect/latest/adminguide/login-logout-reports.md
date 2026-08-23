@@ -8,7 +8,7 @@ session that user was logged in to Connect Customer.
 
 ###### Contents
 
-- [Why your Login/Logout report may
+- [Why your Login/Logout report might
   appear incorrect](#login-logout-incorrect "#login-logout-incorrect")
 - [Report limit: 10,000
   rows](#login-logout-considerations "#login-logout-considerations")
@@ -23,9 +23,9 @@ session that user was logged in to Connect Customer.
 - [Tag-based and hierarchy-based access
   controls](#login-logout-tag-based-access-control "#login-logout-tag-based-access-control")
 
-## Why your Login/Logout report may appear incorrect
+## Why your Login/Logout report might appear incorrect
 
-You may observe that the data in your Login/Logout report appears incorrect. For
+You might observe that the data in your Login/Logout report appears incorrect. For
 example:
 
 - The report doesn't show any data, or is missing data, even though everyone on
@@ -34,7 +34,7 @@ example:
   **Offline** and their CCP window is closed.
 
 These issues are usually because users are not actually logged out. They aren't
-choosing the **Logout** button. For example, they may be changing their
+choosing the **Logout** button. For example, they might be changing their
 status to **Offline** and then closing their CCP window.
 
 To log out, in the CCP or the agent workspace, they need to choose
@@ -43,7 +43,7 @@ To log out, in the CCP or the agent workspace, they need to choose
 
 ![The Contact Control Panel, the Settings icon, the Logout option.](images/logout-ccp.png)
 
-A few other reasons a report may appear incorrect:
+A few other reasons a report might appear incorrect:
 
 - The report includes login and logout events that occur within the specified
   time range. If a user logs in and out outside of that time range, those events
@@ -207,7 +207,7 @@ Wednesday and does not include any data for Wednesday.
    optimization**, **Dashboards and
    reports**.
 2. Choose **Login/Logout report**.
-3. Hover the mouse pointer over the row containing the name of the report to
+3. Pause the mouse pointer on the row containing the name of the report to
    schedule, and choose the **Schedule report** icon.
 4. On the **Schedule report** page, under
    **Recurrence**, for **Generate this
@@ -251,7 +251,7 @@ files created from a scheduled report are removed from your S3 bucket.
 1. Open your Connect Customer dashboard.
 2. Choose **Analytics and optimization**, **Saved
    reports**.
-3. Hover over the row for the report to delete, and choose the
+3. Pause on the row for the report to delete, and choose the
    **Delete** icon.
 4. Choose **Delete** again.
 

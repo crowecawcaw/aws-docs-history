@@ -64,7 +64,7 @@ combining the prediction results.
 
 ## Generative AI powered data mapping troubleshooting
 
-The following sections display the possible error messages that you may
+The following sections display the possible error messages that you might
 encounter. It also provides the cause and resolution for each issue.
 
 ### Error: Could not parse object string into JSON

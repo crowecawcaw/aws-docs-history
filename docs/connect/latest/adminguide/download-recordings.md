@@ -41,7 +41,7 @@ name of the .wav file is the contact ID.
 
 ###### Tip
 
-In the recording, you may hear only the agent, only the customer, or
+In the recording, you might hear only the agent, only the customer, or
 both the agent and customer. This is determined by how the [Set recording and analytics
 behavior](set-recording-behavior.md "set-recording-behavior.md") block is configured.
 

@@ -8,7 +8,7 @@ which factors contributed to the change, and what you can do about it.
 
 ###### Important
 
-Responses generated during investigations may contain inaccuracies.
+Responses generated during investigations might contain inaccuracies.
 Manager assistant identifies correlations in your data, and cannot confirm definitive
 root causes. Always validate investigation findings before you make operational
 decisions.
@@ -54,7 +54,7 @@ contributing factors, the factors that were eliminated, and recommended actions.
 
 Following the analysis of the major contributing factors, manager assistant provides
 prioritized recommended actions. Each recommendation includes the reasoning for why it
-addresses the identified issue, and may include a confidence indicator that reflects how
+addresses the identified issue, and might include a confidence indicator that reflects how
 directly the action addresses that issue. The following table shows example recommended
 actions for this investigation.
 

@@ -2,7 +2,7 @@
 
 For managers to monitor live conversations, you assign them the
 **CallCenterManager** and **Agent** security
-profiles. To allow agent trainees to monitor live conversations, you may want to create
+profiles. To allow agent trainees to monitor live conversations, you might want to create
 a security profile specific for this purpose.
 
 ###### To assign a manager permissions to monitor a live conversation

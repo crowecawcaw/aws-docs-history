@@ -24,7 +24,7 @@ country's home AWS Region, we recommend the following best practices.
    1. If both your phone numbers **and** agents are
       located in an AWS Region that is different from the one where your Connect Customer
       instance is created, call latency is extended above 500ms for network latency (WebRTC RTT).
-      This latency may result in call quality issues.
+      This latency might result in call quality issues.
 
 2. Calculate your latency before setting up your Connect Customer contact center in production.
    Perform the following steps on a test environment:
@@ -35,7 +35,7 @@ country's home AWS Region, we recommend the following best practices.
       Region using internet-based, external tools, such as [WonderNetwork](https://wondernetwork.com/ "https://wondernetwork.com/").
    3. For calls with the best call quality, we recommend configurations with
       less than 500ms of latency end-to-end.
-   4. You may determine that call quality is acceptable at up to 900ms of
+   4. You might determine that call quality is acceptable at up to 900ms of
       latency for both network and telephony latency. (900ms is a sum
       of 500ms network latency and 400ms carrier latency.) However, if you note
       a call-quality issue that can be due to latency, and other potential causes

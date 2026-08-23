@@ -7,7 +7,7 @@ Problems with the agent's headset are usually caused by two issues:
   Here's what you need to do:
 
 - **Check that your computer recognizes your headset**—Check the settings in
-  Device Manager to ensure that your computer recognizes the headset and allows proper
+  Device Manager to make sure that your computer recognizes the headset and allows proper
   headset connectivity. For example, if you're using a Windows PC:
 
   1.  Go to **Device Manager**, then expand **Audio
@@ -36,7 +36,7 @@ Problems with the agent's headset are usually caused by two issues:
 
 ###### Important
 
-A change introduced in Google Chrome version 64 may result in issues with receiving
+A change introduced in Google Chrome version 64 might result in issues with receiving
 calls if you are using an embedded Contact Control Panel (CCP) softphone using the Connect Customer
 Streams library. If you are experiencing issues with your microphone when using Chrome
 version 64, you can resolve the issue by building and deploying the latest version of

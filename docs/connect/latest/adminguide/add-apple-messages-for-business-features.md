@@ -48,7 +48,7 @@ information, see [Enable authentication for Apple Messages for Business](enablin
 You can give your customers the ability to start a conversation with you from your
 website or an email message.
 
-For example, customers may start a chat using a URL that you provide. When they
+For example, customers might start a chat using a URL that you provide. When they
 choose the URL, the system redirects them to Messages so they can send your business
 a text message.
 

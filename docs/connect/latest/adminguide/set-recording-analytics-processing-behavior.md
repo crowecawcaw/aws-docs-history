@@ -15,7 +15,7 @@ There are two actions supported as part of this block:
 
 The above screenshot shows the two actions in the block's "Select action" dropdown.
 
-Once you select an action, you can select a channel to configure those settings for. Here are the supported channels for each action:
+After you select an action, you can select a channel to configure those settings for. Here are the supported channels for each action:
 
 |                                      | Chat supported? | Email supported? | Tasks supported?                         | Voice supported? |
 | ------------------------------------ | --------------- | ---------------- | ---------------------------------------- | ---------------- |
@@ -50,7 +50,7 @@ You can configure the **Set recording, analytics and processing behavior** block
 The following image shows a picture of the **Set message processor** action set in the block. This action currently only supports Chat channel type, which is selected in the next dropdown. The dropdown is followed by several settings to configure a custom lambda processor:
 
 1. **Enable processing** - control whether you want to start or stop chat message processing.
-2. **Function ARN** - define a lambda function that will perform the message processing. This function should be integrated with custom message processing. You can do so through the **CreateIntegrationAssociation** public API, using the MESSAGE\_PROCESSOR IntegrationType. View documentation [here](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md").
+2. **Function ARN** - define a lambda function that will perform the message processing. This function should be integrated with custom message processing. You can do so through the **CreateIntegrationAssociation** public API, using the MESSAGE\_PROCESSOR IntegrationType. For more information, see [CreateIntegrationAssociation](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md") in the _Connect Customer API Reference_.
 3. **Processing failure handling** - select whether you would like the original, unprocessed message to be delivered or not in case processing fails.
 
 ![The Set message processor action configuration with processing enabled.](images/set-recording-analytics-processing-behavior-message-processor-enabled.png)

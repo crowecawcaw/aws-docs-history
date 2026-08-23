@@ -1,6 +1,6 @@
 # Service quotas for manager assistant
 
-The following quotas apply to manager assistant during preview. These quotas may change
+The following quotas apply to manager assistant during preview. These quotas might change
 as the capability matures, so check this page for updates.
 
 ## Quotas

@@ -6,7 +6,7 @@ standard profile object in Customer Profiles.
 ## Salesforce-Account object
 
 Following is a list of all the fields in a Salesforce-Account object.
-The fields in your Salesforce-Account object may vary depending on the
+The fields in your Salesforce-Account object might vary depending on the
 configuration of your Salesforce instance.
 
 - Id

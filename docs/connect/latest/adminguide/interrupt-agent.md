@@ -92,7 +92,7 @@ already on another call.
 
 If you have already implemented personal extension routing in
 Connect Customer – for example, a flow that transfers the caller to a specific
-agent queue and then forwards to voicemail after a timeout – you may
+agent queue and then forwards to voicemail after a timeout – you might
 want to add interrupt behavior as follows:
 
 - In the **Customer queue flow** that executes
@@ -101,7 +101,7 @@ want to add interrupt behavior as follows:
   block.
 - Configure your voicemail transfer logic to wait **at least 30 seconds** before transferring
   the caller to voicemail. Because the interrupt call rings for 30
-  seconds before timing out, a shorter voicemail timeout may start
+  seconds before timing out, a shorter voicemail timeout might start
   to route the caller to voicemail before the agent has had a
   chance to accept.
 
@@ -177,7 +177,7 @@ offered.
 
 ### Accepting the interrupt contact
 
-Once the agent accepts the interrupt contact, the original contact is
+After the agent accepts the interrupt contact, the original contact is
 automatically placed on hold and contextual apps such as Customer Profiles
 update to reflect the new contact.
 
@@ -234,7 +234,7 @@ call is accepted.
 
 - **Softphone required.** This feature is
   supported only for agents using the Connect Customer softphone (Agent Workspace,
-  standalone CCP, or custom CCP integrations via StreamsJS or ConnectSDK). It
+  standalone CCP, or custom CCP integrations through StreamsJS or ConnectSDK). It
   is not supported for agents using deskphone or mobile device forwarding. If
   an agent has deskphone forwarding enabled and is already on a call, the block
   takes the **Error** branch. If the agent is fully idle, a
@@ -259,7 +259,7 @@ call is accepted.
   supported on Mozilla Firefox.
 - **Agent-first callbacks.** An agent currently
   handling an agent-first callback cannot be offered a second agent-first
-  callback via this block. The agent can be offered a standard inbound voice
+  callback through this block. The agent can be offered a standard inbound voice
   call.
 
 ## Frequently asked questions
@@ -277,14 +277,14 @@ the contact.
 
 The caller's experience depends on how you have configured your
 Customer queue flow. The caller remains in the queue flow (for example,
-hearing hold music configured via [Loop prompts](loop-prompts.md "loop-prompts.md") blocks) while the contact is
+hearing hold music configured through [Loop prompts](loop-prompts.md "loop-prompts.md") blocks) while the contact is
 being offered to the agent.
 
 **What happens if the agent does not answer or rejects the contact?**
 
 The contact returns to the Customer queue flow. The subsequent
 behavior depends on your flow configuration – for example, the
-contact may be transferred to voicemail or placed back in a
+contact might be transferred to voicemail or placed back in a
 queue.
 
 **How long does the interrupt call ring before timing out?**
@@ -300,7 +300,7 @@ language.
 
 **Can I use this feature if my agents use a custom Contact Control Panel (CCP)?**
 
-Yes. If you use a custom CCP, ensure you are using the latest version
+Yes. If you use a custom CCP, make sure you are using the latest version
 of StreamsJS and review whether you need to make additional changes to
 your implementation.
 
@@ -308,13 +308,13 @@ For example:
 
 - If your custom CCP uses the softphone from Connect Customer
   embedded iframe (that is, if `allowFramedSoftphone`
-  is passed as `true` to initiate the CCP using [Connect Customer Streams JS](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams")), then you may not need to
+  is passed as `true` to initiate the CCP using [Connect Customer Streams JS](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams")), then you might not need to
   make any changes for this functionality to work. However, if
   your custom CCP integrates [Connect Customer
-  RTC JS](https://github.com/aws/connect-rtc-js "https://github.com/aws/connect-rtc-js") in its own frame, you may need to upgrade
+  RTC JS](https://github.com/aws/connect-rtc-js "https://github.com/aws/connect-rtc-js") in its own frame, you might need to upgrade
   RTC JS.
 - The `agent.getState()` API is not supported for
-  dual call scenarios where each call may have a different status
+  dual call scenarios where each call might have a different status
   (for example, Connected vs ACW) and therefore the agent no
   longer has a single overall state. If you are using
   `agent.getState()` in your custom CCP today, we

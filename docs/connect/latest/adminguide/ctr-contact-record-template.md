@@ -37,7 +37,7 @@ found, the contact event is automatically associated with that profile.
 In cases where neither the `_ctrContactId` key nor the
 `_phone` key yield an existing profile, the system creates a new
 inferred profile. This inferred profile is then populated with the meta-data
-from the contact event, ensuring that the information is captured and stored
+from the contact event, making sure that the information is captured and stored
 within the system.
 
 This process ensures efficient handling of contact events, promoting
@@ -74,7 +74,7 @@ contact event is auto-associated with that profile.
 The purpose of using the CTR-AutoAssociateOnly template is to enable automatic
 association with existing profiles while maintaining strict control over profile
 creation. Unlike the CTR-NoInferred template, this template prevents the
-creation of inferred profiles when no match is found. It ensures that profiles
+creation of inferred profiles when no match is found. It makes sure that profiles
 are only created manually, providing organizations with a higher level of
 control and accuracy in profile management.
 
@@ -96,9 +96,9 @@ the profile if a match is found. However, in cases where no existing profile is
 found, the template creates an inferred profile and populates it with the
 contact event meta-data.
 
-Although this behavior ensures that contact events are captured even when no
+Although this behavior makes sure that contact events are captured even when no
 pre-existing profile exists, it can potentially result in the creation of
-numerous inferred profiles. This abundance of inferred profiles may lead to the
+numerous inferred profiles. This abundance of inferred profiles might lead to the
 issue of duplicate profiles within the system.
 
 To address this concern and promote better profile management practices, we

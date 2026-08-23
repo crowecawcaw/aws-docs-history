@@ -1,7 +1,7 @@
 # Enable customers to resume chat conversations in Connect Customer
 
 Customers often start a chat, then leave the conversation and return later to continue
-chatting. This may happen many times over the course of several days, months, or even years.
+chatting. This might happen many times over the course of several days, months, or even years.
 To support long running chats like these, you enable persistent chat.
 
 With persistent chat, customers can resume previous conversations with the context,

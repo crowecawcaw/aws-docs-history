@@ -135,7 +135,7 @@ following:
 
    You should use the same time zone for reports over time to get
    accurate and consistent metrics data for your contact center.
-   Using different time zones for different reports may result in
+   Using different time zones for different reports might result in
    different data for the same time range selection. 3. The possible values for **Time range** depend
    on the value that you select for **Interval**.
    Alternatively, you can specify a custom time range.

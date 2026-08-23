@@ -5,7 +5,7 @@ automatically to store the logs for your instance.
 
 ###### Tip
 
-Connect Customer delivers flow logs at least once. They may be delivered again
+Connect Customer delivers flow logs at least once. They might be delivered again
 for multiple reasons. For example, a service retry due to an unavoidable
 failure.
 

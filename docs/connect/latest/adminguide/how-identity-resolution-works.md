@@ -88,7 +88,7 @@ automatically merged, the FirstName “John” will be preserved.
     more of the attributes in a criteria, the similar
     profiles are merged.
 
-  For example, one match group may be five similar
+  For example, one match group might be five similar
   profiles out of which three profiles are consolidated,
   because these three profiles meet the criteria. The
   other two profiles are not merged, because they do not
@@ -129,8 +129,8 @@ automatically merged, the FirstName “John” will be preserved.
     the
     profile attributes constituent similar
     profiles.
-  - Each attribute may have an exact match in value. In
-    this case, any value may be selected for that
+  - Each attribute might have an exact match in value. In
+    this case, any value might be selected for that
     attribute.
   - If there is a conflict between values of two or more
     constituent similar profiles, the most recently updated

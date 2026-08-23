@@ -43,7 +43,7 @@ their mobile device. For instructions, see [Forward calls in the Connect Custome
 
 The out-of-the-box communications widget's Voice Focus (VF) and Echo
 Reduction (ER) features are not universally supported across all devices.
-Lower specification devices may not support Amazon Voice Focus irrespective
+Lower specification devices might not support Amazon Voice Focus irrespective
 to laptop, desktop or iOS and Android devices. For more information, see [Amazon Voice Focus support by device](https://aws.github.io/amazon-chime-sdk-js/modules/amazonvoice_focus.html#can-i-use-amazon-voice-focus-and-echo-reduction-in-my-application "https://aws.github.io/amazon-chime-sdk-js/modules/amazonvoice_focus.html#can-i-use-amazon-voice-focus-and-echo-reduction-in-my-application") in the Amazon Chime SDK for JavaScript documentation. On devices where Voice Focus is not
 supported, the browser's built-in noise suppression is relied upon.
 
@@ -69,7 +69,7 @@ opt-in mechanism for users to disable them.
 (CCP) into a custom workspace**: If your agents use Google's opt-in
 mechanism to disable third-party cookies, it will cause authentication issues
 when they use the CCP. Connect Customer relies on third-party cookies to help
-authentication. Ensure that third-party cookies are enabled in your agents'
+authentication. Make sure that third-party cookies are enabled in your agents'
 browser settings to avoid any authentication issues while using the CCP.
 
 ## Firefox Enhanced Tracking Protection updates
@@ -93,7 +93,7 @@ the following steps:
 ## Firefox browser guidance for Microphone Access
 
 The Connect Customer CCP conforms to Firefox microphone usage guidance, and only has access
-to connect to the user's microphone when the CCP tab is in focus. This may lead to
+to connect to the user's microphone when the CCP tab is in focus. This might lead to
 missed call scenarios when the CCP tab is not in focus, for example, if the agent
 focused on a different tab or application.
 
@@ -160,8 +160,8 @@ https://[your-hosting-domain]
 The wildcard value `*` is not accepted by this policy. Use the
 exact instance URL.
 
-You can configure this policy using Group Policy (via MSEdge.admx), Microsoft
-Intune, or directly via the Windows Registry at the path above.
+You can configure this policy using Group Policy (through MSEdge.admx), Microsoft
+Intune, or directly through the Windows Registry at the path above.
 
 For complete configuration instructions and examples, see [AutoplayAllowlist policy](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowlist "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowlist") in the Microsoft Edge documentation. For
 background on the AutoplayAllowed policy behavior change in Edge v146, see [AutoplayAllowed policy](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowed "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/autoplayallowed") in the Microsoft Edge documentation.
@@ -171,7 +171,7 @@ background on the AutoplayAllowed policy behavior change in Edge v146, see [Auto
 If you're using Flow Designer on a Windows system with dual GPUs, you might notice
 that animations in Firefox feel less smooth compared to Chrome. This happens
 because, by default, browsers use the power-saving GPU. For Chrome, the default
-output is 60 FPS. However, Firefox may cap at 30 FPS, leading to less fluid
+output is 60 FPS. However, Firefox might cap at 30 FPS, leading to less fluid
 animations.
 
 If your system has a dedicated GPU, you can improve performance by changing its

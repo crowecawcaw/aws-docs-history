@@ -15,7 +15,7 @@ example, use the team name or owner alias as the report suffix: Agent Performanc
 _team name_.
 
 Only people who have permissions in their security profile to
-**Create** and/or **Edit** saved reports will be
+**Create** or **Edit** saved reports will be
 able to change the published report and save their changes to the published
 version.
 

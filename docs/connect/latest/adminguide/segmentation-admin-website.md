@@ -9,12 +9,12 @@ send campaigns to a customer segment.
 Customer segments are dynamically evaluated based on attributes that you define, and
 can change over time when the value of the attributes change. For example, if you add
 new profiles to Customer Profiles domain, or if you modify or delete existing profiles, the number of
-profiles in that customer segment may increase or decrease. For more information about
+profiles in that customer segment might increase or decrease. For more information about
 creating a customer segment, see [Build customer segments in Connect Customer](customer-segments-building-segments.md "customer-segments-building-segments.md").
 
 As a prerequisite to building segments in Connect Customer, your administrator must
 setup your domain in the AWS Management Console and configure integrations to bring
-profile, order, asset, and/or case data into Customer Profiles. For more information, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
+profile, order, asset, or case data into Customer Profiles. For more information, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 Enabling data integrations will let continue to generate your dynamic segments based on
 new data coming to your domain
 

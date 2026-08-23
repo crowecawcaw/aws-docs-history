@@ -139,7 +139,7 @@ task** when done.
 
 ## View metrics for the test experiences
 
-When you're testing the voice, chat, and task experiences, you may also want to
+When you're testing the voice, chat, and task experiences, you might also want to
 explore metrics.
 
 1. On the left navigation menu, choose **Analytics and

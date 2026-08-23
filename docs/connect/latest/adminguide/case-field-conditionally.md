@@ -6,7 +6,7 @@ conditionally requiring specific fields.
 To make a field conditionally required, you first set up a field condition. Then, on a
 case template, choose which field the case field condition should apply to.
 
-For example, you may want to enforce that **Agent Handle Reason** is
+For example, you might want to enforce that **Agent Handle Reason** is
 required if a case is updated after it was created. To achieve this you would:
 
 1. Create a case field condition based on whether the [Date/Time Opened](case-fields.md "case-fields.md") field is not blank.
@@ -93,8 +93,8 @@ In this step, you specify which case fields the condition will apply to.
    applications**, **Case templates**.
 3. Choose the case template you want to apply the condition to.
 
-You may want the condition to apply to one template but not others. For
-example, you may want a **Close reason** condition to apply
+You might want the condition to apply to one template but not others. For
+example, you might want a **Close reason** condition to apply
 to escalations, but not to general inquires. 4. In the **Fields** section, choose the settings icon next
 to the field you want to apply the condition to. The following image shows
 the settings icon for the **State** field.

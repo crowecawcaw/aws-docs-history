@@ -44,7 +44,7 @@ for contacts created through your widget.
    - There are many style options for the View components, allowing you to
      customize the form to fit your environment.
 
-5. Once you’ve added a **Connect Action button** to your form,
+5. After you’ve added a **Connect Action button** to your form,
    you can set values for the contacts created by the form by linking them to the
    options in the Connect Action button. Components that you would like to link
    must be in the same Form in the View as the **Connect Action
@@ -60,7 +60,7 @@ The following components are supported for form linking:
     * Text Area
     * Time Picker
 
-6. Once your View is ready, select **Publish**.
+6. After your View is ready, select **Publish**.
 
 ## Step 2: Customize your communications widget
 
@@ -95,7 +95,7 @@ header styling is displayed.
 
 ### Display type
 
-You may choose between two display types for Contact Form widgets:
+You might choose between two display types for Contact Form widgets:
 
 - _Floating action button_ allows you to pin your widget
   as an interactable button on the bottom right corner of the web page

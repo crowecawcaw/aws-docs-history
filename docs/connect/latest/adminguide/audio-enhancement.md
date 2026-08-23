@@ -163,7 +163,7 @@ agent.setConfiguration({
   methods in the Voice API.
 
 In all cases, the accepted values are `VOICE_ISOLATION`,
-`NOISE_SUPPRESSION`, or `NONE`. Once the mode is set,
+`NOISE_SUPPRESSION`, or `NONE`. After the mode is set,
 Connect Customer Streams will apply the selected Audio Enhancement.
 
 ## Troubleshooting

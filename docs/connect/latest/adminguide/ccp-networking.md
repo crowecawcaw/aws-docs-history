@@ -11,7 +11,7 @@ The following diagram shows you what each port is used for.
 
 ![Connect Customer components and their connections to AWS Cloud services.](images/networking.png)
 If your contact center is using the email channel, see the Amazon SES Developer Guide for
-information. If your business sends a large volume of email, you may want to lease dedicated
+information. If your business sends a large volume of email, you might want to lease dedicated
 IP addresses. For more information, see [Dedicated IP addresses for Amazon SES](../../../ses/latest/dg/dedicated-ip.md "../../../ses/latest/dg/dedicated-ip.md").
 
 The following sections describe the two primary connectivity options for using the CCP.
@@ -77,7 +77,7 @@ When using
 `rtc*.connect-telecom.`region`.amazonaws.com`,
 `*.transport.connect.`region`.amazonaws.com`, and
 `https://myInstanceName.awsapps.com`, in certain proxy applications,
-web socket handling may impact functionality. Be sure to test and validate before
+web socket handling might impact functionality. Be sure to test and validate before
 deploying to a production environment.
 
 The following table lists the CloudFront domains used for static assets if you want to add
@@ -321,7 +321,7 @@ endpoints listed in [AWS
 Sign-In endpoints and quotas](../../../general/latest/gr/signin-service.md "../../../general/latest/gr/signin-service.md").
 
 Remote agents, those that use Connect Customer from a location other than those connected to your
-organization's main network, may experience issues relating to their local network if
+organization's main network, might experience issues relating to their local network if
 they have an unstable connection, packet loss, or high latency. This is compounded if a
 VPN is required to access resources. Ideally, the agents are located close to the AWS
 Region where your AWS resources and Connect Customer instance are hosted, and have a stable

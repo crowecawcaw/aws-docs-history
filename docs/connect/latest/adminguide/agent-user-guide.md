@@ -1,7 +1,7 @@
 # Agent training guide for the Contact Control Panel (CCP) and agent workspace in Connect Customer
 
 This section provides an overview of the default Connect Customer agent workspace and Contact Control
-Panel. Your organization may be using a customized version of the agent workspace and/or
+Panel. Your organization might be using a customized version of the agent workspace or
 Contact Control Panel. Please contact your Technical Support for specific questions about
 how your instance of Connect Customer works.
 

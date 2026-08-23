@@ -1,6 +1,6 @@
 # Map third-party numbers to your Connect Customer account
 
-In some countries you may need to obtain a third-party phone number that is hosted
+In some countries you might need to obtain a third-party phone number that is hosted
 directly by a carrier in that country instead of being hosted by Connect Customer. The carrier is
 interconnected with Connect Customer and provides billing services. In these situations you need to
 open a ticket to AWS Support to map your AWS account ID and Connect Customer instance to the phone

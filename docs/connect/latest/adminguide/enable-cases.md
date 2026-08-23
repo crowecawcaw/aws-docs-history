@@ -37,7 +37,7 @@ For more information, see [Required permissions for using custom IAM policies to
 
 ![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. On the left navigation menu, choose **Cases** under the
 **Applications** section. If you don't see this option,
-it may not be available in your Region. For information about where Cases is
+it might not be available in your Region. For information about where Cases is
 available, see [Cases availability by Region](regions.md#cases_region "regions.md#cases_region"). 4. Choose **Enable cases** to get started. 5. On the **Cases** page, choose **Add
 domain**. 6. On the **Add domain** page, enter a unique, friendly name
 that's meaningful to you, such as your organization name. 7. Choose **Add domain**. The domain is created.
@@ -67,7 +67,7 @@ After your cases domain is created, do the following:
 
 ###### Note
 
-Ensure that you have the `cases:CreateRelatedItem`
+Make sure that you have the `cases:CreateRelatedItem`
 permission for your IAM entity. For more information on Cases
 permissions, see [Actions, resources, and condition keys for Connect Customer
 Cases](../../../service-authorization/latest/reference/list_amazonconnectcases.md "../../../service-authorization/latest/reference/list_amazonconnectcases.md"). 5. Optionally, add the [Cases](cases-block.md "cases-block.md") block to your flows. This block

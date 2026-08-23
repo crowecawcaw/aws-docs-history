@@ -6,7 +6,7 @@ industries.
 
 ## Before you begin
 
-Before you enable industry resource templates, ensure you have:
+Before you enable industry resource templates, make sure you have:
 
 - An Amazon Connect instance with Customer Profiles enabled
 - Appropriate permissions to create resources in your Customer Profiles
@@ -202,7 +202,7 @@ domain. To disable a template:
 
 When you disable a template, all resources created by that template will be
 deleted from your domain. If any of these resources are used in Customer Segments,
-Outbound Campaigns, or Contact Flows, disabling the template may impact them.
+Outbound Campaigns, or Contact Flows, disabling the template might impact them.
 
 Before disabling a template, review the resources in use to understand the
 potential impact.

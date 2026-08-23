@@ -10,7 +10,7 @@ advance of your pending go-live date as possible.
 
 The amount of time that it takes to port numbers depends on the country,
 complexity of the request, the type and quantity of numbers being ported, and
-your current carrier. Telecom carriers also may implement porting block days
+your current carrier. Telecom carriers also might implement porting block days
 because of holidays and network maintenance. Because of this, Connect Customer requires
 porting requests to be open several months before pending go-live dates.
 
@@ -72,7 +72,7 @@ The Connect Customer service team supports porting phone numbers FROM 9am Monday
 in Sydney NSW, Australia Time, TO 5pm Friday in Seattle, WA, USA
 time.
 
-Depending on the country and carriers involved, you may be able to choose
+Depending on the country and carriers involved, you might be able to choose
 the porting date and time. In most cases, however, the losing carrier picks
 the date and time and communicates it to Connect Customer based on their schedule.
 

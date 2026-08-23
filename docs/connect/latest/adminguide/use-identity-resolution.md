@@ -15,6 +15,6 @@ Identity Resolution Job on a weekly basis, which performs the following steps:
    The metrics show the number of profiles it reviewed, the number of match groups found,
    and the number of profiles consolidated.
 
-Additional charges may apply for enabling Identity Resolution. For more information, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
+Additional charges might apply for enabling Identity Resolution. For more information, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 
 ![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](images/customer-profiles-enable-ir.png)

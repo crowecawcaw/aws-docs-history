@@ -79,7 +79,7 @@ dropdown menu, choose **Words or phrases**.
 conversation you want to search. Note the following:
 
     * **System** applies to chat, where the
-     participant may be a Lex bot or prompt.
+     participant might be a Lex bot or prompt.
     * To search for words or phrases that are used by all
      participants, select **Agent**,
      **Customer**,

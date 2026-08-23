@@ -63,7 +63,7 @@ thereby reducing call handling time and improving efficiency.
   this block at the start of the flow to enable touchtone buffering. From that point
   onward, digits pressed by customers are stored in a 30-character buffer. The
   buffer automatically discards any used digits immediately after they are
-  processed in the flow. Once the buffer reaches its 30-character limit,
+  processed in the flow. After the buffer reaches its 30-character limit,
   additional customer entries are ignored until space becomes available.
 - **Controlled clearing**: Stop and optionally
   store buffer contents when appropriate. You can configure encryption parameters
@@ -157,7 +157,7 @@ Buffer-aware collection
 - **Specify a terminating
   keypress**: Flow designers can define a custom
   terminating keypress for when contacts complete their touchtone
-  inputs. The terminating keypress may be up to five characters
+  inputs. The terminating keypress might be up to five characters
   long, including `#`, `*`, and digits
   0-9.
 

@@ -44,7 +44,7 @@ Zendesk. Acknowledge the steps and choose **Next**.
 following:
 
     * **Use an existing connection**. This allows you
-     to reuse existing EventBridge resources you may have created in your AWS
+     to reuse existing EventBridge resources you might have created in your AWS
      account.
     * **Create a new connection**: Enter the
      information required by the external application.
@@ -102,7 +102,7 @@ and update that setting, as shown in the following image.
 
 ![The Amazon Web Services page, the support ticket option.](images/zendesk-support-ticket.png)
 
-There is also another case where you may not have selected the correct AWS
+There is also another case where you might not have selected the correct AWS
 Region that the Connect Customer instance is in, when setting up EventBridge. To fix:
 
 1. Go to the EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").

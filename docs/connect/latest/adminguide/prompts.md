@@ -62,7 +62,7 @@ _Connect Customer API Reference Guide_.
 7. In the **Prompt Settings** section, enter any tags you want
    to use to manage the prompt.
 
-For example, you may have a department that manages prompts for greetings. You
+For example, you might have a department that manages prompts for greetings. You
 can tag those prompts so users can focus on only those recordings that pertain
 to them. 8. Optionally, add tags to identify, organize, search for, filter, and control
 who can access this prompt. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md").
@@ -82,7 +82,7 @@ web application.
 
 We recommend using 8 KHz .wav files that are less than 50 MB and less than 5 minutes
 long. If you use higher rated audio libraries, such as 16 KHz files, Connect Customer has to down
-sample them into 8 KHz samples because of PSTN limitations. This may result in low
+sample them into 8 KHz samples because of PSTN limitations. This might result in low
 quality audio. For more information, see the following Wikipedia article: [G.711](https://en.wikipedia.org/wiki/G.711 "https://en.wikipedia.org/wiki/G.711").
 
 ## Maximum length for prompts

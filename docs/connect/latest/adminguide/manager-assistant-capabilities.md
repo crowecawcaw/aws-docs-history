@@ -149,6 +149,6 @@ is unrelated.
 ###### Important
 
 Because a resumed chat carries the full earlier conversation,
-manager assistant may reference details from previous turns in its responses.
+manager assistant might reference details from previous turns in its responses.
 To get a response that is based only on your new question, start a new
 chat.

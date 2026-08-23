@@ -1,6 +1,6 @@
 # Add Profile explorer to the agent workspace
 
-By default users who have the appropriate [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md") can view Profile explorer on the Connect Customer admin website. You may
+By default users who have the appropriate [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md") can view Profile explorer on the Connect Customer admin website. You might
 also want your agents to have access to Profile explorer in their agent workspace. This
 topic explains how to do that.
 
@@ -12,7 +12,7 @@ The following image shows an example of Profile explorer in the agent workspace.
 
 Here's a high-level overview:
 
-1. Ensure you have the [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md")
+1. Make sure you have the [security profile permissions](enabling-profile-explorer.md "enabling-profile-explorer.md")
    to create a Profile explorer layout.
 2. Follow the instructions in [Get started with Connect Customer Customer Profiles Profile Explorer](getting-started-profile-explorer.md "getting-started-profile-explorer.md")
    to create and save the layout you
@@ -24,7 +24,7 @@ Here's a high-level overview:
 
 ![The Connect Customer console, the Integrations menu item.](images/integrations.png) 2. On the **Integrations** page, choose
 **Add integration**. 3. On the **Add integration** page, complete following
-fields in the **Basic information** section:
+fields in the **Integration information** section:
 
     1. **Display name**: A friendly name for
      the application. **This name is displayed to your agents on
@@ -34,7 +34,7 @@ fields in the **Basic information** section:
      official name that is unique for your integration. If you have only
      one integration per access URL, we recommend that you use the origin
      of the access URL. You cannot change this name.
-    3. **Description (optional)**: You may
+    3. **Description (optional)**: You might
      optionally provide any description for this application. This
      description is not displayed to agents.
     4. **Integration type**: Choose
@@ -48,7 +48,7 @@ fields in the **Basic information** section:
 
 Initialization timeout is set to 5 seconds.
 
-![The Basic information section, configured for the Profile explorer on the agent workspace.](images/add-integration.png) 4. In the **Access** section, complete the following
+![The Integration information section, configured for the Profile explorer in the agent workspace.](images/add-integration.png) 4. In the **Access** section, complete the following
 fields:
 
     1. **Access URL**: This is the URL where your application is hosted. The
@@ -68,8 +68,8 @@ fields:
      workspace.
 
     For more details about what is allowed for this field, see
-     [Integrations](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate").
-    2. **Approved origins - optional**: Allowlist URLs
+     [Add a third-party application](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate").
+    2. **Approved origins (optional)**: Allowlist URLs
      that should be permitted, if different than the access URL. The URL
      must be secure, starting with https, unless it's a local
      host.
@@ -77,7 +77,7 @@ fields:
 5. Completing the next two sections—**Permissions**
 and **Iframe configuration**—is optional and not
 required to add the Profile explorer to the agent workspace. For information
-about these sections, see [Integrations](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate"). 6. **Instance association**: Choose the instance
+about these sections, see [Add a third-party application](3p-apps.md#onboard-3p-apps-how-to-integrate "3p-apps.md#onboard-3p-apps-how-to-integrate"). 6. **Instance association**: Choose the instance
 your agents are using.
 
 You can give any instance(s) within this account-region access to this

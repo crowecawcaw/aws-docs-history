@@ -8,7 +8,7 @@ The original, analyzed file contains the full chat transcript. The same content
 that is present in the chat **Transcript** field on the
 **Contact details** page is present in `Transcript`
 field in the original conversational analytics analysis file. In addition, the analyzed
-file may contain more fields, such as a `Redaction` section to indicate
+file might contain more fields, such as a `Redaction` section to indicate
 that there is redacted data in the redacted analysis file.
 
 ###### Note

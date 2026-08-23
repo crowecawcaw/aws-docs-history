@@ -9,7 +9,7 @@ are being encountered.
 Following are a couple example use cases for this functionality:
 
 - In an IVR experience, you can determine how often customers select specific
-  options from a menu, where a menu configuration may be causing an error, or
+  options from a menu, where a menu configuration might be causing an error, or
   identify at which point in the flow customers are abandoning the
   experience.
 - For step-by-step guides, you can track which guides customers and agents use

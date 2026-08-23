@@ -27,7 +27,7 @@ The voice contact record appears as the **Previous contact
 ID**.
 
 The flow that you specify in the rule should be designed to use the contact
-attributes and route the task to the appropriate owner. For example, you may
+attributes and route the task to the appropriate owner. For example, you might
 want to route tasks where **CustomerType = VIP** to a specific
 agent.
 

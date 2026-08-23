@@ -35,16 +35,15 @@ completed, there will a Completed/Terminated date/time and a link to
 
 Only users who have access to this page will be able to see contact details
 for a given contact. Even within this page, there are more granular permissions
-so different users may see different information. Information might include:
+so different users might see different information. Information might include:
 basic contact details/contact attachments, transcripts and recordings with
-conversational analytics categories, sentiment, and summaries, recordings,
-etc.
+conversational analytics categories, sentiment, and summaries.
 
 ![The activity feed.](images/cases-agent-application-activity-feed.png)
 
 ### More information
 
-There may be additional information for agents to view and populate on the
+There might be additional information for agents to view and populate on the
 **More information** tab, depending on the case template is
 designed.
 

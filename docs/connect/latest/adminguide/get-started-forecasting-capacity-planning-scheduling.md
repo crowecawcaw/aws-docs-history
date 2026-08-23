@@ -14,7 +14,7 @@ Use these steps to set up forecasting & agent scheduling.
 
 ###### Note
 
-After enabling Forecasting & agent scheduling, it may take up to **24
+After enabling Forecasting & agent scheduling, it might take up to **24
 hours** before the feature is available for use. 2. [Assign security profile
 permissions](required-optimization-permissions.md "required-optimization-permissions.md") to the Connect Customer users who will use this feature.
 Use the following steps to start using forecasting & agent scheduling.

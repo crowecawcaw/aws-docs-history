@@ -4,7 +4,7 @@ This topic explains how to configure dynamic fields in components to display
 runtime data instead of hardcoded values when building agent and customer interfaces
 using the No-code builder UI in Connect Customer.
 
-You may have scenarios where you want the data displayed to an agent or customer
+You might have scenarios where you want the data displayed to an agent or customer
 to be dynamically populated instead of hardcoded. For example, if you are making a
 screen pop, you might want to surface the customer's name and profile ID. You need
 the data to be dynamic because the values of these fields change from contact to
