@@ -34,7 +34,7 @@ Region that you perform the automated data setup in.
 ###### Automatically connect your video files in Amazon S3 with Ground Truth and extract video frames:
 
 1. Navigate to the **Create labeling job** page in the Amazon SageMaker AI
-   console: [https://console.aws.amazon.com/sagemaker/groundtruth](https://console.aws.amazon.com//sagemaker/groundtruth "https://console.aws.amazon.com//sagemaker/groundtruth").
+   console: [https://console.aws.amazon.com/sagemaker/groundtruth](https://console.aws.amazon.com/sagemaker/groundtruth "https://console.aws.amazon.com/sagemaker/groundtruth").
 
 Your input and output S3 buckets must be located in the same AWS
 Region that you create your labeling job in. This link puts you in
@@ -102,7 +102,7 @@ and `s3://amzn-s3-demo-bucket/video-frames/sequences/sequence2/`.
 ###### Automatically connect your video frame in Amazon S3 with Ground Truth:
 
 1. Navigate to the **Create labeling job** page in
-   the Amazon SageMaker AI console: [https://console.aws.amazon.com/sagemaker/groundtruth](https://console.aws.amazon.com//sagemaker/groundtruth "https://console.aws.amazon.com//sagemaker/groundtruth").
+   the Amazon SageMaker AI console: [https://console.aws.amazon.com/sagemaker/groundtruth](https://console.aws.amazon.com/sagemaker/groundtruth "https://console.aws.amazon.com/sagemaker/groundtruth").
 
 Your input and output S3 buckets must be located in the same AWS
 Region that you create your labeling job in. This link puts you in

@@ -155,3 +155,35 @@ JSON
 }`
 
 ```
+
+## MLflow App policies
+
+The preceding examples apply to an MLflow tracking server, which uses the
+`sagemaker-mlflow:*` action. For an MLflow App, use the
+`sagemaker:CallMlflowAppApi` action instead. The same
+`aws:SourceVpce`, `aws:SourceIp`, and
+`aws:VpcSourceIp` condition keys apply. For example, the following policy
+is the MLflow App equivalent of Example 2. It allows connections only through the
+interface endpoint that you created:
+
+```
+{
+    "Id": "mlflow-app-example-1",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "MlflowAppAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:CallMlflowAppApi"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceVpce": "vpce-111bbaaa"
+                }
+            }
+        }
+    ]
+}
+```

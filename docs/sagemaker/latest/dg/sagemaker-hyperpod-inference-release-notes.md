@@ -8,6 +8,92 @@ Amazon SageMaker HyperPod platform releases, updates, and improvements, see [Ama
 For information about SageMaker HyperPod Inference capabilities and deployment options, see
 [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md").
 
+## SageMaker HyperPod Inference release notes: v3.3
+
+**Release Date:** August 4, 2026
+
+**Summary**
+
+Amazon SageMaker HyperPod Inference Operator v3.3 introduces host-local model caching. This
+reduces cold-start latency when you scale out an inference deployment. This release also
+makes the Application Load Balancer idle timeout configurable for each deployment.
+
+Amazon SageMaker HyperPod Inference Operator v3.3 is available in all AWS Regions where
+SageMaker HyperPod is supported.
+
+**New Features**
+
+- **Model Weights and Image Caching** – Cache
+  model weights on node-local NVMe storage and pre-pull the inference server
+  container image onto target nodes. Pods added during scale-out do not download
+  weights from Amazon S3 or Amazon FSx. They do not wait for a cold image pull. Enable
+  either mechanism independently or both together by using
+  `modelCacheConfig` in your CRD. This feature requires an instance type
+  with local NVMe storage. See [Model weights caching and image caching](sagemaker-hyperpod-model-deployment-model-caching.md "sagemaker-hyperpod-model-deployment-model-caching.md").
+- **Configurable ALB Idle Timeout** – Control
+  how long the Application Load Balancer keeps an idle connection open by using
+  `loadBalancer.idleTimeoutSeconds` on your
+  `InferenceEndpointConfig` or `JumpStartModel`. Valid values
+  are 1–4000 seconds, and the default is 60 seconds. Increase this value for
+  deployments whose requests take longer than the default to return a
+  response.
+
+**Bug Fixes**
+
+- **Missing Routing Service** – Fixed an issue
+  where an interrupted initial reconcile could leave a deployment without the
+  Kubernetes routing Service. This Service backs the deployment's Ingress and load
+  balancer. Endpoints returned HTTP 503 responses while all health signals reported
+  healthy. The operator now re-creates the routing Service when it is missing.
+- **Intelligent Routing Endpoint Registration**
+  – Fixed an issue where intelligent routing deployments used an unprefixed
+  name for the Ingress path lookup. The lookup failed on every reconciliation, which
+  prevented SageMaker AI endpoint registration from completing.
+- **KV Cache Configuration** – Fixed an issue
+  where the operator did not honor `enableL1Cache` or
+  `enableL2Cache` set to `false` in
+  `kvCacheSpec`.
+
+### Upgrade to v3.3
+
+**Helm upgrade:**
+
+If you already have the Inference Operator installed by using Helm, use the following
+commands to upgrade:
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.3
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+**EKS Add-on upgrade:**
+
+If you installed the Inference Operator as an EKS Add-on, upgrade to the latest
+version:
+
+```
+CLUSTER=EKS_CLUSTER_NAME
+REGION=REGION
+
+aws eks update-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v1.4.0-eksbuild.1 \
+  --resolve-conflicts OVERWRITE \
+  --region $REGION
+```
+
 ## SageMaker HyperPod Inference release notes: v3.2
 
 **Release Date:** June 12, 2026

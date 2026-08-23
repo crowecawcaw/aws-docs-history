@@ -1,130 +1,184 @@
 # Setting up an Amazon EKS cluster in Studio
 
+You do most of this setup from your HyperPod cluster details page in the SageMaker AI
+console. Open the SageMaker AI console, choose **HyperPod clusters**, choose your
+cluster, and then choose the **Configuration** tab. Under **Cluster
+access for SageMaker domains**, choose **Manage access**. This is
+where you create or view a domain and attach the cluster-access policies that let Studio
+users reach the cluster.
+
+The following screenshot shows the **Cluster access for SageMaker domains**
+section on the **Configuration** tab.
+
+![The Configuration tab of a HyperPod cluster, showing the EKS orchestrator details and the Cluster access for SageMaker domains section with the Create domain, View domain, and Manage access buttons.](images/hyperpod/studio-cluster-access-manage-access.png)
 The following instructions describe how to set up an Amazon EKS cluster in Studio.
 
-1. Create a domain or have one ready. For information on creating a domain, see
-   [Guide to getting set up with Amazon SageMaker AI](gs.md "gs.md").
-2. Add the following permission to your execution role.
+1. Under the **Manage access** page, select an existing domain.
+   Studio access to a HyperPod cluster runs through a domain, and the
+   domain execution role is the IAM principal Studio uses to act on your cluster. For
+   information on creating a domain, see [Guide to getting set up with Amazon SageMaker AI](gs.md "gs.md").
+2. Attach the following permissions to your execution role from the IAM console.
 
 For information on SageMaker AI execution roles and how to edit them, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 To learn how to attach policies to an IAM user or group, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
 
-JSON
+Before you attach the policy, replace both example ARNs with your own:
+
+    * Replace
+     `arn:aws:sagemaker:us-east-1:111122223333:cluster/hyperpod-cluster-name` with
+     your HyperPod cluster ARN.
+    * Replace `arn:aws:eks:us-east-1:111122223333:cluster/eks-cluster-name` with
+     your Amazon EKS cluster ARN. It appears twice, in `UseEksClusterPermissions` and in
+     `DescribeSpacesAddon`, where it carries a trailing `/*`.
+
+These are two different resources with two different ARNs. Find the HyperPod
+cluster ARN in the SageMaker AI console and the Amazon EKS cluster ARN in the Amazon EKS console. If you leave
+the example values in place, Studio cannot describe your cluster and the
+**Tasks** tab does not load.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DescribeHyerpodClusterPermissions",
- "Effect": "Allow",
- "Action": [
- "sagemaker:DescribeCluster"
- ],
- "Resource": "arn:aws:sagemaker:`us-east-1`:`111122223333`:cluster/`cluster-name`"
- },
- {
- "Effect": "Allow",
- "Action": "ec2:Describe*",
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ecr:CompleteLayerUpload",
- "ecr:GetAuthorizationToken",
- "ecr:UploadLayerPart",
- "ecr:InitiateLayerUpload",
- "ecr:BatchCheckLayerAvailability",
- "ecr:PutImage"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "cloudwatch:PutMetricData",
- "cloudwatch:GetMetricData"
- ],
- "Resource": "*"
- },
- {
- "Sid": "UseEksClusterPermissions",
- "Effect": "Allow",
- "Action": [
- "eks:DescribeCluster",
- "eks:AccessKubernetesApi",
- "eks:DescribeAddon"
- ],
- "Resource": "arn:aws:eks:`us-east-1`:`111122223333`:cluster/`cluster-name`"
- },
- {
- "Sid": "ListClustersPermission",
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListClusters"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession",
- "ssm:TerminateSession"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DescribeHyperpodClusterPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:DescribeCluster"
+            ],
+            "Resource": "arn:aws:sagemaker:us-east-1:111122223333:cluster/hyperpod-cluster-name"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:Describe*",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:CompleteLayerUpload",
+                "ecr:GetAuthorizationToken",
+                "ecr:UploadLayerPart",
+                "ecr:InitiateLayerUpload",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:PutImage"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutMetricData",
+                "cloudwatch:GetMetricData"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "UseEksClusterPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "eks:DescribeCluster",
+                "eks:AccessKubernetesApi",
+                "eks:MutateViaKubernetesApi"
+            ],
+            "Resource": "arn:aws:eks:us-east-1:111122223333:cluster/eks-cluster-name"
+        },
+        {
+            "Sid": "DescribeSpacesAddon",
+            "Effect": "Allow",
+            "Action": "eks:DescribeAddon",
+            "Resource": "arn:aws:eks:us-east-1:111122223333:cluster/eks-cluster-name/*"
+        },
+        {
+            "Sid": "ListClustersPermission",
+            "Effect": "Allow",
+            "Action": [
+                "sagemaker:ListClusters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession",
+                "ssm:TerminateSession"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-3. [Grant
-   IAM users access to Kubernetes with EKS access entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md").
+3. Attach cluster-access policies to the execution role. The IAM policy in the previous
+   step lets the execution role call the AWS APIs. It does not give the role any permissions
+   inside the Kubernetes cluster. Cluster-access policies do that, and only a role with the right
+   ones attached reaches the cluster. Attach them from **Manage access**, on the
+   domain or the user profile.
 
-   1. Navigate to the Amazon EKS cluster associated with your HyperPod cluster.
-   2. Choose the **Access** tab and [create an access entry](../../../eks/latest/userguide/creating-access-entries.md "../../../eks/latest/userguide/creating-access-entries.md") for
-      the execution role you created.
+Select the execution role for the domain or user profile you are granting access to,
+then select the policies your users need. Choose whether to scope access to a namespace or to
+the whole cluster, scoping to a namespace when teams share a cluster, and then save. Scoping to
+a namespace also restricts which tasks those users can see in Studio. For what each policy
+allows, how to scope access, and how to grant a custom set of permissions instead, see [Restrict task view in Studio for EKS clusters](#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view").
 
-      1. In step 1, Select the execution role you created above in the
-         **IAM** principal dropdown.
-      2. In step 2, select a policy name and select an access scope that you want the users to
-         have access to.
+Granting access this way creates the Amazon EKS access entry for the execution role for you, so
+there is no separate step in the Amazon EKS console. For the concepts behind the access model, see
+[Grant
+IAM users access to Kubernetes with EKS access entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md"). 4. (Optional) To ensure a more smooth experience, we recommend that you add tags to your
+clusters. For information on how to add tags, see [Edit a SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
+using the SageMaker AI console.
 
-4. (Optional) To ensure a more smooth experience, we recommend that you add tags to your
-   clusters. For information on how to add tags, see [Edit a SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
-   using the SageMaker AI console.
+Tag your [Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md")
+workspace to your Studio domain. Use this tag to link to your Grafana workspace
+directly from your cluster in Studio. Add the following tag to your cluster to identify it
+with your Grafana workspace ID, `ws-id`.
 
-   1. Tag your [Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md")
-      workspace to your Studio domain. This will be used to quickly link to your Grafana
-      workspace directly from your cluster in Studio. To do so, add the following tag to your
-      cluster to identify it with your Grafana workspace ID, `ws-id`.
-
-   Tag Key = “`grafana-workspace`”, Tag Value = “`ws-id`”.
-
-5. (Optional) [Restrict task view in Studio for EKS clusters](#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view"). For information on
-   viewable tasks in Studio, see [Tasks](sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks "sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks").
+Tag Key = “`grafana-workspace`”, Tag Value = “`ws-id`”.
 
 ## Restrict task view in Studio for EKS clusters
 
-You can restrict Kubernetes namespace permissions for users, so that they will only have
-access to view tasks belonging to a specified namespace. The following provides information on
-how to restrict the task view in Studio for EKS clusters. For information on viewable
-tasks in Studio, see [Tasks](sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks "sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks").
+You can restrict users’ visibility to specified Kubernetes namespaces, ensuring that users
+can access the resources they need while maintaining strict access controls.
 
-Users will have visibility to all EKS cluster tasks by default. You can restrict users’
-visibility for EKS cluster tasks to specified namespaces, ensuring that users can access the
-resources they need while maintaining strict access controls. You will need to provide the
-namespace for the user to display jobs of that namespace once the following is set up.
+There are two ways to do this. Scoping a cluster-access policy to a namespace is done
+entirely in the console and is the simpler option. A custom Kubernetes RBAC role gives you
+control over the exact verbs and resources a user gets, at the cost of managing the role
+yourself.
 
-Once the restriction is applied, you will need to provide the namespace to the users
-assuming the role. Studio will only display the jobs of the namespace once the user
-provides inputs namespace they have permissions to view in the **Tasks** tab.
+### Restrict with a cluster-access policy
 
-The following configuration allows administrators to grant specific, limited access to
-data scientists for viewing tasks within the cluster. This configuration grants the following
-permissions:
+HyperPod provides cluster-access policies that you attach from **Manage
+access** on the **Configuration** tab. Attach only the policies a
+set of users needs, and scope the access to a namespace rather than to the whole cluster. This
+is the same flow as the third step above.
+
+We recommend that you attach all of the policies to the role for the full
+HyperPod in Studio experience. Each policy covers a different part of the
+experience, so leaving one off removes the capability it grants. Attach a subset only when you
+intend to withhold a capability from that set of users.
+
+| Policy                                       | What it allows                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AmazonSagemakerHyperpodTrainingPolicy`      | Submit and manage training workloads. Full access to `RayCluster`,<br>`RayJob`, and `RayCronJob`, to `HyperPodPyTorchJob`, to<br>Kubeflow `PyTorchJob`, `MPIJob`, and `TFJob`, and to<br>Kubernetes jobs and pods. Read access to pod logs, config maps, events, services, service<br>accounts, resource quotas, limit ranges, deployments, stateful sets, replica sets, and<br>Kueue local queues and workloads. Can create a `RayDashboardConnection`.                        |
+| `AmazonSagemakerHyperpodInferencePolicy`     | Deploy and manage inference workloads. Full access to `RayCluster` and<br>`RayService`, to `JumpStartModel`,<br>`InferenceEndpointConfig`, and `SageMakerEndpointRegistration`, and<br>to pods. Read access to pod logs, config maps, events, services, service accounts,<br>resource quotas, limit ranges, deployments, stateful sets, replica sets, horizontal pod<br>autoscalers, ingresses, and Kueue local queues and workloads. Can create a<br>`RayDashboardConnection`. |
+| `AmazonSagemakerHyperpodSpacePolicy`         | Use spaces for interactive development. Full access to `Workspace`<br>resources, and read access to workspace templates, access strategies, and integration<br>templates. Read access to pods, services, service accounts, persistent volume claims,<br>events, resource quotas, bindings, daemon sets, deployments, and replica sets. Can create a<br>`WorkspaceConnection`, which is what opens a space.                                                                      |
+| `AmazonSagemakerHyperpodSpaceTemplatePolicy` | Read the shared space templates. Attach it scoped to the<br>`jupyter-k8s-shared` namespace, where the templates live, rather than to the<br>namespace your users work in.                                                                                                                                                                                                                                                                                                       |
+| `AmazonSagemakerHyperpodUserClusterPolicy`   | See cluster-wide resources, which the Studio UI needs to render. Read access to<br>namespaces and nodes, get access to custom resource definitions, read access to Kueue<br>cluster queues, resource flavors, and workload priority classes, and permission to check<br>the user’s own access. Attach it scoped to the cluster rather than to a namespace.                                                                                                                      |
+
+Full access means get, list, watch, create, update, patch, and delete.
+
+These are Amazon EKS cluster-access policies, not IAM managed policies. Their ARNs take the
+form `arn:<partition>:eks::aws:cluster-access-policy/<name>`. Attaching
+one through **Manage access** creates the Amazon EKS access entry for the execution
+role, which is what applies the policy to the role.
+
+### Restrict with a custom Kubernetes RBAC role
+
+Use a custom role when you want to grant a custom set of permissions instead of the ones a
+cluster-access policy provides. The following configuration allows administrators to grant
+specific, limited access to data scientists for viewing tasks within the cluster. This
+configuration grants the following permissions:
 
 - List and get pods
 - List and get events
@@ -163,7 +217,7 @@ roleRef:
 ```
 
 1. Save the YAML configuration to a file named `cluster-role.yaml`.
-2. Apply the configuration using [`kubectl`](https://kubernetes.io/docs/reference/kubectl/ "https://kubernetes.io/docs/reference/kubectl/"):
+2. Apply the configuration using [`kubectl`](https://kubernetes.io/docs/reference/kubectl/ "https://kubernetes.io/docs/reference/kubectl/") from the Kubernetes website:
 
 ```
 kubectl apply -f cluster-role.yaml

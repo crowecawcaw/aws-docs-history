@@ -10,16 +10,23 @@ endpoint allow inbound and outbound access for HTTPS traffic. For more informati
 ###### Note
 
 In addition to creating an interface endpoint to connect to SageMaker AI MLflow,
-create an interface endpoint to connect to the Amazon SageMaker API. When users call [`CreatePresignedMlflowTrackingServerUrl`](../APIReference/API_CreatePresignedMlflowTrackingServerUrl.md "../APIReference/API_CreatePresignedMlflowTrackingServerUrl.md") to get the URL to connect to
-SageMaker AI MLflow, that call goes through the interface endpoint used to connect to
-the SageMaker API.
+create an interface endpoint to connect to the Amazon SageMaker API. When users call [CreatePresignedMlflowTrackingServerUrl](../APIReference/API_CreatePresignedMlflowTrackingServerUrl.md "../APIReference/API_CreatePresignedMlflowTrackingServerUrl.md") (for an MLflow
+tracking server) or [CreatePresignedMlflowAppUrl](../APIReference/API_CreatePresignedMlflowAppUrl.md "../APIReference/API_CreatePresignedMlflowAppUrl.md") (for an MLflow App) to get the
+URL to connect to SageMaker AI MLflow, the call goes through the interface endpoint. This
+endpoint is the one used to connect to the SageMaker API.
 
-When you create the interface endpoint, specify
-`aws.sagemaker.`AWS Region`.experiments` as
-the service name. After you create the interface endpoint,
-enable private DNS for your endpoint. When you connect to SageMaker AI MLflow from within the
-VPC using the SageMaker Python SDK, you connect through the interface
-endpoint instead of the public internet.
+When you create the interface endpoint, specify the service name that corresponds to
+your MLflow offering:
+
+- For an MLflow tracking server, specify
+  `aws.sagemaker.`AWS Region`.experiments`
+  as the service name.
+- For an MLflow App, specify
+  `aws.sagemaker.`AWS Region`.mlflow`
+  as the service name.
+  After you create the interface endpoint, enable private DNS for your endpoint. When
+  you connect to SageMaker AI MLflow from within the VPC using the SageMaker Python SDK, you connect
+  through the interface endpoint instead of the public internet.
 
 Within the AWS Management Console, you can use the following procedure to create an endpoint.
 
@@ -29,7 +36,9 @@ Within the AWS Management Console, you can use the following procedure to create
 2. Navigate to **Endpoints**.
 3. Choose **Create endpoint**.
 4. (Optional) For **Name (tag)**, specify a name for the endpoint.
-5. In the search bar under **Services**, specify **experiments**.
-6. Select the endponit that you're creating.
+5. In the search bar under **Services**, specify
+   **experiments** (for an MLflow tracking server) or
+   **mlflow** (for an MLflow App).
+6. Select the endpoint that you're creating.
 7. For **VPC**, specify the name of the VPC.
 8. Choose **Create endpoint**.

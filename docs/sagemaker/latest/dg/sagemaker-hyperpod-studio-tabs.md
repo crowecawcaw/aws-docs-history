@@ -26,8 +26,8 @@ For Slurm clusters, the tasks currently in the Slurm job scheduler queue are sho
 the table. The information shown for each task includes the task name, status, job ID,
 partition, run time, nodes, created by, and actions.
 
-For a list and details about past jobs, use the [`sacct`](https://slurm.schedmd.com/sacct.html "https://slurm.schedmd.com/sacct.html") command in JupyterLab
-or a Code Editor terminal. The `sacct` command is used to view _historical information_ about jobs that have _finished_ or are _complete_ in the system. It
+For a list and details about past jobs, use the [`sacct`](https://slurm.schedmd.com/sacct.html "https://slurm.schedmd.com/sacct.html") command from the Slurm
+documentation in JupyterLab or a Code Editor terminal. The `sacct` command shows _historical information_ about jobs that have _finished_ or are _complete_ in the system. It
 provides accounting information, including job resources usage like memory and exit status.
 
 By default, all Studio users can view, manage, and interact with all available

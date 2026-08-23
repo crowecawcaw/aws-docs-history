@@ -13,7 +13,7 @@ involved:
 
 - Execution roles:
 
-  - [Runtime execution roles](../../../http:/emr/latest/EMR-Serverless-UserGuide/jobs-spark.md#spark-defaults-executionRoleArn "../../../http:/emr/latest/EMR-Serverless-UserGuide/jobs-spark.md#spark-defaults-executionRoleArn") (Role-Based Access Control roles)
+  - [Runtime execution roles](http://emr/latest/EMR-Serverless-UserGuide/jobs-spark.html#spark-defaults-executionRoleArn "http://emr/latest/EMR-Serverless-UserGuide/jobs-spark.html#spark-defaults-executionRoleArn") (Role-Based Access Control roles)
     used by EMR Serverless: These are the IAM roles used by the
     EMR Serverless job execution environments to access other AWS
     services and resources needed during runtime, such as Amazon S3 for data

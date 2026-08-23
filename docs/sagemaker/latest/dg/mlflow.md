@@ -302,6 +302,7 @@ For more information about EventBridge, see the _[Amazon EventBridge User Guide]
 - [MLflow App Setup](mlflow-app-setup.md "mlflow-app-setup.md")
 - [MLflow Tracking Servers](mlflow-create-tracking-server.md "mlflow-create-tracking-server.md")
 - [Launch the MLflow UI using a presigned URL](mlflow-launch-ui.md "mlflow-launch-ui.md")
+- [Use AWS KMS permissions for MLflow Apps](mlflow-kms.md "mlflow-kms.md")
 - [Integrate MLflow with your environment](mlflow-track-experiments.md "mlflow-track-experiments.md")
 - [MLflow tutorials using example Jupyter notebooks](mlflow-tutorials.md "mlflow-tutorials.md")
 - [Troubleshoot common setup issues](mlflow-troubleshooting.md "mlflow-troubleshooting.md")

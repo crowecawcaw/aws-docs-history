@@ -92,6 +92,7 @@ SageMaker HyperPod is available in the following AWS Regions.
 - [SageMaker HyperPod recipes](sagemaker-hyperpod-recipes.md "sagemaker-hyperpod-recipes.md")
 - [Orchestrating SageMaker HyperPod clusters with Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md")
 - [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md")
+- [Ray on SageMaker HyperPod](sagemaker-hyperpod-ray.md "sagemaker-hyperpod-ray.md")
 - [Using topology-aware scheduling in Amazon SageMaker HyperPod](sagemaker-hyperpod-topology.md "sagemaker-hyperpod-topology.md")
 - [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md")
 - [SageMaker HyperPod cluster events reference](sagemaker-hyperpod-cluster-events-reference.md "sagemaker-hyperpod-cluster-events-reference.md")
