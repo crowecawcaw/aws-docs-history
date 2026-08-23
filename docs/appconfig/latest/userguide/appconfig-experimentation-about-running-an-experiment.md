@@ -37,6 +37,8 @@ Avoid introducing major application changes during an active experiment run. Cha
 
 Also, limit overlapping experiments affecting the same users or functionality. Overlapping experiments can skew results and introduce conflicting behavior. In short, coordinate experiments carefully when audiences overlap.
 
+For details about how your application retrieves an assigned treatment from AWS AppConfig Agent, including the `Entity-Id` and `Context` headers, see [Retrieving experiment treatments](appconfig-integration-retrieving-experiment-treatments.md "appconfig-integration-retrieving-experiment-treatments.md").
+
 ## Performance considerations
 
 When you start an experiment, monitor application performance by tracking operational metrics throughout the run. Specifically, monitor:
