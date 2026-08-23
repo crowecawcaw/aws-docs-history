@@ -73,7 +73,7 @@ AWS Management Console
 
 ###### Use the console to create and provision an environment in a single account
 
-1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
    **Environments**.
 2. Choose **Create environment**.
 3. In the **Choose an environment template** page, select a
@@ -187,7 +187,7 @@ AWS Management Console
 ###### Use the console create an environment in one account and provision in another.
 
 1. ###### In the environment account, create an environment account connection, and use it to send a request to connect to the management account.
-   1. In [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
+   1. In [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
       **Environment account connections** in the navigation
       pane.
    2. In the **Environment account connections** page, choose
@@ -378,7 +378,7 @@ AWS Management Console
 
 ###### Use the console to create a Terraform environment using self-managed provisioning.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
    **Environments**.
 2. Choose **Create environment**.
 3. In the **Choose an environment template** page, select a

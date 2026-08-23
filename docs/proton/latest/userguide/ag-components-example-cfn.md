@@ -187,7 +187,7 @@ infrastructure:
 
 4. Create a directly defined component. AWS Proton assumes the component role that the administrator defined to provision the component.
 
-In the AWS Proton console, on the [Components](https://console.aws.amazon.com//proton/#/components "https://console.aws.amazon.com//proton/#/components") page, choose **Create
+In the AWS Proton console, on the [Components](https://console.aws.amazon.com/proton/#/components "https://console.aws.amazon.com/proton/#/components") page, choose **Create
 component**. For **Component settings**, enter a **Component name** and an optional **Component
 description**. For **Component attachment**, choose **Attach the component to a service instance.**
 Select your environment, service, and service instance. For **Component source**, choose **CloudFormation**, and then

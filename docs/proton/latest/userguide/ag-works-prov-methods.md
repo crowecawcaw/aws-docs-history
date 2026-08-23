@@ -85,7 +85,7 @@ AWS Proton console
 
 ###### To provide the pipeline role
 
-    1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), on the navigation pane, choose **Settings > Account
+    1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), on the navigation pane, choose **Settings > Account
      settings**, and then choose **Configure**.
     2. Use the **Pipeline AWS-managed role** section to configure a new or existing pipeline role for AWS-managed
      provisioning.
@@ -153,7 +153,7 @@ AWS Proton console
 
 ###### To provide the pipeline role
 
-    1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), on the navigation pane, choose **Settings > Account
+    1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), on the navigation pane, choose **Settings > Account
      settings**, and then choose **Configure**.
     2. Use the **Codebuild pipeline provisioning role** section to configure a new or existing pipeline role for CodeBuild
      provisioning.
@@ -238,7 +238,7 @@ AWS Proton console
 
 ###### To provide the pipeline role
 
-    1. In the [AWS Proton console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), on the navigation pane, choose **Settings > Account
+    1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), on the navigation pane, choose **Settings > Account
      settings**, and then choose **Configure**.
     2. Use the **CI/CD pipeline repository** section to configure a new or existing repository link.
 

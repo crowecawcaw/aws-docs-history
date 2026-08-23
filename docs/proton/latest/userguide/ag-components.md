@@ -98,21 +98,21 @@ Use the AWS Proton console to create, update, view, and use AWS Proton component
 
 The following console pages are related to components. We include direct links to top level console pages.
 
-- [Components](https://console.aws.amazon.com//proton/#/components "https://console.aws.amazon.com//proton/#/components") – View the list of components in your AWS account. You can create
+- [Components](https://console.aws.amazon.com/proton/#/components "https://console.aws.amazon.com/proton/#/components") – View the list of components in your AWS account. You can create
   new components, and update or delete existing components. Choose a component name on the list to view its details page.
 
 Similar lists exist also on the **Environment details** and **Service instance details** pages. These lists show
 only the components associated with the resource that is being viewed. When you create a component from one of these lists, AWS Proton pre-selects the
 associated environment on the **Create component** page.
 
-- **Component details** – To view the component details page, choose a component name on the [Components](https://console.aws.amazon.com//proton/#/components "https://console.aws.amazon.com//proton/#/components") list.
+- **Component details** – To view the component details page, choose a component name on the [Components](https://console.aws.amazon.com/proton/#/components "https://console.aws.amazon.com/proton/#/components") list.
 
 On the details page, view the component details and status, and update or delete the component. View and manage lists of outputs (for example,
 provisioned resource ARNs), provisioned CloudFormation stacks, and assigned tags.
 
-- [Create component](https://console.aws.amazon.com//proton/#/components/create "https://console.aws.amazon.com//proton/#/components/create") – Create a component. Enter the component name and
+- [Create component](https://console.aws.amazon.com/proton/#/components/create "https://console.aws.amazon.com/proton/#/components/create") – Create a component. Enter the component name and
   description, choose the associated resources, specify the component source IaC file, and assign tags.
-- **Update component** – To update a component, select the component on the [Components](https://console.aws.amazon.com//proton/#/components "https://console.aws.amazon.com//proton/#/components") list, and then, on the **Actions** menu, choose **Update
+- **Update component** – To update a component, select the component on the [Components](https://console.aws.amazon.com/proton/#/components "https://console.aws.amazon.com/proton/#/components") list, and then, on the **Actions** menu, choose **Update
   component**. Alternatively, on the **Component details** pages, choose **Update**.
 
 You can update most of the component's details. You can't update the component name. And you can choose whether or not to redeploy the component

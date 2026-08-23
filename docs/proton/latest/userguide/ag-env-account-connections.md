@@ -131,7 +131,7 @@ AWS Management Console
    management account or choose the name of an existing environment that requires an
    environment account connection.
 2. In an environment account, in the [AWS Proton
-   console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment account connections** in
+   console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment account connections** in
    the navigation pane.
 3. In the **Environment account connections** page, choose
    **Request to connect**.
@@ -170,7 +170,7 @@ the request from the management account.
 ###### Accept or reject an environment account connection request.
 
 1. In a management account, in the [AWS Proton
-   console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment account connections** in
+   console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment account connections** in
    the navigation pane.
 2. In the **Environment account connections** page, in the
    **Environment account connection requests** table, choose the
@@ -193,7 +193,7 @@ connection. 3. Choose **Reject** or **Accept**.
 ###### Delete an environment account connection.
 
 1. In an environment account, in the [AWS Proton
-   console](https://console.aws.amazon.com//proton/ "https://console.aws.amazon.com//proton/"), choose **Environment account connections** in
+   console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Environment account connections** in
    the navigation pane.
 
 ###### Note
