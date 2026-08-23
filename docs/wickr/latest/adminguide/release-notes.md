@@ -7,6 +7,17 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 To help you keep track of the ongoing updates and improvements to Wickr, we publish
 release notices that describe recent changes.
 
+## August 2026
+
+- **Non-SSO device sync** - Users with password-based (non-SSO)
+  accounts can now transfer their account and message history when signing in on a
+  new device. The sync flow supports QR code scanning and manual code entry across
+  desktop and mobile platforms. Previously, device sync was only available for
+  SSO-configured accounts.
+- **Need Help link** - A help link is now available on the
+  sign-in and registration screens across all platforms, making it easier for users
+  to access support resources during onboarding.
+
 ## June 2026
 
 - **Session Timeout** - Admins can now configure an inactivity
