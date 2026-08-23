@@ -103,9 +103,27 @@ script, you are prompted to enter them one by one as described above. (for
 example: `chmod +x aws-replication-installer-init; sudo
  ./aws-replication-installer-init --region regionname --aws-access-key-id
  AKIAIOSFODNN71EXAMPLE --aws-secret-access-key
- wJalrXUtnFEMI/K71MDENG/bPxRfiCYEXAMPLEKEY`) 4. Once you have entered your credentials, the installer identifies volumes for
-replication. The installer displays the identified disks and prompts you to choose
-the disks you want to replicate.
+ wJalrXUtnFEMI/K71MDENG/bPxRfiCYEXAMPLEKEY`)
+
+###### Note
+
+You can also pass credentials through environment variables.
+We recommend using temporary credentials from AWS STS. Set
+`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and
+`AWS_SESSION_TOKEN`. Then run the installer with
+`sudo -E` and `--no-prompt`:
+
+```
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+export AWS_SESSION_TOKEN=AQoDYXdzEJr//////////wEa8AMDSomethingEXAMPLE
+chmod +x aws-replication-installer-init
+sudo -E ./aws-replication-installer-init --region us-east-1 --no-prompt
+```
+
+4. Once you have entered your credentials, the installer identifies volumes for
+   replication. The installer displays the identified disks and prompts you to choose
+   the disks you want to replicate.
 
 ```
 `$` `chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init``...

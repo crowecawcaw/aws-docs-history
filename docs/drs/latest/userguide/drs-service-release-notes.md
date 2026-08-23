@@ -2,6 +2,21 @@
 
 ## August 2026
 
+- AWS Elastic Disaster Recovery now supports **recovery plans**. With
+  recovery plans, you can recover groups of source servers in a defined order,
+  with wait times between groups. A recovery plan contains up to 20 ordered steps
+  and up to 100
+  source servers. Each server step recovers its servers in parallel and must
+  finish before the next step begins, and each server can be marked critical or
+  optional to control whether its failure stops the plan. You can run a plan as a
+  drill or as a recovery, follow its progress per step and per server, and retry,
+  skip, or cancel steps while it runs. Recovery plans are available in the
+  AWS Elastic Disaster Recovery console and through the AWS Elastic Disaster Recovery API. For more information, see
+  [Orchestrating recovery with recovery
+  plans](recovery-plans.md "recovery-plans.md").
+- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
+  We updated the AWSElasticDisasterRecoveryReadOnlyAccess policy with new
+  read-only permissions for recovery plans and recovery plan executions.
 - AWS Elastic Disaster Recovery automatically preserves Unified Extensible Firmware Interface
   (UEFI) boot mode for Linux source servers that boot using UEFI firmware.
   Previously, AWS Elastic Disaster Recovery converted Linux UEFI source servers to legacy

@@ -8,7 +8,8 @@ This policy provides permissions to all read-only public APIs of AWS Elastic Dis
 required to make full read-only use of the DRS console. This includes:
 
 - **AWS Elastic Disaster Recovery (read-only)** – View all DRS resources
-  such as Source Servers, Recovery Instances, Recovery Snapshots, and post-launch actions.
+  such as Source Servers, Recovery Instances, Recovery Snapshots, recovery plans, recovery
+  plan executions, and post-launch actions.
 - **IAM (read-only)** – List IAM roles
   in your account.
 - **EC2 (read-only)** – View EC2 instance details,

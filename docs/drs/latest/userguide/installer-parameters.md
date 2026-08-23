@@ -116,3 +116,19 @@ AWS services, with IPv4 as a fallback. This parameter does not set the
 which determines the Internet Protocol version used for data replication. For more
 information about the **IP version** setting, see
 [IP version](data-routing.md#ip-version "data-routing.md#ip-version").
+
+###### Environment variable credentials
+
+Instead of passing credentials as command line parameters, you can set
+the following environment variables:
+
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_SESSION_TOKEN` (required when using temporary credentials)
+  If you set these environment variables and do not provide credential command line
+  parameters, the installer uses the environment variable values. If you provide both
+  command line parameters and environment variables, the installer uses the command line
+  parameters.
+
+On Linux, use `sudo -E` to preserve the environment variables when running
+the installer as root.

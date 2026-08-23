@@ -179,7 +179,7 @@ Consider removing them.
 
 
      These have now been replaced by the new instances launched in step 2 above (EC2
-     failed back instances, A3).
+     failed back instances, A4).
      You might have stopped these instances after the failover,
      and you can now terminate them using the AWS EC2 Console.
     4. **Remove the recovery instance (A3) in the

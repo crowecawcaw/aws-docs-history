@@ -57,6 +57,10 @@ your source servers in AWS once they are in **Continuous Data Protection**. Whil
 Drill Instances and Recovery Instances are launched similarly, they serve different purposes.
 During normal operations, we recommend periodically testing your ability to recover using DRS by using Drill Instances.
 
+To recover a group of interdependent source servers in a defined order, with wait
+times between groups, use a recovery plan. For more information, see [Orchestrating recovery with recovery
+plans](recovery-plans.md "recovery-plans.md").
+
 ### Understanding failback
 
 Failback allows you to restore your Recovery Instances back to your source infrastructure. Depending on the source infrastructure,
