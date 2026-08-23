@@ -22,17 +22,22 @@ issues with your file share.
 
 The file share status summarizes the health of your file share. If your S3 File Gateway file share is stuck in the `CREATING`, `UPDATING`, or `DELETING` state, use the following troubleshooting steps to identify and resolve the issue.
 
+###### Note
+
+When you create a file share, Storage Gateway doesn't verify that the IAM role and the Amazon S3 bucket that you specify already exist. This is intentional, because a newly created IAM role can take time to become available for Storage Gateway to assume. As a result, a `CreateNFSFileShare` or `CreateSMBFileShare` request that specifies a role or a bucket that doesn't exist still succeeds and returns a file share ARN, but the file share remains in the `CREATING` state instead of changing to `AVAILABLE`. Before you continue troubleshooting, confirm that both the IAM role and the Amazon S3 bucket that you specified exist.
+
 ### Confirm IAM role permissions and trust relationship
 
-The AWS Identity and Access Management (IAM) role associated with your file share must have sufficient permissions to access the Amazon S3 bucket. Additionally, the role's trust policy must grant the Storage Gateway service permissions to assume the role.
+The AWS Identity and Access Management (IAM) role associated with your file share must exist, and it must have sufficient permissions to access the Amazon S3 bucket. Additionally, the role's trust policy must grant the Storage Gateway service permissions to assume the role.
 
 ###### To verify IAM role permissions:
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Roles**.
-3. Choose the IAM role that's associated with your file share.
-4. Choose the **Trust relationships** tab.
-5. Confirm that Storage Gateway is listed as a trusted entity. If Storage Gateway isn't a trusted entity, choose **Edit trust relationship**, and then add the following policy:
+3. Confirm that the IAM role that you specified for your file share appears in the list of roles. If the role doesn't exist, create it, and then create the file share again. For more information, see [Granting access to an Amazon S3 bucket](grant-access-s3.md "grant-access-s3.md").
+4. Choose the IAM role that's associated with your file share.
+5. Choose the **Trust relationships** tab.
+6. Confirm that Storage Gateway is listed as a trusted entity. If Storage Gateway isn't a trusted entity, choose **Edit trust relationship**, and then add the following policy:
 
 ```
 {
@@ -50,7 +55,7 @@ The AWS Identity and Access Management (IAM) role associated with your file shar
 }
 ```
 
-6. Verify that the IAM role has the correct permissions and that the Amazon S3 bucket is listed as a resource in the IAM policy. For more information, see [Granting access to an Amazon S3 bucket](grant-access-s3.md "grant-access-s3.md").
+7. Verify that the IAM role has the correct permissions and that the Amazon S3 bucket is listed as a resource in the IAM policy. For more information, see [Granting access to an Amazon S3 bucket](grant-access-s3.md "grant-access-s3.md").
 
 ###### Note
 
@@ -69,7 +74,7 @@ File shares can become stuck in the `CREATING` or `UPDATING` state if AWS Securi
 
 ### Verify S3 bucket exists and follows naming rules
 
-Your file share requires a valid Amazon S3 bucket that follows Amazon S3 naming conventions.
+Your file share requires an existing Amazon S3 bucket that follows Amazon S3 naming conventions. Storage Gateway doesn't verify that the bucket exists when you create the file share, so a file share that points to a bucket that was deleted or never created remains in the `CREATING` state.
 
 ###### To verify your S3 bucket:
 
