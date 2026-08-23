@@ -38078,54 +38078,6 @@ Change type schemas specify the execution input parameters for a change type.
 }
 ```
 
-## Schema for Change Type ct-34sxfo53yuzah
-
-###### Classifications:
-
-- [Management | Custom Stack | Stack From CloudFormation Template | Remediate drift (managed automation)](management-custom-stack-from-cloudformation-template-remediate-drift-managed-automation.md "management-custom-stack-from-cloudformation-template-remediate-drift-managed-automation.md")
-- [Management | Standard stacks | Stack | Remediate drift (managed automation)](management-standard-stack-remediate-drift-managed-automation.md "management-standard-stack-remediate-drift-managed-automation.md")
-
-```
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "name": "Remediate Stack Drift",
-  "description": "Remediate the drift (out-of-band changes) in a stack, bringing the stack in sync and enabling you to perform future updates using the available Update CTs. Drift remediation can be performed on EC2 resource types.",
-  "type": "object",
-  "properties": {
-    "StackName": {
-      "description": "The name of the stack to remediate the drift, in the form of stack-a1b2c3d4e5f67890e.",
-      "type": "string",
-      "pattern": "^stack-[a-z0-9]{8}$|^stack-[a-z0-9]{17}$"
-    },
-    "DryRun": {
-      "description": "True to perform drift remediation in dry run mode, false to perform drift remediation not in dry run mode. Default is false. Dry run mode checks if the stack drift can be remediated or not, but does not attempt remediation. Note that, when DryRun=true, reserved stack outputs for drift remediation, in the form of AMSCFNDriftRemediationBuildReferences95556500d5, can be added or updated. To learn more about outputs, see AWS CloudFormation documentation.",
-      "type": "boolean",
-      "default": false
-    },
-    "Priority": {
-      "description": "The priority of the request. See AMS \"RFC scheduling\" documentation for a definition of the priorities.",
-      "type": "string",
-      "enum": [
-        "Low",
-        "Medium",
-        "High"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "metadata": {
-    "ui:order": [
-      "StackName",
-      "DryRun",
-      "Priority"
-    ]
-  },
-  "required": [
-    "StackName"
-  ]
-}
-```
-
 ## Schema for Change Type ct-35p977vul06df
 
 ###### Classifications:
