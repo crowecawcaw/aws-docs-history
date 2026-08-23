@@ -141,7 +141,7 @@ If your application requires network access to domains not on this list, you can
 
 ## Reviewing code review results
 
-Each code review produces a report accessible in the **Changes** page of the DevOps Agent web app. Reports include:
+Each code review produces a report accessible in the **Releases** page of the DevOps Agent web app. Reports include:
 
 - **Finding categories** — Policy violations, dependency risks, access-control issues, and test coverage gaps
 - **Severity levels** — Blocking (must fix before merge), Warning (should address), and Informational (awareness only)

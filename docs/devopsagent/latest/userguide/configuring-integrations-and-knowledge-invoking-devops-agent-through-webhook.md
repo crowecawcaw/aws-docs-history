@@ -87,9 +87,35 @@ Use the webhook endpoint URL and credentials to configure your external system t
 
 ## Managing webhook credentials
 
-**Removing credentials** – To delete webhook credentials, go to the webhook configuration section and choose **Remove**. After removing credentials, the webhook endpoint will no longer accept requests until you generate new credentials.
+Webhook credentials are sensitive. AWS DevOps Agent shows the webhook secret one time, when you create the webhook. It does not return the secret again through the console, the API, or infrastructure as code. The webhook URL stays available. If you lose the secret, or you create the webhook without recording it, rotate the webhook to generate a new secret.
 
-**Regenerating credentials** – To generate new credentials, remove the existing credentials first, then generate a new key pair or token.
+### Rotating webhook credentials
+
+You can rotate the credentials of any webhook from the **Capabilities** tab. Rotation keeps the same webhook URL and generates a new secret. Rotation invalidates the previous secret, so the sender stops until you update it with the new secret. Rotate a webhook when you lose the secret, or when you want to replace a secret that might be compromised.
+
+To rotate a webhook:
+
+1. Sign in to the AWS Management Console and open the AWS DevOps Agent console.
+2. Select your Agent Space.
+3. Go to the **Capabilities** tab, then find the webhook:
+
+   - For an integration webhook, use the **Capability Webhooks** table. Find the integration by its **Identifier**, for example your ServiceNow instance URL or your Grafana endpoint.
+   - For a generic webhook, use the **Agent Space Webhook** section.
+
+4. Open the webhook editor. For an integration webhook, choose **Edit**. For a generic webhook, choose **Actions**, then **Edit**.
+5. Choose **Rotate webhook**. The console generates a new secret and keeps the same webhook URL.
+6. Choose **Download .csv file** to save the URL and secret, then confirm that you saved them. You cannot retrieve the secret after you leave this page.
+7. Update the sender with the new secret. For an integration, expand **Service Setup Instructions** for service-specific steps, or see the connection guide for your integration.
+
+To copy the webhook URL without rotating the secret, choose **Copy URL**.
+
+### Webhooks created with infrastructure as code
+
+When you create a webhook with AWS CloudFormation, the AWS CDK, or Terraform, the stack does not return the webhook secret as an output, because it is a sensitive value. After the deployment completes, get the secret by rotating the webhook, as described in the previous section. Then configure your third-party service with the webhook URL and new secret.
+
+### Removing webhook credentials
+
+To delete a generic webhook, open the **Agent Space Webhook** section, choose **Actions**, then choose **Remove**. After you remove the webhook, the endpoint no longer accepts requests until you create a new webhook.
 
 ## Using the webhook
 

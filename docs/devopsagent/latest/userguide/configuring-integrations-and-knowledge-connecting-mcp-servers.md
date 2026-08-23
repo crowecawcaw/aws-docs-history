@@ -26,6 +26,15 @@ See [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-s
 
 If your MCP server is on a private network, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md")
 
+## Community MCP servers
+
+The [AWS DevOps Agent Tools repository](https://github.com/aws/tools-for-devops-agent "https://github.com/aws/tools-for-devops-agent") includes deployable MCP servers that give the agent custom tools for deep infrastructure diagnostics such as Amazon Elastic Kubernetes Service (Amazon EKS) node log collection, Amazon Virtual Private Cloud (Amazon VPC) DNS resolution probing, and Amazon Relational Database Service (Amazon RDS) database health checks. The repository is maintained by the AWS DevOps Agent service team, and all contributions go through the same security review bar before being added. To browse what's available, see the [MCP servers catalog](https://aws.github.io/tools-for-devops-agent/mcp-servers/ "https://aws.github.io/tools-for-devops-agent/mcp-servers/") on the GitHub website.
+
+To use a community MCP server:
+
+1. Deploy the MCP server to your AWS account by following the deployment instructions in the server's README.
+2. Register the deployed server with your Agent Space as a capability provider by following the steps in [Registering an MCP server](#registering-an-mcp-server-account-level "#registering-an-mcp-server-account-level") below.
+
 ## Registering an MCP server (account-level)
 
 MCP servers are registered at the AWS account level and shared among all Agent Spaces in that account. Individual Agent Spaces can then choose which specific tools they need from each MCP server.
@@ -112,6 +121,7 @@ AWS SigV4 authentication allows AWS DevOps Agent to connect to MCP servers that 
 
    - **Use an existing role** – Select an existing IAM role from the dropdown. The role must have a trust policy that allows the AWS DevOps Agent service principal to assume it (see [Creating an IAM role for SigV4 authentication](configuring-integrations-and-knowledge-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication "configuring-integrations-and-knowledge-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication")).
    - **Create a new role manually** – Follow the step-by-step instructions displayed in the console to create a new IAM role with the correct trust policy.
+   - **Register without a dedicated role** – Register the MCP server without providing an IAM role. AWS DevOps Agent instead signs requests using an IAM role from an AWS account associated with your Agent Space, and defers connection validation until you associate the server. Choose this for cross-account access across the AWS accounts connected to your Agent Space. For details, see [Cross-account access without a dedicated role](configuring-integrations-and-knowledge-connecting-mcp-servers.md#cross-account-access-without-a-dedicated-role "configuring-integrations-and-knowledge-connecting-mcp-servers.md#cross-account-access-without-a-dedicated-role").
 
 2. **AWS Region** – Enter the AWS Region for SigV4 signing (for example, `us-east-1`). To use SigV4a multi-region signing, enter `*`.
 3. **Service Name** – Enter the AWS service name for SigV4 signing (for example, `execute-api` for API Gateway).
@@ -199,6 +209,37 @@ Attach a permissions policy to the role that grants the minimum permissions requ
 ### Multi-region signing (SigV4a)
 
 If your MCP server is deployed across multiple AWS Regions, you can use [SigV4a (Signature Version 4a)](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") for multi-region signing. To enable this, enter `*` as the AWS Region when configuring the SigV4 authorization. SigV4a uses asymmetric signing, which allows a single signed request to be valid across multiple Regions.
+
+## Cross-account access without a dedicated role
+
+Instead of registering a dedicated IAM role for your MCP server, you can use **role-less registration**: register the server without a role and have AWS DevOps Agent sign requests using an IAM role from an AWS account already associated with your Agent Space. This is useful when your MCP server needs to access resources spanning the primary and secondary AWS accounts connected to an Agent Space, rather than a single role scoped to one account.
+
+### How it works
+
+Cross-account access without a dedicated role works as follows:
+
+1. **Register the MCP server without a role** – On the SigV4 authorization configuration step, choose **Register without a dedicated role**. AWS DevOps Agent registers the server but does not validate the connection yet, because there is no role to sign a validation request with.
+2. **Associate the MCP server with an Agent Space** – When you add the MCP server to an Agent Space, AWS DevOps Agent validates it using the **primary AWS account (monitor) role**. It assumes that role and calls `listTools` to confirm the server is reachable and the configuration is valid. The Agent Space must have a primary AWS account associated with it. That account's role must be able to invoke your MCP server.
+3. **During investigations** – When the agent uses the MCP server while operating on a specific account, it signs requests with that account's role — the **primary account role** for the primary account, and the corresponding **secondary account role** for each secondary account. Each primary or secondary account role that the agent will use with this MCP server must be able to invoke it.
+
+### Requirements
+
+Before you associate a role-less SigV4 MCP server with an Agent Space:
+
+- The Agent Space must have a **primary AWS account** associated with it. Without a primary account, association fails because the primary account role performs the `listTools` validation. The error message is: _"SigV4 MCP server registered without a dedicated role requires a primary account association in the Agent Space."_
+- The **primary account role** must grant permission to invoke your MCP server (for example, `execute-api:Invoke` for an API Gateway-hosted server). Every **secondary account role** you expect the agent to use with this MCP server must also grant this permission. For more information, see [Permissions policy](configuring-integrations-and-knowledge-connecting-mcp-servers.md#permissions-policy "configuring-integrations-and-knowledge-connecting-mcp-servers.md#permissions-policy"). AWS DevOps Agent uses the primary role at association time, and secondary roles during investigations of those accounts.
+
+## Troubleshooting
+
+### Associating a role-less MCP server fails: "requires a primary account association"
+
+If you registered an MCP server without a dedicated role and association fails, check the error message. If the error states that the server _requires a primary account association in the Agent Space_, the Agent Space does not have a primary AWS account connected to it.
+
+AWS DevOps Agent validates a role-less SigV4 MCP server when you associate it, using the IAM role of the primary AWS account of the Agent Space. To resolve this:
+
+1. Add a primary AWS account to the Agent Space, if it does not already have one.
+2. Make sure that account's IAM role has permission to invoke your MCP server (for example, `execute-api:Invoke` for a server hosted behind Amazon API Gateway).
+3. Associate the MCP server again.
 
 ## Related topics
 

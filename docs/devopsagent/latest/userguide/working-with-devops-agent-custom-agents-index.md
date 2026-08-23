@@ -61,6 +61,8 @@ Dynamic subagent delegation lets your custom agents complete detailed analyses, 
 ## Next steps
 
 - [Creating a custom agent](custom-agents-creating-a-custom-agent.md "custom-agents-creating-a-custom-agent.md") – Define your first custom agent with a system prompt, tools, and skills.
-- [Executing custom agents](custom-agents-executing-custom-agents.md "custom-agents-executing-custom-agents.md") – Run agents on demand or set up scheduled triggers.
+- [Executing custom agents](custom-agents-executing-custom-agents.md "custom-agents-executing-custom-agents.md") – Run agents on demand or set up scheduled triggers, in the console or with the AWS SDK and AWS CloudFormation.
 - [Managing custom agents](custom-agents-managing-custom-agents.md "custom-agents-managing-custom-agents.md") – Edit, disable, or delete custom agents and view invocation history.
 - [Custom agent outputs](custom-agents-custom-agent-outputs.md "custom-agents-custom-agent-outputs.md") – Configure agents to produce artifacts and recommendations.
+
+For more information about managing custom agents and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").

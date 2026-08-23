@@ -50,6 +50,8 @@ Establish connection to your Splunk remote MCP endpoint with account access cred
 - **Token Name** - The name of the bearer token for authentication: `my-splunk-token`
 - **Token Value** The bearer token value for authentication
 
+Each registration connects to one Splunk deployment. To connect additional Splunk deployments, repeat the steps in Step 1: Connect. Give each registration its own **Server Name**.
+
 ### Step 2: Enable
 
 Activate Splunk in a specific Agent space and configure appropriate scoping
@@ -60,10 +62,12 @@ Activate Splunk in a specific Agent space and configure appropriate scoping
 2. Select the Capabilities tab
 3. Scroll down to the Telemetry section
 4. Press Add
-5. Select Splunk
+5. Select the Splunk registration you want to enable.
 6. Next
 7. Review and press Save
 8. Copy the Webhook URL and API Key
+
+You can associate more than one Splunk registration with a single Agent Space. To add another registration, repeat the steps in this procedure.
 
 ### Step 3: Configure webhooks
 

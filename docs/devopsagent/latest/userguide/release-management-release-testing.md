@@ -156,7 +156,7 @@ You can view full execution details (timeline, test cases, screenshots for UI te
 
 ## Reviewing test results
 
-Test results appear in the **Changes** section of the DevOps Agent web app under proposed changes. Each test run shows:
+Test results appear in the **Releases** section of the DevOps Agent web app under proposed changes. Each test run shows:
 
 - **Status** — Completed, Failed, or In Progress
 - **Category** — Release Testing

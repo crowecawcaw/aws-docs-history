@@ -563,7 +563,57 @@ aws devops-agent associate-service \
 
 The response includes webhook information for integration. You can use this webhook to trigger an investigation from Datadog. For more information, see [Connecting DataDog](connecting-telemetry-sources-connecting-datadog.md "connecting-telemetry-sources-connecting-datadog.md").
 
-### 11. (Optional) Delete an agent space
+### 11. (Optional) Create a skill, custom agent, and scheduled trigger
+
+You can give the agent custom knowledge and automate it on a schedule by creating assets and a trigger in the agent space. This example creates a skill, a custom agent, and a time-based trigger that runs the custom agent daily. For more information about managing assets, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+
+Create a skill the agent loads when relevant:
+
+```
+aws devops-agent create-asset \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --asset-type skill \
+  --metadata '{"name":"rds-performance-investigation","description":"Investigation procedures for RDS performance issues.","agent_types":["GENERIC"]}' \
+  --content '{"file":{"path":"SKILL.md","body":{"text":"# RDS Performance Investigation\nUse this skill when investigating database latency, connection errors, or query timeouts."}}}' \
+  --region <REGION>
+```
+
+Create a custom agent that a trigger can invoke. Note the `assetId` in the response—the trigger references it as `custom:<assetId>`:
+
+```
+aws devops-agent create-asset \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --asset-type custom_agent \
+  --metadata '{"name":"rds-firefighter","skills":["rds-performance-investigation"]}' \
+  --content '{"file":{"path":"AGENT.md","body":{"text":"# RDS Firefighter\nCustom agent for RDS incidents."}}}' \
+  --region <REGION>
+```
+
+Create a time-based trigger that runs the custom agent daily. Replace `<CUSTOM_AGENT_ASSET_ID>` with the `assetId` from the previous response:
+
+```
+aws devops-agent create-trigger \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --type TIME_BASED \
+  --condition '{"schedule":{"expression":"rate(1 day)"}}' \
+  --action '{"actionType":"create:task","task":{"agent":"custom:<CUSTOM_AGENT_ASSET_ID>"}}' \
+  --status Active \
+  --region <REGION>
+```
+
+The response includes a `triggerId`. Note this value—you use it as `<TRIGGER_ID>` in the next command.
+
+To pause the trigger without deleting it, update its status to `Inactive`:
+
+```
+aws devops-agent update-trigger \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --trigger-id <TRIGGER_ID> \
+  --status Inactive \
+  --region <REGION>
+```
+
+### 12. (Optional) Delete an agent space
 
 Deleting an agent space removes all associations, configurations, and investigation data for that agent space. This action can't be undone.
 
@@ -600,6 +650,7 @@ aws devops-agent list-associations \
 
 - To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md "configuring-integrations-and-knowledge.md").
 - To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
+- For more information about managing skills, custom agents, and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
 - To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md "about-aws-devops-agent-what-is-a-devops-agent-web-app.md").
 
 ## Notes

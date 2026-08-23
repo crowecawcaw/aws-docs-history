@@ -187,7 +187,7 @@ Before creating skills, you must have an Agent Space. For more information, see 
 
 You can create skills in two ways depending on your workflow preferences and skill complexity:
 
-To manage skills programmatically through the AWS CLI or AWS SDKs, see [Managing Assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+To manage skills programmatically through the AWS CLI or AWS SDKs, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
 
 ### Creating a skill in the UI
 
@@ -282,7 +282,7 @@ You can import skills directly from a GitHub repository directory. AWS DevOps Ag
 
 **Prerequisites:**
 
-- A GitHub account associated with your Agent Space. To connect a GitHub account, see [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md "connecting-to-cicd-pipelines-connecting-github.md"). Any GitHub account connection enables importing from public repositories. For private repositories, the associated account must have read access to the repository.
+- A GitHub account associated with your Agent Space. To connect a GitHub account, see [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md "connecting-to-cicd-pipelines-connecting-github.md"). Any GitHub account connection enables importing from public repositories. For private repositories, the associated account must have read access to the repository. GitHub Enterprise Server and GitHub Enterprise Cloud with data residency connections are also supported.
 - A GitHub repository containing a valid skill directory with a SKILL.md file at the root.
 
 **Repository structure:**
@@ -303,7 +303,7 @@ my-skill/
 - Navigate to the **Knowledge** page in your Agent Space Operator Web App and choose the **Skills** tab.
 - Choose **Add skill**.
 - Select **Import from repository** from the modal.
-- Enter the GitHub directory URL that contains your SKILL.md file. For example: `https://github.com/my-org/my-repo/tree/main/skills/rds-investigation`
+- Enter the GitHub directory URL that contains your SKILL.md file. For example: `https://github.com/my-org/my-repo/tree/main/skills/rds-investigation`. For GitHub Enterprise Server or GitHub Enterprise Cloud with data residency, use the URL of your instance instead, for example `https://github.example.com/my-org/my-repo/tree/main/skills/rds-investigation`.
 - Select one or more agent types that can use this skill.
 - Set the lifecycle status (Active or Inactive).
 - Choose **Import skill**.
@@ -331,22 +331,34 @@ You can also sync from the skills list view by choosing **Sync** on the imported
 
 **Constraints:**
 
-- **URL format** – Only GitHub URLs are accepted. You can point to a directory containing a SKILL.md (for example, `https://github.com/org/repo/tree/main/skills/my-skill`), which imports the entire directory including reference files. If the SKILL.md is at the root of the repository, you can also link directly to the file (for example, `https://github.com/org/repo/blob/main/SKILL.md`), which imports only the SKILL.md.
+- **URL format** – Only GitHub URLs are accepted, including GitHub Enterprise Server and GitHub Enterprise Cloud with data residency. The connected GitHub account must match the URL host. For example, a `github.example.com` connection can only import from `github.example.com` URLs, not from `github.com` URLs. You can point to a directory containing a SKILL.md (for example, `https://github.com/org/repo/tree/main/skills/my-skill`), which imports the entire directory including reference files. If the SKILL.md is at the root of the repository, you can also link directly to the file (for example, `https://github.com/org/repo/blob/main/SKILL.md`), which imports only the SKILL.md.
 - **SKILL.md required** – The directory must contain a SKILL.md file with valid frontmatter (name and description).
 - **Maximum directory size** – Total directory size must not exceed 6 MB.
 - **Maximum files** – A directory can contain up to 100 files.
 - **GitHub account required** – Your Agent Space must have an associated GitHub account to import skills. Any associated GitHub account enables importing from public repositories. For private repositories, the associated account must have read access to the repository.
 
-## Sample skills
+## Community tools
 
-The [DevOps Agent Tools repository](https://github.com/aws-samples/sample-devops-agent-tools "https://github.com/aws-samples/sample-devops-agent-tools") on the GitHub website contains community-contributed skills you can use as-is or as a starting point for writing your own. Available samples include skills for AWS Health event investigation, AWS Support case analysis, EKS operational reviews, and RDS operational reviews. To browse the available skills, see the [community skills gallery](https://aws-samples.github.io/sample-devops-agent-tools/ "https://aws-samples.github.io/sample-devops-agent-tools/") on the GitHub website.
+The [AWS DevOps Agent Tools repository](https://github.com/aws/tools-for-devops-agent "https://github.com/aws/tools-for-devops-agent") on the GitHub website contains community-contributed skills, custom agents, and MCP servers you can use as-is or as a starting point for writing your own. The repository is maintained by the AWS DevOps Agent service team. All contributions go through the same security review bar before being added, so you get rapid delivery of new capabilities with the assurance that each tool meets AWS quality standards. To browse what's available, see the [community skills gallery](https://aws.github.io/tools-for-devops-agent/skills/ "https://aws.github.io/tools-for-devops-agent/skills/") on the GitHub website.
 
-To use a sample skill:
+Available skills include:
+
+- AWS Health event investigation
+- AWS Support case analysis
+- Amazon Virtual Private Cloud (Amazon VPC) DNS investigation
+- Amazon Managed Streaming for Apache Kafka (Amazon MSK) operations
+- Service quota checks
+- Amazon Elastic Kubernetes Service (Amazon EKS) operational reviews
+- Amazon Relational Database Service (Amazon RDS) operational reviews
+
+To use a community skill:
 
 - **Import from GitHub** – Copy the skill directory URL and paste it into the "Import from repository" flow in the Operator Web App. For details, see [Importing a skill from a repository](#importing-a-skill-from-a-repository "#importing-a-skill-from-a-repository").
 - **Upload as zip** – Clone the repository, zip the skill directory, and upload it using the "Upload skill" flow. For details, see [Uploading a skill](#uploading-a-skill "#uploading-a-skill").
 
 Each skill includes a README with prerequisites and usage instructions.
+
+The repository also includes community custom agents and deployable MCP servers. For details, see [Community custom agents](custom-agents-creating-a-custom-agent.md "custom-agents-creating-a-custom-agent.md") and [Community MCP servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md "configuring-integrations-and-knowledge-connecting-mcp-servers.md").
 
 ## Managing Skills
 

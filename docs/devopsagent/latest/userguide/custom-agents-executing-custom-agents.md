@@ -64,6 +64,8 @@ For cron expressions, exactly one of day-of-month or day-of-week must be `?` (qu
 
 After creation, the trigger appears in the list showing its expression, creation date, and next scheduled run time.
 
+You can also create triggers programmatically. Use the AWS SDKs to call the `devops-agent` client's `CreateTrigger` operation, which requires the `aidevops:CreateTrigger` permission. Alternatively, model triggers as `AWS::DevOpsAgent::Trigger` resources in AWS CloudFormation. A schedule-based trigger references the custom agent it runs, so create the agent first. For more information about the `AWS::DevOpsAgent::Trigger` resource type, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+
 ## Managing triggers
 
 The **Triggers** tab displays all triggers configured for the custom agent. For each trigger, you can see the schedule expression, when it was created, and when it will next run.

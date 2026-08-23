@@ -54,6 +54,8 @@ A single Agent Space can use more than one Grafana registration. To connect anot
 
 You can configure Grafana to automatically trigger AWS DevOps Agent investigations when alerts fire by sending webhooks through Grafana contact points. For details on webhook authentication methods and credential management, see [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md").
 
+If you lose the webhook secret, rotate the webhook to generate a new secret. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md").
+
 ### Step 1: Create a custom notification template
 
 In your Grafana instance, navigate to **Alerting > Contact points > Notification templates** and create a new template with the following content:

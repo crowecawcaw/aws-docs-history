@@ -19,10 +19,11 @@ Before you begin, make sure that you have the following:
 
 ## What this guide covers
 
-This guide is divided into two parts:
+This guide is divided into the following parts:
 
-- **Part 1** — Deploy an agent space with an operator app and an AWS association in your monitoring account. After you complete this part, the agent can monitor issues in that account.
-- **Part 2 (Optional)** — Deploy a cross-account IAM role into a secondary account and add a source AWS association. This configuration enables the agent space to monitor resources across accounts.
+- **Part 1** – Deploy an agent space with an operator app and an AWS association in your monitoring account. After you complete this part, the agent can monitor issues in that account.
+- **Part 2 (Optional)** – Deploy a cross-account IAM role into a secondary account and add a source AWS association. This configuration enables the agent space to monitor resources across accounts.
+- **Part 3 (Optional)** – Add a skill, a custom agent, and a scheduled trigger to the agent space, so the agent has custom knowledge and runs a custom agent on a schedule.
 
 ## Part 1: Deploy the agent space
 
@@ -207,6 +208,8 @@ In this section, you extend the setup so that your agent space can monitor resou
 1. Deploying an IAM role in the service account that trusts the agent space.
 2. Adding a source AWS association in the monitoring account that points to the service account.
 
+You must complete Part 1 before you proceed. The service account template requires the `AgentSpaceArn` from the Part 1 stack outputs.
+
 ### Step 1: Create the service account template
 
 Save the following template as `devops-agent-service-account.yaml`. This template creates a cross-account IAM role in the secondary account.
@@ -328,6 +331,103 @@ aws cloudformation deploy \
   --region <REGION>
 ```
 
+## Part 3: Add a skill, custom agent, and scheduled trigger
+
+This part is optional. In this section, you add three resources to the agent space you created in Part 1. The first is a **skill** the agent loads when relevant. The second is a **custom agent** that scopes the agent to a specific workflow. The third is a **scheduled trigger** that runs the custom agent automatically. These resources use the `AWS::DevOpsAgent::Asset` and `AWS::DevOpsAgent::Trigger` resource types. For more information about managing assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+
+You must complete Part 1 before you proceed. This template requires the `AgentSpaceId` from the Part 1 stack outputs.
+
+### Step 1: Create the template
+
+Save the following template as `devops-agent-content.yaml`. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The template wires this automatically with `Fn::GetAtt`.
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS DevOps Agent - Example skill, custom agent, and scheduled trigger
+
+Parameters:
+  AgentSpaceId:
+    Type: String
+    Description: The agent space ID from the Part 1 stack outputs
+
+Resources:
+  # A skill the agent loads when relevant
+  ExampleSkill:
+    Type: AWS::DevOpsAgent::Asset
+    Properties:
+      AgentSpaceId: !Ref AgentSpaceId
+      AssetType: skill
+      Metadata:
+        name: rds-performance-investigation
+        description: Investigation procedures for RDS performance issues.
+        agent_types:
+          - GENERIC
+      Files:
+        - Path: SKILL.md
+          ContentText: |
+            # RDS Performance Investigation
+            Use this skill when investigating database latency, connection
+            errors, or query timeouts.
+
+  # A custom agent that a trigger can invoke
+  ExampleCustomAgent:
+    Type: AWS::DevOpsAgent::Asset
+    Properties:
+      AgentSpaceId: !Ref AgentSpaceId
+      AssetType: custom_agent
+      Metadata:
+        name: rds-firefighter
+        skills:
+          - rds-performance-investigation
+      Files:
+        - Path: AGENT.md
+          ContentText: |
+            # RDS Firefighter
+            Custom agent for RDS incidents.
+
+  # A time-based trigger that runs the custom agent on a schedule
+  DailyTrigger:
+    Type: AWS::DevOpsAgent::Trigger
+    Properties:
+      AgentSpaceId: !Ref AgentSpaceId
+      Type: TIME_BASED
+      Condition:
+        Schedule:
+          Expression: rate(1 day)
+      Action:
+        actionType: create:task
+        task:
+          agent: !Sub
+            - custom:${AssetId}
+            - AssetId: !GetAtt ExampleCustomAgent.AssetId
+      Status: Active
+
+Outputs:
+  SkillAssetId:
+    Description: The skill asset ID
+    Value: !GetAtt ExampleSkill.AssetId
+  CustomAgentAssetId:
+    Description: The custom agent asset ID
+    Value: !GetAtt ExampleCustomAgent.AssetId
+  TriggerId:
+    Description: The trigger ID
+    Value: !GetAtt DailyTrigger.TriggerId
+```
+
+### Step 2: Deploy the stack
+
+Using monitoring account credentials, run the following command. Replace `<AGENT_SPACE_ID>` with the value from the Part 1 outputs.
+
+```
+aws cloudformation deploy \
+  --template-file devops-agent-content.yaml \
+  --stack-name DevOpsAgentContentStack \
+  --parameter-overrides AgentSpaceId=<AGENT_SPACE_ID> \
+  --region <REGION>
+```
+
+The `AgentSpaceId`, `Type`, `Condition`, and `Action` properties are create-only. Changing any of them replaces the resource. You can update the trigger's `Status` (`Active` or `Inactive`) in place—set it to `Inactive` to pause the trigger without deleting it. For more information about the other asset types and the full property reference, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+
 ## Verification
 
 Verify your setup by running the following AWS CLI commands:
@@ -380,7 +480,16 @@ To remove all resources, delete the stacks in reverse order.
 Run the following commands to delete the stacks:
 
 ```
-# If you deployed the source association stack, delete it first
+# If you deployed the Part 3 content stack, delete it first
+aws cloudformation delete-stack \
+  --stack-name DevOpsAgentContentStack \
+  --region <REGION>
+
+aws cloudformation wait stack-delete-complete \
+  --stack-name DevOpsAgentContentStack \
+  --region <REGION>
+
+# If you deployed the source association stack, delete it next
 aws cloudformation delete-stack \
   --stack-name DevOpsAgentSourceAssociationStack \
   --region <REGION>
@@ -409,6 +518,8 @@ aws cloudformation delete-stack \
 After you have deployed your AWS DevOps Agent by using AWS CloudFormation:
 
 - To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md "configuring-integrations-and-knowledge.md").
+- If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. AWS CloudFormation does not return the webhook secret as a stack output, because it is sensitive. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md").
 - To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
+- For more information about managing skills, custom agents, and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
 - To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md "about-aws-devops-agent-what-is-a-devops-agent-web-app.md").
 - For detailed property references for the CloudFormation resource types used in this guide, see [AWS DevOps Agent resource type reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.md") in the _AWS CloudFormation Template Reference_.

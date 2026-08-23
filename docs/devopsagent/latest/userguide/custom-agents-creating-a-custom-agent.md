@@ -55,6 +55,55 @@ Create a custom agent for checking certificate expiration across all accounts.
 Make me an agent that audits DynamoDB table configurations daily.
 ```
 
+## Importing a custom agent from a repository
+
+You can import a custom agent's system prompt directly from a Markdown file in a GitHub repository. The file contents become the agent's system prompt. You can manage agent prompts in version control and import them with a single action.
+
+**Prerequisites:**
+
+- A GitHub account associated with your Agent Space. To connect a GitHub account, see [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md "connecting-to-cicd-pipelines-connecting-github.md"). Any GitHub account connection enables importing from public repositories. For private repositories, the associated account must have read access to the repository. GitHub Enterprise Server and GitHub Enterprise Cloud with data residency connections are also supported.
+- A Markdown file (`.md`) in a GitHub repository containing the system prompt.
+
+**To import a custom agent from a repository:**
+
+1. Navigate to the **Agents** page in your DevOps Agent web app.
+2. In the **Custom Agents** section, choose **Create agent**.
+3. In the dialog, choose **Import**. The dialog changes to the **Import from GitHub** view.
+4. Fill out the form:
+
+   - **Name** – A unique identifier for your agent. Use lowercase letters, numbers, and hyphens only (maximum 64 characters). Must not start or end with a hyphen.
+   - **Repository URL** – A link to a single Markdown (`.md`) file containing the agent's system prompt. For example: `https://github.com/my-org/my-repo/blob/main/my-agent.md`. For GitHub Enterprise Server or GitHub Enterprise Cloud with data residency, use your instance URL instead. For example: `https://github.example.com/my-org/my-repo/blob/main/my-agent.md`. If the URL does not end in `.md`, a warning appears. The import fails if the file is not Markdown.
+   - **Skills** (optional) – Select skills from your Agent Space to provide additional domain knowledge or capabilities to the agent.
+
+5. Choose **Import agent**.
+
+The repository file supplies only the system prompt. The name and skills come from the form.
+
+After creation, you are redirected to the agent's detail page where you can view the configuration, run the agent, or set up triggers.
+
+**Viewing imported agents:**
+
+An imported agent displays a **Synced from GitHub** badge next to its name on the agent detail page, along with a **Last synced** timestamp and a link to the source file on GitHub. In the **Custom Agents** list, imported agents include a link to their source file.
+
+If you edit an imported agent, the system prompt displays a **Read-only** label with a hint linking to the source file. The name and skills remain editable.
+
+**Syncing imported agents:**
+
+When you update the Markdown file in your repository, open the imported agent's detail page and choose **Sync** to pull the latest system prompt.
+
+**Constraints:**
+
+- **URL format** – Only GitHub URLs are accepted, including GitHub Enterprise Server and GitHub Enterprise Cloud with data residency. The connected GitHub account must match the URL host. For example, a `github.example.com` connection can only import from `github.example.com` URLs, not from `github.com` URLs.
+- **Markdown file required** – The URL must point to a single `.md` file.
+- **Maximum file size** – The file must not exceed 1 MB (GitHub API limit).
+- **GitHub account required** – Your Agent Space must have an associated GitHub account to import agents. For private repositories, the account must have read access.
+
+## Community custom agents
+
+The [AWS DevOps Agent Tools repository](https://github.com/aws/tools-for-devops-agent "https://github.com/aws/tools-for-devops-agent") includes pre-built custom agent configurations for recurring operational tasks such as health reports, operational reviews, and service quota monitoring. The repository is maintained by the AWS DevOps Agent service team, and all contributions go through the same security review bar before being added. To browse what's available, see the [custom agents catalog](https://aws.github.io/tools-for-devops-agent/custom-agents/ "https://aws.github.io/tools-for-devops-agent/custom-agents/") on the GitHub website.
+
+To use a community custom agent, import it from the repository using the **Import from repository** flow on the **Agents** page. Copy the URL of the agent's Markdown file and paste it as the repository URL. For details, see [Importing a custom agent from a repository](#importing-a-custom-agent-from-a-repository "#importing-a-custom-agent-from-a-repository").
+
 ## Writing a system prompt
 
 The system prompt is the most important part of your custom agent. It defines the agent's purpose, approach, constraints, and expected output. A well-written prompt produces consistent, reliable results.

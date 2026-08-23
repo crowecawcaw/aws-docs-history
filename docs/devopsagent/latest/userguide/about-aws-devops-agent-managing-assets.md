@@ -1,8 +1,8 @@
-# Managing Assets
+# Managing assets
 
 AWS DevOps Agent stores the configuration and reference material for an Agent Space as **assets**, the customer-managed resources that shape what the agent knows and how it behaves. Skills, AGENTS.md files, and attachments are all assets, and you can create, read, update, and delete them programmatically through the Asset API.
 
-This topic explains the asset model, the IAM permissions you need, the metadata each asset type expects, and how to manage assets end-to-end with the AWS CLI and AWS SDK for Python (Boto3). For the conceptual overview of skills themselves, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md"). For agent-generated knowledge that you do not create yourself, see [Learned Skills](about-aws-devops-agent-learned-skills.md "about-aws-devops-agent-learned-skills.md").
+To configure what AWS DevOps Agent knows and how it behaves, manage assets in your Agent Space. This topic covers the asset model, IAM permissions, and the metadata each asset type expects. Use the AWS CLI, the AWS SDK for Python (Boto3), or AWS CloudFormation to manage assets end-to-end. For the conceptual overview of skills themselves, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md"). For agent-generated knowledge that you do not create yourself, see [Learned Skills](about-aws-devops-agent-learned-skills.md "about-aws-devops-agent-learned-skills.md").
 
 ## When to use the Asset API
 
@@ -18,21 +18,21 @@ Every operation in the Asset API is exposed through the AWS CLI as `aws devops-a
 
 The Asset API exposes the following operations. Each row lists the IAM action you must grant to call the operation and the resource the action applies to. Every action lives in the `aidevops:` namespace and, except for `ListAssetTypes`, applies to an Agent Space resource of the form `arn:aws:aidevops:<region>:<account-id>:agentspace/<agentSpaceId>`. For broader background on `aidevops:` permissions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md "aws-devops-agent-security-devops-agent-iam-permissions.md").
 
-| Operation           | Description                                                                                                   | IAM action                   | Resource    |
-| ------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `ListAssetTypes`    | List the asset types supported by AWS DevOps Agent.                                                           | `aidevops:ListAssetTypes`    | `*`         |
-| `CreateAsset`       | Create a new asset in an Agent Space (skill, AGENTS.md, attachment, custom agent, test profile, or feedback). | `aidevops:CreateAsset`       | Agent Space |
-| `GetAsset`          | Retrieve an asset's metadata and version information.                                                         | `aidevops:GetAsset`          | Agent Space |
-| `UpdateAsset`       | Update the metadata or content of an existing asset.                                                          | `aidevops:UpdateAsset`       | Agent Space |
-| `DeleteAsset`       | Delete an asset and all of its files from an Agent Space.                                                     | `aidevops:DeleteAsset`       | Agent Space |
-| `ListAssets`        | List assets in an Agent Space, with optional filtering by asset type.                                         | `aidevops:ListAssets`        | Agent Space |
-| `ListAssetVersions` | List the historical versions of an asset.                                                                     | `aidevops:ListAssetVersions` | Agent Space |
-| `GetAssetContent`   | Download an asset's full content as a zip bundle.                                                             | `aidevops:GetAssetContent`   | Agent Space |
-| `CreateAssetFile`   | Add a new file to an existing asset.                                                                          | `aidevops:CreateAssetFile`   | Agent Space |
-| `GetAssetFile`      | Retrieve a single file from an asset by its path.                                                             | `aidevops:GetAssetFile`      | Agent Space |
-| `UpdateAssetFile`   | Replace the content or metadata of an existing file in an asset.                                              | `aidevops:UpdateAssetFile`   | Agent Space |
-| `DeleteAssetFile`   | Remove a single file from an asset.                                                                           | `aidevops:DeleteAssetFile`   | Agent Space |
-| `ListAssetFiles`    | List the files within an asset.                                                                               | `aidevops:ListAssetFiles`    | Agent Space |
+| Operation           | Description                                                                                                                         | IAM action                   | Resource    |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `ListAssetTypes`    | List the asset types supported by AWS DevOps Agent.                                                                                 | `aidevops:ListAssetTypes`    | `*`         |
+| `CreateAsset`       | Create a new asset in an Agent Space (skill, AGENTS.md, attachment, custom agent, memory store, memory, test profile, or feedback). | `aidevops:CreateAsset`       | Agent Space |
+| `GetAsset`          | Retrieve an asset's metadata and version information.                                                                               | `aidevops:GetAsset`          | Agent Space |
+| `UpdateAsset`       | Update the metadata or content of an existing asset.                                                                                | `aidevops:UpdateAsset`       | Agent Space |
+| `DeleteAsset`       | Delete an asset and all of its files from an Agent Space.                                                                           | `aidevops:DeleteAsset`       | Agent Space |
+| `ListAssets`        | List assets in an Agent Space, with optional filtering by asset type.                                                               | `aidevops:ListAssets`        | Agent Space |
+| `ListAssetVersions` | List the historical versions of an asset.                                                                                           | `aidevops:ListAssetVersions` | Agent Space |
+| `GetAssetContent`   | Download an asset's full content as a zip bundle.                                                                                   | `aidevops:GetAssetContent`   | Agent Space |
+| `CreateAssetFile`   | Add a new file to an existing asset.                                                                                                | `aidevops:CreateAssetFile`   | Agent Space |
+| `GetAssetFile`      | Retrieve a single file from an asset by its path.                                                                                   | `aidevops:GetAssetFile`      | Agent Space |
+| `UpdateAssetFile`   | Replace the content or metadata of an existing file in an asset.                                                                    | `aidevops:UpdateAssetFile`   | Agent Space |
+| `DeleteAssetFile`   | Remove a single file from an asset.                                                                                                 | `aidevops:DeleteAssetFile`   | Agent Space |
+| `ListAssetFiles`    | List the files within an asset.                                                                                                     | `aidevops:ListAssetFiles`    | Agent Space |
 
 ### Example IAM policies
 
@@ -98,7 +98,7 @@ The following policy grants read-only access to assets in a single Agent Space:
 
 ## Asset types
 
-Every asset has an `assetType` string that identifies what kind of resource it is. Six asset types can be created through the Asset API: `skill`, `agents_md`, `attachment`, `custom_agent`, `test_profile`, and `feedback`. The sections that follow describe each type. You can also call `ListAssetTypes` to retrieve the type identifiers at runtime.
+Every asset has an `assetType` string that identifies what kind of resource it is. You can create eight asset types through the Asset API: `skill`, `agents_md`, `attachment`, `custom_agent`, `memory_store`, `memory`, `test_profile`, and `feedback`. The sections that follow describe each type. You can also call `ListAssetTypes` to retrieve the type identifiers at runtime.
 
 Each asset carries a free-form `metadata` JSON object that describes the resource. The keys inside `metadata` use snake\_case (for example, `agent_types`, `skill_type`). The keys outside `metadata`, at the top level of the request body, use camelCase (for example, `agentSpaceId`, `assetType`, `clientToken`). The required and optional `metadata` keys depend on the asset type, as described in the sections that follow.
 
@@ -112,7 +112,7 @@ A `skill` asset packages instructions and reference material that the agent load
 
 - **name** (string) – A unique identifier for the skill. Lowercase letters, numbers, and hyphens only, 1–64 characters. Must not start or end with a hyphen. Required for simple skills only. For zip uploads the service reads `name` from the `SKILL.md` frontmatter and any value supplied here is ignored.
 - **description** (string) – A 1–1024 character explanation of when the agent should use the skill. Required for simple skills only. For zip uploads the service reads `description` from the `SKILL.md` frontmatter and any value supplied here is ignored.
-- **agent\_types** (array of strings) – One or more agent types this skill applies to. Use `["GENERIC"]` to make the skill available to all agent types. Other values include `CHAT`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, `PREVENTION`, `CHANGE_REVIEW`, `CHANGE_RELEASE`, `QUALITY_ASSURANCE_TESTING`, `RELEASE_SHEPHERD`, `RELEASE_READINESS_REVIEW`, and `RELEASE_TESTING`. The `GENERIC` value cannot be combined with other values.
+- **agent\_types** (array of strings) – One or more agent types this skill applies to. Use `["GENERIC"]` to make the skill available to all agent types. Other values include `CHAT`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, `PREVENTION`, `RELEASE_READINESS_REVIEW`, and `RELEASE_TESTING`. The `GENERIC` value cannot be combined with other values.
 
 **Optional `metadata` properties:**
 
@@ -138,7 +138,7 @@ An `agents_md` asset is a markdown file containing standing agent instructions f
 
 **Required `metadata` properties:**
 
-- **agent\_type** (string) – The agent type the AGENTS.md file applies to. Valid values are `GENERIC`, `CHAT`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, `PREVENTION`, `CHANGE_REVIEW`, `CHANGE_RELEASE`, `QUALITY_ASSURANCE_TESTING`, `RELEASE_SHEPHERD`, `RELEASE_READINESS_REVIEW`, and `RELEASE_TESTING`.
+- **agent\_type** (string) – The agent type the AGENTS.md file applies to. Valid values are `GENERIC`, `CHAT`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, `PREVENTION`, `RELEASE_READINESS_REVIEW`, and `RELEASE_TESTING`.
 
 **Example `metadata`:**
 
@@ -192,6 +192,55 @@ A `custom_agent` asset defines a specialized agent configuration with a curated 
   "name": "rds-firefighter",
   "tools": ["cloudwatch:GetMetricData", "rds:DescribeDBInstances"],
   "skills": ["rds-performance-investigation"]
+}
+```
+
+### memory\_store
+
+A `memory_store` asset is a container that groups related memory files. The agent reads the store's name and description to decide whether to open it and list the memories inside. Memories and memory stores support agent memory. For more information about memories, see [DevOps Agent Memories](about-aws-devops-agent-devops-agent-memories.md "about-aws-devops-agent-devops-agent-memories.md").
+
+Create memories in two steps. First, create the `memory_store`. Then, create each `memory` inside it, as described in [memory](#memory "#memory").
+
+**Required `metadata` properties:**
+
+- **name** (string) – A unique identifier for the memory store. Lowercase letters, numbers, and hyphens only, 1–128 characters. Must not start or end with a hyphen.
+- **description** (string) – A 1–1024 character description of what the store holds. The agent uses it to decide whether to open the store.
+
+**Optional `metadata` properties:**
+
+- **agent\_types** (array of strings) – The lead agent types that can see the store. Use `["GENERIC"]` to make the store visible to all agent types.
+
+**Example `metadata`:**
+
+```
+{
+  "name": "incident-runbooks",
+  "description": "Operational memories about past incidents and their resolutions.",
+  "agent_types": ["GENERIC"]
+}
+```
+
+### memory
+
+A `memory` asset is an individual memory file that belongs to a memory store. The agent reads the memory's name and description to decide whether to read the full file. Create the parent `memory_store` first, and then set `memory_store_id` on the memory to the store's asset ID.
+
+**Required `metadata` properties:**
+
+- **name** (string) – An identifier for the memory, written as a `/`-separated path of lowercase kebab-case segments, 1–255 characters (for example, `databases/rds-failover`).
+- **description** (string) – A 1–1024 character description of what the memory contains.
+- **memory\_store\_id** (string) – The asset ID of the memory store this memory belongs to.
+
+**Optional `metadata` properties:**
+
+- **expires\_at** (number) – A retention deadline, in epoch seconds. When set, the service deletes the memory automatically after the deadline passes (typically within 48 hours). Omit this property to keep the memory until you delete it.
+
+**Example `metadata`:**
+
+```
+{
+  "name": "databases/rds-failover",
+  "description": "Steps that resolved the RDS failover incident in June.",
+  "memory_store_id": "a1b2c3d4-5678-90ab-cdef-example11111"
 }
 ```
 
@@ -654,9 +703,166 @@ aws devops-agent update-asset \
 
 The `status` field is case-sensitive. Only `ACTIVE` and `INACTIVE` (uppercase) are accepted. Any other value fails with a `ValidationException`. Activation applies only to skills; setting `metadata.status` on any other asset type has no effect and the field is dropped from the response.
 
+## Managing assets with AWS CloudFormation
+
+Use the Asset API for interactive or script-driven changes. To manage assets declaratively, model them as `AWS::DevOpsAgent::Asset` resources in AWS CloudFormation. With this approach, you can version-control your assets alongside your other infrastructure, deploy them through a pipeline, and reproduce them across Agent Spaces. CloudFormation creates each asset as a child of a parent Agent Space, so an asset you define in a template maps to exactly the same resource a `CreateAsset` call produces.
+
+You manage every asset type through the same `AWS::DevOpsAgent::Asset` resource. The supported types are `skill`, `agents_md`, `attachment`, `custom_agent`, `memory_store`, `memory`, `test_profile`, and `feedback`. Only the `AssetType`, `Metadata`, and content differ from one type to the next. The following examples create a skill and a custom agent; the other types follow the same shape, using the metadata described in [Asset types](#asset-types "#asset-types").
+
+### The AWS::DevOpsAgent::Asset resource
+
+The resource properties map directly to the `CreateAsset` request fields described earlier in this topic:
+
+| CloudFormation property   | Type    | Maps to                         | Notes                                                                                                                                                    |
+| ------------------------- | ------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AgentSpaceId`            | String  | `agentSpaceId`                  | Required. Create-only—changing it replaces the asset.                                                                                                    |
+| `AssetType`               | String  | `assetType`                     | Required. Create-only. The asset type identifier—for example `skill` or `custom_agent`. Any type in [Asset types](#asset-types "#asset-types") is valid. |
+| `Metadata`                | JSON    | `metadata`                      | The same metadata document as the API (for a skill: `name`, `description`, `agent_types`, and optionally `status`). Updated in place.                    |
+| `Files`                   | List    | `content.file`                  | Inline files, each with `Path` and either `ContentText` or `ContentBytes`, plus optional per-file `Metadata`. Mutually exclusive with `Zip`.             |
+| `Zip`                     | String  | `content.zip.zipFile`           | Base64-encoded zip bundle. Mutually exclusive with `Files`.                                                                                              |
+| `AssetId`                 | String  | `asset.assetId`                 | Read-only. Retrieve with `Fn::GetAtt`.                                                                                                                   |
+| `Arn`                     | String  | `asset.arn`                     | Read-only. The asset ARN, nested under the parent Agent Space.                                                                                           |
+| `Version`                 | Integer | `asset.version`                 | Read-only. Bumps on every successful update.                                                                                                             |
+| `CreatedAt` / `UpdatedAt` | String  | `asset.createdAt` / `updatedAt` | Read-only timestamps.                                                                                                                                    |
+
+Two behaviors are worth calling out before you write a template:
+
+- **`AgentSpaceId` and `AssetType` are create-only.** Changing either one replaces the asset. CloudFormation creates a new asset with a new `AssetId` and `Arn`, then deletes the old one. Content and metadata changes update the existing asset in place.
+- **CloudFormation manages the asset as a whole** —its metadata and its complete file set. To change a skill, edit the template and update the stack. Operations that act on parts of an asset are not part of the resource and remain API-only. This includes per-file edits (`CreateAssetFile`, `UpdateAssetFile`, `DeleteAssetFile`) and version history (`ListAssetVersions`). It also includes content download (`GetAssetContent`) and repository import and sync (the `sourceUrl` content type). For those, use the AWS CLI or an SDK as shown earlier in this topic.
+
+### Create a skill
+
+The following template creates the single-file `rds-performance-investigation` skill used in the AWS CLI walkthrough. It takes the parent Agent Space ID as a parameter and exports the new asset's ID and ARN.
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A DevOps Agent skill managed as an AWS::DevOpsAgent::Asset resource.
+
+Parameters:
+  AgentSpaceId:
+    Type: String
+    Description: The ID of the Agent Space that owns the skill.
+
+Resources:
+  RdsPerformanceSkill:
+    Type: AWS::DevOpsAgent::Asset
+    Properties:
+      AgentSpaceId: !Ref AgentSpaceId
+      AssetType: skill
+      Metadata:
+        name: rds-performance-investigation
+        description: Investigation procedures for RDS performance issues.
+        agent_types:
+          - GENERIC
+      Files:
+        - Path: SKILL.md
+          ContentText: |
+            # RDS Performance Investigation
+
+            Use this skill when customers report database latency, connection
+            errors, query timeouts, or read/write performance degradation.
+
+Outputs:
+  SkillAssetId:
+    Value: !GetAtt RdsPerformanceSkill.AssetId
+  SkillArn:
+    Value: !GetAtt RdsPerformanceSkill.Arn
+```
+
+Deploy it with the AWS CLI, passing your Agent Space ID:
+
+```
+aws cloudformation deploy \
+  --template-file skill.yaml \
+  --stack-name DevOpsAgentSkillStack \
+  --parameter-overrides AgentSpaceId=8f6187a7-0388-4926-8217-3a0fe32f757c \
+  --region <REGION>
+```
+
+A skill that ships more than one file—for example a `SKILL.md` plus a reference document—adds more entries to `Files`:
+
+```
+      Files:
+        - Path: SKILL.md
+          ContentText: |
+            # RDS Performance Investigation
+            Investigation entry point.
+        - Path: references/rds-metrics-reference.md
+          ContentText: |
+            # RDS metrics reference
+            Key CloudWatch metrics to check.
+```
+
+To create the skill deactivated, or to deactivate it later, set `status` in `Metadata` (see [Activating and deactivating skills](#activating-and-deactivating-skills "#activating-and-deactivating-skills")) and update the stack:
+
+```
+      Metadata:
+        name: rds-performance-investigation
+        description: Investigation procedures for RDS performance issues.
+        agent_types:
+          - GENERIC
+        status: INACTIVE
+```
+
+### Create a custom agent
+
+A custom agent is the same resource with a different `AssetType`, `Metadata`, and content. The following resource creates a `custom_agent` asset that curates a set of tools and skills. The `skills` list references skills by their `name` metadata, so you can reference the skill you created earlier.
+
+```
+  RdsFirefighter:
+    Type: AWS::DevOpsAgent::Asset
+    Properties:
+      AgentSpaceId: !Ref AgentSpaceId
+      AssetType: custom_agent
+      Metadata:
+        name: rds-firefighter
+        tools:
+          - cloudwatch:GetMetricData
+          - rds:DescribeDBInstances
+        skills:
+          - rds-performance-investigation
+      Files:
+        - Path: AGENT.md
+          ContentText: |
+            # RDS Firefighter
+            Custom agent for RDS incidents.
+```
+
+The other asset types work the same way—set `AssetType` and supply the `Metadata` keys that type requires (see [Asset types](#asset-types "#asset-types")). For example, an `agents_md` asset sets `AssetType: agents_md` with `Metadata` containing `agent_type: INCIDENT_TRIAGE` and an `AGENTS.md` file.
+
+### Schedule the custom agent with a trigger
+
+To run the custom agent automatically, add an `AWS::DevOpsAgent::Trigger` resource. A trigger is a child of the Agent Space. Its action references the custom agent to run by asset ID, in the form `custom:<assetId>`. Use `Fn::GetAtt` to pass the custom agent's `AssetId` so CloudFormation wires the two resources together and orders their creation.
+
+The following trigger runs the `rds-firefighter` custom agent once a day:
+
+```
+  DailyRdsCheck:
+    Type: AWS::DevOpsAgent::Trigger
+    Properties:
+      AgentSpaceId: !Ref AgentSpaceId
+      Type: TIME_BASED
+      Condition:
+        Schedule:
+          Expression: rate(1 day)
+      Action:
+        actionType: create:task
+        task:
+          agent: !Sub
+            - custom:${AssetId}
+            - AssetId: !GetAtt RdsFirefighter.AssetId
+      Status: Active
+```
+
+The `AgentSpaceId`, `Type`, `Condition`, and `Action` properties are create-only. Changing any of them replaces the trigger. The `Status` property accepts `Active` or `Inactive` and can be updated in place. Set it to `Inactive` to pause the trigger without deleting it. For more information about schedule expression syntax, see [Executing custom agents](custom-agents-executing-custom-agents.md "custom-agents-executing-custom-agents.md").
+
+`AWS::DevOpsAgent::Asset` and `AWS::DevOpsAgent::Trigger` are available in the AWS Regions where AWS DevOps Agent is offered. For more information about supported AWS Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md "about-aws-devops-agent-supported-regions.md"). To deploy the parent Agent Space, IAM roles, and operator app as infrastructure as code, see [Getting started with AWS DevOps Agent using AWS CloudFormation](getting-started-with-aws-devops-agent-getting-started-with-aws-devops-agent-using-aws-cloudformation.md "getting-started-with-aws-devops-agent-getting-started-with-aws-devops-agent-using-aws-cloudformation.md").
+
 ## Examples for the other asset types
 
 The skill walkthrough above applies to every other asset type. The only difference is the `metadata` block and, for attachments, the choice of binary content. The minimal `CreateAsset` calls below illustrate each type.
+
+Memory stores and memories use the same `CreateAsset` operation. Create the store first, then the memory. For more information about their metadata, see [memory\_store](#memory_store "#memory_store") and [memory](#memory "#memory").
 
 **Create an AGENTS.md:**
 
