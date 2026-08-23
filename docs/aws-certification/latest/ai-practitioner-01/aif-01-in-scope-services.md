@@ -55,11 +55,9 @@ The following list contains AWS services and features that are in scope for the 
 
 - Kiro
 - Strands Agents
-- Amazon Q
 
 ## Machine Learning
 
-- Amazon Augmented AI (Amazon A2I)
 - Amazon Bedrock
 - Amazon Bedrock AgentCore
 - Amazon Comprehend

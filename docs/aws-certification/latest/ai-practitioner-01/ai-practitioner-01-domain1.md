@@ -36,6 +36,6 @@ Objectives:
 - Describe and differentiate components of an AI/ML pipeline.
 - Describe sources of FM models (for example, open source pre-trained models, training custom models).
 - Describe methods to use a model in production (for example, managed API service, self-hosted API).
-- Identify relevant AWS services and features for each stage of an AI/ML pipeline (for example, Amazon Bedrock, Amazon Q, Amazon Quick, Kiro, SageMaker AI).
+- Identify relevant AWS services and features for each stage of an AI/ML pipeline (for example, Amazon Bedrock, Amazon Quick, Kiro, SageMaker AI).
 - Describe fundamental concepts of ML operations (MLOps) (for example, experimentation, repeatable processes, scalable systems, managing technical debt, achieving production readiness, model monitoring, model re-training).
 - Describe model performance metrics (for example, accuracy, precision, recall, F1 score) and business metrics (for example, cost per user, development costs, customer feedback, return on investment [ROI]) to evaluate ML models.
