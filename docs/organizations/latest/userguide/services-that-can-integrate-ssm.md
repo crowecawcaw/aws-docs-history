@@ -26,7 +26,7 @@ in your organization:
 When you register an AWS Organizations delegated administrator account for Systems Manager you can create, update, view, and delete Quick Setup configuration managers that
 target organizational units in an organization. Learn more in [Using a delegated administrator for Quick Setup](../../../systems-manager/latest/userguide/quick-setup-delegated-administrator.md "../../../systems-manager/latest/userguide/quick-setup-delegated-administrator.md") in the _AWS Systems Manager User Guide_.
 
-- When you set up the integrated console for Systems Manager, you enter a delegated administrator account. This account is used to register AWS Organizations delegated administrator accounts with Quick Setup, Explorer, CloudFormation StackSets, and Resource Explorer. Learn more in [Setting up Systems Manager integrated console for an organization
+- When you set up the unified console for Systems Manager, you enter a delegated administrator account. AWS Organizations uses this account to register delegated administrator accounts with Quick Setup, Explorer, CloudFormation StackSets, and Resource Explorer. Learn more in [Setting up Systems Manager unified console for an organization
   _AWS Systems Manager User Guide_](../../../systems-manager/latest/userguide/systems-manager-setting-up-organizations.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-organizations.md").
   Use the following information to help you integrate
   AWS Systems Manager with AWS Organizations.

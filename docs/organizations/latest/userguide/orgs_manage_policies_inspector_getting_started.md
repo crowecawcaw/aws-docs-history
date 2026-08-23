@@ -30,8 +30,8 @@ Review the following requirements before implementing Amazon Inspector policies:
 Additionally, verify that:
 
 - Amazon Inspector is supported in the Regions where you want to apply policies
-- You have the `AWSServiceRoleForInspectorV2` service-linked role
-  configured in your management account. To verify this role exists, run `aws iam get-role --role-name AWSServiceRoleForInspectorV2`.
+- You have the `AWSServiceRoleForAmazonInspector2` service-linked role
+  configured in your management account. To verify this role exists, run `aws iam get-role --role-name AWSServiceRoleForAmazonInspector2`.
   If you need to create this role, you can either run `aws inspector2 enable` in any Region from your management account, or create it
   directly by running `aws iam create-service-linked-role --aws-service-name 
  inspector2.amazonaws.com`.

@@ -91,4 +91,4 @@ organization's management account. This helps you to separate management of the
 organization from management of Network Manager.
 
 For instructions on how to designate a member account as a delegated administrator of
-Network Manager in the organization, see [Register a delegated administrator](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md") in the _Amazon VPC User Guide_.
+Network Manager in the organization, see [Register a delegated administrator](../../../network-manager/latest/tgwnm/nm-delegate-admin.md "../../../network-manager/latest/tgwnm/nm-delegate-admin.md") in the _Amazon VPC User Guide_.

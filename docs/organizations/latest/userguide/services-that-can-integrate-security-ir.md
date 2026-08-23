@@ -16,6 +16,19 @@ The following service-linked roles are automatically created in your organizatio
 - `AWSServiceRoleForSecurityIncidentResponse` - used for creating Security Incident Response membership - your subscription to the service through AWS Organizations.
 - `AWSServiceRoleForSecurityIncidentResponse_Triage` - used only when you enable the triage feature during sign-up.
 
+## Expected `CreateServiceLinkedRole` events in AWS CloudTrail
+
+To deliver new features and to make sure that required resources remain correctly
+configured, AWS Security Incident Response periodically updates the service's underlying infrastructure. Each
+update triggers a deployment that creates the required service-linked role. If the role
+already exists, the `CreateServiceLinkedRole` call returns an exception that
+indicates the role is already present. This exception is expected and handled by the
+service, and the deployment continues normally.
+
+As a result, you might see `InvalidInputException` entries for
+`CreateServiceLinkedRole` in your CloudTrail event history. These entries are expected
+behavior, have no impact on your accounts, and require no action.
+
 ## Service principals used by Security Incident Response
 
 The service-linked roles in the previous section can be assumed only by the service principals authorized by the trust relationships

@@ -94,7 +94,7 @@ OUs are useful when you need to apply the same controls to a subset of accounts 
 Nesting OUs enables smaller units of management. For example, you can create OUs for each workload,
 then create two nested OUs in each workload OU to divide production workloads from pre-production.
 These OUs inherit the policies from the parent OU in addition to any controls assigned directly to the team-level OU.
-Including the [root](#root "#root") and AWS accounts created in the lowest OUs, your hierarchy can be five levels deep.
+Excluding the [root](#root "#root") and AWS accounts created in the lowest OUs, your hierarchy can be five levels deep.
 
 **AWS account**
 

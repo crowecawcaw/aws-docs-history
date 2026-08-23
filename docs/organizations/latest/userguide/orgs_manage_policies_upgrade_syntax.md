@@ -171,7 +171,7 @@ more critical environments:
         "environment": {
             "tag_values": {
                 "development": {
-                    "upgrade_order": "first"
+                    "patch_order": "first"
                 }
             }
         }
@@ -193,7 +193,7 @@ organizations with strict change management requirements:
         "environment": {
             "tag_values": {
                 "production": {
-                    "upgrade_order": "last"
+                    "patch_order": "last"
                 }
             }
         }

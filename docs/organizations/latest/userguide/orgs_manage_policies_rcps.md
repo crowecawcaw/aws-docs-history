@@ -63,7 +63,7 @@ RCPs apply to actions for the following AWS services:
 - [DynamoDB Accelerator](../../../amazondynamodb/latest/developerguide/DAX.md "../../../amazondynamodb/latest/developerguide/DAX.md") `(prefix:dax)`
 - [Amazon EC2 Auto Scaling](../../../autoscaling.md "../../../autoscaling.md") `(prefix:autoscaling)`
 - [Amazon Elastic Container Registry](../../../ecr.md "../../../ecr.md") `(prefix:ecr)`
-- [Amazon Inspector Scan](../../../inspector.md "../../../inspector.md") `(prefix:inspector2)`
+- [Amazon Inspector Scan](../../../inspector.md "../../../inspector.md") `(prefix:inspector-scan)`
 - [Amazon Kendra](../../../kendra.md "../../../kendra.md") `(prefix:kendra)`
 - [Amazon Kinesis Video Streams](../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md "../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md") `(prefix:kinesisvideo)`
 - [Amazon MemoryDB](../../../memorydb.md "../../../memorydb.md") `(prefix:memorydb)`

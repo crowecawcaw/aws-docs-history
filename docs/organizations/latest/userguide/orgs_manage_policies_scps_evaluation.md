@@ -172,9 +172,11 @@ access.
 
 ### Scenario 3: Impact of missing an Allow statement at the root-level
 
-Missing an "Allow" statement at the root-level in an SCP is a critical
-misconfiguration that will effectively block all access to AWS services and
-actions for all member accounts in your organization.
+When the root has only a Deny statement without a "Full AWS access" Allow
+statement, all member accounts get **no service
+access**. SCPs require an explicit Allow at every level in the path.
+A Deny-only SCP at the root therefore blocks every service unless an explicit
+Allow covers it.
 
 ![Scenario 3: Impact of missing an Allow statement at the root-level](images/scp_scenario_3.png)
 
