@@ -16,19 +16,73 @@ Telemetry config remains active until you turn it off. For more information, see
 
 ## Prerequisites and permissions
 
-Before you can configure telemetry for your organization, you need to enable trusted
-access between AWS Organizations and CloudWatch. When you enable trusted access, CloudWatch creates a
-service-linked role named **AWSServiceRoleForObservabilityAdmin** to
-support resource and telemetry configuration discovery for the organization.
+Telemetry configuration for your organization requires trusted access between AWS Organizations
+and CloudWatch. When trusted access is enabled, CloudWatch creates a service-linked role named
+**AWSServiceRoleForObservabilityAdmin** to support resource and telemetry
+configuration discovery for the organization.
 
-When a management account creates an organization-level rule, the service-linked role
-is automatically created in all member accounts and the delegated administrator account
-in the organization. However, when a delegated administrator account creates an
-organization-level rule, the service-linked role is automatically created in all member
-accounts but is _not_ automatically created in the management account.
-If a delegated administrator account creates the organization-level rule, you must
-manually create the **AWSServiceRoleForObservabilityAdmin**
-service-linked role in the management account.
+When you turn on telemetry configuration for your organization from a management
+account, CloudWatch automatically enables trusted access and creates the service-linked role.
+You do not need to set up trusted access manually before starting telemetry evaluation.
+
+###### Important
+
+CloudWatch uses your IAM permissions to perform this setup. It does not use CloudWatch service
+permissions. In addition to the telemetry configuration permissions, you must be allowed
+to perform the following actions:
+
+- `iam:CreateServiceLinkedRole`—to create the
+  **AWSServiceRoleForObservabilityAdmin** and
+  **AWSServiceRoleForObservabilityAdmin\_TelemetryEnablement**
+  service-linked roles.
+- `organizations:EnableAWSServiceAccess`—to enable trusted access
+  between AWS Organizations and CloudWatch.
+  If you are not allowed to perform these actions, turning on telemetry configuration
+  fails with an `AccessDeniedException`. CloudWatch does not enable trusted
+  access.
+
+The following example JSON policy grants the additional permissions required to turn on
+telemetry configuration for an organization:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowCreateObservabilityAdminServiceLinkedRoles",
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": [
+                "arn:aws:iam::*:role/aws-service-role/observabilityadmin.amazonaws.com/AWSServiceRoleForObservabilityAdmin",
+                "arn:aws:iam::*:role/aws-service-role/telemetry-enablement.observabilityadmin.amazonaws.com/AWSServiceRoleForObservabilityAdmin_TelemetryEnablement"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": [
+                        "observabilityadmin.amazonaws.com",
+                        "telemetry-enablement.observabilityadmin.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowEnableTrustedAccessForObservabilityAdmin",
+            "Effect": "Allow",
+            "Action": "organizations:EnableAWSServiceAccess",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+###### Note
+
+If you use a delegated administrator account to turn on telemetry configuration,
+the service-linked role is automatically created in all member accounts but is
+_not_ automatically created in the management account. In this case,
+you must manually create the
+**AWSServiceRoleForObservabilityAdmin** service-linked role in the
+management account.
 
 For more information about the service-linked role, see [Service-linked role permissions for CloudWatch telemetry config](using-service-linked-roles.md#service-linked-role-telemetry-config "using-service-linked-roles.md#service-linked-role-telemetry-config"). For more information about
 AWS Organizations, see [Amazon CloudWatch

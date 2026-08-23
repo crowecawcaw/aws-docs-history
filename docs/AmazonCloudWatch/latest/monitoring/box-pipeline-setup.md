@@ -1,6 +1,6 @@
 # CloudWatch pipelines configuration for Box
 
-Collects audit and activity log data from Box using OAuth 2.0 Client Credentials authentication through the Box Events API.
+Collects enterprise events, user inventory, group inventory, group memberships, and group collaborations from Box using OAuth2 Client Credentials authentication.
 
 Configure the Box source with the following parameters:
 
@@ -10,20 +10,24 @@ source:
     enterprise_id: "123456789"
     authentication:
       oauth2:
-        client_id: "${{aws_secrets:<secret-name>:client_id}}"
-        client_secret: "${{aws_secrets:<secret-name>:client_secret}}"
+        client_id: "${{aws_secrets:my-box-secret:client_id}}"
+        client_secret: "${{aws_secrets:my-box-secret:client_secret}}"
 ```
 
 ###### Parameters
 
 `enterprise_id` (required)
 
-The Box Enterprise ID for your organization. Found in the Box Admin Console under Account & Billing.
+The Box Enterprise ID (numeric). Found in the Box Admin Console under Account & Billing > Enterprise ID.
 
 `authentication.oauth2.client_id` (required)
 
-The Box Custom App Client ID, stored in AWS Secrets Manager.
+The OAuth2 Client ID from the Box Custom App. Stored in AWS Secrets Manager.
 
 `authentication.oauth2.client_secret` (required)
 
-The Box Custom App Client Secret, stored in AWS Secrets Manager.
+The OAuth2 Client Secret from the Box Custom App. Stored in AWS Secrets Manager.
+
+###### Note
+
+The `client_id` and `client_secret` values are retrieved from AWS Secrets Manager. These credentials can be found in the Box Developer Console under your Custom App's Configuration tab.

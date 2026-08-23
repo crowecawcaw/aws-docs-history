@@ -6,10 +6,10 @@ The CloudWatch agent is supported on the following operating systems:
 
 - Amazon Linux 2023
 - Amazon Linux 2
-- Ubuntu Server versions 25.04, 24.04, and 22.04
+- Ubuntu Server versions 26.04, 25.04, 24.04, and 22.04
 - Red Hat Enterprise Linux (RHEL) versions 10, 9, and 8
 - Debian version 12
-- SUSE Linux Enterprise Server (SLES) version 15
+- SUSE Linux Enterprise Server (SLES) versions 16 and 15
 - Oracle Linux versions 9 and 8
 - AlmaLinux versions 10, 9, and 8
 - Rocky Linux versions 10, 9, and 8
@@ -26,7 +26,7 @@ The CloudWatch agent is supported on the following operating systems:
 - Amazon Linux 2
 - Ubuntu Server version 22.04
 - Red Hat Enterprise Linux (RHEL) versions 9 and 8
-- Debian version 12
-- SUSE Linux Enterprise Server 15
+- Debian versions 13 and 12
+- SUSE Linux Enterprise Server (SLES) versions 16 and 15
 - macOS computers: macOS 14 (Sonoma), macOS 13 (Ventura), and macOS 12
   (Monterey)

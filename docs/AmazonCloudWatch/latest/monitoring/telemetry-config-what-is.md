@@ -10,24 +10,39 @@ CloudWatch telemetry configuration gives you two core capabilities:
   automatically configure telemetry collection for AWS resources that match your criteria.
   Rules help you standardize telemetry collection across your organization or accounts and
   make sure consistent monitoring coverage.
-  Telemetry configuration supports the following data sources:
+  Telemetry configuration supports the following resource types for
+  **discovery and auditing** (using the
+  `ListResourceTelemetry` and `ListResourceTelemetryForOrganization`
+  APIs):
 
-- Amazon Amazon VPC Flow Logs
-- Amazon EKS Control Plane Logs
-- AWS WAF Logs
-- Amazon Route 53 Resolver Query Logs
-- NLB Access Logs
+- Amazon Amazon EC2 Instance (`AWS::EC2::Instance`) – Detailed Metrics
+- Amazon Amazon VPC (`AWS::EC2::VPC`) – Flow Logs, Route 53 Resolver Query Logs
+- AWS Lambda Function (`AWS::Lambda::Function`) – Active Tracing
+- Amazon EKS Cluster (`AWS::EKS::Cluster`) – Control Plane Logs
+- AWS WAFv2 Web ACL (`AWS::WAFv2::WebACL`) – WAF Logs
+- Elastic Load Balancing Network Load Balancer (`AWS::ElasticLoadBalancingV2::LoadBalancer`) – NLB Access Logs
+
+###### Note
+
+The `AWS::ElasticLoadBalancingV2::LoadBalancer` resource type for discovery
+only includes Network Load Balancers (NLBs). Application Load Balancers (ALBs) are not
+currently supported for discovery.
+
+In addition to the resource types above, telemetry
+**enablement rules** (using the `CreateTelemetryRule`
+and `CreateTelemetryRuleForOrganization` APIs) support the following additional
+data sources:
+
 - AWS CloudTrail Data Events and Management Events
 - Amazon Bedrock AgentCore Logs
-- Amazon Amazon EC2 Detailed Metrics
 - AWS Security Hub
-- Amazon Bedrock Agentcore Gateway
-- Amazon Bedrock Agentcore Memory
+- Amazon Bedrock AgentCore Gateway
+- Amazon Bedrock AgentCore Memory
 - Amazon CloudFront Distribution
 - Amazon S3 Server Access Logs
 - Amazon MSK Cluster Metrics
 - OpenTelemetry Enrichment Metrics
-- Amazon Bedrock Agentcore Workload Identity
+- Amazon Bedrock AgentCore Workload Identity
 - Elastic Load Balancing Application Load Balancer Logs
 - Amazon Bedrock Knowledge Base Logs
   When you enable telemetry configuration, CloudWatch creates AWS Config

@@ -1,4 +1,4 @@
-# Set up Claude Code with a bearer token
+# Set up Claude Code metrics in Amazon CloudWatch with a bearer token
 
 On this path, Claude Code sends OpenTelemetry (OTel) metrics directly to the Amazon CloudWatch
 native OTLP metrics endpoint and authenticates with a bearer token (a CloudWatch metrics API key).

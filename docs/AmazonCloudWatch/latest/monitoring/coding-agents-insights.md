@@ -1,4 +1,4 @@
-# Coding Agent Insights
+# Monitor AI coding agents with Amazon CloudWatch Coding Agent Insights
 
 AI coding agents such as OpenAI Codex, Claude Code, and GitHub Copilot emit
 OpenTelemetry (OTel) telemetry about how your developers use them—token consumption,
@@ -41,7 +41,7 @@ you can pick the approach that matches how your developers run the agent.
 
 ###### Topics
 
-- [Set up OpenTelemetry for Claude Code](coding-agents-claude-code.md "coding-agents-claude-code.md") — Configure Claude Code
+- [Claude Code](coding-agents-claude-code.md "coding-agents-claude-code.md") — Configure Claude Code
   using a bearer token (individuals and small teams) or an enterprise rollout with
   corporate SSO.
 - [Set up OpenTelemetry for OpenAI Codex](coding-agents-codex.md "coding-agents-codex.md")

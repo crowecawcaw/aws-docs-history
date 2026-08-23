@@ -540,7 +540,7 @@ Follow these best practices to protect your CloudWatch Metrics API keys:
   policy as a starting point and restrict further as needed.
 - **Enable CloudTrail logging.** Audit API
   key usage by enabling CloudTrail data events for
-  `AWS::CloudWatch::Metric`. See
+  `AWS::CloudWatch::Dataset`. See
   [Logging API key usage with CloudTrail](#CloudWatch-OTLP-MetricsBearerTokenAuth-CloudTrail "#CloudWatch-OTLP-MetricsBearerTokenAuth-CloudTrail").
 - **Monitor with IAM Access
   Analyzer.** Use
@@ -554,7 +554,7 @@ Follow these best practices to protect your CloudWatch Metrics API keys:
 ## Logging API key usage with CloudTrail
 
 You can use AWS CloudTrail to log data events for CloudWatch Metrics OTLP
-ingestion. CloudWatch emits `AWS::CloudWatch::Metric` data events for
+ingestion. CloudWatch emits `AWS::CloudWatch::Dataset` data events for
 calls to the OTLP endpoint, enabling you to audit metric ingestion activity
 including API key usage.
 
@@ -588,7 +588,7 @@ aws cloudtrail put-event-selectors \
         "Name": "CloudWatch Metrics write data events",
         "FieldSelectors": [
             { "Field": "eventCategory", "Equals": ["Data"] },
-            { "Field": "resources.type", "Equals": ["AWS::CloudWatch::Metric"] },
+            { "Field": "resources.type", "Equals": ["AWS::CloudWatch::Dataset"] },
             { "Field": "readOnly", "Equals": ["false"] }
         ]
     }]'

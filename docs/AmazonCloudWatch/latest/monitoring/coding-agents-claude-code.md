@@ -1,4 +1,4 @@
-# Set up OpenTelemetry for Claude Code
+# Set up Claude Code OpenTelemetry metrics for Amazon CloudWatch
 
 Claude Code emits OpenTelemetry (OTel) metrics about token usage, sessions, code edits,
 tool calls, and cost. When you send these metrics to Amazon CloudWatch, they populate the Claude Code
@@ -15,7 +15,7 @@ are available, depending on how your developers run Claude Code.
   `Authorization: Bearer` header. Identity and organizational
   attributes are supplied through the `OTEL_RESOURCE_ATTRIBUTES`
   environment variable. This path needs no collector and is the fastest way for an
-  individual developer or a small team to get started. See [Set up Claude Code with a bearer token](coding-agents-claude-code-bearer-token.md "coding-agents-claude-code-bearer-token.md").
+  individual developer or a small team to get started. See [Bearer token](coding-agents-claude-code-bearer-token.md "coding-agents-claude-code-bearer-token.md").
 - **Enterprise rollout with Claude apps gateway**
   — For organizations that need centralized control over developer access,
   identity federation, and telemetry collection. Deploy a self-hosted gateway that
@@ -40,5 +40,5 @@ setup scripts, see the [Guidance for Claude Code with Amazon Bedrock](https://gi
 
 ###### Topics
 
-- [Set up Claude Code with a bearer token](coding-agents-claude-code-bearer-token.md "coding-agents-claude-code-bearer-token.md")
+- [Set up Claude Code metrics in Amazon CloudWatch with a bearer token](coding-agents-claude-code-bearer-token.md "coding-agents-claude-code-bearer-token.md")
 - [Set up Claude Code with the Claude apps gateway](coding-agents-claude-code-gateway.md "coding-agents-claude-code-gateway.md")

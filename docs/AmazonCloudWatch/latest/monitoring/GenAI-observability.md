@@ -47,4 +47,4 @@ You can use the **Model Invocation** dashboard by using any models for inference
 
 - [Model Invocations](model-invocations.md "model-invocations.md")
 - [Amazon Bedrock AgentCore](AgentCore-Agents.md "AgentCore-Agents.md")
-- [Coding Agent Insights](coding-agents-insights.md "coding-agents-insights.md")
+- [Monitor AI coding agents with Amazon CloudWatch Coding Agent Insights](coding-agents-insights.md "coding-agents-insights.md")

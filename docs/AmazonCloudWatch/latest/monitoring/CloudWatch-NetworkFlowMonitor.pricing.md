@@ -5,4 +5,4 @@ monitored (agents installed and actively sending data) and CloudWatch metrics ve
 standard CloudWatch prices for any additional metrics, dashboards, alarms, or insights that you create.
 
 For more information about Network Flow Monitor and Amazon CloudWatch pricing, see Network Monitoring on the
-[Amazon CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/") page.
+[Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") page.

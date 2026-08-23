@@ -1,7 +1,8 @@
 # Manually create or edit the CloudWatch agent configuration file
 
-The CloudWatch agent configuration file is a JSON file with four sections:
-`agent`, `metrics`, `logs`, and `traces`.
+The CloudWatch agent configuration file is a JSON file with five sections:
+`agent`, `metrics`, `logs`, `traces`, and
+`opentelemetry`.
 
 - The `agent` section includes fields for the overall configuration of the
   agent.
@@ -12,6 +13,9 @@ The CloudWatch agent configuration file is a JSON file with four sections:
   can include events from the Windows Event Log if the server runs Windows Server.
 - The `traces` section specifies the sources for traces that are collected
   and sent to AWS X-Ray.
+- The `opentelemetry` section specifies the sources of metrics, logs, and
+  traces for the agent to collect and send to the CloudWatch OpenTelemetry Protocol (OTLP)
+  endpoints. For more information, see [OTLP Endpoints](CloudWatch-OTLPEndpoint.md "CloudWatch-OTLPEndpoint.md").
   This section explains the structure and fields of the CloudWatch agent configuration file.
   You can view the schema definition for this configuration file. The schema definition is
   located at
@@ -1110,9 +1114,10 @@ or when writing multiple files to the same destination. Enabling
 concurrency can help with throughput.
 
 - `logs_collected` – Required if the `logs` section
-  is included. Specifies which log files and Windows event logs are to be collected
-  from the server. It can include two fields, `files` and
-  `windows_events`.
+  is included. Specifies which log files, Windows event logs, and journald logs the
+  agent collects from the server. It can include the following fields:
+  `files`, `windows_events` (Windows only), and
+  `journald` (Linux only).
 
   - `files` – Specifies which regular log files the CloudWatch agent
     is to collect. It contains one field, `collect_list`, which further
@@ -1650,6 +1655,230 @@ concurrency can help with throughput.
       the number of days that you specify are deleted. For example, setting
       it to 3 would cause all logs from 3 days ago and before to be deleted.
 
+  - Use the `journald` section to specify which systemd journal logs
+    to collect from Linux servers. Use this section only for Linux
+    instances. It includes the following fields:
+
+    - `collect_list` – Required if `journald` is
+      included. Specifies which journal log entries the agent collects. Each entry in
+      this section defines a set of journal logs to collect and can include the
+      following fields:
+
+      - `units` – Optional. Specifies an array of systemd
+        unit names to filter journal entries. If you include this field, the
+        agent collects only journal entries from the specified systemd
+        units. If you omit this field, the agent collects journal entries from all units. The agent accepts wildcards for pattern matching. For example, `["sshd*"]` matches
+        `sshd.service`, `sshd@1.service`, and any other unit starting with `sshd`. You can specify multiple units such as
+        `["sshd", "nginx", "cloudwatch-agent"]` to collect logs
+        from several services.
+      - `priority` – Optional. Specifies the minimum
+        journal priority level to collect. If you include this field, the
+        agent collects journal entries at the specified priority level and all
+        levels more severe. If you omit this field, the default is `info`,
+        collecting `info` and above and excluding
+        `debug`. Set `"priority": "debug"` to
+        collect all levels. Valid values are `emerg`,
+        `alert`, `crit`, `err`,
+        `warning`, `notice`, `info`, and
+        `debug`. For example, setting
+        `"priority": "err"` collects entries at
+        `emerg` (0), `alert` (1), `crit`
+        (2), and `err` (3) levels, excluding `warning`,
+        `notice`, `info`, and
+        `debug`.
+
+      The following table shows the journal priority levels and their
+      numeric values.
+
+      | Priority  | Numeric Value | Description                       |
+      | --------- | ------------- | --------------------------------- |
+      | `emerg`   | 0             | System is unusable                |
+      | `alert`   | 1             | Action must be taken immediately  |
+      | `crit`    | 2             | Critical conditions               |
+      | `err`     | 3             | Error conditions                  |
+      | `warning` | 4             | Warning conditions                |
+      | `notice`  | 5             | Normal but significant conditions |
+      | `info`    | 6             | Informational messages            |
+      | `debug`   | 7             | Debug-level messages              |
+      - `matches` – Optional. Specifies an array of
+        journal field match objects to filter journal entries by metadata fields.
+        Each object in the array represents a set of conditions. Fields within
+        a single object are AND'd together, while separate objects in the array
+        are OR'd against each other. If you include
+        this field, the agent collects journal entries that match any one of
+        the specified objects. If you omit this field, the agent applies no
+        field-level filtering.
+
+      For example, specifying
+      `[{"_UID": "0"}]` collects only journal entries from the
+      root user. Specifying `[{"_SYSTEMD_UNIT": "sshd.service"}, {"_SYSTEMD_UNIT": "kubelet.service", "_UID": "1000"}]` collects entries from the SSH daemon OR entries from kubelet that are also from UID 1000. You can combine `matches` with
+      `units` and `priority` for compound
+      filtering.
+
+      ###### Note
+
+      Journal field names are case-sensitive and typically use uppercase
+      with an underscore prefix for trusted fields set by the journal (for
+      example, `_UID`, `_PID`,
+      `_SYSTEMD_UNIT`). User-defined fields do not have the
+      underscore prefix.
+      - `filters` – Optional. Contains an array of
+        entries. Each entry specifies a regular expression and a filter type to
+        specify whether to publish or drop the log entries that match the
+        filter. If you include this field, the agent processes each log message
+        with all filters you specify, and only the log events that
+        pass all filters are published to CloudWatch Logs. The journald logs that don't
+        pass all of the filters are dropped and not sent to CloudWatch Logs. The filters
+        section can also be used with other filtering mechanisms like
+        `units` and `priority` to effectively filter
+        logs and push to CloudWatch.
+
+      Each entry in the filters array can include the following
+      fields:
+
+            + `type` – Specifies the type of filter. Valid
+             values are `include` and `exclude`. With
+             `include`, the journald entry must match the expression
+             to be published to CloudWatch Logs. With `exclude`, each journald
+             log entry that matches the filter is not sent to CloudWatch Logs.
+            + `expression` – A regular expression string
+             that follows the RE2 Syntax.
+
+
+            ###### Note
+
+            The CloudWatch agent does not validate regular expressions that you
+             provide. It also does not limit their evaluation time. Write your
+             expressions carefully to avoid performance issues. For more
+             information about security risks, see [Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS "https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS").
+
+
+            ###### Note
+
+            The order of the filters in the configuration will impact the
+             performance. For optimal performance, order filters from highest
+             to lowest exclusion rate.
+      - `retention_in_days` – Optional. Specifies the
+        number of days to retain the log events in the specified log group. If
+        the agent is creating this log group now, and you omit this field, the
+        retention of this new log group is set to never expire. If this log
+        group already exists and you specify this field, the new retention that
+        you specify is used. If you omit this field for a log group that
+        already exists, the log group's retention is not changed.
+
+      Valid values are 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365,
+      400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.
+
+      ###### Note
+
+      The agent's IAM role or IAM user must have the
+      `logs:PutRetentionPolicy` for it to be able to set
+      retention policies.
+
+      ###### Warning
+
+      If you set `retention_in_days` for a log group that
+      already exists, all logs in that log group that were published before
+      the number of days that you specify are deleted. For example, setting
+      it to 3 would cause all logs from 3 days ago and before to be
+      deleted.
+      - `log_group_name` – Required. Specifies what to use
+        as the log group name in CloudWatch Logs. You can use
+        `{instance_id}`, `{hostname}`,
+        `{local_hostname}`, and `{ip_address}` as
+        variables within the name. `{hostname}` retrieves the
+        hostname from the EC2 metadata, and `{local_hostname}` uses
+        the hostname from the network configuration file.
+      - `log_stream_name` – Optional. Specifies what to
+        use as the log stream name in CloudWatch Logs. As part of the name, you can use
+        `{instance_id}`, `{hostname}`,
+        `{local_hostname}`, and `{ip_address}` as
+        variables within the name. If you omit this field, the value of the
+        `log_stream_name` parameter in the global `logs`
+        section is used. If that is also omitted, the default value of
+        `{instance_id}` is used.
+
+  ###### Note
+
+  SELinux support requires the [amazon-cloudwatch-agent-selinux](https://github.com/aws/amazon-cloudwatch-agent-selinux "https://github.com/aws/amazon-cloudwatch-agent-selinux") policy version
+  `1.1.0` or newer.
+
+  ###### Note
+
+  Running the agent as any user other than root requires the user to be
+  added to the `systemd-journal` group to read the journal.
+  On restart, the agent resumes from the last collected journal entry and
+  does not collect historical data.
+
+  In the following example agent configuration:
+
+        - For the first entry, the agent collects all journal logs without any
+         filtering and sends them to the `journald-all-logs` log
+         group.
+        - In the second entry, the agent collects only logs from the
+         `sshd` systemd unit.
+        - In the third entry, the agent collects journal entries at
+         `err` priority and above.
+        - In the fourth entry, the agent uses compound filtering to collect logs
+         from the `systemd-logind` unit that are also from the root user
+         (`_UID` of `0`).
+        - For the last entry, the agent collects journald logs from the
+         `sshd` service and applies layered regex filtering.
+
+  ```
+  "journald": {
+      "collect_list": [
+          {
+              "log_group_name": "journald-all-logs",
+              "log_stream_name": "{instance_id}",
+              "retention_in_days": 7
+          },
+          {
+              "log_group_name": "journald-sshd",
+              "log_stream_name": "{instance_id}",
+              "units": ["sshd"],
+              "retention_in_days": 7
+          },
+          {
+              "log_group_name": "journald-errors",
+              "log_stream_name": "{instance_id}",
+              "priority": "err",
+              "retention_in_days": 7
+          },
+          {
+              "log_group_name": "journald-root-logind",
+              "log_stream_name": "{instance_id}",
+              "units": ["systemd-logind"],
+              "matches": [{"_UID": "0"}],
+              "retention_in_days": 7
+          },
+          {
+              "log_group_name": "journald-filters",
+              "log_stream_name": "{instance_id}",
+              "units": ["sshd"],
+              "filters": [
+                  {
+                      "type": "include",
+                      "expression": ".*user.*"
+                  },
+                  {
+                      "type": "exclude",
+                      "expression": ".*successful.*"
+                  }
+              ],
+              "retention_in_days": 7
+          }
+      ]
+  }
+  ```
+
+  ###### Note
+
+  When you combine `units`, `priority`, and
+  `matches` filters in a single entry, all filters are applied
+  together. A journal entry must satisfy all specified filters to be collected
+  and sent to CloudWatch Logs.
+
 - `log_stream_name` – Optional. Specifies the default log stream
   name to be used for any logs or Windows events that don't have individual log stream
   names defined in the `log_stream_name` parameter within their entry in
@@ -1931,8 +2160,165 @@ configuration file.
   `true`, sends traces to X-Ray in the OpenTelemetry Protocol format,
   which supports span events in Transaction Search. For more information, see [Adding custom attributes](CloudWatch-Transaction-Search-add-custom-attributes.md "CloudWatch-Transaction-Search-add-custom-attributes.md"). The default
   is `false`.
-  The following is an example of a complete CloudWatch agent configuration file for a Linux
-  server.
+  The `opentelemetry` section can include the following fields:
+
+- `cluster_name` – Optional. Specifies the name of the
+  Kubernetes cluster. The agent applies this value to all telemetry collected under the
+  `opentelemetry` section.
+- `resource_attributes` – Optional. Specifies additional
+  resource attributes to add to every metric, log, and trace collected under the
+  `opentelemetry` section. This field is an object of string key-value
+  pairs. You can specify up to 30 attributes. The maximum length of each value is 1024
+  characters. For attributes that the agent detects automatically, such as
+  `cloud.region`, `host.id`, and `cloud.provider`,
+  the detected value takes precedence. Use this field for attributes that the agent
+  does not detect on its own.
+- `collect` – Required. Specifies which telemetry sources the
+  agent collects. You must include at least one of the following fields:
+
+  - `otlp` – Optional. Specifies that the agent receives
+    metrics, traces, and logs sent to it over the OpenTelemetry Protocol (OTLP).
+    This section can include the following fields:
+
+    - `grpc_endpoint` – Optional. Specifies the address the
+      agent uses to listen for OTLP data sent using gRPC. The format is
+      `ip:port`. This address must match the address set for the gRPC
+      exporter in the OpenTelemetry SDK. If you omit this field, the agent uses the default
+      `127.0.0.1:4317`. In a containerized deployment, set
+      this to `0.0.0.0:4317` so the agent accepts traffic from other
+      pods.
+    - `http_endpoint` – Optional. Specifies the address the
+      agent uses to listen for OTLP data sent over HTTP. The format is
+      `ip:port`. This address must match the address set for the HTTP
+      exporter in the OpenTelemetry SDK. If you omit this field, the agent uses the default
+      `127.0.0.1:4318`. In a containerized deployment, set
+      this to `0.0.0.0:4318` so the agent accepts traffic from other
+      pods.
+    - `span_metrics_enabled` – Optional. If
+      `true`, the agent derives request, error, and duration metrics
+      from received traces. The default value is `false`.
+
+  - `files` – Optional. Specifies that the agent collects log
+    files from the host. It contains one field, `collect_list`.
+
+    - `collect_list` – Required if `files` is
+      included. Contains an array of entries, each of which specifies one set of
+      log files to collect. The array must contain at least one entry. Each entry
+      can include the following fields:
+
+      - `file_path` – Required. Specifies the path or glob
+        pattern of the log files to collect. The maximum length is 4096
+        characters.
+      - `log_group_name` – Optional. Specifies the log
+        group name to use in CloudWatch Logs. The maximum length is 512 characters. You
+        can use `{instance_id}`, `{hostname}`,
+        `{local_hostname}`, and `{ip_address}` as
+        variables within the name. If you omit this field, the agent uses
+        `/aws/cwagent/files`. On Kubernetes, the agent includes the cluster name, as in `/aws/cwagent/{cluster_name}/files`.
+      - `log_stream_name` – Optional. Specifies the log
+        stream name to use in CloudWatch Logs. The maximum length is 512 characters. This
+        field supports the same variables as `log_group_name`. If you
+        omit this field, the agent uses the host identifier and the log file
+        name, separated by a slash (for example,
+        `i-0123456789abcdef0/app.log`).
+      - `multi_line_start_pattern` – Optional. Specifies a
+        regular expression that marks the start of a new log entry. The agent appends lines that
+        don't match the pattern to the previous entry. Specify the
+        value `{timestamp_format}` to derive the pattern from
+        `timestamp_format`.
+      - `timestamp_format` – Optional. Specifies the
+        format used to parse timestamps from log lines. For example,
+        `%Y-%m-%d %H:%M:%S`.
+      - `timezone` – Optional. Specifies the time zone to
+        use when parsing timestamps. Valid values are `UTC` and
+        `Local`. The default value is `Local`.
+      - `encoding` – Optional. Specifies the encoding of
+        the log files. If you omit this field, the agent uses the default
+        `utf-8`.
+
+  - `windows_events` – Optional. Specifies that the agent
+    collects events from the Windows Event Log. This source is available only on
+    servers running Windows Server. It contains one field,
+    `collect_list`.
+
+    - `collect_list` – Required if
+      `windows_events` is included. Contains an array of entries,
+      each of which specifies one Windows Event Log channel to collect. The array
+      must contain at least one entry. Each entry can include the following
+      fields:
+
+      - `event_name` – Required. Specifies the Windows
+        Event Log channel to collect from, such as `System` or
+        `Application`. The maximum length is 255 characters.
+      - `event_levels` – Optional. Specifies the event
+        severity levels to collect. Valid values are `CRITICAL`,
+        `ERROR`, `WARNING`, `INFORMATION`, and
+        `VERBOSE`. If you omit this field, the agent collects events of all levels.
+      - `event_ids` – Optional. Specifies a list of
+        specific event IDs to collect. Each ID must be between 0 and
+      65535.
+      - `event_format` – Optional. Specifies the output
+        format. Valid values are `xml`, which sends the raw XML of the
+        event, and `text`, which sends a structured representation. If
+        you omit this field, the agent uses `text`.
+      - `log_group_name` – Optional. Specifies the log
+        group name to use in CloudWatch Logs. The maximum length is 512 characters. If you
+        omit this field, the agent uses
+        `/aws/cwagent/windows_events`.
+      - `log_stream_name` – Optional. Specifies the log
+        stream name to use in CloudWatch Logs. The maximum length is 512 characters. If you
+        omit this field, the agent uses the host identifier and the event channel
+        name, separated by a slash.
+
+  - `host_metrics` – Optional. Specifies that the agent
+    collects host-level system metrics. This section can include the following
+    field:
+
+    - `collection_interval` – Optional. Specifies how often
+      the agent collects the metrics, in seconds. If you omit this field, the agent uses
+      the `metrics_collection_interval` value from the
+      `agent` section, or 30 seconds if that is also omitted.
+
+  - `prometheus` – Optional. Specifies that the agent scrapes
+    metrics from Prometheus targets. This section can include the following
+    field:
+
+    - `config_path` – Required. Specifies the path to the
+      Prometheus scrape configuration file.
+
+###### Note
+
+Make sure Transaction Search is enabled before you send traces to the OTLP traces
+endpoint.
+
+The following is an example of an `opentelemetry` section that collects
+OTLP telemetry and a log file.
+
+```
+"opentelemetry": {
+  "collect": {
+    "otlp": {
+      "grpc_endpoint": "0.0.0.0:4317",
+      "http_endpoint": "0.0.0.0:4318",
+      "span_metrics_enabled": true
+    },
+    "files": {
+      "collect_list": [
+        {
+          "file_path": "/var/log/app/*.log",
+          "log_group_name": "/app/{instance_id}",
+          "log_stream_name": "{hostname}",
+          "timestamp_format": "%Y-%m-%d %H:%M:%S",
+          "timezone": "UTC"
+        }
+      ]
+    }
+  }
+}
+```
+
+The following is an example of a complete CloudWatch agent configuration file for a Linux
+server.
 
 The items listed in the `measurement` sections for the metrics you want
 to collect can either specify the complete metric name such or just the part of the

@@ -21,7 +21,7 @@ You can specify multiple instance IDs separated by commas.
 
 After the installation completes, activate the agent so it begins sending performance metrics to the Network Flow Monitor backend.
 Activating the agent incurs billing costs. For more information about pricing, see the
-[Amazon CloudWatch pricing](https://aws.amazon.com//cloudwatch/pricing/ "https://aws.amazon.com//cloudwatch/pricing/") page.
+[Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") page.
 
 ```
 aws ssm send-command --document-name "AmazonCloudWatch-NetworkFlowMonitorManageAgent" \

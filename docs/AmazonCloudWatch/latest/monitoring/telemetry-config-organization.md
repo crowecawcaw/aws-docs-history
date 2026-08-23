@@ -4,8 +4,13 @@ To turn on telemetry configuration for your organization, you must use a AWS
 Organization management account or a delegated administrator account. CloudWatch uses this account
 to discover your organization's AWS resources and configure their telemetry.
 
-Before you can configure telemetry for your organization, you need to enable trusted
-access between AWS Organizations and CloudWatch. For more information, see [Prerequisites and permissions](telemetry-config-turn-on.md#telemetry-config-prerequisites "telemetry-config-turn-on.md#telemetry-config-prerequisites").
+When you turn on telemetry configuration from a management account, CloudWatch automatically
+sets up trusted access between AWS Organizations and CloudWatch, including creating the required
+service-linked role. You do not need to enable trusted access manually as a separate step.
+CloudWatch uses your own IAM permissions to perform this setup. You must be allowed to perform
+`iam:CreateServiceLinkedRole` and
+`organizations:EnableAWSServiceAccess`. For more information about permissions,
+see [Prerequisites and permissions](telemetry-config-turn-on.md#telemetry-config-prerequisites "telemetry-config-turn-on.md#telemetry-config-prerequisites").
 
 ###### To turn on telemetry auditing for your organization
 
@@ -14,14 +19,12 @@ access between AWS Organizations and CloudWatch. For more information, see [Prer
 2. In the navigation pane, choose **Settings**.
 3. Choose the **Organizations** tab.
 4. On the **CloudWatch** settings page, in the **Organizational
-   settings management** pane, choose **Turn on trusted access**.
-   The **Turn on trusted access** page appears.
+   settings management** pane, choose **Turn on**.
+   CloudWatch automatically enables trusted access and creates the
+   **AWSServiceRoleForObservabilityAdmin** service-linked role in your
+   organization.
 
-To review the role policy, choose **View permission details** and
-the role policy appears in a window. Confirm that you want to provide these permissions to
-the management account by choosing **Turn on trusted access**. 5. Under **Manage Settings**, in the **Organizations
-tab** in the **CloudWatch Telemetry Config** block choose
-**Turn on**. 6. After Telemetry config is turned on for the organization, a notification appears. On
+To review the role policy, choose **View permission details**. 5. After Telemetry config is turned on for the organization, a notification appears. On
 the notification, choose Go to Telemetry config. The Telemetry Configuration experience
 can be accessed in the **Ingestion** page and CloudWatch begins discovering
 AWS resources in the organization. As CloudWatch discovers resources, it updates information
