@@ -88,7 +88,66 @@ aws athena start-session \
    --engine-configuration "$ENGINE_CONFIGURATION_JSON"
 ```
 
+For Apache Spark version 3.5 sessions, you enable encryption by specifying the
+same encryption properties in the `Classifications` element of the engine
+configuration instead of in the `SparkProperties` element. The
+encryption behavior is identical to earlier versions: Athena encrypts data in
+transit between Spark nodes and data at rest stored locally by Spark, using AES
+256-bit encryption with the `HmacSHA384` algorithm. Use a command like
+the following, in which the classification `Name` must be
+`spark-defaults`.
+
+```
+aws athena start-session \
+   --region "`region`" \
+   --work-group "`your-work-group`" \
+   --engine-configuration '{
+       "Classifications": [{
+           "Name": "spark-defaults",
+           "Properties": {
+               "spark.authenticate": "true",
+               "spark.io.encryption.enabled": "true",
+               "spark.network.crypto.enabled": "true"
+           }
+       }]
+   }'
+```
+
+You can also enable Spark encryption when you create a work group. Specify the same
+encryption properties in the `Classifications` element of the
+`EngineConfiguration` in the work group configuration, as in the
+following example. Sessions that you later start in this work group inherit the
+encryption configuration.
+
+```
+aws athena create-work-group \
+   --region "`region`" \
+   --name "`your-work-group`" \
+   --configuration '{
+       "EngineVersion": {
+           "SelectedEngineVersion": "Apache Spark version 3.5"
+       },
+       "ExecutionRole": "`execution-role`",
+       "EngineConfiguration": {
+           "Classifications": [{
+               "Name": "spark-defaults",
+               "Properties": {
+                   "spark.authenticate": "true",
+                   "spark.io.encryption.enabled": "true",
+                   "spark.network.crypto.enabled": "true"
+               }
+           }]
+       }
+   }'
+```
+
 To enable Spark encryption with the Athena API, use the [StartSession](../APIReference/API_StartSession.md "../APIReference/API_StartSession.md")
 action and its [EngineConfiguration](../APIReference/API_EngineConfiguration.md "../APIReference/API_EngineConfiguration.md")
 `SparkProperties` parameter to specify the encryption configuration in
 your `StartSession` request.
+
+For Apache Spark version 3.5 sessions, use the `StartSession` action
+with the `EngineConfiguration`
+`Classifications` parameter, instead of `SparkProperties`, to
+specify the encryption properties. The classification name must be
+`spark-defaults`.

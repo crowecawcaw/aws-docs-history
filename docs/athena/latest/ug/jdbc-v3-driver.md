@@ -21,6 +21,13 @@ driver.
   results stored in an Amazon S3 bucket. If you require `CSE_KMS`
   encryption, you can continue to use the streaming fetcher. Support for
   `CSE_KMS` encryption with the Amazon S3 fetcher is planned.
+- Table types – The
+  `DatabaseMetaData.getTables` method reports Athena external and
+  federated tables as the JDBC table type `TABLE`. It reports Athena
+  views as `VIEW`. When you pass a table-type filter to
+  `getTables`, use the JDBC names `TABLE` and
+  `VIEW`. Do not use Athena table-type names such as
+  `EXTERNAL_TABLE` or `VIRTUAL_VIEW`.
 
 ## JDBC 3.x driver download
 

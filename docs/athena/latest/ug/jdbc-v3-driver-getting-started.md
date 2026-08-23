@@ -17,11 +17,15 @@ client.
 
 ### In a custom application
 
-Download the `.zip` file that contains the driver jar and its
-dependencies. Each dependency has its own `.jar` file. Add the
-driver jar as a dependency in your custom application. Selectively add the
-dependencies of the driver jar based on whether you have already added those
-dependencies to your application from another source.
+Download the `.zip` file that contains the driver and its
+dependencies. Add the driver `.jar` file and every other
+`.jar` file in the
+`runtime-dependencies` directory to your custom application's
+Java classpath. Only omit a `.jar` file if your application
+already provides a compatible version of that dependency. The
+`AthenaStreamingJavaClient-2.0.jar` file provides the
+`software.amazon.awssdk.services.athenastreaming.AthenaStreamingAsyncClient`
+class. Include this file unless your application already provides that class.
 
 ### In a third-party SQL client
 
@@ -146,6 +150,25 @@ deprecated. To avoid undefined behaviors, version 3 does not accept connection
 strings that start with `jdbc:awsathena://` if version 2 (or any other
 driver that accepts connection strings that start with
 `jdbc:awsathena://`) has been registered with the [DriverManager](https://docs.oracle.com/javase/8/docs/api/java/sql/DriverManager.html "https://docs.oracle.com/javase/8/docs/api/java/sql/DriverManager.html") class.
+
+### String column metadata
+
+With the JDBC 3.x driver, you can no longer use the
+JDBC 2.x `StringColumnLength` connection parameter.
+Instead, you can access the precision that Athena supplies through standard
+JDBC metadata methods,
+including `ResultSetMetaData.getPrecision` and
+`ResultSetMetaData.getColumnDisplaySize`. Because the Athena
+`string` type is unbounded, its reported precision can be
+`2147483647`.
+
+If your application allocates fixed-size buffers from
+JDBC metadata, configure it to use variable-size buffers. If your
+application requires bounded column metadata,
+cast the column to `varchar(`n`)` in the query or
+expose the cast through a view. Choose a value for
+`n` that preserves all expected data because casting to
+a smaller size can truncate values.
 
 ### Credentials providers
 
