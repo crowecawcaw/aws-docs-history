@@ -23,7 +23,7 @@ export AWS_PROFILE='`aws-user`'
 
 read -d '' `batch_operations_trust_policy` <<EOF
 {
-  "Version": "2012-10-17",TCX5-2025-waiver;,
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -55,7 +55,7 @@ In this step, you allow the role to do the following:
 ```
 read -d '' `batch_operations_permissions` <<EOF
 {
-    "Version": "2012-10-17",TCX5-2025-waiver;,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",

@@ -43,7 +43,7 @@ bucket types.
 **Built-in support for Apache
 Iceberg**
 
-Tables in your table buckets are stored in [Apache Iceberg](https://aws.amazon.com//what-is/apache-iceberg/ "https://aws.amazon.com//what-is/apache-iceberg/")
+Tables in your table buckets are stored in [Apache Iceberg](https://aws.amazon.com/what-is/apache-iceberg/ "https://aws.amazon.com/what-is/apache-iceberg/")
 format. You can query these tables using standard SQL in query engines that
 support Iceberg. Iceberg has a variety of
 features to optimize query performance, including schema evolution and

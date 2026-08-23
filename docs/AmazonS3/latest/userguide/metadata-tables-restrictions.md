@@ -80,3 +80,5 @@ S3 Metadata is currently available in the following AWS Regions:
 | US West (Oregon)          | `us-west-2`      |
 | China (Beijing)           | `cn-north-1`     |
 | China (Ningxia)           | `cn-northwest-1` |
+| AWS GovCloud (US-East)    | `us-gov-east-1`  |
+| AWS GovCloud (US-West)    | `us-gov-west-1`  |

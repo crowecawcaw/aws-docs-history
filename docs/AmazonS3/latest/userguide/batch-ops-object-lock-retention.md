@@ -22,7 +22,7 @@ export AWS_PROFILE='`aws-user`'
 
 read -d '' `retention_permissions` <<EOF
 {
-    "Version": "2012-10-17",TCX5-2025-waiver;,
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",

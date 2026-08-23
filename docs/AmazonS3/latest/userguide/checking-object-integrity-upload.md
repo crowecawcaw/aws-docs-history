@@ -111,16 +111,17 @@ In Amazon S3, there are two types of supported checksums:
 
 ###### Note
 
-All PUT requests require a full object checksum type. You must specify a
-full object checksum type if you're uploading your object through PUT
-request.
+Objects that you upload using [`PutObject`](../API/API_PutObject.md#API_PutObject "../API/API_PutObject.md#API_PutObject") use the full object checksum type. You
+do not need to specify a checksum type.
 
 - **Composite checksums:** A composite checksum is
   calculated based on the individual checksums of each part in a multipart upload. Instead of
   computing a checksum based on all of the data content, this approach aggregates
   the part-level checksums (from the first part to the last) to produce a single,
-  combined checksum for the complete object. If you're using a multipart upload to upload
-  your object, then you must specify the composite checksum type.
+  combined checksum for the complete object. You may only use the composite
+  checksum type with certain checksum algorithms and only when using a multipart upload to
+  upload your object. For the algorithms that support each checksum type, see the
+  [Multipart uploads](#MultipartUploads-Checksums "#MultipartUploads-Checksums") section.
 
 ###### Note
 
@@ -132,24 +133,6 @@ bytes for the MD5 digests together and then calculates the MD5 digest of
 these concatenated values. During the final ETag creation step,
 Amazon S3 adds a dash with the total number of parts to the
 end.
-
-Amazon S3 supports the following full object and composite checksum algorithm types:
-
-- CRC-64/NVME (`CRC64NVME`): Supports the full object checksum type
-  only.
-- CRC-32 (`CRC32`): Supports both full object and composite checksum
-  types.
-- CRC-32C (`CRC32C`): Supports both full object and composite
-  checksum types.
-- SHA-1 (`SHA1`): Supports both full object and composite checksum
-  types.
-- SHA-256 (`SHA256`): Supports both full object and composite
-  checksum types.
-- MD5 (`MD5`): Supports composite checksum type only (non-linearizable).
-- XXHash64 (`XXHASH64`): Supports composite checksum type only (non-linearizable).
-- XXHash3 (`XXHASH3`): Supports composite checksum type only (non-linearizable).
-- XXHash128 (`XXHASH128`): Supports composite checksum type only (non-linearizable).
-- SHA-512 (`SHA512`): Supports composite checksum type only (non-linearizable).
 
 ### Single part uploads
 

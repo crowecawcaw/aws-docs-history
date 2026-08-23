@@ -271,7 +271,7 @@ your account ID.
        {
          "ActorPolicy":
              {
-                "Version": "2012-10-17",TCX5-2025-waiver;,
+                "Version": "2012-10-17",
                     "Statement":
                     [
                         {
