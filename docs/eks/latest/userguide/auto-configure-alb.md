@@ -241,13 +241,17 @@ The following tables provide a detailed comparison of changes in IngressClassPar
 
 ### Ingress annotations
 
-| Previous                                    | New           | Description                                    |
-| ------------------------------------------- | ------------- | ---------------------------------------------- |
-| `kubernetes.io/ingress.class`               | Not supported | Use `spec.ingressClassName` on Ingress objects |
-| `alb.ingress.kubernetes.io/group.name`      | Not supported | Specify groups in IngressClass only            |
-| `alb.ingress.kubernetes.io/waf-acl-id`      | Not supported | Use WAF v2 instead                             |
-| `alb.ingress.kubernetes.io/web-acl-id`      | Not supported | Use WAF v2 instead                             |
-| `alb.ingress.kubernetes.io/auth-type: oidc` | Not supported | OIDC Auth Type is currently not supported      |
+| Previous                                    | New           | Description                                         |
+| ------------------------------------------- | ------------- | --------------------------------------------------- |
+| `kubernetes.io/ingress.class`               | Not supported | Use `spec.ingressClassName` on Ingress objects      |
+| `alb.ingress.kubernetes.io/group.name`      | Not supported | Specify groups in IngressClass only                 |
+| `alb.ingress.kubernetes.io/waf-acl-id`      | Not supported | Use WAF v2 instead                                  |
+| `alb.ingress.kubernetes.io/web-acl-id`      | Not supported | Use WAF v2 instead                                  |
+| `alb.ingress.kubernetes.io/wafv2-acl-name`  | Not supported | Upcoming soon                                       |
+| `alb.ingress.kubernetes.io/dry-run-plan`    | Not supported | Dry-run plan is currently not supported             |
+| `alb.ingress.kubernetes.io/create-acm-cert` | Not supported | ACM certificate creation is currently not supported |
+| `alb.ingress.kubernetes.io/acm-pca-arn`     | Not supported | ACM PCA ARN is currently not supported              |
+| `alb.ingress.kubernetes.io/auth-type: oidc` | Not supported | OIDC Auth Type is currently not supported           |
 
 ### TargetGroupBinding
 

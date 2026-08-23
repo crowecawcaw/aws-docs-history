@@ -46,6 +46,17 @@ Create an interface endpoint for Amazon EKS using the following service names:
 
 This endpoint has access-control behavior that differs from the EKS API endpoints. For more information, see [Access the cluster OIDC endpoint using AWS PrivateLink](#oidc-vpc-interface-endpoints "#oidc-vpc-interface-endpoints").
 
+### EKS console resource views
+
+- com.amazonaws.region-code.eks-proxy
+
+This endpoint service backs cluster resource views in AWS consoles. It is consumed by AWS-managed consoles and services, not called directly by your applications (there is no public SDK or CLI). Create this endpoint when your VPC has no internet egress, or when you override the `eks.region-code.amazonaws.com` zone in a private hosted zone. It is required in those cases for console resource views to work.
+
+This endpoint registers two private DNS names:
+
+- `eks-proxy.region-code.api.aws` (dual-stack)
+- `eks-proxy.eks.region-code.amazonaws.com` (IPv4; use this on IPv4-only networks)
+
 ## Private DNS feature for Amazon EKS interface endpoints
 
 The private DNS feature, enabled by default for interface endpoints of Amazon EKS and other AWS services, facilitates secure and private API requests using default Regional DNS names. This feature ensures that API calls are routed through the interface endpoint over the private AWS network, enhancing security and performance.

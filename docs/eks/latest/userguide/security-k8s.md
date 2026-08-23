@@ -9,6 +9,7 @@ The following are considerations for security in the cloud, as they affect Kuber
 ###### Topics
 
 - [Secure workloads with Kubernetes certificates](cert-signing.md "cert-signing.md")
+- [Rotate the EKS cluster certificate authority (CA)](certificate-authority-rotation.md "certificate-authority-rotation.md")
 - [Understand Amazon EKS created RBAC roles and users](default-roles-users.md "default-roles-users.md")
 - [Encrypt Kubernetes secrets with KMS on existing clusters](enable-kms.md "enable-kms.md")
 - [Use AWS Secrets Manager secrets with Amazon EKS Pods](manage-secrets.md "manage-secrets.md")

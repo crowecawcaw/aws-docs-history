@@ -14,6 +14,7 @@ You can delete a cluster with `eksctl`, the AWS Management Console, or the AWS C
 - Amazon Managed Service for Prometheus resources are outside of the cluster lifecycle and need to be maintained independent of the cluster. When you delete your cluster, make sure to also delete any applicable scrapers to stop applicable costs. For more information, see [Find and delete scrapers](../../../prometheus/latest/userguide/AMP-collector-how-to.md#AMP-collector-list-delete "../../../prometheus/latest/userguide/AMP-collector-how-to.md#AMP-collector-list-delete") in the _Amazon Managed Service for Prometheus User Guide_.
 - To remove a connected cluster, see [Deregister a Kubernetes cluster from the Amazon EKS console](deregister-connected-cluster.md "deregister-connected-cluster.md")
 - Before you can delete a cluster, make sure deletion protection is disabled for your cluster.
+- If your cluster has any EKS Capabilities (ACK, Argo CD, or kro), you must delete them before you can delete the cluster. For more information, see [Delete a capability](working-with-capabilities.md#capabilities-delete "working-with-capabilities.md#capabilities-delete").
 
 ### Considerations for EKS Auto Mode
 
@@ -78,7 +79,7 @@ Output:
 
 ## Delete cluster (AWS console)
 
-1. Go through the [prerequisite steps](#prerequisite-steps "#prerequisite-steps"). After doing so, delete all node groups and Fargate profiles.
+1. Go through the [prerequisite steps](#prerequisite-steps "#prerequisite-steps"). After doing so, delete all node groups, Fargate profiles, and capabilities.
 
    1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. In the left navigation pane, choose Amazon EKS **Clusters**, and then in the tabbed list of clusters, choose the name of the cluster that you want to delete.
@@ -86,7 +87,7 @@ Output:
 
    ###### Note
 
-   The node groups listed are [managed node groups](managed-node-groups.md "managed-node-groups.md") only. 4. Choose a **Fargate Profile** to delete, select **Delete**, enter the name of the profile, and then choose **Delete**. Delete all Fargate profiles in the cluster.
+   The node groups listed are [managed node groups](managed-node-groups.md "managed-node-groups.md") only. 4. Choose a **Fargate Profile** to delete, select **Delete**, enter the name of the profile, and then choose **Delete**. Delete all Fargate profiles in the cluster. 5. Choose the **Capabilities** tab and choose a capability to delete. Choose **Delete capability**, enter the name of the capability, and then choose **Delete**. Delete all capabilities in the cluster. For more information, see [Delete a capability](working-with-capabilities.md#capabilities-delete "working-with-capabilities.md#capabilities-delete").
 
 2. Delete all [self-managed node AWS CloudFormation stacks](worker.md "worker.md").
 
@@ -108,7 +109,7 @@ Output:
 
 ## Delete cluster (AWS CLI)
 
-1. Go through the [prerequisite steps](#prerequisite-steps "#prerequisite-steps"). After doing so, delete all node groups and Fargate profiles.
+1. Go through the [prerequisite steps](#prerequisite-steps "#prerequisite-steps"). After doing so, delete all node groups, Fargate profiles, and capabilities.
 
    1. List the node groups in your cluster with the following command.
 
@@ -132,6 +133,16 @@ Output:
 
    ```
    aws eks delete-fargate-profile --fargate-profile-name my-fargate-profile --cluster-name my-cluster
+   ```
+   5. List the capabilities on your cluster with the following command.
+
+   ```
+   aws eks list-capabilities --cluster-name my-cluster
+   ```
+   6. Delete each capability with the following command. Delete all capabilities in the cluster. For more information, see [Delete a capability](working-with-capabilities.md#capabilities-delete "working-with-capabilities.md#capabilities-delete").
+
+   ```
+   aws eks delete-capability --cluster-name my-cluster --capability-name my-capability-name
    ```
 
 2. Delete all [self-managed node AWS CloudFormation stacks](worker.md "worker.md").
