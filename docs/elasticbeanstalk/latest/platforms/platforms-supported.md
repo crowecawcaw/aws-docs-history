@@ -132,27 +132,27 @@ Elastic Beanstalk supports the following .NET on Windows Server platform version
 
 | Platform Version                                          | Solution Stack Name                                       | Framework                                                                                 | Proxy Server |
 | --------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| **Windows Server 2025 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2025 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2025 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2022 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2022 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2022 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
-| **Windows Server 2019 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2019 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2019 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2016 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2016 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2025 with IIS 10.0 version 2.23.4**      | _64bit Windows Server 2025 v2.23.4 running IIS 10.0_      | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.4** | _64bit Windows Server Core 2025 v2.23.4 running IIS 10.0_ | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.4**      | _64bit Windows Server 2022 v2.23.4 running IIS 10.0_      | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.4** | _64bit Windows Server Core 2022 v2.23.4 running IIS 10.0_ | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.4**      | _64bit Windows Server 2019 v2.23.4 running IIS 10.0_      | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.4** | _64bit Windows Server Core 2019 v2.23.4 running IIS 10.0_ | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.4**      | _64bit Windows Server 2016 v2.23.4 running IIS 10.0_      | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.4** | _64bit Windows Server Core 2016 v2.23.4 running IIS 10.0_ | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
 
 ### More details
 
 | Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2025 with IIS 10.0 version 2.23.3**      | 2026.07.15  |                  | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server Core 2025 with IIS 10.0 version 2.23.3** | 2026.07.15  |                  | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server 2022 with IIS 10.0 version 2.23.3**      | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server Core 2022 with IIS 10.0 version 2.23.3** | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server 2019 with IIS 10.0 version 2.23.3**      | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.23.3** | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server 2016 with IIS 10.0 version 2.23.3**      | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.23.3** | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server 2025 with IIS 10.0 version 2.23.4**      | 2026.08.12  |                  | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.23.4** | 2026.08.12  |                  | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server 2022 with IIS 10.0 version 2.23.4**      | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.23.4** | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server 2019 with IIS 10.0 version 2.23.4**      | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.23.4** | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.4**      | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.4** | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
 
 ## Node.js
 
@@ -167,7 +167,6 @@ Elastic Beanstalk supports the following Node.js platform versions.
 | -------------------------------------------------------------------------------------------- | ---------------- | ---------------------------------------------- | ------------------------------------- | ------ | --------- |
 | **Node.js 24 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 24_ | 2023.12.20260803 | 24.19.0 (11.17.0)<br>Default version: v24.19.0 | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     |
 | **Node.js 22 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 22_ | 2023.12.20260803 | 22.23.2 (10.9.8)<br>Default version: v22.23.2  | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     |
-| **Node.js 20 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 20_ | 2023.12.20260803 | 20.20.2 (10.8.2)<br>Default version: 20.20.2   | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
@@ -216,12 +215,8 @@ Elastic Beanstalk supports the following Python platform versions.
 | **Python 3.13 AL2023 version 4.13.6**<br>_64bit Amazon Linux 2023 v4.13.6 running Python 3.13_ | 2023.12.20260803 | Python 3.13.15 | pip 26.2.1, pipenv 2026.7.1 | 3.6.7     | nginx 1.30.4 (default), Apache 2.4.68 |
 | **Python 3.12 AL2023 version 4.13.6**<br>_64bit Amazon Linux 2023 v4.13.6 running Python 3.12_ | 2023.12.20260803 | Python 3.12.13 | pip 26.2.1, pipenv 2026.7.1 | 3.6.7     | nginx 1.30.4 (default), Apache 2.4.68 |
 | **Python 3.11 AL2023 version 4.13.6**<br>_64bit Amazon Linux 2023 v4.13.6 running Python 3.11_ | 2023.12.20260803 | Python 3.11.15 | pip 26.2.1, pipenv 2026.7.1 | 3.6.7     | nginx 1.30.4 (default), Apache 2.4.68 |
-| **Python 3.9 AL2023 version 4.13.6**<br>_64bit Amazon Linux 2023 v4.13.6 running Python 3.9_   | 2023.12.20260803 | Python 3.9.25  | pip 26.0.1, pipenv 2025.0.4 | 3.6.7     | nginx 1.30.4 (default), Apache 2.4.68 |
 
-For information about platform
-versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),
-see [Python](platforms-retiring.md#platforms-retiring.python "platforms-retiring.md#platforms-retiring.python") on the _Retiring Platform Versions_
-page. For information about previous platform versions, see [Python platform history](platform-history-python.md "platform-history-python.md").
+For information about previous platform versions, see [Python platform history](platform-history-python.md "platform-history-python.md").
 
 ## Ruby
 
@@ -232,7 +227,6 @@ Elastic Beanstalk supports the following Ruby platform versions.
 | **Ruby 4.0 AL2023 version 4.14.6**<br>_64bit Amazon Linux 2023 v4.14.6 running Ruby 4.0_ | 2023.12.20260803 | Ruby 4.0.6       | RubyGems 4.0.16 | Puma 8.0.2         | 3.6.7     | nginx 1.30.4 |
 | **Ruby 3.4 AL2023 version 4.14.6**<br>_64bit Amazon Linux 2023 v4.14.6 running Ruby 3.4_ | 2023.12.20260803 | Ruby 3.4.10-p104 | RubyGems 3.6.9  | Puma 8.0.2         | 3.6.7     | nginx 1.30.4 |
 | **Ruby 3.3 AL2023 version 4.14.6**<br>_64bit Amazon Linux 2023 v4.14.6 running Ruby 3.3_ | 2023.12.20260803 | Ruby 3.3.12-p206 | RubyGems 3.5.22 | Puma 8.0.2         | 3.6.7     | nginx 1.30.4 |
-| **Ruby 3.2 AL2023 version 4.14.6**<br>_64bit Amazon Linux 2023 v4.14.6 running Ruby 3.2_ | 2023.12.20260803 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 8.0.2         | 3.6.7     | nginx 1.30.4 |
 
 For information about platform
 versions scheduled for retirement as published in [Platform Support Policy](../dg/platforms-support-policy.md "../dg/platforms-support-policy.md"),

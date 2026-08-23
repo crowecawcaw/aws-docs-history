@@ -14,6 +14,13 @@ status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
 For more information, see
 [AL1 platform retirement FAQ](../dg/using-features.migration-al.FAQ.md "../dg/using-features.migration-al.FAQ.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
+###### Note
+
+On [August 6, 2026](../relnotes/release-2026-08-06-al2-08-2026-retire.md "../relnotes/release-2026-08-06-al2-08-2026-retire.md") Elastic Beanstalk set the
+status of all platform branches based on Amazon Linux 2 (AL2) to **retired**.
+For more information, see
+[Migrating your AWS Elastic Beanstalk Linux application from Amazon Linux 2 to Amazon Linux 2023](../dg/using-features.migration-al.generic.from-al2.md "../dg/using-features.migration-al.generic.from-al2.md") in the _AWS Elastic Beanstalk Developer Guide_.
+
 The following sections provide information about all retiring platform versions.
 
 ###### Topics
@@ -22,7 +29,6 @@ The following sections provide information about all retiring platform versions.
 - [.NET on Windows Server](#platforms-retiring.net "#platforms-retiring.net")
 - [Node.js](#platforms-retiring.nodejs "#platforms-retiring.nodejs")
 - [PHP](#platforms-retiring.PHP "#platforms-retiring.PHP")
-- [Python](#platforms-retiring.python "#platforms-retiring.python")
 - [Ruby](#platforms-retiring.ruby "#platforms-retiring.ruby")
 
 ## .NET Core on Linux
@@ -66,15 +72,15 @@ Elastic Beanstalk has scheduled the following .NET on Windows Server platform ve
 
 | Platform Version                                          | Solution Stack Name                                       | Framework                                                                               | Proxy Server | End Date   |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ | ---------- |
-| **Windows Server 2016 with IIS 10.0 version 2.23.3**      | _64bit Windows Server 2016 v2.23.3 running IIS 10.0_      | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0     | 2026-09-30 |
-| **Windows Server Core 2016 with IIS 10.0 version 2.23.3** | _64bit Windows Server Core 2016 v2.23.3 running IIS 10.0_ | .NET 10.0.10, supports 10.0.10, 9.0.18, 8.0.29<br>.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0     | 2026-09-30 |
+| **Windows Server 2016 with IIS 10.0 version 2.23.4**      | _64bit Windows Server 2016 v2.23.4 running IIS 10.0_      | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0     | 2026-09-30 |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.4** | _64bit Windows Server Core 2016 v2.23.4 running IIS 10.0_ | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br>.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0     | 2026-09-30 |
 
 ### More details
 
 | Platform Version                                          | AMI version | AWS SDK for .NET | EC2Launch | SSM Agent  | Web Deploy | AWS X-Ray |
 | --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
-| **Windows Server 2016 with IIS 10.0 version 2.23.3**      | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.23.3** | 2026.07.15  | 3.7.1252.1       | 2.5.1     | 3.3.4793.0 | 4.0        | 3.6.6     |
+| **Windows Server 2016 with IIS 10.0 version 2.23.4**      | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.23.4** | 2026.08.12  | 3.7.1252.1       | 2.5.2     | 3.3.4851.0 | 4.0        | 3.6.7     |
 
 For information about current platform versions, see [.NET on Windows Server](platforms-supported.md#platforms-supported.net "platforms-supported.md#platforms-supported.net").
 
@@ -85,7 +91,6 @@ Elastic Beanstalk has scheduled the following Node.js platform versions for reti
 | Platform Version and _Solution Stack Name_                                                   | AMI              | Node.js versions (npm versions)               | Proxy Server                          | Git    | AWS X-Ray | End Date   |
 | -------------------------------------------------------------------------------------------- | ---------------- | --------------------------------------------- | ------------------------------------- | ------ | --------- | ---------- |
 | **Node.js 22 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 22_ | 2023.12.20260803 | 22.23.2 (10.9.8)<br>Default version: v22.23.2 | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     | 2027-07-31 |
-| **Node.js 20 AL2023 version 6.11.6**<br>_64bit Amazon Linux 2023 v6.11.6 running Node.js 20_ | 2023.12.20260803 | 20.20.2 (10.8.2)<br>Default version: 20.20.2  | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7     | 2026-07-31 |
 
 For information about current platform versions, see [Node.js](platforms-supported.md#platforms-supported.nodejs "platforms-supported.md#platforms-supported.nodejs").
 
@@ -99,16 +104,6 @@ Elastic Beanstalk has scheduled the following PHP platform versions for retireme
 
 For information about current platform versions, see [PHP](platforms-supported.md#platforms-supported.PHP "platforms-supported.md#platforms-supported.PHP").
 
-## Python
-
-Elastic Beanstalk has scheduled the following Python platform versions for retirement.
-
-| Platform Version and _Solution Stack Name_                                                   | AMI              | Language      | Package Manager             | AWS X-Ray | Proxy Server                          | End Date   |
-| -------------------------------------------------------------------------------------------- | ---------------- | ------------- | --------------------------- | --------- | ------------------------------------- | ---------- |
-| **Python 3.9 AL2023 version 4.13.6**<br>_64bit Amazon Linux 2023 v4.13.6 running Python 3.9_ | 2023.12.20260803 | Python 3.9.25 | pip 26.0.1, pipenv 2025.0.4 | 3.6.7     | nginx 1.30.4 (default), Apache 2.4.68 | 2026-07-31 |
-
-For information about current platform versions, see [Python](platforms-supported.md#platforms-supported.python "platforms-supported.md#platforms-supported.python").
-
 ## Ruby
 
 Elastic Beanstalk has scheduled the following Ruby platform versions for retirement.
@@ -116,6 +111,5 @@ Elastic Beanstalk has scheduled the following Ruby platform versions for retirem
 | Platform Version and _Solution Stack Name_                                               | AMI              | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server | End Date   |
 | ---------------------------------------------------------------------------------------- | ---------------- | ---------------- | --------------- | ------------------ | --------- | ------------ | ---------- |
 | **Ruby 3.3 AL2023 version 4.14.6**<br>_64bit Amazon Linux 2023 v4.14.6 running Ruby 3.3_ | 2023.12.20260803 | Ruby 3.3.12-p206 | RubyGems 3.5.22 | Puma 8.0.2         | 3.6.7     | nginx 1.30.4 | 2027-07-31 |
-| **Ruby 3.2 AL2023 version 4.14.6**<br>_64bit Amazon Linux 2023 v4.14.6 running Ruby 3.2_ | 2023.12.20260803 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 8.0.2         | 3.6.7     | nginx 1.30.4 | 2026-07-31 |
 
 For information about current platform versions, see [Ruby](platforms-supported.md#platforms-supported.ruby "platforms-supported.md#platforms-supported.ruby").
