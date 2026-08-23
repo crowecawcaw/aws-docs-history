@@ -28,13 +28,17 @@ The `payload` parameter accepts a list of payload items, letting you store diffe
 
 For storing conversation messages with roles (for example, "user" or "assistant") and content.
 
+**JSON**
+
+For storing non-conversational, JSON-formatted data—such as behavioral events, activity logs, or system events—up to 100 KB for each payload.
+
 **Blob**
 
 For storing binary format data, such as images and documents, or data that is unique to your agent, such as data stored in JSON format.
 
 ###### Note
 
-Currently, only conversational data flows into long-term memory.
+Conversational and JSON payloads are extracted into long-term memory. Blob payloads are stored in short-term memory only and are not extracted.
 
 ## Event branching
 

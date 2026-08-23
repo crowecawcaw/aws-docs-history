@@ -82,6 +82,39 @@ The following limitations apply when you use on-behalf-of token exchange (the `T
 - **Authorization servers with 2LO support** – If your authorization server allows machine-to-machine authentication (the `CLIENT_CREDENTIALS` grant, also known as two-legged OAuth), you can use DEFAULT listing mode. In DEFAULT listing mode, the gateway runs a background synchronization during `CreateGatewayTarget`, `UpdateGatewayTarget`, and `SynchronizeGatewayTargets` to fetch the MCP server’s tools (using `tools/list`), prompts, and resources. No inbound user token exists during these control plane operations, so the synchronization uses the machine-to-machine token instead of on-behalf-of token exchange.
 - **Authorization servers without 2LO support** – If your authorization server doesn’t support machine-to-machine authentication, use DYNAMIC listing mode instead. In DYNAMIC mode, the gateway discovers the MCP server’s capabilities at invocation time. Because an inbound user token is present and can be exchanged at that point, the gateway requires no control plane background synchronization.
 
+### Securing the request state for elicitation and sampling (version 2026-07-28 and later)
+
+On version `2026-07-28` and later, elicitation and sampling use the multi round-trip
+requests (MRTR) pattern. Your MCP server target generates the `requestState` value in
+an `input_required` result; the gateway treats this value as opaque. The gateway does
+not store the `requestState`. It holds the value in memory only while forwarding it
+unchanged between your client and your MCP server target, and discards it when the
+request completes.
+
+AgentCore Gateway and your MCP server target share responsibility for securing the
+request state:
+
+- **AgentCore Gateway** authenticates and authorizes every request against your
+  gateway’s inbound authorization configuration, including retries that carry a
+  `requestState`. A caller that cannot authenticate to your gateway cannot present a
+  request state at all. For more information, see
+  [Set up inbound authorization for your gateway](gateway-inbound-auth.md "gateway-inbound-auth.md").
+- **Your MCP server target** is responsible for validating the `requestState` it
+  receives, because the value round-trips through the client. The MCP specification
+  requires servers to treat the client as an untrusted intermediary and to always
+  validate the request state. If the state contains data specific to the original
+  user, the specification requires the server to cryptographically bind that data to
+  the user. On retry, the server must verify that the state belongs to the currently
+  authenticated user. The gateway does not verify that the caller presenting a
+  `requestState` is the same caller that received it. Preventing one user from
+  replaying another user’s request state is your MCP server’s responsibility.
+
+To protect the request state, follow the guidance in the MCP specification. Encrypt
+or sign the state (for example, with AES-GCM or a signed JWT) to ensure
+confidentiality and integrity. Bind user-specific state to the originating user,
+expire the state, and treat any plaintext state values as untrusted input. For more
+information, see [Multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr") on the Model Context Protocol website.
+
 ## Connecting to an OAuth-protected MCP server using Authorization Code flow
 
 To support the Authorization Code grant type (three-legged OAuth) with MCP server targets, Amazon Bedrock AgentCore Gateway provides two methods for target creation.

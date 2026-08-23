@@ -4,19 +4,24 @@ AgentCore Runtime supports persistent file systems through the `filesystemConfig
 
 AgentCore Runtime supports two categories of file system configurations:
 
-- **Managed session storage (Preview)** – Service-managed per-session storage that persists across stop/resume cycles. Isolated per session. No VPC required.
-- **Bring-your-own file system** – Attach your own Amazon S3 Files or Amazon EFS access points directly to your agent runtime. Shared across sessions and agents. VPC required.
-  You can combine both categories on a single agent runtime (up to 5 total configurations).
+- **Managed storage** – Service-managed storage where AgentCore handles all storage operations. There are two managed types, one for each compute type:
+
+  - **Session storage (Preview)** – Per-session storage on microVM runtimes that persists across stop/resume cycles. Isolated per session. No VPC required.
+  - **Capacity provider volumes** – Amazon EBS volumes on Instances runtimes, defined on the capacity provider and mounted by logical name. Persist across session stop/resume.
+
+- **Bring-your-own file system** – Attach your own Amazon S3 Files or Amazon EFS access points directly to your agent runtime. Shared across sessions and agents. VPC required. Available on microVM runtimes.
+  The managed type depends on your runtime’s compute type. Use session storage on microVM runtimes and capacity provider volumes on Instances runtimes. On microVM runtimes, you can combine session storage with bring-your-own file systems on a single agent runtime (up to 5 total configurations).
 
 ## Storage options at a glance
 
 The following table compares the available file system configuration types.
 
-| Category | Type                      | Isolation                                                  | Persistence                                                        | VPC required | Best for                                                                   |
-| -------- | ------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------ | ------------ | -------------------------------------------------------------------------- |
-| Managed  | Session storage (Preview) | Per-session                                                | Survives stop/resume; 14-day idle expiry; resets on version update | No           | Scratch space, installed packages, code, project files, agent state        |
-| BYO      | Amazon S3 Files           | Shared – multiple sessions and agents access the same data | Customer-managed (permanent, syncs to S3 bucket)                   | Yes          | Datasets accessible through both standard file operations and S3 APIs      |
-| BYO      | Amazon EFS                | Shared – multiple sessions and agents access the same data | Customer-managed (permanent until you delete it)                   | Yes          | Shared tool libraries, model weights, read-write multi-agent collaboration |
+| Category | Type                      | Isolation                                                  | Persistence                                                        | Compute type   | VPC required                              | Best for                                                                                    |
+| -------- | ------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------ | -------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Managed  | Session storage (Preview) | Per-session                                                | Survives stop/resume; 14-day idle expiry; resets on version update | microVM only   | No                                        | Scratch space, installed packages, code, project files, agent state                         |
+| Managed  | Capacity provider volume  | Per-session                                                | Survives stop/resume; retained until you delete the session        | Instances only | Yes (configured on the capacity provider) | Scratch space, workspace files, caches, and checkpoints for long-running Instances sessions |
+| BYO      | Amazon S3 Files           | Shared – multiple sessions and agents access the same data | Customer-managed (permanent, syncs to S3 bucket)                   | microVM        | Yes                                       | Datasets accessible through both standard file operations and S3 APIs                       |
+| BYO      | Amazon EFS                | Shared – multiple sessions and agents access the same data | Customer-managed (permanent until you delete it)                   | microVM        | Yes                                       | Shared tool libraries, model weights, read-write multi-agent collaboration                  |
 
 ## Quick start
 
@@ -24,10 +29,23 @@ The following checklists provide condensed steps for configuring each file syste
 
 ### Managed session storage (Preview)
 
+Session storage is available on microVM runtimes.
+
 1. No VPC or additional IAM permissions required.
 2. Add `--filesystem-configurations '[{"sessionStorage": {"mountPath": "/mnt/workspace"}}]'` to your `create-agent-runtime` or `update-agent-runtime` call.
 3. Invoke the agent with a `--runtime-session-id`.
 4. Stop the session, then resume with the same `--runtime-session-id`. Verify `/mnt/workspace` retains your data.
+
+### Capacity provider volume
+
+Capacity provider volumes are available on Instances runtimes.
+
+1. Define one or more named Amazon EBS volumes on the capacity provider when you create it (in `ec2Configuration.volumes`).
+2. Create the agent runtime with a `capacityProviderConfiguration` that references the capacity provider.
+3. Add `--filesystem-configurations '[{"capacityProviderVolume": {"volumeName": "scratch", "mountPath": "/mnt/scratch"}}]'` to the same `create-agent-runtime` call, referencing a volume by its logical name.
+4. Invoke the agent with a `--runtime-session-id`. Stop the session, then resume with the same `--runtime-session-id`. Verify `/mnt/scratch` retains your data.
+
+For the full walkthrough, see [Get started with Instances using the AWS CLI](runtime-instances-get-started-cli.md "runtime-instances-get-started-cli.md").
 
 ### Bring-your-own file system
 
@@ -146,6 +164,24 @@ Session data is deleted (reset to a clean state) in the following scenarios:
 - The agent runtime version is updated. Invoking a session after a version update provisions a fresh file system.
 
 Use [DeleteAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_DeleteAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_DeleteAgentRuntime.md") or [DeleteAgentRuntimeEndpoint](../../../bedrock-agentcore-control/latest/APIReference/API_DeleteAgentRuntimeEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_DeleteAgentRuntimeEndpoint.md") to delete all session storage data associated with the runtime or endpoint.
+
+### Capacity provider volumes (Instances)
+
+Capacity provider volumes are the managed storage type for runtimes that use the Instances compute type. Instead of specifying storage on the runtime, you define named Amazon EBS volumes on the capacity provider, and the runtime mounts them by logical name. AgentCore creates, attaches, and retains the volumes for you—you don’t provision or mount Amazon EBS volumes yourself.
+
+Like session storage, capacity provider volumes are isolated per session and persist across stop/resume. Because a session on Instances is a dedicated EC2 instance, the volume follows that session’s lifecycle:
+
+1. **Define volumes on the capacity provider** – When you create the capacity provider, list one or more Amazon EBS volumes in `ec2Configuration.volumes`, each with a logical `name`, `sizeGiB`, and optional `volumeType`, `iops`, `throughput`, encryption, and `snapshotId`.
+2. **Reference a volume from the runtime** – Add a `capacityProviderVolume` entry to `filesystemConfigurations` with the `volumeName` and a `mountPath`.
+3. **Invoke the agent for the first time** – AgentCore creates the Amazon EBS volume and attaches it to the session’s EC2 instance at your mount path.
+4. **Stop the session** – AgentCore terminates the EC2 instance but retains the volume.
+5. **Resume with the same session** – AgentCore provisions a new instance and re-attaches the existing volume, so your data is intact. A restarted session might run on an instance with the latest patches.
+
+The volume is retained across these stops, including when a session reaches its maximum lifetime. It is deleted only when you delete the session, or when you delete the capacity provider (which deletes its sessions and their volumes).
+
+Agents can share a volume, but sharing is not automatic. For a volume to be mounted for an agent runtime, that runtime must configure the same `capacityProviderVolume` (by `volumeName`) in its own `filesystemConfigurations`. When two such runtimes are invoked with the same `runtimeSessionId`, they run on the same instance and each mounts the shared volume, so they can collaborate on the same files. Configuring `capacityProviderVolume` controls which volumes AgentCore mounts for a runtime; it does not, by itself, isolate data between agents in a session. The isolation boundary is the session. For the session and agent isolation model, see [Security model and permissions for Runtime Instances](runtime-instances-security.md "runtime-instances-security.md").
+
+The managed session storage and bring-your-own types are not supported on Instances runtimes. These types are `sessionStorage`, `s3FilesAccessPoint`, and `efsAccessPoint`. Specifying any of them alongside `capacityProviderConfiguration` fails with a `ValidationException`. For how to define volumes on a capacity provider and mount them, see [Get started with Instances using the AWS CLI](runtime-instances-get-started-cli.md "runtime-instances-get-started-cli.md") and [Persistent storage across sessions](runtime-instances-how-it-works.md#runtime-instances-persistent-volumes "runtime-instances-how-it-works.md#runtime-instances-persistent-volumes").
 
 ## Prerequisites for bring-your-own file systems
 
@@ -422,10 +458,90 @@ filesystemConfigurations=[
 You can also add session storage to an existing agent runtime using [UpdateAgentRuntime](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.md") with the same `filesystemConfigurations` parameter.
 
 
+### Configure a capacity provider volume
+
+
+To mount a capacity provider volume, first define the volume on the capacity provider. Then reference it by name in `filesystemConfigurations` when you create the agent runtime. This applies to runtimes that use the Instances compute type.
+
+
+###### Example
+
+
+
+ AWS CLI
+
+1. Define the volume on the capacity provider (in `ec2Configuration.volumes`) when you create it, then reference it by `volumeName` on the agent runtime.
+
+
+
+```
+
+aws bedrock-agentcore-control create-agent-runtime \
+--agent-runtime-name "instances-agent" \
+--role-arn "arn:aws:iam::111122223333:role/AgentRuntimeRole" \
+--agent-runtime-artifact '{
+"containerConfiguration": {
+"containerUri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
+}
+}' \
+--capacity-provider-configuration '{
+"capacityProviderArn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:capacity-provider/my_capacity_provider-a1b2c3d4e5"
+}' \
+--filesystem-configurations '[{
+"capacityProviderVolume": {
+"volumeName": "scratch",
+"mountPath": "/mnt/scratch"
+}
+}]'
+
+```
+
+
+
+ AWS SDK
+
+1. Python example using boto3 to create an AgentCore Runtime on Instances with a capacity provider volume.
+
+
+
+```
+
+import boto3
+
+client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
+
+response = client.create_agent_runtime(
+agentRuntimeName="instances-agent",
+roleArn="arn:aws:iam::111122223333:role/AgentRuntimeRole",
+agentRuntimeArtifact={
+"containerConfiguration": {
+"containerUri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
+}
+},
+capacityProviderConfiguration={
+"capacityProviderArn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:capacity-provider/my_capacity_provider-a1b2c3d4e5"
+},
+filesystemConfigurations=[
+{
+"capacityProviderVolume": {
+"volumeName": "scratch",
+"mountPath": "/mnt/scratch"
+}
+}
+]
+)
+
+```
+
+
+
+The `volumeName` must match a volume defined in the capacity provider’s `ec2Configuration.volumes`. For the steps to define volumes on the capacity provider, see [Get started with Instances using the AWS CLI](runtime-instances-get-started-cli.md "runtime-instances-get-started-cli.md").
+
+
 ### Combine file systems
 
 
-You can combine managed session storage with bring-your-own file systems on a single agent runtime. The following example configures all three types.
+You can combine managed session storage with bring-your-own file systems on a single microVM agent runtime. The following example configures all three types.
 
 
 
@@ -536,6 +652,10 @@ The following table lists the limits for file system configurations.
 | Maximum S3 Files access point configurations | 2 |
 | Maximum EFS access point configurations | 2 |
 | Maximum managed session storage configurations | 1 |
+| Maximum capacity provider volumes | 5 |
+
+
+The total-configurations, S3 Files, EFS, and session storage limits apply to microVM runtimes. The capacity provider volume limit is defined on the capacity provider (`ec2Configuration.volumes`) rather than per runtime.
 
 
 ### Mount path constraints
@@ -554,18 +674,18 @@ All file system configurations must follow these mount path rules:
 ## Lifecycle behavior
 
 
-The following table compares lifecycle behavior between managed session storage and bring-your-own file systems.
+The following table compares lifecycle behavior across the managed and bring-your-own file system types.
 
 
 
 
-| Behavior | Managed session storage (Preview) | Bring-your-own (S3 Files, EFS) |
-| --- | --- | --- |
-| Idle expiry | 14 days without invocation – data reset | None – customer-managed |
-| On runtime version update | Data wiped – fresh file system on next invoke | No effect – data persists |
-| On DeleteAgentRuntime | All session data deleted | File system unmounted; data preserved in your account |
-| Concurrent access | Isolated per session | Shared across sessions and agents |
-| Ownership | Service-managed by AgentCore | Customer-managed in your AWS account |
+| Behavior | Managed session storage (Preview, microVM) | Capacity provider volume (Instances) | Bring-your-own (S3 Files, EFS) |
+| --- | --- | --- | --- |
+| Idle expiry | 14 days without invocation – data reset | None – the volume is retained across stops, including when a session reaches its maximum lifetime | None – customer-managed |
+| On runtime version update | Data wiped – fresh file system on next invoke | Data persists – volume re-attached on next invoke | No effect – data persists |
+| On delete | Session data deleted on `DeleteAgentRuntime` | Volume deleted when you delete the session, or when you delete the capacity provider (which deletes its sessions) | File system unmounted; data preserved in your account |
+| Concurrent access | Isolated per session | Isolated per session; can be shared by agents in the same session when each runtime configures the same volume | Shared across sessions and agents |
+| Ownership | Service-managed by AgentCore | Service-managed by AgentCore (Amazon EBS in your account) | Customer-managed in your AWS account |
 
 
 ###### Important
@@ -583,7 +703,8 @@ The following table lists common patterns and the recommended file system config
 
 | Pattern | Recommended configuration |
 | --- | --- |
-| Coding agent with persistent project files | Managed session storage (Preview) at `/mnt/workspace` |
+| Coding agent with persistent project files (microVM) | Managed session storage (Preview) at `/mnt/workspace` |
+| Persistent workspace for a long-running agent on Instances | Capacity provider volume at `/mnt/workspace` |
 | Reference datasets accessible from both agents and S3 pipelines | S3 Files access point at `/mnt/datasets` |
 | Shared tool libraries across all agents | S3 Files or EFS access point at `/mnt/tools` |
 | Multi-agent collaboration on shared workspace | S3 Files or EFS access point at `/mnt/shared` |

@@ -31,7 +31,7 @@ For structured data that needs to be retained beyond the session lifetime (such 
 
 ## Extended conversations and multi-step workflows
 
-Unlike traditional serverless functions that terminate after each request, AgentCore supports isolated sessions backed by ephemeral computes lasting up to 8 hours per lifecycle. This simplifies building multi-step agentic workflows as you can make multiple calls to the same environment, with each invocation building upon the context established by previous interactions. You can use both `InvokeAgentRuntime` for agent reasoning and `InvokeAgentRuntimeCommand` for deterministic shell command execution within the same session.
+Unlike traditional serverless functions that terminate after each request, AgentCore supports isolated sessions backed by ephemeral computes. Sessions last up to 8 hours for each lifecycle on microVMs, or up to 14 days on Instances. With these sessions, you can build multi-step agentic workflows, making multiple calls to the same environment with each invocation building upon the context of previous interactions. You can use both `InvokeAgentRuntime` for agent reasoning and `InvokeAgentRuntimeCommand` for deterministic shell command execution within the same session.
 
 ## AgentCore Runtime session lifecycle
 

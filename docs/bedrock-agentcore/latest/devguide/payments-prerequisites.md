@@ -4,7 +4,7 @@ Complete the prerequisites on this page before you use AgentCore payments.
 
 ###### Tip
 
-You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add an x402 payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
 
 ## AWS account and credentials
 
@@ -32,6 +32,14 @@ AgentCore payments connects to external payment providers for cryptocurrency wal
 ### Coinbase CDP credentials
 
 If you plan to use Coinbase CDP as your payment provider for developer-managed wallets, obtain the following credentials from the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication "https://docs.cdp.coinbase.com/api-reference/v2/authentication"). The [Coinbase AgentCore template on GitHub](https://github.com/coinbase/cdp-agentcore-template "https://github.com/coinbase/cdp-agentcore-template") provides a reference frontend for onramping funds and granting agent permissions.
+
+###### Note
+
+Obtaining the credentials in this section applies to the Coinbase **manual** flow and to Stripe (Privy). If you use Coinbase **Quick create**, which is the recommended default for Coinbase, you can skip obtaining and generating Coinbase API keys. With Quick create, you authorize through Coinbase, and the service provisions the credential provider for you.
+
+###### Note
+
+To use Coinbase as a payment provider, you must also subscribe to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace. This subscription is required for Coinbase regardless of whether you use Quick create or the manual flow. This requires the AWS managed policy [AWSMarketplaceManageSubscriptions](../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.md"). With this subscription, your Coinbase wallet usage charges are consolidated into your monthly AWS bill based on Coinbase’s [pricing](https://docs.cdp.coinbase.com/wallets/pricing "https://docs.cdp.coinbase.com/wallets/pricing") on the Coinbase website. There are no additional charges or obligations for the subscription. For more information, see [Subscribe to Coinbase Wallets for AgentCore Payments in AWS Marketplace](payments-marketplace-subscription.md "payments-marketplace-subscription.md").
 
 1. Create or log in to a Coinbase Developer Platform account and project.
 2. Generate an API key and Wallet secret (or reuse an existing one):

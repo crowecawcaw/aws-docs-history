@@ -69,6 +69,18 @@ MCP server targets that send elicitation requests **should** wrap elicitation ca
 
 Servers should implement a fallback path (such as using default values or skipping the operation) when elicitation is not available.
 
+## Securing the request state (version 2026-07-28 and later)
+
+On version `2026-07-28` and later, elicitation uses the multi round-trip requests
+(MRTR) pattern, which carries an opaque `requestState` between your client and your
+MCP server target. Securing that value is a shared responsibility: the gateway
+authorizes and forwards it without storing it, while your MCP server target must
+validate it and prevent one user from replaying another user’s request state. For the
+full shared responsibility model and the protection guidance your MCP server must
+follow, see
+[Securing the request state for elicitation and sampling](gateway-target-MCPservers.md#gateway-target-MCPservers-request-state "gateway-target-MCPservers.md#gateway-target-MCPservers-request-state")
+in the MCP server target considerations.
+
 ## Error handling
 
 | Scenario                                                                                                       | Error                                                              | Description                                                                                                                                                                        |

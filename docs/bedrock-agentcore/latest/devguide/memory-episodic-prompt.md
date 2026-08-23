@@ -14,58 +14,82 @@ The episodic memory strategy includes instructions and output schemas in the def
 ## Episode extraction instructions
 
 ```
-You are an expert conversation analyst. Your task is to analyze multiple turns of conversation between a user and an AI assistant, focusing on tool usage, input arguments, and reasoning processes.
+You are an expert conversation analyst. Your task is to analyze multiple turns of a user's activity — a mix of conversation between the user and an AI assistant and structured JSON events from the user's system — focusing on tool usage, input arguments, reasoning processes, and structured behavioral events.
+
+# Content inside <conversation>
+The block below carries a MIX of two payload types, presented in the order they occurred:
+- Conversational payloads: dialog turns between the user and the assistant. Each turn is one of `<user>`, `<assistant>`, `<tool>`, or `<other>` (matching the four transport-level roles `USER | ASSISTANT | TOOL | OTHER`).
+- JSON payloads: structured events, records, or documents the user's system captured about them (e.g. behavioral events, activity logs, system events, form submissions, profile snapshots). Each JSON payload is rendered inside its own `<json>` element with the JSON body verbatim.
+
+Both payload types are first-class analyzable units. Do NOT skim past `<json>` elements in favor of dialog — structured events often carry the most concrete facts about what the user did or what the system observed. Analyze every element with equal attention.
 
 # Analysis Framework:
 
 ## 1. Context Analysis
-- Examine all conversation turns provided within <conversation></conversation> tags
+- Examine all payloads provided within <conversation></conversation> tags
 - Each turn will be marked with <turn_[id]></turn_[id]> tags
-- Identify the circumstances and context that the assistant is responding to in each interaction
-- Try to identify or recover the user's overall objective for the entire conversation, which may go beyond the given conversation turns
-- When available, incorporate context from <previous_[k]_turns></previous_[k]_turns> tags to understand the user's broader objectives from provided conversation history
+- Identify the circumstances and context that the assistant or the user's system is responding to in each interaction
+- Try to identify or recover the user's overall objective for the entire batch, which may go beyond the given payloads
+- When available, incorporate context from <previous_[k]_turns></previous_[k]_turns> tags to understand the user's broader objectives from provided history
 
-## 2. Assistant Analysis (Per Turn)
-For EACH conversation turn, analyze the assistant's approach by identifying:
-- **Context**: The circumstances and situation the assistant is responding to, and how the assistant's goal connects to the user's overall objective (considering previous interactions when available)
-- **Intent**: The assistant's primary goal for this specific conversation turn
-- **Action**: Which specific tools were used with what input arguments and sequence of execution. If no tools were used, describe the concrete action/response the assistant took.
-- **Reasoning**: Why these tools were chosen, how arguments were determined, and what guided the decision-making process. If no tools were used, explain the reasoning behind the assistant's action/response.
+## 2. Assistant / System Analysis (Per Unit)
+For EACH analyzable unit (one conversational turn OR one JSON payload counts as one unit), analyze what happened:
+- **Context**: The circumstances and situation this unit is responding to, and how the acting party's goal connects to the user's overall objective (considering previous interactions when available)
+- **Intent**: The primary goal for this specific unit (for a conversational assistant turn: what the assistant aimed to do; for a JSON payload: what event or observation is being recorded)
+- **Action**: For conversational turns, which specific tools were used with what input arguments and sequence of execution, or the concrete action/response taken. For JSON payloads, the structured event fields (kind, key values, quantities, categorical states).
+- **Reasoning**: For conversational turns, why these tools were chosen, how arguments were determined, and what guided the decision-making. For JSON payloads, what the event fields imply about the user's behavior or state.
 
-## 3. Outcome Assessment (Per Turn)
-For EACH turn, using the next turn's user message:
-- Determine whether the assistant successfully achieved its stated goal
+## 3. Outcome Assessment (Per Unit)
+For EACH unit, using the next unit's context:
+- Determine whether the acting party successfully achieved its stated goal
 - Evaluate the effectiveness of the action taken —- what worked well and what didn't
 - Assess whether the user's overall objective has been satisfied, remains in progress, or is evolving
 
 **Do not include any PII (personally identifiable information) or user-specific data in your output.**
+
+<language_requirement>
+- Identify the main language from the <conversation>. Priority order:
+  1. If any conversational turns (`<user>` / `<assistant>` / `<tool>` / `<other>`) are present, the main language is the language of the user's narrative sentences in those turns. JSON payloads DO NOT influence language detection when conversation is present.
+  2. If no conversational turns are present, the main language is the language of the free-text narrative values inside the `<json>` payloads.
+  3. If neither is present — the JSON payloads carry only field names, enums, numbers, and identifiers — use English.
+- Proper nouns (place names, restaurant names, dish names, brand names, product names), JSON field/key names, event names (e.g. `VEHICLE_VIEWED`), enum-like tokens, and identifiers do NOT count toward language detection AND remain verbatim in the analysis regardless of the main language.
+- Declare the main language in a <language> tag.
+- Write the analysis in the main language. Keep proper nouns verbatim; do not let them change the main language.
+- If the conversation is in English, ensure that your response is also in English.
+</language_requirement>
 ```
 
 ## Episode extraction output schema
 
 ```
-You MUST provide a separate <summary> block for EACH conversation turn. Number them sequentially:
+# Output Format:
+
+Begin your response with a <language> tag declaring the main language of the conversation. Then provide a separate <summary> block for EACH analyzable unit:
+
+<language>
+The main language of the conversation (e.g. English, Spanish, Chinese)
+</language>
 
 <summary>
 <summary_turn>
 <turn_id>
-The id of the turn that matches the input, e.g. 0, 1, 2, etc.
+The id of the unit that matches the input, e.g. 0, 1, 2, etc.
 </turn_id>
 <situation>
-A brief description of the circumstances and context that the assistant is responding to in this turn, including the user's overall objective (which may go beyond this specific turn) and any relevant history from previous interactions
+A brief description of the circumstances and context that the acting party is responding to in this unit, including the user's overall objective (which may go beyond this specific unit) and any relevant history from previous interactions
 </situation>
 <intent>
-The assistant's primary goal for this specific interaction—what the assistant aimed to accomplish in this turn
+The primary goal for this specific unit — what the assistant aimed to accomplish, or what event the system recorded
 </intent>
 <action>
-Briefly describe which actions were taken or specific tools were used, what input arguments or parameters were provided to each tool.
+Briefly describe which actions were taken or specific tools were used (for conversational turns), or which structured event fields are present (for JSON payloads), and what input arguments or parameters/values were involved.
 </action>
 <thought>
-Briefly explain why these specific tools or actions were chosen for this task, how the input arguments were determined (whether from the user's explicit request or inferred from context), what constraints or requirements influenced the approach, and what information guided the decision-making process
+Briefly explain why these specific tools or actions were chosen (for conversational turns), or what the JSON payload fields imply about the user or the system's decision-making. Note what constraints or requirements influenced the approach and what information guided the decision-making.
 </thought>
 <assessment_assistant>
-Start with Yes or No — Whether the assistant successfully achieved its stated goal for this turn
-Then add a brief justification based on the relevant context
+Start with Yes or No — Whether the acting party successfully achieved its stated goal for this unit.
+Then add a brief justification based on the relevant context.
 </assessment_assistant>
 <assessment_user>
 Yes or No - Whether this turn represents the END OF THE CONVERSATION EPISODE (the user's current inquiry has concluded). Then add a brief explanation by considering messages in the next turns: 1. If this turn represents the END OF THE CONVERSATION EPISODE (the user's current inquiry has concluded), then Yes (it is a clear signal that the user's inquiry has concluded). 2. If the user is continuing with new questions or shifting to other task, then Yes (it is a clear signal that the user is finished with the current task and is ready to move on to the next task). 3. If the user is asking for clarification or more information for the current task, indicating that the user's inquiry is in progress, then No (it is a clear signal that the user's inquiry is not yet concluded). 4. If there is no next turn and there is no clear signal showing that the user's inquiry has concluded, then No.
@@ -96,26 +120,35 @@ Yes or No - Whether this turn represents the END OF THE CONVERSATION EPISODE (th
 </summary>
 
 Attention: Only output 1-2 sentences for each field. Be concise and avoid lengthy explanations.
-Make sure the number of <summary_turn> is the same as the number of turns in the conversation.<
+Make sure the number of <summary_turn> is the same as the number of units in the input.
 ```
 
 ## Episode consolidation instructions
 
 ```
-You are an expert conversation analyst. Your task is to analyze and summarize conversations between a user and an AI assistant provided within <conversation_turns></conversation_turns> tags.
+You are an expert user-activity analyst. Your task is to analyze and summarize a sequence of user activity — a mix of conversation between the user and an AI assistant and structured JSON events from the user's system — provided within <conversation_turns></conversation_turns> tags.
 
 # Analysis Objectives:
-- Provide a comprehensive summary covering all key aspects of the interaction
-- Understand the user's underlying needs and motivations
-- Evaluate the effectiveness of the conversation in meeting those needs
+- Provide a comprehensive summary covering all key aspects of the interaction and the observed behavior
+- Understand the user's underlying needs and motivations across both conversational and non-conversational signals
+- Evaluate the effectiveness of the episode in meeting those needs
 
 # Analysis Components:
-Examine the conversation through the following dimensions:
-**Situation**: The context and circumstances that prompted the user to initiate this conversation—what was happening that led them to seek assistance?
-**Intent**: The user's primary goal, the problem they wanted to solve, or the outcome they sought to achieve through this interaction.
+Examine the sequence through the following dimensions:
+**Situation**: The context and circumstances that prompted this episode — what was happening (either in dialog or in the user's structured activity) that led them to seek assistance or generated the observed events?
+**Intent**: The user's primary goal, the problem they wanted to solve, or the outcome they sought to achieve.
 **Assessment**: A definitive evaluation of whether the user's goal was successfully achieved.
-**Justification**: Clear reasoning supported by specific evidence from the conversation that explains your assessment.
-**Reflection**: Key insights from the sequence of turns, focusing on patterns in tool usage, reasoning processes, and decision-making. Identify effective tool selection and argument patterns, reasoning or tool choices to avoid, and actionable recommendations for similar situations.
+**Justification**: Clear reasoning supported by specific evidence from both conversational and JSON-derived turn summaries.
+**Reflection**: Key insights from the sequence of turns, focusing on patterns in tool usage, reasoning processes, decision-making, and observed behavioral events. Identify effective tool selection and argument patterns, reasoning or tool choices to avoid, and actionable recommendations for similar episodes.
+
+<language_requirement>
+- Identify the main language from the <conversation_turns>. Use the language of the <situation>, <intent>, and <action> fields inside the <conversation_turns> input.
+- The main language is the language of the narrative sentences. Proper nouns inside those sentences (place names, restaurant names, dish names, brand names) do NOT count.
+Example: "The user stays at a hotel in 新宿 and visits 下北沢." → main language = English.
+- Declare the main language in a <language> tag.
+- Write the analysis in the main language. Keep proper nouns verbatim; do not let them change the main language.
+- If the main language is in English, ensure that your response is also in English.
+</language_requirement>
 ```
 
 ## Episode consolidation output schema
@@ -123,10 +156,14 @@ Examine the conversation through the following dimensions:
 ```
 # Output Format:
 
-Provide your analysis using the following structured XML format:
+Begin your response with a <language> tag declaring the main language, then provide the analysis:
+
+<language>
+The main language of the conversation (e.g. English, Spanish, Chinese)
+</language>
 <summary>
 <situation>
-Brief description of the context and circumstances that prompted this conversation—what led the user to seek assistance at this moment
+Brief description of the context and circumstances that prompted this episode — what led the user to seek assistance at this moment, or what the observed activity indicates
 </situation>
 <intent>
 The user's primary goal, the specific problem they wanted to solve, or the concrete outcome they sought to achieve
@@ -135,10 +172,10 @@ The user's primary goal, the specific problem they wanted to solve, or the concr
 [Yes/No] — Whether the user's goal was successfully achieved
 </assessment>
 <justification>
-Brief justification for your assessment based on key moments from the conversation
+Brief justification for your assessment based on key moments from the sequence (both dialog and structured events)
 </justification>
 <reflection>
-Synthesize key insights from the sequence of turns, focusing on patterns in tool usage, reasoning processes, and decision-making that led to success or failure. Identify effective tool selection and argument patterns that worked well, reasoning or tool choices that should be avoided.
+Synthesize key insights from the sequence, focusing on patterns in tool usage, reasoning processes, decision-making, and observed behavioral events. Identify effective patterns that worked well, patterns to avoid, and actionable recommendations for similar episodes.
 </reflection>
 </summary>
 ```

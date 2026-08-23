@@ -6,12 +6,16 @@ This guide walks you through creating a Payment Manager and attaching a Payment 
 
 ###### Tip
 
-You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add an x402 payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md "payments-getting-started.md") and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main "https://github.com/aws/agent-toolkit-for-aws/tree/main").
 
 Before you begin, ensure you have:
 
 - Completed the [Prerequisites](payments-prerequisites.md "payments-prerequisites.md") (account, credentials, provider keys).
 - Set up the required [IAM roles](payments-iam-roles.md "payments-iam-roles.md") (administrator role and service role).
+
+###### Important
+
+To create a Coinbase payment connector, your account must have an active AWS Marketplace subscription to the [Coinbase Wallets for AgentCore Payments](https://aws.amazon.com/marketplace/pp/prodview-ia2zd5puqyi7g "https://aws.amazon.com/marketplace/pp/prodview-ia2zd5puqyi7g") listing. With this subscription, your Coinbase wallet usage charges are consolidated into your monthly AWS bill based on Coinbase’s [pricing](https://docs.cdp.coinbase.com/wallets/pricing "https://docs.cdp.coinbase.com/wallets/pricing") on the Coinbase website. There are no additional charges or obligations for the subscription. If the subscription is missing, `CreatePaymentConnector` fails with a `SubscriptionRequiredException` (HTTP 403). This requirement applies only to Coinbase; other providers, such as Stripe (Privy), are not affected. For more information, see [Subscribe to Coinbase Wallets for AgentCore Payments in AWS Marketplace](payments-marketplace-subscription.md "payments-marketplace-subscription.md").
 
 ## Create a Payment Manager
 
@@ -68,30 +72,53 @@ Payment connectors store the credentials and configuration needed to connect wit
 
 1. In the **Payment connector: New Connector** section, for **Name**, enter a name for the connector. Valid characters are `a–z`, `A–Z`, `0–9`, and `_` (underscore). The name can have up to 48 characters.
 2. (Optional) Choose **Description** to expand the section, and then enter a description for the connector.
-3. In the **Add Outbound Auth** section, if you want to reuse a payment credential provider previously created in [AgentCore Identity](resource-providers.md#payment-credential-provider "resource-providers.md#payment-credential-provider"), select an existing outbound auth from the dropdown; or choose **create a new one** to create a new payment credential provider. If you choose to create a new one, see **Create a new outbound auth**.
+3. In the **Payment auth** section, if you want to reuse a payment auth (payment credential provider) previously created in [AgentCore Identity](resource-providers.md#payment-credential-provider "resource-providers.md#payment-credential-provider"), select an existing payment auth from the dropdown; or choose **create a new one** to create a new payment auth. If you choose to create a new one, see **Create payment auth**.
 4. (Optional) To add additional connectors, choose **+ Add connector** and repeat the steps above.
 
-**Create a new outbound auth**
+**Create payment auth**
 
-When you choose **create a new one** in the connector’s outbound auth section, a panel opens where you can configure a new payment credential provider.
+When you choose **create a new one** in the connector’s **Payment auth** section, the **Create payment auth** panel opens. In this panel, you configure a new payment auth — a payment credential provider that is stored in AgentCore Identity.
 
-1. For **Name**, enter a name for the outbound auth. Valid characters are `a–z`, `A–Z`, `0–9`, `_` (underscore), and `-` (hyphen).
-2. For **Provider**, select a payment provider from the dropdown. The available providers are **Coinbase** and **Stripe (Privy)**.
+1. For **Payment auth name**, enter a name for the payment auth. Valid characters are `a–z`, `A–Z`, `0–9`, `_` (underscore), and `-` (hyphen).
+2. For **Payment provider**, select a payment provider from the dropdown. The available providers are **Coinbase** and **Stripe (Privy)**.
 
-If you choose **Coinbase**, complete the following fields under **Payment provider configurations**:
+If you choose **Coinbase**, choose how to provide the credentials for the payment auth:
+
+- **Quick create configurations - recommended** — Quick create allows you to link to your Coinbase CDP account and let AgentCore payments create the credentials for you without leaving the AgentCore console. It opens a window to sign up or sign in to your Coinbase CDP account. The service then provisions the Coinbase CDP API key and Wallet secret and stores them as a payment auth on your behalf. You do not generate or paste any keys.
+- **Use existing configurations** — Provide Coinbase CDP credentials that you generated yourself in the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication#1-create-client-api-key "https://docs.cdp.coinbase.com/api-reference/v2/authentication#1-create-client-api-key").
+
+**Use Quick create**
+
+If you select **Quick create configurations - recommended**, AgentCore payments creates the payment auth for you after you authorize access through Coinbase. Complete the following steps:
+
+1. Select **Quick create configurations - recommended**.
+2. Choose **Create payment auth**. A Coinbase window opens and displays **Coinbase connection in progress**.
+3. In the Coinbase window, sign in or sign up with your email address and phone number, and then select or create a Coinbase CDP project.
+4. Review the requested access, and then authorize AgentCore payments to create and manage credentials for your Coinbase CDP project.
+5. When authorization finishes, the Coinbase window displays **Coinbase connected** and closes. AgentCore payments provisions the Coinbase CDP API key and Wallet secret. The service stores them securely in AWS Secrets Manager and creates the payment auth on your behalf.
+
+###### Note
+
+Quick create does not support linking to an existing project with a Wallet Secret. If the Coinbase project that you authorize already has a Wallet Secret, AgentCore payments stops without rotating it. Instead, select **Use existing configurations** and provide your credentials manually.
+
+**Use existing configurations**
+
+If you select **Use existing configurations**, complete the following fields under **Payment provider configurations**, and then choose **Create payment auth**:
 
 1. For **API key ID**, enter the unique identifier for your Coinbase CDP account credentials.
 2. For **API key secret**, enter the private key used to authenticate and sign requests to Coinbase CDP.
 3. For **Wallet secret**, enter the asymmetric private key used to authenticate sensitive wallet write operations.
 
-If you choose **Stripe (Privy)**, complete the following fields under **Payment provider configurations**:
+###### Important
+
+If you select **Coinbase** as the provider, your account must have an active AWS Marketplace subscription to the [Coinbase Wallets for AgentCore Payments](https://aws.amazon.com/marketplace/pp/prodview-ia2zd5puqyi7g "https://aws.amazon.com/marketplace/pp/prodview-ia2zd5puqyi7g") listing. This is a one-time subscription for an AWS account. With this subscription, your Coinbase wallet usage charges are consolidated into your monthly AWS bill based on Coinbase’s [pricing](https://docs.cdp.coinbase.com/wallets/pricing "https://docs.cdp.coinbase.com/wallets/pricing") on the Coinbase website. Otherwise, connector creation fails with a `SubscriptionRequiredException` (HTTP 403). If you are not subscribed, the console displays a **Subscribe to Coinbase to enable billing through AWS** alert with a **Subscribe** button that you can use to subscribe without leaving the wizard. For more information, see [Subscribe to Coinbase Wallets for AgentCore Payments in AWS Marketplace](payments-marketplace-subscription.md "payments-marketplace-subscription.md").
+
+If you choose **Stripe (Privy)**, complete the following fields under **Payment provider configurations**, and then choose **Create payment auth**:
 
 1. For **App ID**, enter the unique identifier for your Privy account credentials.
 2. For **App secret**, enter the private key used to authenticate and sign requests to the Privy application.
 3. For **Authorization ID**, enter the unique identifier for the authorization entity.
 4. For **Authorization private key**, enter the private key used to sign authorization requests.
-
-After completing the provider configuration, choose **Add Outbound Auth**.
 
 **Step 6: Create the Payment Manager**
 
@@ -117,7 +144,23 @@ agentcore add payment-manager
 
 The wizard prompts for manager name, pattern, auto-payment toggle, spend limit, and optionally walks through adding a connector with provider credentials.
 
-**Non-interactive (Coinbase CDP):**
+**Coinbase — Quick create (recommended):**
+
+Quick create provisions the Coinbase credential provider for you, so you do not pass any API keys. Add the connector with the `--quick-create` flag, then deploy:
+
+```
+agentcore add payment-connector \
+  --manager MyPaymentManager \
+  --name CoinbaseConnector \
+  --provider CoinbaseCDP \
+  --quick-create
+
+agentcore deploy
+```
+
+The CLI opens the Coinbase authorization flow. After you authorize, the service provisions the credentials and the connector reaches `READY`.
+
+**Coinbase CDP — Manual flow (non-interactive):**
 
 ```
 agentcore add payment-manager \
@@ -136,7 +179,7 @@ agentcore add payment-connector \
 agentcore deploy
 ```
 
-**Non-interactive (Stripe/Privy):**
+**Stripe (Privy) — Manual flow (non-interactive):**
 
 ```
 agentcore add payment-manager \
@@ -159,12 +202,58 @@ agentcore deploy
 Running `agentcore deploy` provisions IAM roles, stores credentials in AgentCore Identity, and creates the Payment Manager and Connector.
 
 AgentCore SDK
-The AgentCore SDK provides a convenience method `create_payment_manager_with_connector` that creates the Payment Manager, credential provider, and connector in a single call.
+The AgentCore SDK supports Coinbase **Quick create** (shown first) and manual provisioning. The manual examples that follow pass provider credentials directly. They use the convenience method `create_payment_manager_with_connector`, which creates the Payment Manager, credential provider, and connector in a single call.
+
+**Coinbase — Quick create (recommended):**
+
+With Quick create, you create the connector with an empty `credential_provider_configurations` list and `provision_mode="QUICK_CREATE"`. The connector returns status `PENDING_AUTHENTICATION` and an authorization URL. After you authorize through Coinbase, the service provisions the credential provider and the connector reaches `READY`.
+
+```
+import time
+import webbrowser
+
+from bedrock_agentcore.payments.client import PaymentClient
+
+payment_client = PaymentClient(region_name="us-east-1")
+
+connector = payment_client.create_payment_connector(
+    payment_manager_id="<paymentManagerId>",
+    name="CoinbaseConnector",
+    connector_type="CoinbaseCDP",
+    credential_provider_configurations=[],
+    provision_mode="QUICK_CREATE",
+)
+
+# Authorize through Coinbase using the returned URL.
+webbrowser.open(connector["authorizationUrl"])
+
+# Terminal states that mean provisioning did not succeed.
+TERMINAL_FAILURES = {
+    "AUTHENTICATION_EXPIRED",
+    "AUTHENTICATION_FAILED",
+    "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED",
+    "CREATE_FAILED",
+}
+
+# Poll until the connector reaches READY or fails.
+while True:
+    response = payment_client.get_payment_connector(
+        payment_connector_id=connector["paymentConnectorId"]
+    )
+    status = response["status"]
+    if status == "READY":
+        break
+    if status in TERMINAL_FAILURES:
+        raise RuntimeError(f"Connector provisioning failed: {status}")
+    time.sleep(5)
+```
+
+The authorization URL is valid for about 10 minutes. If it expires, the connector transitions to `AUTHENTICATION_EXPIRED` and you re-create it.
 
 **Coinbase CDP with IAM authorization:**
 
 ```
-from bedrock_agentcore.payments import PaymentClient
+from bedrock_agentcore.payments.client import PaymentClient
 
 payment_client = PaymentClient(region_name="us-east-1")
 
@@ -331,6 +420,24 @@ aws bedrock-agentcore-control create-payment-manager \
 
 The Payment Manager status starts as `CREATING` and transitions to `READY` when provisioning completes.
 
+**Coinbase — Quick create (recommended):**
+
+With Quick create, you create the connector with an empty credential-provider-configurations list and `--provision-mode QUICK_CREATE`. You do not create a credential provider first.
+
+```
+aws bedrock-agentcore-control create-payment-connector \
+  --payment-manager-id <paymentManagerId> \
+  --name "CoinbaseConnector" \
+  --type CoinbaseCDP \
+  --credential-provider-configurations '[]' \
+  --provision-mode QUICK_CREATE \
+  --region us-east-1
+```
+
+The response has status `PENDING_AUTHENTICATION` and an `authorizationUrl`. Open the URL, authorize through Coinbase, and then poll `get-payment-connector` until the status is `READY`. The URL is valid for about 10 minutes; if it expires, the connector transitions to `AUTHENTICATION_EXPIRED` and you re-create it.
+
+**Manual flow:** With the manual flow, you create a payment credential provider and then reference its ARN when you create the connector. This is the only flow for Stripe (Privy).
+
 After the Payment Manager is ready, [create a payment credential provider](resource-providers.md#payment-credential-provider "resource-providers.md#payment-credential-provider"):
 
 The following example creates a payment credential provider for Coinbase CDP:
@@ -421,6 +528,28 @@ payment_manager = client.create_payment_manager(
     }
 )
 ```
+
+**Coinbase — Quick create (recommended):**
+
+With Quick create, you create the connector with an empty `credentialProviderConfigurations` list and `provisionMode="QUICK_CREATE"`. You do not create a credential provider first.
+
+```
+# Create a Coinbase connector with Quick create
+connector = client.create_payment_connector(
+    paymentManagerId=payment_manager["paymentManagerId"],
+    name="CoinbaseConnector",
+    type="CoinbaseCDP",
+    credentialProviderConfigurations=[],
+    provisionMode="QUICK_CREATE"
+)
+
+print(f"Status: {connector['status']}")
+print(f"Authorization URL: {connector.get('authorizationUrl')}")
+```
+
+The connector returns status `PENDING_AUTHENTICATION` and an `authorizationUrl`. Open the URL, authorize through Coinbase, and then poll `get_payment_connector` until the status is `READY`. The URL is valid for about 10 minutes; if it expires, the connector transitions to `AUTHENTICATION_EXPIRED` and you re-create it.
+
+**Manual flow:** With the manual flow, you create a payment credential provider and then reference its ARN when you create the connector. This is the only flow for Stripe (Privy).
 
 After the Payment Manager reaches `READY` status, create a payment credential provider:
 
@@ -514,6 +643,24 @@ After creation, the Payment Manager transitions through the following states:
 | `UPDATING`      | A configuration change is being applied.                               |
 | `CREATE_FAILED` | Provisioning failure.                                                  |
 | `UPDATE_FAILED` | Update operation failure.                                              |
+
+## Payment Connector lifecycle states
+
+A Payment Connector transitions through the following states. The `PENDING_AUTHENTICATION`, `PROVISIONING`, `AUTHENTICATION_EXPIRED`, and `AUTHENTICATION_FAILED` states apply to the Coinbase **Quick create** flow.
+
+| State                                   | Description                                                                                                                                      |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CREATING`                              | Initial state while the connector is being provisioned.                                                                                          |
+| `PENDING_AUTHENTICATION`                | Quick create only. The connector is waiting for you to authorize through Coinbase using the returned `authorizationUrl`.                         |
+| `PROVISIONING`                          | Quick create only. Authorization succeeded and the service is provisioning the credential provider.                                              |
+| `READY`                                 | The connector is operational and can process payments.                                                                                           |
+| `UPDATING`                              | A configuration change is being applied.                                                                                                         |
+| `AUTHENTICATION_EXPIRED`                | Quick create only. The `authorizationUrl` expired (about 10 minutes) before authorization completed. Re-create the connector to get a fresh URL. |
+| `AUTHENTICATION_FAILED`                 | Quick create only. Authorization through Coinbase did not complete successfully.                                                                 |
+| `AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED` | Coinbase requires an active AWS Marketplace subscription. Subscribe to the *_Coinbase Wallets for AgentCore Payments_<br>• listing and retry.    |
+| `CREATE_FAILED`                         | Provisioning failure.                                                                                                                            |
+| `UPDATE_FAILED`                         | Update operation failure.                                                                                                                        |
+| `DELETE_FAILED`                         | Delete operation failure.                                                                                                                        |
 
 ## Get a Payment Manager
 

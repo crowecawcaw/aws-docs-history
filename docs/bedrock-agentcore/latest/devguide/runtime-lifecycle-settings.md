@@ -17,16 +17,22 @@ You can also configure lifecycle settings for an existing AgentCore Runtime with
 
 ## Configuration attributes
 
-| Attribute                   | Type    | Range (seconds) | Required | Description                                                                                                                                                                                                                                                                                         |
-| --------------------------- | ------- | --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `idleRuntimeSessionTimeout` | Integer | 60-28800        | No       | Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will trigger termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 900 seconds (15 minutes)                                                      |
-| `maxLifetime`               | Integer | 60-28800        | No       | Maximum lifetime for the instance in seconds. Once reached, instances will initialize termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 28800 seconds (8 hours). The session itself can persist beyond this with a new instance provisioned. |
+| Attribute                   | Type    | Range (seconds)                               | Required | Description                                                                                                                                                                                                                                                                                         |
+| --------------------------- | ------- | --------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `idleRuntimeSessionTimeout` | Integer | 60–28800 (microVMs)<br>60–1209600 (Instances) | No       | Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will trigger termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 900 seconds (15 minutes)                                                      |
+| `maxLifetime`               | Integer | 60–28800 (microVMs)<br>60–1209600 (Instances) | No       | Maximum lifetime for the instance in seconds. Once reached, instances will initialize termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 28800 seconds (8 hours). The session itself can persist beyond this with a new instance provisioned. |
+
+###### Note
+
+The maximum value for both attributes depends on the compute type of the AgentCore Runtime. Runtimes that use microVMs accept up to 28800 seconds (8 hours). Runtimes that use a capacity provider (Instances) accept up to 1209600 seconds (14 days). If you specify a value above the maximum for your compute type, the request fails with a `ValidationException`. For more information, see [Instances](runtime-instances-how-it-works.md "runtime-instances-how-it-works.md").
 
 ### Constraints
 
 - `idleRuntimeSessionTimeout` must be less than or equal to `maxLifetime`
 - Both values are measured in seconds
-- Valid range: 60 to 28800 seconds (up to 8 hours)
+- Valid range for runtimes that use microVMs: 60 to 28800 seconds (up to 8 hours)
+- Valid range for runtimes that use a capacity provider (Instances): 60 to 1209600 seconds (up to 14 days)
+- For a runtime that uses a capacity provider, `maxLifetime` must also be less than or equal to the `maxLifetime` that the capacity provider defines in its `InstanceLifecycleConfiguration`
 
 ## Default behavior
 
@@ -146,7 +152,11 @@ print(config)
 
 ## Validation and constraints
 
-The lifecycle configuration includes validation rules and constraints to prevent invalid configurations.
+The lifecycle configuration includes validation rules and constraints to prevent invalid configurations. If your request violates any of the following rules, it fails with a `ValidationException`:
+
+- Either value is below 60 seconds, or above the maximum for the compute type of the runtime (28800 seconds for microVMs, 1209600 seconds for Instances).
+- `idleRuntimeSessionTimeout` is greater than `maxLifetime`.
+- For a runtime that uses a capacity provider, `maxLifetime` is greater than the `maxLifetime` that the capacity provider defines in its `InstanceLifecycleConfiguration`. To run sessions for longer than the capacity provider allows, increase the capacity provider’s `maxLifetime` first.
 
 ### Common validation errors
 
@@ -178,20 +188,28 @@ except client.exceptions.ValidationException as e:
 ### Validation helper function
 
 ```
-def validate_lifecycle_config(idle_timeout, max_lifetime):
+MICROVM_MAX_SECONDS = 28800     # 8 hours
+INSTANCES_MAX_SECONDS = 1209600  # 14 days
+MIN_SECONDS = 60
+
+
+def validate_lifecycle_config(idle_timeout, max_lifetime, uses_capacity_provider=False):
     """Validate lifecycle configuration before API call"""
     errors = []
 
-    # Check range constraints
-    if not (1 <= idle_timeout <= 28800):
-        errors.append(f"idleRuntimeSessionTimeout must be between 1 and 28800 seconds")
+    # The maximum depends on the compute type of the runtime
+    maximum = INSTANCES_MAX_SECONDS if uses_capacity_provider else MICROVM_MAX_SECONDS
 
-    if not (1 <= max_lifetime <= 28800):
-        errors.append(f"maxLifetime must be between 1 and 28800 seconds")
+    # Check range constraints
+    if not (MIN_SECONDS <= idle_timeout <= maximum):
+        errors.append(f"idleRuntimeSessionTimeout must be between {MIN_SECONDS} and {maximum} seconds")
+
+    if not (MIN_SECONDS <= max_lifetime <= maximum):
+        errors.append(f"maxLifetime must be between {MIN_SECONDS} and {maximum} seconds")
 
     # Check relationship constraint
     if idle_timeout > max_lifetime:
-        errors.append(f"idleRuntimeSessionTimeout ({idle_timeout}s) must be ≤ maxLifetime ({max_lifetime}s)")
+        errors.append(f"idleRuntimeSessionTimeout ({idle_timeout}s) must be <= maxLifetime ({max_lifetime}s)")
 
     return errors
 
@@ -260,6 +278,7 @@ Follow these best practices when configuring lifecycle settings for optimal reso
 ### Recommendations
 
 - **Start with defaults** (900s idle, 28800s max) and adjust based on usage patterns
+- **Check your compute type** before you raise `maxLifetime` above 8 hours—only runtimes that use a capacity provider (Instances) accept longer values
 - **Monitor session duration** to optimize timeout values
 - **Use shorter timeouts** for development environments to save costs
 - **Consider user experience** - too short timeouts may interrupt active users

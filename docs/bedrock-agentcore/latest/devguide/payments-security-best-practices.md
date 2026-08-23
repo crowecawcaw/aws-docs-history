@@ -6,16 +6,17 @@ The following best practices can help you prevent security incidents when using 
 
 Use these controls to constrain what your agent can do and to keep sensitive material out of its reach.
 
-### Enforce least privilege with the four-role IAM pattern
+### Enforce least privilege with the five-role IAM pattern
 
 AgentCore payments separates the control plane from the data plane by using distinct IAM roles. Set up IAM permissions based on the persona that matches each role. With this pattern, no single role can both raise a budget and spend against it.
 
-| #   | Role                    | Purpose                                                               |
-| --- | ----------------------- | --------------------------------------------------------------------- |
-| 1   | `ControlPlaneRole`      | Administers the service.                                              |
-| 2   | `ManagementRole`        | Configures sessions. This role is explicitly denied `ProcessPayment`. |
-| 3   | `ProcessPaymentRole`    | Executes payments.                                                    |
-| 4   | `ResourceRetrievalRole` | Service-assumed. Fetches session and credential state.                |
+| #   | Role                                                        | Purpose                                                                                                                                     |
+| --- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | `ControlPlaneRole`                                          | Administers the service.                                                                                                                    |
+| 2   | `ManagementRole`                                            | Configures sessions. This role is explicitly denied `ProcessPayment`.                                                                       |
+| 3   | `ProcessPaymentRole`                                        | Executes payments.                                                                                                                          |
+| 4   | `ResourceRetrievalRole`                                     | Service-assumed. Fetches session and credential state.                                                                                      |
+| 5   | `AWSMarketplaceManageSubscriptions` (on `ControlPlaneRole`) | For Coinbase, subscribes the account to the Marketplace listing. An AWS managed policy on the administrator, not a separate assumable role. |
 
 For more information, see [IAM roles for AgentCore payments](payments-iam-roles.md "payments-iam-roles.md").
 

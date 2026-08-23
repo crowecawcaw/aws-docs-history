@@ -1,4 +1,4 @@
-# Strands Agents
+# Set up Strands Agents telemetry for AgentCore Evaluations
 
 This page explains how to instrument a [Strands Agents](https://strandsagents.com/latest/ "https://strandsagents.com/latest/") agent, how spans are identified, and how evaluation fields are extracted.
 

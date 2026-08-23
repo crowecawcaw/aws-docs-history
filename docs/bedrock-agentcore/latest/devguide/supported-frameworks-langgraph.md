@@ -1,4 +1,4 @@
-# LangGraph
+# Set up LangGraph telemetry for AgentCore Evaluations
 
 This page explains how to instrument a [LangGraph](https://langchain-ai.github.io/langgraph/ "https://langchain-ai.github.io/langgraph/") agent, how spans are identified, and how evaluation fields are extracted. It closes with [best practices](#langgraph-best-practices "#langgraph-best-practices") for structuring a LangGraph agent so that it can be evaluated reliably.
 

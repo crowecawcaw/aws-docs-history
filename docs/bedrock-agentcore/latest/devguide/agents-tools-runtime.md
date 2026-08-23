@@ -24,7 +24,7 @@ AgentCore Runtime offers two compute types. Choose **microVMs** for fully manage
 
 Extended execution time
 
-AgentCore Runtime supports both real-time interactions and long-running workloads up to 8 hours, enabling complex agent reasoning and asynchronous workloads that may involve multi-agent collaboration or extended problem-solving sessions.
+AgentCore Runtime supports both real-time interactions and long-running workloads, enabling complex agent reasoning and asynchronous workloads that might involve multi-agent collaboration or extended problem-solving sessions. Sessions run for up to 8 hours on microVMs, or up to 14 days on Instances. For more information, see [Configure Amazon Bedrock AgentCore lifecycle settings](runtime-lifecycle-settings.md "runtime-lifecycle-settings.md").
 
 Persistent filesystems
 

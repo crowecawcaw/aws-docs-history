@@ -4,10 +4,6 @@
 
 Amazon Bedrock AgentCore payments is a fully managed service that enables microtransaction payments in AI agents to access paid APIs, MCP servers, and content. AI agents increasingly handle complex tasks by calling APIs, accessing MCP servers, and interacting with other agents. As more services monetize through pay-per-use models, developers face challenges integrating payments into agentic workflows. Transactions are typically microtransactions (often under $1 or fractions of a cent), making traditional payment methods cost-prohibitive due to high minimum transaction fees. Meanwhile, content providers and publishers are introducing paywalls for AI agents to access their content. AgentCore payments provides a suite of developer-friendly capabilities that help you develop solutions to enable secure, instant payments to paid services using stablecoin, open protocols like x402 for cost-effective microtransactions, and configurable guardrails to help control agent spending. This can reduce developer effort from months to days.
 
-###### Note
-
-AgentCore payments is currently available as a preview. Features and APIs may change before general availability.
-
 ## What customer problem does it solve?
 
 Amazon Bedrock AgentCore payments addresses challenges that agent developers face when integrating payment capabilities into their AI agents. Traditionally, developers must establish and manage separate billing relationships with each external service provider their agents need to access, creating operational overhead and complexity. The economics of agent-to-merchant transactions present a fundamental challenge: individual API calls or content requests often have values measured in cents, yet traditional payment methods like credit cards (limited availability due to geographical restrictions) impose minimum transaction fees, making microtransactions economically unviable.
@@ -30,7 +26,7 @@ These capabilities enable autonomous workflows that were previously impractical 
 
 Amazon Bedrock AgentCore payments provides the following capabilities to simplify and secure payment operations for AI agents.
 
-- **Orchestrating Payments** — The service orchestrates payments using the x402 protocol, an open HTTP-native standard that uses the HTTP 402 Payment Required status code for programmatic payments. AgentCore payments help manage the complete lifecycle on the agent side, from receiving the merchant’s payment request, through transaction signing via the configured wallet provider, to returning cryptographic proof that the agent submits back to the merchant. It handles multi-step flows and exceptions automatically, enabling real-time agent-to-merchant microtransactions that would be cost-prohibitive with traditional payment methods (which impose minimum fees).
+- **Orchestrating Payments** — With AgentCore payments, you can orchestrate payments using open HTTP-native standards, including the x402 protocol and the Machine Payments Protocol (MPP). Both protocols use the HTTP 402 Payment Required status code for programmatic payments. AgentCore payments manages the complete lifecycle on the agent side, from receiving the merchant’s payment request, through transaction signing by using the configured wallet provider, to returning the payment proof that the agent submits back to the merchant. It handles multi-step flows and exceptions automatically, enabling real-time agent-to-merchant microtransactions that would be cost-prohibitive with traditional payment methods (which impose minimum fees).
 - **Payment limits** — Built-in payment limits help developers to establish granular budget controls at both user and agent levels. Each PaymentSession has a configurable budget limit (maxSpendAmount, currency) and an expiry time. When the session expires or the budget is reached, further payment requests are denied. If a payment signing fails after budget deduction, the budget does not deduct the failed payment.
 - **Third-party wallet integration** — The service offers secure wallet integration with two providers: CoinbaseCDP and Stripe(Privy) for embedded stablecoin wallet operations. Sensitive credentials such as API keys and wallet secrets are stored via AgentCore Identity. AgentCore helps developers limit which agents can access wallet resources.
 - **Endpoint discoverability** — AgentCore payments offers a ready-to-use Coinbase x402 Bazaar MCP server, which exposes 10,000+ pay-per-use x402 endpoints through the AgentCore Gateway. Developers can browse and search for x402-enabled services and add them as targets in a Gateway via the console or CLI.
@@ -38,7 +34,7 @@ Amazon Bedrock AgentCore payments provides the following capabilities to simplif
 
 ## Accessing AgentCore payments
 
-You can interact with AWS AgentCore payments by directly invoking the payments service’s public APIs via the AWS CLI, AWS SDKs and AgentCore SDK. You can also integrate with supported agent SDK frameworks like Strands Agents and LangGraph.
+You can interact with AWS AgentCore payments by directly invoking the payments service’s public APIs through the AWS CLI, AWS SDKs, AgentCore SDK, and AgentCore CLI. To scaffold your payment resources and add a process payment tool to your agent, use the AgentCore Payments skill in the AWS agent toolkit. At runtime, you can integrate payment processing with supported agent SDK frameworks like Strands Agents and LangGraph.
 
 ## Related services
 

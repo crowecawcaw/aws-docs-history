@@ -4,6 +4,55 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## August 2026
 
+### Payments: Coinbase wallet usage is billed through AWS Marketplace
+
+To use Coinbase as a payment provider with AgentCore payments, subscribe to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace. The subscription is mandatory and is enforced when you create a Coinbase payment connector and when you perform Coinbase wallet operations, such as creating a payment instrument or processing a payment.
+
+Coinbase wallet usage is metered through AWS Marketplace and billed on your AWS bill based on Coinbase’s public pricing. Your account remains eligible for the Coinbase free tier. This requirement applies to the Coinbase provider only; other providers, such as Stripe (Privy), are not affected.
+
+For more information, see [Subscribe to Coinbase Wallets for AgentCore Payments in AWS Marketplace](payments-marketplace-subscription.md "payments-marketplace-subscription.md").
+
+### Memory: Store and extract non-conversational JSON payloads
+
+Amazon Bedrock AgentCore Memory now accepts a `json` payload type on the CreateEvent API. With this payload type, agents can store non-conversational, JSON-formatted data (up to 100 KB) such as behavioral events, activity logs, and system events.
+
+`json` payloads are also extracted into long-term memory across the semantic, user preference, summarization, and episodic strategies.
+
+See [Create an event](short-term-create-event.md "short-term-create-event.md").
+
+### Evaluations: Skill evaluators
+
+Amazon Bedrock AgentCore Evaluations adds two built-in evaluators for agents that use skills:
+
+- `Builtin.SkillSelectionAccuracy` — judges whether the skill the agent loaded fits the task, given the catalog of available skills. Returns `Yes` (1.0) or `No` (0.0).
+- `Builtin.SkillInstructionFollowing` — judges how fully the agent followed the loaded skill’s prescribed steps. Returns a five-point rating from `Fully Followed` (1.0) to `Not Followed` (0.0).
+
+Both are tool-level evaluators. AgentCore Evaluations produces one result per skill invocation and anchors each result to the tool call span that loaded the skill. You can use these evaluators with on-demand, batch, and online evaluations.
+
+Custom TOOL\_CALL evaluators can use the same skill signals as the built-in skill evaluators through the `invoked_skill`, `skill_content`, `available_skills`, and `user_message` placeholders.
+
+See [Skill evaluators](skill-evaluators.md "skill-evaluators.md").
+
+### Payments: Quick create for Coinbase payment connectors
+
+When you create a Coinbase payment connector, you can now choose **Quick create** to have AgentCore payments provision your Coinbase CDP credentials for you. You authorize access through Coinbase in a browser, and the service creates the payment credential provider on your behalf. You do not need to generate or paste Coinbase API keys.
+
+Quick create is available for the Coinbase provider only; Stripe (Privy) connectors continue to use credentials that you supply. For more information, see [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").
+
+### Payments: x402 upto scheme and Machine Payments Protocol (MPP) support
+
+Amazon Bedrock AgentCore payments now supports the x402 `upto` scheme and the Machine Payments Protocol (MPP), in addition to the existing x402 `exact` scheme. The `upto` scheme pays a metered amount up to a ceiling and settles through the Permit2 contract.
+
+MPP is an open, HTTP-native payment standard that uses the standard HTTP authentication challenge flow.
+
+With MPP, a merchant returns a `WWW-Authenticate: Payment` challenge in its `402 Payment Required` response. You forward the challenge verbatim to `ProcessPayment` with `paymentType=MPP`, and AgentCore payments parses the challenge, checks the session budget, signs with the wallet, and returns a ready-to-send credential. You retry the original request with the credential in the `Authorization` header. MPP supports the `evm`, `tempo`, and `solana` payment methods, with provider support that varies by connector type.
+
+For more information, see [Process a payment](payments-process-payment.md "payments-process-payment.md") and [Core concepts for AgentCore payments](payments-concepts.md "payments-concepts.md").
+
+### Evaluations: Third-party evaluators
+
+Amazon Bedrock AgentCore Evaluations now offers evaluators from the DeepEval and AutoEval open source libraries. There are two ways to use them: select a managed third-party evaluator by ID and the service runs it on a model it operates, the same way you use a built-in evaluator; or derive a custom evaluator from a built-in or third-party evaluator to run its logic on your own model and inference. Managed and derived third-party evaluators are discoverable through the `ListEvaluators` API alongside built-in and custom evaluators. See [Third-party evaluators](third-party-evaluators.md "third-party-evaluators.md").
+
 ### Memory, policy, and harness are now available in AWS GovCloud (US-West)
 
 AgentCore memory, policy, and harness are now available in the AWS GovCloud (US-West) Region (`us-gov-west-1`).

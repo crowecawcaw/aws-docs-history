@@ -8,6 +8,8 @@ You can use custom evaluators with both online and on-demand evaluations. To spe
 arn:aws:bedrock-agentcore:region:account:evaluator/evaluator-id
 ```
 
+You can also create a custom evaluator that runs an existing built-in or third-party evaluator’s logic on your own model. With this approach, you skip writing your own instructions and rating scale. For more information, see [Third-party evaluators](third-party-evaluators.md "third-party-evaluators.md").
+
 ###### Topics
 
 - [Create evaluator](create-evaluator.md "create-evaluator.md")

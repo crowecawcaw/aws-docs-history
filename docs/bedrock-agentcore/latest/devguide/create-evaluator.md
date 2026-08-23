@@ -38,6 +38,16 @@ For LLM-as-a-judge evaluators, specify the judge model in `modelConfig` using on
   - `available_tools` – The set of available tool calls, including tool ID, parameters, and description.
   - `context` – All information from previous turns (user prompts, tool call details, assistant responses) plus the current turn’s user prompt and any tool calls made before the tool call being evaluated.
   - `tool_turn` – The tool call under evaluation.
+  - **Skill placeholders** – The following placeholders are populated only for tool calls that AgentCore Evaluations identifies as skill invocations. A custom TOOL\_CALL evaluator that includes `invoked_skill` or `skill_content` runs only on skill-invocation tool calls; other tool calls in the same session are skipped. For details, see [Skill evaluators](skill-evaluators.md "skill-evaluators.md").
+
+    - `invoked_skill` – The name of the skill the agent loaded in this tool call.
+    - `skill_content` – The full body of the loaded skill’s `SKILL.md` instructions.
+    - `available_skills` – The catalog of skills the agent could choose from at runtime, when the trace exposes one. Each entry has a name and description. Not every framework exposes a catalog; when the catalog isn’t in the trace, this placeholder is empty.
+    - `user_message` – The user request in the turn that triggered the skill invocation.
+
+    ###### Note
+
+    When a custom TOOL\_CALL evaluator’s prompt references `skill_content`, `{context}` renders the **full session context** — every turn from session start through session end — so the judge can verify whether prescribed steps were carried out at any point after the skill was loaded. For other custom TOOL\_CALL evaluators, `{context}` is the standard pre-call snapshot.
 
 **Ground truth placeholders:** In addition to the standard placeholders, custom evaluators can reference ground truth placeholders that are populated from the `evaluationReferenceInputs` provided at evaluation time. This enables you to build evaluators that compare agent behavior against known-correct answers.
 

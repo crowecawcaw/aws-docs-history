@@ -19,6 +19,16 @@ Details on the placeholder values used by our current evaluators:
   - `available_tools` – The set of available tool calls, including tool ID, parameters, and description.
   - `context` – All information from previous turns (user prompts, tool call details, assistant responses) plus the current turn’s user prompt and any tool calls made before the tool call being evaluated.
   - `tool_turn` – The tool call under evaluation.
+  - **Skill placeholders** – Populated only for tool calls that AgentCore Evaluations identifies as skill invocations. The built-in skill evaluators consume these placeholders. For details, see [Skill evaluators](skill-evaluators.md "skill-evaluators.md").
+
+    - `invoked_skill` – The name of the skill the agent loaded in this tool call.
+    - `skill_content` – The full body of the loaded skill’s `SKILL.md` instructions.
+    - `available_skills` – The catalog of skills the agent could choose from at runtime, when the trace exposes one. Each entry has a name and description. Not every framework exposes a catalog; when the catalog isn’t in the trace, this placeholder is empty.
+    - `user_message` – The user request in the turn that triggered the skill invocation.
+
+    ###### Note
+
+    When an evaluator’s prompt references `skill_content`, `{context}` renders the **full session context** — every turn from session start through session end — so the judge can verify whether prescribed steps were carried out at any point after the skill was loaded. Otherwise, `{context}` is the standard tool-level snapshot (previous turns up to the tool call being evaluated).
 
 **Topics**
 
@@ -38,6 +48,8 @@ Details on the placeholder values used by our current evaluators:
 - [Stereotyping (Trace-level evaluator)](#stereotyping "#stereotyping")
 - [Tool parameter accuracy (Tool-level evaluator)](#tool-parameter-accuracy "#tool-parameter-accuracy")
 - [Tool selection accuracy (Tool-level evaluator)](#tool-selection-accuracy "#tool-selection-accuracy")
+- [Skill selection accuracy (Tool-level evaluator)](#skill-selection-accuracy "#skill-selection-accuracy")
+- [Skill instruction following (Tool-level evaluator)](#skill-instruction-following "#skill-instruction-following")
   The Goal success rate evaluator assesses whether an AI assistant successfully completed all user goals within a conversation session. This session-level evaluator analyzes the entire conversation to determine if the user’s objectives were met.
 
 ```
@@ -711,4 +723,132 @@ Here is the output JSON schema:
 
 ````
 Do not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).
+````
+
+The Skill selection accuracy evaluator assesses whether the skill the agent loaded fits the task, given the catalog of available skills. It runs only on tool calls that AgentCore Evaluations identifies as skill invocations. For each session, it emits one result per invoked skill, anchored to the tool call that loaded the skill.
+
+Score labels and their numeric values:
+
+- `Yes` (1.0), `No` (0.0)
+
+```
+You are an objective judge evaluating whether an AI agent made an appropriate
+skill-selection decision for a task.
+
+A skill is a reusable instruction file the agent may load to help with a task. At runtime the
+agent is shown a list of available skills (each with a name and description) and decides which,
+if any, to load.
+
+## Task
+{user_message}
+
+## Available skills
+{available_skills}
+
+## Skill invoked by the agent
+{invoked_skill}
+
+## Conversation record
+{context}
+
+## Evaluation Question
+The agent loaded the skill named above. Given the task, was loading that skill an appropriate
+selection?
+- "Yes" if the skill's description fits the task (a reasonable skill to load).
+- "No" if it does not fit the task (an inappropriate pick).
+
+## Guidelines
+- Judge only the skill named above, not any other skill in the session.
+- On a task needing several skills, loading any one skill that genuinely fits is appropriate on
+  its own. Judge this skill on its own merits, not on whether the agent also loaded the other
+  skills it needed.
+- Judge the selection decision, not how well the agent then executed the skill.
+- Base the decision on the skill description and the task, not on the outcome.
+
+## Output Format
+The output should be a well-formatted JSON instance that conforms to the JSON schema below.
+As an example, for the schema {{"properties": {{"foo": {{"title": "Foo", "description": "a list
+of strings", "type": "array", "items": {{"type": "string"}}}}}}, "required": ["foo"]}}
+the object {{"foo": ["bar", "baz"]}} is a well-formatted instance of the schema. The object
+{{"properties": {{"foo": ["bar", "baz"]}}}} is not well-formatted.
+Here is the output JSON schema:
+```
+
+{{"properties": {{"reasoning": {{"description": "step by step reasoning to derive the final
+score, using no more than 250 words", "title": "Reasoning", "type": "string"}}, "score":
+{{"description": "score should be one of 'Yes' or 'No'", "enum": ["Yes", "No"], "title":
+"Score", "type": "string"}}}}, "required": ["reasoning", "score"]}}
+
+````
+Do not return any preamble or explanations, return only a pure JSON string surrounded by
+triple backticks (```).
+````
+
+The Skill instruction following evaluator assesses how fully the agent followed the prescribed steps of a skill it loaded. It runs only on tool calls that AgentCore Evaluations identifies as skill invocations. For each session, it emits one result per invoked skill, anchored to the tool call that loaded the skill.
+
+Score labels and their numeric values:
+
+- `Fully Followed` (1.0), `Mostly Followed` (0.75), `Partially Followed` (0.5), `Minimally Followed` (0.25), `Not Followed` (0.0)
+
+```
+You are an objective judge evaluating whether an AI agent followed the instructions of a
+skill it loaded.
+
+A skill is an instruction file (SKILL.md) with prescribed steps.
+
+## Skill invoked by the agent
+{invoked_skill}
+
+## Skill instructions (SKILL.md content)
+{skill_content}
+
+## Conversation record
+{context}
+
+## Evaluation Task
+Identify the prescribed steps in the SKILL.md content above, then, for EACH step, judge from
+the conversation record whether the step was:
+- "covered": the record clearly shows the agent carried out the step,
+- "partial": the record shows incomplete or ambiguous adherence,
+- "skipped": the record shows no evidence the step was carried out.
+
+After the per-step judgments, give an overall five-point rating of how fully the agent
+followed the skill's steps:
+- "Fully Followed": essentially every step carried out; no meaningful gaps.
+- "Mostly Followed": the great majority of steps carried out; only minor gaps.
+- "Partially Followed": a mix of carried-out and skipped steps.
+- "Minimally Followed": most steps skipped; only a few carried out.
+- "Not Followed": the skill's steps were essentially ignored.
+
+The overall rating must be consistent with your per-step statuses: it should track the share
+of steps that were covered.
+
+## Guidelines
+- Judge only against the steps this skill prescribes, not generic task quality.
+- Ground each per-step judgment in specific evidence from the record.
+- A plan, unexecuted code snippet, or claim that a step will be done is not evidence that an
+  executable step was carried out. Require an action or result in the record.
+- If the skill has no clearly enumerable steps, treat its core instructions as the steps.
+- Judge only the skill named above. Ignore other skills loaded in this session.
+
+## Output Format
+The output should be a well-formatted JSON instance that conforms to the JSON schema below.
+As an example, for the schema {{"properties": {{"foo": {{"title": "Foo", "description": "a list
+of strings", "type": "array", "items": {{"type": "string"}}}}}}, "required": ["foo"]}}
+the object {{"foo": ["bar", "baz"]}} is a well-formatted instance of the schema. The object
+{{"properties": {{"foo": ["bar", "baz"]}}}} is not well-formatted.
+Here is the output JSON schema:
+```
+
+{{"properties": {{"reasoning": {{"description": "step by step reasoning to derive the final
+score, using no more than 250 words. State each prescribed step, its status (covered, partial,
+or skipped), and the evidence for that status, then justify the overall rating", "title":
+"Reasoning", "type": "string"}}, "score": {{"description": "score should be one of 'Fully
+Followed', 'Mostly Followed', 'Partially Followed', 'Minimally Followed', or 'Not Followed'",
+"enum": ["Fully Followed", "Mostly Followed", "Partially Followed", "Minimally Followed", "Not
+Followed"], "title": "Score", "type": "string"}}}}, "required": ["reasoning", "score"]}}
+
+````
+Do not return any preamble or explanations, return only a pure JSON string surrounded by
+triple backticks (```).
 ````

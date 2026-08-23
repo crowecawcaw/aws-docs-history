@@ -12,7 +12,9 @@ Personas that interact with AgentCore payments can vary from organization to org
 
 ## Key concepts
 
-![AgentCore payments core concepts](images/payments/core-concept.jpg)
+The following diagram shows how PaymentManager, PaymentConnector, payment sessions, and payment instruments relate in AgentCore payments.
+
+![How PaymentManager](images/payments/core-concept.png)
 
 ### PaymentManager
 
@@ -43,6 +45,10 @@ A PaymentCredentialProvider is a specialized credential provider in AgentCore Id
 ### x402 protocol
 
 The x402 protocol is an open, HTTP-native payment standard that repurposes the HTTP 402 status code for direct, programmatic payments. When an agent requests a paid resource, the merchant responds with HTTP `402 Payment Required` including a payment payload that specifies the amount, recipient, asset, and network. The agent signs the payment and retries the request with the signed proof in the `X-PAYMENT` header. The merchant verifies the payment and delivers the content.
+
+### Machine Payments Protocol (MPP)
+
+The Machine Payments Protocol (MPP) is an open, HTTP-native standard for programmatic payments. It uses the standard HTTP authentication challenge flow. When an agent requests a paid resource, the merchant responds with HTTP `402 Payment Required` and a `WWW-Authenticate: Payment` challenge that specifies the payment methods, amount, recipient, and accepted tokens. The agent forwards the challenge to AgentCore payments, which signs the payment and returns a ready-to-send credential. The agent retries the request with the credential in the `Authorization` header, and the merchant verifies the payment and delivers the content.
 
 ### Microtransaction
 

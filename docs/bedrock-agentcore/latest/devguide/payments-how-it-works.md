@@ -1,6 +1,6 @@
 # How AgentCore payments works
 
-Amazon Bedrock AgentCore payments offers payment connection, wallet management, payment limits, payment processing, and payment observability. Using the components and workflows described on this page, you can configure payment providers, connect to external wallet infrastructure, and enable your agents to autonomously pay for APIs, MCP servers, and web content using the x402 protocol.
+Amazon Bedrock AgentCore payments offers payment connection, wallet management, payment limits, payment processing, and payment observability. Using the components and workflows described on this page, you can configure payment providers, connect to external wallet infrastructure, and enable your agents to autonomously pay for APIs, MCP servers, and web content using the x402 protocol or the Machine Payments Protocol (MPP).
 
 ## PaymentManager
 
@@ -35,9 +35,26 @@ Key connector characteristics:
 
 - Each PaymentConnector belongs to exactly one PaymentManager
 - Credentials are stored in AWS Secrets Manager through AgentCore Identity and referenced by ARN
-- Connectors follow the same lifecycle states as PaymentManagers (`CREATING`, `READY`, `UPDATING`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETE_FAILED`)
+- Connectors share the base lifecycle states with PaymentManagers (`CREATING`, `READY`, `UPDATING`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETE_FAILED`). Coinbase Quick create connectors can also report additional states (`PENDING_AUTHENTICATION`, `PROVISIONING`, `AUTHENTICATION_EXPIRED`, `AUTHENTICATION_FAILED`) — see the following section.
 
 You create a connector with the [CreatePaymentConnector](payments-create-manager.md#payments-create-manager-create "payments-create-manager.md#payments-create-manager-create") operation. For the complete list of connector operations, see the [Payments API reference](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md").
+
+### Quick create and Manual provisioning
+
+You provision a connector’s credentials in one of two ways. The mode you can use depends on the payment provider.
+
+**Quick create (recommended)** — Quick create is available for Coinbase connectors only. You authorize the connection through Coinbase with a one-time OAuth consent, and the service then provisions and stores the Coinbase credential provider for you. You create the connector with `provisionMode` set to `QUICK_CREATE` and an empty credential list. The connector enters `PENDING_AUTHENTICATION` and returns an `authorizationUrl`. After you authorize at that URL, the service provisions the credentials and the connector becomes `READY`. The `authorizationUrl` is valid for about 10 minutes. If it lapses before you authorize, the connector moves to `AUTHENTICATION_EXPIRED` and you re-create it.
+
+**Manual** — With manual provisioning, you bring your own provider API credentials. The credentials are stored as a PaymentCredentialProvider, and the connector references that provider by ARN. Stripe (Privy) supports manual provisioning only.
+
+During Quick create, a connector can report these additional statuses:
+
+- `PENDING_AUTHENTICATION` — Waiting for you to authorize at the `authorizationUrl`.
+- `PROVISIONING` — The service is provisioning and storing the credential provider after you authorize.
+- `AUTHENTICATION_EXPIRED` — The `authorizationUrl` lapsed before you authorized. Re-create the connector to get a fresh URL.
+- `AUTHENTICATION_FAILED` — Authorization did not complete successfully.
+
+For step-by-step instructions, see [the quick start](payments-getting-started.md "payments-getting-started.md") or [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").
 
 ## Credential management
 
@@ -49,7 +66,7 @@ Payment sessions represent individual payment contexts between an agent and an e
 
 Payment instruments represent the end user’s payment credentials, such as a crypto wallet address. Each instrument is associated with a specific blockchain network and has an `INITIATED`, `ACTIVE`, `FAILED`, or `DELETED` status.
 
-At runtime, the agent creates a session and instrument, then calls `ProcessPayment` when the agent encounters a paid resource. The service orchestrates the full payment lifecycle (payment limit check, secure connection to wallet, and transaction signing across both x402 v1 and v2) through the configured PaymentConnector.
+At runtime, the agent creates a session and instrument, then calls `ProcessPayment` when the agent encounters a paid resource. The service orchestrates the full payment lifecycle (payment limit check, secure connection to wallet, and transaction signing across both x402 v1 and v2 and the Machine Payments Protocol (MPP)) through the configured PaymentConnector.
 
 For more information about data plane operations, see [Processing payments](payments-process-payment.md "payments-process-payment.md"). For the complete API schemas, see [CreatePaymentSession](../APIReference/API_CreatePaymentSession.md "../APIReference/API_CreatePaymentSession.md"), [CreatePaymentInstrument](../APIReference/API_CreatePaymentInstrument.md "../APIReference/API_CreatePaymentInstrument.md"), and [ProcessPayment](../APIReference/API_ProcessPayment.md "../APIReference/API_ProcessPayment.md") in the API Reference.
 
@@ -90,6 +107,8 @@ The following steps describe the runtime flow when an agent accesses a paid reso
 5. **Retry with payment** — The agent retries the original request with the signed payment payload in the `X-PAYMENT` header.
 6. **Verification and settlement** — The merchant verifies the payment proof and settles the transaction on-chain. Upon successful verification, the merchant returns the requested content.
 7. **State update** — AgentCore payments commits the transaction and updates the session spending ledger. If any step fails, the payment limit reservation is released and the transaction is recorded as `FAILED`.
+
+When the agent uses the Machine Payments Protocol (MPP) instead of x402, the flow is the same except for the challenge and credential headers. With MPP, the merchant returns the payment challenge in the `WWW-Authenticate: Payment` header rather than an x402 payload. The agent then retries the original request with the signed credential in the `Authorization` header rather than the `X-PAYMENT` header.
 
 ## Observability
 
