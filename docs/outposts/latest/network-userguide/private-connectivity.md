@@ -3,8 +3,8 @@
 You can configure the service link with a private connection for the traffic between the
 Outposts and home AWS Region. You can choose to use Direct Connect private or transit VIFs.
 
-Select the private connectivity option when you create your Outpost in the AWS Outposts console.
-For instructions, see [Create an
+Select the private connectivity option when you create your Outpost using the AWS Outposts
+console, AWS CLI, or API. For instructions, see [Create an
 Outpost](order-outpost-capacity.md#create-outpost "order-outpost-capacity.md#create-outpost").
 
 When you select the private connectivity option, a service link VPN connection is
@@ -15,10 +15,6 @@ The following image shows both options to establish a service link VPN private c
 between your Outposts and the AWS Region:
 
 ![The service link private connection options.](images/outpost-rack2ndgen-sl-private-connection-options.PNG)
-
-###### Note
-
-Second-generation Outposts racks require a larger subnet size (/24 or larger) and a VPC Endpoint for the Outposts service.
 
 ###### IP Address Planning for Private Connectivity
 
@@ -36,15 +32,20 @@ The following prerequisites are required before you can configure private connec
 for your Outpost:
 
 - You must configure permissions for an IAM entity (user or role) to allow the user
-  or role to create the service-linked role for private connectivity. The IAM entity
-  needs permission to access the following actions:
+  or role to create the service-linked role and provisioning role for private
+  connectivity. The IAM entity needs permission to access the following actions:
 
   - `iam:CreateServiceLinkedRole` on
     `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
   - `iam:PutRolePolicy` on
     `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
+  - `iam:CreateRole` on
+    `arn:aws:iam::*:role/service-role/AWSOutpostsProvisioningRole_*`
+  - `iam:PutRolePolicy` on
+    `arn:aws:iam::*:role/service-role/AWSOutpostsProvisioningRole_*`
   - `ec2:DescribeVpcs`
   - `ec2:DescribeSubnets`
+  - `ec2:DescribeVpcEndpoints`
     For more information, see [AWS Identity and Access Management for
     AWS Outposts](identity-access-management.md "identity-access-management.md")
 
@@ -73,7 +74,7 @@ properly.
   virtual interfaces](../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md "../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md") and [Working with
   Direct Connect gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-gateways.md") in the _Direct Connect User Guide_.
 - Create a new VPC endpoint for AWS Outposts in your private connectivity VPC and
-  subnet.
+  subnet. The VPC endpoint ID is required when you configure private connectivity.
 
 Use the following VPC endpoint settings:
 
@@ -134,6 +135,55 @@ on your behalf:
   account.
   For more information about the service-linked role, see [Service-linked roles
   for AWS Outposts](using-service-linked-roles.md "using-service-linked-roles.md").
+
+When you configure private connectivity, AWS Outposts also creates a provisioning role in your
+account named `AWSOutpostsProvisioningRole_`outpostId``.
+The AWS Outposts service uses this role to start and monitor the private connectivity connection
+for your Outpost.
+
+The role uses the following JSON trust policy. Replace
+`accountId` with your AWS account ID and
+`outpostArn` with your Outpost ARN:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OutpostsProvisioningRoleTrustPolicy",
+      "Effect": "Allow",
+      "Principal": { "Service": "outposts.amazonaws.com" },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": { "aws:SourceAccount": "`accountId`" },
+        "ArnEquals": { "aws:SourceArn": "`outpostArn`" }
+      }
+    }
+  ]
+}
+```
+
+The role uses the following JSON inline permissions policy:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OutpostProvisioningPermissions",
+      "Effect": "Allow",
+      "Action": "outposts:StartConnection",
+      "Resource": "`outpostArn`"
+    },
+    {
+      "Sid": "GetConnectionUnscoped",
+      "Effect": "Allow",
+      "Action": "outposts:GetConnection",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 ###### Important
 
