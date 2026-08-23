@@ -111,7 +111,7 @@ This section describes the Amazon VPC infrastructure of an environment with _pri
 - **A network access control list (ACL)**. An NACL manages (by allow or deny rules) inbound and outbound traffic at the subnet level.
 
   - The NACL must have an inbound rule that allows all traffic (`0.0.0.0/0`; for IPv6, use `::/0`).
-  - The NACL must have an outbound rule that denies all traffic (`0.0.0.0/0`; for IPv6, use `::/0`).
+  - The NACL must have an outbound rule that allows all traffic (`0.0.0.0/0`; for IPv6, use `::/0`).
   - For example, [(Recommended) Example ACLs](vpc-security.md#vpc-security-acl-example "vpc-security.md#vpc-security-acl-example").
 
 - **A local route table**. A local route table is a default route for communication within the VPC.

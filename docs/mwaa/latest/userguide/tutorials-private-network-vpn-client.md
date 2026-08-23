@@ -26,7 +26,7 @@ This tutorial applies to the **Private network** access mode. If you chose **Bot
 
 This tutorial assumes you've chosen the **Private network** access mode for your Apache Airflow webserver.
 
-![This image displays the architecture for an Amazon MWAA environment with Private network access.](images/mwaa-private-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with Private network access.](/images/mwaa/latest/userguide/images/mwaa-private-web-server.png)
 
 The private network access mode limits access to the Apache Airflow UI to users _within your Amazon VPC_ who have been granted access to the
 [IAM policy for your environment](access-policies.md "access-policies.md").
@@ -73,7 +73,7 @@ The following section explains how to identify the CIDR rules, which you'll need
 
    - Private Subnet 1: 10.192.10.0`/24`
    - Private Subnet 2: 10.192.11.0`/24`
-     If the CIDR for your Amazon VPC is 10.192.0.0`/16`, then the **Client IPv4 CIDR** you'd specify for your Client VPN would be 10.192.0.0`/22`.
+     If the CIDR for your Amazon VPC is 10.192.0.0`/16`, then the **Client IPv4 CIDR** you'd specify for your Client VPN would be 172.16.0.0`/22`.
 
 5. Save this CIDR value, and the value of your VPC ID for subsequent steps.
 
@@ -140,7 +140,7 @@ Substitute the following values:
 
     + `YOUR_CLIENT_ROOT_CERTIFICATE_ARN` – The ARN for your **client1.domain.tld** certificate in `ClientRootCertificateChainArn`.
     + `YOUR_SERVER_CERTIFICATE_ARN` – The ARN for your **server** certificate in `ServerCertificateArn`.
-    + The Client IPv4 CIDR rule in `ClientCidrBlock`. A CIDR rule of `10.192.0.0/22` is provided.
+    + The Client IPv4 CIDR rule in `ClientCidrBlock`. A CIDR rule of `172.16.0.0/22` is provided. This range must not overlap your Amazon VPC CIDR.
     + Your Amazon VPC ID in `VpcId`. A VPC of `vpc-010101010101` is provided.
     + Your VPC security group IDs in `SecurityGroupIds`. A security group of `sg-0101010101` is provided.
 
@@ -155,7 +155,7 @@ Resources:
         - Type: "certificate-authentication"
           MutualAuthentication:
             ClientRootCertificateChainArn: "YOUR_CLIENT_ROOT_CERTIFICATE_ARN"
-      ClientCidrBlock: 10.192.0.0/22
+      ClientCidrBlock: 172.16.0.0/22
       ClientConnectOptions:
         Enabled: false
       ConnectionLogOptions:
@@ -238,7 +238,7 @@ You need to add an authorization ingress rule using the CIDR rule for your VPC t
 
 ###### Note
 
-Depending on the networking components for your Amazon VPC, you might also need to this authorization ingress rule to your network access control list (NACL).
+Depending on the networking components for your Amazon VPC, you might also need to add this authorization ingress rule to your network access control list (NACL).
 
 ## Step seven: Download the Client VPN endpoint configuration file
 

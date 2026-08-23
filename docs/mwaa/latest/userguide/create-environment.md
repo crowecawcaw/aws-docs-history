@@ -32,7 +32,7 @@ The following Apache Airflow versions are supported on Amazon Managed Workflows 
 ###### Note
 
 - Effective December 30, 2025, Amazon MWAA will end support for Apache Airflow versions v2.4.3, v2.5.1,
-  and v2.6.3. For more information, refer to [Apache Airflow version support and FAQ](airflow-versions.md#airflow-versions-support "airflow-versions.md#airflow-versions-support").
+  and v2.6.3. For more information, refer to [End-of-support versions](airflow-versions.md#airflow-versions-eos "airflow-versions.md#airflow-versions-eos").
 - Beginning with Apache Airflow v2.2.2, Amazon MWAA supports installing Python requirements, provider
   packages, and custom plugins directly on the Apache Airflow webserver.
 - Beginning with Apache Airflow v2.7.2, your requirements file must include a `--constraint` statement. If you don't provide a constraint, Amazon MWAA will specify

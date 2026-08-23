@@ -11,7 +11,6 @@ This topic describes the Apache Airflow versions Amazon Managed Workflows for Ap
 - [Upgrading the Apache Airflow version](#airflow-versions-upgrade "#airflow-versions-upgrade")
 - [Downgrading the Apache Airflow version](#airflow-versions-downgrade "#airflow-versions-downgrade")
 - [Apache Airflow deprecated versions](#airflow-versions-deprecation "#airflow-versions-deprecation")
-- [Apache Airflow version support and FAQ](#airflow-versions-support "#airflow-versions-support")
 
 ## About Amazon MWAA versions
 
@@ -28,7 +27,7 @@ The following Apache Airflow versions are supported on Amazon Managed Workflows 
 ###### Note
 
 - Effective December 30, 2025, Amazon MWAA will end support for Apache Airflow versions v2.4.3, v2.5.1,
-  and v2.6.3. For more information, refer to [Apache Airflow version support and FAQ](#airflow-versions-support "#airflow-versions-support").
+  and v2.6.3. For more information, refer to [End-of-support versions](#airflow-versions-eos "#airflow-versions-eos").
 - Beginning with Apache Airflow v2.2.2, Amazon MWAA supports installing Python requirements, provider
   packages, and custom plugins directly on the Apache Airflow webserver.
 - Beginning with Apache Airflow v2.7.2, your requirements file must include a `--constraint` statement. If you don't provide a constraint, Amazon MWAA will specify
@@ -97,31 +96,29 @@ The following table lists the deprecated versions of Apache Airflow in Amazon MW
 | v2.5.1                 | January 20, 2023            | April 11, 2023                | December 30, 2025               |
 | v2.6.3                 | July 10, 2023               | August 09, 2023               | December 30, 2025               |
 
-## Apache Airflow version support and FAQ
+### End-of-support versions
 
-In accordance with the Apache Airflow community [release process and version policy](https://airflow.apache.org/docs/apache-airflow/stable/release-process.html "https://airflow.apache.org/docs/apache-airflow/stable/release-process.html"), Amazon MWAA is committed to supporting at least three minor versions of Apache Airflow at any given time. We will announce the end of support date of a given Apache Airflow minor version at least 180 days before the end of support date.
+We follow the Apache Airflow community [release process and version policy](https://airflow.apache.org/docs/apache-airflow/stable/release-process.html "https://airflow.apache.org/docs/apache-airflow/stable/release-process.html") on the Apache Airflow website. We are committed to supporting at least three minor versions of Apache Airflow at any given time. We will announce the end-of-support date at least 180 days in advance. This applies to each Apache Airflow minor version.
 
-### Frequently asked questions
+We are committed to supporting an Apache Airflow version for at least 12 months after it first becomes available.
 
-###### Q: How long does Amazon MWAA support an Apache Airflow version?
+If any Amazon MWAA environments in your account run the version nearing the end of support, we send a notice through the Health Dashboard with the end of support date.
 
-A: Amazon MWAA supports an Apache Airflow patch version for a minimum of 12 months after first being available.
+On the end of support date:
 
-###### Q: Am I notified when support is ending for an Apache Airflow version on Amazon MWAA?
+- You can no longer use a deprecated version to create new Amazon MWAA environments.
+- You can no longer upgrade or downgrade existing environments to deprecated versions.
+- You can still use your existing environments on deprecated versions and perform in-place updates.
+- You can no longer receive technical support for environments running on deprecated versions.
 
-A: Yes. If any Amazon MWAA environments in your account run the version nearing the end of support, Amazon MWAA sends out a notice through the Health Dashboard with the end of support date.
-
-###### Q: What happens on the end of support date?
-
-A: On the end of support date, you can no longer use a deprecated version to create new Amazon MWAA environments. You can continue to access your existing Amazon MWAA environments that run the associated, deprecated version of Apache Airflow at your own risk. To upgrade to a newer version of Apache Airflow on Amazon MWAA, refer to the [Amazon MWAA Migration Guide](../migrationguide/index.md "../migrationguide/index.md").
+You can continue to access your existing Amazon MWAA environments that run the associated, deprecated version of Apache Airflow at your own risk. For instructions on upgrading to a newer version of Apache Airflow, see the [Amazon MWAA Migration Guide](../migrationguide/about-mwaa-migration.md "../migrationguide/about-mwaa-migration.md").
 
 ###### Important
 
-You are responsible for keeping your Amazon MWAA versions current. AWS urges all customers to upgrade their Amazon MWAA environments to the latest version to benefit from the most current security, privacy, and availability safeguards. If you operate your environment on an unsupported version or software past the deprecation date, referred to as the _legacy version_, you face a greater likelihood of security, privacy, and operational risks, including downtime events. By operating your Amazon MWAA environment on a legacy version, you confirm that you understand and knowingly assume these risks, and you agree to complete your upgrade to the latest version as soon as possible. Continued operation of your environment on a legacy version is subject to the agreement governing your use of the AWS services.
+You are responsible for keeping your Amazon MWAA versions current. We urge you to upgrade to the latest version for current security, privacy, and availability safeguards. Operating past the deprecation date (on a "legacy version") increases security, privacy, and operational risks, including downtime. By continuing on a legacy version, you acknowledge these risks and agree to upgrade as soon as possible.
 
-Legacy versions are not considered generally available, and AWS no longer provides support for the legacy version. As a result, AWS might place limits on the access to or use of any legacy version at any time, if AWS determines that the legacy version poses a security or liability risk, or a risk of harm, to the services, AWS, its Affiliates, or any other third party. Your decision to continue running Your workloads on a legacy version might result in Your content becoming unavailable, corrupted, or unrecoverable. Environments running on a legacy version are subject to Service Level Agreement (SLA) exceptions.
+Legacy versions are not generally available and we no longer support them. We might restrict access to any legacy version at any time if it poses a security or liability risk. Continuing on a legacy version might result in your content becoming unavailable, corrupted, or unrecoverable. SLA exceptions apply.
 
-Environments, and related software, running on a legacy version might contain bugs, errors, defects, and harmful components. Accordingly, and notwithstanding any information to the contrary in the agreement, or the terms of service, AWS provides the legacy version _as is_.
+Legacy environments and related software might contain bugs, errors, defects, and harmful components. We provide the legacy version as is, notwithstanding any contrary terms in your agreement.
 
-For more information about AWS's shared responsibility model, refer to [Shared responsibility](../../../wellarchitected/latest/security-pillar/shared-responsibility.md "../../../wellarchitected/latest/security-pillar/shared-responsibility.md") in the
-_AWS Well-Architected Framework_.
+For more information about shared responsibility, see [Shared responsibility](../../../wellarchitected/latest/security-pillar/shared-responsibility.md "../../../wellarchitected/latest/security-pillar/shared-responsibility.md") in the _AWS Well-Architected Framework_.

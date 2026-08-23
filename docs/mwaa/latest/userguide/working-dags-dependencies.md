@@ -64,7 +64,7 @@ The Apache Airflow scheduler and the workers search for
 the packages in the `requirements.txt` file and the packages are
 installed on the environment at `/usr/local/airflow/.local/bin`.
 
-- **Size limit**. We recommend a `requirements.txt` file that references libraries whose combined size is less than than 1 GB. The more libraries Amazon MWAA needs to install, the longer the _startup_ time on an environment. Although Amazon MWAA doesn't limit the size of installed libraries explicitly, if dependencies can't be installed within ten minutes, the Fargate service will time-out and attempt to rollback the environment to a stable state.
+- **Size limit**. We recommend a `requirements.txt` file that references libraries whose combined size is less than 1 GB. The more libraries Amazon MWAA needs to install, the longer the _startup_ time on an environment. Although Amazon MWAA doesn't limit the size of installed libraries explicitly, if dependencies can't be installed within ten minutes, the Fargate service will time-out and attempt to rollback the environment to a stable state.
 
 ## Creating a requirements.txt file
 
@@ -102,7 +102,7 @@ prevent incompatible libraries from being installed to your environment. If inst
 If you need to update the versions in the constraint file, refer to [Constraints file](connections-packages.md#connections-packages-constraints "connections-packages.md#connections-packages-constraints"). 4. **Apache Airflow packages**. Add the [package extras](http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html "http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html") and the version (`==`). This helps to prevent packages of the same name, but different version, from being installed on your environment.
 
 ```
-apache-airflow[`package-extra`]==2.5.1
+apache-airflow[`package-extra`]==3.2.1
 ```
 
 5. **Python libraries**. Add the package name and the version (`==`) in your `requirements.txt` file. This helps to prevent a future breaking update from [PyPi.org](https://pypi.org "https://pypi.org") from being automatically applied.
@@ -116,10 +116,9 @@ apache-airflow[`package-extra`]==2.5.1
 This example is provided for demonstration purposes. The boto and psycopg2-binary libraries are included with the base install for Apache Airflow v3 and don't need to be specified in a `requirements.txt` file.
 
 ```
-boto3==1.17.54
-boto==2.49.0
-botocore==1.20.54
-psycopg2-binary==2.8.6
+boto3==1.42.84
+botocore==1.42.84
+psycopg2-binary==2.9.11
 ```
 
 If a package is specified without a version, Amazon MWAA installs the latest version of the package from [PyPi.org](https://pypi.org "https://pypi.org"). This version might conflict with other packages in your `requirements.txt`.
