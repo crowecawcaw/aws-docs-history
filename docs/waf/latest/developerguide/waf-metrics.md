@@ -14,6 +14,13 @@ console or see [Traffic overview dashboards for protection packs (web ACLs)](web
 
 You can see the following metrics for protection packs (web ACLs), rules, rule groups, and labels.
 
+###### Note
+
+If your Application Load Balancer is associated with a protection pack (web ACL) that has no rules or other active configurations,
+AWS WAF does not provide sampled requests or publish CloudWatch metrics for that Application Load Balancer. For more information
+about this behavior and how to enable observability features, see
+[AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md "waf-anti-ddos.md").
+
 - **Your rules** – Metrics are grouped by the rule
   action. For example, when you test a rule in Count
   mode, its matches are listed as `Count` metrics
