@@ -77,7 +77,7 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
    1. Choose **Settings**, and then choose **Installed extensions**.
    2. Choose the **Catalog** icon
 
-   ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](/images/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png)
+   ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](images/integrations/marketplace-icon.png)
    in the top menu.
 
 4. Choose **Configure** for one of the following extensions: **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**,
