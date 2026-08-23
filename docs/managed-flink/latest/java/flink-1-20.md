@@ -1,22 +1,22 @@
 # Amazon Managed Service for Apache Flink 1.20
 
-Managed Service for Apache Flink now supports Apache Flink version 1.20.0. This section introduces you to
+Managed Service for Apache Flink now supports Apache Flink version 1.20.5. This section introduces you to
 the key new features and changes introduced with Managed Service for Apache Flink support of Apache Flink
-1.20.0. Apache Flink 1.20 is expected to be the last 1.x release and a Flink long-term
+1.20.5. Apache Flink 1.20 is expected to be the last 1.x release and a Flink long-term
 support (LTS) version. For more information, see [FLIP-458: Long-Term Support for the Final Release of Apache Flink 1.x
 Line](https://cwiki.apache.org/confluence/display/FLINK/FLIP-458%3A+Long-Term+Support+for+the+Final+Release+of+Apache+Flink+1.x+Line "https://cwiki.apache.org/confluence/display/FLINK/FLIP-458%3A+Long-Term+Support+for+the+Final+Release+of+Apache+Flink+1.x+Line").
 
 ###### Note
 
 If you are using an earlier supported version of Apache Flink and want to upgrade
-your existing applications to Apache Flink 1.20.0, you can do so using in-place
+your existing applications to Apache Flink 1.20.5, you can do so using in-place
 Apache Flink version upgrades. For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md"). With in-place version upgrades,
 you retain application traceability against a single ARN across Apache Flink
 versions, including snapshots, logs, metrics, tags, Flink configurations, and more.
 
 ## Supported features
 
-Apache Flink 1.20.0 introduces improvements in the SQL APIs, in the DataStream
+Apache Flink 1.20.5 introduces improvements in the SQL APIs, in the DataStream
 APIs, and in the Flink dashboard.
 
 Supported features and related documentation| Supported features | Description | Apache Flink documentation reference |
@@ -25,8 +25,8 @@ Supported features and related documentation| Supported features | Description |
 | DataStream API: Support Full Partition Proessing | Flink 1.20 introduces built-in support for aggregations on non-keyed<br>streams through the `FullPartitionWindow` API. | [FLIP-380: Support Full Partition Processing on Non-keyed DataStream](https://cwiki.apache.org/confluence/display/FLINK/FLIP-380%3A+Support+Full+Partition+Processing+On+Non-keyed+DataStream "https://cwiki.apache.org/confluence/display/FLINK/FLIP-380%3A+Support+Full+Partition+Processing+On+Non-keyed+DataStream") |
 | Show data skew score on Flink Dashboard | The Flink 1.20 dashboard now shows data skew infrmation. Each<br>operator on the Flink job graph UI shows an additional data skew<br>score. | [FLIP-418: Show data skew score on Flink Dashboard](https://cwiki.apache.org/confluence/display/FLINK/FLIP-418%3A+Show+data+skew+score+on+Flink+Dashboard "https://cwiki.apache.org/confluence/display/FLINK/FLIP-418%3A+Show+data+skew+score+on+Flink+Dashboard") |
 
-For the Apache Flink 1.20.0 release documentation, see [Apache Flink
-Documentation v1.20.0](https://nightlies.apache.org/flink/flink-docs-stable/ "https://nightlies.apache.org/flink/flink-docs-stable/"). For Flink 1.20 release notes, see [Release notes - Flink 1.20](https://nightlies.apache.org/flink/flink-docs-release-1.20/release-notes/flink-1.20/ "https://nightlies.apache.org/flink/flink-docs-release-1.20/release-notes/flink-1.20/")
+For the Apache Flink 1.20.5 release documentation, see [Apache Flink
+Documentation v1.20.5](https://nightlies.apache.org/flink/flink-docs-stable/ "https://nightlies.apache.org/flink/flink-docs-stable/") on the Apache Flink website. For Flink 1.20 release notes, see [Release notes - Flink 1.20](https://nightlies.apache.org/flink/flink-docs-release-1.20/release-notes/flink-1.20/ "https://nightlies.apache.org/flink/flink-docs-release-1.20/release-notes/flink-1.20/")
 
 ## Components
 

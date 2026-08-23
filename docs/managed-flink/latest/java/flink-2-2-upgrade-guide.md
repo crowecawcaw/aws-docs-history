@@ -91,7 +91,7 @@ steps for your production application.
 Update your application code to be compatible with Flink 2.2:
 
 - **Update Flink dependencies** to version
-  2.2.0 in your `pom.xml` or
+  2.2.1 in your `pom.xml` or
   `build.gradle`
 - **Update connector dependencies** to Flink
   2.2-compatible versions (see
