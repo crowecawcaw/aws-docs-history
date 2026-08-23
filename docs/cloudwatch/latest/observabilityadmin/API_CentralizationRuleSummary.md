@@ -100,6 +100,30 @@ Pattern: `[0-9A-Za-z-_.#/]+`
 
 Required: No
 
+**TagPropagationFailureReason**
+
+The reason tag propagation is unhealthy for this rule. Only present when
+`TagPropagationStatus` is `Unhealthy`.
+
+Type: String
+
+Valid Values: `RoleNotAssumable | RoleLacksPermissions`
+
+Required: No
+
+**TagPropagationStatus**
+
+The health status of tag propagation for this rule. This status is independent of the
+overall `RuleHealth` for log delivery. Returns `Healthy` when the most
+recent tag-propagation attempt succeeded, or `Unhealthy` when the most recent
+attempt failed.
+
+Type: String
+
+Valid Values: `Healthy | Unhealthy`
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

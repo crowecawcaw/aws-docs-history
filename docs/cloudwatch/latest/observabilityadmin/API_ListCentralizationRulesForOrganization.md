@@ -81,7 +81,9 @@ Content-type: application/json
          "LastUpdateTimeStamp": ***number***,
          "RuleArn": "***string***",
          "RuleHealth": "***string***",
-         "RuleName": "***string***"
+         "RuleName": "***string***",
+         "TagPropagationFailureReason": "***string***",
+         "TagPropagationStatus": "***string***"
       }
    ],
    "NextToken": "***string***"

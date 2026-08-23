@@ -38,6 +38,7 @@ Content-type: application/json
             "FieldDelimiter": "`string`",
             "OutputFormat": "`string`"
          },
+         "KmsKeyArn": "`string`",
          "LogDeliveryParameters": {
             "LogTypes": [ "`string`" ]
          },

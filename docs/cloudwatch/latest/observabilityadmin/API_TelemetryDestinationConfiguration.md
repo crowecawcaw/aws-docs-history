@@ -41,6 +41,19 @@ Type: [ELBLoadBalancerLoggingParameters](API_ELBLoadBalancerLoggingParameters.md
 
 Required: No
 
+**KmsKeyArn**
+
+The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the
+log groups created during telemetry rule remediation.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 2048.
+
+Pattern: `arn:aws[a-zA-Z-]*:kms:[a-z0-9-]+:\d{12}:key/(mrk-)?[a-f0-9-]+`
+
+Required: No
+
 **LogDeliveryParameters**
 
 The configuration parameters for log delivery when the resource type supports configurable

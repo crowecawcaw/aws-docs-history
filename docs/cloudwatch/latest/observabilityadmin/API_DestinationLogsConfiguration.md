@@ -32,6 +32,17 @@ Type: [LogsEncryptionConfiguration](API_LogsEncryptionConfiguration.md "API_Logs
 
 Required: No
 
+**TagPropagationConfiguration**
+
+Specifies the tag propagation configuration for this centralization rule. When present,
+`LogGroupNameConfiguration` must use a `LogGroupNamePattern` that
+contains `${source.logGroup}`, `${source.accountId}`, and
+`${source.region}`.
+
+Type: [TagPropagationConfiguration](API_TagPropagationConfiguration.md "API_TagPropagationConfiguration.md") object
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

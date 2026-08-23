@@ -27,6 +27,10 @@ Content-type: application/json
                "EncryptionScope": "`string`",
                "EncryptionStrategy": "`string`",
                "KmsKeyArn": "`string`"
+            },
+            "TagPropagationConfiguration": {
+               "DestinationRoleArn": "`string`",
+               "TagConflictResolutionStrategy": "`string`"
             }
          },
          "DestinationMetricsConfiguration": {
