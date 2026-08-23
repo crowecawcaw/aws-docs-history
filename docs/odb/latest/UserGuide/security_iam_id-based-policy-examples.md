@@ -65,8 +65,19 @@ the API operation that they're trying to perform.
 ## Allow users to provision Oracle Database@AWS resources
 
 This policy allows users full access to provision Oracle Database@AWS resources. To set up DNS
-resolution from your VPC, create an outbound Route 53 resolver and add rules to forward DNS
+resolution from your VPC, create an outbound Route 53 resolver. Add rules to forward DNS
 traffic with the OCI domain name to OCI DNS listener IP.
+
+Before you use this policy, replace the example account ID, role ARN, AWS Key Management Service key ARN,
+and secret ARN. Several of the statements grant permissions that aren't included in the
+Oracle Database@AWS managed policies and apply only to specific features; remove any that your use
+case doesn't require. For example, remove the `AllowResourceSharing` statement
+if you don't use cross-account resource sharing, the `AllowKmsKeyAccess`
+statement if you don't use customer-managed encryption keys, or the
+`AllowSecretsManagerAccess` statement if you don't reference a Secrets
+Manager secret. The `AllowLicenseManagerReceivedGrants` statement is required
+only if you receive shared Oracle Database@AWS entitlements from another account; otherwise, remove
+it.
 
 JSON
 
@@ -75,36 +86,115 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "AllowODBAndEC2Actions",
+ "Sid": "AllowODBActions",
  "Effect": "Allow",
  "Action": [
  "odb:GetOciOnboardingStatus",
+ "odb:InitializeService",
+ "odb:CreateCloudExadataInfrastructure",
+ "odb:GetCloudExadataInfrastructure",
+ "odb:UpdateCloudExadataInfrastructure",
+ "odb:GetCloudExadataInfrastructureUnallocatedResources",
+ "odb:DeleteCloudExadataInfrastructure",
+ "odb:ListCloudExadataInfrastructures",
+ "odb:CreateCloudVmCluster",
+ "odb:GetCloudVmCluster",
+ "odb:DeleteCloudVmCluster",
+ "odb:ListCloudVmClusters",
+ "odb:CreateCloudAutonomousVmCluster",
+ "odb:GetCloudAutonomousVmCluster",
+ "odb:DeleteCloudAutonomousVmCluster",
+ "odb:ListCloudAutonomousVmClusters",
+ "odb:CreateExascaleDbStorageVault",
+ "odb:GetExascaleDbStorageVault",
+ "odb:UpdateExascaleDbStorageVault",
+ "odb:DeleteExascaleDbStorageVault",
+ "odb:ListExascaleDbStorageVaults",
+ "odb:CreateExadbVmCluster",
+ "odb:GetExadbVmCluster",
+ "odb:UpdateExadbVmCluster",
+ "odb:DeleteExadbVmCluster",
+ "odb:ListExadbVmClusters",
+ "odb:AssociateVirtualMachinesToExadbVmCluster",
+ "odb:DisassociateVirtualMachinesFromExadbVmCluster",
+ "odb:ListGiMinorVersions",
+ "odb:CreateAutonomousDatabase",
+ "odb:GetAutonomousDatabase",
+ "odb:UpdateAutonomousDatabase",
+ "odb:DeleteAutonomousDatabase",
+ "odb:ListAutonomousDatabases",
+ "odb:ListAutonomousDatabaseClones",
+ "odb:ListAutonomousDatabasePeers",
+ "odb:StartAutonomousDatabase",
+ "odb:StopAutonomousDatabase",
+ "odb:RebootAutonomousDatabase",
+ "odb:ShrinkAutonomousDatabase",
+ "odb:SwitchoverAutonomousDatabase",
+ "odb:FailoverAutonomousDatabase",
+ "odb:RestoreAutonomousDatabase",
+ "odb:CreateAutonomousDatabaseWallet",
+ "odb:GetAutonomousDatabaseWalletDetails",
+ "odb:CreateAutonomousDatabaseBackup",
+ "odb:GetAutonomousDatabaseBackup",
+ "odb:UpdateAutonomousDatabaseBackup",
+ "odb:DeleteAutonomousDatabaseBackup",
+ "odb:ListAutonomousDatabaseBackups",
+ "odb:CreateDbNode",
+ "odb:GetDbNode",
+ "odb:RebootDbNode",
+ "odb:StartDbNode",
+ "odb:StopDbNode",
+ "odb:DeleteDbNode",
+ "odb:ListDbNodes",
+ "odb:GetDbServer",
+ "odb:ListDbServers",
+ "odb:AssociateIamRoleToResource",
+ "odb:DisassociateIamRoleFromResource",
  "odb:CreateOdbNetwork",
- "odb:DeleteOdbNetwork",
  "odb:GetOdbNetwork",
- "odb:ListOdbNetworks",
  "odb:UpdateOdbNetwork",
+ "odb:DeleteOdbNetwork",
+ "odb:ListOdbNetworks",
  "odb:CreateOdbPeeringConnection",
- "odb:DeleteOdbPeeringConnection",
  "odb:GetOdbPeeringConnection",
+ "odb:UpdateOdbPeeringConnection",
+ "odb:DeleteOdbPeeringConnection",
  "odb:ListOdbPeeringConnections",
+ "odb:ListAutonomousVirtualMachines",
+ "odb:ListDbSystemShapes",
+ "odb:ListFlexComponents",
+ "odb:ListGiVersions",
+ "odb:ListSystemVersions",
+ "odb:ListAutonomousDatabaseVersions",
+ "odb:ListAutonomousDatabaseCharacterSets",
  "odb:PutResourcePolicy",
  "odb:GetResourcePolicy",
  "odb:DeleteResourcePolicy",
- "ec2:DescribeVpcs",
+ "odb:CreateGrantShare",
+ "odb:UpdateGrantShare",
+ "odb:DeleteGrantShare",
+ "odb:CreateOutboundIntegration",
+ "odb:UpdateOutboundIntegration",
+ "odb:TagResource",
+ "odb:UntagResource",
+ "odb:ListTagsForResource"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowEC2DescribeActions",
+ "Effect": "Allow",
+ "Action": [
  "ec2:DescribeAvailabilityZones",
- "ec2:DescribeVpcEndpointAssociations",
- "ec2:CreateVpcEndpoint",
- "ec2:DeleteVpcEndpoints",
- "ec2:DescribeVpcEndpoints",
- "ec2:CreateRoute",
- "ec2:DeleteRoute",
- "ec2:DescribeRouteTables",
- "ec2:CreateTags",
- "ec2:CreatePlacementGroup",
- "ec2:AttachResourcesToPlacementGroup",
- "ec2:DeletePlacementGroup",
- "ec2:DetachResourcesFromPlacementGroup",
+ "ec2:DescribeVpcs",
+ "ec2:DescribeRouteTables"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowOdbNetworkPeeringActions",
+ "Effect": "Allow",
+ "Action": [
  "ec2:CreateOdbNetworkPeering",
  "ec2:ModifyOdbNetworkPeering",
  "ec2:DeleteOdbNetworkPeering"
@@ -112,7 +202,7 @@ JSON
  "Resource": "*"
  },
  {
- "Sid": "AllowSLRActions",
+ "Sid": "AllowServiceLinkedRoleCreation",
  "Effect": "Allow",
  "Action": [
  "iam:CreateServiceLinkedRole"
@@ -128,17 +218,39 @@ JSON
  }
  },
  {
- "Sid": "AllowTaggingActions",
+ "Sid": "AllowEc2VpcEndpointManagement",
  "Effect": "Allow",
  "Action": [
- "odb:TagResource",
- "odb:UntagResource",
- "odb:ListTagsForResource"
+ "ec2:CreateVpcEndpoint",
+ "ec2:DeleteVpcEndpoints",
+ "ec2:DescribeVpcEndpoints",
+ "ec2:DescribeVpcEndpointAssociations"
  ],
- "Resource": "arn:aws:odb:*:*:odb-network/*"
+ "Resource": "*"
  },
  {
- "Sid": "AllowOdbVpcLatticeActions",
+ "Sid": "AllowEc2PlacementGroupManagement",
+ "Effect": "Allow",
+ "Action": [
+ "ec2:CreatePlacementGroup",
+ "ec2:AttachResourcesToPlacementGroup",
+ "ec2:DeletePlacementGroup",
+ "ec2:DetachResourcesFromPlacementGroup"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowEc2NetworkRouteManagement",
+ "Effect": "Allow",
+ "Action": [
+ "ec2:CreateRoute",
+ "ec2:DeleteRoute",
+ "ec2:CreateTags"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowVpcLatticeManagement",
  "Effect": "Allow",
  "Action": [
  "vpc-lattice:CreateServiceNetwork",
@@ -151,6 +263,61 @@ JSON
  "vpc-lattice:DeleteResourceGateway",
  "vpc-lattice:GetResourceGateway",
  "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "AllowResourceSharing",
+ "Effect": "Allow",
+ "Action": [
+ "ram:CreateResourceShare",
+ "ram:AssociateResourceShare",
+ "ram:DisassociateResourceShare"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEqualsIfExists": {
+ "ram:RequestedResourceType": [
+ "odb:CloudExadataInfrastructure",
+ "odb:OdbNetwork"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "AllowPassRoleForOdb",
+ "Effect": "Allow",
+ "Action": [
+ "iam:PassRole"
+ ],
+ "Resource": "arn:aws:iam::123456789012:role/ExampleODBRole",
+ "Condition": {
+ "StringEquals": {
+ "iam:PassedToService": "odb.amazonaws.com"
+ }
+ }
+ },
+ {
+ "Sid": "AllowKmsKeyAccess",
+ "Effect": "Allow",
+ "Action": [
+ "kms:DescribeKey"
+ ],
+ "Resource": "arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ },
+ {
+ "Sid": "AllowSecretsManagerAccess",
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:DescribeSecret"
+ ],
+ "Resource": "arn:aws:secretsmanager:us-east-1:123456789012:secret:ExampleODBSecret-a1b2c3"
+ },
+ {
+ "Sid": "AllowLicenseManagerReceivedGrants",
+ "Effect": "Allow",
+ "Action": [
+ "license-manager:ListReceivedGrants"
  ],
  "Resource": "*"
  }

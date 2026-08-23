@@ -105,9 +105,9 @@ You can use Oracle Database@AWS in the following AWS Regions:
 
 **South America**
 
-| Region name               | Region code | Availability Zones |
-| ------------------------- | ----------- | ------------------ |
-| South America (São Paulo) | `sa-east-1` | `sae1-az1`         |
+| Region name               | Region code | Availability Zones     |
+| ------------------------- | ----------- | ---------------------- |
+| South America (São Paulo) | `sa-east-1` | `sae1-az1`, `sae1-az2` |
 
 **Supported Availability Zones for Autonomous Database Serverless
 (ADB-S)**

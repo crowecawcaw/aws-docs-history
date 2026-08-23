@@ -89,7 +89,8 @@ your Oracle database applications:
   run application servers in your VPC and access your Exadata databases. For more information,
   see the [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md").
 - **Amazon VPC Lattice** — Provides native access to AWS services such as
-  Amazon S3 and Oracle managed backups from the ODB network. For more information, see the [What is
+  Amazon S3 and Oracle managed backups from the ODB network. Amazon VPC Lattice is in scope for AWS compliance
+  programs as a feature of Amazon VPC. For more information, see the [What is
   Amazon VPC Lattice?](../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md "../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md").
 - **Amazon CloudWatch** — Provides a monitoring service for Oracle Database@AWS. OCI
   gathers metric data about your Oracle Exadata system and sends it to CloudWatch. For more information, see
