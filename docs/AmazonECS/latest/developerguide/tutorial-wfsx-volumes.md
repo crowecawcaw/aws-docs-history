@@ -46,7 +46,7 @@ tutorial or complete the tutorial over a few sessions.
    - AmazonSSMDirectoryServiceAccess
      To attach AWS managed policies.
    1. Open the [IAM
-      console](https://console.aws.amazon.com//iam/ "https://console.aws.amazon.com//iam/").
+      console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. In the navigation pane, choose **Roles.**
    3. Choose an **AWS managed role**.
    4. Choose **Permissions, Attach policies**.
@@ -85,7 +85,7 @@ policies.
    User Guide_.
 
    1. Open the [Secrets Manager
-      console](https://console.aws.amazon.com//secretsmanager/ "https://console.aws.amazon.com//secretsmanager/").
+      console](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
    2. Click **Store a new secret**.
    3. Select **Other type of secrets**.
    4. For **Secret key/value**, in the first row, create a
@@ -141,7 +141,7 @@ this tutorial.
 | ----------- | -------- | ---------- | ----------- |
 | All traffic | All      | All        | 0.0.0.0/0   |
 
-1. Open the [EC2 console](https://console.aws.amazon.com//ec2/ "https://console.aws.amazon.com//ec2/")
+1. Open the [EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/")
    and select **Security Groups** from the left-hand menu.
 2. From the list of security groups now displayed, select check the check-box to
    the left of the security group that you are using for this tutorial.
@@ -165,7 +165,7 @@ Windows tasks.
 
 ###### Create your first file system.
 
-1. Open the [Amazon FSx console](https://console.aws.amazon.com//fsx/ "https://console.aws.amazon.com//fsx/").
+1. Open the [Amazon FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
 2. On the dashboard, choose **Create file system** to start the
    file system creation wizard.
 3. On the **Select file system type** page, choose
@@ -444,7 +444,7 @@ starting the AD delete operations.
 
 ###### Delete FSx for Windows File Server file system.
 
-1. Open the [Amazon FSx console](https://console.aws.amazon.com//fsx/ "https://console.aws.amazon.com//fsx/")
+1. Open the [Amazon FSx console](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/")
 2. Choose the radio button to the left of the FSx for Windows File Server file system that you
    just created.
 3. Choose **Actions**.
@@ -453,7 +453,7 @@ starting the AD delete operations.
 ###### Delete AD.
 
 1. Open the [Directory Service
-   console](https://console.aws.amazon.com//directoryservicev2/ "https://console.aws.amazon.com//directoryservicev2/").
+   console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. Choose the radio button to the left of the AD you just created.
 3. Choose **Actions**.
 4. Select **Delete directory**.
@@ -469,7 +469,7 @@ starting the AD delete operations.
 
 ###### Terminate EC2 instance.
 
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com//ec2/ "https://console.aws.amazon.com//ec2/").
+1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. From the left-hand menu, select **Instances**.
 3. Check the box to the left of the EC2 instance you created.
 4. Click the **Instance state**, **Terminate
@@ -478,7 +478,7 @@ starting the AD delete operations.
 ###### Delete secret.
 
 1. Open the [Secrets Manager
-   console](https://console.aws.amazon.com//secretsmanager/ "https://console.aws.amazon.com//secretsmanager/").
+   console](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Select the secret you created for this walk through.
 3. Click **Actions**.
 4. Select **Delete secret**.
