@@ -8,18 +8,26 @@ Enable the agent to post task and automation results to Slack channels you conne
 
 Slack integration uses the same two-level model as Jira. The **integration** is registered at the AWS account level and stores the OAuth credentials and authorization status for a Slack workspace. An integration is shared across all agents in the account.
 
+###### Move a Slack workspace to another AWS account
+
+A Slack workspace can be registered with one AWS account at a time. To use the workspace with another account, first remove all Slack connections that use the integration from the current account. On the Agents page, choose **Disconnect Slack** to remove the integration, then register the workspace from the other account.
+
 A **connection** is created at the agent level and specifies which Slack channel the agent posts to. Each agent creates its own connections, and the agent can only post to channels listed in its connections.
 
 ## Prerequisites
 
 Before registering a Slack integration, verify that you have the following:
 
+###### Switch out of multi-session
+
+The Slack integration cannot be configured while the AWS Management Console is in multi-session mode. Open the account menu in the top-right corner of the console, choose **Turn off multi-session support**, then sign back in and continue this setup.
+
 - A Slack workspace where you have permission to install apps and authorize third-party OAuth apps.
 - The channel IDs of any channels the agent will post to. To find a channel ID in Slack, right-click the channel name, choose **View channel details**, and copy the ID at the bottom (for example, `C04ABCDEF12`).
 
 ## Register a Slack integration
 
-Registering a Slack integration is a one-time setup per Slack workspace. The AWS FinOps Agent console provides a guided wizard with three steps. Before you begin, make sure you are signed in to the Slack workspace where you want to install the AWS FinOps Agent Slack app in the same browser.
+Registering a Slack integration is a one-time setup in an AWS account. The AWS FinOps Agent console provides a guided wizard with three steps. Before you begin, make sure you are signed in to the Slack workspace where you want to install the AWS FinOps Agent Slack app in the same browser.
 
 1. **Getting started.** The wizard provides an overview of the integration process and what you will need.
 2. **Authorize and connect.** Choose **Authorize with Slack**. The wizard redirects you to Slack to grant permission to the AWS FinOps Agent app. Review the requested permissions and approve. After authorization, Slack returns you to the wizard, which creates the integration automatically.

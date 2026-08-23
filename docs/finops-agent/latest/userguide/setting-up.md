@@ -392,7 +392,7 @@ Open the [AWS Cost Anomaly Detection](https://console.aws.amazon.com/cost-manage
 
 **AWS Cost Optimization Hub** (for cost optimization recommendations)
 
-AWS Cost Optimization Hub is enabled by default in every AWS account. No additional setup is required.
+Open [AWS Cost Optimization Hub](https://console.aws.amazon.com/cost-management/home#/cost-optimization-hub "https://console.aws.amazon.com/cost-management/home#/cost-optimization-hub") in the console and enable it. You must opt in before the agent can retrieve AWS Cost Optimization Hub recommendations. For details, see [Getting started with AWS Cost Optimization Hub](../../../cost-management/latest/userguide/coh-getting-started.md "../../../cost-management/latest/userguide/coh-getting-started.md").
 
 **AWS CloudTrail** (for cost anomaly investigation)
 

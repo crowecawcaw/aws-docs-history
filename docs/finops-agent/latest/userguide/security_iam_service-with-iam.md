@@ -5,6 +5,9 @@ AWS FinOps Agent is in preview release and is subject to change.
 Before you use IAM to manage access to AWS FinOps Agent, learn what IAM features are
 available to use with AWS FinOps Agent.
 
+For more information about the AWS managed policies that AWS FinOps Agent uses, see [AWS managed policies for
+AWS FinOps Agent](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+
 | IAM feature                                                                                                                                              | AWS FinOps Agent support |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes                      |
@@ -50,15 +53,9 @@ To view examples of AWS FinOps Agent identity-based policies, see [Identity-base
 
 No
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
-IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
-administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
-a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals
-can include accounts, users, roles, federated users, or AWS services.
+AWS FinOps Agent does not support resource-based policies. You cannot use a resource-based policy to grant cross-account access to an agent or its data. AWS FinOps Agent limits each agent role session to the permissions required by the service. Adding a policy to the agent role does not add supported access to additional AWS services or resources.
 
-To enable cross-account access, you can specify an entire account or IAM entities
-in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
-_IAM User Guide_.
+To analyze organization-wide cost data, deploy AWS FinOps Agent in your organization's management account (the payer account). Cost Explorer in that account provides organization-wide visibility, subject to the IAM permissions you configure.
 
 ## Policy actions for AWS FinOps Agent
 

@@ -14,6 +14,10 @@ A **connection** is created at the agent level and specifies which Jira project 
 
 Before registering a Jira integration, verify that you have the following:
 
+###### Switch out of multi-session
+
+The Jira integration cannot be configured while the AWS Management Console is in multi-session mode. Open the account menu in the top-right corner of the console, choose **Turn off multi-session support**, then sign back in and continue this setup.
+
 - A Jira Cloud site URL and the space keys of the Jira projects where the agent will create tickets.
 - A Jira administrator who can install the AWS FinOps Agent Forge app on the Jira site and authorize the following OAuth permission scopes:
 

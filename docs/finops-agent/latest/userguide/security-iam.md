@@ -29,11 +29,7 @@ How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 ## Authenticating with identities
 
-Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
-
-You can sign in as a federated identity using credentials from an identity source like AWS IAM Identity Center (IAM Identity Center), single sign-on authentication, or Google/Facebook credentials. For more information about signing in, see [How to sign in to your AWS account](../../../signin/latest/userguide/how-to-sign-in.md "../../../signin/latest/userguide/how-to-sign-in.md") in the _AWS Sign-In User Guide_.
-
-For programmatic access, AWS provides an SDK and CLI to cryptographically sign requests. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") in the _IAM User Guide_.
+To use AWS FinOps Agent, sign in to AWS as an IAM user or assume an IAM role that has the required permissions.
 
 ### AWS account root user
 
@@ -41,23 +37,15 @@ When you create an AWS account, you begin with one sign-in identity called the A
 
 ### Federated identity
 
-As a best practice, require human users to use federation with an identity provider to access AWS services using temporary credentials.
-
-A _federated identity_ is a user from your enterprise directory, web identity provider, or Directory Service that accesses AWS services using credentials from an identity source. Federated identities assume roles that provide temporary credentials.
-
-For centralized access management, we recommend AWS IAM Identity Center. For more information, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the _AWS IAM Identity Center User Guide_.
+AWS FinOps Agent does not support federated identities.
 
 ### IAM users and groups
 
-An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
-
-An [_IAM group_](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md") specifies a collection of IAM users and makes permissions easier to manage for large sets of users. For more information, see [Use cases for IAM users](../../../IAM/latest/UserGuide/gs-identities-iam-users.md "../../../IAM/latest/UserGuide/gs-identities-iam-users.md") in the _IAM User Guide_.
+An _IAM user_ is an identity with specific permissions for a single person or application. An _IAM group_ specifies a collection of IAM users and makes permissions easier to manage for large sets of users.
 
 ### IAM roles
 
-An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")_ is an identity with specific permissions that provides temporary credentials. You can assume a role by [switching from a user to an IAM role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") or by calling an AWS CLI or AWS API operation. For more information, see [Methods to assume a role](../../../IAM/latest/UserGuide/id_roles_manage-assume.md "../../../IAM/latest/UserGuide/id_roles_manage-assume.md") in the _IAM User Guide_.
-
-IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the _IAM User Guide_.
+An _IAM role_ is an identity with specific permissions that provides temporary credentials. To use a role with AWS FinOps Agent, configure the role with the permissions required for the workflows it performs. For more information, see [Methods to assume a role](../../../IAM/latest/UserGuide/id_roles_manage-assume.md "../../../IAM/latest/UserGuide/id_roles_manage-assume.md") in the _IAM User Guide_.
 
 ## Managing access using policies
 
@@ -75,9 +63,9 @@ Identity-based policies can be _inline policies_ (embedded directly into a singl
 
 ### Resource-based policies
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
+AWS FinOps Agent does not support resource-based policies. You cannot use a resource-based policy to grant another AWS account access to an agent or its data. AWS FinOps Agent uses the roles and policies described in the [IAM setup guide](setting-up.md "setting-up.md"). Adding a policy to the agent role does not add supported access to additional AWS services or resources.
 
-Resource-based policies are inline policies that are located in that service. You can't use AWS managed policies from IAM in a resource-based policy.
+To analyze organization-wide cost data, deploy AWS FinOps Agent in your organization's management account (the payer account). Cost Explorer in that account provides organization-wide visibility, subject to the IAM permissions you configure.
 
 ### Other policy types
 
