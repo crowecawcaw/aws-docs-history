@@ -2,7 +2,7 @@
 
 Active service periods impact both parties Billing Transfer management experience in Billing and Cost Management console. Partners can view and manage active service periods through AWS Partner Central channel management.
 
-Active service periods require the specified advance notice (14, 30, or 60 days) before either party can make billing transfer changes. Both parties retain the ability to make changes to Billing Transfer via the AWS Billing console, however the notice period determines the allowed effective date for any Billing Transfer change.
+Active service periods require the specified advance notice (14, 30, 60, or 90 days) before either party can make billing transfer changes. Both parties retain the ability to make changes to Billing Transfer via the AWS Billing console, however the notice period determines the allowed effective date for any Billing Transfer change.
 
 For example, if a 60-day notice period is in place and a user attempts to withdraw from Billing Transfer on January 1, they would only be able to elect to withdraw effective March 1 or later. This provides the counterparty sufficient notice to manage billing changes before they go into effect.
 
@@ -16,7 +16,7 @@ Partners may want to replace a service period to adjust the minimum notice perio
 
 ### Replacement process
 
-1. **Partner initiates replacement** – Channel Partners access the active service period through AWS Partner Central channel relationship management and select the option to replace the service period. Partners specify the new minimum notice period duration (14, 30, or 60 days) and can include optional context explaining the reason for replacement.
+1. **Partner initiates replacement** – Channel Partners access the active service period through AWS Partner Central channel relationship management and select the option to replace the service period. Partners specify the new minimum notice period duration (14, 30, 60, or 90 days) and can include optional context explaining the reason for replacement.
 2. **Customer notification** – A new service period channel handshake is automatically created and the end-customer's AWS management account receives an email notification with a unique link to review the proposed replacement terms.
 3. **Customer review and response** – An authorized user from the customer's AWS management account must:
 
