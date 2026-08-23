@@ -12,13 +12,13 @@ You can attach `SecurityAudit` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** July 21, 2026, 17:42 UTC
+- **Edited time:** August 17, 2026, 15:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v91 (default)
+**Policy version:** v92 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -102,6 +102,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "backup:ListTags",
         "batch:DescribeComputeEnvironments",
         "batch:DescribeJobDefinitions",
+        "bedrock:GetAgent",
         "bedrock:GetAgentAlias",
         "bedrock:GetAgentKnowledgeBase",
         "bedrock:GetCustomModel",
@@ -249,6 +250,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudformation:DescribeStack*",
         "cloudformation:GetStackPolicy",
         "cloudformation:GetTemplate",
+        "cloudformation:ListStackResources",
         "cloudformation:ListStack*",
         "cloudfront:Get*",
         "cloudfront:List*",
@@ -486,6 +488,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "glue:GetDatabases",
         "glue:GetDataCatalogEncryptionSettings",
         "glue:GetDevEndpoints",
+        "glue:GetJobBookmark",
         "glue:GetJobs",
         "glue:GetResourcePolicy",
         "glue:GetSecurityConfiguration",
@@ -596,6 +599,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lambda:GetFunctionConcurrency",
         "lambda:GetFunctionConfiguration",
         "lambda:GetFunctionEventInvokeConfig",
+        "lambda:GetFunctionUrlConfig",
         "lambda:GetLayerVersionPolicy",
         "lambda:GetPolicy",
         "lambda:GetRuntimeManagementConfig",
@@ -941,6 +945,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sso-directory:ListExternalIdPConfigurationsForDirectory",
         "states:DescribeStateMachine",
         "states:ListStateMachines",
+        "states:ListTagsForResource",
         "storagegateway:DescribeBandwidthRateLimit",
         "storagegateway:DescribeCache",
         "storagegateway:DescribeCachediSCSIVolumes",

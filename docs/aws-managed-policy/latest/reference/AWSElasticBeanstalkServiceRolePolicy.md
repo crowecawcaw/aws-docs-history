@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 13, 2017, 23:46 UTC
-- **Edited time:** August 03, 2026, 18:57 UTC
+- **Edited time:** August 18, 2026, 17:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -213,6 +213,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "s3:CreateBucket",
         "s3:GetObjectVersion",
+        "s3:GetObject",
         "s3:ListBucket",
         "s3:PutObject",
         "s3:PutObjectAcl"

@@ -12,13 +12,13 @@ You can attach `AmazonLaunchWizardFullAccessV2` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: September 01, 2023, 17:14 UTC
-- **Edited time:** September 01, 2023, 17:14 UTC
+- **Edited time:** August 18, 2026, 19:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonLaunchWizardFullAccessV2`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -106,14 +106,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:AssociateAddress",
         "ec2:CreateDhcpOptions",
         "ec2:CreateEgressOnlyInternetGateway",
-        "ec2:CreateNetworkInterface",
-        "ec2:CreateVolume",
-        "ec2:CreateVpcEndpoint",
-        "ec2:CreateTags",
-        "ec2:DeleteTags",
-        "ec2:RunInstances",
-        "ec2:StartInstances",
-        "ec2:ModifyInstanceAttribute",
         "ec2:ModifySubnetAttribute",
         "ec2:ModifyVolumeAttribute",
         "ec2:ModifyVpcAttribute",
@@ -146,20 +138,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:GetLaunchTemplateData",
         "ec2:ModifyNetworkInterfaceAttribute",
         "ec2:ModifyVolume",
-        "ec2:AuthorizeSecurityGroupEgress",
-        "ec2:GetConsoleOutput",
-        "ec2:GetPasswordData",
         "ec2:ReleaseAddress",
         "ec2:ReplaceRoute",
         "ec2:ReplaceRouteTableAssociation",
-        "ec2:RevokeSecurityGroupEgress",
-        "ec2:RevokeSecurityGroupIngress",
         "ec2:DisassociateIamInstanceProfile",
         "ec2:DisassociateRouteTable",
         "ec2:DisassociateSubnetCidrBlock",
         "ec2:ModifyInstancePlacement",
-        "ec2:DeletePlacementGroup",
-        "ec2:CreatePlacementGroup",
         "elasticfilesystem:DeleteFileSystem",
         "elasticfilesystem:DeleteMountTarget",
         "ds:AddIpRoutes",
@@ -171,6 +156,131 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sts:GetCallerIdentity"
       ],
       "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2InstanceActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:StartInstances",
+        "ec2:StopInstances",
+        "ec2:TerminateInstances",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:GetConsoleOutput",
+        "ec2:GetPasswordData"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:instance/*",
+      "Condition" : {
+        "StringLike" : {
+          "ec2:ResourceTag/aws:cloudformation:stack-id" : "arn:aws:cloudformation:*:*:stack/LaunchWizard-*/*"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2RunInstancesActions0",
+      "Effect" : "Allow",
+      "Action" : "ec2:RunInstances",
+      "Resource" : [
+        "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ec2:*:*:image/*",
+        "arn:aws:ec2:*:*:subnet/*",
+        "arn:aws:ec2:*:*:security-group/*",
+        "arn:aws:ec2:*:*:network-interface/*",
+        "arn:aws:ec2:*:*:volume/*",
+        "arn:aws:ec2:*:*:key-pair/*",
+        "arn:aws:ec2:*:*:placement-group/*",
+        "arn:aws:ec2:*:*:launch-template/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2SecurityGroupActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:security-group/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2TagActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:instance/*",
+        "arn:aws:ec2:*:*:volume/*",
+        "arn:aws:ec2:*:*:network-interface/*",
+        "arn:aws:ec2:*:*:security-group/*",
+        "arn:aws:ec2:*:*:vpc/*",
+        "arn:aws:ec2:*:*:subnet/*",
+        "arn:aws:ec2:*:*:elastic-ip/*",
+        "arn:aws:ec2:*:*:route-table/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2VolumeActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateVolume"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:volume/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2NetworkInterfaceActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateNetworkInterface"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:network-interface/*",
+        "arn:aws:ec2:*:*:subnet/*",
+        "arn:aws:ec2:*:*:security-group/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2VpcEndpointActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateVpcEndpoint"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:vpc-endpoint/*",
+        "arn:aws:ec2:*:*:vpc/*",
+        "arn:aws:ec2:*:*:subnet/*",
+        "arn:aws:ec2:*:*:security-group/*"
+      ],
       "Condition" : {
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : "launchwizard.amazonaws.com"
@@ -193,16 +303,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "Ec2Actions2",
+      "Sid" : "CloudFormationActions1",
       "Effect" : "Allow",
       "Action" : [
-        "ec2:StopInstances",
-        "ec2:TerminateInstances"
+        "cloudformation:List*",
+        "cloudformation:Describe*"
       ],
-      "Resource" : "arn:aws:ec2:*:*:instance/*",
+      "Resource" : "arn:aws:cloudformation:*:*:stack/LaunchWizard*/"
+    },
+    {
+      "Sid" : "CloudFormationActions2",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "ec2:ResourceTag/aws:cloudformation:stack-id" : "arn:aws:cloudformation:*:*:stack/LaunchWizard-*/*"
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : "LaunchWizard*"
         }
       }
     },
@@ -240,6 +359,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "IamActions2",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : [
+            "autoscaling.amazonaws.com",
+            "application-insights.amazonaws.com",
+            "events.amazonaws.com",
+            "autoscaling.amazonaws.com.cn",
+            "events.amazonaws.com.cn"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "LaunchWizardActions0",
+      "Effect" : "Allow",
+      "Action" : "launchwizard:*",
+      "Resource" : "*"
     },
     {
       "Sid" : "AutoScalingActions0",
@@ -323,8 +467,37 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudformation:ValidateTemplate",
         "ds:Describe*",
         "ds:ListAuthorizedApplications",
-        "ec2:Describe*",
-        "ec2:Get*",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstanceAttribute",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeNetworkInterfaceAttribute",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSecurityGroupRules",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeImages",
+        "ec2:DescribeKeyPairs",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeVolumeStatus",
+        "ec2:DescribeVolumeAttribute",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeHosts",
+        "ec2:DescribeTags",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeAccountAttributes",
+        "ec2:DescribeDhcpOptions",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeFlowLogs",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeStaleSecurityGroups",
+        "ec2:DescribeInstanceTypeOfferings",
+        "ec2:DescribePlacementGroups",
         "iam:GetRole",
         "iam:GetRolePolicy",
         "iam:GetUser",
@@ -349,7 +522,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ssm:ListDocument*",
         "ssm:ListInstanceAssociations",
         "ssm:SendAutomationSignal",
-        "tag:Get*"
+        "tag:Get*",
+        "pricing:GetProducts"
       ],
       "Resource" : "*"
     },
@@ -368,38 +542,30 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CloudFormationActions1",
+      "Sid" : "SsmActions6",
       "Effect" : "Allow",
       "Action" : [
-        "cloudformation:List*",
-        "cloudformation:Describe*"
+        "ssm:CreateOpsMetadata",
+        "ssm:DeleteOpsMetadata"
       ],
-      "Resource" : "arn:aws:cloudformation:*:*:stack/LaunchWizard*/"
+      "Resource" : "arn:aws:ssm:*:*:opsmetadata/aws/ssm/LaunchWizard*"
     },
     {
-      "Sid" : "IamActions2",
+      "Sid" : "SsmActions7",
       "Effect" : "Allow",
       "Action" : [
-        "iam:CreateServiceLinkedRole"
+        "ssm:CreateAssociation",
+        "ssm:DeleteAssociation"
       ],
-      "Resource" : "*",
+      "Resource" : [
+        "arn:aws:ssm:*:*:document/AWS-ConfigureAWSPackage",
+        "arn:aws:ssm:*:*:association/*"
+      ],
       "Condition" : {
-        "StringEquals" : {
-          "iam:AWSServiceName" : [
-            "autoscaling.amazonaws.com",
-            "application-insights.amazonaws.com",
-            "events.amazonaws.com",
-            "autoscaling.amazonaws.com.cn",
-            "events.amazonaws.com.cn"
-          ]
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
         }
       }
-    },
-    {
-      "Sid" : "LaunchWizardActions0",
-      "Effect" : "Allow",
-      "Action" : "launchwizard:*",
-      "Resource" : "*"
     },
     {
       "Sid" : "SqsActions0",
@@ -440,12 +606,39 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:CreateSecurityGroup",
         "ec2:AuthorizeSecurityGroupIngress",
         "elasticfilesystem:DescribeFileSystems",
-        "elasticfilesystem:CreateFileSystem",
-        "elasticfilesystem:CreateMountTarget",
         "elasticfilesystem:DescribeMountTargets",
-        "elasticfilesystem:DescribeMountTargetSecurityGroups"
+        "elasticfilesystem:DescribeMountTargetSecurityGroups",
+        "backup:ListBackupPlans"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "EfsCreateActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticfilesystem:CreateFileSystem",
+        "elasticfilesystem:CreateMountTarget"
+      ],
+      "Resource" : "arn:aws:elasticfilesystem:*:*:file-system/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "EfsActions1",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticfilesystem:UntagResource",
+        "elasticfilesystem:TagResource"
+      ],
+      "Resource" : "arn:aws:elasticfilesystem:*:*:file-system/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
     },
     {
       "Sid" : "S3Actions1",
@@ -461,13 +654,71 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "CloudFormationActions2",
+      "Sid" : "ElbActions0",
       "Effect" : "Allow",
-      "Action" : "cloudformation:TagResource",
+      "Action" : [
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "elasticloadbalancing:DescribeLoadBalancerAttributes",
+        "elasticloadbalancing:DescribeListeners",
+        "elasticloadbalancing:DescribeRules",
+        "elasticloadbalancing:DescribeTargetGroups",
+        "elasticloadbalancing:DescribeTargetGroupAttributes",
+        "elasticloadbalancing:DescribeTargetHealth",
+        "elasticloadbalancing:DescribeTags"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ElbActions1",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:CreateLoadBalancer",
+        "elasticloadbalancing:DeleteLoadBalancer",
+        "elasticloadbalancing:ModifyLoadBalancerAttributes",
+        "elasticloadbalancing:CreateListener",
+        "elasticloadbalancing:DeleteListener",
+        "elasticloadbalancing:CreateTargetGroup",
+        "elasticloadbalancing:DeleteTargetGroup",
+        "elasticloadbalancing:ModifyTargetGroup",
+        "elasticloadbalancing:ModifyTargetGroupAttributes",
+        "elasticloadbalancing:RegisterTargets",
+        "elasticloadbalancing:DeregisterTargets",
+        "elasticloadbalancing:AddTags",
+        "elasticloadbalancing:RemoveTags"
+      ],
       "Resource" : "*",
       "Condition" : {
-        "ForAllValues:StringLike" : {
-          "aws:TagKeys" : "LaunchWizard*"
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2PlacementGroupActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreatePlacementGroup",
+        "ec2:DeletePlacementGroup"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:placement-group/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2LaunchTemplateActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateLaunchTemplate",
+        "ec2:DeleteLaunchTemplate",
+        "ec2:ModifyLaunchTemplate"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:launch-template/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
         }
       }
     },
@@ -482,7 +733,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "lambda:DeleteFunction",
         "lambda:GetFunction",
         "lambda:GetFunctionConfiguration",
-        "lambda:InvokeFunction"
+        "lambda:InvokeFunction",
+        "lambda:TagResource",
+        "lambda:UntagResource"
       ],
       "Resource" : [
         "arn:aws:lambda:*:*:function:LaunchWizard*",
@@ -495,7 +748,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "dynamodb:CreateTable",
         "dynamodb:DescribeTable",
-        "dynamodb:DeleteTable"
+        "dynamodb:DeleteTable",
+        "dynamodb:TagResource",
+        "dynamodb:UntagResource"
       ],
       "Resource" : "arn:aws:dynamodb:*:*:table/LaunchWizard*"
     },
@@ -524,20 +779,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "SsmActions5",
-      "Effect" : "Allow",
-      "Action" : [
-        "ssm:CreateOpsMetadata"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "SsmActions6",
-      "Effect" : "Allow",
-      "Action" : "ssm:DeleteOpsMetadata",
-      "Resource" : "arn:aws:ssm:*:*:opsmetadata/aws/ssm/LaunchWizard*"
-    },
-    {
       "Sid" : "SnsActions0",
       "Effect" : "Allow",
       "Action" : [
@@ -561,6 +802,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringLike" : {
           "aws:ResourceTag/Name" : "LaunchWizard*"
+        }
+      }
+    },
+    {
+      "Sid" : "FsxSvmTagActions0",
+      "Effect" : "Allow",
+      "Action" : [
+        "fsx:TagResource",
+        "fsx:UntagResource"
+      ],
+      "Resource" : [
+        "arn:aws:fsx:*:*:storage-virtual-machine/*/*",
+        "arn:aws:fsx:*:*:volume/*/*"
+      ],
+      "Condition" : {
+        "StringLike" : {
+          "aws:ResourceTag/aws:cloudformation:stack-id" : "arn:aws:cloudformation:*:*:stack/LaunchWizard-*/*"
         }
       }
     },
@@ -604,37 +862,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:servicecatalog:*:*:*/*",
         "arn:aws:catalog:*:*:*/*"
       ],
-      "Condition" : {
-        "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : "launchwizard.amazonaws.com"
-        }
-      }
-    },
-    {
-      "Sid" : "SsmActions7",
-      "Effect" : "Allow",
-      "Action" : [
-        "ssm:CreateAssociation",
-        "ssm:DeleteAssociation"
-      ],
-      "Resource" : [
-        "arn:aws:ssm:*:*:document/AWS-ConfigureAWSPackage",
-        "arn:aws:ssm:*:*:association/*"
-      ],
-      "Condition" : {
-        "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : "launchwizard.amazonaws.com"
-        }
-      }
-    },
-    {
-      "Sid" : "EfsActions1",
-      "Effect" : "Allow",
-      "Action" : [
-        "elasticfilesystem:UntagResource",
-        "elasticfilesystem:TagResource"
-      ],
-      "Resource" : "arn:aws:elasticfilesystem:*:*:file-system/*",
       "Condition" : {
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : "launchwizard.amazonaws.com"
@@ -689,13 +916,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        },
         "StringLike" : {
           "aws:ResourceTag/aws:cloudformation:stack-id" : "arn:aws:cloudformation:*:*:stack/LaunchWizard-*/*"
-        },
-        "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : [
-            "launchwizard.amazonaws.com"
-          ]
         }
       }
     },
@@ -709,9 +934,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : [
-            "launchwizard.amazonaws.com"
-          ]
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
         }
       }
     },
@@ -728,13 +951,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:fsx:*:*:volume/*/*"
       ],
       "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "launchwizard.amazonaws.com"
+        },
         "StringLike" : {
           "aws:ResourceTag/aws:cloudformation:stack-id" : "arn:aws:cloudformation:*:*:stack/LaunchWizard-*/*"
-        },
-        "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : [
-            "launchwizard.amazonaws.com"
-          ]
         }
       }
     }

@@ -12,13 +12,13 @@ You can attach `AIDevOpsAgentActionsPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: June 23, 2026, 22:27 UTC
-- **Edited time:** June 23, 2026, 22:27 UTC
+- **Edited time:** August 19, 2026, 22:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsAgentActionsPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,19 +30,33 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "AIDevOpsMutativeAccess",
+      "Sid" : "AIDevOpsElevatedAccess",
+      "Effect" : "Allow",
+      "NotAction" : [
+        "account:*",
+        "cognito-identity:*",
+        "iam:*",
+        "identitystore:*",
+        "organizations:*",
+        "ram:*",
+        "rolesanywhere:*",
+        "sso:*",
+        "sts:*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AIDevOpsElevatedCarveBacks",
       "Effect" : "Allow",
       "Action" : [
-        "autoscaling:UpdateAutoScalingGroup",
-        "cloudformation:UpdateStack",
-        "cloudwatch:PutMetricAlarm",
-        "ec2:CreateTags",
-        "ec2:ModifyInstanceAttribute",
-        "ecs:UpdateService",
-        "elasticloadbalancing:ModifyTargetGroup",
-        "lambda:UpdateFunctionConfiguration",
-        "logs:PutMetricFilter",
-        "rds:ModifyDBInstance"
+        "account:GetAccountInformation",
+        "account:GetGovCloudAccountInformation",
+        "account:GetPrimaryEmail",
+        "account:ListRegions",
+        "iam:ListRoles",
+        "organizations:DescribeEffectivePolicy",
+        "organizations:DescribeOrganization",
+        "sts:DecodeAuthorizationMessage"
       ],
       "Resource" : "*"
     }
