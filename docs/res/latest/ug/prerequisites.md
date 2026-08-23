@@ -278,7 +278,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
 
 3. Create the EC2 image builder component:
 
-    1. Open the EC2 Image Builder console at [https://console.aws.amazon.com//imagebuilder](https://console.aws.amazon.com//imagebuilder "https://console.aws.amazon.com//imagebuilder").
+    1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder](https://console.aws.amazon.com/imagebuilder "https://console.aws.amazon.com/imagebuilder").
     2. Under **Saved resources**, choose
      **Components** and choose **Create
      component**.
