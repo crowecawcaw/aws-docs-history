@@ -23,7 +23,7 @@ The following differences apply to Amazon Simple Notification Service:
 
 ## Documentation
 
-- [Amazon SNS documentation](../../../http:/aws.amazon.com/documentation/sns.md "../../../http:/aws.amazon.com/documentation/sns.md")
+- [Amazon SNS documentation](http://aws.amazon.com/documentation/sns/ "http://aws.amazon.com/documentation/sns/")
 
 ## Export-controlled content
 

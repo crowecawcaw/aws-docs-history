@@ -9,7 +9,7 @@ In order to sign up for an AWS GovCloud (US) account, you need to be an individu
 
 ## Create accounts as a direct consumer
 
-There are two options for creating an AWS GovCloud (US) account as a direct consumer.
+There are two options for creating an AWS GovCloud (US) account as a direct consumer. When you create an account, you can only use [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
 
 ###### Option 1: Creating an AWS GovCloud (US) from a standalone AWS account
 

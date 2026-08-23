@@ -18,7 +18,7 @@ The following differences apply to Amazon Redshift:
 
 ## Documentation
 
-- [Amazon Redshift documentation](../../../http:/aws.amazon.com/documentation/redshift.md "../../../http:/aws.amazon.com/documentation/redshift.md")
+- [Amazon Redshift documentation](http://aws.amazon.com/documentation/redshift/ "http://aws.amazon.com/documentation/redshift/")
 
 ## Export-controlled content
 

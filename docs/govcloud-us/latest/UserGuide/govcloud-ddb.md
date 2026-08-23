@@ -19,7 +19,7 @@ The following differences apply to Amazon DynamoDB:
 
 ## Documentation
 
-- [Amazon DynamoDB documentation](../../../http:/aws.amazon.com/documentation/dynamodb.md "../../../http:/aws.amazon.com/documentation/dynamodb.md")
+- [Amazon DynamoDB documentation](http://aws.amazon.com/documentation/dynamodb/ "http://aws.amazon.com/documentation/dynamodb/")
 
 ## Export-controlled content
 

@@ -4,18 +4,18 @@ Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications 
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Simple Workflow Service (SWF) is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Amazon Simple Workflow Service differs
+## How Amazon Simple Workflow Service (SWF) differs
 
 There are no differences for this service.
 
 ## Documentation
 
-- [Amazon SWF documentation](../../../http:/aws.amazon.com/documentation/swf.md "../../../http:/aws.amazon.com/documentation/swf.md")
+- [Amazon SWF documentation](http://aws.amazon.com/documentation/swf/ "http://aws.amazon.com/documentation/swf/")
 
 ## Export-controlled content
 

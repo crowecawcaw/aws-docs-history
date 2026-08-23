@@ -14,7 +14,12 @@ This service is available in the following AWS GovCloud (US) Regions:
 The following differences apply to Amazon OpenSearch Service:
 
 - Amazon Cognito authentication for OpenSearch Dashboards is not available in the AWS GovCloud (US-East) Region.
-- OpenSearch ingestion is not available.
+
+The following differences apply to Amazon OpenSearch Ingestion:
+
+- S3 vector source is not available.
+- The RDS source with Aurora PostgreSQL is not available. Aurora MySQL, RDS MySQL, and RDS PostgreSQL sources are supported.
+- MSK Serverless source is not available.
 
 ## Documentation
 

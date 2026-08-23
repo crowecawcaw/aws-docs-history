@@ -28,7 +28,7 @@ The following differences apply to Amazon Relational Database Service:
 
 ## Documentation
 
-- [Amazon RDS documentation](../../../http:/aws.amazon.com/documentation/rds.md "../../../http:/aws.amazon.com/documentation/rds.md")
+- [Amazon RDS documentation](http://aws.amazon.com/documentation/rds/ "http://aws.amazon.com/documentation/rds/")
 
 ## Export-controlled content
 

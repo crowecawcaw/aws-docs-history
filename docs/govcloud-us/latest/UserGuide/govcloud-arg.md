@@ -4,16 +4,16 @@ In AWS, a resource is an entity that you can work with. Examples include an Amaz
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS Resource Groups is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How AWS Resource Groups differs
 
 The following differences apply to AWS Resource Groups:
 
-- [Group lifecycle events](../../../ARG/latest/userguide/monitor-groups.md "../../../ARG/latest/userguide/monitor-groups.md") are not available.
+- Group Lifecycle Events is not available.
 
 ## Documentation
 

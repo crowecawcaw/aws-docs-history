@@ -9,33 +9,33 @@ This service is available in the following AWS GovCloud (US) Regions:
 - AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
 
-## How Amazon Elastic Compute Cloud differs
+## How Amazon EC2 differs
 
-The following differences apply to Amazon Elastic Compute Cloud:
+The following differences apply to Amazon EC2:
 
-###### General differences
+### General differences
 
 - Use SSL (HTTPS) when you make calls to the service in AWS GovCloud (US) Regions. In other AWS Regions, you can use HTTP or HTTPS.
 - Use SSL (HTTPS) when generating key pairs using [ec2-create-keypair](../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-CreateKeyPair.md "../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-CreateKeyPair.md") and [CreateKeyPair](../../../AWSEC2/latest/APIReference/API_CreateKeyPair.md "../../../AWSEC2/latest/APIReference/API_CreateKeyPair.md") commands.
 - To import your own set of key pairs, follow the instructions in [Create a key pair using a third-party tool and import the public key to Amazon EC2](../../../AWSEC2/latest/UserGuide/create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "../../../AWSEC2/latest/UserGuide/create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws").
 
-###### Billing and purchasing differences
+### Billing and purchasing differences
 
+- Capacity reservation status columns are available only in AWS Cost and Usage Report (CUR) 2.0. In legacy AWS Cost and Usage Reports, cancellation charges for future-dated Capacity Reservations are included in `UnusedBox` charges.
 - Reserved Instance resale is not available.
 - Savings Plans can’t be purchased from AWS GovCloud (US) accounts, but can be purchased in any standard account and applied to usage.
 - Spot Instance data feed is not available.
 - When you use the launch instance wizard in the console to launch an instance using an AWS Marketplace AMI, we don’t automatically subscribe you to the AMI as we do in other AWS Regions. Instead, when you choose the AMI, choose **Subscribe with Marketplace** to open the AWS Marketplace to subscribe.
 - The AWS Certificate Manager (ACM) for Nitro Enclaves AMI is not available from the AWS Marketplace. ACM for Nitro Enclaves must be installed from the Amazon Linux Extras repository.
 - The Nitro Enclaves Developer AMI is not available from the AWS Marketplace.
-- Capacity reservation status columns are available only in AWS Cost and Usage Report (CUR) 2.0. In legacy AWS Cost and Usage Reports, cancellation charges for future-dated Capacity Reservations are included in `UnusedBox` charges.
 
-###### Image differences
+### Image differences
 
 - AMI copy and snapshot copy do not support migrating AMIs and snapshots from another AWS Region into AWS GovCloud (US) Regions. For information about how to migrate your AMIs from another AWS Region into AWS GovCloud (US) Regions, see [How VM Import/Export Differs for AWS GovCloud (US)](#govcloud-vmie-diffs "#govcloud-vmie-diffs").
 - When using the [Amazon EC2 AMI tools](../../../AWSEC2/latest/CommandLineReference/set-up-ami-tools.md "../../../AWSEC2/latest/CommandLineReference/set-up-ami-tools.md"), AWS GovCloud (US) Regions uses a non-default public key certificate to encrypt AMI manifests. The [ec2-bundle-image](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-image.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-image.md"), [ec2-bundle-vol](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-vol.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-bundle-vol.md"), [ec2-migrate-bundle](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-bundle.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-bundle.md"), and [ec2-migrate-manifest](../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-manifest.md "../../../AWSEC2/latest/CommandLineReference/CLTRG-ami-migrate-manifest.md") commands require the `--ec2cert $EC2_AMITOOL_HOME/etc/ec2/amitools/cert-ec2-gov.pem` option.
 - The `lastLaunchedTime` AMI attribute is not available.
 
-###### Instance differences
+### Instance differences
 
 - The get-console-screenshot CLI command is not available.
 - Get instance screenshot is not available.
@@ -66,7 +66,7 @@ The following differences apply to Amazon Elastic Compute Cloud:
 
   `CN=aws-us-gov.nitro-enclaves, C=US, O=Amazon, OU=AWS`
 
-###### Networking differences
+### Networking differences
 
 - When you launch an instance using the [ec2-run-instances](../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-RunInstances.md "../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-RunInstances.md") CLI command or [RunInstances](../../../AWSEC2/latest/APIReference/API_RunInstances.md "../../../AWSEC2/latest/APIReference/API_RunInstances.md") API operation, you must specify the `subnet` parameter.
 - By default, enhanced networking is not enabled on Windows Server 2012 R2 AMIs. For more information, see [Optimize network performance on EC2 Windows instances](../../../AWSEC2/latest/UserGuide/enhanced-networking-os.md "../../../AWSEC2/latest/UserGuide/enhanced-networking-os.md").

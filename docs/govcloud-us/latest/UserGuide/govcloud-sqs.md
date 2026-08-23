@@ -17,7 +17,7 @@ The following differences apply to Amazon Simple Queue Service:
 
 ## Documentation
 
-- [Amazon SQS documentation](../../../http:/aws.amazon.com/documentation/sqs.md "../../../http:/aws.amazon.com/documentation/sqs.md")
+- [Amazon SQS documentation](http://aws.amazon.com/documentation/sqs/ "http://aws.amazon.com/documentation/sqs/")
 
 ## Export-controlled content
 

@@ -15,7 +15,7 @@ There are no differences for this service.
 
 ## Documentation
 
-- [Amazon Glacier documentation](../../../http:/aws.amazon.com/documentation/glacier.md "../../../http:/aws.amazon.com/documentation/glacier.md")
+- [Amazon Glacier documentation](http://aws.amazon.com/documentation/glacier/ "http://aws.amazon.com/documentation/glacier/")
 
 ## Export-controlled content
 

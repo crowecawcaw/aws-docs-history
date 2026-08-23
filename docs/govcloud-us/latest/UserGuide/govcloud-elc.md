@@ -19,7 +19,7 @@ The following differences apply to Amazon ElastiCache:
 
 ## Documentation
 
-- [Amazon ElastiCache documentation](../../../http:/docs.aws.amazon.com/elasticache.md "../../../http:/docs.aws.amazon.com/elasticache.md")
+- [Amazon ElastiCache documentation](../../../elasticache.md "../../../elasticache.md")
 
 ## Export-controlled content
 

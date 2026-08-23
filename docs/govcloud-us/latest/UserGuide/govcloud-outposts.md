@@ -18,6 +18,7 @@ The following differences apply to AWS Outposts:
 - Amazon EMR is not available.
 - ElastiCache is not available.
 - Route 53 resolver is not available.
+- Launching Amazon EC2 instances that use Local Boot with an encrypted AMI is not supported. As a workaround, use an unencrypted boot AMI.
 
 ## Documentation
 

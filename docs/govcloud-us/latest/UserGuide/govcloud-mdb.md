@@ -19,7 +19,7 @@ The following differences apply to Amazon MemoryDB:
 
 ## Documentation
 
-- [Amazon MemoryDB documentation](../../../http:/docs.aws.amazon.com/memorydb.md "../../../http:/docs.aws.amazon.com/memorydb.md")
+- [Amazon MemoryDB documentation](../../../memorydb.md "../../../memorydb.md")
 
 ## Export-controlled content
 
