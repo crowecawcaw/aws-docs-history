@@ -17,7 +17,7 @@ source to a target.
    1. Enter an **ID mapping workflow name** and an optional
       **Description**.
 
-   ![The Name and Description fields on the Specify ID mapping workflow details page](/images/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose
+   ![The Name and Description fields on the Specify ID mapping workflow details page](images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose
    **Rule-based**. 3. (Optional) To process only new, updated, or deleted records in the workflow,
    select **Enable incremental processing**.
 
@@ -88,7 +88,7 @@ source to a target.
    6. To specify the **Service access** permissions, choose an option
    and take the recommended action.
 
-   ![The Service access options on the Specify source and target page](images/specify-source-target-service-access.PNG)
+   ![The Service access options on the Specify source and target page](/images/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
 
    | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
    | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
