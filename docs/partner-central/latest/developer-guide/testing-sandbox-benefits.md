@@ -173,6 +173,8 @@ For example:
 
 ## Additional testing notes
 
+Note the following when testing in the sandbox:
+
 1. To test other actions, set `"catalog": "Sandbox"` in the payload.
 2. The Benefit IDs in Sandbox catalog and AWS catalog are different. Make `GetBenefit` API call with `"catalog": "Sandbox"` to get Benefit Identifier in the Sandbox.
 3. The Benefit allocation in Sandbox catalog and AWS catalog are different.

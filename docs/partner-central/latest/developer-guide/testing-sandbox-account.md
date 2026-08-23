@@ -117,6 +117,8 @@ Note: In Sandbox email verification is disabled. You can use any six-digit Email
 
 ## Additional testing notes
 
+Note the following when testing in the sandbox:
+
 1. To test other actions, set `"catalog": "Sandbox"` in the payload.
 2. To test partner account connections in sandbox, you must execute `StartProfileUpdateTask` action after creating partner in sandbox catalog.
 3. To move to production, change the catalog value from `Sandbox` to `AWS`.

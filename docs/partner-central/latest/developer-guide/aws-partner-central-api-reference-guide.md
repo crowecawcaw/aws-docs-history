@@ -111,6 +111,6 @@ opportunity forward. The invitation can be accepted or rejected by the partner.
 - [Working with opportunity updates](working-with-opportunity-updates.md "working-with-opportunity-updates.md")
 - [Working with multipartner opportunities](working-with-multi-partner-opportunities.md "working-with-multi-partner-opportunities.md")
 - [Associating, disassociating and assigning opportunities](associating-disassociating-assigning-opportunities.md "associating-disassociating-assigning-opportunities.md")
-- [Working with your leads](working-with-your-leads.md "working-with-your-leads.md")
+- [Manage leads using the AWS Partner Central Selling API](working-with-your-leads.md "working-with-your-leads.md")
 - [Working with deal sizing insights](working-with-deal-sizing-insights.md "working-with-deal-sizing-insights.md")
 - [Best practices](best-practices.md "best-practices.md")

@@ -24,15 +24,18 @@ noted.
 
 ### MCP protocol access
 
-The simplest way to grant MCP protocol access is to attach the
-`AWSMcpServiceActionsFullAccess` managed policy to your IAM identity. This
-policy includes all permissions needed to interact with the MCP server. For fine-grained
-control, you can use the `aws:IsMcpServiceAction` condition key in your IAM
-policies to scope permissions specifically to MCP service actions.
+As an authenticated AWS identity, you have protocol access to the MCP server by
+default. You do not need an explicit IAM Allow for protocol access.
 
-| Action                      | Description                                        |
-| --------------------------- | -------------------------------------------------- |
-| `partnercentral:UseSession` | Create, update, and retrieve conversation sessions |
+For OAuth authentication, the following sign-in permissions are required:
+
+| Action                         | Description                              |
+| ------------------------------ | ---------------------------------------- |
+| `signin:AuthorizeOAuth2Access` | Authorizes the browser-based OAuth flow  |
+| `signin:CreateOAuth2Token`     | Issues and refreshes OAuth access tokens |
+
+To restrict MCP access, apply an explicit Deny on
+`partnercentral:InvokeMcp`.
 
 ### Opportunity management
 
