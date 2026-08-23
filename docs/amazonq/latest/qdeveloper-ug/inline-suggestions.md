@@ -1,5 +1,9 @@
 # Generating inline suggestions with Amazon Q Developer
 
+###### End of support notice
+
+On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](q-developer-ide-end-of-support.md "q-developer-ide-end-of-support.md").
+
 Amazon Q can provide you with code recommendations in real time. As you write
 code, Amazon Q automatically generates suggestions based on your existing code and comments.
 Your personalized recommendations can vary in size and scope, ranging from a single line
@@ -60,7 +64,7 @@ Eclipse
 
 The following image shows the Amazon Q task bar in an Eclipse IDE.
 
-![The Amazon Q task bar in an Eclipse IDE.](images/eclipse-taskbar.png) 3. Choose **Pause Auto-Suggestions** or **Resume
+![The Amazon Q task bar in an Eclipse IDE.](/images/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png) 3. Choose **Pause Auto-Suggestions** or **Resume
 Auto-Suggestions**.
 
 Visual Studio

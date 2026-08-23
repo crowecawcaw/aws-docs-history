@@ -1,5 +1,9 @@
 # Reviewing code with Amazon Q Developer
 
+###### End of support notice
+
+On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](q-developer-ide-end-of-support.md "q-developer-ide-end-of-support.md").
+
 Amazon Q Developer can review your codebase for security vulnerabilities and code quality issues
 to improve the posture of your applications throughout the development cycle. You can review
 an entire codebase, analyzing all files in your local project or workspace, or review a

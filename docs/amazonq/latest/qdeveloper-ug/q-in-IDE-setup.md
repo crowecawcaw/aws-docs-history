@@ -1,5 +1,9 @@
 # Installing the Amazon Q Developer extension or plugin in your IDE
 
+###### End of support notice
+
+On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](q-developer-ide-end-of-support.md "q-developer-ide-end-of-support.md").
+
 To set up Amazon Q Developer in your integrated development environment (IDE), complete the following steps.
 After installing the Amazon Q extension or plugin, authenticate through IAM Identity Center or AWS Builder ID. You can use
 Amazon Q for free, without an AWS account, by authenticating with Builder ID.

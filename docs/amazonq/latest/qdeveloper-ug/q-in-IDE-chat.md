@@ -1,5 +1,9 @@
 # Chatting with Amazon Q Developer about code
 
+###### End of support notice
+
+On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](q-developer-ide-end-of-support.md "q-developer-ide-end-of-support.md").
+
 Chat with Amazon Q Developer in your integrated development environment (IDE) to ask questions about
 building at AWS and for assistance with software development. Amazon Q can explain coding concepts
 and code snippets, generate code and unit tests, and improve code, including debugging or
