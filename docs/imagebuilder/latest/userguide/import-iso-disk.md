@@ -36,19 +36,14 @@ Defender](https://go.microsoft.com/fwlink/?linkid=2144531 "https://go.microsoft.
 onto the output AMI. The build instance also communicates with Amazon EC2,
 Amazon CloudWatch Logs, and SSM APIs.
 
-If your VPC is not in `us-east-1`, then the build instance requires
-public internet access (for example, via a NAT Gateway) to download AWS
-drivers from the global Amazon S3 endpoint
-(`ec2-windows-drivers-downloads.s3.amazonaws.com`). Without public
-internet access, these downloads fail and the import process fails.
-
-If your VPC is in `us-east-1`, then the Amazon S3 Gateway endpoint is
-sufficient for downloading the drivers. No NAT Gateway is needed for downloading
-the drivers.
+The build instance downloads AWS drivers from a Regional Amazon S3 bucket in the
+same AWS Region where the import runs. Because this traffic stays within the
+Region, the Amazon S3 Gateway endpoint is sufficient to download the drivers in any
+Region.
 
 However, Microsoft Defender requires public internet access to download regardless
-of region. If the build instance does not have internet access, the import
-still succeeds but Microsoft Defender is not installed on the output AMI.
+of Region. If the build instance does not have internet access, the import
+still succeeds but does not install Microsoft Defender on the output AMI.
 
 For the list of the minimal required VPC endpoints and S3 URLs, see
 [Minimal network requirements for private VPC](#iso-import-network-requirements "#iso-import-network-requirements").
@@ -404,30 +399,29 @@ configuration.
 
 **Required VPC endpoints:**
 
-| Endpoint                               | Type      | Purpose                                                                                         |
-| -------------------------------------- | --------- | ----------------------------------------------------------------------------------------------- |
-| `com.amazonaws.`{region}`.s3`          | Gateway   | Access Amazon S3 buckets (EC2Launch v2, SSM Agent, your ISO; also<br>drivers if in `us-east-1`) |
-| `com.amazonaws.`{region}`.ec2`         | Interface | Create snapshots and describe volumes                                                           |
-| `com.amazonaws.`{region}`.logs`        | Interface | Write build logs to CloudWatch Logs                                                             |
-| `com.amazonaws.`{region}`.ssm`         | Interface | SSM API calls (SendCommand, DescribeInstanceInformation)                                        |
-| `com.amazonaws.`{region}`.ssmmessages` | Interface | SSM Agent data channel (receive commands, send output)                                          |
-| `com.amazonaws.`{region}`.ec2messages` | Interface | SSM Agent message polling                                                                       |
-
-**Additional requirement for regions outside
-`us-east-1`:**
-
-| Resource    | Purpose                                                                                                                                              |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NAT Gateway | Provide internet access to download drivers from<br>`ec2-windows-drivers-downloads.s3.amazonaws.com`. Without this,<br>the import process will fail. |
+| Endpoint                               | Type      | Purpose                                                                          |
+| -------------------------------------- | --------- | -------------------------------------------------------------------------------- |
+| `com.amazonaws.`{region}`.s3`          | Gateway   | Access Amazon S3 buckets (EC2Launch v2, SSM Agent, AWS drivers,<br>and your ISO) |
+| `com.amazonaws.`{region}`.ec2`         | Interface | Create snapshots and describe volumes                                            |
+| `com.amazonaws.`{region}`.logs`        | Interface | Write build logs to CloudWatch Logs                                              |
+| `com.amazonaws.`{region}`.ssm`         | Interface | SSM API calls (SendCommand, DescribeInstanceInformation)                         |
+| `com.amazonaws.`{region}`.ssmmessages` | Interface | SSM Agent data channel (receive commands, send output)                           |
+| `com.amazonaws.`{region}`.ec2messages` | Interface | SSM Agent message polling                                                        |
 
 **Amazon S3 endpoints accessed during import:**
 
-- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/NVMe/Latest/AWSNVMe.zip`
-- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/ENA/Latest/AwsEnaNetworkDriver.zip`
-- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/AWSPCISerialDriver/Latest/AWSPCISerialDriver.zip`
-- `https://ec2-windows-drivers-downloads.s3.amazonaws.com/EC2WinUtil/Latest/EC2WinUtil.zip`
+- `https://ec2-windows-drivers-downloads-`{region}`.s3.dualstack.`{region}`.amazonaws.com/NVMe/Latest/AWSNVMe.zip`
+- `https://ec2-windows-drivers-downloads-`{region}`.s3.dualstack.`{region}`.amazonaws.com/ENA/Latest/AwsEnaNetworkDriver.zip`
+- `https://ec2-windows-drivers-downloads-`{region}`.s3.dualstack.`{region}`.amazonaws.com/AWSPCISerialDriver/Latest/AWSPCISerialDriver.zip`
+- `https://ec2-windows-drivers-downloads-`{region}`.s3.dualstack.`{region}`.amazonaws.com/EC2WinUtil/Latest/EC2WinUtil.zip`
 - `https://amazon-ec2launch-v2-`{region}`.s3.dualstack.`{region}`.amazonaws.com/windows/amd64/latest/AmazonEC2Launch.msi`
 - `https://amazon-ssm-`{region}`.s3.`{region}`.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe`
+
+###### Note
+
+In `us-east-1`, the driver bucket name has no Region suffix. The build instance downloads the drivers from
+`ec2-windows-drivers-downloads.s3.dualstack.us-east-1.amazonaws.com` instead. In both cases, the bucket is
+in the same Region as the import, so the Amazon S3 Gateway endpoint is sufficient.
 
 This represents the minimum configuration required for the import to
 operate in a private subnet. Depending on your VPC settings and desired outcome,

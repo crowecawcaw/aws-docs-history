@@ -101,6 +101,24 @@ aws imagebuilder list-components --owner Shared
 aws imagebuilder list-components --owner ThirdParty
 ```
 
+When you list components with the `--owner AWSMarketplace`
+value, you can filter the results by product code. Specify the
+`productCodes` filter with a value in the format
+`marketplace:`productCodeId``, as shown in the
+following example:
+
+```
+aws imagebuilder list-components --owner AWSMarketplace --filters name=productCodes,values=marketplace:`examplecode123`
+```
+
+###### Note
+
+Image Builder returns AWS Marketplace component ARNs under the `aws-marketplace`
+namespace, with an owner of `AWSMarketplace`. When you call
+**get-component** for an AWS Marketplace component, the response includes the owner
+but omits the component data. The component data is available only when the calling
+build instance is entitled to the product.
+
 ## List component build versions from the AWS CLI
 
 The following example shows how to use the **[list-component-build-versions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-component-build-versions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-component-build-versions.html")**

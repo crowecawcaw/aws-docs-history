@@ -214,6 +214,22 @@ Review the following constraints before you create an image recipe:
 - Your final image can contain at most nine AWS Marketplace product codes, combined from
   the base image and components. A product code is an identifier that AWS Marketplace attaches
   to a paid or supported AMI for billing and licensing.
+
+###### Tip
+
+Components published through AWS Marketplace can also carry product codes.
+Image Builder reads the product codes from each component's metadata. It counts the distinct
+product code IDs, along with the product codes on the base AMI, toward the limit.
+
+To check the product codes on a base AMI, run the Amazon EC2
+[describe-images](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html")
+command and query the `ProductCodes` field, as shown in the following
+example:
+
+```
+aws ec2 describe-images --image-ids `ami-example12345` --query "Images[].ProductCodes"
+```
+
 - You can include up to 20 components (build and test combined). This is the
   default limit, which you can request to increase through AWS Support.
 - The same component can't appear more than once in a recipe.
@@ -287,7 +303,18 @@ Here is a summary of the parameters that these examples specify:
     	 pipelines that should always use the latest Amazon Linux or Windows base
     	 image.
     	+ **AWS Marketplace product ID** – Use when you
-    	 subscribe to an AMI product in AWS Marketplace and want to customize it further.
+    	 subscribe to an AMI product in AWS Marketplace and want to customize it further. You
+    	 can specify the product ID in either of the following formats:
+
+
+
+
+    		- A universally unique identifier (UUID), for example
+    		 `722e1255-be34-4bbe-9ce6-80634c9d01f7`.
+    		- A product ID with the `prod-` prefix, for example
+    		 `prod-example12345`.
+    	Subscribe to the product before you use it as a parent image. For more
+    	 information, see [AWS Marketplace integration in Image Builder](integ-marketplace.md "integ-marketplace.md").
     ###### Note
 
 
@@ -297,6 +324,11 @@ Here is a summary of the parameters that these examples specify:
     	 same Region where Image Builder runs the build.
     	+ The Linux and macOS examples specify an AMI ID, and the Windows example uses
     	 an Image Builder image ARN.
+    	+ The `parentImage` parameter accepts an AMI ID, an Image Builder image ARN,
+    	 an `ssm:` parameter reference, or an AWS Marketplace product ID. If the value
+    	 doesn't match one of these formats, Image Builder returns an
+    	 `InvalidParameterValueException` for the `parentImage`
+    	 parameter.
     * semanticVersion (string, required) – Enter the version number that you want to create
      in the format *<major>.<minor>.<patch>*. Image Builder supports automatic version incrementing for
      recipes, allowing you to use wildcard patterns in your recipe versions. When you create a recipe with
@@ -624,16 +656,17 @@ You can't use the reserved tag keys `CreatedBy` or
 The following table lists common errors that you might encounter when you create an
 image recipe, along with how to resolve them.
 
-| Error                                                                                         | Cause                                                               | Resolution                                                                                        |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| "A component may be specified in an image recipe at most once"                                | A duplicate component (even with a different version).              | Remove the duplicate. Use only one version of each component.                                     |
-| "Component ARN does not match the Parent Image Platform"                                      | A platform mismatch.                                                | Verify your base image platform. Use Linux components with Linux AMIs,<br>and so on.              |
-| "Component ARN does not support the Parent Image OS Version"                                  | An OS version incompatibility.                                      | Check the component's supported OS versions. Use a compatible component<br>version.               |
-| "Image Builder does not support configuring the SSM Agent on<br>Windows"                      | You specified `systemsManagerAgent` with a Windows parent<br>image. | Remove the<br>`additionalInstanceConfiguration.systemsManagerAgent`<br>block.                     |
-| "You've exceeded the maximum cumulative component size of 25 KB"                              | Too many or too-large parameters.                                   | Reduce the parameter count or shorten parameter values.                                           |
-| "Recipe can contain at most 9 marketplace products"                                           | Too many AWS Marketplace product codes.                             | Reduce the number of AWS Marketplace components, or use a base image with fewer<br>product codes. |
-| "The supplied semantic version does not follow the required<br>format"                        | An invalid version string.                                          | Use the *major.minor.patch<br>• format with one optional<br>`x` wildcard.                         |
-| "Component ARN ... is deprecated and cannot be included in new<br>recipes" (or "is disabled") | A referenced component has a `DEPRECATED` or<br>`DISABLED` status.  | Update to a current component version.                                                            |
+| Error                                                                                         | Cause                                                                        | Resolution                                                                                        |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| "A component may be specified in an image recipe at most once"                                | A duplicate component (even with a different version).                       | Remove the duplicate. Use only one version of each component.                                     |
+| "Component ARN does not match the Parent Image Platform"                                      | A platform mismatch.                                                         | Verify your base image platform. Use Linux components with Linux AMIs,<br>and so on.              |
+| "Component ARN does not support the Parent Image OS Version"                                  | An OS version incompatibility.                                               | Check the component's supported OS versions. Use a compatible component<br>version.               |
+| "Image Builder does not support configuring the SSM Agent on<br>Windows"                      | You specified `systemsManagerAgent` with a Windows parent<br>image.          | Remove the<br>`additionalInstanceConfiguration.systemsManagerAgent`<br>block.                     |
+| "You've exceeded the maximum cumulative component size of 25 KB"                              | Too many or too-large parameters.                                            | Reduce the parameter count or shorten parameter values.                                           |
+| "Recipe can contain at most 9 marketplace products"                                           | Too many AWS Marketplace product codes.                                      | Reduce the number of AWS Marketplace components, or use a base image with fewer<br>product codes. |
+| "Recipes with marketplace components must contain at least 1 build<br>component"              | The recipe references AWS Marketplace components but has no build component. | Add at least one build component to the recipe.                                                   |
+| "The supplied semantic version does not follow the required<br>format"                        | An invalid version string.                                                   | Use the *major.minor.patch<br>• format with one optional<br>`x` wildcard.                         |
+| "Component ARN ... is deprecated and cannot be included in new<br>recipes" (or "is disabled") | A referenced component has a `DEPRECATED` or<br>`DISABLED` status.           | Update to a current component version.                                                            |
 
 ## Import a VM as your base image in the console
 

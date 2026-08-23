@@ -42,6 +42,15 @@ Each subscribed product shows the following details:
 - The **Publisher**. This is linked to the publisher detail page in AWS Marketplace. The
   publisher detail page opens in a new tab in your browser.
 - The **Version** that you subscribed to.
+
+###### Note
+
+Image Builder derives the version for an AWS Marketplace image from the product listing's recommended
+version when that version is available. If the listing doesn't provide a parseable
+version, Image Builder derives a date-based version from the AMI creation date. For example, the
+derived version might look like `2026.8.11/1`. As a result, the Image Builder version
+for the product can reflect a date instead of the vendor's version string.
+
 - If there are any **Associated components** included with
   your subscribed product, Image Builder displays a link to the component detail.
 
@@ -183,7 +192,14 @@ directly. For more information about how to set filters and search
 in the AWS Marketplace, see [Discover AWS Marketplace image products from the Image Builder console](#integ-marketplace-find "#integ-marketplace-find"). 6. Enter remaining details as usual. If any or your product subscriptions include build
 components, you can select them from the **Build components** list.
 Select `AWS Marketplace` from the component owner type list to see them, or select
-`Third party managed` for the CIS component. 7. Choose **Create recipe**.
+`Third party managed` for the CIS component.
+
+###### Note
+
+If your base image is a CIS-published AWS Marketplace image product, Image Builder
+verifies CIS hardening component compatibility. Choose the
+CIS component that matches the benchmark and operating system of your
+base image to avoid a recipe validation error. 7. Choose **Create recipe**.
 
 Your final image can contain up to nine product codes from AWS Marketplace image products and
 components. If your selected base image and components contain more than nine product

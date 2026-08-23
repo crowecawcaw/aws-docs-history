@@ -10,6 +10,10 @@ the subscription and performs dependency checks to ensure that you have
 the resources that you need to use it. When validation succeeds, Image Builder creates secure
 downloads for the component and its artifacts for use by image pipeline builds.
 
+Image Builder discovers AWS Marketplace catalog metadata using its own service credentials, so you don't
+need to grant Image Builder additional permissions to discover AWS Marketplace components. However, your
+account must be subscribed to a product before you can use its components in a recipe.
+
 ## Discover AWS Marketplace components
 
 You can discover AWS Marketplace software components to use in your recipes from the
@@ -121,6 +125,13 @@ components.
 
 If you're looking for the CIS hardening component, select `Third party 
  managed`, from the ownership list instead of `AWS Marketplace`.
+
+###### Important
+
+A recipe that includes one or more AWS Marketplace components must also include at least
+one build component. Image Builder returns an error if you create a recipe that references
+AWS Marketplace components but has no build component. Container recipes don't support AWS Marketplace
+components. For more information, see [Container recipe constraints](create-container-recipes.md#container-recipe-constraints "create-container-recipes.md#container-recipe-constraints").
 
 For more information about how to select, arrange, and configure parameters for
 your components, see [Create a new version of an image recipe](create-image-recipes.md "create-image-recipes.md").
