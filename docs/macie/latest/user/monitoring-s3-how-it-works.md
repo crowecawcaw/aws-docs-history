@@ -274,7 +274,7 @@ organization, not your organization overall.
 
   - In your bucket inventory on the console, Macie displays a warning icon
     (
-    ![The warning icon, which is a red triangle that has an exclamation point in it.](images/icon-warning-red.png)
+    ![The warning icon, which is a red triangle that has an exclamation point in it.](/images/macie/latest/user/images/icon-warning-red.png)
     ) for the bucket.
   - For the bucket's details, Macie provides data for only a subset of
     fields: the account ID for the AWS account that owns the bucket; the
