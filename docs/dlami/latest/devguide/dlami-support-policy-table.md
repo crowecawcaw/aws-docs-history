@@ -17,6 +17,7 @@ continue to receive security patches.
 
 | Framework | Current version | CUDA version | GitHub GA  | End of patch |
 | --------- | --------------- | ------------ | ---------- | ------------ |
+| PyTorch   | 2.13.0          | 13.0         | 2026-07-08 | 2027-07-08   |
 | PyTorch   | 2.12.0          | 13.0         | 2026-05-13 | 2027-05-13   |
 | PyTorch   | 2.11.0          | 13.0         | 2026-03-23 | 2027-03-23   |
 | PyTorch   | 2.10.0          | 13.0         | 2026-01-21 | 2027-01-21   |

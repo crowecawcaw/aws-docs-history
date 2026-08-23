@@ -72,6 +72,8 @@ Below are the Release notes for X86 PyTorch DLAMIs:
 
 GPU
 
+- [GPU PyTorch 2.13 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.13-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.13-amazon-linux-2023.md")
+- [GPU PyTorch 2.13 (Ubuntu 26.04)](aws-deep-learning-x86-gpu-pytorch-2.13-ubuntu-26-04.md "aws-deep-learning-x86-gpu-pytorch-2.13-ubuntu-26-04.md")
 - [GPU PyTorch 2.12 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.12-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.12-amazon-linux-2023.md")
 - [GPU PyTorch 2.12 (Ubuntu 24.04)](aws-deep-learning-x86-gpu-pytorch-2.12-ubuntu-24-04.md "aws-deep-learning-x86-gpu-pytorch-2.12-ubuntu-24-04.md")
 - [GPU PyTorch 2.11 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.11-amazon-linux-2023.md "aws-deep-learning-x86-gpu-pytorch-2.11-amazon-linux-2023.md")
