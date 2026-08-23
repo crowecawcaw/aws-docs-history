@@ -115,7 +115,7 @@ AWS provides SDKs that consist of libraries and sample code for various programm
 languages and platforms—for example, Java, Go, Python, C++, and .NET. The SDKs provide
 convenient, programmatic access to Detective and other AWS services. They also handle tasks such
 as cryptographically signing requests, managing errors, and retrying requests automatically.
-For information about installing and using the AWS SDKs, see [Tools to Build on AWS](https://aws.amazon.com//developer/tools/ "https://aws.amazon.com//developer/tools/").
+For information about installing and using the AWS SDKs, see [Tools to Build on AWS](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
 
 Amazon Detective REST API
 
@@ -235,4 +235,4 @@ also improve the protection of your workloads, applications, and data.
 To learn more about Security Lake, see the [Amazon Security Lake User Guide](../../../security-lake/latest/userguide/what-is-security-lake.md "../../../security-lake/latest/userguide/what-is-security-lake.md"). To learn more about using Detective and Security Lake together, see [Amazon Detective Integration with Amazon Security Lake](securitylake-integration.md "securitylake-integration.md").
 
 To learn about additional AWS security services, see [Security, Identity, and Compliance on
-AWS](https://aws.amazon.com//products/security/ "https://aws.amazon.com//products/security/").
+AWS](https://aws.amazon.com/products/security/ "https://aws.amazon.com/products/security/").

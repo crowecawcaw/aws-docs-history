@@ -120,7 +120,7 @@ If you used the `EnableDetective.yaml` CloudFormation template, then an
 instance role with a profile named `EnableDetective` was created.
 
 Otherwise, for information on creating an instance role, see the blog post [Easily Replace or Attach an IAM Role to an Existing EC2 Instance by Using the EC2
-Console](https://aws.amazon.com/blogs//security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/ "https://aws.amazon.com/blogs//security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/"). 3. Install the required software:
+Console](https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/ "https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/"). 3. Install the required software:
 
     * **APT:**
     `sudo apt-get -y install python3-pip python3 git`
