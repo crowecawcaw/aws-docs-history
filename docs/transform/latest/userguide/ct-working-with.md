@@ -258,6 +258,24 @@ atx ct remote update --mode `ec2|batch` --execute --ack
 atx ct remote teardown --mode `ec2|batch` --execute --ack
 ```
 
+### Container image
+
+When you run remote analyses and remediations, they execute inside a container image. By
+default, when you provision a remote environment, it uses the public AWS Transform image,
+`public.ecr.aws/d9h8z6l7/aws-transform:latest`. Batch sets it as the job definition
+image. Amazon EC2 uses it as the runner image.
+
+To run a different image—for example, a private Amazon ECR image that bundles additional
+languages or tools—pass `--image-uri` when you provision:
+
+```
+# Batch: provision with a custom image
+atx ct remote provision --mode batch --vpc `vpc-id` --subnets `subnet-a,subnet-b` --securityGroup `sg-id` --image-uri `account-id`.dkr.ecr.`region`.amazonaws.com/`repo`:`tag` --execute --ack
+
+# EC2: provision with a custom image
+atx ct remote provision --mode ec2 --vpc `vpc-id` --subnets `subnet-a,subnet-b` --image-uri `account-id`.dkr.ecr.`region`.amazonaws.com/`repo`:`tag` --execute --ack
+```
+
 ### Storing source credentials
 
 Remote containers clone your repositories using tokens stored in AWS Secrets Manager.
