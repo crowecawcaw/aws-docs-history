@@ -3,7 +3,15 @@
 When a managed compute environment is created, AWS Batch selects instance types from the
 `instanceTypes` specified that best fit the needs of the jobs. The allocation
 strategy defines behavior when AWS Batch needs additional capacity. This parameter isn't applicable
-to jobs that run on Fargate resources. Don't specify this parameter.
+to jobs that run on Fargate resources or Amazon ECS Managed Instances. Don't specify this parameter
+for those compute environment types.
+
+###### Note
+
+For Amazon ECS Managed Instances compute environments, instance type selection is managed by
+Amazon ECS based on the `instanceRequirements` configuration in the
+`managedInstancesProvider`. No allocation strategy is needed. For more information,
+see [Amazon ECS Managed Instances compute environments](ecs_managed_instances.md "ecs_managed_instances.md").
 
 `BEST_FIT` (default)
 

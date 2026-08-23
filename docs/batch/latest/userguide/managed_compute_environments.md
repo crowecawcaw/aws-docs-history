@@ -3,10 +3,11 @@
 You can use a managed compute environment to have AWS Batch manage the capacity and instance
 types of the compute resources within the environment. This is based on the compute resource
 specifications that you define when you create the compute environment. You can choose either to
-use Amazon EC2 On-Demand Instances and Amazon EC2 Spot Instances. Or, you can alternatively use Fargate
-and Fargate Spot capacity in your managed compute environment. When using Spot Instances, you
-can optionally set a maximum price. This way, Spot Instances only launch when the Spot Instance
-price is under a specified percentage of the On-Demand price.
+use Amazon EC2 On-Demand Instances and Amazon EC2 Spot Instances, use Fargate and Fargate Spot
+capacity, or use Amazon ECS Managed Instances (where Amazon ECS fully manages Amazon EC2 instance
+provisioning and lifecycle on your behalf). For Amazon EC2 Spot compute environments, you can
+optionally set a maximum price so that Spot Instances only launch when the Spot Instance price
+is under a specified percentage of the On-Demand price.
 
 ###### Important
 

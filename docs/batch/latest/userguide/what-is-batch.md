@@ -16,7 +16,8 @@ problems.
 ![Showing the layers of AWS Batch for workloads, orchestration, and capacity](images/batch-diagram.png)
 AWS Batch provides all of the necessary functionality to run high-scale, compute-intensive
 workloads on top of AWS managed container orchestration services, Amazon ECS and Amazon EKS. AWS Batch is
-able to scale compute capacity on Amazon EC2 instances and Fargate resources.
+able to scale compute capacity on Amazon EC2 instances, Fargate resources, and Amazon ECS Managed
+Instances.
 
 AWS Batch provides a fully managed service for batch workloads, and delivers the operational
 capabilities to optimize these types of workloads for throughput, speed, resource efficiency, and
@@ -52,12 +53,13 @@ following sections:
 
 AWS Batch is a fully managed batch computing service that plans, schedules, and runs your
 containerized batch ML, simulation, and analytics workloads across the full range of AWS
-compute offerings, such as Amazon ECS, Amazon EKS, AWS Fargate, and Spot or On-Demand Instances. For more
-information about each managed compute service, see:
+compute offerings, such as Amazon ECS, Amazon EKS, AWS Fargate, Amazon ECS Managed Instances, and Spot or
+On-Demand Instances. For more information about each managed compute service, see:
 
 - [Amazon EC2
   _User Guide_](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")
 - [AWS Fargate _Developer Guide_](../../../AmazonECS/latest/developerguide/AWS_Fargate.md "../../../AmazonECS/latest/developerguide/AWS_Fargate.md")
+- [Amazon ECS Managed Instances _Developer Guide_](../../../AmazonECS/latest/developerguide/ManagedInstances.md "../../../AmazonECS/latest/developerguide/ManagedInstances.md")
 - [Amazon EKS
   _User Guide_](../../../eks/latest/userguide/what-is-eks.md "../../../eks/latest/userguide/what-is-eks.md")
 - [Amazon SageMaker AI _Developer Guide_](../../../sagemaker/latest/dg/gs.htm.md "../../../sagemaker/latest/dg/gs.htm.md")

@@ -21,4 +21,5 @@ resource, the scheduler attempts to run the job on the next compute environment.
 - [Instance type allocation strategies for AWS Batch](allocation-strategies.md "allocation-strategies.md")
 - [Compute resource memory management](memory-management.md "memory-management.md")
 - [Fargate compute environments](fargate.md "fargate.md")
+- [Amazon ECS Managed Instances compute environments](ecs_managed_instances.md "ecs_managed_instances.md")
 - [Amazon EKS compute environments](eks.md "eks.md")

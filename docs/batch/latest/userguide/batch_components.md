@@ -11,14 +11,16 @@ infrastructure.
 ## Compute environment
 
 A compute environment is a set of managed or unmanaged compute resources that are used to run jobs. With
-managed compute environments, you can specify desired compute type (Fargate or EC2) at several levels of detail.
-You can set up compute environments that use a particular type of EC2 instance, a particular model such as
-`c5.2xlarge` or `m5.10xlarge`. Or, you can choose only to specify that you want to use the
-newest instance types. You can also specify the minimum, desired, and maximum number of vCPUs for the environment,
-along with the amount that you're willing to pay for a Spot Instance as a percentage of the On-Demand Instance price
-and a target set of VPC subnets. AWS Batch efficiently launches, manages, and terminates compute types as needed. You
-can also manage your own compute environments. As such, you're responsible for setting up and scaling the instances
-in an Amazon ECS cluster that AWS Batch creates for you. For more information, see [Compute environments for AWS Batch](compute_environments.md "compute_environments.md").
+managed compute environments, you can specify the compute type (Fargate, Amazon EC2, or Amazon ECS Managed Instances)
+and instance size. You can also specify the minimum, desired, and maximum number of vCPUs, the Spot Instance
+price threshold, and target VPC subnets.
+
+With Amazon ECS Managed Instances, Amazon ECS fully manages Amazon EC2 instance provisioning, scaling, and termination on
+your behalf. You specify the maximum capacity and optional instance constraints. AWS Batch efficiently launches,
+manages, and terminates compute types as needed.
+
+You can also manage your own compute environments. In that case, you're responsible for setting up and
+scaling the instances in an Amazon ECS cluster that AWS Batch creates for you. For more information, see [Compute environments for AWS Batch](compute_environments.md "compute_environments.md").
 
 ## Job queues
 

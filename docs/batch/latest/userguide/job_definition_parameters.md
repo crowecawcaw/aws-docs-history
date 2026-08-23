@@ -48,8 +48,8 @@ Required: Yes
 `type`
 
 When you register a job definition, you specify the type of job. If the job runs on
-Fargate resources, then `multinode` isn't supported. For more information about
-multi-node parallel jobs, see [Create a multi-node parallel job definition](create-multi-node-job-def.md "create-multi-node-job-def.md").
+Fargate or Amazon ECS Managed Instances resources, then `multinode` isn't supported.
+For more information about multi-node parallel jobs, see [Create a multi-node parallel job definition](create-multi-node-job-def.md "create-multi-node-job-def.md").
 
 Type: String
 
@@ -1610,6 +1610,12 @@ Required: Yes
 
 The platform capabilities that's required by the job definition. If no value is specified, it defaults to
 `EC2`. For jobs that run on Fargate resources, `FARGATE` is specified.
+For jobs that run on Amazon ECS Managed Instances, `MANAGED_INSTANCES` is
+specified.
+
+Jobs with the `MANAGED_INSTANCES` platform capability must use
+`ecsProperties` (not `containerProperties`) and do not support
+multi-node parallel jobs. For more information, see [Job definitions on Amazon ECS Managed Instances](ecs-managed-instances-job-definitions.md "ecs-managed-instances-job-definitions.md").
 
 ###### Note
 
@@ -1617,7 +1623,7 @@ If the job runs on Amazon EKS resources, then you must not specify `platformCapa
 
 Type: String
 
-Valid values: `EC2` | `FARGATE`
+Valid values: `EC2` | `FARGATE` | `MANAGED_INSTANCES`
 
 Required: No
 

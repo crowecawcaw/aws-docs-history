@@ -16,8 +16,14 @@ permissions. Then, it associates the role with your compute environments when yo
 see [Amazon ECS instance role](instance_IAM_role.md "instance_IAM_role.md"), [IAM Roles](../../../IAM/latest/UserGuide/roles-toplevel.md "../../../IAM/latest/UserGuide/roles-toplevel.md"), [Using Service-Linked Roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md"), and [Creating a Role to Delegate
 Permissions to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
+###### Note
+
+For information about controlling who can apply capacity tags to Amazon ECS Managed Instances
+compute environments, see [Control access to capacity tags with batch:SetCapacityTags](capacity-tags-access-policy.md "capacity-tags-access-policy.md").
+
 ###### Topics
 
 - [IAM policy structure](iam-policy-structure.md "iam-policy-structure.md")
 - [Resource: Example policies for AWS Batch](ExamplePolicies_BATCH.md "ExamplePolicies_BATCH.md")
 - [Resource: AWS Batch managed policy](batch_managed_policies.md "batch_managed_policies.md")
+- [Control access to capacity tags with batch:SetCapacityTags](capacity-tags-access-policy.md "capacity-tags-access-policy.md")

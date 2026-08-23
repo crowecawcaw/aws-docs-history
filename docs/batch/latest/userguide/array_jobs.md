@@ -25,7 +25,7 @@ information about job dependencies, see [Job dependencies](job_dependencies.md "
 
 At runtime, the `AWS_BATCH_JOB_ARRAY_INDEX` environment variable is set to the
 container's corresponding job array index number. The first array job index is numbered
-`0`, and subsequent attempts are in ascending order (for example, 1, 2, and 3). You
+`0`, and subsequent child job indexes are in ascending order (for example, 1, 2, and 3). You
 can use this index value to control how your array job children are differentiated. For more
 information, see [Use the array job index to control job differentiation](array_index_example.md "array_index_example.md").
 
