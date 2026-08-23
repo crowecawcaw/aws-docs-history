@@ -1,4 +1,4 @@
-# Chat Completions API on the bedrock-mantle endpoint
+# Chat Completions API
 
 The OpenAI Chat Completions API generates conversational responses using Amazon Bedrock models.
 For new applications, we recommend the `bedrock-runtime` endpoint (see [Chat Completions API (legacy reference)](inference-chat-completions.md "inference-chat-completions.md")). This page documents the API on the
@@ -6,10 +6,10 @@ For new applications, we recommend the `bedrock-runtime` endpoint (see [Chat Com
 details, see the [OpenAI
 Chat Completions documentation](https://developers.openai.com/api/reference/chat-completions/overview "https://developers.openai.com/api/reference/chat-completions/overview").
 
-| **Endpoint**                   | **Base URL**                                                         | **Authentication**                                |
-| ------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------- |
-| `bedrock-mantle` (recommended) | `https://bedrock-mantle.{region}.api.aws/v1/chat/completions`        | Amazon Bedrock API key or AWS credentials         |
-| `bedrock-runtime`              | `https://bedrock-runtime.{region}.amazonaws.com/v1/chat/completions` | AWS credentials (SigV4) or Amazon Bedrock API key |
+| **Endpoint**                    | **Base URL**                                                                | **Authentication**                                |
+| ------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------- |
+| `bedrock-mantle`                | `https://bedrock-mantle.{region}.api.aws/v1/chat/completions`               | Amazon Bedrock API key or AWS credentials         |
+| `bedrock-runtime` (recommended) | `https://bedrock-runtime.{region}.amazonaws.com/openai/v1/chat/completions` | AWS credentials (SigV4) or Amazon Bedrock API key |
 
 Each endpoint has its own per-model token quotas. For details on the quotas applied to traffic on each endpoint, see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md "quotas-mantle.md") and [Quotas for the bedrock-runtime endpoint](quotas-runtime.md "quotas-runtime.md").
 
@@ -157,7 +157,7 @@ from openai import OpenAI
 import os
 
 client = OpenAI(
-    base_url="https://bedrock-runtime.us-east-1.amazonaws.com/v1",
+    base_url="https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
     api_key=os.environ.get("AWS_BEARER_TOKEN_BEDROCK")
 )
 
@@ -169,7 +169,7 @@ for model in models.data:
 HTTP request
 
 ```
-curl -X GET "https://bedrock-runtime.us-east-1.amazonaws.com/v1/models" \
+curl -X GET "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/models" \
   -H "Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK"
 ```
 
@@ -185,12 +185,12 @@ from openai import OpenAI
 import os
 
 client = OpenAI(
-    base_url="https://bedrock-runtime.us-east-1.amazonaws.com/v1",
+    base_url="https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1",
     api_key=os.environ.get("AWS_BEARER_TOKEN_BEDROCK")
 )
 
 response = client.chat.completions.create(
-    model="us.anthropic.claude-sonnet-4-6",
+    model="openai.gpt-oss-120b",
     messages=[{"role": "user", "content": "Hello"}]
 )
 print(response.choices[0].message.content)
@@ -199,11 +199,11 @@ print(response.choices[0].message.content)
 HTTP request (API key)
 
 ```
-curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/v1/chat/completions" \
+curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK" \
   -d '{
-    "model": "us.anthropic.claude-sonnet-4-6",
+    "model": "openai.gpt-oss-120b",
     "messages": [{"role": "user", "content": "Hello"}]
   }'
 ```
@@ -211,12 +211,12 @@ curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/v1/chat/completion
 HTTP request (SigV4)
 
 ```
-curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/v1/chat/completions" \
+curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/chat/completions" \
   -H "Content-Type: application/json" \
   --aws-sigv4 "aws:amz:us-east-1:bedrock" \
   --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
   -d '{
-    "model": "us.anthropic.claude-sonnet-4-6",
+    "model": "openai.gpt-oss-120b",
     "messages": [{"role": "user", "content": "Hello"}]
   }'
 ```

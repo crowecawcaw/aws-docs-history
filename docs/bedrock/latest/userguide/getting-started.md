@@ -20,7 +20,7 @@ For production applications, use [IAM roles or temporary credentials](../../../I
 Messages API
 
 ```
-pip install boto3 anthropic
+pip install anthropic aws-bedrock-token-generator
 ```
 
 Responses/Chat Completions API
@@ -41,6 +41,7 @@ Messages API
 
 ```
 AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+ANTHROPIC_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/anthropic"
 ```
 
 Responses/Chat Completions API
@@ -65,9 +66,12 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
    Messages API
 
    ```
-   from anthropic import AnthropicBedrock
+   from anthropic import Anthropic
+   from aws_bedrock_token_generator import provide_token
 
-   client = AnthropicBedrock(aws_region="us-east-1")
+   token = provide_token(region="us-east-1")
+
+   client = Anthropic(api_key=token)
 
    response = client.messages.create(
        model="global.anthropic.claude-opus-5",

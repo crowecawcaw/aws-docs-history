@@ -26,6 +26,17 @@ see [models at a glance](model-cards.md "model-cards.md").
 - [Guarding a system prompt sent to the Converse API](#guardrails-use-converse-api-call-message-system-guard "#guardrails-use-converse-api-call-message-system-guard")
 - [Message and system prompt guardrail behavior](#guardrails-use-converse-api-call-message-system-message-guard "#guardrails-use-converse-api-call-message-system-message-guard")
 
+###### Note
+
+When you use tools (function calling), a guardrail specified in `guardrailConfig` does not evaluate every field in the request and response. The following table provides the details for evaluation by any guardrail filter, including content filters, prompt attack detection, denied topics, word filters, and sensitive information filters.
+
+| Content                                        | Field                                                     | Evaluated |
+| ---------------------------------------------- | --------------------------------------------------------- | --------- |
+| Tool results your application returns          | `messages[].content[].toolResult`                         | No        |
+| Tool definitions you send                      | `toolConfig.tools[].toolSpec.description`, `.inputSchema` | No        |
+| Tool call arguments the model generates        | `output.message.content[].toolUse.input`                  | No        |
+| Input prompts, system prompts, model responses | `text`, `guardContent`                                    | Yes       |
+
 ### Configure a guardrail to work with the Converse API
 
 You specify guardrail configuration information in the `guardrailConfig`

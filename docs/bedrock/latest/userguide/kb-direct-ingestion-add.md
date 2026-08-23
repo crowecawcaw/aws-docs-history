@@ -4,8 +4,8 @@ This topic describes how to ingest documents directly into a knowledge base. Res
 
 | Data source type | Document defined in-line | Document in Amazon S3 location |
 | ---------------- | ------------------------ | ------------------------------ |
-| Amazon S3        | No                       | Yes                            |
-| Custom           | Yes                      | Yes                            |
+| Amazon S3        | not-supported<br>No      | supported<br>Yes               |
+| Custom           | supported<br>Yes         | supported<br>Yes               |
 
 Expand the section that corresponds your use case:
 

@@ -1,4 +1,4 @@
-# Responses API on the bedrock-mantle endpoint
+# Responses API
 
 Amazon Bedrock provides the OpenAI Responses API on both the `bedrock-runtime` and
 `bedrock-mantle` endpoints. The API lets you use familiar OpenAI SDKs and tools
@@ -51,7 +51,7 @@ Key benefits include:
 On the `bedrock-runtime` endpoint, the Responses API is available in every
 AWS Region where that endpoint is available, including the AWS GovCloud (US) Regions.
 For the list, see [Regional availability by endpoints](endpoints-region-availability.md "endpoints-region-availability.md"). Which models support the
-API on each endpoint is listed in [Endpoint availability by models](models-endpoint-availability.md "models-endpoint-availability.md").
+API on each endpoint is listed in [Endpoint availability](models-endpoint-availability.md "models-endpoint-availability.md").
 
 The `bedrock-mantle` endpoint is available in the following AWS Regions:
 
@@ -150,7 +150,7 @@ Responses documentation](https://developers.openai.com/api/reference/resources/r
 
 ###### Note
 
-Not all models support the Responses API. To see which models support the Responses API, see [API compatibility by models](models-api-compatibility.md "models-api-compatibility.md").
+Not all models support the Responses API. To see which models support the Responses API, see [API compatibility](models-api-compatibility.md "models-api-compatibility.md").
 
 ### How the Responses API stores conversation state
 

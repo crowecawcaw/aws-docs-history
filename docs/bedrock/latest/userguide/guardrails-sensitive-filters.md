@@ -1,14 +1,21 @@
 # Remove PII from conversations by using sensitive information filters
 
 Amazon Bedrock Guardrails helps detect sensitive information, such as personally identifiable information
-(PII), in input prompts or model responses using sensitive information filters. This filter supports only text output and will not detect PII information when models respond with tool\_use (function call) output parameters through supported APIs. This filter is a probabilistic machine learning (ML) based solution that is context-dependent
+(PII), in input prompts or model responses using sensitive information filters. This filter is a probabilistic machine learning (ML) based solution that is context-dependent
 and detects sensitive information based on the context within input prompts or model responses. You can configure by selecting from a set of built-in PIIs offered by Amazon Bedrock Guardrails specific to your use case
 or organization by defining it along with regular expressions (custom regex) that work based on pattern matching to block or mask PII data.
 
-Sensitive information detection works across both natural language and code domains,
-including code syntax, comments, string literals, and hybrid content. This helps
-identify PII embedded in code elements such as variable names, hardcoded credentials, or
-code documentation.
+###### Note
+
+This filter evaluates text content only. In tool use (function calling) workloads, it does not evaluate the following, so PII in these fields is neither blocked nor masked:
+
+- PII the model generates into tool call arguments (`toolUse.input` in Converse, `tool_use` parameters in InvokeModel). For example, if the model passes a customer's email address to a tool that writes a file, that address is not masked.
+- PII in tool results your application returns to the model (`toolResult`).
+- PII in the tool definitions you supply (`toolSpec.description`, `toolSpec.inputSchema`).
+  Sensitive information detection works across both natural language and code domains,
+  including code syntax, comments, string literals, and hybrid content. This helps
+  identify PII embedded in code elements such as variable names, hardcoded credentials, or
+  code documentation.
 
 You can configure the following modes for handling sensitive information that
 guardrails detects:

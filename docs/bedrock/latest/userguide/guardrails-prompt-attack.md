@@ -84,6 +84,8 @@ inputs in the input prompt while using `InvokeModel` and
 inference. If there are no tags, prompt attacks for those use cases will not
 be filtered.
 
+The prompt attack filter does not evaluate tool results. Content in `messages[].content[].toolResult` is not assessed for prompt attacks, and neither are the tool definitions in `toolConfig.tools[].toolSpec`.
+
 ## Configure prompt attack filters for your guardrail
 
 You can configure prompt attack filters for your guardrail by using the

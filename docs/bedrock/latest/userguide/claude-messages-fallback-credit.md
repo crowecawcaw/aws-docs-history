@@ -2,7 +2,7 @@
 
 When Claude Fable 5 refuses a request, customers who retry the same conversation on a different model (such as Claude Opus 4.8) normally re-pay cache-write rates for the conversation prefix that was already cached on Fable 5. Fallback credit eliminates this double-charge by issuing a one-time credit token on refusal that can be redeemed on the retry.
 
-This feature requires the beta flag `fallback-credit-2026-06-09` in the `anthropic_beta` array on both the original request and the retry.
+This feature requires the beta flag `fallback-credit-2026-06-01` in the `anthropic_beta` array on both the original request and the retry.
 
 ## Supported models
 
@@ -49,7 +49,7 @@ Pass the token as a top-level parameter on the retry to the fallback model:
 ```
 {
   "anthropic_version": "bedrock-2023-05-31",
-  "anthropic_beta": ["fallback-credit-2026-06-09"],
+  "anthropic_beta": ["fallback-credit-2026-06-01"],
   "model": "anthropic.claude-opus-4-8",
   "max_tokens": 4096,
   "system": "...",
@@ -87,7 +87,7 @@ When a fallback credit token is successfully redeemed, the retry request receive
 
 ## Example workflow
 
-1. Send a request to Claude Fable 5 with `anthropic_beta: ["fallback-credit-2026-06-09"]`.
+1. Send a request to Claude Fable 5 with `anthropic_beta: ["fallback-credit-2026-06-01"]`.
 2. Receive a refusal with a `fallback_credit_token` in `stop_details`.
 3. Immediately retry to Claude Opus 4.8 with the same `system`, `messages`, and `tools`, plus the `fallback_credit_token`.
 4. The retry is billed at reduced rates for the overlapping cached prefix.

@@ -15,25 +15,48 @@ Claude 3.5 Haiku is Anthropic's next-generation fast model with improved coding 
 - **Knowledge cutoff:** Jul 2024
 - **Marketplace product ID:** `prod-5oba7y7jpji56`
 
-| **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](bedrock/latest/userguide/apis.md "bedrock/latest/userguide/apis.md")**  | **[Endpoints supported](bedrock/latest/userguide/endpoints.md "bedrock/latest/userguide/endpoints.md")** |
-| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding | Red circle with white X icon indicating error, cancel, or close action. `Responses`        | Green circle with white checkmark icon. `bedrock-runtime`                                                |
-| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image     | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Red circle with white X icon indicating error, cancel, or close action. `bedrock-mantle`                 |
-| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    | Green circle with white checkmark icon. `Invoke`                                           |                                                                                                          |
-| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Green circle with white checkmark icon. `Converse`                                         |                                                                                                          |
-| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |                                                                                            |                                                                                                          |
-
-###### Tip
-
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") for details.
+| **Input Modalities**                                                           | **Output Modalities**                                                             |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding |
+| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image     |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    |
+| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |
 
 **Prompt caching using `bedrock-runtime` endpoint**
 
-For more information, see [Prompt caching for faster model inference](bedrock/latest/userguide/prompt-caching.md "bedrock/latest/userguide/prompt-caching.md").
+For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
 | **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
 | ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
 | Yes                          | 2,048                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
+
+## Endpoints and APIs supported
+
+The following tables show which endpoints and APIs are supported for Claude 3.5 Haiku. For more information, see [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md").
+
+**Endpoint support**
+
+| **Endpoint**      | **Supported** |
+| ----------------- | ------------- |
+| `bedrock-runtime` | supported     |
+| `bedrock-mantle`  | not-supported |
+
+**APIs supported on `bedrock-runtime` endpoint**
+
+| **Messages**  | **Responses** | **Chat Completions** | **Converse** | **Invoke** |
+| ------------- | ------------- | -------------------- | ------------ | ---------- |
+| not-supported | not-supported | not-supported        | supported    | supported  |
+
+**APIs supported on `bedrock-mantle` endpoint**
+
+| **Messages**  | **Responses** | **Chat Completions** | **Converse**  | **Invoke**    |
+| ------------- | ------------- | -------------------- | ------------- | ------------- |
+| not-supported | not-supported | not-supported        | not-supported | not-supported |
+
+###### Tip
+
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") for details.
 
 ## Pricing
 
@@ -41,7 +64,7 @@ For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 ## Programmatic Access
 
-Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](bedrock/latest/userguide/apis.md "bedrock/latest/userguide/apis.md") and [Endpoints supported](bedrock/latest/userguide/endpoints.md "bedrock/latest/userguide/endpoints.md").
+Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
 | **Endpoint**      | **Model ID**                               | **In-Region endpoint URL**                       | **Geo inference ID**                          | **Global inference ID** |
 | ----------------- | ------------------------------------------ | ------------------------------------------------ | --------------------------------------------- | ----------------------- |
@@ -51,7 +74,7 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 ## Service Tiers
 
-Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
 | **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
 | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -83,7 +106,7 @@ Geo Inference ID: `us.anthropic.claude-3-5-haiku-20241022-v1:0`
 
 ## Quotas and Limits
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](bedrock/latest/userguide/quotas-increase.md "bedrock/latest/userguide/quotas-increase.md"). For more information, see [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](general/latest/gr/bedrock.md#limits_bedrock "general/latest/gr/bedrock.md#limits_bedrock") for the model.
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more information, see [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
 ## Sample Code
 

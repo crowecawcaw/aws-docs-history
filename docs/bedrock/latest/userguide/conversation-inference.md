@@ -10,8 +10,8 @@ assistant.
 
 To use the Converse API, you use the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") (for streaming
 responses) operations to send messages to a model. It is possible to use the existing base
-inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")) for conversation applications. However, we
-recommend using the Converse API as it provides consistent API, that works
+inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")) for conversation applications. However, the
+Converse API provides a consistent API that works
 with all Amazon Bedrock models that support messages. This means you can write code once and use
 it with different models. Should a model have unique inference parameters, the
 Converse API also allows you to pass those unique parameters in a model

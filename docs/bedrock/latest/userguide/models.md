@@ -8,8 +8,8 @@ For new applications, we recommend the `bedrock-runtime` endpoint. See [Endpoint
 
 **In this chapter**
 
-- [API compatibility by models](models-api-compatibility.md "models-api-compatibility.md") – Which APIs (InvokeModel, Converse, Chat Completions, Responses, Messages) each model supports.
-- [Endpoint availability by models](models-endpoint-availability.md "models-endpoint-availability.md") – Which endpoints (`bedrock-runtime`, `bedrock-mantle`) each model is hosted on.
+- [API compatibility](models-api-compatibility.md "models-api-compatibility.md") – Which APIs (InvokeModel, Converse, Chat Completions, Responses, Messages) each model supports.
+- [Endpoint availability](models-endpoint-availability.md "models-endpoint-availability.md") – Which endpoints (`bedrock-runtime`, `bedrock-mantle`) each model is hosted on.
 - [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") – AWS Regions and cross-Region inference profiles each model is available in.
 - [Regional availability by endpoints](endpoints-region-availability.md "endpoints-region-availability.md") – AWS Regions where each Amazon Bedrock endpoint (`bedrock-runtime`, `bedrock-mantle`) is available.
 - [Get list of models](models-get-info.md "models-get-info.md") – Programmatically list and discover available models on each endpoint.

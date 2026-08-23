@@ -86,7 +86,7 @@ To create an evaluation job that uses an LLM as a judge with custom metrics, you
 You can use the following model types in Amazon Bedrock as the generator model in an evaluation job. You can also bring your own inference response data from non-Amazon Bedrock models.
 
 - Foundation models – [Using models with Bedrock](foundation-models-reference.md "foundation-models-reference.md")
-- Models invoked through the OpenAI Responses API on the `bedrock-mantle` endpoint – [Responses API on the bedrock-mantle endpoint](bedrock-mantle.md "bedrock-mantle.md")
+- Models invoked through the OpenAI Responses API on the `bedrock-mantle` endpoint – [Responses API](bedrock-mantle.md "bedrock-mantle.md")
 - Amazon Bedrock Marketplace models – [Amazon Bedrock Marketplace](amazon-bedrock-marketplace.md "amazon-bedrock-marketplace.md")
 - Customized foundation models – [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md")
 - Imported foundation models – [Use Custom model import to import a customized open-source model into Amazon Bedrock](model-customization-import-model.md "model-customization-import-model.md")

@@ -17,13 +17,36 @@ Claude Fable 5 is Anthropic's next-generation model for complex knowledge work a
 - **Knowledge cutoff:** January 2026
 - **Marketplace product ID:** prod-h6swdfybvty7y
 
-| **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](bedrock/latest/userguide/apis.md "bedrock/latest/userguide/apis.md")**  | **[Endpoints supported](bedrock/latest/userguide/endpoints.md "bedrock/latest/userguide/endpoints.md")** |
-| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding | Red circle with white X icon indicating error, cancel, or close action. `Responses`        | Green circle with white checkmark icon. `bedrock-runtime`                                                |
-| Green circle with white checkmark icon. Image                                  | Red circle with white X icon indicating error, cancel, or close action. Image     | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Green circle with white checkmark icon. `bedrock-mantle`                                                 |
-| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    | Green circle with white checkmark icon. `Invoke`                                           |                                                                                                          |
-| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Green circle with white checkmark icon. `Converse`                                         |                                                                                                          |
-| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     | Green circle with white checkmark icon. `Messages`                                         |                                                                                                          |
+| **Input Modalities**                                                           | **Output Modalities**                                                             |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding |
+| Green circle with white checkmark icon. Image                                  | Red circle with white X icon indicating error, cancel, or close action. Image     |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    |
+| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |
+
+## Endpoints and APIs supported
+
+The following tables show which endpoints and APIs are supported for Claude Fable 5. For more information, see [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md").
+
+**Endpoint support**
+
+| **Endpoint**      | **Supported** |
+| ----------------- | ------------- |
+| `bedrock-runtime` | supported     |
+| `bedrock-mantle`  | supported     |
+
+**APIs supported on `bedrock-runtime` endpoint**
+
+| **Messages** | **Responses** | **Chat Completions** | **Converse** | **Invoke** |
+| ------------ | ------------- | -------------------- | ------------ | ---------- |
+| supported    | not-supported | not-supported        | supported    | supported  |
+
+**APIs supported on `bedrock-mantle` endpoint**
+
+| **Messages** | **Responses** | **Chat Completions** | **Converse**  | **Invoke**    |
+| ------------ | ------------- | -------------------- | ------------- | ------------- |
+| supported    | not-supported | not-supported        | not-supported | not-supported |
 
 ###### Tip
 
@@ -35,21 +58,21 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | **Not Supported**                                                                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| • [Response streaming](bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md "bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Abuse detection](bedrock/latest/userguide/abuse-detection.md "bedrock/latest/userguide/abuse-detection.md")<br>• [Guardrails](bedrock/latest/userguide/guardrails.md "bedrock/latest/userguide/guardrails.md")<br>• [Prompt optimization](bedrock/latest/userguide/prompt-management-optimize.md "bedrock/latest/userguide/prompt-management-optimize.md")<br>• [Knowledge base](bedrock/latest/userguide/knowledge-base.md "bedrock/latest/userguide/knowledge-base.md")<br>• [Model evaluation](bedrock/latest/userguide/evaluation.md "bedrock/latest/userguide/evaluation.md")<br>• [Prompt management](bedrock/latest/userguide/prompt-management.md "bedrock/latest/userguide/prompt-management.md")<br>• [Flows](bedrock/latest/userguide/flows.md "bedrock/latest/userguide/flows.md")<br>• [Agents](bedrock/latest/userguide/agents.md "bedrock/latest/userguide/agents.md")<br>• [Count tokens](bedrock/latest/userguide/count-tokens.md "bedrock/latest/userguide/count-tokens.md") | • [Intelligent prompt routing](bedrock/latest/userguide/prompt-routing.md "bedrock/latest/userguide/prompt-routing.md") |
+| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Not Supported**                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Guardrails](guardrails.md "guardrails.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md")<br>• [Count tokens](count-tokens.md "count-tokens.md") | • [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
 
 **Bedrock Features**
 
 **Features supported using `bedrock-mantle` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                                                                                                                                          | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • [Response streaming](bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md "bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Abuse detection](bedrock/latest/userguide/abuse-detection.md "bedrock/latest/userguide/abuse-detection.md")<br>• [Count tokens](bedrock/latest/userguide/count-tokens.md "bedrock/latest/userguide/count-tokens.md") | • [Guardrails](bedrock/latest/userguide/guardrails.md "bedrock/latest/userguide/guardrails.md")<br>• [Prompt optimization](bedrock/latest/userguide/prompt-management-optimize.md "bedrock/latest/userguide/prompt-management-optimize.md")<br>• [Knowledge base](bedrock/latest/userguide/knowledge-base.md "bedrock/latest/userguide/knowledge-base.md")<br>• [Model evaluation](bedrock/latest/userguide/evaluation.md "bedrock/latest/userguide/evaluation.md")<br>• [Prompt management](bedrock/latest/userguide/prompt-management.md "bedrock/latest/userguide/prompt-management.md")<br>• [Flows](bedrock/latest/userguide/flows.md "bedrock/latest/userguide/flows.md")<br>• [Agents](bedrock/latest/userguide/agents.md "bedrock/latest/userguide/agents.md")<br>• [Intelligent prompt routing](bedrock/latest/userguide/prompt-routing.md "bedrock/latest/userguide/prompt-routing.md") |
+| **Supported**                                                                                                                                                                                                                                                              | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Count tokens](count-tokens.md "count-tokens.md") | • [Guardrails](guardrails.md "guardrails.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md")<br>• [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
 
 **Prompt caching**
 
-For more information, see [Prompt caching for faster model inference](bedrock/latest/userguide/prompt-caching.md "bedrock/latest/userguide/prompt-caching.md").
+For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
 | **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoint** |
 | ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ---------------------------------------------- |
@@ -67,7 +90,7 @@ For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 ## Programmatic Access
 
-Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](bedrock/latest/userguide/apis.md "bedrock/latest/userguide/apis.md") and [Endpoints supported](bedrock/latest/userguide/endpoints.md "bedrock/latest/userguide/endpoints.md").
+Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
 | **Endpoint**      | **Model ID**               | **In-Region endpoint URL**                                      | **Geo inference ID**          | **Global inference ID**           |
 | ----------------- | -------------------------- | --------------------------------------------------------------- | ----------------------------- | --------------------------------- |
@@ -78,7 +101,7 @@ _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime end
 
 ## Service Tiers
 
-Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](bedrock/latest/userguide/service-tiers-inference.md "bedrock/latest/userguide/service-tiers-inference.md").
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
 | **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                                                            |
 | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -128,11 +151,11 @@ Amazon Bedrock offers three inference options: **In-Region** keeps requests with
 
 ## Data Retention
 
-To use this model, you must opt in to provider data sharing by setting your data retention mode to `provider_data_share` via the Data Retention API. There is no console UI for this setting at launch. For more information, see [Amazon Bedrock abuse detection](bedrock/latest/userguide/abuse-detection.md "bedrock/latest/userguide/abuse-detection.md").
+To use this model, you must opt in to provider data sharing by setting your data retention mode to `provider_data_share` via the Data Retention API. There is no console UI for this setting at launch. For more information, see [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md").
 
 ## Quotas and Limits
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](bedrock/latest/userguide/quotas-increase.md "bedrock/latest/userguide/quotas-increase.md"). For more information, see [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](general/latest/gr/bedrock.md#limits_bedrock "general/latest/gr/bedrock.md#limits_bedrock") for the model.
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more information, see [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
 ## Sample Code
 
@@ -174,7 +197,7 @@ print(json.loads(response['body'].read()))
 ###### Messages
 
 ```
-pip install -U "anthropic[bedrock]"
+pip install -U anthropic aws-bedrock-token-generator
 ```
 
 **Step 4 - Set environment variables:** Configure your environment to use the API key for authentication.
@@ -186,15 +209,21 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
 
 ```
-from anthropic import AnthropicBedrockMantle
+from anthropic import Anthropic
+from aws_bedrock_token_generator import provide_token
 
-client = AnthropicBedrockMantle(aws_region="us-east-1")
+token = provide_token(region="us-east-1")
 
-message = client.messages.create(
-    model="anthropic.claude-fable-5",
+client = Anthropic(
+    base_url="https://bedrock-runtime.us-east-1.amazonaws.com/anthropic",
+    api_key=token,
+)
+
+response = client.messages.create(
+    model="global.anthropic.claude-fable-5",
     max_tokens=1024,
     messages=[{"role": "user", "content": "Hello, Claude"}],
 )
 
-print(message.content[0].text)
+print(response)
 ```

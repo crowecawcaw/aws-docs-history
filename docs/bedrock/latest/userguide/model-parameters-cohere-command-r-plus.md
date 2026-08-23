@@ -209,7 +209,7 @@ in the Cohere documentation.
 
 ###### Tip
 
-We recommend that you use the Converse API for integrating tool use into
+We recommend that you use the Responses API or Messages API for integrating tool use into
 your application. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
 
 The following is example JSON for the `tools` field.
@@ -369,7 +369,7 @@ in the Cohere documentation.
 
 ###### Tip
 
-We recommend that you use the Converse API for integrating tool use into
+We recommend that you use the Responses API or Messages API for integrating tool use into
 your application. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
 
 The following is example JSON for the `tool_calls`

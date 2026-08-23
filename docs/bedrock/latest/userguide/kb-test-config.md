@@ -265,7 +265,7 @@ is `"entertainment"` by adding the following filter:
 - To edit a filter, select it, modify the filtering operation,
   and choose **Apply**.
 
-![Edit a filter.](/images/bedrock/latest/userguide/images/kb/filter-edit.png)
+![Edit a filter.](images/kb/filter-edit.png)
 
 - To remove a filter group, choose the trash can icon
   (

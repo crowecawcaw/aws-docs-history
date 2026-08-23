@@ -2,9 +2,13 @@
 
 Amazon Bedrock supports various endpoints for performing [inference](inference.md "inference.md") operations.
 
+###### Note
+
+Both endpoints run on the same underlying Mantle inference engine, so all Amazon Bedrock models benefit from Mantle's [zero operator access (ZOA)](https://aws.amazon.com/blogs/machine-learning/exploring-the-zero-operator-access-design-of-mantle/ "https://aws.amazon.com/blogs/machine-learning/exploring-the-zero-operator-access-design-of-mantle/") design. The `bedrock-mantle` endpoint name refers only to one of the two endpoint surfaces — not to whether the Mantle engine is used.
+
 **Inference operations**
 
-For new applications, we recommend the `bedrock-runtime` endpoint. It supports the Bedrock-native [InvokeModel](inference-api.md "inference-api.md") and [Converse](conversation-inference.md "conversation-inference.md") APIs, the OpenAI-compatible [Responses](bedrock-mantle.md#bedrock-mantle-responses "bedrock-mantle.md#bedrock-mantle-responses") and [Chat Completions](inference-chat-completions.md "inference-chat-completions.md") APIs, and the Anthropic [Messages](inference-messages-api.md "inference-messages-api.md") API, and it is where Amazon Bedrock features such as [Guardrails](guardrails.md "guardrails.md"), [intelligent prompt routing](prompt-routing.md "prompt-routing.md"), and [cross-Region inference](cross-region-inference.md "cross-region-inference.md") are available. Amazon Bedrock also supports a second endpoint, `bedrock-mantle`, which currently offers additional capabilities such as server-side and pre-configured tool use (including [web search](web-search.md "web-search.md")), asynchronous inference with `background=true`, and creating [Projects](projects.md "projects.md") and [Workspaces](workspaces.md "workspaces.md"). To see which endpoint each model supports, see [Endpoint availability by models](models-endpoint-availability.md "models-endpoint-availability.md").
+For new applications, we recommend the `bedrock-runtime` endpoint. It supports the Bedrock-native [InvokeModel](inference-api.md "inference-api.md") and [Converse](conversation-inference.md "conversation-inference.md") APIs, the OpenAI-compatible [Responses](bedrock-mantle.md#bedrock-mantle-responses "bedrock-mantle.md#bedrock-mantle-responses") and [Chat Completions](inference-chat-completions.md "inference-chat-completions.md") APIs, and the Anthropic [Messages](inference-messages-api.md "inference-messages-api.md") API, and it is where Amazon Bedrock features such as [Guardrails](guardrails.md "guardrails.md"), [intelligent prompt routing](prompt-routing.md "prompt-routing.md"), and [cross-Region inference](cross-region-inference.md "cross-region-inference.md") are available. Amazon Bedrock also supports a second endpoint, `bedrock-mantle`, which currently offers additional capabilities such as server-side and pre-configured tool use (including [web search](web-search.md "web-search.md")), asynchronous inference with `background=true`, and creating [Projects](projects.md "projects.md") and [Workspaces](workspaces.md "workspaces.md"). To see which endpoint each model supports, see [Endpoint availability](models-endpoint-availability.md "models-endpoint-availability.md").
 
 | **Endpoint**                                           | **Supported APIs**                                                                                                                                                                                                                                                                                                                                                                                  | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,11 +21,11 @@ The following tables compare what's available on each endpoint.
 
 API support| API | `bedrock-runtime` | `bedrock-mantle` |
 | --- | --- | --- |
-| [InvokeModel](inference-api.md "inference-api.md") | | |
-| [Converse / ConverseStream](conversation-inference.md "conversation-inference.md") | | |
-| [Chat Completions (OpenAI-compatible)](inference-chat-completions-mantle.md "inference-chat-completions-mantle.md") | | |
-| [Responses API (OpenAI-compatible)](bedrock-mantle.md#bedrock-mantle-responses "bedrock-mantle.md#bedrock-mantle-responses") | | |
-| [Messages API (Anthropic-native)](inference-messages-api.md "inference-messages-api.md") | | |
+| [InvokeModel](inference-api.md "inference-api.md") | supported | not-supported |
+| [Converse / ConverseStream](conversation-inference.md "conversation-inference.md") | supported | not-supported |
+| [Chat Completions (OpenAI-compatible)](inference-chat-completions-mantle.md "inference-chat-completions-mantle.md") | supported | supported |
+| [Responses API (OpenAI-compatible)](bedrock-mantle.md#bedrock-mantle-responses "bedrock-mantle.md#bedrock-mantle-responses") | supported | supported |
+| [Messages API (Anthropic-native)](inference-messages-api.md "inference-messages-api.md") | supported | supported |
 
 ###### Note
 
@@ -38,19 +42,19 @@ The Responses API is also available on both endpoints without identical feature 
 
 Inference capabilities| Capability | `bedrock-runtime` | `bedrock-mantle` |
 | --- | --- | --- |
-| [Cross-region inference (geographic and global profiles)](cross-region-inference.md "cross-region-inference.md") | | |
-| [Stateful conversation management](bedrock-mantle.md#bedrock-mantle-responses-state "bedrock-mantle.md#bedrock-mantle-responses-state") | | |
-| [Asynchronous (long-running) inference](bedrock-mantle.md "bedrock-mantle.md") | | |
-| [Client-side tool use](tool-use-client-side.md "tool-use-client-side.md") | | |
-| [Server-side tool use](tool-use-server-side.md "tool-use-server-side.md") | | |
-| [Pre-configured ready-to-use tools](tool-use.md "tool-use.md") | | |
-| [Projects](projects.md "projects.md") | Default project only | |
-| [Workspaces](workspaces.md "workspaces.md") | | |
+| [Cross-region inference (geographic and global profiles)](cross-region-inference.md "cross-region-inference.md") | supported | not-supported |
+| [Stateful conversation management](bedrock-mantle.md#bedrock-mantle-responses-state "bedrock-mantle.md#bedrock-mantle-responses-state") | supported | supported |
+| [Asynchronous (long-running) inference](bedrock-mantle.md "bedrock-mantle.md") | not-supported | supported |
+| [Client-side tool use](tool-use-client-side.md "tool-use-client-side.md") | supported | supported |
+| [Server-side tool use](tool-use-server-side.md "tool-use-server-side.md") | not-supported | supported |
+| [Pre-configured ready-to-use tools](tool-use.md "tool-use.md") | not-supported | supported |
+| [Projects](projects.md "projects.md") | Default project only | supported |
+| [Workspaces](workspaces.md "workspaces.md") | not-supported | supported |
 
 Operational| Item | `bedrock-runtime` | `bedrock-mantle` |
 | --- | --- | --- |
-| AWS [SigV4](AmazonS3/latest/API/sig-v4-authenticating-requests.md "AmazonS3/latest/API/sig-v4-authenticating-requests.md") authentication | | |
-| [Bedrock API key (also works with OpenAI SDK)](api-keys.md "api-keys.md") | | |
+| AWS [SigV4](AmazonS3/latest/API/sig-v4-authenticating-requests.md "AmazonS3/latest/API/sig-v4-authenticating-requests.md") authentication | supported | supported |
+| [Bedrock API key (also works with OpenAI SDK)](api-keys.md "api-keys.md") | supported | supported |
 | [Usage attribution](cost-management.md "cost-management.md") | [IAM principal](cost-mgmt-iam-principal-tracking.md "cost-mgmt-iam-principal-tracking.md"), [per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md"), [application inference profiles](cost-mgmt-application-inference-profiles.md "cost-mgmt-application-inference-profiles.md") | [Projects](projects.md "projects.md"), [Workspaces](workspaces.md "workspaces.md") |
 
 ###### Note
@@ -59,9 +63,9 @@ On `bedrock-runtime`, the Responses API attributes usage by [IAM principal](cost
 
 Bedrock feature availability| Feature | `bedrock-runtime` | `bedrock-mantle` |
 | --- | --- | --- |
-| [Guardrails](guardrails.md "guardrails.md") | | |
-| [Prompt caching](prompt-caching.md "prompt-caching.md") | | |
-| [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") | | |
+| [Guardrails](guardrails.md "guardrails.md") | supported | not-supported |
+| [Prompt caching](prompt-caching.md "prompt-caching.md") | supported | supported |
+| [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") | supported | not-supported |
 
 ###### Note
 
@@ -90,7 +94,7 @@ Start with `bedrock-runtime` when you want to:
 - Build agentic workflows with server-side tool use or pre-configured tools, including [web search](web-search.md "web-search.md").
 - Run asynchronous or long-running inference workloads, including Responses requests with `background=true`.
 - Create [Projects (OpenAI-compatible)](projects.md "projects.md") or [Workspaces (Anthropic-compatible)](workspaces.md "workspaces.md") to isolate workloads and track cost and usage at the application level.
-- Use a model that is available only on `bedrock-mantle`. See [Endpoint availability by models](models-endpoint-availability.md "models-endpoint-availability.md").
+- Use a model that is available only on `bedrock-mantle`. See [Endpoint availability](models-endpoint-availability.md "models-endpoint-availability.md").
   Both endpoints can be used together from the same application — choose per use case.
 
 ###### Reduce data egress costs with VPC interface endpoints

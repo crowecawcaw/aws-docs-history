@@ -104,8 +104,8 @@ For a detailed breakdown of each permission, see [Prerequisites for running mode
 
 - [Inference using Invoke API](inference-api.md "inference-api.md")
 - [Inference using Converse API](conversation-inference.md "conversation-inference.md")
-- [Responses API on the bedrock-mantle endpoint](bedrock-mantle.md "bedrock-mantle.md")
-- [Chat Completions API on the bedrock-mantle endpoint](inference-chat-completions-mantle.md "inference-chat-completions-mantle.md")
+- [Responses API](bedrock-mantle.md "bedrock-mantle.md")
+- [Chat Completions API](inference-chat-completions-mantle.md "inference-chat-completions-mantle.md")
 - [Inference using Anthropic Messages API](inference-messages-api.md "inference-messages-api.md")
 - [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md")
 - [Get validated JSON results from models](structured-output.md "structured-output.md")

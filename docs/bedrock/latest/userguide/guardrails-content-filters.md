@@ -31,6 +31,10 @@ Standard tier. Content filters are supported across the following categories:
   information about engaging in criminal activity, or harming, defrauding, or
   taking advantage of a person, group or institution.
 
+###### Note
+
+Content filters evaluate text in user messages, system prompts, and model text responses. In tool use (function calling) workloads, they do not evaluate tool results (`toolResult`), tool definitions (`toolSpec`), or model-generated tool call arguments (`toolUse.input`).
+
 ## Configure content filters for your guardrail
 
 You can configure content filters for your guardrail by using the AWS Management Console or

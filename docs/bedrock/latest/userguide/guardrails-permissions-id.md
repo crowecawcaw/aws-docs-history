@@ -332,15 +332,16 @@ using the `bedrock:GuardrailIdentifier` condition key:
 - A
   user should not use the same role with additional
   permissions to invoke Bedrock APIs like
-  `RetrieveAndGenerate` and `InvokeAgent`
+  `RetrieveAndGenerate`, `InvokeAgent`,
+  and `InvokeInlineAgent`
   that make `InvokeModel` calls on behalf of the user. This
   can lead to access denied errors even when the guardrail is
-  specified in the request because `RetrieveAndGenerate`
-  and `InvokeAgent` make multiple `InvokeModel`
+  specified in the request because these APIs make multiple `InvokeModel`
   calls, and some of these calls don't include a guardrail.
 - A user can bypass applying a guardrail in their prompt by using
   [guardrail input tags](guardrails-tagging.md "guardrails-tagging.md").
   However, the guardrail is always applied on the response.
-- Since Amazon Bedrock Guardrails don't currently support resource-based policies for
-  cross-account access, your guardrail must be in the same
-  AWS account as the IAM role making the request.
+- Since Amazon Bedrock Guardrails support cross-account sharing only within an
+  organization, your guardrail and the requesting IAM role must
+  belong to accounts in the same AWS organization. See [Using resource based policies for guardrails](guardrails-resource-based-policies.md "guardrails-resource-based-policies.md") to learn
+  more.

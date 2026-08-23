@@ -116,5 +116,6 @@ To learn more about a specific connector and its configuration, select a topic b
 - [Custom](kb-managed-ds-custom.md "kb-managed-ds-custom.md")
 - [Google Drive](kb-managed-ds-googledrive.md "kb-managed-ds-googledrive.md")
 - [Microsoft OneDrive](kb-managed-ds-onedrive.md "kb-managed-ds-onedrive.md")
+- [ServiceNow](kb-managed-ds-servicenow.md "kb-managed-ds-servicenow.md")
 - [Microsoft SharePoint](kb-managed-ds-sharepoint.md "kb-managed-ds-sharepoint.md")
 - [Web Crawler](kb-managed-ds-webcrawler.md "kb-managed-ds-webcrawler.md")

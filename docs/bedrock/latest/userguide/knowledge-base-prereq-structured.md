@@ -51,9 +51,9 @@ engines:
 
 | Authentication method | Amazon Redshift Provisioned | Amazon Redshift Serverless |
 | --------------------- | --------------------------- | -------------------------- |
-| IAM                   | Yes                         | Yes                        |
-| Database username     | Yes                         | No                         |
-| AWS Secrets Manager   | Yes                         | Yes                        |
+| IAM                   | supported<br>Yes            | supported<br>Yes           |
+| Database username     | supported<br>Yes            | not-supported<br>No        |
+| AWS Secrets Manager   | supported<br>Yes            | supported<br>Yes           |
 
 Amazon Bedrock Knowledge Bases uses a [service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") to
 connect knowledge bases to structured data stores, retrieve data from these data stores,
@@ -272,11 +272,11 @@ stores](knowledge-base-structured-create.md "knowledge-base-structured-create.md
 The following table summarizes the authentication methods available for the query
 engine, depending on your data store:
 
-| Authentication method | Amazon Redshift | AWS Glue Data Catalog (AWS Lake Formation) |
-| --------------------- | --------------- | ------------------------------------------ |
-| IAM                   | Yes             | Yes                                        |
-| Database username     | Yes             | No                                         |
-| AWS Secrets Manager   | Yes             | No                                         |
+| Authentication method | Amazon Redshift  | AWS Glue Data Catalog (AWS Lake Formation) |
+| --------------------- | ---------------- | ------------------------------------------ |
+| IAM                   | supported<br>Yes | supported<br>Yes                           |
+| Database username     | supported<br>Yes | not-supported<br>No                        |
+| AWS Secrets Manager   | supported<br>Yes | not-supported<br>No                        |
 
 To learn how to set up permissions for your Amazon Bedrock Knowledge Bases service role to access your data
 store and generate queries based on it, expand the section that corresponds to the

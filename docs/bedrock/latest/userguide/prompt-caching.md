@@ -26,8 +26,8 @@ in subsequent requests will result in cache misses.
 
 Cache checkpoints have a minimum and maximum number of tokens, dependent on the specific
 model you're using. You can only create a cache checkpoint if your total prompt prefix meets
-the minimum number of tokens. For example, Claude 3.7 Sonnet requires at
-least 1,024 tokens per cache checkpoint, while Claude Opus 4.5, Claude Opus 4.6, Claude Haiku 4.5, and Claude Sonnet 4.5 require at least 4,096 tokens per cache checkpoint. That means that for a model with a 1,024-token minimum, your first cache checkpoint can be
+the minimum number of tokens. For example, Claude 3.7 Sonnet and Claude Sonnet 4.5 require at
+least 1,024 tokens per cache checkpoint, while Claude Opus 4.5, Claude Opus 4.6, and Claude Haiku 4.5 require at least 4,096 tokens per cache checkpoint. That means that for a model with a 1,024-token minimum, your first cache checkpoint can be
 defined after 1,024 tokens and your second cache checkpoint can be defined after 2,048 tokens.
 If you try to add a cache checkpoint before meeting the minimum number of tokens, your inference
 will still succeed, but your prefix will not be cached. The cache has a Time To Live (TTL),
@@ -90,7 +90,7 @@ The following table shows prompt caching for models that are not present in mode
 | -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------- |
 | Claude Opus 4.5      | anthropic.claude-opus-4-5-20251101-v1:0   | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`                                                                 |
 | Claude Opus 4.6      | anthropic.claude-opus-4-6-v1              | Generally Available | 4,096                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
-| Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`                                                                 |
+| Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 1,024                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`                                                                 |
 | Claude Sonnet 4.6    | anthropic.claude-sonnet-4-6               | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
 | Claude Haiku 4.5     | anthropic.claude-haiku-4-5-20251001-v1:0  | Generally Available | 4,096                                         | 4                                               | 5 minutes, 1 hour | `system`, `messages`, and `tools`                                                                 |
 | Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | 5 minutes         | `system`, `messages`, and `tools`                                                                 |
@@ -144,9 +144,9 @@ shorter TTLs (i.e., a 1-hour cache entry must appear before any 5-minute cache e
 
 ## Cache Management for Models from OpenAI
 
-OpenAI models on Amazon Bedrock support prompt caching through the Responses API on the
-`bedrock-mantle` endpoint. The caching behavior differs depending on the
-model generation.
+OpenAI models on Amazon Bedrock support prompt caching through the Responses API, which is
+available on both the `bedrock-runtime` and `bedrock-mantle`
+endpoints. The caching behavior differs depending on the model generation.
 
 ### GPT-5.6 models
 
@@ -489,10 +489,11 @@ format and content of the request and response bodies for different models, see
 For more information about sending an InvokeModel request, see
 [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md").
 
-For OpenAI models on the `bedrock-mantle` endpoint, you use the
-Responses API with prompt caching parameters specific to the model generation.
-For GPT-5.6 models, you control caching with explicit breakpoints. For GPT-5.5
-and earlier, caching is automatic.
+For OpenAI models, you use the Responses API — available on both the
+`bedrock-runtime` and `bedrock-mantle` endpoints —
+with prompt caching parameters specific to the model generation. For GPT-5.6
+models, you control caching with explicit breakpoints. For GPT-5.5 and earlier,
+caching is automatic.
 
 **GPT-5.6 example with explicit cache breakpoints**
 
