@@ -148,7 +148,7 @@ instance in frameworks.
 ![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png) 3. If a welcome page is displayed, for **New AWS Cloud9 environment**, choose **Create environment**.
 Otherwise, choose **Create environment**.
 
-![Choosing the Next step button if welcome page is displayed](/images/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
+![Choosing the Next step button if welcome page is displayed](images/create_welcome_env_new_UX.png)
 
 Or:
 
