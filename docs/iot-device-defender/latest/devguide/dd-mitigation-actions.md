@@ -156,7 +156,7 @@ and parameters specific to your account.
 ###### To use the AWS IoT console to create mitigation actions
 
 1. Open the [Mitigation actions page in the AWS IoT
-   console](https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub").
+   console](https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub").
 2. On the **Mitigation actions** page, choose
    **Create**.
 3. On the **Create a new mitigation action** page, in **Action name**, enter a unique name for your mitigation action.
@@ -180,7 +180,7 @@ and parameters specific to your account.
 ###### To use the AWS IoT console to view and modify mitigation actions
 
 1. Open the [Mitigation actions page in the AWS IoT
-   console](https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub").
+   console](https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub").
 
 The **Mitigation actions** page displays a list of all of the
 mitigation actions that are defined for your AWS account. 2. Choose the action name link for the mitigation action that you want to change. 3. Choose **Edit** and make your changes to the mitigation action. You cannot change the name because the name of the mitigation action is used to identify it. 4. Choose **Update** to save the changes to the mitigation action to your AWS account.
@@ -197,7 +197,7 @@ mitigation actions that are defined for your AWS account. 2. Choose the action n
 ###### To use the AWS IoT console to delete a mitigation action
 
 1. Open the [Mitigation actions page in the AWS IoT
-   console](https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub").
+   console](https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub").
 
 The **Mitigation actions** page displays all of the mitigation
 actions that are defined for your AWS account. 2. Choose the the mitigation action that you want to delete, and then choose **Delete**. 3. In the **Are you sure you want to delete** window, choose **Delete**.
@@ -209,7 +209,7 @@ actions that are defined for your AWS account. 2. Choose the the mitigation acti
 ###### To use the AWS IoT console to view mitigation action details
 
 1. Open the [Mitigation actions page in the AWS IoT
-   console](https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com//iot/home#/dd/mitigationActionConfigsHub").
+   console](https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub "https://console.aws.amazon.com/iot/home#/dd/mitigationActionConfigsHub").
 
 The **Mitigation actions** page displays all of the mitigation
 actions that are defined for your AWS account. 2. Choose the action name link for the mitigation action that you want to view.
@@ -259,7 +259,7 @@ You can use the AWS IoT console or the AWS CLI to apply mitigation actions.
 ###### To use the AWS IoT console to apply mitigation actions by starting an action execution
 
 1. Open the [Audit results page in the AWS IoT
-   console](https://console.aws.amazon.com//iot/home#/dd/auditResultsHub "https://console.aws.amazon.com//iot/home#/dd/auditResultsHub").
+   console](https://console.aws.amazon.com/iot/home#/dd/auditResultsHub "https://console.aws.amazon.com/iot/home#/dd/auditResultsHub").
 2. Choose the name for the audit to which you want to apply actions.
 3. Choose **Start mitigation actions**. This button is not available
    if all of your checks are compliant.
@@ -288,7 +288,7 @@ mitigation actions. 6. When you have specified all of the actions that you want 
 ###### To use the AWS IoT console to view your action executions
 
 1. Open the [Action tasks page in the AWS IoT
-   console](https://console.aws.amazon.com//iot/home#/dd/auditTasksHub "https://console.aws.amazon.com//iot/home#/dd/auditTasksHub").
+   console](https://console.aws.amazon.com/iot/home#/dd/auditTasksHub "https://console.aws.amazon.com/iot/home#/dd/auditTasksHub").
 
 A list of action tasks shows when each was started and the current status. 2. Choose the **Name** link to see details for the task. The details
 include all of the actions that are applied by the task, their target, and their
