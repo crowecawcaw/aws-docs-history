@@ -17,4 +17,4 @@ From your workstation, perform the following steps for each newly installed AWS 
 3. Select **Choose File** and navigate to the directory where you placed the license
    files. Select the file name with the hostname portion matching the hostname of this node.
 
-![Settings page showing Standalone License section with no license uploaded and instructions for assistance.](/images/elemental-server/latest/installguide/images/install-installlic-shared-png.png) 4. Back on the Licenses screen, choose **Update**. The license file is installed. 5. Repeat steps 1 through 4 on each node.
+![Settings page showing Standalone License section with no license uploaded and instructions for assistance.](images/install-installlic-shared-png.png) 4. Back on the Licenses screen, choose **Update**. The license file is installed. 5. Repeat steps 1 through 4 on each node.
