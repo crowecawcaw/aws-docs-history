@@ -205,7 +205,7 @@ Settings specific to your Cinema 4D render:
 
 - **Override Output Path** - Override the main render output path from your scene settings.
 - **Override Multipass Path** - Override the multipass output path for additional render passes.
-- **Takes** - Select which Cinema 4D takes to render.
+- **Takes** – Select which Cinema 4D takes to render: **Main Take**, **All Takes**, **Marked Takes** (takes with the check mark set in the Marker column of the Take Manager), or **Current Take** (the take activated with the take assignment icon at the far left of the take's name in the Take Manager). For more information, see [Take system questions](#cinema-4d-troubleshooting-takes "#cinema-4d-troubleshooting-takes").
 - **Override Frame Range** - Override the frame range from your scene settings.
 - **Automatic Error Checking** - Optional checkbox to activate or deactivate error checking during rendering.
 - **Activate detailed logging** - Enable detailed logging to capture detailed logs for debugging rendering issues. When enabled, debug logs are automatically captured and printed to the job output for easy review.
@@ -320,6 +320,25 @@ A: It depends on your scene. A 3x3 or 4x4 grid is a good starting point. More ti
 **Q: Why don't fonts work while submitting with macOS?**
 
 A: Font functionality is currently only supported on Windows due to technical limitations. This limitation is a known behavior in mixed macOS/Windows environments, as confirmed by Maxon's official documentation. For more information, see [Maxon's official FAQ on resolving missing fonts in Team Render](https://support.maxon.net/hc/en-us/articles/1500006439721-How-to-resolve-missing-fonts-in-Team-Render-for-Cinema-4D-install-fonts-or-make-Text-editable "https://support.maxon.net/hc/en-us/articles/1500006439721-How-to-resolve-missing-fonts-in-Team-Render-for-Cinema-4D-install-fonts-or-make-Text-editable").
+
+### Take system questions
+
+The Cinema 4D Take system stores multiple states of a scene (different cameras, render settings, object variations) in a single file. The **Takes** setting in the Job-Specific Settings tab of the submitter controls which of these takes the job renders. For more information about the Take system, see the [Take Manager documentation](https://help.maxon.net/c4d/en-us/Content/html/54507.html "https://help.maxon.net/c4d/en-us/Content/html/54507.html") on the Maxon website.
+
+**Q: I submitted with "Current Take" selected, but the wrong take rendered (usually the Main take). Why?**
+
+A: The cause is usually a mix-up between two separate controls in the Cinema 4D Take Manager:
+
+- The **take assignment icon** at the far left of the take's name sets the **current take**. It turns white when active, the take is displayed in the viewport, and the take name appears in the Cinema 4D title bar next to the file name. The submitter's **Current Take** option renders this take.
+- The **check mark in the Marker column** only _marks_ a take. Marking a take does **not** make it the current take. The submitter only renders marked takes when you select the **Marked Takes** option.
+
+If you check mark a take but don't activate it with the take assignment icon, submitting with **Current Take** renders whichever take is actually current, which is typically the Main take. To fix this, either select the take assignment icon on the take you want before submitting with **Current Take**, or select **Marked Takes** in the submitter to render the takes you check-marked.
+
+Before you submit, verify the correct take is current by checking that its name appears in the Cinema 4D title bar and that the viewport shows the expected scene state.
+
+**Q: I rendered multiple takes but only got one set of output files. Why?**
+
+A: When you submit multiple takes (**All Takes** or **Marked Takes**) and the output path doesn't distinguish between takes, each take writes to the same file names and the outputs overwrite each other. Include the `$take` token in your output path (in your render settings, or in the submitter's **Override Output Path** field) so each take renders to its own location, for example `renders/$take/frame`. The submitter shows a warning at submission time if you select multiple takes without the `$take` token in the output paths.
 
 ### Common issues
 

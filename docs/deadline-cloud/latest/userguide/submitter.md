@@ -52,7 +52,7 @@ With the installer, you can install the following submitters:
 | [KeyShot Studio](keyshot.md "keyshot.md")                                | 2023<br>• 2025     | Included          | Not included    | Included                |
 | [Maxon Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md")               | 2024<br>• 2026     | Included          | Not included    | Included                |
 | [Maxon Redshift for Maya](autodesk-maya.md "autodesk-maya.md")           | 2025-2026          | Included          | Included        | Included                |
-| [SideFX Houdini](sidefx-houdini.md "sidefx-houdini.md")                  | 19.5<br>• 21.0     | Included          | Included        | Included                |
+| [SideFX Houdini](sidefx-houdini.md "sidefx-houdini.md")                  | 19.5<br>• 22.0     | Included          | Included        | Included                |
 
 The standard installer doesn't include the Unreal Engine
 submitter, which has a separate setup process. For installation
@@ -171,20 +171,29 @@ DeadlineCloudMonitor_x64-setup.exe /S /D={InstallDirectory}
 
 Linux (AppImage)
 
-###### To install Deadline Cloud monitor AppImage on Debian distros
+###### To install Deadline Cloud monitor AppImage on RPM or Debian distros
+
+###### Note
+
+Deadline Cloud monitor requires GLIBC 2.34 or later. On Ubuntu
+22 machines, install the Debian package instead of
+the AppImage. For instructions, see the **Linux
+(Debian)** tab.
 
 1. Download the Deadline Cloud monitor AppImage:
 
-[Download Deadline Cloud monitor (AppImage)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage") 2. ###### Note
-
-This step is for Ubuntu 22 and up. For other versions of
-Ubuntu, skip this step.
-
-To install libfuse2, enter:
+[Download Deadline Cloud monitor (AppImage)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.AppImage") 2. On RHEL-family systems such as Red Hat
+Linux, Rocky Linux, and Alma
+Linux, create a symbolic link to the CA bundle.
+RHEL-family systems keep the CA bundle at
+`/etc/ssl/certs/ca-bundle.crt`, but Deadline Cloud monitor
+expects `/etc/ssl/certs/ca-certificates.crt` and
+blocks profile creation with the error `Couldn't load TLS
+ file database` until that file exists. To create the
+link, enter:
 
 ```
-sudo apt update
-sudo apt install libfuse2
+sudo ln -sf /etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 ```
 
 3. To make the AppImage executable, enter:
@@ -197,28 +206,20 @@ Linux (Debian)
 
 ###### To install Deadline Cloud monitor Debian package on Debian distros
 
+###### Note
+
+Deadline Cloud monitor requires GLIBC 2.34 or later.
+
 1. Download the Deadline Cloud monitor Debian package:
 
-[Download Deadline Cloud monitor (.deb)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb") 2. ###### Note
-
-This step is for Ubuntu 22 and up. For other versions of
-Ubuntu, skip this step.
-
-To install libssl1.1, enter:
-
-```
-wget https://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-sudo apt install ./libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-```
-
-3. To install the Deadline Cloud monitor Debian package, enter:
+[Download Deadline Cloud monitor (.deb)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor_amd64.deb") 2. To install the Deadline Cloud monitor Debian package, enter:
 
 ```
 sudo apt update
 sudo apt install ./deadline-cloud-monitor_amd64.deb
 ```
 
-4. If the install fails on packages that have unmet dependencies, fix
+3. If the install fails on packages that have unmet dependencies, fix
    the broken packages and then run the following commands.
 
 ```
@@ -229,62 +230,15 @@ sudo apt install -f
 
 Linux (RPM)
 
-###### To install Deadline Cloud monitor RPM on Rocky Linux 9 or Alma Linux 9
+###### To install Deadline Cloud monitor RPM on Red Hat Linux 10, Rocky Linux 10, or later
 
 ###### Note
 
-Rocky Linux 9 and Alma Linux 9 use
-OpenSSL 3.0 by default and don't include the
-`libssl.so.1.1` library. You must install the
-`compat-openssl11` package for Deadline Cloud monitor to run.
-
-1. Download the Deadline Cloud monitor RPM:
-
-[Download Deadline Cloud monitor (.rpm)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm") 2. Add the extra packages for the Enterprise Linux 9
-repository:
-
-```
-sudo dnf install epel-release
-```
-
-3. Install `compat-openssl11` for the `libssl.so.1.1` dependency:
-
-```
-sudo dnf install compat-openssl11 deadline-cloud-monitor.x86_64.rpm
-```
-
-###### To install Deadline Cloud monitor RPM on Red Hat Linux 9
-
-###### Note
-
-Red Hat Linux 9 uses OpenSSL 3.0 by default and
-doesn't include the `libssl.so.1.1` library. You must
-install the `compat-openssl11` package for Deadline Cloud monitor to
-run.
-
-1. Download the Deadline Cloud monitor RPM:
-
-[Download Deadline Cloud monitor (.rpm)](https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm "https://downloads.deadlinecloud.amazonaws.com/dcm/latest/deadline-cloud-monitor.x86_64.rpm") 2. Enable the CodeReady Linux Builder
-repository:
-
-```
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
-
-3. Install the extra packages for Enterprise
-   RPM:
-
-```
-sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-```
-
-4. Install `compat-openssl11` for the `libssl.so.1.1` dependency:
-
-```
-sudo dnf install compat-openssl11 deadline-cloud-monitor.x86_64.rpm
-```
-
-###### To install Deadline Cloud monitor RPM on Rocky Linux 8, Alma Linux 8, or Red Hat Linux 8
+Deadline Cloud monitor requires GLIBC 2.34 or later and
+`webkit2gtk-4.1`, which isn't available on
+Red Hat Linux 9 or Rocky Linux 9. On those systems, install the AppImage instead.
+For instructions, see the **Linux
+(AppImage)** tab.
 
 1. Download the Deadline Cloud monitor RPM:
 

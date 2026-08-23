@@ -41,7 +41,7 @@ details.
 | [KeyShot Studio](keyshot.md "keyshot.md")                                | 2023<br>• 2025     | Windows, macOS        | No                                   | No                    |
 | [Maxon Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md")               | 2024<br>• 2026     | Windows, macOS        | Windows, Linux                       | Yes                   |
 | [Maxon Redshift for Maya](autodesk-maya.md "autodesk-maya.md")           | 2025-2026          | Windows, macOS, Linux | Linux                                | Yes                   |
-| [SideFX Houdini](sidefx-houdini.md "sidefx-houdini.md")                  | 19.5<br>• 21.0     | Windows, macOS, Linux | Linux                                | Yes                   |
+| [SideFX Houdini](sidefx-houdini.md "sidefx-houdini.md")                  | 19.5<br>• 22.0     | Windows, macOS, Linux | Linux                                | Yes                   |
 | [Unreal Engine](epic-unreal-engine.md "epic-unreal-engine.md")           | 5.4<br>• 5.8       | Windows               | Windows                              | Not needed            |
 
 ## Software that isn't listed
