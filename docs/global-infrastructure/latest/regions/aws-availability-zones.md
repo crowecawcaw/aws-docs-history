@@ -158,6 +158,7 @@ The following table lists the Availability Zones in Europe.
 | `euw2-az1` | `eu-west-2`    | United Kingdom |
 | `euw2-az2` | `eu-west-2`    | United Kingdom |
 | `euw2-az3` | `eu-west-2`    | United Kingdom |
+| `euw2-az4` | `eu-west-2`    | United Kingdom |
 | `euw3-az1` | `eu-west-3`    | France         |
 | `euw3-az2` | `eu-west-3`    | France         |
 | `euw3-az3` | `eu-west-3`    | France         |
