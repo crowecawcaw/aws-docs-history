@@ -475,6 +475,7 @@ The following examples use the Valkey or Redis OSS client to connect to ElastiCa
 
 - [Connecting to a cluster mode disabled cluster](#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-disabled "#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-disabled")
 - [Connecting to a cluster mode enabled cluster](#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-enabled "#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-enabled")
+- [Connecting using IAM authentication](#ElastiCache-Getting-Started-Tutorials-Connecting-iam "#ElastiCache-Getting-Started-Tutorials-Connecting-iam")
 
 ### Connecting to a cluster mode disabled cluster
 
@@ -498,14 +499,14 @@ To run the program, enter the following command:
 
 ### Connecting to a cluster mode enabled cluster
 
-Copy the following program and paste it into a file named _ConnectClusterModeEnabled.py_.
+The cluster client is included in redis-py; the standalone redis-py-cluster package is no longer required. Copy the following Python program and paste it into a file named _ConnectClusterModeEnabled.py_:
 
 ```
-from rediscluster import RedisCluster
+from redis.cluster import RedisCluster
 import logging
 
 logging.basicConfig(level=logging.INFO)
-redis = RedisCluster(startup_nodes=[{"host": "xxx.yyy.clustercfg.zzz1.cache.amazonaws.com","port": "6379"}], decode_responses=True,skip_full_coverage_check=True)
+redis = RedisCluster(host="xxx.yyy.clustercfg.zzz1.cache.amazonaws.com", port=6379, decode_responses=True)
 
 if redis.ping():
     logging.info("Connected to Redis")
@@ -515,6 +516,55 @@ if redis.ping():
 To run the program, enter the following command:
 
 `python ConnectClusterModeEnabled.py`
+
+### Connecting using IAM authentication
+
+You can authenticate a Python connection using an AWS Identity and Access Management (IAM) identity instead of a user password. IAM authentication is available for caches running Valkey 7.2 and above or Redis OSS version 7.0 and above. This method requires Transport Layer Security (TLS) for in-transit encryption. Before you connect, create an IAM-enabled ElastiCache user and grant the `elasticache:Connect` action to the cache and user. For instructions on setting up IAM authentication, see [Authenticating with IAM](auth-iam.md "auth-iam.md").
+
+The following Python program generates a short-lived IAM authentication token with an AWS Signature Version 4 pre-signed request and uses the token as the password. Copy the program and paste it into a file named _ConnectWithIAM.py_:
+
+```
+import boto3
+import logging
+from botocore.auth import SigV4QueryAuth
+from botocore.awsrequest import AWSRequest
+from urllib.parse import urlencode
+from redis import Redis
+
+logging.basicConfig(level=logging.INFO)
+
+def generate_iam_auth_token(user_id, cache_name, region, is_serverless=True):
+    """Generate a short-lived IAM authentication token. The token is valid for 15 minutes."""
+    credentials = boto3.Session().get_credentials().get_frozen_credentials()
+    query_params = {"Action": "connect", "User": user_id}
+    if is_serverless:
+        query_params["ResourceType"] = "ServerlessCache"
+    request = AWSRequest(method="GET", url=f"http://{cache_name}/?{urlencode(query_params)}")
+    SigV4QueryAuth(credentials, "elasticache", region, expires=900).add_auth(request)
+    # The IAM authentication token is the signed URL with the scheme removed.
+    return request.url[len("http://"):]
+
+# For IAM-enabled users, the user name and user ID must be identical.
+user_id = "iam-user-01"
+# Cache names are converted to lowercase at creation. Supply the name in lowercase.
+cache_name = "cache-01"
+region = "us-east-1"
+
+# IAM authentication requires TLS. Pass the IAM authentication token as the password.
+token = generate_iam_auth_token(user_id, cache_name, region, is_serverless=True)
+redis = Redis(host="cache-01.xxxxxx.serverless.use1.cache.amazonaws.com", port=6379, ssl=True, username=user_id, password=token, decode_responses=True)
+
+if redis.ping():
+    logging.info("Connected to ElastiCache with IAM authentication")
+```
+
+To run the program, enter the following command:
+
+`python ConnectWithIAM.py`
+
+###### Note
+
+The IAM authentication token is valid for 15 minutes. For long-lived connections, regenerate the token before it expires. For a node-based (cluster) cache instead of a Serverless cache, call `generate_iam_auth_token` with `is_serverless=False`.
 
 ## Usage examples
 

@@ -46,7 +46,8 @@ Data tiering has the following limitations:
 - Data tiering only supports `volatile-lru`, `allkeys-lru`, `volatile-lfu`, `allkeys-lfu` and `noeviction` maxmemory policies.
 - Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later.
 - Items larger than 128 MiB are not moved to SSD.
-- Starting from Valley 8.1 and later, an item whose key + value size is less than 40 bytes will not be moved to the SSD.
+- For Valkey 8.1 and later, items with a combined key and value size of less than 40 bytes are not moved to SSD.
+- For Valkey 9.0 and later, hash items with field-level TTLs are not moved to SSD.
 - Data tiering is not supported with durability-enabled clusters.
 
 ## Pricing

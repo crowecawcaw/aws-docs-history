@@ -58,8 +58,8 @@ basis.
 | cache.m5.xlarge    | 1.5.16                              | 1.25                      | 10.0                   | 12.93        |
 | cache.m5.2xlarge   | 1.5.16                              | 2.5                       | 10.0                   | 26.04        |
 | cache.m5.4xlarge   | 1.5.16                              | 5.0                       | 10.0                   | 52.26        |
-| cache.m5.12xlarge  | 1.5.16                              | N/A                       | N/A                    | 157.12       |
-| cache.m5.24xlarge  | 1.5.16                              | N/A                       | N/A                    | 314.32       |
+| cache.m5.12xlarge  | 1.5.16                              | 12                        | N/A                    | 157.12       |
+| cache.m5.24xlarge  | 1.5.16                              | 25                        | N/A                    | 314.32       |
 | cache.m4.large     | 1.5.16                              | 0.45                      | 1.2                    | 6.42         |
 | cache.m4.xlarge    | 1.5.16                              | 0.75                      | 2.8                    | 14.28        |
 | cache.m4.2xlarge   | 1.5.16                              | 1.0                       | 10.0                   | 29.70        |

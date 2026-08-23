@@ -26,7 +26,7 @@ sudo apt-get install gcc g++
 3. Install PHP 7.
 
 ```
-sudo yum install php70
+sudo apt-get install php7.0
 ```
 
 4. Download the Amazon ElastiCache Cluster Client.

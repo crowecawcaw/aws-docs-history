@@ -125,6 +125,65 @@ For more information about migrating from ACLs to bucket policies, see
 Amazon ElastiCache (Redis OSS) access to your S3 bucket](../../../AmazonS3/latest/userguide/object-ownership-migrating-acls-prerequisites.md#object-ownership-elasticache-redis "../../../AmazonS3/latest/userguide/object-ownership-migrating-acls-prerequisites.md#object-ownership-elasticache-redis") in the
 _Amazon S3 User Guide_.
 
+## Required IAM permissions for the caller
+
+To call the export operation, you must have permissions to call
+`elasticache:CopySnapshot` and to access the target Amazon S3 bucket. You can
+call this operation using the ElastiCache console, the AWS CLI, or the ElastiCache API
+`CopySnapshot` operation. These IAM permissions are separate from the
+Amazon S3 bucket policy that grants the ElastiCache service access to the bucket. For
+information about the bucket policy, see [Grant ElastiCache access to your Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access").
+
+The following IAM policy shows the minimum permissions that you need.
+Replace `amzn-s3-demo-bucket` with the name
+of your target Amazon S3 bucket.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ElastiCacheCopySnapshot",
+            "Effect": "Allow",
+            "Action": "elasticache:CopySnapshot",
+            "Resource": "*"
+        },
+        {
+            "Sid": "S3BucketAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`amzn-s3-demo-bucket`",
+                "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+            ]
+        },
+        {
+            "Sid": "S3GlobalAccess",
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "arn:aws:s3:::*"
+        }
+    ]
+}
+```
+
+###### Important
+
+The `s3:ListAllMyBuckets` action is an account-level operation.
+Its `Resource` element must be `"*"` or
+`"arn:aws:s3:::*"`. Scoping this action to a specific bucket ARN
+makes it ineffective and causes the error: "Elasticache was unable to validate
+the authenticated user has access on the S3 bucket." For more information, see
+[Amazon
+S3 actions related to accounts](../../../AmazonS3/latest/userguide/using-with-s3-policy-actions.md#using-with-s3-policy-actions-related-to-accounts "../../../AmazonS3/latest/userguide/using-with-s3-policy-actions.md#using-with-s3-policy-actions-related-to-accounts") in the
+_Amazon S3 User Guide_.
+
 ## Export an ElastiCache backup
 
 Now you've created your S3 bucket and granted ElastiCache permissions to access it.
