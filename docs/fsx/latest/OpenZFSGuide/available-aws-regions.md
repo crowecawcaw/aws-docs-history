@@ -20,7 +20,7 @@ Amazon FSx for OpenZFS is available in the following AWS Regions, with deploymen
 | Asia Pacific (Melbourne)   | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Malaysia)    | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Mumbai)      | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| Asia Pacific (Hyderabad)   | ✓                            |                              | ✓                        |                          | ✓                     | ✓                                     |
+| Asia Pacific (Hyderabad)   | ✓                            | ✓                            | ✓                        | ✓                        | ✓                     | ✓                                     |
 | Asia Pacific (New Zealand) | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Taipei)      | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Asia Pacific (Thailand)    | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
@@ -31,13 +31,13 @@ Amazon FSx for OpenZFS is available in the following AWS Regions, with deploymen
 | Europe (Frankfurt)         | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | Europe (Zurich)            | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | Europe (Ireland)           | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
-| Europe (London)            | ✓                            |                              | ✓                        |                          | ✓                     | ✓                                     |
+| Europe (London)            | ✓                            | ✓                            | ✓                        | ✓                        | ✓                     | ✓                                     |
 | Europe (Paris)             | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Europe (Stockholm)         | ✓                            | ✓                            | ✓                        | ✓                        | ✓                     | ✓                                     |
 | Mexico (Central)           | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Middle East (UAE)          | ✓                            |                              |                          |                          | ✓                     |                                       |
 | Middle East (Bahrain)      | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
-| South America (São Paulo)  | ✓                            |                              | ✓                        |                          | ✓                     | ✓                                     |
+| South America (São Paulo)  | ✓                            | ✓                            | ✓                        | ✓                        | ✓                     | ✓                                     |
 | Israel (Tel Aviv)          | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | Africa (Cape Town)         | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 
