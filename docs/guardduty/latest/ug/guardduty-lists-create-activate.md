@@ -103,7 +103,7 @@ AWS Command Line Interface command:
 ```
 aws guardduty create-trusted-entity-set \
 --detector-id `12abc34d567e8fa901bc2d34e56789f0` \
---name "`AnyOrganization ListEXAMPLE`" \
+--name "`AnyOrganizationListEXAMPLE`" \
 --format `TXT` \
 --location "`https://s3.amazonaws.com/amzn-s3-demo-bucket/DOC-EXAMPLE-SOURCE-FILE.format`" \
 --activate
@@ -142,7 +142,7 @@ AWS Command Line Interface command:
 ```
 aws guardduty create-threat-entity-set \
 --detector-id `12abc34d567e8fa901bc2d34e56789f0` \
---name "`AnyOrganization ListEXAMPLE`" \
+--name "`AnyOrganizationListEXAMPLE`" \
 --format `TXT` \
 --location "`https://s3.amazonaws.com/amzn-s3-demo-bucket/DOC-EXAMPLE-SOURCE-FILE.format`" \
 --activate
@@ -187,7 +187,7 @@ list.
 ```
 aws guardduty create-ip-set \
 --detector-id `12abc34d567e8fa901bc2d34e56789f0` \
---name "`AnyOrganization ListEXAMPLE`" \
+--name "`AnyOrganizationListEXAMPLE`" \
 --format `TXT` \
 --location "`https://s3.amazonaws.com/amzn-s3-demo-bucket/DOC-EXAMPLE-SOURCE-FILE.format`" \
 --activate
@@ -230,7 +230,7 @@ list.
 ```
 aws guardduty create-threat-intel-set \
 --detector-id `12abc34d567e8fa901bc2d34e56789f0` \
---name "`AnyOrganization ListEXAMPLE`" \
+--name "`AnyOrganizationListEXAMPLE`" \
 --format `TXT` \
 --location "`https://s3.amazonaws.com/amzn-s3-demo-bucket/DOC-EXAMPLE-SOURCE-FILE.format`" \
 --activate

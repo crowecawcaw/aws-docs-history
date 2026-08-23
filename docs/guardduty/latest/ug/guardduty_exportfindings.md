@@ -314,11 +314,10 @@ JSON
    objects using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md "../../../AmazonS3/latest/userguide/using-prefixes.md") in the
    _Amazon S3 User Guide_.
 
-   When you provide an optional folder location that doesn't exist
-   already, GuardDuty will create that location only if the account
-   associated with the S3 bucket is the same as the account exporting
-   the findings. When you export findings to an S3 bucket that belongs
-   to another account, the folder location must exist already. 6. Replace `KMS key ARN` with the Amazon
+   When you provide an optional folder location, the folder must
+   already exist in the S3 bucket. GuardDuty does not create the folder on
+   your behalf. This requirement applies regardless of bucket
+   ownership. 6. Replace `KMS key ARN` with the Amazon
    Resource Name (ARN) of the KMS key associated with the encryption
    of the findings exported to the S3 bucket. To locate the key ARN,
    see [Finding the key
@@ -340,10 +339,11 @@ GuardDuty permits you to export findings to an existing bucket in another
 AWS account.
 
 When creating a new S3 bucket or choosing an existing bucket in your account, you can
-add an optional prefix. When configuring export findings, GuardDuty creates a new folder in
-the S3 bucket for your findings. The prefix will be appended to the default folder
-structure that GuardDuty created. For example, the format of the optional prefix
-`/AWSLogs/`123456789012`/GuardDuty/`Region``.
+add an optional prefix. Both the prefix and the folder path that findings are written to
+must already exist in the S3 bucket. GuardDuty does not create any folders on your behalf.
+GuardDuty writes findings objects to the path
+`/AWSLogs/`123456789012`/GuardDuty/`Region``,
+so you must create this folder structure before you export findings.
 
 The entire path of the S3 object will be
 ``amzn-s3-demo-bucket`/`prefix-name`/UUID`.jsonl.gz``.

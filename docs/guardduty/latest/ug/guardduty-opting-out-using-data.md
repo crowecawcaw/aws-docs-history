@@ -47,7 +47,7 @@ GuardDuty actively uses this data for threat detection, it **doesn't**
 currently use these commands and arguments for service improvement purposes (it may do so in the future).
 Your trust, privacy, and
 the security of your content are our highest priority, and ensure that our use complies with
-our commitments to you. For more information, see [Data Privacy FAQ](https://aws.amazon.com//compliance/data-privacy-faq/ "https://aws.amazon.com//compliance/data-privacy-faq/").
+our commitments to you. For more information, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
 
 ## GuardDuty Malware Protection
 
@@ -61,4 +61,4 @@ and the GuardDuty service. This file may also be used to develop and improve oth
 security services. Your trust, privacy, and the security of your content are our highest
 priority, and ensure that our use complies with our commitments to you. For more
 information, see [Data Privacy
-FAQ](https://aws.amazon.com//compliance/data-privacy-faq/ "https://aws.amazon.com//compliance/data-privacy-faq/").
+FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
