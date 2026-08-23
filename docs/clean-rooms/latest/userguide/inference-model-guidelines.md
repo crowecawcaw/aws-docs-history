@@ -24,6 +24,18 @@ docker pull $ecr_registry_endpoint/$base_image`
   - Clean Rooms ML splits input by line, uses a `MultiRecord`
     batch strategy, and adds a newline character at the end of every
     transformed record.
+  - You set the maximum request size in
+    `maxPayloadInMB` under
+    `containerExecutionParameters`. If you don't specify
+    a value, Clean Rooms ML uses 6 MB. When an input CSV file is larger than
+    that value, SageMaker AI splits the file into multiple requests to your
+    inference container. The CSV header row appears only in the first
+    request for that file, and subsequent requests begin with data rows.
+    Configure your inference container with a predefined column schema
+    so that it accepts requests with or without a header row. If a
+    header row is present, ignore it instead of treating it as a data
+    record. For more information about `maxPayloadInMB`, see
+    [InferenceContainerExecutionParameters](../../../cleanrooms-ml/latest/APIReference/API_InferenceContainerExecutionParameters.md "../../../cleanrooms-ml/latest/APIReference/API_InferenceContainerExecutionParameters.md") in the _AWS Clean Rooms ML API Reference_.
   - Ensure that you are able to generate a synthetic or test inference
     dataset based on the schema of the collaborators that will be used
     in your model code.

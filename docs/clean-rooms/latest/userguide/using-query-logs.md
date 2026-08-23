@@ -11,7 +11,7 @@ For more information about how to view recent queries, see [Viewing recent queri
 For more information about how to view recent jobs, see [Viewing recent jobs](view-recent-jobs.md "view-recent-jobs.md").
 
 - To verify that the configured table columns match what was agreed upon for the
-  collaboration, review the configured table columns that are used in collaboration members’
+  collaboration, review the configured table columns that are used in collaboration members'
   analysis rules and in queries.
 
 For more information about how to view the configured columns, see [Viewing tables and analysis rules](manage-configured-tables.md#view-tables "manage-configured-tables.md#view-tables").
