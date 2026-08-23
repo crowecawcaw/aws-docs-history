@@ -339,9 +339,9 @@ section.
 ## Putting it all together - CDK
 
 The following sample CDK project formation template walks through event
-filtering functionality. Before working with this CDK project you will need
-to [install the
-pre-requisites](../../../cdk/v2/guide/work-with.md "../../../cdk/v2/guide/work-with.md") including [running preparation scripts](../../../cdk/v2/guide/work-with-cdk-python.md "../../../cdk/v2/guide/work-with-cdk-python.md").
+filtering functionality. Before working with this CDK project, you must
+[install the
+prerequisites](../../../cdk/v2/guide/work-with.md "../../../cdk/v2/guide/work-with.md") including [running preparation scripts](../../../cdk/v2/guide/work-with-cdk-python.md "../../../cdk/v2/guide/work-with-cdk-python.md").
 
 **Create a CDK project**
 

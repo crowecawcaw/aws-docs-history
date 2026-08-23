@@ -16,7 +16,7 @@ Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/bp.
 - Generally use the `primary_key` metadata value for the
   `document_id` value. In OpenSearch Service, the document ID is the equivalent of the
   primary key in DynamoDB. Using the primary key will make it easy to find your document and
-  ensure that updates are consistently replicated to it without conflicts.
+  make sure that updates are consistently replicated to it without conflicts.
 
 You can use the helper function `getMetadata` to get your primary key
 (for example, `document_id: "${getMetadata('primary_key')}"`). If you're
@@ -24,7 +24,7 @@ using a composite primary key, the helper function will concatenate them togethe
 you.
 
 - In general, use the `opensearch_action` metadata value for the
-  `action` setting. This will ensure that updates are replicated in such a
+  `action` setting. This will make sure that updates are replicated in such a
   way that the data in OpenSearch Service matches the latest state in DynamoDB.
 
 You can use the helper function `getMetadata` to get your primary key

@@ -12,7 +12,11 @@ You can switch tables from on-demand mode to provisioned capacity mode at any ti
 
 ## Switching from provisioned capacity mode to on-demand capacity mode
 
-In provisioned mode, you set read and write capacity based on your expected application needs. When you update a table from provisioned to on-demand mode, you don't need to specify how much read and write throughput you expect your application to perform. DynamoDB on-demand offers simple pay-per-request pricing for read and write requests so that you only pay for what you use, making it easy to balance costs and performance. You can optionally configure maximum read or write (or both) throughput for individual on-demand tables and associated global secondary indexes to help keep costs and usage bounded. For more information about setting maximum throughput for a specific table or index, see [DynamoDB maximum throughput for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md").
+In provisioned mode, you set read and write capacity based on your expected application needs. When you update a table from provisioned to on-demand mode, you don't need to specify how much read and write throughput you expect your application to perform.
+
+DynamoDB on-demand offers simple pay-per-request pricing for read and write requests so that you only pay for what you use, making it easy to balance costs and performance.
+
+You can optionally configure maximum read or write (or both) throughput for individual on-demand tables and associated global secondary indexes to help keep costs and usage bounded. For more information about setting maximum throughput for a specific table or index, see [DynamoDB maximum throughput for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md").
 
 When you switch from provisioned capacity mode to on-demand capacity mode, the process can take several minutes. During the switching period, your table delivers throughput that is consistent with the previously provisioned write capacity unit and read capacity unit amounts.
 
@@ -22,12 +26,14 @@ If you recently switched an existing table to on-demand capacity mode for the fi
 
 Following are examples of possible scenarios:
 
-- **Any provisioned table configured below 4000 WCU and 12,000 RCU, that has never been previously provisioned for more.** When you switch this table to on-demand for the first time, DynamoDB will ensure it is scaled out to instantly sustain at least 4,000 write units/sec and 12,000 read units/sec.
+- **Any provisioned table configured below 4000 WCU and 12,000 RCU, that has never been previously provisioned for more.** When you switch this table to on-demand for the first time, DynamoDB will make sure it is scaled out to instantly sustain at least 4,000 write units/sec and 12,000 read units/sec.
 - **A provisioned table configured as 8,000 WCU and 24,000 RCU.** When you switch this table to on-demand, it will continue to be able to sustain at least 8,000 write units/sec and 24,000 read units/sec at any time.
-- **A provisioned table configured with 8,000 WCU and 24,000 RCU, that consumed 6,000 write units/sec and 18,000 read units/sec for a sustained period.** When you switch this table to on-demand, it will continue to be able to sustain at least 8,000 write units/sec and 24,000 read units/sec. The previous traffic may further allow the table to sustain much higher levels of traffic without throttling.
+- **A provisioned table configured with 8,000 WCU and 24,000 RCU, that consumed 6,000 write units/sec and 18,000 read units/sec for a sustained period.** When you switch this table to on-demand, it will continue to be able to sustain at least 8,000 write units/sec and 24,000 read units/sec. The previous traffic might further allow the table to sustain much higher levels of traffic without throttling.
 - **A table previously provisioned with 10,000 WCU and 10,000 RCU, but currently provisioned with 10 RCU and 10 WCU.** When you switch this table to on-demand, it will be able to sustain at least 10,000 write units/sec and 10,000 read units/sec.
 
-Warm throughput is the number of read and write operations that your table can instantaneously support. Warm throughput is available by default for all tables and global secondary indexes (GSIs), and represents the level to which they have already scaled based on historical usage. When you use on-demand mode, or when you update your provisioned throughput to these values, your application can issue requests up to those values instantly. For more information, see [Understanding DynamoDB warm throughput](warm-throughput.md "warm-throughput.md").
+Warm throughput is the number of read and write operations that your table can instantaneously support. Warm throughput is available by default for all tables and global secondary indexes (GSIs), and represents the level to which they have already scaled based on historical usage.
+
+When you use on-demand mode, or when you update your provisioned throughput to these values, your application can issue requests up to those values instantly. For more information, see [Understanding DynamoDB warm throughput](warm-throughput.md "warm-throughput.md").
 
 ### Auto scaling settings
 

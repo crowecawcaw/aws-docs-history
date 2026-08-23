@@ -46,7 +46,7 @@ You have two connectivity options between your private network and AWS:
   [What is
   Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") in the _Direct Connect User Guide_.
 
-Access to DynamoDB via the network is through AWS published APIs. Clients must support
+Access to DynamoDB over the network is through AWS published APIs. Clients must support
 Transport Layer Security (TLS) 1.2. We recommend TLS 1.3. Clients must also
 support cipher suites with Perfect Forward Secrecy (PFS), such as Ephemeral
 Diffie-Hellman (DHE) or Elliptic Curve Diffie-Hellman Ephemeral (ECDHE). Most modern
@@ -68,4 +68,4 @@ access to DynamoDB](../../../vpc/latest/userguide/vpc-endpoints-ddb.md "../../..
 
 ###### Note
 
-Amazon VPC endpoints are not accessible via AWS Site-to-Site VPN or Direct Connect.
+Amazon VPC endpoints are not accessible through AWS Site-to-Site VPN or Direct Connect.

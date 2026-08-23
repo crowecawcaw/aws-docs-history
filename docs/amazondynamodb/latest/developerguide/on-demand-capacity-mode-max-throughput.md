@@ -73,7 +73,7 @@ considerations apply:
   settings on one global table replica, the same maximum throughput
   settings are automatically applied to all replica tables. It's important
   that the replica tables and secondary indexes in a global table have
-  identical write throughput settings to ensure proper replication of
+  identical write throughput settings to achieve proper replication of
   data. For more information, see [Best practices for global tables](globaltables-bestpractices.md "globaltables-bestpractices.md").
 - The smallest maximum read or write throughput that you can specify is
   one request unit per second.

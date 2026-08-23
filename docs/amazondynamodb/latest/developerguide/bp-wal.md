@@ -45,7 +45,7 @@ technologies evolve.
 
 The primary DynamoDB design principles for this pillar revolve around [modeling the data](bp-relational-modeling.md "bp-relational-modeling.md") , [choosing partition keys](HowItWorks.Partitions.md#HowItWorks.Partitions.SimpleKey "HowItWorks.Partitions.md#HowItWorks.Partitions.SimpleKey") and [sort keys](HowItWorks.Partitions.md#HowItWorks.Partitions.CompositeKey "HowItWorks.Partitions.md#HowItWorks.Partitions.CompositeKey") , and [defining secondary indexes](bp-indexes.md "bp-indexes.md") based on the application access patterns. Additional considerations include choosing
 the optimal throughput mode for the workload, AWS SDK tuning and, when appropriate, using an
-optimal caching strategy. To learn more about these design principles, watch this [deep dive video](https://youtu.be/PuCIy5Weyi8 "https://youtu.be/PuCIy5Weyi8") about the performance efficiency
+optimal caching strategy. For more information about these design principles, refer to the [deep dive video](https://youtu.be/PuCIy5Weyi8 "https://youtu.be/PuCIy5Weyi8") about the performance efficiency
 pillar of the DynamoDB Well-Architected Lens.
 
 **Cost optimization pillar**
@@ -64,7 +64,7 @@ autoscaling. Additional considerations include efficient data modeling and query
 the amount of consumed capacity, reserving portions of the consumed capacity at discounted
 price, minimizing item size, identifying and removing unused resources and using [TTL](TTL.md "TTL.md") to
 automatically delete aged-out data at no cost. To learn more about these design principles,
-watch this [deep dive video](https://youtu.be/iuI0HUuw6Jg "https://youtu.be/iuI0HUuw6Jg") about the cost
+refer to the [deep dive video](https://youtu.be/iuI0HUuw6Jg "https://youtu.be/iuI0HUuw6Jg") about the cost
 optimization pillar of the DynamoDB Well-Architected Lens.
 
 See [Cost
@@ -81,9 +81,9 @@ operations.
 The main operational excellence design principles for DynamoDB include monitoring DynamoDB
 metrics through Amazon CloudWatch and AWS Config and automatically alert and remediate when predefined
 thresholds are breached, or non compliant rules are detected. Additional considerations are
-defining DynamoDB resources via infrastructure as a code and leveraging tags for better
+defining DynamoDB resources through infrastructure as code and leveraging tags for better
 organization, identification and cost accounting of your DynamoDB resources. To learn more about
-these design principles, watch this [deep dive video](https://youtu.be/41HUSL9tJa8 "https://youtu.be/41HUSL9tJa8") about the operational excellence pillar of the DynamoDB Well-Architected Lens.
+these design principles, refer to the [deep dive video](https://youtu.be/41HUSL9tJa8 "https://youtu.be/41HUSL9tJa8") about the operational excellence pillar of the DynamoDB Well-Architected Lens.
 
 **Reliability pillar**
 
@@ -93,12 +93,12 @@ failures to meet business and customer demand. Key topics include distributed sy
 recovery planning, and how to handle change.
 
 The essential reliability design principles for DynamoDB revolve around choosing the backup
-strategy and retention based on your RPO and RTO requirements, using DynamoDB global tables for
-multi-regional workloads, or cross-region disaster recovery scenarios with low RTO,
-implementing retry logic with exponential backoff in the application by configuring and using
-these capabilities in the AWS SDK, and monitoring DynamoDB metrics through Amazon CloudWatch and
-automatically alerting and remediating when predefined thresholds are breached. To learn more
-about these design principles, watch this [deep dive
+strategy and retention based on your RPO and RTO requirements, and using DynamoDB global tables for
+multi-regional workloads or cross-region disaster recovery scenarios with low RTO. You should
+also implement retry logic with exponential backoff in your application by configuring
+these capabilities in the AWS SDK, and monitor DynamoDB metrics through Amazon CloudWatch to
+automatically alert and remediate when predefined thresholds are breached. For more
+information about these design principles, refer to the [deep dive
 video](https://youtu.be/8AoPBxVQYM8 "https://youtu.be/8AoPBxVQYM8") about the reliability pillar of the DynamoDB Well-Architected Lens.
 
 **Security pillar**
@@ -111,7 +111,7 @@ The main security design principles for DynamoDB are encrypting data in transit 
 choosing the type of keys for data at rest encryption and defining the IAM roles and
 policies to authenticate, authorize and provide fine grain access to DynamoDB resources.
 Additional considerations include auditing DynamoDB control plane and data plane operations
-through AWS CloudTrail. To learn more about these design principles, watch this [deep dive video](https://youtu.be/95prjv2EEXA?si=xvNci2MM856siejv "https://youtu.be/95prjv2EEXA?si=xvNci2MM856siejv") about the security pillar of the
+through AWS CloudTrail. For more information about these design principles, refer to the [deep dive video](https://youtu.be/95prjv2EEXA?si=xvNci2MM856siejv "https://youtu.be/95prjv2EEXA?si=xvNci2MM856siejv") about the security pillar of the
 DynamoDB Well-Architected Lens.
 
 See [Security](security.md "security.md") for additional information on security for DynamoDB.
@@ -124,9 +124,9 @@ impact, and maximizing utilization to minimize required resources and reduce dow
 impacts.
 
 The main sustainability design principles for DynamoDB include identifying and removing
-unused DynamoDB resources, avoiding over-provisioning though the usage of on-demand capacity mode
-or provisioned capacity-mode with autoscaling, efficient querying to reduce the amount of
-capacity being consumed and reduction of the storage footprint by compressing data and by
-deleting aged-out data through the use of TTL. To learn more about these design principles,
-watch this [deep dive video](https://youtu.be/fAfYms7u3EE "https://youtu.be/fAfYms7u3EE") about the
+unused DynamoDB resources, and avoiding over-provisioning through the use of on-demand capacity mode
+or provisioned capacity mode with autoscaling. You can also reduce capacity consumption through
+efficient querying, and reduce the storage footprint by compressing data and deleting aged-out
+data through TTL. For more information about these design principles,
+refer to the [deep dive video](https://youtu.be/fAfYms7u3EE "https://youtu.be/fAfYms7u3EE") about the
 sustainability pillar of the DynamoDB Well-Architected Lens.

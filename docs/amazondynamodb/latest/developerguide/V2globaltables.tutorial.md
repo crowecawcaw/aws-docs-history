@@ -22,7 +22,7 @@ This section shows how to create a global table with Multi-Region Eventual Consi
 low-latency writes with asynchronous replication across AWS Regions. Changes made to
 an item in one region are typically replicated to all other regions within a second.
 This makes MREC ideal for applications that prioritize low write latency and can
-tolerate brief periods where different Regions may return slightly different versions of
+tolerate brief periods where different Regions might return slightly different versions of
 data.
 
 You can create MREC global tables with replicas in any AWS Region where DynamoDB is
@@ -633,8 +633,8 @@ This section shows you how to create a Multi-Region Strong Consistency (MRSC) gl
 table. MRSC global tables synchronously replicate item changes across Regions, ensuring
 that strongly consistent read operations on any replica always return the latest version
 of an item. When converting a single-Region table to a MRSC global table, you must
-ensure that the table is empty. Converting a single-Region table to a MRSC global table
-with existing items is not supported. Ensure that no data is written into the table
+make sure that the table is empty. Converting a single-Region table to a MRSC global table
+with existing items is not supported. Make sure that no data is written into the table
 during the conversion process.
 
 You can configure a MRSC global table with three replicas, or two replicas and one
@@ -697,7 +697,7 @@ AWS Management Console.
    replica status will show as **Active** when the table
    is ready to use.
 
-Before you start, ensure that your IAM principal has the required
+Before you start, make sure that your IAM principal has the required
 permissions to create a MRSC global table with a witness Region.
 
 The following sample IAM policy allows you to create a DynamoDB table

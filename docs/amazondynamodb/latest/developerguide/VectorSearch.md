@@ -301,7 +301,7 @@ As with global secondary indexes, DynamoDB rebuilds the vector index from the re
 table data rather than copying it byte-for-byte, so the index goes through
 backfilling before it is ready for search. Wait until
 `IndexStatus` is `ACTIVE` and `Backfilling`
-is `false` on the restored index before you run
+is not `true` on the restored index before you run
 `SearchVectors`.
 
 Time to Live (TTL)

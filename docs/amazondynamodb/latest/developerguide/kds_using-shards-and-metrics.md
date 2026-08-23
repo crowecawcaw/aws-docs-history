@@ -56,7 +56,7 @@ shards required with provisioned mode for Kinesis data streams:
   the total number of shards needed in your Kinesis data stream, such as the
   number of shards required to support additional Kinesis data stream
   consumers.
-- You may still experience read and write throughput exceptions in the
+- You might still experience read and write throughput exceptions in the
   provisioned mode if you don't configure your data stream to handle your peak
   throughput. In this case, you must manually scale your data stream to
   accommodate your data traffic.
@@ -102,7 +102,7 @@ Customer-controlled configuration examples that leads to unsuccessful
 replication attempts are an under-provisioned Kinesis data stream capacity that
 leads to excessive throttling, or a manual update to your Kinesis data stream’s
 access policies that prevents DynamoDB from adding data to your data stream. To
-keep this metric as low as possible, you might need to ensure the right
+keep this metric as low as possible, you might need to make sure the right
 provisioning of your Kinesis data stream capacity, and make sure that DynamoDB’s
 permissions are unchanged.
 

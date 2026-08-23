@@ -1,6 +1,6 @@
 # Best practices for handling concurrent updates in DynamoDB
 
-In distributed systems, multiple processes or users may attempt to modify the same data at
+In distributed systems, multiple processes or users might attempt to modify the same data at
 the same time. Without concurrency control, these concurrent writes can lead to lost updates,
 inconsistent data, or race conditions. DynamoDB provides several mechanisms to help you manage
 concurrent access and maintain data integrity.
@@ -59,5 +59,5 @@ Use the following guidelines to choose the right approach for your workload:
 If you use [DynamoDB global tables](GlobalTables.md "GlobalTables.md"), be aware that
 global tables use a "last writer wins" reconciliation strategy for concurrent updates. Optimistic
 locking with version numbers does not work as expected across Regions because a write in one
-Region may overwrite a concurrent write in another Region without a version check. Design your
+Region might overwrite a concurrent write in another Region without a version check. Design your
 application to handle conflicts at the application level when using global tables.

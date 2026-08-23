@@ -97,7 +97,7 @@ fields:
 
 ![Image showing a CloudShell environment with the fields you have to specify.](images/msk-dynamodb-cshell-2.png)
 
-Once the CloudShell belonging to the Private Subnet has started, run the
+After the CloudShell belonging to the Private Subnet has started, run the
 following command:
 
 ```
@@ -148,7 +148,7 @@ python ./kafkaDataGen.py
 
 9. Check the CloudWatch metrics for the created Amazon MSK, Lambda, and DynamoDB resources, and
    verify the data stored in the `device_status` table using the DynamoDB
-   Data Explorer to ensure all processes ran correctly. If each process is run
+   Data Explorer to make sure all processes ran correctly. If each process is run
    without error, you can check that the test data written from CloudShell to Amazon MSK
    is also written to DynamoDB.
 

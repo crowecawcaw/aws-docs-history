@@ -88,7 +88,7 @@ calls.
 ## Optimizing costs for Kinesis Data Streams
 
 When a Kinesis Data Stream is set as the destination to deliver change data capture events
-for a DynamoDB table, the Kinesis Data Stream may need separate sizing management which will
+for a DynamoDB table, the Kinesis Data Stream might need separate sizing management which will
 affect the overall costs. DynamoDB charges in terms of Change Data capture Units (CDUs) where
 each unit is a made of up a 1 KB DynamoDB item size attempted by the DynamoDB service to the
 destination Kinesis Data Stream.
@@ -97,7 +97,7 @@ In addition to charges by the DynamoDB service, standard Kinesis Data Stream cha
 incurred. As mentioned in the [pricing page](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/"), the service pricing differs based on the capacity mode - provisioned
 and on-demand, which are distinct from DynamoDB table capacity modes and are user-defined. At a
 high level, Kinesis Data Streams charges an hourly rate based on the capacity mode, as well as
-on data ingested into the stream by DynamoDB service. There may be additional charges like data
+on data ingested into the stream by DynamoDB service. There might be additional charges like data
 retrieval (for on-demand mode), extended data retention (beyond default 24 hours), and
 enhanced fan-out consumer retrievals depending on the user configuration for the Kinesis Data
 Stream.
@@ -105,9 +105,9 @@ Stream.
 ###### Monitoring your Kinesis Data Streams usage
 
 Kinesis Data Streams for DynamoDB publishes metrics from DynamoDB in addition to standard
-Kinesis Data Stream CloudWatch Metrics. It may be possible that a `Put` attempt by the
+Kinesis Data Stream CloudWatch Metrics. It might be possible that a `Put` attempt by the
 DynamoDB service is throttled by the Kinesis service because of insufficient Kinesis Data
-Streams capacity, or by dependent components like a AWS KMS service that may be configured to
+Streams capacity, or by dependent components like a AWS KMS service that might be configured to
 encrypt the Kinesis Data Stream data at rest.
 
 To learn more about CloudWatch metrics published by DynamoDB service for the Kinesis Data Stream,

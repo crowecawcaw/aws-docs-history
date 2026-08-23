@@ -7,7 +7,7 @@ needed.
 
 Baseline performance and the ability to burst above it are governed by CPU credits.
 Burstable performance instances accumulate CPU credits continuously, at a rate determined by
-the instance size, when the workload is below the baseline threshold. These credits may then
+the instance size, when the workload is below the baseline threshold. These credits might then
 be consumed when the workload increases. A CPU credit provides the performance of a full CPU
 core for one minute.
 
@@ -51,7 +51,7 @@ balance up to a maximum of 576 CPU credits. When the `t3.small` instance
 needs to burst to more than 20% of a core, it draws from its CPU credit balance
 to handle this surge automatically.
 
-While DAX T2 instances are restricted to baseline performance once the CPU credit
+While DAX T2 instances are restricted to baseline performance after the CPU credit
 balance is drawn down to zero, DAX T3 instances can burst above the baseline even when
 their CPU credit balance is zero. For the vast majority of workloads, where the average
 CPU utilization is at or below the baseline performance, the basic hourly price for

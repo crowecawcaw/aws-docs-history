@@ -45,7 +45,7 @@ AWS PrivateLink for Amazon DynamoDB Streams doesn't support the following:
 ###### Important
 
 Do not create private hosted zones to override DynamoDB Streams endpoint DNS names to route
-traffic to your interface endpoints. DynamoDB DNS configurations may change over time and
+traffic to your interface endpoints. DynamoDB DNS configurations might change over time and
 custom DNS overrides can cause requests to unexpectedly route over public IP addresses
 instead of your interface endpoints.
 

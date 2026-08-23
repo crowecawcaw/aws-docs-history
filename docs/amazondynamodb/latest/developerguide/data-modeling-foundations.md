@@ -73,7 +73,7 @@ as items in the same table, and each item is identified by a unique sort key.
 - When using GraphQL, single table design will be more difficult to
   implement
 - When using higher-level SDK clients like Java's [DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md") or [Enhanced Client](DynamoDBEnhanced.md "DynamoDBEnhanced.md"), it can be more difficult to process results because
-  items in the same response may be associated with different classes
+  items in the same response might be associated with different classes
 
 **When to use**
 
@@ -120,7 +120,7 @@ performance, but queries across multiple tables must be done independently.
 **Disadvantages**
 
 - For access patterns that require data across multiple tables, multiple reads
-  from DynamoDB will be required and data may need to be processed/joined on the
+  from DynamoDB will be required and data might need to be processed/joined on the
   client code.
 - Operations and monitoring of multiple tables requires more CloudWatch alarms and
   each table must be scaled independently

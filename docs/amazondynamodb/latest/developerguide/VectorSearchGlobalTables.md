@@ -51,8 +51,8 @@ aws dynamodb describe-table \
 After the replica is active, you can run `SearchVectors` against the
 replica Region over the same set of vectors as the source Region. Before you search in
 the replica Region, use `DescribeTable` in that Region and confirm the vector
-index has finished backfilling — its `IndexStatus` is `ACTIVE`
-and `Backfilling` is `false`. The replica's vector index backfills
+index has finished backfilling, its `IndexStatus` is `ACTIVE`
+and `Backfilling` is not `true`. The replica's vector index backfills
 independently, so it can still be backfilling for a short time after the replica itself
 becomes active. Because vector search uses approximate nearest neighbor (ANN), the
 ranking might differ slightly between Regions for the same query, even over identical

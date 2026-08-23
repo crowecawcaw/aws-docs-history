@@ -2,8 +2,8 @@
 
 The DAX SDK for Node.js v3.x is compatible with [AWS
 SDK for Node.js v3.x](../../../AWSJavaScriptSDK/v3/latest/introduction.md "../../../AWSJavaScriptSDK/v3/latest/introduction.md"). The DAX SDK for Node.js v3.x supports the use of
-[aggregated](../../../AWSJavaScriptSDK/v3/latest/introduction.md#high-level-concepts "../../../AWSJavaScriptSDK/v3/latest/introduction.md#high-level-concepts") clients. Please note that DAX doesn't support the creation
-of bare-bones clients. For more details on unsupported features, see [Features not in parity with AWS SDK V3](#DAX.client.run-application-nodejs-3-not-in-parity "#DAX.client.run-application-nodejs-3-not-in-parity").
+[aggregated](../../../AWSJavaScriptSDK/v3/latest/introduction.md#high-level-concepts "../../../AWSJavaScriptSDK/v3/latest/introduction.md#high-level-concepts") clients. Note that DAX doesn't support the creation
+of bare-bones clients. For more information about unsupported features, see [Features not in parity with AWS SDK V3](#DAX.client.run-application-nodejs-3-not-in-parity "#DAX.client.run-application-nodejs-3-not-in-parity").
 
 Follow these steps to run the Node.js sample application on your Amazon EC2
 instance.

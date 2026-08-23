@@ -59,7 +59,7 @@ practices:
 - Avoid projecting attributes that you know will rarely be needed in queries. Every
   time you update an attribute that is projected in an index, you incur the extra cost of
   updating the index as well. You can still retrieve non-projected attributes in a
-  `Query` at a higher provisioned throughput cost, but the query cost may be
+  `Query` at a higher provisioned throughput cost, but the query cost might be
   significantly lower than the cost of updating the index frequently.
 - Specify `ALL` only if you want your queries to return the entire table
   item sorted by a different sort key. Projecting all attributes eliminates the need for
@@ -110,6 +110,6 @@ impact your application.
 
 ###### Note
 
-Once created, you cannot delete a local secondary index.
+After a local secondary index is created, you cannot delete it.
 
 For strategies on working within the limit and taking corrective action, see [Item collection size limit](LSI.md#LSI.ItemCollections.SizeLimit "LSI.md#LSI.ItemCollections.SizeLimit").

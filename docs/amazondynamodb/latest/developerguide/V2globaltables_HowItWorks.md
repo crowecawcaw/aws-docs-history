@@ -33,7 +33,7 @@ becomes impaired, you can shift application traffic to a different Region and pe
 reads and writes to a different replica table in the same global table.
 
 Each replica table in a global table provides the same durability and availability as
-a single-Region DynamoDB table. Global tables offer a 99.999% availability [Service Level Agreement (SLA)](https://aws.amazon.com//dynamodb/sla/ "https://aws.amazon.com//dynamodb/sla/"),
+a single-Region DynamoDB table. Global tables offer a 99.999% availability [Service Level Agreement (SLA)](https://aws.amazon.com/dynamodb/sla/ "https://aws.amazon.com/dynamodb/sla/"),
 compared to 99.99% for single-Region tables.
 
 ## Consistency modes
@@ -103,8 +103,8 @@ MRSC global tables are available in the following Region sets: US Region set (US
 You create a MRSC
 global table by adding one replica and a witness or two replicas to an existing
 DynamoDB table that contains no data. When converting an existing single-Region table to a MRSC global table, you must
-ensure that the table is empty. Converting a single-Region table to a MRSC
-global table with existing items is not supported. Ensure that no data is
+make sure that the table is empty. Converting a single-Region table to a MRSC
+global table with existing items is not supported. Make sure that no data is
 written into the table during the conversion process. You cannot add additional replicas to an existing
 MRSC global table. You cannot delete a single replica or a witness from a MRSC
 global table. You can delete two replicas or delete one replica and a witness from a
@@ -224,7 +224,7 @@ occurred. However, you are charged for the replicated delete in each other regio
 replica in the global table.
 
 TTL delete replication consumes write capacity on the replicas to which the delete is
-being replicated. Replicas configured for provisioned capacity may throttle requests if
+being replicated. Replicas configured for provisioned capacity might throttle requests if
 the combination of write throughput and TTL delete throughput is higher than the
 provisioned write capacity.
 
@@ -237,10 +237,10 @@ Global tables configured for multi-Region eventual consistency (MREC) replicate
 changes by reading those changes from a [DynamoDB Stream](Streams.md "Streams.md") on a
 replica table and applying that change to all other replica tables. Streams are
 therefore enabled by default on all replicas in an MREC global table, and cannot be
-disabled on those replicas. The MREC replication process may combine multiple changes in
+disabled on those replicas. The MREC replication process might combine multiple changes in
 a short period of time into a single replicated write, resulting in each replica's
 Stream containing slightly different records. Streams records on MREC replicas are
-always ordered on a per-item basis, but ordering between items may differ between
+always ordered on a per-item basis, but ordering between items might differ between
 replicas.
 
 Global tables configured for multi-Region strong consistency (MRSC) do not use DynamoDB
@@ -259,14 +259,14 @@ changes in a specific Region.
 
 On a global table configured for MREC, DynamoDB transaction operations ( [`TransactWriteItems`](../APIReference/API_TransactWriteItems.md "../APIReference/API_TransactWriteItems.md") and [`TransactGetItems`](../APIReference/API_TransactGetItems.md "../APIReference/API_TransactGetItems.md")) are only atomic within the Region where
 the operation was invoked. Transactional writes are not replicated as a unit across
-Regions, meaning only some of the writes in a transaction may be returned by read
+Regions, meaning only some of the writes in a transaction might be returned by read
 operations in other replicas at a given point in time.
 
 For example, if you have a global table with replicas in the US East (Ohio) and
 US West (Oregon) Regions and perform a `TransactWriteItems` operation in
-the US East (Ohio) Region, you may observe partially completed transactions in the
+the US East (Ohio) Region, you might observe partially completed transactions in the
 US West (Oregon) Region as changes are replicated. Changes will only be replicated to
-other Regions once they've been committed in the source Region.
+other Regions after they've been committed in the source Region.
 
 Global tables configured for multi-Region strong consistency (MRSC) do not support
 transaction operations, and will return an error if those operations are invoked on an
@@ -276,7 +276,7 @@ MRSC replica.
 
 ### Provisioned mode
 
-Replication consumes write capacity. Replicas configured for provisioned capacity may throttle requests
+Replication consumes write capacity. Replicas configured for provisioned capacity might throttle requests
 if the combination of application write throughput and replication write throughput exceeds the provisioned
 write capacity. For global tables using provisioned mode, auto scaling settings for both read and write capacities
 are synchronized between replicas.

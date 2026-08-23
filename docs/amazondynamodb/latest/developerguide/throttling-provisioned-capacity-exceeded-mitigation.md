@@ -16,7 +16,7 @@ traffic spikes or when consumption exceeds your maximum Auto Scaling limits.
 ## Provisioned throughput exceeded mitigation measures
 
 This section provides resolution guidance for provisioned capacity throttling
-scenarios. Before using this guide, ensure you have identified the specific throttling
+scenarios. Before using this guide, make sure you have identified the specific throttling
 reason from your application's exception handling, and determined the Amazon Resource
 Name (ARN) of the affected resource. For information on retrieving throttling reasons
 and identifying throttled resources, see [DynamoDB throttling diagnosis framework](throttling-diagnosing-workflow.md#throttling-diagnosing "throttling-diagnosing-workflow.md#throttling-diagnosing").
@@ -27,7 +27,7 @@ actually a problem that needs resolution:
 - Occasional throttling is normal and expected in well-optimized DynamoDB
   applications. Throttling simply means you're consuming 100% of what you've
   provisioned. If your application handles throttling gracefully with retries and
-  your overall performance meets requirements, the throttling may not require
+  your overall performance meets requirements, the throttling might not require
   immediate action.
 - However, if throttling is causing unacceptable client-side latency, degrading
   user experience, or preventing critical operations from completing in a timely
@@ -230,7 +230,7 @@ write capacity units.
 ###### Note
 
 Lower target utilization increases costs and scaling frequency.
-Targets below 40% may cause over-provisioning. Monitor usage patterns
+Targets below 40% might cause over-provisioning. Monitor usage patterns
 and costs to balance performance and efficiency. 3. Set capacity boundaries:
 
     * **Minimum RCUs/WCUs:** Maintains
@@ -259,7 +259,7 @@ capacity units.
 
 - **Adjust target utilization:** Consider
   lowering the target utilization for your table or GSIs to trigger scaling
-  earlier before throttling occurs. Ensure that you monitor your traffic after
+  earlier before throttling occurs. Make sure that you monitor your traffic after
   making these adjustments. See [Configuring table Auto Scaling to adjust the read or write capacity of your table or GSI](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") for more
   information about capacity consumption and cost implications.
 - **Review capacity boundaries:** Ensure your
@@ -290,7 +290,7 @@ immediate capacity increase.
      specific GSI, which specifies the maximum number of writes the GSI
      can consume per second before DynamoDB throttles requests.
 
-2. Ensure that the GSI's provisioned throughput capacity remains within the
+2. Make sure that the GSI's provisioned throughput capacity remains within the
    [per-account and per-table throughput
    quotas](ServiceQuotas.md "ServiceQuotas.md").
 
@@ -298,7 +298,7 @@ immediate capacity increase.
 
 - For detailed information about handling traffic spikes in DynamoDB provisioned
   capacity tables, including various strategies from utilizing Auto Scaling and
-  burst capacity to strategic throttle management, see [Handle traffic spikes with Amazon DynamoDB provisioned capacity](https://aws.amazon.com/blogs//database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/ "https://aws.amazon.com/blogs//database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/").
+  burst capacity to strategic throttle management, see [Handle traffic spikes with Amazon DynamoDB provisioned capacity](https://aws.amazon.com/blogs/database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/ "https://aws.amazon.com/blogs/database/handle-traffic-spikes-with-amazon-dynamodb-provisioned-capacity/").
 - For information about how to use a cron expression to schedule a scaling
   policy, see [Optimize costs by scheduling provisioned capacity for DynamoDB](https://aws.amazon.com/blogs/database/optimize-costs-by-scheduling-provisioned-capacity-for-amazon-dynamodb/ "https://aws.amazon.com/blogs/database/optimize-costs-by-scheduling-provisioned-capacity-for-amazon-dynamodb/").
 - For hands-on information about monitoring and analyzing throughput utilization

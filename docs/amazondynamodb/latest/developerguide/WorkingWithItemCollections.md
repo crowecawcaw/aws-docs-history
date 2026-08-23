@@ -33,16 +33,16 @@ following:
 ## Speed up queries by organizing your data with item collections
 
 In this example, each of the items in these three item collections represents a player and
-the data model we have chosen, based off the game’s and player’s access patterns. What data does
+the data model chosen for this example, based on the game’s and player’s access patterns. What data does
 the game need? When does it need it? How frequently does it need it? What’s the cost of doing it
-this way? These data modeling decisions were made based off the answers to these
+this way? These data modeling decisions were made based on the answers to these
 questions.
 
 In this game, there is a different page presented to the player for their inventory for
 weapons and another page for armor. When the player opens their inventory, weapons are shown
-first because we want that page to load extremely fast, while subsequent inventory pages can load
+first because that page needs to load extremely fast, while subsequent inventory pages can load
 after that. Since each of these item types can be quite large as the player acquires more in-game
-items, we decided that each inventory page would be its own item in the player’s item collection
+items, each inventory page is its own item in the player’s item collection
 in the database.
 
 The following section talks more about how you can interact with item collections through the

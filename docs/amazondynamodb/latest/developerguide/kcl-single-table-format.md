@@ -166,7 +166,7 @@ Follow these best practices when you adopt single table format:
 
 - After Phase 1 deployment, verify that the coordinator state entry
   `TableMigration3.5` reaches `DEPLOYED` status.
-  Ensure there are no regressions before proceeding to Phase 2.
+  Make sure that there are no regressions before proceeding to Phase 2.
 - Monitor the `TableMigrationStatus` in the
   `TableMigration3.5` coordinator state entry to track progress
   through the DEPLOYED, PENDING, and COMPLETE states. The status is stored

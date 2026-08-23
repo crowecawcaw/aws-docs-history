@@ -9,10 +9,10 @@ shops.
 
 ## Prerequisites
 
-Before we attempt to design our schema for DynamoDB, we must first gather some
+Before you attempt to design your schema for DynamoDB, you must first gather some
 prerequisite data on the use case the schema needs to support. Unlike relational
 databases, DynamoDB is sharded by default, meaning that the data will live on multiple
-servers behind the scenes so designing for data locality is important. We'll need to put
+servers behind the scenes so designing for data locality is important. You need to put
 together the following list for each schema design:
 
 - List of entities (ER Diagram)

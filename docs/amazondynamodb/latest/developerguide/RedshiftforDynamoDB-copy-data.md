@@ -24,7 +24,7 @@ consider:
   interprets empty or blank attribute values in DynamoDB, treating them either as
   NULLs or as empty fields.
 - DynamoDB data types do not correspond directly with those of Amazon Redshift. You need to
-  ensure that each column in the Amazon Redshift table is of the correct data type and size
+  make sure that each column in the Amazon Redshift table is of the correct data type and size
   to accommodate the data from DynamoDB.
   Here is an example COPY command from Amazon Redshift SQL:
 

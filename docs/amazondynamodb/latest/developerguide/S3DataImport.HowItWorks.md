@@ -23,7 +23,7 @@ import. Items that are processed but fail to load into the table due to formatti
 inconsistencies in the source data are also billed as part of the import process. See [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing") for details.
 
 You can import data from an Amazon S3 bucket owned by a different account if you have the
-correct permissions to read from that specific bucket. The new table may also be in a
+correct permissions to read from that specific bucket. The new table might also be in a
 different Region from the source Amazon S3 bucket. For more information, see [Amazon Simple Storage Service setup
 and permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access.md") .
 
@@ -32,7 +32,7 @@ data size, data format, compression scheme, uniformity of data distribution, num
 objects, and other related variables. In particular, data sets with uniformly distributed
 keys will be faster to import than skewed data sets. For example, if your secondary index's
 key is using the month of the year for partitioning, and all your data is from the month of
-December, then importing this data may take significantly longer.
+December, then importing this data might take significantly longer.
 
 The attributes associated with keys are expected to be unique on the base table. If any
 keys are not unique, the import will overwrite the associated items until only the last

@@ -31,7 +31,7 @@ For example, if your base table uses `customerId` as a partition key
 (evenly distributed) but your GSI uses `status` as a partition key (with
 limited possible values like "active", "pending", "closed"), updates to items with
 popular status values can create GSI hot partitions even when base table access is
-balanced. This creates a particularly challenging scenario where your application
+balanced. This creates a particularly challenging scenario. Your application
 might experience throttling due to GSI hot partitions even though both the base
 table and GSI have sufficient overall capacity and the base table's access pattern
 appears well-distributed.

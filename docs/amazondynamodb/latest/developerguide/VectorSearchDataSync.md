@@ -8,15 +8,24 @@ item might not appear in results.
 
 When you add a vector index to a table that already contains items, DynamoDB backfills
 the index with the existing data. The index first transitions to
-`IndexStatus` `CREATING` while DynamoDB sets up the index
-infrastructure. It then moves to `IndexStatus` `ACTIVE` with
-`Backfilling` set to `true` while DynamoDB populates the index
-from existing base table data. New writes to the base table are replicated to the
-index during this phase, but `SearchVectors` returns an error until
-backfilling finishes. Use `DescribeTable` and wait until
-`IndexStatus` is `ACTIVE` and `Backfilling` is
-`false` before you search. See
-[Adding a vector index to an existing table](VectorSearchWorkingWith.md#VectorSearchWorkingWith.Create.ExistingTable "VectorSearchWorkingWith.md#VectorSearchWorkingWith.Create.ExistingTable").
+`IndexStatus` `CREATING` while DynamoDB provisions the index
+infrastructure. It remains `CREATING` while DynamoDB populates the index
+from existing base table data, and reports `Backfilling` as
+`true` during that phase. New writes to the base table are replicated to
+the index while it backfills, but `SearchVectors` returns a
+`ValidationException` until backfilling finishes. When the index is
+ready, `IndexStatus` becomes `ACTIVE` and the
+`Backfilling` field is no longer reported. Use
+`DescribeTable` and wait until `IndexStatus` is
+`ACTIVE` and `Backfilling` is not `true` before
+you search.
+
+Index construction drives backfill duration, not the number of items in the base
+table. Even a table with very few items can take a substantial amount of time to
+finish backfilling. Poll `DescribeTable` rather than assuming a small
+table will be ready quickly.
+
+See [Adding a vector index to an existing table](VectorSearchWorkingWith.md#VectorSearchWorkingWith.Create.ExistingTable "VectorSearchWorkingWith.md#VectorSearchWorkingWith.Create.ExistingTable").
 
 ## Ongoing write synchronization
 

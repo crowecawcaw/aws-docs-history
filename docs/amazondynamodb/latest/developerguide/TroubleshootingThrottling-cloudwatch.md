@@ -17,7 +17,7 @@ identify, diagnose, and resolve throttling issues in your DynamoDB tables and in
     once.
 
   This behavior is important to understand when monitoring and
-  troubleshooting DynamoDB performance, as it may mask the true
+  troubleshooting DynamoDB performance, as it might mask the true
   extent of throttling. For more comprehensive insights, compare
   the `ThrottledRequests` metric with the specific
   event-level metrics like `ReadThrottleEvents`,

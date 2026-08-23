@@ -77,7 +77,7 @@ If you don't already have a DynamoDB table, see the documentation about [read an
 request rate, items accessed per request, and item size.
 
 When making traffic estimates, plan for future growth and for expected and
-unexpected peaks to ensure that your cluster has enough headroom for traffic
+unexpected peaks to make sure that your cluster has enough headroom for traffic
 increases.
 
 ## Load testing
@@ -117,18 +117,18 @@ level.
 [Monitor your DAX cluster](DAX.Monitoring.md "DAX.Monitoring.md") during the load test
 to determine whether the node type that you're using for the load test is the right node
 type for you. In addition, during a load test, you should monitor your request rate and
-cache hit rate to ensure that your test infrastructure is actually driving the amount of
+cache hit rate to make sure that your test infrastructure is actually driving the amount of
 traffic you intend.
 
 You should pay attention to network bytes consumption of your selected cluster instance type. Exceeding the
-available baseline bandwidth for an Amazon EC2 instance indicates that your cluster may not sustain your application's
+available baseline bandwidth for an Amazon EC2 instance indicates that your cluster might not sustain your application's
 workload, and needs to be scaled.
 
 If load testing indicates that the selected cluster configuration can't sustain your
 application's workload, you should [switch to a larger node
 type](DAX.cluster-management.md#DAX.cluster-management.scaling.node-types "DAX.cluster-management.md#DAX.cluster-management.scaling.node-types"), especially if you see high CPU utilization on the primary node in the
 cluster, high eviction rates, or high cache memory utilization. If hit rates are
-consistently high, and the ratio of read to write traffic is high, you may want to
+consistently high, and the ratio of read to write traffic is high, you might want to
 consider [adding more nodes
 to your cluster](DAX.cluster-management.md#DAX.cluster-management.scaling.read-scaling "DAX.cluster-management.md#DAX.cluster-management.scaling.read-scaling"). Refer to [Scaling a DAX cluster](DAX.cluster-management.md#DAX.cluster-management.scaling "DAX.cluster-management.md#DAX.cluster-management.scaling") for additional guidance on when to
 use a larger node type (vertical scaling) or add more nodes (horizontal scaling).

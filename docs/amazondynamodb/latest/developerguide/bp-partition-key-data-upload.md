@@ -28,7 +28,9 @@ all of its items before going to the next partition key value and doing the same
 
 Behind the scenes, DynamoDB is partitioning the data in your table across multiple servers. To
 fully use all the throughput capacity that is provisioned for the table, you must distribute
-your workload across your partition key values. By directing an uneven amount of upload work
+your workload across your partition key values.
+
+By directing an uneven amount of upload work
 toward items that all have the same partition key value, you are not fully using all the
 resources that DynamoDB has provisioned for your table.
 

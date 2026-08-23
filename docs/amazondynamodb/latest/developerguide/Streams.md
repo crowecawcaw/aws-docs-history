@@ -19,7 +19,7 @@ a single item in a DynamoDB table. You can configure the stream so that the stre
 capture additional information, such as the "before" and "after" images of modified
 items.
 
-DynamoDB Streams helps ensure the following:
+DynamoDB Streams helps make sure the following:
 
 - Each stream record appears exactly once in the stream.
 - For each item that is modified in a DynamoDB table, the stream records appear in
@@ -168,7 +168,7 @@ If you disable a stream, any shards that are open will be closed. The data in th
 stream will continue to be readable for 24 hours.
 
 Because shards have a lineage (parent and children), an application must always
-process a parent shard before it processes a child shard. This helps ensure that the
+process a parent shard before it processes a child shard. This helps make sure that the
 stream records are also processed in the correct order. (If you use the DynamoDB Streams Kinesis
 Adapter, this is handled for you. Your application processes the shards and stream
 records in the correct order. It automatically handles new or expired shards, in

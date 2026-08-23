@@ -184,7 +184,7 @@ policy.
 
 IAM policies involving [source IP restrictions](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceip") for accessing the target restore table should
 have the [`aws:ViaAWSService`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-viaawsservice "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-viaawsservice") key set to `false` to
-ensure that the restrictions apply only to requests made directly by a principal.
+make sure that the restrictions apply only to requests made directly by a principal.
 Otherwise, the restore will be canceled.
 
 If your backup is encrypted with an AWS managed key or a customer managed key, don't

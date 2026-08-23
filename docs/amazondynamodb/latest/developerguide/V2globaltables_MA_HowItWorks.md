@@ -86,7 +86,7 @@ replica tables in a timely manner. In this case, you can temporarily redirect yo
 **Handling Replication Latency Issues in Multi-account Global Tables**
 
 If `ReplicationLatency` exceeds 3 hours due to customer-induced issues on a replica table, DynamoDB sends a notification
-requesting the customer to address the underlying problem. Common customer-induced issues that may prevent replication include:
+requesting the customer to address the underlying problem. Common customer-induced issues that might prevent replication include:
 
 - Removing required permissions from the replica table's resource policy
 - Opting out of an AWS Region that hosts a replica of the multi-account global table

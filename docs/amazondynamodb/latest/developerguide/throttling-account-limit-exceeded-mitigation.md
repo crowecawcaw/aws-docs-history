@@ -1,7 +1,7 @@
 # 3- Account limits exceeded
 
 On-demand tables do not have provisioned capacity levels to manage, but DynamoDB enforces
-account-level throughput limits to prevent runaway execution and ensure fair resource usage
+account-level throughput limits to prevent runaway execution and achieve fair resource usage
 across all customers. These per-table account limits serve as adjustable safeguards, set for
 each account and Region combination. When your read or write consumption rate exceeds these
 limits, DynamoDB returns an `AccountLimitExceeded` throttling reason type in the
@@ -14,7 +14,7 @@ requirements exceed the default limits.
 ## Account limit exceeded mitigation measures
 
 This section provides resolution guidance for account limit throttling scenarios.
-Before using this guide, ensure you have identified the specific throttling reasons from
+Before using this guide, make sure you have identified the specific throttling reasons from
 your application's exception handling, and determined the Amazon Resource Name (ARN) of
 the affected resource. For information on retrieving throttling reasons and identifying
 throttled resources, see [DynamoDB throttling diagnosis framework](throttling-diagnosing-workflow.md#throttling-diagnosing "throttling-diagnosing-workflow.md#throttling-diagnosing").
@@ -28,7 +28,7 @@ actually needed:
   particularly during bulk operations or data migrations.
 - **Review throttling patterns:** If throttling is
   intermittent and your application handles retries effectively, the current
-  limits may be sufficient for your workload.
+  limits might be sufficient for your workload.
 
 If your application performs acceptably even when occasionally hitting account limits,
 you might choose to simply monitor the situation rather than implementing immediate
@@ -160,7 +160,7 @@ limits, you should submit a quota increase request using the procedure below. Ea
 DynamoDB table in your AWS account (together with all its associated GSIs) is subject
 to these throughput quotas within a specific Region. These quotas represent the
 maximum read or write capacity that any individual table and its GSIs can
-collectively consume, and they apply independently to each table rather than as an
+collectively consume. They apply independently to each table rather than as an
 aggregate across all tables in your account.
 
 Optionally, you can also set lower limits on a per-table or per-GSI basis by
@@ -211,7 +211,7 @@ change. For details on projection types, see [Projections for Global Secondary I
    attributes, use `KEYS_ONLY` projection to minimize write
    volume.
 4. Balance read vs. write trade-offs: Projecting fewer attributes reduces
-   write capacity consumption but may require additional base table
+   write capacity consumption but might require additional base table
    reads.
 
 ###### Sparse GSI implementation

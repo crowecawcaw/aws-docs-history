@@ -16,7 +16,7 @@ traffic. If it’s not, you can increase the warm throughput value without chang
 throughput settings or [billing mode](capacity-mode.md "capacity-mode.md"). This process
 is referred to as _pre-warming_ a table, allowing you
 to set a baseline that your tables can instantly support. This ensures your applications
-can handle higher request rates from the moment they occur. Once increased, warm throughput
+can handle higher request rates from the moment they occur. After warm throughput is increased, the
 values can't be decreased.
 
 You can increase the warm throughput value for read operations, write operations, or

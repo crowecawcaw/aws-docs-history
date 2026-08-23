@@ -11,7 +11,7 @@ process modified the item in the meantime, the condition fails and DynamoDB retu
 
 Optimistic locking is a good fit when:
 
-- Multiple users or processes may update the same item, but conflicts are
+- Multiple users or processes might update the same item, but conflicts are
   infrequent.
 - Retrying a failed write is inexpensive for your application.
 - You want to avoid the overhead and complexity of managing distributed

@@ -19,7 +19,7 @@ partition. While DynamoDB can keep scaling to support virtually unlimited
 throughput, each individual partition is limited to 1,000 write units per second
 and 3,000 read units per second. If your application drives too much traffic to
 a small portion of the table’s partitions, throttling can occur even before you
-reach the table's warm throughput values. We recommend following [DynamoDB best practices](bp-partition-key-design.md "bp-partition-key-design.md") to ensure
+reach the table's warm throughput values. We recommend following [DynamoDB best practices](bp-partition-key-design.md "bp-partition-key-design.md") to make sure
 seamless scalability and avoid hot partitions.
 
 ## Warm throughput for a provisioned table

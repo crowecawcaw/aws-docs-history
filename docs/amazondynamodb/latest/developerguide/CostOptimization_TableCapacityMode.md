@@ -97,7 +97,7 @@ provisioned capacity (blue line) as close to the consumed capacity (orange line)
 without increasing `ThrottledRequests` on the table. The space between the two
 lines is both wasted capacity as well as insurance against a bad user experience due to
 throttling. If you can predict your application’s throughput requirements and you prefer the
-cost predictability of controlling read and write capacity, then you may want to continue
+cost predictability of controlling read and write capacity, then you might want to continue
 using provisioned tables.
 
 DynamoDB provides auto scaling for provisioned capacity tables which will automatically
@@ -154,13 +154,13 @@ tables are currently not eligible). Reserved capacity offers significant discoun
 standard provisioned capacity pricing.
 
 When deciding between the two table modes, consider how much this additional discount
-will affect the cost of the table. In some cases, it may cost less to run a relatively
+will affect the cost of the table. In some cases, it might cost less to run a relatively
 unpredictable workload can be cheaper to run on an overprovisioned provisioned capacity table
 with reserved capacity.
 
 ###### Improving predictability of your workload
 
-In some situations, a workload may seemingly have both a predictable and unpredictable
+In some situations, a workload might seemingly have both a predictable and unpredictable
 pattern. While this can be easily supported with an on-demand table, costs will likely be
 better if the unpredictable patterns in the workload can be improved.
 

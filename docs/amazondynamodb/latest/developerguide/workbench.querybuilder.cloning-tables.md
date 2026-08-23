@@ -9,7 +9,7 @@ Regions for faster experimentation.
 
 1. In the **Operation Builder**, select your
    connection and Region (Region selection is not available for DynamoDB local).
-2. Once you are connected to DynamoDB, browse your tables and select the table you
+2. After you are connected to DynamoDB, browse your tables and select the table you
    want to clone.
 3. From the horizontal ellipsis menu, select the **Clone** option.
 4. Input your clone destination details:

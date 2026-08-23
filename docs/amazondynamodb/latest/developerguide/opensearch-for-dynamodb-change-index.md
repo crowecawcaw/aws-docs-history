@@ -8,7 +8,7 @@ you’ll need to take steps to initiate a fresh export.
 ###### Note
 
 In all these options, you might still run into issues if your DynamoDB table has type
-conflicts with the mapping template you’ve specified. Ensure that you have a dead-letter
+conflicts with the mapping template you’ve specified. Make sure that you have a dead-letter
 queue (DLQ) enabled (even in development). This makes it easier to understand what might be
 wrong with the record that causes a conflict when it's being indexed into your index on
 OpenSearch.
@@ -84,7 +84,7 @@ exports to complete between each iteration.
    as intended. If your sample data might conflict with any data from DynamoDB, be sure to
    delete it before moving onto the next step.
 3. If you have an indexing template in your pipeline, remove it or replace it with the
-   one you’ve created already in OpenSearch Service. Ensure that the name of your index matches the name
+   one you’ve created already in OpenSearch Service. Make sure that the name of your index matches the name
    in the pipeline.
 4. Start the pipeline either through console, or by calling the
    `StartPipeline` API operation with the AWS CLI or an SDK.

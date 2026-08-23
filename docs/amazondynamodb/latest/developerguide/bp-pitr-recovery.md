@@ -4,7 +4,8 @@ The following are the best practices for using point-in-time recovery (PITR) to 
 table to a previous state.
 
 Use these best practices if you notice mistaken writes to your table that you want to
-reverse. There are two approaches discussed here.
+reverse. You can either restore the full table from a point in time, or roll back specific
+unwanted writes in-place.
 
 ###### Topics
 

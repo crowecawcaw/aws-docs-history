@@ -51,7 +51,7 @@ Each item's location is determined by the hash value of its partition key.
 ###### Note
 
 DynamoDB is optimized for uniform distribution of items across a table's
-partitions, no matter how many partitions there may be. We recommend that you
+partitions, no matter how many partitions there might be. We recommend that you
 choose a partition key that can have a large number of distinct values relative
 to the number of items in the table.
 

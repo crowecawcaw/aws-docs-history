@@ -50,7 +50,7 @@ Note the following limitations when using customer managed keys:
 - You cannot use a customer managed key with DynamoDB Accelerator (DAX) clusters. For more information,
   see [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md").
 - You can use a customer managed key to encrypt tables that use transactions. However, to
-  ensure durability for propagation of transactions, a copy of the transaction request
+  achieve durability for propagation of transactions, a copy of the transaction request
   is temporarily stored by the service and encrypted using an AWS owned key.
   Committed data in your tables and secondary indexes is always encrypted at rest
   using your customer managed key.
@@ -63,7 +63,7 @@ Note the following limitations when using customer managed keys:
   table's SSEDescription Status is ENABLED and the KMSMasterKeyArn of the new
   customer managed key is displayed. At this point the original key can be disabled or scheduled
   for deletion.
-- Once the new customer managed key is displayed, the table and any new on-demand backups are
+- After the new customer managed key is displayed, the table and any new on-demand backups are
   encrypted with the new key.
 - Any existing on-demand backups remain encrypted with the customer managed key that was used
   when those backups were created. You will need that same key to restore those
@@ -87,7 +87,7 @@ tables, and backups when they are written to durable media.
 We recommend that you plan your encryption strategy
 before implementing your table in DynamoDB. If you store sensitive or confidential data in DynamoDB,
 consider including client-side encryption in your plan. This way you can encrypt data as close
-as possible to its origin, and ensure its protection throughout its lifecycle. For more information
+as possible to its origin, and make sure that it is protected throughout its lifecycle. For more information
 see the [DynamoDB
 encryption client](../../../dynamodb-encryption-client/latest/devguide/what-is-ddb-encrypt.md "../../../dynamodb-encryption-client/latest/devguide/what-is-ddb-encrypt.md") documentation.
 

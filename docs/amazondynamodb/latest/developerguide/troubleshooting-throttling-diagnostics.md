@@ -1,7 +1,7 @@
 # DynamoDB throttling resolution guide
 
 This section provides targeted resolution guidance for each specific throttling reason
-that DynamoDB may return. Each entry includes suggested resolution approaches based on best
+that DynamoDB might return. Each entry includes suggested resolution approaches based on best
 practices and corresponding CloudWatch metrics to monitor.
 
 DynamoDB implements 16 distinct throttling reasons across four main categories. Use the

@@ -234,7 +234,7 @@ by minimizing network round trips.
 With the low-level client library, you use the `client.batch_write_item()`
 operation to run batches. You must manually split your work into batches of 25. After
 each operation, you also have to request to receive a list of unprocessed items (some of
-the write operations may succeed while others could fail). You then have to pass those
+the write operations might succeed while others could fail). You then have to pass those
 unprocessed items again into a later `batch_write_item()` operation. There's
 a significant amount of boilerplate code.
 
@@ -448,7 +448,7 @@ dynamodb = boto3.resource('dynamodb', config=my_config)
 
 ```
 
-Because DynamoDB is a highly-available, low-latency system, you may want to be more
+Because DynamoDB is a highly-available, low-latency system, you might want to be more
 aggressive with the speed of retries than the built-in retry policies allow. You can
 implement your own retry policy by setting the max attempts to 0, catching the
 exceptions yourself, and retrying as appropriate from your own code instead of relying
@@ -661,7 +661,7 @@ of each:
   reached.
 
 Other libraries log as well. Internally, boto3 uses the third party urllib3 for HTTP
-connection handling. When latency is important, you can watch its logs to ensure your
+connection handling. When latency is important, you can watch its logs to make sure your
 pool is being well utilized by seeing when urllib3 establishes a new connection or
 closes an idle one down.
 

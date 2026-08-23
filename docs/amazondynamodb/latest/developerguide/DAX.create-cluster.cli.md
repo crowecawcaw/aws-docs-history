@@ -165,7 +165,7 @@ aws ec2 describe-subnets \
 ```
 
 In the output, note the subnet identifiers—for example,
-`subnet-11111111`. 3. Create the subnet group. Ensure that you specify at least one subnet ID in the
+`subnet-11111111`. 3. Create the subnet group. Make sure that you specify at least one subnet ID in the
 `--subnet-ids` parameter.
 
 ```

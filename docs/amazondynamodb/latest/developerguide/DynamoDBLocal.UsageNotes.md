@@ -180,7 +180,7 @@ following ways:
   framework to simulate `TransactionConflictExceptions` in the
   DynamoDB handler to test how your application responds to conflicting
   transactions.
-- In the DynamoDB web service, whether being accessed via the console or
+- In the DynamoDB web service, whether being accessed through the console or
   the AWS CLI, table names are case sensitive. A table named
   `Authors` and one named `authors` can both
   exist as separate tables. In the downloadable version, table names are
@@ -188,3 +188,7 @@ following ways:
   in an error.
 - Tagging is not supported in the downloadable version of DynamoDB.
 - The downloadable version of DynamoDB ignores the [Limit](../APIReference/API_ExecuteStatement.md#DDB-ExecuteStatement-request-Limit "../APIReference/API_ExecuteStatement.md#DDB-ExecuteStatement-request-Limit") parameter in [ExecuteStatement](../APIReference/API_ExecuteStatement.md "../APIReference/API_ExecuteStatement.md").
+- Vector indexes are not supported. `CreateTable` accepts the
+  `VectorIndexes` parameter without error and then ignores it, so
+  `DescribeTable` reports no vector index and `SearchVectors`
+  is unavailable. Test vector index behavior against the DynamoDB web service.

@@ -344,8 +344,8 @@ Within a subnet group, you can define up to 20 subnets.
 
 ###### Important
 
-A DAX cluster supports a maximum of 500 DynamoDB tables. Once you go beyond 500 DynamoDB tables, your cluster
-may experience degradation in availability and performance.
+A DAX cluster supports a maximum of 500 DynamoDB tables. After you go beyond 500 DynamoDB tables, your cluster
+might experience degradation in availability and performance.
 
 ## API-specific constraints
 

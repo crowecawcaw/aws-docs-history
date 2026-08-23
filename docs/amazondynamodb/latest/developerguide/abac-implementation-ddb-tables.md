@@ -1,4 +1,4 @@
-# Using ABAC with DynamoDB tables and indexes
+# Get started with ABAC for DynamoDB tables and indexes
 
 The following steps show how to set up permissions using ABAC. In this example scenario, you'll add tags to a DynamoDB table and create an IAM role with a policy that includes tag-based conditions. Then, you'll test the allowed permissions on the DynamoDB table by matching the tag conditions.
 

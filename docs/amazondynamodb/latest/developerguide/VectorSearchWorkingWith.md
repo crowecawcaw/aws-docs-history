@@ -164,27 +164,72 @@ When you add a vector index to an existing table, DynamoDB reports index progres
 through two fields in the `DescribeTable` response: an
 `IndexStatus` value and a separate `Backfilling` boolean.
 
-1. `IndexStatus` is `CREATING` — DynamoDB is
-   setting up the index infrastructure.
-2. `IndexStatus` is `ACTIVE` with
-   `Backfilling` set to `true` — DynamoDB is
-   populating the index with existing data from the base table. New writes to
-   the base table are also replicated to the index during this phase. While a
-   vector index is backfilling, `SearchVectors` returns an error.
-   Wait until `Backfilling` is `false` before you
+1. `IndexStatus` is `CREATING` and
+   `Backfilling` is absent or `false`. DynamoDB is
+   provisioning the index infrastructure.
+2. `IndexStatus` is `CREATING` and
+   `Backfilling` is `true`. DynamoDB is populating the
+   index from existing base table data. New writes to the base table are
+   replicated to the index during this phase.
+   `SearchVectors` returns a
+   `ValidationException`. This phase can take a substantial
+   amount of time even when the base table holds very few items.
+3. `IndexStatus` is `ACTIVE` and
+   `Backfilling` is no longer reported. The index is ready for
    search.
-3. `IndexStatus` is `ACTIVE` with
-   `Backfilling` set to `false` (or absent) — The
-   index is fully populated and ready for search operations.
 
 ###### You can't search while the index is backfilling
 
-`SearchVectors` returns an error while a vector index is
-backfilling. Use `DescribeTable` to check both the
-`IndexStatus` and the `Backfilling` flag, and wait until
-`IndexStatus` is `ACTIVE` and `Backfilling` is
-`false` before you search. There is no `BACKFILLING`
-index status value.
+`SearchVectors` returns a
+`ValidationException` while a vector index is backfilling. Use
+`DescribeTable` to check both the `IndexStatus` and
+the `Backfilling` flag, and wait until `IndexStatus`
+is `ACTIVE` and `Backfilling` is not
+`true` before you search. There is no
+`BACKFILLING` index status value; an index that is backfilling
+reports `IndexStatus` `CREATING` with
+`Backfilling` set to `true`.
+
+###### A newly ready index is not immediately searchable
+
+`SearchVectors` requests are served by a dedicated search
+endpoint, separate from the endpoint that serves
+`DescribeTable`. After `DescribeTable` first reports
+`IndexStatus` `ACTIVE`, the search endpoint can
+require additional time before it begins serving the index. During that
+interval `SearchVectors` returns a
+`ValidationException`, typically `The table does not have
+ the specified index`.
+
+Treat a `ValidationException` on the first searches after
+index creation as retryable rather than as a failure. Code that searches
+immediately after observing `ACTIVE` might appear to work in
+one environment and fail in another. The interval is brief and
+varies.
+
+For a readiness check that does not depend on either status field, issue
+a real `SearchVectors` request in a retry loop. Treat the
+first successful response as the signal that the index is ready.
+
+You can create or delete only one vector index per table at a time. This
+limit is shared with global secondary index creation on the same table. A second
+`UpdateTable` request that creates or deletes an index while another
+index operation is in progress fails with
+`LimitExceededException: Subscriber limit exceeded: Only 1 online index
+ can be created or deleted simultaneously per table`.
+
+This applies to a single request as well: an `UpdateTable` call
+containing two `Create` actions in its
+`VectorIndexUpdates` parameter fails with the same error. Create
+vector indexes one at a time, waiting for each to reach `ACTIVE`
+before starting the next. Because each index must finish backfilling before the
+next can start, building several vector indexes on one table takes considerably
+longer than building one.
+
+A `CreateTable` request can define multiple vector indexes at
+once, up to the per-table limit of five. Exceeding that limit fails with
+`ValidationException: One or more parameter values were invalid:
+ VectorIndex count exceeds the per-table limit of 5`.
 
 ## Writing items with vector data
 
@@ -244,7 +289,7 @@ write an item without that attribute (or remove it with
 `UpdateItem`), the write succeeds on the base table but the item
 is silently excluded from the vector index. It will not appear in
 `SearchVectors` results even though the base table item and its
-vector embedding still exist. Ensure that every item you want to be
+vector embedding still exist. Make sure that every item you want to be
 searchable contains the vector index partition key attribute.
 
 ###### Stale embeddings produce incorrect results

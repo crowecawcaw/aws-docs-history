@@ -68,11 +68,11 @@ the encryption key that is associated with existing on-demand backups.
 Setting the state of the customer managed key to disabled or scheduling it for deletion prevents
 all users and the DynamoDB service from being able to encrypt or decrypt data and to
 perform read and write operations on the table. DynamoDB must have access to your
-encryption key to ensure that you can continue to access your table and to prevent data
+encryption key to make sure that you can continue to access your table and to prevent data
 loss.
 
 If you disable your customer managed key or schedule it for deletion, your table status becomes
-**Inaccessible**. To ensure that you can continue working with the
+**Inaccessible**. To make sure that you can continue working with the
 table, you must provide DynamoDB access to the specified encryption key within seven days.
 As soon as the service detects that your encryption key is inaccessible, DynamoDB sends you
 an email notification to alert you.
@@ -103,7 +103,7 @@ encryption](../../../kms/latest/developerguide/concepts.md#enveloping "../../../
 DynamoDB doesn't call AWS KMS for every DynamoDB operation. The key is refreshed once every 5
 minutes per caller with active traffic.
 
-Ensure that you have configured the SDK to reuse connections. Otherwise, you will
+Make sure that you have configured the SDK to reuse connections. Otherwise, you will
 experience latencies from DynamoDB having to reestablish new AWS KMS cache entries for each
 DynamoDB operation. In addition, you might potentially have to face higher AWS KMS and CloudTrail
 costs. For example, to do this using the Node.js SDK, you can create a new HTTPS agent

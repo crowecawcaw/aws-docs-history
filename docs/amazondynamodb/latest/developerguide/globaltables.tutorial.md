@@ -45,7 +45,7 @@ replica tables that you add later. 4. Choose the **Global Tables** tab, and then
 ![Console screenshot showing the Create a Version 2017.11.29 (Legacy) replica button.](images/GlobalTables-old.png) 5. From the **Available replication Regions** dropdown, choose
 **US West (Oregon)**.
 
-The console checks to ensure that a table with the same name doesn't exist in
+The console checks to make sure that a table with the same name doesn't exist in
 the selected Region. If a table with the same name does exist, you must delete
 the existing table before you can create a new replica table in that
 Region. 6. Choose **Create Replica**. This starts the table creation

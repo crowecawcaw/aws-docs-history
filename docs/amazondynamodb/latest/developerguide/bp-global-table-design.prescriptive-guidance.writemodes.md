@@ -14,7 +14,7 @@ depends on your application’s write mode.
 
 The _write to any Region_ mode, illustrated in the
 following diagram, is fully active-active and doesn’t impose restrictions on where a write
-may occur. Any Region may accept a write at any time. This is the simplest mode, but it can
+might occur. Any Region might accept a write at any time. This is the simplest mode, but it can
 only be used with some types of applications. This mode is suitable for all MRSC tables.
 It’s also suitable for MREC tables when all writers are idempotent, and therefore safely
 repeatable so that concurrent or repeated write operations across Regions are not in
@@ -99,7 +99,7 @@ latency read and write operations. It also has the side benefit of calling the
 Region-changing code daily and making sure that it’s well tested before any disaster
 recovery.
 
-The passive Region(s) may keep a downscaled set of infrastructure surrounding DynamoDB that
+The passive Region(s) might keep a downscaled set of infrastructure surrounding DynamoDB that
 gets built up only if it becomes the active Region. This guide doesn’t cover pilot light and
 warm standby designs. For a more information, see [Disaster Recovery (DR) Architecture on AWS, Part III: Pilot Light and Warm
 Standby](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iii-pilot-light-and-warm-standby/ "https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iii-pilot-light-and-warm-standby/").
@@ -143,7 +143,7 @@ You can determine the home Region for items in several ways:
   table](https://aws.amazon.com/blogs/database/use-region-pinning-to-set-a-home-region-for-items-in-an-amazon-dynamodb-global-table/ "https://aws.amazon.com/blogs/database/use-region-pinning-to-set-a-home-region-for-items-in-an-amazon-dynamodb-global-table/").
 - **Negotiated:** The home Region of each dataset is
   negotiated in some external manner, such as with a separate global service that
-  maintains assignments. The assignment may have a finite duration after which it’s
+  maintains assignments. The assignment might have a finite duration after which it’s
   subject to renegotiation.
 - **Table-oriented:** Instead of creating a single
   replicating global table, you create the same number of global tables as replicating

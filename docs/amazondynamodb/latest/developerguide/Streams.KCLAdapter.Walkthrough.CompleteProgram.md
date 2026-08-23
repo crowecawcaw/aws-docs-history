@@ -16,7 +16,7 @@ Done.
 
 ###### Important
 
-To run this program, ensure that the client application has access to DynamoDB and
+To run this program, make sure that the client application has access to DynamoDB and
 Amazon CloudWatch using policies. For more information, see
 [Identity-based policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 

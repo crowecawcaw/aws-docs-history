@@ -13,7 +13,7 @@ depends on the DynamoDB table size. The zero-ETL integration then incrementally 
 updates from DynamoDB to Amazon Redshift every 15-30 minutes using DynamoDB incremental exports. This
 means the replicated DynamoDB data in Amazon Redshift is kept up-to-date automatically.
 
-Once configured, users can analyze the DynamoDB data in Amazon Redshift using standard SQL clients
+After it is configured, you can analyze the DynamoDB data in Amazon Redshift using standard SQL clients
 and tools, without impacting DynamoDB table performance. By eliminating cumbersome ETL,
 this zero-ETL integration provides a fast, easy way to unlock insights from DynamoDB
 through Amazon Redshift analytics and machine learning capabilities.
@@ -97,7 +97,7 @@ JSON
 
 ```
 
-You may also need to
+You might also need to
 configure the resource policy on your Amazon Redshift data warehouse. For more
 information, see [Configure authorization using the Amazon Redshift API](../../../redshift/latest/mgmt/zero-etl-using.redshift-iam.md#zero-etl-using.resource-policies "../../../redshift/latest/mgmt/zero-etl-using.redshift-iam.md#zero-etl-using.resource-policies"). 4. ###### For Identity-based policies:
 

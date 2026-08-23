@@ -28,7 +28,7 @@ replicas in that Region's stack.
 You cannot convert a resource of type `AWS::DynamoDB::Table` into a
 resource of type `AWS::DynamoDB::GlobalTable` by changing its type in
 your template. Attempting to convert a single-Region table to a global table by
-changing its CloudFormation resource type may result in the deletion of your DynamoDB
+changing its CloudFormation resource type might result in the deletion of your DynamoDB
 table.
 
 You can use the `AWS::DynamoDB::GlobalTable` resource to create a table in
@@ -62,7 +62,7 @@ table-level throughput quotas for global tables, see [Global tables](ServiceQuot
 ## Backups and Point-in-Time Recovery
 
 Enabling automated backups and Point-in-Time Recovery (PITR) for one replica in a
-global table may be sufficient to meet your disaster recovery objectives. Replica
+global table might be sufficient to meet your disaster recovery objectives. Replica
 backups created with AWS-Backup can be automatically replicated across Regions for
 greater resilience. Consider your disaster recovery plan goals in the context of
 multi-Region high availability when choosing your backup and PITR enablement

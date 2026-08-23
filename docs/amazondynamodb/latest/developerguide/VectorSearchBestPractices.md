@@ -96,5 +96,5 @@ underlying data without migrating your production index.
 For example, when upgrading from one model version to another, create a second
 index with the new model's dimensions and distance function. Backfill it with
 embeddings from the new model, run test queries against both indexes, and compare
-relevance. Once satisfied, migrate your application to the new index and delete the
+relevance. After you are satisfied, migrate your application to the new index and delete the
 old one.

@@ -13,7 +13,7 @@ With NoSQL Workbench for DynamoDB, you can start a new project from scratch or u
 Then, you design tables and Global Secondary Indexes, define attributes, and configure sample data.
 You can also visualize your access patterns as real DynamoDB operations (PutItem, UpdateItem, Query, and others) and run these operations against the configured sample data
 to validate that the access pattern works as intended, making adjustments to the data model based on validation results.
-Finally, once validated, you commit the model to either DynamoDB local or your AWS account for further testing and production use.
+Finally, after validation, you commit the model to either DynamoDB local or your AWS account for further testing and production use.
 For collaboration, you can import and export designed data models.
 For more information, see [Building data models with NoSQL Workbench](workbench.Modeler.md "workbench.Modeler.md").
 

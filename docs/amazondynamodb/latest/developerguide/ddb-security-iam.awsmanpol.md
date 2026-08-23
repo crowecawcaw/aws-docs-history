@@ -5,7 +5,7 @@ DynamoDB maintains and updates its AWS managed policies. You can't change the pe
 For more information about AWS managed policies,
 see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the IAM User Guide.
 
-DynamoDB may occasionally add additional permissions to an AWS managed policy to support new features. This type of update affects
+DynamoDB might occasionally add additional permissions to an AWS managed policy to support new features. This type of update affects
 all identities (users, groups, and roles) where the policy is attached. An AWS managed policy is most likely to be updated when a
 new feature is launched or when new operations become available. DynamoDB will not remove permissions from an AWS managed policy,
 so policy updates won't break your existing permissions. For a full list of AWS managed
@@ -31,8 +31,7 @@ This policy grants permissions to do the following:
 - `account` – Retrieve region status for evaluating replica accessibility.
 - `iam` – To create the service-linked role for application Auto Scaling in the event that the service-linked role does not already exist.
 
-The definition of this managed policy can be found
-[here](../../../aws-managed-policy/latest/reference/DynamoDBReplicationServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/DynamoDBReplicationServiceRolePolicy.md").
+For more information, see [DynamoDBReplicationServiceRolePolicy](../../../aws-managed-policy/latest/reference/DynamoDBReplicationServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/DynamoDBReplicationServiceRolePolicy.md") in the AWS Managed Policy Reference.
 
 ## AWS managed policy: AmazonDynamoDBFullAccess\_v2
 

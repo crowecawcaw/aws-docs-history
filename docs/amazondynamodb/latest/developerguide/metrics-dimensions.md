@@ -274,7 +274,7 @@ secondary index, you must specify both `TableName` and
 ###### Note
 
 This means that short, intense spikes in capacity consumption lasting
-just a second may not be accurately reflected in the CloudWatch graph, potentially
+just a second might not be accurately reflected in the CloudWatch graph, potentially
 leading to a lower apparent consumption rate for that minute.
 
 Use the `Sum` statistic to calculate the consumed throughput.
@@ -855,7 +855,7 @@ error.
 When DynamoDB returns a system error (HTTP 500), most AWS SDKs
 automatically perform a configurable number of retries. If the issue
 resolves during a retry, your application continues without seeing the
-error, and you may notice increased client-side perceived latency. If the
+error, and you might notice increased client-side perceived latency. If the
 error persists after all retries, it propagates to your application code.
 
 ###### Note

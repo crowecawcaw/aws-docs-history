@@ -5,7 +5,7 @@ global secondary index (GSI). Each partition has a maximum number of read capaci
 (RCUs) and write capacity units (WCUs) per second. When partitions receive concentrated
 traffic that exceeds these limits, they experience throttling while other operations may
 remain underutilized, creating "hot partitions." DynamoDB's partition-level throttling operates
-independently for reads and writes - a partition may throttle reads while writes continue
+independently for reads and writes - a partition might throttle reads while writes continue
 normally, or vice versa. This throttling can occur even when your table or GSI has
 sufficient overall capacity. To learn more about:
 
@@ -23,7 +23,7 @@ sufficient overall capacity. To learn more about:
 ## Key range throughput exceeded mitigation measures
 
 This section provides resolution guidance for partition-level throttling scenarios.
-Before using this guide, ensure you have identified the specific throttling reasons from
+Before using this guide, make sure you have identified the specific throttling reasons from
 your application's exception handling, and determined the Amazon Resource Name (ARN) of
 the affected resource. For information on retrieving throttling reasons and identifying
 throttled resources, see [DynamoDB throttling diagnosis framework](throttling-diagnosing-workflow.md#throttling-diagnosing "throttling-diagnosing-workflow.md#throttling-diagnosing").
@@ -33,7 +33,7 @@ automatically:
 
 - DynamoDB often adapts to hot partitions through its automatic split-for-heat
   mechanism. If you see throttling events that stop after a short period, your
-  table may have already adapted by splitting the hot partition. When partitions
+  table might have already adapted by splitting the hot partition. When partitions
   split, each new partition handles a smaller section of the keyspace, which can
   help distribute the load more evenly. In many cases, no further action is needed
   as DynamoDB has automatically resolved the issue.
@@ -76,10 +76,10 @@ Consider these steps to address your throttling events:
   didn't resolve it automatically and your warm throughput is high or raising
   it didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
   partition key values are hot. This is a first step to target your mitigation
-  efforts effectively. Note that identification may not always be
+  efforts effectively. Note that identification might not always be
   straightforward, particularly with rolling hot partitions (where different
   partitions become hot over time) or when throttling is triggered by
-  operations like scans. For these complex scenarios, you may need to analyze
+  operations like scans. For these complex scenarios, you might need to analyze
   your application's access patterns and correlate them with the timing of
   throttling events.
 - **Depending on your use case, consider using
@@ -117,7 +117,7 @@ Consider these steps to address your throttling events:
   expected traffic increases. Increasing warm throughput improves your table's
   ability to handle sudden traffic spikes before throttling occurs. Over time,
   if your actual throughput consistently approaches the warm throughput
-  levels, DynamoDB may split busy partitions based on observed usage patterns.
+  levels, DynamoDB might split busy partitions based on observed usage patterns.
 - **Identify your hot keys:** If the table
   didn't resolve it automatically and your warm throughput is high or raising
   it didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
@@ -139,7 +139,7 @@ Consider these steps to address your throttling events:
     unprocessed items in the response, which your application must handle by
     retrying those specific items. For transactions, the entire operation fails
     with a `TransactionCanceledException` if any item experiences
-    throttling. For these complex scenarios, you may need to analyze your
+    throttling. For these complex scenarios, you might need to analyze your
     application's write patterns and data ingestion workflows, correlate them
     with the timing of throttling events, and implement appropriate retry
     handling strategies.
@@ -171,7 +171,7 @@ Consider these steps to address your throttling events:
   expected traffic increases. Increasing warm throughput improves your GSI's
   ability to handle sudden traffic spikes before throttling occurs. Over time,
   if your actual throughput consistently approaches the warm throughput
-  levels, DynamoDB may split busy partitions based on observed usage patterns.
+  levels, DynamoDB might split busy partitions based on observed usage patterns.
 - **Identify your hot keys:** If the GSI didn't
   resolve it automatically and your warm throughput is high or raising it
   didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
@@ -298,7 +298,7 @@ attributes. When you update attributes that aren't projected into a GSI, no writ
 operation occurs on that GSI, reducing write throughput consumption during updates.
 This targeted projection strategy optimizes both performance and cost while still
 supporting your application's query requirements. Note that projecting fewer
-attributes reduces write capacity consumption but may require additional base table
+attributes reduces write capacity consumption but might require additional base table
 reads.
 
 For more information about efficient projection strategies, see [Best Practices for Using Secondary Indexes in

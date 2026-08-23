@@ -22,7 +22,7 @@ The following procedure shows how to use the console to delete the
 3. In the list of backups, choose `MusicBackup`.
 
 ![Screenshot showing the MusicBackup with status as available.](images/select_musicbackup.png) 4. Choose **Delete**. Confirm that you want to delete the backup
-by typing `delete` and clicking
+by typing `delete` and choosing
 **Delete**.
 The following example deletes a backup for an existing table
 `Music` table using the AWS CLI.

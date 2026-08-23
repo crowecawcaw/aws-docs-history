@@ -45,7 +45,7 @@ take a little longer than for larger item sizes.
 
 ## Do not modify S3 objects during active imports
 
-Ensure that your source S3 objects remain unchanged while an import operation is in
+Make sure that your source S3 objects remain unchanged while an import operation is in
 progress. If an S3 object is modified during an import, the operation will fail with
 error code `ObjectModifiedInS3DuringImport` and the message "The S3 object
 could not be imported because it was overwritten."
@@ -56,9 +56,9 @@ making changes to the source files.
 
 ## Consider importing without any Global Secondary Indexes
 
-The duration of an import task may depend on the presence of one or multiple global
+The duration of an import task might depend on the presence of one or multiple global
 secondary indexes (GSIs). If you plan to establish indexes with partition keys that have
-low cardinality, you may see a faster import if you defer index creation until after the
+low cardinality, you might see a faster import if you defer index creation until after the
 import task is finished (rather than including them in the import job).
 
 ###### Note

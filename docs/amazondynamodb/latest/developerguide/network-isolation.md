@@ -81,7 +81,7 @@ For more information, see [Tutorial: Using a VPC endpoint for DynamoDB](#vpc-end
 In order to enable access to the DynamoDB service through a VPC subnet's gateway
 endpoint, you must have owner account permissions for that VPC subnet.
 
-Once the VPC subnet’s gateway endpoint has been granted access to DynamoDB, any AWS
+After the VPC subnet’s gateway endpoint has been granted access to DynamoDB, any AWS
 account with access to that subnet can use DynamoDB. This means all account users within
 the VPC subnet can use any DynamoDB tables which they have access to. This includes DynamoDB
 tables associated with a different account than the VPC subnet. The VPC subnet owner can
@@ -178,7 +178,7 @@ step in this tutorial ([Step 2: Configure your Amazon EC2 instance](#vpc-endpoin
 ###### Note
 
 It will take a few minutes for your Amazon EC2 instance to become available. Before
-you go on to the next step, ensure that the **Instance State**
+you go on to the next step, make sure that the **Instance State**
 is `running` and that all of its **Status Checks**
 have passed.
 

@@ -156,7 +156,7 @@ between provisioned throughput costs and storage costs:
   consider projecting only those attributes into a local secondary index. The smaller the index,
   the less that it costs to store it, and the less your write costs are. If there
   are attributes that you occasionally need to fetch, the cost for provisioned
-  throughput may well outweigh the longer-term cost of storing those
+  throughput might well outweigh the longer-term cost of storing those
   attributes.
 - If your application frequently accesses some non-key attributes, you should
   consider projecting those attributes into a local secondary index. The additional storage costs
@@ -489,8 +489,8 @@ This does not apply to item collections in tables without local secondary indexe
 item collections in global secondary indexes. Only tables that have one or more
 local secondary indexes are affected.
 
-If an item collection exceeds the 10 GB limit, DynamoDB may return an
-`ItemCollectionSizeLimitExceededException`, and you may not be able to
+If an item collection exceeds the 10 GB limit, DynamoDB might return an
+`ItemCollectionSizeLimitExceededException`, and you might not be able to
 add more items to the item collection or increase the sizes of items that are in the
 item collection. (Read and write operations that shrink the size of the item
 collection are still allowed.) You can still add items to other item

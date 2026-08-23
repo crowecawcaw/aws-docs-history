@@ -29,7 +29,7 @@ Here are some of the actions you can perform in the DynamoDB console:
   indexes, streams, triggers, reserved capacity, and other advanced features to
   enhance your DynamoDB usage.
 
-The DynamoDB console provides a comprehensive interface for managing your DynamoDB resources. We encourage you to access the console and interact with it to learn more.
+The DynamoDB console provides a comprehensive interface for managing your DynamoDB resources. Access the console to explore and learn more.
 
 ## Using the AWS CLI
 

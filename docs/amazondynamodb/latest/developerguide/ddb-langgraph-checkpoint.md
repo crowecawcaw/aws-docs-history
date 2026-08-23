@@ -49,7 +49,7 @@ application architectures.
 
 ###### Important
 
-This guide creates AWS resources that may incur charges. DynamoDB uses
+This guide creates AWS resources that might incur charges. DynamoDB uses
 pay-per-request billing by default, and Amazon S3 charges apply if you enable large
 checkpoint offloading. Follow the [Clean
 up](#langgraph-cleanup "#langgraph-cleanup") section to delete resources when you are done.

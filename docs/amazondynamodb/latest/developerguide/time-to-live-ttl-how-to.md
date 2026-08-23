@@ -24,7 +24,7 @@ enable TTL across all partitions.
    operations. A mismatch will cause expired items to go undeleted. Renaming
    the TTL attribute requires you to disable TTL and then re-enable it with the
    new attribute going forward. TTL will continue to process deletions for
-   approximately 30 minutes once it is disabled. TTL must be reconfigured on
+   approximately 30 minutes after it is disabled. TTL must be reconfigured on
    restored tables.
 
 ![Case-sensitive TTL attribute name that DynamoDB uses to determine an item's eligiblity for expiration.](images/EnableTTL-Settings.png) 5. (Optional) You can perform a test by simulating the date and time of the

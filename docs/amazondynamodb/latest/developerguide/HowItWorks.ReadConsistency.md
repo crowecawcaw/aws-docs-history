@@ -18,7 +18,7 @@ operation.
 
 Eventually consistent is the default read consistent model for all read
 operations. When issuing eventually consistent reads to a DynamoDB table or an index,
-the responses may not reflect the results of a recently completed write operation.
+the responses might not reflect the results of a recently completed write operation.
 If you repeat your read request after a short time, the response should eventually
 return the more recent item. Eventually consistent reads are supported on tables,
 local secondary indexes, and global secondary indexes. Also note that all reads from

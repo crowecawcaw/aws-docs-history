@@ -12,7 +12,7 @@ ramp up or down to any previously reached traffic level. If a workload’s traff
 hits a new peak, DynamoDB automatically scales to accommodate the increased throughput
 requirements. On-demand mode is the default and recommended throughput option because it
 simplifies building modern, serverless applications that can start small and scale to
-millions of requests per second. Once your on-demand table is scaled out, you can
+millions of requests per second. After your on-demand table is scaled out, you can
 instantly achieve the same throughput again in the future without throttling. If you are
 driving zero traffic to your table, then with on-demand, you are not charged for any
 throughput. For more information about on-demand mode's scaling properties, see [Initial throughput and scaling properties](#on-demand-capacity-mode-initial "#on-demand-capacity-mode-initial").
@@ -81,7 +81,7 @@ subsequent traffic to reach up to 200,000 reads per second.
 
 If your workload generates more than double your previous peak on a table, DynamoDB
 automatically allocates more capacity as your traffic volume increases. This
-capacity allocation helps ensure that your workload doesn't experience throttling.
+capacity allocation helps make sure that your workload doesn't experience throttling.
 However, throttling can occur if you exceed double your previous peak within 30
 minutes. For example, say that your application’s traffic pattern varies between
 25,000 and 50,000 strongly consistent reads per second. 50,000 reads per second is

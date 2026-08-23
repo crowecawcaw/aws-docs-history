@@ -60,4 +60,4 @@ considering as part of your decision.
 
 Purchasing reserved capacity for tables using the Standard-IA table class is currently
 not supported. When transitioning from a Standard table with reserved capacity to a
-Standard-IA table without reserved capacity, you may not see a cost benefit.
+Standard-IA table without reserved capacity, you might not see a cost benefit.

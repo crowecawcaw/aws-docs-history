@@ -20,6 +20,8 @@ indexes:
   indexes.
 - Vector indexes are not accessible through PartiQL. Use the
   `SearchVectors` API to run similarity searches.
+- Vector indexes are available in all commercial AWS Regions, the
+  AWS GovCloud (US) Regions, and the China Regions.
   For numeric limits including maximum dimensions, TopK range, inline filters per
   index, indexes per table, and base table size thresholds, see
   [Vector indexes](ServiceQuotas.md#limits-vector-indexes "ServiceQuotas.md#limits-vector-indexes") in

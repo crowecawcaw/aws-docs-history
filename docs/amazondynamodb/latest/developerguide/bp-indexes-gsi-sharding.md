@@ -79,7 +79,7 @@ within your specified time range.
 ## Parallel query execution considerations
 
 Each query consumes read capacity from your table or index.
-If you're using provisioned throughput, ensure that your table is provisioned with enough capacity to handle
+If you're using provisioned throughput, make sure that your table is provisioned with enough capacity to handle
 the burst of parallel queries. If you're using on-demand capacity, be mindful of the potential cost implications.
 
 ## Code example

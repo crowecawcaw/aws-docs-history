@@ -52,10 +52,8 @@ JSON
 - [Why should I use ABAC?](#why-use-abac "#why-use-abac")
 - [Condition keys to implement ABAC with DynamoDB](#condition-keys-implement-abac "#condition-keys-implement-abac")
 - [Considerations for using ABAC with DynamoDB](#abac-considerations "#abac-considerations")
-- [Enabling ABAC in DynamoDB](abac-enable-ddb.md "abac-enable-ddb.md")
-- [Using ABAC with DynamoDB tables and indexes](abac-implementation-ddb-tables.md "abac-implementation-ddb-tables.md")
-- [Examples for using ABAC with DynamoDB tables and indexes](abac-example-use-cases.md "abac-example-use-cases.md")
-- [Troubleshooting common ABAC errors for DynamoDB tables and indexes](abac-troubleshooting.md "abac-troubleshooting.md")
+- [Using attribute-based access control with DynamoDB tables and indexes](abac-tables.md "abac-tables.md")
+- [Using attribute-based access control with DynamoDB Streams](abac-streams.md "abac-streams.md")
 
 ## Why should I use ABAC?
 
@@ -79,6 +77,6 @@ The `dynamodb:ResourceTag` conditions are evaluated as if you didn't attach any 
 
 When you use ABAC with DynamoDB tables or indexes, the following considerations apply:
 
-- Tagging and ABAC aren't supported for DynamoDB Streams.
+- For information about using ABAC with DynamoDB Streams, see [Using attribute-based access control with DynamoDB Streams](abac-streams.md "abac-streams.md").
 - Tagging and ABAC aren't supported for DynamoDB backups. To use ABAC with backups, we recommend that you use [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md").
 - Tags aren't preserved in restored tables. You need to add tags to restored tables before you can use tag-based conditions in your policies.

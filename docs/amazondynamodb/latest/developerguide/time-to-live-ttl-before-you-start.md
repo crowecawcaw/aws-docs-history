@@ -482,7 +482,7 @@ update_dynamodb_item(
   [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
-The TTL examples discussed in this introduction demonstrate a method to ensure only
+The TTL examples discussed in this introduction demonstrate a method to make sure only
 recently updated items are kept in a table. Updated items have their lifespan extended,
 whereas items not updated post-creation expire and are deleted at no cost, reducing
 storage and maintaining clean tables.

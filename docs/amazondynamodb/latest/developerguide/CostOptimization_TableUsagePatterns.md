@@ -78,7 +78,7 @@ down and save on storage costs.
 
 Another useful aspect of TTL is that the expired items occur on your DynamoDB streams, so
 rather than just removing the data from your data, it is possible to consume those items from
-the stream and archive them to a lower cost storage tier. Additionally, deleting items via TTL
+the stream and archive them to a lower cost storage tier. Additionally, deleting items through TTL
 comes at no additional cost — it does not consume capacity, and there’s no overhead of
 designing a clean up application.
 

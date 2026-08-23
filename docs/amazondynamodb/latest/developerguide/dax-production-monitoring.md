@@ -32,7 +32,7 @@ AWS has improved the `CPUUtilization` metric's granularity. You might observe ch
 ###### Note
 
 In case of a large number of cache misses and writes, cache memory utilization can increase up to 100%
-and may cause availability downtime.
+and might cause availability downtime.
 
 - Client connections, so that you can monitor for any unexplained spikes in
   connections to the cluster.

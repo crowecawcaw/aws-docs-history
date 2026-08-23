@@ -28,7 +28,7 @@ If you choose to turn off AWS Backup features after they’ve been turned on, fo
 3. In the Backup Settings window, choose **Turn off**.
 4. A confirmation screen will appear. Choose **Turn off features**.
 
-If you can’t turn the AWS Backup features on or off, your AWS admin may need to perform those actions.
+If you can’t turn the AWS Backup features on or off, your AWS admin might need to perform those actions.
 
 ## On-demand backups
 

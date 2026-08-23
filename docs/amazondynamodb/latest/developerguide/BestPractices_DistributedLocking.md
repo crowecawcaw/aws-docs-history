@@ -19,7 +19,7 @@ item with the following key attributes:
 - A heartbeat that the lock holder sends periodically to extend the lease. This
   prevents the lock from expiring while the holder is still actively processing.
 
-The lock client uses conditional writes to ensure that only one process can acquire a lock
+The lock client uses conditional writes to make sure that only one process can acquire a lock
 at a time. If a lock is already held, the caller can choose to wait and retry or fail
 immediately.
 
@@ -96,7 +96,7 @@ lockClient.close();
 
 ###### Important
 
-Always release locks in a `finally` block to ensure locks are released even if
+Always release locks in a `finally` block to make sure locks are released even if
 your processing logic throws an exception. Unreleased locks block other processes until the
 lease expires.
 
@@ -136,7 +136,7 @@ def release_lock(table, resource_name, owner_id):
         return False
 ```
 
-This approach uses a condition expression to ensure that a lock can only be acquired if it
+This approach uses a condition expression to make sure that a lock can only be acquired if it
 doesn't exist or has expired, and can only be released by the process that acquired it. Consider
 enabling [Time to Live (TTL)](TTL.md "TTL.md") on the lock table to automatically clean
 up expired lock items.

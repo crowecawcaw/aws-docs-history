@@ -28,7 +28,7 @@ Amazon DynamoDB automatically creates the
 you create your first global table. This role manages cross-Region replication for
 you.
 
-When applying resource-based policies to replicas, ensure that you don't deny any
+When applying resource-based policies to replicas, make sure that you don't deny any
 of the permissions defined in the
 `AWSServiceRoleForDynamoDBReplicationPolicy` to the SLR principal, as
 this will interrupt replication. If you deny required SLR permissions, replication
@@ -58,7 +58,7 @@ This service-linked role is automatically created in your AWS account when you
 first configure auto scaling for a DynamoDB table. It allows Application Auto Scaling
 to managed provisioned table capacity and create CloudWatch alarms.
 
-When applying resource-based policies to replicas, ensure that you don't deny any
+When applying resource-based policies to replicas, make sure that you don't deny any
 permissions defined in the [`AWSApplicationAutoscalingDynamoDBTablePolicy`](../../../aws-managed-policy/latest/reference/AWSApplicationAutoscalingDynamoDBTablePolicy.md "../../../aws-managed-policy/latest/reference/AWSApplicationAutoscalingDynamoDBTablePolicy.md") to the
 Application Auto Scaling SLR principal, as this will interrupt auto scaling
 functionality.
@@ -520,19 +520,25 @@ you are deleting the replica, you should first delete the replica, wait for the
 table status on one of the remaining replicas to change to `ACTIVE`, then
 disable or delete the key.
 
-For a global table configured for multi-Region eventual consistency (MREC), if you
-disable or revoke DynamoDB's access to a customer managed key used to encrypt a replica,
-replication to and from the replica will stop and the replica status will change to
-`INACCESSIBLE_ENCRYPTION_CREDENTIALS`. If a replica in a MREC global
-table remains in the `INACCESSIBLE_ENCRYPTION_CREDENTIALS` state for more
-than 20 hours, the replica is irreversibly converted to a single-Region DynamoDB
+**MREC (multi-Region eventual consistency)**
+
+If you disable or revoke DynamoDB's access to a customer managed key used
+to encrypt a replica, replication to and from the replica will stop. The
+replica status will change to
+`INACCESSIBLE_ENCRYPTION_CREDENTIALS`. If a replica in a MREC
+global table remains in the
+`INACCESSIBLE_ENCRYPTION_CREDENTIALS` state for more than 20
+hours, the replica is irreversibly converted to a single-Region DynamoDB
 table.
 
-For a global table configured for multi-Region strong consistency (MRSC), if you
-disable or revoke DynamoDB's access to a customer managed key used to encrypt a replica,
-replication to and from the replica will stop, attempts to perform write or strongly
-consistent reads to the replica will return an error, and the replica status will change
-to `INACCESSIBLE_ENCRYPTION_CREDENTIALS`. If a replica in a MRSC global table
-remains in the `INACCESSIBLE_ENCRYPTION_CREDENTIALS` state for more than
-seven days, depending on the specific permissions revoked the replica will be archived
-or become permanently inaccessible.
+**MRSC (multi-Region strong consistency)**
+
+If you disable or revoke DynamoDB's access to a customer managed key used
+to encrypt a replica, replication to and from the replica will stop.
+Attempts to perform write or strongly consistent reads to the replica will
+return an error, and the replica status will change to
+`INACCESSIBLE_ENCRYPTION_CREDENTIALS`. If a replica in a MRSC
+global table remains in the
+`INACCESSIBLE_ENCRYPTION_CREDENTIALS` state for more than
+seven days, depending on the specific permissions revoked, the replica
+will be archived or become permanently inaccessible.

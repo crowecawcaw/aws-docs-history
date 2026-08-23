@@ -12,10 +12,10 @@ format](https://en.wikipedia.org/wiki/Unix_time "https://en.wikipedia.org/wiki/U
 Number type are ignored by the TTL process. Each time an item is created or updated, you
 can compute the expiration time and save it in the TTL attribute.
 
-Items with valid, expired TTL attributes may be deleted by the system at any time, typically within a few days after their expiration. You can still update the expired items that are pending deletion, including changing or removing their TTL attributes. If you update an item's TTL attribute to a timestamp in the future (or remove the TTL attribute) before the item is deleted, the item is no longer considered expired and the TTL process does not delete it. While updating an expired item, we recommended that you use a condition expression to make sure the item has not been subsequently deleted. Use filter expressions to remove expired items from [Scan](Scan.md#Scan.FilterExpression "Scan.md#Scan.FilterExpression") and [Query](Query.FilterExpression.md "Query.FilterExpression.md") results.
+Items with valid, expired TTL attributes might be deleted by the system at any time, typically within a few days after their expiration. You can still update the expired items that are pending deletion, including changing or removing their TTL attributes. If you update an item's TTL attribute to a timestamp in the future (or remove the TTL attribute) before the item is deleted, the item is no longer considered expired and the TTL process does not delete it. While updating an expired item, we recommended that you use a condition expression to make sure the item has not been subsequently deleted. Use filter expressions to remove expired items from [Scan](Scan.md#Scan.FilterExpression "Scan.md#Scan.FilterExpression") and [Query](Query.FilterExpression.md "Query.FilterExpression.md") results.
 
-Deleted items work similarly to those deleted through typical delete operations. Once
-deleted, items go into DynamoDB Streams as service deletions instead of user deletes, and are
+Deleted items work similarly to those deleted through typical delete operations. After
+deletion, items go into DynamoDB Streams as service deletions instead of user deletes, and are
 removed from local secondary indexes and global secondary indexes just like other delete
 operations.
 

@@ -6,11 +6,11 @@ AWS provides cost and usage reports (CUR) that contain data for the
 services used. You can use AWS Cost and Usage Report to publish billing reports to Amazon S3 in a CSV format.
 When setting up the CUR you can choose to break time periods down by hour, day, or
 month, and you can choose if you want to break out usage by resource ID or not. For more
-details on generating CUR, please
-see [Creating Cost and Usage Reports](../../../cur/latest/userguide/creating-cur.md "../../../cur/latest/userguide/creating-cur.md")
+information about generating CUR, see [Creating Cost and Usage Reports](../../../cur/latest/userguide/creating-cur.md "../../../cur/latest/userguide/creating-cur.md") in the
+AWS Data Exports User Guide.
 
 Within the CSV export, you will find relevant attributes listed for each line. The following are
-examples of attributes that may be included:
+examples of attributes that might be included:
 
 - **lineitem/UsageStartDate:** The start date and time for the line item in UTC, inclusive.
 - **lineitem/UsageEndDate:** The end date and time for the corresponding line item in UTC, exclusive.
@@ -23,7 +23,8 @@ examples of attributes that may be included:
 - **lineitem/UnblendedCost:** The cost of this usage.
 - **lineitem/LineItemDescription:** Textual description of the line item.
   For more information about the CUR data dictionary,
-  see [Cost and Usage Report (CUR) 2.0](../../../cur/latest/userguide/table-dictionary-cur2.md "../../../cur/latest/userguide/table-dictionary-cur2.md").
+  see [Cost and Usage Report (CUR) 2.0](../../../cur/latest/userguide/table-dictionary-cur2.md "../../../cur/latest/userguide/table-dictionary-cur2.md")
+  in the AWS Data Exports User Guide.
   Note that the exact names vary depending on context.
 
 A `UsageType` is a string with a value such as `ReadCapacityUnit-Hrs`,
@@ -254,7 +255,7 @@ import usage in the CUR is measured and priced in GB.
 
 ## Data Transfer
 
-Data transfer activity may appear associated with the DynamoDB service. DynamoDB does
+Data transfer activity might appear associated with the DynamoDB service. DynamoDB does
 not charge for inbound data transfer, and it does not charge for data transferred between
 DynamoDB and other AWS services within the same AWS Region (in other words, $0.00 per
 GB). Data transferred across AWS Regions (such as between DynamoDB in the US East [N.

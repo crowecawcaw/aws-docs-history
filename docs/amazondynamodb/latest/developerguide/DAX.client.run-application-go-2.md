@@ -137,7 +137,7 @@ go run ~/go/pkg/mod/github.com/aws-samples/sample-aws-dax-go-v2@v1.0.0/try_dax.g
 ## Features not in parity with AWS SDK for Go V2
 
 Middleware Stack – DAX Go V2 doesn’t support the use of Middleware
-Stacks through APIoptions. For more information, see [Customizing the AWS SDK for Go v2 Client Requests with Middleware](../../../sdk-for-go/v2/developer-guide/middleware.md#:~:text=You%20can%20customize%20AWS%20SDK,step's%20input%20and%20output%20types "../../../sdk-for-go/v2/developer-guide/middleware.md#:~:text=You%20can%20customize%20AWS%20SDK,step's%20input%20and%20output%20types").
+Stacks through APIoptions. For more information, see [Customizing the AWS SDK for Go v2 Client Requests with Middleware](../../../sdk-for-go/v2/developer-guide/middleware.md "../../../sdk-for-go/v2/developer-guide/middleware.md").
 
 Example:
 

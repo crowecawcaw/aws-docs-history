@@ -219,6 +219,7 @@ The following quotas apply to vector indexes.
 | Vector index write rate per partition key                                 | 10 MBps | Yes (contact AWS Support) |
 | Number of inline filters per vector index                                 | 18      | No                        |
 | Maximum base table size for vector index creation without<br>allowlisting | 600 GB  | Yes (contact AWS Support) |
+| Concurrent vector index creations or deletions per table                  | 1       | No                        |
 
 **Example.** With a 768-dimensional embedding
 (such as Cohere Embed v3) and 1 KB of non-vector item data, each item is

@@ -44,10 +44,10 @@ Before you begin, make sure you have the following:
   so you must enable the model before you can call it.
 - `jq` installed for reshaping the model output into DynamoDB
   format.
-- A Region where both DynamoDB vector indexes and Amazon Bedrock Titan Text Embeddings
-  V2 are available. Amazon Bedrock model availability varies by Region and is generally
-  narrower than DynamoDB Region coverage, so confirm both before you choose a
-  Region. For Amazon Bedrock model availability, see [Model support by AWS Region](../../../bedrock/latest/userguide/models-regions.md "../../../bedrock/latest/userguide/models-regions.md") in the _Amazon Bedrock User
+- A Region where Amazon Bedrock Titan Text Embeddings
+  V2 is available. Vector indexes are available in all commercial AWS
+  Regions, so Amazon Bedrock model availability is the constraint on your Region
+  choice. For Amazon Bedrock model availability, see [Model support by AWS Region](../../../bedrock/latest/userguide/models-regions.md "../../../bedrock/latest/userguide/models-regions.md") in the _Amazon Bedrock User
   Guide_.
 
 ###### Charges
@@ -137,8 +137,10 @@ in that case.
 `Backfilling` is reported for a vector index that you add to an
 existing table with `UpdateTable`. In that case, wait until
 `IndexStatus` is `ACTIVE` and
-`Backfilling` is `false` before you rely on complete
-search results.
+`Backfilling` is not `true` before you search. Note
+that `Backfilling` is reported only while the index is
+`CREATING`, and is absent once the index is
+`ACTIVE`.
 
 ###### Wait for the index, not just the table
 
@@ -147,13 +149,19 @@ search. That waiter matches on `Table.TableStatus`, which
 becomes `ACTIVE` while the vector index can still be
 `CREATING`. There is no waiter for vector index readiness, so
 you must poll `DescribeTable` as shown. Searching an index that
-is not yet `ACTIVE` fails, and searching during backfill can
-return incomplete results.
+is not yet `ACTIVE` fails with a `ValidationException`.
+Searching during backfill also returns a `ValidationException`.
+It does not return partial results.
 
 For the same reason, you cannot delete the table until every vector
 index has finished creating. `DeleteTable` returns
 `ResourceInUseException` with the message "Cannot delete table
-while indexes are being created, updated, or deleted." 3. **Create the product catalog.** Save the
+while indexes are being created, updated, or deleted."
+
+After `IndexStatus` becomes `ACTIVE`, the search
+endpoint can require additional time before it begins serving the index.
+Retry `SearchVectors` on `ValidationException` during
+that interval. 3. **Create the product catalog.** Save the
 following 50 products to a tab-separated file named
 `products.tsv`. Each line holds a product ID, a name, and a
 one-sentence description. The catalog contains ten groups of five related
@@ -257,10 +265,16 @@ aws dynamodb put-item --table-name Products --item file://item-p01.json
 
 ###### Vector size and item limits
 
-A 1024-dimension vector adds roughly 32 KB to the request payload and
-about 5 KB to the stored item, well within the 400 KB DynamoDB item size
-limit. Dimension count is the main driver of item size when you store
-embeddings. 6. **Embed the remaining products.** This loop
+A 1024-dimension vector is well within the 400 KB DynamoDB item size
+limit. Two factors drive how much space an embedding occupies in the
+base table: the number of dimensions, and the number of significant
+digits each value carries. DynamoDB stores a number in proportion to its
+significant digits rather than at a fixed width. Embedding models
+commonly return values with many significant digits, so a stored
+embedding can be considerably larger than the same vector held at
+32-bit floating point precision in the vector index. If item size
+matters to your design, measure a representative item rather than
+estimating from dimension count. 6. **Embed the remaining products.** This loop
 generates an embedding for each remaining product. It skips any file that
 already exists, so you can rerun it safely if a call fails.
 

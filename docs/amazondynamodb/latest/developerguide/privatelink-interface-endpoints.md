@@ -74,7 +74,7 @@ AWS PrivateLink for Amazon DynamoDB does not support the following:
 Do not create private hosted zones to override DynamoDB endpoint DNS names (such as
 `dynamodb.`region`.amazonaws.com` or
 `*.`region`.amazonaws.com`) to route traffic to your
-interface endpoints. DynamoDB DNS configurations may change over time.
+interface endpoints. DynamoDB DNS configurations might change over time.
 
 Custom DNS overrides are not compatible with these changes and can cause requests to
 unexpectedly route over public IP addresses instead of your interface endpoints.

@@ -335,7 +335,7 @@ in DynamoDB.
 ## Using deletion protection
 
 You can protect a table from accidental deletion with the deletion protection
-property. Enabling this property for tables helps ensure that tables do not get
+property. Enabling this property for tables helps make sure that tables do not get
 accidentally deleted during regular table management operations by your
 administrators. This will help prevent disruption to your normal business
 operations.

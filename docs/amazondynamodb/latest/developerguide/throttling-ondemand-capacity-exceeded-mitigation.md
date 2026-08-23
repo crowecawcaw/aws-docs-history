@@ -13,7 +13,7 @@ indicating which resource has reached its throughput boundary.
 ## On-demand maximum throughput exceeded throttling
 
 This section provides resolution guidance for on-demand maximum throughput exceeded
-throttling scenarios. Before using this guide, ensure you have identified the specific
+throttling scenarios. Before using this guide, make sure you have identified the specific
 throttling reasons from your application's exception handling, and determined the Amazon
 Resource Name (ARN) of the affected resource. For information on retrieving throttling
 reasons and identifying throttled resources, see [DynamoDB throttling diagnosis framework](throttling-diagnosing-workflow.md#throttling-diagnosing "throttling-diagnosing-workflow.md#throttling-diagnosing").

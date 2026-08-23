@@ -8,7 +8,7 @@ option for a retry. See below for additional details.
 DynamoDB control plane operations let you manage DynamoDB tables as well as objects that are
 dependent on tables such as indexes. For more information about these operations, see [Control plane](HowItWorks.API.md#HowItWorks.API.ControlPlane "HowItWorks.API.md#HowItWorks.API.ControlPlane").
 
-In some circumstances, you may need to take actions and use data returned by control plane
+In some circumstances, you might need to take actions and use data returned by control plane
 calls as part of your business logic. For example, you might need to know the value of
 `ProvisionedThroughput` returned by `DescribeTable`. In these
 circumstances, follow these best practices:

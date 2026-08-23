@@ -4,7 +4,7 @@ In DynamoDB, internal server errors (500 errors) indicate that the service is un
 the request. These errors can occur for various reasons, such as transient network issues in the
 fleet, infrastructure issues, storage node related issues, and more.
 
-You may encounter some internal server errors during the lifecycle of your DynamoDB table. This
+You might encounter some internal server errors during the lifecycle of your DynamoDB table. This
 is expected due to the distributed nature of the service and usually shouldn't be a cause for
 concern. DynamoDB automatically repairs and heals any transient issues with the
 service in real time, without requiring any intervention from you. However, if you observe a
@@ -24,7 +24,7 @@ If you encounter internal server errors in your DynamoDB table, consider these o
 
 To identify the issue, the first step is to check the [AWS Service Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") and
 your AWS Account Health Dashboard. These dashboards provide valuable information about any
-service-wide issues, impacted tables, ongoing problems, and the root cause once the issue has
+service-wide issues, impacted tables, ongoing problems, and the root cause after the issue has
 been resolved.
 
 Reviewing the details in these dashboards will give you a better understanding of the
@@ -32,7 +32,7 @@ current status of the AWS services you're using and any potential problems affec
 account. This information can help you determine the next steps to address the issue and
 minimize any disruptions to your operations. 2. **Reach out to Support.**
 
-If you observe prolonged, sustained errors in your requests, it may indicate an issue with
+If you observe prolonged, sustained errors in your requests, it might indicate an issue with
 the service. As a general rule, if you see an overall failure rate of 1% or more over the last
 15 minutes, it's an appropriate time to escalate the issue to the AWS Support team. See, [DynamoDB Service
 Level Agreement](https://aws.amazon.com/dynamodb/sla/ "https://aws.amazon.com/dynamodb/sla/") to learn more.
