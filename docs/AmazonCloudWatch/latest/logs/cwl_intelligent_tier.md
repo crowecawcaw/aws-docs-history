@@ -30,21 +30,23 @@ Your query experience remains the same regardless of which access tier your log 
 Standard (default)
 
 This is the default tier. All newly ingested log data starts in the
-Standard tier. Log data remains in this tier as long as it is being
-accessed. The Standard tier provides low latency and high-throughput
+Standard tier. Log data remains in the Standard tier while it is actively accessed
+(0 to 30 days since last access). The Standard tier provides low latency and high-throughput
 performance for queries, exports, live tail, and log retrieval.
 
 Infrequent Access
 
 If log data is not accessed for 30 consecutive days, it moves to the
-Infrequent Access tier. The Infrequent Access tier provides the same
+Infrequent Access tier. This tier holds data that was last accessed 31 to 90
+days ago. The Infrequent Access tier provides the same
 query latency and throughput as the Standard tier, at a lower storage
 cost.
 
 Archive Instant Access
 
 If log data is not accessed for 90 consecutive days, it moves to the
-Archive Instant Access tier. The Archive Instant Access tier provides
+Archive Instant Access tier. This tier holds data that was last accessed more
+than 90 days ago. The Archive Instant Access tier provides
 the same millisecond query latency as other tiers, at the lowest
 storage cost.
 

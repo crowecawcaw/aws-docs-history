@@ -19,7 +19,7 @@ you must grant permissions to AWS to enable the logs to be sent.
 
 For services that require these permissions, there are two versions of the permissions
 needed. The services that require these extra permissions are noted as **Supported
-[V1 Permissions]** and **Supported [V2 Permissions]** in the
+(V1 permissions)** and **Supported (V2 permissions)** in the
 [Supported log destinations](AWS-logs-destinations-table.md "AWS-logs-destinations-table.md"). For information about these required
 permissions, see the sections after the table.
 
