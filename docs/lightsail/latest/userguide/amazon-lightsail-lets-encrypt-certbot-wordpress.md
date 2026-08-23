@@ -311,7 +311,7 @@ replacing `example.com` with your domain. 3. Enter the following command to conf
 echo $DOMAIN
 ```
 
-![Confirm the domain environment variable.](images/instances/lets-encrypt/confirm-domain-variable.png) 4. Enter the following commands individually to back up your existing certificate
+![Confirm the domain environment variable.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/confirm-domain-variable.png) 4. Enter the following commands individually to back up your existing certificate
 files:
 
 ```

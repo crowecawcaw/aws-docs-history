@@ -4,7 +4,7 @@
 
 Topics about data transfer in Lightsail have been relocated to [Data transfer in Lightsail](amazon-lightsail-faq-data-transfer-allowance.md "amazon-lightsail-faq-data-transfer-allowance.md").
 
-## What do Lightsail plans cost?
+## What do Lightsail instance plans cost?
 
 Lightsail plans are billed on an on-demand hourly rate, so you pay only for what you
 use. For every Lightsail plan you use, we charge you the fixed hourly price, up to the
@@ -20,6 +20,11 @@ Lightsail instance or managed database before the end of the month, we only char
 prorated cost, based on the total number of hours that you used your Lightsail instance or
 managed database for that month. For example, if you use the least expensive Lightsail
 instance plan for 100 hours in a month, you will be charged 46 cents (100\*0.0046).
+
+###### Note
+
+Lightsail for Research instances accrue full hourly charges only while running. All Lightsail for Research instances cost
+$0.00685 USD/hr while stopped. For full pricing details, see [Lightsail for Research pricing](https://aws.amazon.com/lightsail/pricing/#Lightsail_for_Research "https://aws.amazon.com/lightsail/pricing/#Lightsail_for_Research").
 
 ## Can I try Lightsail instances for free?
 

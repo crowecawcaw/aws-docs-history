@@ -44,7 +44,7 @@ Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail
 1. On your instance management page, under the **Connect** tab,
    choose **Connect using SSH**.
 
-![Connect using SSH in the Lightsail console](/images/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png) 2. After you're connected, enter the following command to get the application
+![Connect using SSH in the Lightsail console](images/quick-start-connect-to-your-instance.png) 2. After you're connected, enter the following command to get the application
 password:
 
 ```

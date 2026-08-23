@@ -4,6 +4,9 @@ You might get an error message when trying to connect to an instance using the b
 SSH or RDP clients available in the Amazon Lightsail console. The possible reasons for this error
 are discussed in the following sections.
 
+If you get a numeric error code (for example, 515 or 519) when connecting through the
+browser, see [Troubleshoot Lightsail Connect errors](amazon-lightsail-troubleshooting-connect-errors.md "amazon-lightsail-troubleshooting-connect-errors.md").
+
 ## Error message: Can’t connect
 
 The SSH and RDP browser-based clients use host key or certificate validation to

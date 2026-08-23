@@ -89,7 +89,7 @@ Review the following tips before you begin. For troubleshooting information, see
   (`example.com`) and its `www` subdomains
   (`www.example.com`), they will need to propagate throughout the
   Internet. You can verify that your DNS changes have taken effect by using tools such
-  as [nslookup](https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/ "https://aws.amazon.com/blogs//messaging-and-targeting/how-to-check-your-domain-verification-settings/"), or [DNS
+  as [nslookup](https://aws.amazon.com/blogs/messaging-and-targeting/how-to-check-your-domain-verification-settings/ "https://aws.amazon.com/blogs/messaging-and-targeting/how-to-check-your-domain-verification-settings/"), or [DNS
   Lookup](https://mxtoolbox.com/DnsLookup.aspx "https://mxtoolbox.com/DnsLookup.aspx") from _MxToolbox_.
 - Let's Encrypt certificates will automatically renew
   every 60 to 90 days.
