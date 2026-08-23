@@ -47,7 +47,7 @@ See the following areas of the page.
 2. Choose an asset in the **Assets** hierarchy, and then choose
    **Add asset to project**.
 
-![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](/images/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
+![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
 
 ###### Note
 

@@ -24,7 +24,7 @@ assets.
 ![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
 specific project.
 
-![The "Assets" page, with the projects drop-down list called out.](/images/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
+![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
 **Add asset to project**.
 
 ![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)
@@ -40,7 +40,7 @@ new project**, then choose **Next**.
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
-![Add assets to project dialog, step 2 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-create-new-project-console.png) 6. In **Project description**, enter a description of the project and its
+![Add assets to project dialog, step 2 of 2.](images/asset-library-create-new-project-console.png) 6. In **Project description**, enter a description of the project and its
 contents.
 
 You can add project owners after you create the project. 7. Choose **Add asset to project**.
@@ -55,7 +55,7 @@ page opens.
 ![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png) 2. (Optional) Choose a project in the projects drop-down list to show only assets from a
 specific project.
 
-![The "Assets" page, with the projects drop-down list called out.](/images/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
+![The "Assets" page, with the projects drop-down list called out.](images/asset-library-choose-project-console.png) 3. Choose an asset in the **Assets** hierarchy, and then choose
 **Add asset to project**.
 
 ![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](images/asset-library-add-asset-to-project-console.png)

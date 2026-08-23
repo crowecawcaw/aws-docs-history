@@ -53,7 +53,7 @@ You can add up to six thresholds to each visualization.
 1. Choose the **Configuration** icon for the visualization to
    change.
 
-![A visualization with the "Configuration" icon highlighted.](images/dashboard-configure-visualization-settings-console.png) 2. If the visualization already has a threshold, choose **Add a
+![A visualization with the "Configuration" icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-configure-visualization-settings-console.png) 2. If the visualization already has a threshold, choose **Add a
 threshold** to add a new threshold.
 
 ![The visualization configuration panel with "Add a threshold" highlighted.](images/dashboard-add-threshold-console.png) 3. Choose one of the following comparison operators:
