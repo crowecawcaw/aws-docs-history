@@ -202,7 +202,7 @@ edit the permissions for service-linked roles.
 
 AWS Health supports service-linked roles to integrate with AWS Organizations. The
 service-linked role is named `AWSServiceRoleForHealth_Organizations`.
-Attached to the role is the [Health\_OrganizationsServiceRolePolicy](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy") AWS managed policy. The AWS
+Attached to the role is the [Health\_OrganizationsServiceRolePolicy](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy") AWS managed policy. The AWS
 managed policy allows AWS Health to access health events from other AWS accounts
 in the organization.
 

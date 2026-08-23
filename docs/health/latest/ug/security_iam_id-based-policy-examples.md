@@ -61,7 +61,7 @@ that is more restrictive than the minimum required permissions, the console won'
 function as intended for entities (IAM users or roles) with that policy.
 
 To ensure that those entities can still use the AWS Health console, you can
-attach the following AWS managed policy, [AWSHealthFullAccess](https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com//iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess").
+attach the following AWS managed policy, [AWSHealthFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSHealthFullAccess").
 
 The `AWSHealthFullAccess` policy grants an entity full access to the
 following:
