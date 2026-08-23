@@ -97,7 +97,7 @@ operations include:
 
 
     	- Be connected to the Internet.
-    	- Have the [AWS CLI](https://aws.amazon.com//cli/ "https://aws.amazon.com//cli/")
+    	- Have the [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")
     	 installed and configured.
     	- Have a web browser that supports the AWS console.
     + ###### A way to connect your local host computer to your device to communicate with it, to enter commands, and to transfer files

@@ -65,7 +65,7 @@ either AWS Management Console or AWS CLI to associate a thing to a connection.
 ###### To attach a certificate to a thing exclusively using the AWS Management Console.
 
 1. Open the [AWS IoT home
-   page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from
+   page](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home") in the AWS IoT console. On the left navigation, from
    **Security**, choose
    **Certificates**.
 2. On the **Certificates** page, choose a certificate
@@ -86,7 +86,7 @@ thing to your certificate", and the thing will be added to the
 ###### To detach a certificate from an exclusive thing using the AWS Management Console
 
 1. Open the [AWS IoT home
-   page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from
+   page](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home") in the AWS IoT console. On the left navigation, from
    **Security**, choose
    **Certificates**.
 2. On the **Certificates** page, choose a

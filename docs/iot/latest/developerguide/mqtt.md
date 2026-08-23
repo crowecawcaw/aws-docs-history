@@ -288,7 +288,7 @@ Quotas](../../../general/latest/gr/iot-core.md#message-broker-limits "../../../g
 
 AWS IoT Core supports the `RETAIN` flag described in the MQTT protocol. When a client sets
 the `RETAIN` flag on an MQTT message that it publishes, AWS IoT Core saves the message. It
-can then be sent to new subscribers, retrieved by calling the [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") operation, and viewed in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages").
+can then be sent to new subscribers, retrieved by calling the [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") operation, and viewed in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages").
 
 ###### Examples of using MQTT retained messages
 
@@ -397,12 +397,12 @@ will not receive the retained message upon successful subscription.
 - ###### Listing retained message topics
 
 You can list retained messages by calling [`ListRetainedMessages`](../apireference/API_iotdata_ListRetainedMessages.md "../apireference/API_iotdata_ListRetainedMessages.md") and
-the retained messages can be viewed in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages").
+the retained messages can be viewed in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages").
 
 - ###### Getting retained message details
 
 You can get retained message details by calling [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") and
-they can be viewed in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages").
+they can be viewed in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages").
 
 - ###### Retaining a Will message
 
@@ -421,8 +421,8 @@ clients with a subscription to the topic, but they are not retained by
 AWS IoT Core.
 
 Retained messages can also be deleted interactively by accessing the
-retained message in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages"). Retained
-messages that are deleted by using the [AWS IoT console](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages") also send a
+retained message in the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages"). Retained
+messages that are deleted by using the [AWS IoT console](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages") also send a
 0-byte message to clients that have subscribed to the retained message's
 topic.
 
@@ -432,11 +432,11 @@ message.
 
 - ###### Debugging and troubleshooting retained messages
 
-The [AWS IoT console](https://console.aws.amazon.com//iot/home# "https://console.aws.amazon.com//iot/home#")
+The [AWS IoT console](https://console.aws.amazon.com/iot/home# "https://console.aws.amazon.com/iot/home#")
 provides several tools to help you troubleshoot retained
 messages:
 
-    + ###### The **[Retained messages](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages")** page
+    + ###### The **[Retained messages](https://console.aws.amazon.com/iot/home#/retainedMessages "https://console.aws.amazon.com/iot/home#/retainedMessages")** page
 
 
     The **Retained messages** page in the AWS IoT
@@ -453,7 +453,7 @@ messages:
 
     	- Update the contents of a retained message.
     	- Delete a retained message.
-    + ###### The **[MQTT test client](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test")**
+    + ###### The **[MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test")**
 
 
     The **MQTT test client** page in the AWS IoT
@@ -483,19 +483,19 @@ retained messages are implemented in AWS IoT Core.
 Publishing messages with the `RETAIN` flag set from a client, by using AWS IoT
 console, or by calling [`Publish`](../apireference/API_iotdata_Publish.md "../apireference/API_iotdata_Publish.md") incurs additional messaging charges described
 in [AWS IoT Core pricing -
-Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
+Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
 
 Retrieving retained messages by a client, by using AWS IoT console, or by calling
 [`GetRetainedMessage`](../apireference/API_iotdata_GetRetainedMessage.md "../apireference/API_iotdata_GetRetainedMessage.md") incurs messaging
 charges in addition to the normal API usage charges. The additional charges are
 described in [AWS IoT Core
-pricing - Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
+pricing - Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
 
 MQTT [_Will_ messages](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Will_Flag "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Will_Flag") that are published
 when a device disconnects unexpectedly incur messaging charges described in [AWS IoT Core pricing -
-Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
+Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
 
-For more information about messaging costs, see [AWS IoT Core pricing - Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
+For more information about messaging costs, see [AWS IoT Core pricing - Messaging](https://aws.amazon.com/iot-core/pricing/#Messaging "https://aws.amazon.com/iot-core/pricing/#Messaging").
 
 ### Comparing MQTT retained messages and MQTT persistent sessions
 
@@ -1494,7 +1494,7 @@ This procedure shows you how to view currently connected MQTT devices in the AWS
 
 ###### To view connected MQTT devices
 
-1. Open the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home").
+1. Open the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
 2. In the left navigation pane, choose **Manage**, and then choose **All devices**.
 3. Choose **Client connections** to view the list of currently connected MQTT devices.
 4. The **Client connections** page displays comprehensive information about each connected device. You can view the **Client ID**, which serves as the unique identifier for the MQTT device, and the **Connection status** that shows whether the device is currently connected. The page also displays the **Connected since** timestamp indicating when the device established its connection, the **Source IP** address from which the device is connecting, and the **Keep alive** interval configured for the device connection.
@@ -1505,7 +1505,7 @@ This procedure shows you how to view the topic subscriptions for a specific MQTT
 
 ###### To view client subscriptions
 
-1. Open the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home").
+1. Open the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
 2. In the left navigation pane, choose **Manage**, and then choose **All devices**.
 3. Choose **Client connections** to view the list of MQTT devices.
 4. Search for the specific client ID you want to view subscriptions for using the search functionality.

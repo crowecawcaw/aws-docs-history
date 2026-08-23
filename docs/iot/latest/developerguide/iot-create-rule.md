@@ -34,11 +34,11 @@ rules.
 
 ###### To create a rule (AWS Management Console)
 
-Use the [AWS Management Console](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") command
+Use the [AWS Management Console](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home") command
 to create a rule:
 
 1. Open the [AWS IoT
-   console](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home").
+   console](https://console.aws.amazon.com/iot/home#/home "https://console.aws.amazon.com/iot/home#/home").
 2. On the left navigation, choose **Message routing** from
    **Manage** section. Then choose
    **Rules**.
