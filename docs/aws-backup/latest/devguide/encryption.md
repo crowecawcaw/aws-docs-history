@@ -112,51 +112,49 @@ for backup and restore operations.
 
 These elements can look like:
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "KmsPermissions",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:root"
- },
- "Action": [
- "kms:ListKeys",
- "kms:DescribeKey",
- "kms:GenerateDataKey",
- "kms:ListAliases"
- ],
- "Resource": "*"
- },
- {
- "Sid": "KmsCreateGrantPermissions",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:root"
- },
- "Action": [
- "kms:CreateGrant"
- ],
- "Resource": "*",
- "Condition": {
- "ForAnyValue:StringEquals": {
- "kms:EncryptionContextKeys": "aws:backup:backup-vault"
- },
- "Bool": {
- "kms:GrantIsForAWSResource": true
- },
- "StringLike": {
- "kms:ViaService": "backup.*.amazonaws.com"
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",
+    "Statement": [
+      {
+          "Sid": "KmsPermissions",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::`123456789012`:root"
+          },
+          "Action": [
+              "kms:ListKeys",
+              "kms:DescribeKey",
+              "kms:GenerateDataKey",
+              "kms:Decrypt",
+              "kms:ListAliases"
+          ],
+          "Resource": "*"
+      },
+      {
+          "Sid": "KmsCreateGrantPermissions",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::`123456789012`:root"
+          },
+          "Action": [
+              "kms:CreateGrant"
+          ],
+          "Resource": "*",
+          "Condition": {
+              "ForAnyValue:StringEquals": {
+                  "kms:EncryptionContextKeys": "aws:backup:backup-vault"
+              },
+              "Bool": {
+                  "kms:GrantIsForAWSResource": true
+              },
+              "StringLike": {
+                  "kms:ViaService": "backup.*.amazonaws.com"
+              }
+          }
+      }
+    ]
+}
 ```
 
 For customer managed keys, ensure these permissions are included in the key policy.

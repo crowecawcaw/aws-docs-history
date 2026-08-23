@@ -148,7 +148,7 @@ Console
 
 ###### To configure logically air-gapped vault primary backup for a backup plan
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Backup plans**, and then choose **Create backup plan** or select an existing backup plan to edit.
 3. In the **Backup rule configuration** section, specify your backup rule settings.
 4. For **Backup vault**, choose the backup vault where temporary recovery points will be stored (for non-fully managed resources) or where backups will be stored if they cannot be placed in your logically air-gapped vault.
@@ -197,7 +197,7 @@ Console
 
 ###### To configure logically air-gapped vault primary backup for an on-demand backup
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com//backup "https://console.aws.amazon.com//backup").
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Protected resources**.
 3. On the **Protected resources** page, choose **Create on-demand backup**.
 4. Select the resource type and resource ARN you want to back up.

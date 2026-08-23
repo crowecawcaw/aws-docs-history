@@ -158,8 +158,8 @@ resource types, you may request an increase in the quota limit.
 
 | Name                                              | Default | Adjustable |
 | ------------------------------------------------- | ------- | ---------- |
-| Namespaces per EKS cluster backup                 | 1000    | Yes        |
-| Persistent Storage backups per EKS cluster backup | 1000    | Yes        |
+| Namespaces per EKS cluster backup                 | 10,000  | Yes        |
+| Persistent Storage backups per EKS cluster backup | 1,200   | Yes        |
 | Restore jobs per target EKS cluster               | 1       | No         |
 | EKS Restore jobs per account                      | 5       | Yes        |
 
