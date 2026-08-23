@@ -138,4 +138,4 @@ users.
 
 ###### Note
 
-Web Grounding is an additional cost. For more information see [https://aws.amazon.com//bedrock/pricing/](https://aws.amazon.com//bedrock/pricing/ "https://aws.amazon.com//bedrock/pricing/")
+Web Grounding is an additional cost. For more information see [https://aws.amazon.com/bedrock/pricing/](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/")
