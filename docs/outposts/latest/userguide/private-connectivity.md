@@ -3,8 +3,8 @@
 You can configure the service link with a private connection for the traffic between the
 Outposts and home AWS Region. You can choose to use Direct Connect private or transit VIFs.
 
-Select the private connectivity option when you create your Outpost in the AWS Outposts console.
-For instructions, see [Create an
+Select the private connectivity option when you create your Outpost using the AWS Outposts
+console, AWS CLI, or API. For instructions, see [Create an
 Outpost](order-outpost-capacity.md#create-outpost "order-outpost-capacity.md#create-outpost").
 
 When you select the private connectivity option, a service link VPN connection is
@@ -22,20 +22,25 @@ The following prerequisites are required before you can configure private connec
 for your Outpost:
 
 - You must configure permissions for an IAM entity (user or role) to allow the user
-  or role to create the service-linked role for private connectivity. The IAM entity
-  needs permission to access the following actions:
+  or role to create the service-linked role and provisioning role for private
+  connectivity. The IAM entity needs permission to access the following actions:
 
   - `iam:CreateServiceLinkedRole` on
     `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
   - `iam:PutRolePolicy` on
     `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
+  - `iam:CreateRole` on
+    `arn:aws:iam::*:role/service-role/AWSOutpostsProvisioningRole_*`
+  - `iam:PutRolePolicy` on
+    `arn:aws:iam::*:role/service-role/AWSOutpostsProvisioningRole_*`
   - `ec2:DescribeVpcs`
   - `ec2:DescribeSubnets`
+  - `ec2:DescribeVpcEndpoints`
     For more information, see [AWS Identity and Access Management for
     AWS Outposts](identity-access-management.md "identity-access-management.md")
 
 - In the same AWS account and Availability Zone as your Outpost, create a VPC for
-  the sole purpose of Outpost private connectivity with a subnet /25 or larger that does
+  the sole purpose of Outpost private connectivity with a subnet /24 or larger that does
   not conflict with 10.1.0.0/16. For example, you might use 10.3.0.0/16.
 
 ###### Important
@@ -71,6 +76,47 @@ properly.
   do so. For more information, see [Direct Connect
   virtual interfaces](../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md "../../../directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.md") and [Working with
   Direct Connect gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways.md "../../../directconnect/latest/UserGuide/direct-connect-gateways.md") in the _Direct Connect User Guide_.
+- Create a VPC endpoint for AWS Outposts in your private connectivity VPC and subnet. The
+  VPC endpoint ID is required when you configure private connectivity.
+
+Use the following VPC endpoint settings:
+
+    + **Service**: Outposts
+     (com.amazonaws.`region`.outposts)
+
+
+    Example:
+     `com.amazonaws.`us-west-2`.outposts`
+    + **Endpoint type**: Interface
+    + **Private DNS Enabled**: set to false
+     (disabled)
+    + **VPC**: the VPC you created for private
+     connectivity
+    + **Subnet**: the subnet you created for private
+     connectivity
+
+Use the following **IAM policy document**:
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "outposts:StartConnection",
+                "outposts:GetConnection"
+            ],
+            "Effect": "Allow",
+            "Resource": "*",
+            "Principal": "*"
+        }
+    ]
+}
+```
+
+- Create a security group for the endpoint and authorize **inbound** TCP port 443 and ICMP traffic with addresses of
+  `0.0.0.0/0` and with no **outbound**
+  rules.
 
 ###### Note
 
@@ -89,6 +135,54 @@ on your behalf:
   link endpoint instance in the account.
 - Attaches the network interfaces to the service link endpoint instances from the
   account.
+  When you configure private connectivity, AWS Outposts also creates a provisioning role in your
+  account named `AWSOutpostsProvisioningRole_`outpostId``.
+  The AWS Outposts service uses this role to start and monitor the private connectivity connection
+  for your Outpost.
+
+The role uses the following JSON trust policy. Replace
+`accountId` with your AWS account ID and
+`outpostArn` with your Outpost ARN:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OutpostsProvisioningRoleTrustPolicy",
+      "Effect": "Allow",
+      "Principal": { "Service": "outposts.amazonaws.com" },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": { "aws:SourceAccount": "`accountId`" },
+        "ArnEquals": { "aws:SourceArn": "`outpostArn`" }
+      }
+    }
+  ]
+}
+```
+
+The role uses the following JSON inline permissions policy:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OutpostProvisioningPermissions",
+      "Effect": "Allow",
+      "Action": "outposts:StartConnection",
+      "Resource": "`outpostArn`"
+    },
+    {
+      "Sid": "GetConnectionUnscoped",
+      "Effect": "Allow",
+      "Action": "outposts:GetConnection",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 ###### Important
 
