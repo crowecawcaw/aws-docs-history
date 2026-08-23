@@ -23,8 +23,7 @@ several reasons, such as the following:
 
 ###### Important
 
-Do not move computer objects that Amazon FSx creates in the OU after your file system is created.
-Doing so will cause your file system to become misconfigured.
+Do not move, disable, or delete the computer objects that Amazon FSx creates in the OU. Do not change the default OU after your file system is created. Any of these actions will cause your file system to become misconfigured.
 
 (For the full list of Active Directory requirements, see
 [Prerequisites](self-managed-AD.md#self-manage-prereqs "self-managed-AD.md#self-manage-prereqs").

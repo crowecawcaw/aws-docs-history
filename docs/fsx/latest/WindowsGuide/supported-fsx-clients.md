@@ -22,22 +22,17 @@ and operating systems.
 
 The following AWS compute instances are supported for use with Amazon FSx:
 
-- Amazon Elastic Compute Cloud (Amazon EC2) instances, including Microsoft Windows, Mac, Amazon Linux and Amazon Linux 2 instances. For more information,
+- Amazon Elastic Compute Cloud (Amazon EC2) instances, including Microsoft Windows, Mac, and Amazon Linux 2023 instances. For more information,
   see [Mapping file shares](using-file-shares.md#mapping-file-shares "using-file-shares.md#mapping-file-shares").
 - Amazon Elastic Container Service (Amazon ECS) containers. For more information, see
   [FSx for Windows File Server volumes](../../../AmazonECS/latest/developerguide/wfsx-volumes.md "../../../AmazonECS/latest/developerguide/wfsx-volumes.md") in the _Amazon Elastic Container Service Developer Guide_.
 - WorkSpaces instances – To learn more, see the AWS blog post [Using FSx for Windows File Server with Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-for-windows-file-server-with-amazon-workspaces/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-for-windows-file-server-with-amazon-workspaces/").
-- Amazon AppStream 2.0 instances – To learn more, see the AWS blog post [Using Amazon FSx with Amazon AppStream 2.0](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/").
-- VMs running in VMware Cloud on AWS environments – To learn more, see
-  the AWS blog post [Storing and Sharing Files with FSx for Windows File Server in a VMware Cloud on AWS
-  Environment](https://aws.amazon.com/blogs/apn/storing-and-sharing-files-with-amazon-fsx-in-a-vmware-cloud-on-aws-environment/ "https://aws.amazon.com/blogs/apn/storing-and-sharing-files-with-amazon-fsx-in-a-vmware-cloud-on-aws-environment/").
+- Amazon WorkSpaces Applications (formerly Amazon AppStream 2.0) – For more information, see the AWS blog post [Using Amazon FSx with Amazon AppStream 2.0](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/").
 
 The following operating systems are supported for use with Amazon FSx when using their built-in SMB client:
 
-- Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, Windows
-  Server 2012 R2, Windows Server 2016, Windows Server 2019, and Windows Server 2022.
-- Windows Vista, Windows 7, Windows 8, Windows 8.1, Windows 10 (including
-  the Windows 7 and Windows 10 desktop experiences of WorkSpaces), and Windows 11.
+- Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025.
+- Windows 11.
 - Linux, using the `cifs-utils` tool.
 - macOS
 
