@@ -94,10 +94,10 @@ communicate with AWS. For instructions, see [Connect your Tape Gateway to AWS](c
 
    ###### Note
 
-   If you require FIPS 140-2 validated cryptographic modules when
+   If you require FIPS 140-3 validated cryptographic modules when
    accessing AWS through a command line interface or an API, use
    a FIPS-compliant endpoint. For more information, see [Federal Information
-   Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
+   Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 
    The FIPS service endpoint is only available in some AWS
    Regions. For more information, see [Storage Gateway endpoints and
@@ -108,8 +108,23 @@ communicate with AWS. For instructions, see [Connect your Tape Gateway to AWS](c
      control your network settings. If you select this option, you must
      specify an existing VPC endpoint by choosing its VPC endpoint ID
      from the drop-down menu, or by providing its VPC endpoint DNS name
-     or IP address. For more information, see [Activating your gateway in a virtual private
+     or IP address. Similar to publicly accessible endpoints, use the
+     **FIPS enabled endpoint** check box to specify
+     whether the connection must comply with Federal Information
+     Processing Standards (FIPS). For more information, see [Activating your gateway in a virtual private
      cloud](gateway-private-link.md "gateway-private-link.md").
+
+   ###### Note
+
+   If you require FIPS 140-3 validated cryptographic modules when
+   accessing AWS through a VPC endpoint, use a FIPS-compliant VPC
+   endpoint. For more information, see [Federal Information Processing
+   Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
+
+   The FIPS service endpoint is only available in some AWS
+   Regions. For more information, see [Storage Gateway endpoints and
+   quotas](../../../general/latest/gr/sg.md "../../../general/latest/gr/sg.md") in the
+   _AWS General Reference_.
 
 3. In the **Gateway connection options** section, for
    **Connection options**, choose how to identify your

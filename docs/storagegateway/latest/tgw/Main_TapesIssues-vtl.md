@@ -33,6 +33,17 @@ to another gateway in this manner may be incomplete or empty. We recommend
 performing an inventory on all recovered tapes to ensure they contain the
 expected content.
 
+###### Recovery requires an offline gateway
+
+The tape recovery message and the **Create recovery
+tapes** option appear on the gateway's
+**Details** tab only when the Tape Gateway is offline.
+This might occur, for example, when the underlying virtual machine is turned
+off or cannot connect to AWS. You cannot create recovery tapes for a
+gateway that is online. For instructions on turning off your gateway, see
+[Shutting
+down your gateway VM](MaintenanceShutDown-common.md "MaintenanceShutDown-common.md").
+
 ###### To recover a tape to another Tape Gateway
 
 1. Identify an existing functioning Tape Gateway to serve as your

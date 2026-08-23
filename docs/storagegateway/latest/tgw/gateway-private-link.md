@@ -38,31 +38,39 @@ for Storage Gateway, you can use it to activate your gateway.
    Services** for **Service category**.
 4. For **Service Name**, choose
    `com.amazonaws.`region`.storagegateway`.
-   For example `com.amazonaws.us-east-2.storagegateway`.
-5. For **VPC**, choose your VPC and note its Availability Zones
-   and subnets.
-6. Verify that **Enable Private DNS Name** is not
-   selected.
-7. For **Security group**, choose the security group that you
-   want to use for your VPC. You can accept the default security group. Verify that
-   all of the following TCP ports are allowed in your security group:
+   For example `com.amazonaws.us-east-2.storagegateway`. For
+   FIPS-compliant endpoints, choose
+   `com.amazonaws.`region`.storagegateway-fips`,
+   for example, `com.amazonaws.us-east-2.storagegateway-fips`.
 
-   - TCP 443
-   - TCP 1026
-   - TCP 1027
-   - TCP 1028
-   - TCP 1031
-   - TCP 2222
+###### Note
+
+FIPS endpoints are available only in some AWS Regions. For more
+information, see [Storage Gateway endpoints and quotas](../../../general/latest/gr/sg.md "../../../general/latest/gr/sg.md") in
+the _AWS General Reference_. 5. For **VPC**, choose your VPC and note its Availability Zones
+and subnets. 6. Verify that **Enable Private DNS Name** is not
+selected. 7. For **Security group**, choose the security group that you
+want to use for your VPC. You can accept the default security group. Verify that
+all of the following TCP ports are allowed in your security group:
+
+    * TCP 443
+    * TCP 1026
+    * TCP 1027
+    * TCP 1028
+    * TCP 1031
+    * TCP 2222
 
 8. Choose **Create endpoint**. The initial state of the endpoint
-   is **pending**. When the endpoint is created, note the ID of
-   the VPC endpoint that you just created.
-9. When the endpoint is created, choose **Endpoints**, then
-   choose the new VPC endpoint.
-10. In **Details** tab of the selected storage gateway endpoint,
-    under **DNS Names**, use the first DNS name that doesn't
-    specify an Availability Zone. Your DNS name look similar to this:
-    `vpce-1234567e1c24a1fe9-62qntt8k.storagegateway.us-east-1.vpce.amazonaws.com`
+is **pending**. When the endpoint is created, note the ID of
+the VPC endpoint that you just created. 9. When the endpoint is created, choose **Endpoints**, then
+choose the new VPC endpoint. 10. In **Details** tab of the selected storage gateway endpoint,
+under **DNS Names**, use the first DNS name that doesn't
+specify an Availability Zone. Your DNS name look similar to this:
+`vpce-1234567e1c24a1fe9-62qntt8k.storagegateway.us-east-1.vpce.amazonaws.com`
+
+If you use a FIPS endpoint in a Region with FIPS availability, your DNS name
+looks similar to this example:
+`vpce-1234567e1c24a1fe9-62qntt8k.storagegateway-fips.us-east-1.vpce.amazonaws.com`
 
 Now that you have a VPC endpoint, you can create your gateway. For more information,
 see [Creating a
