@@ -30,7 +30,6 @@ decide whether to use the target term. For more information, see [Best practices
 
 - [Creating a custom terminology](creating-custom-terminology.md "creating-custom-terminology.md")
 - [Using custom terminologies](using-ct.md "using-ct.md")
-- [Case-insensitive matching](ct-case-insensitive.md "ct-case-insensitive.md")
 - [Custom Terminology example using the AWS SDK for Python (Boto)](examples-ct.md "examples-ct.md")
 - [Encrypting your terminology](protect-terminology.md "protect-terminology.md")
 - [Best practices](ct-best-practices.md "ct-best-practices.md")

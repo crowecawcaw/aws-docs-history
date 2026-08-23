@@ -6,12 +6,11 @@ TMX file formats. Each entry in the file contains the source term and the equiva
 
 After you create a terminology file, you upload the file to your Amazon Translate account.
 
-###### Note
+###### Important
 
-Custom terminology matching is case-insensitive. During translation, Amazon Translate applies a
-custom terminology entry when the source term matches text in the input document,
-ignoring differences in capitalization. For more information about matching and how
-output capitalization is handled, see [Case-insensitive matching](ct-case-insensitive.md "ct-case-insensitive.md").
+The source text in a custom terminology is _case-sensitive_. During
+translation, Amazon Translate uses the custom terminology when it finds an exact match in the input
+document.
 
 ## Terminology file formats
 
