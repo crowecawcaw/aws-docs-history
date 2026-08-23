@@ -442,15 +442,6 @@ Use one of the following options to continue or discontinue the use of Trend Mic
 
 ###### Continue usage
 
-- **(If offboarding the entire MALZ) After Core account offboarding, reconnect offboarded Application accounts to the existing Trend Micro Deep Security Manager (DSM) and maintain licensing in shared Services account.** For more information, see [Add AWS cloud accounts](https://help.deepsecurity.trendmicro.com/12_0/aws/Add-Computers/add-aws.html?Highlight=account%20sync "https://help.deepsecurity.trendmicro.com/12_0/aws/Add-Computers/add-aws.html?Highlight=account%20sync") and [Check your license information](https://help.deepsecurity.trendmicro.com/12_0/aws/Manage-Components/ui-admin-licenses.html "https://help.deepsecurity.trendmicro.com/12_0/aws/Manage-Components/ui-admin-licenses.html").
-
-  1.  Log in to the shared services account and navigate to the Secrets Manager console.
-  2.  Retrieve DSM console admin credentials that are stored in the `/ams/eps/` path.
-  3.  Log in to the DSM console at [https://dsm.sentinel.int](https://dsm.sentinel.int/ "https://dsm.sentinel.int/").
-  4.  Choose **Use Cross Account Role**, and then enter `arn:aws:iam::ACCOUNTID:role/mc_eps_cross_account_role`. Replace **ACCOUNTID** with the offboarded Application account ID.
-  5.  Choose **Next**.
-  6.  Wait several minutes for DSM to process the account discovery and show that sync was successful.
-
 - **Reconnect offboarded Application accounts to a new Trend Micro DSM installation.** For more information, see [Activate and protect agents](https://help.deepsecurity.trendmicro.com/12_0/aws/agent-initiated-activation-communication.html?Highlight=activation "https://help.deepsecurity.trendmicro.com/12_0/aws/agent-initiated-activation-communication.html?Highlight=activation") and [Activate the agent](https://help.deepsecurity.trendmicro.com/12_0/aws/Get-Started/Install/activate-agent.html?Highlight=activate%20agent "https://help.deepsecurity.trendmicro.com/12_0/aws/Get-Started/Install/activate-agent.html?Highlight=activate%20agent").
 - **Reconnect offboarded Application accounts to Trend Micro Cloud One.** For more information, see [Migrate from Deep Security to Workload Security](https://help.deepsecurity.trendmicro.com/20_0/on-premise/migration.html "https://help.deepsecurity.trendmicro.com/20_0/on-premise/migration.html") and [Migrate from an on-premises DSM](https://cloudone.trendmicro.com/docs/workload-security/migration/ "https://cloudone.trendmicro.com/docs/workload-security/migration/").
 
