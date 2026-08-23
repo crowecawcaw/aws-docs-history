@@ -1,9 +1,10 @@
 # Set up managed Prometheus collectors for Amazon MSK
 
 To use an Amazon Managed Service for Prometheus collector, you create a scraper that discovers and pulls metrics
-in your Amazon Managed Streaming for Apache Kafka cluster. You can also create a scraper that integrates with Amazon Elastic Kubernetes Service.
-For more information, see [Integrate
-Amazon EKS](AMP-collector-how-to.md "AMP-collector-how-to.md").
+in your Amazon Managed Streaming for Apache Kafka cluster. You can also create a scraper that integrates with Amazon Elastic Kubernetes Service
+or with Amazon OpenSearch Service. For more information, see [Integrate
+Amazon EKS](AMP-collector-how-to.md "AMP-collector-how-to.md") and [Integrate Amazon
+OpenSearch Service](prom-opensearch-integration.md "prom-opensearch-integration.md").
 
 ## Create a scraper
 
@@ -506,6 +507,5 @@ The current Amazon MSK integration with Amazon Managed Service for Prometheus ha
   Serverless)
 - Not supported for Amazon MSK clusters with public access enabled in combination
   with KRaft metadata mode
-- Not supported for Amazon MSK Express brokers
 - Currently supports a 1:1 mapping between Amazon MSK clusters and Amazon Managed Service for Prometheus
   collectors/workspaces
