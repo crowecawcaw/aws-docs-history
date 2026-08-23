@@ -30,6 +30,9 @@ The `~id` column in `edge` (`relationship`) files in
 - `~from` - Required. The vertex `id` of the **from** vertex.
 - `~to` - Required. The vertex `id` of the **to** vertex.
 - `~label` - Optional. A label for the edge. The label is a string value.
+  When `~label` is omitted or the value is empty, the edge is assigned
+  the default label `"edge"`. This is analogous to CSV load behavior.
+  Unlike vertices, edges always have a label in Neptune Analytics.
 
 ## Property column headers
 

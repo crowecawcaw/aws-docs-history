@@ -14,6 +14,9 @@ and user-defined column names, annotated with predefined datatypes and cardinali
 - The `~id` (`:ID`) column in `edge` (`relationship`) files
   in `CSV` (`opencypher`) format is not supported. It is ignored if provided in any of the
   `edge` (`relationship`) files.
+- If the `~label` (`:TYPE`) column is missing from an edge file, or if the
+  `~label` value for a row is empty, the edge is assigned the default label
+  `"edge"`. Unlike vertices, edges always have a label in Neptune Analytics.
 
 **Vertex files**:
 

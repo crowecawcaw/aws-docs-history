@@ -16,6 +16,23 @@ potentially different labels for each vertex and edge (when a vertex or edge has
 separated by semi-colons `‘;’`), and all files for vertices and/or edges will share the same schema. It is important
 to note that vertices and edges will always be output to separate file sets.
 
+### Label-less vertices and default-labeled edges in exported files
+
+Exported files are grouped by label. The following special cases apply to entities without
+an explicitly assigned label:
+
+- **Label-less vertices** —
+  Vertices that were loaded without a `~label` value are exported to files
+  whose name contains the sentinel `_NO_LABEL_`. For example:
+  `Vertex__NO_LABEL__0.parquet` or `Vertex__NO_LABEL__0.csv`.
+  The `~label` column in these files will be empty.
+- **Default-labeled edges** —
+  Edges that were loaded without a `~label` value are assigned the default
+  label `"edge"` at import time (see
+  [Behavioral differences from Neptune Database](using-CSV-data.md#using-CSV-data-differences "using-CSV-data.md#using-CSV-data-differences")).
+  These edges are exported to files named with the label `edge`. For example:
+  `Edge_edge_0.parquet` or `Edge_edge_0.csv`.
+
 ## Parquet
 
 Exported Parquet files have a columnar structure similar to CSV files, though an explicit header column is not required. Unlike
@@ -48,3 +65,9 @@ the following:
   }
  }
 ```
+
+###### Note
+
+The file naming conventions for label-less vertices (`_NO_LABEL_` sentinel) and
+default-labeled edges (label = `"edge"`) apply to Parquet exports in the same
+way as CSV exports. See [Label-less vertices and default-labeled edges in exported files](#export-structure-csv-labelless "#export-structure-csv-labelless").

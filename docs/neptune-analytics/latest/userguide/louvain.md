@@ -202,11 +202,6 @@ RETURN n, community
 
 ###### Warning
 
-It is not good practice to use MATCH(n) without restriction in query integrations. Keep in mind
-that every node returned by the MATCH(n) clause invokes the algorithm once, which can result in a
-very long-running query if a large number of nodes is returned. Use LIMIT or put conditions on the
-MATCH clause to restrict its output appropriately.
-
 The Louvain algorithm requires exclusive processing. Neptune will process only one Louvain algorithm
 execution at a time. Any subsequent algorithm requests submitted before the completion of an active
 process will result in an error response.
