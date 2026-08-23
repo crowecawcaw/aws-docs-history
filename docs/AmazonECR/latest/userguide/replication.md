@@ -152,7 +152,7 @@ The following should be considered when using private image replication.
   example, a repository in `us-west-2` can't be replicated to `cn-north-1`. For more information about AWS partitions, see [ARN
   format](../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax "../../../general/latest/gr/aws-arns-and-namespaces.md#arns-syntax") in the _AWS General Reference_.
 - The replication configuration for a private registry may contain up to 25
-  unique destinations across all rules, with a maximum of 10 rules total. Each
+  unique destinations across all rules, with a maximum of 25 rules total. Each
   rule may contain up to 100 filters. This allows for specifying separate rules
   for repositories containing images used for production and testing, for
   example.
