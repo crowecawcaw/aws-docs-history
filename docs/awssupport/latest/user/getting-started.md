@@ -22,7 +22,7 @@ Developer Support, Business Support, and Enterprise On-Ramp will remain availabl
 
 - To create a Support interaction to use AI-generated troubleshooting to resolve your issue, and optionally create a support case, see [AI-enhanced troubleshooting in the Support Center Console](ai-enhanced-support.md "ai-enhanced-support.md").
 - For more information about the different AWS Support plans, see [Compare AWS Support
-  plans](https://aws.amazon.com//premiumsupport/plans/ "https://aws.amazon.com//premiumsupport/plans/") and [Change AWS Support Plans](changing-support-plans.md "changing-support-plans.md").
+  plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/") and [Change AWS Support Plans](changing-support-plans.md "changing-support-plans.md").
 - Support plans offer different response times for your support cases. See [Choosing an initial support case severity level](case-management.md#choosing-severity "case-management.md#choosing-severity") and [Understanding AWS Support response times](case-management.md#response-times-for-support-cases "case-management.md#response-times-for-support-cases").
 
 ###### Topics

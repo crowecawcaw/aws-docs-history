@@ -271,4 +271,4 @@ this tutorial use the latest report data from your organization.
 
 If you still have issues with this tutorial, you can create a technical support
 case in the [AWS Support
-Center](https://console.aws.amazon.com//support/home "https://console.aws.amazon.com//support/home").
+Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
