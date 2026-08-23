@@ -142,6 +142,7 @@ Resource type identifiers always take the following form:
 - [Identity Store](AWS_IdentityStore.md "AWS_IdentityStore.md")
 - [AWS Identity and Access Management Access Analyzer](AWS_AccessAnalyzer.md "AWS_AccessAnalyzer.md")
 - [AWS Account Access Manager](AWS_AccountAccess.md "AWS_AccountAccess.md")
+- [AWS Agent Registry](AWS_AgentRegistry.md "AWS_AgentRegistry.md")
 - [EC2 Image Builder](AWS_ImageBuilder.md "AWS_ImageBuilder.md")
 - [AWS Systems Manager Incident Manager](AWS_SSMIncidents.md "AWS_SSMIncidents.md")
 - [AWS Systems Manager Incident Manager Contacts](AWS_SSMContacts.md "AWS_SSMContacts.md")
