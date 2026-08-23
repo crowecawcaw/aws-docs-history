@@ -103,7 +103,7 @@ In the **Analyzed text** panel, the console underlines each of analyzed entities
 of the underlined text indicates the overall sentiment of the entity. If you hover your cursor over an entity, the
 console displays additional information in a pop-up window.
 
-![Console display of the Targeted sentiment tab.](images/gs-console-targeted-sentiment2.png)
+![Console display of the Targeted sentiment tab.](/images/comprehend/latest/dg/images/gs-console-targeted-sentiment2.png)
 
 The **Results** table provides additional detail about each entity. If there are multiple
 mentions of the same entity, called a co-reference group, the table displays these mentions as a collapsible set
