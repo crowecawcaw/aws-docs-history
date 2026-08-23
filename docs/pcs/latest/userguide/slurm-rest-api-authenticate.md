@@ -108,7 +108,7 @@ Fetch the AWS PCS cluster JWT signing key and store it as a local file. Replace 
 SECRET_KEY=$(aws secretsmanager get-secret-value \
   --region `aws-region` \
   --secret-id `secret-arn` \
-  --version-stage `secret-version` \
+  --version-id `secret-version` \
   --query 'SecretString' \
   --output text)
 echo "$SECRET_KEY" | base64 --decode > jwt.key

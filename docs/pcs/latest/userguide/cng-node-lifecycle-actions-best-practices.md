@@ -28,6 +28,9 @@ Follow these best practices when you use node lifecycle actions.
 - **Do not modify AWS PCS agent files** under
   `/etc/amazon/pcs/` or `/var/log/amazon/pcs/`, or systemd units whose names
   begin with `pcs-`. These manage cluster connectivity.
+- **Do not reboot the instance during a lifecycle action
+  script.** A reboot interrupts the AWS PCS bootstrap sequence, preventing
+  `slurmd` from starting or causing AWS PCS to terminate the node.
 - **Store secrets in AWS Secrets Manager or Systems Manager Parameter
   Store.** Do not pass secrets as script arguments. Arguments are visible in API responses
   and the console.

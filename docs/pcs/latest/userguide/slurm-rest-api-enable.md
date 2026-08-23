@@ -66,7 +66,7 @@ aws pcs update-cluster --cluster-identifier `my-cluster` \
 When you enable the REST API, AWS PCS automatically:
 
 - Generates a JWT signing key and stores it in AWS Secrets Manager.
-- Exposes the API endpoint at `https://`<clusterPrivateIpAddress>`:6820` within your VPC.
+- Exposes the API endpoint at `http://`<clusterPrivateIpAddress>`:6820` within your VPC.
 - Updates your cluster configuration to show the REST API endpoint details.
 
 You can now authenticate and use the REST API for job management and cluster operations.

@@ -45,7 +45,7 @@ curl -X POST \
   -H "Authorization: Bearer `<jwt>`" \
   -H "Content-Type: application/json" \
   -d '`<job-json>`' \
-  https://`<privateIpAddress>`:6820/slurm/v0.0.43/job/submit
+  http://`<privateIpAddress>`:6820/slurm/v0.0.43/job/submit
 ```
 
 3. Note the job ID returned in the response for monitoring purposes.
@@ -56,14 +56,14 @@ curl -X POST \
 
 ```
 curl -X GET -H "Authorization: Bearer `<jwt>`" \
-    https://`<privateIpAddress>`:6820/slurm/v0.0.43/job/`<job-id>`
+    http://`<privateIpAddress>`:6820/slurm/v0.0.43/job/`<job-id>`
 ```
 
 2. List all jobs for the authenticated user:
 
 ```
 curl -X GET -H "Authorization: Bearer `<jwt>`" \
-    https://`<privateIpAddress>`:6820/slurm/v0.0.43/jobs
+    http://`<privateIpAddress>`:6820/slurm/v0.0.43/jobs
 ```
 
 ###### To cancel a job
@@ -72,5 +72,5 @@ curl -X GET -H "Authorization: Bearer `<jwt>`" \
 
 ```
 curl -X DELETE -H "Authorization: Bearer `<jwt>`" \
-    https://`<privateIpAddress>`:6820/slurm/v0.0.43/job/`<job-id>`
+    http://`<privateIpAddress>`:6820/slurm/v0.0.43/job/`<job-id>`
 ```
