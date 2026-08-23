@@ -290,5 +290,8 @@ The following is a list of environment variables for the AWS FIS Lambda extensio
 - `AWS_FIS_PROXY_LISTENER_PORT` ‐ Optional.
   Defines the port on which the AWS FIS Lambda extension exposes an AWS Lambda runtime API proxy that can be used by another extension or the runtime. Defaults to `9100`.
 - `AWS_FIS_POLL_MAX_WAIT_MILLISECONDS` ‐ Optional.
-  If set to non-zero value, this variable defines the number of milliseconds the extension will wait for an in-flight async poll to finish before evaluating
+  If set to a non-zero value, this variable defines the number of milliseconds the extension will wait for an in-flight async poll to finish before evaluating
   fault configurations and starting the invocation of the runtime. Defaults to `0`.
+  When using `preventExecution` set to `true` in the
+  `aws:lambda:invocation-error` action, we recommend setting this variable to at least `2000` (2 seconds)
+  to ensure the extension has up-to-date fault configuration before deciding whether to block function execution.

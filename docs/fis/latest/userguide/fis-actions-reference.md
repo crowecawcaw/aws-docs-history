@@ -280,11 +280,31 @@ Target Amazon DynamoDB MRSC global tables are subject to an additional quota. Th
 
 ###### Multi-Region eventually consistent (MREC) global tables
 
-The following statement will be dynamically appended to the policy for the target DynamoDB MREC global table:
+The following two statements will be dynamically appended to the policy for the target DynamoDB MREC global table:
 
 ```
 {
    "Statement":[
+      {
+         "Sid": "DoNotModifyFisDynamoDbPauseReplicationEXPxxxxxxxxxxxxxxxServicePrincipal",
+         "Effect":"Deny",
+         "Principal":{
+            "AWS": "*"
+         },
+         "Action":[
+            "dynamodb:ReadDataForReplication",
+            "dynamodb:WriteDataForReplication"
+         ],
+         "Resource":"arn:aws:dynamodb:us-east-1:123456789012:table/ExampleGlobalTable",
+         "Condition": {
+            "StringEquals": {
+              "aws:PrincipalServiceName": "replication.dynamodb.amazonaws.com"
+            },
+            "DateLessThan": {
+              "aws:CurrentTime": "2024-04-10T09:51:41.511Z"
+            }
+         }
+      },
       {
          "Sid": "DoNotModifyFisDynamoDbPauseReplicationEXPxxxxxxxxxxxxxxx",
          "Effect":"Deny",
@@ -930,7 +950,7 @@ To use AZ names or AZ IDs in the `sources` parameter, all targets of the action 
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the
   current Region. The default is ALL, which matches all IPv4
-  traffic.
+  traffic. IPv6 traffic is not impaired by this action.
 - **installDependencies** –
   Optional. If this value is `True`, Systems Manager installs the
   required dependencies on the sidecar container for the SSM agent, if
@@ -984,7 +1004,7 @@ To use AZ names or AZ IDs in the `sources` parameter, all targets of the action 
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the
   current Region. The default is ALL, which matches all IPv4
-  traffic.
+  traffic. IPv6 traffic is not impaired by this action.
 - **installDependencies** –
   Optional. If this value is `True`, Systems Manager installs the
   required dependencies on the sidecar container for the SSM agent, if
@@ -1327,7 +1347,7 @@ Use the `flowsPercent` parameter to add latency on a percentage of the connectio
   `S3`, this applies only to the Regional endpoint in the
   current Region. For domain names, 10 DNS resolution attempts are made to collect IP addresses.
   Due to DNS load balancing and rotation, this action may not impair all possible IP addresses the domain could resolve to.
-  The default is ALL, which matches all IPv4 traffic.
+  The default is ALL, which matches all IPv4 traffic. IPv6 traffic is not impaired by this action.
 - **kubernetesServiceAccount** – The Kubernetes
   service account. For information about the required permissions, see
   [Configure the Kubernetes service account](eks-pod-actions.md#configure-service-account "eks-pod-actions.md#configure-service-account").
@@ -1381,7 +1401,7 @@ Use the `flowsPercent` parameter to inject packet loss on a percentage of the co
   `S3`, this applies only to the Regional endpoint in the
   current Region. For domain names, 10 DNS resolution attempts are made to collect IP addresses.
   Due to DNS load balancing and rotation, this action may not impair all possible IP addresses the domain could resolve to.
-  The default is ALL, which matches all IPv4 traffic.
+  The default is ALL, which matches all IPv4 traffic. IPv6 traffic is not impaired by this action.
 - **kubernetesServiceAccount** – The Kubernetes
   service account. For information about the required permissions, see
   [Configure the Kubernetes service account](eks-pod-actions.md#configure-service-account "eks-pod-actions.md#configure-service-account").
@@ -1461,10 +1481,6 @@ action, which means that target Replication Groups operate with reduced capacity
 - `elasticache:InterruptClusterAzPower`
 - `elasticache:DescribeReplicationGroups`
 - `tag:GetResources`
-
-###### Note
-
-The ElastiCache interrupt AZ power action now supports all replication group types, including Valkey and Redis. To better represent this functionality, the action has been renamed. If you are currently using `aws:elasticache:interrupt-cluster-az-power`, we recommend that you migrate to the new action `aws:elasticache:replicationgroup-interrupt-az-power` to take advantage of the latest features.
 
 ## Amazon Kinesis Data Streams actions
 
@@ -1568,6 +1584,10 @@ While using this action, you select whether or not to run the function code befo
   For example, PT1M represents one minute. In the AWS FIS console, you enter the number of seconds, minutes, or hours.
 - **invocationPercentage** – Optional. The percentage (1-100) of function invocations to inject the fault into. The default is 100.
 - **preventExecution** – If the value is true, the action will return the error without executing the function.
+  We recommend setting the `AWS_FIS_POLL_MAX_WAIT_MILLISECONDS` environment variable to a non-zero value
+  (for example, `2000`) to ensure the extension has up-to-date fault configuration before
+  evaluating the invocation. For more information, see
+  [AWS FIS Lambda environment variables](use-lambda-actions.md#fis-extension-environment-variables "use-lambda-actions.md#fis-extension-environment-variables").
 
 ###### Permissions
 
@@ -1592,6 +1612,10 @@ To enable selectively impacting upstream or downstream integrations, you can cho
   For example, PT1M represents one minute. In the AWS FIS console, you enter the number of seconds, minutes, or hours.
 - **invocationPercentage** – Optional. The percentage (1-100) of function invocations to inject the fault into. The default is 100.
 - **preventExecution** – If the value is true, the action will return the response without executing the function.
+  We recommend setting the `AWS_FIS_POLL_MAX_WAIT_MILLISECONDS` environment variable to a non-zero value
+  (for example, `2000`) to ensure the extension has up-to-date fault configuration before
+  evaluating the invocation. For more information, see
+  [AWS FIS Lambda environment variables](use-lambda-actions.md#fis-extension-environment-variables "use-lambda-actions.md#fis-extension-environment-variables").
 - **statusCode** – Value of HTTP status code (000-999) to return from Lambda function.
 
 ###### Permissions

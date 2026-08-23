@@ -418,7 +418,7 @@ arn:aws:ssm:region::document/AWSFIS-Run-Network-Latency-Sources
   an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the current
-  Region.
+  Region. IPv6 traffic is not impaired by this document.
 - **TrafficType** –
   Optional. The type of traffic. The possible values are `ingress`
   and `egress`. The default is `ingress`.
@@ -503,7 +503,7 @@ arn:aws:ssm:region::document/AWSFIS-Run-Network-Packet-Loss-Sources
   an IPv4 CIDR block, a domain name, an AZ name (us-east-1a), an AZ ID (use1-az1), ALL, `DYNAMODB`, and
   `S3`. If you specify `DYNAMODB` or
   `S3`, this applies only to the Regional endpoint in the current
-  Region.
+  Region. IPv6 traffic is not impaired by this document.
 - **TrafficType** –
   Optional. The type of traffic. The possible values are `ingress`
   and `egress`. The default is `ingress`.
