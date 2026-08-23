@@ -6,7 +6,7 @@ configuration of your managed nodes. A _managed node_ is any Amazon Elastic Comp
 for Systems Manager. With Run Command, you can automate common administrative tasks and perform one-time
 configuration changes at scale. You can use Run Command from the AWS Management Console, the AWS Command Line Interface
 (AWS CLI), AWS Tools for Windows PowerShell, or the AWS SDKs. Run Command is offered at no additional cost. To get
-started with Run Command, open the [Systems Manager console](https://console.aws.amazon.com//systems-manager/run-command "https://console.aws.amazon.com//systems-manager/run-command"). In the navigation pane, choose
+started with Run Command, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/run-command "https://console.aws.amazon.com/systems-manager/run-command"). In the navigation pane, choose
 **Run Command**.
 
 This section includes the following topics.

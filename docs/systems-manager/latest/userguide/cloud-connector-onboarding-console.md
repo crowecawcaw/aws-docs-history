@@ -15,7 +15,7 @@ Choose whether to enable all Azure Regions (recommended)
 or select specific Regions where your VMs are
 located.
 
-State Manager association role (Automation dispatch role)
+State Manager association role (automation dispatch role)
 
 The IAM role that State Manager assumes to dispatch
 automation executions. This role passes the Automation
@@ -23,7 +23,7 @@ execution role to Automation when launching the
 onboarding workflow. For the trust policy and permissions
 required by this role, see [Automation dispatch role](cloud-connector-automation-dispatch-role.md "cloud-connector-automation-dispatch-role.md").
 
-Automation execution role (Automation assume role)
+Automation execution role (automation assume role)
 
 The IAM role that Automation assumes to execute the
 agent installation runbook. This role assumes the Azure

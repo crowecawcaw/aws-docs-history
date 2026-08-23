@@ -116,8 +116,10 @@ support.
 
 ###### Note
 
-Cron expressions that lead to rates faster than five (5) minute aren't
-supported. Support for specifying both a day-of-week and a day-of-month
+Systems Manager doesn't support cron expressions that lead to rates faster
+than 5 minutes for maintenance windows. For State Manager associations,
+you must use a scheduling interval of at least 30 minutes. For more
+information about association scheduling limitations, see [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association "#reference-cron-and-rate-expressions-association"). Support for specifying both a day-of-week and a day-of-month
 value isn't complete. Use the question mark (?) character in one of
 these fields.
 
@@ -159,6 +161,15 @@ For example, `rate(1 hours)` and
 This section includes examples of cron and rate expressions for State Manager associations.
 Before you create one of these expressions, be aware of the following
 information:
+
+###### Important
+
+For State Manager associations, you must use a scheduling interval of at least 30
+minutes. You can't use cron or rate expressions that result in intervals shorter
+than 30 minutes. For example, you can't use `cron(0/5 * * * ? *)`
+(every 5 minutes) or `rate(15 minutes)`. The 5-minute minimum described
+in the general cron expressions
+section applies to maintenance windows only, not to associations.
 
 - Associations support the following cron expressions: Every 1/2, 1, 2, 4, 8, or
   12 hours; every day, every week, or every specified day and time of the week; a

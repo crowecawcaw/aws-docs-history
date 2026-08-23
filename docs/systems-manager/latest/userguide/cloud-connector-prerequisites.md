@@ -8,3 +8,8 @@ between AWS and Microsoft Azure.
 
 Make sure your AWS account is not in any service control policy (SCP) that
 restricts the `sts:GetWebIdentityToken` action.
+
+###### Topics
+
+- [AWS prerequisites](cloud-connector-prereqs-aws.md "cloud-connector-prereqs-aws.md")
+- [Azure prerequisites](cloud-connector-prereqs-azure.md "cloud-connector-prereqs-azure.md")
