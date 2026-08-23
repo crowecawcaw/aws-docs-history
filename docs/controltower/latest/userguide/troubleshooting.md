@@ -47,7 +47,7 @@ to launch.
 
 ###### Action to take
 
-Be sure to enable all of your required AWS Security Token Service [(STS) endpoint regions](https://console.aws.amazon.com//iam/home#/account_settings "https://console.aws.amazon.com//iam/home#/account_settings")
+Be sure to enable all of your required AWS Security Token Service [(STS) endpoint regions](https://console.aws.amazon.com/iam/home#/account_settings "https://console.aws.amazon.com/iam/home#/account_settings")
 before you launch AWS Control Tower.
 
 **To remediate failed stack sets and retry the setup**

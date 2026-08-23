@@ -45,7 +45,7 @@ you're about to deploy to your accounts are compliant with your organization's p
 and procedures. For more information about proactive controls, see [Proactive controls](proactive-controls.md "proactive-controls.md").
 
 For more information about working with AFC, see [Automate account customization using Account Factory Customization in
-AWS Control Tower](https://aws.amazon.com//blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/ "https://aws.amazon.com//blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/").
+AWS Control Tower](https://aws.amazon.com/blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/ "https://aws.amazon.com/blogs/mt/automate-account-customization-using-account-factory-customization-in-aws-control-tower/").
 
 ###### Prerequisites
 

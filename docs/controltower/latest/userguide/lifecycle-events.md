@@ -54,7 +54,7 @@ AWS Control Tower dashboard.
   **View details** button at the upper right.
   For more information about how to integrate AWS Control Tower lifecycle events into your
   workflows, see this blog post, [Using lifecycle events to track AWS Control Tower actions and trigger automated
-  workflows](https://aws.amazon.com//blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/ "https://aws.amazon.com//blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/").
+  workflows](https://aws.amazon.com/blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/ "https://aws.amazon.com/blogs/mt/using-lifecycle-events-to-track-aws-control-tower-actions-and-trigger-automated-workflows/").
 
 **Expected behavior of CreateManagedAccount and UpdateManagedAccount
 lifecycle events**

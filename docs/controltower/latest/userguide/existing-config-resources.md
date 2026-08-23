@@ -46,7 +46,7 @@ account to a different AWS Control Tower OU, it causes governance drift, which a
 account from being added to the allow list.
 
 For a blog that describes an automated approach to enrolling accounts with existing AWS Config
-resources, see [Automate enrollment of accounts with existing AWS Config resources into AWS Control Tower](https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/ "https://aws.amazon.com//blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/").
+resources, see [Automate enrollment of accounts with existing AWS Config resources into AWS Control Tower](https://aws.amazon.com/blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/ "https://aws.amazon.com/blogs/mt/automate-enrollment-of-accounts-with-existing-aws-config-resources-into-aws-control-tower/").
 
 ###### This process has 5 main steps.
 
