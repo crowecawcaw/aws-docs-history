@@ -10,7 +10,7 @@ read throughput with other consumers. To use the enhanced fan-out capability of 
 You can build consumers for Kinesis Data Streams using Kinesis Client Library (KCL) or AWS SDK for Java.
 You can also develop consumers using other AWS services such as AWS Lambda, Amazon Managed Service for Apache Flink, and
 Amazon Data Firehose. Kinesis Data Streams supports integrations with other AWS services such as Amazon EMR, Amazon EventBridge,
-AWS Glue, and Amazon Redshift It also supports third party integrations including Apache Flink, Adobe
+AWS Glue, and Amazon Redshift. It also supports third party integrations including Apache Flink, Adobe
 Experience Platform, Apache Druid, Apache Spark, Databricks, Confluent Platform, Kinesumer,
 and Talend.
 

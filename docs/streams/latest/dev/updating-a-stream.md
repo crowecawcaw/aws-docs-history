@@ -33,7 +33,7 @@ In the **Configuration** tab, choose **Edit warm throughput** and enter a target
 
 ###### To decrease ingest capacity
 
-If the stream has significantly scaled beyond the warm throughput value, set the warm throughput to a lower value to trigger a scale-down. The stream scales to the requested number or the capacity needed to support peak data ingest usage observed within the last hour, whichever is higher. This ensures the stream always retains enough capacity to handle recent traffic patterns.
+If the stream has scaled significantly beyond its warm throughput value, reconfigure the warm throughput to that value or lower to trigger a scale-down. The stream scales to the requested number or the capacity needed to support peak data ingest usage observed within the last hour, whichever is higher. This ensures the stream always retains enough capacity to handle recent traffic patterns.
 
 Using warm throughput does not incur any additional cost. For more information, see [On-demand Advantage mode features and use cases](how-do-i-size-a-stream.md#ondemand-advantage-mode "how-do-i-size-a-stream.md#ondemand-advantage-mode"). 6. For a data stream with the provisioned mode, to edit the number of shards,
 choose **Edit provisioned shards** in the
@@ -81,7 +81,7 @@ aws kinesis update-stream-warm-throughput \
     --warm-throughput-mi-bps=200
 ```
 
-To lower capacity, set `warm-throughput-mi-bps` to a lower value:
+To lower capacity, reconfigure `warm-throughput-mi-bps` to the same or a lower value:
 
 ```
 aws kinesis update-stream-warm-throughput \

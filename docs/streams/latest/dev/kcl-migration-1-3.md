@@ -43,7 +43,7 @@ Follow the [Idle time removal](kcl-migration.md#idle-time-removal "kcl-migration
 
 Follow instructions on the [Migrate from KCL 2.x to KCL 3.x](kcl-migration-from-2-3.md "kcl-migration-from-2-3.md") page to complete the migration. If
 you need to roll back to the previous KCL version or roll forward to KCL 3.x
-after a rollback, refer to [Roll back to the previous KCL version](kcl-migration-rollback.md "kcl-migration-rollback.md") and [Roll forward to KCL 3.x after a rollback](kcl-migration-rollforward.md "kcl-migration-rollforward.md").
+after a rollback, refer to [Roll back to the previous KCL version](kcl-migration-rollback.md "kcl-migration-rollback.md") and [Roll forward to KCL 3.5.x after a rollback from KCL 3.5.x](kcl-migration-rollforward.md "kcl-migration-rollforward.md").
 
 ###### Important
 

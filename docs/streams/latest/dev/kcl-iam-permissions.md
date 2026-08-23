@@ -17,7 +17,7 @@ Minimum IAM permissions for KCL consumer applications| Service | Actions | Resou
 | Amazon Kinesis Data Streams | `GetRecords`<br>`GetShardIterator`<br>`ListShards` | Kinesis data stream from which your KCL application will process the data.`arn:aws:kinesis:region:account:stream/StreamName` | Reads records from a shard. |
 | Amazon Kinesis Data Streams | `SubscribeToShard`<br>`DescribeStreamConsumer` | Kinesis data stream from which your KCL application will<br>process the data. Add this action only if you use enhanced fan-out<br>(EFO) consumers.<br>`arn:aws:kinesis:region:account:stream/StreamName/consumer/*` | Subscribes to a shard for enhanced fan-out (EFO) consumers. |
 | Amazon DynamoDB | `CreateTable`<br>`DescribeTable`<br>`UpdateTable`<br>`Scan`<br>`GetItem`<br>`PutItem`<br>`UpdateItem`<br>`DeleteItem` | Lease table (metadata table in DynamoDB created by<br>KCL.<br>`arn:aws:dynamodb:region:account:table/KCLApplicationName` | These actions are required for KCL to manag the lease table<br>created in DynamoDB. |
-| Amazon DynamoDB | `CreateTable`<br>`DescribeTable`<br>`Scan`<br>`GetItem`<br>`PutItem`<br>`UpdateItem`<br>`DeleteItem`<br>`ConditionCheckItem`<br>`DeleteTable` | Worker metrics and coordinator state table (metadata tables in<br>DynamoDB) created by KCL.<br>`arn:aws:dynamodb:region:account:table/KCLApplicationName-WorkerMetricStats`<br>`arn:aws:dynamodb:region:account:table/KCLApplicationName-CoordinatorState` | These actions are required for KCL to manage the worker metrics<br>and coordinator state metadata tables in DynamoDB. The CoordinatorState<br>table requires the `ConditionCheckItem` action to support<br>the conditional writes used during the single table migration. |
+| Amazon DynamoDB | `CreateTable`<br>`DescribeTable`<br>`Scan`<br>`GetItem`<br>`PutItem`<br>`UpdateItem`<br>`DeleteItem`<br>`ConditionCheckItem` | Worker metrics and coordinator state table (metadata tables in<br>DynamoDB) created by KCL.<br>`arn:aws:dynamodb:region:account:table/KCLApplicationName-WorkerMetricStats`<br>`arn:aws:dynamodb:region:account:table/KCLApplicationName-CoordinatorState` | These actions are required for KCL to manage the worker metrics<br>and coordinator state metadata tables in DynamoDB. The CoordinatorState<br>table requires the `ConditionCheckItem` action to support<br>the conditional writes used during the single table migration. |
 | Amazon DynamoDB | `Query` | Global secondary index on the lease table.<br>`arn:aws:dynamodb:region:account:table/KCLApplicationName/index/*` | This action is required for KCL to read the global secondary index<br>of the lease table created in DynamoDB. |
 | Amazon CloudWatch | `PutMetricData` | \* | Upload metrics to CloudWatch that are useful for monitoring the<br>application. The asterisk (\*) is used because there is no spcific<br>resource in CloudWatch on which the `PutMetricData` action is<br>invoked. |
 
@@ -32,11 +32,8 @@ specified table names instead of KCL application name.
 
 ###### Note
 
-The `DeleteTable` permission for the worker metrics and coordinator
-state tables is required only if you use the single table format. After the
-migration completes, you must manually delete the old tables. The
-`DeleteTable` permission allows you to perform this cleanup. For
-more information, see [Single table format for KCL](kcl-single-table-format.md "kcl-single-table-format.md").
+After KCL 3.5 single table migration completes, the legacy worker metrics
+and coordinator state tables must be manually deleted.
 
 The following is an example policy document for a KCL consumer application.
 

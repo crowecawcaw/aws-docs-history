@@ -1,105 +1,134 @@
 # Roll back to the previous KCL version
 
-This topic explains the steps to roll back your consumer back to the previous version.
-When you need to roll back, there is a two-step process:
-
-1. Run the [KCL Migration Tool](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py").
-2. Redeploy previous KCL version code (optional).
-
-## Step 1: Run the KCL Migration Tool
-
-When you need to roll back to the previous KCL version, you must run the
-KCL Migration Tool. The KCL Migration Tool does two important
-tasks:
-
-- It removes a metadata table called worker metrics table and global
-  secondary index on the lease table in DynamoDB. These two artifacts are
-  created by KCL 3.x but are not needed when you roll back to the
-  previous version.
-- It makes all workers run in a mode compatible with KCL 2.x and start using the load
-  balancing algorithm used in previous KCL versions. If you have
-  issues with the new load balancing algorithm in KCL 3.x, this will
-  mitigate the issue immediately.
+This topic explains the steps to roll back your KCL 3.5.x consumer to the
+previous version. The rollback process depends on which migration phase your application
+is currently in.
 
 ###### Important
 
-The coordinator state table in DynamoDB must exist and must not be deleted during
-the migration, rollback, and rollforward process.
+The KCL Migration Tool is only required when rolling back from Phase 2
+(`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`) to Phase 1
+(`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1`). If your application
+is still in Phase 1, you can roll back to your previous KCL version by
+redeploying your previous code without running the tool.
+
+## Roll back from Phase 1 to the previous KCL version
+
+If your application is in Phase 1
+(`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1`), you can roll back
+to your previous KCL version by redeploying your previous code. Phase 1 is
+backward compatible with previous KCL versions and does not create any
+migration-specific entries in the lease table. No migration tool is needed.
+
+To roll back from Phase 1:
+
+1. Redeploy the code with your previous KCL version to all
+   workers.
+
+## Roll back from Phase 2 to Phase 1
+
+If your application is in Phase 2
+(`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`), you must use the
+KCL Migration Tool to roll back to Phase 1. This is a two-step
+process:
+
+1. Run the [KCL Migration Tool](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py").
+2. Redeploy the code with Phase 1 configuration (optional).
+
+###### Important
+
+You cannot roll back two levels (from Phase 2 to Phase 1 and then to the
+previous KCL version). The KCL Migration Tool only handles
+the Phase 2 to Phase 1 rollback.
 
 ###### Note
 
-It's important that all workers in your consumer application use the same load
-balancing algorithm at a given time. The KCL Migration Tool makes sure
-that all workers in your KCL 3.x consumer application switch to the
+The KCL Migration Tool does not delete non-lease entries from the
+lease table. These entries are not backward compatible with previous KCL
+versions, which is why a two-level rollback from Phase 2 directly to a previous
+KCL version is not possible.
+
+## Step 1: Run the KCL Migration Tool
+
+When you need to roll back from Phase 2
+(`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`) to Phase 1, run the
+KCL Migration Tool. The tool performs the following tasks:
+
+- It removes the Global Secondary Index (LeaseOwnerToLeaseKeyIndex) on the
+  lease table in DynamoDB. This index is created by KCL 3.5.x but is
+  not needed when you roll back to Phase 1.
+- It makes all workers run in a mode compatible with KCL 2.x and
+  start using the load balancing algorithm used in previous KCL
+  versions. If you have issues with the new load balancing algorithm in
+  KCL 3.5.x, this mitigates the issue immediately.
+
+###### Important
+
+The coordinator state entry (`Migration3.0`) in the lease table
+must not be deleted during the migration, rollback, and rollforward process.
+
+###### Note
+
+All workers in your consumer application must use the same load balancing
+algorithm at a given time. The KCL Migration Tool makes sure that all
+workers in your KCL 3.5.x consumer application switch to the
 KCL 2.x compatible mode so that all workers run the same load balancing
-algorithm during the rolling depayment back to your previous KCL
-version.
+algorithm during the rolling deployment back to Phase 1.
 
 You can download the [KCL Migration Tool](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py") in the scripts directory of the [KCL GitHub
-repository](https://github.com/awslabs/amazon-kinesis-client/tree/master "https://github.com/awslabs/amazon-kinesis-client/tree/master"). The script can be run from any of your workers or any host
-which has the required permissions to write to the coordinator state table, delete
-the worker metrics table, and update the lease table. You can refer to [IAM permissions required for KCL consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md") for required
-IAM permission to run the script. You must run the script only once per
-KCL application. You can run the KCL Migration Tool with the
-following command:
+repository](https://github.com/awslabs/amazon-kinesis-client/tree/master "https://github.com/awslabs/amazon-kinesis-client/tree/master"). Run the script from any of your workers or any host that has
+the required permissions to write to and update the lease table. You can refer to
+[IAM permissions required for KCL consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md") for
+required IAM permissions to run the script. You must run the script only once per
+KCL application. Run the KCL Migration Tool with the following
+command:
 
 ```
-python3 ./KclMigrationTool.py --region <region> --mode rollback [--application_name <applicationName>] [--lease_table_name <leaseTableName>] [--coordinator_state_table_name <coordinatorStateTableName>] [--worker_metrics_table_name <workerMetricsTableName>]
+python3 ./KclMigrationTool.py --region <region> --mode rollback [--application_name <applicationName>] [--lease_table_name <leaseTableName>]
 ```
 
 **Parameters**
 
 - --region: Replace `<region>` with your AWS Region.
-- --application\_name: This parameter is required if you're using default
-  names for your DynamoDB metadata tables (lease table, coordinator state table,
-  and worker metrics table). If you have specified custom names for these
-  tables, you can omit this parameter. Replace
+- --application\_name: This parameter is required if you're using the default
+  name for your lease table. If you have specified a custom name for the lease
+  table, you can omit this parameter. Replace
   `<applicationName>` with your actual KCL
-  application name. The tool uses this name to derive the default table names
-  if custom names are not provided.
+  application name. The tool uses this name to derive the default table name
+  if a custom name is not provided.
 - --lease\_table\_name (optional): This parameter is needed when you have set
   a custom name for the lease table in your KCL configuration. If
   you're using the default table name, you can omit this parameter. Replace
-  `leaseTableName` with the custom table name you specified for
-  your lease table.
-- --coordinator\_state\_table\_name (optional): This parameter is needed when
-  you have set a custom name for the coordinator state table in your
-  KCL configuration. If you're using the default table name, you can
-  omit this parameter. Replace `<coordinatorStateTableName>`
-  with the custom table name you specified for your coordinator state table.
-- --worker\_metrics\_table\_name (optional): This parameter is needed when you
-  have set a custom name for the worker metrics table in your KCL
-  configuration. If you're using the default table name, you can omit this
-  parameter. Replace `<workerMetricsTableName>` with the custom
-  table name you specified for your worker metrics table.
+  `<leaseTableName>` with the custom table name you
+  specified for your lease table.
 
-## Step 2: Redeploy the code with the previous KCL version (optional)
+## Step 2: Redeploy the code with Phase 1 configuration (optional)
 
-After running the KCL Migration Tool for a rollback, you'll see one of
-these messages:
+After running the KCL Migration Tool for a rollback from Phase 2 to
+Phase 1, you'll see one of these messages:
 
-- **Message 1:** “Rollback completed. Your
-  KCL application was running the KCL 2.x compatible mode.
-  If you don't see mitigation of any regression, please rollback to your
-  previous application binaries by deploying the code with your previous
-  KCL version.”
+- **Message 1:** "Rollback completed. Your
+  application was running Phase 2 (2x compatible) functionality. Please
+  rollback to Phase 1 by deploying your KCL 3.5.x application with the
+  Phase 1 configuration."
 
-  - **Required action:** This means that
-    your workers were running in the KCL 2.x compatible mode.
-    If the issue persists, redeploy the code with the previous
-    KCL version to your workers.
+  - **Required action:** Your workers
+    were running in Phase 2 (2x compatible) mode. Redeploy your
+    KCL 3.5.x application with Phase 1 configuration
+    (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1`) to
+    your workers.
 
-- **Message 2:** “Rollback completed. Your
-  KCL application was running the KCL 3.x functionality
-  mode. Rollback to the previous application binaries is not necessary, unless
-  you don’t see any mitigation for the issue within 5 minutes. If you still
-  have an issue, please rollback to your previous application binaries by
-  deploying the code with your previous KCL version.”
+- **Message 2:** "Rollback completed. Your
+  KCL application was running Phase 2 (3x) functionality and has been rolled
+  back to Phase 2 (2x compatible) mode. If you don't see mitigation after a
+  short period of time, please rollback to Phase 1 by deploying your KCL
+  3.5.x application with the Phase 1 configuration."
 
-  - **Required action:** This means that
-    your workers were running in KCL 3.x mode and the
-    KCL Migration Tool switched all workers to KCL 2.x
-    compatible mode. If the issue is resolved, you don't need to
-    redeploy the code with the previous KCL version. If the
-    issue persists, redeploy the code with the previous KCL
-    version to your workers.
+  - **Required action:** Your workers
+    were running in Phase 2 (3x) mode and the KCL Migration
+    Tool rolled them back to Phase 2 (2x compatible) mode. If the issue
+    is resolved, you don't need to redeploy. If the issue persists,
+    redeploy your KCL 3.5.x application with Phase 1
+    configuration
+    (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1`) to
+    your workers.

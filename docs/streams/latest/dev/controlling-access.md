@@ -425,7 +425,7 @@ JSONJSON
 
 Wildcard (\*) is not supported for actions or principal field in order maintain the principle of least privilege..
 
-### Manage the policy for your data stream programatically
+### Manage the policy for your data stream programmatically
 
 Outside of the AWS Management Console, Kinesis Data Streams has three APIS for managing your data stream policy:
 

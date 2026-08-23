@@ -28,7 +28,7 @@ For more information, see [KCL
 
 - [Migrate from KCL 2.x to KCL 3.x](kcl-migration-from-2-3.md "kcl-migration-from-2-3.md")
 - [Roll back to the previous KCL version](kcl-migration-rollback.md "kcl-migration-rollback.md")
-- [Roll forward to KCL 3.x after a rollback](kcl-migration-rollforward.md "kcl-migration-rollforward.md")
+- [Roll forward to KCL 3.5.x after a rollback from KCL 3.5.x](kcl-migration-rollforward.md "kcl-migration-rollforward.md")
 - [Best practices for the lease table with provisioned capacity mode](kcl-migration-lease-table.md "kcl-migration-lease-table.md")
 - [Migrate from KCL 3.x to single table format](kcl-migration-from-3-3-5.md "kcl-migration-from-3-3-5.md")
 - [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md")
