@@ -46,21 +46,21 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 ## Amazon EBS data security
 
 Amazon EBS volumes are presented to you as raw, unformatted block devices. These devices are logical
-devices that are created on the EBS infrastructure and the Amazon EBS service ensures that the devices are
-logically empty (that is, the raw blocks are zeroed or they contain cryptographically pseudorandom
-data) prior to any use or re-use by a customer.
+devices created on the EBS infrastructure. The Amazon EBS service ensures that the devices are
+logically empty (that is, the raw blocks are zeroed or contain cryptographically pseudorandom
+data) before any customer use or re-use.
 
-If you have procedures that require that all data be erased using a specific method, either after
-or before use (or both), such as those detailed in **DoD 5220.22-M**
-(National Industrial Security Program Operating Manual) or **NIST 800-88**
-(Guidelines for Media Sanitization), you have the ability to do so on Amazon EBS. That block-level activity
-will be reflected down to the underlying storage media within the Amazon EBS service.
+If your procedures require erasing all data using a specific method, such as those detailed in
+**DoD 5220.22-M** (National Industrial Security Program Operating Manual) or
+**NIST 800-88** (Guidelines for Media Sanitization), you can do so on Amazon EBS.
+You can erase the data before or after use, or both depending on the procedure's requirements. That
+block-level activity will be reflected down to the underlying storage media within the Amazon EBS service.
 
 ## Encryption at rest and in transit
 
 Amazon EBS encryption is an encryption solution that enables you to encrypt your Amazon EBS volumes and Amazon EBS
 snapshots using AWS Key Management Service cryptographic keys. EBS encryption operations occur on the servers that host
-Amazon EC2 instances, ensuring the security of both **data-at-rest** and
+Amazon EC2 instances. This ensures the security of both **data-at-rest** and
 **data-in-transit** between an instance and its attached volume and any
 subsequent snapshots. For more information, see [Amazon EBS encryption](ebs-encryption.md "ebs-encryption.md").
 

@@ -34,10 +34,10 @@ volume configuration after volume modification starts. For more information, see
   state, which usually takes a few seconds.
 - Modification time is increased for volumes that are not fully initialized. For more
   information see [Manually initialize the volumes after creation](initalize-volume.md#ebs-initialize "initalize-volume.md#ebs-initialize").
-- If you change the volume type from `gp2` to `gp3`, and you do not specify
-  IOPS or throughput performance, Amazon EBS automatically provisions either equivalent performance to that
-  of the source `gp2` volume, or the baseline `gp3` performance, whichever is
-  higher.
+- If you change the volume type from `gp2` to `gp3` without specifying
+  IOPS or throughput performance, Amazon EBS automatically provisions performance. It uses either the
+  equivalent performance of the source `gp2` volume or the baseline `gp3`
+  performance, whichever is higher.
 
 For example, if you modify a 500 GiB `gp2` volume with 250 MiB/s throughput and 1500
 IOPS to `gp3` without specifying IOPS or throughput performance, Amazon EBS automatically

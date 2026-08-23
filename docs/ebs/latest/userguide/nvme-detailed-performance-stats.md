@@ -5,9 +5,9 @@ for Amazon EBS volumes attached to Nitro-based Amazon EC2 instances. These stati
 as aggregated counters that are retained for the duration of the volume's attachment to
 the instance. The statistics provide details about the cumulative number of operations,
 bytes sent and received, and time spent on read and write I/O operations. Additionally,
-the statistics include histograms for read and write I/O operations, and the total time
-your application has exceeded the EBS volume or attached instance's provisioned IOPS or
-throughput limits.
+the statistics include histograms for read and write I/O operations. They also report
+the total time your application has exceeded the EBS volume's or attached instance's
+provisioned IOPS or throughput limits.
 
 You can collect these statistics at a granularity of up to 1 second intervals. If
 requests are made more frequently than 1 second intervals, the NVMe driver might queue

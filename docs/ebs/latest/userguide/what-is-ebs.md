@@ -39,7 +39,7 @@ Amazon EBS provides the following features and benefits:
   AWS Regions, or Availability Zones.
 - **Data protection** — Use Amazon EBS encryption to
   encrypt your Amazon EBS volumes and Amazon EBS snapshots. Encryption operations occur on the
-  servers that host Amazon EC2 instances, ensuring the security of both data-at-rest and
+  servers that host Amazon EC2 instances. This ensures the security of both data-at-rest and
   data-in-transit between an instance and its attached volume and subsequent
   snapshots.
 - **Data availability and durability** —
@@ -50,8 +50,8 @@ Amazon EBS provides the following features and benefits:
   failure of any single component.
 - **Data archiving** — EBS Snapshots Archive
   provides a low-cost storage tier to archive full, point-in-time copies of EBS
-  Snapshots that you must retain for 90 days or more for regulatory and compliance
-  reasons, or for future project releases.
+  Snapshots. Use Archive when you must retain snapshots for 90 days or more for
+  regulatory, compliance, or future project release purposes.
 
 ## Related services
 

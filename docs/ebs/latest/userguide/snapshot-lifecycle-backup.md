@@ -4,8 +4,8 @@ AWS Backup is a fully managed service that centralizes and automates data protec
 across your entire AWS environment. Rather than managing snapshot schedules and retention
 per resource, you define a single backup policy and apply it across accounts and Regions.
 Tag your resources and AWS Backup protects them automatically, with no per-team configuration
-required. The service supports many AWS services including Amazon EBS, Amazon EC2, Amazon S3, Amazon EFS,
-Amazon RDS, and Aurora, so one policy can protect volumes, databases, file systems, and
+required. The service supports many AWS services, including Amazon EBS, Amazon EC2, Amazon S3, Amazon EFS,
+Amazon RDS, and Aurora. As a result, one policy can protect volumes, databases, file systems, and
 object stores together without separate backup tools per workload.
 
 For Amazon EBS, AWS Backup delivers crash-consistent, multi-volume snapshots that coordinate
