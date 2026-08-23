@@ -55,7 +55,10 @@ are as follows:
   command will default to the `us-east-1` region.
 - `vpc_endpoint` - The VPC endpoint name for your gateway,
   for example
-  `vpce-050f90485f28f2fd0-iep0e8vq.storagegateway.us-west-2.vpce.amazonaws.com`.
+  `vpce-050f90485f28f2fd0-iep0e8vq.storagegateway.us-west-2.vpce.amazonaws.com`,
+  or
+  `vpce-050f90485f28f2fd0-iep0e8vq.storagegateway-fips.us-west-2.vpce.amazonaws.com`
+  in Regions with FIPS availability.
 
 ###### Standard endpoints
 
@@ -103,6 +106,22 @@ To get the activation key for a VPC endpoint:
 
 ```
 curl "http://`gateway_ip_address`/?activationRegion=`region_code`&vpcEndpoint=`vpc_endpoint`&no_redirect"
+```
+
+###### VPC endpoints with FIPS
+
+Use the following commands to get the activation key for a FIPS-enabled VPC endpoint.
+
+Use the following command for IPv4:
+
+```
+curl "http://`gateway_ip_address`/?activationRegion=`region_code`&vpcEndpoint=`vpc_endpoint`&endpointType=FIPS&ipVersion=ipv4&no_redirect"
+```
+
+Use the following command for IPv6:
+
+```
+curl "http://`gateway_ip_address`/?activationRegion=`region_code`&vpcEndpoint=`vpc_endpoint`&endpointType=FIPS&ipVersion=ipv6&no_redirect"
 ```
 
 ## Linux (bash/zsh)

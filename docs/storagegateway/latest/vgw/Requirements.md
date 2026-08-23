@@ -48,6 +48,16 @@ The Storage Gateway AMI is only compatible with x86-based instances that use Int
 AMD processors. ARM-based instances that use Graviton processors are not
 supported.
 
+###### Note
+
+The Storage Gateway AMI requires an Amazon EC2 instance type that supports UEFI boot mode.
+If you choose an instance type that supports only legacy BIOS boot, the instance
+cannot start and does not pass its health checks. Before you launch your
+gateway, confirm that your chosen instance type supports UEFI boot. To check
+which boot modes an instance type supports, call the [DescribeInstanceTypes](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTypes.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTypes.md") Amazon EC2 API operation. Then review the
+`SupportedBootModes` field in the response. UEFI boot
+support might also vary by Availability Zone.
+
 For Volume Gateway, your Amazon EC2 instance should dedicate the following
 amounts of RAM depending on the cache size you plan to use for your gateway:
 
@@ -69,7 +79,7 @@ cached volumes
   instance size or higher to meet the required RAM requirements.
 - Memory-optimized instance family – **r5, r6, or
   r7** instance types.
-- Storage-optimized instance family – **i3, i4, or
+- Storage-optimized instance family – **i4 or
   i7** instance types.
 
 ### Storage requirements
@@ -246,12 +256,6 @@ region string.
 
 These endpoints support IPv4 traffic between your gateway appliance and AWS.
 
-The following service endpoint is required by all gateways for head-bucket operations.
-
-```
-bucket-name.s3.`region`.amazonaws.com:443
-```
-
 The following service endpoints are required by all gateways for control path
 (`anon-cp`, `client-cp`, `proxy-app`) and data path (`dp-1`) operations.
 
@@ -279,12 +283,6 @@ storagegateway.us-west-2.amazonaws.com:443
 
 These endpoints support both IPv4 and IPv6 traffic between your gateway appliance and AWS.
 
-The following dual-stack service endpoint is required by all gateways for head-bucket operations.
-
-```
-bucket-name.s3.dualstack.`region`.amazonaws.com:443
-```
-
 The following dual-stack service endpoints are required by all gateways for control path
 (activation, controlplane, proxy) and data path (dataplane) operations.
 
@@ -307,6 +305,55 @@ Region (`us-west-2`).
 ```
 storagegateway.us-west-2.api.aws:443
 ```
+
+###### FIPS endpoints
+
+These endpoints support IPv4 traffic between your gateway appliance and
+AWS, and comply with Federal Information Processing Standards
+(FIPS).
+
+FIPS gateways require the following service endpoints for control path
+(`anon-cp`, `client-cp`, `proxy-app`) and data path (`dp-1`) operations.
+
+```
+anon-cp.storagegateway-fips.`region`.amazonaws.com:443
+client-cp.storagegateway-fips.`region`.amazonaws.com:443
+proxy-app.storagegateway-fips.`region`.amazonaws.com:443
+dp-1.storagegateway-fips.`region`.amazonaws.com:443
+```
+
+Use the following gateway service endpoint to make API calls.
+
+```
+storagegateway-fips.`region`.amazonaws.com:443
+```
+
+###### Dual-stack FIPS endpoints
+
+These endpoints support both IPv4 and IPv6 traffic between your gateway
+appliance and AWS, and comply with FIPS.
+
+FIPS gateways require the following dual-stack service endpoints for control path
+(activation, controlplane, proxy) and data path (dataplane) operations.
+
+```
+activation-storagegateway-fips.`region`.api.aws:443
+controlplane-storagegateway-fips.`region`.api.aws:443
+proxy-storagegateway-fips.`region`.api.aws:443
+dataplane-storagegateway-fips.`region`.api.aws:443
+```
+
+Use the following gateway dual-stack service endpoint to make API calls.
+
+```
+storagegateway-fips.`region`.api.aws:443
+```
+
+###### Note
+
+FIPS endpoints are available only in some AWS Regions. For more
+information, see [Storage Gateway endpoints and quotas](../../../general/latest/gr/sg.md "../../../general/latest/gr/sg.md") in
+the _AWS General Reference_.
 
 ###### NTP Servers
 
