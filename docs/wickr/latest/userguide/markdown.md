@@ -40,7 +40,7 @@ Markdown is enabled by default. To disable it, complete the following procedure.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
 2. In the navigation pane, choose the menu icon (
-   ![Menu icon](/images/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)
+   ![Menu icon](images/icon-wickr-settings-hamburger.png)
    ), and then choose **Settings**.
 3. Choose **Appearance**.
 4. In the **Appearance** pane that appears, turn off the toggle in the **New User
@@ -49,7 +49,7 @@ Markdown is enabled by default. To disable it, complete the following procedure.
 
 5. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
 6. In the navigation pane, choose the menu icon (
-   ![Menu icon](/images/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)
+   ![Menu icon](images/icon-wickr-settings-hamburger.png)
    ), and then choose **Settings**.
 7. Choose **Appearance**.
 8. In the **Appearance** pane that appears, turn off the toggle in the **Rich Text Editor
