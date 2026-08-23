@@ -14,6 +14,7 @@ support
 - [Troubleshooting SQL errors](#troubleshooting-sql "#troubleshooting-sql")
 - [Troubleshooting concurrency control responses](#troubleshooting-occ "#troubleshooting-occ")
 - [Troubleshooting SSL/TLS connections](#troubleshooting-ssl-tls "#troubleshooting-ssl-tls")
+- [Troubleshooting missing metrics from the Amazon CloudWatch Database Insights console](#troubleshooting-database-insights "#troubleshooting-database-insights")
 
 ## Troubleshooting connection errors
 
@@ -104,7 +105,7 @@ attribute**
 
 Any database roles you create must have the `LOGIN` permission.
 
-To address this error, make sure that you’ve created the PostgreSQL Role with the
+To address this error, make sure that you've created the PostgreSQL Role with the
 `LOGIN` permission. For more information, see [CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html "https://www.postgresql.org/docs/current/sql-createrole.html") and [ALTER ROLE](https://www.postgresql.org/docs/current/sql-alterrole.html "https://www.postgresql.org/docs/current/sql-alterrole.html") in the
 PostgreSQL documentation.
 
@@ -129,14 +130,14 @@ asynchronously in Aurora DSQL](working-with-create-index-async.md "working-with-
 
 ## Troubleshooting concurrency control responses
 
-**OC000 “ERROR: change conflicts with another transaction
-(OC000)”**
+**OC000 "ERROR: change conflicts with another transaction
+(OC000)"**
 
 This transaction attempted to modify the same tuples as another concurrent transaction.
 This indicates contention on the modified tuples. To learn more,
 refer to [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md") .
 
-**OC001 “ERROR: schema has been updated by another transaction (OC001)”**
+**OC001 "ERROR: schema has been updated by another transaction (OC001)"**
 
 Your session had a cached copy of the schema catalog at version V1, loaded at time T1.
 
@@ -172,3 +173,34 @@ client to version 17 to resolve this issue.
 
 This is a known issue with the Windows psql client when using system certificates.
 Use the downloaded certificate file method described in the [Connecting from Windows](configure-root-certificates.md#connect-windows "configure-root-certificates.md#connect-windows") instructions.
+
+## Troubleshooting missing metrics from the Amazon CloudWatch Database Insights console
+
+### Aurora DSQL cluster not appearing in the Amazon CloudWatch Database Insights console
+
+Amazon CloudWatch Database Insights populates its cluster selector using activity data from Aurora DSQL
+database insights. For more information about Aurora DSQL database insights, see
+
+[Monitoring Aurora DSQL clusters with Aurora DSQL Database Insights](dsql-db-insights.md "dsql-db-insights.md"). A
+cluster becomes visible in Database Insights only after the cluster has generated load
+within the last eight days that was captured by Aurora DSQL active session history (DASH) sampler.
+
+DASH uses 1-second sampling, which might miss fast, infrequent transactions that
+complete in milliseconds.
+
+Use the following steps to confirm whether this explains what you're seeing:
+
+1. Confirm that you have run transactions on the cluster within the last eight days. A
+   cluster that has been idle longer than that doesn't appear in Database Insights
+   regardless of how you used it previously. To check for recent activity, view the
+   `TotalTransactions` metric for your cluster in CloudWatch. For more information
+   about this metric, see [Observability and performance](cloudwatch-monitoring.md#observability-performance "cloudwatch-monitoring.md#observability-performance").
+2. Run a sustained workload against the cluster so that at least one session stays
+   active. Examples include a load-testing script, a batch of inserts, or a long-running
+   query. Because DASH samples once per second, a brief workload might not be captured,
+   so the more continuous the activity, the more likely it is to appear.
+3. Wait a few minutes after running that workload, then refresh the Database
+   Insights console.
+4. Verify that you're viewing the same AWS Region and account where the cluster
+   was created. Selecting the wrong Region or account is a common reason a cluster
+   appears to be missing.

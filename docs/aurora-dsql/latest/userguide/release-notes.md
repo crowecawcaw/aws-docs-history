@@ -8,6 +8,15 @@ history](doc-history.md "doc-history.md").
 
 ### August 2026
 
+August 17, 2026
+
+_Monitoring_ — **Aurora DSQL Database Insights** — Aurora DSQL now supports Aurora DSQL Database Insights, per-statement cluster-level
+performance monitoring capability, which samples active sessions to give visibility into
+database load by wait event and SQL statement. This release also adds troubleshooting
+guidance for clusters that don't appear in the Amazon CloudWatch Database Insights console. For
+more information, see [Monitoring Aurora DSQL clusters with Aurora DSQL Database Insights](dsql-db-insights.md "dsql-db-insights.md") and
+[Troubleshooting missing metrics from the Amazon CloudWatch Database Insights console](troubleshooting.md#troubleshooting-database-insights "troubleshooting.md#troubleshooting-database-insights").
+
 August 13, 2026
 
 🐘 _PostgreSQL Compatibility_ — **Indexes on
