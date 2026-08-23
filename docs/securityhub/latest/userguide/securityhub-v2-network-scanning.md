@@ -211,6 +211,15 @@ When you add the exclusion tag, Network Scanning stops future scans and closes a
 findings for that resource. Removing the tag makes the resource eligible for scanning
 again.
 
+## Supported ports
+
+Network Scanning scans the following well-known TCP ports on eligible resources.
+
+```
+21, 22, 23, 25, 53, 80, 110, 143, 443, 445, 1433, 3306, 3389, 5432,
+5900, 6379, 8080, 8443, 9200, 27017
+```
+
 ## Scan traffic
 
 Scans use TCP only (no UDP) and scan a well-known subset of TCP ports.

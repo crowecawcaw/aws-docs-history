@@ -26,7 +26,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The Azure virtual machine has an open network security group](exposure-azure-virtual-machine.md#open-security-group "exposure-azure-virtual-machine.md#open-security-group")
   - [The Azure virtual machine has a security rule that allows SSH or RDP access](exposure-azure-virtual-machine.md#remote-access-allowed "exposure-azure-virtual-machine.md#remote-access-allowed")
   - [The role associated with the Azure virtual machine has an administrative access role assignment](exposure-azure-virtual-machine.md#administrative-access-policy "exposure-azure-virtual-machine.md#administrative-access-policy")
-  - [The Azure virtual machine has an End-Of-Life operating system](exposure-azure-virtual-machine.md#end-of-life-operating-system-detected "exposure-azure-virtual-machine.md#end-of-life-operating-system-detected")
+  - [The Azure virtual machine has an end-of-life operating system](exposure-azure-virtual-machine.md#end-of-life-operating-system-detected "exposure-azure-virtual-machine.md#end-of-life-operating-system-detected")
 
 - [Reachability traits for Azure virtual machines](exposure-azure-virtual-machine.md#azure-vm-reachability "exposure-azure-virtual-machine.md#azure-vm-reachability")
 
@@ -103,7 +103,7 @@ In the Azure portal, review the role assignments for the identity associated wit
 
 Replace administrative role assignments with the least-privileged built-in role that grants only the permissions the workload requires. Assign it at the narrowest scope (resource or resource group) that meets your needs. When creating custom roles, specify `Actions` and `DataActions` explicitly instead of using a wildcard. For more information, see [Best practices for Azure RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/best-practices "https://learn.microsoft.com/en-us/azure/role-based-access-control/best-practices") in the Microsoft Azure documentation.
 
-### The Azure virtual machine has an End-Of-Life operating system
+### The Azure virtual machine has an end-of-life operating system
 
 The Azure virtual machine runs an end-of-life operating system that is no longer supported or maintained by its vendor.
 When an operating system reaches end of life, the vendor stops releasing security updates and advisories, which leaves known vulnerabilities permanently unpatched and exposes the virtual machine to attack.

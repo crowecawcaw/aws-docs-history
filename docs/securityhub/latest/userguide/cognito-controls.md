@@ -98,7 +98,7 @@ Guide_.
 
 | Parameter                   | Description                                                             | Type    | Allowed custom values | Security Hub CSPM default value |
 | --------------------------- | ----------------------------------------------------------------------- | ------- | --------------------- | ------------------------------- |
-| `minLength`                 | The minimum number of characters that a password must contain.          | Integer | `8` to `128`          | `8`                             |
+| `minLength`                 | The minimum number of characters that a password must contain.          | Integer | `8` to `99`           | `8`                             |
 | `requireLowercase`          | Require at least one lowercase character in a password.                 | Boolean | `True`, `False`       | `True`                          |
 | `requireUppercase`          | Require at least one uppercase character in a password.                 | Boolean | `True`, `False`       | `True`                          |
 | `requireNumbers`            | Require at least one number in a password.                              | Boolean | `True`, `False`       | `True`                          |
