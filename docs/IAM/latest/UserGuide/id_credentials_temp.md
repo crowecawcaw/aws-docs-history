@@ -130,7 +130,7 @@ applications that implement complete example scenarios:
   create a custom federation proxy that enables single sign-on (SSO) so that existing Active
   Directory users can sign in to the AWS Management Console.
 - [How to Use Shibboleth for Single Sign-On to the AWS Management Console.](https://aws.amazon.com/blogs/security/how-to-use-shibboleth-for-single-sign-on-to-the-aws-management-console/ "https://aws.amazon.com/blogs/security/how-to-use-shibboleth-for-single-sign-on-to-the-aws-management-console/"). Shows how to use
-  [Shibboleth](../../../http:/shibboleth.net.md "../../../http:/shibboleth.net.md") and [SAML](id_roles_providers_saml.md "id_roles_providers_saml.md") to provide users with single sign-on (SSO)
+  [Shibboleth](http://shibboleth.net/ "http://shibboleth.net/") and [SAML](id_roles_providers_saml.md "id_roles_providers_saml.md") to provide users with single sign-on (SSO)
   access to the AWS Management Console.
 
 ### Samples for OIDC federation

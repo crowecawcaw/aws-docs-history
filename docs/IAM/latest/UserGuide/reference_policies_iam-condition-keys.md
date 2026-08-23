@@ -1201,7 +1201,7 @@ The following example trust policy uses custom claims in GitHub OIDC token to li
     {
         "Effect": "Allow",
         "Principal": {
-            "Federated": "arn:aws:iam::AWS_ACCOUNT_ID:oidc-provider/token.actions.githubusercontent.com"
+            "Federated": "arn:aws:iam::111122223333:oidc-provider/token.actions.githubusercontent.com"
          },
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Condition": {

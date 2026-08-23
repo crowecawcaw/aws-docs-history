@@ -7,7 +7,7 @@ see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentia
 the different methods that you can use to request temporary security credentials by assuming a
 role, see [Methods to assume a role](id_roles_manage-assume.md "id_roles_manage-assume.md").
 
-To call the API operations, you can use one of the [AWS SDKs](../../../http:/aws.amazon.com/tools.md "../../../http:/aws.amazon.com/tools.md"). The SDKs are available for a variety of programming languages and
+To call the API operations, you can use one of the [AWS SDKs](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/"). The SDKs are available for a variety of programming languages and
 environments, including Java, .NET, Python, Ruby, Android, and iOS. The SDKs take care of tasks
 such as cryptographically signing your requests, retrying requests if necessary, and handling
 error responses. You can also use the AWS STS Query API, which is described in the

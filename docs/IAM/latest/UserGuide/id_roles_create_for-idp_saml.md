@@ -10,7 +10,7 @@ information about federation and identity providers, see [Identity providers and
 To improve federation resiliency, we recommend that you configure your IdP and AWS
 federation to support multiple SAML sign-in endpoints. For details, see the AWS Security
 Blog article [How to use regional SAML
-endpoints for failover](https://aws.amazon.com/blogs//security/how-to-use-regional-saml-endpoints-for-failover "https://aws.amazon.com/blogs//security/how-to-use-regional-saml-endpoints-for-failover").
+endpoints for failover](https://aws.amazon.com/blogs/security/how-to-use-regional-saml-endpoints-for-failover "https://aws.amazon.com/blogs/security/how-to-use-regional-saml-endpoints-for-failover").
 
 ## Prerequisites for creating a role for SAML
 

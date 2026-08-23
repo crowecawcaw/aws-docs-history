@@ -83,7 +83,7 @@ To receive delegation request notifications, you must configure your SNS topic t
                 "Service": "iam.amazonaws.com"
             },
             "Action": "SNS:Publish",
-            "Resource": "arn:aws:sns:REGION:ACCOUNT-ID:TOPIC-NAME"
+            "Resource": "arn:aws:sns:us-east-1:111122223333:TOPIC-NAME"
         }
     ]
 }

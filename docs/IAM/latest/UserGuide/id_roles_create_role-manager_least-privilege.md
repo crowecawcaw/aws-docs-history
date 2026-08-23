@@ -13,9 +13,9 @@ without disabling role manager.
 ## When to apply least-privilege permissions
 
 Granting a role only the permissions its resource requires is a security best practice in
-line with the principle of least privilege. Most roles created by role manager are
-over-permissive by default because they are intended to help you get started without
-encountering IAM friction.
+line with the principle of least privilege. For most roles, role manager creates roles with
+well scoped permissions. For some roles, such as those for compute resources or cloud
+infrastructure management, it creates roles with broad permissions.
 
 When you are ready to start scoping down roles created by role manager, we
 recommend starting with the roles associated with your most sensitive workloads and resources,
@@ -32,6 +32,15 @@ findings, which appear on the **Roles** page in the IAM console. For each
 role, you can see the number of unused permissions and open a recommendation. For more
 information, see [IAM Access Analyzer
 findings](access-analyzer-findings.md "access-analyzer-findings.md").
+
+###### Note
+
+If AWS enabled role manager for your account created using the new AWS experience,
+you don't need to create an analyzer the first time you disable role manager. After you
+activate advanced features and disable role manager, AWS provides an unused access
+analyzer at no additional cost for 90 days. The analyzer gives you visibility into unused
+role permissions and policy scope-down recommendations so you can update the roles that role
+manager created toward least privilege.
 
 ## Prerequisites
 

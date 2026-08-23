@@ -23,7 +23,7 @@ existing IAM roles across your organization's accounts to IAM Identity Center us
 use it alongside permission sets or on its own.
 
 If you prefer to use a single AWS account without enabling IAM Identity Center, you can use IAM with
-an external IdP that provides identity information to AWS using either [OpenID Connect (OIDC)](../../../http:/openid.net/connect.md "../../../http:/openid.net/connect.md") or [SAML 2.0 (Security Assertion Markup Language
+an external IdP that provides identity information to AWS using either [OpenID Connect (OIDC)](http://openid.net/connect/ "http://openid.net/connect/") or [SAML 2.0 (Security Assertion Markup Language
 2.0)](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security"). OIDC connects applications, like GitHub Actions, that do not run on AWS to
 AWS resources. Examples of well-known SAML identity providers are Shibboleth and Active
 Directory Federation Services.
@@ -84,7 +84,7 @@ about how to use roles to delegate access across AWS accounts, see [IAM tutorial
 
 To link an IdP directly to IAM, you create an identity provider entity to establish a
 trust relationship between your AWS account and the IdP. IAM supports IdPs that are
-compatible with [OpenID Connect (OIDC)](../../../http:/openid.net/connect.md "../../../http:/openid.net/connect.md") or
+compatible with [OpenID Connect (OIDC)](http://openid.net/connect/ "http://openid.net/connect/") or
 [SAML 2.0 (Security Assertion Markup
 Language 2.0)](https://wiki.oasis-open.org/security "https://wiki.oasis-open.org/security"). For more information about using one of these IdPs with AWS, see
 the following sections:

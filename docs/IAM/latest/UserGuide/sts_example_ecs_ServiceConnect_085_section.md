@@ -654,7 +654,7 @@ main "$@"
   - [ListTasks](../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md "../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md")
   - [RegisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md")
   - [UpdateService](../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md "../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
+  - [Wait](../../../goto/aws-cli/ecs-2014-11-13/Wait.md "../../../goto/aws-cli/ecs-2014-11-13/Wait.md")
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

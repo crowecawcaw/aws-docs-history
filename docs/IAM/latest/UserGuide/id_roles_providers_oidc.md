@@ -13,7 +13,7 @@ by the application.
 
 With OIDC federation, you don't need to create custom sign-in code or manage your own user
 identities. Instead, you can use OIDC in applications, such as GitHub Actions or any other
-[OpenID Connect (OIDC)](../../../http:/openid.net/connect.md "../../../http:/openid.net/connect.md")-compatible IdP, to
+[OpenID Connect (OIDC)](http://openid.net/connect/ "http://openid.net/connect/")-compatible IdP, to
 authenticate with AWS. They receive an authentication token, known as a JSON Web Token (JWT),
 and then exchange that token for temporary security credentials in AWS that map to an IAM
 role with permissions to use specific resources in your AWS account. Using an IdP helps you

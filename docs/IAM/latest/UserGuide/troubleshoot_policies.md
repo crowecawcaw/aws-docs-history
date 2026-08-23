@@ -17,7 +17,7 @@ policy. You can use the visual editor and policy summaries to help you diagnose 
 errors encountered while managing IAM policies.
 
 Keep in mind that all IAM policies are stored using syntax that begins with the rules of
-[JavaScript Object Notation](../../../http:/www.json.org.md "../../../http:/www.json.org.md") (JSON). You do not have to
+[JavaScript Object Notation](http://www.json.org "http://www.json.org") (JSON). You do not have to
 understand this syntax to create or manage your policies. You can create and edit a policy using
 the visual editor in the AWS Management Console. To learn more about JSON syntax in IAM policies, see [Grammar of the IAM JSON policy language](reference_policies_grammar.md "reference_policies_grammar.md").
 

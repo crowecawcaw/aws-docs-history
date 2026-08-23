@@ -138,7 +138,7 @@ the URL. For more information, see [Authentication methods](reference_sigv-authe
 - The AWS SDKs include source code on GitHub for signing AWS API requests.
   For code samples, see [Example projects in AWS samples repository](reference_sigv-examples.md#signature-v4-examples-sdk "reference_sigv-examples.md#signature-v4-examples-sdk").
 
-  - AWS SDK for .NET – [AWS4Signer.cs](https://github.com/aws/aws-sdk-net/blob/master/sdk/src/Core/Amazon.Runtime/Internal/Auth/AWS4Signer.cs "https://github.com/aws/aws-sdk-net/blob/master/sdk/src/Core/Amazon.Runtime/Internal/Auth/AWS4Signer.cs")
+  - AWS SDK for .NET – [AWSSigV4Signer.cs](https://github.com/aws/aws-sdk-net/blob/main/sdk/src/Core/Amazon.Runtime/Signing/AWSSigV4Signer.cs "https://github.com/aws/aws-sdk-net/blob/main/sdk/src/Core/Amazon.Runtime/Signing/AWSSigV4Signer.cs")
   - AWS SDK for C++ – [AWSAuthV4Signer.cpp](https://github.com/aws/aws-sdk-cpp/blob/main/src/aws-cpp-sdk-core/source/auth/signer/AWSAuthV4Signer.cpp "https://github.com/aws/aws-sdk-cpp/blob/main/src/aws-cpp-sdk-core/source/auth/signer/AWSAuthV4Signer.cpp")
   - AWS SDK for Go – [sigv4.go](https://github.com/aws/smithy-go/blob/a4c9efcda6aa54c75d1a130d1320a2709eebf51d/aws-http-auth/sigv4/sigv4.go "https://github.com/aws/smithy-go/blob/a4c9efcda6aa54c75d1a130d1320a2709eebf51d/aws-http-auth/sigv4/sigv4.go")
   - AWS SDK for Java – [BaseAws4Signer.java](https://github.com/aws/aws-sdk-java-v2/blob/master/core/auth/src/main/java/software/amazon/awssdk/auth/signer/internal/BaseAws4Signer.java "https://github.com/aws/aws-sdk-java-v2/blob/master/core/auth/src/main/java/software/amazon/awssdk/auth/signer/internal/BaseAws4Signer.java")

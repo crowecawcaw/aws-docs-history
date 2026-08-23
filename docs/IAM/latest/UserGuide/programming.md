@@ -24,7 +24,7 @@ languages and platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide
 way to create programmatic access to IAM and AWS. For example, the SDKs take care of tasks
 such as cryptographically signing requests (see below), managing errors, and retrying requests
 automatically. For information about the AWS SDKs, including how to download and install
-them, see the [Tools for Amazon Web Services](../../../http:/aws.amazon.com/tools.md "../../../http:/aws.amazon.com/tools.md")
+them, see the [Tools for Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/")
 page.
 
 For details about the API actions and errors, see the [IAM API Reference](../APIReference.md "../APIReference.md") or the [AWS Security Token Service API Reference](../../../STS/latest/APIReference.md "../../../STS/latest/APIReference.md").

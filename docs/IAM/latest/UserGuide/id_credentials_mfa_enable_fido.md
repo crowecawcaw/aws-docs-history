@@ -18,7 +18,7 @@ configuration](id_credentials_mfa_fido_supported_configurations.md "id_credentia
 AWS. Otherwise, you need to purchase a FIDO security key if you want to use WebAuthn for MFA
 in AWS. Additionally, FIDO security keys can support multiple IAM or root users on the same
 device, enhancing their utility for account security. For specifications and purchase
-information for both device types, see [Multi-Factor Authentication](../../../http:/aws.amazon.com/iam/details/mfa.md "../../../http:/aws.amazon.com/iam/details/mfa.md").
+information for both device types, see [Multi-Factor Authentication](http://aws.amazon.com/iam/details/mfa/ "http://aws.amazon.com/iam/details/mfa/").
 
 You can register up to **eight** MFA devices of any combination
 of the [currently supported MFA

@@ -31,7 +31,7 @@ and how each role was created.
 Enabling or disabling role manager requires the
 `iam:PutAccountProperties` permission. The AWS managed policy
 `IAMFullAccess` includes it. For all the permissions that role manager
-requires, see [Apply least-privilege permissions to a role created automatically](id_roles_create_role-manager_least-privilege.md "id_roles_create_role-manager_least-privilege.md")
+requires, see [Manage access to role manager](id_roles_create_role-manager_enable-use.md "id_roles_create_role-manager_enable-use.md").
 
 ## How to enable and disable role manager (console)
 
@@ -45,6 +45,12 @@ account.
    **Enable** or **Disable**.
 
 Roles created by role manager are not deleted when you disable role manager.
+
+###### Note
+
+For most AWS accounts, role manager is disabled by default. But if you created your
+account using our new AWS experience, role manager is enabled by default and cannot be
+disabled until you activate advanced features. For more information, see [Activate advanced AWS features](../../../accounts/latest/reference/activate-advanced-features.md "../../../accounts/latest/reference/activate-advanced-features.md").
 
 ## AWS service consoles that support role manager
 

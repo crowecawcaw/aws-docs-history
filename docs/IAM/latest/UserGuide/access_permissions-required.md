@@ -108,7 +108,7 @@ permissions to perform all of the related actions.
 ## Permissions for working in the AWS Management Console
 
 The preceding examples show policies that allow a user to perform the actions with the
-[AWS CLI](../../../http:/aws.amazon.com/cli.md "../../../http:/aws.amazon.com/cli.md") or the [AWS SDKs](../../../http:/aws.amazon.com/tools.md "../../../http:/aws.amazon.com/tools.md").
+[AWS CLI](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/") or the [AWS SDKs](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
 
 As users work with the console, the console issues requests to IAM to list groups,
 users, roles, and policies, and to get the policies associated with a group, user, or role.

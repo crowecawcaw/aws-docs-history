@@ -212,7 +212,7 @@ you define the principals that you _trust_ to assume
 the role. A role trust policy is a required [resource-based policy](access_policies.md#policies_resource-based "access_policies.md#policies_resource-based") that is attached to a role in IAM. The [principals](reference_policies_elements_principal.md "reference_policies_elements_principal.md") that you can specify
 in the trust policy include users, roles, accounts, and services. For more information,
 see [How to
-use trust policies in IAM roles](https://aws.amazon.com/blogs//security/how-to-use-trust-policies-with-iam-roles/ "https://aws.amazon.com/blogs//security/how-to-use-trust-policies-with-iam-roles/") in _AWS Security
+use trust policies in IAM roles](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/ "https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/") in _AWS Security
 Blog_.
 
 ****Role for cross-account access****

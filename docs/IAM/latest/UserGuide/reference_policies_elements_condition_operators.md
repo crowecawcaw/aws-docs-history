@@ -336,7 +336,7 @@ Date condition operators let you construct `Condition` elements that restrict
 access based on comparing a key to a date/time value. You use these condition operators with
 [`aws:CurrentTime`](reference_policies_condition-keys.md#condition-keys-currenttime "reference_policies_condition-keys.md#condition-keys-currenttime") key or [`aws:EpochTime`](reference_policies_condition-keys.md#condition-keys-epochtime "reference_policies_condition-keys.md#condition-keys-epochtime") key. You must specify date/time values with one of the
 [W3C implementations of the ISO 8601 date
-formats](../../../http:/www.w3.org/TR/NOTE-datetime.md "../../../http:/www.w3.org/TR/NOTE-datetime.md") or in epoch (UNIX) time.
+formats](http://www.w3.org/TR/NOTE-datetime "http://www.w3.org/TR/NOTE-datetime") or in epoch (UNIX) time.
 
 - **Policy variables** – Not supported
 - **Wildcards** – Not supported

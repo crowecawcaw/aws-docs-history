@@ -53,9 +53,9 @@ use the `ForAllValues` or `ForAnyValue` set operators. Use set
 operators only with multivalued condition keys. Do not use set operators with
 single-valued condition keys. For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys "reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys").
 
-| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:SignInSessionArn`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`codebuild:BuildArn`<br>`codebuild:ProjectArn`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:CalledViaAWSMCP`<br>`aws:ViaAWSService`<br>`aws:ViaAWSMCPService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
+| Properties of the principal                                                                                                                                                                                                                                                            | Properties of a role session                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Properties of the network                                                                                                                                      | Properties of the resource                                                                          | Properties of the request                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aws:PrincipalArn`<br>`aws:PrincipalAccount`<br>`aws:PrincipalOrgPaths`<br>`aws:PrincipalOrgID`<br>`aws:PrincipalTag/tag-key`<br>`aws:PrincipalIsAWSService`<br>`aws:PrincipalServiceName`<br>`aws:PrincipalServiceNamesList`<br>`aws:PrincipalType`<br>`aws:userid`<br>`aws:username` | `aws:AssumedRoot`<br>`aws:FederatedProvider`<br>`aws:TokenIssueTime`<br>`aws:SignInSessionArn`<br>`aws:MultiFactorAuthAge`<br>`aws:MultiFactorAuthPresent`<br>`aws:ChatbotSourceArn`<br>`aws:Ec2InstanceSourceVpc`<br>`aws:Ec2InstanceSourcePrivateIPv4`<br>`aws:SourceIdentity`<br>`aws:ViaCustomerDomain`<br>`ec2:RoleDelivery`<br>`ec2:SourceInstanceArn`<br>`glue:RoleAssumedBy`<br>`glue:CredentialIssuingService`<br>`codebuild:BuildArn`<br>`codebuild:ProjectArn`<br>`lambda:SourceFunctionArn`<br>`ssm:SourceInstanceArn`<br>`identitystore:UserId` | `aws:SourceIp`<br>`aws:SourceVpc`<br>`aws:SourceVpcArn`<br>`aws:SourceVpce`<br>`aws:VpceAccount`<br>`aws:VpceOrgID`<br>`aws:VpceOrgPaths`<br>`aws:VpcSourceIp` | `aws:ResourceAccount`<br>`aws:ResourceOrgID`<br>`aws:ResourceOrgPaths`<br>`aws:ResourceTag/tag-key` | `aws:CalledVia`<br>`aws:CalledViaFirst`<br>`aws:CalledViaLast`<br>`aws:CalledViaAWSMCP`<br>`aws:ViaAWSService`<br>`aws:ViaAWSMCPService`<br>`aws:CurrentTime`<br>`aws:EpochTime`<br>`aws:referer`<br>`aws:RequestedRegion`<br>`aws:RequestTag/tag-key`<br>`aws:TagKeys`<br>`aws:SecureTransport`<br>`aws:SourceAccount`<br>`aws:SourceArn`<br>`aws:SourceOrgID`<br>`aws:SourceOrgPaths`<br>`aws:UserAgent`<br>`aws:IsMcpServiceAction` |
 
 ## Sensitive condition keys
 
@@ -1593,43 +1593,43 @@ Use this key to verify the ARN of the VPC that a request passed through using a 
 
 - **Availability** – This key is included in the request context for supported services when a request is made through a VPC endpoint. The key is not included for requests made through public service endpoints. The following services support this key:
 
-  - AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_awsapprunner.md "../../../service-authorization/latest/reference/list_awsapprunner.md"))
-  - AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md "../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md"))
-  - Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md"))
-  - AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_awscloudmap.md "../../../service-authorization/latest/reference/list_awscloudmap.md"))
-  - Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md "../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md"))
-  - AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
-  - Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
-  - AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
-  - Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
-  - Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
-  - Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
-  - Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
-  - AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
-  - Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
-  - Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
-  - Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md "../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md"))
-  - AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_awshealthimaging.md "../../../service-authorization/latest/reference/list_awshealthimaging.md"))
-  - AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_awshealthlake.md "../../../service-authorization/latest/reference/list_awshealthlake.md"))
-  - AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_awshealthomics.md "../../../service-authorization/latest/reference/list_awshealthomics.md"))
+  - AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_apprunner.md "../../../service-authorization/latest/reference/list_apprunner.md"))
+  - AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_discovery.md "../../../service-authorization/latest/reference/list_discovery.md"))
+  - Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_athena.md "../../../service-authorization/latest/reference/list_athena.md"))
+  - AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_servicediscovery.md "../../../service-authorization/latest/reference/list_servicediscovery.md"))
+  - Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_application-insights.md "../../../service-authorization/latest/reference/list_application-insights.md"))
+  - AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_cloudformation.md "../../../service-authorization/latest/reference/list_cloudformation.md"))
+  - Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_comprehendmedical.md "../../../service-authorization/latest/reference/list_comprehendmedical.md"))
+  - AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_compute-optimizer.md "../../../service-authorization/latest/reference/list_compute-optimizer.md"))
+  - Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_ecr.md "../../../service-authorization/latest/reference/list_ecr.md"))
+  - Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_ecs.md "../../../service-authorization/latest/reference/list_ecs.md"))
+  - Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_kinesisanalytics.md "../../../service-authorization/latest/reference/list_kinesisanalytics.md"))
+  - Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_route53.md "../../../service-authorization/latest/reference/list_route53.md"))
+  - AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_datasync.md "../../../service-authorization/latest/reference/list_datasync.md"))
+  - Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_ebs.md "../../../service-authorization/latest/reference/list_ebs.md"))
+  - Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_scheduler.md "../../../service-authorization/latest/reference/list_scheduler.md"))
+  - Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_firehose.md "../../../service-authorization/latest/reference/list_firehose.md"))
+  - AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_medical-imaging.md "../../../service-authorization/latest/reference/list_medical-imaging.md"))
+  - AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_healthlake.md "../../../service-authorization/latest/reference/list_healthlake.md"))
+  - AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_omics.md "../../../service-authorization/latest/reference/list_omics.md"))
   - AWS Identity and Access Management (except for the `iam:PassRole` action)
-    (prefix: [`iam`](../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md "../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md"))
-  - AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_awsiotfleetwise.md "../../../service-authorization/latest/reference/list_awsiotfleetwise.md"))
-  - AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_awsiotwireless.md "../../../service-authorization/latest/reference/list_awsiotwireless.md"))
-  - AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_awskeymanagementservice.md "../../../service-authorization/latest/reference/list_awskeymanagementservice.md"))
-  - AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_awslambda.md "../../../service-authorization/latest/reference/list_awslambda.md"))
-  - AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_awspaymentcryptography.md "../../../service-authorization/latest/reference/list_awspaymentcryptography.md"))
-  - Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_amazonpolly.md "../../../service-authorization/latest/reference/list_amazonpolly.md"))
-  - AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md "../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md"))
-  - AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_awsrecyclebin.md "../../../service-authorization/latest/reference/list_awsrecyclebin.md"))
-  - Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_amazonrekognition.md "../../../service-authorization/latest/reference/list_amazonrekognition.md"))
-  - Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_servicequotas.md "../../../service-authorization/latest/reference/list_servicequotas.md"))
-  - Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md"))
-  - AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_awsstoragegateway.md "../../../service-authorization/latest/reference/list_awsstoragegateway.md"))
-  - AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md "../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md"))
-  - Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_amazontextract.md "../../../service-authorization/latest/reference/list_amazontextract.md"))
-  - Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_amazontranscribe.md "../../../service-authorization/latest/reference/list_amazontranscribe.md"))
-  - AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_awstransferfamily.md "../../../service-authorization/latest/reference/list_awstransferfamily.md"))
+    (prefix: [`iam`](../../../service-authorization/latest/reference/list_iam.md "../../../service-authorization/latest/reference/list_iam.md"))
+  - AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_iotfleetwise.md "../../../service-authorization/latest/reference/list_iotfleetwise.md"))
+  - AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_iotwireless.md "../../../service-authorization/latest/reference/list_iotwireless.md"))
+  - AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_kms.md "../../../service-authorization/latest/reference/list_kms.md"))
+  - AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_lambda.md "../../../service-authorization/latest/reference/list_lambda.md"))
+  - AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_payment-cryptography.md "../../../service-authorization/latest/reference/list_payment-cryptography.md"))
+  - Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_polly.md "../../../service-authorization/latest/reference/list_polly.md"))
+  - AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_acm-pca.md "../../../service-authorization/latest/reference/list_acm-pca.md"))
+  - AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_rbin.md "../../../service-authorization/latest/reference/list_rbin.md"))
+  - Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_rekognition.md "../../../service-authorization/latest/reference/list_rekognition.md"))
+  - Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_service-quotas.md "../../../service-authorization/latest/reference/list_service-quotas.md"))
+  - Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_s3.md "../../../service-authorization/latest/reference/list_s3.md"))
+  - AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_storagegateway.md "../../../service-authorization/latest/reference/list_storagegateway.md"))
+  - AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_ssm-contacts.md "../../../service-authorization/latest/reference/list_ssm-contacts.md"))
+  - Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_textract.md "../../../service-authorization/latest/reference/list_textract.md"))
+  - Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_transcribe.md "../../../service-authorization/latest/reference/list_transcribe.md"))
+  - AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_transfer.md "../../../service-authorization/latest/reference/list_transfer.md"))
 
 - **Data type** – ARN
 
@@ -1716,46 +1716,46 @@ come through VPC endpoints owned by specific accounts.
 
 The following services support this key:
 
-    + AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_awsapprunner.md "../../../service-authorization/latest/reference/list_awsapprunner.md"))
-    + AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md "../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md"))
-    + Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md"))
-    + AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_awscloudmap.md "../../../service-authorization/latest/reference/list_awscloudmap.md"))
-    + Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md "../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md"))
-    + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
-    + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
-    + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
-    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
-    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
-    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
-    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
-    + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
-    + Amazon DynamoDB (prefix: [`dynamodb`](../../../service-authorization/latest/reference/list_amazondynamodb.md "../../../service-authorization/latest/reference/list_amazondynamodb.md"))
-    + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
-    + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
-    + Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md "../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md"))
-    + Amazon GameLift (prefix: [`gamelift`](../../../service-authorization/latest/reference/list_amazongameliftservers.md "../../../service-authorization/latest/reference/list_amazongameliftservers.md"))
-    + AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_awshealthimaging.md "../../../service-authorization/latest/reference/list_awshealthimaging.md"))
-    + AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_awshealthlake.md "../../../service-authorization/latest/reference/list_awshealthlake.md"))
-    + AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_awshealthomics.md "../../../service-authorization/latest/reference/list_awshealthomics.md"))
+    + AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_apprunner.md "../../../service-authorization/latest/reference/list_apprunner.md"))
+    + AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_discovery.md "../../../service-authorization/latest/reference/list_discovery.md"))
+    + Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_athena.md "../../../service-authorization/latest/reference/list_athena.md"))
+    + AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_servicediscovery.md "../../../service-authorization/latest/reference/list_servicediscovery.md"))
+    + Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_application-insights.md "../../../service-authorization/latest/reference/list_application-insights.md"))
+    + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_cloudformation.md "../../../service-authorization/latest/reference/list_cloudformation.md"))
+    + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_comprehendmedical.md "../../../service-authorization/latest/reference/list_comprehendmedical.md"))
+    + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_compute-optimizer.md "../../../service-authorization/latest/reference/list_compute-optimizer.md"))
+    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_ecr.md "../../../service-authorization/latest/reference/list_ecr.md"))
+    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_ecs.md "../../../service-authorization/latest/reference/list_ecs.md"))
+    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_kinesisanalytics.md "../../../service-authorization/latest/reference/list_kinesisanalytics.md"))
+    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_route53.md "../../../service-authorization/latest/reference/list_route53.md"))
+    + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_datasync.md "../../../service-authorization/latest/reference/list_datasync.md"))
+    + Amazon DynamoDB (prefix: [`dynamodb`](../../../service-authorization/latest/reference/list_dynamodb.md "../../../service-authorization/latest/reference/list_dynamodb.md"))
+    + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_ebs.md "../../../service-authorization/latest/reference/list_ebs.md"))
+    + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_scheduler.md "../../../service-authorization/latest/reference/list_scheduler.md"))
+    + Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_firehose.md "../../../service-authorization/latest/reference/list_firehose.md"))
+    + Amazon GameLift (prefix: [`gamelift`](../../../service-authorization/latest/reference/list_gamelift.md "../../../service-authorization/latest/reference/list_gamelift.md"))
+    + AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_medical-imaging.md "../../../service-authorization/latest/reference/list_medical-imaging.md"))
+    + AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_healthlake.md "../../../service-authorization/latest/reference/list_healthlake.md"))
+    + AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_omics.md "../../../service-authorization/latest/reference/list_omics.md"))
     + AWS Identity and Access Management (except for the `iam:PassRole` action)
-     (prefix: [`iam`](../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md "../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md"))
-    + AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_awsiotfleetwise.md "../../../service-authorization/latest/reference/list_awsiotfleetwise.md"))
-    + AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_awsiotwireless.md "../../../service-authorization/latest/reference/list_awsiotwireless.md"))
-    + AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_awskeymanagementservice.md "../../../service-authorization/latest/reference/list_awskeymanagementservice.md"))
-    + AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_awslambda.md "../../../service-authorization/latest/reference/list_awslambda.md"))
-    + AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_awspaymentcryptography.md "../../../service-authorization/latest/reference/list_awspaymentcryptography.md"))
-    + Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_amazonpolly.md "../../../service-authorization/latest/reference/list_amazonpolly.md"))
-    + AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md "../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md"))
-    + AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_awsrecyclebin.md "../../../service-authorization/latest/reference/list_awsrecyclebin.md"))
-    + Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_amazonrekognition.md "../../../service-authorization/latest/reference/list_amazonrekognition.md"))
-    + Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_servicequotas.md "../../../service-authorization/latest/reference/list_servicequotas.md"))
-    + Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md"))
-    + AWS Shield (prefix: [`shield`](../../../service-authorization/latest/reference/list_awsshield.md "../../../service-authorization/latest/reference/list_awsshield.md"))
-    + AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_awsstoragegateway.md "../../../service-authorization/latest/reference/list_awsstoragegateway.md"))
-    + AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md "../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md"))
-    + Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_amazontextract.md "../../../service-authorization/latest/reference/list_amazontextract.md"))
-    + Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_amazontranscribe.md "../../../service-authorization/latest/reference/list_amazontranscribe.md"))
-    + AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_awstransferfamily.md "../../../service-authorization/latest/reference/list_awstransferfamily.md"))
+     (prefix: [`iam`](../../../service-authorization/latest/reference/list_iam.md "../../../service-authorization/latest/reference/list_iam.md"))
+    + AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_iotfleetwise.md "../../../service-authorization/latest/reference/list_iotfleetwise.md"))
+    + AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_iotwireless.md "../../../service-authorization/latest/reference/list_iotwireless.md"))
+    + AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_kms.md "../../../service-authorization/latest/reference/list_kms.md"))
+    + AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_lambda.md "../../../service-authorization/latest/reference/list_lambda.md"))
+    + AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_payment-cryptography.md "../../../service-authorization/latest/reference/list_payment-cryptography.md"))
+    + Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_polly.md "../../../service-authorization/latest/reference/list_polly.md"))
+    + AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_acm-pca.md "../../../service-authorization/latest/reference/list_acm-pca.md"))
+    + AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_rbin.md "../../../service-authorization/latest/reference/list_rbin.md"))
+    + Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_rekognition.md "../../../service-authorization/latest/reference/list_rekognition.md"))
+    + Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_service-quotas.md "../../../service-authorization/latest/reference/list_service-quotas.md"))
+    + Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_s3.md "../../../service-authorization/latest/reference/list_s3.md"))
+    + AWS Shield (prefix: [`shield`](../../../service-authorization/latest/reference/list_shield.md "../../../service-authorization/latest/reference/list_shield.md"))
+    + AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_storagegateway.md "../../../service-authorization/latest/reference/list_storagegateway.md"))
+    + AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_ssm-contacts.md "../../../service-authorization/latest/reference/list_ssm-contacts.md"))
+    + Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_textract.md "../../../service-authorization/latest/reference/list_textract.md"))
+    + Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_transcribe.md "../../../service-authorization/latest/reference/list_transcribe.md"))
+    + AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_transfer.md "../../../service-authorization/latest/reference/list_transfer.md"))
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - **Value type** – Single-valued
@@ -1821,59 +1821,62 @@ accounts within your organization.
 
 The following services support this key:
 
-    + AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_awsapprunner.md "../../../service-authorization/latest/reference/list_awsapprunner.md"))
-    + AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md "../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md"))
-    + Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md"))
-    + AWS B2B Data Interchange (prefix: [`b2bi`](../../../service-authorization/latest/reference/list_awsb2bdatainterchange.md "../../../service-authorization/latest/reference/list_awsb2bdatainterchange.md"))
-    + AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_awscloudmap.md "../../../service-authorization/latest/reference/list_awscloudmap.md"))
-    + Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md "../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md"))
-    + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
-    + Amazon Cognito (prefix: [`cognito-identity`](../../../service-authorization/latest/reference/list_amazoncognitoidentity.md "../../../service-authorization/latest/reference/list_amazoncognitoidentity.md"))
-    + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
-    + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
-    + AWS Database Migration Service (prefix: [`dms`](../../../service-authorization/latest/reference/list_awsdatabasemigrationservice.md "../../../service-authorization/latest/reference/list_awsdatabasemigrationservice.md"))
-    + AWS Directory Service Data (prefix: [`ds-data`](../../../service-authorization/latest/reference/list_awsdirectoryservicedata.md "../../../service-authorization/latest/reference/list_awsdirectoryservicedata.md"))
-    + Amazon DynamoDB (prefix: [`dynamodb`](../../../service-authorization/latest/reference/list_amazondynamodb.md "../../../service-authorization/latest/reference/list_amazondynamodb.md"))
-    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
-    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
-    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
-    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
-    + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
-    + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
-    + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
-    + Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md "../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md"))
-    + Amazon GameLift (prefix: [`gamelift`](../../../service-authorization/latest/reference/list_amazongameliftservers.md "../../../service-authorization/latest/reference/list_amazongameliftservers.md"))
-    + AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_awshealthimaging.md "../../../service-authorization/latest/reference/list_awshealthimaging.md"))
-    + AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_awshealthlake.md "../../../service-authorization/latest/reference/list_awshealthlake.md"))
-    + AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_awshealthomics.md "../../../service-authorization/latest/reference/list_awshealthomics.md"))
+    + AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_apprunner.md "../../../service-authorization/latest/reference/list_apprunner.md"))
+    + AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_discovery.md "../../../service-authorization/latest/reference/list_discovery.md"))
+    + Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_athena.md "../../../service-authorization/latest/reference/list_athena.md"))
+    + AWS B2B Data Interchange (prefix: [`b2bi`](../../../service-authorization/latest/reference/list_b2bi.md "../../../service-authorization/latest/reference/list_b2bi.md"))
+    + AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_servicediscovery.md "../../../service-authorization/latest/reference/list_servicediscovery.md"))
+    + AWS CloudHSM (prefix: [`cloudhsmv2`](../../../service-authorization/latest/reference/list_cloudhsm.md "../../../service-authorization/latest/reference/list_cloudhsm.md"))
+    + Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_application-insights.md "../../../service-authorization/latest/reference/list_application-insights.md"))
+    + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_cloudformation.md "../../../service-authorization/latest/reference/list_cloudformation.md"))
+    + Amazon Cognito (prefix: [`cognito-identity`](../../../service-authorization/latest/reference/list_cognito-identity.md "../../../service-authorization/latest/reference/list_cognito-identity.md"))
+    + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_comprehendmedical.md "../../../service-authorization/latest/reference/list_comprehendmedical.md"))
+    + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_compute-optimizer.md "../../../service-authorization/latest/reference/list_compute-optimizer.md"))
+    + AWS Database Migration Service (prefix: [`dms`](../../../service-authorization/latest/reference/list_dms.md "../../../service-authorization/latest/reference/list_dms.md"))
+    + AWS Directory Service Data (prefix: [`ds-data`](../../../service-authorization/latest/reference/list_ds-data.md "../../../service-authorization/latest/reference/list_ds-data.md"))
+    + Amazon DynamoDB (prefix: [`dynamodb`](../../../service-authorization/latest/reference/list_dynamodb.md "../../../service-authorization/latest/reference/list_dynamodb.md"))
+    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_ecr.md "../../../service-authorization/latest/reference/list_ecr.md"))
+    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_ecs.md "../../../service-authorization/latest/reference/list_ecs.md"))
+    + Amazon Kinesis Data Streams (prefix: [`kinesis`](../../../service-authorization/latest/reference/list_kinesis.md "../../../service-authorization/latest/reference/list_kinesis.md"))
+    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_kinesisanalytics.md "../../../service-authorization/latest/reference/list_kinesisanalytics.md"))
+    + Amazon Q Business (prefix: [`qbusiness`](../../../service-authorization/latest/reference/list_qbusiness.md "../../../service-authorization/latest/reference/list_qbusiness.md"))
+    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_route53.md "../../../service-authorization/latest/reference/list_route53.md"))
+    + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_datasync.md "../../../service-authorization/latest/reference/list_datasync.md"))
+    + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_ebs.md "../../../service-authorization/latest/reference/list_ebs.md"))
+    + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_scheduler.md "../../../service-authorization/latest/reference/list_scheduler.md"))
+    + Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_firehose.md "../../../service-authorization/latest/reference/list_firehose.md"))
+    + Amazon GameLift (prefix: [`gamelift`](../../../service-authorization/latest/reference/list_gamelift.md "../../../service-authorization/latest/reference/list_gamelift.md"))
+    + AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_medical-imaging.md "../../../service-authorization/latest/reference/list_medical-imaging.md"))
+    + AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_healthlake.md "../../../service-authorization/latest/reference/list_healthlake.md"))
+    + AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_omics.md "../../../service-authorization/latest/reference/list_omics.md"))
     + AWS Identity and Access Management (except for the `iam:PassRole` action)
-     (prefix: [`iam`](../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md "../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md"))
-    + AWS Identity Store (prefix: [`identitystore`](../../../service-authorization/latest/reference/list_awsidentitystore.md "../../../service-authorization/latest/reference/list_awsidentitystore.md"))
-    + AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_awsiotfleetwise.md "../../../service-authorization/latest/reference/list_awsiotfleetwise.md"))
-    + AWS IoT TwinMaker (prefix: [`iottwinmaker`](../../../service-authorization/latest/reference/list_awsiottwinmaker.md "../../../service-authorization/latest/reference/list_awsiottwinmaker.md"))
-    + AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_awsiotwireless.md "../../../service-authorization/latest/reference/list_awsiotwireless.md"))
-    + Amazon Keyspaces (for Apache Cassandra) (prefix: [`cassandra`](../../../service-authorization/latest/reference/list_amazonkeyspacesforapachecassandra.md "../../../service-authorization/latest/reference/list_amazonkeyspacesforapachecassandra.md"))
-    + AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_awskeymanagementservice.md "../../../service-authorization/latest/reference/list_awskeymanagementservice.md"))
-    + AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_awslambda.md "../../../service-authorization/latest/reference/list_awslambda.md"))
-    + AWS Network Firewall (prefix: [`network-firewall`](../../../service-authorization/latest/reference/list_awsnetworkfirewall.md "../../../service-authorization/latest/reference/list_awsnetworkfirewall.md"))
-    + AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_awspaymentcryptography.md "../../../service-authorization/latest/reference/list_awspaymentcryptography.md"))
-    + Amazon Pinpoint SMS and Voice Service (prefix: [`sms-voice`](../../../service-authorization/latest/reference/list_amazonpinpointsmsandvoiceservice.md "../../../service-authorization/latest/reference/list_amazonpinpointsmsandvoiceservice.md"))
-    + Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_amazonpolly.md "../../../service-authorization/latest/reference/list_amazonpolly.md"))
-    + AWS Price List (prefix: [`pricing`](../../../service-authorization/latest/reference/list_awspricelist.md "../../../service-authorization/latest/reference/list_awspricelist.md"))
-    + AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md "../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md"))
-    + AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_awsrecyclebin.md "../../../service-authorization/latest/reference/list_awsrecyclebin.md"))
-    + Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_amazonrekognition.md "../../../service-authorization/latest/reference/list_amazonrekognition.md"))
-    + Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_servicequotas.md "../../../service-authorization/latest/reference/list_servicequotas.md"))
-    + Amazon Simple Email Service (prefix: [`ses`](../../../service-authorization/latest/reference/list_amazonses.md "../../../service-authorization/latest/reference/list_amazonses.md"))
-    + AWS Shield (prefix: [`shield`](../../../service-authorization/latest/reference/list_awsshield.md "../../../service-authorization/latest/reference/list_awsshield.md"))
-    + Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md"))
-    + Amazon Simple Queue Service (prefix: [`sqs`](../../../service-authorization/latest/reference/list_amazonsqs.md "../../../service-authorization/latest/reference/list_amazonsqs.md"))
-    + AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_awsstoragegateway.md "../../../service-authorization/latest/reference/list_awsstoragegateway.md"))
-    + AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md "../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md"))
-    + Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_amazontextract.md "../../../service-authorization/latest/reference/list_amazontextract.md"))
-    + Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_amazontranscribe.md "../../../service-authorization/latest/reference/list_amazontranscribe.md"))
-    + AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_awstransferfamily.md "../../../service-authorization/latest/reference/list_awstransferfamily.md"))
-    + Amazon WorkMail (prefix: [`workmail`](../../../service-authorization/latest/reference/list_amazonworkmail.md "../../../service-authorization/latest/reference/list_amazonworkmail.md"))
+     (prefix: [`iam`](../../../service-authorization/latest/reference/list_iam.md "../../../service-authorization/latest/reference/list_iam.md"))
+    + AWS Identity Store (prefix: [`identitystore`](../../../service-authorization/latest/reference/list_identitystore.md "../../../service-authorization/latest/reference/list_identitystore.md"))
+    + AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_iotfleetwise.md "../../../service-authorization/latest/reference/list_iotfleetwise.md"))
+    + AWS IoT TwinMaker (prefix: [`iottwinmaker`](../../../service-authorization/latest/reference/list_iottwinmaker.md "../../../service-authorization/latest/reference/list_iottwinmaker.md"))
+    + AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_iotwireless.md "../../../service-authorization/latest/reference/list_iotwireless.md"))
+    + Amazon Keyspaces (for Apache Cassandra) (prefix: [`cassandra`](../../../service-authorization/latest/reference/list_keyspaces.md "../../../service-authorization/latest/reference/list_keyspaces.md"))
+    + AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_kms.md "../../../service-authorization/latest/reference/list_kms.md"))
+    + AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_lambda.md "../../../service-authorization/latest/reference/list_lambda.md"))
+    + AWS Network Firewall (prefix: [`network-firewall`](../../../service-authorization/latest/reference/list_network-firewall.md "../../../service-authorization/latest/reference/list_network-firewall.md"))
+    + AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_payment-cryptography.md "../../../service-authorization/latest/reference/list_payment-cryptography.md"))
+    + Amazon Pinpoint SMS and Voice Service (prefix: [`sms-voice`](../../../service-authorization/latest/reference/list_pinpoint-sms-voice.md "../../../service-authorization/latest/reference/list_pinpoint-sms-voice.md"))
+    + Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_polly.md "../../../service-authorization/latest/reference/list_polly.md"))
+    + AWS Price List (prefix: [`pricing`](../../../service-authorization/latest/reference/list_pricing.md "../../../service-authorization/latest/reference/list_pricing.md"))
+    + AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_acm-pca.md "../../../service-authorization/latest/reference/list_acm-pca.md"))
+    + AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_rbin.md "../../../service-authorization/latest/reference/list_rbin.md"))
+    + Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_rekognition.md "../../../service-authorization/latest/reference/list_rekognition.md"))
+    + Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_service-quotas.md "../../../service-authorization/latest/reference/list_service-quotas.md"))
+    + Amazon Simple Email Service (prefix: [`ses`](../../../service-authorization/latest/reference/list_ses.md "../../../service-authorization/latest/reference/list_ses.md"))
+    + AWS Shield (prefix: [`shield`](../../../service-authorization/latest/reference/list_shield.md "../../../service-authorization/latest/reference/list_shield.md"))
+    + Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_s3.md "../../../service-authorization/latest/reference/list_s3.md"))
+    + Amazon Simple Queue Service (prefix: [`sqs`](../../../service-authorization/latest/reference/list_sqs.md "../../../service-authorization/latest/reference/list_sqs.md"))
+    + AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_storagegateway.md "../../../service-authorization/latest/reference/list_storagegateway.md"))
+    + AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_ssm-contacts.md "../../../service-authorization/latest/reference/list_ssm-contacts.md"))
+    + Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_textract.md "../../../service-authorization/latest/reference/list_textract.md"))
+    + Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_transcribe.md "../../../service-authorization/latest/reference/list_transcribe.md"))
+    + AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_transfer.md "../../../service-authorization/latest/reference/list_transfer.md"))
+    + Amazon WorkMail (prefix: [`workmail`](../../../service-authorization/latest/reference/list_workmail.md "../../../service-authorization/latest/reference/list_workmail.md"))
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - **Value type** – Single-valued
@@ -1953,46 +1956,48 @@ within the specified OUs.
 
 The following services support this key:
 
-    + AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_awsapprunner.md "../../../service-authorization/latest/reference/list_awsapprunner.md"))
-    + AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md "../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md"))
-    + Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md"))
-    + AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_awscloudmap.md "../../../service-authorization/latest/reference/list_awscloudmap.md"))
-    + Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md "../../../service-authorization/latest/reference/list_amazoncloudwatchapplicationinsights.md"))
-    + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md"))
-    + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md "../../../service-authorization/latest/reference/list_amazoncomprehendmedical.md"))
-    + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_awscomputeoptimizer.md "../../../service-authorization/latest/reference/list_awscomputeoptimizer.md"))
-    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerregistry.md"))
-    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md "../../../service-authorization/latest/reference/list_amazonelasticcontainerservice.md"))
-    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md "../../../service-authorization/latest/reference/list_amazonkinesisanalytics.md"))
-    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_amazonroute53.md "../../../service-authorization/latest/reference/list_amazonroute53.md"))
-    + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_awsdatasync.md "../../../service-authorization/latest/reference/list_awsdatasync.md"))
-    + Amazon DynamoDB (prefix: [`dynamodb`](../../../service-authorization/latest/reference/list_amazondynamodb.md "../../../service-authorization/latest/reference/list_amazondynamodb.md"))
-    + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_amazonelasticblockstore.md "../../../service-authorization/latest/reference/list_amazonelasticblockstore.md"))
-    + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md "../../../service-authorization/latest/reference/list_amazoneventbridgescheduler.md"))
-    + Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md "../../../service-authorization/latest/reference/list_amazonkinesisfirehose.md"))
-    + Amazon GameLift (prefix: [`gamelift`](../../../service-authorization/latest/reference/list_amazongameliftservers.md "../../../service-authorization/latest/reference/list_amazongameliftservers.md"))
-    + AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_awshealthimaging.md "../../../service-authorization/latest/reference/list_awshealthimaging.md"))
-    + AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_awshealthlake.md "../../../service-authorization/latest/reference/list_awshealthlake.md"))
-    + AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_awshealthomics.md "../../../service-authorization/latest/reference/list_awshealthomics.md"))
+    + AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_apprunner.md "../../../service-authorization/latest/reference/list_apprunner.md"))
+    + AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_discovery.md "../../../service-authorization/latest/reference/list_discovery.md"))
+    + Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_athena.md "../../../service-authorization/latest/reference/list_athena.md"))
+    + AWS Cloud Map (prefix: [`servicediscovery`](../../../service-authorization/latest/reference/list_servicediscovery.md "../../../service-authorization/latest/reference/list_servicediscovery.md"))
+    + Amazon CloudWatch Application Insights (prefix: [`applicationinsights`](../../../service-authorization/latest/reference/list_application-insights.md "../../../service-authorization/latest/reference/list_application-insights.md"))
+    + AWS CloudFormation (prefix: [`cloudformation`](../../../service-authorization/latest/reference/list_cloudformation.md "../../../service-authorization/latest/reference/list_cloudformation.md"))
+    + Amazon Comprehend Medical (prefix: [`comprehendmedical`](../../../service-authorization/latest/reference/list_comprehendmedical.md "../../../service-authorization/latest/reference/list_comprehendmedical.md"))
+    + AWS Compute Optimizer (prefix: [`compute-optimizer`](../../../service-authorization/latest/reference/list_compute-optimizer.md "../../../service-authorization/latest/reference/list_compute-optimizer.md"))
+    + Amazon; Elastic Container Registry (prefix: [`ecr`](../../../service-authorization/latest/reference/list_ecr.md "../../../service-authorization/latest/reference/list_ecr.md"))
+    + Amazon Elastic Container Service (prefix: [`ecs`](../../../service-authorization/latest/reference/list_ecs.md "../../../service-authorization/latest/reference/list_ecs.md"))
+    + Amazon Kinesis Analytics (prefix: [`kinesisanalytics`](../../../service-authorization/latest/reference/list_kinesisanalytics.md "../../../service-authorization/latest/reference/list_kinesisanalytics.md"))
+    + Amazon Route 53 (prefix: [`route53`](../../../service-authorization/latest/reference/list_route53.md "../../../service-authorization/latest/reference/list_route53.md"))
+    + AWS DataSync (prefix: [`datasync`](../../../service-authorization/latest/reference/list_datasync.md "../../../service-authorization/latest/reference/list_datasync.md"))
+    + Amazon DynamoDB (prefix: [`dynamodb`](../../../service-authorization/latest/reference/list_dynamodb.md "../../../service-authorization/latest/reference/list_dynamodb.md"))
+    + Amazon Elastic Block Store (prefix: [`ebs`](../../../service-authorization/latest/reference/list_ebs.md "../../../service-authorization/latest/reference/list_ebs.md"))
+    + Amazon EventBridge Scheduler (prefix: [`scheduler`](../../../service-authorization/latest/reference/list_scheduler.md "../../../service-authorization/latest/reference/list_scheduler.md"))
+    + Amazon Data Firehose (prefix: [`firehose`](../../../service-authorization/latest/reference/list_firehose.md "../../../service-authorization/latest/reference/list_firehose.md"))
+    + Amazon GameLift (prefix: [`gamelift`](../../../service-authorization/latest/reference/list_gamelift.md "../../../service-authorization/latest/reference/list_gamelift.md"))
+    + AWS HealthImaging (prefix: [`medical-imaging`](../../../service-authorization/latest/reference/list_medical-imaging.md "../../../service-authorization/latest/reference/list_medical-imaging.md"))
+    + AWS HealthLake (prefix: [`healthlake`](../../../service-authorization/latest/reference/list_healthlake.md "../../../service-authorization/latest/reference/list_healthlake.md"))
+    + AWS HealthOmics (prefix: [`omics`](../../../service-authorization/latest/reference/list_omics.md "../../../service-authorization/latest/reference/list_omics.md"))
     + AWS Identity and Access Management (except for the `iam:PassRole` action)
-     (prefix: [`iam`](../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md "../../../service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.md"))
-    + AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_awsiotfleetwise.md "../../../service-authorization/latest/reference/list_awsiotfleetwise.md"))
-    + AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_awsiotwireless.md "../../../service-authorization/latest/reference/list_awsiotwireless.md"))
-    + AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_awskeymanagementservice.md "../../../service-authorization/latest/reference/list_awskeymanagementservice.md"))
-    + AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_awslambda.md "../../../service-authorization/latest/reference/list_awslambda.md"))
-    + AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_awspaymentcryptography.md "../../../service-authorization/latest/reference/list_awspaymentcryptography.md"))
-    + Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_amazonpolly.md "../../../service-authorization/latest/reference/list_amazonpolly.md"))
-    + AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md "../../../service-authorization/latest/reference/list_awsprivatecertificateauthority.md"))
-    + AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_awsrecyclebin.md "../../../service-authorization/latest/reference/list_awsrecyclebin.md"))
-    + Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_amazonrekognition.md "../../../service-authorization/latest/reference/list_amazonrekognition.md"))
-    + Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_servicequotas.md "../../../service-authorization/latest/reference/list_servicequotas.md"))
-    + Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md"))
-    + AWS Shield (prefix: [`shield`](../../../service-authorization/latest/reference/list_awsshield.md "../../../service-authorization/latest/reference/list_awsshield.md"))
-    + AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_awsstoragegateway.md "../../../service-authorization/latest/reference/list_awsstoragegateway.md"))
-    + AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md "../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanagercontacts.md"))
-    + Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_amazontextract.md "../../../service-authorization/latest/reference/list_amazontextract.md"))
-    + Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_amazontranscribe.md "../../../service-authorization/latest/reference/list_amazontranscribe.md"))
-    + AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_awstransferfamily.md "../../../service-authorization/latest/reference/list_awstransferfamily.md"))
+     (prefix: [`iam`](../../../service-authorization/latest/reference/list_iam.md "../../../service-authorization/latest/reference/list_iam.md"))
+    + AWS IoT FleetWise (prefix: [`iotfleetwise`](../../../service-authorization/latest/reference/list_iotfleetwise.md "../../../service-authorization/latest/reference/list_iotfleetwise.md"))
+    + AWS IoT Wireless (prefix: [`iotwireless`](../../../service-authorization/latest/reference/list_iotwireless.md "../../../service-authorization/latest/reference/list_iotwireless.md"))
+    + AWS Key Management Service (prefix: [`kms`](../../../service-authorization/latest/reference/list_kms.md "../../../service-authorization/latest/reference/list_kms.md"))
+    + AWS Lambda (prefix: [`lambda`](../../../service-authorization/latest/reference/list_lambda.md "../../../service-authorization/latest/reference/list_lambda.md"))
+    + AWS Payment Cryptography (prefix: [`payment-cryptography`](../../../service-authorization/latest/reference/list_payment-cryptography.md "../../../service-authorization/latest/reference/list_payment-cryptography.md"))
+    + Amazon Polly (prefix: [`polly`](../../../service-authorization/latest/reference/list_polly.md "../../../service-authorization/latest/reference/list_polly.md"))
+    + AWS Private Certificate Authority (prefix: [`acm-pca`](../../../service-authorization/latest/reference/list_acm-pca.md "../../../service-authorization/latest/reference/list_acm-pca.md"))
+    + AWS Recycle Bin (prefix: [`rbin`](../../../service-authorization/latest/reference/list_rbin.md "../../../service-authorization/latest/reference/list_rbin.md"))
+    + Amazon Rekognition (prefix: [`rekognition`](../../../service-authorization/latest/reference/list_rekognition.md "../../../service-authorization/latest/reference/list_rekognition.md"))
+    + Service Quotas (prefix: [`servicequotas`](../../../service-authorization/latest/reference/list_service-quotas.md "../../../service-authorization/latest/reference/list_service-quotas.md"))
+    + AWS Secrets Manager (prefix: [`secretsmanager`](../../../service-authorization/latest/reference/list_secretsmanager.md "../../../service-authorization/latest/reference/list_secretsmanager.md"))
+    + AWS Security Token Service (prefix: [`sts`](../../../service-authorization/latest/reference/list_sts.md "../../../service-authorization/latest/reference/list_sts.md"))
+    + Amazon Simple Storage Service (prefix: [`s3`](../../../service-authorization/latest/reference/list_s3.md "../../../service-authorization/latest/reference/list_s3.md"))
+    + AWS Shield (prefix: [`shield`](../../../service-authorization/latest/reference/list_shield.md "../../../service-authorization/latest/reference/list_shield.md"))
+    + AWS Storage Gateway (prefix: [`storagegateway`](../../../service-authorization/latest/reference/list_storagegateway.md "../../../service-authorization/latest/reference/list_storagegateway.md"))
+    + AWS Systems Manager Incident Manager Contacts (prefix: [`ssm-contacts`](../../../service-authorization/latest/reference/list_ssm-contacts.md "../../../service-authorization/latest/reference/list_ssm-contacts.md"))
+    + Amazon Textract (prefix: [`textract`](../../../service-authorization/latest/reference/list_textract.md "../../../service-authorization/latest/reference/list_textract.md"))
+    + Amazon Transcribe (prefix: [`transcribe`](../../../service-authorization/latest/reference/list_transcribe.md "../../../service-authorization/latest/reference/list_transcribe.md"))
+    + AWS Transfer Family (prefix: [`transfer`](../../../service-authorization/latest/reference/list_transfer.md "../../../service-authorization/latest/reference/list_transfer.md"))
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") (list)
 - **Value type** – Multivalued
@@ -2732,6 +2737,54 @@ call directly.
   included in the request context.
 - **Data type** – [Boolean](reference_policies_elements_condition_operators.md#Conditions_Boolean "reference_policies_elements_condition_operators.md#Conditions_Boolean")
 - **Value type** – Single-valued
+
+### aws:ViaCustomerDomain
+
+Use this key to check whether a principal made a request by using credentials
+obtained from Temporary Access Delegation (TAD). When a partner or vendor obtains
+temporary credentials through a TAD token exchange, we set this key to the
+account identifier of the requesting partner.
+
+Use this condition key in AWS Identity and Access Management (IAM)
+policies to scope access controls specifically to sessions that temporary access
+delegation established, without affecting your own sessions. For example, you can
+use this key to revoke only delegation-based sessions while preserving direct
+console access.
+
+- **Availability** – This key is present
+  in the request context when a principal uses credentials obtained through a
+  TAD token exchange.
+- **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
+- **Value type** – Single-valued
+
+The following example shows a deny policy for sessions obtained through
+temporary access delegation from a specific partner account. The policy applies
+only to sessions issued before a specified time. This example uses a wildcard
+(`*`) for `Action` and `Resource` in the
+`Deny` statement, which is the standard pattern for revoking all access
+from a specific session. To revoke only specific actions, replace the wildcard with
+the appropriate action list.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "DateLessThan": {
+                    "aws:TokenIssueTime": "2026-07-30T01:00:37.819Z"
+                },
+                "StringEquals": {
+                    "aws:ViaCustomerDomain": "123456789012"
+                }
+            }
+        }
+    ]
+}
+```
 
 ### aws:CalledViaAWSMCP
 

@@ -1078,4 +1078,4 @@ and this field is only present in CloudTrail logs for these roles when they assu
 most cases, it is not necessary for an IAM role to assume itself. AWS recommends updating
 your processes, code, or configurations to remove this behavior or updating your role trust
 policies to explicitly allow for this behavior. For more information, see [Announcing an update
-to IAM role trust policy behavior](https://aws.amazon.com/blogs//security/announcing-an-update-to-iam-role-trust-policy-behavior/ "https://aws.amazon.com/blogs//security/announcing-an-update-to-iam-role-trust-policy-behavior/").
+to IAM role trust policy behavior](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/ "https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/").

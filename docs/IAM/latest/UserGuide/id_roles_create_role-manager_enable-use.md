@@ -115,9 +115,9 @@ These examples use the [deny list strategy](../../../organizations/latest/usergu
 another policy that allows actions attached to your organization entities. You still need to
 grant permissions to your principals with identity-based policies.
 
-Denying access to `iam:PutAccountProperties` permission will prevent any
-member from enabling role manager through the console or the API. This is recommended when
-new accounts are created directly through Organizations.
+To prevent member accounts from enabling role manager through the console or the API,
+deny the `iam:PutAccountProperties` permission. We recommend this policy when you
+create new accounts directly through Organizations.
 
 ```
 {
@@ -135,12 +135,12 @@ new accounts are created directly through Organizations.
 
 ### Block access to use role manager
 
-If it is desired to block access to use role manager, the
-`iam:RoleTemplateARN` context key can be used to determine what permissions act
-on a templated role creation process. The following policy denies all the IAM actions that
-have a non-null value for the `iam:RoleTemplateARN` context key. Note that this
-does _not_ prevent all role creation activities— just the role
-manager-based role creation or direct templated role creation through the SDK.
+To block the use of role manager, use the `iam:RoleTemplateARN` context key,
+which is present on the IAM actions that create a role from a template. The following
+policy denies all IAM actions that have a non-null value for the
+`iam:RoleTemplateARN` context key. This policy doesn't prevent all role
+creation—it blocks only role creation through role manager and template-based role
+creation through the SDK.
 
 ```
 {
@@ -158,9 +158,9 @@ manager-based role creation or direct templated role creation through the SDK.
 
 ### Block role creation except through role manager
 
-If the desire is to only allow access to role manager based role creation the
-following policy can be used to block non-role manager role creations. Note that it
-will still allow template based role creations directly through the SDK.
+To allow role creation only through role manager, use the following policy to block
+non-role manager role creation. This policy still allows template-based role creation
+directly through the SDK.
 
 ```
 {

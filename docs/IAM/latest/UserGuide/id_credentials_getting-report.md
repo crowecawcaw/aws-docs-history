@@ -65,7 +65,7 @@ as part of your organization as they have no root user credentials by default.
 
 The date and time when the AWS account root user or user's password was last used to sign in to
 an AWS website, in [ISO 8601 date-time
-format](../../../http:/www.iso.org/iso/iso8601.md "../../../http:/www.iso.org/iso/iso8601.md"). AWS websites that capture a user's last sign-in time are the
+format](http://www.iso.org/iso/iso8601 "http://www.iso.org/iso/iso8601"). AWS websites that capture a user's last sign-in time are the
 AWS Management Console, the AWS Discussion Forums, and the AWS Marketplace. When a password is
 used more than once in a 5-minute span, only the first use is recorded in this field.
 

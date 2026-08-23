@@ -15,14 +15,14 @@ about each element, see the preceding sections.
   in UTF-8. For information about the JSON data types, see [RFC
   4627](https://datatracker.ietf.org/doc/html/rfc4627 "https://datatracker.ietf.org/doc/html/rfc4627").
 
-| Type      | JSON                                                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| String    | String                                                                                                                                             |
-| Integer   | Number                                                                                                                                             |
-| Float     | Number                                                                                                                                             |
-| Boolean   | true false                                                                                                                                         |
-| Null      | null                                                                                                                                               |
-| Date      | String adhering to the [W3C Profile<br>of ISO 8601](../../../http:/www.w3.org/TR/NOTE-datetime.md "../../../http:/www.w3.org/TR/NOTE-datetime.md") |
-| IpAddress | String adhering to [RFC 4632](https://datatracker.ietf.org/doc/html/rfc4632 "https://datatracker.ietf.org/doc/html/rfc4632")                       |
-| List      | Array                                                                                                                                              |
-| Object    | Object                                                                                                                                             |
+| Type      | JSON                                                                                                                         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| String    | String                                                                                                                       |
+| Integer   | Number                                                                                                                       |
+| Float     | Number                                                                                                                       |
+| Boolean   | true false                                                                                                                   |
+| Null      | null                                                                                                                         |
+| Date      | String adhering to the [W3C Profile<br>of ISO 8601](http://www.w3.org/TR/NOTE-datetime "http://www.w3.org/TR/NOTE-datetime") |
+| IpAddress | String adhering to [RFC 4632](https://datatracker.ietf.org/doc/html/rfc4632 "https://datatracker.ietf.org/doc/html/rfc4632") |
+| List      | Array                                                                                                                        |
+| Object    | Object                                                                                                                       |

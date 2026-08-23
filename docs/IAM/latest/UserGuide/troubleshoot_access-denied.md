@@ -107,7 +107,7 @@ action.
   to your temporary credentials. For more information, see [I get "access denied" when I make a request to an AWS service](#troubleshoot_general_access-denied-service "#troubleshoot_general_access-denied-service").
 - Verify that the service accepts temporary security credentials, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md "reference_aws-services-that-work-with-iam.md").
 - Verify that your requests are being signed correctly and that the request is
-  well-formed. For details, see your [toolkit](../../../http:/aws.amazon.com/developer/tools.md "../../../http:/aws.amazon.com/developer/tools.md") documentation or
+  well-formed. For details, see your [toolkit](http://aws.amazon.com/developer/tools/ "http://aws.amazon.com/developer/tools/") documentation or
   [Use temporary credentials with AWS resources](id_credentials_temp_use-resources.md "id_credentials_temp_use-resources.md").
 - Verify that your temporary security credentials haven't expired. For more
   information, see [Temporary security credentials in IAM](id_credentials_temp.md "id_credentials_temp.md").

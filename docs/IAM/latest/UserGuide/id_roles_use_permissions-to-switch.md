@@ -68,7 +68,7 @@ If `Resource` is set to `*`, the user can assume any role in any
 account that trusts the user's account. (In other words, the role's trust policy specifies
 the user's account as `Principal`). As a best practice, we recommend that you
 follow the [principle
-of least privilege](../../../http:/en.wikipedia.org/wiki/Principle_of_least_privilege.md "../../../http:/en.wikipedia.org/wiki/Principle_of_least_privilege.md") and specify the complete ARN for only the roles that the user
+of least privilege](http://en.wikipedia.org/wiki/Principle_of_least_privilege "http://en.wikipedia.org/wiki/Principle_of_least_privilege") and specify the complete ARN for only the roles that the user
 needs.
 
 The following example shows a policy that lets the user assume roles in only one account.

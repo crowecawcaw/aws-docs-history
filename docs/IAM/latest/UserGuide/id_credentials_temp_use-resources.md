@@ -91,7 +91,7 @@ and other API operations, see the [AWS Security Token Service API Reference](../
 information on getting the temporary security credentials and session token from the result,
 see the documentation for the SDK that you're working with. You can find the documentation for
 all the AWS SDKs on the main [AWS
-documentation page](../../../http:/aws.amazon.com/documentation.md "../../../http:/aws.amazon.com/documentation.md"), in the **SDKs and Toolkits** section.
+documentation page](http://aws.amazon.com/documentation "http://aws.amazon.com/documentation"), in the **SDKs and Toolkits** section.
 
 You must make sure that you get a new set of credentials before the old ones expire. In
 some SDKs, you can use a provider that manages the process of refreshing credentials for you;

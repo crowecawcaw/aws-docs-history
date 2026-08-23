@@ -19,7 +19,7 @@ key cryptography, do not require batteries and offer a seamless authentication p
 recommend using FIDO security keys for their phishing resistance, which provides a more secure
 alternative to TOTP devices. Additionally, FIDO security keys can support multiple IAM or root
 users on the same device, enhancing their utility for account security. For specifications and
-purchase information for both device types, see [Multi-Factor Authentication](../../../http:/aws.amazon.com/iam/details/mfa.md "../../../http:/aws.amazon.com/iam/details/mfa.md").
+purchase information for both device types, see [Multi-Factor Authentication](http://aws.amazon.com/iam/details/mfa/ "http://aws.amazon.com/iam/details/mfa/").
 
 You can enable a hardware TOTP token for an IAM user from the AWS Management Console, the command line,
 or the IAM API. To enable an MFA device for your AWS account root user, see [Enable a hardware TOTP token for the root user (console)](enable-hw-mfa-for-root.md "enable-hw-mfa-for-root.md").
