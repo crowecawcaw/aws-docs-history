@@ -13,20 +13,24 @@ For information about zero-ETL integrations, see [Zero-ETL integrations](../mgmt
 
 ## Table columns
 
-| Column name                  | Data type      | Description                                                                                                                                    |
-| ---------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| integration\_id              | character(128) | The identifier associated with the integration.                                                                                                |
-| target\_database             | character(128) | The database in Amazon Redshift that receives the integration data.                                                                            |
-| source                       | character(128) | The source data for the integration. Possible types include `MySQL`, `PostgreSQL`, and `S3_EVENT_NOTIFICATIONS`.                               |
-| state                        | character(128) | The state of the integration. Possible values include `PendingDbConnectState`, `SchemaDiscoveryState`, `CdcRefreshState`,<br>and `ErrorState`. |
-| current\_lag                 | bigint         | The current lag time (milliseconds) between the source and destination of the integration.                                                     |
-| last\_replicated\_checkpoint | character(128) | The last replicated checkpoint.                                                                                                                |
-| total\_tables\_replicated    | integer        | The number of total tables currently in the replicated state.                                                                                  |
-| total\_tables\_failed        | integer        | The number of total tables currently in the failed state.                                                                                      |
-| creation\_time               | timestamp      | The time (UTC) when the integration is created. It is defined as the time when the target database is created from the integration.            |
-| refresh\_interval            | integer        | The approximate time interval, in seconds, to refresh data from the zero-ETL source to the target database.                                    |
-| source\_database             | character(128) | The name of the source database.                                                                                                               |
-| is\_history\_mode            | boolean        | A `TRUE` value indicates that history mode is on. A `FALSE` indicates that history mode is off.                                                |
+| Column name                           | Data type      | Description                                                                                                                                    |
+| ------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| integration\_id                       | character(128) | The identifier associated with the integration.                                                                                                |
+| target\_database                      | character(128) | The database in Amazon Redshift that receives the integration data.                                                                            |
+| source                                | character(128) | The source data for the integration. Possible types include `MySQL`, `PostgreSQL`, and `S3_EVENT_NOTIFICATIONS`.                               |
+| state                                 | character(128) | The state of the integration. Possible values include `PendingDbConnectState`, `SchemaDiscoveryState`, `CdcRefreshState`,<br>and `ErrorState`. |
+| current\_lag                          | bigint         | The current lag time (milliseconds) between the source and destination of the integration.                                                     |
+| last\_replicated\_checkpoint          | character(128) | The last replicated checkpoint.                                                                                                                |
+| total\_tables\_replicated             | integer        | The number of total tables currently in the replicated state.                                                                                  |
+| total\_tables\_failed                 | integer        | The number of total tables currently in the failed state.                                                                                      |
+| creation\_time                        | timestamp      | The time (UTC) when the integration is created. It is defined as the time when the target database is created from the integration.            |
+| refresh\_interval                     | integer        | The approximate time interval, in seconds, to refresh data from the zero-ETL source to the target database.                                    |
+| source\_database                      | character(128) | The name of the source database.                                                                                                               |
+| is\_history\_mode                     | boolean        | A `TRUE` value indicates that history mode is on. A `FALSE` indicates that history mode is off.                                                |
+| latest\_detected\_change\_time        | timestamp      | The time (UTC) when the latest source change for this integration database was staged in the replication queue.                                |
+| latest\_applied\_change\_time         | timestamp      | The time (UTC) of the last successful ingestion on Amazon Redshift for this target database.                                                   |
+| auto\_remediation                     | boolean        | A `TRUE` value indicates that automatic remediation of duplicate rows is enabled. A `FALSE` value indicates that it is disabled.               |
+| latest\_shipped\_source\_commit\_time | timestamp      | The time (UTC), on the source database clock, up to which source transactions have been shipped for this integration.                          |
 
 ## Sample queries
 

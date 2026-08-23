@@ -7,7 +7,7 @@ and migration options, see the
 
 ###### Note
 
-For a description of new features in Amazon Redshift, see [What's new](https://aws.amazon.com//redshift/whats-new "https://aws.amazon.com//redshift/whats-new").
+For a description of new features in Amazon Redshift, see [What's new](https://aws.amazon.com/redshift/whats-new "https://aws.amazon.com/redshift/whats-new").
 
 The following table describes the important documentation changes to the
 _Amazon Redshift Database Developer Guide_ after May 2018. For notification about updates to

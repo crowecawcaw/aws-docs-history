@@ -27,6 +27,7 @@ CREATE DATABASE *database\_name*
       [ REFRESH_INTERVAL <interval> ]
       [ TRUNCATECOLUMNS [=] { TRUE | FALSE } ]
       [ HISTORY_MODE [=] {TRUE | FALSE} ]
+      [ AUTO_REMEDIATION [=] { TRUE | FALSE } ]
     ]
     [ WITH ]
     [ OWNER [=] *db\_owner* ]
@@ -122,6 +123,16 @@ The HISTORY\_MODE clause can be set to `TRUE` or
 `FALSE`. The default is `FALSE`. For information about
 HISTORY\_MODE, see [History mode](../mgmt/zero-etl-history-mode.md "../mgmt/zero-etl-history-mode.md")
 in the _Amazon Redshift Management Guide_.
+
+AUTO\_REMEDIATION [=] { TRUE | FALSE }
+
+Specifies whether Amazon Redshift automatically resynchronizes tables that are
+affected by duplicate rows. When set to
+`TRUE`, Amazon Redshift marks affected tables for resynchronization without
+requiring manual intervention. The default is `FALSE`.
+
+You can monitor which tables have been flagged by querying [SVV\_INTEGRATION\_TABLE\_STATE](r_SVV_INTEGRATION_TABLE_STATE.md "r_SVV_INTEGRATION_TABLE_STATE.md"). The current setting is
+visible in the `auto_remediation` column of [SVV\_INTEGRATION](r_SVV_INTEGRATION.md "r_SVV_INTEGRATION.md").
 
 WITH
 

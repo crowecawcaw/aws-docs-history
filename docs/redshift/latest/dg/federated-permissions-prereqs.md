@@ -331,6 +331,13 @@ aws lakeformation grant-permissions \
    IAMAllowedPrincipals to Create Catalog. Access can be granted through the **Grant**
    button for Catalog Creators in the Administrative Role and Tasks page.
 
+## Network configuration for enhanced VPC routing
+
+If enhanced VPC routing is turned on, your VPC must be able to reach the AWS IAM Identity Center
+services. Otherwise, identity propagation fails. For more information about the network
+requirements, see [Using AWS
+IAM Identity Center with enhanced VPC routing](../mgmt/redshift-iam-access-control-idp-connect-evr.md "../mgmt/redshift-iam-access-control-idp-connect-evr.md").
+
 ## Connect privileges
 
 As part of Amazon Redshift federated permissions, Amazon Redshift has introduced CONNECT
