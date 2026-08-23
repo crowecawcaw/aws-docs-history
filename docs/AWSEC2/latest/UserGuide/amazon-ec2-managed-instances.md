@@ -186,7 +186,7 @@ in your resource views.
 | Amazon EC2 launch templates | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core, Amazon Bedrock AgentCore                                                                        | Launch templates created by managed services          |
 | Amazon EBS volumes          | Amazon EKS, Amazon ECS, Amazon WorkSpaces Core, Amazon Bedrock AgentCore,<br>Amazon EC2 Fast Launch                                             | Volumes attached to managed instances                 |
 | Amazon EBS snapshots        | Amazon EC2 Fast Launch                                                                                                                          | Snapshots managed by Amazon EC2 Fast Launch           |
-| Network interfaces (ENIs)   | Amazon EKS, Amazon ECS, AWS Lambda, Amazon WorkSpaces Core, Amazon Bedrock<br>AgentCore                                                         | Network interfaces provisioned for managed workloads  |
+| Network interfaces (ENIs)   | Amazon EKS, Amazon ECS, AWS Lambda, Amazon WorkSpaces Core, Amazon Bedrock<br>AgentCore, Amazon EC2 Application Status Checks                   | Network interfaces provisioned for managed workloads  |
 
 ###### Note
 

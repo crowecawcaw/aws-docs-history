@@ -81,7 +81,7 @@ Consider the following options for controlling network traffic to your EC2 insta
   instances to be managed without interactive or administrator access. In addition, JEA
   enables organizations to lock down administrative access to the subset of Windows
   PowerShell commands required for instance administration. For additional information,
-  see the section on "Managing OS-level Access to Amazon EC2" in the [AWS Security Best Practices](https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf "https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf") whitepaper.
+  see [Best Practices for Security, Identity, & Compliance](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/").
 - [Windows instances] System Administrators should use Windows accounts with limited access to
   perform daily activities, and only elevate access when necessary to perform specific
   configuration changes. Additionally, only access Windows instances directly when

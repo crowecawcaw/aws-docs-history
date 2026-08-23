@@ -119,6 +119,8 @@ policy.
 
 The following AWS services use the instance identity role:
 
+- Amazon Bedrock AgentCore – [AgentCore Runtime Instances](../../../bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.md "../../../bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.md") use the instance identity role
+  for setting up the instances during launch.
 - Amazon EC2 – [EC2 Instance Connect](connect-linux-inst-eic.md "connect-linux-inst-eic.md") uses the instance
   identity role to update the host keys for a Linux instance.
 - **Amazon GuardDuty** – [GuardDuty Runtime
