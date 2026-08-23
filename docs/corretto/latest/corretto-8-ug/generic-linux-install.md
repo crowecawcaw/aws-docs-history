@@ -65,7 +65,7 @@ sudo apt-get update && sudo apt-get install java-common
 ###### Example
 
 ```
-sudo dpkg --install java-1.8.0-amazon-corretto-jdk_8.0.502.07-1_amd64.deb
+sudo dpkg --install java-1.8.0-amazon-corretto-jdk_8.0.504.01-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -78,12 +78,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 8u502:
+Expected output for 8u504:
 
 ```
-openjdk version "1.8.0_502"
-OpenJDK Runtime Environment Corretto-8.502.07.1 (build 1.8.0_502-b07)
-OpenJDK 64-Bit Server VM Corretto-8.502.07.1 (build 25.502-b07, mixed mode)
+openjdk version "1.8.0_504"
+OpenJDK Runtime Environment Corretto-8.504.01.1 (build 1.8.0_504-b01)
+OpenJDK 64-Bit Server VM Corretto-8.504.01.1 (build 25.504-b01, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -164,7 +164,7 @@ sudo zypper install java-1.8.0-amazon-corretto-devel
 ###### Example
 
 ```
-sudo yum localinstall java-1.8.0-amazon-corretto-devel-1.8.0_502.b07-1.x86_64.rpm
+sudo yum localinstall java-1.8.0-amazon-corretto-devel-1.8.0_504.b01-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -177,12 +177,12 @@ In the terminal, run the following command to verify the installation.
 java -version
 ```
 
-Expected output for 8u502:
+Expected output for 8u504:
 
 ```
-openjdk version "1.8.0_502"
-OpenJDK Runtime Environment Corretto-8.502.07.1 (build 1.8.0_502-b07)
-OpenJDK 64-Bit Server VM Corretto-8.502.07.1 (build 25.502-b07, mixed mode)
+openjdk version "1.8.0_504"
+OpenJDK Runtime Environment Corretto-8.504.01.1 (build 1.8.0_504-b01)
+OpenJDK 64-Bit Server VM Corretto-8.504.01.1 (build 25.504-b01, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
