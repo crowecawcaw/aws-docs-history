@@ -93,17 +93,17 @@ Enable automatic remediation to have AWS Security Agent generate code fixes for 
 
 How AWS Security Agent delivers the fix depends on the source:
 
-- **Private GitHub repositories** – AWS Security Agent submits a pull request with the fix to the repository.
-- **Public GitHub repositories** – To avoid disclosing the vulnerability before it’s fixed, AWS Security Agent does not open a pull request. Instead, it attaches a suggested diff to the finding that you can download from the web application and apply privately.
-- **S3 sources** – Code remediation is not available. Review the finding details and apply fixes manually.
+- **Connected private repository** – AWS Security Agent submits a pull request (or a merge request, for GitLab) with the fix.
+- **Public repository** – To avoid disclosing the vulnerability before it’s fixed, AWS Security Agent does not open a pull request. Delivery varies by provider — for example, public GitHub repositories receive a downloadable diff you can apply privately; see the provider’s connection topic.
+- **Amazon S3 sources** – AWS Security Agent attaches a downloadable code diff to the finding (there’s no connected repository to open a pull request against). Download it from the web application and apply it locally.
 
 ###### Important
 
-Remediation pull requests submitted to private repositories are visible to everyone with read access. Review the changes before merging. Automatic code remediation is only available when GitHub repositories are selected as a source.
+Everyone with read access to the private repository can see the remediation pull request. Review the changes before merging.
 
 ###### Note
 
-When disabled, you can still manually trigger code remediation for individual GitHub-sourced findings after the review completes.
+When automatic code remediation is disabled, you can still trigger it manually for individual findings. This works for findings from a connected repository or an Amazon S3 source.
 
 ### Set a maximum task-hours limit
 

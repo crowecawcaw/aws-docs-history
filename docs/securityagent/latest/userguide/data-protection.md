@@ -54,6 +54,10 @@ In all cases, your data remains stored only in the Region where the request orig
 
 Cross-Region inference is always enabled and cannot be opted out of. For details on which Regions process requests for each feature, see the Cross Region Inference section in [Security best practices for AWS Security Agent](security-best-practices.md "security-best-practices.md").
 
+###### Note
+
+For GitHub Enterprise Cloud with data residency, AWS Security Agent processes your repository content in the Region of your AWS Security Agent instance. If that Region differs from your tenant’s GitHub data residency Region, AWS Security Agent processes your content outside that Region. To connect a data residency tenant, see [Connect AWS Security Agent to GitHub Enterprise](connect-github-enterprise.md "connect-github-enterprise.md").
+
 ## Data deletion
 
 When you delete data from AWS Security Agent:

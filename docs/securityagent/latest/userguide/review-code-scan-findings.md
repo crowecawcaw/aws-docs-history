@@ -96,7 +96,7 @@ Select individual findings to view comprehensive information about each vulnerab
 2. Review the available actions:
 
    - **Resolve finding** – Mark the finding as resolved after you’ve addressed it
-   - **Remediate code** – Generate a pull request with a fix (available for GitHub sources)
+   - **Remediate code** – Generate a fix: a pull request or merge request for a connected private repository, or a downloadable code diff for an Amazon S3 source
 
 3. Provide feedback using **Was this finding accurate?** – Select **Yes** or **No** to help improve future analysis accuracy.
 4. Review the key attributes in the **Overview** section:
@@ -180,6 +180,6 @@ After merging remediation pull requests, start a new run of the same code review
 After reviewing your code review findings:
 
 - Prioritize high-severity findings with high confidence for immediate remediation
-- Use **Remediate code** to generate automated fixes for GitHub-sourced findings (see [Remediate code review findings](remediate-code-scan-findings.md "remediate-code-scan-findings.md"))
+- Use **Remediate code** to generate fixes for findings from a connected source code repository or an Amazon S3 source (see [Remediate code review findings](remediate-code-scan-findings.md "remediate-code-scan-findings.md"))
 - Run additional code reviews after implementing fixes to verify remediation
 - Adjust your code review sources or settings as your codebase evolves (see [Enable code review](enable-code-review-scan.md "enable-code-review-scan.md"))

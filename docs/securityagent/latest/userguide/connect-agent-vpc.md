@@ -17,6 +17,10 @@ fd00::/8
 
 When connecting to a subnet, AWS Security Agent will create an ENI ([Elastic Network Interface](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md")) in the subnet configured for the penetration test. This ENI does not have an associated public IP address, meaning that it cannot communicate with [VPC Internet Gateways](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") in public subnets. If your penetration test requires open internet access, please use a private subnet with an associated [VPC NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") instead
 
+###### Tip
+
+When testing against an endpoint that has an IP allowlist, you can add a private VPC configuration with an associated [VPC NAT Gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") to your penetration test. You can then use the NAT Gateway IP address to allowlist outbound traffic from the penetration test.
+
 You grant AWS Security Agent general access to a VPC from the AWS Management Console. In the Security Agent web application, users select the specific configuration for a penetration test.
 
 ## To add a VPC in the Agent Space
