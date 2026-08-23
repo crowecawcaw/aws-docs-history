@@ -68,10 +68,40 @@ Roundabout
 ## Rich points of interest (POI)
 
 The Standard map style supports a rich array of configurable points of interest
-(POIs). With just a few lines of code, you can select the POI categories relevant to
-your use case.
+(POIs). Using the `PoiCategories` and `PoiDensity` parameters
+in [GetStyleDescriptor](../APIReference/API_geomaps_GetStyleDescriptor.md "../APIReference/API_geomaps_GetStyleDescriptor.md"), you can choose which POI categories appear and how
+many are shown. Amazon Location Service returns a style descriptor that renders only the requested
+POIs, so maps display correctly with no additional client-side code.
 
-![Map showing various points of interest in Midtown Manhattan, including businesses and landmarks.](images/poi-toggle-animation.gif)
+### POI density
+
+The `PoiDensity` parameter controls how many POIs render on the
+map. Use lower density values to reduce visual clutter for apps with custom
+markers, or higher values for discovery-focused applications.
+
+### POI categories
+
+The `PoiCategories` parameter filters the map to show only the
+POI categories you specify. You can pass one or more categories to tailor the
+map to your application's needs. When omitted, all categories are displayed.
+For example, a property-listing site can surface only accommodations, a logistics
+fleet app can show only transit and fuel, and a tourist map can highlight sights
+and dining.
+
+For more information about supported density levels and categories, see [Maps
+features](maps-concepts.md#maps-concepts-features "maps-concepts.md#maps-concepts-features") and the [GetStyleDescriptor API Reference](../APIReference/API_geomaps_GetStyleDescriptor.md "../APIReference/API_geomaps_GetStyleDescriptor.md").
+For instructions on using these parameters, see [How to filter
+POI on the map](how-to-filter-poi-map.md "how-to-filter-poi-map.md").
+
+The following tabs show examples of POI filtering and density configurations.
+
+POI filtering
+
+![Map showing POI category filtering with only selected categories visible on the map.](images/poi-toggle-animation.gif)
+
+POI density
+
+![Comparison of POI density levels showing increasing numbers of points of interest on the map.](images/poi-density.gif)
 
 ## Designed for the world
 
@@ -83,7 +113,7 @@ To learn more, see [Localization and internationalization](maps-localization-int
 
 Languages
 
-![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](images/standard-language-switcher.gif)
+![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](/images/location/latest/developerguide/images/standard-language-switcher.gif)
 
 Political view
 

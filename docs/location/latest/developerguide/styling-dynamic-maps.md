@@ -74,7 +74,7 @@ For customers in `ap-southeast-1` and `ap-southeast-5`, supported request and re
 [GetStyleDescriptor API Reference](../APIReference/API_geomaps_GetStyleDescriptor.md "../APIReference/API_geomaps_GetStyleDescriptor.md") for details.
 
 The request supports parameters like `ColorScheme`, `Key`,
-and `PoliticalView` to define the map's style and presentation. The
+`PoliticalView`, `PoiDensity`, and `PoiCategories` to define the map's style and presentation. The
 `Style` parameter is required to specify the desired map
 style.
 
@@ -96,6 +96,14 @@ style.
 - **`TravelMode`**: Displays
   transportation information including public transit systems or truck routing
   with road restrictions.
+- **`PoiDensity`**: Controls how
+  many points of interest (POIs) render on the map. Values range from
+  `Off` (no POIs) to `VeryDense` (maximum density).
+  When omitted, `Default` density is used.
+- **`PoiCategories`**: Filters the
+  map to display only specified POI categories, such as
+  `FoodAndDrink`, `Transportation`, or
+  `Shopping`. When omitted, all categories are shown.
 
 ## Understand the response
 

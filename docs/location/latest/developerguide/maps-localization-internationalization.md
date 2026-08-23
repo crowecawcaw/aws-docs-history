@@ -25,4 +25,4 @@ In addition to the default international perspective, Amazon Location Service su
 
 For more information, see [How to set the political view of a map](how-to-set-political-view-map.md "how-to-set-political-view-map.md").
 
-![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](images/maps-political-view.png)
+![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](/images/location/latest/developerguide/images/maps-political-view.png)

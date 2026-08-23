@@ -13,6 +13,13 @@ detailed imagery. Light road lines highlight the urban structure when zoomed out
 gradually fade as you zoom in, revealing more detailed street-level
 information.
 
+The Hybrid map style supports the same `PoiDensity` and
+`PoiCategories` parameters as the Standard style. For details on
+supported values and use cases, see [Rich points of interest (POI)](standard-map-style.md#standard-rich-poi "standard-map-style.md#standard-rich-poi") in the Standard map style and the [Maps features](maps-concepts.md#maps-concepts-features "maps-concepts.md#maps-concepts-features") reference.
+
+For instructions on using these parameters, see [How to filter
+POI on the map](how-to-filter-poi-map.md "how-to-filter-poi-map.md").
+
 Zoom
 
 ![Animated demonstration of the Hybrid map style zooming through multiple levels, showing satellite imagery with overlaid labels.](/images/location/latest/developerguide/images/hybrid_zoom.gif)
