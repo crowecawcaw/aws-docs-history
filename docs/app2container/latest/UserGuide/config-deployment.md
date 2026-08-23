@@ -311,7 +311,7 @@ This section is not included for applications running on Windows.
     configure a route to the internet using a NAT gateway. For
     more information about cluster networking for Amazon EKS, see
     [De-mystifying cluster networking for Amazon EKS worker
-    nodes](https://aws.amazon.com//blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/ "https://aws.amazon.com//blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/").
+    nodes](https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/ "https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/").
     - cfnStackName (string) – The name or
       ID (ARN) of the CloudFormation stack created with App2Container for the containerized
       application.
