@@ -101,6 +101,7 @@ Consider the following when working with Reachability Analyzer:
 - Paths are not a shareable resource.
 - Transit gateway Connect attachments are not supported. Reachability Analyzer analyzes connectivity only
   up to these attachments.
+- Reachability Analyzer does not yet support analysis of transit gateway policy tables.
 - With the TCP protocol, when a network path traverses a transit gateway route table,
   only forward traffic is analyzed.
 - Paths through a Gateway Load Balancer endpoint do not include the Gateway Load Balancer or its targets. You should

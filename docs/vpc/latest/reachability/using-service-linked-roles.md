@@ -20,7 +20,7 @@ role:
 
 - `reachabilityanalyzer.networkinsights.amazonaws.com`
 
-The **AWSServiceRoleForReachabilityAnalyzer** service-linked role uses the managed policy [AWSReachabilityAnalyzerServiceRolePolicy](security-iam-awsmanpol.md#AWSReachabilityAnalyzerServiceRolePolicy "security-iam-awsmanpol.md#AWSReachabilityAnalyzerServiceRolePolicy").
+The **AWSServiceRoleForReachabilityAnalyzer** service-linked role uses the managed policy [AWSReachabilityAnalyzerServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSReachabilityAnalyzerServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSReachabilityAnalyzerServiceRolePolicy.md").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions") in the _IAM User Guide_.
