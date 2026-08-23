@@ -20,17 +20,13 @@ Use the **configure-pkcs11 remove-cluster** along with the `cluster-id` paramete
 Linux
 
 ```
-
 `$` `sudo /opt/cloudhsm/bin/configure-pkcs11 remove-cluster --cluster-id `<cluster-1234567>``
-
 ```
 
 Windows
 
 ```
-
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-pkcs11.exe" remove-cluster --cluster-id `<cluster-1234567>``
-
 ```
 
 For more information about the `--cluster-id` parameter, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").

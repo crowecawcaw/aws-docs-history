@@ -49,17 +49,13 @@ Use the **configure-pkcs11 add-cluster** along with the `cluster-id`, `endpoint`
 Linux
 
 ```
-
 `$` `sudo /opt/cloudhsm/bin/configure-pkcs11 add-cluster --cluster-id `<cluster-1234567>` --region `<us-east-1>` --endpoint `<https://cloudhsmv2.us-east-1.amazonaws.com>``
-
 ```
 
 Windows
 
 ```
-
-`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-pkcs11.exe" add-cluster --cluster-id `<cluster-1234567>`--region `<us-east-1>` --endpoint `<https://cloudhsmv2.us-east-1.amazonaws.com>``
-
+`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-pkcs11.exe" add-cluster --cluster-id `<cluster-1234567>` --region `<us-east-1>` --endpoint `<https://cloudhsmv2.us-east-1.amazonaws.com>``
 ```
 
 For more information about the `--cluster-id`, `--region`,

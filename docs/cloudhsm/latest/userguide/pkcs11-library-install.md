@@ -130,6 +130,27 @@ Install the PKCS #11 library for RHEL 8 on ARM64 architecture:
 `$` `sudo yum install ./cloudhsm-pkcs11-latest.el8.aarch64.rpm`
 ```
 
+Ubuntu 26.04 LTS
+Install the PKCS #11 library for Ubuntu 26.04 LTS on X86\_64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-pkcs11_latest_u26.04_amd64.deb`
+```
+
+```
+`$` `sudo apt install ./cloudhsm-pkcs11_latest_u26.04_amd64.deb`
+```
+
+Install the PKCS #11 library for Ubuntu 26.04 LTS on ARM64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-pkcs11_latest_u26.04_arm64.deb`
+```
+
+```
+`$` `sudo apt install ./cloudhsm-pkcs11_latest_u26.04_arm64.deb`
+```
+
 Ubuntu 24.04 LTS
 Install the PKCS #11 library for Ubuntu 24.04 LTS on X86\_64 architecture:
 

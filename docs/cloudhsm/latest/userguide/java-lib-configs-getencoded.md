@@ -12,13 +12,14 @@ operation to happen inside the HSM. Key extraction in clear text is only needed 
 
 The AWS CloudHSM JCE Provider allows extraction of **public keys** to work with external JCE providers by default. The following methods are always allowed:
 
-| Class                    | Method              | Format (getEncoded) |
-| ------------------------ | ------------------- | ------------------- |
-| EcPublicKey              | getEncoded()        | X.509               |
-|                          | getW()              | N/A                 |
-| RSAPublicKey             | getEncoded()        | X.509               |
-|                          | getPublicExponent() | N/A                 |
-| CloudHsmRsaPrivateCrtKey | getPublicExponent() | N/A                 |
+| Class                  | Method              | Format (getEncoded) |
+| ---------------------- | ------------------- | ------------------- |
+| EcPublicKey            | getEncoded()        | X.509               |
+|                        | getW()              | N/A                 |
+| RSAPublicKey           | getEncoded()        | X.509               |
+|                        | getPublicExponent() | N/A                 |
+| CloudHsmEdDSAPublicKey | getEncoded()        | X.509               |
+| CloudHsmMldsaPublicKey | getEncoded()        | X.509               |
 
 The AWS CloudHSM JCE Provider doesn’t allow extraction of key bytes in clear for the **private** or **secret** keys by default. If your use case requires it,
 you can enable extraction of key bytes in clear for **private** or **secret** keys under the following conditions:

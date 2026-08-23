@@ -6,6 +6,10 @@ of the HSM.
 
 ###### Note
 
+ML-DSA keys cannot be imported using the **key import pem** command. To use ML-DSA keys, generate them directly on the HSM using [key generate-asymmetric-pair ml-dsa](cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md "cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md").
+
+###### Note
+
 Use the [Export an asymmetric key with CloudHSM CLI](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md") command to create a standard PEM file from a public key or to create a reference PEM file from a private key.
 
 ## User type

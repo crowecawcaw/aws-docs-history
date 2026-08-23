@@ -10,6 +10,7 @@ category consists of the following commands:
 
   - [key generate-asymmetric-pair rsa](cloudhsm_cli-key-generate-asymmetric-pair-rsa.md "cloudhsm_cli-key-generate-asymmetric-pair-rsa.md")
   - [key generate-asymmetric-pair ec](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md")
+  - [key generate-asymmetric-pair ml-dsa](cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md "cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md")
 
 - [key generate-symmetric](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md")
 

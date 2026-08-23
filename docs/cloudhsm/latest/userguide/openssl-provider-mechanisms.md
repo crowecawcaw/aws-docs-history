@@ -64,3 +64,19 @@ ECDSA signatures with SHA-384 hash algorithm
 SHA512withECDSA
 
 ECDSA signatures with SHA-512 hash algorithm
+
+## EdDSA signature types
+
+The OpenSSL Provider supports EdDSA digital signatures. Ed25519 is only available on non-FIPS clusters.
+
+Ed25519
+
+Ed25519 performs EdDSA signatures using Curve25519 (RFC 8032) with one-shot signing and an internal SHA-512 hash. You cannot select an external digest algorithm. Ed25519 supports TLS 1.3 signature negotiation.
+
+## ML-DSA signature types
+
+The OpenSSL Provider supports ML-DSA (Module-Lattice Digital Signature Algorithm) post-quantum digital signatures as defined in FIPS 204. ML-DSA is only available on non-FIPS clusters and requires OpenSSL 3.5 or later.
+
+ML-DSA-44, ML-DSA-65, ML-DSA-87
+
+ML-DSA provides post-quantum signatures at NIST security levels 2 (ML-DSA-44, 128-bit), 3 (ML-DSA-65, 192-bit), and 5 (ML-DSA-87, 256-bit). All variants use one-shot pure mode signing. You cannot select an external digest algorithm. ML-DSA supports TLS 1.3 signature negotiation.

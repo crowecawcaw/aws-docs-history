@@ -138,3 +138,45 @@ To change a session key to a persistent (token) key, use [key set-attribute](clo
 By default, keys that are generated are persistent (token) keys. Passing in <SESSION> changes this, ensuring a key generated with this argument is a session (ephemeral) key.
 
 Required: No
+
+### Generate ML-DSA key pairs
+
+Use the **key generate-asymmetric-pair ml-dsa** command to generate an ML-DSA key pair.
+To see all available options, use the **help key generate-asymmetric-pair ml-dsa** command.
+
+###### Example
+
+The following example generates an ML-DSA key pair using the ML-DSA-44 algorithm.
+
+```
+`aws-cloudhsm >` `key generate-asymmetric-pair ml-dsa \
+ --mldsa-algorithm ML-DSA-44 \
+ --public-label ml-dsa-public-example \
+ --private-label ml-dsa-private-example`
+```
+
+#### Arguments
+
+**`<PUBLIC_LABEL>`**
+
+Specifies a user-defined label for the public-key.
+
+Required: Yes
+
+**`<PRIVATE_LABEL>`**
+
+Specifies a user-defined label for the private-key.
+
+Required: Yes
+
+**`<MLDSA_ALGORITHM>`**
+
+Specifies the ML-DSA algorithm.
+
+Valid values:
+
+- ML-DSA-44
+- ML-DSA-65
+- ML-DSA-87
+
+Required: Yes

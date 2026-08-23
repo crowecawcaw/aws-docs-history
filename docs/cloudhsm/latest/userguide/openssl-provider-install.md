@@ -79,25 +79,25 @@ Install the OpenSSL Provider for RHEL 10 on ARM64 architecture:
 `$` `sudo yum install ./cloudhsm-openssl-provider-latest.el10.aarch64.rpm`
 ```
 
-Ubuntu 24.04
-Install the OpenSSL Provider for Ubuntu 24.04 on x86\_64 architecture:
+Ubuntu 26.04 LTS
+Install the OpenSSL Provider for Ubuntu 26.04 LTS on x86\_64 architecture:
 
 ```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-openssl-provider_latest_u24.04_amd64.deb`
-```
-
-```
-`$` `sudo dpkg -i ./cloudhsm-openssl-provider_latest_u24.04_amd64.deb`
-```
-
-Install the OpenSSL Provider for Ubuntu 24.04 on ARM64 architecture:
-
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-openssl-provider_latest_u24.04_arm64.deb`
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-openssl-provider_latest_u26.04_amd64.deb`
 ```
 
 ```
-`$` `sudo dpkg -i ./cloudhsm-openssl-provider_latest_u24.04_arm64.deb`
+`$` `sudo dpkg -i ./cloudhsm-openssl-provider_latest_u26.04_amd64.deb`
+```
+
+Install the OpenSSL Provider for Ubuntu 26.04 LTS on ARM64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-openssl-provider_latest_u26.04_arm64.deb`
+```
+
+```
+`$` `sudo dpkg -i ./cloudhsm-openssl-provider_latest_u26.04_arm64.deb`
 ```
 
 You have installed the shared library for the OpenSSL Provider at

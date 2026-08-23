@@ -8,8 +8,7 @@ The PKCS #11 library supports the following algorithms:
 
 - **Encryption and decryption** – AES-CBC, AES-CTR, AES-ECB,
   AES-GCM, DES3-CBC, DES3-ECB, RSA-OAEP, and RSA-PKCS
-- **Sign and verify** – RSA, HMAC, and ECDSA; with
-  and without hashing
+- **Sign and verify** – RSA, HMAC, ECDSA (with and without hashing), EdDSA (Ed25519 and Ed25519ph), and ML-DSA (with pure and external mu modes)
 - **Hash/digest** – SHA1, SHA224, SHA256, SHA384, and
   SHA512
 - **Key wrap** – AES Key Wrap[1](#mech1 "#mech1"), AES-GCM, RSA-AES, and
@@ -36,6 +35,7 @@ The AWS CloudHSM software library for PKCS #11 library allows you to use the fol
 - `CKM_RSA_X9_31_KEY_PAIR_GEN` – This mechanism is functionally identical to the `CKM_RSA_PKCS_KEY_PAIR_GEN` mechanism,
   but offers stronger guarantees for `p` and `q` generation.
 - `CKM_EC_KEY_PAIR_GEN`
+- `CKM_CLOUDHSM_ML_DSA_KEY_PAIR_GEN`[3](#mech3 "#mech3")
 - `CKM_GENERIC_SECRET_KEY_GEN`
 - `CKM_AES_KEY_GEN`
 - `CKM_DES3_KEY_GEN` – upcoming change listed in footnote [5](#mech5 "#mech5").
@@ -45,7 +45,7 @@ The AWS CloudHSM software library for PKCS #11 library allows you to use the fol
 The AWS CloudHSM software library for PKCS #11 library allows you to use the following mechanisms for Sign and Verify functions. With Client SDK 5,
 the data is hashed locally in software. This means there is no limit on the size of the data that can be hashed by the SDK.
 
-With Client SDK 5 RSA and ECDSA hashing is done locally so there is no data limit. With HMAC, there is a data limit. See footnote [2](#mech2 "#mech2") for more info.
+With Client SDK 5 RSA and ECDSA hashing is done locally so there is no data limit. With HMAC and PureEdDSA (Ed25519), there is a data limit. See footnote [2](#mech2 "#mech2") for more info.
 
 **RSA**
 
@@ -72,6 +72,16 @@ With Client SDK 5 RSA and ECDSA hashing is done locally so there is no data limi
 - `CKM_ECDSA_SHA256`
 - `CKM_ECDSA_SHA384`
 - `CKM_ECDSA_SHA512`
+
+**ML-DSA**
+
+- `CKM_CLOUDHSM_ML_DSA_KEY_PAIR_GEN`[3](#mech3 "#mech3") – Generates ML-DSA key pairs.
+- `CKM_CLOUDHSM_ML_DSA`[3](#mech3 "#mech3") – Pure ML-DSA sign and verify.
+- `CKM_CLOUDHSM_EXT_MU_ML_DSA`[3](#mech3 "#mech3") – ML-DSA sign and verify with external mu.
+
+**EdDSA**
+
+- `CKM_CLOUDHSM_EDDSA`[6](#kdf6 "#kdf6"), [7](#mech7 "#mech7") – with NULL params (PureEdDSA), single-part operations only.
 
 **HMAC**
 
@@ -125,11 +135,11 @@ The AWS CloudHSM software library for PKCS #11 library supports the following ke
 - `CKM_SP800_108_COUNTER_KDF`
 - `CKM_ECDH1_DERIVE` - Supports ECDH key derivation with the following vendor-defined KDF types[6](#kdf6 "#kdf6"):
 
-  - `CKD_CLOUDHSM_X963_SHA1_KDF` - X9.63 KDF with SHA1[7](#kdf7 "#kdf7")
-  - `CKD_CLOUDHSM_X963_SHA224_KDF` - X9.63 KDF with SHA224[7](#kdf7 "#kdf7")
-  - `CKD_CLOUDHSM_X963_SHA256_KDF` - X9.63 KDF with SHA256[7](#kdf7 "#kdf7")
-  - `CKD_CLOUDHSM_X963_SHA384_KDF` - X9.63 KDF with SHA384[7](#kdf7 "#kdf7")
-  - `CKD_CLOUDHSM_X963_SHA512_KDF` - X9.63 KDF with SHA512[7](#kdf7 "#kdf7")
+  - `CKD_CLOUDHSM_X963_SHA1_KDF` - X9.63 KDF with SHA1[8](#kdf7 "#kdf7")
+  - `CKD_CLOUDHSM_X963_SHA224_KDF` - X9.63 KDF with SHA224[8](#kdf7 "#kdf7")
+  - `CKD_CLOUDHSM_X963_SHA256_KDF` - X9.63 KDF with SHA256[8](#kdf7 "#kdf7")
+  - `CKD_CLOUDHSM_X963_SHA384_KDF` - X9.63 KDF with SHA384[8](#kdf7 "#kdf7")
+  - `CKD_CLOUDHSM_X963_SHA512_KDF` - X9.63 KDF with SHA512[8](#kdf7 "#kdf7")
 
 ## Wrap and Unwrap functions
 
@@ -161,6 +171,7 @@ Maximum data set size| **Mechanism** | **Maximum data size in bytes** |
 | `CKM_AES_GCM` | 16224 |
 | `CKM_CLOUDHSM_AES_GCM` | 16224 |
 | `CKM_DES3_CBC` | 16280 |
+| `CKM_CLOUDHSM_EDDSA` (PureEdDSA, NULL params) | 16000 |
 
 ## Mechanism annotations
 
@@ -197,6 +208,18 @@ to be prepended to the ciphertext that is being unwrapped.
 
 `**CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_ZERO\_PAD**`: AES Key Wrap with Zero Padding.
 
+`**CKM\_CLOUDHSM\_ML\_DSA\_KEY\_PAIR\_GEN**`: Generates an ML-DSA key pair. Use the `CKA_CLOUDHSM_PARAMETER_SET` attribute (type `CK_CLOUDHSM_ML_DSA_PARAMETER_SET_TYPE`) to specify the parameter set. Valid values: `CKP_CLOUDHSM_ML_DSA_44`, `CKP_CLOUDHSM_ML_DSA_65`, `CKP_CLOUDHSM_ML_DSA_87`.
+
+`**CKM\_CLOUDHSM\_ML\_DSA**`: Pure ML-DSA sign and verify. Signs or verifies raw data using an ML-DSA key pair.
+
+`**CKM\_CLOUDHSM\_EXT\_MU\_ML\_DSA**`: ML-DSA sign and verify with external mu. Signs or verifies data that has been pre-processed into an external mu value.
+
+`**CKM\_CLOUDHSM\_EDDSA**`: EdDSA signing mechanism.
+With NULL params: PureEdDSA (Ed25519), single-part only, maximum 16,000 bytes.
+With `CK_EDDSA_PARAMS` (`phFlag = CK_TRUE`, `ulContextDataLen = 0`): Ed25519ph,
+single-part and multi-part, no size limit. The `CK_EDDSA_PARAMS` structure follows the
+[PKCS #11 v3.0 specification](https://docs.oasis-open.org/pkcs11/pkcs11-curr/v3.0/pkcs11-curr-v3.0.html "https://docs.oasis-open.org/pkcs11/pkcs11-curr/v3.0/pkcs11-curr-v3.0.html").
+
 - [4] The following `CK_MECHANISM_TYPE`
   and `CK_RSA_PKCS_MGF_TYPE` are supported as
   `CK_RSA_PKCS_OAEP_PARAMS` for `CKM_RSA_PKCS_OAEP`:
@@ -217,6 +240,10 @@ to be prepended to the ciphertext that is being unwrapped.
 
 [Show moreShow less](# "#")
 
-- [7] Key derivation functions (KDFs) are specified in [NIST Special Publication 800-56A Revision 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf").
+- [7] Only supported on hsm2m.medium instances in non-FIPS mode.
+
+[Show moreShow less](# "#")
+
+- [8] Key derivation functions (KDFs) are specified in [NIST Special Publication 800-56A Revision 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf").
 
 [Show moreShow less](# "#")

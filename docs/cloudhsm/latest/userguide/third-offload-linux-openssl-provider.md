@@ -114,7 +114,7 @@ RHEL 10 (10.0+)
     `$` `yum install haproxy`
     ```
 
-Ubuntu 24.04
+Ubuntu 26.04 LTS
 
     * NGINX
 
@@ -190,7 +190,7 @@ have a key pair generated inside the HSM, you can export it as a fake PEM file a
 
 **Generate a Private Key**
 
-Depending on your use case, you can either generate an RSA or an EC key pair. Do one of the following:
+Depending on your use case, you can either generate an RSA or an EC key pair. You can also generate an Ed25519 or ML-DSA key pair for use with TLS 1.3. Do one of the following:
 
 - To generate an RSA private key on an HSM
 
@@ -394,10 +394,224 @@ and a private key label of `tls_ec_private`.
 }`
 ```
 
+- To generate an Ed25519 private key on an HSM
+
+###### Ed25519 availability
+
+Ed25519 is only available on non-FIPS clusters. Ed25519 supports TLS 1.3 only.
+
+Use the [key generate-asymmetric-pair ec](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md") command to generate an Ed25519 key pair. This example generates an Ed25519 key pair with a public key label of `tls_ed25519_pub` and a private key label of `tls_ed25519_private`.
+
+```
+`aws-cloudhsm >` `key generate-asymmetric-pair ec \
+ --curve ed25519 \
+ --public-label tls_ed25519_pub \
+ --private-label tls_ed25519_private \
+ --private-attributes sign=true \
+ --public-attributes verify=true``{
+ "error_code": 0,
+ "data": {
+ "public_key": {
+ "key-reference": "0x0000000000383931",
+ "key-info": {
+ "key-owners": [
+ {
+ "username": "cu1",
+ "key-coverage": "full"
+ }
+ ],
+ "shared-users": [],
+ "key-quorum-values": {
+ "manage-key-quorum-value": 0,
+ "use-key-quorum-value": 0
+ },
+ "cluster-coverage": "full"
+ },
+ "attributes": {
+ "key-type": "ec",
+ "label": "tls_ed25519_pub",
+ "id": "0x",
+ "check-value": "0x4cb1b1",
+ "class": "public-key",
+ "encrypt": false,
+ "decrypt": false,
+ "token": true,
+ "always-sensitive": false,
+ "derive": false,
+ "destroyable": true,
+ "extractable": true,
+ "local": true,
+ "modifiable": true,
+ "never-extractable": false,
+ "private": true,
+ "sensitive": false,
+ "sign": false,
+ "trusted": false,
+ "unwrap": false,
+ "verify": true,
+ "wrap": false,
+ "wrap-with-trusted": false,
+ "key-length-bytes": 32,
+ "ec-point": "0x302a300506032b6570032100c31f8a3695f571dda1658bc98e0591ab088c1a657b3199dd50c3956046ebbe75",
+ "curve": "ed25519"
+ }
+ },
+ "private_key": {
+ "key-reference": "0x0000000000382e60",
+ "key-info": {
+ "key-owners": [
+ {
+ "username": "cu1",
+ "key-coverage": "full"
+ }
+ ],
+ "shared-users": [],
+ "key-quorum-values": {
+ "manage-key-quorum-value": 0,
+ "use-key-quorum-value": 0
+ },
+ "cluster-coverage": "full"
+ },
+ "attributes": {
+ "key-type": "ec",
+ "label": "tls_ed25519_private",
+ "id": "0x",
+ "check-value": "0x4cb1b1",
+ "class": "private-key",
+ "encrypt": false,
+ "decrypt": false,
+ "token": true,
+ "always-sensitive": true,
+ "derive": false,
+ "destroyable": true,
+ "extractable": true,
+ "local": true,
+ "modifiable": true,
+ "never-extractable": false,
+ "private": true,
+ "sensitive": true,
+ "sign": true,
+ "trusted": false,
+ "unwrap": false,
+ "verify": false,
+ "wrap": false,
+ "wrap-with-trusted": false,
+ "key-length-bytes": 48,
+ "ec-point": "0x302a300506032b6570032100c31f8a3695f571dda1658bc98e0591ab088c1a657b3199dd50c3956046ebbe75",
+ "curve": "ed25519"
+ }
+ }
+ }
+}`
+```
+
+- To generate an ML-DSA private key on an HSM
+
+###### ML-DSA availability and requirements
+
+ML-DSA is only available on non-FIPS clusters and requires OpenSSL 3.5 or later for CSR creation, certificate creation, and TLS offload. ML-DSA supports TLS 1.3 only.
+
+For ML-DSA TLS offload on Amazon Linux 2023 and RHEL platforms, you might need to enable the post-quantum (PQ) crypto sub-policy. For more information, see [Issue: ML-DSA TLS handshake fails on Amazon Linux 2023 and RHEL with "no shared signature algorithms"](ki-openssl-provider-sdk.md#ki-openssl-provider-5 "ki-openssl-provider-sdk.md#ki-openssl-provider-5").
+
+Use the `key generate-asymmetric-pair ml-dsa` command to generate an ML-DSA key pair. This example generates an ML-DSA-44 key pair with a public key label of `tls_mldsa44_pub` and a private key label of `tls_mldsa44_private`. You can also use `ML-DSA-65` or `ML-DSA-87` for higher security levels.
+
+```
+`aws-cloudhsm >` `key generate-asymmetric-pair ml-dsa \
+ --mldsa-algorithm ML-DSA-44 \
+ --public-label tls_mldsa44_pub \
+ --private-label tls_mldsa44_private \
+ --private-attributes sign=true \
+ --public-attributes verify=true``{
+ "error_code": 0,
+ "data": {
+ "public_key": {
+ "key-reference": "0x0000000000280cd2",
+ "key-info": {
+ "key-owners": [
+ {
+ "username": "cu1",
+ "key-coverage": "full"
+ }
+ ],
+ "shared-users": [],
+ "cluster-coverage": "full"
+ },
+ "attributes": {
+ "key-type": "ml-dsa",
+ "label": "tls_mldsa44_pub",
+ "id": "",
+ "check-value": "0xd4e5f6",
+ "class": "public-key",
+ "encrypt": false,
+ "decrypt": false,
+ "token": true,
+ "always-sensitive": false,
+ "derive": false,
+ "destroyable": true,
+ "extractable": true,
+ "local": true,
+ "modifiable": true,
+ "never-extractable": false,
+ "private": true,
+ "sensitive": false,
+ "sign": false,
+ "trusted": false,
+ "unwrap": false,
+ "verify": true,
+ "wrap": false,
+ "wrap-with-trusted": false,
+ "key-length-bytes": 1312,
+ "mldsa-algorithm": "ML-DSA-44"
+ }
+ },
+ "private_key": {
+ "key-reference": "0x0000000000280cd3",
+ "key-info": {
+ "key-owners": [
+ {
+ "username": "cu1",
+ "key-coverage": "full"
+ }
+ ],
+ "shared-users": [],
+ "cluster-coverage": "full"
+ },
+ "attributes": {
+ "key-type": "ml-dsa",
+ "label": "tls_mldsa44_private",
+ "id": "",
+ "check-value": "0xd4e5f6",
+ "class": "private-key",
+ "encrypt": false,
+ "decrypt": false,
+ "token": true,
+ "always-sensitive": true,
+ "derive": false,
+ "destroyable": true,
+ "extractable": true,
+ "local": true,
+ "modifiable": true,
+ "never-extractable": false,
+ "private": true,
+ "sensitive": true,
+ "sign": true,
+ "trusted": false,
+ "unwrap": false,
+ "verify": false,
+ "wrap": false,
+ "wrap-with-trusted": false,
+ "key-length-bytes": 2560,
+ "mldsa-algorithm": "ML-DSA-44"
+ }
+ }
+ }
+}`
+```
+
 **Export a fake PEM private key file**
 
 Once you have a private key on the HSM, you must export a fake PEM private key file. This file does not contain the actual key data, but it allows
-the OpenSSL Dynamic Engine to identify the private key on the HSM. You can then you use the private key to create a
+the OpenSSL Provider to identify the private key on the HSM. You can then use the private key to create a
 certificate signing request (CSR) and sign the CSR to create the certificate.
 
 Use the [key generate-file](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md") command to export the private key in fake PEM format and save it to a file.
@@ -406,8 +620,25 @@ Replace the following values with your own.
 - `<private_key_label>` – Label of the private key you generated in the previous step.
 - `<web_server_fake_pem.key>` – Name of the file that your fake PEM key will be written to.
 
+###### For RSA and EC keys
+
+Use the `reference-pem` encoding:
+
 ````
 `aws-cloudhsm >` `key generate-file --encoding reference-pem --path `<web_server_fake_pem.key>` --filter attr.label=`<private_key_label>```{
+ "error_code": 0,
+ "data": {
+ "message": "Successfully generated key file"
+ }
+}`
+````
+
+###### For Ed25519 and ML-DSA keys
+
+Use the `cloudhsm-reference-pem` encoding:
+
+````
+`aws-cloudhsm >` `key generate-file --encoding cloudhsm-reference-pem --path `<web_server_fake_pem.key>` --filter attr.label=`<private_key_label>```{
  "error_code": 0,
  "data": {
  "message": "Successfully generated key file"
@@ -434,7 +665,7 @@ In a production environment, you typically use a certificate authority (CA) to c
 A CA is not necessary for a test environment. If you do use a CA, send the CSR file
 to them and use signed SSL/TLS certificate that they provide you in your web server for HTTPS.
 
-As an alternative to using a CA, you can use the AWS CloudHSM OpenSSL Dynamic Engine to
+As an alternative to using a CA, you can use the AWS CloudHSM OpenSSL Provider to
 create a self-signed certificate. Self-signed certificates are not trusted by browsers and
 should not be used in production environments. They can be used in test environments.
 
@@ -444,17 +675,17 @@ Self-signed certificates should be used in a test environment only. For a produc
 environment, use a more secure method such as a certificate authority to create a
 certificate.
 
-###### Install and configure the OpenSSL Dynamic Engine
+###### Install and configure the OpenSSL Provider
 
 1. Connect to your client instance.
-2. [Install the OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl5-install.md "openssl5-install.md")
+2. [Install the OpenSSL Provider for AWS CloudHSM Client SDK 5](openssl-provider-install.md "openssl-provider-install.md")
 
 ###### Generate a certificate
 
 1. Obtain a copy of your fake PEM file generated in an earlier step.
 2. Create a CSR
 
-Run the following command to use the AWS CloudHSM OpenSSL Dynamic Engine to create a
+Run the following command to use the AWS CloudHSM OpenSSL Provider to create a
 certificate signing request (CSR). Replace
 `<web_server_fake_pem.key>` with the name of the file that
 contains your fake PEM private key. Replace `<web_server.csr>`
@@ -463,17 +694,21 @@ with the name of the file that contains your CSR.
 The `req` command is interactive. Respond to each field. The field information is copied into your
 SSL/TLS certificate.
 
-###### Note
+###### ML-DSA OpenSSL version requirement
 
-CSR creation is not currently supported with the OpenSSL Provider. You must use the OpenSSL Engine for this step, but TLS cipher operations will work with the Provider.
+ML-DSA requires OpenSSL 3.5 or later. On platforms with an older system OpenSSL, you must use a custom-built OpenSSL 3.5+ binary.
+
+###### Digest algorithm required for RSA and EC keys
+
+For RSA and EC keys, you must specify a digest algorithm (for example, `-sha256`). Ed25519 and ML-DSA do not require a digest flag.
 
 ```
-`$` `openssl req -engine cloudhsm -new -key `<web_server_fake_pem.key>` -out `<web_server.csr>``
+`$` `openssl req -provider cloudhsm -provider default -new -sha256 -key `<web_server_fake_pem.key>` -out `<web_server.csr>``
 ```
 
 3. Create a self-signed certificate
 
-Run the following command to use the AWS CloudHSM OpenSSL Dynamic Engine to sign your CSR with
+Run the following command to use the AWS CloudHSM OpenSSL Provider to sign your CSR with
 your private key on your HSM. This creates a self-signed certificate. Replace the following
 values in the command with your own.
 
@@ -484,7 +719,7 @@ values in the command with your own.
      contain your web server certificate.
 
 ```
-`$` `openssl x509 -engine cloudhsm -req -days 365 -in `<web_server.csr>` -signkey `<web_server_fake_pem.key>` -out `<web_server.crt>``
+`$` `openssl x509 -provider cloudhsm -provider default -req -sha256 -days 365 -in `<web_server.csr>` -signkey `<web_server_fake_pem.key>` -out `<web_server.crt>``
 ```
 
 After you have a private key and certificate, go to [Step 3: Configure the web server](#ssl-offload-provider-configure-web-server "#ssl-offload-provider-configure-web-server").
@@ -762,7 +997,7 @@ server {
 
 ```
 
-Ubuntu 24.04
+Ubuntu 26.04 LTS
 Use a text editor to edit the `/etc/nginx/nginx.conf` file. This may require Linux root permissions. At the
 top of the file, add the following lines:
 
@@ -863,7 +1098,7 @@ RHEL 10 (10.0+)
     EnvironmentFile=/etc/sysconfig/nginx
     ```
 
-Ubuntu 24.04
+Ubuntu 26.04 LTS
 
     1. Back up the `nginx.service` file:
 
@@ -943,7 +1178,7 @@ Replace `<CU user name>` and
 
 Save the file.
 
-Ubuntu 24.04
+Ubuntu 26.04 LTS
 Open the `/etc/sysconfig/nginx` file in a text editor. This may require Linux root permissions. Add
 the Cryptography User (CU) credentials and the path to your OpenSSL configuration file:
 
@@ -1014,7 +1249,7 @@ Start the NGINX process
 `$` `systemctl start nginx`
 ```
 
-Ubuntu 24.04
+Ubuntu 26.04 LTS
 Stop any running NGINX process
 
 ```

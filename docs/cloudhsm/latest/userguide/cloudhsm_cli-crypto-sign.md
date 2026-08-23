@@ -6,12 +6,15 @@ cluster to generate a signature. **crypto sign** has the following
 subcommands:
 
 - [Generate a signature with the ECDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ecdsa.md "cloudhsm_cli-crypto-sign-ecdsa.md")
+- [Generate a signature with the PureEdDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519.md "cloudhsm_cli-crypto-sign-ed25519.md")
 - [Generate a signature with the HashEdDSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-ed25519ph.md "cloudhsm_cli-crypto-sign-ed25519ph.md")
+- [Generate a signature with the ML-DSA mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-mldsa.md "cloudhsm_cli-crypto-sign-mldsa.md")
 - [Generate a signature with the RSA-PKCS mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-rsa-pkcs.md "cloudhsm_cli-crypto-sign-rsa-pkcs.md")
 - [Generate a signature with the RSA-PKCS-PSS mechanism in CloudHSM CLI](cloudhsm_cli-crypto-sign-rsa-pkcs-pss.md "cloudhsm_cli-crypto-sign-rsa-pkcs-pss.md")
   To use **crypto sign**, you must have a private key in your HSM. You can generate a private key with the following commands:
 
 - [key generate-asymmetric-pair ec](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md")
+- [key generate-asymmetric-pair ml-dsa](cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md "cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md")
 - [key generate-asymmetric-pair rsa](cloudhsm_cli-key-generate-asymmetric-pair-rsa.md "cloudhsm_cli-key-generate-asymmetric-pair-rsa.md")
 
 ## Related topics

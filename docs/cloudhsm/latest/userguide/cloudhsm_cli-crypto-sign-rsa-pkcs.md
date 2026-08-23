@@ -53,7 +53,10 @@ These examples show how to use **crypto sign rsa-pkcs** to generate a signature 
 ###### Example: Generate a signature for base 64 encoded data
 
 ```
-`aws-cloudhsm >` `crypto sign rsa-pkcs --key-filter attr.label=rsa-private --hash-function sha256 --data YWJjMTIz``{
+`aws-cloudhsm >` `crypto sign rsa-pkcs \
+ --key-filter attr.label=rsa-private \
+ --hash-function sha256 \
+ --data YWJjMTIz``{
  "error_code": 0,
  "data": {
  "key-reference": "0x00000000007008db",
@@ -65,7 +68,10 @@ These examples show how to use **crypto sign rsa-pkcs** to generate a signature 
 ###### Example: Generate a signature for a data file
 
 ```
-`aws-cloudhsm >` `crypto sign rsa-pkcs --key-filter attr.label=rsa-private --hash-function sha256 --data-path data.txt``{
+`aws-cloudhsm >` `crypto sign rsa-pkcs \
+ --key-filter attr.label=rsa-private \
+ --hash-function sha256 \
+ --data-path data.txt``{
  "error_code": 0,
  "data": {
  "key-reference": "0x00000000007008db",

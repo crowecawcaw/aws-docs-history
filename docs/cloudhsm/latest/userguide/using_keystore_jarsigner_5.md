@@ -5,3 +5,7 @@ stored on a hardware security module (HSM). A complete tutorial on Jarsigner is 
 scope for the AWS CloudHSM documentation. This section explains the Jarsigner parameters you
 should use to sign and verify signatures with AWS CloudHSM as the root of trust through the
 AWS CloudHSM key store.
+
+###### ML-DSA jarsigner requirements
+
+ML-DSA signature algorithms (for example, `-sigalg ML-DSA-44`) require JDK 26 or later when used with jarsigner.

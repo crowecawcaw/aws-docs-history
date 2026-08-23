@@ -55,7 +55,10 @@ These examples show how to use **crypto sign ecdsa** to generate a signature usi
 ###### Example: Generate a signature for base 64 encoded data
 
 ```
-`aws-cloudhsm >` `crypto sign ecdsa --key-filter attr.label=ec-private --hash-function sha256 --data YWJjMTIz``{
+`aws-cloudhsm >` `crypto sign ecdsa \
+ --key-filter attr.label=ec-private \
+ --hash-function sha256 \
+ --data YWJjMTIz``{
  "error_code": 0,
  "data": {
  "key-reference": "0x00000000007808dd",
@@ -67,7 +70,10 @@ These examples show how to use **crypto sign ecdsa** to generate a signature usi
 ###### Example: Generate a signature for a data file
 
 ```
-`aws-cloudhsm >` `crypto sign ecdsa --key-filter attr.label=ec-private --hash-function sha256 --data-path data.txt``{
+`aws-cloudhsm >` `crypto sign ecdsa \
+ --key-filter attr.label=ec-private \
+ --hash-function sha256 \
+ --data-path data.txt``{
  "error_code": 0,
  "data": {
  "key-reference": "0x00000000007808dd",

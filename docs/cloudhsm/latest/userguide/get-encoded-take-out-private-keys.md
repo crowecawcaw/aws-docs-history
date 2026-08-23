@@ -13,14 +13,12 @@ you should consider using [key wrapping methods](java-lib-supported_5.md "java-l
 Linux
 
 ```
-
 `$` `/opt/cloudhsm/bin/configure-jce --enable-clear-key-extraction-in-software`
 ```
 
 Windows
 
 ```
-
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe" --enable-clear-key-extraction-in-software`
 ```
 
@@ -38,18 +36,18 @@ Windows
 |                                                                                                                | getPrimeExponentP()  | N/A                 |
 |                                                                                                                | getPrimeExponentQ()  | N/A                 |
 |                                                                                                                | getCrtCoefficient()  | N/A                 |
+| CloudHsmEdDSAPrivateKey                                                                                        | getEncoded()         | PKCS#8              |
+| CloudHsmMldsaPrivateKey                                                                                        | getEncoded()         | N/A                 |
 | If you want restore the default behavior and not allow JCE to export keys in clear, run the following command: |
 
 Linux
 
 ```
-
 `$` `/opt/cloudhsm/bin/configure-jce --disable-clear-key-extraction-in-software`
 ```
 
 Windows
 
 ```
-
 `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe" --disable-clear-key-extraction-in-software`
 ```

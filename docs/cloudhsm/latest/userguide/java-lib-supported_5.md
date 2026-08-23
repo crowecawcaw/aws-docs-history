@@ -22,6 +22,8 @@ The AWS CloudHSM software library for Java allows you to use the following opera
 
 - `RSA`
 - `EC`
+- `EdDSA (Ed25519)`see note [2](#java-gen-key-pairs-5-note-2 "#java-gen-key-pairs-5-note-2")
+- `ML-DSA`
 - `AES`
 - `DESede (Triple DES)`see note [1](#java-gen-key-pairs-5-note-1 "#java-gen-key-pairs-5-note-1")
 - `GenericSecret`
@@ -51,7 +53,7 @@ verification. With Client SDK 5 and signature algorithms with hashing, the data 
 locally in software before being sent to the HSM for the signature/verification. This means there
 is no limit on the size of the data that can be hashed by the SDK.
 
-**RSA Signature Types**
+### RSA signature types
 
 - `NONEwithRSA`
 - `RSASSA-PSS`
@@ -71,7 +73,7 @@ is no limit on the size of the data that can be hashed by the SDK.
 - `SHA512withRSAandMGF1`
 - `SHA512withRSA/PSS`
 
-**ECDSA Signature Types**
+### ECDSA signature types
 
 - `NONEwithECDSA`
 - `SHA1withECDSA`
@@ -79,6 +81,19 @@ is no limit on the size of the data that can be hashed by the SDK.
 - `SHA256withECDSA`
 - `SHA384withECDSA`
 - `SHA512withECDSA`
+
+### ML-DSA signature types
+
+- `ML-DSA`
+- `ML-DSA-44`
+- `ML-DSA-65`
+- `ML-DSA-87`
+- `ML-DSA-EXTERNAL-MU`
+
+**EdDSA Signature Types**see note [2](#java-gen-key-pairs-5-note-2 "#java-gen-key-pairs-5-note-2")
+
+- `Ed25519` or `EdDSA` (Maximum data size: 16,000 bytes)
+- `Ed25519ph`
 
 ## Digest functions
 
@@ -116,11 +131,11 @@ The AWS CloudHSM software library for Java supports the following CMAC algorithm
 
 The AWS CloudHSM software library for Java supports ECDH with Key Derivation Functions (KDF). The following KDF types are supported:
 
-- `ECDHwithX963SHA1KDF` Supports X9.63 KDF SHA1 algorithm[2](#kdf2 "#kdf2")
-- `ECDHwithX963SHA224KDF` Supports X9.63 KDF SHA224 algorithm[2](#kdf2 "#kdf2")
-- `ECDHwithX963SHA256KDF` Supports X9.63 KDF SHA256 algorithm[2](#kdf2 "#kdf2")
-- `ECDHwithX963SHA384KDF` Supports X9.63 KDF SHA384 algorithm[2](#kdf2 "#kdf2")
-- `ECDHwithX963SHA512KDF` Supports X9.63 KDF SHA512 algorithm[2](#kdf2 "#kdf2")
+- `ECDHwithX963SHA1KDF` Supports X9.63 KDF SHA1 algorithm[3](#kdf2 "#kdf2")
+- `ECDHwithX963SHA224KDF` Supports X9.63 KDF SHA224 algorithm[3](#kdf2 "#kdf2")
+- `ECDHwithX963SHA256KDF` Supports X9.63 KDF SHA256 algorithm[3](#kdf2 "#kdf2")
+- `ECDHwithX963SHA384KDF` Supports X9.63 KDF SHA384 algorithm[3](#kdf2 "#kdf2")
+- `ECDHwithX963SHA512KDF` Supports X9.63 KDF SHA512 algorithm[3](#kdf2 "#kdf2")
 
 ## Convert keys to key specifications using key factories
 
@@ -131,11 +146,11 @@ you can pass a supported Key or a supported KeySpec to import or derive symmetri
 
 - For SecretKeyFactory's `generateSecret` method following [KeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html") classes are supported:
 
-  - **KeyAttributesMap**can be used to import a key bytes with additional attributes as a CloudHSM Key. An example can be found here
+  - **KeyAttributesMap** can be used to import a key bytes with additional attributes as a CloudHSM Key. An example can be found here
     [here](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java").
-  - **[SecretKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/spec/SecretKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/spec/SecretKeySpec.html")**can be used to
+  - **[SecretKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/spec/SecretKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/spec/SecretKeySpec.html")** can be used to
     import a symmetric key spec as a CloudHSM Key.
-  - **AesCmacKdfParameterSpec**can be used to derive symmetric keys using another CloudHSM AES Key.
+  - **AesCmacKdfParameterSpec** can be used to derive symmetric keys using another CloudHSM AES Key.
 
 ###### Note
 
@@ -145,22 +160,24 @@ SecretKeyFactory's `translateKey` method takes any key that implements the [key]
 import an asymmetric key into AWS CloudHSM. For more information, refer to the following resources:
 
 - For KeyFactory's `generatePublic` method, following [KeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html") classes are supported:
-- CloudHSM KeyAttributesMap for both RSA and EC KeyTypes, including:
 
-  - CloudHSM KeyAttributesMap for both RSA and EC public KeyTypes. An example can be found
+  - CloudHSM KeyAttributesMap for RSA, EC, and EdDSA KeyTypes. An example can be found
     [here](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java")
-  - [X509EncodedKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html") for both RSA and EC Public Key
+  - [X509EncodedKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/X509EncodedKeySpec.html") for RSA, EC, and EdDSA Public Key
   - [RSAPublicKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPublicKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPublicKeySpec.html") for RSA Public Key
-  - [ECPublicKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPublicKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPublicKeySpec.html") for EC Public Key
+  - [ECPublicKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPublicKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPublicKeySpec.html") for EC Public Key (not applicable for Ed25519)
 
 - For KeyFactory's `generatePrivate` method, following [KeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/KeySpec.html") classes are supported:
-- CloudHSM KeyAttributesMap for both RSA and EC KeyTypes, including:
 
-  - CloudHSM KeyAttributesMap for both RSA and EC public KeyTypes. An example can be found
+  - CloudHSM KeyAttributesMap for RSA, EC, and EdDSA KeyTypes. An example can be found
     [here](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java")
-  - [PKCS8EncodedKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html") for both EC and RSA Private Key
+  - [PKCS8EncodedKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/PKCS8EncodedKeySpec.html") for RSA, EC, and EdDSA Private Key
   - [RSAPrivateCrtKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPrivateCrtKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/RSAPrivateCrtKeySpec.html") for RSA Private Key
-  - [ECPrivateKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPrivateKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPrivateKeySpec.html") for EC Private Key
+  - [ECPrivateKeySpec](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPrivateKeySpec.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/spec/ECPrivateKeySpec.html") for EC Private Key (not applicable for Ed25519)
+
+###### ML-DSA key import limitation
+
+AWS CloudHSM does not support ML-DSA key import through `KeyFactory` (`generatePublic` and `generatePrivate`). To use ML-DSA keys, generate them directly on the HSM using `KeyPairGenerator`. The ML-DSA `KeyFactory` supports public key export using `getKeySpec` (returns `X509EncodedKeySpec`).
 
 For KeyFactory's `translateKey` method, it takes in any Key that implements the [Key Interface](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Key.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/Key.html").
 
@@ -168,4 +185,6 @@ For KeyFactory's `translateKey` method, it takes in any Key that implements the 
 
 [1] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details.
 
-[2] Key derivation functions (KDFs) are specified in [NIST Special Publication 800-56A Revision 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf").
+[2] Only supported on hsm2m.medium instances in non-FIPS mode.
+
+[3] Key derivation functions (KDFs) are specified in [NIST Special Publication 800-56A Revision 3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf").

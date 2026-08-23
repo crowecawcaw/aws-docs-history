@@ -9,6 +9,19 @@ store.
 When using keytool with the AWS CloudHSM key store, specify the following arguments to any
 keytool command:
 
+###### ML-DSA and keytool
+
+Keytool supports ML-DSA in JDK 24 or later.
+
+The following keytool commands are supported with ML-DSA keys:
+
+- **-certreq** – Generate a certificate signing request for an ML-DSA key.
+- **-importcert** – Import a certificate for an ML-DSA key.
+- **-exportcert** – Export a certificate for an ML-DSA key.
+  The following command is not supported with ML-DSA keys:
+
+- **-genkeypair** – AWS CloudHSM does not support ML-DSA key import, and keytool generates keys in software before importing. Use `KeyPairGenerator` or the CloudHSM CLI to generate ML-DSA key pairs.
+
 Linux
 
 ```

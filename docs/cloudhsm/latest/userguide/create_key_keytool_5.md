@@ -1,12 +1,16 @@
 # Create new AWS CloudHSM keys with keytool
 
-You can use keytool to generate RSA, AES, and DESede type of key supported by the AWS CloudHSM JCE
+You can use keytool to generate RSA, EC (Ed25519), AES, and DESede type of key supported by the AWS CloudHSM JCE
 SDK.
 
 ###### Important
 
 A key generated through keytool is generated in software, and then imported
 into AWS CloudHSM as an extractable, persistent key.
+
+###### ML-DSA key generation
+
+AWS CloudHSM does not support ML-DSA key generation through keytool **-genkeypair**. Use `KeyPairGenerator` or the CloudHSM CLI to generate ML-DSA key pairs, and store them in the CloudHSM KeyStore using `KeyStore.setKeyEntry()`.
 
 We strongly recommend generating non-exportable
 keys outside of keytool, and then importing corresponding certificates to the key

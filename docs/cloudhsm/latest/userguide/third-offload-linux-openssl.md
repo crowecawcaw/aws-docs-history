@@ -184,6 +184,23 @@ Ubuntu 24.04
     `$` `sudo apt install apache2`
     ```
 
+Ubuntu 26.04
+
+    * NGINX
+
+
+
+    ```
+    `$` `sudo apt install nginx`
+    ```
+    * Apache
+
+
+
+    ```
+    `$` `sudo apt install apache2`
+    ```
+
 3. Use CloudHSM CLI to create a [crypto user](understanding-users.md#crypto-user-chsm-cli "understanding-users.md#crypto-user-chsm-cli"). For more information about
 managing HSM users, see [Managing HSM users with CloudHSM CLI](manage-hsm-users-chsm-cli.md "manage-hsm-users-chsm-cli.md").
 
@@ -891,6 +908,53 @@ server {
 
 ```
 
+Ubuntu 26.04 LTS
+Use a text editor to edit the `/etc/nginx/nginx.conf` file. This requires Linux root permissions. At the
+top of the file, add the following lines:
+
+```
+ssl_engine cloudhsm;
+env CLOUDHSM_PIN;
+```
+
+Then add the following to the TLS section of the file:
+
+```
+# Settings for a TLS enabled server.
+server {
+    listen       443 ssl http2 default_server;
+    listen       [::]:443 ssl http2 default_server;
+    server_name  _;
+    root         /usr/share/nginx/html;
+
+    ssl_certificate "/etc/pki/nginx/server.crt";
+    ssl_certificate_key "/etc/pki/nginx/private/server.key";
+    # It is *strongly* recommended to generate unique DH parameters
+    # Generate them with: openssl dhparam -out /etc/pki/nginx/dhparams.pem 2048
+    #ssl_dhparam "/etc/pki/nginx/dhparams.pem";
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout  10m;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA";
+    ssl_prefer_server_ciphers on;
+
+    # Load configuration files for the default server block.
+    include /etc/nginx/default.d/*.conf;
+
+    location / {
+    }
+
+    error_page 404 /404.html;
+    location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+    }
+}
+
+```
+
 Save the file. 8. Back up the `systemd` configuration file, and then set the
 `EnvironmentFile` path.
 
@@ -1001,6 +1065,24 @@ Ubuntu 24.04 LTS
     EnvironmentFile=/etc/sysconfig/nginx
     ```
 
+Ubuntu 26.04 LTS
+
+    1. Back up the `nginx.service` file.
+
+
+
+    ```
+    `$` `sudo cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.service.backup`
+    ```
+    2. Open the `/lib/systemd/system/nginx.service` file in a
+     text editor, and then under the [Service] section, add the following path:
+
+
+
+    ```
+    EnvironmentFile=/etc/sysconfig/nginx
+    ```
+
 9. Check if the `/etc/sysconfig/nginx` file exists, and then do one
 of the following:
 
@@ -1087,6 +1169,19 @@ Replace `<CU user name>` and
 Save the file.
 
 Ubuntu 24.04 LTS
+Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
+the Cryptography User (CU) credentials:
+
+```
+`CLOUDHSM_PIN=`<CU user name>`:`<password>``
+```
+
+Replace `<CU user name>` and
+`<password>` with the CU credentials.
+
+Save the file.
+
+Ubuntu 26.04 LTS
 Open the `/etc/sysconfig/nginx` file in a text editor. This requires Linux root permissions. Add
 the Cryptography User (CU) credentials:
 
@@ -1213,6 +1308,25 @@ Start the NGINX process
 `$` `sudo systemctl start nginx`
 ```
 
+Ubuntu 26.04 LTS
+Stop any running NGINX process
+
+```
+`$` `sudo systemctl stop nginx`
+```
+
+Reload the `systemd` configuration to pick up the latest changes
+
+```
+`$` `sudo systemctl daemon-reload`
+```
+
+Start the NGINX process
+
+```
+`$` `sudo systemctl start nginx`
+```
+
 12. (Optional) Configure your platform to start NGINX at start-up.
 
 Amazon Linux 2
@@ -1246,6 +1360,12 @@ Ubuntu 22.04 LTS
 ```
 
 Ubuntu 24.04 LTS
+
+```
+`$` `sudo systemctl enable nginx`
+```
+
+Ubuntu 26.04 LTS
 
 ```
 `$` `sudo systemctl enable nginx`
@@ -1310,6 +1430,14 @@ In the `/etc/apache2/sites-available/default-ssl.conf` file, ensure these values
 SSLCertificateKeyFile `/etc/ssl/private/localhost.key``
 ```
 
+Ubuntu 26.04 LTS
+In the `/etc/apache2/sites-available/default-ssl.conf` file, ensure these values exist:
+
+```
+`SSLCertificateFile `/etc/ssl/certs/localhost.crt`
+SSLCertificateKeyFile `/etc/ssl/private/localhost.key``
+```
+
 3. Copy your web server certificate to the required location for your platform.
 
 Amazon Linux 2
@@ -1353,6 +1481,14 @@ Ubuntu 22.04 LTS
 Replace `<web_server.crt>` with the name of your web server certificate.
 
 Ubuntu 24.04 LTS
+
+```
+`$` `sudo cp `<web_server.crt>` /etc/ssl/certs/localhost.crt`
+```
+
+Replace `<web_server.crt>` with the name of your web server certificate.
+
+Ubuntu 26.04 LTS
 
 ```
 `$` `sudo cp `<web_server.crt>` /etc/ssl/certs/localhost.crt`
@@ -1406,6 +1542,14 @@ Ubuntu 24.04 LTS
 `$` `sudo cp `<web_server_fake_pem.key>` /etc/ssl/private/localhost.key`
 ```
 
+Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key.
+
+Ubuntu 26.04 LTS
+
+```
+`$` `sudo cp `<web_server_fake_pem.key>` /etc/ssl/private/localhost.key`
+```
+
 Replace `<web_server_fake_pem.key>` with the name of the file that contains your fake PEM private key. 5. Change ownership of these files if required by your platform.
 
 Amazon Linux 2
@@ -1444,6 +1588,9 @@ Ubuntu 22.04 LTS
 No action required.
 
 Ubuntu 24.04 LTS
+No action required.
+
+Ubuntu 26.04 LTS
 No action required. 6. Configure Apache directives for your platform.
 
 Amazon Linux 2
@@ -1578,6 +1725,33 @@ Enable the SSL module and default SSL site configuration:
 `$` `sudo a2ensite default-ssl`
 ```
 
+Ubuntu 26.04 LTS
+Locate the SSL file for this platform:
+
+```
+`/etc/apache2/mods-available/ssl.conf`
+```
+
+This file contains Apache directives which define how your server should run.
+Directives appear on the left, followed by a value. Use a text editor to edit this file. This requires Linux root permissions.
+
+Update or enter the following directives with these values:
+
+```
+SSLCryptoDevice `cloudhsm`
+SSLCipherSuite `ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA`
+SSLProtocol `TLSv1.2 TLSv1.3`
+```
+
+Save the file.
+
+Enable the SSL module and default SSL site configuration:
+
+```
+`$` `sudo a2enmod ssl`
+`$` `sudo a2ensite default-ssl`
+```
+
 7. Configure an environment-values file for your platform.
 
 Amazon Linux 2
@@ -1640,6 +1814,9 @@ Ubuntu 22.04 LTS
 No action required. Environment values go in `/etc/sysconfig/httpd`
 
 Ubuntu 24.04 LTS
+No action required. Environment values go in `/etc/sysconfig/httpd`
+
+Ubuntu 26.04 LTS
 No action required. Environment values go in `/etc/sysconfig/httpd` 8. In the file that stores environment variables for your platform, set an environment
 variable that contains the credentials of the cryptographic user (CU):
 
@@ -1725,6 +1902,23 @@ Replace `<CU user name>` and
 Client SDK 5 introduces the `CLOUDHSM_PIN` environment variable for
 storing the credentials of the CU. In Client SDK 3 you stored the CU credentials in the
 `n3fips_password` environment variable. Client SDK 5 supports both
+environment variables, but we recommend using `CLOUDHSM_PIN`.
+
+Ubuntu 26.04 LTS
+Use a text editor to edit the `/etc/apache2/envvars`.
+
+```
+`export CLOUDHSM_PIN=`<CU user name>`:`<password>``
+```
+
+Replace `<CU user name>` and
+`<password>` with the CU credentials.
+
+###### Note
+
+Client SDK 5 introduces the `CLOUDHSM_PIN` environment variable for
+storing the credentials of the CU. In Client SDK 3 you stored the CU credentials in the
+`n3fips_password` environment variable. Client SDK 5 supports both
 environment variables, but we recommend using `CLOUDHSM_PIN`. 9. Start the Apache web server.
 
 Amazon Linux 2
@@ -1767,6 +1961,12 @@ Ubuntu 24.04 LTS
 `$` `sudo service apache2 start`
 ```
 
+Ubuntu 26.04 LTS
+
+```
+`$` `sudo service apache2 start`
+```
+
 10. (Optional) Configure your platform to start Apache at start-up.
 
 Amazon Linux 2
@@ -1800,6 +2000,12 @@ Ubuntu 22.04 LTS
 ```
 
 Ubuntu 24.04 LTS
+
+```
+`$` `sudo systemctl enable apache2`
+```
+
+Ubuntu 26.04 LTS
 
 ```
 `$` `sudo systemctl enable apache2`

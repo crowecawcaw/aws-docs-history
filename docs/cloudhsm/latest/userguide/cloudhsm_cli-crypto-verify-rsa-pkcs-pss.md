@@ -7,7 +7,7 @@ following operations.
 - Verify the signature was generated using the RSA-PKCS-PSS signing mechanism.
 - Compare a signed file against a source file and determines whether the two are cryptographically related based on a given rsa public key and signing mechanism.
   To use the **crypto verify rsa-pkcs-pss** command, you must first have an RSA public key in your AWS CloudHSM cluster.
-  You can import an RSA public key using the key import pem command ADD UNWRAP LINK HERE) with the `verify` attribute set to `true`.
+  You can import an RSA public key using the [Import a PEM format key with CloudHSM CLI](cloudhsm_cli-key-import-pem.md "cloudhsm_cli-key-import-pem.md") command or the [unwrap](cloudhsm_cli-key-unwrap.md "cloudhsm_cli-key-unwrap.md") command with the `verify` attribute set to `true`.
 
 ###### Note
 
@@ -62,7 +62,13 @@ These examples show how to use **crypto verify rsa-pkcs-pss** to verify a signat
 ###### Example: Verify a Base64 encoded signature with Base64 encoded data
 
 ```
-`aws-cloudhsm >` `crypto verify rsa-pkcs-pss --key-filter attr.label=rsa-public --hash-function sha256 --data YWJjMTIz --salt-length 10 --mgf mgf1-sha256 --signature H/z1rYVMzNAa31K4amE5MTiwGxDdCTgQXCJXRBKVOVm7ZuyI0fGE4sT/BUN+977mQEV2TqtWpTsiF2IpwGM1VfSBRt7h/g4o6YERm1tTQLl7q+AJ7uGGK37zCsWQrAo7Vy8NzPShxekePo/ZegrB1aHWN1fE8H3IPUKqLuMDI9o1Jq6kM986ExS7YmeOIclcZkyykTWqHLQVL2C3+A2bHJZBqRcM5XoIpk8HkPypjpN+m4FNUds30GAemoOMl6asSrEJSthaZWV53OBsDOqzA8Rt8JdhXS+GZp3vNLdL1OTBELDPweXVgAu4dBX0FOvpw/gg6sNvuaDK4YOBv2fqKg==``{
+`aws-cloudhsm >` `crypto verify rsa-pkcs-pss \
+ --key-filter attr.label=rsa-public \
+ --hash-function sha256 \
+ --data YWJjMTIz \
+ --salt-length 10 \
+ --mgf mgf1-sha256 \
+ --signature H/z1rYVMzNAa31K4amE5MTiwGxDdCTgQXCJXRBKVOVm7ZuyI0fGE4sT/BUN+977mQEV2TqtWpTsiF2IpwGM1VfSBRt7h/g4o6YERm1tTQLl7q+AJ7uGGK37zCsWQrAo7Vy8NzPShxekePo/ZegrB1aHWN1fE8H3IPUKqLuMDI9o1Jq6kM986ExS7YmeOIclcZkyykTWqHLQVL2C3+A2bHJZBqRcM5XoIpk8HkPypjpN+m4FNUds30GAemoOMl6asSrEJSthaZWV53OBsDOqzA8Rt8JdhXS+GZp3vNLdL1OTBELDPweXVgAu4dBX0FOvpw/gg6sNvuaDK4YOBv2fqKg==``{
  "error_code": 0,
  "data": {
  "message": "Signature verified successfully"
@@ -73,7 +79,13 @@ These examples show how to use **crypto verify rsa-pkcs-pss** to verify a signat
 ###### Example: Verify a signature file with a data file
 
 ```
-`aws-cloudhsm >` `crypto verify rsa-pkcs-pss --key-filter attr.label=rsa-public --hash-function sha256 --data-path data.txt --salt-length 10 --mgf mgf1-sha256 --signature signature-file``{
+`aws-cloudhsm >` `crypto verify rsa-pkcs-pss \
+ --key-filter attr.label=rsa-public \
+ --hash-function sha256 \
+ --data-path data.txt \
+ --salt-length 10 \
+ --mgf mgf1-sha256 \
+ --signature-path signature-file``{
  "error_code": 0,
  "data": {
  "message": "Signature verified successfully"
@@ -87,7 +99,13 @@ This command verifies whether the invalid data was signed by a public key with t
 Because the given arguments do not make up a true signing relationship, the command returns an error message.
 
 ```
-`aws-cloudhsm >` `crypto verify rsa-pkcs-pss --key-filter attr.label=rsa-public --hash-function sha256 --data aW52YWxpZA== --salt-length 10 --mgf mgf1-sha256 --signature H/z1rYVMzNAa31K4amE5MTiwGxDdCTgQXCJXRBKVOVm7ZuyI0fGE4sT/BUN+977mQEV2TqtWpTsiF2IpwGM1VfSBRt7h/g4o6YERm1tTQLl7q+AJ7uGGK37zCsWQrAo7Vy8NzPShxekePo/ZegrB1aHWN1fE8H3IPUKqLuMDI9o1Jq6kM986ExS7YmeOIclcZkyykTWqHLQVL2C3+A2bHJZBqRcM5XoIpk8HkPypjpN+m4FNUds30GAemoOMl6asSrEJSthaZWV53OBsDOqzA8Rt8JdhXS+GZp3vNLdL1OTBELDPweXVgAu4dBX0FOvpw/gg6sNvuaDK4YOBv2fqKg==``{
+`aws-cloudhsm >` `crypto verify rsa-pkcs-pss \
+ --key-filter attr.label=rsa-public \
+ --hash-function sha256 \
+ --data aW52YWxpZA== \
+ --salt-length 10 \
+ --mgf mgf1-sha256 \
+ --signature H/z1rYVMzNAa31K4amE5MTiwGxDdCTgQXCJXRBKVOVm7ZuyI0fGE4sT/BUN+977mQEV2TqtWpTsiF2IpwGM1VfSBRt7h/g4o6YERm1tTQLl7q+AJ7uGGK37zCsWQrAo7Vy8NzPShxekePo/ZegrB1aHWN1fE8H3IPUKqLuMDI9o1Jq6kM986ExS7YmeOIclcZkyykTWqHLQVL2C3+A2bHJZBqRcM5XoIpk8HkPypjpN+m4FNUds30GAemoOMl6asSrEJSthaZWV53OBsDOqzA8Rt8JdhXS+GZp3vNLdL1OTBELDPweXVgAu4dBX0FOvpw/gg6sNvuaDK4YOBv2fqKg==``{
  "error_code": 1,
  "data": "Signature verification failed"
 }`

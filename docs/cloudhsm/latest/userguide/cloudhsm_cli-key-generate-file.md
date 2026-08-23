@@ -34,6 +34,7 @@ Options:
  Possible values:
  - reference-pem: PEM formatted key reference (supports private keys)
  - pem: PEM format (supports public keys)
+ - cloudhsm-reference-pem: CloudHSM reference PEM format (supports private keys)
 
  --path `<PATH>`
  Filepath where the key file will be written
@@ -45,14 +46,25 @@ Options:
  Print help (see a summary with '-h')`
 ```
 
-## Example
+## Examples
 
-This example shows how to use **key generate-file** to generate a key file in your AWS CloudHSM cluster.
+These examples show how to use **key generate-file** to generate a key file from a key in your AWS CloudHSM cluster.
 
-###### Example
+###### Example Generate a reference PEM file for an RSA or EC private key
 
 ```
 `aws-cloudhsm >` `key generate-file --encoding reference-pem --path /tmp/ec-private-key.pem --filter attr.label="ec-test-private-key"``{
+ "error_code": 0,
+ "data": {
+ "message": "Successfully generated key file"
+ }
+}`
+```
+
+###### Example Generate a CloudHSM reference PEM file for an Ed25519 or ML-DSA private key
+
+```
+`aws-cloudhsm >` `key generate-file --encoding cloudhsm-reference-pem --path /tmp/ed25519-private-key.pem --filter attr.label="ed25519-test-private-key"``{
  "error_code": 0,
  "data": {
  "message": "Successfully generated key file"

@@ -132,6 +132,27 @@ Install the JCE provider for RHEL 8 on ARM64 architecture:
 `$` `sudo yum install ./cloudhsm-jce-latest.el8.aarch64.rpm`
 ```
 
+Ubuntu 26.04 LTS
+Install the JCE provider for Ubuntu 26.04 LTS on x86\_64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-jce_latest_u26.04_amd64.deb`
+```
+
+```
+`$` `sudo apt install ./cloudhsm-jce_latest_u26.04_amd64.deb`
+```
+
+Install the JCE provider for Ubuntu 26.04 LTS on ARM64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-jce_latest_u26.04_arm64.deb`
+```
+
+```
+`$` `sudo apt install ./cloudhsm-jce_latest_u26.04_arm64.deb`
+```
+
 Ubuntu 24.04 LTS
 Install the JCE provider for Ubuntu 24.04 LTS on x86\_64 architecture:
 

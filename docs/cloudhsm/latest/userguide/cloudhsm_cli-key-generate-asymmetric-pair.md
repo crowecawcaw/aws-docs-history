@@ -6,4 +6,5 @@ generates asymmetric key pairs. Currently, this category consists of the followi
 commands:
 
 - [key generate-asymmetric-pair ec](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md")
+- [key generate-asymmetric-pair ml-dsa](cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md "cloudhsm_cli-key-generate-asymmetric-pair-mldsa.md")
 - [key generate-asymmetric-pair rsa](cloudhsm_cli-key-generate-asymmetric-pair-rsa.md "cloudhsm_cli-key-generate-asymmetric-pair-rsa.md")

@@ -111,6 +111,27 @@ RHEL 8 on ARM64 architecture:
 `$` `sudo yum install ./cloudhsm-cli-latest.el8.aarch64.rpm`
 ```
 
+Ubuntu 26.04 LTS
+Ubuntu 26.04 LTS on x86\_64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-cli_latest_u26.04_amd64.deb`
+```
+
+```
+`$` `sudo apt install ./cloudhsm-cli_latest_u26.04_amd64.deb`
+```
+
+Ubuntu 26.04 LTS on ARM64 architecture:
+
+```
+`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-cli_latest_u26.04_arm64.deb`
+```
+
+```
+`$` `sudo apt install ./cloudhsm-cli_latest_u26.04_arm64.deb`
+```
+
 Ubuntu 24.04 LTS
 Ubuntu 24.04 LTS on x86\_64 architecture:
 

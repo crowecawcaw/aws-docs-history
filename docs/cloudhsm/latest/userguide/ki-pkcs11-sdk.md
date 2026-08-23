@@ -228,10 +228,11 @@ When a `C_GetAttributeValue` call is throttled, it returns
   If throttling persists, add more HSMs to your cluster to increase the total read
   and write rate, or reduce your request rate. For more information, see
   [HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md").
-- **Resolution status:** We are implementing a fix to return
-  `CKR_FUNCTION_FAILED` for throttled `C_GetAttributeValue`
-  calls. We will announce the updated PKCS #11 library on the
-  [version history](client-history.md "client-history.md") page.
+- **Resolution status:** This issue has been resolved in
+  [Client SDK 5.18.0](latest-releases.md#client-version-5-18-0 "latest-releases.md#client-version-5-18-0").
+  `C_GetAttributeValue` now returns `CKR_FUNCTION_FAILED` for
+  throttled certificate-store and key attribute reads. Upgrade to version 5.18.0 or
+  later to benefit from the fix.
 
 ## Issue: The PKCS #11 library does not retry throttled certificate storage operations
 
@@ -245,6 +246,7 @@ does not automatically retry these throttled operations.
   to your cluster to increase the total read and write rate, or reduce your request
   rate. For more information, see
   [HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md").
-- **Resolution status:** We are implementing automatic retries for
-  throttled certificate storage operations. We will announce the updated PKCS #11
-  library on the [version history](client-history.md "client-history.md") page.
+- **Resolution status:** This issue has been resolved in
+  [Client SDK 5.18.0](latest-releases.md#client-version-5-18-0 "latest-releases.md#client-version-5-18-0"). The PKCS #11 library now
+  automatically retries throttled certificate storage operations. Upgrade to version
+  5.18.0 or later to benefit from the fix.
