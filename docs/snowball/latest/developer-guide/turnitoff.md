@@ -21,7 +21,7 @@ If the LCD screen is displaying the shutdown message when the device is not
 actually being shut down, press the **Restart display** button on
 the screen to return the screen to normal operation.
 
-![Shutdown message on LCD screen with Restart display button near bottom center.](images/shutdown-screen-restart.png)
+![Shutdown message on LCD screen with Restart display button near bottom center.](/images/snowball/latest/developer-guide/images/shutdown-screen-restart.png)
 After the device shuts down, the shipping information appears on the E Ink display. If
 return shipping information does not appear on the E Ink display, contact Support.
 
