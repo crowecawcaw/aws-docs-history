@@ -83,7 +83,7 @@ aws emr create-security-configuration \
 ```
 
 Alternatively, you can use the [Amazon EMR
-console](https://console.aws.amazon.com//emr "https://console.aws.amazon.com//emr") to create a security configuration with custom
+console](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr") to create a security configuration with custom
 settings.
 
 ## Step 2: Launch an Amazon EMR cluster
