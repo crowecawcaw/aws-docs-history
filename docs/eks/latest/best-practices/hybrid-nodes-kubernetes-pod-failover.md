@@ -2,7 +2,7 @@
 
 We begin with a review of the key concepts, components, and settings that influence how Kubernetes behaves during network disconnections between nodes and the Kubernetes control plane. EKS is upstream Kubernetes conformant, so all the Kubernetes concepts, components, and settings described here apply to EKS and EKS Hybrid Nodes deployments.
 
-There are improvements that have been made to EKS specifically to improve pod failover behavior during network disconnections, for more information see GitHub issues [#131294](https://github.com/kubernetes/kubernetes/pull/131294 "https://github.com/kubernetes/kubernetes/pull/131294") and [#131481](https://github.com/kubernetes/kubernetes/issues/131481 "https://github.com/kubernetes/kubernetes/issues/131481") in the upstream Kubernetes repository.
+For additional context on upstream Kubernetes pod failover behavior during network disconnections, see GitHub issues [#131294](https://github.com/kubernetes/kubernetes/pull/131294 "https://github.com/kubernetes/kubernetes/pull/131294") and [#131481](https://github.com/kubernetes/kubernetes/issues/131481 "https://github.com/kubernetes/kubernetes/issues/131481") in the upstream Kubernetes repository. Note that these issues were closed without changes being merged into upstream Kubernetes.
 
 ## Concepts
 
@@ -53,11 +53,17 @@ Cluster administrators will see all nodes with status `Not Ready` during the dis
 
 ### Scenario 2: Full zone disruption
 
-**Expected result**: Pods on unreachable nodes are not evicted and continue running on those nodes.
+**Expected result**: Behavior depends on whether the affected zone is the cluster’s only zone.
 
-A full zone disruption means all nodes in the zone are disconnected from the Kubernetes control plane. In this scenario, the node-lifecycle-controller on the control plane detects that all nodes in the zone are unreachable and cancels any pod evictions.
+A full zone disruption means all nodes in the zone are disconnected from the Kubernetes control plane.
 
-Cluster administrators will see all nodes with status `Not Ready` during the disconnection. Pod status does not change, and no new pods are scheduled on any nodes during the disconnection and subsequent reconnection.
+**Single-zone clusters (or clusters where nodes lack the `topology.kubernetes.io/zone` label)**: When the affected zone is the cluster’s only zone, a full zone disruption is equivalent to a full cluster disruption (Scenario 1). The node-lifecycle-controller enters "master disruption mode" because every zone has zero Ready nodes, and cancels all pod evictions. Pods continue running on unreachable nodes.
+
+**Multi-zone clusters**: When a cluster has nodes in multiple zones and one zone goes fully down, the remaining zones still have Ready nodes. In this case, evictions proceed normally — pods on unreachable nodes in the failed zone are evicted after the `default-unreachable-toleration-seconds` (5 minutes) and `node-monitor-grace-period` (40 seconds) elapse, and new pods are scheduled on healthy nodes in the remaining zones. For more details on this behavior, see [Understand pod eviction during zonal disruptions](../../../prescriptive-guidance/latest/ha-resiliency-amazon-eks-apps/pod-eviction.md "../../../prescriptive-guidance/latest/ha-resiliency-amazon-eks-apps/pod-eviction.md").
+
+###### Note
+
+Nodes without the `topology.kubernetes.io/zone` label are grouped into a single implicit zone. If all nodes in a multi-AZ cluster lack this label, the cluster behaves as if it has only one zone, and a full zone disruption triggers Scenario 1 behavior regardless of the number of physical Availability Zones.
 
 ### Scenario 3: Majority zone disruption
 
@@ -69,7 +75,7 @@ Cluster administrators will see a majority of nodes in the zone with status `Not
 
 Note that the behavior above applies only to clusters larger than three nodes. In clusters of three nodes or fewer, pods on unreachable nodes are scheduled for eviction, and new pods are scheduled on healthy nodes.
 
-During testing, we occasionally observed that pods were evicted from exactly one unreachable node during network disconnections, even when a majority of the zone’s nodes were unreachable. We are still investigating a possible race condition in the Kubernetes node-lifecycle-controller as the cause of this behavior.
+During testing, we occasionally observed that pods were evicted from exactly one unreachable node during network disconnections, even when a majority of the zone’s nodes were unreachable. This is a known behavior (see [#131481](https://github.com/kubernetes/kubernetes/issues/131481 "https://github.com/kubernetes/kubernetes/issues/131481")): if a node is tainted with `unreachable:NoExecute` before the `unhealthy-zone-threshold` (55%) is reached, that taint is not removed once the threshold is crossed and eviction rate reduction takes effect. Pods on that already-tainted node are still evicted per their `tolerationSeconds`.
 
 ### Scenario 4: Minority zone disruption
 

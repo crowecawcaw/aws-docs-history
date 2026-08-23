@@ -28,9 +28,7 @@ VPC. The EKS control plane comprises the Kubernetes API server nodes,
 etcd cluster. Kubernetes API server nodes that run components like the
 API server, scheduler, and `kube-controller-manager` run in an
 auto-scaling group. EKS runs a minimum of two API server nodes in
-distinct Availability Zones (AZs) within an AWS region. Likewise, for
-durability, the etcd server nodes also run in an auto-scaling group that
-spans three AZs. EKS runs a NAT Gateway in each AZ, and API servers and
+distinct Availability Zones (AZs) within an AWS Region. EKS runs a NAT Gateway in each AZ, and API servers and
 etcd servers run in a private subnet. This architecture ensures that an
 event in a single AZ doesn’t affect the EKS cluster’s availability.
 
@@ -111,10 +109,11 @@ Consider monitoring these control plane metrics:
 
 ### etcd
 
-| Metric                                                                                                    | Description                                                                      |
-| --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `etcd_request_duration_seconds*`                                                                          | Etcd request latency histogram in seconds for<br>each operation and object type. |
-| `apiserver_storage_db_total_size_in_bytes`<br>or `apiserver_storage_size_bytes` (starting with EKS v1.28) | Etcd<br>database size.                                                           |
+| Metric                                    | Description                                                                                                                                                               |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `etcd_request_duration_seconds*`          | Etcd request latency histogram in seconds for<br>each operation and object type.                                                                                          |
+| `etcd_mvcc_db_total_size_in_use_in_bytes` | Actual database usage. This metric determines whether the cluster will exceed quota and enter read-only mode. Available in Amazon CloudWatch under the AWS/EKS namespace. |
+| `apiserver_storage_size_bytes`            | Physical file allocation on disk, including free space from compaction. Does not determine quota enforcement.                                                             |
 
 - Histogram metrics include \_bucket, \_sum, and \_count suffixes.
 
@@ -125,7 +124,7 @@ requests and latency and etcd latency metrics.
 
 ###### Important
 
-When the database size limit is exceeded, etcd emits a no space alarm and stops taking further write requests. In other words, the cluster becomes read-only, and all requests to mutate objects such as creating new pods, scaling deployments, etc., will be rejected by the cluster’s API server.
+When `etcd_mvcc_db_total_size_in_use_in_bytes` exceeds the database quota, etcd emits a no space alarm and stops taking further write requests. In other words, the cluster becomes read-only, and all requests to mutate objects such as creating new pods, scaling deployments, etc., will be rejected by the cluster’s API server. The physical file size metric (`apiserver_storage_size_bytes`) does not trigger this alarm.
 
 ## Cluster Authentication
 

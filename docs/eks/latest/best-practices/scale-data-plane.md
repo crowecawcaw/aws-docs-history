@@ -216,3 +216,40 @@ To replace an instance you first need to create, validate, and distribute new AM
 Amazon recommends using immutable infrastructure that is built, tested, and promoted from an automated, declarative system, but if you have a requirement to patch systems quickly then you will need to patch systems in place and replace them as new AMIs are made available. Because of the large time differential between patching and replacing systems we recommend using [AWS Systems Manager Patch Manager](../../../systems-manager/latest/userguide/systems-manager-patch.md "../../../systems-manager/latest/userguide/systems-manager-patch.md") to automate patching nodes when required to do so.
 
 Patching nodes will allow you to quickly roll out security updates and replace the instances on a regular schedule after your AMI has been updated. If you are using an operating system with a read-only root file system like [Flatcar Container Linux](https://flatcar-linux.org/ "https://flatcar-linux.org/") or [Bottlerocket OS](https://github.com/bottlerocket-os/bottlerocket "https://github.com/bottlerocket-os/bottlerocket") we recommend using the update operators that work with those operating systems. The [Flatcar Linux update operator](https://github.com/flatcar/flatcar-linux-update-operator "https://github.com/flatcar/flatcar-linux-update-operator") and [Bottlerocket update operator](https://github.com/bottlerocket-os/bottlerocket-update-operator "https://github.com/bottlerocket-os/bottlerocket-update-operator") will reboot instances to keep nodes up to date automatically.
+
+## Kubelet configuration for custom AMIs on Karpenter
+
+When using a [custom AMI with Karpenter](https://karpenter.sh/docs/concepts/nodeclasses/#custom "https://karpenter.sh/docs/concepts/nodeclasses/#custom"), it’s important to carefully configure the `kubelet` settings to ensure optimal data plane scalability. Unlike the EKS-optimized AMIs, Karpenter does not have built-in knowledge of the default resource requirements for a custom OS image. This can lead to issues like `kubelet` resource starvation if the `kubelet` configuration is not properly tuned.
+
+To address this, the recommended best practice is to thoroughly specify the [kubelet settings in the `NodeClass` configuration](https://karpenter.sh/docs/concepts/nodeclasses/#speckubelet "https://karpenter.sh/docs/concepts/nodeclasses/#speckubelet") when using a custom AMI. This includes setting appropriate values for `system-reserved` and `kube-reserved` resource requests based on the specific OS and packages installed on the custom AMI. Additionally, carefully configure the eviction thresholds to ensure the `kubelet` can effectively manage pod evictions under resource pressure. Refer to the `spec.kubelet` section in the Karpenter documentation for the available configuration options and guidance on setting these values correctly. Monitoring the node’s resource utilization after deployment is also crucial to validate the `kubelet` settings and make any necessary adjustments. By following these best practices, you can ensure the `kubelet` is properly configured to handle the workload requirements on nodes provisioned with a custom AMI.
+
+```
+kubelet:
+  podsPerCore: 2
+  maxPods: 20
+  systemReserved:
+    cpu: 100m
+    memory: 100Mi
+    ephemeral-storage: 1Gi
+  kubeReserved:
+    cpu: 200m
+    memory: 100Mi
+    ephemeral-storage: 3Gi
+  evictionHard:
+    memory.available: 5%
+    nodefs.available: 10%
+    nodefs.inodesFree: 10%
+  evictionSoft:
+    memory.available: 500Mi
+    nodefs.available: 15%
+    nodefs.inodesFree: 15%
+  evictionSoftGracePeriod:
+    memory.available: 1m
+    nodefs.available: 1m30s
+    nodefs.inodesFree: 2m
+  evictionMaxPodGracePeriod: 60
+  imageGCHighThresholdPercent: 85
+  imageGCLowThresholdPercent: 80
+  cpuCFSQuota: true
+  clusterDNS: ["10.0.1.100"]
+```

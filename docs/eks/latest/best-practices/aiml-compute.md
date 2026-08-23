@@ -539,6 +539,13 @@ metadata:
   version: '1.33'
 
 managedNodeGroups:
+- name: base-nodes
+  amiFamily: AmazonLinux2023
+  instanceType: m5.xlarge
+  desiredCapacity: 1
+  minSize: 1
+  maxSize: 2
+
 - name: gpu-dra-nodes
   amiFamily: AmazonLinux2023
   instanceType: g6.12xlarge
@@ -564,12 +571,29 @@ eksctl create cluster -f dra-eks-cluster.yaml
 
 #### Step 2: Deploy the NVIDIA device plugin
 
+When you create a cluster using eksctl, the device plugin service is automatically installed in the kube-system namespace.
+
+Verify that the NVIDIA device plugin service is available:
+
+```
+kubectl get po -n kube-system | grep nvidia-device-plugin-daemonset
+```
+
+The following is the expected output:
+
+```
+kube-system   nvidia-device-plugin-daemonset-2s6pv   1/1     Running   0          7m8s
+kube-system   nvidia-device-plugin-daemonset-8zhq8   1/1     Running   0          7m8s
+```
+
+If you find that the device plugin service is not automatically installed, please follow the steps below to deploy it.
+
 Deploy the NVIDIA device plugin to enable basic GPU discovery:
 
 1. Add the NVIDIA device plugin Helm repository:
 
 ```
-helm repo add nvidia https://nvidia.github.io/k8s-device-plugin
+helm repo add nvidia-device-plugin https://nvidia.github.io/k8s-device-plugin
 helm repo update
 ```
 
@@ -591,7 +615,7 @@ EOF
 3. Install the NVIDIA device plug-in:
 
 ```
-helm install nvidia-device-plugin nvidia/nvidia-device-plugin \
+helm install nvidia-device-plugin nvidia-device-plugin/nvidia-device-plugin \
  --namespace nvidia-device-plugin \
  --create-namespace \
  --version 0.17.1 \
@@ -638,14 +662,14 @@ kubeletPlugin:
 2. Add the NVIDIA NGC Helm repository:
 
 ```
-helm repo add nvidia https://helm.ngc.nvidia.com/nvidia
+helm repo add nvidia-ngc https://helm.ngc.nvidia.com/nvidia
 helm repo update
 ```
 
 3. Install the NVIDIA DRA driver:
 
 ```
-helm install nvidia-dra-driver nvidia/nvidia-dra-driver-gpu \
+helm install nvidia-dra-driver nvidia-ngc/nvidia-dra-driver-gpu \
  --version="25.3.0-rc.2" \
  --namespace nvidia-dra-driver \
  --create-namespace \
@@ -801,7 +825,7 @@ spec:
   - name: gpu0
     resourceClaimTemplateName: single-gpu
   nodeSelector:
-    NodeGroupType: gpu-dra
+    node-type: "gpu-dra"
     nvidia.com/gpu.present: "true"
   tolerations:
   - key: "nvidia.com/gpu"
@@ -969,7 +993,7 @@ spec:
   - name: shared-gpu-claim
     resourceClaimTemplateName: timeslicing-gpu-template
   nodeSelector:
-    NodeGroupType: "gpu-dra"
+    node-type: "gpu-dra"
     nvidia.com/gpu.present: "true"
   tolerations:
   - key: nvidia.com/gpu
@@ -1021,7 +1045,7 @@ spec:
   - name: shared-gpu-claim-2
     resourceClaimTemplateName: timeslicing-gpu-template
   nodeSelector:
-    NodeGroupType: "gpu-dra"
+    node-type: "gpu-dra"
     nvidia.com/gpu.present: "true"
   tolerations:
   - key: nvidia.com/gpu
@@ -1226,7 +1250,7 @@ spec:
     resourceClaimTemplateName: mps-gpu-template
 
   nodeSelector:
-    NodeGroupType: "gpu-dra"
+    node-type: "gpu-dra"
     nvidia.com/gpu.present: "true"
   tolerations:
   - key: nvidia.com/gpu
@@ -1369,7 +1393,7 @@ and dynamic resource allocation capabilities.
 1. Add the NVIDIA GPU Operator repository:
 
 ```
-helm repo add nvidia https://nvidia.github.io/gpu-operator
+helm repo add nvidia-gpu-operator https://nvidia.github.io/gpu-operator
 helm repo update
 ```
 
@@ -1473,7 +1497,7 @@ daemonsets:
 3. Install GPU Operator using the `gpu-operator-values.yaml` file:
 
 ```
-helm install gpu-operator nvidia/gpu-operator \
+helm install gpu-operator nvidia-gpu-operator/gpu-operator \
   --namespace gpu-operator \
   --create-namespace \
   --version v25.3.1 \
