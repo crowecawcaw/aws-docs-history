@@ -49,11 +49,10 @@ AWS Management Console
 
    ###### Note
 
-   App Mesh may automatically create a default Envoy route
+   App Mesh automatically creates a default Envoy route
    retry policy for each virtual node provider that you
-   define on or after July 29, 2020,
-   even though you can't define such a policy through the
-   App Mesh API. For more information, see [Default route retry policy](envoy-defaults.md#default-retry-policy "envoy-defaults.md#default-retry-policy").
+   define, even though you can't define such a policy through
+   the App Mesh API. For more information, see [Default route retry policy](envoy-defaults.md#default-retry-policy "envoy-defaults.md#default-retry-policy").
    - If you don't want the virtual service to route traffic at
      this time (for example, if your virtual nodes or virtual
      router doesn't exist yet), choose **None**.

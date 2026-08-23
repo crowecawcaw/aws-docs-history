@@ -40,10 +40,8 @@ that you want to route.
 
 ###### Note
 
-If you implemented a route on or after July 29, 2020 and didn't specify a
-retry policy, then App Mesh may have automatically created a default retry policy similar to the
-previous policy for each route you created on or after July 29, 2020. For more
-information, see [Default route retry policy](envoy-defaults.md#default-retry-policy "envoy-defaults.md#default-retry-policy").
+App Mesh automatically creates a default retry policy similar to the previous policy for each route
+you create. For more information, see [Default route retry policy](envoy-defaults.md#default-retry-policy "envoy-defaults.md#default-retry-policy").
 
 ## Adjust deployment velocity
 
