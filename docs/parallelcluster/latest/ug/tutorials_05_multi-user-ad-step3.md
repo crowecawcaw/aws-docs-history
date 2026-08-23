@@ -42,7 +42,7 @@ A node without access to the certificate will not be able to resolve users from 
 ```
 Region: `region-id`
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: t2.micro
   Networking:
@@ -121,7 +121,7 @@ aws secretsmanager get-secret-value --region $REGION --secret-id $CERTIFICATE_SE
 ```
 Region: `region-id`
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: t2.micro
   Networking:
@@ -164,7 +164,7 @@ DirectoryService:
 ```
 Region: `region-id`
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: t2.micro
   Networking:

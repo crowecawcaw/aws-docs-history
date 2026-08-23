@@ -18,7 +18,7 @@ pp = pprint.PrettyPrinter()
 HEAD_NODE_SUBNET = os.environ["HEAD_NODE_SUBNET"]
 COMPUTE_NODE_SUBNET = os.environ["HEAD_NODE_SUBNET"]
 KEY_NAME = os.environ["KEY_NAME"]
-CONFIG = {'Image': {'Os': 'alinux2'},
+CONFIG = {'Image': {'Os': 'alinux2023'},
           'HeadNode': {'InstanceType': 't2.large',
                        'Networking': {'SubnetId': HEAD_NODE_SUBNET},
                        'Ssh': {'KeyName': KEY_NAME}},

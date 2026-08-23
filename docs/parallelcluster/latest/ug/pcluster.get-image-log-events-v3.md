@@ -74,7 +74,7 @@ included.
 **Example using AWS ParallelCluster version 3.1.2:**
 
 ```
-`$` `pcluster get-image-log-events --image-id `custom-alinux2-image` --region `us-east-1` --log-stream-name `3.1.2/1` --limit `3``
+`$` `pcluster get-image-log-events --image-id `custom-image-id` --region `us-east-1` --log-stream-name `3.1.2/1` --limit `3``
    `{
  "nextToken": "f/36778317771100849897800729464621464113270312017760944178/s",
  "prevToken": "b/36778317766952911290874033560295820514557716777648586800/s",

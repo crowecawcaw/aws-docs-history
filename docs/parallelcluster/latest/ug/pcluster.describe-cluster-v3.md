@@ -92,7 +92,7 @@ Use `describe-cluster` to retrieve the cluster configuration:
 ```
 `$` `curl -o - $(pcluster describe-cluster -n `cluster-v3` --query clusterConfiguration.url | xargs echo)``Region: us-east-1
 Image:
- Os: alinux2
+ Os: alinux2023
 HeadNode:
  InstanceType: t2.micro
  Networking:

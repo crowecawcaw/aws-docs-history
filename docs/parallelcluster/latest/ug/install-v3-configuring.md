@@ -96,7 +96,6 @@ Choose the scheduler to use with your cluster.
 ```
 `Allowed values for Scheduler:
 1. slurm
-2. awsbatch
 Scheduler [slurm]:`
 ```
 
@@ -104,13 +103,12 @@ Choose the operating system.
 
 ```
 `Allowed values for Operating System:
-1. alinux2
-2. alinux2023
-3. ubuntu2404
-4. ubuntu2204
-6. rhel8
-7. rhel9
-Operating System [alinux2]:`
+1. alinux2023
+2. ubuntu2404
+3. ubuntu2204
+4. rhel8
+5. rhel9
+Operating System [alinux2023]:`
 ```
 
 Choose the head node instance type:

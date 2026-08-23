@@ -279,7 +279,7 @@ Request
  "value": "s3://`amzn-s3-demo-bucket`/parallelcluster/3.2.1/images/custom-image-id-1234567890abcdef0/configs/image-config.yaml"
  }
  ],
- "image_build_logs_arn": "arn:aws:logs:us-east-1:123456789012:log-group:/aws/imagebuilder/ParallelClusterImage-alinux2-image",
+ "image_build_logs_arn": "arn:aws:logs:us-east-1:123456789012:log-group:/aws/imagebuilder/ParallelClusterImage-custom-image",
  "image_build_status": "BUILD_IN_PROGRESS",
  "image_configuration": {
  "url": "https://`amzn-s3-demo-bucket`.s3.amazonaws.com/parallelcluster/3.2.1/images/custom-image-id-1234567890abcdef0/configs/image-config.yaml?..."

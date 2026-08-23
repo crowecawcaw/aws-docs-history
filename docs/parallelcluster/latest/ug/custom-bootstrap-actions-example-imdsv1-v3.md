@@ -8,7 +8,7 @@ Region: `us-east-1`
 Imds:
   ImdsSupport: v1.0
 Image:
-  Os: `alinux2`
+  Os: `alinux2023`
 HeadNode:
   InstanceType: `t2.micro`
   Networking:

@@ -325,14 +325,10 @@ node. Or, a home directory wasn't created for you when you first switched from a
 
 ```
 `$` `ssh AD_USER@$HEAD_NODE_IP`
-/opt/parallelcluster/scripts/generate_ssh_key.sh failed: exit code 1
+`/opt/parallelcluster/scripts/generate_ssh_key.sh failed: exit code 1
 
-       __|  __|_  )
-       _|  (     /   Amazon Linux 2 AMI
-      ___|\___|___|
-
-https://aws.amazon.com/amazon-linux-2/
-Could not chdir to home directory /home/PclusterUser85: No such file or directory
+`Operating system login banner`
+Could not chdir to home directory /home/PclusterUser85: No such file or directory`
 ```
 
 The home directory create failure can be caused by the `oddjob` and `oddjob-mkhomedir` packages installed in the cluster head node.

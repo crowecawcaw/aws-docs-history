@@ -1,6 +1,6 @@
 # Operating systems
 
-AWS ParallelCluster supports Amazon Linux 2, Amazon Linux 2023, Ubuntu 24.04, Ubuntu 22.04, Red Hat Enterprise Linux 8 (RHEL8), Rocky 8, Red Hat Enterprise Linux 9 (RHEL9), and Rocky 9. AWS ParallelCluster offers pre-built AMIs for select operating systems, for more details on AMIs
+AWS ParallelCluster supports Amazon Linux 2023, Ubuntu 24.04, Ubuntu 22.04, Red Hat Enterprise Linux 8 (RHEL8), Rocky 8, Red Hat Enterprise Linux 9 (RHEL9), and Rocky 9. AWS ParallelCluster offers pre-built AMIs for select operating systems, for more details on AMIs
 provided by AWS ParallelCluster refer to [Image section](Image-v3.md "Image-v3.md").
 
 ## Operating system considerations

@@ -19,7 +19,7 @@ Image:
 `Os` (**Required**,
 `String`)
 
-Specifies the operating system to use for the cluster. The supported values are `alinux2`,
+Specifies the operating system to use for the cluster. The supported values are
 `alinux2023`, `ubuntu2404`, `ubuntu2204`, `rhel8`,
 `rocky8`, `rhel9`, `rocky9`.
 
@@ -43,13 +43,13 @@ Amazon Linux 2 reaches End of Life (EOL) on 2026-06-30 (see [Amazon Linux 2 FAQs
 
 All AWS commercial Regions support all of the following operating systems.
 
-| Partition (AWS Regions)                                 | `alinux2` | `ubuntu2204` | `ubuntu2404` | `rhel8` | `rhel9` | `alinux2023` |
-| ------------------------------------------------------- | --------- | ------------ | ------------ | ------- | ------- | ------------ |
-| Commercial (All AWS Regions not specifically mentioned) | True      | True         | True         | True    | True    | True         |
-| AWS GovCloud (US-East) (`us-gov-east-1`)                | True      | True         | True         | True    | True    | True         |
-| AWS GovCloud (US-West) (`us-gov-west-1`)                | True      | True         | True         | True    | True    | True         |
-| China (Beijing) (`cn-north-1`)                          | True      | True         | True         | True    | True    | True         |
-| China (Ningxia) (`cn-northwest-1`)                      | True      | True         | True         | True    | True    | True         |
+| Partition (AWS Regions)                                 | `ubuntu2204` | `ubuntu2404` | `rhel8` | `rhel9` | `alinux2023` |
+| ------------------------------------------------------- | ------------ | ------------ | ------- | ------- | ------------ |
+| Commercial (All AWS Regions not specifically mentioned) | True         | True         | True    | True    | True         |
+| AWS GovCloud (US-East) (`us-gov-east-1`)                | True         | True         | True    | True    | True         |
+| AWS GovCloud (US-West) (`us-gov-west-1`)                | True         | True         | True    | True    | True         |
+| China (Beijing) (`cn-north-1`)                          | True         | True         | True    | True    | True         |
+| China (Ningxia) (`cn-northwest-1`)                      | True         | True         | True    | True    | True         |
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")

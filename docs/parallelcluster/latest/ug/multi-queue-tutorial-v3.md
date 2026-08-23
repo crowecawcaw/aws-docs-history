@@ -49,7 +49,7 @@ configuration file values. Keep your own values.
 ```
 Region: `region-id`
 Image:
- Os: alinux2
+ Os: alinux2023
 HeadNode:
  InstanceType: c5.xlarge
  Networking:

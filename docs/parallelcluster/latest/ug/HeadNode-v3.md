@@ -808,7 +808,7 @@ The following users are permitted access to the head node's IMDS:
 - root user
 - cluster administrative user (`pc-cluster-admin` by default)
 - operating system specific default user (`ec2-user` on Amazon
-  Linux 2, Amazon Linux 2023 and Red Hat, and `ubuntu` on Ubuntu 22.04 and Ubuntu 24.04)
+  Linux 2023 and Red Hat, and `ubuntu` on Ubuntu 22.04 and Ubuntu 24.04)
 
 The default is `true`.
 

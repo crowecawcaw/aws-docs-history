@@ -139,7 +139,7 @@ Request
  'first_event_timestamp': datetime.datetime(2022, 3, 29, 20, 29, 24, 775000, tzinfo=tzlocal()),
  'last_event_timestamp': datetime.datetime(2022, 3, 29, 20, 38, 23, 944000, tzinfo=tzlocal()),
  'last_ingestion_time': datetime.datetime(2022, 3, 29, 20, 51, 56, 26000, tzinfo=tzlocal()),
- 'log_stream_arn': 'arn:aws:logs:us-east-1:123456789012:log-group:/aws/imagebuilder/ParallelClusterImage-alinux2-image:log-stream:3.2.1/1',
+ 'log_stream_arn': 'arn:aws:logs:us-east-1:123456789012:log-group:/aws/imagebuilder/ParallelClusterImage-custom-image:log-stream:3.2.1/1',
  'log_stream_name': '3.2.1/1',
  'upload_sequence_token': '####'
  },

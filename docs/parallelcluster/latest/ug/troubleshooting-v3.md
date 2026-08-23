@@ -5,8 +5,12 @@ AWS ParallelCluster. The AWS ParallelCluster community maintains a Wiki page tha
 troubleshooting tips on the [AWS ParallelCluster GitHub Wiki](https://github.com/aws/aws-parallelcluster/wiki/ "https://github.com/aws/aws-parallelcluster/wiki/"). For a list of known issues, see [Known
 issues](https://github.com/aws/aws-parallelcluster/wiki#known-issues- "https://github.com/aws/aws-parallelcluster/wiki#known-issues-").
 
+Starting with AWS ParallelCluster version 3.16.0, you can also run the on-node diagnostics tool `pcluster-diag` to have a set of
+health conditions verified for you on a running cluster. For more information, see [Troubleshooting with pcluster-diag](troubleshooting-v3-pcluster-diag.md "troubleshooting-v3-pcluster-diag.md").
+
 ###### Topics
 
+- [Troubleshooting with pcluster-diag](troubleshooting-v3-pcluster-diag.md "troubleshooting-v3-pcluster-diag.md")
 - [Trying to create a cluster](troubleshooting-fc-v3-create-cluster.md "troubleshooting-fc-v3-create-cluster.md")
 - [Trying to run a job](troubleshooting-fc-v3-run-job.md "troubleshooting-fc-v3-run-job.md")
 - [Trying to update a cluster](troubleshooting-fc-v3-update-cluster.md "troubleshooting-fc-v3-update-cluster.md")

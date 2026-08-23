@@ -3,7 +3,7 @@
 AWS ParallelCluster is an AWS supported, open source cluster management tool that helps you to
 deploy and manage High-Performance Computing (HPC) clusters in the AWS Cloud. It automatically
 sets up the required compute resources, scheduler, and shared file system. You can use
-AWS ParallelCluster with AWS Batch and Slurm schedulers.
+AWS ParallelCluster with AWS Batch and Slurm schedulers. Starting with AWS ParallelCluster version 3.16.0, AWS Batch as a scheduler is no longer supported.
 
 With AWS ParallelCluster, you can quickly build and deploy proof of concept and production HPC
 compute environments. You can also build and deploy a high level workflow on top of AWS ParallelCluster,

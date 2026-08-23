@@ -39,7 +39,7 @@ Filter by OS distribution. The default is no filtering.
 
 Type: string
 
-Valid values: `alinux2 | alinux2023 | ubuntu2404 | ubuntu2204 | rhel8 | rhel9`
+Valid values: `alinux2023 | ubuntu2404 | ubuntu2204 | rhel8 | rhel9`
 
 Required: No
 

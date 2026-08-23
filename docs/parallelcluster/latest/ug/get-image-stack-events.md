@@ -170,21 +170,21 @@ Request
  {
  'event_id': 'ParallelClusterImage-CREATE_IN_PROGRESS-2022-03-30T23:26:33.499Z',
  'logical_resource_id': 'ParallelClusterImage',
- 'physical_resource_id': 'arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-alinux2-image/3.2.1/1',
+ 'physical_resource_id': 'arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-custom-image/3.2.1/1',
  'resource_properties': {
  "InfrastructureConfigurationArn":"arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/parallelclusterimage-6accc570-b080-11ec-845e-0e2dc6386985",
- "ImageRecipeArn":"arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/parallelclusterimage-alinux2-image/3.2.1",
+ "ImageRecipeArn":"arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/parallelclusterimage-custom-image/3.2.1",
  "DistributionConfigurationArn":"arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/parallelclusterimage-6accc570-b080-11ec-845e-0e2dc6386985",
  "EnhancedImageMetadataEnabled":"false",
  "Tags": {
- "parallelcluster:image_name":"alinux2-image","parallelcluster:image_id":"alinux2-image"
+ "parallelcluster:image_name":"custom-image","parallelcluster:image_id":"custom-image"
  }
  },
  'resource_status': 'CREATE_IN_PROGRESS',
  'resource_status_reason': 'Resource creation Initiated',
  'resource_type': 'AWS::ImageBuilder::Image',
- 'stack_id': 'arn:aws:cloudformation:us-east-1:123456789012:stack/alinux2-image/6accc570-b080-11ec-845e-0e2dc6386985',
- 'stack_name': 'alinux2-image',
+ 'stack_id': 'arn:aws:cloudformation:us-east-1:123456789012:stack/custom-image/6accc570-b080-11ec-845e-0e2dc6386985',
+ 'stack_name': 'custom-image',
  'timestamp': datetime.datetime(2022, 3, 30, 23, 26, 33, 499000, tzinfo=tzlocal())
  },
  ...

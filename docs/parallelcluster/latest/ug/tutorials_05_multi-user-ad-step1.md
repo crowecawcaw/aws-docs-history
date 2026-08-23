@@ -150,7 +150,7 @@ ResetUserPassword
 5. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 6. In the **Amazon EC2 Dashboard**, choose **Launch Instance**.
-7. In **Application and OS Images**, select a recent Amazon Linux 2 AMI.
+7. In **Application and OS Images**, select a recent Amazon Linux 2023 AMI.
 8. For **Instance type**, choose t2.micro.
 9. For **Key pair**, choose a key pair.
 10. For **Network settings**, choose **Edit**.
@@ -194,7 +194,7 @@ ResetUserPassword
 5. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 6. In the **Amazon EC2 Dashboard**, choose **Launch Instance**.
-7. In **Application and OS Images**, select a recent Amazon Linux 2 AMI.
+7. In **Application and OS Images**, select a recent Amazon Linux 2023 AMI.
 8. For **Instance type**, choose t2.micro.
 9. For **Key pair**, choose a key pair.
 10. In **Network settings**, choose **Edit**.

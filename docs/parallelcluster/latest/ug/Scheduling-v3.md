@@ -3,6 +3,7 @@
 **(Required)** Defines the job scheduler that's used in the
 cluster and the compute instances that the job scheduler manages. You can either use the Slurm
 or AWS Batch scheduler. Each supports a different set of settings and properties.
+Starting with AWS ParallelCluster version 3.16.0, AWS Batch as a scheduler is no longer supported.
 
 ###### Topics
 
@@ -164,7 +165,7 @@ Scheduling:
 **`Scheduler` (**Required**, `String`)**
 
 Specifies the type of scheduler that's used. Supported values are `slurm`
-and `awsbatch`.
+and `awsbatch`. Starting with AWS ParallelCluster version 3.16.0, AWS Batch as a scheduler is no longer supported.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")

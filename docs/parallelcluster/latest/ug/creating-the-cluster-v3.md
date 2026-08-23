@@ -6,7 +6,7 @@ The following is an example cluster configuration that includes an Amazon Elasti
 
 Region: `eu-west-1`
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: t2.micro
   Networking:

@@ -309,7 +309,7 @@ To provide your current user permissions for API access, you must
 
 ``$` python3 test_pcluster_client.py``{'cluster_configuration': 'Region: us-east-1\n'
 'Image:\n'
-' Os: alinux2\n'
+' Os: alinux2023\n'
 'HeadNode:\n'
 ' InstanceType: t2.micro\n'
 ' Networking . . . :\n'

@@ -274,7 +274,7 @@ aws s3 cp postinstall.sh s3://`amzn-s3-demo-bucket`/postinstall.sh`
 ```
 Region: `REGION_ID`
 Image:
-  Os: alinux2
+  Os: alinux2023
 HeadNode:
   InstanceType: c5.2xlarge
   Ssh:

@@ -82,7 +82,7 @@ locals {
       configuration : {
         Region : local.config_vars.region
         Image : {
-          Os : "alinux2"
+          Os : "alinux2023"
         }
         HeadNode : {
           InstanceType : "t3.small"
@@ -152,7 +152,7 @@ see [Cluster configuration file](cluster-configuration-file-v3.md "cluster-confi
 ```
 Region: ${region}
 Image:
- Os: alinux2
+ Os: alinux2023
 HeadNode:
  InstanceType: t3.small
  Networking:
