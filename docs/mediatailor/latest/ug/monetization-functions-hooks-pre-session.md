@@ -1,4 +1,4 @@
-# PRE\_SESSION\_INITIALIZATION
+# Pre-session initialization
 
 ## When it fires
 

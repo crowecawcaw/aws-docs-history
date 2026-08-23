@@ -43,13 +43,17 @@ monitoring](monetization-functions-troubleshooting.md "monetization-functions-tr
 
 ## Function composition limits
 
-| Limit                              | Value       |
-| ---------------------------------- | ----------- |
-| Steps per sequential executor      | 1–10        |
-| Maximum nesting depth              | 2           |
-| Total function executions per hook | 20          |
-| Output entries per function        | 20          |
-| Circular references                | Not allowed |
+| Limit                                     | Value                                  |
+| ----------------------------------------- | -------------------------------------- |
+| Steps per sequential executor             | 1–10                                   |
+| Children per concurrent executor          | 1–10                                   |
+| Maximum concurrency (concurrent executor) | 1–2                                    |
+| Default timeout (concurrent executor)     | 2,000 ms                               |
+| Unique namespaces per concurrent executor | Required (validated at authoring time) |
+| Maximum nesting depth                     | 2                                      |
+| Total function executions per hook        | 20                                     |
+| Output entries per function               | 20                                     |
+| Circular references                       | Not allowed                            |
 
 These limits are enforced at authoring time.
 

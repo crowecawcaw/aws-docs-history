@@ -1,4 +1,4 @@
-# SEQUENTIAL\_EXECUTOR
+# Sequential executor
 
 ## When to use
 

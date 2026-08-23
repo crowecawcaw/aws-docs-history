@@ -78,7 +78,7 @@ MediaTailor when to run the function.
    `myFirstFunction` from the dropdown.
 6. Choose **Save**.
 
-This attaches `myFirstFunction` to the [PRE\_SESSION\_INITIALIZATION](monetization-functions-hooks-pre-session.md "monetization-functions-hooks-pre-session.md")
+This attaches `myFirstFunction` to the [Pre-session initialization](monetization-functions-hooks-pre-session.md "monetization-functions-hooks-pre-session.md")
 lifecycle hook. The resulting function mapping is:
 
 ```

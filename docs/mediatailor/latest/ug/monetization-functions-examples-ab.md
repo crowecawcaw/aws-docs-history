@@ -66,5 +66,5 @@ to the second.
 Writing to `adsRequest.url` overrides the default ADS URL
 configured in the playback configuration for the current ad break.
 
-For more information, see [CUSTOM\_OUTPUT](monetization-functions-types-custom-output.md "monetization-functions-types-custom-output.md"), [PRE\_ADS\_REQUEST](monetization-functions-hooks-pre-ads.md "monetization-functions-hooks-pre-ads.md"), and [JSONata expression
+For more information, see [Custom output](monetization-functions-types-custom-output.md "monetization-functions-types-custom-output.md"), [Pre-ads request](monetization-functions-hooks-pre-ads.md "monetization-functions-hooks-pre-ads.md"), and [JSONata expression
 reference](monetization-functions-jsonata.md "monetization-functions-jsonata.md").

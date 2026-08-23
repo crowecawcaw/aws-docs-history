@@ -1,4 +1,4 @@
-# CUSTOM\_OUTPUT
+# Custom output
 
 ## When to use
 

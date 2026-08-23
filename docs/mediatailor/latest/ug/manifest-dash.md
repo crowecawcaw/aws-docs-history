@@ -28,6 +28,7 @@ DASH manifests.
 
 - [DASH ad markers](dash-ad-markers.md "dash-ad-markers.md")
 - [DASH ad avail duration](dash-ad-avail-duration.md "dash-ad-avail-duration.md")
+- [SCTE-35 markers and period boundaries in DASH](dash-scte-period-boundaries.md "dash-scte-period-boundaries.md")
 - [DASH manifest segment numbering](dash-manifest-segment-numbering.md "dash-manifest-segment-numbering.md")
 - [DASH MPD examples](manifest-dash-example.md "manifest-dash-example.md")
 - [DASH location feature](dash-location-feature.md "dash-location-feature.md")
