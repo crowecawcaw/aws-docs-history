@@ -1,24 +1,33 @@
-# Step 3: Distribute Participant Tokens
+# Step 3: Distribute Tokens
 
-Now that you have a stage, you need to create tokens and distribute them to
-participants, to enable the participants to join the stage and start sending and
-receiving video. There are two approaches to generating tokens:
+Now that you have a stage, create and distribute the tokens that clients use to join
+it. Each client needs a participant token to join a stage and send or receive video.
+Applications that use a `RealTimeConnection` also need a connection token.
 
-- [Create](#getting-started-distribute-tokens-self-signed "#getting-started-distribute-tokens-self-signed")
-  tokens with a key pair.
+A participant token authorizes a participant to join one specific stage and defines
+that participant's publish and subscribe capabilities. A connection token authorizes a
+shared network connection that a client can reuse while moving between stages in the
+same AWS account and Region. A connection token does not replace a participant token.
+The client needs a participant token for every stage that it joins.
+
+There are two approaches to generating tokens:
+
+- [Create
+  tokens with a key pair](#getting-started-distribute-tokens-self-signed "#getting-started-distribute-tokens-self-signed").
 - [Create tokens with the
   IVS real-time-streaming API](#getting-started-distribute-tokens-api "#getting-started-distribute-tokens-api").
   Both of these approaches are described below.
 
 ## Creating Tokens with a Key Pair
 
-You can create tokens on your server application and distribute them to
-participants to join a stage. You need to generate an ECDSA public/private key pair
-to sign the JWTs and import the public key to IVS. Then IVS can verify the tokens at
-the time of stage join.
+You can create participant tokens and connection tokens on your server application
+by signing JWTs with an ECDSA public/private key pair. Import the public key into
+IVS so IVS can verify the JWT signature when a client connects.
 
-IVS does not offer key expiry. If your private key is compromised, you must delete
-the old public key.
+###### Important
+
+IVS does not offer key expiry. If your private key is compromised, you must
+delete the old public key.
 
 ### Create a New Key Pair
 
@@ -28,7 +37,7 @@ examples.
 To create a new key pair in the console, follow these steps:
 
 1. Open the [Amazon IVS
-   console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"). Choose your stage’s region if you are not already
+   console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"). Choose your stage's region if you are not already
    on it.
 2. In the left navigation menu, choose **Real-time
    streaming > Public keys**.
@@ -44,9 +53,11 @@ private key. _**Be sure you
 save the key; you cannot retrieve it
 later.**_
 
-To create a new P384 EC key pair with OpenSSL (you may have to install [OpenSSL](https://www.openssl.org/source/ "https://www.openssl.org/source/") first), follow these
-steps. This process enables you to access both the private and public keys. You
-need the public key only if you want to test verification of your tokens.
+To create a new P384 EC key pair with OpenSSL (you might have to install
+[OpenSSL](https://www.openssl.org/source/ "https://www.openssl.org/source/") first), follow
+these steps. This process enables you to access both the private and public
+keys. You need the public key only if you want to test verification of your
+tokens.
 
 ```
 openssl ecparam -name secp384r1 -genkey -noout -out priv.pem
@@ -63,7 +74,7 @@ key is not needed by our system but is employed by you to sign tokens.
 To import an existing public key with the console:
 
 1. Open the [Amazon IVS
-   console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"). Choose your stage’s region if you are not already
+   console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"). Choose your stage's region if you are not already
    on it.
 2. In the left navigation menu, choose **Real-time
    streaming > Public keys**.
@@ -103,7 +114,13 @@ POST /ImportPublicKey HTTP/1.1
 }
 ```
 
-### Generate and Sign the Token
+## Participant Tokens
+
+A participant token authorizes one participant to join one stage. It contains the
+stage ARN and ID, endpoints, optional participant attributes, and publish and
+subscribe capabilities.
+
+### Create Participant Tokens with a Key Pair
 
 For details on working with JWTs and the supported libraries for signing
 tokens, visit [jwt.io](https://jwt.io/ "https://jwt.io/"). On the jwt.io
@@ -112,12 +129,12 @@ needed only if you want to verify tokens.
 
 All JWTs have three fields: header, payload, and signature.
 
-The JSON schemas for the JWT’s header and payload are described below.
+The JSON schemas for the JWT's header and payload are described below.
 Alternatively you can copy a sample JSON from the IVS console. To get the header
 and payload JSON from the IVS console:
 
 1. Open the [Amazon IVS
-   console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"). Choose your stage’s region if you are not already
+   console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"). Choose your stage's region if you are not already
    on it.
 2. In the left navigation menu, choose **Real-time
    streaming > Stages**.
@@ -145,9 +162,8 @@ The header specifies:
 {
   "alg": "ES384",
   "typ": "JWT"
-  “kid”: “arn:aws:ivs:123456789012:us-east-1:public-key/abcdefg12345”
+  "kid": "arn:aws:ivs:123456789012:us-east-1:public-key/abcdefg12345"
 }
-
 ```
 
 #### Token Schema: Payload
@@ -182,12 +198,12 @@ The payload contains data specific to IVS. All fields except
 
 - `user_id` is an optional, customer-assigned name to
   help identify the token; this can be used to link a participant to a
-  user in the customer’s own systems. This should match the
+  user in the customer's own systems. This should match the
   `userId` field in the [CreateParticipantToken](../RealTimeAPIReference/API_CreateParticipantToken.md "../RealTimeAPIReference/API_CreateParticipantToken.md") API request. It can be any UTF-8
   encoded text and is a string of up to 128 characters. _This field is exposed to all stage participants
   and should not be used for personally identifying, confidential,
   or sensitive information._
-- `resource` is the ARN of the stage; e.g.,
+- `resource` is the ARN of the stage; for example,
   `arn:aws:ivs:us-east-1:123456789012:stage/oRmLNwuCeMlQ`.
 - `topic` is the ID of the stage, which can be extracted
   from stage ARN. For example, if the stage ARN is
@@ -210,10 +226,9 @@ The payload contains data specific to IVS. All fields except
 - `attributes` is an optional field where you can specify
   application-provided attributes to encode into the token and attach
   to a stage. Map keys and values can contain UTF-8 encoded text. The
-  maximum length of this field is 1 KB total. _This field is
-  exposed to all stage participants and should not be used for
-  personally identifying, confidential, or sensitive
-  information._
+  maximum length of this field is 1 KB total. _This field is exposed to all stage participants
+  and should not be used for personally identifying, confidential,
+  or sensitive information._
 - `version` must be `1.0`.
 
 ```
@@ -236,7 +251,6 @@ The payload contains data specific to IVS. All fields except
   },
   "version": "1.0"
 }
-
 ```
 
 #### Token Schema: Signature
@@ -254,7 +268,7 @@ ECDSASHA384(
 
 #### Instructions
 
-1. Generate the token’s signature with an ES384 signing algorithm and
+1. Generate the token's signature with an ES384 signing algorithm and
    a private key that is associated with the public key provided to
    IVS.
 2. Assemble the token.
@@ -263,7 +277,6 @@ ECDSASHA384(
 base64UrlEncode(header) + "." +
 base64UrlEncode(payload) + "." +
 base64UrlEncode(signature)
-
 ```
 
 ## Creating Tokens with the IVS Real-Time Streaming API
@@ -271,7 +284,7 @@ base64UrlEncode(signature)
 ![Distribute participant tokens: Stage token workflow](images/Distribute_Participant_Tokens.png)
 
 As shown above, a client application asks your server application for a token, and
-the server application calls CreateParticipantToken using an AWS SDK or SigV4
+the server application calls `CreateParticipantToken` using an AWS SDK or SigV4
 signed request. Since AWS credentials are used to call the API, the token should
 be generated in a secure server-side application, not the client-side
 application.
@@ -281,9 +294,10 @@ capabilities:
 
 - You can specify application-provided attributes to encode into the token
   and attach to a stage. Map keys and values can contain UTF-8 encoded text.
-  The maximum length of this field is 1 KB total. _This field is
-  exposed to all stage participants and should not be used for personally
-  identifying, confidential, or sensitive information._
+  The maximum length of this field is 1 KB total. _This
+  field is exposed to all stage participants and should not be used for
+  personally identifying, confidential, or sensitive
+  information._
 - You can specify capabilities enabled by the token. The default is
   `PUBLISH` and `SUBSCRIBE`, which allows the
   participant to send and receive audio and video, but you could issue tokens
@@ -294,17 +308,18 @@ capabilities:
 
 For details, see [CreateParticipantToken](../RealTimeAPIReference/API_CreateParticipantToken.md "../RealTimeAPIReference/API_CreateParticipantToken.md").
 
-You can create participant tokens via the console or CLI for testing and
+You can create participant tokens through the console or CLI for testing and
 development, but most likely you will want to create them with the AWS SDK in your
 production environment.
 
-You will need a way to distribute tokens from your server to each client (e.g.,
-via an API request). We do not provide this functionality. For this guide, you can
-simply copy and paste the tokens into client code in the following steps.
+You will need a way to distribute tokens from your server to each client (for
+example, through an API request). We do not provide this functionality. For this
+guide, you can simply copy and paste the tokens into client code in the following
+steps.
 
-**Important**: Treat tokens as opaque; i.e., do not
-build functionality based on token contents. The format of tokens could change in
-the future.
+**Important**: Treat tokens as opaque; do not build
+functionality based on token contents. The format of tokens could change in the
+future.
 
 ### Console Instructions
 
@@ -315,14 +330,14 @@ the future.
 4. Select **Create**.
 5. Copy the token. _Important: Be sure to save the
    token; IVS does not store it and you cannot retrieve it
-   later_.
+   later._
 
 ### CLI Instructions
 
 Creating a token with the AWS CLI requires that you first download and
-configure the CLI on your machine. For details, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md"). Note that generating tokens
-with the AWS CLI is good for testing purposes, but for production use, we
-recommend that you generate tokens on the server side with the AWS SDK (see
+configure the CLI on your machine. For details, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md"). Note that generating
+tokens with the AWS CLI is good for testing purposes, but for production use,
+we recommend that you generate tokens on the server side with the AWS SDK (see
 instructions below).
 
 1. Run the `create-participant-token` command with the stage
@@ -330,7 +345,7 @@ instructions below).
    `"PUBLISH"`, `"SUBSCRIBE"`.
 
 ```
-aws ivs-realtime create-participant-token --stage-arn arn:aws:ivs:us-west-2:376666121854:stage/VSWjvX5XOkU3 --capabilities '["PUBLISH", "SUBSCRIBE"]'
+aws ivs-realtime create-participant-token --stage-arn arn:aws:ivs:us-west-2:123456789012:stage/VSWjvX5XOkU3 --capabilities '["PUBLISH", "SUBSCRIBE"]'
 ```
 
 2. This returns a participant token:
@@ -349,7 +364,7 @@ aws ivs-realtime create-participant-token --stage-arn arn:aws:ivs:us-west-2:3766
 }
 ```
 
-3. Save this token. You will need this to join the stage and send and
+3. Save this token. You will need it to join the stage and send and
    receive video.
 
 ### AWS SDK Instructions
@@ -368,10 +383,72 @@ you need to install the aws-sdk/client-ivs-realtime package. For details, see
 import { IVSRealTimeClient, CreateParticipantTokenCommand } from "@aws-sdk/client-ivs-realtime";
 
 const ivsRealtimeClient = new IVSRealTimeClient({ region: 'us-west-2' });
-const stageArn = 'arn:aws:ivs:us-west-2:123456789012:stage/L210UYabcdef';
+const stageArn = 'arn:aws:ivs:us-west-2:123456789012:stage/VSWjvX5XOkU3';
 const createStageTokenRequest = new CreateParticipantTokenCommand({
   stageArn,
 });
 const response = await ivsRealtimeClient.send(createStageTokenRequest);
 console.log('token', response.participantToken.token);
 ```
+
+## Connection Tokens
+
+A connection token is a self-signed JWT that authorizes a shared network
+connection. A client can reuse this connection while moving between stages in the
+same AWS account and Region, until the token expires.
+
+Create and sign connection tokens on your server with the key pair created earlier.
+Send the connection token to the client before it begins a workflow that moves
+between stages. The client creates one `RealTimeConnection` and supplies it whenever
+it creates a stage. The client then uses the appropriate participant token for each
+stage that it joins.
+
+### Token Header
+
+Use the token header described in [Create
+Participant Tokens with a Key Pair](#getting-started-distribute-tokens-self-signed-generate-sign "#getting-started-distribute-tokens-self-signed-generate-sign").
+
+### Token Payload
+
+```
+{
+    "exp": 1697322063,
+    "iat": 1697149263,
+    "jti": "Mx6clRRHODPy",
+    "account_id": "123456789012",
+    "region": "us-west-2",
+    "events_url": "wss://global.events.live-video.net",
+    "version": "1.0"
+}
+```
+
+The payload contains data specific to IVS. All fields are mandatory:
+
+- `RegisteredClaims` in the JWT specification are reserved
+  claims that must be present for the token to be valid:
+
+  - `exp` (expiration time) is a Unix UTC timestamp for
+    when the token expires. A token can expire up to four weeks
+    after its creation time.
+  - `iat` (issued-at time) is a Unix UTC timestamp for
+    when the JWT was issued.
+  - `jti` (JWT ID) is a unique token ID. Generate a
+    new, case-sensitive ID for every Connection token. The ID can
+    contain up to 64 alphanumeric characters, hyphens (-), and
+    underscores (\_).
+
+- `account_id` is the AWS account ID that owns the
+  stages.
+- `region` is the home Region of the IVS public key used to
+  sign the token.
+- `events_url` must be
+  `wss://global.events.live-video.net`.
+- `version` must be `1.0`.
+
+A connection token does not contain a stage ARN, stage ID, WHIP endpoint,
+participant capabilities, participant attributes, or user ID. Those values belong
+in the participant token for the stage that the client joins.
+
+Sign the token as described in [Create
+Participant Tokens with a Key Pair](#getting-started-distribute-tokens-self-signed-generate-sign "#getting-started-distribute-tokens-self-signed-generate-sign"), using the connection token header
+and payload above.

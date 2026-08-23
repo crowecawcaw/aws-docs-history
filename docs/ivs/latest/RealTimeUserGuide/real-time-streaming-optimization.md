@@ -342,18 +342,156 @@ public SubscribeConfiguration subscribeConfigrationForParticipant(@NonNull Stage
 ```
 func stage(_ stage: IVSStage, subscribeConfigurationForParticipant participant: IVSParticipantInfo) -> IVSSubscribeConfiguration {
     let config = IVSSubscribeConfiguration()
-
     try! config.jitterBuffer.setMinDelay(.medium())
-
     return config
 }
 ```
 
+## Reducing Time to Video When Switching Between Stages
+
+Applications might let users browse a feed of live streams. A user joins one stage,
+swipes to another stream, leaves the current stage, and quickly joins the next. Creating
+a new connection for each stage transition requires establishing a new network
+connection, which can increase the time until video is available.
+
+Use a `RealTimeConnection` to keep one network connection open while the
+user browses streams. Create the connection once, optionally connect it before the first
+stage join, and reuse it across stages. Each stage still uses its own participant token
+and maintains its own participants, streams, and lifecycle.
+
+Create and retain the `RealTimeConnection` for the duration of the browsing
+session in an object that outlives an individual stage, such as an application
+coordinator, navigation controller, or view model. Do not create and disconnect it for
+every stage transition.
+
+**Android**
+
+The following example adds the `RealTimeConnection` lifecycle to the
+MainViewModel used in the Android sample. The view model implements Stage.Strategy and
+StageRenderer.
+
+```
+private var realTimeConnection: RealTimeConnection? = null
+private var stage: Stage? = null
+
+private fun setupConnection(connectionToken: String) {
+    try {
+        val connection = RealTimeConnection(getApplication(), connectionToken)
+
+        // Establish the shared transport before the first Stage join.
+        connection.connect()
+
+        realTimeConnection = connection
+    } catch (error: BroadcastException) {
+        Log.e("BasicRealTime", "Unable to create the RealTimeConnection", error)
+    }
+}
+
+private fun joinStage(participantToken: String) {
+    val realTimeConnection = realTimeConnection ?: return
+
+    try {
+        stage?.leave()
+        stage?.release()
+
+        val stage = Stage(
+            getApplication(),
+            participantToken,
+            realTimeConnection,
+            this
+        )
+        stage.addRenderer(this)
+        stage.join()
+
+        this.stage = stage
+    } catch (error: BroadcastException) {
+        Log.e("BasicRealTime", "Unable to join the Stage", error)
+    }
+}
+
+override fun onCleared() {
+    stage?.leave()
+    stage?.release()
+    stage = null
+
+    realTimeConnection?.disconnect()
+    realTimeConnection?.release()
+    realTimeConnection = null
+
+    super.onCleared()
+}
+```
+
+Calling `connect()` is optional. If the connection is not open when you join
+a stage, the SDK opens it automatically. Call `connect()` before the next
+stage join to establish the connection in advance and reduce time to video. Although the
+example only connects to one stage at a time, a `RealTimeConnection` can be
+connected to multiple stages concurrently.
+
+Call `release()` when the application no longer needs the
+`RealTimeConnection`. After it is released, it cannot be reused.
+
+**iOS**
+
+The following example assumes that the application obtains a connection token when the
+user begins the multi-stage flow and obtains a participant token for each stage that the
+user joins.
+
+```
+private var realTimeConnection: IVSRealTimeConnection?
+private var stage: IVSStage?
+
+private func setupConnection(connectionToken: String) throws {
+    let connection = try IVSRealTimeConnection(token: connectionToken)
+
+    // Establish the shared transport before the first Stage join.
+    try connection.connect()
+
+    realTimeConnection = connection
+}
+
+private func joinStage(participantToken: String) throws {
+    guard let realTimeConnection else {
+        return
+    }
+
+    stage?.leave()
+
+    let stage = try IVSStage(
+        token: participantToken,
+        on: realTimeConnection,
+        strategy: self
+    )
+    stage.addRenderer(self)
+    try stage.join()
+
+    self.stage = stage
+}
+
+private func endStageTransitionFlow() {
+    stage?.leave()
+    stage = nil
+
+    realTimeConnection?.disconnect()
+    realTimeConnection = nil
+}
+```
+
+Calling `connect()` is optional. If the connection is not open when you join
+a stage, the SDK opens it automatically. Call `connect()` before the next stage
+join to establish the connection in advance and reduce time to video. Although the
+example only connects to one stage at a time, an `IVSRealTimeConnection` can
+be connected to multiple stages concurrently.
+
+Keep a strong reference to `IVSRealTimeConnection` while stages use it.
+Calling `disconnect()` leaves any stages using the connection.
+
 ## Suggested Optimizations
 
-| Scenario                                                                   | Recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Streams with text, or slow moving content, like presentations or<br>slides | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive") or [configure streams<br>with lower framerate](#real-time-streaming-changing-framerate "#real-time-streaming-changing-framerate").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Streams with action or a lot of movement                                   | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Streams with conversation or little movement                               | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive") or choose audio-only (see<br>"Subscribing to Participants" in the Real-Time Streaming Broadcast SDK<br>Guides: [Web](web-publish-subscribe.md#web-publish-subscribe-concepts-strategy-participants "web-publish-subscribe.md#web-publish-subscribe-concepts-strategy-participants"), [Android](android-publish-subscribe.md#android-publish-subscribe-concepts-strategy-participants "android-publish-subscribe.md#android-publish-subscribe-concepts-strategy-participants"), and [iOS](ios-publish-subscribe.md#ios-publish-subscribe-concepts-strategy-participants "ios-publish-subscribe.md#ios-publish-subscribe-concepts-strategy-participants")). |
-| Users streaming with limited data                                          | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive") or, if you want lower data usage for<br>everyone, [configure a lower framerate](#real-time-streaming-changing-framerate "#real-time-streaming-changing-framerate") and [lower the bitrate<br>manually](#real-time-streaming-changing-bitrate "#real-time-streaming-changing-bitrate").                                                                                                                                                                                                                                                                                                                                                                    |
+| Scenario                                                                        | Recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Streams with text, or slow moving content, like presentations or<br>slides      | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive") or [configure streams<br>with lower framerate](#real-time-streaming-changing-framerate "#real-time-streaming-changing-framerate").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Streams with action or a lot of movement                                        | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Streams with conversation or little movement                                    | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive") or choose audio-only (see<br>"Subscribing to Participants" in the Real-Time Streaming Broadcast SDK<br>Guides: [Web](web-publish-subscribe.md#web-publish-subscribe-concepts-strategy-participants "web-publish-subscribe.md#web-publish-subscribe-concepts-strategy-participants"), [Android](android-publish-subscribe.md#android-publish-subscribe-concepts-strategy-participants "android-publish-subscribe.md#android-publish-subscribe-concepts-strategy-participants"), and [iOS](ios-publish-subscribe.md#ios-publish-subscribe-concepts-strategy-participants "ios-publish-subscribe.md#ios-publish-subscribe-concepts-strategy-participants")). |
+| Users streaming with limited data                                               | Use [layered<br>encoding with simulcast](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive") or, if you want lower data usage for<br>everyone, [configure a lower framerate](#real-time-streaming-changing-framerate "#real-time-streaming-changing-framerate") and [lower the bitrate<br>manually](#real-time-streaming-changing-bitrate "#real-time-streaming-changing-bitrate").                                                                                                                                                                                                                                                                                                                                                                    |
+| Users browse a feed of live streams and quickly move from one stage to the next | Reuse a `RealTimeConnection` for the browsing session. Call `connect()` before the first stage join to establish the connection in advance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
