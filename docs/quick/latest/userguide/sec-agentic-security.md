@@ -209,6 +209,39 @@ information, see
 [Custom permissions](custom-permissions.md "custom-permissions.md") and
 [Deny by Default](custom-permissions-governance.md "custom-permissions-governance.md").
 
+### Organization-level controls and their limits
+
+Custom permissions apply at the account level, and an administrator of that account
+can change them. If you manage many accounts with AWS Organizations, you can add
+organization-level controls that individual account administrators cannot override.
+These controls act on AWS API operations and account sign-up. Understand what they
+reach and what they do not.
+
+- **Restrict who signs up for Quick**
+  – A service control policy (SCP) controls which accounts, editions, and
+  identity types can create a Quick subscription, so new accounts cannot
+  start a subscription outside your approved set. For more information, see
+  [Using service control policies to restrict Amazon Quick sign-up options](security-scp-admin.md "security-scp-admin.md").
+- **Restrict the management API operations** –
+  An SCP denies the Quick API operations that create and manage agents,
+  flows, spaces, and knowledge bases. Where the policy applies, principals cannot create
+  those resources through the AWS Command Line Interface, the AWS SDKs, or
+  CloudFormation.
+- **Restrict AI feature availability with custom permissions,
+  not SCPs** – SCPs act on AWS API operations and account
+  sign-up. They do not control which AI features a user sees or can use within the
+  product. To restrict AI features for your users, use custom permissions with the
+  deny-by-default option for the AI capability category. For more information, see
+  [Deny by Default](custom-permissions-governance.md "custom-permissions-governance.md").
+
+**Limit** – Each control enforces a different
+layer. An SCP controls account sign-up and API-based management across your organization,
+and no account administrator can override it. Custom permissions control which AI
+features your users can use, and an account administrator can change them. To detect a
+custom permissions change, record the Quick management API operations with
+AWS CloudTrail and review them. For more information, see
+[Incident response, logging, and monitoring in Amazon Quick](incident-response-logging-and-monitoring.md "incident-response-logging-and-monitoring.md").
+
 ### Tool and connector supply chain
 
 Tools reach the AI assistant only through integrations that an administrator

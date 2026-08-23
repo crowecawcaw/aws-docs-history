@@ -243,7 +243,7 @@ investigation, confirm that it covers the event you intend to track.
   and a documented set of non-API events such as dashboard views and user-management
   actions. CloudTrail does not capture chat conversation content or user feedback. For
   those signals, use CloudWatch vended logs. For more information, see
-  [Incident response, logging, and monitoring in Amazon Quick Sight using CloudTrail](incident-response-logging-and-monitoring-qs.md "incident-response-logging-and-monitoring-qs.md").
+  [Monitoring Amazon Quick using CloudTrail](monitoring-cloudtrail.md "monitoring-cloudtrail.md").
 - **CloudWatch vended logs** – Five log types
   deliver conversational and operational data to destinations you control (Amazon CloudWatch
   Logs, Amazon S3, or Firehose):
@@ -256,14 +256,14 @@ investigation, confirm that it covers the event you intend to track.
     Vended logs do not flow by default. Configure delivery shortly after you enable
     Quick AI features so that you do not lose early interaction data. For
     more information, see
-    [Monitoring Amazon Quick usage using CloudWatch Logs](monitoring-quicksuite-chat-feedback-cloudwatch.md "monitoring-quicksuite-chat-feedback-cloudwatch.md").
+    [Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
 
 - **CloudWatch metrics and alarms** – Near-real-time
   operational metrics cover dashboards, visuals, dataset ingestions, unstructured
   datasets, action connectors, and SPICE capacity. You can create CloudWatch alarms that
   send notifications when a metric reaches a threshold that you specify. For more
   information, see
-  [Monitoring data in Amazon Quick Sight using CloudWatch](monitoring-quicksight.md "monitoring-quicksight.md").
+  [Monitoring Amazon Quick using CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
 - **Analytics dashboard** – Provides usage,
   adoption, and feedback insights for IAM administrators. Access requires the
   `quicksight:QuickSuiteUsageMetrics` permission. The analytics dashboard

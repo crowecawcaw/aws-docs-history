@@ -16,6 +16,10 @@ Amazon Quick offers two ways to get started, depending on your needs:
 you can provision Amazon Quick through the AWS Management Console. This path uses IAM Identity Center for
 authentication and integrates with your existing AWS billing and governance.
 
+If your IAM Identity Center instance is replicated to multiple AWS Regions, you can
+create your Quick Enterprise subscription in an active additional Region. For
+more information, see [Set up Amazon Quick with IAM Identity Center multi-Region](setting-up-sso.md#idc-multi-region "setting-up-sso.md#idc-multi-region").
+
 For a comparison of features available with each account type, see [Pricing
 and availability](../../../quicksuite/latest/userguide/what-is.md#pricing "../../../quicksuite/latest/userguide/what-is.md#pricing").
 

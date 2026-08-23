@@ -1,18 +1,23 @@
 # Web Crawler integration
 
+|                                           |
+| ----------------------------------------- |
+| **Applies<br>to:*<br>• Enterprise Edition |
+
 With Web Crawler integration in Amazon Quick, you can create knowledge bases from
 website content by crawling and indexing web pages. This integration supports data
 ingestion capabilities with different authentication options.
 
 ## Web Crawler capabilities
 
-Web Crawler users can ask questions about content stored on websites and web pages.
-For example, users can search documentation sites, knowledge bases, or specific
-information across multiple web pages.
+You can ask questions about content stored on websites and web pages. For example,
+you can search documentation sites, knowledge bases, or specific information across
+multiple web pages.
 
-The integration helps users access and understand web content regardless of location
-or type. It provides contextual details such as publication dates, modification
-history, and page ownership for more efficient information discovery.
+With this integration, you can access and understand web content regardless of
+location or type. You also get contextual details such as publication dates,
+modification history, and page ownership for more efficient information
+discovery.
 
 ###### Note
 
@@ -24,7 +29,7 @@ capabilities for managing websites or web services.
 Before you set up Web Crawler integration, make sure you have the following:
 
 - Website URLs to crawl and index.
-- An Amazon Quick Enterprise subscription.
+- You need a Amazon Quick account with Enterprise Edition.
 - A website that is not behind a firewall and does not require special
   browser plugins to connect.
 
@@ -67,7 +72,7 @@ right-click the highlighted HTML code, choose
 - **Username** - Login username
 - **Password** - Login password
 - **Username field XPath** - XPath to username input field (for example, `//input[@id='username']`)
-- **Username button XPath** (Optional) - XPath to
+- (Optional) **Username button XPath** – XPath to
   username button field (for example,
   `//input[@id='username_button']`)
 - **Password field XPath** - XPath to password input field (for example, `//input[@id='password']`)
@@ -79,8 +84,9 @@ right-click the highlighted HTML code, choose
 For websites that use SAML-based single sign-on (SSO) authentication.
 
 SAML (Security Assertion Markup Language) authentication is a federated
-identity standard that enables SSO. Users authenticate through a centralized
-identity provider (such as Microsoft Azure AD or Okta) instead of entering
+identity standard that enables SSO. You authenticate through a centralized
+identity provider (such as Microsoft Azure AD or
+Okta) instead of entering
 credentials directly into each application. The identity provider passes a
 secure token back to the application to grant access.
 
@@ -91,7 +97,7 @@ secure token back to the application to grant access.
 - **Password** - SAML password
 - **Username field XPath** - XPath to username
   input field (for example, `//input[@id='username']`)
-- **Username button XPath** (Optional) - XPath to
+- (Optional) **Username button XPath** – XPath to
   username button field (for example,
   `//input[@id='username_button']`)
 - **Password field XPath** - XPath to password
@@ -183,7 +189,7 @@ To view these settings, you must first set up a knowledge base and then examine 
 
 **Maximum links per page**
 
-- Default: 1000
+- Default: 100
 - Maximum: 1,000
 - Controls how many links to follow from each page
 
@@ -225,7 +231,7 @@ Your Web Crawler integration follows these crawling practices:
 - **Automatic retry:** Built-in retry logic for failed requests.
 - **Duplicate handling:** Automatic detection and deduplication of
   URLs.
-- **Crawler identification:** Identifies itself with user-agent string "aws-quick-on-behalf-of-<UUID>" in request headers.
+- **Crawler identification:** Identifies itself with the user-agent string `amazon-Quick-on-behalf-of-<UUID>` in request headers. You can target this user-agent in your `robots.txt` file to allow or disallow the crawler specifically. For more information, see [Robots.txt compliance](#web-crawler-robots-compliance "#web-crawler-robots-compliance").
 
 #### Sitemap discovery
 
@@ -250,12 +256,12 @@ Web Crawler does not follow recursive sitemap index references. Only the URLs li
 
 #### Robots.txt compliance
 
-Web Crawler respects the robots.txt protocol and honors user-agent and allow/disallow directives. This enables you to control how the crawler accesses your site.
+Web Crawler respects the robots.txt protocol and honors user-agent and allow or disallow directives. Use these directives to control how the crawler accesses your site.
 
 ##### How robots.txt checking works
 
-- **Host-level checking:** Web Crawler reads robots.txt files at the host level (for example, example.com/robots.txt)
-- **Multiple host support:** For domains with multiple hosts, Web Crawler honors robots rules for each host separately
+- **Host-level checking:** Web Crawler reads robots.txt files at the host level (for example, example.com/robots.txt).
+- **Multiple host support:** For domains with multiple hosts, Web Crawler honors robots rules for each host separately.
 - **Fallback behavior:** If Web Crawler can't fetch robots.txt due to blocking, parsing errors, or timeouts, it behaves as if robots.txt doesn't exist. In this case, the crawler proceeds to crawl the site.
 
 ##### Supported robots.txt fields
@@ -406,5 +412,5 @@ The following limitations apply when using the Web Crawler with a VPC connection
 
 - **No HTTP/3 (QUIC) support:** HTTP/3 is not supported. Most sites will fall back to HTTP/2 automatically, but sites configured for HTTP/3 only will not be accessible.
 - **DNS over TCP required:** DNS resolution must use TCP. Verify that your DNS server supports DNS over TCP before configuring VPC crawling.
-- **Publicly trusted SSL certificates required:** Internal sites must use a certificate from a well-known certificate authority (for example, Let's Encrypt or DigiCert). Sites using self-signed or private CA certificates will fail to connect.
+- **Publicly trusted SSL certificates required:** Internal sites must use a certificate from a well-known certificate authority (for example, Let's Encrypt or DigiCert). Sites using self-signed or private CA certificates fail to connect.
 - **IPv4 only:** Only IPv4 addresses are supported. Sites accessible exclusively over IPv6 cannot be crawled.

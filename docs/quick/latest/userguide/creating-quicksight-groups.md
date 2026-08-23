@@ -21,7 +21,7 @@ example, you can create a group of users that you can share Amazon Quick assets 
 once. You can create and manage groups using the Amazon Quick console or the AWS Command Line Interface
 (AWS CLI). You can create up to 10,000 groups in a namespace. If you want to create more than
 10,000 groups in a namespace, contact [AWS
-Support](https://aws.amazon.com//contact-us/ "https://aws.amazon.com//contact-us/").
+Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
 Use the topics below to create, and modify groups with in the Amazon Quick console or with
 the Amazon Quick APIs.

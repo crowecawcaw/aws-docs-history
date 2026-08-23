@@ -295,4 +295,4 @@ The following limitations apply to Amazon Quick analytics:
 
 For comprehensive monitoring beyond chat interactions, consider using CloudWatch metrics
 and logs in conjunction with the analytics dashboard. For more information, see
-[Monitoring Quick](../../../quicksuite/latest/userguide/monitoring-quicksight.md "../../../quicksuite/latest/userguide/monitoring-quicksight.md").
+[Monitoring Quick](../../../quicksuite/latest/userguide/monitoring-cloudwatch-metrics.md "../../../quicksuite/latest/userguide/monitoring-cloudwatch-metrics.md").

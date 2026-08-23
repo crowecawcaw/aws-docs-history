@@ -205,7 +205,7 @@ To learn more about which data can be managed with the key, see [Encrypting your
 
 ###### Verify the customer managed KMS key that's currently used by a SPICE dataset
 
-1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Sight information with AWS CloudTrail](incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail "incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail").
+1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick operations with AWS CloudTrail](monitoring-cloudtrail.md#logging-using-cloudtrail "monitoring-cloudtrail.md#logging-using-cloudtrail").
 2. Locate the most recent grant events for the SPICE
    dataset, using the following search arguments:
 
@@ -260,7 +260,7 @@ customer managed KMS key encrypted.
 
 ###### Verify the customer managed KMS key that's currently used when generating report artifacts
 
-1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Sight information with AWS CloudTrail](incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail "incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail").
+1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick operations with AWS CloudTrail](monitoring-cloudtrail.md#logging-using-cloudtrail "monitoring-cloudtrail.md#logging-using-cloudtrail").
 2. Locate the most recent `GenerateDataKey` events for the report
    execution, using the following search arguments:
 
@@ -303,7 +303,7 @@ customer managed KMS key encrypted.
 
 ###### Verify the customer managed KMS key that's currently used for data-source credentials
 
-1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Sight information with AWS CloudTrail](incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail "incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail").
+1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick operations with AWS CloudTrail](monitoring-cloudtrail.md#logging-using-cloudtrail "monitoring-cloudtrail.md#logging-using-cloudtrail").
 2. Locate the most recent `Encrypt` events for the data source, using
    the following search arguments:
 

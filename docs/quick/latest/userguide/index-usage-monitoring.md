@@ -8,7 +8,7 @@ unexpected spikes, and plan capacity.
 Before you query index usage data, you must configure
 `INDEX_USAGE_LOGS` delivery. For instructions on setting up
 delivery, see
-[Monitoring Amazon Quick usage using CloudWatch Logs](monitoring-quicksuite-chat-feedback-cloudwatch.md "monitoring-quicksuite-chat-feedback-cloudwatch.md").
+[Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
 
 ## Log schema
 

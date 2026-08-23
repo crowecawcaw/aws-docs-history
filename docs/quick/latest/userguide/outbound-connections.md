@@ -238,7 +238,7 @@ Chat logs can contain sensitive or personally identifiable data.
   understand that chat logs can contain sensitive data.
 
 For more information, see
-[Monitoring Amazon Quick usage using CloudWatch Logs](monitoring-quicksuite-chat-feedback-cloudwatch.md "monitoring-quicksuite-chat-feedback-cloudwatch.md").
+[Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
 
 ## Cross-Region inference
 

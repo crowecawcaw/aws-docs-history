@@ -174,4 +174,4 @@ or groups can take up to five minutes to propagate.
 
 For questions about billing adjustments or refunds related to a subscription
 change, contact [AWS
-Support](https://aws.amazon.com//contact-us/ "https://aws.amazon.com//contact-us/").
+Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").

@@ -10,7 +10,7 @@ profile.
 
 ###### To create a custom permissions profile
 
-1. Open the [Quick console](https://aws.amazon.com//quicksight/ "https://aws.amazon.com//quicksight/").
+1. Open the [Quick console](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/").
 2. Choose **Manage Quick**.
 3. In the left navigation, choose **Permissions**, and
    then choose **Custom permissions**.

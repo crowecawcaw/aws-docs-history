@@ -162,6 +162,52 @@ Amazon Quick subscription. Principals in any other account in your organization 
 prevented from signing up, and they receive a message explaining that they don't have
 the right permissions.
 
+To allow subscription creation only through a specific provisioning identity
+– for example, a role that your infrastructure-as-code pipeline uses –
+use the `aws:PrincipalArn` global condition key instead of
+`aws:PrincipalAccount`. The following example denies all three actions
+unless the caller is the approved provisioning role. Replace the example role ARN with the
+ARN of your provisioning role.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Deny",
+            "Action": [
+                "quicksight:Subscribe",
+                "quicksight:CreateAccountSubscription",
+                "quicksight:CreateAdmin"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::*:role/QuickAccountProvisioner"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+With this policy in effect, only the approved provisioning role can create a
+Amazon Quick subscription, regardless of which account the request comes from. Because
+CloudFormation creates resources as the principal that runs the template, you can use this
+approach to allow subscription creation only through CloudFormation. Run your template with the
+approved provisioning role. Protect the provisioning role by controlling who can
+assume it and who can change its trust policy.
+
+This example also includes `quicksight:CreateAdmin`, which covers the
+Amazon Quick Standard Edition sign-up path in addition to
+`quicksight:Subscribe` and
+`quicksight:CreateAccountSubscription`.
+
 As an alternative to using the condition key, you can attach a `Deny`
 statement for the same two actions (without the `aws:PrincipalAccount`
 condition) to every organizational unit (OU) except the OU that contains your approved
