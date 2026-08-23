@@ -164,13 +164,14 @@ Regions are connected to multiple Internet Service Providers (ISPs) as well as t
 private global network backbone, which provides improved network performance for
 cross-Region traffic sent by customers.
 
-Packets that originate in the private global network with a destination in the private
-global network stay in the private global network and do not traverse the public
-internet. This is true whether the destination is a private IP address or a public IP
-address. For example, if EC2 instances in two VPCs communicate using public IP
-addresses, the traffic stays in the private global network. The destination can be in
-the same Availability Zone, a different Availability Zone in the same Region, or a
-different Region, except for the China Regions.
+Packets that originate from the AWS network with a destination on the AWS
+network stay on the AWS global network, except traffic to or from AWS China
+Regions and the AWS European Sovereign Cloud Region. This is true whether the
+destination is a private IP address or a public IP address. For example, if EC2
+instances in two VPCs communicate using public IP addresses, the traffic stays
+in the private global network. The destination can be in the same Availability
+Zone, a different Availability Zone in the same Region, or a different
+Region.
 
 Network packet loss can be caused by a number of factors, including network flow
 collisions, lower level (Layer 2) errors, and other network failures. We engineer

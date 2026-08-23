@@ -16,7 +16,7 @@ it and how you can work with it.
 
 ## Regional availability
 
-VPC BPA is available in all commercial [AWS Regions](https://aws.amazon.com//about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com//about-aws/global-infrastructure/regions_az/") including GovCloud and China Regions.
+VPC BPA is available in all commercial [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") including GovCloud and China Regions.
 
 In this guide, you'll also find information about using Network Access Analyzer and Reachability Analyzer with VPC
 BPA. Note that Network Access Analyzer and Reachability Analyzer are not available in all commercial Regions. For
