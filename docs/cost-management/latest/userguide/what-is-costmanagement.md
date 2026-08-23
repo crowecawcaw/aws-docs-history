@@ -1,4 +1,4 @@
-# What is AWS Billing and Cost Management?
+# Use AWS Billing and Cost Management for AWS
 
 Welcome to the AWS Cost Management User Guide.
 

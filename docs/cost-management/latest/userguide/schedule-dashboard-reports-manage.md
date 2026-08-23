@@ -29,9 +29,9 @@ configured.
 
 ###### Note
 
-Disabling a scheduled report stops future report generation and revokes all previously
-delivered download links. If PDF reports have already been downloaded to a local device,
-disabling the report does not affect those files.
+Disabling a scheduled report stops future report generation. Download links that were
+already delivered remain valid until they expire, 15 days after the report was generated.
+PDF reports that have already been downloaded to a local device are not affected.
 
 ###### To delete a scheduled report
 
