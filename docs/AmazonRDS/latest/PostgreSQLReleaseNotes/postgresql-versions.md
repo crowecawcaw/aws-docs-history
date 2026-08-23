@@ -39,8 +39,39 @@ the PostgreSQL documentation.
 
 ###### Minor versions
 
+- [PostgreSQL version 19 Beta 3 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta3 "#postgresql-versions-version19Beta3")
 - [PostgreSQL version 19 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta2 "#postgresql-versions-version19Beta2")
 - [PostgreSQL version 19 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta1 "#postgresql-versions-version19Beta1")
+
+### PostgreSQL version 19 Beta 3 in the Amazon RDS Preview environment
+
+PostgreSQL 19 Beta 3 contains many new features and enhancements that can be seen in the
+release documentation: [PostgreSQL 19 Beta 3 Released!](https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/ "https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/").
+
+The following extensions were added:
+
+- `mysql_fdw`
+- `pg_bigm`
+- `pg_transport`
+- `tds_fdw`
+
+The following extensions that are supported in Amazon RDS PostgreSQL version 18 aren't supported for Amazon RDS PostgreSQL version 19 Beta 3 in preview:
+
+- `address_standardizer`
+- `address_standardizer_data_us`
+- `h3-pg`
+- `pg_hint_plan`
+- `pg_similarity`
+- `pg_stat_monitor`
+- `pgactive`
+- `pgrouting`
+- `plprofiler`
+- `postgis`
+- `postgis_raster`
+- `postgis_tiger_geocoder`
+- `postgis_topology`
+
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 19](postgresql-extensions.md#postgresql-extensions-19x "postgresql-extensions.md#postgresql-extensions-19x").
 
 ### PostgreSQL version 19 Beta 2 in the Amazon RDS Preview environment
 
