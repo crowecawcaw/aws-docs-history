@@ -7,7 +7,7 @@ means to do so.
 The AWS SDK provides access to every AWS service, including Device Farm, Amazon S3, and more. For more information,
 see
 
-- the [AWS tools and SDKs](https://aws.amazon.com//tools/ "https://aws.amazon.com//tools/")
+- the [AWS tools and SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/")
 - the [AWS Device Farm API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md")
 
 ## Example: Using the AWS CLI or SDK to upload an app or test to Device Farm
