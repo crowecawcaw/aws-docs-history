@@ -23,7 +23,7 @@ from a different environment running the same application to propagate configura
 Save the current configuration of your environment to your application. Before you make changes to your environment's configuration, save the
 current configuration so that you can roll back later, if needed. You can also apply a saved configuration when you launch a new environment.
 
-## Swap environment Domains (URLs)
+## Swap environment domain
 
 Swap the CNAME of the current environment with a new environment. After a CNAME swap, all traffic to the application using the environment URL goes
 to the new environment. When you are ready to deploy a new version of your application, you can launch a separate environment under the new version.
@@ -33,11 +33,6 @@ interrupt your services. For more information, see [Blue/Green deployments with 
 ## Clone environment
 
 Launch a new environment with the same configuration as your currently running environment.
-
-## Clone with latest platform
-
-Clone your current environment with the latest version of the in-use Elastic Beanstalk platform. This option is available only when a newer version of the
-current environment's platform is available for use.
 
 ## Abort current operation
 
@@ -63,3 +58,9 @@ Terminate all resources in the running environment and remove the environment fr
 data tier and you need to retain its data, make sure the _database deletion policy_ is set to either `Snapshot` or
 `Retain`. For more information, see [Database lifecycle](using-features.managing.db.md#environments-cfg-rds-lifecycle "using-features.managing.db.md#environments-cfg-rds-lifecycle") in the
 _Configuring environments_ chapter of this guide.
+
+## Restore environment
+
+Recreate a recently terminated environment with the same name, ID, and configuration. This action is available from the environment dashboard while
+the terminated environment still appears in the environments list. To restore an environment that no longer appears in the list, use the
+**Restore terminated environment** option on the application page. For more information, see [Rebuilding a terminated environment](environment-management-rebuild.md#environment-management-rebuild-terminated "environment-management-rebuild.md#environment-management-rebuild-terminated").

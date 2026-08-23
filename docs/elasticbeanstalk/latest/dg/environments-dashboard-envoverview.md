@@ -1,24 +1,24 @@
 # Environment overview pane
 
-This topic describes the information that the **Environment overview** pane provides. It shows top-level information about your
-environment and is located on the top half of the environment management console.
+This topic describes the top-level information about your environment that appears at the top of the environment management console. This area is made
+up of the **Environment overview** pane and the **Platform** pane.
 
-The following image displays the **Environment overview** pane.
+The following image displays the **Environment overview** and **Platform** panes.
 
-![Images that displays the top half of the Environment Overview page. The status label next to the platform version displays Update.](images/environment-overview-v2-top-part-OK-status.png)
+![Environment overview and Platform panes: health, domain, ID, application name, platform version, and platform state.](images/environment-overview-v2-top-part-OK-status.png)
 
 ## Health
 
 The overall health of the environment. If the health of your environment degrades, the **View causes** link displays next to the
-environment health. Select this link to view the **Health** tab with more details.
+environment health. Select this link to view the **Health & monitoring** tab with more details.
 
 ## Domain
 
-The environment's **Domain**, or URL, is located in the upper portion of the **Environment overview** page, below
-the environment's **Health**. This is the URL of the web application that the environment is running. You can launch the application be
-selecting the URL.
+The environment's **Domain**, or URL, is located in the **Environment overview** pane, below the environment's
+**Health**. This is the URL of the web application that the environment is running. You can launch the application by selecting the
+URL.
 
-## Environment id
+## Environment ID
 
 The environment ID. This is an internal ID that's generated when the environment is created.
 
@@ -37,9 +37,13 @@ version.
 The name of the platform version running on your environment. Typically, this comprises the architecture, operating system (OS), language, and
 application server (collectively known as the _platform branch_), with a specific platform version number.
 
-If your platform version is not the most recently available, then a status label displays next to it in the **Platform** section.
-The **Update** label indicates that although the platform version is supported a newer version is available. The platform version may
+If your platform version is not the most recently available, then a status label displays next to it in the **Platform** pane. The
+**Update** label indicates that although the platform version is supported a newer version is available. The platform version may
 also be labeled as **Deprecated** or **Retired**. Select **Change version** to update your platform
 branch to a newer version. For more information about the _states_ of a platform version, see the _Platform
-Branch_ section in the [Elastic Beanstalk platforms glossary](platforms-glossary.md "platforms-glossary.md"). The previous image on this page illustrates
-the **Update** status label for the given platform.
+Branch_ section in the [Elastic Beanstalk platforms glossary](platforms-glossary.md "platforms-glossary.md").
+
+## Platform state
+
+The lifecycle state of the platform version running on your environment, such as **Supported**, **Deprecated**,
+or **Retired**.

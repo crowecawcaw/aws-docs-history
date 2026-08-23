@@ -13,7 +13,7 @@ Toolkit for Visual Studio or the AWS Management Console.
 The toolkit displays your environment's status and application health in the
 **Status** field.
 
-![Elastic Beanstalk health status](images/aeb-vs-env-status.png)
+![Elastic Beanstalk health status](/images/elasticbeanstalk/latest/dg/images/aeb-vs-env-status.png)
 
 ###### To monitor application health
 

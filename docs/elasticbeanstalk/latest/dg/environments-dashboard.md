@@ -20,4 +20,4 @@ that are linked to the tabs, are also listed on the left navigation pane under t
 
 The console's navigation pane shows the name of the application that's deployed to the environment, with related application management pages. The
 environment name is also displayed on the navigation page, followed by the environment management pages. The links listed under the environment name also
-include **Go to environment** and **Configuration**, in addition to the tabbed pages previously mentioned.
+include **Go to environment**, in addition to the tabbed pages previously mentioned.

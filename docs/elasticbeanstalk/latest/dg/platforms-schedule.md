@@ -50,9 +50,6 @@ guide.
 
 | Runtime version / platform branch        | Target retirement date |
 | ---------------------------------------- | ---------------------- |
-| Python 3.9 AL2023                        | July 31, 2026          |
-| Ruby 3.2 AL2023                          | July 31, 2026          |
-| Node.js 20 AL2023                        | July 31, 2026          |
 | IIS 10.0 on Windows Server 2016 (& Core) | September 30, 2026     |
 | PHP 8.2 AL2023                           | March 31, 2027         |
 | .NET 9 AL2023                            | March 31, 2027         |
@@ -68,21 +65,24 @@ _AWS Elastic Beanstalk Platforms_ guide.
 
 Amazon Linux 2023 (AL2023)| Runtime version / platform branch | Retirement date |
 | --- | --- |
-| .NET 6 AL2023 | April 8, 2025 |
-| Node.js 18 AL2023 | August 11, 2025 |
+| Node.js 20 AL2023 | August 13, 2026 |
+| Python 3.9 AL2023 | August 13, 2026 |
+| Ruby 3.2 AL2023 | August 13, 2026 |
 | PHP 8.1 AL2023 | April 16, 2026 |
+| Node.js 18 AL2023 | August 11, 2025 |
+| .NET 6 AL2023 | April 8, 2025 |
 
 Amazon Linux 2 (AL2)| Runtime version / platform branch | Retirement date |
 | --- | --- |
-| .NET Core AL2 | June 30, 2026 |
-| Corretto 8 AL2 | June 30, 2026 |
-| Corretto 8 with Tomcat 9 AL2 | June 30, 2026 |
-| Corretto 11 AL2 | June 30, 2026 |
-| Corretto 11 with Tomcat 9 AL2 | June 30, 2026 |
-| Corretto 17 AL2 | June 30, 2026 |
-| Docker AL2 | June 30, 2026 |
-| ECS AL2 | June 30, 2026 |
-| Go 1 AL2 | June 30, 2026 |
+| .NET Core AL2 | August 6, 2026 |
+| Corretto 8 AL2 | August 6, 2026 |
+| Corretto 8 with Tomcat 9 AL2 | August 6, 2026 |
+| Corretto 11 AL2 | August 6, 2026 |
+| Corretto 11 with Tomcat 9 AL2 | August 6, 2026 |
+| Corretto 17 AL2 | August 6, 2026 |
+| Docker AL2 | August 6, 2026 |
+| ECS AL2 | August 6, 2026 |
+| Go 1 AL2 | August 6, 2026 |
 | Corretto 11 with Tomcat 8.5 AL2 | October 10, 2024 |
 | Corretto 8 with Tomcat 8.5 AL2 | October 10, 2024 |
 | Corretto 11 with Tomcat 7 AL2 | June 29, 2022 |
