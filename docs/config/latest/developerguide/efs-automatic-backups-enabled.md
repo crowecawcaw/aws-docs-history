@@ -8,7 +8,7 @@ Checks if an Amazon Elastic File System (Amazon EFS) file system has automatic b
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

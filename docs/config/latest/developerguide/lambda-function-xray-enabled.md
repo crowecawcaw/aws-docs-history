@@ -8,7 +8,7 @@ Checks if AWS X-Ray is enabled on AWS Lambda functions.The rule is NON\_COMPLIAN
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 

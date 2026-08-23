@@ -8,7 +8,7 @@ Checks if Audit Log Monitoring for Amazon Elastic Kubernetes Service (Amazon EKS
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Malaysia), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), China (Ningxia) Region
 
 **Parameters:**
 

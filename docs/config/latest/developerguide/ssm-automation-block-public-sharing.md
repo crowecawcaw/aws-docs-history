@@ -8,7 +8,7 @@ Checks if AWS Systems Manager Documents has block public sharing enabled. The ru
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Melbourne), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

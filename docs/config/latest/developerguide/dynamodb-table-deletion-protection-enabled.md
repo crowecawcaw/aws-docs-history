@@ -8,7 +8,7 @@ Checks if an Amazon DynamoDB table have deletion protection set to enabled. The 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
 
 **Parameters:**
 

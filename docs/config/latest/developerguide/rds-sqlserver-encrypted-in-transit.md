@@ -8,7 +8,7 @@ Checks if connections to Amazon RDS SQL server database instances are configured
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Asia Pacific (Malaysia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

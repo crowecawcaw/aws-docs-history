@@ -8,7 +8,7 @@ Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON\_C
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS GovCloud (US-East), AWS GovCloud (US-West), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

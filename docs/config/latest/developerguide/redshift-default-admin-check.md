@@ -8,7 +8,7 @@ Checks if an Amazon Redshift cluster has changed the admin username from its def
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), Israel (Tel Aviv), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Israel (Tel Aviv), Canada West (Calgary) Region
 
 **Parameters:**
 

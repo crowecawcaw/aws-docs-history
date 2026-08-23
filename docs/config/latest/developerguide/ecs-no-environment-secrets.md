@@ -12,7 +12,7 @@ This rule only evaluates the latest active revision of an Amazon ECS task defini
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS GovCloud (US-East), AWS GovCloud (US-West), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

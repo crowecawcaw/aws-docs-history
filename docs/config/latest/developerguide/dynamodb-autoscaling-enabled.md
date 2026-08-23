@@ -12,35 +12,35 @@ Checks if Amazon DynamoDB tables or global secondary indexes can process read/wr
 
 **Parameters:**
 
-minProvisionedReadCapacity (Optional)
+minProvisionedWriteCapacity (Optional)
 Type: int
 
-The minimum number of units that should be provisioned with read capacity in the Auto Scaling group.
+The minimum number of units that should be provisioned with write capacity in the Auto Scaling group.
 
 maxProvisionedReadCapacity (Optional)
 Type: int
 
 The maximum number of units that should be provisioned with read capacity in the Auto Scaling group.
 
-targetReadUtilization (Optional)
-Type: double
-
-The target utilization percentage for read capacity. Target utilization is expressed in terms of the ratio of consumed capacity to provisioned capacity.
-
-minProvisionedWriteCapacity (Optional)
-Type: int
-
-The minimum number of units that should be provisioned with write capacity in the Auto Scaling group.
-
 maxProvisionedWriteCapacity (Optional)
 Type: int
 
 The maximum number of units that should be provisioned with write capacity in the Auto Scaling group.
 
+minProvisionedReadCapacity (Optional)
+Type: int
+
+The minimum number of units that should be provisioned with read capacity in the Auto Scaling group.
+
 targetWriteUtilization (Optional)
 Type: double
 
 The target utilization percentage for write capacity. Target utilization is expressed in terms of the ratio of consumed capacity to provisioned capacity.
+
+targetReadUtilization (Optional)
+Type: double
+
+The target utilization percentage for read capacity. Target utilization is expressed in terms of the ratio of consumed capacity to provisioned capacity.
 
 ## AWS CloudFormation template
 

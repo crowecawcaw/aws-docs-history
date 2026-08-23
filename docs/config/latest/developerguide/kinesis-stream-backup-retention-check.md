@@ -8,7 +8,7 @@ Checks if an Amazon Kinesis Data Stream has its data record retention period set
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), Israel (Tel Aviv), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Israel (Tel Aviv), Canada West (Calgary) Region
 
 **Parameters:**
 

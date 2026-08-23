@@ -8,7 +8,7 @@ Checks if an Amazon PostgreSQL DB instance is configured to publish logs to Amaz
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Canada West (Calgary) Region
 
 **Parameters:**
 

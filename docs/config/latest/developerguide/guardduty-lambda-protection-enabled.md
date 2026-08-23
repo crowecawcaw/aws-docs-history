@@ -8,7 +8,7 @@ Checks if Lambda Protection is enabled for an Amazon GuardDuty detector in your 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Taipei), China (Ningxia) Region
 
 **Parameters:**
 

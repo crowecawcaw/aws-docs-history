@@ -8,7 +8,7 @@ Checks if a private Amazon Elastic Container Registry (ECR) repository has at le
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), Mexico (Central), Israel (Tel Aviv) Region
+**AWS Region:** All supported AWS regions except Israel (Tel Aviv) Region
 
 **Parameters:**
 

@@ -8,7 +8,7 @@ Checks if the latest active revision of an Amazon ECS task definition configures
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
 
 **Parameters:**
 

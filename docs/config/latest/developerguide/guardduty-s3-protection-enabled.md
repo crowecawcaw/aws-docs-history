@@ -8,7 +8,7 @@ Checks if S3 Protection is enabled for an Amazon GuardDuty Detector in your acco
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Malaysia), Mexico (Central), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), China (Ningxia) Region
 
 **Parameters:**
 

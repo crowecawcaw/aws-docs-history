@@ -8,7 +8,7 @@ Checks if EC2 ENIs managed by users have source/destination check enabled. The r
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
 
 **Parameters:**
 

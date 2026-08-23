@@ -8,7 +8,7 @@ Checks if a private Amazon Elastic Container Registry (ECR) repository has tag i
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), Israel (Tel Aviv), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

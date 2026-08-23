@@ -12,7 +12,7 @@ To be considered non-public, a KMS key policy must grant access only to fixed va
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except AWS GovCloud (US-East), AWS GovCloud (US-West), Canada West (Calgary) Region
 
 **Parameters:**
 

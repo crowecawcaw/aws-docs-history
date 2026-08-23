@@ -8,7 +8,7 @@ Checks if Amazon MariaDB database instances are configured to publish logs to Am
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

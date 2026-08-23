@@ -21,12 +21,6 @@ If a bucket policy contains more than one statement, each statement in the bucke
 
 **Parameters:**
 
-awsPrincipals (Optional)
-Type: CSV
-
-Comma-separated list of principals such as IAM User ARNs, IAM Role ARNs, and AWS accounts. You must provide the full ARN or use partial matching. For example, "arn:aws:iam::`AccountID`:role/`role_name`" or "arn:aws:iam::`AccountID`:role/\*".
-If the provided value is not an exact match with the principal ARN specified in the bucket policy, the rule is NON\_COMPLIANT.
-
 servicePrincipals (Optional)
 Type: CSV
 
@@ -36,6 +30,12 @@ federatedUsers (Optional)
 Type: CSV
 
 Comma-separated list of identity providers for web identity federation such as Amazon Cognito and SAML identity providers. For example 'cognito-identity.amazonaws.com, arn:aws:iam::111122223333:saml-provider/my-provider'.
+
+awsPrincipals (Optional)
+Type: CSV
+
+Comma-separated list of principals such as IAM User ARNs, IAM Role ARNs, and AWS accounts. You must provide the full ARN or use partial matching. For example, "arn:aws:iam::`AccountID`:role/`role_name`" or "arn:aws:iam::`AccountID`:role/\*".
+If the provided value is not an exact match with the principal ARN specified in the bucket policy, the rule is NON\_COMPLIANT.
 
 ipAddresses (Optional)
 Type: CSV

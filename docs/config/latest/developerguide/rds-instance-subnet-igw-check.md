@@ -8,7 +8,7 @@ Checks if RDS DB instances are deployed in a public subnet with a route to the i
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

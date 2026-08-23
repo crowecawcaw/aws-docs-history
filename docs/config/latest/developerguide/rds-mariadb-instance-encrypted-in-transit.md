@@ -8,7 +8,7 @@ Checks if connections to Amazon RDS for MariaDB DB instances with engine version
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Canada West (Calgary) Region
 
 **Parameters:**
 

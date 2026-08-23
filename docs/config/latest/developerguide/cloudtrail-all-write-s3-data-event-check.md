@@ -8,7 +8,7 @@ Checks if an AWS CloudTrail multi-Region trail is enabled and logs all write S3 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
 
 **Parameters:**
 

@@ -8,7 +8,7 @@ Checks if an Amazon Elastic Kubernetes Service (EKS) nodegroup is running the ol
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Middle East (Bahrain), Middle East (UAE), Mexico (Central) Region
+**AWS Region:** All supported AWS regions except Middle East (Bahrain), Middle East (UAE) Region
 
 **Parameters:**
 

@@ -9,7 +9,7 @@ The rule is NON\_COMPLIANT if Aurora MySQL-Compatible Edition clusters do not ha
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

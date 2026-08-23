@@ -8,7 +8,7 @@ Checks if an Amazon Elastic File System (Amazon EFS) is associated with subnets 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Malaysia), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), China (Ningxia) Region
 
 **Parameters:**
 
