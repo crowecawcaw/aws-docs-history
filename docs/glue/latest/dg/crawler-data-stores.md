@@ -74,6 +74,10 @@ Use an Iceberg crawler only when it is the sole writer to a Data Catalog table. 
 
 The crawler syncs Iceberg metadata from an external catalog and must be the sole writer to the table. If another writer modifies the Data Catalog table while the crawler is running, the crawler fails to update the table.
 
+###### Iceberg v3 data types not supported
+
+AWS Glue crawlers do not support Iceberg v3 data types, including VARIANT, UNKNOWN, Geography, and Geometry. Tables that contain columns with these data types cannot be crawled.
+
 You can define these parameters for the data store:
 
 - **Exclusions**: Allows you to skip certain folders.

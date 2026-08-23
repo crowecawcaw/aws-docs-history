@@ -68,3 +68,277 @@ AWS Glue Streaming supports a variety of data targets such as:
 - Any database that can be connected using JDBC
 - Apache Iceberg, Delta and Apache Hudi
 - AWS Glue Marketplace connectors
+
+## Enabling real-time mode for streaming jobs
+
+Real-time mode (RTM) is a new execution model for Spark Structured Streaming available in
+AWS Glue 6.0. RTM reduces end-to-end latency from seconds or minutes to sub-second. Real-time mode applies only to Spark Structured Streaming jobs. It does
+not apply to legacy Spark Streaming (DStreams) or other job types.
+
+RTM uses `Trigger.RealTime`. Tasks run continuously within a batch window
+(default 5 minutes) and process records as they arrive, rather than accumulating data across
+intervals. This differs from the default micro-batch model, where
+`forEachBatch`/`Trigger.ProcessingTime` polls, processes, commits,
+and restarts tasks each interval.
+
+###### Important
+
+RTM requires an explicit opt-in through a job argument. If there are not enough task
+slots to cover all source partitions, RTM silently drops unassigned partitions. You must
+provision enough workers to cover all of your Kafka partitions.
+
+### Prerequisites
+
+Before you enable real-time mode, confirm that your job meets the following
+requirements:
+
+- AWS Glue version 6.0
+- Job must use Spark Structured Streaming. Real-time mode does not apply to
+  legacy Spark Streaming (DStreams) or other job types.
+- Job type must be Spark Streaming (`gluestreaming` command)
+- Job language must be Scala (`--job-language scala`). PySpark RTM
+  support is not available until Spark 4.2.
+- Kafka source only. Amazon Kinesis is not supported for RTM in AWS Glue 6.0.
+- Stateless operations only (select, filter, project, map). Stateful operations
+  such as aggregations, joins, deduplication, and windowed operations are not
+  supported.
+- Output mode must be Update. Append mode is not supported with RTM.
+- Auto-scaling is not compatible with real-time mode. Do not enable auto-scaling
+  for RTM jobs. Configure a fixed number of workers sufficient to cover all
+  Kafka partitions in your source topic.
+
+### When to use real-time mode
+
+Real-time mode is designed for a specific class of streaming workloads. Consider using
+real-time mode when:
+
+- You need sub-second end-to-end latency and micro-batch
+  latency (1–2 seconds or more) is too high for your use case.
+- Your pipeline performs stateless transformations such as filtering, projecting,
+  enriching, or routing records from Kafka to Kafka or another sink.
+- You have a fixed, predictable number of Kafka partitions and can provision
+  workers accordingly.
+- Your jobs are written in Scala.
+
+Continue using micro-batch mode when:
+
+- You need stateful operations such as aggregations, joins, deduplication, or
+  windowed computations.
+- You use Amazon Kinesis as a source.
+- You write PySpark jobs.
+- You rely on auto-scaling to handle variable data volumes.
+- You use the `forEachBatch` or GlueContext streaming API.
+- Second-level latency is acceptable for your use case.
+
+### How real-time mode works
+
+The following describes the difference between the micro-batch model and real-time
+mode:
+
+Micro-batch mode
+
+Each interval launches tasks, reads accumulated data, processes the data,
+commits the checkpoint, terminates tasks, and repeats. Minimum latency is
+approximately 1–2 seconds.
+
+Real-time mode
+
+Tasks launch once and run for the duration of
+`batchDurationMs` (default 5 minutes). Tasks process records
+as they arrive, with sub-second latency. At the
+deadline, tasks cooperatively stop. The driver commits the checkpoint,
+and the next batch relaunches tasks.
+
+Both modes use the same checkpoint format and recovery mechanism. The key difference
+is task lifetime. Micro-batch mode terminates and relaunches tasks every interval.
+Real-time mode keeps tasks running continuously within a longer batch window.
+
+###### Important
+
+If there are not enough task slots to process all source partitions, RTM silently
+drops the unassigned partitions. Ensure that you provision enough workers to cover
+all partitions.
+
+### To enable real-time mode
+
+You enable real-time mode by setting the `--enable-real-time-mode` job
+argument to `true`. You can set this argument in the AWS Glue console or
+through the API.
+
+#### To enable real-time mode (console)
+
+1. Open the [AWS Glue console](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/") and open your streaming job.
+2. Choose the **Job details** tab.
+3. For **Glue version**, choose
+   **Glue 6.0**. For
+   **Type**, choose
+   **Spark Streaming**.
+4. Scroll to the **Job parameters**
+   section.
+5. Choose **Add new parameter**.
+6. For **Key**, enter
+   `--enable-real-time-mode`. For
+   **Value**, enter
+   `true`.
+7. Choose **Save**.
+
+###### Note
+
+The leading dashes are required. **Job
+parameters** is the console view of
+`DefaultArguments`.
+
+#### To enable real-time mode (API)
+
+The `--enable-real-time-mode` flag is stored in the
+`DefaultArguments` map of the job definition. You can set it when you
+create or update a job.
+
+###### To create a new job (AWS CLI)
+
+Run the following command:
+
+```
+aws glue create-job \
+  --name my-rtm-job \
+  --role arn:aws:iam::123456789012:role/MyGlueRole \
+  --glue-version 6.0 \
+  --worker-type G.1X --number-of-workers 4 \
+  --command '{"Name":"gluestreaming","ScriptLocation":"s3://my-bucket/scripts/rtm-job.scala"}' \
+  --default-arguments '{
+      "--enable-real-time-mode": "true",
+      "--job-language": "scala",
+      "--class": "GlueApp",
+      "--TempDir": "s3://my-bucket/tmp/"
+  }' \
+  --region us-east-2
+```
+
+###### To create a new job (boto3)
+
+Use the following code:
+
+```
+import boto3
+
+glue = boto3.client("glue", region_name="us-east-2")
+
+glue.create_job(
+    Name="my-rtm-job",
+    Role="arn:aws:iam::123456789012:role/MyGlueRole",
+    GlueVersion="6.0",
+    WorkerType="G.1X",
+    NumberOfWorkers=4,
+    Command={
+        "Name": "gluestreaming",
+        "ScriptLocation": "s3://my-bucket/scripts/rtm-job.scala",
+    },
+    DefaultArguments={
+        "--enable-real-time-mode": "true",
+        "--job-language": "scala",
+        "--class": "GlueApp",
+        "--TempDir": "s3://my-bucket/tmp/",
+    },
+)
+```
+
+###### To update an existing job (AWS CLI)
+
+Run the following command:
+
+```
+aws glue update-job \
+  --job-name my-existing-job \
+  --job-update '{
+      "GlueVersion": "6.0",
+      "DefaultArguments": {
+          "--enable-real-time-mode": "true",
+          "--job-language": "scala"
+      }
+  }'
+```
+
+### Writing your streaming script
+
+The job argument declares the intent to use real-time mode. Your script selects the
+trigger.
+
+The following Scala example shows a streaming query that uses
+`Trigger.RealTime`:
+
+```
+import org.apache.spark.sql.streaming.Trigger
+
+val query = df.writeStream
+  .format("kafka")
+  .outputMode("update")
+  .trigger(Trigger.RealTime(60000L))  // checkpoint interval in milliseconds
+  .start()
+
+query.awaitTermination()
+```
+
+`Trigger.RealTime` takes a checkpoint interval in milliseconds.
+Update output mode is required. Append mode throws
+`OUTPUT_MODE_NOT_SUPPORTED`.
+
+You can mix modes in one script as long as the flag is set:
+
+```
+dfA.writeStream.outputMode("update").trigger(Trigger.RealTime(60000L)).start()
+dfB.writeStream.outputMode("append").trigger(Trigger.ProcessingTime("30 seconds")).start()
+```
+
+### Behavior when the flag is missing
+
+The following describes how the job behaves when the
+`--enable-real-time-mode` flag is not set:
+
+- A job that starts a real-time query without the
+  `--enable-real-time-mode` flag fails at query start. The failure
+  message directs you to add the argument.
+- Micro-batch-only jobs are never affected by the absence of this flag.
+- A job that sets the flag but only uses micro-batch queries is also
+  unaffected.
+
+### Considerations and limitations
+
+Consider the following when you use real-time mode:
+
+Partition drops
+
+If there are not enough task slots to cover all source partitions,
+unassigned partitions are not processed. Provision workers to cover all
+Kafka partitions.
+
+No auto-scaling
+
+Do not enable auto-scaling for real-time mode jobs. Auto-scaling
+is not compatible with RTM and introduces latency that counteracts the
+low-latency benefits. Provision a fixed number of workers equal to or
+greater than the number of Kafka partitions in your source topic.
+
+Kafka only
+
+Amazon Kinesis source does not support RTM in AWS Glue 6.0.
+
+Scala only
+
+PySpark is not supported for RTM until Spark 4.2.
+
+Stateless only
+
+Aggregations, joins, deduplication, windowed operations, and
+`transformWithState` are not supported.
+
+forEachBatch incompatible
+
+RTM does not use the `forEachBatch` model. Use
+`writeStream` with `Trigger.RealTime`
+directly.
+
+Checkpoint recovery
+
+On job restart, RTM recovers from the last checkpoint. Checkpoints
+occur every `batchDurationMs`. Worst-case reprocessing is
+the duration of one batch window (at-least-once semantics).

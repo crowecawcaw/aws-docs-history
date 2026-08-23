@@ -79,7 +79,7 @@ $ aws glue put-resource-policy --profile `administrator-name` --region us-west-2
     {
       "Principal": {
         "AWS": [
-          "arn:aws:iam::`account-A-id`:user/Alice"
+          "arn:aws:iam::`123456789012`:user/Alice"
         ]
       },
       "Effect": "Allow",
@@ -87,7 +87,7 @@ $ aws glue put-resource-policy --profile `administrator-name` --region us-west-2
         "glue:*"
       ],
       "Resource": [
-        "arn:aws:glue:us-west-2:`account-A-id`:*"
+        "arn:aws:glue:us-west-2:`123456789012`:*"
       ]
     }
   ]
@@ -106,7 +106,7 @@ $ echo '{
     {
       "Principal": {
         "AWS": [
-          "arn:aws:iam::`account-A-id`:user/Alice"
+          "arn:aws:iam::`123456789012`:user/Alice"
         ]
       },
       "Effect": "Allow",
@@ -114,7 +114,7 @@ $ echo '{
         "glue:*"
       ],
       "Resource": [
-        "arn:aws:glue:us-west-2:`account-A-id`:*"
+        "arn:aws:glue:us-west-2:`123456789012`:*"
       ]
     }
   ]

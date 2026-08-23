@@ -56,13 +56,12 @@ jobs are run on discontinued versions.
 AWS strongly recommends that you migrate your jobs to supported versions.
 
 For information on migrating your Spark jobs to the latest AWS Glue version, see
-[Migrating AWS Glue jobs to
-AWS Glue version 5.1](migrating-version-51.md "migrating-version-51.md").
+[Migrating AWS Glue for Spark jobs to AWS Glue version 6.0](migrating-version-60.md "migrating-version-60.md").
 
 For migrating your Python shell jobs to the latest AWS Glue version:
 
-- In the console, choose `Python 3 (Glue Version 5.1)`.
-- In the [CreateJob](../webapi/API_CreateJob.md "../webapi/API_CreateJob.md")/[UpdateJob](../webapi/API_UpdateJob.md "../webapi/API_UpdateJob.md") API, set the `GlueVersion` parameter to `5.1`, and the
+- In the console, choose `Python 3 (Glue Version 6.0)`.
+- In the [CreateJob](../webapi/API_CreateJob.md "../webapi/API_CreateJob.md")/[UpdateJob](../webapi/API_UpdateJob.md "../webapi/API_UpdateJob.md") API, set the `GlueVersion` parameter to `6.0`, and the
   `PythonVersion` to `3` under the `Command` parameter. The `GlueVersion` configuration does not
   affect the behavior of Python shell jobs, so there is no advantage to incrementing `GlueVersion`.
 - You need to make your job script compatible with Python 3.

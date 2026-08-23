@@ -57,9 +57,9 @@ Tables integration with the Data Catalog in IAM mode:
         "glue:GetTable"
       ],
       "Resource": [
-        "arn:aws:glue:`region`:`account-id`:catalog/s3tablescatalog",
-        "arn:aws:glue:`region`:`account-id`:database/s3tablescatalog/*/*",
-        "arn:aws:glue:`region`:`account-id`:table/s3tablescatalog/*/*/*"
+        "arn:aws:glue:`us-east-1`:`123456789012`:catalog/s3tablescatalog",
+        "arn:aws:glue:`us-east-1`:`123456789012`:database/s3tablescatalog/*/*",
+        "arn:aws:glue:`us-east-1`:`123456789012`:table/s3tablescatalog/*/*/*"
       ]
     },
     {
@@ -73,8 +73,8 @@ Tables integration with the Data Catalog in IAM mode:
         "s3tables:GetTableData"
       ],
       "Resource": [
-        "arn:aws:s3tables:`region`:`account-id`:bucket/*",
-        "arn:aws:s3tables:`region`:`account-id`:bucket/*/table/*"
+        "arn:aws:s3tables:`us-east-1`:`123456789012`:bucket/*",
+        "arn:aws:s3tables:`us-east-1`:`123456789012`:bucket/*/table/*"
       ]
     }
   ]

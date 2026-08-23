@@ -134,7 +134,7 @@ _Amazon Simple Storage Service User Guide_.
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "`account-id`"
+                    "aws:SourceAccount": "`123456789012`"
                 }
             }
         },
@@ -151,11 +151,11 @@ _Amazon Simple Storage Service User Guide_.
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "`account-id`"
+                    "aws:SourceAccount": "`123456789012`"
                 },
                 "StringLike": {
-                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`region`:`account-id`:bucket/aws-catalog/table/*",
-                    "kms:ViaService": "s3.`region`.amazonaws.com"
+                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`us-east-1`:`123456789012`:bucket/aws-catalog/table/*",
+                    "kms:ViaService": "s3.`us-east-1`.amazonaws.com"
                 }
             }
         },
@@ -172,10 +172,10 @@ _Amazon Simple Storage Service User Guide_.
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "`account-id`"
+                    "aws:SourceAccount": "`123456789012`"
                 },
                 "StringLike": {
-                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`region`:`account-id`:bucket/aws-catalog/*"
+                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`us-east-1`:`123456789012`:bucket/aws-catalog/*"
                 }
             }
         }
@@ -201,10 +201,10 @@ decrypt a specific AWS Glue Data Catalog, scoped with the
             "Action": [
                 "kms:DescribeKey"
             ],
-            "Resource": "arn:aws:kms:`region`:`account-id`:key/`key-id`",
+            "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`1234abcd-12ab-34cd-56ef-1234567890ab`",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "`account-id`"
+                    "aws:SourceAccount": "`123456789012`"
                 }
             }
         },
@@ -215,11 +215,11 @@ decrypt a specific AWS Glue Data Catalog, scoped with the
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
-            "Resource": "arn:aws:kms:`region`:`account-id`:key/`key-id`",
+            "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`1234abcd-12ab-34cd-56ef-1234567890ab`",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "`account-id`",
-                    "kms:EncryptionContext:glue_catalog_id": "`account-id`"
+                    "aws:SourceAccount": "`123456789012`",
+                    "kms:EncryptionContext:glue_catalog_id": "`123456789012`"
                 }
             }
         }

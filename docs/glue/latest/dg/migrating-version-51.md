@@ -151,7 +151,6 @@ Note the following changes:
   - Row Lineage tracking.
   - Deletion vectors. Learn more in
     [blog post](https://aws.amazon.com/blogs/big-data/unlock-the-power-of-apache-iceberg-v3-deletion-vectors-on-amazon-emr/ "https://aws.amazon.com/blogs/big-data/unlock-the-power-of-apache-iceberg-v3-deletion-vectors-on-amazon-emr/")
-  - Table encryption keys.
   - Default value support for columns.
 
 - Support Spark-native FGAC writes on AWS Lake Formation registered tables.
