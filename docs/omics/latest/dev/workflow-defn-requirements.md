@@ -60,8 +60,9 @@ if ("$AWS_WORKFLOW_RUN") {
 
 - **Reports**
 
-HealthOmics doesn't support engine-generated dag, trace, and execution reports. You can generate alternatives to
-the trace and execution reports using a combination of GetRun and GetRunTask API calls.
+HealthOmics supports the Nextflow execution report, timeline, trace, and DAG reports. Configure each report to
+write its output under `/mnt/workflow/output/` so that HealthOmics exports it to your run's Amazon S3 output
+location. For more information, see [Generate Nextflow execution reports](workflow-definition-nextflow.md#nextflow-execution-reports "workflow-definition-nextflow.md#nextflow-execution-reports").
 Additional CWL considerations:
 
 - **Container image uri interpolation**

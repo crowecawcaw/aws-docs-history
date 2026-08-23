@@ -269,6 +269,38 @@ For more information on supported directive syntax, see
 [WDL workflow definition specifics](workflow-languages-wdl.md "workflow-languages-wdl.md") and
 [Nextflow workflow definition specifics](workflow-definition-nextflow.md "workflow-definition-nextflow.md").
 
+### Example: expression-based disk sizing
+
+Instead of a fixed size, you can set the `disk` directive to an expression that the
+workflow engine evaluates for each task at runtime. The following Nextflow process uses a closure that
+scales the request with the task attempt number. If the task fails for any reason and Nextflow retries
+it, the retry requests a larger volume.
+
+```
+process sort_bam {
+    disk { 200.GB * task.attempt }
+    errorStrategy 'retry'
+    maxRetries 2
+
+    script:
+    """
+    samtools sort -T /tmp/sort_buffer ${input} -o ${output}
+    """
+}
+// First attempt requests 200 GiB (provisioned at the 208 GiB tier)
+// Second attempt requests 400 GiB (provisioned at the 400 GiB tier)
+```
+
+The workflow engine evaluates the expression for each task attempt. HealthOmics then rounds the resolved
+size up to the next 16 GiB increment.
+
+###### Note
+
+Because the engine resolves the expression at runtime, HealthOmics cannot check the size at
+`CreateWorkflow`. HealthOmics caps an evaluated size above 3,072 GiB when the task starts. For more
+information, see
+[Supported sizes](#ephemeral-storage-supported-sizes "#ephemeral-storage-supported-sizes").
+
 ### Common bioinformatics tools and ephemeral storage
 
 Many bioinformatics tools write large temporary files during execution. When
@@ -373,7 +405,8 @@ task is not automatically failed.
 For expression-based `disk` directives — such as Nextflow closures or WDL expressions like
 `disks: ceil(size(input_bam, "GiB") * 2.5)` — the value is evaluated at runtime, not at
 `CreateWorkflow`. If the evaluated size exceeds 3,072 GiB, the task fails at runtime and any
-compute costs incurred up to that point are charged.
+compute costs incurred up to that point are charged. For an example, see
+[Example: expression-based disk sizing](#ephemeral-storage-expression-disk "#ephemeral-storage-expression-disk").
 
 ### Supported WDL `disks` forms
 
