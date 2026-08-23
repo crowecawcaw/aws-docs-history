@@ -51,7 +51,7 @@ To require that users access your content through CloudFront URLs, you do the fo
 - Create the origin access control and associate it with your CloudFront distribution.
 - Remove permission for anyone else to use Amazon S3 URLs to read the files.
 
-For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md") or [Restrict access to an Amazon S3 Multi-Region Access Point origin](private-content-restricting-access-to-s3-mrap.md "private-content-restricting-access-to-s3-mrap.md").
 
 ## Restrict access to files on custom origins
 

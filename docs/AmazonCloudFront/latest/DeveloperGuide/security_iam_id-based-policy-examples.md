@@ -244,7 +244,7 @@ console.
 ### Permission-only actions for the CloudFront console
 
 You can perform the following CloudFront actions on the [CloudFront Security Savings
-Bundle](https://console.aws.amazon.com//cloudfront/v3/home#/savings-bundle/overview "https://console.aws.amazon.com//cloudfront/v3/home#/savings-bundle/overview") page. The following API actions are not intended to be called by
+Bundle](https://console.aws.amazon.com/cloudfront/v3/home#/savings-bundle/overview "https://console.aws.amazon.com/cloudfront/v3/home#/savings-bundle/overview") page. The following API actions are not intended to be called by
 your code, and are not included in the AWS CLI and AWS SDKs.
 
 | Action              | Description                                                      |

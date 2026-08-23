@@ -227,4 +227,4 @@ CloudFront from reaching your Application Load Balancer at the network layer (la
 4).
 
 For more information, see the [Limit access to your origins using the AWS-managed prefix list
-for Amazon CloudFront](https://aws.amazon.com//blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/ "https://aws.amazon.com//blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/") blog post.
+for Amazon CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/ "https://aws.amazon.com/blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/") blog post.
