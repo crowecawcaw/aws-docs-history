@@ -45,7 +45,7 @@ In the following scenario, your global network consists of a single site with a 
 device and link. The site is connected to your AWS network through a Site-to-Site VPN attachment on
 a transit gateway. Your transit gateway also has two VPC attachments.
 
-![Single device and single VPN network](images/nm-single-device-single-vpn.png)
+![Single device and single VPN network](/images/network-manager/latest/tgwnm/images/nm-single-device-single-vpn.png)
 
 For this scenario, do the following in Network Manager:
 

@@ -36,7 +36,7 @@ steps to retry a role deployment, see [Manage IAM multi-account role deployments
 
 ###### To change a role from self-managed to StackSets-managed
 
-1. Access the AWS Identity and Access Management (IAM) console at [https://console.aws.amazon.com//iamv2/home?#/](https://console.aws.amazon.com//iamv2/home?#/ "https://console.aws.amazon.com//iamv2/home?#/") with the member account that has a self-managed role
+1. Access the AWS Identity and Access Management (IAM) console at [https://console.aws.amazon.com/iamv2/home?#/](https://console.aws.amazon.com/iamv2/home?#/ "https://console.aws.amazon.com/iamv2/home?#/") with the member account that has a self-managed role
    status.
 2. In the navigation pane, choose **Roles**.
 3. In the **Roles** field, search for the role name you want to
