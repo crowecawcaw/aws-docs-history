@@ -98,9 +98,12 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Frankfurt)        | eu-central-1   | osis.eu-central-1.amazonaws.com   | HTTPS    |
 | Europe (Ireland)          | eu-west-1      | osis.eu-west-1.amazonaws.com      | HTTPS    |
 | Europe (London)           | eu-west-2      | osis.eu-west-2.amazonaws.com      | HTTPS    |
+| Europe (Paris)            | eu-west-3      | osis.eu-west-3.amazonaws.com      | HTTPS    |
 | Europe (Spain)            | eu-south-2     | osis.eu-south-2.amazonaws.com     | HTTPS    |
 | Europe (Stockholm)        | eu-north-1     | osis.eu-north-1.amazonaws.com     | HTTPS    |
 | South America (São Paulo) | sa-east-1      | osis.sa-east-1.amazonaws.com      | HTTPS    |
+| AWS GovCloud (US-East)    | us-gov-east-1  | osis.us-gov-east-1.amazonaws.com  | HTTPS    |
+| AWS GovCloud (US-West)    | us-gov-west-1  | osis.us-gov-west-1.amazonaws.com  | HTTPS    |
 
 **OpenSearch UI**
 

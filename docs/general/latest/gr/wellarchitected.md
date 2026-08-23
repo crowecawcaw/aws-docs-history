@@ -36,19 +36,22 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service quotas
 
-| Name                                    | Default                              | Adjustable | Description                                                                         |
-| --------------------------------------- | ------------------------------------ | ---------- | ----------------------------------------------------------------------------------- |
-| Choices per question                    | Each supported Region: 15            | No         | The maximum number of choices that can be created for a question.                   |
-| Lens size                               | Each supported Region: 500 Kilobytes | No         | The maximum lens size, in KB.                                                       |
-| Lenses per account per Region           | Each supported Region: 15            | No         | The maximum number of lenses that can be created per account in a Region.           |
-| Lenses per review template              | Each supported Region: 20            | No         | The maximum number of lenses that can be associated with a review template.         |
-| Lenses per workload                     | Each supported Region: 20            | No         | The maximum number of lenses that can be associated with a workload.                |
-| Milestones per workload                 | Each supported Region: 100           | No         | The maximum number of milestones that can be created for a workload.                |
-| Pillars per lens                        | Each supported Region: 10            | No         | The maximum number of pillars that can be created for a lens.                       |
-| Questions per pillar                    | Each supported Region: 20            | No         | The maximum number of questions that can be created for a pillar.                   |
-| Review templates per account per Region | Each supported Region: 500           | No         | The maximum number of review templates that can be created per account in a Region. |
-| Shares per lens                         | Each supported Region: 300           | No         | The maximum number of shares that can be created for a lens.                        |
-| Shares per review template              | Each supported Region: 20            | No         | The maximum number of shares that can be created for a review template.             |
-| Shares per workload                     | Each supported Region: 20            | No         | The maximum number of shares that can be created for a workload.                    |
-| Versions per lens                       | Each supported Region: 100           | No         | The maximum number of versions that can be created for a lens.                      |
-| Workloads per account per Region        | Each supported Region: 1,000         | No         | The maximum number of workloads that can be created per account in a Region.        |
+| Name                                            | Default                              | Adjustable | Description                                                                                      |
+| ----------------------------------------------- | ------------------------------------ | ---------- | ------------------------------------------------------------------------------------------------ |
+| Applications per profile                        | Each supported Region: 0             | No         | The maximum number of applications that can be associated with a Well-Architected Agent profile. |
+| Architecture recommendation generations per day | Each supported Region: 5             | No         | Maximum number of on-demand architecture recommendation generations per day per account.         |
+| Choices per question                            | Each supported Region: 15            | No         | The maximum number of choices that can be created for a question.                                |
+| Lens size                                       | Each supported Region: 500 Kilobytes | No         | The maximum lens size, in KB.                                                                    |
+| Lenses per account per Region                   | Each supported Region: 15            | No         | The maximum number of lenses that can be created per account in a Region.                        |
+| Lenses per review template                      | Each supported Region: 20            | No         | The maximum number of lenses that can be associated with a review template.                      |
+| Lenses per workload                             | Each supported Region: 20            | No         | The maximum number of lenses that can be associated with a workload.                             |
+| Milestones per workload                         | Each supported Region: 100           | No         | The maximum number of milestones that can be created for a workload.                             |
+| Pillars per lens                                | Each supported Region: 10            | No         | The maximum number of pillars that can be created for a lens.                                    |
+| Profiles per account                            | Each supported Region: 0             | No         | The maximum number of Well-Architected Agent profiles per AWS account.                           |
+| Questions per pillar                            | Each supported Region: 20            | No         | The maximum number of questions that can be created for a pillar.                                |
+| Review templates per account per Region         | Each supported Region: 500           | No         | The maximum number of review templates that can be created per account in a Region.              |
+| Shares per lens                                 | Each supported Region: 300           | No         | The maximum number of shares that can be created for a lens.                                     |
+| Shares per review template                      | Each supported Region: 20            | No         | The maximum number of shares that can be created for a review template.                          |
+| Shares per workload                             | Each supported Region: 20            | No         | The maximum number of shares that can be created for a workload.                                 |
+| Versions per lens                               | Each supported Region: 100           | No         | The maximum number of versions that can be created for a lens.                                   |
+| Workloads per account per Region                | Each supported Region: 1,000         | No         | The maximum number of workloads that can be created per account in a Region.                     |

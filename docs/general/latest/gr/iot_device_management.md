@@ -201,9 +201,9 @@ Managed integrations for AWS IoT Device Management is available in the following
 
 ### AWS IoT FIPS endpoints
 
-AWS IoT provides endpoints that support the [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com//compliance/fips/ "https://aws.amazon.com//compliance/fips/").
+AWS IoT provides endpoints that support the [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 Choose the appropriate FIPS compliant endpoint to access AWS IoT features in your
-AWS Region from [FIPS Endpoints by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service"). For more information about
+AWS Region from [FIPS Endpoints by Service](https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com/compliance/fips/#FIPS_Endpoints_by_Service"). For more information about
 the FIPS endpoints provided by AWS IoT, see [Connecting to AWS IoT FIPS endpoints](../../../iot/latest/developerguide/iot-connect-fips.md "../../../iot/latest/developerguide/iot-connect-fips.md").
 
 ## Service quotas
@@ -304,7 +304,7 @@ AWS IoT Device Management jobs API action limits| Limit display name | Descripti
 † For definitions of data plane and control
 plane, see **What are the ways for accessing AWS IoT
 Core?** in the [AWS IoT
-Core FAQs](https://aws.amazon.com//iot-core/faqs/ "https://aws.amazon.com//iot-core/faqs/")
+Core FAQs](https://aws.amazon.com/iot-core/faqs/ "https://aws.amazon.com/iot-core/faqs/")
 
 ### AWS IoT Device Management commands
 
