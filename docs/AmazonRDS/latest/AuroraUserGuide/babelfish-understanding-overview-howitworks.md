@@ -11,7 +11,7 @@ to many other AWS tools and utilities, including the following:
   see [Monitoring Amazon Aurora metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 - Performance Insights is a database performance tuning and monitoring
   feature that helps you quickly assess the load on your database. To learn more,
-  see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+  see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 - Aurora global
   databases span multiple AWS Regions, enabling low latency
   global reads and providing fast recovery from the rare outage that might affect an entire AWS Region.

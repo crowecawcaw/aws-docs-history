@@ -165,8 +165,8 @@ connection pool, the average declines. The resources used by transactions and ba
 ![Performance Insights showing benefit of RDS Proxy for connection pooling.](images/postgres_connection_pooling_PI_3.png)
 
 For more information about using Performance Insights with your Aurora PostgreSQL DB cluster, see
-[Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). To analyze
-the metrics, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
+[Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). To analyze
+the metrics, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 ## Demonstrating the benefits of connection pooling
 

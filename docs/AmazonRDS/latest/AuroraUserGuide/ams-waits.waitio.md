@@ -62,7 +62,7 @@ We recommend different actions depending on the other wait events that you see.
 ###### Topics
 
 - [Identify the sessions and queries causing the events](#ams-waits.waitio.actions.identify "#ams-waits.waitio.actions.identify")
-- [Check for a correlation with Performance Insights counter metrics](#ams-waits.waitio.actions.filters "#ams-waits.waitio.actions.filters")
+- [Check for a correlation with detailed database metrics](#ams-waits.waitio.actions.filters "#ams-waits.waitio.actions.filters")
 - [Check for other correlated wait events](#ams-waits.waitio.actions.maintenance "#ams-waits.waitio.actions.maintenance")
 
 ### Identify the sessions and queries causing the events
@@ -88,9 +88,9 @@ responsible. To resolve a bottleneck, focus on these statements.
 
 For a useful overview of troubleshooting using Performance Insights, see the blog post [Analyze Amazon Aurora MySQL Workloads with Performance Insights](https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/ "https://aws.amazon.com/blogs/database/analyze-amazon-aurora-mysql-workloads-with-performance-insights/").
 
-### Check for a correlation with Performance Insights counter metrics
+### Check for a correlation with detailed database metrics
 
-Check for Performance Insights counter metrics such as `Innodb_rows_changed`. If counter metrics
+Check for database counter metrics such as `Innodb_rows_changed`. If counter metrics
 are correlated with `io/table/sql/handler`, follow these steps:
 
 1. In Performance Insights, look for the SQL statements accounting for the

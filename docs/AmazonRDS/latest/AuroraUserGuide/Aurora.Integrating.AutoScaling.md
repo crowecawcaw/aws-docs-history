@@ -227,4 +227,4 @@ For more information on Amazon RDS resource tags, see [Tagging Amazon Aurora and
 You can use Performance Insights to monitor replicas that have been added by Aurora Auto Scaling, the same as with any Aurora reader DB
 instance.
 
-For more information on using Performance Insights to monitor Aurora DB clusters, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+For more information on using Performance Insights to monitor Aurora DB clusters, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").

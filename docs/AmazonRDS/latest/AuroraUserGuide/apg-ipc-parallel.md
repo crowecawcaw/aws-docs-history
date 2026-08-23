@@ -235,7 +235,7 @@ Monitor CPU utilization and consider adjusting the number of vCPUs if consistent
 high and if your application benefits from parallel queries. Ensure adequate memory
 is available for parallel operations.
 
-- Use Performance Insights metrics to determine if the system is
+- Use detailed per-query and database counter metrics to determine if the system is
   CPU-bound.
 - Each parallel worker uses its own `work_mem`. Ensure total
   memory usage is within instance limits.

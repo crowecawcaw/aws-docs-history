@@ -35,7 +35,7 @@ creation of an instance is 60 seconds. For more information, see [Cost of Enhanc
   **Turn on Performance Insights**. By default, Performance Insights has a 7-day data retention period, but can be customized to
   analyze longer-term performance trends. For longer than 7-day retention, you need to upgrade to the paid tier. For more
   information, see [Performance Insights pricing](https://aws.amazon.com/rds/performance-insights/pricing/ "https://aws.amazon.com/rds/performance-insights/pricing/"). You can set the
-  data retention period for each Aurora DB instance separately. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+  data retention period for each Aurora DB instance separately. For more information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
 ## Most common reasons for Aurora MySQL database performance issues
 

@@ -1,7 +1,7 @@
 # Turn on the Performance Schema for Aurora MySQL
 
-Assume that Performance Insights is turned on for your DB instance but isn't
-currently managing the Performance Schema. If you want to allow Performance Insights to manage the Performance Schema automatically,
+Assume that Database Insights is turned on for your DB instance but isn't
+currently managing the Performance Schema. If you want to allow Database Insights to manage the Performance Schema automatically,
 complete the following steps.
 
 ###### To configure the Performance Schema for automatic management
@@ -23,7 +23,7 @@ complete the following steps.
 
 Whenever you turn the Performance Schema on or off, make sure to reboot the DB instance.
 For more information about modifying instance parameters, see [Modifying parameters in a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.Modifying.md "USER_WorkingWithParamGroups.Modifying.md"). For more information about
-the dashboard, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md"). For more information about the
+the dashboard, see [Database Insights](../UserGuide/USER_DatabaseInsights.md "../UserGuide/USER_DatabaseInsights.md"). For more information about the
 MySQL performance schema, see [MySQL
 Performance Schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html") (for 8.0) and [MySQL
 Performance Schema](https://dev.mysql.com/doc/refman/8.4/en/performance-schema.html "https://dev.mysql.com/doc/refman/8.4/en/performance-schema.html") (for 8.4) in the MySQL documentation.

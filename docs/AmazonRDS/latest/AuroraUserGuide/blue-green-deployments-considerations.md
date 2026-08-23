@@ -197,7 +197,7 @@ updates:
   monitor database events for the new stream after switchover. For more information, see
   [Supported Regions and Aurora DB engines for database activity streams](Concepts.Aurora_Fea_Regions_DB-eng.Feature.DBActivityStreams.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.DBActivityStreams.md").
 - If you use the Performance Insights API, adjust the resource IDs in calls to the API
-  after switchover. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+  after switchover. For more information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
 You can monitor a database with the same name after switchover, but it doesn't
 contain the data from before the switchover.

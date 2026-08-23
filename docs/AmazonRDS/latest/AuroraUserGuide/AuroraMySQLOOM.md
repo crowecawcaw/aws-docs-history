@@ -178,7 +178,7 @@ pressure and detect OOM events. The following metrics are available under the
 
 You can monitor `os.memory.outOfMemoryKillCount` to detect when the OS killed the
 database process due to out of memory. For the full list of OS counters, see
-[Performance Insights OS metrics](../UserGuide/USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.OS "../UserGuide/USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.OS").
+[Operating system counters](../UserGuide/USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.OS "../UserGuide/USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.OS").
 
 ### Performance Schema
 

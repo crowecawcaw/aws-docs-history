@@ -60,9 +60,9 @@ In PostgreSQL, high transaction rates can significantly impact autovacuum's perf
 leading to slower cleanup of dead tuples and increased risk of transaction ID wraparound.
 You can monitor the transaction rate by measuring the difference in
 `max(age(datfrozenxid))` between two time periods, typically per second.
-Additionally, you can use the following counter metrics from RDS Performance Insights to
-measure the transaction rate (the sum of xact\_commit and xact\_rollback) which is the total
-number of transactions.
+Additionally, you can use the following database counter metrics, which are
+exposed through the Performance Insights API, to measure the transaction rate (the sum of xact\_commit and xact\_rollback)
+which is the total number of transactions.
 
 | Counter        | Type         | Unit                 | Metric                         |
 | -------------- | ------------ | -------------------- | ------------------------------ |

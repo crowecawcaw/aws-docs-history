@@ -95,7 +95,7 @@ At this point, `lab_user1` and `lab_user2` can connect to the
 usage, which might include creating multiple database instances, different schemas, and
 granting limited permissions. For more complete information and additional scenarios, see
 [Managing PostgreSQL
-Users and Roles](https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/ "https://aws.amazon.com/blogs//database/managing-postgresql-users-and-roles/").
+Users and Roles](https://aws.amazon.com/blogs/database/managing-postgresql-users-and-roles/ "https://aws.amazon.com/blogs/database/managing-postgresql-users-and-roles/").
 
 For more information about privileges in PostgreSQL databases, see the [GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html "https://www.postgresql.org/docs/current/static/sql-grant.html") command in
 the PostgreSQL documentation.

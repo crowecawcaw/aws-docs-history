@@ -34,7 +34,7 @@ Load and Top SQL sections.
 
 ![IO:BufFileRead and IO:BufFileWrite in the graph.](images/perfinsights_IOBufFile.png)
 For more information on how to analyze top queries and load by wait event with
-Performance Insights, see [Overview of the Top SQL tab](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.TopLoadItemsTable.TopSQL"). You should identify and tune the queries that cause increase in temporary file usage
+Performance Insights, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md"). You should identify and tune the queries that cause increase in temporary file usage
 and related wait events. For more information on these wait events and remediation, see
 [IO:BufFileRead and
 IO:BufFileWrite](apg-waits.iobuffile.md "apg-waits.iobuffile.md").

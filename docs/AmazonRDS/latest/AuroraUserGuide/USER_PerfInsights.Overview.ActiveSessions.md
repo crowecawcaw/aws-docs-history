@@ -1,7 +1,7 @@
 # Database load
 
 _Database load (DB load)_ measures the level of session activity in your
-database. `DBLoad` is the key metric in Performance Insights, and Performance Insights collects DB load
+database. `DBLoad` is the key metric in Database Insights, and Database Insights collects DB load
 every second.
 
 ###### Topics
@@ -24,11 +24,11 @@ page (or block) to be read into memory, and then consume CPU while it reads data
 ## Average active sessions
 
 The _average active sessions (AAS)_ is the unit for the
-`DBLoad` metric in Performance Insights. It measures how many sessions
+`DBLoad` metric in Database Insights. It measures how many sessions
 are concurrently active on the database.
 
-Every second, Performance Insights samples the number of sessions concurrently running
-a query. For each active session, Performance Insights collects the following
+Every second, Database Insights samples the number of sessions concurrently running
+a query. For each active session, Database Insights collects the following
 data:
 
 - SQL statement
@@ -36,7 +36,7 @@ data:
 - Host
 - User running the SQL
 
-Performance Insights calculates the AAS by dividing the total number of sessions by
+Database Insights calculates the AAS by dividing the total number of sessions by
 the number of samples for a specific time period. For example, the following table shows
 5 consecutive samples of a running query taken at 1-second intervals.
 
@@ -55,7 +55,7 @@ when the 5 samples were taken.
 ## Average active executions
 
 The _average active executions (AAE)_ per second is related to AAS. To calculate the AAE,
-Performance Insights divides the total execution time of a query by the time interval. The following
+Database Insights divides the total execution time of a query by the time interval. The following
 table shows the AAE calculation for the same query in the preceding table.
 
 | Elapsed time (sec) | Total execution time (sec) | AAE  | Calculation                               |
@@ -82,7 +82,7 @@ When you are diagnosing performance issues, the following dimensions are often t
 - [Wait events](#USER_PerfInsights.Overview.ActiveSessions.waits "#USER_PerfInsights.Overview.ActiveSessions.waits")
 - [Top SQL](#USER_PerfInsights.Overview.ActiveSessions.top-sql "#USER_PerfInsights.Overview.ActiveSessions.top-sql")
 
-For a complete list of dimensions for the Aurora engines, see [DB load sliced by dimensions](USER_PerfInsights.UsingDashboard.Components.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.dims "USER_PerfInsights.UsingDashboard.Components.md#USER_PerfInsights.UsingDashboard.Components.AvgActiveSessions.dims").
+For a complete list of dimensions for the Aurora engines, see [Database Insights](../UserGuide/USER_DatabaseInsights.md "../UserGuide/USER_DatabaseInsights.md").
 
 ### Wait events
 
@@ -119,6 +119,6 @@ Where wait events show bottlenecks, top SQL shows which queries are contributing
 many queries might be currently running on the database, but a single query might consume 99 percent of the
 DB load. In this case, the high load might indicate a problem with the query.
 
-By default, the Performance Insights console displays top SQL queries that are contributing to the
+By default, the Database Insights console displays top SQL queries that are contributing to the
 database load. The console also shows relevant statistics for each statement. To diagnose performance
 problems for a specific statement, you can examine its execution plan.

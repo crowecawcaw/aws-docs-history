@@ -1,6 +1,6 @@
-# Changing an AWS KMS policy for Performance Insights
+# Changing an AWS KMS policy for Database Insights
 
-Performance Insights uses an AWS KMS key to encrypt sensitive data. When you enable Performance Insights
+Database Insights uses an AWS KMS key to encrypt sensitive data. When you enable Database Insights
 through the API or the console, you can do either of the following:
 
 - Choose the default AWS managed key.
@@ -11,7 +11,7 @@ AWS managed key for Amazon RDS for each AWS Region.
 
 - Choose a customer managed key.
 
-If you specify a customer managed key, users in your account that call the Performance Insights
+If you specify a customer managed key, users in your account that call the Database Insights
 API need the `kms:Decrypt` and `kms:GenerateDataKey`
 permissions on the KMS key. You can configure these permissions through IAM
 policies. However, we recommend that you manage these permissions through your
@@ -22,7 +22,7 @@ Guide_.
 ###### Example
 
 The following example shows how to add statements to your KMS key policy. These
-statements allow access to Performance Insights.
+statements allow access to Database Insights.
 Depending on how you use the KMS key, you might want to change some restrictions.
 Before adding statements to your policy, remove all comments.
 
@@ -62,17 +62,17 @@ JSON
 
 ```
 
-## How Performance Insights uses AWS KMS customer managed key
+## How Database Insights uses AWS KMS customer managed key
 
-Performance Insights uses customer managed keys to encrypt sensitive data. When you turn on Performance Insights, you can provide an
-AWS KMS key through the API. Performance Insights creates AWS KMS permissions on this key. It uses the key
+Database Insights uses customer managed keys to encrypt sensitive data. When you turn on Database Insights, you can provide an
+AWS KMS key through the API. Database Insights creates AWS KMS permissions on this key. It uses the key
 and performs the necessary operations to process sensitive data. Sensitive data
-includes fields such as user, database, application, and SQL query text. Performance Insights
+includes fields such as user, database, application, and SQL query text. Database Insights
 ensures that the data remains encrypted both at rest and in-flight.
 
-## How Performance Insights IAM works with AWS KMS
+## How Database Insights IAM works with AWS KMS
 
-IAM gives permissions to specific APIs. Performance Insights has the following public APIs, which you can restrict using IAM policies:
+IAM gives permissions to specific APIs. Database Insights has the following public APIs, which you can restrict using IAM policies:
 
 - `DescribeDimensionKeys`
 - `GetDimensionKeyDetails`
@@ -87,7 +87,7 @@ You can use the following API requests to get sensitive data.
 - `GetDimensionKeyDetails`
 - `GetResourceMetrics`
 
-When you use the API to get sensitive data, Performance Insights leverages the caller's credentials. This
+When you use the API to get sensitive data, Database Insights leverages the caller's credentials. This
 check ensures that access to sensitive data is limited to those with access to the
 KMS key.
 

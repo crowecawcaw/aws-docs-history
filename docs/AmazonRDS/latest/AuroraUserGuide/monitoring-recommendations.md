@@ -12,8 +12,8 @@ recommendation. This recommendation helps to prevent future database performance
 impact. For example, the "Idle In Transaction" recommendation is generated for Aurora PostgreSQL instances when the sessions
 connected to the database are not performing active work, but can keep database resources blocked.
 To receive proactive recommendations, you must turn on Performance Insights with a paid tier retention period. For information about turning on
-Performance Insights, see [Turning Performance Insights on and off for Aurora](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md"). For information about pricing and data
-retention for Performance Insights see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.cost.md "USER_PerfInsights.Overview.cost.md").
+Performance Insights, see [Enabling and disabling detailed per-query and database counter metrics](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md"). For information about pricing and data
+retention for Performance Insights see [Pricing and data retention for Database Insights](USER_PerfInsights.Overview.cost.md "USER_PerfInsights.Overview.cost.md").
 
 DevOps Guru for RDS monitors certain metrics to detect when the metric's behavior becomes highly
 unusual or anomalous. These anomalies are reported as reactive insights with

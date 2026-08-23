@@ -61,7 +61,7 @@ determines how large a table can grow. There is also no conversion to an on-disk
 
 ## Relevant metrics
 
-The following Performance Insights metrics are related to this insight:
+The following detailed per-query and database counter metrics, exposed through the Performance Insights API, are related to this insight:
 
 - Created\_tmp\_disk\_tables
 - Created\_tmp\_tables

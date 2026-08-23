@@ -62,7 +62,7 @@ When you use Performance Insights, one of the following conditions is true:
 
 We recommend that you configure the Performance Schema for automatic management. The Performance Schema
 provides additional insights and better tools to investigate potential performance problems. For more
-information, see [Overview of the Performance Schema for Performance Insights on Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
+information, see [Overview of the Performance Schema for Database Insights in Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
 
 ## Aurora MySQL memory
 

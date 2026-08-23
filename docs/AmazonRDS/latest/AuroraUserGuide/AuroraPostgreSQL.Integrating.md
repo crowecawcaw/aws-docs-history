@@ -9,7 +9,7 @@ can use AWS services to do the following:
   monitoring features to illustrate your database's performance and help you analyze
   any issues that affect it. With the Performance Insights dashboard, you can
   visualize the database load and filter the load by waits, SQL statements, hosts, or
-  users. For more information about Performance Insights, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+  users. For more information about Performance Insights, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 - Configure your Aurora PostgreSQL DB cluster to publish log data to Amazon CloudWatch Logs. CloudWatch Logs
   provide highly durable storage for your log records. With CloudWatch Logs, you can perform
   real-time analysis of the log data, and use CloudWatch to create alarms and view metrics.

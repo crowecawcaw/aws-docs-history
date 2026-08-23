@@ -76,7 +76,7 @@ including queries. You can also capture information periodically when queries ar
 
 The Performance Schema provides useful information about server runtime performance, while having minimal
 impact on that performance. This is different from the `information_schema`, which provides schema
-information about the DB instance. For more information, see [Overview of the Performance Schema for Performance Insights on Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
+information about the DB instance. For more information, see [Overview of the Performance Schema for Database Insights in Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
 
 **Query optimizer trace**
 

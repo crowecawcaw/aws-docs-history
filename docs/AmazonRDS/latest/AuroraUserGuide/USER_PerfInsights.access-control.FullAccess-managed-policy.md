@@ -1,7 +1,7 @@
 # Attaching the AmazonRDSPerformanceInsightsFullAccess policy to an IAM principal
 
 `AmazonRDSPerformanceInsightsFullAccess` is an AWS managed
-policy that grants access to all operations of the Amazon RDS Performance Insights API.
+policy that grants access to all operations of the Amazon RDS Database Insights API.
 
 If you attach `AmazonRDSPerformanceInsightsFullAccess` to a permission set
 or role, you must also attach the following CloudWatch
@@ -11,7 +11,7 @@ permissions:
 - `ListMetrics`
 - `GetMetricData`
   With these permissions, the recipient can use
-  Performance Insights with other console features.
+  Database Insights with other console features.
 
 For more information about CloudWatch permissions, see
 [Amazon CloudWatch

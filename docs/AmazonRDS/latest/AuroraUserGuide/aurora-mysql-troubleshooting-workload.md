@@ -200,7 +200,7 @@ on my Amazon Aurora MySQL DB cluster?](https://repost.aws/knowledge-center/auror
     2. If a large HLL is caused by a read transaction (long-running query), it can mean that the query is using a
      large amount of temporary space. Release the temporary space by rebooting. Examine Performance Insights DB metrics for any
      changes in the `Temp` section, such as `created_tmp_tables`. For more information, see
-     [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+     [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
 10. Can you split long-running transactions into smaller ones that modify fewer rows? 11. Are there any changes in blocked transactions or increases in deadlocks? Examine Performance Insights DB metrics for any changes
 in status variables in the `Locks` section, such as `innodb_row_lock_time`, `innodb_row_lock_waits`, and `innodb_dead_locks`. Use 1-minute or 5-minute intervals. 12. Are there increased wait events? Examine Performance Insights wait events and wait types using 1-minute or 5-minute intervals.

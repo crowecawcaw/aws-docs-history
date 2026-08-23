@@ -4,7 +4,7 @@ If your Aurora cluster is running Aurora serverless or provisioned instances, yo
 API.
 
 For more information about how to use Performance Insights with Aurora, see
-[Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+[Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
 ## How RDS Data API queries are represented in Performance Insights
 

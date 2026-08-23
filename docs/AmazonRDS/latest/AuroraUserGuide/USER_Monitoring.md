@@ -22,11 +22,10 @@ see [Amazon CloudWatch metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metric
   the metric monitored over a specific time span. For an overview, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md"). For a list of
   Enhanced Monitoring metrics, see [OS metrics in Enhanced Monitoring](USER_Monitoring-Available-OS-Metrics.md "USER_Monitoring-Available-OS-Metrics.md").
 - **OS Process list** – Shows details for each process running in your DB cluster.
-- **Performance Insights** – Opens the Amazon RDS Performance Insights dashboard
+- **Database Insights** – Opens the Amazon CloudWatch Database Insights dashboard
   for a DB instance in your Aurora DB cluster.
-  Performance Insights isn't supported at the cluster level.
-  For an overview of Performance Insights, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). For a list of Performance Insights metrics, see [Amazon CloudWatch metrics for Amazon RDS Performance Insights](USER_PerfInsights.Cloudwatch.md "USER_PerfInsights.Cloudwatch.md").
-  Amazon RDS now provides a consolidated view of Performance Insights and CloudWatch metrics in the Performance Insights dashboard.
-  Performance Insights must be turned on for your DB cluster to use this view. You can choose the new monitoring
-  view in the **Monitoring** tab or **Performance Insights** in the
-  navigation pane. To view the instructions for choosing this view, see [Viewing combined metrics with the Performance Insights dashboard](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md").
+  Database Insights isn't supported at the cluster level.
+  For an overview, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). For a list of metrics, see [Amazon CloudWatch metrics for Amazon RDS Performance Insights](USER_PerfInsights.Cloudwatch.md "USER_PerfInsights.Cloudwatch.md").
+  Amazon CloudWatch Database Insights provides a consolidated view of database load and CloudWatch metrics for your
+  DB cluster.
+  For more information, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").

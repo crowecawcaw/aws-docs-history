@@ -28,7 +28,7 @@ use. For detailed information, consult performance-related documentation such as
 [Managing performance and scaling for Aurora DB clusters](Aurora.Managing.Performance.md "Aurora.Managing.Performance.md"),
 [Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance"),
 [Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Managing.md "AuroraPostgreSQL.Managing.md"),
-and [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+and [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
 The information in this topic applies mainly to applications where your organization writes the code and
 designs the schema and that support the MySQL and PostgreSQL open-source database engines. If you're
@@ -591,7 +591,7 @@ You might find you need to do additional performance tuning. For details, see
 [Managing performance and scaling for Aurora DB clusters](Aurora.Managing.Performance.md "Aurora.Managing.Performance.md"),
 [Amazon Aurora MySQL performance enhancements](Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance "Aurora.AuroraMySQL.Overview.md#Aurora.AuroraMySQL.Performance"),
 [Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Managing.md "AuroraPostgreSQL.Managing.md"),
-and [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). If you do additional
+and [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). If you do additional
 tuning, make sure that you're familiar with the metrics that you gathered during the proof of concept.
 For a next step, you might create new clusters with different choices for configuration settings, database
 engine, and database version. Or you might create specialized kinds of Aurora clusters to match the needs of

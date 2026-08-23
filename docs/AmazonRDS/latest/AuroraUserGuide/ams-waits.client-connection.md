@@ -102,7 +102,7 @@ consider turning on Enhanced Monitoring. For more information, see [Monitoring O
 
 ### Check the top hosts and top users
 
-Use Performance Insights to check the top hosts and top users. For more information, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
+Use Performance Insights to check the top hosts and top users. For more information, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 ### Query the performance\_schema tables
 

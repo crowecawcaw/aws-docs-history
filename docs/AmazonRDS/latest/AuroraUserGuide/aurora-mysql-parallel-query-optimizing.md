@@ -128,7 +128,7 @@ for the presence of `parallelquery` in the `SupportedEngineModes` list.
 After you upgrade to Aurora MySQL version 2.09 or higher, you can take advantage of the following features. These features
 aren't available to parallel query clusters running older Aurora MySQL versions.
 
-- Performance Insights. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
+- Performance Insights. For more information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 - Backtracking. For more information, see [Backtracking an Aurora DB cluster](AuroraMySQL.Managing.Backtrack.md "AuroraMySQL.Managing.Backtrack.md").
 - Stopping and starting the cluster. For more information, see [Stopping and starting an Amazon Aurora DB cluster](aurora-cluster-stop-start.md "aurora-cluster-stop-start.md").
 

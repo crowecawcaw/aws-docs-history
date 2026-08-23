@@ -1,9 +1,9 @@
-# Granting fine-grained access for Performance Insights
+# Granting fine-grained access for Database Insights
 
-Fine-grained access control offers additional ways of controlling access to Performance Insights. This
+Fine-grained access control offers additional ways of controlling access to Database Insights. This
 access control can allow or deny access to individual dimensions for
 `GetResourceMetrics`, `DescribeDimensionKeys`, and
-`GetDimensionKeyDetails` Performance Insights actions. To use fine-grained access,
+`GetDimensionKeyDetails` Database Insights actions. To use fine-grained access,
 specify dimensions in the IAM policy by using condition keys. The evaluation of the access follows the IAM
 policy evaluation logic. For more information, see [Policy
 evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_. If the IAM

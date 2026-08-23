@@ -207,7 +207,7 @@ using Performance Insights, analyze Database metrics such as the following:
 - Threads\_running
 
 These metrics can help you to identify connection bottlenecks, detect network or authentication problems, optimize connection pooling,
-and ensure efficient thread management. For more information, see [Performance Insights counters for Aurora MySQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.Aurora_MySQL "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.Aurora_MySQL").
+and ensure efficient thread management. For more information, see [Detailed Database Metrics for Aurora MySQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.Aurora_MySQL "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.Aurora_MySQL").
 
 **Performance Insights features**
 

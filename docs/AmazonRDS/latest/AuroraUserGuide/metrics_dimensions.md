@@ -7,9 +7,7 @@ When you use Amazon Aurora resources,
 Amazon Aurora sends metrics and
 dimensions to Amazon CloudWatch every minute.
 
-You can now export Performance Insights metrics dashboards from Amazon RDS
-to Amazon CloudWatch and view these metrics in the CloudWatch console. For more information on how to export the
-Performance Insights metrics dashboards to CloudWatch, see [Exporting Performance Insights metrics to CloudWatch](PI_metrics_export_CW.md "PI_metrics_export_CW.md").
+For information about monitoring database load in CloudWatch, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 Use the following procedures to view the metrics for Amazon Aurora in the CloudWatch console and
 CLI.

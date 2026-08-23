@@ -26,11 +26,12 @@ occur.
 
 ###### Note
 
-The Performance Insights metric for CPU is `DBLoadCPU`. The value for `DBLoadCPU` can
+The database metric for CPU is `DBLoadCPU`, which is exposed
+through the Performance Insights API. The value for `DBLoadCPU` can
 differ from the value for the CloudWatch metric `CPUUtilization`. The latter metric is collected from
 the HyperVisor for a database instance.
 
-Performance Insights OS metrics provide detailed information about CPU utilization.
+The database counter metrics include OS metrics that provide information about CPU utilization.
 For example, you can display the following metrics:
 
 - `os.cpuUtilization.nice.avg`
@@ -71,7 +72,7 @@ Depending on the cause of the increase in CPU utilization, consider the followin
 ### Identify the sessions or queries that are causing the problem
 
 To find the sessions and queries, look at the **Top SQL** table in Performance Insights
-for the SQL statements that have the highest CPU load. For more information, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
+for the SQL statements that have the highest CPU load. For more information, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 Typically, one or two SQL statements consume the majority of CPU cycles.
 Concentrate your efforts on these statements. Suppose that your DB instance has 2
@@ -154,7 +155,7 @@ connection storm.
 
 Check whether the following conditions are true:
 
-- There is an increase in both the Performance Insights `CPUUtilization` metric and the Amazon CloudWatch
+- There is an increase in both the `CPUUtilization` metric and the Amazon CloudWatch
   `DatabaseConnections` metric.
 - The number of threads in the CPU is greater than the number of vCPUs.
 

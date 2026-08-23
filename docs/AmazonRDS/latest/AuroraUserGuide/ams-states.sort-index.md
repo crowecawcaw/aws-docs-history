@@ -52,7 +52,7 @@ aren't turned on. When Performance Schema instruments are turned on, Performance
 Insights reports wait events instead. Performance Schema instruments provide
 additional insights and better tools when you investigate potential performance
 problems. Therefore, we recommend that you turn on the Performance Schema. For more
-information, see [Overview of the Performance Schema for Performance Insights on Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
+information, see [Overview of the Performance Schema for Database Insights in Aurora MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
 
 ### Identify the problem queries
 

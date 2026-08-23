@@ -101,7 +101,7 @@ For information about monitoring Amazon CloudWatch metrics, see [Viewing metrics
 Check the workload on the DB cluster and make sure that it isn't producing
 unexpected results. For example, there might be queries that are returning a higher
 number of rows than expected. In this case, you can use Performance Insights counter
-metrics such as `Innodb_rows_read`. For more information, see [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
+metrics such as `Innodb_rows_read`. For more information, see [Detailed Database Metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
 
 ### Distribute workload with reader instances
 

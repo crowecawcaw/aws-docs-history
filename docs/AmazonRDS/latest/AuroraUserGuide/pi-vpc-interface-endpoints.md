@@ -27,7 +27,7 @@ through the interface endpoint, associate a security group with the endpoint net
 Performance Insights API currently supports VPC endpoints in AWS Regions that support Performance Insights.
 For information about Performance Insights availability,
 see
-[Supported Regions and Aurora DB engines for Performance Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md").
+[Supported Regions and Aurora DB engines for Database Insights](Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.PerfInsights.md").
 
 ## Create an interface endpoint for Performance Insights
 

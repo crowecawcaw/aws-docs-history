@@ -17,7 +17,7 @@ We recommend that you automate monitoring tasks as much as possible.
 
 - [Amazon Aurora cluster status and recommendations](#MonitoringOverview.tools.automated.rds "#MonitoringOverview.tools.automated.rds")
 - [Amazon CloudWatch metrics for Amazon Aurora](#MonitoringOverview.tools.automated.integrated "#MonitoringOverview.tools.automated.integrated")
-- [Amazon RDS Performance Insights and operating-system monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
+- [Amazon Aurora Enhanced Monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
 - [Integrated services](#MonitoringOverview.tools.automated.integrated.events-logs-streams "#MonitoringOverview.tools.automated.integrated.events-logs-streams")
 
 ### Amazon Aurora cluster status and recommendations
@@ -50,15 +50,13 @@ Amazon CloudWatch for additional monitoring capabilities.
   - **Amazon CloudWatch alarms** – You can watch a single
     Amazon Aurora metric over a specific time period. You can then perform one or
     more actions based on the value of the metric relative to a threshold that you set.
+  - **Amazon CloudWatch Database Insights** – Assess the load on your
+    database, and determine when and where to take action. For more information, see [Monitoring Amazon Aurora databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
-### Amazon RDS Performance Insights and operating-system monitoring
+### Amazon Aurora Enhanced Monitoring
 
-You can use the following automated tools to monitor Amazon Aurora performance:
-
-- **Amazon RDS Performance Insights** – Assess the load on your
-  database, and determine when and where to take action. For more information, see [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
-- **Amazon RDS Enhanced Monitoring** – Look at metrics in real time
-  for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+Amazon Aurora Enhanced Monitoring provides metrics in real time
+for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 
 ### Integrated services
 
@@ -75,7 +73,7 @@ The following AWS services are integrated with Amazon Aurora:
   stream of the activity in your DB cluster. For more
   information, see [Monitoring Amazon Aurora with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md").
 - _DevOps Guru for RDS_ is a capability of Amazon DevOps Guru that applies machine learning to
-  Performance Insights metrics for Amazon Aurora databases. For more information, see [Analyzing Aurora performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md").
+  detailed per-query and database counter metrics for Amazon Aurora databases. For more information, see [Analyzing Aurora performance anomalies with Amazon DevOps Guru for Amazon RDS](devops-guru-for-rds.md "devops-guru-for-rds.md").
 
 ## Manual monitoring tools
 

@@ -1,9 +1,9 @@
-# Creating a custom IAM policy for Performance Insights
+# Creating a custom IAM policy for Database Insights
 
 For users who don't have either the `AmazonRDSPerformanceInsightsReadOnly` or
-`AmazonRDSPerformanceInsightsFullAccess` policy, you can grant access to Performance Insights
+`AmazonRDSPerformanceInsightsFullAccess` policy, you can grant access to Database Insights
 by creating or modifying a user-managed IAM policy. When you attach the policy to an IAM
-permission set or role, the recipient can use Performance Insights.
+permission set or role, the recipient can use Database Insights.
 
 ###### To create a custom policy
 
@@ -33,7 +33,7 @@ permission set or role, the recipient can use Performance Insights.
 
 ###### Important
 
-To use Performance Insights, make sure that you have access to Amazon RDS in addition to the custom policy.
+To use Database Insights, make sure that you have access to Amazon RDS in addition to the custom policy.
 For example, the `AmazonRDSPerformanceInsightsReadOnly`
 predefined policy provides read-only access to Amazon RDS. For more information,
 see [Managing access using policies](UsingWithRDS.IAM.md#security_iam_access-manage "UsingWithRDS.IAM.md#security_iam_access-manage"). 4. On the **Summary** page, choose **Add
