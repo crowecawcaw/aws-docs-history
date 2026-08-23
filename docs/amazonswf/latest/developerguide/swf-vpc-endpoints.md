@@ -1,9 +1,5 @@
 # Amazon VPC endpoints for Amazon SWF
 
-###### Note
-
-AWS PrivateLink support is currently available in the AWS Top Secret - East, AWS Secret Region, and China Regions only.
-
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a connection
 between your Amazon VPC and Amazon Simple Workflow Service workflows. You can use this connection with your Amazon SWF
 workflows without crossing the public internet.
@@ -30,7 +26,7 @@ an Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-in
 ###### Note
 
 When you create an endpoint, specify Amazon SWF as the service that you want your VPC to connect to. In the Amazon VPC console, service names vary based on the AWS
-Region. For example, in the AWS Top Secret - East Region, the service name for Amazon SWF is **com.amazonaws.us-iso-east-1.swf**.
+Region. For example, in the US East (N. Virginia) Region, the service name for Amazon SWF is **com.amazonaws.us-east-1.swf**.
 
 For information about creating and configuring an endpoint using CloudFormation, see the [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md") resource
 in the _CloudFormation User Guide_.
