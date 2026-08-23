@@ -55,7 +55,7 @@ AnyCompany Retail is on a mission to achieve minimal to zero downtime deployment
 
 - [AWS Builders Library | Automating safe, hands-off deployments | Production deployments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card#Production_deployments "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card#Production_deployments")
 - [AWS Builders Library | My CI/CD pipeline is my release captain | Safe, automatic
-  production releases](https://aws.amazon.com//builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases "https://aws.amazon.com//builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases")
+  production releases](https://aws.amazon.com/builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases "https://aws.amazon.com/builders-library/cicd-pipeline/#Safe.2C_automatic_production_releases")
 - [AWS Whitepaper | Practicing Continuous Integration and Continuous Delivery on AWS |
   Deployment methods](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/deployment-methods.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/deployment-methods.md")
 - [AWS CodeDeploy User Guide](../../../codedeploy/latest/userguide/welcome.md "../../../codedeploy/latest/userguide/welcome.md")
