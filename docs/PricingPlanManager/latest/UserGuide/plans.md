@@ -6,10 +6,31 @@ CloudFront Flat-Rate Plans combine global content delivery with AWS WAF, DDoS pr
 
 ### Plan Tiers
 
-- Free ($0/month) - 1M requests, 100GB transfer
-- Pro ($15/month) - 10M requests, 50TB transfer
-- Business ($200/month) - 125M requests, 50TB transfer
-- Premium ($1,000/month) - 500M requests, 50TB transfer
+- Free (USD $0/month) - 1M requests, 100GB transfer
+- Pro (USD $15/month) - 10M requests, 50TB transfer
+- Business (USD $200/month) - 125M requests, 50TB transfer
+- Premium (from USD $1,000/month) - 500M requests, 50TB transfer at the default usage level
+
+On the Premium plan, you can increase your monthly usage allowances by selecting a higher usage level. For more information, see [Premium usage levels](#premium-usage-levels "#premium-usage-levels").
+
+#### Premium usage levels
+
+The Premium plan offers configurable monthly usage allowances. When you subscribe to or manage a Premium plan, you can select a higher monthly usage allowance from the following levels:
+
+| Usage level     | Monthly data transfer | Monthly requests | Flat-rate price per month |
+| --------------- | --------------------- | ---------------- | ------------------------- |
+| `DEFAULT`       | 50 TB                 | 500 M            | USD $1,000                |
+| `CF_PREMIUM_L2` | 75 TB                 | 750 M            | USD $1,450                |
+| `CF_PREMIUM_L3` | 125 TB                | 1.25 B           | USD $2,250                |
+| `CF_PREMIUM_L4` | 200 TB                | 2 B              | USD $3,500                |
+| `CF_PREMIUM_L5` | 350 TB                | 3.5 B            | USD $6,000                |
+| `CF_PREMIUM_L6` | 600 TB                | 6 B              | USD $10,000               |
+
+When you select a higher usage level, your monthly price and usage allowance both increase. The features and services included in the Premium plan remain the same at every usage level. You are only changing your usage allowance and flat-rate price.
+
+When you increase your usage level, the changes take effect immediately and AWS prorates your price. When you decrease your usage level, the change takes effect at the beginning of the next billing cycle.
+
+If your application’s baseline usage exceeds 6 B requests or 600 TB per month, contact [AWS Sales Support](https://aws.amazon.com/contact-us/sales-support/ "https://aws.amazon.com/contact-us/sales-support/") on the AWS website for custom pricing.
 
 ### Usage Monitoring
 
