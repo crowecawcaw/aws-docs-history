@@ -165,7 +165,7 @@ following steps guide you through the process of adding the required permissions
 for using custom scripts to the `AmazonEC2RoleForLaunchWizard`
 role.
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com//iam "https://console.aws.amazon.com//iam").
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
 2. In the navigation pane, choose Policies, Create policy.
 3. On the **Create policy** page, choose
    **JSON**, then copy and paste the following policy
@@ -230,7 +230,7 @@ you want to use to save deployment artifacts does not contain the prefix
 steps to attach the required policy to the IAM role that will be used for
 performing the deployments.
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com//iam "https://console.aws.amazon.com//iam").
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
 2. In the navigation pane, choose Policies, Create policy.
 3. On the **Create policy** page, choose
    **JSON**, then copy and paste the following policy
