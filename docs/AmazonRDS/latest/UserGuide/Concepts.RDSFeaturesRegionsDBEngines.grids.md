@@ -24,7 +24,7 @@ For more information on engine-native features and options, see
 - [IAM database authentication](Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.md")
 - [Kerberos authentication](Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md")
 - [Multi-AZ DB clusters](Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.md")
-- [Performance Insights](Concepts.RDS_Fea_Regions_DB-eng.Feature.PerformanceInsights.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.PerformanceInsights.md")
+- [Database Insights](Concepts.RDS_Fea_Regions_DB-eng.Feature.PerformanceInsights.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.PerformanceInsights.md")
 - [RDS Custom](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.md")
 - [Amazon RDS Proxy](Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSProxy.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSProxy.md")
 - [Secrets

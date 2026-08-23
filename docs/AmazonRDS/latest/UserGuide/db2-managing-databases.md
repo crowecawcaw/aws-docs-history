@@ -21,6 +21,7 @@ collection of information about your databases.
 - [Dropping a database](#db2-dropping-database "#db2-dropping-database")
 - [Backing up a database](#db2-backing-up-database "#db2-backing-up-database")
 - [Copying archive logs to Amazon S3](#db2-copying-archive-logs-to-s3 "#db2-copying-archive-logs-to-s3")
+- [Copying active logs to Amazon S3](#db2-copying-active-logs-to-s3 "#db2-copying-active-logs-to-s3")
 - [Restoring a database](#db2-restoring-database "#db2-restoring-database")
 - [Listing databases](#db2-listing-databases "#db2-listing-databases")
 - [Collecting information about databases](#db2-collecting-info-db "#db2-collecting-info-db")
@@ -480,6 +481,52 @@ FOO             2026-01-06-02.13.42.885650 F0D81C7E-7213-4565-B376-4F33FCF420E3 
 CODEP           2026-01-14-19.42.42.508476 106EEF95-6E30-4FFF-85AE-B044352DF095                                         0 DISABLED         -                            -                                 -
 ...
 ```
+
+## Copying active logs to Amazon S3
+
+You can copy active transaction log files from your RDS for Db2 database to Amazon S3. Active
+logs contain recent committed transactions that have not yet been archived. With active
+log copy, you can recover transactions beyond what archive log copy has uploaded.
+
+###### Note
+
+Configure archive log copy for the database before you copy active logs. For more
+information, see [Copying archive logs to Amazon S3](#db2-copying-archive-logs-to-s3 "#db2-copying-archive-logs-to-s3").
+
+###### To copy active logs to Amazon S3
+
+1. Connect to the `rdsadmin` database using the master username and
+   master password for your RDS for Db2 DB instance. In the following example, replace
+   `master_username` and
+   `master_password` with your own
+   information.
+
+```
+db2 "connect to rdsadmin user `master_username` using `master_password`"
+```
+
+2. Copy active logs by calling `rdsadmin.copy_active_logs`. Replace
+   `database_name` with your database
+   name. For more information, see [rdsadmin.copy\_active\_logs](db2-sp-managing-databases.md#db2-sp-copy-active-logs "db2-sp-managing-databases.md#db2-sp-copy-active-logs").
+
+```
+db2 "call rdsadmin.copy_active_logs(?, '`database_name`')"
+```
+
+Active log files are uploaded to your Amazon S3 bucket under
+`s3_prefix``rds-archive-log-copy/``dbi_resource_id``/``database_name``-``database_unique_id``/active_logs_task_``task_id``/`.
+The Amazon S3 prefix uses the configuration for
+`ARCHIVE_LOG_COPY_TARGET_S3_ARN`.
+
+###### To recover a database using active logs
+
+1. Restore the database from a native backup. For more information, see [Restoring a database](#db2-restoring-database "#db2-restoring-database").
+2. Roll forward using archive logs with `complete_rollforward` set to
+   `FALSE`. For more information, see [rdsadmin.rollforward\_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database").
+3. Roll forward using active logs by specifying the
+   `active_logs_task_``task_id` prefix to
+   the end of logs, and set `complete_rollforward` to
+   `TRUE`. For more information, see [rdsadmin.rollforward\_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database").
 
 ## Restoring a database
 

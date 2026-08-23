@@ -66,7 +66,7 @@ log activities that occur on your PostgreSQL DB instance. These include the foll
   It's this library that you can use to analyze running queries. Be sure that
   `pg_stat_statements` is set in your DB parameter group. For more information
   about monitoring your RDS for PostgreSQL DB instance using the information that this library
-  provides, see [SQL statistics for RDS PostgreSQL](USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.md "USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.AdditionalMetrics.PostgreSQL.md").
+  provides, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 - The `log_hostname` parameter captures to the log the hostname of each
   client connection. For RDS for PostgreSQL version 12 and higher versions, this parameter is set
   to `off` by default. If you turn it on, be sure to monitor session connection

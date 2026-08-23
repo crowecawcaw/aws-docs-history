@@ -32,7 +32,8 @@ same table from another client. The data manipulation language (DML) statements
 for changing data values (INSERT, UPDATE, DELETE, COMMIT, ROLLBACK TRANSACTION)
 can result in contention that causes the write-ahead logfile to be waiting for
 the buffers to be flushed. This situation is captured in the following
-Amazon RDS Performance Insights metrics that indicate heavy DML activity.
+detailed per-query and database counter metrics, which are exposed through the Performance Insights API
+and indicate heavy DML activity.
 
 - `tup_inserted`
 - `tup_updated`
@@ -41,7 +42,7 @@ Amazon RDS Performance Insights metrics that indicate heavy DML activity.
 - `xact_commit`
 
 For more information about these metrics,
-see [Performance Insights counters for Amazon RDS for PostgreSQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL").
+see [Detailed Database Metrics for Amazon RDS for PostgreSQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.PostgreSQL").
 
 **Frequent checkpoint activity**
 

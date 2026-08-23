@@ -306,10 +306,10 @@ parameter changes to take effect.
   likelihood of subtransaction overflow conditions.
 - Reduce long-running transactions –
   Long-running transactions can exacerbate subtransaction issues by holding
-  onto subtransaction information longer. Monitor Performance Insights metrics
+  onto subtransaction information longer. Monitor detailed per-query and database counter metrics
   and configure the `idle_in_transaction_session_timeout` parameter
   to automatically terminate idle transactions.
-- Monitor Performance Insights metrics – Track metrics including
+- Monitor detailed per-query and database counter metrics – Track metrics including
   `idle_in_transaction_count` (number of sessions in idle in
   transaction state) and `idle_in_transaction_max_time` (duration
   of the longest running idle transaction) to detect long-running

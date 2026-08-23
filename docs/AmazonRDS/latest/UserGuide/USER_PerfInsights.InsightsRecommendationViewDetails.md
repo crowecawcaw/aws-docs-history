@@ -1,15 +1,15 @@
-# Viewing Performance Insights proactive recommendations
+# Viewing Database Insights proactive recommendations
 
-Amazon RDS Performance Insights monitors specific metrics and automatically creates thresholds by analyzing what levels might be
+Amazon RDS monitors specific metrics and automatically creates thresholds by analyzing what levels might be
 potentially problematic for a specified resource. When the new metric values cross a predefined threshold over a
-given period of time, Performance Insights generates a proactive recommendation. This recommendation helps to prevent future database
-performance impact. To receive these proactive recommendations, you must turn on Performance Insights with a paid tier retention period.
+given period of time, Amazon RDS generates a proactive recommendation. This recommendation helps to prevent future database
+performance impact. To receive these proactive recommendations, you must enable collecting detailed per-query and database counter metrics with a paid tier retention period.
 
-For more information about turning on Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md"). For information about pricing and data
-retention for Performance Insights, see [Pricing and data retention for Performance Insights](USER_PerfInsights.Overview.cost.md "USER_PerfInsights.Overview.cost.md").
+For more information about enabling detailed per-query and database counter metrics, see [Enabling and disabling detailed per-query and database counter metrics](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md"). For information about pricing and data
+retention for Database Insights, see [Pricing and data retention for Database Insights](USER_PerfInsights.Overview.cost.md "USER_PerfInsights.Overview.cost.md").
 
 To find out the regions, DB engines, and instance classes supported for the proactive recommendations, see
-[Amazon RDS DB engine, Region, and instance class support for Performance Insights features](USER_PerfInsights.Overview.Engines.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.Engines.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport").
+[Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 You can view the detailed analysis and recommended investigations of proactive recommendations in the recommendation details page.
 

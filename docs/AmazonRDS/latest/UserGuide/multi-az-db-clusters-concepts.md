@@ -202,7 +202,7 @@ control, you can view the wait event
 `/wait/synch/cond/semisync/semi_sync_flow_control_delay_cond`
 corresponding to the SQL statement on the Performance Insights dashboard. To
 view these metrics, make sure that the Performance Schema is turned on. For
-information about Performance Insights, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
+information about Performance Insights, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
 
 #### Mitigating replica lag with flow control for RDS for PostgreSQL
 

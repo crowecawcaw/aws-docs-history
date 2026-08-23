@@ -30,7 +30,7 @@ of the following conditions are met:
 
 For automatic management, the `performance_schema` parameter must be set to `0` and the
 **Source** must not be set to `user`. If Performance Insights isn't managing the Performance
-Schema automatically, see [Overview of the Performance Schema for Performance Insights on Amazon RDS for MariaDB or MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
+Schema automatically, see [Overview of the Performance Schema for Database Insights in Amazon RDS for MariaDB or MySQL](USER_PerfInsights.EnableMySQL.md "USER_PerfInsights.EnableMySQL.md").
 
 In the AWS CLI, check the source of a parameter value by running the [describe-db-parameters](../../../cli/latest/reference/rds/describe-db-parameters.md "../../../cli/latest/reference/rds/describe-db-parameters.md") command.
 

@@ -147,19 +147,26 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 5. Restore the backup on the RDS for Db2 server by calling
    `rdsadmin.restore_database`. Set `backup_type` to
    `ONLINE`. For more information, see [rdsadmin.restore\_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database").
-6. Copy your archive logs from your source server to your S3 bucket. For more
+6. Copy your archive logs from your source server to your S3 bucket. Upload
+   archive log files to a dedicated prefix that doesn't contain backup images or
+   other non-log files. Archive log files must use the standard Db2 naming format
+   (`S`sequence`.LOG`). For more
    information, see [Archive
    logging](https://www.ibm.com/docs/en/db2/11.5?topic=logging-archive "https://www.ibm.com/docs/en/db2/11.5?topic=logging-archive") in the IBM Db2 documentation.
-7. Apply archive logs as many times as needed by calling
-   `rdsadmin.rollforward_database`. Set
-   `complete_rollforward` to `FALSE` to keep the database
-   in a `ROLL-FORWARD PENDING` state. For more information, see [rdsadmin.rollforward\_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database").
-8. After you apply all of the archive logs, bring the database online by calling
-   `rdsadmin.complete_rollforward`. For more information, see [rdsadmin.complete\_rollforward](db2-sp-managing-databases.md#db2-sp-complete-rollforward "db2-sp-managing-databases.md#db2-sp-complete-rollforward").
-9. Switch application connections to the RDS for Db2 server by either updating your
-   application endpoints for the database or by updating the DNS endpoints to
-   redirect traffic to the RDS for Db2 server. You can also use the Db2 automatic
-   client reroute feature on your self-managed Db2 database with the RDS for Db2
-   database endpoint. For more information, see [Automatic client reroute description and setup](https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client "https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client") in the IBM Db2
-   documentation.
-10. (Optional) Shut down your source database.
+
+For example, if your backup files are at `backups/TESTDB/`, upload
+your archive logs to a separate prefix such as
+`archiveLogs/TESTDB/`. 7. Apply archive logs as many times as needed by calling
+`rdsadmin.rollforward_database`. Set the
+`s3_prefix` to the dedicated archive log prefix, for example
+`archiveLogs/TESTDB/`. Ensure that the prefix contains only
+archive log files in the
+`S`sequence`.LOG` format. Set
+`complete_rollforward` to `FALSE` to keep the database
+in a `ROLL-FORWARD PENDING` state. For more information, see [rdsadmin.rollforward\_database](db2-sp-managing-databases.md#db2-sp-rollforward-database "db2-sp-managing-databases.md#db2-sp-rollforward-database"). 8. After you apply all of the archive logs, bring the database online by calling
+`rdsadmin.complete_rollforward`. For more information, see [rdsadmin.complete\_rollforward](db2-sp-managing-databases.md#db2-sp-complete-rollforward "db2-sp-managing-databases.md#db2-sp-complete-rollforward"). 9. Switch application connections to the RDS for Db2 server by either updating your
+application endpoints for the database or by updating the DNS endpoints to
+redirect traffic to the RDS for Db2 server. You can also use the Db2 automatic
+client reroute feature on your self-managed Db2 database with the RDS for Db2
+database endpoint. For more information, see [Automatic client reroute description and setup](https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client "https://www.ibm.com/docs/en/db2/11.5?topic=reroute-configuring-automatic-client") in the IBM Db2
+documentation. 10. (Optional) Shut down your source database.

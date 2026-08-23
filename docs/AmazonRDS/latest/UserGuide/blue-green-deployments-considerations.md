@@ -207,7 +207,7 @@ updates:
 - If you use CloudTrail for auditing resources, adjust the consumers of the CloudTrail to track
   the new resource IDs after switchover. For more information, see [Monitoring Amazon RDS API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 - If you use the Performance Insights API, adjust the resource IDs in calls to the API
-  after switchover. For more information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
+  after switchover. For more information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
 
 You can monitor a database with the same name after switchover, but it doesn't
 contain the data from before the switchover.

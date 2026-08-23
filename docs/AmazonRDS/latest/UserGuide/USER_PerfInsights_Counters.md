@@ -1,8 +1,8 @@
-# Performance Insights counter metrics
+# Detailed Database Metrics
 
-Counter metrics are operating system and database performance metrics in the Performance
-Insights dashboard. To help identify and analyze performance problems, you can correlate
-counter metrics with DB load. You must append a statistic
+Counter metrics are operating system and database performance metrics. These metrics are
+exposed through the Performance Insights API. To help identify and analyze
+performance problems, you can correlate counter metrics with DB load. You must append a statistic
 function to the metric to get the metric values. For example, the supported functions for
 `os.memory.active` metric are `.avg`, `.min`,
 `.max`, `.sum`, and `.sample_count`.
@@ -14,16 +14,16 @@ are collected for the selected time period. For more information about turning E
 
 ###### Topics
 
-- [Performance Insights operating system counters](#USER_PerfInsights_Counters.OS "#USER_PerfInsights_Counters.OS")
-- [Performance Insights counters for Amazon RDS for MariaDB and MySQL](#USER_PerfInsights_Counters.MySQL "#USER_PerfInsights_Counters.MySQL")
-- [Performance Insights counters for Amazon RDS for Microsoft SQL Server](#USER_PerfInsights_Counters.SQLServer "#USER_PerfInsights_Counters.SQLServer")
-- [Performance Insights counters for Amazon RDS for Oracle](#USER_PerfInsights_Counters.Oracle "#USER_PerfInsights_Counters.Oracle")
-- [Performance Insights counters for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL "#USER_PerfInsights_Counters.PostgreSQL")
+- [Operating system counters](#USER_PerfInsights_Counters.OS "#USER_PerfInsights_Counters.OS")
+- [Detailed Database Metrics for Amazon RDS for MariaDB and MySQL](#USER_PerfInsights_Counters.MySQL "#USER_PerfInsights_Counters.MySQL")
+- [Detailed Database Metrics for Amazon RDS for Microsoft SQL Server](#USER_PerfInsights_Counters.SQLServer "#USER_PerfInsights_Counters.SQLServer")
+- [Detailed Database Metrics for Amazon RDS for Oracle](#USER_PerfInsights_Counters.Oracle "#USER_PerfInsights_Counters.Oracle")
+- [Detailed Database Metrics for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL "#USER_PerfInsights_Counters.PostgreSQL")
 
-## Performance Insights operating system counters
+## Operating system counters
 
 The following operating system counters, which are prefixed with `os`, are
-available with Performance Insights for all RDS engines
+available through the Performance Insights API for all RDS engines
 except RDS for SQL Server
 .
 
@@ -111,9 +111,9 @@ Reference guide.
 | Num VCPUs                    | General             | vCPUs                   | os.general.numVCPUs                     | The number of virtual CPUs (vCPUs) for the DB instance.                                                                         |
 | Serverless Database Capacity | General             | ACUs                    | os.general.serverlessDatabaseCapacity   | The current capacity of the instance, in ACUs.                                                                                  |
 
-## Performance Insights counters for Amazon RDS for MariaDB and MySQL
+## Detailed Database Metrics for Amazon RDS for MariaDB and MySQL
 
-The following database counters are available with Performance Insights for Amazon RDS
+The following database counters are available through the Performance Insights API for Amazon RDS
 for MariaDB and MySQL.
 
 ###### Topics
@@ -190,9 +190,9 @@ for ratios, hit rates, or latencies.
 | innodb\_lock\_timeouts             | Locks        | Locks        | db.Locks.innodb\_lock\_timeouts          | The total number of locks that timed out.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `SELECT COUNT AS innodb_lock_timeouts FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE<br>NAME='lock_timeouts'`        |
 | innodb\_row\_lock\_waits           | Locks        | Locks        | db.Locks.innodb\_row\_lock\_waits        | The total number of row locks that resulted in a wait.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `SELECT COUNT AS innodb_row_lock_waits FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE<br>NAME='lock_row_lock_waits'` |
 
-## Performance Insights counters for Amazon RDS for Microsoft SQL Server
+## Detailed Database Metrics for Amazon RDS for Microsoft SQL Server
 
-The following database counters are available with Performance Insights for RDS
+The following database counters are available through the Performance Insights API for RDS
 for Microsoft SQL Server.
 
 ### Native counters for RDS for Microsoft SQL Server
@@ -223,9 +223,9 @@ these native metrics in [Use SQL Server Objects](https://docs.microsoft.com/en-u
 | SQL Compilations       | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017")             | Compilations per second    | db.SQL Statistics.SQL Compilations         |
 | SQL Re-Compilations    | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017")             | Re-compilations per second | db.SQL Statistics.SQL Re-Compilations      |
 
-## Performance Insights counters for Amazon RDS for Oracle
+## Detailed Database Metrics for Amazon RDS for Oracle
 
-The following database counters are available with Performance Insights for RDS
+The following database counters are available through the Performance Insights API for RDS
 for Oracle.
 
 ### Native counters for RDS for Oracle
@@ -269,9 +269,9 @@ time.
 | DB block gets from cache                | Cache | Gets per second        | db.Cache.db block gets from cache               |
 | Consistent gets                         | Cache | Gets per second        | db.Cache.consistent gets                        |
 
-## Performance Insights counters for Amazon RDS for PostgreSQL
+## Detailed Database Metrics for Amazon RDS for PostgreSQL
 
-The following database counters are available with Performance Insights for Amazon RDS
+The following database counters are available through the Performance Insights API for Amazon RDS
 for PostgreSQL.
 
 ###### Topics

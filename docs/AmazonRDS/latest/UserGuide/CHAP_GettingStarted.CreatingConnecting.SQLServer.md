@@ -230,7 +230,7 @@ For more information, see [Creating a stack on the CloudFormation console](../..
 CloudFormation is free, but the resources that CloudFormation creates are live. You incur the standard
 usage fees for these resources until you terminate them. For more information, see
 [RDS for SQL Server
-pricing](https://aws.amazon.com//rds/sqlserver/pricing "https://aws.amazon.com//rds/sqlserver/pricing").
+pricing](https://aws.amazon.com/rds/sqlserver/pricing "https://aws.amazon.com/rds/sqlserver/pricing").
 
 To create your resources using the CloudFormation console, complete the following steps:
 

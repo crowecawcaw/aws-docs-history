@@ -61,13 +61,13 @@ metrics:
 
 `blks_hit`
 
-This Performance Insights counter metric indicates the number of blocks that were retrieved
+This database counter metric indicates the number of blocks that were retrieved
 from the shared buffer pool. After the `LWLock:buffer_mapping` wait event appears, you
 might observe a spike in `blks_hit`.
 
 `blks_read`
 
-This Performance Insights counter metric indicates the number of blocks that required I/O to be
+This database counter metric indicates the number of blocks that required I/O to be
 read into the shared buffer pool. You might observe a spike in `blks_read` in the
 lead-up to the `LWLock:buffer_mapping` wait event.
 

@@ -1,24 +1,24 @@
 # Retrieving metrics with the Performance Insights API for Amazon RDS
 
-When Performance Insights is turned on, the API provides visibility into instance
+When you enable detailed per-query and database counter metrics, the API provides visibility into instance
 performance. Amazon CloudWatch Logs provides the authoritative source for vended monitoring metrics for
 AWS services.
 
-Performance Insights offers a domain-specific view of database load measured as average active sessions (AAS). This
+Database Insights offers a domain-specific view of database load measured as average active sessions (AAS). This
 metric appears to API consumers as a two-dimensional time-series dataset. The time dimension of the data provides DB
 load data for each time point in the queried time range. Each time point decomposes overall load in relation to the
 requested dimensions, such as `SQL`, `Wait-event`, `User`, or `Host`,
 measured at that time point.
 
-Amazon RDS Performance Insights monitors your Amazon RDS DB instance so that you can analyze and troubleshoot database performance. One
-way to view Performance Insights data is in the AWS Management Console. Performance Insights also provides a public API so that
+Amazon CloudWatch Database Insights monitors your Amazon RDS DB instance so that you can analyze and troubleshoot database performance. One
+way to view Database Insights data is in the AWS Management Console. Performance Insights also provides a public API so that
 you can query your own data. You can use the API to do the following:
 
 - Offload data into a database
-- Add Performance Insights data to existing monitoring dashboards
+- Add Database Insights data to existing monitoring dashboards
 - Build monitoring tools
-  To use the Performance Insights API, enable Performance Insights on one of your Amazon RDS DB instances. For information
-  about enabling Performance Insights, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md"). For more information about the Performance Insights API, see the
+  To use the Performance Insights API, enable detailed per-query and database counter metrics on one of your Amazon RDS DB instances. For information
+  about enabling detailed per-query and database counter metrics, see [Enabling and disabling detailed per-query and database counter metrics](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md"). For more information about the Performance Insights API, see the
   [Amazon RDS Performance Insights API
   Reference](../../../performance-insights/latest/APIReference/Welcome.md "../../../performance-insights/latest/APIReference/Welcome.md").
 

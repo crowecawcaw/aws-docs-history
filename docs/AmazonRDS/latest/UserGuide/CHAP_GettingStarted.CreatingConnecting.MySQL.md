@@ -241,7 +241,7 @@ For more information, see [Creating a stack on the CloudFormation console](../..
 CloudFormation is free, but the resources that CloudFormation creates are live. You incur the standard
 usage fees for these resources until you terminate them. For more information, see
 [RDS for MySQL
-pricing](https://aws.amazon.com//rds/mysql/pricing "https://aws.amazon.com//rds/mysql/pricing").
+pricing](https://aws.amazon.com/rds/mysql/pricing "https://aws.amazon.com/rds/mysql/pricing").
 
 To create your resources using the CloudFormation console, complete the following steps:
 

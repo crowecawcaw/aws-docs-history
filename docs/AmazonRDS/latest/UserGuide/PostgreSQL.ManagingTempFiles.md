@@ -144,6 +144,6 @@ sum of the temporary files for each PID.
   troubleshoot, analyze, and determine the changes in your query workload.
 
 For more information about how to analyze metrics and queries with Performance
-Insights, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
+Insights, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 For an example of viewing temporary file usage with Performance Insights, see [Viewing temporary file usage with Performance Insights](PostgreSQL.ManagingTempFiles.Example.md "PostgreSQL.ManagingTempFiles.Example.md")

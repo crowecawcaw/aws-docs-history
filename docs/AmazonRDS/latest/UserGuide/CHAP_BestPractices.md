@@ -151,10 +151,10 @@ information, see [Replica lag and Multi-AZ DB clusters](multi-az-db-clusters-con
 
 You can view the combined Performance Insights and CloudWatch metrics in the Performance Insights dashboard and monitor your
 DB instance. To use this monitoring view, Performance Insights must be turned on for your DB
-instance. For information about this monitoring view, see [Viewing combined metrics with the Performance Insights dashboard](Viewing_Unifiedmetrics.md "Viewing_Unifiedmetrics.md").
+instance. For information about this monitoring view, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 You can create a performance analysis report for a specific time period and
-view the insights identified and the recommendations to resolve the issues. For more information see, [Creating a performance analysis report in Performance Insights](USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md "USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md").
+view the insights identified and the recommendations to resolve the issues. For more information, see [Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
 ###### To view performance metrics
 

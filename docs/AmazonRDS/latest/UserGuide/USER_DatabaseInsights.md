@@ -19,3 +19,4 @@ For information about pricing, see [Amazon CloudWatch Pricing](https://aws.amazo
 - [Turning on the Standard mode of Database Insights for Amazon RDS](USER_DatabaseInsights.TurningOnStandard.md "USER_DatabaseInsights.TurningOnStandard.md")
 - [Configuring your database to monitor slow SQL queries with Database Insights for Amazon RDS](USER_DatabaseInsights.SlowSQL.md "USER_DatabaseInsights.SlowSQL.md")
 - [Considerations for Database Insights for Amazon RDS](USER_DatabaseInsights.Considerations.md "USER_DatabaseInsights.Considerations.md")
+- [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md")

@@ -17,7 +17,7 @@ We recommend that you automate monitoring tasks as much as possible.
 
 - [Amazon RDS instance status and recommendations](#MonitoringOverview.tools.automated.rds "#MonitoringOverview.tools.automated.rds")
 - [Amazon CloudWatch metrics for Amazon RDS](#MonitoringOverview.tools.automated.integrated "#MonitoringOverview.tools.automated.integrated")
-- [Amazon RDS Performance Insights and operating-system monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
+- [Amazon RDS Enhanced Monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
 - [Integrated services](#MonitoringOverview.tools.automated.integrated.events-logs-streams "#MonitoringOverview.tools.automated.integrated.events-logs-streams")
 
 ### Amazon RDS instance status and recommendations
@@ -51,15 +51,13 @@ Amazon CloudWatch for additional monitoring capabilities.
     Amazon RDS metric over a specific time period. You can then perform one or
     more actions based on the value of the metric relative to a threshold that you set.
     For more information, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+  - **Amazon CloudWatch Database Insights** – Assess the load on your
+    database, and determine when and where to take action. For more information, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 
-### Amazon RDS Performance Insights and operating-system monitoring
+### Amazon RDS Enhanced Monitoring
 
-You can use the following automated tools to monitor Amazon RDS performance:
-
-- **Amazon RDS Performance Insights** – Assess the load on your
-  database, and determine when and where to take action. For more information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
-- **Amazon RDS Enhanced Monitoring** – Look at metrics in real time
-  for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+Amazon RDS Enhanced Monitoring provides metrics in real time
+for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 
 ### Integrated services
 

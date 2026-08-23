@@ -7,7 +7,8 @@ Alarms invoke actions for sustained state changes only. CloudWatch alarms don't 
 maintained for a specified number of time periods.
 
 You can use the **DB\_PERF\_INSIGHTS**
-metric math function in the CloudWatch console to query Amazon RDS for Performance Insights counter metrics. The
+metric math function in the CloudWatch console to query Amazon RDS for detailed per-query and database counter
+metrics, which are exposed through the Performance Insights API. The
 **DB\_PERF\_INSIGHTS** function also includes the DBLoad metric at
 sub-minute intervals. You can set CloudWatch alarms on these metrics.
 

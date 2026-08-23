@@ -8,7 +8,7 @@ Amazon DevOps Guru?](../../../devops-guru/latest/userguide/welcome.md "../../..
 
 DevOps Guru detects, analyzes, and makes recommendations for existing operational issues for all
 Amazon RDS DB engines. DevOps Guru for RDS extends this capability by applying machine learning to
-Performance Insights metrics for
+detailed per-query and database counter metrics (exposed through the Performance Insights API) for
 RDS for PostgreSQL databases. These monitoring features
 allow DevOps Guru for RDS to detect and diagnose performance bottlenecks and recommend specific
 corrective actions. DevOps Guru for RDS can also detect problematic conditions in your
@@ -74,7 +74,7 @@ knowledge, DevOps Guru for RDS can teach you best practices.
 
 DevOps Guru for RDS collects data about your RDS for PostgreSQL
 databases from Amazon RDS Performance Insights. The most important metric is
-`DBLoad`. DevOps Guru for RDS consumes the Performance Insights metrics, analyzes them with machine learning,
+`DBLoad`. DevOps Guru for RDS consumes these detailed per-query and database counter metrics, analyzes them with machine learning,
 and publishes insights to the dashboard.
 
 An _insight_ is a collection of related anomalies that were
@@ -165,14 +165,14 @@ To view alerts from DevOps Guru in the RDS console, your AWS Identity and Acces
   - A customer managed policy that includes `pi:GetResourceMetrics` and
     `pi:DescribeDimensionKeys`
 
-For more information, see [Configuring access policies for Performance Insights](USER_PerfInsights.access-control.md "USER_PerfInsights.access-control.md").
+For more information, see [Configuring access policies for Database Insights](USER_PerfInsights.access-control.md "USER_PerfInsights.access-control.md").
 
 ### Turning on Performance Insights for your RDS for PostgreSQL DB instances
 
 DevOps Guru for RDS relies on Performance Insights for its data. Without Performance Insights, DevOps Guru publishes anomalies, but doesn't include
 the detailed analysis and recommendations.
 
-When you create or modify a RDS for PostgreSQL DB instance, you can turn on Performance Insights. For more information, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md").
+When you create or modify a RDS for PostgreSQL DB instance, you can turn on Performance Insights. For more information, see [Enabling and disabling detailed per-query and database counter metrics](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md").
 
 ### Turning on DevOps Guru and specifying resource coverage
 

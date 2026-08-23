@@ -20,7 +20,7 @@ and grouped by the waits states that make up the `db.load`.
 `GetResourceMetrics` can also return the `db.sampleload` metric, but the
 `db.load` metric is appropriate in most cases.
 
-For information about the counter metrics returned by `GetResourceMetrics`, see [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
+For information about the counter metrics returned by `GetResourceMetrics`, see [Detailed Database Metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
 
 The following calculations are supported for the metrics:
 

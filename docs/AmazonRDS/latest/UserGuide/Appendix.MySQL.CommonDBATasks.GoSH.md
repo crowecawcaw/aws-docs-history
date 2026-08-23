@@ -3,7 +3,7 @@
 ###### Tip
 
 To analyze database performance, you can also use Performance Insights on Amazon RDS. For more
-information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
+information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
 
 MySQL maintains many status variables that provide information about its operation.
 Their value can help you detect locking or memory issues on a DB instance. The values of

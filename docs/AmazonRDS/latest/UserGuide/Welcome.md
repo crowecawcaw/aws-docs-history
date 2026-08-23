@@ -356,7 +356,7 @@ metric relative to a threshold that you set. For more information, see [Monitori
 **Amazon RDS Performance Insights and operating-system monitoring**
 
 Performance Insights assesses the load on your database, and determine when
-and where to take action. For more information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md"). Amazon RDS
+and where to take action. For more information, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md"). Amazon RDS
 Enhanced Monitoring looks at metrics in real time for the operating system. For
 more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 

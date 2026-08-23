@@ -240,7 +240,7 @@ For more information, see [Creating a stack on the CloudFormation console](../..
 
 CloudFormation is free, but the resources that CloudFormation creates are live. You incur the standard
 usage fees for these resources until you terminate them. For more information, see
-[RDS for Oracle pricing](https://aws.amazon.com//rds/oracle/pricing "https://aws.amazon.com//rds/oracle/pricing").
+[RDS for Oracle pricing](https://aws.amazon.com/rds/oracle/pricing "https://aws.amazon.com/rds/oracle/pricing").
 
 To create your resources using the CloudFormation console, complete the following steps:
 

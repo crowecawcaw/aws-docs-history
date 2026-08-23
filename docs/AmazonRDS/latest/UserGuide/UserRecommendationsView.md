@@ -95,7 +95,7 @@ For information about the components on the details page for an anomaly based re
 recommendation, see [Viewing reactive anomalies](../../../devops-guru/latest/userguide/working-with-rds.analyzing.metrics.md "../../../devops-guru/latest/userguide/working-with-rds.analyzing.metrics.md") in the _Amazon DevOps Guru User
 Guide_.
 
-For information about the components on the details page for a threshold based proactive recommendation, see [Viewing Performance Insights proactive recommendations](USER_PerfInsights.InsightsRecommendationViewDetails.md "USER_PerfInsights.InsightsRecommendationViewDetails.md").
+For information about the components on the details page for a threshold based proactive recommendation, see [Viewing Database Insights proactive recommendations](USER_PerfInsights.InsightsRecommendationViewDetails.md "USER_PerfInsights.InsightsRecommendationViewDetails.md").
 
 The other automated recommendations display the following components on the recommendation details page:
 

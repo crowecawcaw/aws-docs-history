@@ -5,7 +5,7 @@ file data without provisioning or managing storage capacity and performance. Wit
 can create a file system and then mount it in your VPC through the NFS versions 4.0 and 4.1
 (NFSv4) protocol. Then you can use the EFS file system like any other POSIX-compliant file
 system. For general information, see [What is Amazon Elastic File System?](../../../efs/latest/ug/whatisefs.md "../../../efs/latest/ug/whatisefs.md") and the AWS
-blog [Integrate Amazon RDS for Oracle with Amazon EFS](https://aws.amazon.com//blogs/database/integrate-amazon-rds-for-oracle-with-amazon-efs/ "https://aws.amazon.com//blogs/database/integrate-amazon-rds-for-oracle-with-amazon-efs/").
+blog [Integrate Amazon RDS for Oracle with Amazon EFS](https://aws.amazon.com/blogs/database/integrate-amazon-rds-for-oracle-with-amazon-efs/ "https://aws.amazon.com/blogs/database/integrate-amazon-rds-for-oracle-with-amazon-efs/").
 
 ###### Topics
 
