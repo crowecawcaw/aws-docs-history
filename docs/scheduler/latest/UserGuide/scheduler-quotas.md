@@ -39,5 +39,14 @@ Your AWS account has the following quotas related to EventBridge Scheduler.
 | UntagResource request rate                            | Each supported Region: 1                                                                                                                                                                                                                                                                | [Yes](https://console.aws.amazon.com/servicequotas/home/services/scheduler/quotas/L-44A0C1A0 "https://console.aws.amazon.com/servicequotas/home/services/scheduler/quotas/L-44A0C1A0") | Removes one or more tags from the specified Scheduler resource.                                                                                                                                                                                                                        |
 | UpdateSchedule request rate                           | us-east-1: 1,000<br>us-east-2: 1,000<br>us-west-2: 1,000<br>ap-northeast-1: 1,000<br>ap-south-1: 1,000<br>ap-southeast-1: 1,000<br>ap-southeast-2: 1,000<br>eu-central-1: 1,000<br>eu-west-1: 1,000<br>eu-west-2: 1,000<br>sa-east-1: 1,000<br>Each of the other supported Regions: 250 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/scheduler/quotas/L-B7845AAE "https://console.aws.amazon.com/servicequotas/home/services/scheduler/quotas/L-B7845AAE") | Maximum UpdateSchedule requests per second. When you reach this quota, EventBridge Scheduler rejects requests for this operation for the remainder of the interval. This is adjustable to tens of thousands of requests per second.                                                    |
 
+###### Input payload size limit
+
+The maximum size of a target's `Input` payload is 256 KB. This limit applies to the
+`Input` field on a schedule's target for all target types. Target types include templated
+targets (such as Amazon SQS and Lambda) and universal targets. The `Input` API parameter has a fixed
+limit, not an adjustable Service Quotas quota. For this reason, the limit does not appear in the preceding table. For more
+information, see [Input](../APIReference/API_Target.md#scheduler-Type-Target-Input "../APIReference/API_Target.md#scheduler-Type-Target-Input")
+in the _Amazon EventBridge Scheduler API Reference_.
+
 For more information about quotas and service endpoints for EventBridge Scheduler, see [Amazon EventBridge Scheduler endpoints and quotas](../../../general/latest/gr/eventbridgescheduler.md "../../../general/latest/gr/eventbridgescheduler.md")
 in the _AWS General Reference_ guide.
