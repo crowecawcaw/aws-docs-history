@@ -15,6 +15,7 @@ blocks that you add to a Region switch plan.
 - [Amazon RDS execution block sample policy](security_iam_region_switch_rds.md "security_iam_region_switch_rds.md")
 - [Aurora provisioned scaling execution block sample policy](security_iam_region_switch_aurora_provisioned_scaling.md "security_iam_region_switch_aurora_provisioned_scaling.md")
 - [Aurora serverless scaling execution block sample policy](security_iam_region_switch_aurora_serverless_scaling.md "security_iam_region_switch_aurora_serverless_scaling.md")
+- [Amazon RDS Switchover Read Replica execution block sample policy](security_iam_region_switch_rds_switchover_read_replica.md "security_iam_region_switch_rds_switchover_read_replica.md")
 - [Manual approval execution block sample policy](security_iam_region_switch_manual_approval.md "security_iam_region_switch_manual_approval.md")
 - [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md "security_iam_region_switch_lambda.md")
 - [Route 53 health check execution block sample policy](security_iam_region_switch_route53.md "security_iam_region_switch_route53.md")
