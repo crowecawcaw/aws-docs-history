@@ -70,12 +70,21 @@ openssl x509 -pubkey -noout -in signing_cert.pem > public_key.pem
    the exact position defined by the required field order. For example:
 
 ```
-KeyNameOne\nValueOne\nKeyNameTwo\nValueTwo
+KeyNameOne\nValueOne\nKeyNameTwo\nValueTwo\n
 ```
 
 ###### Important
 
-Do not add a newline character at the end of the string. 8. Arrange the **key-value pairs** in byte-sort order
+The complete string to sign ends with a single trailing newline character
+after the last field's value. Do not add any newline characters beyond that
+one.
+
+The example scripts on this page add the trailing newline for you. The
+shell `echo` command and the `<<<` here-string
+each append the trailing newline, so the `STRING_TO_SIGN` value
+itself omits it. If you build the string in another language, such as Python,
+Java, Go, or Rust, append the single trailing newline yourself. Otherwise,
+your code cannot verify the signature. 8. Arrange the **key-value pairs** in byte-sort order
 (alphabetical by key name). 9. Construct the **string to sign** using the following
 format example:
 
