@@ -108,7 +108,7 @@ multiple snapshots.
 No action is required. The enhanced billing model automatically applies to both existing
 and new manual snapshots.
 
-For more information about snapshot pricing, see [Amazon Redshift pricing](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
+For more information about snapshot pricing, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 
 ### Iceberg DELETE on Lake Formation tables requires DELETE permission starting with Patch 202
 

@@ -63,6 +63,13 @@ see [Gateway endpoints for Amazon S3](../../../vpc/latest/privatelink/vpc-endpoi
   For more information, see [VPC
   Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md") in the Amazon VPC User Guide.
 
+###### Note
+
+Enhanced VPC routing also affects the calls that Redshift makes to AWS IAM Identity Center when a
+user signs in. If your cluster or workgroup uses AWS IAM Identity Center authentication, you must
+create interface VPC endpoints for those services. Otherwise, sign-in fails. For more
+information about using enhanced VPC routing with AWS IAM Identity Center, see [Using AWS IAM Identity Center authentication with enhanced VPC routing](redshift-iam-access-control-idp-connect-evr.md "redshift-iam-access-control-idp-connect-evr.md").
+
 There is no additional charge for using enhanced VPC routing. You might incur additional
 data transfer charges for certain operations. These include such operations as UNLOAD to
 Amazon S3 in a different AWS Region. COPY from Amazon EMR, or Secure Shell (SSH) with public IP

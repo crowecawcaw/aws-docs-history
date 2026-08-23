@@ -226,3 +226,33 @@ consistent with the source. The following considerations apply:
 - This feature applies to Amazon Redshift Serverless only when restored to the same serverless
   namespace. Snapshot restores on provisioned clusters do not maintain
   zero-ETL integrations.
+
+## Considerations when resizing a zero-ETL integration target
+
+When you resize an Amazon Redshift provisioned cluster that is the target of a zero-ETL integration, the
+resize can cause the integration tables to resynchronize. Whether resynchronization occurs
+depends on the type of resize:
+
+- An elastic resize that changes only the number of nodes (an in-place resize) does
+  not affect zero-ETL integrations. Tables remain synchronized.
+- An elastic resize that changes the node type causes all tables in zero-ETL integrations on
+  the cluster to resynchronize. Any classic resize also triggers resynchronization. This
+  happens because these resize operations temporarily change the distribution style of
+  tables while the service redistributes data onto the new cluster configuration. For more
+  information, see [Resizing a cluster](resizing-cluster.md "resizing-cluster.md").
+
+The following considerations apply when a resize triggers resynchronization:
+
+- The integration remains active, and resynchronization starts automatically after the
+  resize completes. You don't need to take any action.
+- While a table is resynchronizing, you can't query it in Amazon Redshift. To keep tables
+  queryable during resynchronization, set the `QUERY_ALL_STATES` parameter to
+  `TRUE` on the destination database before you start the resize. Data
+  returned during resynchronization might be stale until the resynchronization completes.
+  For more information, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER
+  DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon Redshift Database Developer Guide_.
+- Resynchronization can take 20–25 minutes or more, depending on the size of
+  the source database.
+- You can monitor the state of integration tables using the [SVV\_INTEGRATION\_TABLE\_STATE](../dg/r_SVV_INTEGRATION_TABLE_STATE.md "../dg/r_SVV_INTEGRATION_TABLE_STATE.md") system view. Tables show the
+  `ResyncRequired` or `ResyncInitiated` state until
+  resynchronization completes and they return to `Synced`.

@@ -23,6 +23,19 @@ details page for an integration. Possible metrics include the following types:
 | `IntegrationNumTablesReplicated`        | `Tables replicated`                    | The number of tables that have been replicated from your source database to<br>Amazon Redshift.<br>Units: Count<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                                    |
 | `IntegrationNumTablesFailedReplication` | `Tables failed`                        | The number of tables that failed replication.<br>Units: Count<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                                                                                      |
 | `IntegrationDataTransferred`            | `Data transferred`                     | The amount of data transferred in logical bytes.<br>Units: Bytes<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                                                                                   |
+| `IntegrationLatestDetectedChange`       | `Latest detected change`               | The time, in Unix epoch seconds, when the integration last staged a<br>source change in the replication queue.<br>Units: Seconds<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                   |
+| `IntegrationLatestAppliedChange`        | `Latest applied change`                | The time, in Unix epoch seconds, when the integration last completed<br>ingestion on Amazon Redshift.<br>Units: Seconds<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                            |
+| `IntegrationDuplicateRowsDetected`      | `Duplicate rows detected`              | The number of tables with duplicate rows identified during the reporting<br>interval.<br>Units: Count<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                                              |
+| `IntegrationAutoRemediationTriggered`   | `Auto-remediation triggered`           | The number of tables that auto-remediation moved to resynchronization<br>during the reporting interval.<br>Units: Count<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                            |
+
+###### Note
+
+For integrations that replicate multiple databases, the
+`IntegrationLatestDetectedChange` and
+`IntegrationLatestAppliedChange` metrics report the minimum value across
+all databases. This represents the least recently updated database. Per-database
+values are available in the `latest_detected_change_time` and
+`latest_applied_change_time` columns of [SVV\_INTEGRATION](../dg/r_SVV_INTEGRATION.md "../dg/r_SVV_INTEGRATION.md").
 
 - From the **Table statistics** tab, you can view the list of tables
   that are currently active or have errors. The statistics on this tab are as follows

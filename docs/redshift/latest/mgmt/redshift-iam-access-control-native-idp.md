@@ -84,9 +84,9 @@ These limitations apply:
   - Amazon Redshift ODBC driver v2.0.0.9
   - Amazon Redshift Python driver v2.0.914
 
-- **No support for enhanced VPC** – Enhanced VPC
-  isn't supported when you configure Redshift trusted identity propagation with AWS
-  IAM Identity Center. For more information about enhanced VPC, see [Enhanced VPC routing in
+- **No support for enhanced VPC routing** –
+  Enhanced VPC routing isn't supported when you use native identity provider federation.
+  For more information about enhanced VPC routing, see [Enhanced VPC routing in
   Amazon Redshift](enhanced-vpc-routing.md "enhanced-vpc-routing.md").
 - **AWS IAM Identity Center caching** – AWS IAM Identity Center caches session
   information. This might cause unpredictable access issues when you attempt to connect to

@@ -61,6 +61,15 @@ provider.
   follow mention permissions that must be configured. You will have to add permissions
   per IAM best practices. Specific permissions are detailed in the procedures that
   follow.
+- _Network configuration for enhanced VPC routing_ – If
+  enhanced VPC routing is turned on, your VPC must be able to reach the AWS IAM Identity Center
+  services. Interface VPC endpoints are the recommended way to provide this
+  connectivity.
+
+###### Note
+
+Set up this connectivity before users sign in. For more information
+about using enhanced VPC routing with AWS IAM Identity Center, see [Using AWS IAM Identity Center authentication with enhanced VPC routing](redshift-iam-access-control-idp-connect-evr.md "redshift-iam-access-control-idp-connect-evr.md").
 
 For more information, see [Getting Started with AWS
 IAM Identity Center](../../../singlesignon/latest/userguide/get-started-enable-identity-center.md "../../../singlesignon/latest/userguide/get-started-enable-identity-center.md").

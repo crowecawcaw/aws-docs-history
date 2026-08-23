@@ -92,12 +92,3 @@ enable row-level, column-level, and masking controls. For more details to get st
 AWS IAM Identity Center in multiple Regions, see [Manage
 AWS IAM Identity Center in multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md") in the _AWS IAM Identity Center User
 Guide_.
-
-## Limitations for connecting to Amazon Redshift with AWS IAM Identity Center
-
-When using AWS IAM Identity Center single sign-on, consider the following limitation:
-
-- **No support for enhanced VPC** – Enhanced VPC
-  isn't supported when you use AWS IAM Identity Center single sign-on for Amazon Redshift.
-  For more information about enhanced VPC, see [Enhanced VPC routing in
-  Amazon Redshift](enhanced-vpc-routing.md "enhanced-vpc-routing.md").
