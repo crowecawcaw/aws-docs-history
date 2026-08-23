@@ -26,10 +26,11 @@ Observes when a Lambda function invocation action starts.
     "Type": "FlowActionStarted",
     "Actor": "System",
     "Properties": {
-        "ActionType" : "InvokeLambdaFunction " // V2 JSON action type
-        "ActionParameters" : { // V2 JSON action parameters
+        "ActionType": "InvokeLambdaFunction", // V2 JSON action type.
+        "ActionParameters": { // V2 JSON action parameters.
             "LambdaFunctionARN": "string"
         }
+    }
 }
 ```
 
@@ -57,10 +58,11 @@ Observes when the flow checks hours of operation.
     "Type": "FlowActionStarted",
     "Actor": "System",
     "Properties": {
-        "ActionType" : "CheckHoursOfOperation" // V2 JSON action type
-        "ActionParameters" : { // V2 JSON action parameters
+        "ActionType": "CheckHoursOfOperation", // V2 JSON action type.
+        "ActionParameters": { // V2 JSON action parameters.
             "HoursOfOperationId": "string"
         }
+    }
 }
 ```
 
@@ -89,11 +91,12 @@ Observes when a contact is being transferred to a queue.
     "Type": "FlowActionStarted",
     "Actor": "System",
     "Properties": {
-        "ActionType" : "TransferContactToQueue" // V2 JSON action type
-        "ActionParameters" : { // V2 JSON action parameters
+        "ActionType": "TransferContactToQueue", // V2 JSON action type.
+        "ActionParameters": { // V2 JSON action parameters.
             "QueueId": "string",
-            "AgentId" : "string"
+            "AgentId": "string"
         }
+    }
 }
 ```
 
@@ -123,7 +126,7 @@ Observes when a participant is being connected to a Lex bot.
     "Type": "FlowActionStarted",
     "Actor": "System",
     "Properties": {
-        "ActionType": "ConnectParticipantWithLexBot"
+        "ActionType": "ConnectParticipantWithLexBot",
         "ActionParameters": {
             "LexV2Bot": {
                 "AliasArn": "string"

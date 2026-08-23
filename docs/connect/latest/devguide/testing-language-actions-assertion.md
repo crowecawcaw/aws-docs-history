@@ -30,13 +30,13 @@ Validates that a specific attribute or value in the flow matches expected criter
 
 ```
 {
-   "Identifier" : "ActionId",
-   "Type" : "Assert",
-   "Parameters" : {
-       "Namespace" : "string", // Data path to fetch
-       "Operator": "string", // Comparasion operator
-       "Operand" : "string" // Expected Value to compare
-   }
-    "Transitions": { "NextAction": "string" }
+   "Identifier": "ActionId",
+   "Type": "Assert",
+   "Parameters": {
+       "Namespace": "string", // Data path to fetch.
+       "Operator": "string", // Comparison operator.
+       "Operand": "string" // Expected value to compare.
+   },
+   "Transitions": { "NextAction": "string" }
 }
 ```

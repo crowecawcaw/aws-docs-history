@@ -214,10 +214,10 @@ Returns a predefined hours of operation check result.
                     }
                 }
             }
-        },
-        "Transitions": {
-            "NextAction": "string"
         }
+    },
+    "Transitions": {
+        "NextAction": "string"
     }
 }
 ```

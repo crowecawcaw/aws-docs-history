@@ -39,7 +39,7 @@ Observes when the system plays a prompt or send any voice response to the simula
             "SourceType": "string",// The source from which the message will be fetched. The only supported type is S3
             "MediaType": "string"// The type of the message to be played. The only supported type is Audio
         },
-        "MatchingCriteria": { Type: Similarity / Inclusion }
+        "MatchingCriteria": { "Type": "Similarity" } // Alternatively, use "Inclusion".
     }
 }
 ```

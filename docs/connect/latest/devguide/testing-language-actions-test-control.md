@@ -26,7 +26,7 @@ Explicitly terminates the test execution. Use this when you want to end the test
     "Identifier": "ActionId",
     "Type": "TestControl",
     "Parameters": {
-        "ActionType": "TestControl"
+        "ActionType": "TestControl",
         "Command": {
            "Type": "EndTest"
         }
