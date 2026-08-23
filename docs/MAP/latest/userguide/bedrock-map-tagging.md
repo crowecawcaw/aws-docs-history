@@ -43,15 +43,18 @@ application inference profiles or change your application code.
 
 1. Must have AWS Migration Program Engagement number (MPE ID number),
    also known as your project number, in your Migration Plan.
-2. Enable IAM principal cost allocation tags in your AWS Billing and Cost
+2. Create a new IAM principal (user or role) dedicated to your Amazon
+   Bedrock or Amazon Bedrock AgentCore workloads initiated and deployed during
+   the MAP Credit Period.
+3. Enable IAM principal cost allocation tags in your AWS Billing and Cost
    Management console. For more information, see
    [IAM principal cost allocation tags](../../../awsaccountbilling/latest/aboutv2/iam-principal-cost-allocation.md "../../../awsaccountbilling/latest/aboutv2/iam-principal-cost-allocation.md")
    in the _AWS Billing User Guide_.
-3. Activate the `map-migrated` tag as a cost allocation tag (CAT)
+4. Activate the `map-migrated` tag as a cost allocation tag (CAT)
    in the Billing console under
    **Cost allocation tags**. Cost allocation tags
    are available for both resource tags and IAM principal tags.
-4. Your role must have permission to tag IAM principals. If your role has the
+5. Your role must have permission to tag IAM principals. If your role has the
    IAMFullAccess AWS-managed policy attached, you can skip this step.
    Otherwise, ensure your role has `iam:TagRole` and
    `iam:ListRoleTags` permissions (for tagging roles) or
@@ -202,7 +205,10 @@ process that involves creating and tagging application inference profiles. Here'
 3. If using volume-based discounts (such as Provisioned Throughput for supported
    foundation models), these must be purchased only using the Amazon Bedrock Console or
    API.
-4. Your role must have access to the inference profile API actions. If your role has
+4. Create new inference profiles dedicated to your Amazon Bedrock or
+   Amazon Bedrock AgentCore workloads initiated and deployed during the MAP
+   Credit Period.
+5. Your role must have access to the inference profile API actions. If your role has
    the AmazonBedrockFullAccess AWS-managed policy attached, you can skip this
    step. Otherwise, follow the steps at Creating IAM policies and create the
    following policy, which allows a role to do inference profile-related actions and

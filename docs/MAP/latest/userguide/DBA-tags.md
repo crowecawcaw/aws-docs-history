@@ -1,9 +1,9 @@
-# Database and analytic tags
+# Database and analytics tags
 
 Use the following tables for migration plans whose Migration Tracking and Incentive Guide
-includes database and analytic MAP credits.
+includes database and analytics MAP credits.
 
-Database and analytic tags with short IDs| Source | Destination | Tag key | Tag value |
+Database and analytics tags with short IDs| Source | Destination | Tag key | Tag value |
 | --- | --- | --- | --- |
 | On-premises Commercial DB&A | Any AWS DB&A Service | `map-migrated` | `comm`5-digit MPE ID`` |
 | On-premises non-commercial DB&A | Any AWS DB&A Service | `map-migrated` | `mig`5-digit MPE ID`` |
@@ -12,7 +12,7 @@ Database and analytic tags with short IDs| Source | Destination | Tag key | Tag 
 | EC2 Commercial DB&A | Any AWS DB&A Service | `map-migrated` | `comm_ec2_`5-digit MPE ID`` |
 | EC2 non-commercial DB&A | Any AWS DB&A Service | `map-migrated` | `mig_ec2_`5-digit MPE ID`` |
 
-Database and analytic tags with long IDs| Source | Destination | Tag key | Tag value |
+Database and analytics tags with long IDs| Source | Destination | Tag key | Tag value |
 | --- | --- | --- | --- |
 | On-premises Commercial DB&A | Any AWS DB&A Service | `map-migrated` | `comm`10 alphanumeric MPE ID characters`` |
 | On-premises non-commercial DB&A | Any AWS DB&A Service | `map-migrated` | `mig`10 alphanumeric MPE ID characters`` |
@@ -40,12 +40,12 @@ Included Services list: **https://s3-us-west-2.amazonaws.com/map-2.0-customer-do
 If your destination database is changed from EC2 to any AWS DB&A service after your
 initial migration, then use the following tables to tag your DB&A service.
 
-EC2 to database and analytic tags with short IDs after migration| Source | Destination | Tag key | Tag value |
+EC2 to database and analytics tags with short IDs after migration| Source | Destination | Tag key | Tag value |
 | --- | --- | --- | --- |
 | EC2 Commercial DB&A | Any AWS DB&A Service | `map-migrated` | `comm`5-digit MPE ID`` |
 | EC2 non-commercial DB&A | Any AWS DB&A Service | `map-migrated` | `mig`5-digit MPE ID`` |
 
-EC2 to database and analytic tags with long IDs after migration| Source | Destination | Tag key | Tag value |
+EC2 to database and analytics tags with long IDs after migration| Source | Destination | Tag key | Tag value |
 | --- | --- | --- | --- |
 | EC2 Commercial DB&A | Any AWS DB&A Service | `map-migrated` | `comm`10 alphanumeric MPE ID<br>characters`` |
 | EC2 non-commercial DB&A | Any AWS DB&A Service | `map-migrated` | `mig`10 alphanumeric MPE ID characters`` |

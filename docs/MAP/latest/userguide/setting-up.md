@@ -21,7 +21,7 @@ The following diagram shows the decision tree for selecting the appropriate tag 
   - **Services included in the Service list**
   - **SAP included in the Service list**
   - **Oracle included in the Service list**
-  - **DB&A included Service list**: For more information, see [Database and analytic tags](DBA-tags.md "DBA-tags.md").
+  - **Database and analytics included in the Service list**: For more information, see [Database and analytics tags](DBA-tags.md "DBA-tags.md").
 
 ###### Note
 
