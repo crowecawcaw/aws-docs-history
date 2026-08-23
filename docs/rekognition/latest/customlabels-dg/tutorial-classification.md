@@ -193,7 +193,7 @@ to complete.
 
 ![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 5. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**.
 
-![Rooms 19 model info showing status TRAINING_COMPLETED indicating the model is ready.](/images/rekognition/latest/customlabels-dg/images/get-started-choose-model.jpg) 6. Choose the **Evaluate** button to see the evaluation results.
+![Rooms 19 model info showing status TRAINING_COMPLETED indicating the model is ready.](images/get-started-choose-model.jpg) 6. Choose the **Evaluate** button to see the evaluation results.
 For information about evaluating a model, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md"). 7. Choose **View test results** to see the results for individual test images. For more information, see [Metrics for evaluating your model](im-metrics-use.md "im-metrics-use.md").
 
 ![Model evaluation results showing F1 score, average precision, and overall recall for 10 image labels with per label performance metrics.](images/get-started-training-results.jpg) 8. After viewing the test results, choose the model name to return to the model page.
