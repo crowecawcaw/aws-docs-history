@@ -21,6 +21,7 @@ sudo /opt/codedeploy-agent/bin/install auto
 
 ###### Important
 
-There is currently no automatic update path from version 1.8.x to 2.0.0. To upgrade
-to 2.0.0, run the regional `latestv2/install` script manually. For
-instructions, see [Install the CodeDeploy agent for Ubuntu Server](codedeploy-agent-operations-install-ubuntu.md "codedeploy-agent-operations-install-ubuntu.md").
+No automatic update path currently exists from version 1.8.x to 2.0.0. To upgrade to
+2.0.0, install it with the `AWSCodeDeployAgentV2` Systems Manager Distributor package or
+run the regional `latestv2/install` script manually. For instructions, see
+[Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").

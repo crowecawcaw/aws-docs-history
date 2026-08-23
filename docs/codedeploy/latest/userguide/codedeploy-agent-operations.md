@@ -6,8 +6,7 @@ the CodeDeploy agent and how to verify the CodeDeploy agent is running.
 ###### Important
 
 Version 2.0.0 of the CodeDeploy agent is being rolled out across AWS Regions and might not be
-available in all Regions yet. It is an opt-in upgrade that can currently only be installed via
-the command line. To upgrade to version 2.0.0, see [Install the CodeDeploy agent using the command line](codedeploy-agent-operations-install-cli.md "codedeploy-agent-operations-install-cli.md").
+available in all Regions yet. It is an opt-in upgrade. To upgrade to version 2.0.0, see [Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").
 
 ###### Tip
 

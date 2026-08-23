@@ -1,10 +1,5 @@
 # Install the CodeDeploy agent using AWS Systems Manager
 
-###### Note
-
-Version 2.0.0 of the CodeDeploy agent is currently available only by installing it with the
-command line. For instructions, see [Install the CodeDeploy agent using the command line](codedeploy-agent-operations-install-cli.md "codedeploy-agent-operations-install-cli.md").
-
 You can use the AWS Management Console or the AWS CLI to install the CodeDeploy agent to your Amazon EC2 or
 on-premises instances by using AWS Systems Manager. You can choose to install a specific version or
 choose to always install the latest version of the agent. For more information about
@@ -68,10 +63,11 @@ the _AWS Systems Manager User Guide_.
 With SSM, you can install the CodeDeploy once or set up a schedule to install new
 versions.
 
-###### Note
+To install the CodeDeploy agent, choose the Systems Manager Distributor package for the agent
+version you want, then follow the steps in [Install or update packages with AWS Systems Manager distributor](../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md "../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md"). The package differs by
+agent version:
 
-Version 2.0.0 of the CodeDeploy agent is currently available only by installing it
-with the command line. For instructions, see [Install the CodeDeploy agent using the command line](codedeploy-agent-operations-install-cli.md "codedeploy-agent-operations-install-cli.md").
-
-To install the CodeDeploy agent, choose the `AWSCodeDeployAgent` package
-while you follow the steps in [Install or update packages with AWS Systems Manager distributor](../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md "../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md").
+- For version 2.0.x and later, choose the `AWSCodeDeployAgentV2`
+  package.
+- For version 1.8.x and earlier, choose the `AWSCodeDeployAgent`
+  package.
