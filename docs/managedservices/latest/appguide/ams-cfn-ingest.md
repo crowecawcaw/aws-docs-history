@@ -26,9 +26,13 @@ CloudFormation templates, with some modifications, to deploy custom stacks in an
 - Submit the CloudFormation ingest change type to AMS in an RFC. For the CFN ingest change type walkthrough, see
   [Create CloudFormation ingest stack](#ex-cfn-ingest-create-col "#ex-cfn-ingest-create-col"). For CFN ingest examples, see
   [CloudFormation Ingest: Examples](cfn-ingest-examples.md "cfn-ingest-examples.md").
-- Once your stack is created, you can update it, and remediate drift on it; additionally,
-  should the update fail, you can explicitly approve and implement the update. All of these procedures are
-  described in this section.
+- Once your stack is created, you can update it; additionally,
+  should the update fail, you can explicitly approve and implement the update.
+
+###### Note
+
+Drift remediation is not supported by AMS for CloudFormation-ingested stacks. As the owner
+of a CloudFormation-ingested stack, you are responsible for managing stack drift directly.
 
 For information on CFN drift detection, see
 [New – CloudFormation Drift Detection](https://aws.amazon.com/blogs/aws/new-cloudformation-drift-detection/ "https://aws.amazon.com/blogs/aws/new-cloudformation-drift-detection/").
