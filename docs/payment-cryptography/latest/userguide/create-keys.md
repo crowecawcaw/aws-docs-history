@@ -15,7 +15,7 @@ command. For more information, see [How Multi-Region key replication works](keys
 
 ###### Examples
 
-- [Creating a 3KEY TDES base derivation key](#3des-deriv-mrr-example "#3des-deriv-mrr-example")
+- [Creating a 2KEY TDES base derivation key](#3des-deriv-mrr-example "#3des-deriv-mrr-example")
 - [Creating a 2KEY TDES key for CVV/CVV2](#cvvkey-example "#cvvkey-example")
 - [Creating an HMAC key](#hmac-example "#hmac-example")
 - [Creating an AES-256 key](#aes-example "#aes-example")
@@ -24,20 +24,27 @@ command. For more information, see [How Multi-Region key replication works](keys
 - [Creating a PIN Verification Value (PVV) Key](#pvv-example "#pvv-example")
 - [Creating an asymmetric ECC key](#ECDH-example "#ECDH-example")
 
-## Creating a 3KEY TDES base derivation key
+## Creating a 2KEY TDES base derivation key
+
+###### Note
+
+Although 3KEY TDES is supported for KeyUsage = TR31\_B0\_BASE\_DERIVATION\_KEY,
+no operations currently support this key type. The ANSI X9.24 standard
+([DUKPT](terminology.md#terms.dukpt "terminology.md#terms.dukpt")) defines support
+for TDES\_2KEY and AES key types only.
 
 ###### Example
 
-This command creates creates a 3KEY TDES derivation key that will be
-[replicated](keys-multi-region-replication.md#how-mrr-works "keys-multi-region-replication.md#how-mrr-works") to US East (Ohio) and US West (Oregon) regions.
-The response includes the reques parameters, an Amazon Resource Name (ARN) for
+This command creates a 2KEY TDES derivation key for DUKPT that will be
+[replicated](keys-multi-region-replication.md#how-mrr-works "keys-multi-region-replication.md#how-mrr-works") from US West (Oregon) to US East (Ohio) regions.
+The response includes the request parameters, an Amazon Resource Name (ARN) for
 subsequent calls, and a Key Check Value (KCV).
 
 ```
 `$` `aws payment-cryptography create-key --exportable --key-attributes \
  "KeyUsage=TR31_B0_BASE_DERIVATION_KEY, \
- KeyClass=SYMMETRIC_KEY,KeyAlgorithm=TDES_3KEY, \
- KeyModesOfUse={NoRestrictions=true}" \
+ KeyClass=SYMMETRIC_KEY,KeyAlgorithm=TDES_2KEY, \
+ KeyModesOfUse={DeriveKey=true}" \
  --replication-regions us-east-2 --region us-west-2`
 ```
 
@@ -49,9 +56,9 @@ Example output:
         "CreateTimestamp": "2022-10-26T16:04:11.642000-07:00",
         "Enabled": true,
         "Exportable": true,
-        "KeyArn": "FE23D3",
+        "KeyArn": "arn:aws:payment-cryptography:us-east-2:111122223333:key/5rplquuwozodpwsp",
         "KeyAttributes": {
-            "KeyAlgorithm": "TDES_3KEY",
+            "KeyAlgorithm": "TDES_2KEY",
             "KeyClass": "SYMMETRIC_KEY",
             "KeyModesOfUse": {
                 "Decrypt": false,
@@ -61,7 +68,7 @@ Example output:
                 "NoRestrictions": false,
                 "Sign": false,
                 "Unwrap": false,
-                "Verify": true,
+                "Verify": false,
                 "Wrap": false
             },
             "KeyUsage": "TR31_B0_BASE_DERIVATION_KEY"
