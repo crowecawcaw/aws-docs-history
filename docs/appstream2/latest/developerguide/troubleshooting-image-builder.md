@@ -20,6 +20,7 @@ builders.
 - [I am unable to use my image with a fleet after installing an antivirus application.](#troubleshooting-11 "#troubleshooting-11")
 - [My image creation failed.](#troubleshooting-12 "#troubleshooting-12")
 - [The Image Assistant create-image operation failed with an error message that access to the PrewarmManifest.txt is denied](#create-image-cli-operation-fails "#create-image-cli-operation-fails")
+- [The image assistant reports that the SSM Agent version is below the recommended minimum](#troubleshooting-ssm-agent-version "#troubleshooting-ssm-agent-version")
 
 ## I cannot connect to the internet from my image builder.
 
@@ -179,3 +180,52 @@ The application optimization manifest was created with elevated privileges. To c
 
 - Run the Image Assistant command line interface (CLI) executable file (Image-Assistant.exe) with administrator privileges.
 - Delete the application optimization manifest file.
+
+## The image assistant reports that the SSM Agent version is below the recommended minimum
+
+The image assistant in the image builder displays the following error message:
+"The installed SSM Agent version x is below the recommended minimum version
+3.3.3598.0. Consider updating the SSM Agent to ensure full functionality."
+
+AWS Systems Manager is deprecating the ec2messages (Amazon Message Delivery
+Service) endpoints that older SSM Agent versions use for Run Command execution.
+SSM Agent 3.3.3598.0 and above uses the newer ssmmessages (Amazon Message Gateway
+Service) endpoints, which provide improved security and reliability.
+
+To resolve this issue, complete the following steps:
+
+1. Manually update the SSM Agent by following the instructions in the
+   [Systems Manager User
+   Guide](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
+2. Confirm that the SSM Agent version is 3.3.3598.0 or above by running the
+   following PowerShell command:
+
+```
+$currentVersion = (Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall' | Get-ItemProperty | Where-Object { $_.DisplayName -like '*SSM*' }).DisplayVersion
+```
+
+3. Confirm that the SSM Agent proxy is correctly configured by running the
+   following PowerShell commands. The output must include
+   `https_proxy=http://squid-proxy.appstream.local:3128`.
+
+```
+$registryPath = 'HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent'
+$existingEnv = (Get-ItemProperty -Path $registryPath -Name 'Environment' -ErrorAction SilentlyContinue).Environment
+```
+
+4. If the SSM Agent proxy is not correctly configured, run the following
+   PowerShell commands to configure it:
+
+```
+$registryPath = 'HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent'
+$proxyVars = @(
+  'http_proxy=http://squid-proxy.appstream.local:3128',
+  'https_proxy=http://squid-proxy.appstream.local:3128',
+  'no_proxy=169.254.169.254'
+)
+Set-ItemProperty -Path $registryPath -Name 'Environment' -Value $proxyVars -Type MultiString
+Restart-Service AmazonSSMAgent
+```
+
+5. Test image creation on the image builder to confirm that the workflow
+   succeeds.
