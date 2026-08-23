@@ -53,7 +53,7 @@ If you are logged in using an IAM user or role that has only the [DirectoryServi
 additional privileges for SNS. 8. Choose **Create**.
 
 If you want to designate additional SNS subscribers, such as an additional email address,
-Amazon SQS queues or AWS Lambda, you can do this from the [Amazon SNS console](https://console.aws.amazon.com//sns/v3/home. "https://console.aws.amazon.com//sns/v3/home.").
+Amazon SQS queues or AWS Lambda, you can do this from the [Amazon SNS console](https://console.aws.amazon.com/sns/v3/home. "https://console.aws.amazon.com/sns/v3/home.").
 
 ###### To remove directory status messages from a topic
 

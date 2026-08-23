@@ -7,7 +7,7 @@ directly.
 
 For more information, see the following links:
 
-- [Simplifying Active Directory domain join with AWS Systems Manager](https://aws.amazon.com/blogs//modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/ "https://aws.amazon.com/blogs//modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/")
+- [Simplifying Active Directory domain join with AWS Systems Manager](https://aws.amazon.com/blogs/modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/ "https://aws.amazon.com/blogs/modernizing-with-aws/simplifying-active-directory-domain-join-with-aws-systems-manager-2/")
 - [How do
   I use AWS Systems Manager to join a running EC2 Windows instances to my Directory Service
   domain?](https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain "https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain")

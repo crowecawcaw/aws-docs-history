@@ -3,7 +3,7 @@
 In this section, you set up your Amazon EC2 environment, deploy your new forest, and
 prepare your VPC for trusts with AWS.
 
-![Amazon EC2 environment with Amazon VPC, subnets, and Internet Gateways to deploy a new forest and establish a trust relationship.](/images/directoryservice/latest/admin-guide/images/tutorialmicrosoftadbase_vpclayout.png)
+![Amazon EC2 environment with Amazon VPC, subnets, and Internet Gateways to deploy a new forest and establish a trust relationship.](images/tutorialmicrosoftadbase_vpclayout.png)
 
 ## Create a Windows Server 2019 EC2 instance
 
