@@ -12,7 +12,7 @@ Lambda generates build logs during image creation, including output
 from `Dockerfile` execution, application startup, and hook
 invocations. These logs are streamed using the build role and written
 to the default log group
-`/aws/lambda/microvms/<image-name>`.
+`/aws/lambda-microvms/<image-name>`.
 
 Runtime logs
 

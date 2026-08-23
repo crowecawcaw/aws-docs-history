@@ -38,7 +38,7 @@ subject to change.
 
 The Node.js 26 and Python 3.15 runtimes are in **public preview**. Preview runtimes are not covered by the Lambda SLA or Technical Support, and should not be used for production workloads.
 
-The purpose of preview runtimes is to gather feedback from customers, partners, and upstream language communities prior to General Availability, while breaking changes are still possible. You can provide feedback through the dedicated GitHub issues for [Node.js 26](https://github.com/aws/aws-lambda-nodejs-runtime-interface-client/issues/198 "https://github.com/aws/aws-lambda-nodejs-runtime-interface-client/issues/198") and [Python 3.15](https://github.com/aws/aws-lambda-python-runtime-interface-client/issues/216 "https://github.com/aws/aws-lambda-python-runtime-interface-client/issues/216").
+The purpose of preview runtimes is to gather feedback from customers, partners, and upstream language communities prior to General Availability, while breaking changes are still possible. You can provide feedback through the dedicated GitHub issues for [Node.js 26](https://github.com/aws/aws-lambda-nodejs-runtime-interface-client/issues/198 "https://github.com/aws/aws-lambda-nodejs-runtime-interface-client/issues/198") and [Python 3.15](https://github.com/aws/aws-lambda-python-runtime-interface-client/issues/216 "https://github.com/aws/aws-lambda-python-runtime-interface-client/issues/216"). For further information, see this [blog post](https://aws.amazon.com/blogs/compute/introducing-public-preview-runtimes-on-aws-lambda-starting-with-node-js-26-and-python-3-15/ "https://aws.amazon.com/blogs/compute/introducing-public-preview-runtimes-on-aws-lambda-starting-with-node-js-26-and-python-3-15/").
 
 ###### Important
 

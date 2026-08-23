@@ -81,11 +81,15 @@ do
   # Extract request ID by scraping response headers received above
   REQUEST_ID=$(grep -Fi Lambda-Runtime-Aws-Request-Id "$HEADERS" | tr -d '[:space:]' | cut -d: -f2)
 
+  # Extract invocation ID for cross-wiring protection
+  INVOCATION_ID=$(grep -Fi Lambda-Runtime-Invocation-Id "$HEADERS" | tr -d '[:space:]' | cut -d: -f2)
+
   # Run the handler function from the script
   RESPONSE=$($(echo "$_HANDLER" | cut -d. -f2) "$EVENT_DATA")
 
-  # Send the response
-  curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response"  -d "$RESPONSE"
+  # Send the response, echoing the invocation ID
+  curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response"  -d "$RESPONSE" \
+    ${INVOCATION_ID:+--header "Lambda-Runtime-Invocation-Id: $INVOCATION_ID"}
 done
 ```
 
@@ -96,7 +100,8 @@ name of the script.
 After the runtime loads the function script, it uses the runtime API to retrieve an
 invocation event from Lambda, passes the event to the handler, and posts the response back to Lambda. To get the
 request ID, the runtime saves the headers from the API response to a temporary file, and reads the
-`Lambda-Runtime-Aws-Request-Id` header from the file.
+`Lambda-Runtime-Aws-Request-Id` header from the file. It also reads the
+`Lambda-Runtime-Invocation-Id` header and echoes it back on the response.
 
 ###### Note
 
@@ -269,11 +274,15 @@ do
   # Extract request ID by scraping response headers received above
   REQUEST_ID=$(grep -Fi Lambda-Runtime-Aws-Request-Id "$HEADERS" | tr -d '[:space:]' | cut -d: -f2)
 
+  # Extract invocation ID for cross-wiring protection
+  INVOCATION_ID=$(grep -Fi Lambda-Runtime-Invocation-Id "$HEADERS" | tr -d '[:space:]' | cut -d: -f2)
+
   # Run the handler function from the script
   RESPONSE=$($(echo "$_HANDLER" | cut -d. -f2) "$EVENT_DATA")
 
-  # Send the response
-  curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response"  -d "$RESPONSE"
+  # Send the response, echoing the invocation ID
+  curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response"  -d "$RESPONSE" \
+    ${INVOCATION_ID:+--header "Lambda-Runtime-Invocation-Id: $INVOCATION_ID"}
 done
 ```
 
