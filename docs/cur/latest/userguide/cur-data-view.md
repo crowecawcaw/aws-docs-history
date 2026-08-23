@@ -25,45 +25,41 @@ The legacy AWS Cost and Usage Report page supports reports only for billing grou
 ###### To create pro forma Cost and Usage Reports for a billing group
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, under **Legacy Pages**, choose
-   **Cost and Usage Reports**.
-3. In the **Report table**, choose **Settings**.
-4. Turn on the **Pro forma** data view.
-5. Choose **Enable**.
-6. Choose **Create report**.
-7. For **Report name**, enter a name for your report.
-8. For **Data view**, choose **pro forma**.
-9. Choose a billing group.
-10. For **Additional report details**, choose **Include resource IDs** to include the IDs of each individual resources in the report.
-11. For **Data refresh settings**, choose if you want Cost and Usage Reports to refresh if AWS applies refunds, credits, or support fees to your account after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3.
-12. Choose **Next**.
-13. For **S3 bucket**, choose **Configure**.
-14. In the **Configure S3 Bucket** dialog box, do one of the following:
+2. In the navigation pane, choose **Data Exports**.
+3. Choose **Create export**.
+4. On the **Create export** page, under **Export details**, choose **Legacy CUR export**.
+5. For **Export name**, enter a name for your report.
+6. For **Billing view**, choose the appropriate values for **Type** and **View** that correspond to your billing group.
+7. For **Additional report details**, choose **Include resource IDs** to include the IDs of each individual resources in the report.
+8. For **Data refresh settings**, choose if you want Cost and Usage Reports to refresh if AWS applies refunds, credits, or support fees to your account after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3.
+9. Choose **Next**.
+10. For **S3 bucket**, choose **Configure**.
+11. In the **Configure S3 Bucket** dialog box, do one of the following:
 
     - Choose an existing bucket from the drop down list and choose **Next**.
     - Enter a bucket name and the AWS Region where you want to create a new bucket and choose **Next**.
 
-15. Review the bucket policy, select **I have confirmed that this policy is correct**, and choose
+12. Review the bucket policy, select **I have confirmed that this policy is correct**, and choose
     **Save**.
-16. For **Report path prefix**, enter the report path prefix that
+13. For **Report path prefix**, enter the report path prefix that
     you want prepended to the name of your report.
 
-This step is optional for Amazon Redshift or Quick, but required for Amazon Athena. If you don't specify a prefix, the default prefix is the name that you specified for the report in step 7, and the date range for the report in the following format: `/report-name/date-range/` 17. For **Time granularity**, choose one of the following:
+This step is optional for Amazon Redshift or Quick, but required for Amazon Athena. If you don't specify a prefix, the default prefix is the name that you specified for the report in step 7, and the date range for the report in the following format: `/report-name/date-range/` 14. For **Time granularity**, choose one of the following:
 
     * **Hourly** if you want the line items in the report to be aggregated by the hour.
     * **Daily** if you want the line items in the report to be
      aggregated by the day.
 
-18. For **Report versioning**, choose whether you want each
+15. For **Report versioning**, choose whether you want each
 version of the report to overwrite the previous version of the report, or to be
 delivered in addition to the previous versions.
 
-Overwriting reports can save on Amazon S3 storage costs. Delivering new report versions can improve auditability of billing data over time. 19. For **Report data integration**, choose whether you want to upload your
+Overwriting reports can save on Amazon S3 storage costs. Delivering new report versions can improve auditability of billing data over time. 16. For **Report data integration**, choose whether you want to upload your
 Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the following
 formats:
 
     * **Athena**: parquet format
     * **Amazon Redshift or Quick**: .gz compression
 
-20. Choose **Next**. 21. After you have reviewed the settings for your report, choose **Review
+17. Choose **Next**. 18. After you have reviewed the settings for your report, choose **Review
 and Complete**.

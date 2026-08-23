@@ -33,7 +33,8 @@ different table configurations to add data to your export.
 
 
 
-    	1. Select **Include resource IDs** to include the IDs of each
+    	1. For **Billing view**, choose the appropriate values for **Type** and **View** that correspond to your billing group.
+    	2. Select **Include resource IDs** to include the IDs of each
     	 individual resource in the export.
 
 
@@ -45,7 +46,7 @@ different table configurations to add data to your export.
 
     	Selecting resource ID will add a Tag column containing data about users, accounts, cost categories, and
     	 resources when you create a new report. You can deselect the columns to avoid redundant information.
-    	2. Select **Split cost allocation data** to include detailed
+    	3. Select **Split cost allocation data** to include detailed
     	 cost and usage for shared resources (Amazon ECS and Amazon EKS).
 
 
@@ -55,14 +56,14 @@ different table configurations to add data to your export.
     	 of your resources (that is, ECS tasks and Kubernetes pods). This might increase
     	 the size of your Cost and Usage Report significantly, based on your AWS
     	 usage.
-    	3. Select **Include Capacity reservation data** to include the Capacity
+    	4. Select **Include Capacity reservation data** to include the Capacity
     	 reservation columns and row-level granularity in the export.
 
 
     	###### Note
 
     	Including Capacity reservation data creates 3 new columns and can split the instance line items, based on your AWS usage.
-    	4. Select **Enable manual discount format** to convert your
+    	5. Select **Enable manual discount format** to convert your
     	 discounts so that they appear in the Cost and Usage Report in the manual discount
     	 format instead of the standard automated format.
 
@@ -71,7 +72,7 @@ different table configurations to add data to your export.
 
     	This option only appears if you are on the discount automation
     	 program.
-    	5. For **Time granularity**, choose between hourly, daily, or
+    	6. For **Time granularity**, choose between hourly, daily, or
     	 monthly to have the line items in the export aggregated by that time
     	 granularity.
     2. For **FOCUS with AWS columns**, there are no
@@ -148,7 +149,7 @@ following for your export:
 13. If you choose **This Account** for **S3 bucket** name, choose **Configure** and do one of the following:
 
     * Select existing bucket.
-    * Choose **Create a bucket** enter **S3 bucket name** and then choose the **Region** where you want to create a new bucket
+    * Choose **Create a bucket**, enter **S3 bucket name**, and then choose the **Region** where you want to create a new bucket.
     * Review the **Bucket policy**. If you are selecting an existing bucket, you need to acknowledge that Data Exports will
      overwrite your existing S3 bucket policy. The new
      policy will allow both CUR and Data Exports to deliver exports.
