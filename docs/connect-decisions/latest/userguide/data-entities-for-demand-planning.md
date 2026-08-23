@@ -13,7 +13,7 @@ The following table lists the data entities and columns used by Demand Planning.
 
 **How is this data entity used?** Demand Planning uses this data as the primary source of historical demand for forecast. Additionally, fields selected as granularity are sent for training and are available as filters to review the demand plan.
 
-outbound\_order\_line columns| Column | Is the column required? | How is this column used in Forecasting? |
+outbound\_order\_line columns| Column | Requirement | Forecasting usage |
 | --- | --- | --- |
 | id | Required | _id_, _cust\_order\_id_, and *product\_id<br>• are used to uniquely identify a record in the data entity and this combination should always be unique. Make sure the column values do not have invalid characters such as asterisk and double-quotes. |
 | cust\_order\_id | Required |
@@ -35,7 +35,7 @@ outbound\_order\_line columns| Column | Is the column required? | How is this co
 
 Demand Planning uses the product attributes to establish hierarchy filters for demand plan review and for model training.
 
-product columns| Column | Is the column required? | How is this column used in Forecasting? |
+product columns| Column | Requirement | Forecasting usage |
 | --- | --- | --- |
 | id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Make sure the column values do not have duplicate IDs and special characters such as asterix and double-quotes. |
 | description | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). This column can contain special characters such as asterix, hyphen, quotes, and double-quotes. |
@@ -61,7 +61,7 @@ product columns| Column | Is the column required? | How is this column used in F
 
 Demand Planning uses the data of product's predecessor(s) or alternate(s) to create forecast for new products. When data is ingested into the _product\_alternate_ data entity, Product lineage support for forecast is enabled. You can skip ingesting data into the _product\_alternate_ data entity and the forecast can still be generated.
 
-product\_alternate columns| Column | Is the column required? | How is this column used in Forecasting? |
+product\_alternate columns| Column | Requirement | Forecasting usage |
 | --- | --- | --- |
 | alternative\_product\_id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Unique record identifier. |
 | product\_id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). ID of the new product or new version of the product. Make sure *product\_id<br>• is populated in the *product<br>• data entity. |
@@ -77,7 +77,7 @@ product\_alternate columns| Column | Is the column required? | How is this colum
 
 **How is this data entity used?** Demand Planning uses this data as the primary source for tagging casual factors such as promotional events, discounts, holidays, and so on.
 
-supplementary\_time\_series columns| Column | Is the column required? | How is this column used in Forecasting? |
+supplementary\_time\_series columns| Column | Requirement | Forecasting usage |
 | --- | --- | --- |
 | id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Unique record identifier. |
 | order\_date | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Timestamp when the timeseries was recorded. |

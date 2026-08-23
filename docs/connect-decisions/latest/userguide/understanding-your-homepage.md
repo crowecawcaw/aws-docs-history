@@ -6,7 +6,7 @@ can quickly orient yourself and start taking action. The homepage is comprised o
 sections: Section 1: Metrics, Section 2: Top topics for today, Section 3: Natural Language
 Interface (NLI) / Decisions Teammate, and Section 4: Navigation bar.
 
-![Amazon Connect Decisions homepage showing insight metrics, top topics sections, and a chat interface with Decisions teammate.](images/understanding-your-homepage-overview.png)
+![](images/understanding-your-homepage-overview.png)
 
 ## Key metrics
 

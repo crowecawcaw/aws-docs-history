@@ -15,7 +15,7 @@ The homepage provides quick access to insights through status summary cards disp
 
 When you navigate from a homepage card, the Insights page opens with relevant filters already applied.
 
-![Insights page displaying a filtered table of inventory issues with status, severity, and assignment columns.](images/filtering-and-sorting-insights-page-layout.png)
+![](images/filtering-and-sorting-insights-page-layout.png)
 
 ## Understanding the Insights Page Layout
 

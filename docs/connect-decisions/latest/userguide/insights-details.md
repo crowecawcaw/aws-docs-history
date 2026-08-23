@@ -28,7 +28,7 @@ status (for example, "Dismissed") and severity level (for example, "Critical")
 **Last updated timestamp**: Shows when the insight was last
 modified (for example, "Last updated April 16, 2025 03:07 UTC")
 
-![Last updated timestamp showing April 16, 2025 at 3:07 PM with GitHub activity link.](images/insights-details-header.png)
+![](images/insights-details-header.png)
 
 ![](images/insights-details-page-sections.png)
 
