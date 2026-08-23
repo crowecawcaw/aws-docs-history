@@ -65,7 +65,7 @@ sudo apt-get update && sudo apt-get install java-common
 ###### Example
 
 ```
-sudo dpkg --install java-17-amazon-corretto-jdk_17.0.20.8-1_amd64.deb
+sudo dpkg --install java-17-amazon-corretto-jdk_17.0.20.10-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -81,9 +81,9 @@ java -version
 Expected output for 17.0.20:
 
 ```
-openjdk version "17.0.20" 2026-07-21 LTS
-OpenJDK Runtime Environment Corretto-17.0.20.8.1 (build 17.0.20+8-LTS)
-OpenJDK 64-Bit Server VM Corretto-17.0.20.8.1 (build 17.0.20+8-LTS, mixed mode, sharing)
+openjdk version "17.0.20" 2026-08-18 LTS
+OpenJDK Runtime Environment Corretto-17.0.20.10.1 (build 17.0.20+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.20.10.1 (build 17.0.20+10-LTS, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -164,7 +164,7 @@ sudo zypper install java-17-amazon-corretto-devel
 ###### Example
 
 ```
-sudo yum localinstall java-17-amazon-corretto-devel-17.0.20.8-1.x86_64.rpm
+sudo yum localinstall java-17-amazon-corretto-devel-17.0.20.10-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -180,9 +180,9 @@ java -version
 Expected output for 17.0.20:
 
 ```
-openjdk version "17.0.20" 2026-07-21 LTS
-OpenJDK Runtime Environment Corretto-17.0.20.8.1 (build 17.0.20+8-LTS)
-OpenJDK 64-Bit Server VM Corretto-17.0.20.8.1 (build 17.0.20+8-LTS, mixed mode, sharing)
+openjdk version "17.0.20" 2026-08-18 LTS
+OpenJDK Runtime Environment Corretto-17.0.20.10.1 (build 17.0.20+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.20.10.1 (build 17.0.20+10-LTS, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
