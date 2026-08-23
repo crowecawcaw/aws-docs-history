@@ -90,7 +90,7 @@ The following instance types are available in Asia Pacific (Hyderabad).
 - **Compute Optimized:** C5 | C5d | C6a | C6g | C6i | C6in | C7g | C7i | C7i-flex | C8g | C8gn | C8i | C8i-flex
 - **Memory Optimized:** R5 | R5d | R6a | R6g | R6i | R7a | R7g | R7gd | R7i | R8g | R8i | R8i-flex | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | X2idn | X2iedn
 - **Storage Optimized:** I3 | I3en | I4i | I7i | I7ie
-- **Accelerated Computing:** G6e
+- **Accelerated Computing:** G6 | G6e
 
 ## Asia Pacific (Jakarta) — `ap-southeast-3`
 
@@ -116,7 +116,7 @@ The following instance types are available in Asia Pacific (Malaysia).
 
 The following instance types are available in Asia Pacific (Melbourne).
 
-- **General Purpose:** M5 | M5d | M6g | M6gd | M7g | M7i | M7i-flex | M8g | T3 | T4g
+- **General Purpose:** M5 | M5d | M6g | M6gd | M7g | M7i | M7i-flex | M8g | M8gd | T3 | T4g
 - **Compute Optimized:** C5 | C5d | C6g | C6in | C7i | C8g | C8gn
 - **Memory Optimized:** R5 | R5d | R6g | R7g | R7i | R8g | R8gd | X2idn
 - **Storage Optimized:** I3 | I3en | I4i | I7i | I7ie
@@ -128,7 +128,7 @@ The following instance types are available in Asia Pacific (Mumbai).
 
 - **General Purpose:** A1 | M4 | M5 | M5a | M5ad | M5d | M6a | M6g | M6gd | M6i | M6id | M6idn | M6in | M7g | M7gd | M7i | M7i-flex | M8a | M8g | M8gd | M8i | M8i-flex | Mac1 | T2 | T3 | T3a | T4g
 - **Compute Optimized:** C4 | C5 | C5a | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6in | C7g | C7gd | C7i | C7i-flex | C8g | C8gn | C8i | C8id | C8i-flex
-- **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5d | R5n | R6a | R6g | R6gd | R6i | R6id | R7g | R7gd | R7i | R8g | R8gd | R8i | R8i-flex | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | X1 | X1e | X2idn | X2iedn | X8aedz | X8i | z1d
+- **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5d | R5n | R6a | R6g | R6gd | R6i | R6id | R7g | R7gd | R7i | R8g | R8gd | R8i | R8id | R8i-flex | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | X1 | X1e | X2idn | X2iedn | X8aedz | X8i | z1d
 - **Storage Optimized:** D2 | D3 | I2 | I3 | I3en | I4i | I7i | I7ie | I8g | I8ge | Im4gn | Is4gen
 - **Accelerated Computing:** G4dn | G5 | G6 | G6e | G6f | Gr6 | Gr6f | G7e | Inf1 | Inf2 | P4d | P5 | P5en | P6-B200 | Trn1
 - **Previous Generation:** A1 | C4 | I2 | M4 | R3 | R4
@@ -138,7 +138,7 @@ The following instance types are available in Asia Pacific (Mumbai).
 The following instance types are available in Asia Pacific (New Zealand).
 
 - **General Purpose:** M6g | M6gd | M6i | M6id | M7g | M7gd | M7i | M7i-flex | M8i | M8i-flex | T3 | T4g
-- **Compute Optimized:** C6g | C6gn | C6i | C6id | C7g | C7i | C7i-flex | C8gd | C8i | C8i-flex
+- **Compute Optimized:** C6g | C6gn | C6i | C6id | C7g | C7i | C7i-flex | C8g | C8gd | C8i | C8i-flex
 - **Memory Optimized:** R6g | R6i | R6id | R7g | R7gd | R7i | R8g | R8i | R8i-flex
 - **Storage Optimized:** I3en | I4i
 
@@ -161,7 +161,7 @@ The following instance types are available in Asia Pacific (Seoul).
 - **Compute Optimized:** C4 | C5 | C5a | C5d | C5n | C6g | C6gd | C6gn | C6i | C6id | C6in | C7g | C7gd | C7i | C7i-flex | C8g | C8gn | C8i | C8i-flex
 - **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6g | R6gd | R6i | R6id | R7g | R7gd | R7i | R8g | R8gd | R8i | R8i-flex | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | X1 | X1e | X2idn | X2iedn | X8aedz | X8i | z1d
 - **Storage Optimized:** D2 | I2 | I3 | I3en | I4i | I7i | I7ie | I8g | I8ge
-- **Accelerated Computing:** F2 | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | G7e | Inf1 | Inf2 | P4d | P5 | P5en
+- **Accelerated Computing:** F2 | G4dn | G5 | G5g | G6 | G6e | G6f | Gr6 | Gr6f | G7e | Inf1 | Inf2 | P4d | P5 | P5en | P6-B300
 - **Previous Generation:** C4 | I2 | M4 | R3 | R4
 
 ## Asia Pacific (Singapore) — `ap-southeast-1`
@@ -169,7 +169,7 @@ The following instance types are available in Asia Pacific (Seoul).
 The following instance types are available in Asia Pacific (Singapore).
 
 - **General Purpose:** A1 | M1 | M2 | M3 | M4 | M5 | M5a | M5ad | M5d | M5dn | M5n | M5zn | M6a | M6g | M6gd | M6i | M6id | M6idn | M6in | M7g | M7gd | M7i | M7i-flex | M8g | M8i | M8i-flex | Mac1 | Mac2 | T1 | T2 | T3 | T3a | T4g
-- **Compute Optimized:** C1 | C3 | C4 | C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7i | C7i-flex | C8g | C8gn | C8i | C8i-flex | C8in
+- **Compute Optimized:** C1 | C3 | C4 | C5 | C5a | C5ad | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7i | C7i-flex | C8g | C8gd | C8gn | C8i | C8i-flex | C8in
 - **Memory Optimized:** R3 | R4 | R5 | R5a | R5ad | R5b | R5d | R5dn | R5n | R6a | R6g | R6gd | R6i | R6id | R6idn | R6in | R7g | R7gd | R7i | R8g | R8gd | R8i | R8i-flex | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | X1 | X1e | X2idn | X2iedn | X8i | z1d
 - **Storage Optimized:** D2 | D3 | D3en | I2 | I3 | I3en | I4g | I4i | I7i | I7ie | I8g | I8ge | Im4gn | Is4gen
 - **Accelerated Computing:** G4dn | G5g | Inf1 | Inf2 | P4de
@@ -193,8 +193,8 @@ The following instance types are available in Asia Pacific (Sydney).
 The following instance types are available in Asia Pacific (Taipei).
 
 - **General Purpose:** M6g | M6gd | M6i | M6id | M7g | M7gd | M7i | M7i-flex | M8g | T3 | T4g
-- **Compute Optimized:** C6g | C6gn | C6i | C6id | C6in | C7g | C7i | C7i-flex
-- **Memory Optimized:** R6g | R6i | R6id | R7g | R7gd | R7i | R8gd
+- **Compute Optimized:** C6g | C6gn | C6i | C6id | C6in | C7g | C7i | C7i-flex | C8g
+- **Memory Optimized:** R6g | R6i | R6id | R7g | R7gd | R7i | R8a | R8gd
 - **Storage Optimized:** I3en | I4i
 
 ## Asia Pacific (Thailand) — `ap-southeast-7`
@@ -287,8 +287,8 @@ The following instance types are available in Europe (Ireland).
 
 The following instance types are available in Europe (London).
 
-- **General Purpose:** M4 | M5 | M5a | M5ad | M5d | M6a | M6g | M6gd | M6i | M6id | M6idn | M6in | M7a | M7g | M7i | M7i-flex | M8g | M8gd | M8i | M8id | M8i-flex | Mac1 | T2 | T3 | T3a | T4g
-- **Compute Optimized:** C4 | C5 | C5a | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7i | C7i-flex | C8g | C8gd | C8gn | C8i | C8i-flex
+- **General Purpose:** M4 | M5 | M5a | M5ad | M5d | M6a | M6g | M6gd | M6i | M6id | M6idn | M6in | M7a | M7g | M7gd | M7i | M7i-flex | M8g | M8gd | M8i | M8id | M8i-flex | Mac1 | T2 | T3 | T3a | T4g
+- **Compute Optimized:** C4 | C5 | C5a | C5d | C5n | C6a | C6g | C6gd | C6gn | C6i | C6id | C6in | C7a | C7g | C7gd | C7gn | C7i | C7i-flex | C8g | C8gd | C8gn | C8i | C8i-flex
 - **Memory Optimized:** R4 | R5 | R5a | R5ad | R5b | R5d | R5n | R6a | R6g | R6gd | R6i | R6id | R7g | R7gd | R7i | R8g | R8gd | R8i | R8id | R8i-flex | U-6tb1 | U7i-6tb | U7i-8tb | U7in-16tb | X1 | X2idn | X2iedn | z1d
 - **Storage Optimized:** D2 | D3 | I3 | I3en | I4i | I7i | I7ie | I8g | I8ge | Im4gn | Is4gen
 - **Accelerated Computing:** F2 | G4ad | G4dn | G5 | G6 | G6f | Gr6 | Gr6f | G7e | Inf1 | Inf2 | P4d | P5 | P5e
@@ -343,7 +343,7 @@ The following instance types are available in Europe (Zurich).
 
 - **General Purpose:** M5 | M5d | M6g | M6gd | M6i | M6id | M6idn | M6in | M7g | M7i | M8g | T3 | T4g
 - **Compute Optimized:** C5 | C5d | C6g | C6gd | C6in | C7g | C7gd | C7i | C7i-flex | C8g | C8gn
-- **Memory Optimized:** R5 | R5d | R6g | R6gd | R6i | R7g | R8g | R8i | R8i-flex | U-3tb1 | U-6tb1 | U7i-8tb | U7i-12tb | X2idn | X2iedn
+- **Memory Optimized:** R5 | R5d | R6g | R6gd | R6i | R7g | R8g | R8gd | R8i | R8i-flex | U-3tb1 | U-6tb1 | U7i-6tb | U7i-8tb | U7i-12tb | X2idn | X2iedn
 - **Storage Optimized:** D3 | I3 | I3en | I4i | I7i | I7ie
 - **Accelerated Computing:** G6 | Gr6
 
@@ -353,7 +353,7 @@ The following instance types are available in Israel (Tel Aviv).
 
 - **General Purpose:** M5 | M5d | M6g | M6gd | M6i | M6id | M7g | M7i | T3 | T3a | T4g
 - **Compute Optimized:** C5 | C5d | C6g | C6gn | C6i | C6id | C6in | C7g | C7i | C8g
-- **Memory Optimized:** R5 | R5d | R6g | R6i | R6id | R7g | R7gd | U-6tb1 | X2idn
+- **Memory Optimized:** R5 | R5d | R6g | R6i | R6id | R7g | R7gd | R8i | U-6tb1 | X2idn
 - **Storage Optimized:** D3 | I3 | I3en | I4i | I7i
 - **Accelerated Computing:** G5 | P4de
 
@@ -361,7 +361,7 @@ The following instance types are available in Israel (Tel Aviv).
 
 The following instance types are available in Mexico (Central).
 
-- **General Purpose:** M6g | M6gd | M6i | M6id | M7g | M7gd | M7i | M7i-flex | M8g | T3 | T4g
+- **General Purpose:** M6g | M6gd | M6i | M6id | M7g | M7gd | M7i | M7i-flex | M8g | M8gd | T3 | T4g
 - **Compute Optimized:** C6g | C6gn | C6i | C6id | C6in | C7g | C7i | C7i-flex
 - **Memory Optimized:** R6g | R6i | R6id | R7g | R7gd | R7i | R8g
 - **Storage Optimized:** I3en | I4i | I7ie
