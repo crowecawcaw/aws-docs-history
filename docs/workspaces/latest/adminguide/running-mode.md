@@ -35,6 +35,13 @@ AutoStop GPU-enabled WorkSpaces and GeneralPurpose.4xlarge or GeneralPurpose.8xl
 The state of of applications/data is not preserved. We recommend saving your work when you're done using your WorkSpaces each time to
 avoid data loss.
 
+###### Important
+
+WorkSpaces running Windows Server 2025, Windows 11 24H2, or Windows 11 25H2 with
+nested virtualization enabled do not support hibernation. When these WorkSpaces are
+stopped, unsaved data will be lost. We recommend using AlwaysOn running mode for
+these WorkSpaces to avoid data loss. For more information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+
 For Bring Your Own License (BYOL) AutoStop WorkSpaces, a large number of concurrent logins
 could result in significantly increased time for WorkSpaces to be available. If you expect
 many users to log into your BYOL AutoStop WorkSpaces at the same time, please consult your

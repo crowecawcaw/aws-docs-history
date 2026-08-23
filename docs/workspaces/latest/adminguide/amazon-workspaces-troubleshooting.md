@@ -239,6 +239,7 @@ WorkSpaces.
 - [My WorkSpace is unexpectedly crashing or rebooting](#crash_web_access "#crash_web_access")
 - [The same username has more than one WorkSpace, but the user can log in to only one of the WorkSpaces](#multiple_workspaces_same_username "#multiple_workspaces_same_username")
 - [I'm having trouble using Docker with Amazon WorkSpaces](#docker_support "#docker_support")
+- [Troubleshooting nested virtualization](#troubleshoot-nested-virtualization "#troubleshoot-nested-virtualization")
 - [I receive ThrottlingException errors to some of my API calls](#throttled-api-calls "#throttled-api-calls")
 - [My WorkSpace keeps disconnecting when I let it run in the background](#workspaces-disconnecting "#workspaces-disconnecting")
 - [SAML 2.0 federation isn't working. My users are not authorized to stream their WorkSpaces desktop.](#saml-federation-not-working "#saml-federation-not-working")
@@ -1021,15 +1022,69 @@ Support.
 
 ###### Windows WorkSpaces
 
-Nested virtualization (including the use of Docker) is not supported on
-Windows WorkSpaces. For more information, see the [Docker documentation](https://docs.docker.com/docker-for-windows/troubleshoot/#running-docker-desktop-in-nested-virtualization-scenarios "https://docs.docker.com/docker-for-windows/troubleshoot/#running-docker-desktop-in-nested-virtualization-scenarios").
+Nested virtualization is now supported on Windows WorkSpaces. Enable nested
+virtualization to use Docker Desktop on your Windows WorkSpace. For more
+information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md"). We recommend using a
+Power bundle with 4 vCPU or higher for optimal Docker Desktop performance.
+
+If Docker Desktop still won't start after enabling nested virtualization,
+verify that the **Nested Virtualization** field shows
+`Enabled` in the **Summary** section of the
+Amazon WorkSpaces console, or run the AWS CLI
+`describe-workspaces` command and confirm that
+`NestedVirtualizationEnabled` is set to `true`.
 
 ###### Linux WorkSpaces
 
-To use Docker on Linux WorkSpaces, make sure that the CIDR blocks used by Docker
-don't overlap with the CIDR blocks used in the two elastic network interfaces
-(ENIs) associated with the WorkSpace. If you encounter problems with using
-Docker on Linux WorkSpaces, contact Docker for assistance.
+Nested virtualization is now supported on Linux WorkSpaces. Enable nested
+virtualization to use Docker on your Linux WorkSpace. For more information, see
+[Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md"). The WorkSpace reboots
+after enabling nested virtualization. Make sure that the CIDR blocks used by
+Docker don't overlap with the CIDR blocks used in the two elastic network
+interfaces (ENIs) associated with the WorkSpace. We recommend using a Power
+bundle with 4 vCPU or higher for optimal Docker performance.
+
+If Docker doesn't work after enabling nested virtualization, verify that
+the **Nested Virtualization** field shows `Enabled`
+in the **Summary** section of the Amazon WorkSpaces console, or run the
+AWS CLI `describe-workspaces` command and confirm that
+`NestedVirtualizationEnabled` is set to `true`. Also confirm
+that your WorkSpace is using the DCV (WSP) protocol.
+
+### Troubleshooting nested virtualization
+
+###### Enable Nested Virtualization is not visible in the Actions menu
+
+The **Enable Nested Virtualization** option is not
+available on GPU WorkSpaces or on WorkSpaces running older operating systems such as
+Windows Server 2016 or Windows 10. Validate that your WorkSpace meets the
+prerequisites described in [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+
+###### My WorkSpace reboots after enabling nested virtualization
+
+This is expected behavior. A reboot is required to enable nested
+virtualization on the WorkSpace.
+
+###### Docker Desktop or WSL2 won't start after enabling nested virtualization
+
+Verify that the **Nested Virtualization** field shows
+`Enabled` in the **Summary** section of the
+Amazon WorkSpaces console, or run the AWS CLI
+`describe-workspaces` command and confirm that
+`NestedVirtualizationEnabled` is set to `true`. Also
+confirm that your WorkSpace is using the DCV (WSP) protocol.
+
+###### My AutoStop WorkSpace performs a full reboot instead of hibernating
+
+This is a known limitation on WorkSpaces running Windows Server 2025, Windows 11
+24H2, or Windows 11 25H2 with nested virtualization enabled. When the AutoStop
+timeout is reached, the WorkSpace performs a full reboot instead of
+hibernating, and in-memory data is not preserved. If you require hibernation
+behavior, use an AlwaysOn WorkSpace instead. To disable nested virtualization,
+choose **Actions**, **Disable Nested
+Virtualization**, or use the AWS CLI
+`modify-workspace-properties` command with
+`NestedVirtualizationEnabled` set to `false`.
 
 ### I receive ThrottlingException errors to some of my API calls
 

@@ -21,6 +21,10 @@ about protocols, see [Protocols for Amazon WorkSpaces](amazon-workspaces-protoco
   To understand the shared responsibility model for Amazon WorkSpaces Core, see the
   [Technology Partner Integration Guide for Amazon WorkSpaces Core](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://docs.aws.amazon.com/pdfs/workspaces-core/latest/pg/workspacescore-pg.pdf "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://docs.aws.amazon.com/pdfs/workspaces-core/latest/pg/workspacescore-pg.pdf").
   For more information, see [Amazon WorkSpaces Core](https://aws.amazon.com/workspaces-family/core/ "https://aws.amazon.com/workspaces-family/core/").
+- BYOP bundles support nested virtualization. Nested virtualization operates
+  at the hypervisor layer independently of the streaming protocol. We recommend
+  Power (4 vCPU) or higher bundles for the best experience when using nested
+  virtualization. For more information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
 
 ###### Important
 

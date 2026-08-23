@@ -26,6 +26,12 @@ When you rebuild a WorkSpace, new snapshots are also taken soon after the rebuil
 - The primary elastic network interface is recreated. The WorkSpace receives a new
   private IP address.
 
+###### Note
+
+The nested virtualization setting is preserved during a WorkSpace rebuild. If nested
+virtualization was enabled before the rebuild, it remains enabled on the rebuilt
+WorkSpace.
+
 ###### Important
 
 After January 14, 2020, WorkSpaces created from a public Windows 7 bundle can no longer be

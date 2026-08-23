@@ -140,6 +140,14 @@ The following table shows which migration scenarios are available:
 Web access is not available for the Windows Server 2019-powered Public Windows 10
 bundle PCoIP branch.
 
+###### Note
+
+If you migrate a WorkSpace with nested virtualization enabled, the target bundle
+must meet the requirements for nested virtualization: DCV (WSP) protocol, a supported
+operating system, and a non-GPU-enabled bundle. If the target bundle does not meet
+these requirements, nested virtualization is disabled on the migrated WorkSpace. For
+more information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+
 ## What happens during migration
 
 During migration, the data on the user volume (drive D) is preserved, but all of the
@@ -187,6 +195,11 @@ post-migration for any user files that are in the
 Any tags assigned to the original WorkSpace are carried over during migration, and
 the running mode of the WorkSpace is preserved. However, the new WorkSpace gets a new
 WorkSpace ID, computer name, and IP address.
+
+The nested virtualization setting is preserved during migration. If nested
+virtualization was enabled on the source WorkSpace, it remains enabled on the migrated
+WorkSpace, provided the target bundle meets the requirements for nested
+virtualization.
 
 ## Best practices
 

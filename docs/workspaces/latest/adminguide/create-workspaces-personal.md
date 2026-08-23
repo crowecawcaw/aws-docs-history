@@ -79,12 +79,25 @@ Now that you have created a directory, you are ready to create a personal WorkSp
         choose **Create additional user** and enter their information.
 
 9. Under **Customization** (optional), you can customize bundles,
-   root and user volume encryption, and user volume for all users or specific users.
-10. Choose Create WorkSpaces. The initial status of the WorkSpace is PENDING.
-    When the creation is complete, the status is AVAILABLE and an invitation is sent to the
-    email address that you specified for the users.
-11. Send invitations to the email address for each user. For more information, see
-    [Send an invitation email](manage-workspaces-users.md#send-invitation "manage-workspaces-users.md#send-invitation").
+   root and user volume encryption, nested virtualization, and user volume for all users or specific users.
+
+   - To enable encryption for the root volume, user volume, or both, select
+     **Encryption**. For more information, see
+     [Encrypted WorkSpaces in WorkSpaces Personal](encrypt-workspaces.md "encrypt-workspaces.md").
+   - To enable nested virtualization, expand the **Nested
+     virtualization** section and select **Enable Nested
+     Virtualization**. Nested virtualization allows you to run hypervisors
+     such as Hyper-V and KVM inside your WorkSpace, enabling tools like Docker
+     Desktop and WSL2. For more information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+
+###### Note
+
+Nested virtualization is available only on non-GPU bundles using the DCV (WSP)
+protocol with a supported operating system. For the full list of supported
+configurations, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md"). 10. Choose Create WorkSpaces. The initial status of the WorkSpace is PENDING.
+When the creation is complete, the status is AVAILABLE and an invitation is sent to the
+email address that you specified for the users. 11. Send invitations to the email address for each user. For more information, see
+[Send an invitation email](manage-workspaces-users.md#send-invitation "manage-workspaces-users.md#send-invitation").
 
 ###### Note
 

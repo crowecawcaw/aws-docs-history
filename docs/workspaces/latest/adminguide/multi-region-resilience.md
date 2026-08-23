@@ -101,6 +101,8 @@ secondary WorkSpace.
   client applications. You can also use Multi-Region Resilience with Web Access.
 - WorkSpaces Multi-Region Resilience supports Windows and Bring Your Own License (BYOL) WorkSpaces. It doesn't support Amazon Linux 2, Ubuntu, Red Hat Enterprise Linux, GeneralPurpose.4xlarge, GeneralPurpose.8xlarge, or GPU-enabled WorkSpaces (e.g., Graphics G6, Graphics.g4dn, or GraphicsPro.g4dn).
 - After failover or failback completes, wait 15 to 30 minutes before connecting to your WorkSpace.
+- Nested virtualization is not supported on Standby WorkSpaces. For more
+  information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
 
 ## Configure your Multi-Region Resilience standby WorkSpace
 

@@ -28,6 +28,7 @@ To perform directory administration tasks, see [Set up Active Directory Administ
 - [Tag resources in WorkSpaces Personal](tag-workspaces-resources.md "tag-workspaces-resources.md")
 - [Maintenance in WorkSpaces Personal](workspace-maintenance.md "workspace-maintenance.md")
 - [Encrypted WorkSpaces in WorkSpaces Personal](encrypt-workspaces.md "encrypt-workspaces.md")
+- [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md")
 - [Reboot a WorkSpace in WorkSpaces Personal](reboot-workspaces.md "reboot-workspaces.md")
 - [Rebuild a WorkSpace in WorkSpaces Personal](rebuild-workspace.md "rebuild-workspace.md")
 - [Restore a WorkSpace in WorkSpaces Personal](restore-workspace.md "restore-workspace.md")

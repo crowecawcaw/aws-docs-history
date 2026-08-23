@@ -47,12 +47,24 @@ For more information about how to check your WorkSpace client version and host a
 - If you need to use GPU-enabled WorkSpaces bundles with Windows.
 - If you need to use Windows GPU-based bundles (Graphics.g6, Graphics.g4dn and GraphicsPro.g4dn) or Ubuntu GPU-based bundles (Graphics.g4dn and GraphicsPro.g4dn).
 - If you need your users to authenticate in-session with WebAuthn authenticators such as YubiKey or Windows Hello.
+- If you need nested virtualization to run hypervisors such as Hyper-V or KVM
+  inside your WorkSpace (for example, for Docker Desktop or WSL2).
 
 ### When to use PCoIP
 
 - If you want to use the iPad or Android Linux clients.
 - If you use Teradici zero client devices.
 - If you need to use a Linux bundle for non-smart card use cases.
+
+###### Note
+
+Nested virtualization is not supported on PCoIP WorkSpaces. If you require nested
+virtualization to run hypervisors or tools like Docker Desktop, WSL2, or Android
+emulators inside your WorkSpace, you must use DCV. For information about switching
+protocols, see [Modify
+protocols](modify-workspaces.md#modify-protocols "modify-workspaces.md#modify-protocols").
+For more information about nested virtualization, see [Nested
+virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
 
 ###### Note
 

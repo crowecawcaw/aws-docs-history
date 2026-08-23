@@ -180,6 +180,12 @@ _VM Import/Export User Guide_.
 
 Windows 10 N and Windows 11 N versions are not supported for BYOL at this time.
 
+###### Note
+
+BYOL WorkSpaces support nested virtualization. You can enable or disable it using
+the AWS Management Console, AWS CLI, or API — the same as on public bundles. For more
+information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+
 After you have confirmed that you meet the prerequisites for using Windows BYOL with WorkSpaces,
 you need to enable your account to use BYOL images.
 
