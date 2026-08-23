@@ -45,10 +45,6 @@ We also recommend that you establish and adhere to a regular maintenance schedul
 
 ###### Note
 
-Amazon EVS does not support VMware Cloud Foundation 9 at this time.
-
-###### Note
-
 Amazon EVS does not provide all versions of VCF and ESX released by Broadcom. For software interoperability information, refer to the [Broadcom Interoperability Matrix](https://interopmatrix.broadcom.com/Interoperability?col=1 "https://interopmatrix.broadcom.com/Interoperability?col=1"). For full hardware compatibility with AWS EC2 instances, refer to the [Broadcom Compatibility Guide](https://compatibilityguide.broadcom.com/ "https://compatibilityguide.broadcom.com/").
 
 Certain patches, updates, or upgrade may have impact on workloads running in your environment.

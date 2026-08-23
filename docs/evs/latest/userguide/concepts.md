@@ -109,9 +109,9 @@ An Amazon EVS connector enables Amazon EVS to communicate with a VMware Cloud Fo
 
 Amazon EVS supports the following connector types:
 
-- **Operations Manager** (`OPERATIONS_MANAGER`) — the management connector for VCF 9.0.x and 9.1.x. Amazon EVS uses it to verify that your environment has valid VCF entitlements.
-- **SDDC Manager** (`SDDC_MANAGER`) — the management connector for VCF 5.2.x. Amazon EVS uses it to validate host counts and license-key coverage.
-- **vCenter** (`VCENTER`) — used to monitor VM lifecycle events, such as for Windows Server license entitlements. For more information, see [Windows Server License Entitlement for Amazon EVS](#concepts-windows-server-license-entitlement "#concepts-windows-server-license-entitlement").
+- **Operations Manager** (`OPERATIONS_MANAGER`) – The management connector for VCF 9.x. Amazon EVS uses it to connect to and stay in sync with your VMware deployment.
+- **SDDC Manager** (`SDDC_MANAGER`) – The management connector for VCF 5.2.x. Amazon EVS uses it to validate host counts and license-key coverage.
+- **vCenter** (`VCENTER`) – Used to monitor VM lifecycle events, such as for Windows Server license entitlements. For more information, see [Windows Server License Entitlement for Amazon EVS](#concepts-windows-server-license-entitlement "#concepts-windows-server-license-entitlement").
 
 Amazon EVS periodically performs reachability checks against each appliance through its connector. If a required management connector is not created, or loses reachability, Amazon EVS cannot validate your environment’s license and entitlement coverage, and reports impaired environment health through AWS Health notifications. If the vCenter connector loses reachability, Windows Server entitlements enter an at-risk state, and are dropped if reachability is not restored within the grace period.
 

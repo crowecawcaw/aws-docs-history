@@ -15,11 +15,11 @@ Before you create a connector, store the appliance credentials in AWS Secrets Ma
 
 1. In AWS Secrets Manager, create a secret that contains the keys for your connector type:
 
-| Connector type       | VCF version         | Required secret keys      | Description                                                                                                                                                           |
-| -------------------- | ------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `VCENTER`            | 5.2.x, 9.0.x, 9.1.x | `username` and `password` | Monitors VM lifecycle events for entitled VMs.                                                                                                                        |
-| `OPERATIONS_MANAGER` | 9.0.x, 9.1.x        | `username` and `password` | VCF 9.0.x and 9.1.x appliance that Amazon EVS uses to verify that your environment has valid entitlements. Replaces the license-management functions of SDDC Manager. |
-| `SDDC_MANAGER`       | 5.2.x               | `apiKey`                  | VCF 5.2.x appliance that Amazon EVS uses to validate host counts and license-key coverage.                                                                            |
+| Connector type       | VCF version         | Required secret keys      | Description                                                                                                                                                               |
+| -------------------- | ------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `VCENTER`            | 5.2.x, 9.0.x, 9.1.x | `username` and `password` | Monitors VM lifecycle events for entitled VMs.                                                                                                                            |
+| `OPERATIONS_MANAGER` | 9.0.x, 9.1.x        | `username` and `password` | VCF 9.0.x and 9.1.x appliance that Amazon EVS uses to connect to and stay in sync with your VMware deployment. Replaces the license-management functions of SDDC Manager. |
+| `SDDC_MANAGER`       | 5.2.x               | `apiKey`                  | VCF 5.2.x appliance that Amazon EVS uses to validate host counts and license-key coverage.                                                                                |
 
 The values must be the login credentials for the dedicated user you created for the appliance specified in the connector. 2. Add the tag `EvsAccess=true` to the Secrets Manager secret. If you encrypted the secret with your own AWS KMS key, also add the `EvsAccess=true` tag to the AWS KMS key.
 
