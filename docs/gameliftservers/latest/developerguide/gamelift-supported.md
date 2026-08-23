@@ -210,11 +210,11 @@ Use the following tools to create, update, and monitor your Amazon GameLift Serv
   open the Amazon GameLift Servers console to work with your game hosting resources. You can
   configure and deploy hosting fleets and other resources, view usage and
   performance metrics, track resources in the dashboard, and many other tasks.
-  [Go to the Amazon GameLift Servers console.](https://console.aws.amazon.com//gamelift "https://console.aws.amazon.com//gamelift")
+  [Go to the Amazon GameLift Servers console.](https://console.aws.amazon.com/gamelift "https://console.aws.amazon.com/gamelift")
 - [Service API for
   Amazon GameLift Servers](../apireference/Welcome.md "../apireference/Welcome.md") – This API gives you programmatic access to all of
   your Amazon GameLift Servers resources. It is part of the AWS SDK, which you can download for
-  use with most popular programming languages. [Get the AWS SDK.](https://aws.amazon.com//developer "https://aws.amazon.com//developer")
+  use with most popular programming languages. [Get the AWS SDK.](https://aws.amazon.com/developer "https://aws.amazon.com/developer")
 - [AWS command line interface (CLI)](../../../cli.md "../../../cli.md") – The
   AWS CLI lets you interact with AWS services using a command-line shell. The
   tools provides direct access to the public APIs for AWS services as well as
