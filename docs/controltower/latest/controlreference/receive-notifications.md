@@ -49,7 +49,7 @@ the home Region, it also receives drift notifications.
   Alternatively, you can set up an EventBridge rule to filter notifications, as
   described in this support article, [How
   can I be notified when an AWS resource is non-compliant using AWS
-  Config?](https://aws.amazon.com//premiumsupport/knowledge-center/config-resource-non-compliant/ "https://aws.amazon.com//premiumsupport/knowledge-center/config-resource-non-compliant/")
+  Config?](https://aws.amazon.com/premiumsupport/knowledge-center/config-resource-non-compliant/ "https://aws.amazon.com/premiumsupport/knowledge-center/config-resource-non-compliant/")
 - AWS Config notifications contain a JSON object.
 - AWS Control Tower drift notifications appear in plain text.
 
