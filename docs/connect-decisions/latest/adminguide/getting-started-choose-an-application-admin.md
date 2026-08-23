@@ -13,12 +13,12 @@ to choose an Amazon Connect Decisions application admin.
    user to be an Amazon Connect Decisions application admin. Search results only show
    users matching the search criteria.
 
-![Amazon Connect Decisions instance details page showing instance name, status, subdomain, and user access management sections.](images/choose-an-application-admin-select-admin.png) 3. (Optional) Choose **Go to IAM Identity Center**
+![](images/choose-an-application-admin-select-admin.png) 3. (Optional) Choose **Go to IAM Identity Center**
 to add more users. For more information on adding users, see
 [Manage your identity source](../../../singlesignon/latest/userguide/manage-your-identity-source.md "../../../singlesignon/latest/userguide/manage-your-identity-source.md")
 in _AWS IAM Identity Center User Guide_ and for more
 information on user permission roles, see
-[User permission roles](managing-user-permission-roles.md "managing-user-permission-roles.md").
+[User permission roles](../../../aws-supply-chain/latest/adminguide/adding-users-groups.md "../../../aws-supply-chain/latest/adminguide/adding-users-groups.md").
 
 ###### Note
 
@@ -29,6 +29,6 @@ web application administrator. Once the web application administrator receives
 the invite email, they will be able to select the application URL and log into
 the Amazon Connect Decisions.
 
-![Email invitation showing AWS Supply Chain application URL, username pmurlidh, and access instructions.](images/choose-an-application-admin-send-invite.png)
+![](images/choose-an-application-admin-send-invite.png)
 In the Amazon Connect Decisions webapp, you will see the user listed under
 **Application admin**.

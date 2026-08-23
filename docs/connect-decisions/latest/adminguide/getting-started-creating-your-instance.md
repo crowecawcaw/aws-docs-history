@@ -18,13 +18,13 @@ parameters, follow these steps.
 
 1. Select **Create**.
 
-![Create Amazon Connect Decisions instance dialog with Create and Create in advanced setup buttons.](images/creating-your-instance-standard-create.png) 2. Check your email for the following:
+![](images/creating-your-instance-standard-create.png) 2. Check your email for the following:
 
     * An email from the IdC team.
     * An email from Identity Management team.
 
-![AWS Supply Chain invitation email showing application URL, username, and access instructions.](images/creating-your-instance-email-invite.png) 3. Once you receive the invite email, log on to Amazon Connect Decisions. See
-[Log on to Amazon Connect Decisions web application](accessing-your-instance.md "accessing-your-instance.md") .
+![](images/creating-your-instance-email-invite.png) 3. Once you receive the invite email, log on to Amazon Connect Decisions. See
+[Log on to Amazon Connect Decisions web application](../../../aws-supply-chain/latest/adminguide/viewing-homepage.md "../../../aws-supply-chain/latest/adminguide/viewing-homepage.md").
 
 ## Using advanced configuration
 
@@ -36,7 +36,7 @@ of preset parameters, follow these steps.
 2. The **Instance properties** page will
    appear.
 
-![Instance properties page with fields for AWS Region, instance name, description, and tags.](images/creating-your-instance-advanced-properties.png) 3. Enter the following on the **Instance
+![](images/creating-your-instance-advanced-properties.png) 3. Enter the following on the **Instance
 properties** page:
 
     * **Name** – Enter an instance
@@ -64,7 +64,7 @@ deleted.
 2. On the Amazon Connect Decisions console dashboard, from the dropdown, select the
    instance that you want to delete.
 
-![Amazon Connect Decisions console showing instance details for 99wy6mj6 with Active status and Delete and Edit buttons.](images/creating-your-instance-delete-select.png) 3. Choose **Delete**. 4. On the **Delete Amazon Connect Decisions Instance**
+![](images/creating-your-instance-delete-select.png) 3. Choose **Delete**. 4. On the **Delete Amazon Connect Decisions Instance**
 page, under **Confirmation**, type
 `delete` to confirm that you want to delete the instance. 5. Choose **Delete**. The instance deletion starts
 and once the instance is deleted, you will see a confirmation message.
