@@ -157,7 +157,7 @@ to an instance:
 
 Compute Optimizer also generates recommendations to move your data out from previous
 generation HDD Magnetic volumes. For more information, see
-[Amazon EBS previous generation volumes](https://aws.amazon.com//ebs/previous-generation/ "https://aws.amazon.com//ebs/previous-generation/").
+[Amazon EBS previous generation volumes](https://aws.amazon.com/ebs/previous-generation/ "https://aws.amazon.com/ebs/previous-generation/").
 
 ## Supported Amazon Aurora and RDS databases
 
