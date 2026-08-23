@@ -1,5 +1,8 @@
 # Troubleshooting AWS Account Management identity and access
 
+This information is most relevant for AWS accounts that you create when you use our
+advanced AWS experience. To learn about how access control works for our new AWS experience, see [Compare access management](sign-up-for-aws.md#compare-access-management "sign-up-for-aws.md#compare-access-management").
+
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Account Management and IAM.
 

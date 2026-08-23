@@ -1,6 +1,9 @@
 # Troubleshooting issues with AWS account closure
 
-Use the following information to help you diagnose and fix common issues found during the
+This information is about troubleshooting issues with AWS account closure if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see
+[Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
+Use the information below to help you diagnose and fix common issues found during the
 account closure process. For general information about the account closure process, see
 [Close an AWS account](manage-acct-closing.md "manage-acct-closing.md").
 

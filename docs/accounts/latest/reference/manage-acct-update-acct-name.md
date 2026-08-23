@@ -1,5 +1,8 @@
 # Update your AWS account name
 
+These instructions are for how to update your AWS account name if you signed up for
+AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 When managing multiple AWS accounts, use clear naming conventions aligned with business
 units and applications for identification and organization. During reorganizations, mergers,
 acquisitions, or naming convention updates, you might need to rename accounts to maintain
@@ -122,7 +125,7 @@ IAM role must have the following permissions:
 ###### To update the account name for a member account
 
 1. Open the Organizations console at [https://console.aws.amazon.com/organizations/](https://console.aws.amazon.com/organizations/ "https://console.aws.amazon.com/organizations/").
-2. In the left navigation pane, choose
+2. In the main navigation pane, choose
    **AWS accounts**.
 3. On the **AWS accounts** page, choose the member
    account that you want to update, choose the

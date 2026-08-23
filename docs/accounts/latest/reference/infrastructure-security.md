@@ -1,5 +1,7 @@
 # Infrastructure security in AWS Account Management
 
+The following information is relevant for all AWS accounts.
+
 As managed services, AWS services running in your AWS account are protected by the
 AWS global network security. For information about AWS security services and how AWS
 protects infrastructure, see [AWS Cloud

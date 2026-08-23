@@ -1,5 +1,7 @@
 # Benefits of using multiple AWS accounts
 
+This information is about the benefits of using multiple AWS accounts if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 AWS accounts form the foundational security boundary in the AWS Cloud. They serve as a
 container for resources, providing a critical layer of isolation that is essential for
 creating a secure, well-governed environment. For more information, see [What is an AWS account?](accounts-welcome.md "accounts-welcome.md").

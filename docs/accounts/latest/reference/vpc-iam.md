@@ -1,5 +1,7 @@
 # Amazon Virtual Private Cloud endpoint policies for Account Management
 
+The following information is relevant for all AWS accounts.
+
 You can create a Amazon VPC endpoint policy for Account Management in which you specify the
 following:
 

@@ -18,10 +18,16 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
   is determined by the AWS service that you use. You are also responsible for other
   factors including the sensitivity of your data, your company’s requirements, and
   applicable laws and regulations.
-  This documentation helps you understand how to apply the shared responsibility model when
-  using AWS Account Management. It shows you how to configure Account Management to meet your security and compliance
-  objectives. You also learn how to use other AWS services that help you to monitor and
-  secure your Account Management resources.
+  The shared responsibility model is enforced for all AWS accounts. This includes
+  AWS accounts you create using our new AWS experience and accounts you create using
+  our advanced AWS experience.
+
+This documentation helps you understand how to apply the shared responsibility model when
+using AWS Account Management. It shows you how to configure Account Management to meet your security and compliance
+objectives. You also learn how to use other AWS services that help you to monitor and
+secure your Account Management resources. Some of this documentation is only relevant for accounts
+created with our advanced AWS experience. We'll identify when documentation is only
+relevant for accounts created with our advanced AWS experience.
 
 ###### Topics
 

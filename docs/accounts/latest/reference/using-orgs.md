@@ -1,5 +1,7 @@
 # When to use AWS Organizations
 
+This information is about when to use AWS Organizations if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 AWS Organizations is an AWS service that you can use to manage your AWS accounts as a group.
 This provides features like consolidated billing, where all of your accounts' bills are
 grouped together and handled by a single payer. You can also centrally manage the security

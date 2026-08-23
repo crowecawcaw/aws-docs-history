@@ -1,5 +1,7 @@
 # Data protection in AWS Account Management
 
+The following information is relevant for all AWS accounts.
+
 The AWS
 [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
 

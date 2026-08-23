@@ -1,5 +1,8 @@
 # Troubleshoot your AWS account
 
+This information is about troubleshooting your AWS account if you signed up for
+AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 Use the information in the following topics to help you diagnose and fix issues with your
 AWS account. For help with the root user, see [Troubleshooting issues with the
 root user](../../../IAM/latest/UserGuide/troubleshooting_root-user.md "../../../IAM/latest/UserGuide/troubleshooting_root-user.md") in the _IAM User Guide_. For help

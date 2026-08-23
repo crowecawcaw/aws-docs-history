@@ -1,7 +1,11 @@
-# Getting started with an AWS account
+# Sign up for AWS (advanced)
 
-If you're new to AWS, you need to sign up for an AWS account. When you do so, AWS
-will create an account using the details you provide and assign it to you.
+If you're new to AWS, the first step is to sign up for an AWS account. When you
+follow the information for Sign up for AWS (advanced), AWS creates an account where you
+have complete control over account configuration and where your content is stored.
+Use this option if you have regulated workloads such as HIPAA, FedRAMP.
+
+To compare this sign up with Sign up for AWS (new), see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
 
 To sign up for an AWS account, you'll need to provide the following information:
 
@@ -151,3 +155,14 @@ information without authentication. To execute AWS API calls, run Python scripts
 sandboxed environment, or follow curated skills, agents authenticate through your
 existing IAM credentials. For more information, see [What is the AWS
 Agent Toolkit?](../../../agent-toolkit/latest/userguide/what-is-agent-toolkit.md "../../../agent-toolkit/latest/userguide/what-is-agent-toolkit.md")
+
+After you complete the sign-up process, see the following topics:
+
+- [Related AWS services](accounts-related-services.md "accounts-related-services.md")
+- [Using the AWS account root user](root-user.md "root-user.md")
+- [Accessing your AWS account](accounts-access-account.md "accounts-access-account.md")
+- [Plan your AWS account governance structure](plan-acct-structure.md "plan-acct-structure.md")
+- [Configure your AWS account](managing-accounts.md "managing-accounts.md")
+- [Troubleshoot your AWS account](troubleshooting.md "troubleshooting.md")
+- [Manage accounts in India](managing-accounts-india.md "managing-accounts-india.md")
+- [Close an AWS account](manage-acct-closing.md "manage-acct-closing.md")

@@ -1,5 +1,8 @@
 # When to use AWS Control Tower
 
+This information is about when to use AWS Control Tower if you signed up for AWS using
+Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 AWS Organizations is the foundational service that enables you to centrally manage and secure your
 entire AWS environment. A crucial component of this AWS Organizations-centric approach is AWS Control Tower.
 AWS Control Tower acts as a management console within Organizations, providing a streamlined way to

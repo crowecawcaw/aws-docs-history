@@ -5,6 +5,10 @@ create and manage your AWS resources in an AWS account, and your account provide
 identity management capabilities for access and billing. Each AWS account has a unique ID
 which differentiates it from other AWS accounts.
 
+When you sign up for AWS, you can choose between Sign up for AWS (new) and Sign up for AWS (advanced). Depending on your choice, you either have access to AWS accounts or
+projects. Projects contain AWS accounts and the settings for sharing with other collaborators.
+For more information, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 Your cloud resources and data are contained in an AWS account. An account acts as an
 identity and access management isolation boundary. When you need to share resources and data
 between two accounts, you must explicitly allow this access. By default, no access is
@@ -69,10 +73,18 @@ AWS accounts include the following core features:
 
 ## Are you a first-time AWS user?
 
-If you are a first-time user of AWS, your first step is to sign up for an
-AWS account. When you sign up, AWS creates an account with the details that you
-provide and assigns the account to you. After you create your AWS account, sign in as
-the [root user](root-user.md "root-user.md"), activate multi-factor authentication (MFA)
-for the root user, and assign administrative access to a user.
+###### Warning
 
-For step-by-step instructions on how to set up a new account, see [Getting started with an AWS account](getting-started.md "getting-started.md").
+We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+
+If you're a first-time user of AWS, your first step is to sign up for AWS. You
+can either create an AWS account where you have complete control over account
+configuration and where your content is stored, which is required for regulated workloads
+such as HIPAA or FedRAMP, or you can create AWS accounts
+with preconfigured defaults. To learn which sign up is right for you, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
+For step-by-step instructions on how to set up a new account where you have complete
+control over the initial setup, see [Sign up for AWS (advanced)](getting-started.md "getting-started.md").
+
+For step-by-step instructions on how to set up a new account where AWS creates
+accounts with preconfigured defaults, see [Sign up for AWS (new)](sign-in-new.md "sign-in-new.md").

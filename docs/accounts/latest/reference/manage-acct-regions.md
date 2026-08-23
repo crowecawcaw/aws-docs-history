@@ -1,5 +1,9 @@
 # Enable or disable AWS Regions in your account
 
+This information is about enabling or disabling AWS Regions in your AWS account if
+you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options,
+see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 An _AWS Region_ is a physical location in the world where AWS has
 multiple Availability Zones. Availability Zones consist of one or more discrete AWS data
 centers, each with redundant power, networking, and connectivity, housed in separate

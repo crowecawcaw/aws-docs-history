@@ -1,5 +1,9 @@
 # Update the primary contact for your AWS account
 
+These instructions are for how to update the primary contact for your AWS account if
+you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options,
+see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 You can update the primary contact information associated with your account, including
 your contact's full name, company name, mailing address, telephone number, and website
 address.

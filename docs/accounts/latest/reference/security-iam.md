@@ -5,6 +5,10 @@ to AWS resources. IAM administrators control who can be _authenticated_ (signed 
 (have permissions) to use Account Management resources. IAM is an AWS service that you can
 use with no additional charge.
 
+The following information is about Identity and Access Management for AWS Account Management. This
+information is most relevant for AWS accounts that you create when you use our advanced AWS experience or if you activated advanced features for your account. To learn about how access control works for our new AWS experience, see
+[Compare access management](sign-up-for-aws.md#compare-access-management "sign-up-for-aws.md#compare-access-management").
+
 ###### Topics
 
 - [Audience](#security_iam_audience "#security_iam_audience")

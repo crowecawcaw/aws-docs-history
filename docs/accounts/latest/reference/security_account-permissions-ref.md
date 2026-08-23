@@ -1,5 +1,8 @@
 # Using identity-based policies (IAM policies) for AWS Account Management
 
+This information is most relevant for AWS accounts that you create when you use our
+advanced AWS experience. To learn about how access control works for our new AWS experience, see [Compare access management](sign-up-for-aws.md#compare-access-management "sign-up-for-aws.md#compare-access-management").
+
 For a full discussion of AWS accounts and IAM users, see [What Is
 IAM?](../../../IAM/latest/UserGuide/IAM_Introduction.md "../../../IAM/latest/UserGuide/IAM_Introduction.md") in the _IAM User Guide_.
 

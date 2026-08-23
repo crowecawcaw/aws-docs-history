@@ -1,6 +1,10 @@
 # Update the alternate contacts for your AWS account
 
-Alternate contacts allow AWS to contact up to three alternate contacts associated with
+These instructions are for how to update the alternate contacts for your AWS account if
+you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options,
+see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
+Alternate contacts allows AWS to contact up to three alternate contacts associated with
 the account. An alternate contact doesn't have to be a specific person. You could instead
 add an email distribution list if you have a team that manages billing, operations and
 security related issues. These are in addition to the email address associated with the

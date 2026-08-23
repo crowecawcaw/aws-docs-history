@@ -1,9 +1,23 @@
 # Quotas for AWS Account Management
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS
-service. Unless otherwise noted, each quota is AWS Region-specific.
+service.
 
-Each AWS account has the following quotas related to Account Management.
+The following quota information is for projects you create if you
+use [Sign up for AWS (new)](sign-in-new.md "sign-in-new.md"). To adjust a quota,
+create a support ticket. For more information, see
+[Project support](access-aws-support.md#access-aws-support-project "access-aws-support.md#access-aws-support-project").
+
+| Resource                                         | Quota | Adjustable |
+| ------------------------------------------------ | ----- | ---------- |
+| Number of projects that you own on the Free Plan | 29    | Yes        |
+| Number of projects you can own on the Paid Plan  | 299   | Yes        |
+| Number of people you can share a project with    | 500   | No         |
+| Number of projects invites you can accept        | 100   | No         |
+
+The following quota information is for AWS accounts you create if you
+sign up using Sign up (advanced). Unless otherwise noted, each quota
+is AWS Region-specific.
 
 | Resource                                                                   | Quota                                                          |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------- |

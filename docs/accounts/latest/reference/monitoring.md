@@ -1,5 +1,8 @@
 # Monitor your AWS account
 
+This includes AWS accounts you create using our new AWS experience and accounts you create
+using our advanced AWS experience. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of AWS Account Management and your other AWS solutions. AWS provides the following
 monitoring tools to watch Account Management, report when something is wrong, and take automatic actions

@@ -1,5 +1,8 @@
 # Update the root user email address
 
+These instructions are for how to update the root user email address if you signed up for
+AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 There are various business reasons why you might need to update the root user email address of
 your AWS account. For example, security and administrative resilience. This topic walks
 you through the process of updating your root user email

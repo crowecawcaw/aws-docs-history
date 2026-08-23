@@ -1,5 +1,8 @@
 # Compliance validation for AWS Account Management
 
+Our new AWS experience cannot be used for any regulated workloads. The following
+information is only relevant to accounts created when you use Sign up for AWS (advanced).
+
 Third-party auditors assess the security and compliance of AWS services that can run in
 your AWS account as part of multiple AWS compliance programs. These include SOC, PCI,
 FedRAMP, HIPAA, and others.

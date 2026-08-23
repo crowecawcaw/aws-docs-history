@@ -1,5 +1,8 @@
 # Logging AWS Account Management API calls using AWS CloudTrail
 
+This includes AWS accounts you create using our new AWS experience and accounts you create
+using our advanced AWS experience. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 The AWS Account Management APIs are integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, role, or an AWS service that calls an Account Management operation. CloudTrail
 captures all Account Management API calls as events. The calls captured include all calls to the Account Management

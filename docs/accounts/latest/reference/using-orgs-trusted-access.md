@@ -1,5 +1,7 @@
 # Enable trusted access for AWS Account Management
 
+These instructions are for how to enable trusted access for AWS Account Management if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 Enabling trusted access for AWS Account Management allows the administrator of the management account
 to modify the information and metadata (for example, primary or alternate contact details)
 specific to each member account in AWS Organizations. For more information, see [AWS Account Management and AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account "../../../organizations/latest/userguide/services-that-can-integrate-account.md#integrate-enable-ta-account") in the _AWS Organizations User Guide_. For

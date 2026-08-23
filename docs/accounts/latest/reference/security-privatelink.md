@@ -1,5 +1,7 @@
 # AWS PrivateLink for AWS Account Management
 
+The following information is relevant for all AWS accounts.
+
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can access the AWS Account Management
 service from within the VPC without having to cross the public internet.
 

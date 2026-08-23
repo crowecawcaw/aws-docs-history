@@ -1,5 +1,7 @@
 # Close an AWS account
 
+These instructions are for how to close your AWS account if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 If you no longer need your AWS account, you can close it at any time by following the
 instructions in this section. After you've closed it, you can reopen it within 90 days from
 the day you closed the account. The timespan between the day you closed the account and when AWS

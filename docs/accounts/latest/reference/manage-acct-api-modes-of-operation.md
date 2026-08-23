@@ -1,5 +1,8 @@
 # Understanding API modes of operation
 
+This information is about understanding API modes of operation if you signed up for
+AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 The API operations that work with an AWS account's attributes always work in one of two
 modes of operation:
 

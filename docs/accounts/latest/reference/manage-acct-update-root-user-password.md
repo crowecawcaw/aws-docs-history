@@ -1,5 +1,7 @@
 # Update root user password
 
+These instructions are for how to update the root user password if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 To edit your AWS account's root user password, perform the steps in the following
 procedure.
 

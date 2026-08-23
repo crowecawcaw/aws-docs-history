@@ -1,5 +1,7 @@
 # View AWS account identifiers
 
+This information is about viewing AWS account identifiers if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+
 AWS assigns the following unique identifiers to each AWS account:
 
 **[AWS account ID](#FindAccountId "#FindAccountId")**

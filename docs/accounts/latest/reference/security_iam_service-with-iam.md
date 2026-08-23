@@ -1,5 +1,8 @@
 # How AWS Account Management works with IAM
 
+This information is most relevant for AWS accounts that you create when you use our
+advanced AWS experience. To learn about how access control works for our new AWS experience, see [Compare access management](sign-up-for-aws.md#compare-access-management "sign-up-for-aws.md#compare-access-management").
+
 Before you use IAM to manage access to Account Management, learn what IAM features are
 available to use with Account Management.
 
