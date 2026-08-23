@@ -181,7 +181,7 @@ Scratch 2, Persistent 1, and Persistent 2 deployment types are available in the 
 | US West (Oregon)                 | ✓            | ✓                                | ✓            | ✓         |
 | US West (Phoenix) Local Zone     | ✓ \*         |                                  |              |           |
 | Africa (Cape Town)               | ✓            | ✓                                | ✓            | ✓         |
-| Asia Pacific (New Zealand)       | ✓ \*         |                                  |              |           |
+| Asia Pacific (New Zealand)       | ✓            | ✓                                |              |           |
 | Asia Pacific (Hong Kong)         | ✓            | ✓                                | ✓            | ✓         |
 | Asia Pacific (Hyderabad)         | ✓            | ✓                                | ✓            | ✓         |
 | Asia Pacific (Jakarta)           | ✓            | ✓                                | ✓            | ✓         |
