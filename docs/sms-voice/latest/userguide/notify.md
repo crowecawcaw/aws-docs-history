@@ -85,7 +85,7 @@ information about accessing the console, see
 Notify pricing includes a per-message Notify service fee and standard SMS or voice
 transport rates based on destination country. For pricing details, see
 [AWS End User Messaging
-Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 ###### Regional availability
 

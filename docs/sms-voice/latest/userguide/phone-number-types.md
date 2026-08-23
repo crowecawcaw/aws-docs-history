@@ -157,7 +157,7 @@ There are additional costs to acquire short codes, and they can take a long time
 implement. For example, in the United States, there's a one-time setup fee for each
 short code, plus an additional recurring charge per month for each short code. It can
 take 8–12 weeks for short codes to become active on all carrier networks. For more
-information on pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+information on pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 ## Toll-free number (TFN)
 

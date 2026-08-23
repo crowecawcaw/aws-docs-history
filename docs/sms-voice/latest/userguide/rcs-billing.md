@@ -4,7 +4,7 @@ RCS messaging in AWS End User Messaging uses a pricing model with two cost compo
 message fee and a carrier fee that is passed through with no markup. This chapter explains
 the pricing structure for RCS messaging. For current rates, see
 [AWS End User Messaging
-Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 AWS End User Messaging charges for RCS messages only when they are successfully delivered to the
 recipient's device. You are not charged for delivery attempts that fail. If an RCS
@@ -68,7 +68,7 @@ which charges for requested messages.
 
 For current per-segment rates, see
 [AWS End User Messaging
-Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 ## Pricing for countries outside the United States
 
@@ -96,7 +96,7 @@ which charges for requested messages.
 
 For current rates, see
 [AWS End User Messaging
-Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 ## Conversational pricing
 
@@ -147,7 +147,7 @@ details on these events and fields, see [RCS message events](rcs-events.md "rcs-
 Conversational pricing is available in a specific set of countries outside the United
 States. For the list of supported countries and current session fees, see
 [AWS End User Messaging
-Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 ## Registration fees
 
@@ -175,7 +175,7 @@ registration with the RCS infrastructure provider.
 These registration fees are carrier pass-through charges. For current registration
 fee amounts, see
 [AWS End User Messaging
-Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 ###### Important
 
@@ -275,7 +275,7 @@ content.
 
 For more information about content violation fee amounts, see
 [AWS End User Messaging
-Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+Pricing](https://aws.amazon.com/end-user-messaging/pricing/ "https://aws.amazon.com/end-user-messaging/pricing/").
 
 ## Bill transparency
 
