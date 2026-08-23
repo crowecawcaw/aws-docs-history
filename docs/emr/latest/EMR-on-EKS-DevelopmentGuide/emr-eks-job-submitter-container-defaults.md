@@ -46,6 +46,24 @@ event logs. This means your S3 location specified by
 `logging.eventLog.dir` won't receive event logs and the Persistent App
 UI also won't work.
 
+**`logging.nativeSidecar`**
+
+When you set this property to `ENABLED` for Amazon EMR release 6.8.0 or
+higher, Amazon EMR configures the logging container on your Spark driver and executor pods
+as a Kubernetes native sidecar container (see details on the
+[Kubernetes
+website](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/ "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/")) instead of a regular container. This means the logging
+container automatically restarts on failure and logging container failures won't
+cause the pod to fail.
+
+###### Node version requirement
+
+Your Amazon EKS nodes must be running Kubernetes version 1.29
+or higher. Your EKS cluster version can differ from your node version. If your
+nodes are running a version lower than 1.29, Kubernetes does not
+enable the native sidecar feature and the logging container prevents the driver
+from starting, which leads to job timeouts.
+
 ## Job submitter classification examples
 
 ###### In this section
@@ -54,6 +72,7 @@ UI also won't work.
 - [StartJobRun request with logging disabled for executor pods](#emr-eks-executor-logging-disabled "#emr-eks-executor-logging-disabled")
 - [StartJobRun request with custom logging container image, CPU, and memory for the driver and executor pods](#emr-eks-job-submitter-container-custom-image-cpu "#emr-eks-job-submitter-container-custom-image-cpu")
 - [StartJobRun request with Spark event log Amazon S3 destination](#emr-eks-job-submitter-container-event-log-dir "#emr-eks-job-submitter-container-event-log-dir")
+- [StartJobRun request with native sidecar logging](#emr-eks-job-submitter-container-native-sidecar "#emr-eks-job-submitter-container-native-sidecar")
 
 ### `StartJobRun` request with custom job timeout
 
@@ -176,3 +195,36 @@ are incompatible. If `spark.eventLog.dir` is set, that configuration takes
 priority and the logging container is unable to replicate Spark event logs. This means
 your S3 location specified by `logging.eventLog.dir` won't receive event
 logs and the Persistent App UI also won't work.
+
+### `StartJobRun` request with native sidecar logging
+
+The following example enables native sidecar mode for the logging container on Spark
+driver and executor pods. When enabled, the logging container runs as a
+Kubernetes native sidecar that automatically restarts on failure and
+doesn't affect the state of your Spark pods.
+
+```
+"configurationOverrides": {
+  "applicationConfiguration": [
+    {
+      "classification": "emr-containers-defaults",
+      "properties": {
+        "logging.nativeSidecar": "ENABLED"
+      }
+    }
+  ],
+  "monitoringConfiguration": {
+    "s3MonitoringConfiguration": {
+      "logUri": "s3://`my-bucket`/`logs`/"
+    }
+  }
+}
+```
+
+###### Node version requirement
+
+Your Amazon EKS nodes must be running Kubernetes version 1.29 or
+higher. Your EKS cluster version can differ from your node version. If your nodes are
+running a version lower than 1.29, Kubernetes does not enable the
+native sidecar feature and the logging container prevents the driver from starting,
+which leads to job timeouts.
