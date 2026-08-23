@@ -8,7 +8,7 @@ learn about running EMR Serverless jobs using Step Functions state machines, or 
 ###### Important
 
 EMR Serverless does not have a free pricing tier. Running the sample project will incur costs. You can
-find pricing information on the [Amazon EMR Serverless pricing](https://aws.amazon.com//emr/pricing/ "https://aws.amazon.com//emr/pricing/") page.
+find pricing information on the [Amazon EMR Serverless pricing](https://aws.amazon.com/emr/pricing/ "https://aws.amazon.com/emr/pricing/") page.
 
 In addition, the availability of EMR Serverless service integration is subject to the
 availability of EMR Serverless APIs. Because of this, this sample project might not work correctly or be available in some AWS Regions. See the [Other considerations](../../../emr/latest/EMR-Serverless-UserGuide/considerations.md "../../../emr/latest/EMR-Serverless-UserGuide/considerations.md") topic for information about availability of EMR Serverless in AWS Regions.
