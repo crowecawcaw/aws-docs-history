@@ -4,6 +4,7 @@ Select AWS services generate AWS managed notifications by default. The following
 
 - **AWS Health** – Events that affect your AWS accounts and services
 - **AWS Marketplace – Buyer** – Notifications about your Marketplace subscriptions, purchases, and entitlement changes
+- **AWS Partner Central** – Notifications about your AWS Partner Central and AWS Marketplace Seller accounts and services
   AWS managed notifications are automatically available in the Console Notification Center and sent to account contacts ([primary contact email](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md") and [alternate contact emails](../../../accounts/latest/reference/manage-acct-update-contact-alternate.md "../../../accounts/latest/reference/manage-acct-update-contact-alternate.md")). You can manage the account contacts subscriptions of
   AWS managed notifications and set up additional delivery channels, including [notification-contacts](../../../notificationscontacts/latest/APIReference/Welcome.md "../../../notificationscontacts/latest/APIReference/Welcome.md"),
   [Amazon Q Developer chat
