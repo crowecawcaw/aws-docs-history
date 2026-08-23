@@ -1,6 +1,6 @@
 # Security best practices for AWS account administrators
 
-If you’re an account administrator who has created a new AWS account, we recommend the
+If you’re an account administrator who has created a new AWS account using [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md"), we recommend the
 following steps to help your users follow AWS security best practices when they sign in.
 
 1. Sign in as the root user to [Enable
@@ -39,14 +39,3 @@ following steps to help your users follow AWS security best practices when they 
 
 6. Review [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") to learn about additional identity and access
    management best practices.
-7. Implement network-based access controls: Use Sign-in resource-based policies
-   or resource control policies (RCPs) to restrict console sign-in to requests from approved
-   IP address ranges or VPCs. For environments using Console Private Access, configure VPC
-   endpoint policies to control which accounts can be accessed through your endpoints (see
-   [Console Private
-   Access](../../../awsconsolehelpdocs/latest/gsg/console-private-access.md "../../../awsconsolehelpdocs/latest/gsg/console-private-access.md")). Together, Sign-in resource-based policies, RCPs, and VPC endpoint
-   policies provide layered
-   network controls at different enforcement points. For root users, Sign-in policies block the
-   credential page entirely on access attempts from unauthorized networks. AWS recommends
-   configuring excluded principals for recovery access to prevent account lockout, though
-   this is optional. For more information, see [Controlling console access with resource-based policies and resource control policies](console-access-control.md "console-access-control.md").

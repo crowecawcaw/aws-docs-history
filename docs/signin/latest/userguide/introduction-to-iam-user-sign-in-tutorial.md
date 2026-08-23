@@ -7,6 +7,8 @@ be either friendly names, such as `Zhang`, or email addresses such as
 `zhang@example.com`. IAM user names can't include spaces, but can
 include upper and lower case letters, numbers, and the symbols `+ = , . @ _ -`.
 
+This sign-in method is only supported for accounts created with Sign up for AWS (advanced). For more information, see [Compare sign-up options](../../../accounts/latest/reference/sign-up-for-aws.md "../../../accounts/latest/reference/sign-up-for-aws.md").
+
 ###### Tip
 
 If your IAM user has multi-factor authentication (MFA) enabled, you must have access to
@@ -31,6 +33,26 @@ an authenticator. For more information, see [Using multi-factor
 authentication (MFA) in AWS](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md").
 
 After authentication the AWS Management Console opens to the Console Home page.
+
+### To sign in as an IAM user using our new AWS experience
+
+If you signed up for AWS using our new AWS experience, you can sign in to the AWS Management Console
+as an IAM user.
+
+######
+
+1. Open the AWS Management Console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+2. Choose our new AWS experience.
+3. Choose the **IAM user** icon.
+4. Enter the account ID (12 digits) or alias, your IAM user name, and
+   password.
+
+###### Note
+
+You might not have to enter your account ID or alias if you've previously signed in as
+the IAM user with your current browser or if you are using your account sign-in URL. 5. Choose **Sign in**. 6. If MFA is enabled for your IAM user, AWS requires you to confirm your identity with
+an authenticator. For more information, see [Using multi-factor
+authentication (MFA) in AWS](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md").
 
 ### Additional information
 

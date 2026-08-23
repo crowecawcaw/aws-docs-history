@@ -11,6 +11,8 @@ are listed below.
 - [IAM user](#iam-user-type "#iam-user-type")
 - [IAM Identity Center user](#sso-user-type "#sso-user-type")
 - [Federated identity](#federated-identity-type "#federated-identity-type")
+- [Project owner](#project-owner-type "#project-owner-type")
+- [Project team member](#project-team-member-type "#project-team-member-type")
 - [AWS Builder ID user](#builder-id-type "#builder-id-type")
 
 ## Root user
@@ -30,6 +32,8 @@ When you create an AWS account, you begin with one sign-in identity called the A
 For more information about IAM identities including the root user, see [IAM Identities (users, user
 groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md").
 
+This is only supported when you [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
+
 ## IAM user
 
 An IAM user is an entity you create in AWS. This user is an identity within your
@@ -39,6 +43,8 @@ how to sign in, see [Sign in to the AWS Management Console as an IAM user](intro
 
 For more information about IAM identities including the IAM user, see [IAM Identities (users, user
 groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md").
+
+This is only supported when you [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
 
 ## IAM Identity Center user
 
@@ -74,6 +80,8 @@ AWS access portal so that you can access it later.
 For more information about IAM Identity Center, see [What is IAM Identity
 Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md")
 
+This is only supported when you [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
+
 ## Federated identity
 
 A federated identity is a user who can sign in using a well-known external identity
@@ -84,6 +92,33 @@ use the resources in your AWS account. You don't sign in with the AWS Managemen
 AWS access portal. Instead, the external identity in use determines how you sign in.
 
 For more information, see [Sign in as a federated identity](federated-identity-overview.md "federated-identity-overview.md").
+
+This is only supported when you [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
+
+## Project owner
+
+###### Warning
+
+We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+
+A project owner creates a project when they use our new AWS experience. A project owner signs in to AWS using a login they already have. AWS
+supports using Google, GitHub, Apple, or Amazon as logins to access a project. For
+more information, see [Create a project in AWS Settings](../../../accounts/latest/reference/create-project.md "../../../accounts/latest/reference/create-project.md").
+
+This is only supported when you sign in to our new AWS experience.
+
+## Project team member
+
+###### Warning
+
+We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+
+A project team member can access a project shared with them. They receive an
+email from a project owner to access the project and can sign in to project using
+a login they already have. AWS supports using Google, GitHub, Apple, or Amazon as
+logins to access a project. For more information, see [Sign in to a project](sign-in-project.md "sign-in-project.md").
+
+This is only supported when you sign in to our new AWS experience.
 
 ## AWS Builder ID user
 

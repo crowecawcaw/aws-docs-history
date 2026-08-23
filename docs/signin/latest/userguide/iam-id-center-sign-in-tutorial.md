@@ -4,6 +4,8 @@ A user in IAM Identity Center is a member of AWS Organizations. A user in IAM Id
 AWS accounts and business applications by signing in to your AWS access portal with a
 specific sign-in URL. For more information about the specific sign-in URL, see [AWS access portal](sign-in-urls-defined.md#access-portal-url "sign-in-urls-defined.md#access-portal-url").
 
+This sign-in method is only supported for accounts created with Sign up for AWS (advanced). For more information, see [Compare sign-up options](../../../accounts/latest/reference/sign-up-for-aws.md "../../../accounts/latest/reference/sign-up-for-aws.md").
+
 Before you sign in to an AWS account as a user in IAM Identity Center, gather the following required
 information.
 

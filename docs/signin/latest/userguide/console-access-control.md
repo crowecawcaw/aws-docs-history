@@ -44,7 +44,7 @@ methods:
   through SAML or OIDC federation.
 - **Applications integrated with AWS Sign-In** –
   Amazon Connect, Amazon QuickSight, AWS Health Dashboard, Amazon AppStream, Amazon
-  Lightsail, AWS IQ.
+  Lightsail.
 
 ###### Note
 

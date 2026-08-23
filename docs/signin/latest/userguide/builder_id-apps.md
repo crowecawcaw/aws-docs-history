@@ -62,3 +62,14 @@ profile for the [AWS Marketing Website](https://aws.amazon.com/ "https://aws.ama
 To register for new webinars and to view all webinars that you have registered
 for or attended, see [My
 webinars](https://aws.amazon.com/events/my-webinars/ "https://aws.amazon.com/events/my-webinars/").
+
+**Project and AWS Settings**
+
+###### Warning
+
+We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+
+Access AWS Settings and any projects with your AWS Builder ID. AWS Settings lets you
+manage your projects. A project contains an AWS account and settings for
+sharing with other collaborators. These projects are only available when you use
+our new AWS experience. For more information, see [Compare features for sign-up options](../../../accounts/latest/reference/sign-up-for-aws.md#compare-sign-up-options "../../../accounts/latest/reference/sign-up-for-aws.md#compare-sign-up-options").

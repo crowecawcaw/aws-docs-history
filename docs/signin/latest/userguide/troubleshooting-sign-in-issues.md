@@ -1,5 +1,9 @@
 # Troubleshooting AWS account sign-in issues
 
+This troubleshooting information is for issues related to AWS account sign-in
+(advanced). If you use our new AWS experience and have access to AWS Settings and
+projects, use [Troubleshooting our new AWS experience issues](troubleshooting-sign-in-new.md "troubleshooting-sign-in-new.md") to troubleshoot.
+
 Use the information here to help you troubleshoot sign-in and other AWS account issues.
 For step-by-step directions on signing in to an AWS account, see [Sign in to the AWS Management Console](how-to-sign-in.md "how-to-sign-in.md").
 

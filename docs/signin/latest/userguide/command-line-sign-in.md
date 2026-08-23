@@ -6,6 +6,10 @@ requirements.
 - [Login with console credentials (Recommended)](#command-line-sign-in-local-development "#command-line-sign-in-local-development") if you use root,
   IAM users or federation with IAM for AWS account access.
 - [Login with IAM Identity Center credentials](#command-line-sign-in-sso "#command-line-sign-in-sso") if you use Identity Center for AWS account access.
+  If you're using our new AWS experience, you have access to connect your AI coding tool to
+  your project. This lets you sign in using the command line. For more information,
+  see [Connect an AI coding
+  tool](../../../accounts/latest/reference/connect-ai-coding-tool.md "../../../accounts/latest/reference/connect-ai-coding-tool.md") in the _AWS Account Management Reference Guide_.
 
 ## Login with console credentials (Recommended)
 
@@ -69,7 +73,7 @@ If you are using AWS SDKs, please see [Authentication and access using AWS SDKs 
 
 The AWS access portal makes it easy for IAM Identity Center users to select an AWS account and
 get temporary security credentials for the AWS CLI. For more information about how to get
-these credentials, see [Region availability for AWS Builder ID](sign-in-builder-id.md#regions-aws_builder_id "sign-in-builder-id.md#regions-aws_builder_id"). You can also configure the AWS CLI directly
+these credentials, see [Region availability for AWS Builder ID](sign-in-aws_builder_id.md#regions-aws_builder_id "sign-in-aws_builder_id.md#regions-aws_builder_id"). You can also configure the AWS CLI directly
 to authenticate users with IAM Identity Center.
 
 ###### To login with IAM Identity Center credentials

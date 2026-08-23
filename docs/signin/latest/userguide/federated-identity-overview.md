@@ -6,6 +6,10 @@ Active Directory) or from a third party (such as Login in with Amazon, Facebook,
 Federated identities don't sign in with the AWS Management Console or AWS access portal. The type of external
 identity in use determines how federated identities sign in.
 
+This sign-in method is only supported for accounts created with Sign up for AWS
+(advanced). For more information, see [Compare sign-up options](../../../accounts/latest/reference/sign-up-for-aws.md "../../../accounts/latest/reference/sign-up-for-aws.md")
+in the _AWS Account Management Reference Guide_.
+
 Administrators must create a custom URL that includes
 `https://signin.aws.amazon.com/federation`. For more information, see [Enabling custom
 identity broker access to the AWS Management Console](../../../IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.md "../../../IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.md").

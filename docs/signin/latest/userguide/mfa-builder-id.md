@@ -13,10 +13,14 @@ you can use your registered security key. For authenticator applications, you ca
 enable the cloud backup or sync feature in those apps. This helps you avoid losing access to
 your profile if you lose or break your MFA device.
 
+If you lose access to your MFA device, see [Recover access when you lose your MFA device](recover-builder-id.md#recover-mfa-builder-id "recover-builder-id.md#recover-mfa-builder-id") to learn how to recover access to your
+AWS Builder ID.
+
 ## Key points
 
-- We recommend that you register multiple MFA devices. If you lose access to all
-  registered MFA devices, you will be unable to recover your AWS Builder ID.
+- We recommend that you register multiple MFA devices. If you lose access to
+  your MFA device, you can recover access to your AWS Builder ID through self-service
+  recovery when you have a recovery email set up. For more information, see [Recover access when you lose your MFA device](recover-builder-id.md#recover-mfa-builder-id "recover-builder-id.md#recover-mfa-builder-id").
 - We recommend that you periodically review your registered MFA devices to
   ensure they are up to date and functional. Additionally, you should store those
   devices in a place that is physically secure when not in use.
@@ -116,6 +120,12 @@ However, any TOTP-compliant application works with AWS Builder ID MFA.
 
 ###### Note
 
+If you haven't set up a recovery email, AWS Builder ID prompts you to add one before
+you register an MFA device. This requirement helps make sure you can recover access
+to your AWS Builder ID if you lose your MFA device.
+
+###### Note
+
 After you sign up for MFA, sign out, and then sign in on the same device, you
 might not be prompted for MFA on trusted devices.
 
@@ -163,6 +173,12 @@ from others that you register.
 The MFA device is now ready for use with AWS Builder ID.
 
 ## Register a security key as your AWS Builder ID MFA device
+
+###### Note
+
+If you haven't set up a recovery email, AWS Builder ID prompts you to add one before
+you register an MFA device. This requirement helps make sure you can recover access
+to your AWS Builder ID if you lose your MFA device.
 
 ###### To register your MFA device using a security key
 

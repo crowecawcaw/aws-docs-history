@@ -1,4 +1,4 @@
-# AWS MCP Server
+# Configure OAuth access to AWS MCP Server
 
 ## Overview
 

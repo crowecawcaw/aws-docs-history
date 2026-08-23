@@ -1,29 +1,20 @@
 # Create your AWS Builder ID
 
 You create your AWS Builder ID when you sign up for one of the AWS tools and services that
-use it. Sign up with your email address, name, and password as part of the sign-up process
-for an AWS tool or service.
-
-Your password must adhere to the following requirements:
-
-- Passwords are case-sensitive.
-- Passwords must be between 8 and 64 characters in length.
-- Passwords must contain at least one character from each of the following four
-  categories:
-
-  - Lowercase letters (a-z)
-  - Uppercase letters (A-Z)
-  - Numbers (0-9)
-  - Non-alphanumeric characters
-    (~!@#$%^&\*\_-+=`|\(){}[]:;"'<>,.?/)
-
-- The last three passwords cannot be reused.
-- Passwords that are publicly known through a data set leaked from a third party
-  cannot be used.
+use it. Sign up as part of the sign-up process for an AWS tool or service with your email
+address, name, and password, or choose a supported social provider such as
+Google or Apple.
 
 ###### Note
 
-Tools and services that use AWS Builder ID direct you to create and use your AWS Builder ID when needed.
+After you create your AWS Builder ID, we strongly recommend that you take the following
+steps to recover your account if you are locked out:
+
+- Add a recovery email so you can regain access if you lose your password or MFA
+  device. For more information, see [Add or change your recovery email](edit-details-builder-id.md#recovery-email-builder-id "edit-details-builder-id.md#recovery-email-builder-id").
+- Register an MFA device to strengthen the security of your AWS Builder ID. For more
+  information, see [Register your AWS Builder ID MFA device](mfa-builder-id.md#register-mfa-aws_builder_id "mfa-builder-id.md#register-mfa-aws_builder_id").
+  For all recovery options, see [Recover your AWS Builder ID](recover-builder-id.md "recover-builder-id.md").
 
 ###### To create your AWS Builder ID
 
@@ -71,9 +62,28 @@ Tools and services that use AWS Builder ID direct you to create and use your AWS
 7. After we verify your email, on the **Choose a password page**,
    enter a **Password** and **Confirm
    password**.
+
+Your password must adhere to the following requirements:
+
+    * Passwords are case-sensitive.
+    * Passwords must be between 8 and 64 characters in length.
+    * Passwords must contain at least one character from each of the following
+     four categories:
+
+
+
+
+    	+ Lowercase letters (a-z)
+    	+ Uppercase letters (A-Z)
+    	+ Numbers (0-9)
+    	+ Non-alphanumeric characters
+    	 (~!@#$%^&\*\_-+=`|\(){}[]:;"'<>,.?/)
+    * The last three passwords cannot be reused.
+    * Passwords that are publicly known through a data set leaked from a third
+     party cannot be used.
+
 8. If a Captcha appears as additional security, enter the characters that you
-   see.
-9. Choose **Create AWS Builder ID**.
+see. 9. Choose **Create AWS Builder ID**.
 
 ## Trusted devices
 

@@ -28,7 +28,7 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
 ###### Topics
 
 - [To sign in with AWS Builder ID](#sign-in-builder-id-all "#sign-in-builder-id-all")
-- [Region availability for AWS Builder ID](#regions-aws_builder_id "#regions-aws_builder_id")
+- [AWS Builder ID and our new AWS experience](#sign-in-builder-id-projects "#sign-in-builder-id-projects")
 - [Create your AWS Builder ID](create-builder-id.md "create-builder-id.md")
 - [AWS tools and services that use AWS Builder ID](builder_id-apps.md "builder_id-apps.md")
 - [Edit your AWS Builder ID profile](edit-details-builder-id.md "edit-details-builder-id.md")
@@ -36,8 +36,10 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
 - [Delete all active sessions for your AWS Builder ID](delete-sessions-builder-id.md "delete-sessions-builder-id.md")
 - [Delete your AWS Builder ID](delete-builder-id.md "delete-builder-id.md")
 - [Manage AWS Builder ID multi-factor authentication (MFA)](mfa-builder-id.md "mfa-builder-id.md")
+- [Recover your AWS Builder ID](recover-builder-id.md "recover-builder-id.md")
 - [Privacy and data in AWS Builder ID](privacy-builder-id.md "privacy-builder-id.md")
 - [AWS Builder ID and other AWS credentials](differences-builder-id.md "differences-builder-id.md")
+- [Troubleshooting AWS Builder ID issues](troubleshooting-builder-id-issues.md "troubleshooting-builder-id-issues.md")
 
 ## To sign in with AWS Builder ID
 
@@ -52,6 +54,12 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
    - [I have an Apple Account](#sign-in-builder-id-apple "#sign-in-builder-id-apple")
    - [I have a GitHub Account](#sign-in-builder-id-github "#sign-in-builder-id-github")
    - [I have an Amazon Account](#sign-in-builder-id-amazon "#sign-in-builder-id-amazon")
+
+###### Note
+
+If you can't sign in, choose **Trouble Signing In?** on the sign-in page.
+For example, use this option if you forgot your password, lost your MFA device, or can no
+longer use your social login. For more information, see [Recover your AWS Builder ID](recover-builder-id.md "recover-builder-id.md").
 
 ### I have an existing account
 
@@ -117,7 +125,7 @@ email address to sign in to an application. For more information, see [I can’t
    Amazon Account to sign in.
 3. Choose **Continue** to load the AWS application homepage.
 
-## Region availability for AWS Builder ID
+### Region availability for AWS Builder ID
 
 AWS Builder ID is available in the following AWS Regions. Applications that use AWS Builder ID may
 operate in other Regions.
@@ -125,3 +133,15 @@ operate in other Regions.
 | Name                  | Code      |
 | --------------------- | --------- |
 | US East (N. Virginia) | us-east-1 |
+
+## AWS Builder ID and our new AWS experience
+
+###### Warning
+
+We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+
+When you sign up for our new AWS experience, AWS also creates an AWS Builder ID account.
+You use this AWS Builder ID to access AWS Settings and any projects. Unlike other AWS Builder IDs,
+this account does not just have access to select AWS tools and services, but rather, it has
+access to manage many AWS accounts in a preconfigured AWS environment. For more information,
+see [Sign up for AWS (new)](../../../accounts/latest/reference/sign-in-new.md "../../../accounts/latest/reference/sign-in-new.md").

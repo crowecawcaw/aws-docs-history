@@ -11,6 +11,7 @@ AWS Builder ID.
 - [I can’t sign in with Apple](#sign-in-apple-builder_id "#sign-in-apple-builder_id")
 - [I can’t sign in with GitHub](#sign-in-github-builder_id "#sign-in-github-builder_id")
 - [I can’t sign in with Amazon](#sign-in-amazon-builder_id "#sign-in-amazon-builder_id")
+- [I can no longer access the social login I use to sign in](#lost-social-login-aws_builder_id "#lost-social-login-aws_builder_id")
 - [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google](#switch-account-google-builder_id "#switch-account-google-builder_id")
 - [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Apple](#switch-account-apple-builder_id "#switch-account-apple-builder_id")
 - [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with GitHub](#switch-account-github-builder_id "#switch-account-github-builder_id")
@@ -21,6 +22,7 @@ AWS Builder ID.
 - [My password isn’t working](#password-not-working-aws_builder_id "#password-not-working-aws_builder_id")
 - [My password isn't working and I can no longer access emails sent to my AWS Builder ID email address](#password-email-not-working-aws_builder_id "#password-email-not-working-aws_builder_id")
 - [I can't enable MFA](#enable-mfa-aws_builder_id "#enable-mfa-aws_builder_id")
+- [I lost access to my MFA device](#lost-mfa-aws_builder_id "#lost-mfa-aws_builder_id")
 - [I can't add an authenticator app as a MFA device](#add-mfa-aws_builder_id "#add-mfa-aws_builder_id")
 - [I can't remove an MFA device](#remove-mfa-aws_builder_id "#remove-mfa-aws_builder_id")
 - [I get the message 'An unexpected error has occurred' when I try to register or sign in with an authenticator app](#syncing-mfa-aws_builder_id "#syncing-mfa-aws_builder_id")
@@ -83,6 +85,12 @@ your password, see [I forgot my password](#forgot-password-aws_builder_id "#forg
 
 For help signing in with your Amazon password, see [Help with signing in](https://www.amazon.com/gp/help/customer/account-issues "https://www.amazon.com/gp/help/customer/account-issues").
 
+## I can no longer access the social login I use to sign in
+
+If you sign in with a social login, such as Google or Apple, and you can no longer
+access that account, you can permanently switch your sign-in method to an email address
+and password. For more information, see [Regain access when you can't use your social login](recover-builder-id.md#recover-social-builder-id "recover-builder-id.md#recover-social-builder-id").
+
 ## I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google
 
 This means that you either have an existing AWS Builder ID using the same email address as
@@ -144,6 +152,10 @@ with your local settings or email address.
    address associated with your AWS Builder ID where you can reset your password.
 3. Follow the instructions in the email.
 
+If you can't access your primary email inbox but you set up a recovery email, you can
+have the password reset link sent to your recovery email instead. For more information,
+see [Reset a forgotten password](recover-builder-id.md#recover-password-builder-id "recover-builder-id.md#recover-password-builder-id").
+
 ## I can't set a new password
 
 For your security, you must follow these requirements whenever you set or change your
@@ -193,6 +205,12 @@ temporary access, or share content from your mailbox.
 
 To enable MFA, add one or more MFA devices to your profile by following the steps in
 [Manage AWS Builder ID multi-factor authentication (MFA)](mfa-builder-id.md "mfa-builder-id.md").
+
+## I lost access to my MFA device
+
+If you lose access to your MFA device, you can recover access to your AWS Builder ID
+through self-service recovery when you have a recovery email set up. For more
+information, see [Recover access when you lose your MFA device](recover-builder-id.md#recover-mfa-builder-id "recover-builder-id.md#recover-mfa-builder-id").
 
 ## I can't add an authenticator app as a MFA device
 

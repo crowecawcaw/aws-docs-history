@@ -9,6 +9,8 @@ signing in with the email address and password that you used to create the accou
 We strongly recommend that you don't use the root user for your everyday tasks. Safeguard your root user credentials and use them to
 perform the tasks that only the root user can perform. For the complete list of tasks that require you to sign in as the root user, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
 
+This sign-in method is only supported for accounts created with Sign up for AWS (advanced). For more information, see [Compare sign-up options](../../../accounts/latest/reference/sign-up-for-aws.md "../../../accounts/latest/reference/sign-up-for-aws.md").
+
 ## To sign in as the root user
 
 You can sign in as the root user while you are already signed in to another identity in the
@@ -50,6 +52,40 @@ root access for member accounts](../../../IAM/latest/UserGuide/id_root-user.md#i
 Guide_. 7. Choose **Sign in**. The AWS Management Console appears.
 
 After authentication the AWS Management Console opens to the Console Home page.
+
+## To sign in as the root user using our new AWS experience
+
+If you signed up for AWS using our new AWS experience, you can sign in to the AWS Management Console
+as the root user of your management account.
+
+######
+
+1. Open the AWS Management Console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+2. Choose our new AWS experience.
+3. Choose the **IAM user** icon.
+4. Choose **Sign in using root user email**.
+5. Under **Root user email address**, enter the email address
+   associated with your root user. Then, select **Next**.
+6. If you're prompted to complete a security check, enter the characters presented to you to
+   continue. If you can't complete the security check, try listening to the audio or refreshing
+   the security check for a new set of characters.
+
+###### Tip
+
+Type the alphanumeric characters you see (or hear) in order without spaces. 7. Enter your password. 8. Authenticate with MFA. MFA is enforced by default on the root user. For root users of
+standalone and member accounts, you must manually enable MFA, which is strongly recommended.
+For more information, see [Multi-factor authentication for
+AWS account root user](../../../IAM/latest/UserGuide/enable-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-mfa-for-root.md") in the _AWS Identity and Access Management User Guide_.
+
+###### Tip
+
+As a security best practice, we recommend removing all root user credentials from member
+accounts in your AWS organization to help prevent unauthorized use. If you choose this
+option, member accounts can't sign in as the root user, perform password recovery, or set up
+MFA. In this case, only the management account administrator can perform a task that requires
+root user credentials in a member account. For details, see [Centrally manage
+root access for member accounts](../../../IAM/latest/UserGuide/id_root-user.md#id_root-user-access-management "../../../IAM/latest/UserGuide/id_root-user.md#id_root-user-access-management") in the _AWS Identity and Access Management User
+Guide_. 9. Choose **Sign in**. The AWS Management Console appears.
 
 ## Additional information
 

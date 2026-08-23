@@ -1,25 +1,41 @@
-# What is AWS Sign-In?
+# Sign in for AWS
+
+###### Warning
+
+We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
 
 This guide helps you understand the different ways that you can sign in to Amazon Web Services
-(AWS), depending on what type of user you are. For more information about how to sign in based
-on your user type and the AWS resources that you want to access, see one of the following
-tutorials.
+(AWS). You can sign in to AWS in the following ways:
 
-- [Sign in to the AWS Management Console](how-to-sign-in.md "how-to-sign-in.md")
-- [Sign in to your AWS access portal](iam-id-center-sign-in-tutorial.md "iam-id-center-sign-in-tutorial.md")
-- [Sign in as a federated identity](federated-identity-overview.md "federated-identity-overview.md")
-- [Sign in through the AWS Command Line Interface](command-line-sign-in.md "command-line-sign-in.md")
-- [Sign in with AWS Builder ID](sign-in-builder-id.md "sign-in-builder-id.md")
-  If you're having issues signing in to your AWS account, see [Troubleshooting AWS account sign-in issues](troubleshooting-sign-in-issues.md "troubleshooting-sign-in-issues.md"). For
-  help with your AWS Builder ID see [Troubleshooting AWS Builder ID issues](troubleshooting-builder-id-issues.md "troubleshooting-builder-id-issues.md"). Looking to create an AWS account?
-  [Sign up for AWS](https://portal.aws.amazon.com/billing/signup#/start/email "https://portal.aws.amazon.com/billing/signup#/start/email"). For
-  more information about how signing up for AWS can help you or your organization, see [Contact Us](https://aws.amazon.com/contact-us/sales-support-1v/ "https://aws.amazon.com/contact-us/sales-support-1v/").
+- Sign in for AWS
+
+  - [Sign in to our new AWS experience](../../../accounts/latest/reference/sign-in-new.md "../../../accounts/latest/reference/sign-in-new.md") – Sign in using a method you already
+    have, like Google or GitHub, and access projects with preconfigured
+    defaults.
+  - [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md") – Sign in using an AWS access portal, a federated
+    identity, or as a root user or IAM user.
+
+- [Sign in with AWS Builder ID](sign-in-builder-id.md "sign-in-builder-id.md") – Sign in to your personal profile that
+  provides access to select tools and services.
+  For more information comparing our new sign up experience and the existing AWS
+  experience, see [Compare sign-up options](../../../accounts/latest/reference/sign-up-for-aws.md "../../../accounts/latest/reference/sign-up-for-aws.md").
+
+If you have issues signing in to AWS, see the troubleshooting documentation for each
+way to sign in:
+
+- If you're having trouble signing into your AWS account, see [Troubleshooting AWS account sign-in issues](troubleshooting-sign-in-issues.md "troubleshooting-sign-in-issues.md").
+- If you're having trouble signing into our new AWS experience, see [Troubleshooting our new AWS experience issues](troubleshooting-sign-in-new.md "troubleshooting-sign-in-new.md").
+- If you're having trouble signing into your AWS Builder ID to access select AWS
+  tools or services, see [Troubleshooting AWS Builder ID issues](troubleshooting-builder-id-issues.md "troubleshooting-builder-id-issues.md").
+  For more information about how signing up for AWS can help you or your organization, see
+  [Contact Us](https://aws.amazon.com/contact-us/sales-support-1v/ "https://aws.amazon.com/contact-us/sales-support-1v/").
 
 ###### Topics
 
 - [Terminology](#terminology "#terminology")
 - [Region availability for AWS Sign-In](#sign-in-regions "#sign-in-regions")
 - [Sign-in event logging](#sign-in-events "#sign-in-events")
+- [Help me sign in to AWS](sign-in-general-troubleshooting.md "sign-in-general-troubleshooting.md")
 - [Determine your user type](user-types-list.md "user-types-list.md")
 - [Determine your sign-in URL](sign-in-urls-defined.md "sign-in-urls-defined.md")
 - [Domains to add to your allow list](allowlist-domains.md "allowlist-domains.md")
@@ -39,6 +55,8 @@ AWS account than other members of their organization. Administrators establish a
 implement settings for the AWS account. They also create IAM or IAM Identity Center users. The
 administrator provides these users with their access credentials and a sign-in URL to sign
 in to AWS.
+
+An administrator is only supported if you sign in with [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
 
 ### Account
 
@@ -69,13 +87,15 @@ Your corporate administrator can set up your AWS account to use the same credent
 you use to access your corporate network and resources. These credentials are provided to
 you by your administrator or help desk employee.
 
+Corporate credentials are only supported if you sign in with [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
+
 ### Profile
 
-When you sign up for an AWS Builder ID, you create a profile. Your profile includes the
-contact information you provided and the ability to manage multi-factor authentication (MFA)
-devices and active sessions. You can also learn more about privacy and how we handle your
-data in your profile. For more information about your profile and how it relates to an
-AWS account, see [AWS Builder ID and other AWS credentials](differences-builder-id.md "differences-builder-id.md").
+When you sign up for an AWS Builder ID or use our new AWS experience, you create a profile.
+Your profile includes the contact information you provided and the ability to manage
+multi-factor authentication (MFA) devices and active sessions. You can also learn more about
+privacy and how we handle your data in your profile. For more information about how your
+Builder ID relates to an AWS account, see [AWS Builder ID and other AWS credentials](differences-builder-id.md "differences-builder-id.md").
 
 ### Root user credentials
 
@@ -83,6 +103,8 @@ The root user credentials are the email address and password used to create the
 AWS account. We strongly recommend that MFA be added to the root user credentials for
 additional security. Root user credentials provide complete access to all AWS
 services and resources in the account. For more information on the root user, see [Root user](user-types-list.md#account-root-user-type "user-types-list.md#account-root-user-type").
+
+Root user credentials are only supported if you sign in with [Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md").
 
 ### User
 
@@ -99,10 +121,16 @@ be sent via text message or email. Check with your administrator for more inform
 
 ## Region availability for AWS Sign-In
 
-AWS Sign-in is available in several commonly used AWS Regions. This availability makes
-it easier for you to access AWS services and business applications. For a full list of the
-Regions that Sign-in supports, see [AWS Sign-In endpoints and
+[Sign up for AWS (advanced)](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md") is available in several commonly used AWS Regions. This
+availability makes it easier for you to access AWS services and business applications. For a
+full list of the Regions that Sign-In supports, see [AWS Sign-In endpoints and
 quotas](../../../general/latest/gr/signin-service.md "../../../general/latest/gr/signin-service.md").
+
+If you use our new AWS experience, only US East (Ohio) (us-east-2), Europe (Stockholm) (eu-north-1), and
+Asia Pacific (Sydney) (ap-southeast-2) are supported. For more information, see [AWS Regions for your projects](../../../accounts/latest/reference/project-regions.md "../../../accounts/latest/reference/project-regions.md").
+
+AWS Builder ID is available in US East (N. Virginia). Applications that use AWS Builder ID may operate
+in other Regions.
 
 ## Sign-in event logging
 
