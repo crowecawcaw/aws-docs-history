@@ -18,13 +18,11 @@ For a list of update change types, use the console filter.
 
 ## Drift remediation FAQs
 
-Questions and answers on AMS drift remediation. There are two change types that you can use to initiate drift
-remediation, one is execution mode=manual or "managed automation," the other is execution mode=automated.
+Questions and answers on AMS drift remediation.
 
 ### Drift remediation supported resources (ct-3kinq0u4l33zf)
 
-These are the resources that are supported by the drift remediation change type, (ct-3kinq0u4l33zf).  
-For remediation of any resource, use the "managed automation" (ct-34sxfo53yuzah) change type instead.
+These are the resources that are supported by the drift remediation change type, (ct-3kinq0u4l33zf).
 
 ```
 AWS::EC2::Instance
@@ -67,20 +65,13 @@ underlying resources.
 The no managed automation, automated, CT (ct-3kinq0u4l33zf) supports remediating only 10 resources per RFC. To remediate
 remaining resources in batches of 10 create new RFCs until all resources are remediated.
 
-Which drift remediation change type should I use?
-We recommend using the **no managed automation**, automated CT (ct-3kinq0u4l33zf)
+When should I use the drift remediation change type?
+Use the drift remediation automated CT (ct-3kinq0u4l33zf)
 when:
 
 - You attempt to perform an update to an existing stack resource using an automated CT
   and the RFC gets rejected as the stack is `DRIFTED`.
 - You used an Update CT in the past and it failed as the stack was DRIFTED.
-  You do not need to attempt an update again and can use the managed automation, manual, CT
-  instead.
-
-We recommend using the **managed automation**, manual CT (ct-34sxfo53yuzah) only when
-drifted resource types are not supported by the drift remediation no managed automation, automated, CT
-(ct-3kinq0u4l33zf), or when the drift remediation no managed automation, automated,
-CT fails.
 
 What changes are performed to the stack during remediation?
 Remediation requires updates to the stack template and/or parameters depending on
@@ -139,12 +130,20 @@ Yes. However, remediation is performed only if the supported resource types
 are found DRIFTED in the stack. If any unsupported resource types are DRIFTED, remediation
 does not continue.
 
-Can I request remediation for stacks created through non-CFN Ingest CTs?
-Yes. Remediation can be performed on stacks irrespective of the change type
-used for creating the stack.
+Can I request drift remediation for stacks created through standard AMS change types (non-CFN Ingest)?
+Yes. Drift remediation can be performed on stacks created through standard AMS change types,
+using the automated CT (ct-3kinq0u4l33zf). Manual drift remediation for stacks created through standard
+AMS change types (non-CFN Ingest) is not supported by AMS.
+
+Can I request drift remediation for stacks provisioned through the CloudFormation ingest change type?
+No. Drift remediation is not supported for stacks provisioned through the AMS CloudFormation
+ingest change type (ct-36cn2avfrrj9v). RFCs submitted for this purpose are rejected as out of scope.
+CloudFormation-ingested stacks use customer-owned templates, and drift might reflect intentional out-of-band
+changes that cannot be safely reconstructed from the template alone. As the owner of a CloudFormation-ingested
+stack, you are responsible for managing stack drift directly.
 
 Can I know the changes that would be performed to the stack
 before remediation?
-Yes. Both change types provide a **DryRun** option that
+Yes. The drift remediation change type (ct-3kinq0u4l33zf) provides a **DryRun** option that
 you can use to request changes that would be performed if the stack was remediated. However, the final remediation
-changes may differ depending on the drift present on the stack at the time of remediation.
+changes might differ depending on the drift present on the stack at the time of remediation.
