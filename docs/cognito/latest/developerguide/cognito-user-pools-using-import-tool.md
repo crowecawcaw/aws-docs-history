@@ -754,7 +754,7 @@ The bcrypt adaptive hash function. Amazon Cognito extracts all required paramete
 **Example:**
 `$2b$10$CtA.Rcu/szzn9U00wpUjOuN3vrgJRZycv4aOzcP3GzqzO8UDPEFq6`
 
-**Maximum cost factor:** 10
+**Maximum cost factor:** 12
 
 `SCRYPT`
 
