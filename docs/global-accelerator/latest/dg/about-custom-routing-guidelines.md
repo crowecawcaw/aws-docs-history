@@ -15,7 +15,7 @@ run their game servers on Amazon Elastic Kubernetes Service (EKS), with sessions
 To use custom routing in this scenario, you can configure a VPC-CNI plugin to send traffic to Kubernetes Pods
 through an elastic network interface (ENI) that Global Accelerator creates for each subnet where an endpoint is present. This is a
 way to use a custom routing accelerator with EKS. The same configuration works to use a custom routing accelerator with Amazon Elastic Container Service (ECS). To learn more,
-see the detailed steps provided in the following blog post: [AWS Global Accelerator Custom Routing with Amazon Elastic Kubernetes Service](https://aws.amazon.com/blogs/networking-and-content-delivery/deploying-multi-region-applications-in-aws-using-aws-global-accelerator/ "https://aws.amazon.com/blogs/networking-and-content-delivery/deploying-multi-region-applications-in-aws-using-aws-global-accelerator/").
+see the detailed steps provided in the following blog post: [AWS Global Accelerator Custom Routing with Amazon Elastic Kubernetes Service](https://aws.amazon.com/blogs/networking-and-content-delivery/aws-global-accelerator-custom-routing-with-amazon-elastic-kubernetes-service/ "https://aws.amazon.com/blogs/networking-and-content-delivery/aws-global-accelerator-custom-routing-with-amazon-elastic-kubernetes-service/").
 
 **Port mappings**
 When you add a VPC subnet, Global Accelerator creates a static port mapping of listener port ranges to the port
