@@ -20,7 +20,7 @@ As seen above, lines between enhanced component cards are solid. Conversely, sta
 For these cards, you must specify these event-driven relationships in your application's template, and Infrastructure Composer will
 automatically detect their connections and visualize them with a dotted line between your cards.
 
-![An image of a standard component card connected to an enhanced component card.](/images/infrastructure-composer/latest/dg/images/aac_use_con_04.png)
+![An image of a standard component card connected to an enhanced component card.](images/aac_use_con_04.png)
 
 To learn more, see the sections below.
 
