@@ -187,15 +187,27 @@ By default, every mapped value is emitted as a JSON string. Use
   targetFhirType: decimal
 ```
 
+```
+# JSON example
+- fhirPath: address[0]
+  sourceColumn: ADDRESS_JSON
+  transform:
+    type: direct
+  targetFhirType: json
+```
+
 Accepted targetFhirType values| Value | Behavior |
 | --- | --- |
-| `boolean` | Converts `"true"`/`"1"` to JSON<br>`true`, everything else to<br>`false`. |
-| `integer` | Parses the value as a whole number. Non-numeric values are<br>skipped. |
-| `decimal` | Parses the value as a floating-point number. Non-numeric values<br>are skipped. |
+| `boolean` | Converts `true`, `TRUE`, or<br>`1` to JSON `true`, and<br>`false`, `FALSE`, or `0` to<br>JSON `false`. Any other value is a conversion<br>failure. |
+| `integer` | Parses the value as a whole number. |
+| `decimal` | Parses the value as a floating-point number. |
+| `json` | Parses the value as JSON and embeds it as a structured object or<br>array instead of a string. See [Embedding JSON with targetFhirType: json](#csv-yaml-target-fhir-type-json "#csv-yaml-target-fhir-type-json"). |
 
-If the source value cannot be converted to the requested type (for example, the
-string `"abc"` with `targetFhirType: integer`), the field is
-silently omitted from the output resource rather than producing an error.
+The service handles conversion failures differently depending on the type. For
+`boolean`, `integer`, and `decimal`, if the
+service can't convert a value, it emits the original string and records a warning.
+For `json`, if the service can't parse a value, it omits the field from
+the output resource and records a warning.
 
 When do I need it?
 
@@ -206,6 +218,67 @@ When do I need it?
   `valueInteger` or `valueDecimal` element.
 - You want JSON-native types for downstream consumers that parse the JSON
   strictly.
+
+#### Embedding JSON with targetFhirType: json
+
+Some FHIR elements are objects or arrays rather than scalars. If your source
+column already holds a JSON fragment, set `targetFhirType: json` to
+embed it as structure. Without it, the service emits the fragment as a quoted
+string and FHIR validation rejects the resource.
+
+Given this field mapping:
+
+```
+- fhirPath: address[0]
+  sourceColumn: ADDRESS_JSON
+  transform:
+    type: direct
+  targetFhirType: json
+```
+
+And this value in the `ADDRESS_JSON` column:
+
+```
+{"city":"Seattle","state":"WA","line":["123 Main St"]}
+```
+
+The conversion produces:
+
+```
+{
+  "address": [
+    {
+      "city": "Seattle",
+      "state": "WA",
+      "line": ["123 Main St"]
+    }
+  ]
+}
+```
+
+You can also map a sub-path of an embedded object to override one of its
+fields. Mapping `address[0]` as `json` and
+`address[0].city` as a scalar in the same table replaces
+`city` and leaves the other fields intact. The result doesn't
+depend on the order you list the mappings in.
+
+The following table describes the requirements for using
+`targetFhirType: json`.
+
+| Requirement                | Detail                                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Must be an object or array | JSON scalars such as `42`,<br>`"hello"`, `true`, and<br>`null` are rejected. Use<br>`integer`, `decimal`, or<br>`boolean` for those. |
+| Maximum value size         | 2 KB per cell.                                                                                                                       |
+| Maximum nesting depth      | 5 levels.                                                                                                                            |
+| Must parse cleanly         | Trailing characters after the JSON value are rejected.                                                                               |
+
+If a value doesn't meet these requirements, the service omits the field and
+records a warning. The service also omits empty cells.
+
+###### Note
+
+You can combine `targetFhirType: json` with any transform type.
+The service parses the value as JSON after the transform runs.
 
 ## Transform types
 
