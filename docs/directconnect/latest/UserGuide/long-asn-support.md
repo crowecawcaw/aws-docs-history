@@ -33,10 +33,9 @@ When choosing to use either an ASN or a long ASN, note the following:
   handles BGP sessions with both ASN and long ASN-capable routers. If your
   router doesn't support long ASNs, the BGP session will operate in ASN
   mode.
-- **ASN format**: You can specify 4-byte ASNs in either
-  asplain format — for example, `4200000000` — or asdot format
-  — for example, `64086.59904`. Direct Connect accepts both
-  formats but displays ASNs in asplain format.
+- **ASN format**: Specify 4-byte ASNs in asplain format, for
+  example, `4200000000`. Direct Connect displays 4-byte ASNs in
+  asplain format.
 - **Private ASN ranges**: When using private long ASNs
   (`4200000000-4294967294`), the same replacement
   behavior applies as with private ASNs. Direct Connect will replace your
