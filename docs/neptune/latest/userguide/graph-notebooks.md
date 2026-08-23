@@ -467,7 +467,7 @@ one-time transfers.
 
 ###### Steps
 
-Follow the [Mount an EFS file system to an Amazon SageMaker AI notebook](https://aws.amazon.com/blogs//machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/ "https://aws.amazon.com/blogs//machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/")
+Follow the [Mount an EFS file system to an Amazon SageMaker AI notebook](https://aws.amazon.com/blogs/machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/ "https://aws.amazon.com/blogs/machine-learning/mount-an-efs-file-system-to-an-amazon-sagemaker-notebook-with-lifecycle-configurations/")
 blog to use an Amazon EFS file system with your notebook instances.
 
 In addition, there are also a few more steps that apply specifically to migrating Neptune notebooks to the
@@ -648,8 +648,8 @@ For detailed instructions on setting up the open-source
 [graph-explorer](https://github.com/aws/graph-explorer "https://github.com/aws/graph-explorer") packages, refer to the following official AWS
 documentation and GitHub repositories:
 
-- [https://docs.aws.amazon.com//neptune/latest/userguide/graph-notebooks.html#graph-notebooks-local](graph-notebooks.md#graph-notebooks-local "graph-notebooks.md#graph-notebooks-local")
-- [https://docs.aws.amazon.com//neptune/latest/userguide/get-started-connect-ec2-same-vpc.html](get-started-connect-ec2-same-vpc.md "get-started-connect-ec2-same-vpc.md")
+- [https://docs.aws.amazon.com/neptune/latest/userguide/graph-notebooks.html#graph-notebooks-local](graph-notebooks.md#graph-notebooks-local "graph-notebooks.md#graph-notebooks-local")
+- [https://docs.aws.amazon.com/neptune/latest/userguide/get-started-connect-ec2-same-vpc.html](get-started-connect-ec2-same-vpc.md "get-started-connect-ec2-same-vpc.md")
 - [https://github.com/aws/graph-notebook/tree/main/additional-databases/neptune](https://github.com/aws/graph-notebook/tree/main/additional-databases/neptune "https://github.com/aws/graph-notebook/tree/main/additional-databases/neptune")
 - [https://github.com/aws/graph-explorer/blob/main/additionaldocs/getting-started/README.md#amazon-ec2-setup](https://github.com/aws/graph-explorer/blob/main/additionaldocs/getting-started/README.md#amazon-ec2-setup "https://github.com/aws/graph-explorer/blob/main/additionaldocs/getting-started/README.md#amazon-ec2-setup")
 
