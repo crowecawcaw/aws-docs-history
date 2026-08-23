@@ -15,9 +15,9 @@ You can use any toolkit that supports HTTP to use the REST API. You can even use
 to fetch objects, as long as they are anonymously readable.
 
 The REST API uses the standard HTTP headers and status codes, so that standard browsers and
-toolkits work as expected. In some areas, we have added functionality to HTTP (for example, we
-added headers to support access control). In these cases, we have done our best to add the new
-functionality in a way that matched the style of standard HTTP usage.
+toolkits work as expected. In some areas, we added functionality to HTTP (for example, we
+added headers to support access control). In these cases, we added the new
+functionality in a way that matches the style of standard HTTP usage.
 
 ###### Note
 
@@ -76,9 +76,9 @@ are some things to keep in mind.
 - To make direct REST API calls from your code, create a signature using valid credentials and include the
   signature in your request. For information about various authentication methods and signature calculations, see [Authenticating Requests (AWS Signature Version 4)](sig-v4-authenticating-requests.md "sig-v4-authenticating-requests.md").
 - The REST API uses standard HTTP headers and status codes, so
-  standard browsers and toolkits work as expected. In some areas, we have added functionality to HTTP
-  (for example, we added headers to support access control). In these cases, we have done our best to
-  add the new functionality in a way that matches the style of standard HTTP usage. For more information
+  standard browsers and toolkits work as expected. In some areas, we added functionality to HTTP
+  (for example, we added headers to support access control). In these cases, we added the new
+  functionality in a way that matches the style of standard HTTP usage. For more information
   about making requests, see [Making requests](MakingRequests.md "MakingRequests.md").
 
 ## Permissions

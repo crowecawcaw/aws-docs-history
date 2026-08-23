@@ -21,7 +21,7 @@ If you don't find the command that you're looking for in one set, check one of t
 Services in AWS, such as Amazon S3, require that you provide credentials when you access
 them. The service can then determine whether you have permissions to access the resources
 that it owns. The console requires your password. You can create access keys for your AWS account
-to access the AWS CLI or API. However, we don't recommend that you access AWS using
+to access the AWS CLI or API. However, don't access AWS using
 the credentials for your AWS account. Instead, we recommend that you use AWS Identity and Access Management (IAM).
 Create an IAM user, add the user to an IAM group with administrative permissions, and then
 grant administrative permissions to the IAM user that you created. You can then access AWS

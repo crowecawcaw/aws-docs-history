@@ -174,7 +174,7 @@ about sending authenticated requests, see [Making requests](MakingRequests.md "M
 ###### Note
 
 When requesting temporary security credentials for federated users and applications, for
-added security, we suggest that you use a dedicated IAM user with only the
+added security, use a dedicated IAM user with only the
 necessary access permissions. The temporary user you create can never get more
 permissions than the IAM user who requested the temporary security credentials.
 For more information, see [AWS Identity and Access Management FAQs](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials "https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials") .

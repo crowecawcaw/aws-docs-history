@@ -4,7 +4,7 @@ Many error responses contain additional structured data meant to be read and
 understood by a developer diagnosing programming errors. For example, if you
 send a Content-MD5 header with a REST PUT request that doesn't match the digest
 calculated on the server, you receive a BadDigest error. The error response also
-includes as detail elements the digest we calculated, and the digest you told us
+includes as detail elements the digest that was calculated, and the digest that you provided
 to expect. During development, you can use this information to diagnose the
 error. In production, a well-behaved program might include this information in
 its error log.
@@ -44,7 +44,7 @@ Amazon S3 provides a set of error codes that are used by both the SOAP and REST 
 The SOAP API returns standard Amazon S3 error codes. The REST API is designed to look
 like a standard HTTP server and interact with existing HTTP clients (e.g., browsers,
 HTTP client libraries, proxies, caches, and so on). To ensure the HTTP clients
-handle errors properly, we map each Amazon S3 error to an HTTP status code.
+handle errors properly, Amazon S3 maps each Amazon S3 error to an HTTP status code.
 
 HTTP status codes are less expressive than Amazon S3 error codes and contain less
 information about the error. For example, the `NoSuchKey` and

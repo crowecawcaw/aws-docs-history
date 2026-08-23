@@ -38,8 +38,8 @@ The content in this section does not apply to HTTP POST. For more information, s
 The Amazon S3 REST API uses a custom HTTP scheme based on a keyed-HMAC (Hash Message
 Authentication Code) for authentication. To authenticate a request, you first concatenate
 selected elements of the request to form a string. You then use your AWS secret access key
-to calculate the HMAC of that string. Informally, we call this process "signing the
-request," and we call the output of the HMAC algorithm the signature, because it simulates
+to calculate the HMAC of that string. Informally, this process is called "signing the
+request," and the output of the HMAC algorithm is the signature, because it simulates
 the security properties of a real signature. Finally, you add this signature as a parameter
 of the request by using the syntax described in this section.
 
@@ -134,7 +134,7 @@ request parameter is constructed by Base64 encoding this digest.
 
 Recall that when the system receives an authenticated request, it compares the
 computed request signature with the signature provided in the request in `StringToSign`. For that reason, you must compute the signature by using the
-same method used by Amazon S3. We call the process of putting a request in an
+same method used by Amazon S3. The process of putting a request in an
 agreed-upon form for signing _canonicalization_.
 
 ## Constructing the CanonicalizedResource element
@@ -376,7 +376,7 @@ and Date alternative.
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | ``<br>DELETE /awsexamplebucket1/photos/puppy.jpg HTTP/1.1<br>User-Agent: dotnet<br>Host: s3.us-west-1.amazonaws.com<br>Date: Tue, 27 Mar 2007 21:20:27 +0000<br>x-amz-date: Tue, 27 Mar 2007 21:20:26 +0000<br>`Authorization: AWS AKIAIOSFODNN7EXAMPLE:XbyTlbQdu9Xw5o8P4iMwPktxQd8=`<br>`` | `<br>DELETE\n<br>\n<br>\n<br>Tue, 27 Mar 2007 21:20:26 +0000\n<br>/awsexamplebucket1/photos/puppy.jpg<br>` |
 
-Note how we used the alternate 'x-amz-date' method of specifying the date
+Note how the alternate 'x-amz-date' method of specifying the date
 (because our client library prevented us from setting the date, say). In this case,
 the `x-amz-date` takes precedence over the `Date` header.
 Therefore, date entry in the signature must contain the value of the
@@ -506,7 +506,7 @@ calculating the string to sign.
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `<br>GET /photos/puppy.jpg?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&<br>Signature=NpgCjnDzrM%2BWFzoENXmpNDUsSn8%3D&<br>Expires=1175139620 HTTP/1.1<br>Host: awsexamplebucket1.s3.us-west-1.amazonaws.com<br>` | `<br>GET\n<br>\n<br>\n<br>1175139620\n<br>/awsexamplebucket1/photos/puppy.jpg<br>` |
 
-We assume that when a browser makes the GET request, it won't provide a
+This example assumes that when a browser makes the GET request, it won't provide a
 Content-MD5 or a Content-Type header, nor will it set any x-amz- headers, so
 those parts of the `StringToSign` are left blank.
 

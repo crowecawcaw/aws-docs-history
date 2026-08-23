@@ -97,7 +97,7 @@ SDKs.
 
 ###### Note
 
-Although you can enable verbose logging on every request and response, we don't
+Although you can enable verbose logging on every request and response, don't
 recommend enabling logging in production systems, because large requests or responses
 can significantly slow down an application.
 

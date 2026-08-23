@@ -81,8 +81,8 @@ signed with Signature Version 4.
 
 If you are using a presigned URL that requires you to sign for more than 7 days, no
 action is currently needed. You can continue to use AWS Signature Version 2 to sign and
-authenticate the presigned URL. We will follow up and provide more details on how to
-migrate to Signature Version 4 for a presigned URL scenario.
+authenticate the presigned URL. For more details on how to
+migrate to Signature Version 4 for a presigned URL scenario, see the Amazon S3 documentation.
 
 ### More Info
 

@@ -123,7 +123,7 @@ policies.
 ```
 
 Before using IPv6 you must update all relevant IAM user and bucket policies
-that use IP address filtering. We do not recommend using IP address filterig in bucket policies.
+that use IP address filtering. Avoid using IP address filtering in bucket policies.
 
 You can review your IAM user policies using the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). For
 more information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
