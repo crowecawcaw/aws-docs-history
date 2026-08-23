@@ -10,12 +10,25 @@ AWS account. To update the email address associated with your AWS account, refer
 and [unsubscribe recipients](#unsubscribe-notifications "#unsubscribe-notifications") from email
 notifications.
 
+Sellers can optionally use AWS User Notifications (managed notifications) to view
+notifications in the console notification center and choose how to receive them: by email, in
+the AWS Console Mobile Application, or in Amazon Q Developer in chat applications such as
+Slack and Microsoft Teams. You can receive notifications by category: Product listings, Offers
+and agreements, Payments and disbursements, and Account management. After you enable managed
+notifications, you can choose which contacts and channels receive notifications for each
+category. By default, notifications go to your account's root email address. To notify
+additional recipients, add them manually. For more information, see [AWS managed notifications](../../../notifications/latest/userguide/managed-notifications.md "../../../notifications/latest/userguide/managed-notifications.md") in the _AWS User Notifications User
+Guide_.
+
 ###### Note
 
 If you are missing AWS Marketplace emails, check your spam folder or adjust email settings. Email
 notifications from AWS Marketplace are sent from `no-reply@marketplace.aws`. Providers such
 as Google and Yahoo may filter these. For instructions, refer to [Prevent valid emails from going to Spam (Google)](https://support.google.com/mail/answer/1366858?sjid=4026678185875351798-NA#unmark_spam "https://support.google.com/mail/answer/1366858?sjid=4026678185875351798-NA#unmark_spam") or [Block and unblock email addresses in Yahoo
 Mail](https://help.yahoo.com/kb/SLN28140.html "https://help.yahoo.com/kb/SLN28140.html").
+
+If you have enabled notifications on AWS User Notifications, you will receive emails
+from `partner-central@aws.com`.
 
 ###### Topics
 

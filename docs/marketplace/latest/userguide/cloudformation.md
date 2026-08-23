@@ -56,7 +56,7 @@ guidelines in the following sections.
 ###### Note
 
 If you create an **Amazon Machine Image (AMI) or AMI with
-CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are prompted to
+CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page of the seller portal and are prompted to
 download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form") instead.
 
 When specifying the `ImageId` property of resources that deploy your AMI to
@@ -122,7 +122,7 @@ this nested stack.
 ###### Note
 
 When you create an **Amazon Machine Image (AMI) or AMI with
-CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are not
+CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page of the seller portal and are not
 immediately prompted to download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details](#ami-requirements-sse "#ami-requirements-sse") instead.
 
 AMIs must be in a mapping table for each Region. The AWS Marketplace team updates the AMI IDs
@@ -368,7 +368,7 @@ the [product load form](product-submission.md#aws-cloudformation-launched-produc
 without using the product load form. If you are publishing a new product, see [Preparing your CloudFormation templates](cloudformation.md#aws-cloudformation-template-preparation "cloudformation.md#aws-cloudformation-template-preparation").
 
 If you create an **Amazon Machine Image (AMI) or AMI with
-CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are prompted to
+CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page of the seller portal and are prompted to
 download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form").
 
 If you want to use the self-service experience to update an existing product that

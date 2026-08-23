@@ -21,7 +21,7 @@ Completing the KYC process for one of these regions can expedite verification fo
 
 EMEA
 
-Sellers must complete the KYC process to use the AWS EMEA invoicing entity. AWS Marketplace transactions through the AWS EMEA invoicing entity are processed through Amazon Payments Europe, S.C.A. (APE), a licensed electronic money institution in Luxembourg. Until the KYC is completed, AWS Inc. will be used as the invoicing entity for the seller's transactions in this region. In a Channel Partner Private Offer (CPPO), both the Channel Partner and the ISV need to be KYC verified to use AWS EMEA as the invoicing entity. AWS Inc. will be the default invoicing entity if either party is not KYC verified. For information about how the invoicing entity (AWS Inc. vs. AWS EMEA) affects tax handling for your transactions, see [Tax handling for AWS Marketplace sellers](https://aws.amazon.com/tax-help/marketplace-sellers/tax-grid/ "https://aws.amazon.com/tax-help/marketplace-sellers/tax-grid/").
+Sellers must complete the KYC process to use the AWS EMEA invoicing entity. AWS Marketplace transactions through the AWS EMEA invoicing entity are processed through Amazon Payments Europe, S.C.A. (APE), a licensed electronic money institution in Luxembourg. Until the KYC is completed, AWS Inc. will be used as the invoicing entity for the seller's transactions in this region. In a Channel Partner Private Offer (CPPO), both the Channel Partner and the ISV need to be KYC verified to use AWS EMEA as the invoicing entity. AWS Inc. will be the default invoicing entity if either party is not KYC verified. For information about how the invoicing entity (AWS Inc. vs. AWS EMEA) affects tax handling for your transactions, see [Tax handling for AWS Marketplace sellers](https://aws.amazon.com/tax-help/marketplace-sellers/tax-grid/ "https://aws.amazon.com/tax-help/marketplace-sellers/tax-grid/"). For the full terms, see the [AWS Marketplace EMEA Agreement](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/legal/approved/amazon-payments-europe-aws-marketplace-emea-agreement.pdf "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/legal/approved/amazon-payments-europe-aws-marketplace-emea-agreement.pdf").
 
 South Korea
 
@@ -100,6 +100,8 @@ Follow these steps to complete Step 1 of the KYC process in AWS Marketplace:
 ###### Note
 
 For accepted document types, templates, and formatting requirements referenced throughout these steps, see the [Templates and best practices for completing the KYC process](#kyc-best-practices "#kyc-best-practices") section at the end of this page.
+
+You will be asked to review and accept the [AWS Marketplace EMEA Agreement](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/legal/approved/amazon-payments-europe-aws-marketplace-emea-agreement.pdf "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/legal/approved/amazon-payments-europe-aws-marketplace-emea-agreement.pdf") during this process. We recommend reviewing it before you begin.
 
 1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Marketplace settings**.
 2. In the **Account summary** section, confirm that the **Country** that is shown is correct.
@@ -217,18 +219,21 @@ If you need a letter of authorization, you can use the following sample:
 Letterhead of the company
 
 POWER TO ACT ON BEHALF OF THE COMPANY
-The undersigned **Enter Company name here** (herein after, the "Company"), duly represented by
-(name, date of birth, and function) **add full name, date of birth, and function of the signatory here**,
-confirms that **add full name of the Person of Contact here** is authorized to open Amazon Web
-Services Marketplace account with Amazon Payments, accept the AWS Marketplace related Agreement
-and Policies, have access to the Amazon Web Services Marketplace account, initiate transactions in
-the name and on behalf of the Company and approve new Secondary users added to the account and if
-required, grant them access to update listings, respond to buyers and initiate refunds.
-
+The undersigned **Enter Company name here** (hereinafter, the "Company"), with tax
+registration number **add tax registration number here**, duly represented by
+**add full name of the authorized representative here**, confirms that
+**add full name of the Point of Contact here**, born on **add date of birth here**,
+residing at **add address here**, and whose relationship to the authorized representative is
+**add relationship here**,
+is authorized to open an Amazon Web Services Marketplace account with Amazon Payments,
+accept the User Agreement and other Policies, have access to the Amazon Web Services
+Marketplace account, initiate transactions in the name and on behalf of the Company and
+approve new Secondary users added to the account and if required, grant them access to
+update listings, respond to buyers and initiate refunds.
 
     Dated this:
 
-    Signed by:
+    Representative: ______________________ (Signature/Stamp)
 ```
 
 ### Organization chart template

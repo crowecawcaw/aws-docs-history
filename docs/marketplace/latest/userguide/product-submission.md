@@ -174,7 +174,7 @@ or sensor), you must meet the following requirements:
 ###### Note
 
 Some pricing models no longer require you to use the product load form described in this
-section to publish AMI with CloudFormation products. When you create a **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server")
+section to publish AMI with CloudFormation products. When you create a **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server")
 page in the seller portal, and are not immediately prompted to download the product load
 form, see [Creating AMI-based products](ami-single-ami-products.md "ami-single-ami-products.md") and [Add
 CloudFormation templates to your listing](cloudformation.md "cloudformation.md").

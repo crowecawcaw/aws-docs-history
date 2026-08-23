@@ -8,12 +8,24 @@ You can receive notifications about important events related to your AWS Marketp
   [Amazon EventBridge events](notifications-eventbridge.md "notifications-eventbridge.md") and
   the [_Amazon EventBridge User Guide_](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md"). For SaaS products specifically, see
   [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
-- **Email notifications** – Within AWS Marketplace , sellers,
-  buyers and independent software vendors (ISVs) can receive email notifications. AWS Marketplace uses
+- **Email notifications** – Within AWS Marketplace, sellers,
+  buyers, and independent software vendors (ISVs) can receive email notifications. AWS Marketplace uses
   your root account to send automated emails in real time to your AWS account's email,
   updating you on AWS Marketplace offers and agreements. You can also add custom email aliases for
-  notifications and unsubscribe recipients from email notifications. For more information, see
-  [Managing email notifications for AWS Marketplace events](email-notifications.md "email-notifications.md").
+  notifications and unsubscribe recipients from email notifications. For more information,
+  see [Managing email notifications for AWS Marketplace events](email-notifications.md "email-notifications.md").
+
+Sellers can optionally use AWS User Notifications (managed notifications) to view
+notifications in the console notification center and choose how to receive them: by email,
+in the AWS Console Mobile Application, or in Amazon Q Developer in chat applications such
+as Slack and Microsoft Teams. You can receive notifications by category: Product listings,
+Offers and agreements, Payments and disbursements, and Account management. After you
+enable managed notifications, you can choose which contacts and channels receive
+notifications for each category. By default, notifications go to your account's root email
+address. To notify additional recipients, add them manually. For more information, see
+[AWS managed notifications](../../../notifications/latest/userguide/managed-notifications.md "../../../notifications/latest/userguide/managed-notifications.md") in the _AWS User Notifications User
+Guide_.
+
 - **Amazon SNS topics** – To receive notifications about
   changes to customer subscriptions for your products, you can subscribe to the Amazon SNS topics
   for AWS Marketplace provided to you during product creation. For example, you can know when customers
