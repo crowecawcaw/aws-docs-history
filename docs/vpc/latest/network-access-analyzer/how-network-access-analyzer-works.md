@@ -122,6 +122,7 @@ The following network configurations are not supported by Network Access Analyze
 - Network Access Analyzer does not support paths through AWS Transit Gateway peering
   connections to other regions or accounts, or AWS Transit Gateway direct
   connections.
+- Network Access Analyzer does not yet support analysis of transit gateway policy tables.
 
 ## Limitations
 
