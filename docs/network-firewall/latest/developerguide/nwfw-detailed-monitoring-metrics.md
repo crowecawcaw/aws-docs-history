@@ -27,3 +27,5 @@ The following table describes the available visualizations and metrics for each 
 | Alert logs | Top HTTP User-Agents                | Most common HTTP User-Agent strings observed.                                               |
 | Alert logs | Top alerted TLS SNI                 | Most frequent Server Name Indication values observed in TLS traffic.                        |
 | Alert logs | Top dropped/rejected TLS SNI        | Most frequently dropped and rejected Server Name Indication values observed in TLS traffic. |
+| Alert logs | Top Rule Group Hits                 | Most frequently triggered stateful rules by rule group or policy and signature.             |
+| Alert logs | Container association               | Most frequent container associations observed in alert logs.                                |

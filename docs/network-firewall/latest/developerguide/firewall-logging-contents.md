@@ -61,8 +61,12 @@ The Network Firewall logs contain the following information:
          SNI that the revocation check was for.
          For information about configuring certificate revocation checking, see
          [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
+  - **aws\_metadata** – The AWS-specific metadata associated with the alert event.
 
-For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html "https://docs.suricata.io/en/suricata-8.0.3/index.html").
+    - **resource\_arn** – The Amazon Resource Name (ARN) of the rule group or firewall policy that generated the alert.
+
+  - **alert.metadata.container\_association** – The container association linked to the alert. This field appears when the traffic involves a container workload.
+    For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html "https://docs.suricata.io/en/suricata-8.0.3/index.html").
 
 ###### Example alert log entry
 
@@ -89,12 +93,15 @@ The following listing shows an example alert log entry for Network Firewall.
               "signature":"test_tcp",
               "category":"",
               "severity":1
+          },
+          "aws_metadata":{
+              "resource_arn":"arn:aws:network-firewall:us-east-1:111122223333:stateful-rulegroup/example-rule-group"
           }
       }
   }
 ```
 
-###### Example alert log entry with URL and Domain Category enabled
+###### Example alert log entry with URL and Domain Category enabled and Container Association
 
 ```
 {
@@ -114,7 +121,10 @@ The following listing shows an example alert log entry for Network Firewall.
             "rev": 0,
             "signature": "",
             "action": "blocked",
-            "category": ""
+            "category": "",
+            "metadata": {
+                "container_association": ["my-container-association"]
+            }
         },
         "flow_id": 643336554233439,
         "dest_ip": "64.233.180.147",
@@ -154,7 +164,10 @@ The following listing shows an example alert log entry for Network Firewall.
         },
         "dest_port": 443,
         "timestamp": "2025-12-31T00:55:22.870721+0000",
-        "direction": "to_server"
+        "direction": "to_server",
+        "aws_metadata": {
+            "resource_arn": "arn:aws:network-firewall:us-east-1:111122223333:stateful-rulegroup/example-rule-group"
+        }
     }
 }
 ```

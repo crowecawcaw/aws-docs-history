@@ -1,9 +1,9 @@
 # Sharing AWS Network Firewall resources
 
-You can share Network Firewall firewalls, firewall policies, and rule groups with other AWS accounts. When you share a firewall, other accounts can use your firewall's protections in their VPCs through VPC endpoint associations.
+You can share Network Firewall firewalls, firewall policies, rule groups, and container associations with other AWS accounts. When you share a firewall, other accounts can use your firewall's protections in their VPCs through VPC endpoint associations.
 When you share firewall policies or rule groups, other accounts can use these resources in their own firewalls.
 
-The owner of a firewall, firewall policy, or rule group can share a resource with:
+The owner of a firewall, firewall policy, rule group, or container association can share a resource with:
 
 - Specific AWS accounts inside or outside of its organization in AWS Organizations
 - An organizational unit inside its organization in AWS Organizations
@@ -34,16 +34,16 @@ Consideration the following when sharing AWS Network Firewall resources:
 
 ## Prerequisites for sharing AWS Network Firewall resources
 
-- To share a firewall, firewall policy, or rule group, you must own it in your AWS account. You
-  cannot share a firewall, firewall policy, or rule group that has been shared with you.
-- To share a firewall, firewall policy, or rule group with your organization or an organizational
+- To share a firewall, firewall policy, rule group, or container association, you must own it in your AWS account. You
+  cannot share a firewall, firewall policy, rule group, or container association that has been shared with you.
+- To share a firewall, firewall policy, rule group, or container association with your organization or an organizational
   unit in AWS Organizations, you must enable sharing with AWS Organizations. For more information,
   see [Enable Sharing with AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the
   _AWS RAM User Guide_.
 
 ## Related services
 
-Firewall, firewall policy, and rule group sharing integrates with AWS Resource Access Manager (AWS RAM). AWS RAM is
+Firewall, firewall policy, rule group, and container association sharing integrates with AWS Resource Access Manager (AWS RAM). AWS RAM is
 a service that enables you to share your AWS resources with any AWS account or
 through AWS Organizations. With AWS RAM, you share resources that you own by creating a
 _resource share_. A resource share specifies the resources to
@@ -59,7 +59,7 @@ Availability Zone naming differences across accounts. For example, the Availabil
 `us-east-1a` for your AWS account might not have the same location as
 `us-east-1a` for another AWS account.
 
-To identify the location of your firewall, firewall policy, or rule group relative to your accounts,
+To identify the location of your firewall, firewall policy, rule group, or container association relative to your accounts,
 you must use the _Availability Zone ID_ (AZ ID). The AZ ID is a
 unique and consistent identifier for an Availability Zone across all AWS accounts. For
 example, `use1-az1` is an AZ ID for the `us-east-1` Region and it
@@ -73,32 +73,32 @@ is the same location in every AWS account.
 
 ## Sharing an AWS Network Firewall resource
 
-To share a firewall, firewall policy, or rule group, you must add it to a resource share. A resource
+To share a firewall, firewall policy, rule group, or container association, you must add it to a resource share. A resource
 share is an AWS RAM resource that lets you share your resources across AWS accounts. A
 resource share specifies the resources to share, and the consumers with whom they are
-shared. When you share a firewall, firewall policy, or rule group using AWS Network Firewall, you add it to
-an existing resource share. To add the firewall, firewall policy, or rule group to a new resource share,
+shared. When you share a firewall, firewall policy, rule group, or container association using AWS Network Firewall, you add it to
+an existing resource share. To add the firewall, firewall policy, rule group, or container association to a new resource share,
 you must first create the resource share using the [AWS RAM console](https://console.aws.amazon.com/ram "https://console.aws.amazon.com/ram").
 
 If you are part of an organization in AWS Organizations and sharing within your organization is
 enabled, consumers in your organization are automatically granted access to the shared
-firewalls, firewall policies, and rule groups. Otherwise, consumers receive an invitation to join the
-resource share and are granted access to the shared firewalls, firewall policies, and rule groups after
+firewalls, firewall policies, rule groups, and container associations. Otherwise, consumers receive an invitation to join the
+resource share and are granted access to the shared firewalls, firewall policies, rule groups, and container associations after
 accepting the invitation.
 
 You can share any Network Firewall resource that you own using the AWS RAM console, the
 AWS Network Firewall API, or the AWS CLI.
 
-###### To share a firewall, firewall policy, or rule group that you own using the AWS RAM console
+###### To share a firewall, firewall policy, rule group, or container association that you own using the AWS RAM console
 
 See [Creating a Resource Share](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create") in the
 _AWS RAM User Guide_.
 
-###### To share a firewall, firewall policy, or rule group that you own using the AWS CLI
+###### To share a firewall, firewall policy, rule group, or container association that you own using the AWS CLI
 
 Use the [create-resource-share](../../../cli/latest/reference/ram/create-resource-share.md "../../../cli/latest/reference/ram/create-resource-share.md") command.
 
-###### To share a firewall, firewall policy, or rule group that you own using the Network Firewall API
+###### To share a firewall, firewall policy, rule group, or container association that you own using the Network Firewall API
 
 Use the `PutResourcePolicy` action. For information about how to use
 this, see [PutResourcePolicy](../APIReference/API_PutResourcePolicy.md "../APIReference/API_PutResourcePolicy.md") in the _AWS Network Firewall API
@@ -115,15 +115,15 @@ When a firewall owner unshares a firewall, the following rules apply:
 - VPC endpoint association owners can still delete their associations
 - The firewall owner cannot delete their firewall until all VPC endpoint associations are deleted
 
-To unshare a shared firewall, firewall policy, or rule group that you own, you must remove it from the
+To unshare a shared firewall, firewall policy, rule group, or container association that you own, you must remove it from the
 resource share. You can do this using the AWS RAM console or the AWS CLI.
 
 For more information about the impacts of unsharing a firewall, see [Considerations for working with firewalls and firewall endpoints](firewall-and-firewall-endpoints-considerations.md "firewall-and-firewall-endpoints-considerations.md").
 
-###### To unshare a shared firewall, firewall policy, or rule group that you own using the AWS RAM console
+###### To unshare a shared firewall, firewall policy, rule group, or container association that you own using the AWS RAM console
 
 See [Updating a Resource Share](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update") in the _AWS RAM User Guide_.
 
-###### To unshare a shared firewall, firewall policy, or rule group that you own using the AWS CLI
+###### To unshare a shared firewall, firewall policy, rule group, or container association that you own using the AWS CLI
 
 Use the [disassociate-resource-share](../../../cli/latest/reference/ram/disassociate-resource-share.md "../../../cli/latest/reference/ram/disassociate-resource-share.md") command.

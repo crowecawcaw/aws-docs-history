@@ -50,7 +50,6 @@ The following Suricata features have caveats for use with Network Firewall:
 - In payload keywords, the `pcre` keyword is only allowed with `content`, `tls.sni`, `http.host`, and `dns.query` keywords.
 - The `priority` keyword is not supported for rule groups that evaluate
   rules using strict evaluation order.
-- When matching TLS based rules in a TLS inspection-enabled configuration, alert logs capture http host information and not the SNI upon rule match
 - When you use a stateful rule with a layer 3 or 4 protocol such as IP or TCP, and you don't include any flow state context, for example `"flow:not_established"`, then Suricata treats this rule as an IP-only rule. Suricata only evaluates IP-only rules for the first packet in each direction of the flow. For example, Suricata will process the following rule as an IP-only rule:
 
 ```
