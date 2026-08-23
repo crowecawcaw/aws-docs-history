@@ -6,7 +6,7 @@ To view the quotas for Amazon MWAA Serverless, open the [Service Quotas console]
 
 To request a quota increase, refer to [Requesting a Quota Increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. If the quota isn't available in Service Quotas, use the [limit increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 
-Your AWS account has these quotas related to Amazon MWAA Serverless.
+Your AWS account has these quotas related to Amazon MWAA Serverless in each AWS Region.
 
 | Resource                                 | Default    |
 | ---------------------------------------- | ---------- |
@@ -16,4 +16,5 @@ Your AWS account has these quotas related to Amazon MWAA Serverless.
 | Maximum concurrent runs per workflow     | 20         |
 | Maximum XCom data in Kilobytes           | 100KB      |
 | Maximum DAG definition size in Kilobytes | 50KB       |
+| Maximum code storage per account         | 75 GB      |
 | Maximum task execution timeout           | 60 minutes |
