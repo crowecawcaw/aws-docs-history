@@ -13,7 +13,7 @@ attempt to transfer any files using your new connector.
 ![The Transfer Family console, showing an SFTP connector selected, and the Test connectionTest connection action highlighted.](images/connector-test-choose.png)
 The system returns a message, indicating whether the test passes or fails. If the test fails, the system provides an error message based on the reason the test failed.
 
-![The SFTP connector test connection panel, showing a successful test.](images/connector-test-success.png)
+![The SFTP connector test connection panel, showing a successful test.](/images/transfer/latest/userguide/images/connector-test-success.png)
 
 ![The SFTP connector test connection panel, showing a failed test: the error message indicates that the access role for the connector is incorrect.](images/connector-test-fail-role.png)
 

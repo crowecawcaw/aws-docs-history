@@ -19,7 +19,7 @@ See also
 
 - We provide an AWS CDK example for creating an SFTP Transfer Family server. The example uses TypeScript, and is available on GitHub [here](https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript/aws-transfer-sftp-server "https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript/aws-transfer-sftp-server").
 - For a walkthrough of how to deploy a Transfer Family server inside of a VPC, see
-  [Use IP allow list to secure your AWS Transfer Family servers](https://aws.amazon.com/blogs//storage/use-ip-allow-list-to-secure-your-aws-transfer-for-sftp-servers/ "https://aws.amazon.com/blogs//storage/use-ip-allow-list-to-secure-your-aws-transfer-for-sftp-servers/").
+  [Use IP allow list to secure your AWS Transfer Family servers](https://aws.amazon.com/blogs/storage/use-ip-allow-list-to-secure-your-aws-transfer-for-sftp-servers/ "https://aws.amazon.com/blogs/storage/use-ip-allow-list-to-secure-your-aws-transfer-for-sftp-servers/").
 
 ###### To create an SFTP-enabled server
 
