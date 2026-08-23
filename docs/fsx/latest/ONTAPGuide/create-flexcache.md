@@ -131,14 +131,7 @@ the cache cluster (Cache) using the **vserver peer** command. Additional aliases
 
 ```
 
-3. On the source cluster, accept the peering relationship.
-
-```
-`Origin::>` `vserver peer accept -vserver `OriginSVM` -peer-vserver `CacheSVM` -local-name `CacheLocalName``
-
-```
-
-4. Verify that the SVM peering was successful using the following command; `Peer State` should be set to `peered` in the response.
+3. Verify that the SVM peering was successful using the following command; `Peer State` should be set to `peered` in the response.
 
 ```
 `Origin::>` `vserver peer show`

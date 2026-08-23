@@ -49,7 +49,7 @@ The table shows which operations are supported by access points using an FSx for
 
 Limitations to using Amazon S3 operations are the following:
 
-- Maximum object size is 50 GB for uploads, but you can download objects larger than that
+- Maximum object size is 50 GiB for uploads, but you can download objects larger than that
 - `FSX_ONTAP` is the only supported storage class
 - SSE-FSX is the only supported server-side encryption mode
 - The following Amazon S3 features are not supported: access control lists (ACLs) other than `bucket-owner-full-control`, Object Annotations, Requester Pays, Object Versioning, Object Lock, Object Lifecycle, Static Website Hosting (e.g., website redirection), multi-factor authentication (MFA), and conditional writes
