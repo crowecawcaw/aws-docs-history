@@ -471,11 +471,11 @@ Follow these procedures to create a router input or a router output.
          streams.
 
 6. Under **Transit encryption key configuration**, choose how to
-   encrypt content as it moves through the router's internal network.
+   encrypt content as it moves through the router fabric.
 
 ###### Note
 
-This encryption applies only to content moving through the router matrix. It is separate from
+This encryption applies only to content moving through the router fabric. It is separate from
 any encryption you configure between your source and input, or between your
 output and destination.
 
@@ -725,16 +725,24 @@ organize this router input. 9. Choose **Create router input**.
         		 The content of the secret must be an AES-256 key in hexadecimal format.
         		 The key must have 64 digits.
 
-6. Under **Maintenance configuration**, choose an option:
+6. Under **Router fabric configuration**, choose an option for
+   **Recovery latency mode**:
+
+   1. **Balanced** - Choose this if you want MediaConnect to optimize
+      for stream quality. This is the default mode.
+   2. **Low latency** - Choose this if you want to reduce
+      latency. This mode can reduce stream quality under adverse network conditions.
+
+7. Under **Maintenance configuration**, choose an option:
 
    1. **Default** - Choose this if you want MediaConnect to define the
       maintenance schedule for you.
    2. **Preferred day and time** - Choose this if you want to
       define your own maintenance schedule.
 
-7. Under **Tags**, define up to 50 tags to help you identify and
+8. Under **Tags**, define up to 50 tags to help you identify and
    organize this router output.
-8. Choose **Create router output**.
+9. Choose **Create router output**.
 
 ## Next steps
 

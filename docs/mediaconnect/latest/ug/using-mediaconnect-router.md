@@ -100,11 +100,10 @@ Routes are defined by input-to-output assignments within the router.
 A connection point in the MediaConnect router that can either receive content (a
 router input) or transmit content (a router output).
 
-- **Router matrix**
+- **Router fabric**
 
-A network that can connect media streams from multiple inputs to multiple
-outputs in any combination. Each output can connect to only one input at a time,
-but a single input can feed many outputs simultaneously.
+The managed AWS network that carries streams between router inputs and
+router outputs.
 
 - **Routing network interface**
 
@@ -154,24 +153,28 @@ matrix adjusts accordingly.
 
 The MediaConnect router establishes persistent connections between upstream sources and downstream
 destinations using your choice of transport protocols. These edge protocols are terminated in the
-router I/O and the transport stream is carried within the routing matrix using a routing algorithm
+router I/O and the transport stream is carried within the router fabric using a routing algorithm
 that is optimized for high-bitrate video delivery using the shared AWS network environment.
-You don’t need to set up or manage any network infrastructure and you can monitor the performance
+You don't need to set up or manage any network infrastructure and you can monitor the performance
 of individual routes with Amazon CloudWatch metrics at the router output.
 
 To maximize packet delivery reliability, MediaConnect router uses an adaptive multipath technique that
 monitors multiple AWS network paths simultaneously and actively responds to network conditions.
 Whereas other methods use a single path for routing, this multipath approach helps maintain video
-quality and low latency in variable network conditions. It selects optimal paths for your packets,
-maintains fixed end-to-end latency, and preserves packet ordering for live video workflows.
-MediaConnect router provides fixed end-to-end latency for transfers both within the same AWS region
-and across different regions. This constant delay between sender and receiver helps prevent buffering
-and frame dropping in live video applications.
+quality and low latency in variable network conditions. It selects optimal paths for your packets
+and preserves packet ordering for live video workflows. MediaConnect router provides consistent
+end-to-end latency for routes within an AWS Region and across AWS Regions. This constant
+delay between sender and receiver helps prevent buffering and frame dropping in live video
+applications.
 
 If packet loss is detected on one path, it immediately reroutes packets using alternate reliable paths.
 Packets are only retransmitted as needed, making efficient use of network bandwidth while maintaining
 stream integrity. This adaptive approach ensures consistent, high-quality video without interruptions,
 even in demanding scenarios like live sports broadcasts where network conditions change rapidly.
+
+You can configure the latency that the router fabric uses to recover lost packets. Each router
+output has a recovery latency mode. The default mode balances latency against stream quality,
+and a low-latency mode reduces latency for workflows that are sensitive to delay.
 
 ## Router capabilities and management
 

@@ -37,12 +37,16 @@ configuration parameters at any time.
 9. Select the router output that you want to update and choose
    **Edit**.
 10. Update router output details as needed.
-11. Choose **Save changes**.
-12. Check the outcome:
+
+###### Note
+
+You cannot change the **Recovery latency mode** while the
+output is taking an input. Clear the input assignment for the output, and then
+change the mode. 5. Choose **Save changes**. 6. Check the outcome:
 
     1. If successful: The router output will be updated with your changes.
     2. If unsuccessful: You'll see an error message explaining what went
-       wrong.
+     wrong.
 
 ## Next steps
 
