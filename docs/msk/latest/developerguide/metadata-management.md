@@ -10,6 +10,7 @@ within Kafka to manage metadata.
 
 - [ZooKeeper mode](#msk-get-connection-string "#msk-get-connection-string")
 - [KRaft mode](#kraft-intro "#kraft-intro")
+- [Migrate from ZooKeeper to KRaft mode](zk-to-kraft-migration.md "zk-to-kraft-migration.md")
 
 ## ZooKeeper mode
 
@@ -114,8 +115,9 @@ setup or management from you. See [KIP-500](https://cwiki.apache.org/confluence/
 
 Here are some points to note about KRaft mode on MSK:
 
-- KRaft mode is only available for new clusters. You cannot switch metadata
-  modes once the cluster is created.
+- You can migrate existing ZooKeeper-based clusters to KRaft mode using the
+  `UpdateClusterKafkaVersion` API. For more information, see
+  [Migrate from ZooKeeper to KRaft mode](zk-to-kraft-migration.md "zk-to-kraft-migration.md").
 - On the MSK console, you can create a Kraft-based cluster by choosing Kafka version 3.7.x and
   selecting the KRaft checkbox in the cluster creation window.
 - To create a cluster in KRaft mode using the MSK API [`CreateCluster`](../../1.0/apireference/clusters.md#CreateCluster "../../1.0/apireference/clusters.md#CreateCluster") or [`CreateClusterV2`](../../../MSK/2.0/APIReference/v2-clusters.md#CreateClusterV2 "../../../MSK/2.0/APIReference/v2-clusters.md#CreateClusterV2") operations, you should use `3.7.x.kraft` as the version. Use `3.7.x` as the version to create a cluster in ZooKeeper mode.

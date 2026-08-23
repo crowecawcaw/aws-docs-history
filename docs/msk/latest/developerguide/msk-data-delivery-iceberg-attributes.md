@@ -1,4 +1,4 @@
-# S3 Tables table attributes
+# Table attributes
 
 The Iceberg table a Channel creates has the following attributes (designed for governance and compliance):
 

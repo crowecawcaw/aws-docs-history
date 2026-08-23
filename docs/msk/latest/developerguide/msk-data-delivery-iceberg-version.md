@@ -1,4 +1,4 @@
-# Iceberg core library version and properties
+# Core library version
 
 - **Iceberg table format version:** 2
 - **Iceberg version:** 1.9.0

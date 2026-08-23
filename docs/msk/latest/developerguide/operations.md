@@ -15,6 +15,7 @@ these functionalities in detail.
 - [Amazon MSK broker sizes](broker-instance-sizes.md "broker-instance-sizes.md")
 - [Storage management for Standard brokers](msk-storage-management.md "msk-storage-management.md")
 - [Amazon MSK Provisioned configuration](msk-configuration.md "msk-configuration.md")
+- [Configure custom domain names for your Amazon MSK cluster](custom-domain-names.md "custom-domain-names.md")
 - [Intelligent rebalancing for clusters](intelligent-rebalancing.md "intelligent-rebalancing.md")
 - [Patching on MSK Provisioned clusters](patching-impact.md "patching-impact.md")
 - [Broker offline and client failover](troubleshooting-offlinebroker-clientfailover.md "troubleshooting-offlinebroker-clientfailover.md")

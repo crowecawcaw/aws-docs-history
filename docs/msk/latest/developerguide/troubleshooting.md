@@ -27,6 +27,7 @@ Amazon MSK cluster. You can also post your issue to [AWS re:Post](https://repost
 - [Failed authentication: Session too short](#troubleshoot-session-too-short "#troubleshoot-session-too-short")
 - [MSK Serverless: Cluster creation fails](#troubleshoot-serverless-create-cluster-failure "#troubleshoot-serverless-create-cluster-failure")
 - [Can’t update KafkaVersionsList in MSK configuration](#troubleshoot-kafkaversionslist-cfn-update-failure "#troubleshoot-kafkaversionslist-cfn-update-failure")
+- [Custom domain name configuration errors](#troubleshoot-custom-domain-name-errors "#troubleshoot-custom-domain-name-errors")
 
 ## Volume replacement causes disk saturation due to replication overload
 
@@ -359,3 +360,56 @@ UpdateReplacePolicy: Retain
 ```
 
 After the update succeeds, go to the Amazon MSK console and delete the old configuration. For information about MSK configurations, see [Amazon MSK Provisioned configuration](msk-configuration.md "msk-configuration.md").
+
+## Custom domain name configuration errors
+
+When you create or apply a configuration that includes
+`custom.advertised.listeners`, you might encounter the following errors.
+For more information about configuring custom domain names, see [Configure custom domain names for your Amazon MSK cluster](custom-domain-names.md "custom-domain-names.md").
+
+###### Invalid format
+
+The API returns an HTTP 400 error with
+`invalidParameter=serverproperties` and the following
+message.
+
+```
+Invalid custom.advertised.listeners format. Expected: LISTENER_NAME://host:port+{broker_id} (comma-separated for multiple).
+```
+
+The value that you provided for `custom.advertised.listeners` doesn't follow
+the required format. Correct it so that it uses the pattern
+`LISTENER_NAME://hostname:port+{broker_id}`, make sure that the
+`{broker_id}` template variable appears in the port so each broker
+resolves to a unique address, and separate multiple listeners with a comma. Then
+resubmit the corrected configuration using [UpdateClusterConfiguration](../../1.0/apireference/clusters-clusterarn-configuration.md#UpdateClusterConfiguration "../../1.0/apireference/clusters-clusterarn-configuration.md#UpdateClusterConfiguration").
+
+###### Listener not bound on cluster
+
+The API returns an HTTP 400 error with
+`invalidParameter=configurationInfo` and the following
+message.
+
+```
+Custom advertised listener(s) [CLIENT_SECURE] are not bound on this cluster. Valid client listeners: [CLIENT_IAM]. A broker cannot advertise a listener it does not bind.
+```
+
+The listener that you specified isn't active on your cluster. This error occurs during
+`UpdateClusterConfiguration`, not during
+`CreateConfiguration`. A broker can only advertise a listener that it
+actually binds. Update your `custom.advertised.listeners` value to reference
+one of the valid client listeners that the error message lists for your cluster (for
+example, `CLIENT_IAM`). If the listener isn't yet enabled on the cluster (for
+example, `CLIENT_SECURE`), enable that authentication or listener type first.
+Then reapply the configuration using `UpdateClusterConfiguration`.
+
+###### Update process fails
+
+Review your `custom.advertised.listeners` value for issues such as port
+conflicts or unresolvable hostnames, fix the configuration, and reapply it using
+`UpdateClusterConfiguration`.
+
+If the failure followed a scaling operation, add the corresponding Network Load
+Balancer listener, target group, and DNS record for any new broker. Confirm that all
+clients can resolve the custom domain name. You can also roll back to the previous
+working configuration by applying the old configuration.
