@@ -1355,6 +1355,8 @@ Mistral Large 2407| Region | In-Region | Geo | Global |
 | `me-south-1` (Bahrain) | not-supported | not-supported | supported |
 | `af-south-1` (Cape Town) | not-supported | not-supported | supported |
 | `sa-east-1` (São Paulo) | not-supported | not-supported | supported |
+| `us-gov-west-1` (GovCloud West) | supported | not-supported | not-supported |
+| `us-gov-east-1` (GovCloud East) | supported | not-supported | not-supported |
 
 [GPT-5.6 Luna](model-card-openai-gpt-56-luna.md "model-card-openai-gpt-56-luna.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
@@ -1390,6 +1392,8 @@ Mistral Large 2407| Region | In-Region | Geo | Global |
 | `me-south-1` (Bahrain) | not-supported | not-supported | supported |
 | `af-south-1` (Cape Town) | not-supported | not-supported | supported |
 | `sa-east-1` (São Paulo) | not-supported | not-supported | supported |
+| `us-gov-west-1` (GovCloud West) | supported | not-supported | not-supported |
+| `us-gov-east-1` (GovCloud East) | supported | not-supported | not-supported |
 
 [GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
@@ -1724,6 +1728,7 @@ Stable Image Ultra V1:1| Region | In-Region | Geo | Global |
 | `us-west-2` (Oregon) | supported | supported | not-supported |
 | `us-east-1` (N. Virginia) | supported | supported | not-supported |
 | `us-east-2` (Ohio) | supported | supported | not-supported |
+| `us-gov-west-1` (GovCloud West) | supported | not-supported | not-supported |
 
 [Grok 4.6](model-card-xai-grok-4-6.md "model-card-xai-grok-4-6.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
@@ -1790,11 +1795,6 @@ Stable Image Ultra V1:1| Region | In-Region | Geo | Global |
 | `ap-southeast-2` (Sydney) | supported | not-supported | not-supported |
 | `ap-southeast-3` (Jakarta) | supported | not-supported | not-supported |
 | `sa-east-1` (São Paulo) | supported | not-supported | not-supported |
-
-[GLM 5](model-card-zai-glm-5.md "model-card-zai-glm-5.md")| Region | In-Region | Geo | Global |
-| --- | --- | --- | --- |
-| `us-east-1` (N. Virginia) | supported | not-supported | not-supported |
-| `us-west-2` (Oregon) | supported | not-supported | not-supported |
 
 [GLM 5](model-card-zai-glm-5.md "model-card-zai-glm-5.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |

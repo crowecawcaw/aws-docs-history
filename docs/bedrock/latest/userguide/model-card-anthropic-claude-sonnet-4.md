@@ -61,17 +61,17 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | • Green circle with white checkmark icon. [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Green circle with white checkmark icon. [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Green circle with white checkmark icon. [Guardrails](guardrails.md "guardrails.md")<br>• Green circle with white checkmark icon. [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Green circle with white checkmark icon. [Count tokens](count-tokens.md "count-tokens.md")<br>• Green circle with white checkmark icon. [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Green circle with white checkmark icon. [Model evaluation](evaluation.md "evaluation.md")<br>• Green circle with white checkmark icon. [Prompt management](prompt-management.md "prompt-management.md")<br>• Green circle with white checkmark icon. [Client-side tool calling](tool-use.md "tool-use.md") | • Red circle with white X icon indicating error, cancel, or close action. [Intelligent prompt routing](prompt-routing.md "prompt-routing.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Flows](flows.md "flows.md")<br>• Red circle with white X icon indicating error, cancel, or close action. [Agents](agents.md "agents.md") |
 
-**Prompt caching using `bedrock-runtime` endpoint**
+**Implicit and Explicit Prompt Caching using `bedrock-runtime` endpoint**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
-| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
-| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
-| Yes                          | 1,024                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
+| **Explicit Prompt Caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
+| ------------------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
+| Yes                                   | 1,024                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
 
 ## Pricing
 
-For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+This model is a third-party model offered and billed through AWS Marketplace. Charges appear on your AWS bill and in AWS Cost Explorer under the model provider (not under Amazon Bedrock). For pricing, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
 
 ## Programmatic Access
 
@@ -97,31 +97,35 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                   | **In-Region**                                                           | **Geo**                                 | **Global**                                                              |
-| ---------------------------- | ----------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------- |
-| `us-east-1` (N. Virginia)    | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Green circle with white checkmark icon.                                 |
-| `us-east-2` (Ohio)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Green circle with white checkmark icon.                                 |
-| `us-west-1` (N. California)  | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-west-2` (Oregon)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Green circle with white checkmark icon.                                 |
-| `eu-central-1` (Frankfurt)   | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-north-1` (Stockholm)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-south-1` (Milan)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-south-2` (Spain)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-west-1` (Ireland)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Green circle with white checkmark icon.                                 |
-| `eu-west-3` (Paris)          | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `il-central-1` (Tel Aviv)    | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-east-2` (Taipei)         | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-northeast-1` (Tokyo)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Green circle with white checkmark icon.                                 |
-| `ap-northeast-2` (Seoul)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-northeast-3` (Osaka)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-south-1` (Mumbai)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-south-2` (Hyderabad)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-1` (Singapore) | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-2` (Sydney)    | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-3` (Jakarta)   | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-4` (Melbourne) | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-5` (Malaysia)  | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-7` (Thailand)  | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
+Availability differs by endpoint.
+
+**Availability using the `bedrock-runtime` endpoint**
+
+| **Region**                   | **In-Region** | **Geo**   | **Global**    |
+| ---------------------------- | ------------- | --------- | ------------- |
+| `us-east-1` (N. Virginia)    | not-supported | supported | supported     |
+| `us-east-2` (Ohio)           | not-supported | supported | supported     |
+| `us-west-1` (N. California)  | not-supported | supported | not-supported |
+| `us-west-2` (Oregon)         | not-supported | supported | supported     |
+| `eu-central-1` (Frankfurt)   | not-supported | supported | not-supported |
+| `eu-north-1` (Stockholm)     | not-supported | supported | not-supported |
+| `eu-south-1` (Milan)         | not-supported | supported | not-supported |
+| `eu-south-2` (Spain)         | not-supported | supported | not-supported |
+| `eu-west-1` (Ireland)        | not-supported | supported | supported     |
+| `eu-west-3` (Paris)          | not-supported | supported | not-supported |
+| `ap-east-2` (Taipei)         | not-supported | supported | not-supported |
+| `ap-northeast-1` (Tokyo)     | not-supported | supported | supported     |
+| `ap-northeast-2` (Seoul)     | not-supported | supported | not-supported |
+| `ap-northeast-3` (Osaka)     | not-supported | supported | not-supported |
+| `ap-south-1` (Mumbai)        | not-supported | supported | not-supported |
+| `ap-south-2` (Hyderabad)     | not-supported | supported | not-supported |
+| `ap-southeast-1` (Singapore) | not-supported | supported | not-supported |
+| `ap-southeast-2` (Sydney)    | not-supported | supported | not-supported |
+| `ap-southeast-3` (Jakarta)   | not-supported | supported | not-supported |
+| `ap-southeast-4` (Melbourne) | not-supported | supported | not-supported |
+| `ap-southeast-5` (Malaysia)  | not-supported | supported | not-supported |
+| `ap-southeast-7` (Thailand)  | not-supported | supported | not-supported |
+| `il-central-1` (Tel Aviv)    | not-supported | supported | not-supported |
 
 **Geo inference details**
 

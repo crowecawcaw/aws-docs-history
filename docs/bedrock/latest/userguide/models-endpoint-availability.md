@@ -77,11 +77,14 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 ## Google
 
-| Model name                                                                                      | `bedrock-runtime` | `bedrock-mantle` |
-| ----------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
-| **[Gemma 3 12B IT](model-card-google-gemma-3-12b-it.md "model-card-google-gemma-3-12b-it.md")** | supported         | supported        |
-| **[Gemma 3 27B PT](model-card-google-gemma-3-27b-pt.md "model-card-google-gemma-3-27b-pt.md")** | supported         | supported        |
-| **[Gemma 3 4B IT](model-card-google-gemma-3-4b-it.md "model-card-google-gemma-3-4b-it.md")**    | supported         | supported        |
+| Model name                                                                                         | `bedrock-runtime` | `bedrock-mantle` |
+| -------------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
+| **[Gemma 4 31B](model-card-google-gemma-4-31b.md "model-card-google-gemma-4-31b.md")**             | not-supported     | supported        |
+| **[Gemma 4 26B-A4B](model-card-google-gemma-4-26b-a4b.md "model-card-google-gemma-4-26b-a4b.md")** | not-supported     | supported        |
+| **[Gemma 4 E2B](model-card-google-gemma-4-e2b.md "model-card-google-gemma-4-e2b.md")**             | not-supported     | supported        |
+| **[Gemma 3 12B IT](model-card-google-gemma-3-12b-it.md "model-card-google-gemma-3-12b-it.md")**    | supported         | supported        |
+| **[Gemma 3 27B PT](model-card-google-gemma-3-27b-pt.md "model-card-google-gemma-3-27b-pt.md")**    | supported         | supported        |
+| **[Gemma 3 4B IT](model-card-google-gemma-3-4b-it.md "model-card-google-gemma-3-4b-it.md")**       | supported         | supported        |
 
 ## Meta
 

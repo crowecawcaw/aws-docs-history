@@ -211,7 +211,7 @@ We will now look at the list of APIs supported by each model.
 | Model name                                                              | Invoke        | Converse      | Chat Completions | Responses | Messages      |
 | ----------------------------------------------------------------------- | ------------- | ------------- | ---------------- | --------- | ------------- |
 | **[Grok 4.3](model-card-xai-grok-4-3.md "model-card-xai-grok-4-3.md")** | not-supported | not-supported | supported        | supported | not-supported |
-| **[Grok 4.6](model-card-xai-grok-4-6.md "model-card-xai-grok-4-6.md")** | not-supported | supported     | supported        | supported | not-supported |
+| **[Grok 4.6](model-card-xai-grok-4-6.md "model-card-xai-grok-4-6.md")** | supported     | supported     | supported        | supported | not-supported |
 
 ## Z.AI
 

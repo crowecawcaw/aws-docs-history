@@ -108,8 +108,11 @@ connector:
 
 To learn more about a specific connector and its configuration, select a topic below.
 
+For third-party data sources that support user-managed setup (3LO), such as SharePoint, OneDrive, and Confluence, you need specific AWS Identity and Access Management permissions to sign in. For more information, see [IAM permissions for user-managed setup (3LO)](kb-managed-3lo-setup.md "kb-managed-3lo-setup.md").
+
 ###### Topics
 
+- [IAM permissions for user-managed setup (3LO)](kb-managed-3lo-setup.md "kb-managed-3lo-setup.md")
 - [Box](kb-managed-ds-box.md "kb-managed-ds-box.md")
 - [Amazon S3](kb-managed-ds-s3.md "kb-managed-ds-s3.md")
 - [Confluence](kb-managed-ds-confluence.md "kb-managed-ds-confluence.md")

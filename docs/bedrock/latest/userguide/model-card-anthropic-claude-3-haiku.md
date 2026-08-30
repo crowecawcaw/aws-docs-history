@@ -52,7 +52,7 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 
 ## Pricing
 
-For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+This model is a third-party model offered and billed through AWS Marketplace. Charges appear on your AWS bill and in AWS Cost Explorer under the model provider (not under Amazon Bedrock). For pricing, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
 
 ## Programmatic Access
 
@@ -78,25 +78,29 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                   | **In-Region**                                                           | **Geo**                                                                 | **Global**                                                              |
-| ---------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `us-east-1` (N. Virginia)    | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-east-2` (Ohio)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-west-2` (Oregon)         | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-gov-east-1` (GovCloud)   | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-gov-west-1` (GovCloud)   | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ca-central-1` (Canada)      | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-central-1` (Frankfurt)   | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-central-2` (Zurich)      | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-west-1` (Ireland)        | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-west-2` (London)         | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `eu-west-3` (Paris)          | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-northeast-1` (Tokyo)     | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-northeast-2` (Seoul)     | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-south-1` (Mumbai)        | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-1` (Singapore) | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `ap-southeast-2` (Sydney)    | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `sa-east-1` (São Paulo)      | Green circle with white checkmark icon.                                 | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+Availability differs by endpoint.
+
+**Availability using the `bedrock-runtime` endpoint**
+
+| **Region**                   | **In-Region** | **Geo**       | **Global**    |
+| ---------------------------- | ------------- | ------------- | ------------- |
+| `us-east-1` (N. Virginia)    | supported     | supported     | not-supported |
+| `us-east-2` (Ohio)           | not-supported | supported     | not-supported |
+| `us-west-2` (Oregon)         | supported     | supported     | not-supported |
+| `ca-central-1` (Canada)      | supported     | not-supported | not-supported |
+| `us-gov-west-1` (GovCloud)   | supported     | not-supported | not-supported |
+| `us-gov-east-1` (GovCloud)   | not-supported | supported     | not-supported |
+| `eu-central-1` (Frankfurt)   | supported     | supported     | not-supported |
+| `eu-central-2` (Zurich)      | supported     | not-supported | not-supported |
+| `eu-west-1` (Ireland)        | supported     | supported     | not-supported |
+| `eu-west-2` (London)         | supported     | not-supported | not-supported |
+| `eu-west-3` (Paris)          | supported     | supported     | not-supported |
+| `ap-northeast-1` (Tokyo)     | supported     | supported     | not-supported |
+| `ap-northeast-2` (Seoul)     | supported     | supported     | not-supported |
+| `ap-south-1` (Mumbai)        | supported     | supported     | not-supported |
+| `ap-southeast-1` (Singapore) | supported     | supported     | not-supported |
+| `ap-southeast-2` (Sydney)    | supported     | supported     | not-supported |
+| `sa-east-1` (São Paulo)      | supported     | not-supported | not-supported |
 
 **Geo inference details**
 

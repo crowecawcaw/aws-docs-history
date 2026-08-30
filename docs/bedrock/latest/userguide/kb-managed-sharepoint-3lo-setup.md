@@ -18,7 +18,7 @@ The generated secret ARN follows this pattern:
 arn:aws:secretsmanager:`region`:`account-id`:secret:bedrock-managedkb-oauth/`your-prefix`/`connector-type`/`uuid`
 ```
 
-**Permissions for the caller (CreateDataSource):** The IAM principal that calls `CreateDataSource` needs the following permissions on the secret:
+**Permissions for the caller (CreateDataSource):** The IAM principal that calls `CreateDataSource` needs the following permissions on the secret. The console user who signs in also needs Amazon Bedrock permissions to complete the user-managed setup (3LO) flow. For the complete set of IAM permissions the console user needs, see [IAM permissions for user-managed setup (3LO)](kb-managed-3lo-setup.md "kb-managed-3lo-setup.md").
 
 ```
 {

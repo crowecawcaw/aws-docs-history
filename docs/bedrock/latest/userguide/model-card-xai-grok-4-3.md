@@ -35,7 +35,19 @@ _On `bedrock-mantle`, this model is served at `/openai/v1/responses`, not the de
 
 ## Pricing
 
-For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+| **Inference option** | **Input** | **Output** | **Cache read** |
+| -------------------- | --------- | ---------- | -------------- |
+| In-Region            | $1.25     | $2.50      | $0.20          |
+
+**AWS GovCloud (US-West)**
+
+| **Inference option** | **Input** | **Output** | **Cache read** |
+| -------------------- | --------- | ---------- | -------------- |
+| In-Region            | $1.50     | $3.00      | $0.24          |
+
+_All prices are per 1 million tokens. Pricing shown is for the Standard tier. Grok 4.3 supports In-Region inference only._
+
+**Priority and Flex tier support:** In addition to Standard, Grok 4.3 supports the Priority and Flex service tiers. Priority is billed at **1.75x** the Standard per-token rate (a 75% premium) and Flex at **0.5x** the Standard rate (a 50% discount); apply these multipliers to the Standard rates shown above. For details on each service tier, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
 
 ## Programmatic Access
 
@@ -61,11 +73,12 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
-| ------------------------- | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `us-west-2` (Oregon)      | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-east-1` (N. Virginia) | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-east-2` (Ohio)        | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| **Region**                      | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
+| ------------------------------- | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `us-west-2` (Oregon)            | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-east-1` (N. Virginia)       | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-east-2` (Ohio)              | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-gov-west-1` (GovCloud West) | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Quotas and Limits
 

@@ -17,7 +17,7 @@ Managed knowledge base quotas| Quota | Default value | Adjustable |
 | Maximum raw data storage per knowledge base | 10 TB | No |
 | Maximum query input characters per `Retrieve` or<br>`AgenticRetrieveStream` request (English text) | 10,000 | No |
 | Maximum `Retrieve` requests per minute (RPM), per knowledge base | 600 (supports burst of 25 requests per second (RPS)) | Yes |
-| Maximum `AgenticRetrieveStream` requests per minute, per account | 60 | Yes |
+| Maximum `AgenticRetrieveStream` requests per minute, per account | 300 | Yes |
 
 To request adjustable quota increases, follow the steps at [Requesting a
 quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"), or contact your AWS account team.

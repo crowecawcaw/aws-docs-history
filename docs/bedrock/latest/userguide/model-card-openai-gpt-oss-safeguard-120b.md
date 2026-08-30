@@ -13,13 +13,36 @@ GPT OSS Safeguard 120B is OpenAI's 120-billion parameter open-source safety mode
 - **Context window:** 128K tokens
 - **Max output tokens:** 16K
 
-| **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](apis.md "apis.md")**                                             | **[Endpoints supported](endpoints.md "endpoints.md")**    |
-| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding | Red circle with white X icon indicating error, cancel, or close action. `Responses` | Green circle with white checkmark icon. `bedrock-runtime` |
-| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image     | Green circle with white checkmark icon. `Chat Completions`                          | Green circle with white checkmark icon. `bedrock-mantle`  |
-| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    | Green circle with white checkmark icon. `Invoke`                                    |                                                           |
-| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Green circle with white checkmark icon. `Converse`                                  |                                                           |
-| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |                                                                                     |                                                           |
+| **Input Modalities**                                                           | **Output Modalities**                                                             |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding |
+| Red circle with white X icon indicating error, cancel, or close action. Image  | Red circle with white X icon indicating error, cancel, or close action. Image     |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    |
+| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |
+
+## Endpoints and APIs supported
+
+The following tables show which endpoints and APIs are supported for GPT OSS Safeguard 120B. For more information, see [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md").
+
+**Endpoint support**
+
+| **Endpoint**      | **Supported** |
+| ----------------- | ------------- |
+| `bedrock-runtime` | supported     |
+| `bedrock-mantle`  | supported     |
+
+**APIs supported on `bedrock-runtime` endpoint**
+
+| **Messages**  | **Responses** | **Chat Completions** | **Converse** | **Invoke** |
+| ------------- | ------------- | -------------------- | ------------ | ---------- |
+| not-supported | not-supported | supported            | supported    | supported  |
+
+**APIs supported on `bedrock-mantle` endpoint**
+
+| **Messages**  | **Responses** | **Chat Completions** | **Converse**  | **Invoke**    |
+| ------------- | ------------- | -------------------- | ------------- | ------------- |
+| not-supported | not-supported | supported            | not-supported | not-supported |
 
 ###### Tip
 

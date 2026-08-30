@@ -7,6 +7,7 @@ The supported models are as follows:
 | Model                 | Model ID                          |
 | --------------------- | --------------------------------- |
 | Claude Opus 5         | `anthropic.claude-opus-5`         |
+| Claude Sonnet 5       | `anthropic.claude-sonnet-5`       |
 | Claude Mythos 5       | `anthropic.claude-mythos-5`       |
 | Claude Fable 5        | `anthropic.claude-fable-5`        |
 | Claude Opus 4.7       | `anthropic.claude-opus-4-7`       |
@@ -21,6 +22,14 @@ Claude Mythos 5, Claude Fable 5, Claude Opus 4.7, and Claude Mythos Preview _onl
 `thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and Claude Sonnet 4.6 and will be removed in a future model release. Use `thinking.type: "adaptive"` with the effort parameter instead.
 
 Older models (Claude Sonnet 4.5, Claude Opus 4.5, etc.) do not support adaptive thinking and require `thinking.type: "enabled"` with `budget_tokens`.
+
+###### Important
+
+**Adaptive thinking is on by default on Claude Sonnet 5 and Claude Opus 5.** A request that omits the `thinking` field runs with adaptive thinking. This is a change from Claude Sonnet 4.6, where the same request ran without thinking, so an application migrated from Claude Sonnet 4.6 without changes will produce thinking output — and be billed for those thinking tokens as output tokens — even though the request body did not change.
+
+To turn thinking off entirely on these models, pass `"thinking": {"type": "disabled"}` explicitly. Omitting the `thinking` field does not turn thinking off — it selects adaptive thinking. A client setting that expresses "no thinking" as a zero or reduced thinking token budget also does not turn it off: `thinking.type: "enabled"` with `budget_tokens` is not supported on Claude Sonnet 5 and returns a `ValidationException`. Only the explicit `disabled` type turns thinking off.
+
+Because `max_tokens` is a hard limit on total output — thinking plus response text — revisit `max_tokens` for workloads that previously ran without thinking. If you were using disabled thinking on Claude Sonnet 4.6, consider adaptive thinking with a lower `output_config.effort` level on Claude Sonnet 5 instead of disabling it.
 
 ## How adaptive thinking works
 

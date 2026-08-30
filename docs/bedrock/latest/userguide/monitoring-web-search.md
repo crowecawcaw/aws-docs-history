@@ -5,7 +5,7 @@ Search so you can audit who invoked the tool, when, and from where.
 
 Web Search activity is recorded as CloudTrail data events. Data events are not logged by default.
 To capture them, create a trail (or event data store) and enable data event logging for Web
-Search. For the steps, see [Logging data events with AWS CloudTrail](awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md"). Additional charges apply for data
+Search. For the steps, see [Logging data events with AWS CloudTrail](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md"). Additional charges apply for data
 events.
 
 Once data event logging is enabled, CloudTrail captures the following for each recorded

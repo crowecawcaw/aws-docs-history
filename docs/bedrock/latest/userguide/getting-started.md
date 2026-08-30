@@ -1,6 +1,6 @@
 # Quickstart
 
-Get started with Amazon Bedrock in minutes. For new applications, we recommend the `bedrock-runtime` endpoint. The following steps walk you through running your first
+Get started with Amazon Bedrock in minutes. For new applications, we recommend the [bedrock-runtime](endpoints.md "endpoints.md") endpoint. The following steps walk you through running your first
 inference request using the Anthropic-native [Messages API](inference-messages-api.md "inference-messages-api.md"), the OpenAI-compatible [Responses API](bedrock-mantle.md "bedrock-mantle.md") and [Chat Completions API](inference-chat-completions.md "inference-chat-completions.md"), and the [Converse](conversation-inference.md "conversation-inference.md") and [Invoke](inference-invoke.md "inference-invoke.md") APIs. For a complete list of APIs, see [Build](build.md "build.md"). After
 you complete these steps, you can send inference requests to any supported foundation
 model.
@@ -152,7 +152,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
    ```
 
    You should see the output of your inference request.
-   To learn more about using other APIs and endpoints, see [Build](build.md "build.md").
+   To learn more about using other APIs and endpoints, see [Build](build.md "build.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md").
 
 ## Next steps
 

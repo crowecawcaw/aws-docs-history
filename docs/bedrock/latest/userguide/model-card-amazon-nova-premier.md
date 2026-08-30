@@ -37,13 +37,13 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | • Green circle with white checkmark icon. [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Green circle with white checkmark icon. [Guardrails](guardrails.md "guardrails.md")<br>• Green circle with white checkmark icon. [Client-side tool calling](tool-use.md "tool-use.md") | • Red circle with white X icon indicating error, cancel, or close action. [Structured outputs](structured-outputs.md "structured-outputs.md") |
 
-**Prompt caching using `bedrock-runtime` endpoint**
+**Implicit and Explicit Prompt Caching using `bedrock-runtime` endpoint**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
-| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
-| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
-| Yes                          | 1K\*                                | 4                                     | 5 minutes         | `system` and `messages`                         |
+| **Explicit Prompt Caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
+| ------------------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
+| Yes                                   | 1K\*                                | 4                                     | 5 minutes         | `system` and `messages`                         |
 
 _\* Amazon Nova models support a maximum of 20K tokens for prompt caching. Prompt caching is primarily for text prompts._
 

@@ -56,21 +56,21 @@ The following tables show which endpoints and APIs are supported for Claude Myth
 
 **Features supported using `bedrock-mantle` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                              | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Count tokens](count-tokens.md "count-tokens.md") | • [Guardrails](guardrails.md "guardrails.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md")<br>• [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
+| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Not Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• [Implicit Prompt Caching](prompt-caching.md#prompt-caching-implicit "prompt-caching.md#prompt-caching-implicit")<br>• [Explicit Prompt Caching](prompt-caching.md#prompt-caching-explicit "prompt-caching.md#prompt-caching-explicit")<br>• [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• [Count tokens](count-tokens.md "count-tokens.md") | • [Guardrails](guardrails.md "guardrails.md")<br>• [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• [Model evaluation](evaluation.md "evaluation.md")<br>• [Prompt management](prompt-management.md "prompt-management.md")<br>• [Flows](flows.md "flows.md")<br>• [Agents](agents.md "agents.md")<br>• [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
 
-**Prompt caching**
+**Implicit and Explicit Prompt Caching using `bedrock-mantle` endpoint**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
-| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoint** |
-| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ---------------------------------------------- |
-| Yes                          | 1,024                               | 4                                     | 5 minutes, 1 hour | `system`, `messages`, and `tools`              |
+| **Explicit Prompt Caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoint** |
+| ------------------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ---------------------------------------------- |
+| Yes                                   | 512                                 | 4                                     | 5 minutes, 1 hour | `system`, `messages`, and `tools`              |
 
 ## Pricing
 
-For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+This model is a third-party model offered and billed through AWS Marketplace. Charges appear on your AWS bill and in AWS Cost Explorer under the model provider (not under Amazon Bedrock). For pricing, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
 
 ## Programmatic Access
 
@@ -96,9 +96,13 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
-| ------------------------- | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `us-east-1` (N. Virginia) | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+Availability differs by endpoint.
+
+**Availability using the `bedrock-mantle` endpoint**
+
+| **Region**                | **In-Region** | **Geo**       | **Global**    |
+| ------------------------- | ------------- | ------------- | ------------- |
+| `us-east-1` (N. Virginia) | supported     | not-supported | not-supported |
 
 ## Data retention
 

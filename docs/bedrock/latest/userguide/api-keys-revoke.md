@@ -14,6 +14,10 @@ To carry out these actions through the API, you must authenticate with AWS crede
 
 - For both long-term and short-term Amazon Bedrock API keys, you can attach IAM policies to revoke permissions.
 
+###### Note
+
+You can't deactivate, reset, or delete an individual short-term Amazon Bedrock API key. The Amazon Bedrock console doesn't list short-term keys after you generate them or provide revocation actions for them. A short-term key is a pre-signed URL that inherits the credentials and expiration of the session that generated it. To prevent use before the key expires, see [Invalidate an IAM session](#api-keys-iam-policies-invalidate-session "#api-keys-iam-policies-invalidate-session") or [Deny an identity the ability to make calls with an Amazon Bedrock API key](#api-keys-iam-policies-deny-call-with-bearer-token "#api-keys-iam-policies-deny-call-with-bearer-token"). These controls affect the generating session or identity, not only one short-term key.
+
 ###### Topics
 
 - [Change the status of a long-term Amazon Bedrock API key](#api-keys-change-status "#api-keys-change-status")

@@ -22,7 +22,7 @@ A Workspace is a logical boundary used to isolate workloads such as applications
 
 Workspaces allow you to manage multiple generative AI workloads in production without creating separate AWS accounts or organizations, reducing operational complexity while maintaining security and governance.
 
-Each AWS account has a default workspace (project) where all inference requests are associated. You can create additional workspaces using the Projects API and reference them in Messages API requests using the `anthropic-workspace` header.
+Each AWS account has a default workspace (project) where all inference requests are associated. You can create additional workspaces using the Projects API and reference them in Messages API requests using the `anthropic-workspace-id` header.
 
 ## When to use Workspaces
 
@@ -41,7 +41,7 @@ Workspaces and [Projects (OpenAI-compatible)](projects.md "projects.md") are the
 | -------------- | ------------------------------------------------------- | ---------------------------------------------------- |
 | Supported APIs | Anthropic Messages API                                  | OpenAI-compatible APIs (Responses, Chat Completions) |
 | Endpoint       | `bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | `bedrock-mantle.{region}.api.aws/v1`                 |
-| Header         | `anthropic-workspace: {project-id}`                     | `OpenAI-Project: {project-id}`                       |
+| Header         | `anthropic-workspace-id: {project-id}`                  | `OpenAI-Project: {project-id}`                       |
 | Management API | Projects API                                            | Projects API                                         |
 | Access Control | Project as a resource in IAM policies                   | Project as a resource in IAM policies                |
 | Cost Tracking  | AWS tags on projects                                    | AWS tags on projects                                 |
@@ -106,11 +106,11 @@ Response:
 }
 ```
 
-Note the `id` field — this is the value you pass in the `anthropic-workspace` header.
+Note the `id` field — this is the value you pass in the `anthropic-workspace-id` header.
 
 ### Step 3: Associate requests with your Workspace
 
-To associate your Messages API requests with a workspace, include the `anthropic-workspace` header with the project ID:
+To associate your Messages API requests with a workspace, include the `anthropic-workspace-id` header with the project ID:
 
 curl
 
@@ -118,7 +118,7 @@ curl
 curl -X POST "https://bedrock-mantle.$BEDROCK_REGION.api.aws/anthropic/v1/messages" \
   -H "x-api-key: $BEDROCK_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-workspace: proj_abc123def456" \
+  -H "anthropic-workspace-id: proj_abc123def456" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "anthropic.claude-sonnet-4-6-v1",
@@ -142,7 +142,7 @@ client = anthropic.Anthropic(
 response = client.messages.create(
     model="anthropic.claude-sonnet-4-6-v1",
     max_tokens=1024,
-    extra_headers={"anthropic-workspace": "proj_abc123def456"},
+    extra_headers={"anthropic-workspace-id": "proj_abc123def456"},
     messages=[
         {"role": "user", "content": "Hello, how can you help me today?"}
     ]

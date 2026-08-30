@@ -23,13 +23,13 @@ Claude 3.5 Haiku is Anthropic's next-generation fast model with improved coding 
 | Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      |
 | Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |
 
-**Prompt caching using `bedrock-runtime` endpoint**
+**Implicit and Explicit Prompt Caching using `bedrock-runtime` endpoint**
 
 For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
 
-| **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
-| ---------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
-| Yes                          | 2,048                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
+| **Explicit Prompt Caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
+| ------------------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
+| Yes                                   | 2,048                               | 4                                     | 5 minutes         | `system`, `messages`, and `tools`               |
 
 ## Endpoints and APIs supported
 
@@ -60,7 +60,7 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 
 ## Pricing
 
-For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+This model is a third-party model offered and billed through AWS Marketplace. Charges appear on your AWS bill and in AWS Cost Explorer under the model provider (not under Amazon Bedrock). For pricing, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
 
 ## Programmatic Access
 
@@ -86,11 +86,15 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**                | **In-Region**                                                           | **Geo**                                 | **Global**                                                              |
-| ------------------------- | ----------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------- |
-| `us-east-1` (N. Virginia) | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-east-2` (Ohio)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
-| `us-west-2` (Oregon)      | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. |
+Availability differs by endpoint.
+
+**Availability using the `bedrock-runtime` endpoint**
+
+| **Region**                | **In-Region** | **Geo**   | **Global**    |
+| ------------------------- | ------------- | --------- | ------------- |
+| `us-east-1` (N. Virginia) | not-supported | supported | not-supported |
+| `us-east-2` (Ohio)        | not-supported | supported | not-supported |
+| `us-west-2` (Oregon)      | supported     | supported | not-supported |
 
 **Geo inference details**
 

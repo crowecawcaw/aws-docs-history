@@ -19,13 +19,36 @@ Access to this model is limited to eligible customers. To learn more, see [Accel
 - **Fine-tuning supported:** No
 - **Supported use cases:** Vulnerability discovery, detection engineering, and incident response.
 
-| **Input Modalities**                                                           | **Output Modalities**                                                             | **[APIs supported](apis.md "apis.md")**                                                    | **[Endpoints supported](endpoints.md "endpoints.md")**                                    |
-| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding | Green circle with white checkmark icon. `Responses`                                        | Red circle with white X icon indicating error, cancel, or close action. `bedrock-runtime` |
-| Green circle with white checkmark icon. Image                                  | Red circle with white X icon indicating error, cancel, or close action. Image     | Red circle with white X icon indicating error, cancel, or close action. `Chat Completions` | Green circle with white checkmark icon. `bedrock-mantle`                                  |
-| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    | Red circle with white X icon indicating error, cancel, or close action. `Invoke`           |                                                                                           |
-| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      | Red circle with white X icon indicating error, cancel, or close action. `Converse`         |                                                                                           |
-| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |                                                                                            |                                                                                           |
+| **Input Modalities**                                                           | **Output Modalities**                                                             |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding |
+| Green circle with white checkmark icon. Image                                  | Red circle with white X icon indicating error, cancel, or close action. Image     |
+| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    |
+| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      |
+| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |
+
+## Endpoints and APIs supported
+
+The following tables show which endpoints and APIs are supported for Daybreak Blue: GPT-5.6 Sol. For more information, see [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md").
+
+**Endpoint support**
+
+| **Endpoint**      | **Supported** |
+| ----------------- | ------------- |
+| `bedrock-runtime` | not-supported |
+| `bedrock-mantle`  | supported     |
+
+**APIs supported on `bedrock-runtime` endpoint**
+
+| **Messages**  | **Responses** | **Chat Completions** | **Converse**  | **Invoke**    |
+| ------------- | ------------- | -------------------- | ------------- | ------------- |
+| not-supported | not-supported | not-supported        | not-supported | not-supported |
+
+**APIs supported on `bedrock-mantle` endpoint**
+
+| **Messages**  | **Responses** | **Chat Completions** | **Converse**  | **Invoke**    |
+| ------------- | ------------- | -------------------- | ------------- | ------------- |
+| not-supported | supported     | not-supported        | not-supported | not-supported |
 
 _On `bedrock-mantle`, this model is served at `/openai/v1/responses`, not the default `/v1/responses`._
 
@@ -35,9 +58,9 @@ _On `bedrock-mantle`, this model is served at `/openai/v1/responses`, not the de
 
 **Features supported using `bedrock-mantle` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                           | **Not Supported** |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| • Green circle with white checkmark icon. [Server-side tool calling](tool-use.md "tool-use.md")<br>• Green circle with white checkmark icon. [Projects](projects.md "projects.md")<br>• Green circle with white checkmark icon. [Prompt caching](prompt-caching.md "prompt-caching.md") | —                 |
+| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Not Supported** |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| • Green circle with white checkmark icon. [Server-side tool calling](tool-use.md "tool-use.md")<br>• Green circle with white checkmark icon. [Projects](projects.md "projects.md")<br>• Green circle with white checkmark icon. [Implicit Prompt Caching](prompt-caching.md#prompt-caching-implicit "prompt-caching.md#prompt-caching-implicit") (Responses API only)<br>• Green circle with white checkmark icon. [Explicit Prompt Caching](prompt-caching.md#prompt-caching-explicit "prompt-caching.md#prompt-caching-explicit") (Responses API only) | —                 |
 
 ## Pricing
 

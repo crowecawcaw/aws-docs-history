@@ -6,7 +6,7 @@ For cost attribution using the Responses or Chat Completions APIs on [bedrock-ma
 
 ## How cost attribution works
 
-You reference a workspace in a Messages API request by setting the `anthropic-workspace` HTTP header. Tags applied to the workspace are attached to the billing record for each request and appear as AWS cost allocation tags in CUR and Cost Explorer.
+You reference a workspace in a Messages API request by setting the `anthropic-workspace-id` HTTP header. Tags applied to the workspace are attached to the billing record for each request and appear as AWS cost allocation tags in CUR and Cost Explorer.
 
 For details on creating workspaces, managing tags, and using the Messages API with workspaces, see [Workspaces (Anthropic-compatible)](workspaces.md "workspaces.md").
 

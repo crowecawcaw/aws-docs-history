@@ -41,7 +41,8 @@ guardrails detects:
   A physical address, such as "100 Main Street, Anytown, USA" or "Suite
   #12, Building 123". An address can include information such as the
   street, building, location, city, state, country, county, zip code,
-  precinct, and neighborhood.
+  precinct, and neighborhood. Isolated mentions of city, state, country
+  are not considered as valid addresses.
   - **AGE**
 
   An individual's age, including the quantity and unit of time. For
@@ -343,7 +344,7 @@ Console
         table or the column display in the table, select
         the settings icon (
 
-      ![Gear icon representing settings or configuration options.](images/icons/settings.png)
+      ![Gear icon representing settings or configuration options.](/images/bedrock/latest/userguide/images/icons/settings.png)
 
       ). Set your
       preferences and then select
@@ -384,7 +385,7 @@ Console
         table or the column display in the table, select
         the settings icon (
 
-      ![Gear icon representing settings or configuration options.](images/icons/settings.png)
+      ![Gear icon representing settings or configuration options.](/images/bedrock/latest/userguide/images/icons/settings.png)
 
       ). Set your
       preferences and then select
