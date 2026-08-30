@@ -49,7 +49,7 @@ aws athena start-session \
 
 ### Required permissions for managed logging
 
-If you provided a KMS key, you will need the following permissions in the permissions policy for the execution role.
+If you provided a KMS key, add the Athena service principal to the allow list in the KMS key permissions policy.
 
 ```
 {
@@ -61,7 +61,15 @@ If you provided a KMS key, you will need the following permissions in the permis
         "kms:DescribeKey"
     ],
     "Resource": "*",
-    "Effect": "Allow"
+    "Effect": "Allow",
+    "Principal":{
+        "Service":"athena.amazonaws.com"
+    },
+    "Condition": {
+        "StringEquals": {
+            "aws:SourceAccount": "YOUR_ACCOUNT_ID"
+        }
+    }
 }
 ```
 

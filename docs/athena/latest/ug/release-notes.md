@@ -17,6 +17,38 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 ## Athena release notes for 2026
 
+### August 24, 2026
+
+Published on 2026-08-24
+
+AWS releases the Amazon Athena ODBC 1.x driver version 1.3.7.10001. This release includes
+the following enhancements since version 1.2.3.1000:
+
+- Linux ARM support – Added support
+  for ARM variants of Linux platforms. Supported distributions
+  include Debian 13 ARM, RHEL 8 ARM, RHEL 10 ARM, SLES 15 ARM,
+  Ubuntu 22.04 ARM, and Ubuntu 24.04 ARM.
+- Platform updates – Added support for
+  macOS 15, macOS 26, Debian 13, RHEL 10, and Windows Server 2025.
+- SSL options – Added Allow Common Name
+  Host Name Mismatch and Use System Trust Store options.
+- Updated AWS SDK – Updated the AWS
+  SDK for C++ to version 1.11.687.
+- Updated third-party libraries – Updated
+  Expat to 2.7.3, libcurl to 8.18.0, OpenSSL to 3.0.19, ICU to 74.2, and zlib to
+  1.3.1.
+
+This release resolved the following issues:
+
+- Fixed an issue where the connector failed to read metadata for a column
+  with Japanese characters.
+- Fixed an issue where using parenthesis in queries returned a fetch
+  error.
+- Fixed a mismatch in file and product versions.
+
+To learn more, and to download the ODBC 1.x driver, release notes, and
+documentation, see [Athena ODBC 1.x driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md").
+
 ### August 21, 2026
 
 AWS releases Amazon Athena ODBC driver version 2.3.0.0. For more information about
