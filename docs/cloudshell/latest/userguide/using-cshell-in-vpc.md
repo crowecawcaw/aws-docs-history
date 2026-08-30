@@ -33,7 +33,12 @@ default. VPC environments created in public subnets with routing tables configur
 to route all traffic to Internet Gateway will not have access to public internet,
 but private subnets configured with Network Address Translation (NAT) have access
 to public internet. VPC environments created in such private subnets will have
-access to public internet.
+access to public internet. To check the IP address that CloudShell allocated
+to your VPC environment, run the following command:
+
+```
+echo $CLOUDSHELL_PRIVATE_IPV4
+```
 
 - Your AWS CloudShell environment will not be configured by default to use the local DNS
   zone in your VPC.
