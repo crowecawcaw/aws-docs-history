@@ -29,5 +29,6 @@ to Deadline Cloud.
 - [Use job attachments to share files](build-job-attachments.md "build-job-attachments.md")
 - [Create resource limits for jobs](build-job-limits.md "build-job-limits.md")
 - [How to submit a job to Deadline Cloud](submit-jobs-how.md "submit-jobs-how.md")
+- [Share job bundles on your queue](share-job-bundles.md "share-job-bundles.md")
 - [Schedule jobs in Deadline Cloud](build-jobs-scheduling.md "build-jobs-scheduling.md")
 - [Modify a job in Deadline Cloud](build-jobs-modifying.md "build-jobs-modifying.md")

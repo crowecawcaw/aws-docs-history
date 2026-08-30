@@ -10,3 +10,4 @@ a map of all the security controls in Deadline Cloud and where to configure them
 - [Secure job attachment and software buckets](job-attachment-queues.md "job-attachment-queues.md")
 - [Secure worker hosts](worker-hosts.md "worker-hosts.md")
 - [Secure artist workstations](workstations.md "workstations.md")
+- [Restrict farm access to your network](restrict-network-access.md "restrict-network-access.md")

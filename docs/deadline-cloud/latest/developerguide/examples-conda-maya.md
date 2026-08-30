@@ -1,17 +1,20 @@
 # Build an Autodesk Maya conda package for Deadline Cloud
 
-The samples repository includes the following Maya conda recipes. Each
+The samples repository on the GitHub website includes the following
+Maya conda recipes. Each
 recipe configures the `MAYA_MODULE_PATH` environment variable so
 that Maya loads plugin `.mod` files placed in the standard
 plugin paths:
 
 [maya-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2025"),
-[maya-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026")
+[maya-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2026"),
+[maya-2027](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2027 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-2027")
 
-Recipes for Autodesk Maya 2025 and 2026.
+Recipes for Autodesk Maya 2025, 2026, and 2027.
 
 [maya-mtoa-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2025 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2025"),
-[maya-mtoa-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026")
+[maya-mtoa-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026"),
+[maya-mtoa-2027](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2027 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2027")
 
 Maya to Arnold (MtoA) renderer plugin. The MtoA package also
 provides the `kick` standalone renderer, which the

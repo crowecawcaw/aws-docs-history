@@ -13,7 +13,6 @@ support the following:
 - Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral
   Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
   such as Java 7 and later support these modes.
-  Deadline Cloud doesn't support using AWS PrivateLink virtual private cloud (VPC) endpoint policies. It
-  uses the AWS PrivateLink default policy, which grants full access to the endpoint. For more
-  information, see [Default
-  endpoint policy](../../../vpc/latest/privatelink/vpc-endpoints-access.md#default-endpoint-policy "../../../vpc/latest/privatelink/vpc-endpoints-access.md#default-endpoint-policy") in the _AWS PrivateLink user guide_.
+  Deadline Cloud supports AWS PrivateLink VPC endpoint policies on its management and scheduling
+  endpoints. An endpoint policy controls which Deadline Cloud API actions your VPC allows through the
+  interface endpoint. For more information, see [Access AWS Deadline Cloud using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").

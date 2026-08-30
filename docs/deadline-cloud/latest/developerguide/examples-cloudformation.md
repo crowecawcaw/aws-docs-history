@@ -18,3 +18,4 @@ infrastructure, see [Manage Deadline Cloud infrastructure as code](infrastructur
 - [Schedule standby workers for a Deadline Cloud fleet with CloudFormation](examples-cfn-standby-scheduling.md "examples-cfn-standby-scheduling.md")
 - [Monitor a Deadline Cloud customer-managed fleet health check with CloudFormation](examples-cfn-cmf-health-check.md "examples-cfn-cmf-health-check.md")
 - [Budget threshold notifications to email and Slack with CloudFormation](examples-cfn-budget-notifications.md "examples-cfn-budget-notifications.md")
+- [Job event Slack notifications with Lambda and EventBridge](examples-cfn-slack-notifications.md "examples-cfn-slack-notifications.md")

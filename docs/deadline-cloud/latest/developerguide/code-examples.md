@@ -81,6 +81,10 @@ The repository also includes the following examples:
 - [Upload files to Deadline Cloud job attachments](examples-upload-to-job-attachments.md "examples-upload-to-job-attachments.md") — A script
   that uploads files and directories from your workstation or server to
   Deadline Cloud job attachments storage.
+- [Set up a virtual workstation for Deadline Cloud with a script](examples-virtual-workstation.md "examples-virtual-workstation.md") — Scripts
+  that turn a fresh Linux or Windows workstation into a Deadline Cloud
+  submission machine with a DCC, the submitter, and a pre-configured
+  monitor profile.
 - [Enforce fixed license limits with a Deadline Cloud submission hook](examples-license-limits-hook.md "examples-license-limits-hook.md") — A submission
   hook that enforces fixed license limits by combining the Deadline Cloud Limits
   feature with a pre-submission hook.
@@ -117,5 +121,6 @@ Deadline Cloud.
 - [Build a worker-equivalent Amazon Linux 2023 Docker image for Deadline Cloud](examples-container-al2023.md "examples-container-al2023.md")
 - [Build a Blender Docker image for GPU rendering on Deadline Cloud](examples-container-blender.md "examples-container-blender.md")
 - [Upload files to Deadline Cloud job attachments](examples-upload-to-job-attachments.md "examples-upload-to-job-attachments.md")
+- [Set up a virtual workstation for Deadline Cloud with a script](examples-virtual-workstation.md "examples-virtual-workstation.md")
 - [Enforce fixed license limits with a Deadline Cloud submission hook](examples-license-limits-hook.md "examples-license-limits-hook.md")
 - [AI agent skills for Deadline Cloud](examples-skills.md "examples-skills.md")

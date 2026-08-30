@@ -38,9 +38,10 @@ Before you begin, the following setup is recommended:
   `CondaPackages` and `CondaChannels` job parameters.
 - The [Deadline Cloud
   CLI](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") installed on your workstation.
-- Sufficient Amazon Elastic Compute Cloud (Amazon EC2) vCPU service quota for GPU instances. The default
-  3-model run on `g5.xlarge` (4 vCPUs each) requires at least 12 vCPUs
-  under _Running On-Demand G and VT instances_.
+- Sufficient Deadline Cloud service quota for GPU instances. The default 3-model run on
+  `g5.xlarge` (4 vCPUs and 1 GPU each) requires at least 3 GPUs under
+  _OnDemand G instance GPUs per region_ and 12 vCPUs under
+  _OnDemand vCPUs per region_.
 
 ###### Note
 
@@ -180,10 +181,11 @@ rm -rf leaderboard_results/
 
 **Fleet does not scale up workers**
 
-The most common cause is an Amazon EC2 vCPU service quota. Open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas") under
-**EC2** and confirm that you have headroom for
-_Running On-Demand G and VT instances_. Quota increases can take
-minutes to a couple of business days.
+The most common cause is an Deadline Cloud service quota. Open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas "https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas") under
+**AWS Deadline Cloud** and confirm that you have headroom for
+_OnDemand G instance GPUs per region_ and _OnDemand vCPUs per
+region_. Quota increases can take minutes to a couple of business
+days.
 
 ## Related resources
 
