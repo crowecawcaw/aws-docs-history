@@ -40,7 +40,7 @@ the motor rather than the pump.
 Gearboxes and bearings are also examples of common locations where you might want to
 place sensors.
 
-![Diagram showing a gearbox connected to two pillar bearings via a shaft.](/images/Monitron/latest/user-guide/images/mounting_sensor3.png)
+![Diagram showing a gearbox connected to two pillar bearings via a shaft.](images/mounting_sensor3.png)
 For complex equipment with multiple moving parts (such as gearboxes), position the
 sensor to minimize the length of the transmission path from the primary vibration
 source. Note that vibration is reduced when it is transmitted between adjacent parts of
