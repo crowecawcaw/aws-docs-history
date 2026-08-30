@@ -167,8 +167,6 @@ directly through the SDK.
     "Sid": "DenyNonTemplatedRoleCreation",
     "Effect": "Deny",
     "Action": [
-        "iam:GetRole",
-        "iam:GetRoleTemplateVersion",
         "iam:CreateRole",
         "iam:AttachRolePolicy",
         "iam:PutRolePolicy",

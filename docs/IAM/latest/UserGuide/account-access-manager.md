@@ -17,8 +17,8 @@ roles gives you extra flexibility to tailor user access, including:
 
 - Configure IAM role tags and use session tags for attribute-based access control
   (ABAC).
-- Configure IAM role trust policy to restrict role assumption, enforce network-based
-  conditions, or use IdP-asserted claims as trust policy conditions.
+- Configure IAM role trust policy to restrict role assumption or use IdP-asserted claims
+  as trust policy conditions.
 - Configure IAM role paths to group roles logically and simplify administration. For more
   information, see [Configure IAM role paths to group roles logically and simplify administration](https://aws.amazon.com/blogs/security/optimize-aws-administration-with-iam-paths/ "https://aws.amazon.com/blogs/security/optimize-aws-administration-with-iam-paths/").
 

@@ -2773,6 +2773,94 @@ There are three possible finding messages for this error.
   keys](reference_policies_condition-keys.md "reference_policies_condition-keys.md")
 - [IAM identifiers](reference_identifiers.md "reference_identifiers.md")
 
+## Error – DynamoDB invalid return consumed capacity
+
+**Issue code:** DYNAMODB\_INVALID\_RETURN\_CONSUMED\_CAPACITY
+
+**Finding type:** ERROR
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB invalid return consumed capacity: The value for dynamodb:ReturnConsumedCapacity is not valid. Update {{value}} to either TOTAL or NONE.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "The value for dynamodb:ReturnConsumedCapacity is not valid. Update {{value}} to either TOTAL or NONE."
+```
+
+**Resolving the error**
+
+Update the condition value to one of the two values DynamoDB provides:
+`TOTAL` or `NONE`. Values are case-sensitive under
+`StringEquals` and `StringLike`, so a lowercase variant such as
+`total` is not valid. The `StringEqualsIgnoreCase` operator accepts any
+casing. A condition that specifies an invalid value never matches any request, so the
+statement has no effect.
+
+## Error – DynamoDB invalid return values
+
+**Issue code:** DYNAMODB\_INVALID\_RETURN\_VALUES
+
+**Finding type:** ERROR
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB invalid return values: The value for dynamodb:ReturnValues is not valid. Update {{value}} to one of NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, or UPDATED_NEW.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "The value for dynamodb:ReturnValues is not valid. Update {{value}} to one of NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, or UPDATED_NEW."
+```
+
+**Resolving the error**
+
+Update the condition value to one of the five values DynamoDB provides:
+`NONE`, `ALL_OLD`, `UPDATED_OLD`, `ALL_NEW`,
+or `UPDATED_NEW`. Values are case-sensitive under `StringEquals` and
+`StringLike`, so a lowercase variant such as `updated_new` is not
+valid. The `StringEqualsIgnoreCase` operator accepts any casing. A condition that
+specifies an invalid value never matches any request, so the statement has no effect.
+
+## Error – DynamoDB invalid select value
+
+**Issue code:** DYNAMODB\_INVALID\_SELECT\_VALUE
+
+**Finding type:** ERROR
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB invalid select value: The value for dynamodb:Select is not valid. Update {{value}} to one of ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, SPECIFIC_ATTRIBUTES, or COUNT.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "The value for dynamodb:Select is not valid. Update {{value}} to one of ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, SPECIFIC_ATTRIBUTES, or COUNT."
+```
+
+**Resolving the error**
+
+Update the condition value to one of the four values DynamoDB provides:
+`ALL_ATTRIBUTES`, `ALL_PROJECTED_ATTRIBUTES`,
+`SPECIFIC_ATTRIBUTES`, or `COUNT`. Values are case-sensitive under
+`StringEquals` and `StringLike`, so a lowercase variant such as
+`specific_attributes` is not valid. The `StringEqualsIgnoreCase`
+operator accepts any casing. A condition that specifies an invalid value never matches any
+request, so the statement has no effect.
+
 ## General Warning – Create SLR with NotResource
 
 **Issue code:** CREATE\_SLR\_WITH\_NOT\_RESOURCE
@@ -3676,6 +3764,91 @@ to scope the condition key to only the AWS services that support it.
 - [`aws:VpceOrgPaths`](reference_policies_condition-keys.md#condition-keys-vpceorgpaths "reference_policies_condition-keys.md#condition-keys-vpceorgpaths")
 - [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md")
 
+## General Warning – DynamoDB replace operation with attributes
+
+**Issue code:** DYNAMODB\_REPLACE\_OPERATION\_WITH\_ATTRIBUTES
+
+**Finding type:** GENERAL\_WARNING
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB replace operation with attributes: The {{action}} action replaces the entire item, so dynamodb:Attributes cannot restrict access at the attribute level. That condition only applies to UpdateItem; use dynamodb:UpdateItem for attribute-level access control.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "The {{action}} action replaces the entire item, so dynamodb:Attributes cannot restrict access at the attribute level. That condition only applies to UpdateItem; use dynamodb:UpdateItem for attribute-level access control."
+```
+
+**Resolving the general warning**
+
+The `dynamodb:Attributes` condition does not limit `dynamodb:PutItem`
+or `dynamodb:BatchWriteItem`. These actions replace the whole item, so a caller
+can drop a restricted attribute just by leaving it out of the item they write. To control
+which attributes a caller can change, grant `dynamodb:UpdateItem` instead and keep
+the `dynamodb:Attributes` condition on that statement. If you did not intend
+attribute-level control here, remove the `dynamodb:Attributes` condition.
+
+## General Warning – DynamoDB scan bypasses leading keys
+
+**Issue code:** DYNAMODB\_SCAN\_BYPASSES\_LEADING\_KEYS
+
+**Finding type:** GENERAL\_WARNING
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB scan bypasses leading keys: The dynamodb:Scan operation returns all items in the table, bypassing the dynamodb:LeadingKeys restriction. Consider removing dynamodb:Scan.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "The dynamodb:Scan operation returns all items in the table, bypassing the dynamodb:LeadingKeys restriction. Consider removing dynamodb:Scan."
+```
+
+**Resolving the general warning**
+
+`dynamodb:Scan` reads the entire table, so the `dynamodb:LeadingKeys`
+condition in this statement does not limit which items a caller can read. Remove
+`dynamodb:Scan`, or grant it in a separate statement that does not rely on
+`dynamodb:LeadingKeys`.
+
+## General Warning – DynamoDB wrong condition for action
+
+**Issue code:** DYNAMODB\_WRONG\_CONDITION\_FOR\_ACTION
+
+**Finding type:** GENERAL\_WARNING
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB wrong condition for action: The condition key {{conditionKey}} does not apply to the {{action}} action. Use dynamodb:Select with read actions and dynamodb:ReturnValues with write actions.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "The condition key {{conditionKey}} does not apply to the {{action}} action. Use dynamodb:Select with read actions and dynamodb:ReturnValues with write actions."
+```
+
+**Resolving the general warning**
+
+This statement uses `dynamodb:Select` with a write action, or
+`dynamodb:ReturnValues` with a read action. DynamoDB provides
+`dynamodb:Select` only for read actions and `dynamodb:ReturnValues`
+only for write actions, so the condition here never takes effect and protects nothing. Pair
+each key with a supporting action, or remove it. This check applies to both
+`Allow` and `Deny` statements.
+
 ## Security Warning – Untrustworthy condition key
 
 **Issue code:** UNTRUSTWORTHY\_CONDITION\_KEY
@@ -4489,6 +4662,34 @@ the `ForAnyValue` set operator.
 
 - [Single-valued vs. multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md "reference_policies_condition-single-vs-multi-valued-context-keys.md")
 - [Single-valued context key policy examples](reference_policies_condition_examples-single-valued-context-keys.md "reference_policies_condition_examples-single-valued-context-keys.md")
+
+## Security Warning – DynamoDB attributes without return values
+
+**Issue code:** DYNAMODB\_ATTRIBUTES\_WITHOUT\_RETURN\_VALUES
+
+**Finding type:** SECURITY\_WARNING
+
+**Finding details**
+
+In the AWS Management Console, the finding for this check includes the following message:
+
+```
+DynamoDB attributes without return values: Restricting dynamodb:Attributes without limiting dynamodb:ReturnValues allows write operations to return the entire item, which can expose attributes outside the allowed list. We recommend that you restrict dynamodb:ReturnValues to NONE, UPDATED_OLD, or UPDATED_NEW.
+```
+
+In programmatic calls to the AWS CLI or AWS API, the finding for this check includes the following message:
+
+```
+"findingDetails": "Restricting dynamodb:Attributes without limiting dynamodb:ReturnValues allows write operations to return the entire item, which can expose attributes outside the allowed list. We recommend that you restrict dynamodb:ReturnValues to NONE, UPDATED_OLD, or UPDATED_NEW."
+```
+
+**Resolving the security warning**
+
+Add a condition that limits `dynamodb:ReturnValues` to `NONE`,
+`UPDATED_OLD`, or `UPDATED_NEW` in the same statement as the
+`dynamodb:Attributes` condition. Without this limit, a write that sets
+`dynamodb:ReturnValues` to `ALL_OLD` or `ALL_NEW` returns
+the entire item, including attributes outside the ones you allowed.
 
 ## Suggestion – Empty array action
 

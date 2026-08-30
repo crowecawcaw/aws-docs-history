@@ -35,14 +35,14 @@ of the available support options.
 
 ## I get "access denied" when I make a request to an AWS service
 
-- Check if the error message includes the type and [Amazon Resource
-  Name (ARN)](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns") of the policy responsible for denying access. If this is the
-  case, then check for deny statements for the action in the specified policy. If
-  the policy type is provided but there is no policy ARN, then focus on
-  troubleshooting issues for that policy type: Check for deny statements for the
-  action in policies of the specified type. If the error message doesn't mention
-  the policy type responsible for denying access, use the rest of the guidelines
-  in this section to troubleshoot further.
+- Check if the error message includes the type and [Amazon Resource Name (ARN)](reference_identifiers.md#identifiers-arns "reference_identifiers.md#identifiers-arns") of the policy
+  responsible for denying access. If this is the case, then check for deny
+  statements for theaction in the specified policy. If the policy type is
+  provided but there is no policy ARN, then focus on troubleshooting issues for
+  that policy type: Check for deny statements for the action in policies of the
+  specified type. If the error message doesn't mention the policy type
+  responsible for denying access, use the rest of the guidelines in this section
+  to troubleshoot further.
 - Verify that you have the identity-based policy permission to call the action
   and resource that you have requested. If any conditions are set, you must also
   meet those conditions when you send the request. For information about viewing

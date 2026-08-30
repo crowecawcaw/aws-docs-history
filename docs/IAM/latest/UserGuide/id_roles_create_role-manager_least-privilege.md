@@ -23,15 +23,26 @@ such as anything handling PII or production data. To learn more, see [Prepare fo
 
 ## How to analyze unused access
 
-Before disabling role manager, AWS recommends that you use [Using AWS Identity and Access Management Access Analyzer](what-is-access-analyzer.md "what-is-access-analyzer.md") to create an unused access analyzer in your account. The
-analyzer compares the actions that a role is allowed to perform with the actions that it has performed,
-and reports the unused permissions. The analyzer reviews the IAM
-roles in your account, including roles that you created yourself. The analyzer reports what
-it observes as
-findings, which appear on the **Roles** page in the IAM console. For each
-role, you can see the number of unused permissions and open a recommendation. For more
-information, see [IAM Access Analyzer
-findings](access-analyzer-findings.md "access-analyzer-findings.md").
+Before disabling role manager, AWS recommends that you use [IAM Access Analyzer](what-is-access-analyzer.md "what-is-access-analyzer.md") to create an unused access analyzer in your account. The
+analyzer compares the actions that a role is allowed to perform with the actions that it has
+performed, and reports the unused permissions. The analyzer reviews the IAM roles in your
+account, including roles that you created yourself.
+
+Where the findings appear depends on how the analyzer was provided:
+
+- **Analyzer provided by role manager:** When AWS
+  provides the unused access analyzer for your account (see the note in this section), the
+  findings appear on the **Roles** page in the IAM console. For each
+  role, you can see the number of unused permissions and open a recommendation. Use the
+  following procedure to reduce a role's permissions from the **Roles**
+  page. After you disable role manager, the **Account settings** page
+  provides a **View roles** button that opens the
+  **Roles** page, where each role's findings appear.
+- **Analyzer created by yourself:** When you create your
+  own unused access analyzer, the findings and recommendations appear in the IAM Access
+  Analyzer console. That experience is unchanged by role manager. To review and act on
+  unused access findings, see [IAM Access Analyzer
+  findings](access-analyzer-findings.md "access-analyzer-findings.md").
 
 ###### Note
 
@@ -39,8 +50,8 @@ If AWS enabled role manager for your account created using the new AWS experienc
 you don't need to create an analyzer the first time you disable role manager. After you
 activate advanced features and disable role manager, AWS provides an unused access
 analyzer at no additional cost for 90 days. The analyzer gives you visibility into unused
-role permissions and policy scope-down recommendations so you can update the roles that role
-manager created toward least privilege.
+role permissions and policy scope-down recommendations so you can update the roles in your account, including those that role
+manager created, toward least privilege.
 
 ## Prerequisites
 
@@ -49,16 +60,23 @@ To review Access Analyzer findings, you need permission to perform the
 permission to perform `iam:CreatePolicy`, `iam:AttachRolePolicy`, and
 `iam:DetachRolePolicy` on the role.
 
-## To reduce a role's permissions in console
+## To reduce a role's permissions in the console (analyzer provided by role manager)
+
+These steps apply when AWS provided the unused access analyzer for your account. If you
+created your own analyzer, review and apply recommendations in the IAM Access Analyzer
+console instead. See [IAM Access Analyzer
+findings](access-analyzer-findings.md "access-analyzer-findings.md").
 
 1. Sign in to the AWS Management Console and open the IAM console.
 2. In the navigation pane, choose **Roles**.
-3. Choose the name of the role whose permissions you want to reduce.
-4. Review the unused permissions reported for the role, and then choose
-   **Reduce permissions**.
+3. On the **Roles** page, in the **Findings** column,
+   choose the **Unused permissions** link for the role whose permissions you
+   want to reduce.
+4. On the **Reduce role permissions** page, review the unused
+   permissions reported for the role.
 5. Compare the recommended permissions with the role's current permissions, and review
    the actions that the recommendation removes.
-6. Choose **Apply**.
+6. Choose **Make changes**.
 
 ## How recommended permissions work
 

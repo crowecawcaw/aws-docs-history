@@ -24,19 +24,34 @@ access to AWS APIs so you can build without granting access to each service your
 IAM roles created by role manager behave like any other role you create. You can view, edit,
 or delete them. Each role also records the role template it came from, so you can identify the roles
 that role manager created. AWS CloudTrail logs when role manager creates roles so you can audit when
-and how each role was created.
+and how each role was created. Role manager role creation appears in CloudTrail as the AcquireRole event.
 
 ## Prerequisites
 
-Enabling or disabling role manager requires the
-`iam:PutAccountProperties` permission. The AWS managed policy
-`IAMFullAccess` includes it. For all the permissions that role manager
-requires, see [Manage access to role manager](id_roles_create_role-manager_enable-use.md "id_roles_create_role-manager_enable-use.md").
+Enabling role manager requires the
+`iam:PutAccountProperties` and `iam:CreateServiceLinkedRole` permissions.
+Disabling role manager requires the `iam:PutAccountProperties` permission.
+Viewing the current setting requires the `iam:GetAccountProperties` permission.
+The AWS managed policy `IAMFullAccess` includes all of these permissions.
+For all the permissions that role manager requires, see [Manage access to role manager](id_roles_create_role-manager_enable-use.md "id_roles_create_role-manager_enable-use.md").
 
-## How to enable and disable role manager (console)
+## How to enable and disable role manager
 
-Role manager may be enabled or disabled on the **Account settings** page
-in the IAM console. That page also shows whether role manager is enabled for the
+You can enable or disable role manager using the AWS Management Console, AWS CLI, or AWS API. Role
+manager is controlled by the account-level property
+`RoleManager/Enabled`, which you set using the `PutAccountProperties` API. A value of
+`true` enables role manager; `false` disables it.
+
+###### Note
+
+For most AWS accounts, role manager is disabled by default. But if you created your
+account using our new AWS experience, role manager is enabled by default and cannot be
+disabled until you activate advanced features. For more information, see [Activate advanced AWS features](../../../accounts/latest/reference/activate-advanced-features.md "../../../accounts/latest/reference/activate-advanced-features.md").
+
+### To enable or disable role manager (console)
+
+Role manager may be enabled or disabled on the **Account settings**
+page in the IAM console. That page also shows whether role manager is enabled for the
 account.
 
 1. Sign in to the AWS Management Console and open the IAM console.
@@ -46,16 +61,46 @@ account.
 
 Roles created by role manager are not deleted when you disable role manager.
 
-###### Note
+### To enable or disable role manager (AWS CLI)
 
-For most AWS accounts, role manager is disabled by default. But if you created your
-account using our new AWS experience, role manager is enabled by default and cannot be
-disabled until you activate advanced features. For more information, see [Activate advanced AWS features](../../../accounts/latest/reference/activate-advanced-features.md "../../../accounts/latest/reference/activate-advanced-features.md").
+Set the `RoleManager/Enabled` property to `true` to enable role
+manager, or `false` to disable it.
+
+- To enable role manager, run `put-account-properties`:
+
+```
+aws iam put-account-properties --properties RoleManager/Enabled=true
+```
+
+- To disable role manager, run `put-account-properties`:
+
+```
+aws iam put-account-properties --properties RoleManager/Enabled=false
+```
+
+- To view whether role manager is enabled for the account, run
+  `get-account-properties`:
+
+```
+aws iam get-account-properties
+```
+
+### To enable or disable role manager (AWS API)
+
+- To enable or disable role manager, call [PutAccountProperties](../APIReference/API_PutAccountProperties.md "../APIReference/API_PutAccountProperties.md") with the `RoleManager/Enabled` property set
+  to `true` or `false`.
+- To view the current setting, call [GetAccountProperties](../APIReference/API_GetAccountProperties.md "../APIReference/API_GetAccountProperties.md").
+
+For more information, see [PutAccountProperties](../APIReference/API_PutAccountProperties.md "../APIReference/API_PutAccountProperties.md")
+and [GetAccountProperties](../APIReference/API_GetAccountProperties.md "../APIReference/API_GetAccountProperties.md")
+in the _IAM API Reference_.
 
 ## AWS service consoles that support role manager
 
 Role manager supports role creation for the following AWS service consoles:
 
+- AWS Backup
+- AWS CloudFormation
 - AWS Elastic Beanstalk
 - Amazon EventBridge
 - AWS Lambda
