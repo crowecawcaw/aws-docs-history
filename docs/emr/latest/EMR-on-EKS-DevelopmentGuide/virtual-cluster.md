@@ -23,6 +23,7 @@ Before creating a virtual cluster, you must first complete the steps 1-8 in [Set
 - [Describe a virtual cluster](#describe-virtual-cluster "#describe-virtual-cluster")
 - [Delete a virtual cluster](#delete-virtual-cluster "#delete-virtual-cluster")
 - [Virtual cluster states](#virtual-cluster-states "#virtual-cluster-states")
+- [Concurrent job limits for virtual clusters](#virtual-cluster-job-concurrency-limits "#virtual-cluster-job-concurrency-limits")
 
 ## Create a virtual cluster
 
@@ -116,3 +117,168 @@ The following table describes the four possible states of a virtual cluster.
 | `TERMINATING` | The requested termination of the virtual cluster is in progress.      |
 | `TERMINATED`  | The requested termination is complete.                                |
 | `ARRESTED`    | The requested termination failed because of insufficient permissions. |
+
+## Concurrent job limits for virtual clusters
+
+You can configure concurrent job limits on an Amazon EMR on EKS virtual cluster to control how
+many job runs execute simultaneously and how many can wait in queue. You set the concurrency
+limit (`maxConcurrentJobRuns`) and the queue depth (`maxInQueueJobRuns`)
+independently, so you can cap running job runs, queued job runs, or both. When you set these
+limits, the `StartJobRun` API provides backpressure at the virtual cluster level. Job
+runs beyond the running limit wait in the queue in the `SUBMITTED` or
+`PENDING` state instead of starting immediately, and once the queue is full,
+`StartJobRun` rejects further submissions. For example, if you set a virtual cluster to
+allow 500 concurrent job runs and 100 queued job runs, the 101st queued submission is rejected,
+and you can rebalance that workload across other virtual clusters on the same EKS cluster or add
+capacity. When you have not set a concurrency limit and queue depth keeps growing, so that job
+runs stay in the `SUBMITTED` or `PENDING` state longer before they start, it
+can signal that the underlying EKS cluster is running low on compute resources and cannot schedule
+new pods fast enough. In that case, route the workload to another cluster or add capacity.
+
+Concurrent job limits add a control layer in front of the Kubernetes scheduler and the
+[ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/ "https://kubernetes.io/docs/concepts/policy/resource-quotas/")
+feature on the Kubernetes website. Because
+they are enforced at `StartJobRun`, before any pods are created, excess load is queued
+or rejected at the API, which protects the underlying cluster before jobs ever reach it.
+Kubernetes still enforces the actual CPU and memory ceiling underneath.
+
+### Key benefits of concurrent job limits
+
+- **Prevents noisy-neighbor overload** — Limits the number of
+  running and queued job runs per virtual cluster, so that a single virtual cluster cannot
+  monopolize the shared EKS cluster and cause noisy-neighbor scheduling failures for other
+  virtual clusters.
+- **Enables traffic shaping** — Returns an immediate rejection
+  when a virtual cluster's queue is full, so that you can redirect submissions to other virtual
+  clusters instead of overwhelming a single virtual cluster.
+- **Provides visibility** — Emits the per-virtual-cluster
+  `JobsRunning` and `JobsInQueue` CloudWatch metrics in the
+  `AWS/EMRContainers` namespace for active and in-queue job run counts every 5
+  minutes, which gives you a health signal for scheduling.
+
+### Getting started with concurrent job limits
+
+You configure concurrent job limits with the `schedulerConfiguration` field on a
+virtual cluster. This field accepts two parameters:
+
+`maxConcurrentJobRuns`
+
+The maximum number of job runs that can be in the `RUNNING` state at any
+time.
+
+`maxInQueueJobRuns`
+
+The maximum number of job runs that can be in the `PENDING` or
+`SUBMITTED` state (queue depth) at any time.
+
+#### AWS CLI
+
+To set limits when you create a virtual cluster, specify
+`schedulerConfiguration` in your request.
+
+```
+aws emr-containers create-virtual-cluster \
+  --name `my-virtual-cluster` \
+  --container-provider '{ ... }' \
+  --scheduler-configuration '{
+      "maxConcurrentJobRuns": 500,
+      "maxInQueueJobRuns": 100
+  }'
+```
+
+To change limits on an existing virtual cluster, use the
+`update-virtual-cluster` command.
+
+```
+aws emr-containers update-virtual-cluster \
+  --id `virtual-cluster-id` \
+  --scheduler-configuration '{
+      "maxConcurrentJobRuns": 500,
+      "maxInQueueJobRuns": 100
+  }'
+```
+
+To remove the limits from a virtual cluster, pass an empty
+`schedulerConfiguration`. This clears the configuration, so no limits apply and the
+virtual cluster returns to default (unlimited) behavior. Note that
+_omitting_ `schedulerConfiguration` from the request instead
+leaves the existing limits unchanged — you must pass an empty object to clear them.
+
+```
+aws emr-containers update-virtual-cluster \
+  --id `virtual-cluster-id` \
+  --scheduler-configuration '{}'
+```
+
+To view the current limits and live job counts, use the
+`describe-virtual-cluster` command. The response includes both your
+`schedulerConfiguration` and a `SchedulerStatus` object with the current
+`activeJobRunCount` and `inQueueJobRunCount`.
+
+###### Note
+
+When you submit a job run to a virtual cluster whose queue is full,
+`StartJobRun` returns a `ValidationException`.
+
+### Choosing values for maxConcurrentJobRuns and maxInQueueJobRuns
+
+The right limits depend on three things: how much work your Amazon EKS cluster can run at once,
+how bursty your submissions are, and how you want the virtual cluster to behave when it is full.
+Use the following guidance to pick a starting point, and then refine it from the live
+counters.
+
+#### Setting maxConcurrentJobRuns (running slots)
+
+`maxConcurrentJobRuns` is a job-granularity, count-based guardrail. A rough
+estimate here can protect the underlying Amazon EKS cluster from being degraded due to load and can
+improve availability.
+
+- **Start from capacity divided by per-job footprint.** Base
+  it on what each job _requests_ (driver, executors, and memory overhead),
+  and target approximately 70–80 percent of your namespace capacity to leave headroom for driver
+  overhead, node scale-up, and bursts.
+- **Cap the size of each job (T-shirt sizing).** Bound every
+  job with `spark.dynamicAllocation.maxExecutors` and standardize on a few sizes —
+  for example, Small (20 executors), Medium (100), and Large (approximately 500) — so that
+  `maxConcurrentJobRuns` multiplied by the cap maps predictably to capacity instead of
+  over-provisioning or under-provisioning for a variable average. For the cleanest math, route
+  each size class to its own virtual cluster.
+- **Tune from live counters.** Start conservative and raise
+  the value gradually while you watch `activeJobRunCount` and the
+  `JobsRunning` metric in the `AWS/EMRContainers` namespace.
+
+#### Setting maxInQueueJobRuns (queue depth)
+
+`maxInQueueJobRuns` controls how large a backlog the virtual cluster accepts
+before it starts rejecting submissions. It is a burst-absorption buffer. Consider the
+following factors.
+
+- **Burst profile** — Size the queue to absorb the submission
+  bursts that you expect above your running rate. If scheduled pipelines fire many jobs at once,
+  a deeper queue prevents spurious rejections. Base the depth on your expected burst size rather
+  than on a fixed multiple of `maxConcurrentJobRuns`, and validate it against the
+  drain-time limit that follows.
+- **Acceptable wait time** — Queued jobs wait for a running
+  slot to free up. The job at the back of a full queue waits approximately the queue depth
+  divided by the completion throughput. For example, if jobs finish at N per minute and the
+  queue holds Q, the tail waits about Q divided by N minutes. Keep this within your SLA. Because
+  buffered jobs fail after 30 minutes if no slot frees up, keep `maxInQueueJobRuns`
+  small enough that a full queue drains well within 30 minutes at your steady completion rate.
+  Otherwise, queued jobs time out.
+- **Backpressure compared to buffering** — A deeper queue
+  smooths bursts, but it delays the queue-full rejection that you use for traffic shaping and
+  increases tail latency. A shallower queue fails fast, which gives clients an early, actionable
+  signal to retry or route elsewhere. Choose based on whether you prefer to buffer load or shed
+  and redirect it.
+- **Client retry behavior** — When the queue is full,
+  `StartJobRun` returns a `ValidationException`. Make sure that your
+  submitters handle this exception — retry with backoff, or route the workload to another
+  virtual cluster. Set the depth so that rejections occur only during genuine overload, not
+  during routine operation.
+
+### Considerations for concurrent job limits
+
+- No limits are applied by default. Existing virtual clusters and workloads are unaffected
+  unless you explicitly set `schedulerConfiguration`.
+- Because the counters are maintained across a distributed system, you can sometimes expect
+  a small transient delta from the true value. Internal reconciliation corrects any drift.
