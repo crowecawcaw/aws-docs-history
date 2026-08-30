@@ -15,7 +15,8 @@ the destination you select.
 - [Configure destination settings for Grafana Cloud](#create-destination-grafana-cloud "#create-destination-grafana-cloud")
 - [Configure destination settings for Honeycomb](#create-destination-honeycomb "#create-destination-honeycomb")
 - [Configure destination settings for Coralogix](#create-destination-coralogix "#create-destination-coralogix")
-- [Configure destination settings for Dynatrace](#create-destination-dynatrace "#create-destination-dynatrace")
+- [Configure destination settings for Dynatrace (Classic cloud platform)](#create-destination-dynatrace "#create-destination-dynatrace")
+- [Configure destination settings for Dynatrace (New cloud platform)](#create-destination-dynatrace-ncp "#create-destination-dynatrace-ncp")
 - [Configure destination settings for LogicMonitor](#create-destination-logicmonitor "#create-destination-logicmonitor")
 - [Configure destination settings for Logz.io](#create-destination-logz "#create-destination-logz")
 - [Configure destination settings for MongoDB Atlas](#create-destination-mongodb "#create-destination-mongodb")
@@ -1104,14 +1105,14 @@ Amazon Data Firehose buffers incoming data before delivering it to the
 specified destination. The recommended buffer size for the
 destination varies based on the service provider.
 
-## Configure destination settings for Dynatrace
+## Configure destination settings for Dynatrace (Classic cloud platform)
 
-This section describes options for using **Dynatrace** for your
+This section describes options for using **Dynatrace (Classic cloud platform)** for your
 destination. For more information, see [https://www.dynatrace.com/support/help/technology-support/cloud-platforms/amazon-web-services/integrations/cloudwatch-metric-streams/](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/amazon-web-services/integrations/cloudwatch-metric-streams/ "https://www.dynatrace.com/support/help/technology-support/cloud-platforms/amazon-web-services/integrations/cloudwatch-metric-streams/").
 
 ######
 
-- Choose options to use Dynatrace as the destination for your Firehose stream.
+- Choose options to use Dynatrace (Classic cloud platform) as the destination for your Firehose stream.
 
 **Ingestion type**
 
@@ -1181,6 +1182,95 @@ period is reached. If the acknowledgment times out, Firehose determines
 whether there's time left in the retry counter. If there is time
 left, it retries again and repeats the logic until it receives an
 acknowledgment or determines that the retry time has expired.
+
+If you don't want Firehose to retry sending data, set this value to 0.
+
+**Parameters - optional**
+
+Amazon Data Firehose includes these key-value pairs in each HTTP
+call. These parameters can help you identify and organize your
+destinations.
+
+**Buffering hints**
+
+Amazon Data Firehose buffers incoming data before delivering it to the
+specified destination. The buffer hints include the buffer size and
+interval for your streams. The recommended buffer size for the
+destination varies according to the service provider.
+
+## Configure destination settings for Dynatrace (New cloud platform)
+
+This section describes options for using **Dynatrace (New cloud
+platform)** for your destination. For more information, see [https://docs.dynatrace.com/docs/shortlink/aws-monitor-hub#new-cloud-platform-monitoring](https://docs.dynatrace.com/docs/shortlink/aws-monitor-hub#new-cloud-platform-monitoring "https://docs.dynatrace.com/docs/shortlink/aws-monitor-hub#new-cloud-platform-monitoring").
+
+######
+
+- Choose options to use Dynatrace (New cloud platform) as the destination for
+  your Firehose stream.
+
+**Ingestion type**
+
+Choose **Logs** (default) to deliver log and
+event data to Dynatrace for further analysis and
+processing.
+
+**HTTP endpoint URL**
+
+Enter your Dynatrace environment ID URL (for example,
+`https://abc12345.apps.dynatrace.com`).
+
+**Authentication**
+
+You can either choose to enter the ingest platform token directly
+or retrieve the secret from AWS Secrets Manager to access Dynatrace.
+
+    + **Use ingest platform token**
+
+
+
+    Generate the Dynatrace ingest platform token that you need
+     to enable data delivery to this endpoint from Firehose. For
+     more information, see [Dynatrace API - Ingest Platform Tokens and
+     authentication](https://docs.dynatrace.com/docs/ingest-from/amazon-web-services/create-an-aws-connection/aws-connection-app-settings#tokens "https://docs.dynatrace.com/docs/ingest-from/amazon-web-services/create-an-aws-connection/aws-connection-app-settings#tokens").
+    + **Secret**
+
+
+    Select a secret from AWS Secrets Manager that contains the ingest
+     platform token for Dynatrace. If you do not see your secret
+     in the drop-down list, create one in AWS Secrets Manager. For more
+     information, see [Authenticate with AWS Secrets Manager in Amazon Data Firehose](using-secrets-manager.md "using-secrets-manager.md").
+
+**Content encoding**
+
+Choose whether you want to enable content encoding to compress
+the body of the request. Amazon Data Firehose uses content encoding to compress the
+body of a request before sending it to the destination. When
+enabled, the content is compressed in the **GZIP**
+format.
+
+**Retry duration**
+
+Specify how long Firehose retries sending data to the selected HTTP
+endpoint.
+
+After sending data, Firehose first waits for an acknowledgment from
+the HTTP endpoint. If an error occurs or the acknowledgment doesn't
+arrive within the acknowledgment timeout period, Firehose starts the
+retry duration counter. It keeps retrying until the retry duration
+expires. After that, Firehose considers it a data delivery failure and
+backs up the data to your Amazon S3 bucket.
+
+Every time that Firehose sends data to the HTTP endpoint, either
+during the initial attempt or after retrying, it restarts the
+acknowledgement timeout counter and waits for an acknowledgement
+from the HTTP endpoint.
+
+Even if the retry duration expires, Firehose still waits for the
+acknowledgment until it receives it or the acknowledgement timeout
+period is reached. If the acknowledgment times out, Firehose
+checks the retry counter. If time remains, Firehose retries and
+repeats this process until it receives an acknowledgment or the
+retry time expires.
 
 If you don't want Firehose to retry sending data, set this value to 0.
 
