@@ -35,7 +35,8 @@ inspecting login attempts that clients send to your application's login endpoint
   to track success and failure rates. Using this information, ATP
   can temporarily block client sessions or IP addresses that have too many login failures.
   AWS WAF performs response inspection asynchronously, so this doesn't
-  increase latency in your web traffic.
+  increase latency in your web traffic. AWS WAF doesn't inspect responses for
+  web requests that clients send over HTTP/3 (QUIC).
 
 ###### Note
 

@@ -43,7 +43,7 @@ the `x-amzn-waf-` prefix was not inserted by AWS WAF:
           "Priority": 0,
           "Statement": {
             "ByteMatchStatement": {
-              "SearchString": " x-amzn-waf-",
+              "SearchString": "x-amzn-waf-",
               "FieldToMatch": {
                 "Headers": {
                   "MatchPattern": {

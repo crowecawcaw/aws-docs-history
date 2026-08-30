@@ -12,7 +12,8 @@ and the protection pack (web ACL)'s application integration URL.
 
 ###### Note
 
-ATP response inspection is available only in protection packs (web ACLs) that protect CloudFront distributions.
+ACFP response inspection is available only in protection packs (web ACLs) that protect CloudFront distributions.
+AWS WAF doesn't inspect responses for web requests that clients send over HTTP/3 (QUIC).
 
 ```
 {

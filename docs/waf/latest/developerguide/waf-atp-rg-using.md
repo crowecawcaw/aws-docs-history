@@ -106,6 +106,7 @@ ATP rule group uses to inspect login requests.
     ###### Note
 
     ATP response inspection is available only in protection packs (web ACLs) that protect CloudFront distributions.
+     AWS WAF doesn't inspect responses for web requests that clients send over HTTP/3 (QUIC).
 
 
     Specify a single component in the login response that you want ATP to inspect.
