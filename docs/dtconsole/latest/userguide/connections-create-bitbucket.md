@@ -65,7 +65,7 @@ If you have already installed the Bitbucket app, choose it and move to
 the last step in this
 section.
 
-![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](images/newreview-source-wizard-bitbucket.png) 2. If the login page for Bitbucket displays, log in with your credentials and
+![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](/images/dtconsole/latest/userguide/images/newreview-source-wizard-bitbucket.png) 2. If the login page for Bitbucket displays, log in with your credentials and
 then choose to continue. 3. On the app installation page, a message shows that the AWS CodeStar app is trying to
 connect to your Bitbucket account.
 
