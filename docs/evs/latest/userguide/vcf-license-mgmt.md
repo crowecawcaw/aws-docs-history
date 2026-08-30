@@ -22,6 +22,7 @@ Your VCF solution key must have enough cores to provide adequate core capacity f
 | -------------- | -------------- | --------------------------------------- |
 | i4i.metal      | 64             | 256                                     |
 | i7i.metal-24xl | 48             | 192                                     |
+| i7i.metal-48xl | 96             | 384                                     |
 
 The vSAN license key must meet the instance-type-specific capacity requirement. The required capacity depends on the instance type selected:
 
@@ -29,6 +30,7 @@ The vSAN license key must meet the instance-type-specific capacity requirement. 
 | -------------- | ------------------------------------------------ |
 | i4i.metal      | 110 TiB                                          |
 | i7i.metal-24xl | 82 TiB                                           |
+| i7i.metal-48xl | 164 TiB                                          |
 
 Environment creation fails if you attempt to use undersized license keys.
 

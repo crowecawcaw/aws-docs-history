@@ -946,7 +946,7 @@ When you configure the management cluster during bringup, also apply these Amazo
 
 - **vSAN** — Use vSAN ESA (Express Storage Architecture) with failures-to-tolerate (FTT) set to at least 1.
 - **Uplink teaming** — Use a failover teaming policy (active uplink with a standby uplink) for the distributed switch port groups, rather than a load-balancing policy.
-- **EVC mode** — Set the cluster Enhanced vMotion Compatibility (EVC) mode to match your instance type: `INTEL_ICELAKE` for `i4i.metal`, or `INTEL_SAPPHIRERAPIDS` for `i7i.metal-24xl`.
+- **EVC mode** — Set the cluster Enhanced vMotion Compatibility (EVC) mode to match your instance type: `INTEL_ICELAKE` for `i4i.metal`, or `INTEL_SAPPHIRERAPIDS` for `i7i.metal-24xl` and `i7i.metal-48xl`.
 
 #### Prepare the VCF Installer host
 

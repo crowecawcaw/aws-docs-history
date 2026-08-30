@@ -53,7 +53,8 @@ Example response:
             "defaultEsxVersion": "ESXi-8.0U3g-24859861",
             "instanceTypes": [
                 "i4i.metal",
-                "i7i.metal-24xl"
+                "i7i.metal-24xl",
+                "i7i.metal-48xl"
             ]
         }
     ],
@@ -62,14 +63,36 @@ Example response:
             "instanceType": "i4i.metal",
             "esxVersions": [
                 "ESXi-8.0U3b-24280767",
-                "ESXi-8.0U3g-24859861"
+                "ESXi-8.0U3g-24859861",
+                "ESXi-9.0.2.0.25148076",
+                "ESXi-9.0.2.0100.25595025",
+                "ESXi-9.1.0.0100.25433460",
+                "ESXi-9.1.0.0200.25557999",
+                "ESXi-8.0U3k-25595708"
             ]
         },
         {
             "instanceType": "i7i.metal-24xl",
             "esxVersions": [
                 "ESXi-8.0U3b-24280767",
-                "ESXi-8.0U3g-24859861"
+                "ESXi-8.0U3g-24859861",
+                "ESXi-9.0.2.0.25148076",
+                "ESXi-9.0.2.0100.25595025",
+                "ESXi-9.1.0.0100.25433460",
+                "ESXi-9.1.0.0200.25557999",
+                "ESXi-8.0U3k-25595708"
+            ]
+        },
+        {
+            "instanceType": "i7i.metal-48xl",
+            "esxVersions": [
+                "ESXi-8.0U3b-24280767",
+                "ESXi-8.0U3g-24859861",
+                "ESXi-9.0.2.0.25148076",
+                "ESXi-9.0.2.0100.25595025",
+                "ESXi-9.1.0.0100.25433460",
+                "ESXi-9.1.0.0200.25557999",
+                "ESXi-8.0U3k-25595708"
             ]
         }
     ]
@@ -84,11 +107,11 @@ If the version you need shows `RESTRICTED`, and you have a particular need, see 
 
 Amazon EVS currently provides the following VCF versions for environment creation:
 
-| VCF version    | Default ESX version  | Status     | EC2 instance types        |
-| -------------- | -------------------- | ---------- | ------------------------- |
-| VCF-5.2.2      | ESXi-8.0U3g-24859861 | AVAILABLE  | i4i.metal, i7i.metal-24xl |
-| VCF-5.2.1      | ESXi-8.0U3b-24280767 | RESTRICTED | i4i.metal, i7i.metal-24xl |
-| SELF\_DEPLOYED | N/A                  | AVAILABLE  | i4i.metal, i7i.metal-24xl |
+| VCF version    | Default ESX version  | Status     | EC2 instance types                        |
+| -------------- | -------------------- | ---------- | ----------------------------------------- |
+| SELF\_DEPLOYED | N/A                  | AVAILABLE  | i4i.metal, i7i.metal-24xl, i7i.metal-48xl |
+| VCF-5.2.2      | ESXi-8.0U3g-24859861 | AVAILABLE  | i4i.metal, i7i.metal-24xl, i7i.metal-48xl |
+| VCF-5.2.1      | ESXi-8.0U3b-24280767 | RESTRICTED | i4i.metal, i7i.metal-24xl                 |
 
 ###### Note
 
