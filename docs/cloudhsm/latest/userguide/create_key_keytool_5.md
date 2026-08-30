@@ -10,7 +10,7 @@ into AWS CloudHSM as an extractable, persistent key.
 
 ###### ML-DSA key generation
 
-AWS CloudHSM does not support ML-DSA key generation through keytool **-genkeypair**. Use `KeyPairGenerator` or the CloudHSM CLI to generate ML-DSA key pairs, and store them in the CloudHSM KeyStore using `KeyStore.setKeyEntry()`.
+AWS CloudHSM does not support ML-DSA key generation through keytool **-genkeypair**. Use `KeyPairGenerator` or the CloudHSM CLI to generate ML-DSA key pairs, and store them in the CloudHSM KeyStore using `KeyStore.setKeyEntry()`. For an example, see [MldsaKeyStoreExampleRunner](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/MldsaKeyStoreExampleRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/MldsaKeyStoreExampleRunner.java") on the GitHub website.
 
 We strongly recommend generating non-exportable
 keys outside of keytool, and then importing corresponding certificates to the key
