@@ -20,7 +20,7 @@ _Amazon Simple Storage Service API Reference_.
 
 The following figure shows an upload using Amazon S3 POST.
 
-![An upload using Amazon S3 POST.](images/s3_post.png)
+![An upload using Amazon S3 POST.](/images/AmazonS3/latest/developerguide/images/s3_post.png)
 
 Uploading using POST| 1 | The user opens a web browser and accesses your web page. |
 | 2 | Your web page contains an HTTP form that contains all the information<br>necessary for the user to upload content to Amazon S3. |
