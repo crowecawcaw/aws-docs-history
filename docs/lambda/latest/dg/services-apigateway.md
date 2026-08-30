@@ -245,7 +245,7 @@ permissions to multiple stages, methods, or resources.
   `prod` stage.
 - `mnh1xmpli7/*/*/*` – Any method on all resources in all stages.
 
-For details on viewing the policy and removing statements, see [Viewing resource-based IAM policies in Lambda](access-control-resource-based.md "access-control-resource-based.md").
+For details on viewing the policy and removing statements, see [Working with resource-based policies in Lambda](access-control-resource-based.md "access-control-resource-based.md").
 
 ## Sample application
 

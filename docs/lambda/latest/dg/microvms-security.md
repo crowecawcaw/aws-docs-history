@@ -69,7 +69,7 @@ For a full walkthrough of connecting to a MicroVM shell, see [Shell access](micr
 
 ## Tagging resources
 
-Lambda MicroVM resources (images, MicroVMs) support AWS resource tags
+Lambda MicroVM images support AWS resource tags
 for organization and cost allocation. Add tags when creating an image using
 the `--tags` parameter or explicitly after creation. You can also
 list and delete tags, as demonstrated below: You can also reference tags in IAM policy conditions to control access to MicroVM resources.
@@ -124,8 +124,6 @@ policies to control access to MicroVM operations.
 ```
 # MicroVM image
 arn:aws:lambda:<region>:<account>:microvm-image:<image-name>
-# MicroVM instance
-arn:aws:lambda:<region>:<account>:microvm:<microvm-id>
 # Network connector
 arn:aws:lambda:<region>:<account>:network-connector:<connector-id>
 ```
@@ -134,26 +132,29 @@ arn:aws:lambda:<region>:<account>:network-connector:<connector-id>
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "lambda:RunMicrovm",
-        "lambda:GetMicrovm",
-        "lambda:ListMicrovms",
-        "lambda:SuspendMicrovm",
-        "lambda:ResumeMicrovm",
-        "lambda:TerminateMicrovm",
-        "lambda:CreateMicrovmAuthToken"
-      ],
-      "Resource": "arn:aws:lambda:*:123456789012:microvm:*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": ["lambda:GetMicrovmImage", "lambda:ListMicrovmImages"],
-      "Resource": "arn:aws:lambda:*:123456789012:microvm-image:*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "lambda:ListMicrovms",
+          "lambda:ListMicrovmImages"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "lambda:RunMicrovm",
+          "lambda:GetMicrovm",
+          "lambda:SuspendMicrovm",
+          "lambda:ResumeMicrovm",
+          "lambda:TerminateMicrovm",
+          "lambda:CreateMicrovmAuthToken",
+          "lambda:GetMicrovmImage"
+        ],
+        "Resource": "arn:aws:lambda:*:123456789012:microvm-image:*"
+      }
+    ]
 }
 ```

@@ -263,4 +263,4 @@ aws lambda put-function-recursion-config --function-name `yourFunctionName` --re
 
 ## Supported Regions for Lambda recursive loop detection
 
-Lambda recursive loop detection is supported in all [commercial Regions](../../../general/latest/gr/glos-chap.md#region "../../../general/latest/gr/glos-chap.md#region") except Mexico (Central) and Asia Pacific (New Zealand).
+Lambda recursive loop detection is supported in all [commercial Regions](../../../general/latest/gr/glos-chap.md#region "../../../general/latest/gr/glos-chap.md#region").

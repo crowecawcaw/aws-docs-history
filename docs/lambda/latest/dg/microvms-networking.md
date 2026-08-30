@@ -261,3 +261,262 @@ aws lambda-microvms run-microvm \
 Before you update or delete a connector, ensure all MicroVMs using it
 have terminated. Modifying a connector that is actively in use can cause
 network connectivity issues for running MicroVMs.
+
+## Using Lambda MicroVMs with interface VPC endpoints (AWS PrivateLink)
+
+You can use AWS PrivateLink for private connectivity over the AWS
+network between your VPC resources and Lambda MicroVMs, without traversing
+the public internet. MicroVMs supports two VPC endpoints, depending on the
+desired traffic destination:
+
+- **MicroVM management APIs** (create
+  images, run, suspend, terminate) – uses the existing Lambda VPC
+  endpoint (`com.amazonaws.`region`.lambda`).
+- **Connectivity to MicroVMs** (HTTPS
+  traffic to your running applications) – uses a separate endpoint
+  (`com.amazonaws.`region`.lambda-microvm`).
+
+### VPC endpoint for MicroVM management APIs
+
+Lambda MicroVMs shares the same VPC endpoint service as Lambda
+(`com.amazonaws.`region`.lambda`).
+For full instructions, see [Creating
+an interface endpoint for Lambda](configuration-vpc-endpoints.md#vpc-endpoint-create "configuration-vpc-endpoints.md#vpc-endpoint-create").
+
+#### Endpoint policy for MicroVM management APIs
+
+To control who can use your interface endpoint and which Lambda
+MicroVMs API actions they can perform, attach an endpoint policy. The
+policy specifies the principal that can perform actions, the actions
+they can perform, and the resources they can act on. Lambda MicroVMs
+actions use the `lambda:` IAM action prefix.
+
+For more information, see [Controlling
+access to services with VPC endpoints](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the
+_Amazon VPC User Guide_.
+
+The following example policy allows user `MyUser` to
+list and get MicroVM images through the endpoint:
+
+```
+{
+  "Statement": [
+    {
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:user/MyUser"
+      },
+      "Effect": "Allow",
+      "Action": [
+        "lambda:ListMicrovmImages",
+        "lambda:GetMicrovmImage"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+### VPC endpoint for MicroVM connectivity
+
+To keep HTTPS traffic to your running MicroVMs private, create an
+interface endpoint for the
+`com.amazonaws.`region`.lambda-microvm`
+service. This endpoint handles connections to MicroVM endpoint URLs
+(for example,
+`abc123def456.lambda-microvm.us-east-1.on.aws`).
+
+To learn more about interface endpoint properties, review the
+[interface
+endpoints guide](../../../vpc/latest/privatelink/interface-endpoints.md "../../../vpc/latest/privatelink/interface-endpoints.md") in the _Amazon VPC
+documentation_.
+
+#### Creating the endpoint
+
+**To create an interface endpoint for MicroVM
+connectivity (console)**
+
+1. Open the [Endpoints
+   page](https://console.aws.amazon.com/vpc/home#Endpoints "https://console.aws.amazon.com/vpc/home#Endpoints") of the Amazon VPC console.
+2. Choose **Create endpoint**.
+3. For **Service category**, verify that
+   **AWS services** is selected.
+4. For **Service Name**, choose
+   `com.amazonaws.`region`.lambda-microvm`.
+   Verify that the Type is **Interface**.
+5. Choose a VPC and subnets.
+6. To enable private DNS for the interface endpoint, select the
+   **Enable DNS name** check box
+   (recommended). This ensures that requests using
+   the public MicroVM endpoint hostname automatically resolve to your
+   interface endpoint, with no client-side changes required.
+7. For **Security group**, choose one or more
+   security groups. The security group must allow outbound TCP traffic
+   on port 443 to the endpoint network interfaces.
+8. Choose **Create endpoint**.
+
+To use the private DNS option, you must set the
+`enableDnsHostnames` and `enableDnsSupport`
+attributes of your VPC. For more information, see [Viewing and
+updating DNS support for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating") in the _Amazon VPC
+User Guide_.
+
+**To create an interface endpoint for MicroVM
+connectivity (AWS CLI)**
+
+```
+aws ec2 create-vpc-endpoint \
+  --vpc-id `vpc-ec43eb89` \
+  --vpc-endpoint-type Interface \
+  --service-name com.amazonaws.`us-east-1`.lambda-microvm \
+  --subnet-id `subnet-abababab` \
+  --security-group-id `sg-1a2b3c4d` \
+  --private-dns-enabled
+```
+
+To verify that the endpoint is available and that private DNS is in
+effect:
+
+```
+aws ec2 describe-vpc-endpoints \
+  --vpc-endpoint-ids `vpce-1a2b3c4d5e6f7g8h9` \
+  --query 'VpcEndpoints[0].{State:State,PrivateDns:PrivateDnsEnabled,Dns:DnsEntries[*].DnsName}'
+```
+
+#### Private DNS behavior
+
+**When private DNS is enabled**
+– The endpoint manages DNS resolution for
+`*.lambda-microvm.`region`.on.aws`
+inside your VPC. Your existing MicroVM endpoint hostnames (for example,
+`abc123def456.lambda-microvm.us-east-1.on.aws`) resolve to
+the private IP addresses of the endpoint network interfaces. No client
+change is required.
+
+**When private DNS is disabled**
+– Amazon VPC generates an endpoint-specific DNS name for your
+endpoint in the form
+``vpce-id-hash`.lambda-microvm.`region`.vpce.amazonaws.com`.
+To route traffic through this endpoint while still reaching the correct
+MicroVM, you must preserve the original MicroVM hostname in two
+places:
+
+- **TLS Server Name Indication
+  (SNI)** – The TLS handshake uses this value to
+  identify which MicroVM the connection is for.
+- **HTTP Host header** – The
+  proxy uses this value to route the request to the correct
+  MicroVM.
+
+If either value is set to the VPC endpoint hostname instead of the
+MicroVM hostname, the connection cannot be routed to the correct
+MicroVM.
+
+**Example: Connect through an
+endpoint-specific DNS name**
+
+The following example uses [curl](https://curl.se/ "https://curl.se/") with the
+`--connect-to` flag to redirect the TCP connection to your
+VPC endpoint while keeping the MicroVM hostname in the URL, SNI, and
+Host header:
+
+```
+ENDPOINT_HOST=abc123def456.lambda-microvm.us-east-1.on.aws
+VPCE_HOST=vpce-0a1b2c3d4e5f67890-a1b2c3d4.lambda-microvm.us-east-1.vpce.amazonaws.com
+
+curl --connect-to "$ENDPOINT_HOST:443:$VPCE_HOST:443" \
+  -H "x-aws-proxy-auth: $MICROVM_AUTH_TOKEN" \
+  -H "x-aws-proxy-port: 8080" \
+  "https://$ENDPOINT_HOST/"
+```
+
+The `--connect-to` flag tells curl to open the TCP
+connection to the VPC endpoint address, while the URL, TLS SNI, and
+Host header remain set to your MicroVM hostname.
+
+For more information, see [Accessing
+a service through an interface endpoint](../../../vpc/latest/privatelink/interface-endpoints.md#access-service-though-endpoint "../../../vpc/latest/privatelink/interface-endpoints.md#access-service-though-endpoint") in the
+_Amazon VPC User Guide_.
+
+#### Endpoint policy for MicroVM connectivity
+
+You can attach an endpoint policy to control which MicroVMs are
+reachable through the `lambda-microvm` VPC endpoint. An
+endpoint policy on the `lambda-microvm` service lets you
+scope connections to specific accounts or organizations. By default,
+the endpoint allows connections to MicroVMs in any AWS account.
+(Note: The client establishing the connection must still hold a valid
+MicroVM auth token to be granted access).
+
+By default, a VPC endpoint has a full-access policy that allows all
+traffic. When you replace the default policy with a custom policy,
+Lambda MicroVMs evaluates that policy against the
+`lambda:ConnectMicrovm` action on every connection made
+through the endpoint. If the policy does not allow connecting to
+MicroVMs, the connection is rejected with an HTTP 403 Forbidden
+response. A policy that does not grant
+`lambda:ConnectMicrovm` denies all connections through the
+endpoint.
+
+###### Note
+
+The `lambda:ConnectMicrovm` action authorizes a
+connection to a MicroVM endpoint through the interface endpoint. It
+is not a Lambda API operation and cannot be used in IAM identity-based
+or resource-based policies – it is valid only in a VPC
+endpoint policy.
+
+**Principal and resource**
+
+Connections to a MicroVM endpoint are authenticated with a MicroVM
+auth token rather than AWS Signature Version 4. For this reason, no
+IAM principal is associated with the connection. Instead, Lambda
+MicroVMs evaluates the endpoint policy with an anonymous principal.
+This means:
+
+- `Principal` must be `"*"`. A policy that
+  names a specific principal matches nothing and denies every
+  connection.
+- Condition keys that depend on requester identity (such as
+  `aws:PrincipalArn`, `aws:PrincipalOrgID`,
+  and `aws:userid`) are not populated and will not
+  match.
+- `Resource` must also be `"*"`. Lambda
+  MicroVMs does not scope endpoint policy evaluation to individual
+  MicroVM resource ARNs. To restrict which MicroVMs the endpoint can
+  reach, use the `aws:ResourceAccount` condition key
+  rather than the `Resource` element.
+
+**Supported condition keys**
+
+| Condition key         | Description                                                                    |
+| --------------------- | ------------------------------------------------------------------------------ |
+| `aws:ResourceAccount` | The AWS account that owns the MicroVM being connected<br>to.                   |
+| `aws:ResourceOrgID`   | The AWS Organizations organization ID of the account<br>that owns the MicroVM. |
+| `aws:SourceVpce`      | The ID of the interface endpoint the connection passed<br>through.             |
+| `aws:SourceVpc`       | The ID of the VPC the connection originated from.                              |
+| `aws:VpcSourceIp`     | The private IP address of the client that made the<br>connection.              |
+
+**Example: Allow connections only to MicroVMs
+in your own account**
+
+The following endpoint policy allows connections through the
+endpoint only to MicroVMs owned by account 111122223333. Connections to
+MicroVMs owned by any other account are denied.
+
+```
+{
+  "Statement": [
+    {
+      "Principal": "*",
+      "Effect": "Allow",
+      "Action": "lambda:ConnectMicrovm",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceAccount": "111122223333"
+        }
+      }
+    }
+  ]
+}
+```

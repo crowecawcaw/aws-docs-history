@@ -13,12 +13,12 @@ Capacity provider level metrics provide visibility into overall resource utiliza
 - **CapacityProviderName** - The name of your capacity provider
 - **InstanceType** - The EC2 instance type
 
-**Resource utilization metrics:**
+The following resource utilization metrics are available:
 
 - **CPUUtilization** - The percentage of CPU utilization across instances in the capacity provider
 - **MemoryUtilization** - The percentage of memory utilization across instances in the capacity provider
 
-**Capacity metrics:**
+The following capacity metrics are available:
 
 - **vCPUAvailable** - The amount of vCPU available on instances for allocation (in count)
 - **MemoryAvailable** - The amount of memory available on instances for allocation (in bytes)

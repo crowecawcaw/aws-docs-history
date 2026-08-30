@@ -273,7 +273,7 @@ If there is a failure (such as a function timeout or runtime error) during
 reason for the shutdown. If this environment is used for a new invocation, the extension and
 runtime are re-initialized as part of the next invocation.
 
-![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](/images/lambda/latest/dg/images/Overview-Invoke-with-Error.png)
+![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](images/Overview-Invoke-with-Error.png)
 
 For a more detailed explanation of the previous diagram, see
 [Failures during the invoke phase](lambda-runtime-environment.md#runtimes-lifecycle-invoke-with-errors "lambda-runtime-environment.md#runtimes-lifecycle-invoke-with-errors").
