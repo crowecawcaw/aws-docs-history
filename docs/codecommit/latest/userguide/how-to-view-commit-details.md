@@ -84,7 +84,7 @@ in the graph of commits.
 3. In the navigation pane, choose **Commits**, and then choose the
    **Commit visualizer** tab.
 
-![A graphical view of a repository in the console](/images/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
+![A graphical view of a repository in the console](images/codecommit-cv-complex1.png)
 
 In the commit graph, the abbreviated commit ID and the subject for each commit
 message appears next to that point in the graph.
