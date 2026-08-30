@@ -198,104 +198,128 @@ In this section, you provide additional details about your 10DLC campaign.
 6. Choose **Next**.
 7. For **Messaging use case** section, do the following:
 
-   1. For **Use case**, choose a use case that most closely
-      resembles your campaign from the preset list of use cases.
+###### Sub use cases apply only to Mixed and Low Volume
 
-      - **Account Notifications** – Standard
-        notifications for account holders, relating to and being about an
-        account.
-      - **Charity** – Communications from a
-        non-religious registered [501(c)(3) charity](<https://en.wikipedia.org/wiki/501(c)(3)_organization> "https://en.wikipedia.org/wiki/501(c)(3)_organization") aimed at providing
-        help and raising money for those in need.
-      - **Customer care** – All customer
-        interaction, including account management and customer
-        support.
-      - **Delivery notifications** – Information
-        about the status of the delivery of a product or service.
-      - **Fraud alert messaging** – Messaging
-        regarding potential fraudulent activity on an account.
-      - **Higher education** – Campaigns created on
-        behalf of Colleges or Universities. It also includes School
-        Districts and education institutions that fall outside of any
-        "free to the consumer" messaging model.
-      - **Low Volume** – Small throughput, any
-        combination of use-cases. Examples include: test, demo
-        accounts.
-      - **Marketing** – Any communication with
-        marketing and/or promotional content.
-      - **Mixed** – Mixed messaging reserved for
-        specific consumer service industry.
-      - **Public service announcement** – An
-        informational message that is meant to raise the audience's
-        awareness about an important issue.
-      - **Polling and voting** – Requests for
-        surveys and voting for non political arenas.
-      - **Security alert** – A notification that
-        the security of a system, either software or hardware, has been
-        compromised in some way and there is an action the end users need to
-        take.
-      - **Two factor authentication** – Any authentication, verification,
-        or one-time passcode.
+Sub use cases apply only to the **Mixed** and
+**Low Volume** use cases. For all other use cases, leave
+the sub use case field blank or your campaign registration is denied.
 
-   2. For **Sub use case – optional**, choose up to five
-      sub use cases.
-   3. **Subscriber opt-in** – Subscribers can opt in to
-      receive messages about this campaign.
-   4. **Subscriber opt-out** – Subscribers can opt out of
-      receiving messages about this campaign.
-   5. **Subscriber help** – Subscribers can contact the
-      message sender after sending the HELP keyword.
-   6. **Direct lending or loan arrangement** – The
-      campaign includes information about direct lending or other loan
-      arrangements.
-   7. **Embedded link** – Choose
-      **Yes** if the 10DLC campaign includes an embedded
-      link. Links from common URL shorteners, such as TinyUrl or Bit.ly, are not
-      allowed. However, you can use URL shorteners that offer custom
-      domains.
-   8. **Embedded link sample - optional** – An example of an embedded link
-      that to be sent. Links from common URL shorteners, such as TinyUrl or
-      Bit.ly, are not allowed. However, you can use URL shorteners that offer
-      custom domains.
-   9. **Embedded phone number** – The campaign includes a
-      phone number that isn't a customer support number.
-   10. **Age-gated content** – The 10DLC campaign includes
-       age-gated content as defined by carrier and Cellular Telecommunications and
-       Internet Association (CTIA) guidelines.
+    1. For **Use case**, choose a use case that most closely
+     resembles your campaign from the preset list of use cases.
 
-8. Choose **Next**.
-9. In the **Message samples** section, do the following:
 
-   1. Enter at least one **Message sample**. This is the sample
-      text message that you plan to send to your customers. Each sample message
-      has to be a minimum of 20 characters. If you plan to use multiple message
-      templates for this 10DLC campaign, include them as well.
 
-   ###### Important
 
-   Don't use placeholder text for your sample messages. The example
-   messages that you provide should reflect the actual messages that you
-   plan to send as accurately as possible and should not contain any [Prohibited message content](best-practices.md#best-practices-sms-message-content "best-practices.md#best-practices-sms-message-content").
+    	* **Account Notifications** – Standard
+    	 notifications for account holders, relating to and being about an
+    	 account.
+    	* **Charity** – Communications from a
+    	 non-religious registered [501(c)(3) charity](https://en.wikipedia.org/wiki/501(c)(3)_organization "https://en.wikipedia.org/wiki/501(c)(3)_organization") aimed at providing
+    	 help and raising money for those in need.
+    	* **Customer care** – All customer
+    	 interaction, including account management and customer
+    	 support.
+    	* **Delivery notifications** – Information
+    	 about the status of the delivery of a product or service.
+    	* **Fraud alert messaging** – Messaging
+    	 regarding potential fraudulent activity on an account.
+    	* **Higher education** – Campaigns created on
+    	 behalf of Colleges or Universities. It also includes School
+    	 Districts and education institutions that fall outside of any
+    	 "free to the consumer" messaging model.
+    	* **Low Volume** – Small throughput, any
+    	 combination of use-cases. Examples include: test, demo
+    	 accounts. (Requires selecting 1 to 5 sub use cases in the next
+    	 step.)
+    	* **Marketing** – Any communication with
+    	 marketing and/or promotional content.
+    	* **Mixed** – Mixed messaging reserved for
+    	 specific consumer service industry. (Requires selecting 2 to 5 sub
+    	 use cases in the next step.)
+    	* **Public service announcement** – An
+    	 informational message that is meant to raise the audience's
+    	 awareness about an important issue.
+    	* **Polling and voting** – Requests for
+    	 surveys and voting for non political arenas.
+    	* **Security alert** – A notification that
+    	 the security of a system, either software or hardware, has been
+    	 compromised in some way and there is an action the end users need to
+    	 take.
+    	* **Two factor authentication** – Any authentication, verification,
+    	 or one-time passcode.
+    2. **Sub use case** – Only applicable when
+     **Use case** is set to **Mixed** or
+     **Low Volume**. For any other use case, leave this
+     field blank. If you select a sub use case for a standalone use case (for
+     example, **Two factor authentication**,
+     **Marketing**, or **Account
+     Notifications**), AWS denies your 10DLC campaign registration.
+     The denial reason is "Campaign not qualified for use
+     case."
 
-10. Choose **Next**.
-11. In the **MMS file samples** section, do the following:
+
+
+
+    	* For **Mixed**, choose 2 to 5 sub use
+    	 cases.
+    	* For **Low Volume**, choose 1 to 5 sub use
+    	 cases.
+    For descriptions of each sub use case, see [AWS End User Messaging SMS 10DLC Campaign Types and Quotas for
+     SMS](https://aws.amazon.com/blogs/messaging-and-targeting/amazon-pinpoint-10dlc-campaign-types-and-quotas-for-sms "https://aws.amazon.com/blogs/messaging-and-targeting/amazon-pinpoint-10dlc-campaign-types-and-quotas-for-sms").
+    3. **Subscriber opt-in** – Subscribers can opt in to
+     receive messages about this campaign.
+    4. **Subscriber opt-out** – Subscribers can opt out of
+     receiving messages about this campaign.
+    5. **Subscriber help** – Subscribers can contact the
+     message sender after sending the HELP keyword.
+    6. **Direct lending or loan arrangement**  – The
+     campaign includes information about direct lending or other loan
+     arrangements.
+    7. **Embedded link**  – Choose
+     **Yes** if the 10DLC campaign includes an embedded
+     link. Links from common URL shorteners, such as TinyUrl or Bit.ly, are not
+     allowed. However, you can use URL shorteners that offer custom
+     domains.
+    8. **Embedded link sample - optional** – An example of an embedded link
+     that to be sent. Links from common URL shorteners, such as TinyUrl or
+     Bit.ly, are not allowed. However, you can use URL shorteners that offer
+     custom domains.
+    9. **Embedded phone number** – The campaign includes a
+     phone number that isn't a customer support number.
+    10. **Age-gated content** – The 10DLC campaign includes
+     age-gated content as defined by carrier and Cellular Telecommunications and
+     Internet Association (CTIA) guidelines.
+
+8. Choose **Next**. 9. In the **Message samples** section, do the following:
+
+    1. Enter at least one **Message sample**. This is the sample
+     text message that you plan to send to your customers. Each sample message
+     has to be a minimum of 20 characters. If you plan to use multiple message
+     templates for this 10DLC campaign, include them as well.
+
+
+    ###### Important
+
+    Don't use placeholder text for your sample messages. The example
+     messages that you provide should reflect the actual messages that you
+     plan to send as accurately as possible and should not contain any [Prohibited message content](best-practices.md#best-practices-sms-message-content "best-practices.md#best-practices-sms-message-content").
+
+10. Choose **Next**. 11. In the **MMS file samples** section, do the following:
 
     1. (Optional) MMS sample files are only required if you plan to send MMS
-       messages. In **MMS file samples** upload at least one
-       sample image. A single MMS media file can be up to 500KB for GIF, JPEG, and
-       PNG, and 600 KB in size for all other media file types, see [MMS file types, size and character limits](mms-limitations-character.md "mms-limitations-character.md").
+     messages. In **MMS file samples** upload at least one
+     sample image. A single MMS media file can be up to 500KB for GIF, JPEG, and
+     PNG, and 600 KB in size for all other media file types, see [MMS file types, size and character limits](mms-limitations-character.md "mms-limitations-character.md").
 
     ###### Important
 
     Don't use placeholder text in your sample MMS images. The example
-    MMS images that you provide should reflect the actual MMS image that you
-    plan to send as accurately as possible and should not contain any [Prohibited message content](best-practices.md#best-practices-sms-message-content "best-practices.md#best-practices-sms-message-content").
+     MMS images that you provide should reflect the actual MMS image that you
+     plan to send as accurately as possible and should not contain any [Prohibited message content](best-practices.md#best-practices-sms-message-content "best-practices.md#best-practices-sms-message-content").
 
-12. Choose **Next**.
-13. On the **Review and submit** page, verify the information you're
-    about to submit is correct. To make updates choose **Edit** next to
-    the section.
-14. Choose **Submit registration**.
+12. Choose **Next**. 13. On the **Review and submit** page, verify the information you're
+about to submit is correct. To make updates choose **Edit** next to
+the section. 14. Choose **Submit registration**.
 
 ###### Note
 

@@ -31,7 +31,6 @@ pre-approved by a regulatory agency before you can use them.
 - [Considerations for a sender ID](#sender-id-considerations "#sender-id-considerations")
 - [Sender ID display name rules](#channels-sms-countries-sender-id "#channels-sms-countries-sender-id")
 - [Request a sender ID](sender-id-request.md "sender-id-request.md")
-- [Request a sender ID through Support](sender-id-awssupport-open.md "sender-id-awssupport-open.md")
 - [Release a sender ID](sender-id-release.md "sender-id-release.md")
 - [Manage tags a for sender ID](sender-id-tags-add.md "sender-id-tags-add.md")
 - [List shared sender IDs](sender-id-shared.md "sender-id-shared.md")

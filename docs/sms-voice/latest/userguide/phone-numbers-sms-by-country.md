@@ -243,7 +243,7 @@ channel. However, if you purchase a long code that is based in the United States
 | South<br>Africa                                           | ZA       | 27                  | Yes                  | Yes                                               | No                                                                  | Yes                  | Yes                                                                    |
 | South Korea                                               | KR       | 82                  | No                   | No                                                | No                                                                  | No                   | Yes                                                                    |
 | South Sudan                                               | SS       | 211                 | No                   | No                                                | Yes                                                                 | No                   | No                                                                     |
-| Spain                                                     | ES       | 34                  | Yes                  | Yes                                               | Yes                                                                 | Yes                  | Yes                                                                    |
+| Spain                                                     | ES       | 34                  | Yes                  | Yes                                               | Registration required[8](#sms-support-note-8 "#sms-support-note-8") | Yes                  | Yes                                                                    |
 | Sri Lanka                                                 | LK       | 94                  | Yes                  | Yes                                               | Registration required[8](#sms-support-note-8 "#sms-support-note-8") | Yes                  | Yes                                                                    |
 | Suriname                                                  | SR       | 597                 | No                   | No                                                | Yes                                                                 | No                   | Yes                                                                    |
 | Sweden                                                    | SE       | 46                  | Yes                  | Yes                                               | Yes                                                                 | Yes                  | Yes                                                                    |
@@ -286,11 +286,9 @@ channel. However, if you purchase a long code that is based in the United States
 
 ###### Notes
 
-1. Senders are required to use a pre-registered alphabetic Sender ID. To request a
-   Sender ID from Support, [How to request a sender ID through Support](sender-id-awssupport-open.md "sender-id-awssupport-open.md"). Some countries require senders to meet
-   specific requirements or abide by certain restrictions to obtain approval.
-   In these cases, Support might contact you for additional information after you submit
-   your Sender ID request.
+1. You must use a pre-registered alphabetic Sender ID. All countries
+   with sender ID registration requirements have self-service registration forms
+   available in the console. For more information, see [Registration forms](registrations-country.md "registrations-country.md").
 2. Senders are required to use a pre-registered template for each type of message
    that they plan to send. If a sender doesn’t meet this requirement, their messages
    will be blocked. To register a template, [China SMS template registration form](phone-numbers-sms-template-registration.md "phone-numbers-sms-template-registration.md"). Some countries require
@@ -301,7 +299,7 @@ channel. However, if you purchase a long code that is based in the United States
 ###### Note
 
 To send messages to China, you must first register your templates
-through Support for approval. 3. Senders are required to use a pre-registered alphabetic Sender ID. Additional
+through Support for approval. 3. You must use a pre-registered alphabetic Sender ID. Additional
 registration steps are required. For more information, see [India sender ID registration process in AWS End User Messaging SMS](registrations-sms-senderid-india.md "registrations-sms-senderid-india.md"). 4. Long codes in these countries only support inbound messaging. In other words, you
 can't use these long codes to send messages _to_ your recipients,
 but you can use them to receive messages _from_ your recipients.

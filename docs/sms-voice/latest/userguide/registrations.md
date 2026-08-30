@@ -53,6 +53,8 @@ The following registration forms can be filled out and submitted through the AWS
   in Saudi Arabia. For more information on completing the registration, see [Saudi Arabia sender ID registration](registrations-saudi-arabia.md "registrations-saudi-arabia.md").
 - **Singapore sender ID registration** – Register a sender ID
   in Singapore. For more information on completing the registration, see [Singapore sender ID registration form](registrations-sg-form.md "registrations-sg-form.md").
+- **Spain sender ID registration** – Register a sender ID
+  in Spain. For more information on completing the registration, see [Spain sender ID registration](registrations-spain.md "registrations-spain.md").
 - **Sri Lanka sender ID registration** – Register a sender ID
   in Sri Lanka. For more information on completing the registration, see [Sri Lanka sender ID registration](registrations-sri-lanka.md "registrations-sri-lanka.md").
 - **Thailand sender ID registration** – Register a sender ID

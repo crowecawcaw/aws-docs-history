@@ -2,6 +2,14 @@
 
 Follow these directions to register your sender ID in United Arab Emirates.
 
+###### UAE Sender ID registrations temporarily paused
+
+The UAE Telecommunications and Digital Government Regulatory Authority (TDRA) is
+updating its Sender ID registration requirements. New UAE Sender ID registrations
+are paused until further notice. You may need to resubmit after the new requirements
+are determined; your registration status will be updated if more information is
+needed. This page will be updated when a timeline is available.
+
 1. Open the AWS End User Messaging SMS console at
    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
 2. In the navigation pane, under **Registrations**, choose **Create
