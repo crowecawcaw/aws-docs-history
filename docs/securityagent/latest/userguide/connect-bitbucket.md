@@ -4,10 +4,10 @@ Connect your AWS Security Agent to Bitbucket Cloud repositories to enable code r
 
 Bitbucket integration serves multiple purposes:
 
-- **Code review** - Automatically analyze the code changes in each pull request against your organizational security requirements, and run on-demand full-repository scans
-- **Threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
-- **Penetration testing context** - Provide application understanding for penetration testing
-- **Automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during security assessments
+- **Continuum for code review** - Automatically analyze the code changes in each pull request against your organizational security requirements, and run on-demand full-repository scans
+- **Continuum for threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
+- **Continuum for penetration testing context** - Provide application understanding for penetration testing
+- **Continuum for automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during security assessments
   Connecting Bitbucket to AWS Security Agent requires installing the AWS Security Agent Forge app on your Atlassian site and completing the OAuth authorization flow.
 
 ###### Note

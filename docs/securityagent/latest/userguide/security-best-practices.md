@@ -57,7 +57,7 @@ AWS Security Agent can provide security guidance on code changes through pull re
 
 AWS Security Agent does not provide code security guidance for public repositories. It will not comment on public repositories or open-source projects where security findings would be publicly visible.
 
-AWS Security Agent penetration tests can review and remediate private and public repositories that you configured for the penetration test. If the repository is public, the remediation code will be provided as a downloadable diff file instead of a pull request.
+Penetration tests can review and remediate private and public repositories that you configured for the penetration test. If the repository is public, the remediation code will be provided as a downloadable diff file instead of a pull request.
 
 ## Accessible URLs
 

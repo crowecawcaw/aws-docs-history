@@ -15,7 +15,7 @@ Before you begin, ensure you have:
 
 Choose the entry point that matches how your repositories are set up.
 
-### From the Penetration test tab
+### From the penetration test tab
 
 Use this path to add GitHub repositories for penetration testing and configure remediation in the same pass.
 
@@ -29,7 +29,7 @@ Use this path to add GitHub repositories for penetration testing and configure r
 4. Choose **Next** to choose GitHub repositories.
 5. Choose **Next** to configure repository capabilities.
 
-### From the Code review tab
+### From the code review tab
 
 Use this path when your repositories are already connected for code review.
 

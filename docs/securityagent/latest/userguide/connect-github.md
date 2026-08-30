@@ -8,10 +8,10 @@ GitHub integration serves multiple purposes:
 
 This page covers cloud-hosted GitHub (github.com) and cloud-hosted GitHub Enterprise. For self-hosted GitHub Enterprise Server, see [Connect AWS Security Agent to GitHub Enterprise](connect-github-enterprise.md "connect-github-enterprise.md").
 
-- **Code review** - Automatically analyze the code changes in each pull request against your organizational security requirements, and run on-demand full-repository scans
-- **Threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
-- **Penetration testing context** - Provide application understanding for penetration testing by analyzing source code
-- **Automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during security assessments
+- **Continuum for code review** - Automatically analyze the code changes in each pull request against your organizational security requirements, and run on-demand full-repository scans
+- **Continuum for threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
+- **Continuum for penetration testing context** - Provide application understanding for penetration testing by analyzing source code
+- **Continuum for automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during security assessments
   Connecting GitHub to AWS Security Agent requires authorizing the AWS Security Agent GitHub App for your GitHub organization or user account, then registering the connection in the AWS Console.
 
 ## How GitHub integration works
@@ -32,7 +32,7 @@ Before you begin, ensure you have:
 
 ###### Important
 
-A GitHub App can only be installed once to a GitHub account or GitHub organization. If you need to connect the same GitHub organization to AWS Security Agent, you must use the same AWS account where the integration was first registered.
+Multiple AWS accounts can connect to the same GitHub organization or user account. Each account gets an independent integration. However, only one account can enable **Code review comments** or **Code remediation** per repository. If a second account tries to enable these features for a repository already owned by another account, it receives the error "Code review comments or code remediation is already enabled for this repository by another account."
 
 ###### Important
 
@@ -165,15 +165,17 @@ Registration fails with an error such as "Security token validation error. Pleas
 
 Manually add the AWS Security Agent IP addresses for your AWS Region (see [Prerequisites](#connect-github-prerequisites "#connect-github-prerequisites")) to your organization’s IP allow list. Wait a few minutes for GitHub to apply them, then register the integration again.
 
-### Multiple AWS accounts trying to integrate the same GitHub organization
+### Multiple AWS accounts connecting to the same GitHub organization
 
-A GitHub App can only be installed once to a GitHub account or GitHub organization. If you need to use repositories from a GitHub organization that is already integrated with a different AWS Security Agent account, you must use the AWS account where the integration was first registered.
+Multiple AWS accounts can connect to the same GitHub organization or user account. When a second account connects to a GitHub organization where the app is already installed, GitHub shows only the authorization page—no re-installation is needed. The user authorizes and receives an independent integration.
+
+However, only one account can enable **Code review comments** or **Code remediation** per repository. If a second account tries to enable these features for a repository that is already owned by another account, it receives an error: "Code review comments or code remediation is already enabled for this repository by another account."
 
 **Resolution:**
 
-- Identify which AWS Security Agent account has the GitHub integration registered
-- Use that AWS account to create Agent Spaces and connect repositories
-- If you need to move the integration to a different AWS account, uninstall the GitHub App from the original AWS account first, then integrate it with the new account
+- On-demand features (code review, penetration testing, threat modeling) work for all connected accounts regardless of ownership.
+- To transfer automated scanning ownership, the current owner must disable code review comments for the repository. The new account can then enable it.
+- All accounts can list and access repositories from the shared GitHub organization independently.
 
 ## Next steps
 

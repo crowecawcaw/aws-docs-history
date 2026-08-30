@@ -66,13 +66,13 @@ Users access the Security Agent web application to conduct security assessments 
 
 **Select Agent Space** - When logging into the web application, users select which Agent Space to work in. Users can only see and access Agent Spaces they’ve been assigned to.
 
-**Penetration tests** - Configure and execute penetration tests by providing target URLs, authentication details, and documentation. AWS Security Agent performs autonomous testing to discover exploitable vulnerabilities through multi-step attack scenarios.
+**Continuum for penetration tests** - Configure and execute penetration tests by providing target URLs, authentication details, and documentation. AWS Security Agent performs autonomous testing to discover exploitable vulnerabilities through multi-step attack scenarios.
 
-**Code reviews** - Create and run code reviews that perform comprehensive static analysis across your full source code. Select GitHub repositories or S3 sources, configure scan settings, and review detailed security findings with remediation guidance. AWS Security Agent identifies security vulnerabilities and validates compliance with your organization’s custom security requirements across your entire codebase.
+**Continuum for code reviews** - Create and run code reviews that perform comprehensive static analysis across your full source code. Select GitHub repositories or S3 sources, configure scan settings, and review detailed security findings with remediation guidance. AWS Security Agent identifies security vulnerabilities and validates compliance with your organization’s custom security requirements across your entire codebase.
 
-**Threat models** - Create and run threat models by providing source code, technical design documents (scope docs), or both. Scope docs define what the agent focuses its analysis on; source code provides context about your existing system. Each run produces a system overview describing your application’s architecture, trust boundaries, data flows, and security posture, along with a set of threats classified by STRIDE category with severity levels and actionable recommendations.
+**Continuum for threat models** - Create and run threat models by providing source code, technical design documents (scope docs), or both. Scope docs define what the agent focuses its analysis on; source code provides context about your existing system. Each run produces a system overview describing your application’s architecture, trust boundaries, data flows, and security posture, along with a set of threats classified by STRIDE category with severity levels and actionable recommendations.
 
-**Design reviews** - Upload design documents and architecture specifications for analysis against organizational security requirements. Review findings with remediation guidance.
+**Continuum for design reviews** - Upload design documents and architecture specifications for analysis against organizational security requirements. Review findings with remediation guidance.
 
 **Review findings** - Examine detailed security findings from penetration tests, code reviews, threat models, and design reviews, including impact analysis, reproducible attack paths, and remediation guidance.
 

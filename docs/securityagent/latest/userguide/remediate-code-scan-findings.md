@@ -25,7 +25,7 @@ Pull requests created by AWS Security Agent are visible to all users who have re
 
 ## Automatic code remediation
 
-If you enabled **automatic code remediation** when creating the code review, AWS Security Agent generates fixes for all eligible findings as soon as the review completes. You don’t need to take any additional action. AWS Security Agent delivers each fix the same way as an on-demand fix, using the delivery methods described earlier in this topic.
+If you enabled **automatic code remediation** when creating the code review, AWS Security Agent generates fixes for all eligible and confirmed findings as soon as the review completes. You don’t need to take any additional action. AWS Security Agent delivers each fix the same way as an on-demand fix, using the delivery methods described earlier in this topic.
 
 Automatic code remediation covers both connected source code repositories and Amazon S3 sources.
 

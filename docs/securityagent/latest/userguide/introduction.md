@@ -1,3 +1,3 @@
 # Introduction
 
-Learn what AWS Security Agent does, how it works, and how its resources fit together.
+Learn what AWS Security Agent (now part of AWS Continuum) does, how it works, and how its resources fit together.

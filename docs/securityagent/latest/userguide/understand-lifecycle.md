@@ -52,7 +52,7 @@ A single repository can be connected to multiple Agent Spaces with different cap
 
 Each security capability in AWS Security Agent follows a different workflow model based on how security teams use it.
 
-### Penetration testing: Reusable configurations with independent executions
+### Continuum for penetration testing: Reusable configurations with independent executions
 
 Penetration tests use a configuration-and-run model that supports iterative security testing:
 
@@ -61,7 +61,7 @@ Penetration tests use a configuration-and-run model that supports iterative secu
 
 This model supports continuous security validation as you develop and deploy improvements.
 
-### Design reviews: One-off assessments with cloning
+### Continuum for design reviews: One-off assessments with cloning
 
 Design reviews are independent assessments that don’t follow a reusable configuration model:
 
@@ -71,7 +71,7 @@ Design reviews are independent assessments that don’t follow a reusable config
 
 This model supports point-in-time architectural security assessments.
 
-### Code reviews: Reusable configurations with on-demand scans and automatic PR analysis
+### Continuum for code reviews: Reusable configurations with on-demand scans and automatic PR analysis
 
 Code reviews provide two modes of operation for securing your source code:
 
@@ -80,7 +80,7 @@ Code reviews provide two modes of operation for securing your source code:
 
 Both modes use your configured code review settings (security vulnerabilities, custom requirements, or both) and support automated code remediation through pull requests.
 
-### Threat models: Reusable configurations with on-demand runs
+### Continuum for threat models: Reusable configurations with on-demand runs
 
 Threat models use a configuration-and-run model that supports iterative assessment of your architecture:
 

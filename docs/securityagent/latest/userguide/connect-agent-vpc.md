@@ -4,6 +4,10 @@ If the application you want to run a penetration test on is not available on the
 
 ###### Note
 
+If a private endpoint presents a Transport Layer Security (TLS) certificate that is not publicly trusted, also provide the trust anchor. This applies when the certificate is issued by a private or internal certificate authority (CA), an intermediate CA, or a self-signed certificate. Endpoint validation uses the trust anchor to accept the certificate. For more information, see [Provide trusted CA certificates for a penetration test](provide-trusted-ca-certificates.md "provide-trusted-ca-certificates.md").
+
+###### Note
+
 When testing endpoints in a private VPC, only endpoints resolving to IPs in known private IP ranges are allowed (see [VPC CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md "../../../vpc/latest/userguide/vpc-cidr-blocks.md") for more information). The following IPv4 and IPv6 ranges are allowed:
 
 ```

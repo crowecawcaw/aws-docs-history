@@ -1,6 +1,6 @@
 # Run code security scans from your IDE
 
-Run AWS Security Agent code security scans directly from your IDE using Kiro or Claude Code. The IDE integration lets you scan your local source code for security vulnerabilities, run differential scans on only changed code, and perform threat model reviews on design documents — all without leaving your development environment. Findings appear alongside your code with remediation guidance, and you can apply automated fixes directly from the IDE.
+Run code security scans directly from your IDE using Kiro or Claude Code. The IDE integration lets you scan your local source code for security vulnerabilities, run differential scans on only changed code, and perform threat model reviews on design documents — all without leaving your development environment. Findings appear alongside your code with remediation guidance, and you can apply automated fixes directly from the IDE.
 
 ## How IDE integration works
 

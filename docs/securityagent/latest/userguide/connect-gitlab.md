@@ -4,10 +4,10 @@ Connect your AWS Security Agent to GitLab Cloud repositories to enable code revi
 
 GitLab integration serves multiple purposes:
 
-- **Code review** - Automatically analyze the code changes in each merge request against your organizational security requirements, and run on-demand full-repository scans
-- **Threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
-- **Penetration testing context** - Provide application understanding for penetration testing by analyzing source code
-- **Automated remediation** - Submit merge requests with fixes for vulnerabilities discovered during security assessments
+- **Continuum for code review** - Automatically analyze the code changes in each merge request against your organizational security requirements, and run on-demand full-repository scans
+- **Continuum for threat modeling** - Provide application understanding by analyzing source code, data flows, and architecture
+- **Continuum for penetration testing context** - Provide application understanding for penetration testing by analyzing source code
+- **Continuum for automated remediation** - Submit merge requests with fixes for vulnerabilities discovered during security assessments
   Connecting GitLab to AWS Security Agent requires providing a GitLab access token with the appropriate permissions, then registering the connection in the AWS Console.
 
 ## How GitLab integration works

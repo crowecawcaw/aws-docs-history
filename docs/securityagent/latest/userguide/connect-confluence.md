@@ -4,9 +4,9 @@ Connect your AWS Security Agent to Confluence Cloud to provide documentation con
 
 Confluence integration serves multiple purposes:
 
-- **Design review context** - Provide architectural documents and design specifications for security design reviews
-- **Threat modeling** - Provide existing threat models and system documentation for threat analysis
-- **Penetration testing context** - Provide application documentation for deeper understanding during penetration testing
+- **Continuum for design review context** - Provide architectural documents and design specifications for security design reviews
+- **Continuum for threat modeling** - Provide existing threat models and system documentation for threat analysis
+- **Continuum for penetration testing context** - Provide application documentation for deeper understanding during penetration testing
   Connecting Confluence to AWS Security Agent requires installing the AWS Security Agent Forge app on your Atlassian site and completing the OAuth authorization flow.
 
 ###### Note
