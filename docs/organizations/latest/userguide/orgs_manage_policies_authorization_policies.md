@@ -61,9 +61,9 @@ The following table details general use cases for using an SCP and RCPs
 |                                                                  | **Impacts**     |
 | ---------------------------------------------------------------- | --------------- |
 | **Use case**                                                     | **Policy type** | **Your identities** | **External identities** | **Your Resources** | **External resources (target of the request)** |
-| Restrict which services or actions your identities can use       | SCP             | X                   |                         | X                  | X                                              |
-| Restrict which resources your identities can access              | SCP             | X                   |                         | X                  | X                                              |
-| Enforce requirements on how your identities can access resources | SCP             | X                   |                         | X                  | X                                              |
-| Restrict which identities can access your resources              | RCP             | X                   | X                       | X                  |                                                |
-| Protect sensitive resources in your organization                 | RCP             | X                   | X                       | X                  |                                                |
-| Enforce requirements on how your resources can be accessed       | RCP             | X                   | X                       | X                  |                                                |
+| Restrict which services or actions your identities can use       | SCP             | Yes                 | No                      | Yes                | Yes                                            |
+| Restrict which resources your identities can access              | SCP             | Yes                 | No                      | Yes                | Yes                                            |
+| Enforce requirements on how your identities can access resources | SCP             | Yes                 | No                      | Yes                | Yes                                            |
+| Restrict which identities can access your resources              | RCP             | Yes                 | Yes                     | Yes                | No                                             |
+| Protect sensitive resources in your organization                 | RCP             | Yes                 | Yes                     | Yes                | No                                             |
+| Enforce requirements on how your resources can be accessed       | RCP             | Yes                 | Yes                     | Yes                | No                                             |

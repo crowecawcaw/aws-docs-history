@@ -116,7 +116,7 @@ don’t need to complete these steps.
 
 ###### To disable trusted access using the AWS Resource Access Manager console or CLI
 
-See [Enable Sharing with AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the
+See [Disabling resource sharing with AWS Organizations](../../../ram/latest/userguide/security-disable-sharing-with-orgs.md "../../../ram/latest/userguide/security-disable-sharing-with-orgs.md") in the
 _AWS RAM User Guide_.
 
 You can disable trusted access by using either the AWS Organizations console,
