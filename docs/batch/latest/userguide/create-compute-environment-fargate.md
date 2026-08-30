@@ -70,6 +70,15 @@ _Amazon VPC User Guide_. For more information, see
      your instances. By default, the default security group for your VPC is chosen.
     4. Choose **Next page**.
 
-8. For **Review**, review the configuration steps. If you
+8. (Optional) For **Container insights**, choose the monitoring level for
+the compute environment:
+
+    * **Enabled** – Collects cluster-level and service-level
+     metrics.
+    * **Enhanced** – Provides additional per-container metrics and
+     resource observability at the job level.
+
+Container Insights incurs additional CloudWatch charges. For more information, see
+[AWS Batch CloudWatch Container Insights](cloudwatch-container-insights.md "cloudwatch-container-insights.md"). 9. For **Review**, review the configuration steps. If you
 need to make changes, choose **Edit**. When you're finished,
 choose **Create compute environment**.

@@ -299,6 +299,15 @@ _Amazon VPC User Guide_. For more information, see
      configuration is saved. If the default or latest version changes in the future, you
      must update the information - it won't automatically update.
 
-8. Choose **Next page**. 9. For **Review**, review the configuration steps. If you
+8. Choose **Next page**. 9. (Optional) For **Container insights**, choose the monitoring level for
+the compute environment:
+
+    * **Enabled** – Collects cluster-level and service-level
+     metrics.
+    * **Enhanced** – Provides additional per-container metrics and
+     resource observability at the job level.
+
+Container Insights incurs additional CloudWatch charges. For more information, see
+[AWS Batch CloudWatch Container Insights](cloudwatch-container-insights.md "cloudwatch-container-insights.md"). 10. For **Review**, review the configuration steps. If you
 need to make changes, choose **Edit**. When you're finished,
 choose **Create compute environment**.
