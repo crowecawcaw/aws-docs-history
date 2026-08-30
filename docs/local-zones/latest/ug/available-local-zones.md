@@ -39,6 +39,7 @@ The following Local Zones are available in North America:
 | -------------------------- | ------------------ | --------------- | -------------------- | ------------------ | -------------- | ----------------------------------------- |
 | México (Querétaro)         | `us-east-1-qro-1a` | `use1-qro1-az1` | `us-east-1-qro-1`    | `us-east-1`        | `use1-az1`     | `Mexico`                                  |
 | US East (Atlanta) 2        | `us-east-1-atl-2a` | `use1-atl2-az1` | `us-east-1-atl-2`    | `us-east-1`        | `use1-az5`     | `Georgia, United States of America`       |
+| US East (Atlanta) 2        | `us-east-1-atl-2b` | `use1-atl2-az2` | `us-east-1-atl-2`    | `us-east-1`        | `use1-az2`     | `Georgia, United States of America`       |
 | US East (Atlanta)\*        | `us-east-1-atl-1a` | `use1-atl1-az1` | `us-east-1-atl-1`    | `us-east-1`        | `use1-az4`     | `Georgia, United States of America`       |
 | US East (Boston)           | `us-east-1-bos-1a` | `use1-bos1-az1` | `us-east-1-bos-1`    | `us-east-1`        | `use1-az4`     | `Massachusetts, United States of America` |
 | US East (Chicago) 2        | `us-east-1-chi-2a` | `use1-chi2-az1` | `us-east-1-chi-2`    | `us-east-1`        | `use1-az6`     | `Illinois, United States of America`      |
