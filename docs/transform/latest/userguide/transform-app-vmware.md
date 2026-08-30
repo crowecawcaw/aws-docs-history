@@ -3,7 +3,7 @@
 AWS Transform can help you migrate your virtual and bare metal server environments to Amazon EC2
 by using generative AI, including VMware, Hyper-V, and other sources. An AI-powered agent
 accelerates each stage of your migration, from discovery and planning through network
-migration and server rehost, reducing the manual effort traditionally required for
+migration and server rehost. This reduces the manual effort traditionally required for
 large-scale migrations. You interact with the agent through a conversational interface that
 guides you step by step, so you can focus on decisions rather than execution.
 

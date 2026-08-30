@@ -2,11 +2,12 @@
 
 AWS Transform guides you through designing and deploying an AWS landing zone as part
 of your migration project. A landing zone is a multi-account AWS environment that
-serves as the foundation for your workloads with organizational boundaries,
+serves as the foundation for your workloads. It puts organizational boundaries,
 governance controls, and account structure in place before any workloads arrive.
-AWS Transform analyzes your migration inventory and business requirements to recommend an
-Organizational Unit (OU) and account structure, apply recommended Service Control
-Policies (SCPs), and generate and/or deploy the infrastructure as code (IaC). What
+AWS Transform analyzes your migration inventory and business requirements. Based on this
+analysis, it recommends an Organizational Unit (OU) and account structure, applies
+recommended Service Control Policies (SCPs), and generates and deploys the
+infrastructure as code (IaC). What
 typically takes weeks of manual planning and configuration, AWS Transform can complete
 in a single conversation.
 
@@ -21,8 +22,8 @@ The landing zone agent automates two phases:
   AWS Transform supports both greenfield environments (no existing landing zone) and
   brownfield environments (existing OUs and accounts already deployed). In brownfield
   scenarios, AWS Transform detects your existing organization structure and recommends only
-  the changes needed to fill gaps against AWS best practices, without requiring you
-  to start from scratch or perform a manual gap analysis.
+  the changes needed to fill gaps against AWS best practices. You don't have to
+  start from scratch or perform a manual gap analysis.
 
 ## Connector setup
 
@@ -51,7 +52,7 @@ When you approve the connector request, you grant AWS Transform permissions to:
   - [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") management (creating and managing
     organizational units, creating accounts, and moving
     accounts)
-  - Service control policy (SCP) management via AWS Control
+  - Service control policy (SCP) management through AWS Control
     Tower
   - [AWS Service Catalog](../../../servicecatalog/latest/adminguide/introduction.md "../../../servicecatalog/latest/adminguide/introduction.md") provisioning artifact management
 
@@ -68,12 +69,11 @@ target Region for confirmation. For more information, see
 ###### Important
 
 **IAM Identity Center Region dependency** –
-AWS Transform requires AWS IAM Identity Center (IAM Identity Center),
-which means your connector Region must match both your AWS Control Tower
-home Region _and_ your IAM Identity Center Region. If
-IAM Identity Center is already configured in your organization, AWS
-Control Tower initialization will fail if the connector targets a different
-Region. For more information, see [Considerations for IAM Identity Center customers](../../../controltower/latest/userguide/getting-started-prereqs.md "../../../controltower/latest/userguide/getting-started-prereqs.md") in the AWS
+AWS Transform requires AWS IAM Identity Center. Your connector Region must
+match both your AWS Control Tower home Region _and_
+your IAM Identity Center Region. If IAM Identity Center is already
+configured in your organization and the connector targets a different
+Region, AWS Control Tower initialization fails. For more information, see [Considerations for IAM Identity Center customers](../../../controltower/latest/userguide/getting-started-prereqs.md "../../../controltower/latest/userguide/getting-started-prereqs.md") in the AWS
 Control Tower User Guide.
 
 ## Foundation setup
@@ -87,11 +87,17 @@ that form the governance foundation for your entire AWS Organization:
 - **Root** – The top-level parent that
   contains all OUs in your landing zone.
 - **Security OU** – Created automatically
-  by Control Tower. Contains two shared accounts: the **Log Archive account** (centralized, immutable
-  logging for all AWS API activity and resource changes across your
-  organization) and the **Audit account**
-  (read-only access to all accounts for security and compliance review).
-  These accounts cannot be renamed or replaced after initial setup.
+  by Control Tower. It contains two shared accounts:
+
+  - **Log Archive account** –
+    Centralized, immutable logging for all AWS API activity and
+    resource changes across your organization.
+  - **Audit account** – Read-only
+    access to all accounts for security and compliance
+    review.
+    These accounts cannot be renamed or replaced after initial
+    setup.
+
 - **Mandatory controls (guardrails)** –
   Control Tower automatically applies preventive and detective controls
   across your organization to enforce baseline governance policies. These
@@ -104,8 +110,8 @@ that form the governance foundation for your entire AWS Organization:
 
 Control Tower uses [CloudFormation
 StackSets](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") to deploy and manage these resources consistently across
-all accounts and Regions in your organization. You must not modify or delete
-Control Tower managed resources outside of supported methods, as doing so can
+all accounts and Regions in your organization. Don't modify or delete
+Control Tower managed resources outside of supported methods. Doing so can
 cause your landing zone to enter an unknown state.
 
 ### Account email convention
@@ -197,10 +203,9 @@ After the foundation design is complete, you choose how to deploy:
 
 If AWS Transform detects that AWS Control Tower is not yet initialized in your
 organization, it provides the user with a link to the AWS Transform console page.
-Generating the operation in the link will create a CloudFormation stack to bootstrap
-Control Tower. The process will create this stack in the CloudFormation console for
-your target Region. After the stack creation is complete, AWS Transform continues
-with the deployment.
+Generating the operation in the link creates a CloudFormation stack to bootstrap
+Control Tower in the CloudFormation console for your target Region. After the stack
+is created, AWS Transform continues with the deployment.
 
 ## Workload account design
 
@@ -300,16 +305,16 @@ artifacts in the following formats:
   Configuration YAML files based on LZA Universal Configuration version
   1.1.0. These enterprise-ready templates work with the Landing Zone
   Accelerator on AWS to establish multi-account AWS environments. The
-  generated files include pre-configured settings for governance,
-  organization structure, and networking that align with AWS best
-  practices. To learn more, see [LZA Universal Configuration](../../../solutions/latest/landing-zone-accelerator-on-aws/universal-configuration.md "../../../solutions/latest/landing-zone-accelerator-on-aws/universal-configuration.md").
+  generated files include preconfigured settings for governance,
+  organization structure, and networking. These settings align with AWS
+  best practices. To learn more, see [LZA Universal Configuration](../../../solutions/latest/landing-zone-accelerator-on-aws/universal-configuration.md "../../../solutions/latest/landing-zone-accelerator-on-aws/universal-configuration.md").
 
 ###### Note
 
-When deploying via the Landing Zone Accelerator (LZA) pipeline, your
+When you deploy through the Landing Zone Accelerator (LZA) pipeline, your
 AWS Transform account and LZA installation must be in the same AWS
-Organization. Deployment will fail if there is a mismatch between the
-Organizations IDs used in AWS Transform and LZA. To learn how to set up your LZA
+Organization. Deployment fails if the Organizations IDs used in AWS Transform
+and LZA don't match. To learn how to set up your LZA
 installation using Organizations, see [AWS Organizations based installation](../../../solutions/latest/landing-zone-accelerator-on-aws/aws-organizations-based-installation.md "../../../solutions/latest/landing-zone-accelerator-on-aws/aws-organizations-based-installation.md").
 
 After you select a format, AWS Transform generates the artifacts and makes them
@@ -353,15 +358,15 @@ All landing zone resources receive the following tags:
 ###### Note
 
 If your migration is part of the AWS Migration Acceleration Program
-(MAP 2.0), you can include the required MAP tag: Key:
-`map-migrated` Value: `migMPE_ID` (where
-MPE\_ID is your Migration Portfolio Evaluation identifier). The MAP tag
-is requested during the connector setup phase. AWS Transform
+(MAP 2.0), you can include the required MAP tag. The key is
+`map-migrated` and the value is `migMPE_ID`,
+where MPE\_ID is your MPE identifier. The MAP
+tag is requested during the connector setup phase, and AWS Transform
 applies these tags during landing zone deployment.
 
 ## Reversing changes
 
-Only non-deployed elements can be removed. Once an OU or account is deployed,
+Only non-deployed elements can be removed. After an OU or account is deployed,
 it cannot be removed through the landing zone agent.
 
 When removing elements, order matters — you must remove children before

@@ -1,6 +1,6 @@
 # Migrate your network to AWS
 
-With AWS Transform, you can migrate your network to AWS in a fraction of the time it takes to design and deploy manually. AWS Transform uses an AI-powered agent to translate your source environment configuration into production-ready AWS network resources, including VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables. You review and modify the generated network configuration through a conversational interface before deployment. You can deploy directly with AWS Transform or choose self-deployment and receive Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
+With AWS Transform, you can migrate your network to AWS in as little as hours instead of the weeks it takes to design and deploy manually. AWS Transform uses an AI-powered agent to translate your source environment configuration into production-ready AWS network resources. These include VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables. You review and modify the generated network configuration through a conversational interface before deployment. You can deploy directly with AWS Transform or choose self-deployment and receive Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
 
 The AWS Transform agent guides you through the following steps, handling the analysis and generation while you make the decisions:
 
@@ -21,10 +21,10 @@ For multi-account deployments, you must configure cross-account IAM roles and tr
 
 AWS Transform generates target network infrastructure from a wide variety of source
 network configuration files. Upload one or more configuration files from your source
-environment, and AWS Transform uses the information to generate target networks including
-Amazon VPCs, subnets, and security groups. While AWS Transform does not generate firewall
-or load balancer resources, configuration from these network elements can be used as
-input to generate target networks.
+environment, and AWS Transform uses them to generate target networks, including
+Amazon VPCs, subnets, and security groups. AWS Transform does not generate firewall
+or load balancer resources. However, it can use configuration from these network
+elements as input to generate target networks.
 
 AWS Transform accepts configuration files from the following source types:
 
@@ -37,6 +37,10 @@ AWS Transform accepts configuration files from the following source types:
 ###### Note
 
 The maximum supported source network file size is 70 MB.
+
+###### Note
+
+To enable stale security group rule removal during network review, submit observed network traffic data from the [AWS Transform discovery tool](discovery-tool.md "discovery-tool.md") or modelizeIT alongside your source network configuration. For more information, see [Guided network recommendations](#transform-vmware-guided-recommendations "#transform-vmware-guided-recommendations").
 
 ###### Warning
 
@@ -87,7 +91,7 @@ To enable internet access for an Isolated VPC, complete the following steps:
 2. Create public subnets in each Availability Zone where you need internet access. Add a route for `0.0.0.0/0` pointing to the internet gateway. For more information about subnet configuration, see [Subnets for your VPC](../../../vpc/latest/userguide/configure-subnets.md "../../../vpc/latest/userguide/configure-subnets.md").
 3. Create [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in the public subnets (one per AZ for high availability). Allocate an Elastic IP for each NAT gateway.
 4. Update your private subnet [route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md "../../../vpc/latest/userguide/VPC_Route_Tables.md"). Add a route for `0.0.0.0/0` pointing to the NAT gateway in the same AZ.
-5. Review your [security group rules](../../../vpc/latest/userguide/security-group-rules.md "../../../vpc/latest/userguide/security-group-rules.md"). Ensure outbound rules allow the traffic your workloads need (HTTPS, DNS, etc.).
+5. Review your [security group rules](../../../vpc/latest/userguide/security-group-rules.md "../../../vpc/latest/userguide/security-group-rules.md"). Ensure outbound rules allow the traffic your workloads need (for example, HTTPS and DNS).
 
 For VPC-to-VPC communication, set up [VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") or a [Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") and update route tables in each VPC to route traffic to the peering connection or TGW attachment.
 
@@ -100,10 +104,13 @@ In this model, an [AWS Transit Gateway](../../../vpc/latest/tgw/what-is-transit-
 AWS Transform creates the following resources:
 
 - **Spoke VPCs:** One VPC per detected source network segment, with private subnets and a Transit Gateway attachment.
-- **Inspection VPC:** Hosts your firewall appliance for traffic inspection. All cross-VPC traffic is routed through this VPC. The Transit Gateway attachment uses [appliance mode](../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md "../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md"), a setting that ensures traffic flows symmetrically through the same appliance for both directions of a connection.
+- **Inspection VPC:** Hosts your firewall appliance for traffic inspection. All cross-VPC traffic is routed through this VPC. The Transit Gateway attachment uses [appliance mode](../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md "../../../vpc/latest/tgw/transit-gateway-appliance-scenario.md"), which ensures traffic flows symmetrically through the same appliance in both directions of a connection.
 - **Inbound VPC:** Handles traffic entering your network from the public internet (north-south inbound). Includes an [internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") and public subnets across multiple Availability Zones.
 - **Outbound VPC:** Handles traffic leaving your network to the public internet (north-south outbound). Includes an internet gateway, [NAT gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") with [elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") in each Availability Zone for high availability, and private subnets for the Transit Gateway attachment.
-- **Transit Gateway route tables:** Two route tables steer traffic through the Inspection VPC. The _Uninspected_ table is associated with spoke VPCs, Inbound VPC, and Outbound VPC. It routes all traffic (0.0.0.0/0) to the Inspection VPC attachment and is the default association route table. The _Inspected_ table is associated with the Inspection VPC. It contains propagated routes from all spoke VPCs and is the default propagation route table.
+- **Transit Gateway route tables:** Two route tables steer traffic through the Inspection VPC:
+
+  - The _Uninspected_ table is associated with spoke VPCs, Inbound VPC, and Outbound VPC. It routes all traffic (0.0.0.0/0) to the Inspection VPC attachment and is the default association route table.
+  - The _Inspected_ table is associated with the Inspection VPC. It contains propagated routes from all spoke VPCs and is the default propagation route table.
 
 For multi-account deployments, the Transit Gateway is shared across accounts through [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md").
 
@@ -148,7 +155,14 @@ AWS Transform creates security groups on a best-effort basis to match your sourc
 
 When security groups are generated, AWS Transform uses security group referencing where supported. Security group referencing sets security rules based on another security group ID rather than specific IP address ranges (CIDR blocks). This approach provides more flexible and maintainable security configurations.
 
-Your security group rules can only reference other security groups within the same VPC, or in a VPC that is connected within the same Region. Cross-account references are also supported. You cannot reference a security group in a non-connected VPC or across Regions. For connected VPCs, only inbound rules support cross-VPC security group references. Outbound rules must use CIDR-based rules. How AWS Transform creates security group rules depends on your chosen network topology:
+Security group referencing follows these rules:
+
+- Rules can reference other security groups within the same VPC, or in a VPC that is connected within the same Region.
+- Cross-account references are supported.
+- You cannot reference a security group in a non-connected VPC or across Regions.
+- For connected VPCs, only inbound rules support cross-VPC security group references. Outbound rules must use CIDR-based rules.
+
+How AWS Transform creates security group rules depends on your chosen network topology:
 
 - **Hub and Spoke:** Transit Gateway provides network connectivity between VPCs. AWS Transform uses referencing for both within-VPC and cross-VPC/cross-account ingress rules. Cross-VPC/cross-account egress (outbound) rules use CIDR-based rules.
 - **Isolated VPCs:** Your VPCs have no network connectivity between them. AWS Transform uses referencing for within-VPC rules only. All cross-VPC and cross-account rules use CIDR-based rules.
@@ -271,9 +285,17 @@ AWS Transform might recommend the following optimizations:
 
 - **CIDR conflict resolution:** Flags overlapping CIDR ranges between your mapped VPCs and existing VPCs across all accounts in your AWS Organization. Conflicting VPCs are shown first. You can resolve conflicts by re-addressing the mapped VPC, excluding or deleting it, or acknowledging the conflict and resolving it yourself after deployment.
 - **Naming standardization:** Flags VPC names that don't follow a consistent pattern (for example, names containing hardware references). AWS Transform asks for your cloud naming convention before proposing replacements.
-- **Scope review:** Identifies network segments that may not need to migrate to AWS, such as legacy systems or constructs pending decommission. AWS Transform asks for your confirmation before excluding any construct.
+- **Scope review:** Identifies network segments that might not need to migrate to AWS, such as legacy systems or constructs pending decommission. AWS Transform asks for your confirmation before excluding any construct.
 - **VPC capacity right-sizing:** Surfaces VPCs where the CIDR appears oversized or undersized for the subnets it contains. AWS Transform presents the current capacity data and lets you decide whether to resize.
 - **Security review:** Flags security group rules that allow unrestricted inbound traffic (0.0.0.0/0) for your review.
+- **Stale security group rule removal:** Identifies unused inbound firewall rules migrated from your on-premises environment and suggests removing them, so you don't carry forward security exposure that no longer serves a purpose. This recommendation works as follows:
+
+  - To identify unused rules, AWS Transform uses observed network traffic data collected by the [AWS Transform discovery tool](discovery-tool.md "discovery-tool.md") or modelizeIT. You must submit this traffic data alongside your source network input.
+  - AWS Transform compares your migrated firewall rules against the observed traffic over the observation window captured in that data. It flags a rule as unused when no inbound traffic matches it. The absence of observed inbound traffic is a reliable signal that a rule is unused.
+  - Without traffic data, AWS Transform cannot determine which rules are unused and does not suggest removals.
+  - AWS Transform removes only unused ingress (inbound) rules.
+    Review the suggested removals before you apply them to confirm that they align with your security policies.
+
 - **VPC consolidation:** Identifies fragmented VPCs that appear separated by physical infrastructure limits rather than logical isolation requirements, and suggests merging them.
 
 ###### Note
@@ -298,7 +320,7 @@ AWS Transform automatically tags your migrated network resources (VPCs, subnets,
 - **Key:** `CreatedBy` **Value:** `AWSApplicationMigrationService`
 - **Key:** `ATWorkspace` **Value:** `workspace-id`
 
-These tags allow using the VPC and subnet for launching test and cutover instances in AWS.
+These tags allow you to use the VPC and subnet to launch test and cutover instances in AWS.
 
 ###### Note
 
@@ -350,7 +372,7 @@ You must get explicit approval before your network deployment request runs. See 
 
 ###### Note
 
-When you deploy through the Landing Zone Accelerator (LZA) pipeline, your AWS Transform account and LZA installation must be in the same AWS Organization. Deployment will fail if there is a mismatch between the Organization IDs.
+When you deploy through the Landing Zone Accelerator (LZA) pipeline, your AWS Transform account and LZA installation must be in the same AWS Organization. Deployment fails if the Organization IDs don't match.
 
 For self-deployment, use the link provided to download a zip file containing the generated templates. The zip folder includes a README.md file that explains how to use the generated templates.
 
@@ -358,7 +380,9 @@ To verify the downloaded file hasn't been corrupted or tampered with, generate a
 
 ### Deployment approvals process
 
-To ensure that network changes comply with your organization's security standards and architectural requirements, all deployment requests go through an approval workflow. You must get explicit approval before your network deployment request runs. When you submit a deployment request, it automatically routes to authorized approvers through the AWS Transform Approvals tab. Approvers validate both CloudFormation templates and network configurations to ensure compliance with security standards and architectural requirements. Each submission triggers a new review cycle, and deployments proceed only after receiving confirmation. If an approver denies your request, contact them directly to discuss necessary modifications. AWS Transform tracks all approval decisions for audit purposes and maintains deployment history.
+To ensure that network changes comply with your organization's security standards and architectural requirements, all deployment requests go through an approval workflow. You must get explicit approval before your network deployment request runs.
+
+When you submit a deployment request, it automatically routes to authorized approvers through the AWS Transform Approvals tab. Approvers validate both CloudFormation templates and network configurations. Each submission triggers a new review cycle, and deployments proceed only after receiving confirmation. If an approver denies your request, contact them directly to discuss necessary modifications. AWS Transform tracks all approval decisions for audit purposes and maintains deployment history.
 
 ## Delete deployed network resources
 
@@ -379,7 +403,7 @@ To extract configuration files from your firewall and network environments, foll
 - You need `super_admin` or `super_admin_readonly` privileges at the global level.
 - Steps:
 
-  1.  Connect to the firewall via SSH or built-in CLI client
+  1.  Connect to the firewall by using SSH or built-in CLI client
   2.  Run: `show | grep ""` (`| grep ""` disables pagination)
   3.  Save all output to a file starting from the `show` command
 

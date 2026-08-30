@@ -1,10 +1,20 @@
 # Release notes
 
 The following release notes cover the latest changes to [Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md").
-For a list of changes across the full AWS Transform service, see the [changelog](change-log.md "change-log.md"). For supported AWS Transform
+For a list of changes across the full AWS Transform service, see the [changelog](change-log.md "change-log.md").
+
+For supported AWS Transform
 regions, see [Supported Regions](regions.md "regions.md"). For supported target
 regions, see the [account
 connector setup page](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
+
+## August 2026
+
+- AWS Transform for migrations now identifies unused inbound firewall rules migrated from your
+  on-premises environment and suggests removing them as part of guided network recommendations.
+  This helps you avoid carrying forward security exposure, such as open inbound access, that no
+  longer serves a purpose. Removal is limited to unused ingress rules. [Learn
+  more about guided network recommendations](transform-vmware-migrate-network.md#transform-vmware-guided-recommendations "transform-vmware-migrate-network.md#transform-vmware-guided-recommendations").
 
 ## July 2026
 

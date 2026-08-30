@@ -12,13 +12,16 @@ _replatform_, _refactor_,
 _repurchase_, _retire_,
 _retain_, and _relocate_. AWS Transform reads
 signals in your data, such as operating system, utilization, and workload
-type, to make explainable recommendations. For example, it can recommend
-retiring idle or end-of-life servers, moving SQL Server or open-source databases to
-Amazon RDS, shifting email and collaboration workloads to Microsoft 365, retaining
-specialized legacy systems, and rehosting the remaining workloads on Amazon EC2.
-Recommendations roll up from individual servers to applications and across your
-entire portfolio, with a criticality view by strategy and wave-level
-summaries.
+type, to make explainable recommendations. For example, it can:
+
+- Recommend retiring idle or end-of-life servers.
+- Move SQL Server or open-source databases to Amazon RDS.
+- Shift email and collaboration workloads to Microsoft 365.
+- Retain specialized legacy systems.
+- Rehost the remaining workloads on Amazon EC2.
+  Recommendations roll up from individual servers to applications and across your
+  entire portfolio, with a criticality view by strategy and wave-level
+  summaries.
 
 To generate a migration strategy (7Rs) report:
 
@@ -41,12 +44,15 @@ To generate a migration strategy (7Rs) report:
    changes.
    By default, AWS Transform produces an interactive HTML dashboard that you can filter
    and explore. On request, you can also generate a PDF document to share with
-   stakeholders, or a Microsoft PowerPoint (PPTX) slide deck to present; the PDF and
+   stakeholders, or a Microsoft PowerPoint (PPTX) slide deck to present. The PDF and
    PowerPoint outputs are point-in-time snapshots of the same analysis. The report
-   includes a recommended strategy and AWS target service for every server and
-   application, confidence scores and reasoning, highlighted modernization
-   opportunities, a criticality view by strategy, wave-level summaries, and risk
-   flags.
+   includes:
 
-The strategy recommended in this report complements the per-wave strategy that
-you assign during wave planning. For source code containerization, see [Source code containerization](transform-containers.md "transform-containers.md").
+- A recommended strategy and AWS target service for every server and application
+- Confidence scores and reasoning
+- Highlighted modernization opportunities
+- A criticality view by strategy
+- Wave-level summaries
+- Risk flags
+  The strategy recommended in this report complements the per-wave strategy that
+  you assign during wave planning. For source code containerization, see [Source code containerization](transform-containers.md "transform-containers.md").

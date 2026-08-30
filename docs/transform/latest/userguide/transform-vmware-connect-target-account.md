@@ -24,7 +24,7 @@ the option that matches your target environment:
 
 If your migration is part of the **AWS Migration
 Acceleration Program (MAP 2.0)**, provide your Migration
-Portfolio Experience (MPE) ID. This is a 10-character code using uppercase letters
+Program Engagement (MPE) ID. This is a 10-character code using uppercase letters
 and digits (for example, ABCDE12345). When you provide your MPE ID, the MAP
 tag is applied to all resources created across network migration, landing
 zone, and server rehost stages. The tag format is:
@@ -40,7 +40,7 @@ Migration Acceleration Program](https://aws.amazon.com/migration-acceleration-pr
 ## Step 3: Connector configuration
 
 You use the target account connector to connect your migration job to
-the AWS environment where your workloads will reside after migration.
+the AWS environment where your workloads reside after migration.
 Before you begin, verify that your target AWS account has the necessary
 permissions, quotas, and configurations to support your migrated
 infrastructure.

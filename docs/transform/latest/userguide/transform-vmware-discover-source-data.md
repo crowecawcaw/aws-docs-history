@@ -18,10 +18,10 @@ AWS Transform accepts data from the following sources:
   Supplementary files such as connections are only processed when included in a ZIP
   file with the server files or in an Excel file with the server sheet.
 
-Upload the most detailed data available. Review your export files before uploading
+Upload the most detailed data available. Before you upload, review your export files
 to ensure data completeness and accuracy. Verify that all required files are
-included in your upload, and confirm that the data reflects your current environment
-state. This helps AWS Transform more accurately capture your on-premises environment and
+included, and confirm that the data reflects your current environment
+state. This helps AWS Transform capture your on-premises environment more accurately and
 better support migration planning, including application grouping and wave planning.
 You can incrementally add data as you obtain it. AWS Transform automatically de-duplicates
 records across multiple uploads.

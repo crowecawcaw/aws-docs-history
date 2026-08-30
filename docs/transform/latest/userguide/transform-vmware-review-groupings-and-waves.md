@@ -13,8 +13,8 @@ AWS Transform supports iterative planning throughout the process:
   architecture.
 - You can adjust scope within application groups and waves at any
   time.
-- You can re-upload discovery data, and AWS Transform will automatically
-  process, de-duplicate, and merge new records with existing data.
+- You can re-upload discovery data, and AWS Transform automatically
+  processes, de-duplicates, and merges new records with existing data.
 - When changes are detected, such as newly discovered dependencies or
   infrastructure additions, AWS Transform flags impacted dependency groups and provides
   recommendations for wave plan adjustments.
@@ -49,7 +49,7 @@ waves are comprised of one or more move groups.
 Move group
 
 A set of co-dependent applications that must be moved together. They
-may have technical dependencies such as a shared database or business
+might have technical dependencies such as a shared database or business
 dependencies such as supporting a shared business function.
 
 Dependency
@@ -82,30 +82,30 @@ Migration planning is an interactive and iterative workflow. You can go back and
 
    1. List my servers by operating system
    2. Summarize my on-premises network topology
-   3. List the most common technologies running in my environment.
+   3. List the most common technologies running in my environment
 
-3. While analyzing your environment, if you identify servers that should not be in scope for migration you can tell AWS Transform to exclude those resources. Examples of this include:
+3. As you analyze your environment, if you identify servers that should not be in scope for migration, you can tell AWS Transform to exclude those resources. Examples of this include:
 
    1. Remove all servers which have _legacy_ in their
       hostname
    2. Remove all servers in the 10.0.2.0/24 subnet
    3. Remove all servers running versions of Windows older than 2022
 
-4. Once you have sufficiently explored your environment and determined your migration scope you
+4. After you have sufficiently explored your environment and determined your migration scope you
    can tell AWS Transform to move to the next migration planning step.
-5. The next step is application grouping. If you already have your servers mapped to applications, you can tell AWS Transform to use that mapping and skip this step. If you do not have your applications pre-defined you can provide the technical and business logic that defines your applications. AWS Transform will guide you through the application grouping process and suggest the data points that you can provide to effectively group your servers together into applications. The more information you can provide about your on-premises applications, the more effectively AWS Transform can group your servers into apps. Once you have provided sufficient information, you can then instruct AWS Transform to perform application grouping.
-6. Once application grouping has been performed, review the application groups. You can instruct
+5. The next step is application grouping. If you already have your servers mapped to applications, you can tell AWS Transform to use that mapping and skip this step. If you do not have your applications predefined you can provide the technical and business logic that defines your applications. AWS Transform guides you through the application grouping process and suggests the data points you can provide to group your servers into applications. The more information you can provide about your on-premises applications, the more effectively AWS Transform can group your servers into apps. After you have provided sufficient information, you can then instruct AWS Transform to perform application grouping.
+6. After application grouping has been performed, review the application groups. You can instruct
    AWS Transform to make any necessary changes, for example:
 
    1. Move server example-server to application-5
    2. Rename application-5 "HR App Test Environment"
    3. Remove all Linux servers from IIS Dev Farm
 
-7. Once your apps are grouped, instruct AWS Transform to move to the next step
+7. After your apps are grouped, instruct AWS Transform to move to the next step.
 8. The next step is move grouping. In the move grouping step you identify applications that must
    be moved together. Provide context around your technical and
-   non-technical dependencies. AWS Transform will guide you through the process and
-   suggest data points that you can provide to group your apps together.
+   non-technical dependencies. AWS Transform guides you through the process and
+   suggests data points that you can provide to group your apps together.
    There are several considerations to make at this stage including:
 
    1. What should be the target size of move group?
@@ -115,13 +115,13 @@ Migration planning is an interactive and iterative workflow. You can go back and
       dependencies be considered soft dependencies and be split across
       move groups?
 
-9. Once you have provided your rules for move grouping, instruct AWS Transform to
+9. After you have provided your rules for move grouping, instruct AWS Transform to
    execute your move grouping strategy. You can then review and modify your
-   move groups. Once you have reviewed your move groups you can instruct
+   move groups. After you have reviewed your move groups you can instruct
    AWS Transform to move to the final migration planning step.
 10. Wave planning is the final step within migration planning. In this step, you group your move
     groups into migration waves and prioritize those waves. Within the wave
-    planning step, AWS Transform will guide you through providing the business
+    planning step, AWS Transform guides you through providing the business
     prioritization required to group your move groups into waves and then
     prioritize those waves. Considerations within wave planning
     include:
@@ -131,8 +131,8 @@ Migration planning is an interactive and iterative workflow. You can go back and
     3. The risks associated with each move group
     4. The number of servers to migrate per wave
 
-11. Once you have provided sufficient guidance on how to group into waves, instruct AWS Transform to execute the wave planning. You can then review your waves and modify them.
-12. Once you have finalized your wave plan, you can complete migration planning and move to
+11. After you have provided sufficient guidance on how to group into waves, instruct AWS Transform to execute the wave planning. You can then review your waves and modify them.
+12. After you have finalized your wave plan, you can complete migration planning and move to
     execution. You can return to migration planning at any time to refine
     and iterate on your plan.
 13. For each wave, you can assign a migration strategy: _rehost_ (migrate servers to

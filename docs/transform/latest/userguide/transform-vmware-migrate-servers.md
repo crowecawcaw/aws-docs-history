@@ -4,7 +4,7 @@ AWS Transform automates the rehosting of your servers to Amazon EC2 at scale. Th
 AI-powered agent guides you through each migration wave, from inventory validation
 and replication agent deployment through testing and final cutover. AWS Transform
 handles the orchestration across hundreds of servers while you maintain control
-over configuration and approval decisions. Under the hood, AWS Transform uses
+over configuration and approval decisions. Internally, AWS Transform uses
 AWS Transform MGN (MGN) for data replication. For more information about MGN, see
 [What is
 AWS Transform MGN?](../../../mgn/latest/ug/what-is-mgn.md "../../../mgn/latest/ug/what-is-mgn.md") in the _MGN User Guide_.
@@ -18,13 +18,6 @@ important as long as the source operating system is supported.
 Server migration is organized by waves. Each wave represents a group of servers
 that are migrated together. For each wave, the agent walks you through the
 following phases:
-
-For waves with a _containerize_ migration strategy, AWS Transform
-runs the source code containerization workflow instead of the rehost steps described
-below. The containerization workflow guides you through cloning source code,
-generating Docker artifacts, publishing container images, and deploying to Amazon Elastic Container Service
-or Amazon Elastic Kubernetes Service. For the full containerization workflow, see
-[Source code containerization](transform-containers.md "transform-containers.md").
 
 1. **Prerequisites and Configure Migration Defaults**.
    Set up your target accounts and configure how instances are launched. AWS Transform
@@ -47,6 +40,12 @@ or Amazon Elastic Kubernetes Service. For the full containerization workflow, se
 7. **Step 6: Cutover**.
    Complete the migration with minimal downtime. The agent coordinates the final
    switchover and verifies success.
+   For waves with a _containerize_ migration strategy, AWS Transform
+   runs the source code containerization workflow instead of the rehost steps. The
+   containerization workflow guides you through cloning source code, generating Docker
+   artifacts, publishing container images, and deploying to Amazon Elastic Container Service or Amazon Elastic Kubernetes Service.
+   For the full containerization workflow, see
+   [Source code containerization](transform-containers.md "transform-containers.md").
 
 ## Prerequisites and Configure Migration Defaults
 
@@ -89,8 +88,8 @@ setup.
 #### Amazon EC2 recommendation preferences
 
 AWS Transform analyzes your source server utilization and recommends
-optimally-sized Amazon EC2 instances, helping you avoid overprovisioning from
-day one. You can configure your Amazon EC2 recommendation preferences to
+optimally sized Amazon EC2 instances, which helps you avoid overprovisioning from
+the start. You can configure your Amazon EC2 recommendation preferences to
 control how instance types are selected for your migrated servers.
 
 For more information about generating Amazon EC2 recommendations, see [Generating Amazon EC2 recommendations in AWS Migration Hub](../../../migrationhub/latest/ug/generating-ec2-recommendations.md "../../../migrationhub/latest/ug/generating-ec2-recommendations.md").
@@ -112,7 +111,7 @@ target accounts. During the initialization process:
 - The required IAM roles and policies are created.
 - The required default templates are configured.
 
-For information on the initialization process, see [Initializing
+For information about the initialization process, see [Initializing
 AWS Transform MGN with the console](../../../mgn/latest/ug/mgn-initialize-console.md "../../../mgn/latest/ug/mgn-initialize-console.md") in the
 _MGN User Guide_.
 
@@ -137,7 +136,7 @@ interface for any parameters you wish.
 
 [Source servers](../../../mgn/latest/ug/source-servers.md "../../../mgn/latest/ug/source-servers.md") are
 created with the account launch template settings.
-Once source servers are created with these default settings, you can change
+After source servers are created with these default settings, you can change
 them at the source server launch settings level. You can change source
 server settings on any parameter using the chat interface, or for bulk
 operations using the inventory Excel file during [Step 2: Validate and confirm inventory](#transform-vmware-ms-validate-inventory "#transform-vmware-ms-validate-inventory").
@@ -148,7 +147,7 @@ settings](../../../mgn/latest/ug/launch-general-settings.md "../../../mgn/latest
 
 #### Additional Amazon EC2 launch template changes
 
-For additional Amazon EC2 launch template changes, you should perform them on
+Make additional Amazon EC2 launch template changes on
 the template ID for each target account. This option is available inside
 the wave setup. AWS Transform guides you through it and provides the
 appropriate link.
@@ -192,7 +191,7 @@ creating a Systems Manager document, see [Creating
 Systems Manager documents](../../../systems-manager/latest/userguide/create-ssm-doc.md "../../../systems-manager/latest/userguide/create-ssm-doc.md") in the _AWS Systems Manager User
 Guide_.
 
-The agent then generates a human-in-the-loop (HITL) interface where
+The agent then generates a human-in-the-loop interface where
 you provide the required fields:
 
 - **Post-launch action name** –
@@ -212,7 +211,7 @@ You can also make modifications directly through the chat interface
 for any parameters you wish.
 
 Source servers are created with the account post-launch action
-settings. Once source servers are created with these default settings,
+settings. After source servers are created with these default settings,
 you can change them at the source server level. You can change source
 server settings on any action using the chat interface, or for bulk
 operations using the inventory Excel file during [Step 2: Validate and confirm inventory](#transform-vmware-ms-validate-inventory "#transform-vmware-ms-validate-inventory").
@@ -486,7 +485,7 @@ installation methods:
 - **MGN connector** – Use an MGN
   connector to automate agent installation. The connector connects to
   source machines over SSH (Linux) or WinRM (Windows) and installs the
-  replication agent automatically. Once configured, a connector can be
+  replication agent automatically. After it is configured, a connector can be
   reused across multiple waves and different target AWS accounts. For
   more information about the MGN connector, see [Set up
   the MGN Connector](../../../mgn/latest/ug/mgn-connector-setup-instructions.md "../../../mgn/latest/ug/mgn-connector-setup-instructions.md") in the _MGN User
@@ -540,11 +539,13 @@ The connector operates through the following components:
   Manager.
 
 When you deploy agents, AWS Transform sends an SSM document to the
-connector machine. The connector then retrieves source server
-credentials from AWS Secrets Manager, establishes a connection to each
-source server, validates that the source server meets prerequisites,
-installs and configures the replication agent, and verifies successful
-installation.
+connector machine. The connector then does the following:
+
+1. Retrieves source server credentials from AWS Secrets Manager.
+2. Establishes a connection to each source server.
+3. Validates that the source server meets prerequisites.
+4. Installs and configures the replication agent.
+5. Verifies successful installation.
 
 ##### Connector machine requirements
 
@@ -650,7 +651,7 @@ have both server types with one shared secret each. The per-server
 secrets option is mutually exclusive with the single-secret
 options.
 
-Credential secret format. To read more about it, see [MGN connector
+Credential secret format. For more information, see [MGN connector
 credentials](../../../mgn/latest/ug/mgn-connector-credentials.md "../../../mgn/latest/ug/mgn-connector-credentials.md") in the _MGN User
 Guide_:
 
@@ -667,14 +668,14 @@ Guide_:
 
 ##### Agent deployment
 
-Once credentials are configured and verified, AWS Transform deploys
+After credentials are configured and verified, AWS Transform deploys
 replication agents to your source servers. You can deploy to all servers
 in the current wave or select specific servers.
 
 The deployment process for each server:
 
-1. AWS Transform sends deployment commands to the connector via
-   SSM.
+1. AWS Transform sends deployment commands to the connector by
+   using SSM.
 2. The connector retrieves credentials from AWS Secrets
    Manager.
 3. The connector connects to the source server using the
@@ -686,7 +687,7 @@ The deployment process for each server:
 6. The connector verifies successful installation and
    connectivity.
 
-You can monitor deployment progress in real-time with per-server
+You can monitor deployment progress in real time with per-server
 status tracking, including the current installation step, elapsed time,
 and estimated time remaining. If any servers fail, AWS Transform displays
 the failure reason and offers retry options per server. Successfully
@@ -728,7 +729,7 @@ or permanent) and then install the agent on each source server.
   (recommended)** – Create an IAM role with the
   `AWSApplicationMigrationAgentInstallationPolicy`
   managed policy, then use `aws sts assume-role` to
-  generate temporary credentials. To read more about it, see [Agent
+  generate temporary credentials. For more information, see [Agent
   installation permissions](../../../mgn/latest/ug/agent-installation-permissions.md "../../../mgn/latest/ug/agent-installation-permissions.md") in the _MGN User
   Guide_.
 - **Permanent credentials** – Create an
@@ -812,7 +813,7 @@ The replication process consists of two phases:
 
 Replication servers are temporary Amazon EC2 instances deployed in the staging area
 subnet. They receive replicated data from source servers and are automatically
-managed by MGN. To read more about it, see [Replication server
+managed by MGN. For more information, see [Replication server
 settings](../../../mgn/latest/ug/replication-server-settings.md "../../../mgn/latest/ug/replication-server-settings.md") in the _MGN User Guide_.
 
 AWS Transform monitors the replication progress and provides status updates,
@@ -827,7 +828,7 @@ During replication, each server progresses through the following states:
   been successfully added and data replication has started. Test or
   cutover instances can now be launched.
 
-Once all servers in the wave have progressed beyond the
+After all servers in the wave have progressed beyond the
 `NOT_READY` state, the data replication phase is complete and you
 can proceed to testing.
 
@@ -845,8 +846,7 @@ time:
 ### Step 5: Testing
 
 After data replication is complete, you can launch test instances to validate
-your migrated servers before performing the final cutover. To read more about
-it, see [Launch test
+your migrated servers before performing the final cutover. For more information, see [Launch test
 instances](../../../mgn/latest/ug/launch-test-instances.md "../../../mgn/latest/ug/launch-test-instances.md") in the _MGN User Guide_. AWS Transform
 supports two testing options:
 
@@ -875,7 +875,7 @@ cutover.
 ### Step 6: Cutover
 
 Cutover is the final migration step where your production workloads are moved
-to AWS. To read more about it, see [Launch cutover
+to AWS. For more information, see [Launch cutover
 instances](../../../mgn/latest/ug/launch-cutover-instances.md "../../../mgn/latest/ug/launch-cutover-instances.md") in the _MGN User Guide_. Similar to
 testing, AWS Transform supports full wave cutover or selective cutover for specific
 servers.
@@ -897,7 +897,7 @@ The cutover process includes the following steps:
    in the wave or select specific servers. Finalization stops replication
    agents from sending data, removes replication agents from source
    servers, and locks the server lifecycle state. This action cannot be
-   easily undone. To read more about it, see [Finalize
+   easily undone. For more information, see [Finalize
    cutover](../../../mgn/latest/ug/finalizing-cutover-2.md "../../../mgn/latest/ug/finalizing-cutover-2.md") in the _MGN User
    Guide_.
 4. **Archive source servers (optional)** –
@@ -917,7 +917,7 @@ Plan your cutover window accordingly.
 ### Server lifecycle states
 
 During migration, each server progresses through the following lifecycle
-states. To read more about it, see [Source server
+states. For more information, see [Source server
 lifecycle](../../../mgn/latest/ug/migration-dashboard.md "../../../mgn/latest/ug/migration-dashboard.md") in the _MGN User Guide_.
 
 - **Not ready** – The server is undergoing

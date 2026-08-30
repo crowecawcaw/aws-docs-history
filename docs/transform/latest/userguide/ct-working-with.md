@@ -226,24 +226,73 @@ atx ct remote network discover --vpc `vpc-id` --json
 atx ct remote network create --cidr `10.1.0.0/16` --ack
 ```
 
+`--cidr` is optional and defaults to `10.1.0.0/16`.
+
+Whether you bring your own network or use `network create`, it must meet
+these requirements:
+
+- **Private subnets in two Availability Zones** —
+  provisioning rejects public subnets (a subnet whose route table has a default route to an
+  internet gateway). Provide at least two private subnets in different Availability Zones.
+  AWS Batch spreads jobs across all of them. Amazon EC2 uses the first subnet.
+- **Outbound internet through a NAT gateway** —
+  jobs run in private subnets. They need outbound access to pull the container image from
+  public Amazon ECR and to reach AWS Transform and other AWS APIs. Each private subnet's route table must
+  send `0.0.0.0/0` to a NAT gateway in a public subnet. You can instead reach AWS
+  APIs over interface endpoints — see
+  [AWS Transform custom and interface endpoints (AWS PrivateLink)](vpc-interface-endpoints-transform-custom.md "vpc-interface-endpoints-transform-custom.md").
+- **Security group with outbound access** — the
+  security group needs only outbound (egress) rules. No inbound rules are required. AWS Batch
+  requires you to pass `--securityGroup` at provision time. For Amazon EC2, if you omit
+  `--securityGroup` the stack creates an egress-only security group with no inbound
+  rules, and you reach the instance through SSM. A group that allows all outbound traffic
+  (the default for a new security group) is sufficient.
+- **Enough free IP addresses** — each running
+  AWS Batch (Fargate) job and each Amazon EC2 worker uses one private IP address from a subnet.
+  Size the subnets for the number of jobs you run in parallel. If a subnet runs low on
+  addresses, submissions can fail with `InsufficientFreeAddressesInSubnet`. The
+  dispatcher
+  waits for capacity before submitting each job, but well-sized subnets avoid the wait. If you
+  use `network create`, subnet size scales with the VPC CIDR. The VPC must be
+  `/26` or larger. The default `10.1.0.0/16` produces `/24`
+  subnets.
+
 ### Provisioning infrastructure
 
-Deploy the Amazon EC2 or Batch stack. Omit `--execute` to preview the template or
-changeset; add `--execute` to apply.
+Deploy the Amazon EC2 or AWS Batch stack. Omit `--execute` to preview the
+template or changeset; add `--execute` to apply.
 
-Provisioning creates the compute stack for the mode you choose, plus a scheduler
-stack:
+Provisioning creates the compute stack for the mode you choose, plus dispatcher and
+scheduler stacks:
 
-- **Batch** — an AWS Batch job queue and
-  compute environment, a job definition with the continuous modernization container image,
-  IAM roles for job execution, and a Lambda function for job submission. Batch requires a
+- **AWS Batch** — a job queue and compute
+  environment, a job definition with the continuous modernization container image, IAM roles
+  for job execution, and a Lambda function for job submission. AWS Batch requires a
   security group.
 - **Amazon EC2** — a persistent Amazon EC2 instance with an
   IAM instance profile and a security group. If you omit `--securityGroup`, the
   stack creates a security group with no inbound rules; access is via SSM.
+- **Dispatcher** — an
+  `AtxDispatcherStack` stack that queues jobs and dispatches them to your compute
+  stack. It is always required. Provisioning creates it, and `update` reconciles it
+  to the latest template. Pass `--skip-dispatcher` on `update` to skip
+  that reconcile. The dispatcher is not removed. For information about how `update`
+  affects a custom image, see
+  [Container image](#ct-remote-image "#ct-remote-image").
 - **Scheduler** — an `atx-scheduler`
   stack (an Amazon EventBridge Scheduler schedule group and invocation role) used by
   recurring analyses. Pass `--skip-scheduler` to opt out.
+
+By default, Amazon EC2 stacks are named `atx-runner` and AWS Batch stacks are
+named `AtxInfrastructureStack`. To run more than one stack of the same mode, give
+each a distinct name when you provision: use `--stack-name` (Amazon EC2 only; the
+name must start with `atx-runner`) or `--suffix` to append a suffix to
+all resource names. For `update`, `detect`, and remote analyses or
+remediations, pass `--stack-name` to target a custom-named stack. If you omit it,
+they use the default name (`atx-runner` for Amazon EC2, `AtxInfrastructureStack`
+for AWS Batch). `teardown` always requires `--stack-name`. On Amazon EC2,
+`--workers` sets the number
+of parallel worker containers (1-5, default 5) and sizes the instance.
 
 ```
 # Preview, then deploy an EC2 stack
@@ -253,17 +302,19 @@ atx ct remote provision --mode ec2 --vpc `vpc-id` --subnets `subnet-a,subnet-b` 
 # Deploy a Batch stack
 atx ct remote provision --mode batch --vpc `vpc-id` --subnets `subnet-a,subnet-b` --securityGroup `sg-id` --execute --ack
 
-# Update an existing stack to the latest template, or tear it down
-atx ct remote update --mode `ec2|batch` --execute --ack
-atx ct remote teardown --mode `ec2|batch` --execute --ack
+# Update to the latest template (--stack-name optional; defaults to the standard stack name)
+atx ct remote update --mode `ec2|batch` [--stack-name `stack-name`] --execute --ack
+
+# Tear down (--stack-name required)
+atx ct remote teardown --mode `ec2|batch` --stack-name `stack-name` --execute --ack
 ```
 
 ### Container image
 
 When you run remote analyses and remediations, they execute inside a container image. By
 default, when you provision a remote environment, it uses the public AWS Transform image,
-`public.ecr.aws/d9h8z6l7/aws-transform:latest`. Batch sets it as the job definition
-image. Amazon EC2 uses it as the runner image.
+`public.ecr.aws/d9h8z6l7/aws-transform:latest`. AWS Batch sets it as the job
+definition image. Amazon EC2 uses it as the runner image.
 
 To run a different image—for example, a private Amazon ECR image that bundles additional
 languages or tools—pass `--image-uri` when you provision:
@@ -275,6 +326,13 @@ atx ct remote provision --mode batch --vpc `vpc-id` --subnets `subnet-a,subnet-b
 # EC2: provision with a custom image
 atx ct remote provision --mode ec2 --vpc `vpc-id` --subnets `subnet-a,subnet-b` --image-uri `account-id`.dkr.ecr.`region`.amazonaws.com/`repo`:`tag` --execute --ack
 ```
+
+###### Note
+
+A later `atx ct remote update` (see
+[Provisioning infrastructure](#ct-remote-provision "#ct-remote-provision")) resets the image
+to the template default. To keep a custom image, re-run `provision` with
+`--image-uri` after you update.
 
 ### Storing source credentials
 
