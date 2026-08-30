@@ -82,6 +82,6 @@ Click **Load More** if there is more correspondence than will fit on one page.
 
 Don't forget to rate the communication!
 
-![](/images/managedservices/latest/onboardingguide/images/guiSRcorrespond.png)
+![](images/guiSRcorrespond.png)
 
 Your incident displays on the **Incidents** list page.
