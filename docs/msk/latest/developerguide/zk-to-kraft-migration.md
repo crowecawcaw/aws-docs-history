@@ -10,6 +10,7 @@ decommissions ZooKeeper nodes automatically.
 
 Before migrating your cluster from ZooKeeper to KRaft mode, ensure the following:
 
+- For Standard brokers, the cluster must be deployed across 3 Availability Zones. Express brokers provide this by default.
 - Your cluster is running Apache Kafka version `3.9.x` in ZooKeeper mode. If your cluster is on an older version, upgrade to `3.9.x` first using the standard version upgrade process.
 - Your cluster is in the `ACTIVE` state with no pending operations.
 - If you use tools that rely on direct ZooKeeper access (such as older versions of Cruise Control or custom admin tools), update them to use Kafka Admin APIs instead of direct ZooKeeper connections.

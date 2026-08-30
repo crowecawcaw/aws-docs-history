@@ -1,6 +1,6 @@
-# Additional SER permissions for SASL/SCRAM, mTLS, and customer managed keys
+# Additional SER permissions for SASL/SCRAM, mTLS, SASL/OAUTHBEARER, and customer managed keys
 
-The `AWSMSKReplicatorExecutionRole` managed policy covers cluster, topic, and consumer group permissions for IAM auth. When you replicate to or from a cluster that uses SASL/SCRAM or mTLS authentication (for example, when migrating from a self-managed Apache Kafka cluster), or when your secret is encrypted with a customer managed key (CMK), you need to attach additional inline permissions to the service execution role.
+The `AWSMSKReplicatorExecutionRole` managed policy covers cluster, topic, and consumer group permissions for IAM auth. When you replicate to or from a cluster that uses SASL/SCRAM, mTLS, or SASL/OAUTHBEARER (OAuth) authentication (for example, when migrating from a self-managed Apache Kafka cluster), or when your secret is encrypted with a customer managed key (CMK), you need to attach additional inline permissions to the service execution role.
 
 Use the snippets below in addition to the managed policy. Pick the scenario that matches your setup.
 
@@ -51,6 +51,42 @@ Grants the SER permission to read the client certificate and private key from AW
                 "<mtlsSecretArn>",
                 "<privateCaCertSecretArn>"
             ]
+        }
+    ]
+}
+```
+
+###### SASL/OAUTHBEARER
+
+The permissions the SER needs for SASL/OAUTHBEARER depend on the mechanism:
+
+- **Client credentials** — Grant AWS Secrets Manager read access to the secret that holds `client_id` and `client_secret`.
+- **IAM JWT bearer** and **client credentials assertion** — Grant `sts:GetWebIdentityToken` so the SER can obtain a signed JWT for its own AWS identity. Also grant AWS Secrets Manager read access if you supply an optional secret.
+  If your IDP uses a private CA, also grant AWS Secrets Manager read access to the secret that holds the CA certificate you reference in `tokenEndpointTlsCertificateArn`. The following example grants both. Replace `<oauthSecretArn>` with your secret ARN, `<idpCaCertSecretArn>` with the CA certificate secret ARN, and `<accountID>` with your AWS account ID. Omit the `SecretsManagerPermissions` statement entirely if you use the IAM JWT bearer or client credentials assertion mechanism without a secret and your IDP uses a publicly trusted certificate; omit the `StsPermissions` statement if you use the client credentials mechanism.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SecretsManagerPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:ListSecretVersionIds"
+            ],
+            "Resource": [
+                "<oauthSecretArn>",
+                "<idpCaCertSecretArn>"
+            ]
+        },
+        {
+            "Sid": "StsPermissions",
+            "Effect": "Allow",
+            "Action": "sts:GetWebIdentityToken",
+            "Resource": "arn:aws:sts::<accountID>:self"
         }
     ]
 }

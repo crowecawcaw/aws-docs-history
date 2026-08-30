@@ -236,6 +236,18 @@ If the `AuthError` metric is non-zero or the Replicator logs show SASL/SCRAM or 
 2. Verify that the SCRAM user or certificate principal has the required ACL permissions (Read, Describe on topics; Read, Describe on consumer groups; Describe on cluster).
 3. Check the `AuthError` metric to confirm authentication errors and identify whether the source or target cluster is affected using the `ClusterAlias` dimension.
 
+### SASL/OAUTHBEARER (OAuth) authentication failures
+
+If the `AuthError` metric is non-zero or the Replicator logs show access token retrieval or SASL/OAUTHBEARER errors:
+
+1. Verify that the `tokenEndpointUrl` is correct, uses the HTTPS scheme, and is reachable from the VPC subnets you provided for the Replicator. A `KafkaClusterPingSuccessCount` of 0 combined with token errors often indicates the token endpoint is not reachable.
+2. For the client credentials mechanism, verify that the `client_id` and `client_secret` in AWS Secrets Manager are correct and that the token acquisition mechanism matches what your IDP expects.
+3. Verify that the `tokenEndpointAuthenticationMethod` is valid for your token acquisition mechanism. The client credentials mechanism requires `POST` or `BASIC`, and the client credentials assertion mechanism requires `NONE`.
+4. For the IAM JWT bearer and client credentials assertion mechanisms, verify that the service execution role has the `sts:GetWebIdentityToken` permission, and that the `audience` and `signingAlgorithm` match what your IDP expects when it validates the token.
+5. If your IDP uses a private CA, verify that the CA certificate referenced by `tokenEndpointTlsCertificateArn` is complete and valid.
+6. Verify that the Kafka principal that your IDP maps the access token to has the ACL permissions that MSK Replicator requires on the source cluster.
+7. Check the Replicator logs for the HTTP status and OAuth `error` code returned by the token endpoint. MSK Replicator logs these fields but never logs the token endpoint response body.
+
 ### SSL certificate issues
 
 If the Replicator cannot establish a secure connection to the self-managed cluster:

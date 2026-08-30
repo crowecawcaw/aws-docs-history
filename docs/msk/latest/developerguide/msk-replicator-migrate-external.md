@@ -1,17 +1,17 @@
 # Migrate from non-MSK Apache Kafka clusters to Amazon MSK Provisioned
 
-You can use MSK Replicator to migrate Apache Kafka workloads from self-managed environments to Amazon MSK Provisioned clusters. MSK Replicator supports data migration from Kafka deployments (Kafka version 2.8.1 or later) that have SASL/SCRAM or mutual TLS (mTLS) authentication enabled.
+You can use MSK Replicator to migrate Apache Kafka workloads from self-managed environments to Amazon MSK Provisioned clusters. MSK Replicator supports data migration from Kafka deployments (Kafka version 2.8.1 or later) that have SASL/SCRAM, mutual TLS (mTLS), or SASL/OAUTHBEARER (OAuth) authentication enabled.
 
 ###### Note
 
-SASL/SCRAM or mTLS authentication is required only for MSK Replicator to connect to your self-managed Kafka cluster. Your client applications can continue using their existing authentication mechanisms.
+SASL/SCRAM, mTLS, or SASL/OAUTHBEARER authentication is required only for MSK Replicator to connect to your self-managed Kafka cluster. Your client applications can continue using their existing authentication mechanisms.
 
 ###### Prerequisites
 
 Before you begin, ensure you have the following:
 
 1. Source Apache Kafka cluster running version 2.8.1 or later
-2. SASL/SCRAM or mTLS authentication enabled on source cluster
+2. SASL/SCRAM, mTLS, or SASL/OAUTHBEARER authentication enabled on source cluster
 3. SSL encryption configured on source cluster
 4. Network connectivity via AWS Site-to-Site VPN or AWS Direct Connect
 5. VPC subnets configured for Secrets Manager access
@@ -23,15 +23,15 @@ Create an MSK Provisioned cluster with IAM authentication enabled. Minimum three
 
 ###### Step 2: Create an IAM execution role
 
-Attach the `AWSMSKReplicatorExecutionRole` managed policy and configure the trust policy for `kafka.amazonaws.com`. Add inline permissions for AWS Secrets Manager (and AWS KMS if your secrets are CMK-encrypted) per [Additional SER permissions for SASL/SCRAM, mTLS, and customer managed keys](msk-replicator-ser-additional-perms.md "msk-replicator-ser-additional-perms.md"). See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
+Attach the `AWSMSKReplicatorExecutionRole` managed policy and configure the trust policy for `kafka.amazonaws.com`. Add inline permissions for AWS Secrets Manager (and AWS KMS if your secrets are CMK-encrypted) per [Additional SER permissions for SASL/SCRAM, mTLS, SASL/OAUTHBEARER, and customer managed keys](msk-replicator-ser-additional-perms.md "msk-replicator-ser-additional-perms.md"). See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
 
-###### Step 3: Configure SASL/SCRAM or mTLS, and SSL on self-managed cluster
+###### Step 3: Configure SASL/SCRAM, mTLS, or SASL/OAUTHBEARER, and SSL on self-managed cluster
 
-Configure authentication on your self-managed cluster. For SASL/SCRAM, create a dedicated SCRAM user with the required ACL permissions. For mTLS, configure an SSL listener with client certificate authentication. Configure SSL certificates. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
+Configure authentication on your self-managed cluster. For SASL/SCRAM, create a dedicated SCRAM user with the required ACL permissions. For mTLS, configure an SSL listener with client certificate authentication. For SASL/OAUTHBEARER, configure your brokers for OAUTHBEARER and register the identity provider (IDP) that vends access tokens. Configure SSL certificates. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
 
 ###### Step 4: Store credentials in AWS Secrets Manager
 
-Create a secret with the appropriate key-value pairs for your authentication type. For SASL/SCRAM, include `username`, `password`, and `certificate` fields. For mTLS, include `certificate` and `privateKey` fields (and optionally `privateKeyPassword` for encrypted private keys). See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
+Create a secret with the appropriate key-value pairs for your authentication type. For SASL/SCRAM, include `username`, `password`, and `certificate` fields. For mTLS, include `certificate` and `privateKey` fields (and optionally `privateKeyPassword` for encrypted private keys). For SASL/OAUTHBEARER using the client credentials mechanism, include `client_id` and `client_secret` fields. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](msk-replicator-external-prereqs.md "msk-replicator-external-prereqs.md").
 
 ###### Step 5: Create the Replicator
 
