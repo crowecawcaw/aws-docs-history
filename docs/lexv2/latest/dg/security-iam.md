@@ -15,6 +15,8 @@ use with no additional charge.
 - [Resource-based policy examples for Amazon Lex V2](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
 - [AWS managed policies for Amazon Lex V2](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Using service-linked roles for Amazon Lex V2](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service roles for Amazon Lex V2](using-service-roles.md "using-service-roles.md")
+- [Migrating to service roles for Amazon Lex V2](migrating-to-service-roles.md "migrating-to-service-roles.md")
 - [Troubleshooting Amazon Lex V2 identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
