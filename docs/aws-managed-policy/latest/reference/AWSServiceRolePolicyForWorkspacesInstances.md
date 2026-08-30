@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 11, 2025, 20:37 UTC
-- **Edited time:** June 29, 2026, 23:42 UTC
+- **Edited time:** August 27, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForWorkspacesInstances`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -38,7 +38,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeInstances",
         "ec2:DescribeInstanceStatus",
         "ec2:DescribeTags",
-        "ec2:DescribeVolumes"
+        "ec2:DescribeVolumes",
+        "ec2:DescribeAvailabilityZones"
       ],
       "Resource" : "*"
     },

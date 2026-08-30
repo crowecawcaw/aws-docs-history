@@ -12,13 +12,13 @@ You can attach `AWSBackupServiceRolePolicyForRestores` to your users, groups, an
 
 - **Type**: Service role policy
 - **Creation time**: January 12, 2019, 00:23 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
+- **Edited time:** August 27, 2026, 23:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores`
 
 ## Policy version
 
-**Policy version:** v35 (default)
+**Policy version:** v36 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -428,7 +428,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "cloudformation:CreateChangeSet",
         "cloudformation:DescribeChangeSet",
-        "cloudformation:TagResource"
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
       ],
       "Resource" : "arn:aws:cloudformation:*:*:*/*/*"
     },
@@ -560,8 +561,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:eks:*:*:access-entry/*",
       "Condition" : {
         "StringEquals" : {
-          "eks:policyArn" : "arn:aws:eks::aws:cluster-access-policy/AWSBackupFullAccessPolicyForRestore",
-          "eks:accessScope" : "cluster"
+          "eks:accessScope" : "cluster",
+          "eks:policyArn" : "arn:aws:eks::aws:cluster-access-policy/AWSBackupFullAccessPolicyForRestore"
         }
       }
     },

@@ -12,13 +12,13 @@ You can attach `AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy` to your us
 
 - **Type**: AWS managed policy
 - **Creation time**: November 16, 2024, 00:01 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** August 29, 2026, 00:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -47,8 +47,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:ssm:*:*:document/AWS-*UnmanagedEC2*",
+        "arn:aws:ssm:*:*:document/AWS-DiagnoseHybridActivationIssues",
         "arn:aws:ssm:*:*:automation-execution/*",
-        "arn:aws:ssm:*:*:automation-definition/AWS-*UnmanagedEC2*:*"
+        "arn:aws:ssm:*:*:automation-definition/AWS-*UnmanagedEC2*:*",
+        "arn:aws:ssm:*:*:automation-definition/AWS-DiagnoseHybridActivationIssues:*"
       ]
     },
     {

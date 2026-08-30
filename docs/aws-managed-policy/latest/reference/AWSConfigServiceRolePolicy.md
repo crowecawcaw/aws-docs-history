@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: May 30, 2018, 23:31 UTC
-- **Edited time:** July 30, 2026, 23:27 UTC
+- **Edited time:** August 27, 2026, 22:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSConfigServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v94 (default)
+**Policy version:** v95 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -277,6 +277,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock-agentcore:GetPolicy",
         "bedrock-agentcore:GetPolicyEngine",
         "bedrock-agentcore:GetPolicyEngineSummary",
+        "bedrock-agentcore:GetPolicyGeneration",
         "bedrock-agentcore:GetPolicySummary",
         "bedrock-agentcore:GetTokenVault",
         "bedrock-agentcore:GetWorkloadIdentity",
@@ -295,6 +296,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "bedrock-agentcore:ListPolicies",
         "bedrock-agentcore:ListPolicyEngines",
         "bedrock-agentcore:ListPolicyEngineSummaries",
+        "bedrock-agentcore:ListPolicyGenerations",
         "bedrock-agentcore:ListPolicySummaries",
         "bedrock-agentcore:ListTagsForResource",
         "bedrock-agentcore:ListWorkloadIdentities",
@@ -1195,14 +1197,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iotevents:ListDetectorModels",
         "iotevents:ListInputs",
         "iotevents:ListTagsForResource",
-        "iotfleethub:DescribeApplication"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "AWSConfigServiceRolePolicyStatementID2",
-      "Effect" : "Allow",
-      "Action" : [
+        "iotfleethub:DescribeApplication",
         "iotfleethub:ListApplications",
         "iotfleetwise:GetCampaign",
         "iotfleetwise:GetDecoderManifest",
@@ -1211,7 +1206,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iotfleetwise:GetSignalCatalog",
         "iotfleetwise:GetStateTemplate",
         "iotfleetwise:GetVehicle",
-        "iotfleetwise:ListCampaigns",
+        "iotfleetwise:ListCampaigns"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSConfigServiceRolePolicyStatementID2",
+      "Effect" : "Allow",
+      "Action" : [
         "iotfleetwise:ListDecoderManifestNetworkInterfaces",
         "iotfleetwise:ListDecoderManifests",
         "iotfleetwise:ListDecoderManifestSignals",
@@ -1999,6 +2001,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:DescribeCluster",
         "sagemaker:DescribeClusterSchedulerConfig",
         "sagemaker:DescribeCodeRepository",
+        "sagemaker:DescribeComputeQuota",
         "sagemaker:DescribeContext",
         "sagemaker:DescribeDataQualityJobDefinition",
         "sagemaker:DescribeDeviceFleet",
@@ -2032,11 +2035,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:DescribeOptimizationJob",
         "sagemaker:DescribePartnerApp",
         "sagemaker:DescribePipeline",
+        "sagemaker:DescribePipelineExecution",
         "sagemaker:DescribeProcessingJob",
         "sagemaker:DescribeProject",
         "sagemaker:DescribeSpace",
         "sagemaker:DescribeStudioLifecycleConfig",
         "sagemaker:DescribeTrainingJob",
+        "sagemaker:DescribeTrainingPlan",
         "sagemaker:DescribeTrial",
         "sagemaker:DescribeTrialComponent",
         "sagemaker:DescribeUserProfile",
@@ -2052,6 +2057,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:ListClusters",
         "sagemaker:ListClusterSchedulerConfigs",
         "sagemaker:ListCodeRepositories",
+        "sagemaker:ListComputeQuotas",
         "sagemaker:ListContexts",
         "sagemaker:ListDataQualityJobDefinitions",
         "sagemaker:ListDeviceFleets",
@@ -2086,6 +2092,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:ListNotebookInstances",
         "sagemaker:ListOptimizationJobs",
         "sagemaker:ListPartnerApps",
+        "sagemaker:ListPipelineExecutions",
         "sagemaker:ListPipelines",
         "sagemaker:ListProcessingJobs",
         "sagemaker:ListProjects",
@@ -2093,6 +2100,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sagemaker:ListStudioLifecycleConfigs",
         "sagemaker:ListTags",
         "sagemaker:ListTrainingJobs",
+        "sagemaker:ListTrainingPlans",
         "sagemaker:ListTrialComponents",
         "sagemaker:ListTrials",
         "sagemaker:ListUserProfiles",

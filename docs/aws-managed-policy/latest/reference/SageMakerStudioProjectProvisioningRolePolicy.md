@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** June 04, 2026, 21:27 UTC
+- **Edited time:** August 24, 2026, 20:37 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v81 (default)
+**Policy version:** v82 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -34,7 +34,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "cloudformation:CreateStack",
-        "cloudformation:TagResource"
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
       ],
       "Resource" : [
         "arn:aws:cloudformation:*:*:stack/DataZone*"
@@ -1976,15 +1977,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "SMAppDelete",
+      "Sid" : "SMApp",
       "Effect" : "Allow",
-      "Action" : "sagemaker:DeleteApp",
-      "Resource" : [
-        "arn:aws:sagemaker:*:*:app/*/*/codeeditor/*",
-        "arn:aws:sagemaker:*:*:app/*/*/CodeEditor/*",
-        "arn:aws:sagemaker:*:*:app/*/*/jupyterlab/*",
-        "arn:aws:sagemaker:*:*:app/*/*/JupyterLab/*"
+      "Action" : [
+        "sagemaker:CreateApp",
+        "sagemaker:AddTags",
+        "sagemaker:DeleteApp"
       ],
+      "Resource" : "arn:aws:sagemaker:*:*:app/*",
       "Condition" : {
         "Null" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "false"

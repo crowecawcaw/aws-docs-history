@@ -12,13 +12,13 @@ You can attach `AmazonEKSNetworkingPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 28, 2024, 22:34 UTC
-- **Edited time:** February 20, 2026, 19:12 UTC
+- **Edited time:** August 21, 2026, 17:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -43,7 +43,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ForAllValues:StringEquals" : {
           "aws:TagKeys" : [
             "eks:eks-cluster-name",
-            "eks:kubernetes-cni-node-name"
+            "eks:kubernetes-cni-node-name",
+            "sgp.eks.amazonaws.com/instance-id",
+            "sgp.eks.amazonaws.com/trunk-eni-id",
+            "sgp.eks.amazonaws.com/vlan-id",
+            "sgp.eks.amazonaws.com/managed",
+            "sgp.eks.amazonaws.com/policy-ref"
           ]
         }
       }
@@ -95,6 +100,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/eks:eks-cluster-name" : "${aws:PrincipalTag/eks:eks-cluster-name}"
         }
       }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AssociateTrunkInterface",
+        "ec2:DisassociateTrunkInterface"
+      ],
+      "Resource" : "*"
     }
   ]
 }

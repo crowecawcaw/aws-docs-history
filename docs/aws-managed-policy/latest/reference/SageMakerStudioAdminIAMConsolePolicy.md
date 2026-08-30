@@ -12,13 +12,13 @@ You can attach `SageMakerStudioAdminIAMConsolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 22:49 UTC
-- **Edited time:** March 27, 2026, 17:42 UTC
+- **Edited time:** August 26, 2026, 22:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMConsolePolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -358,6 +358,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
+          "aws:RequestTag/CreatedForUseWithSageMakerUnifiedStudio" : "true",
           "ec2:CreateAction" : [
             "CreateVpc",
             "CreateSubnet",
@@ -366,8 +367,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "CreateNatGateway",
             "CreateRouteTable",
             "CreateVpcEndpoint"
-          ],
-          "aws:RequestTag/CreatedForUseWithSageMakerUnifiedStudio" : "true"
+          ]
         }
       }
     },
@@ -394,6 +394,22 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudformation:DescribeStackEvents"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
+          ]
+        }
+      }
     },
     {
       "Sid" : "DeleteTaggedVpcResources",
@@ -463,11 +479,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "datazone.*.amazonaws.com"
-        },
         "ForAnyValue:StringEquals" : {
           "kms:EncryptionContextKeys" : "aws:datazone:domainId"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
         }
       }
     },
@@ -479,14 +495,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "datazone.*.amazonaws.com"
-        },
         "Bool" : {
           "kms:GrantIsForAWSResource" : "true"
         },
         "ForAnyValue:StringEquals" : {
           "kms:EncryptionContextKeys" : "aws:datazone:domainId"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "datazone.*.amazonaws.com"
         }
       }
     },
@@ -508,11 +524,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:sso::*:application/*/*"
       ],
       "Condition" : {
-        "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : "datazone.amazonaws.com"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "datazone.amazonaws.com"
         }
       }
     },
@@ -524,11 +540,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "*",
       "Condition" : {
-        "StringLike" : {
-          "kms:ViaService" : "sso.*.amazonaws.com"
-        },
         "Null" : {
           "kms:EncryptionContext:aws:sso:instance-arn" : "false"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
         }
       }
     }

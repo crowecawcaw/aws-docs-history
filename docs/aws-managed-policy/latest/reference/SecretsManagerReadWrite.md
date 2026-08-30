@@ -12,13 +12,13 @@ You can attach `SecretsManagerReadWrite` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: April 04, 2018, 18:05 UTC
-- **Edited time:** February 22, 2024, 18:12 UTC
+- **Edited time:** August 25, 2026, 23:37 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecretsManagerReadWrite`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -88,6 +88,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:s3:::awsserverlessrepo-changesets*",
         "arn:aws:s3:::secrets-manager-rotation-apps-*/*"
       ]
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateChangeSet",
+            "ExecuteChangeSet"
+          ]
+        }
+      }
     }
   ]
 }

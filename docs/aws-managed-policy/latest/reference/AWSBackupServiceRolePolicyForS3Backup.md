@@ -12,13 +12,13 @@ You can attach `AWSBackupServiceRolePolicyForS3Backup` to your users, groups, an
 
 - **Type**: AWS managed policy
 - **Creation time**: February 18, 2022, 17:40 UTC
-- **Edited time:** May 17, 2024, 17:12 UTC
+- **Edited time:** August 24, 2026, 18:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForS3Backup`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -107,6 +107,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : "s3:ListAllMyBuckets",
       "Resource" : "*"
+    },
+    {
+      "Sid" : "S3BucketTagReadPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:ListTagsForResource"
+      ],
+      "Resource" : "arn:aws:s3:::*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalAccount" : "${aws:ResourceAccount}"
+        }
+      }
     },
     {
       "Sid" : "RecoveryPointTaggingPermissions",

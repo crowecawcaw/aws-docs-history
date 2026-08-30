@@ -1,24 +1,24 @@
-# AWSSupportPlansReadOnlyAccess
+# AIDevOpsChannelAccessPolicy
 
-**Description**: Provides read-only access to supportplans.
+**Description**: Provide access to chat and manage investigations through AWS DevOps Agent for your AgentSpaces
 
-`AWSSupportPlansReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AIDevOpsChannelAccessPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSSupportPlansReadOnlyAccess` to your users, groups, and roles.
+You can attach `AIDevOpsChannelAccessPolicy` to your users, groups, and roles.
 
 ## Policy details
 
-- **Type**: AWS managed policy
-- **Creation time**: September 27, 2022, 18:08 UTC
-- **Edited time:** August 24, 2026, 18:17 UTC
+- **Type**: Service role policy
+- **Creation time**: August 26, 2026, 21:07 UTC
+- **Edited time:** August 26, 2026, 21:07 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSSupportPlansReadOnlyAccess`
+  `arn:aws:iam::aws:policy/service-role/AIDevOpsChannelAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,16 +30,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "AllowChatActions",
       "Effect" : "Allow",
       "Action" : [
-        "supportplans:GetSupportPlan",
-        "supportplans:GetSupportPlanUpdateStatus",
-        "supportplans:ListSupportPlanModifiers",
-        "supportplans:GetSupportAgreement",
-        "supportplans:ListSupportAgreements",
-        "supportplans:ListSupportAgreementRevisions"
+        "aidevops:CreateChat",
+        "aidevops:SendMessage"
       ],
-      "Resource" : "*"
+      "Resource" : "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

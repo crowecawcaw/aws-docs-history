@@ -12,13 +12,13 @@ You can attach `AWSSupportPlansFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: September 27, 2022, 18:19 UTC
-- **Edited time:** September 09, 2024, 21:15 UTC
+- **Edited time:** August 24, 2026, 18:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSSupportPlansFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -36,9 +36,32 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "supportplans:GetSupportPlanUpdateStatus",
         "supportplans:ListSupportPlanModifiers",
         "supportplans:StartSupportPlanUpdate",
-        "supportplans:CreateSupportPlanSchedule"
+        "supportplans:CreateSupportPlanSchedule",
+        "supportplans:AcceptSupportAgreement",
+        "supportplans:CancelSupportAgreement",
+        "supportplans:CreateSupportAgreement",
+        "supportplans:GetSupportAgreement",
+        "supportplans:ListSupportAgreements",
+        "supportplans:ListSupportAgreementRevisions",
+        "supportplans:RejectSupportAgreement",
+        "supportplans:UpdateSupportAgreement"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/supportplans.amazonaws.com/AWSServiceRoleForSupportPlans",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "supportplans.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:GetRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/supportplans.amazonaws.com/AWSServiceRoleForSupportPlans"
     }
   ]
 }
