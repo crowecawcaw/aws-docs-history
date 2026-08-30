@@ -113,7 +113,7 @@ charged for the Direct Connect connection to your Amazon VPC. For more informati
 The following illustration shows an example of how to access an Amazon EFS file system from
 on-premises (the on-premises servers have the file systems mounted).
 
-![Mount an EFS file system on an on-premises client when using Direct Connect.](images/efs-directconnect-how-it-works.png)
+![Mount an EFS file system on an on-premises client when using Direct Connect.](/images/efs/latest/ug/images/efs-directconnect-how-it-works.png)
 
 You can use any mount target in your VPC if you can reach that mount target's subnet by
 using an Direct Connect connection between your on-premises server and VPC. To access Amazon EFS from an
