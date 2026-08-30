@@ -117,6 +117,7 @@ addresses will fail.
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": "aps:*",
@@ -128,7 +129,7 @@ addresses will fail.
                     "aws:VpcSourceIp": "192.0.2.123"
                 },
         "StringEquals": {
-                    "aws:SourceVpc": "vpc-555555555555"
+                    "aws:SourceVpc": "vpc-0123456789abcdef0"
                 }
             }
         }
