@@ -1,0 +1,39 @@
+# AWS Distributed Perforce Architecture
+
+Publication date: **November 23, 2021 ([Diagram history](#diagram-history "#diagram-history"))**
+
+This architecture shows how to deploy a hybrid multi-Region Perforce Helix Core architecture on AWS.
+
+## AWS Distributed Perforce Architecture
+
+![Architecture diagram showing a distributed Perforce Helix Core deployment on AWS with hybrid and multi-Region connectivity.](images/aws-distributed-perforce-architecture.png)
+
+1. Connect the corporate data center edge server to the AWS primary Region by using [https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") or AWS Site-to-Site VPN. Choose based on bandwidth and connection stability needs. Connect remote users by using AWS Client VPN or virtual workstations on AWS.
+2. AWS Transit Gateway connects VPCs and on-premises networks through a central hub-and-spoke model. It simplifies complex peering relationships and encrypts data in transit.
+3. If your depot is less than 16 TB, run Perforce on Amazon EBS GP3 volumes. For depots larger than 16 TB, store the Perforce depot in Amazon Elastic File System. Use Amazon EFS Standard-Infrequent Access for cost optimization.
+4. [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md") handles Amazon EFS backups. If you run Perforce on Amazon EBS only, EBS snapshots are the standard backup mechanism.
+5. Edge Server high availability is not required, depending on recovery point objective and recovery time objective. Restoring from an EBS snapshot is a slower but more cost-effective solution.
+6. Use a NAT gateway so that instances in a private subnet can connect to services outside your VPC. External services cannot initiate a connection with those instances.
+7. Perforce commit-edge architecture offers the best overall performance with most commands running locally. The primary and replica/high availability servers run in separate Availability Zones for further high availability.
+
+## Further reading
+
+For additional information, refer to
+
+- [AWS Architecture Icons](https://aws.amazon.com/architecture/icons "https://aws.amazon.com/architecture/icons")
+- [AWS Architecture Center](https://aws.amazon.com/architecture "https://aws.amazon.com/architecture")
+- [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected "https://aws.amazon.com/architecture/well-architected")
+- [product page](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/")
+- [AWS Game Tech product page](https://aws.amazon.com/gametech/ "https://aws.amazon.com/gametech/")
+
+## Diagram history
+
+To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
+
+| Change              | Description                                     | Date              |
+| ------------------- | ----------------------------------------------- | ----------------- |
+| Initial publication | Reference architecture diagram first published. | November 23, 2021 |
+
+###### Note
+
+To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
