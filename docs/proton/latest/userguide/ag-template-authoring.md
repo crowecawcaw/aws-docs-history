@@ -55,7 +55,7 @@ The following diagram shows an example of steps that you can take to create a _t
 ![Number 1 icon.](images/label-one.png)
 Identify [input parameters](parameters.md "parameters.md").
 
-![Number 2 icon.](images/label-two.png)
+![Number 2 icon.](/images/proton/latest/userguide/images/label-two.png)
 Create a [schema file](ag-schema.md "ag-schema.md") to define your input parameters.
 
 ![Number 3 icon.](images/label-three.png)
