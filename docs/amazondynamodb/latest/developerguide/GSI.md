@@ -91,7 +91,7 @@ The following is some data that could represent this.
 | 301    | Comet Quest | 0        |
 
 When this data is added to the `GameScores` table, DynamoDB propagates it to
-`GameTitleIndex`. If we then query the index using Comet Quest for
+`GameTitleIndex`. If you then query the index using Comet Quest for
 `GameTitle` and 0 for `TopScore`, the following data is
 returned.
 

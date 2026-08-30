@@ -36,7 +36,7 @@ more information, see [Import quotas](S3DataImport.Validation.md#S3DataImport.Va
    2. For **Exported file format**, choose between DynamoDB
       JSON and Amazon Ion. The default option is DynamoDB JSON.
 
-5. Click the **Export** button to begin the export.
+5. Choose **Export** to begin the export.
 6. Small table exports should complete in a few minutes, but tables in the
    terabyte range can take more than an hour.
 
@@ -57,7 +57,7 @@ more information, see [Import quotas](S3DataImport.Validation.md#S3DataImport.Va
 9. Select **Next**. For **Configure
    table settings**, customize any additional table settings if applicable.
 10. Select **Next** again to review your import options,
-    then click **Import** to begin the import task. You'll see
+    then choose **Import** to begin the import task. You see
     your new table listed under **Imports from S3** with the status
     **Importing**. You cannot access your table during this time.
     Small imports should complete in a few minutes, but tables in the terabyte range can take

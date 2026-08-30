@@ -110,7 +110,7 @@ The following API actions are logged by default as events in CloudTrail files:
 
 ### DynamoDB data plane events in CloudTrail
 
-To enable logging of the following API actions in CloudTrail files, you'll need to
+To enable logging of the following API actions in CloudTrail files, you must
 enable logging of data plane API activity in CloudTrail.
 See [Logging data events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") for more information.
 

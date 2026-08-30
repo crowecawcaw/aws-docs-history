@@ -36,7 +36,7 @@ might experience throttling due to GSI hot partitions even though both the base
 table and GSI have sufficient overall capacity and the base table's access pattern
 appears well-distributed.
 
-Even though the throttling exception points to the GSI (via
+Even though the throttling exception points to the GSI (through
 `ResourceArn`), the actual operation being throttled is the write to
 the base table. This can be confusing because your application is writing to the
 base table but receiving an exception about the GSI.

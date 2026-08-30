@@ -99,7 +99,7 @@ annotation with the `attributeName` parameter to specify which DynamoDB attribut
 this property corresponds to.
 
 In the preceding example, the `@DynamoDBAttribute` annotation is added to each
-property to ensure that the property names match exactly with the tables created in a
+property to make sure that the property names match exactly with the tables created in a
 previous step, and to be consistent with the attribute names used in other code examples in
 this guide.
 

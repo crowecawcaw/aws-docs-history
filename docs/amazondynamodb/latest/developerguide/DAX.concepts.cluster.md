@@ -97,7 +97,7 @@ performance.
 ## Regions and availability zones
 
 A DAX cluster in an AWS Region can only interact with DynamoDB tables that are in the
-same Region. For this reason, ensure that you launch your DAX cluster in the correct
+same Region. For this reason, make sure that you launch your DAX cluster in the correct
 Region. If you have DynamoDB tables in other Regions, you must launch DAX clusters in
 those Regions too.
 
@@ -126,7 +126,7 @@ cached data.
 _Parameter groups_ are used to manage runtime settings for DAX
 clusters. DAX has several parameters that you can use to optimize performance (such as
 defining a TTL policy for cached data). A parameter group is a named set of parameters
-that you can apply to a cluster. You can thereby ensure that all the nodes in that
+that you can apply to a cluster. You can thereby make sure that all the nodes in that
 cluster are configured in exactly the same way.
 
 ## Security groups

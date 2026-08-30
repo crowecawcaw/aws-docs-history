@@ -84,7 +84,7 @@ Since this is a bounded operation for an internal system, idempotency requiremen
 been considered. It's possible to place additional guardrails like price update should go through
 only if price is greater than 35 and less than 40 to make the updates more robust.
 
-Alternatively, we can perform the same batch update operation using `TransactWriteItems` in
+Alternatively, you can perform the same batch update operation using `TransactWriteItems` in
 case of stricter idempotency and ACID requirements. However, it is important to remember that
 either all the operations in the transaction bundle go through or the entire bundle fails.
 

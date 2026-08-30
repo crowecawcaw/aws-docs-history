@@ -5,7 +5,7 @@ introduce traditional data modeling concepts. Then, we describe the advantages o
 over traditional relational database management systems—how it eliminates the need for
 JOIN operations and reduces overhead.
 
-We then explain how to design a DynamoDB table that scales efficiently. Finally, we provide an
+This section then explains how to design a DynamoDB table that scales efficiently, and provides an
 example of how to model relational data in DynamoDB.
 
 ###### Topics
@@ -59,7 +59,7 @@ the tables and whether the columns being joined have indexes. The preceding quer
 complex queries across several tables and then sorts the result set.
 
 Eliminating the need for `JOINs` is at the heart of NoSQL data modeling. This
-is why we built DynamoDB to support Amazon.com, and why DynamoDB can deliver consistent performance
+is why Amazon built DynamoDB to support Amazon.com, and why DynamoDB can deliver consistent performance
 at any scale. Given the runtime complexity of SQL queries and `JOINs`, RDBMS
 performance is not constant at scale. This causes performance issues as customer applications
 grow.

@@ -293,7 +293,7 @@ bypasses DAX and accesses the table directly in DynamoDB.
    who reads the item from DAX sees the item with Alice's update.
 2. A short time later, Bob updates the same `ProductCatalog` item
    that Alice wrote. However, Bob updates the item directly in DynamoDB. DAX
-   does not automatically refresh its item cache in response to updates via
+   does not automatically refresh its item cache in response to updates through
    DynamoDB. Therefore, DAX users don't see Bob's update.
 3. Alice reads the item from DAX again. The item is in the item cache, so
    DAX returns it to Alice without accessing the DynamoDB table.

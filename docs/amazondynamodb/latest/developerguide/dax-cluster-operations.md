@@ -47,7 +47,7 @@ Consider the following when you plan horizontal scaling:
 - **Availability** – Adding or removing DAX nodes changes the cluster's availability and fault tolerance. More nodes can improve availability, but they also increase costs.
 - **Data migration** – When you increase the replication factor, DAX automatically handles data distribution across the new set of nodes. When a new node begins serving traffic, its cache is already warmed. However, during this process, there might be a temporary impact on performance during data migration.
 
-Make sure you monitor your DAX clusters closely during and after the scaling process to ensure they're performing as expected and make further adjustments as necessary.
+Monitor your DAX clusters closely during and after the scaling process to verify that they're performing as expected, and make further adjustments as necessary.
 
 ## Scaling a cluster vertically
 

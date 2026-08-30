@@ -2,7 +2,7 @@
 
 Amazon DynamoDB integrates with [CloudWatch Contributor
 Insights](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContributorInsights.md") to provide information about the most accessed and throttled items in a
-table or global secondary index. DynamoDB delivers this information to you via CloudWatch Contributor
+table or global secondary index. DynamoDB delivers this information to you through CloudWatch Contributor
 Insights [rules](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.md "../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.md"), [reports](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-ViewReports.md "../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-ViewReports.md"), and [graphs of report data](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-GraphReportData.md "../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-GraphReportData.md").
 
 CloudWatch Contributor Insights for DynamoDB is designed to have no performance impact on your

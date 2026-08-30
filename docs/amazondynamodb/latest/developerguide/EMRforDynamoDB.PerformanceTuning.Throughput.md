@@ -4,7 +4,7 @@ When you issue HiveQL statements against the external DynamoDB table, the
 `DynamoDBStorageHandler` class makes the appropriate low-level DynamoDB
 API requests, which consume provisioned throughput. If there is not enough read or
 write capacity on the DynamoDB table, the request will be throttled, resulting in slow
-HiveQL performance. For this reason, you should ensure that the table has enough
+HiveQL performance. For this reason, you should make sure that the table has enough
 throughput capacity.
 
 For example, suppose that you have provisioned 100 read capacity units for your
@@ -100,7 +100,7 @@ reducing `dynamodb.throughput.write.percent` below `0.5`.
 If you have sufficient capacity in the table and want more responsive HiveQL
 operations, you can set the value above `0.5`.
 
-When you write data to DynamoDB using Hive, ensure that the number of write
+When you write data to DynamoDB using Hive, make sure that the number of write
 capacity units is greater than the number of mappers in the cluster. For
 example, consider an Amazon EMR cluster consisting of 10
 _m1.xlarge_ nodes. The _m1.xlarge_

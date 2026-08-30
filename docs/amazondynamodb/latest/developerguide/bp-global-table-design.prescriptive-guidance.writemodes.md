@@ -35,7 +35,7 @@ For example, several video streaming services use global tables for tracking boo
 reviews, watch status flags, and so on. These deployments use MREC tables because they need
 replicas scattered around the world, with each replica providing low-latency read and write
 operations. These deployments can use the _write to any
-Region_ mode as long as they ensure that every write operation is idempotent.
+Region_ mode as long as they make sure that every write operation is idempotent.
 This will be the case if every update―for example, setting a new latest time code, assigning
 a new review, or setting a new watch status―assigns the user’s new state directly, and the
 next correct value for an item doesn’t depend on its current value. If, by chance, the

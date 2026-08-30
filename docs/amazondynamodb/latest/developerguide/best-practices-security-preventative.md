@@ -8,7 +8,7 @@ Amazon DynamoDB.
 DynamoDB encrypts at rest all user data stored in tables, indexes, streams,
 and backups using encryption keys stored in [AWS Key Management Service (AWS KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/"). This provides an
 additional layer of data protection by securing your data from unauthorized
-access to the underlying storage .
+access to the underlying storage.
 
 You can specify whether DynamoDB should use an AWS owned key (default
 encryption type), an AWS managed key, or a customer managed key to encrypt user
@@ -17,8 +17,7 @@ data. For more information, see [Amazon DynamoDB Encryption at Rest](EncryptionA
 **Use IAM roles to authenticate access to DynamoDB**
 
 For users, applications, and other AWS services to access DynamoDB, they
-must include valid AWS credentials in their AWS API requests. You should
-not store AWS credentials directly in the application or EC2 instance.
+must include valid AWS credentials in their AWS API requests. We recommend that you do not store AWS credentials directly in the application or EC2 instance.
 These are long-term credentials that are not automatically rotated, and
 therefore could have significant business impact if they are compromised. An
 IAM role enables you to obtain temporary access keys that can be used to
@@ -64,7 +63,7 @@ Control](specifying-conditions.md "specifying-conditions.md").
 **Use a VPC endpoint and policies to access DynamoDB**
 
 If you only require access to DynamoDB from within a virtual private cloud
-(VPC), you should use a VPC endpoint to limit access from only the required
+(VPC), we recommend using a VPC endpoint to limit access from only the required
 VPC. Doing this prevents that traffic from traversing the open internet and
 being subject to that environment.
 
@@ -76,7 +75,7 @@ using the following:
   to the DynamoDB table.
 - IAM policies – By using the `aws:sourceVpce`
   condition on policies attached to users, groups, or roles, you can
-  enforce that all access to the DynamoDB table is via the specified VPC
+  enforce that all access to the DynamoDB table is through the specified VPC
   endpoint.
 
 For more information, see [Endpoints for Amazon
@@ -87,9 +86,9 @@ DynamoDB](../../../vpc/latest/userguide/vpc-endpoints-ddb.md "../../../vpc/lates
 We recommend that you plan your encryption strategy before implementing
 your table in DynamoDB. If you store sensitive or confidential data in DynamoDB,
 consider including client-side encryption in your plan. This way you can
-encrypt data as close as possible to its origin, and ensure its protection
+encrypt data as close as possible to its origin, and make sure that it is protected
 throughout its lifecycle. Encrypting your sensitive data in transit and at
-rest helps ensure that your plaintext data isn’t available to any third
+rest helps make sure that your plaintext data isn’t available to any third
 party.
 
 The [AWS Database Encryption SDK for DynamoDB](../../../dynamodb-encryption-client/latest/devguide/what-is-ddb-encrypt.md "../../../dynamodb-encryption-client/latest/devguide/what-is-ddb-encrypt.md") is a software library
@@ -104,16 +103,16 @@ Global Secondary Indexes. Key names will show up in your table definition.
 For example, the Primary Key names are accessible to anyone with permissions
 to call [DescribeTable](WorkingWithTables.Basics.md#WorkingWithTables.Basics.DescribeTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.DescribeTable"). Key values can show up in your [AWS
 CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") and other logs. Additionally, DynamoDB uses the key
-values to distribute data and route requests and AWS administrators may
+values to distribute data and route requests and AWS administrators might
 observe the values to maintain the health of the service.
 
 If you need to use sensitive data in your table or GSI key values, we
-recommend using end-to-end client encryption. This allows you to perform
-key-value references to your data while ensuring that it never appears
+recommend using end-to-end client encryption. With end-to-end client encryption, you can perform
+key-value references to your data while making sure that it never appears
 unencrypted in your DynamoDB related logs. One way to accomplish this is to use
 the [AWS Database Encryption SDK for DynamoDB](../../../database-encryption-sdk/latest/devguide/client-server-side.md "../../../database-encryption-sdk/latest/devguide/client-server-side.md"), but that is not
-required. If you use your own solution, we should always use a sufficiently
-secure encryption algorithm. You should not use a non-cryptographic option
+required. If you use your own solution, always use a sufficiently
+secure encryption algorithm. You must not use a non-cryptographic option
 like a hash, as they are not considered sufficiently secure in most
 situations.
 

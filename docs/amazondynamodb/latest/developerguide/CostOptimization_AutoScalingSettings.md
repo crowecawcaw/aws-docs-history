@@ -66,7 +66,7 @@ aws application-autoscaling describe-scaling-policies --service-namespace dynamo
 ```
 
 The values we're interested in for the auto scaling policies are highlighted
-below. We want to ensure that the target value is greater than 50% to avoid
+below. We want to make sure that the target value is greater than 50% to avoid
 over-provisioning. You should obtain a result similar to the following:
 
 ```
@@ -250,7 +250,7 @@ be reduced.
 
 ![A table's throughput at 70% target utilization, even as auto scaling rules adjust capacity.](images/CostOptimization/AutoScalingSettings3.png)
 
-Zooming in, we can see there was a spike in the application that triggered the 70% auto
+Zooming in, you can see there was a spike in the application that triggered the 70% auto
 scaling threshold, forcing the auto scaling to kick in and provide the extra capacity required
 for the table. The scheduled auto scaling action will affect maximum and minimum values, and
 it is your responsibility to set them up.
@@ -262,7 +262,7 @@ it is your responsibility to set them up.
 ## How to address spiky workloads with unknown patterns
 
 In this scenario, the application uses a very low utilization target because you don’t
-know the application patterns yet, and you want to ensure your workload is not
+know the application patterns yet, and you want to make sure your workload is not
 throttled.
 
 Consider using [on-demand capacity mode](capacity-mode.md#capacity-mode-on-demand "capacity-mode.md#capacity-mode-on-demand") instead.

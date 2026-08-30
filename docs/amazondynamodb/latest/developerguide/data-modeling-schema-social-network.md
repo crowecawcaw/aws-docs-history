@@ -68,7 +68,7 @@ We see these two kinds of data represented by the two items below. The item that
 considers the size of the item as it appears before and after the update and the
 provisioned throughput consumed will reflect the larger of these item sizes. So even if
 you update just a subset of the item's attributes, [`UpdateItem`](../APIReference/API_UpdateItem.md "../APIReference/API_UpdateItem.md") will still consume the full amount of provisioned
-throughput (the larger of the before and after item sizes). You can get the items via a
+throughput (the larger of the before and after item sizes). You can get the items with a
 single `Query` operation and use `UpdateItem` to add or subtract
 from existing numeric attributes.
 

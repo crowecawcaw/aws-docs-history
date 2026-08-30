@@ -27,7 +27,7 @@ You can use vector indexes with every global table configuration:
 
 The following example adds a replica in the `us-west-2` Region to a table
 named `Products` that already has a vector index. The table must use
-on-demand capacity mode, which is required for both vector indexes and this example.
+on-demand capacity mode, which vector indexes require.
 
 ```
 aws dynamodb update-table \

@@ -262,7 +262,7 @@ capacity units.
   earlier before throttling occurs. Make sure that you monitor your traffic after
   making these adjustments. See [Configuring table Auto Scaling to adjust the read or write capacity of your table or GSI](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") for more
   information about capacity consumption and cost implications.
-- **Review capacity boundaries:** Ensure your
+- **Review capacity boundaries:** Make sure your
   minimum and maximum capacity settings align with your actual workload
   patterns.
 

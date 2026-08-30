@@ -440,7 +440,7 @@ KCL 3.5.x+ migration uses three phases:
   (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`): Starts the migration.
   Writes `WORKER_METRIC_STATS` and `Migration3.0` entries to
   the lease table. KCL auto-transitions to full 3.x load balancing when all workers
-  are ready. Rollback to Phase 1 is supported (via the KCL Migration Tool). Rollback
+  are ready. Rollback to Phase 1 is supported (through the KCL Migration Tool). Rollback
   to KCL v1 is no longer possible.
 - **Phase 3**
   (`CLIENT_VERSION_CONFIG_3X`): Full KCL 3.x functionality. Explicitly

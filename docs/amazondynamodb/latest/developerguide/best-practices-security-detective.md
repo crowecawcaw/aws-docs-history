@@ -34,7 +34,7 @@ work with indexes, streams, and other objects that are dependent on tables.
 Data plane operations let you perform create, read, update, and delete (also
 called _CRUD_) actions on data in a table.
 Some data plane operations also let you read data from a secondary index. To
-enable logging of data plane events in CloudTrail, you'll need to enable logging
+enable logging of data plane events in CloudTrail, you must enable logging
 of data plane API activity in CloudTrail. See [Logging data events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") for more information.
 
 When activity occurs in DynamoDB, that activity is recorded in a CloudTrail event

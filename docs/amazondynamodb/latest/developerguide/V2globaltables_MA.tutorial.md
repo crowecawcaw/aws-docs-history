@@ -58,7 +58,7 @@ JSON
 ```
 
 7. This new table serves as the first replica table in a new global table. It is the prototype for other replica tables that you add later.
-8. Wait for the table to become **Active**. For the newly created table, from the **Global tables** tab, navigate to **Settings Replication** and click **Enable**.
+8. Wait for the table to become **Active**. For the newly created table, from the **Global tables** tab, navigate to **Settings Replication** and choose **Enable**.
 9. Logout of this account (`111122223333` here).
 10. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/") for the second account (say `444455556666`).
 11. For this example, choose **US East (N. Virginia)** from the Region selector in the navigation bar.

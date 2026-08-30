@@ -117,7 +117,7 @@ def lambda_handler(event, context):
       where the SK begins with `“user#”`, you’d use a configuration
       like this.
 
-   ![Image showing an EventBridge rule where only DynamoDB items that have a sort key beginning with "user#" is displayed.](images/eventbridge-rule-example.png) 3. Click **Generate event pattern in JSON**
+   ![Image showing an EventBridge rule where only DynamoDB items that have a sort key beginning with "user#" is displayed.](images/eventbridge-rule-example.png) 3. Choose **Generate event pattern in JSON**
    after you’ve finished designing a pattern against your schema. If you
    instead want to match all events that appear on DynamoDB Streams, use the following
    JSON for the event pattern.

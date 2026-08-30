@@ -48,4 +48,4 @@ When you use ABAC with DynamoDB Streams, the following considerations apply:
 
 - ABAC for DynamoDB Streams is separate from ABAC for DynamoDB tables. Enabling ABAC for tables does not automatically enable it for streams in your account. You must enable each independently.
 - You can tag or untag a stream after its parent table is deleted, using the CLI or SDK `tag-resource`, `untag-resource`, and `list-tags-of-resource` commands on the stream ARN. The stream continues to exist for 24 hours after table deletion before being removed. This capability is not available through the Console or CloudFormation after table deletion.
-- If you use CloudFormation to manage your DynamoDB resources, ensure your service role has `dynamodb:TagResource`, `dynamodb:UntagResource` and `dynamodb:ListTagsOfResource` permissions for stream resources.
+- If you use CloudFormation to manage your DynamoDB resources, make sure your service role has `dynamodb:TagResource`, `dynamodb:UntagResource` and `dynamodb:ListTagsOfResource` permissions for stream resources.

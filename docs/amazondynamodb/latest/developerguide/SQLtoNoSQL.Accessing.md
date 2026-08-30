@@ -1,7 +1,7 @@
 # Differences in accessing a relational (SQL) database and DynamoDB
 
 Before your application can access a database, it must be
-_authenticated_ to ensure that the application is allowed to use
+_authenticated_ to make sure that the application is allowed to use
 the database. It must be _authorized_ so that the application can
 perform only the actions for which it has permissions.
 

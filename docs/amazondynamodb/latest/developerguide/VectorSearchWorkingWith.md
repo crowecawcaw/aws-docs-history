@@ -18,7 +18,8 @@ data, and perform similarity searches using the `SearchVectors` API.
 Before you work with vector indexes, verify the following:
 
 - Your table uses on-demand capacity mode (`PAY_PER_REQUEST`).
-  Vector indexes are not supported on provisioned capacity tables.
+  Vector indexes use on-demand capacity mode only and require a table that also
+  uses on-demand capacity mode, so you cannot mix the two capacity modes.
 - Your AWS Identity and Access Management (IAM) identity has `dynamodb:CreateTable` or
   `dynamodb:UpdateTable` permissions to create vector indexes.
 - Your IAM identity has `dynamodb:SearchVectors` permission on

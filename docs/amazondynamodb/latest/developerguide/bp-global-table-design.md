@@ -50,7 +50,7 @@ AWS](https://www.youtube.com/watch?v=7IA48SOX20c "https://www.youtube.com/watch?
   homed to one Region to directly access only the local DynamoDB endpoint for its Region. If
   problems are detected within a Region (in the DynamoDB layer or in the surrounding stack),
   end user traffic should be routed to a different application endpoint that’s hosted in a
-  different Region. Global tables ensure that the application homed in every Region has
+  different Region. Global tables make sure that the application homed in every Region has
   access to the same data.
 
 ### Consistency modes

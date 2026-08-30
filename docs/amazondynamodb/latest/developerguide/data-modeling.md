@@ -21,7 +21,7 @@ following:
 - [Best practices for using sort keys to organize data in DynamoDB](bp-sort-keys.md "bp-sort-keys.md")
 - [Choosing the right DynamoDB partition key](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/ "https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/")
   Secondary indexes are often needed to support additional query patterns in DynamoDB. Secondary
-  indexes are shadow tables where the same data is organised via a different key schema compared
+  indexes are shadow tables where the same data is organized through a different key schema compared
   to the base table. A local secondary index (LSI) shares the same partition key as the base table
   and allows having an alternate sort key allowing it to share the base table’s capacity. A global
   secondary index (GSI) can have a different partition key as well as a different sort key

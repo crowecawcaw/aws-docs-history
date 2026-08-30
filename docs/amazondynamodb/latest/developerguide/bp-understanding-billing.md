@@ -70,7 +70,7 @@ consumed in us-west-2.
 | USW1                | us-west-1      | US West (N. California)   |
 | USW2                | us-west-2      | US West (Oregon)          |
 
-In the following sections, we use `REG-UsageType` pattern when going through the
+The following sections use the `REG-UsageType` pattern when going through the
 charges for DynamoDB, where REG specifies the region where usage occurred and usageType is the
 code for the type of charge. For example if you see a line item for `USW1-
  ReadCapacityUnit-Hrs` in your CSV file, that means the usage was incurred in US-West-1 for

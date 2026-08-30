@@ -13,7 +13,7 @@ a stream from a DynamoDB table.
   filter criteria to each new event to see if it should be included in the current
   batch.
 
-Filters are applied via structures called `FilterCriteria`. The 3 main
+Filters are applied through structures called `FilterCriteria`. The 3 main
 attributes of `FilterCriteria` are `metadata properties`,
 `data properties` and `filter patterns`.
 
@@ -87,7 +87,7 @@ In the [Lambda event
 filtering](../../../lambda/latest/dg/invocation-eventfiltering.md "../../../lambda/latest/dg/invocation-eventfiltering.md") page there are some options to filter and compare numeric
 values, however in the case of DynamoDB filter events it doesn’t apply because numbers
 in DynamoDB are stored as strings. For example `"quantity": { "N": "50"
- }`, we know its a number because of the `"N"` property.
+ }`, you know it's a number because of the `"N"` property.
 
 ## Putting it all together - CloudFormation
 
@@ -391,7 +391,7 @@ Amazon DynamoDB Streams enabled by default to show New and Old images.
 The Lambda function will be stored in the folder `lambda` under the
 file `app.py`. This file will be created later. It will include an
 environment variable `APP_TABLE_NAME`, which will be the name of the
-Amazon DynamoDB Table created by this stack. In the same function we will grant
+Amazon DynamoDB Table created by this stack. In the same function, the code grants
 stream read permissions to the Lambda function. Finally, it will subscribe to the
 DynamoDB Streams as the event source for the lambda function.
 
@@ -463,7 +463,7 @@ class DdbFiltersStack(Stack):
         self._set_ddb_trigger_function(ddb_table)
 ```
 
-Now we will create a very simple lambda function that will print the logs into
+Now create a simple Lambda function that prints the logs to
 Amazon CloudWatch. To do this, create a new folder called
 `lambda`.
 

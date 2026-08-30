@@ -34,7 +34,7 @@ When you create an interface endpoint for DAX:
 3. You can then access DAX through private IP addresses within your VPC.
 4. This architecture allows you to use VPC security groups to manage access to the endpoints.
 5. Applications can access both DynamoDB and DAX through their respective interface endpoints within a VPC, while
-   also allowing on-premises applications to connect via Direct Connect or VPN.
+   also allowing on-premises applications to connect through Direct Connect or VPN.
 6. This provides a consistent connectivity model across both services, simplifies architecture, and improves security
    by keeping traffic within the AWS network.
 

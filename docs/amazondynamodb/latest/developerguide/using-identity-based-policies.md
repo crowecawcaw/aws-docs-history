@@ -57,7 +57,7 @@ these DynamoDB permissions, the console requires permissions:
 
 If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users with that IAM policy.
-To ensure that those users can still use the DynamoDB console, also attach the
+To make sure that those users can still use the DynamoDB console, also attach the
 `AmazonDynamoDBReadOnlyAccess` AWS managed policy to the user, as
 described in [AWS managed (predefined) IAM policies for Amazon DynamoDB](#access-policy-examples-aws-managed "#access-policy-examples-aws-managed").
 

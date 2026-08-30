@@ -58,9 +58,8 @@ With the _write to your Region_ mode, the client needs to determine the home reg
 working against. For example, if the client corresponds to a user account and each user account is
 homed to a Region, the client can request the appropriate endpoint from a global login system.
 
-For example, a financial services company that helps users manage their business finances via the
-web could use global tables with a _write to your Region_ mode.
-Each user must login to a central service. That service returns credentials and the endpoint for the Region where those
+For example, a financial services company that helps users manage their business finances through the web could use global tables with a _write to your Region_ mode.
+Each user must log in to a central service. That service returns credentials and the endpoint for the Region where those
 credentials will work. The credentials are valid
 for a short time. After that the webpage auto-negotiates a new login, which provides an opportunity to
 potentially redirect the user’s activity to a new Region.

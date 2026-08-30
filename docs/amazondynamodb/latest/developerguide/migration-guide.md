@@ -171,8 +171,8 @@ your application into smaller components or micro-services, and migrating a smal
 tables at a time. You can then migrate additional components to DynamoDB in waves.
 
 When selecting a migration strategy, various factors may steer you towards one solution
-or another. We can present these options in a decision tree to simplify the options available
-to us given our requirements and resources available. The concepts are briefly mentioned here
+or another. The following decision tree simplifies the options available
+given your requirements and resources. The concepts are briefly mentioned here
 (but will be covered in more depth later in the guide):
 
 - [Offline
@@ -296,7 +296,7 @@ Perform a hybrid online/offline migration with application dual writes
 
 ###### Note
 
-The backfill job writes directly from SQL to DynamoDB. We are unable to use the S3 import
+The backfill job writes directly from SQL to DynamoDB. You can't use the S3 import
 feature as in the offline migration example, since that feature creates a new table that will not be
 live until after DynamoDB loads the data.
 
@@ -386,7 +386,7 @@ Perform an online migration with an SQL staging table using AWS DMS
 
 ###### Online migration steps:
 
-1. Within the source relational database engine, ensure there is some extra disk space
+1. Within the source relational database engine, make sure there is some extra disk space
    and processing capacity.
 2. Create a new staging table in the SQL database, with timestamps or CDC features
    enabled

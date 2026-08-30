@@ -25,7 +25,7 @@ policies to confirm that they do not grant public access:
   roles)
 - Resource-based policies attached to associated AWS resources (for example,
   AWS Key Management Service (KMS) keys)
-  You must ensure that the [principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md")
+  You must make sure that the [principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md")
   doesn't include a `*` entry or that one of the specified condition keys
   restrict access from principals to the resource. If the resource-based policy grants public
   access to your table, indexes, or stream across AWS accounts, DynamoDB will block you from

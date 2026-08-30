@@ -377,7 +377,7 @@ troubleshooting purposes:
 ## Step 5: Create and test a trigger
 
 In [Step 4: Create and test a Lambda function](#Streams.Lambda.Tutorial.LambdaFunction "#Streams.Lambda.Tutorial.LambdaFunction"), you tested the Lambda
-function to ensure that it ran correctly. In this step, you create a _trigger_ by associating the Lambda function
+function to make sure that it ran correctly. In this step, you create a _trigger_ by associating the Lambda function
 (`publishNewBark`) with an event source (the `BarkTable`
 stream).
 

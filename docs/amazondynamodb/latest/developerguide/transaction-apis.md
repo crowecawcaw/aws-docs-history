@@ -68,7 +68,7 @@ of the changes made during a recent transaction.
 ### Idempotency
 
 You can optionally include a client token when you make a
-`TransactWriteItems` call to ensure that the request is
+`TransactWriteItems` call to make sure that the request is
 _idempotent_. Making your transactions idempotent helps prevent
 application errors if the same operation is submitted multiple times due to a connection
 time-out or other connectivity issue.
@@ -338,12 +338,12 @@ transactions in your own code using a `ClientRequestToken`.
 
 Consider the following recommended practices when using DynamoDB transactions.
 
-- Enable automatic scaling on your tables, or ensure that you have provisioned enough
+- Enable automatic scaling on your tables, or make sure that you have provisioned enough
   throughput capacity to perform the two read or write operations for every item in your
   transaction.
 - If you are not using an AWS provided SDK, include a
   `ClientRequestToken` attribute when you make a
-  `TransactWriteItems` call to ensure that the request is idempotent.
+  `TransactWriteItems` call to make sure that the request is idempotent.
 - Don't group operations together in a transaction if it's not necessary. For example,
   if a single transaction with 10 operations can be broken up into multiple transactions
   without compromising the application correctness, we recommend splitting up the

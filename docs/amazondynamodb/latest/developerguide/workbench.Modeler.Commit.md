@@ -10,9 +10,9 @@ Amazon DynamoDB.
 
 ###### To commit the data model to DynamoDB
 
-1. Open NoSQL Workbench, and on the main screen, click on the name of the model that you want to commit.
-2. In the top bar, click **Commit**.
-3. Choose an existing connection, or create a new connection by clicking the **Add new connection** button.
+1. Open NoSQL Workbench, and on the main screen, choose the name of the model that you want to commit.
+2. In the top bar, choose **Commit**.
+3. Choose an existing connection, or create a new connection by choosing **Add new connection**.
 
    - To add a new connection, specify the following information:
 
@@ -30,9 +30,9 @@ Amazon DynamoDB.
 4. If you prefer to use [DynamoDB local](DynamoDBLocal.md "DynamoDBLocal.md"):
 
    1. Choose the **Local connection** tab.
-   2. Click the **Add new connection** button.
+   2. Choose **Add new connection**.
    3. Specify the **Connection name** and **Port**.
 
 ###### Note
 
-To use DynamoDB local, you will need to turn it on by using the **DynamoDB local** toggle at the bottom left of the NoSQL Workbench screen. 5. Click **Commit**.
+To use DynamoDB local, turn it on by using the **DynamoDB local** toggle at the bottom left of the NoSQL Workbench screen. 5. Choose **Commit**.

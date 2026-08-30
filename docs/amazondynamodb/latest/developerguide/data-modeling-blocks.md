@@ -76,7 +76,7 @@ For this example, we are running a photo hosting site with potentially thousands
 users. Each user will only upload photos to their own profile initially, but by default
 we will not allow a user to see the photos of any other user. An additional level of
 isolation would ideally be added to the authorization of each user's call to your API to
-ensure they are only requesting data from their own partition, but at the schema level,
+make sure they are only requesting data from their own partition, but at the schema level,
 unique partition keys is adequate.
 
 **Key features of this building block**
@@ -282,7 +282,7 @@ results in items under 1KB.
 
 **Key features of this building block**
 
-- A hierarchy of data relationships is maintained via sort key prefixes so the
+- A hierarchy of data relationships is maintained through sort key prefixes so the
   singular document structure could be rebuilt client-side if needed
 - Singular components of the data structure can be updated independently
   resulting in small item updates being only 1 WCU

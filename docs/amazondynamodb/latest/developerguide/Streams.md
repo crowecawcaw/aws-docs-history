@@ -33,6 +33,7 @@ DynamoDB Streams helps make sure the following:
 - [Enabling a stream](#Streams.Enabling "#Streams.Enabling")
 - [Reading and processing a stream](#Streams.Processing "#Streams.Processing")
 - [DynamoDB Streams and Time to Live](time-to-live-ttl-streams.md "time-to-live-ttl-streams.md")
+- [Tagging DynamoDB Streams](Tagging.Streams.md "Tagging.Streams.md")
 - [Using the DynamoDB Streams Kinesis adapter to process stream records](Streams.KCLAdapter.md "Streams.KCLAdapter.md")
 - [DynamoDB Streams low-level API: Java example](Streams.LowLevel.Walkthrough.md "Streams.LowLevel.Walkthrough.md")
 - [DynamoDB Streams and AWS Lambda triggers](Streams.Lambda.md "Streams.Lambda.md")

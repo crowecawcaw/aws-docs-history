@@ -1,7 +1,7 @@
 # Identify your unused resources in DynamoDB
 
 This section provides an overview of how to evaluate your unused resources regularly. As
-your application requirements evolve you should ensure no resources are unused and contributing
+your application requirements evolve you should make sure no resources are unused and contributing
 to unnecessary Amazon DynamoDB costs. The procedures described below will use Amazon CloudWatch metrics to
 identify unused resources and will help you identify and take action on those resources to
 reduce costs.

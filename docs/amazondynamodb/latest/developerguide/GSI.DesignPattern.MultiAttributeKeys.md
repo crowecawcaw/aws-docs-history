@@ -124,7 +124,7 @@ With multi-attribute keys, you write items once with natural domain attributes. 
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+Before you begin, make sure you have:
 
 ### Account and permissions
 

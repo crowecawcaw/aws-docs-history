@@ -3,8 +3,8 @@
 Keep the following requirements and limitations in mind when you work with vector
 indexes:
 
-- Vector indexes are supported only on tables that use on-demand capacity
-  mode.
+- Vector indexes use on-demand capacity mode only, and they require a table that
+  also uses on-demand capacity mode. You cannot mix the two capacity modes.
 - Vector embeddings are stored in the index at 32-bit floating point (f32)
   precision. Higher-precision values are accepted but lose precision when
   replicated to the index.

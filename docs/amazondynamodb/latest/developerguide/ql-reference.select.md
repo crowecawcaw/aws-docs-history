@@ -65,7 +65,7 @@ FROM "TableName"."IndexName"
 
 ###### Important
 
-To ensure that a `SELECT` statement does not result
+To make sure that a `SELECT` statement does not result
 in a full table scan, the `WHERE` clause condition
 must specify a partition key. Use the equality or IN
 operator.

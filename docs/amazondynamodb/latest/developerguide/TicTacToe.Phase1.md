@@ -133,7 +133,7 @@ status. 11. Play the game.
 
 For each user move, the web service sends a request to DynamoDB to conditionally
 update the game item in the `Games` table. For example, the conditions
-ensure that the move is valid, the square that the user chose is available, and that
+make sure that the move is valid, the square that the user chose is available, and that
 it was the turn of the user who made the move. For a valid move, the update
 operation adds a new attribute corresponding to the selection on the board. The
 update operation also sets the value of the existing attribute to the user who can

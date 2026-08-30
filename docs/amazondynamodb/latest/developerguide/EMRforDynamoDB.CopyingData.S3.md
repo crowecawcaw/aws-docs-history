@@ -28,7 +28,7 @@ region is the AWS region for the bucket.
 
 ###### Note
 
-For these examples, we will use a subpath within the bucket, as in this
+These examples use a subpath within the bucket, as in this
 example:
 
 `s3://aws-logs-123456789012-us-west-2`/hive-test``
@@ -102,7 +102,7 @@ creating data files with comma-separated values (CSV).
 ###### Example From DynamoDB to Amazon S3
 
 1. Create a Hive external table that maps to Amazon S3. When you do this,
-   ensure that the data types are consistent with those of the DynamoDB
+   make sure that the data types are consistent with those of the DynamoDB
    external table.
 
 ```

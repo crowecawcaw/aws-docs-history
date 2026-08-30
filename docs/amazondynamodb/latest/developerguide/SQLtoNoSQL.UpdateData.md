@@ -103,7 +103,7 @@ The `ReturnValues` parameter is set to
 `UPDATED_NEW`, which returns the new values of any
 attributes that were updated. In this case, it returns 0 (zero).
 
-Whenever someone plays this song, we can use the following
+Whenever someone plays this song, you can use the following
 `UpdateItem` operation to increment
 _Plays_ by one.
 
@@ -163,7 +163,7 @@ SET Plays = 0
 WHERE Artist='No One You Know' AND SongTitle='Call Me Today'
 ```
 
-Whenever someone plays this song, we can use the following
+Whenever someone plays this song, you can use the following
 `Update` statement to increment
 _Plays_ by one.
 

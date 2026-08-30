@@ -5,7 +5,7 @@ such as read, write, storage and backup charges. You can also see these costs su
 period such as month or day.
 
 One challenge administrators can face is when the costs of only one particular table need to
-be reviewed. Some of this data is available via the DynamoDB console or via calls to the
+be reviewed. Some of this data is available through the DynamoDB console or through calls to the
 `DescribeTable` API, however Cost Explorer does not, by default, allow you to
 filter or group by costs associated with a specific table. This section will show you how to use
 tagging to perform individual table cost analysis in Cost Explorer.
@@ -60,9 +60,9 @@ department. For this example, we'll assume you have a table named **MyTable**.
 
 ###### Note
 
-It may take one or two days for the tag to start appearing in Cost Explorer
+It might take one or two days for the tag to start appearing in Cost Explorer
 
-You can set metadata tags yourself in the console, or via automation such as the AWS CLI
+You can set metadata tags yourself in the console, or through automation such as the AWS CLI
 or AWS SDK. Consider requiring a **table\_name** tag to be set
 as part of your organization’s new table creation process. For existing tables, there is a
 Python utility available that will find and apply these tags to all existing tables in a

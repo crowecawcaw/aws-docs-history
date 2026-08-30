@@ -58,7 +58,7 @@ same parameters, DynamoDB will provide highly consistent `Average
 
 Consider one or more of the following strategies to reduce latency:
 
-- **Reuse connections:** DynamoDB requests are made via an
+- **Reuse connections:** DynamoDB requests are made through an
   authenticated session over HTTPS by default. Initiating the connection requires
   multiple round-trips and takes time so the latency of the first request is higher
   than following requests that reuse the connection. Requests over an already

@@ -39,12 +39,12 @@ API actions on your behalf.
 
 If you are currently using IAM roles and policies to restrict access to DynamoDB tables
 data, then the use of DAX can **subvert** those policies.
-For example, a user could have access to a DynamoDB table via DAX but not have explicit
+For example, a user could have access to a DynamoDB table through DAX but not have explicit
 access to the same table accessing DynamoDB directly. For more information, see [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md").
 
 DAX does not enforce user-level separation on data in DynamoDB. Instead, users inherit
 the permissions of the DAX cluster's IAM policy when they access that cluster. Thus,
-when accessing DynamoDB tables via DAX, the only access controls that are in effect are
+when accessing DynamoDB tables through DAX, the only access controls that are in effect are
 the permissions in the DAX cluster's IAM policy. No other permissions are
 recognized.
 
@@ -187,7 +187,7 @@ That way, all of the users who assume that role would have the permissions that 
 defined in the policy.
 
 The user policy, together with the DAX service role, determine the DynamoDB resources
-and API actions that the recipient can access via DAX.
+and API actions that the recipient can access through DAX.
 
 ## Case study: Accessing DynamoDB and DAX
 
@@ -264,7 +264,7 @@ When this document is attached to `BobAccessPolicy`, it allows
 `BobUserRole` to access the DynamoDB endpoint and perform read-only
 operations on the `Books` table.
 
-DAX does not appear in this policy, so access via DAX is denied.
+DAX does not appear in this policy, so access through DAX is denied.
 
 ### Read/write access to DynamoDB (only)
 
@@ -298,7 +298,7 @@ JSON
 
 ```
 
-Again, DAX does not appear in this policy, so access via DAX is denied.
+Again, DAX does not appear in this policy, so access through DAX is denied.
 
 ## Access to DynamoDB and to DAX
 
@@ -397,11 +397,11 @@ JSON
 ### Read/write access to DynamoDB and read-only with DAX
 
 For a given user role, you can provide read/write access to a DynamoDB table, while
-also allowing read-only access via DAX.
+also allowing read-only access through DAX.
 
 For Bob, the IAM policy for `BobUserRole` would need to allow DynamoDB
 read and write actions on the `Books` table, while also supporting
-read-only actions via `DAXCluster01`.
+read-only actions through `DAXCluster01`.
 
 The following example policy document for `BobUserRole` confers this
 access.
@@ -554,13 +554,13 @@ JSON
 
 ```
 
-## Access to DynamoDB via DAX, but no direct access to DynamoDB
+## Access to DynamoDB through DAX, but no direct access to DynamoDB
 
-In this scenario, Bob can access the `Books` table via DAX, but he does
+In this scenario, Bob can access the `Books` table through DAX, but he does
 not have direct access to the `Books` table in DynamoDB. Thus, when Bob gains
 access to DAX, he also gains access to a DynamoDB table that he otherwise might not be
 able to access. When you configure an IAM policy for the DAX service role, remember
-that any user that is given access to the DAX cluster via the user access policy gains
+that any user that is given access to the DAX cluster through the user access policy gains
 access to the tables specified in that policy. In this case,
 `BobAccessPolicy` gains access to the tables specified in
 `DAXAccessPolicy`.
@@ -569,7 +569,7 @@ access to the tables specified in that policy. In this case,
 
 If you are currently using IAM roles and policies to restrict access to DynamoDB tables
 and data, using DAX can subvert those policies. In the following policy, Bob has
-access to a DynamoDB table via DAX but does not have explicit direct access to the same
+access to a DynamoDB table through DAX but does not have explicit direct access to the same
 table in DynamoDB.
 
 The following policy document (`BobAccessPolicy`), attached
@@ -638,6 +638,6 @@ JSON
 
 As this example shows, when you configure access control for the user access policy
 and the DAX cluster access policy, you must fully understand the end-to-end access to
-ensure that the principle of least privilege is observed. Also ensure that giving a user
+make sure that the principle of least privilege is observed. Also make sure that giving a user
 access to a DAX cluster does not subvert previously established access control
 policies.

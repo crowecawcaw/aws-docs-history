@@ -49,7 +49,7 @@ read and write capacity.
 In addition to tables, DynamoDB auto scaling also supports global secondary indexes.
 Every global secondary index has its own provisioned throughput capacity, separate from that of its base
 table. When you create a scaling policy for a global secondary index, Application Auto Scaling adjusts the provisioned
-throughput settings for the index to ensure that its actual utilization stays at or near
+throughput settings for the index to make sure that its actual utilization stays at or near
 your desired utilization ratio.
 
 ## How DynamoDB auto scaling works
@@ -93,7 +93,7 @@ Within the range of 150 to 1,200 read capacity units, you decide that a target
 utilization of 70 percent would be appropriate for the `ProductCatalog`
 table. _Target utilization_ is the ratio of consumed capacity units
 to provisioned capacity units, expressed as a percentage. Application Auto Scaling uses its target
-tracking algorithm to ensure that the provisioned read capacity of
+tracking algorithm to make sure that the provisioned read capacity of
 `ProductCatalog` is adjusted as required so that utilization remains at
 or near 70 percent.
 

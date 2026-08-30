@@ -277,8 +277,8 @@ Second time selecting the **Percentage**
 function:
 
 ![CloudWatch console. The Percentage function is selected a second time for the graphed metrics.](images/CostOptimization/RightSizedProvisioning3.png) 8. At this point you should have four metrics in the bottom menu. Let’s work on the
-`ConsumedWriteCapacityUnits` calculation. To be consistent, we need to
-match the names for the ones we used in the AWS CLI section. Click on the **m1 ID** and change this value to **consumedWCU**.
+`ConsumedWriteCapacityUnits` calculation. To be consistent, you need to
+match the names used in the AWS CLI section. Choose the **m1 ID** and change this value to **consumedWCU**.
 
 ![CloudWatch console. The graphed metric with m1 ID is renamed to consumedWCU.](images/CostOptimization/RightSizedProvisioning4.png)
 
@@ -302,7 +302,7 @@ Make sure you have only selected **m1** (checkbox
 on the left) and **provisionedWCU** to properly
 visualize the data. Update the formula by clicking in **Details** and changing the formula to **consumedWCU/PERIOD(consumedWCU)**. This step might also generate
 another **ANOMALY\_DETECTION\_BAND** metric, but for
-the scope of this procedure we can ignore it.
+the scope of this procedure you can ignore it.
 
 ![m1 and provisionedWCU are selected. Details for m1 is updated as consumedWCU/PERIOD(consumedWCU).](images/CostOptimization/RightSizedProvisioning10.png) 12. You should have now have two graphics: one that indicates your provisioned WCUs
 on the table and another that indicates the consumed WCUs. The shape of the graphic

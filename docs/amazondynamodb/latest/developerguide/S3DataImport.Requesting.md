@@ -92,10 +92,10 @@ JSON
 ### Amazon S3 permissions
 
 When starting an import on an Amazon S3 bucket source that is owned by another account,
-ensure that the role or user has access to the Amazon S3 objects. You can check that by
+make sure that the role or user has access to the Amazon S3 objects. You can check that by
 executing an Amazon S3 `GetObject` command and using the credentials. When using the API,
 the Amazon S3 bucket owner parameter defaults to the current user’s account ID. For cross
-account imports, ensure that this parameter is correctly populated with the bucket
+account imports, make sure that this parameter is correctly populated with the bucket
 owner’s account ID. The following code is an example Amazon S3 bucket policy in the source account.
 
 JSON
@@ -124,7 +124,7 @@ JSON
 When creating the new table for import, if you select an encryption at rest key that is not owned by DynamoDB
 then you must provide the AWS KMS permissions required to operate a DynamoDB table encrypted with customer managed keys.
 For more information see [Authorizing use of your AWS KMS key](encryption.usagenotes.md#dynamodb-kms-authz "encryption.usagenotes.md#dynamodb-kms-authz").
-If the Amazon S3 objects are encrypted with server side encryption KMS (SSE-KMS), ensure that the role or user initiating the import has access
+If the Amazon S3 objects are encrypted with server side encryption KMS (SSE-KMS), make sure that the role or user initiating the import has access
 to decrypt using the AWS KMS key. This feature does not support customer-provided encryption keys (SSE-C) encrypted Amazon S3 objects.
 
 ### CloudWatch permissions
@@ -167,8 +167,8 @@ If you select **Custom delimiter character**, the delimiter must match the regex
 
 ###### Note
 
-Primary Key and Sort Key must match the attributes in the file, or the import will fail. The attributes are case sensitive. 10. Select **Next** again to review your import options, then click **Import** to begin the import task. You will first
-see your new table listed in the “Tables” with the status “Creating”. At this time the table is not accessible. 11. Once the import completes, the status will show as "Active" and you can start using the table.
+Primary Key and Sort Key must match the attributes in the file, or the import will fail. The attributes are case sensitive. 10. Select **Next** again to review your import options, then choose **Import** to begin the import task. You will first
+see your new table listed in the “Tables” with the status “Creating”. At this time the table is not accessible. 11. After the import completes, the status shows as "Active" and you can start using the table.
 
 ## Getting details about past imports in the AWS Management Console
 

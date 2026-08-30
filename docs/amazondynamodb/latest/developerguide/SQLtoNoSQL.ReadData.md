@@ -30,7 +30,7 @@ reading data:
 
 With a relational database, you can use the `SELECT` statement to join
 data from multiple tables and return the results. Joins are fundamental to the
-relational model. To ensure that joins run efficiently, the database and its
+relational model. To make sure that joins run efficiently, the database and its
 applications should be performance-tuned on an ongoing basis. DynamoDB is a
 non-relational NoSQL database that does not support table joins. Instead,
 applications read data from one table at a time.

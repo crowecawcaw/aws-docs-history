@@ -66,10 +66,10 @@ so that each of the two accounts can track which account accessed what data.
 
 1. Get the cross-account Lambda execution role from account A that will invoke the Lambda function.
 2. On the Amazon DynamoDB console in account B, choose the table for Lambda cross-account trigger. Under the
-   **Exports and streams** tab, locate your DynamoDB stream ARN. Ensure that DynamoDB Stream status
+   **Exports and streams** tab, locate your DynamoDB stream ARN. Make sure that DynamoDB Stream status
    is On and note the full stream ARN as you will need it for the resource policy.
-3. Under the **Permissions** tab, click the **create stream policy** button
-   to start the visual policy editor. Click the **Add new statement** button or edit the policy if one
+3. Under the **Permissions** tab, choose **create stream policy**
+   to start the visual policy editor. Choose **Add new statement** or edit the policy if one
    already exists.
 4. Create a policy that specifies the Lambda execution role in account A as the principal, and grant the required
    DynamoDB Streams actions. Make sure to include the actions `dynamodb:DescribeStream`, `dynamodb:GetRecords`, and

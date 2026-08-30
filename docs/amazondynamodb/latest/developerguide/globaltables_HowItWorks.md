@@ -107,7 +107,7 @@ Latencies in the 0.5 to 2.5 second range for Regions can be common within the sa
 
 You can use Time To Live (TTL) to specify an attribute name whose value indicates the time of expiration for the item. This value is specified as a number in seconds since the start of the Unix epoch.
 
-With global tables legacy version, the TTL deletes are not automatically replicated across other replicas. When an item is deleted via a TTL rule, that work is performed without consuming Write Units.
+With global tables legacy version, the TTL deletes are not automatically replicated across other replicas. When an item is deleted by a TTL rule, that work is performed without consuming Write Units.
 
 Be aware that if the source and target table have very low Provisioned write capacity, this may cause throttling as the TTL deletes require write capacity.
 

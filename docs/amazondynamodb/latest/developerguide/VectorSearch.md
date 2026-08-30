@@ -193,12 +193,15 @@ specifies vector index partition keys and inline filter attributes.
 
 `HASH` (vector index partition key)
 
-A vector index partition key partitions your index data for independent scaling.
-When you specify a vector index partition key, items with the same partition key value are
-stored together, which enables the system to search only the relevant
-data. At high scale, this lowers search latency because the search examines only a subset of the vector space instead of the entire index. Use attributes with low-to-medium cardinality, such as
-`Category` or `Country`. You can specify at most one
-vector index partition key.
+A vector index partition key scopes each search to the vectors that share the
+same value for an attribute you choose. Items with the same partition
+key value are stored together, so the search reads only that subset instead
+of scanning the whole index. At high scale, a
+vector index partition key lowers search latency because the search examines
+only a subset of the vector space. Use attributes
+with low-to-medium cardinality, such as `Category` or
+`Country`. You can specify at most one vector index partition
+key.
 
 If you define a vector index partition key in the SearchSchema, you must provide its
 value in the `SearchConditionExpression` when you call
@@ -215,8 +218,15 @@ second and reduces the amount of data each search examines. See
 
 `INLINE_FILTER`
 
-Inline filter attributes are projected into the vector index so
-that DynamoDB can filter during search at the storage layer.
+An inline filter attribute is a regular, non-vector attribute whose value
+DynamoDB stores in the vector index next to each vector. Because the value sits
+with the vector, DynamoDB skips vectors that don't match your filter as it
+searches the index. This avoids searching the full index first and then
+discarding results that don't match.
+
+For example, if you define a `Language` attribute as an inline
+filter, a search that filters on `Language` considers only the
+vectors whose `Language` value matches.
 
 Inline filters support the equality operator (`=`) in
 `SearchConditionExpression`. Comparison, range, and set-membership
@@ -227,11 +237,12 @@ search.
 
 You can create a vector index without defining a partition key in the SearchSchema.
 In this case, every `SearchVectors` call searches the entire index. This
-is simpler because you don't need a `SearchConditionExpression`, but it
-does not scale horizontally. As your index grows, each search examines more data,
-increasing latency and cost. If your workload requires high throughput or your index
-contains a large number of vectors, define a partition key to distribute data across
-partitions and scale independently. See
+is simpler because you don't need a `SearchConditionExpression`. However,
+because each search examines the entire index, the work each search does—and
+therefore its latency and cost—grows as your index grows. You also can't spread
+search throughput across multiple partition key values. If your workload requires high
+throughput or your index contains a large number of vectors, define a partition key to
+distribute data across partitions and scale independently. See
 [Choose a partition key that matches your query patterns](VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey "VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey").
 
 ## Projections
@@ -281,17 +292,23 @@ Regions and indexed there. After replication completes,
 `SearchVectors` in each Region searches the same set of vectors.
 Because vector search uses approximate nearest neighbor (ANN), separate
 searches in different Regions might return slightly different results or
-ordering for the same query, even over identical data. Replication and indexing of vectors in the
-other Regions are asynchronous, even for multi-Region strong consistency
-(MRSC) global tables. A vector that you just wrote in one Region
-might not yet appear in `SearchVectors` results in another
-Region until the change has propagated.
+ordering for the same query, even over identical data. Table replication
+between Regions follows the consistency guarantee of the global table,
+including strong consistency for multi-Region strong consistency (MRSC)
+global tables. Vector indexing, however, always happens asynchronously after
+a write is applied to the table, in every Region—including the Region
+you wrote to. The MRSC guarantee covers the table, not the vector index. As a
+result, a delay occurs between the time a write is acknowledged and the time
+that vector becomes searchable through `SearchVectors`. This
+delay applies locally as well as across Regions.
 
 ###### On-demand capacity required
 
-Vector indexes require on-demand capacity mode, which global tables
-also support. Create the vector index and the replica on a table that
-already uses on-demand capacity.
+Vector indexes use on-demand capacity mode only and are supported
+only on tables that also use on-demand capacity mode; the two capacity
+modes cannot be mixed. Global tables support on-demand capacity mode.
+Create the vector index and the replica on a table that already uses
+on-demand capacity.
 
 Point-in-time recovery (PITR) and backups
 
@@ -327,4 +344,8 @@ DAX
 DynamoDB Accelerator (DAX) does not support the `SearchVectors`
 operation. Send `SearchVectors` requests directly to DynamoDB, even
 when your application uses DAX for other read operations. DAX caching of
-base table reads is unaffected by the presence of a vector index.
+base table reads is unaffected by the presence of a vector index. If you need
+a caching layer for vector search results, you can cache
+`SearchVectors` responses in an external cache, such as
+Amazon ElastiCache for Valkey. You are responsible for populating and
+invalidating that cache.

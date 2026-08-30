@@ -158,7 +158,7 @@ granularity for the timestamp or add an incremental number as a suffix instead o
 `Comment_ID`. In this case, we’ll prefix the sort key value for items
 corresponding to comments with “comm#” to enable range-based operations.
 
-We also need to ensure that the `currentState` in the complaint metadata
+We also need to make sure that the `currentState` in the complaint metadata
 reflects the state when a new comment is added. Adding a comment might indicate that the
 complaint has been assigned to an agent or it has been resolved and so on. In order to
 bundle the addition of comment and update of current state in the complaint metadata, in

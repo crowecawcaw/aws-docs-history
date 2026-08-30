@@ -18,7 +18,7 @@ system and let the write operations in the evacuated Region replicate over as us
 The write to one Region and write to your Region modes are usually used with MREC
 tables. Therefore, you must make sure that all write operations to the active Region have
 been fully recorded, stream processed, and globally propagated before starting write
-operations in the new active Region, to ensure that future write operations are processed
+operations in the new active Region, to make sure that future write operations are processed
 against the latest version of the data.
 
 Let’s say that Region A is active and Region B is passive (either for the full table
@@ -110,7 +110,7 @@ their accounts is either fully available in Region B, or they want to quarantine
 accounts as known partial until Region A comes back online. Instead of pausing all
 business, they decided to pause business only to the tiny fraction of accounts that
 they determined had unpropagated transactions. To achieve this, they used a third
-Region, which we will call Region C. Before they processed any write operations in
+Region, referred to here as Region C. Before they processed any write operations in
 Region A, they placed a succinct summary of those pending operations (for example, a
 new transaction count for an account) in Region C. This summary was sufficient for
 Region B to determine if its view was fully up to date. This action effectively locked

@@ -146,7 +146,7 @@ We address access patterns 5 (`updateCharacterAttributes`) and 6
 (`updateItemCount`) using this step. When the player needs to modify the
 character, such as reducing the currency, or modifying the quantity of a certain weapon
 in their items, use [`UpdateItem`](../APIReference/API_UpdateItem.md "../APIReference/API_UpdateItem.md") to implement these access patterns. To update a
-player's currency but ensure it never goes below a minimum amount, we can add a [DynamoDB condition expression CLI example](Expressions.ConditionExpressions.md "Expressions.ConditionExpressions.md") to reduce the balance only if it's
+player's currency but make sure it never goes below a minimum amount, we can add a [DynamoDB condition expression CLI example](Expressions.ConditionExpressions.md "Expressions.ConditionExpressions.md") to reduce the balance only if it's
 greater than or equal to the minimum amount. Here is a pseudocode example:
 
 ```

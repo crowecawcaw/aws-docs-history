@@ -913,16 +913,16 @@ the following:
   partition key completely.
 - To have the query target only cart items, the sort key has a key condition
   expression that uses `begins_with`.
-- We use `limit()` to limit the query to a maximum of 100
+- The `limit()` method limits the query to a maximum of 100
   returned items.
-- We set the `scanIndexForward` to false. The results are
-  returned in order of UTF-8 bytes, which usually means the cart item with the
+- Setting `scanIndexForward` to false returns the results
+  in reverse order of UTF-8 bytes, which usually means the cart item with the
   lowest number is returned first. By setting the
   `scanIndexForward` to
   false,
-  we reverse the order and the cart item with the highest number is returned
+  this reverses the order and the cart item with the highest number is returned
   first.
-- We apply a filter to remove any result that does not match the criteria.
+- A filter removes any result that does not match the criteria.
   The data being filtered consumes read capacity
   whether
   the item matches the filter.

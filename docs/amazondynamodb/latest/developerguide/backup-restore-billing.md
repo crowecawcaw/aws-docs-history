@@ -1,6 +1,6 @@
 # Understanding Amazon DynamoDB billing for backups
 
-This guide provides details about how DynamoDB billing works for backups. We break down
+This guide provides details about how DynamoDB billing works for backups. The following sections break down
 the various components that contribute to the overall cost, providing clear explanations and
 practical examples.
 

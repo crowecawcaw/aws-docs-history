@@ -282,7 +282,7 @@ period window limits are 15 minutes minimum and 24 hours maximum.
 
 ## Backup and restore
 
-DynamoDB supports up to 50 concurrent restores totaling 50 TB via DynamoDB on-demand or
+DynamoDB supports up to 50 concurrent restores totaling 50 TB through DynamoDB on-demand or
 continuous backups. AWS Backup supports up to 50 concurrent restores totaling 25
 TB.
 

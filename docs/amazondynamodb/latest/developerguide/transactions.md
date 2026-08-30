@@ -7,7 +7,7 @@ correctness in your applications.
 
 You can use the DynamoDB transactional read and write APIs to manage complex business workflows
 that require adding, updating, or deleting multiple items as a single, all-or-nothing operation.
-For example, a video game developer can ensure that players’ profiles are updated correctly when
+For example, a video game developer can make sure that players’ profiles are updated correctly when
 they exchange items in a game or make in-game purchases.
 
 With the transaction write API, you can group multiple `Put`,

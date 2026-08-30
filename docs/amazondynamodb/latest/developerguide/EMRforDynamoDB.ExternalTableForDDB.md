@@ -134,4 +134,4 @@ data type you choose, then accessing the DynamoDB data could cause a loss of pre
 
 If you export data of type Binary from DynamoDB to (Amazon S3) or HDFS, the data is stored
 as a Base64-encoded string. If you import data from Amazon S3 or HDFS into the DynamoDB
-Binary type, you must ensure the data is encoded as a Base64 string.
+Binary type, you must make sure the data is encoded as a Base64 string.

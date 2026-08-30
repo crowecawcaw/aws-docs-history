@@ -70,7 +70,7 @@ If you set TTL to 0, the item cache and query cache present the following behavi
 
 For workloads with multiple small DynamoDB tables that don't need individual caches, a single DAX cluster caches requests for these tables. This provides more flexible and efficient use of DAX, particularly for applications that access multiple tables and require high-performance reads.
 
-Similar to the DynamoDB [data plane](HowItWorks.API.md#HowItWorks.API.DataPlane "HowItWorks.API.md#HowItWorks.API.DataPlane") APIs, DAX requests require a table name. If you use multiple tables in the same DAX cluster, you don't need any specific configuration. However, you must ensure that the cluster's security permissions allow access to all cached tables.
+Similar to the DynamoDB [data plane](HowItWorks.API.md#HowItWorks.API.DataPlane "HowItWorks.API.md#HowItWorks.API.DataPlane") APIs, DAX requests require a table name. If you use multiple tables in the same DAX cluster, you don't need any specific configuration. However, you must make sure that the cluster's security permissions allow access to all cached tables.
 
 ### Considerations for using DAX with multiple tables
 
