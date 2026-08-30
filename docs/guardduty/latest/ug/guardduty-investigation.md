@@ -38,8 +38,7 @@ GuardDuty Investigation supports the following three types of analysis:
 - **Account analysis** – Analyzes the threat
   posture of an AWS account, when you provide the 12-digit AWS account ID.
 - **Organization analysis** – Analyzes your
-  organization's threat posture. For preview, it analyzes up to 100
-  accounts.
+  organization's threat posture.
 
 ## Cross-Region inference
 
@@ -212,7 +211,7 @@ analysis type based on the content of your prompt:
   prompt.
 - **Organization analysis** – Describe an
   organization-wide security concern in your prompt. The investigation analyzes
-  signals across the organization (up to 100 accounts).
+  signals across the organization.
 
 GuardDuty uses AI to interpret your free-form prompt and determine the
 appropriate analysis scope. If you include a finding ID, it performs finding

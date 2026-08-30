@@ -92,7 +92,9 @@ Finding type: `UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.Outside
 
 To include multiple API caller IPs you can add each IP address
 to the list of values for Equals or NotEquals conditions, or use wildcard
-patterns for Matches or NotMatches conditions.
+patterns for Matches or NotMatches conditions. An Equals or NotEquals value
+can also be a CIDR range, which matches any IP address within that
+range.
 
 - [Recon:EC2/Portscan](guardduty_finding-types-ec2.md#recon-ec2-portscan "guardduty_finding-types-ec2.md#recon-ec2-portscan")
   – Use a suppression rule to automatically archive findings when using a
