@@ -59,7 +59,8 @@ used with resources such as CodePipeline. For repositories in groups, you do not
 need to be the group owner.
 
 - You must have already created a GitLab personal access token (PAT) with the
-  following scoped-down permission only: api. For more information, see [https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html").
+  `api` scope. If Admin Mode is enabled on your GitLab instance, the PAT
+  must also include the `admin_mode` scope. For more information, see [Personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html") and [Access token scopes](https://docs.gitlab.com/security/tokens/access_token_scopes/ "https://docs.gitlab.com/security/tokens/access_token_scopes/") on the GitLab website.
   You must be an administrator to create and use the PAT.
 
 ###### Note
@@ -146,7 +147,9 @@ continue to the provider, choose **Continue**. Enter the
 authorization for the provider. 7. A **Set up
 `host_name`** page displays. In
 **Provide personal access token**, provide your GitLab
-PAT with the following scoped-down permission only: `api`.
+PAT with the `api` scope. If Admin Mode is enabled on your GitLab
+instance, the PAT must also include the `admin_mode` scope. For
+more information, see [Access token scopes](https://docs.gitlab.com/security/tokens/access_token_scopes/ "https://docs.gitlab.com/security/tokens/access_token_scopes/") on the GitLab website.
 
 ###### Note
 
