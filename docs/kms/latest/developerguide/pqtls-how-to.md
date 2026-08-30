@@ -4,22 +4,15 @@ In this procedure, add a Maven dependency for the AWS Common Runtime HTTP Client
 configure an HTTP client that prefers post-quantum TLS. Then, create an AWS KMS client that uses
 the HTTP client.
 
-To see a complete working examples of configuring and using hybrid post-quantum TLS with
-AWS KMS, see the [aws-kms-pq-tls-example](https://github.com/aws-samples/aws-kms-pq-tls-example "https://github.com/aws-samples/aws-kms-pq-tls-example") repository.
-
-###### Note
-
-The AWS Common Runtime HTTP Client, which has been available as a preview, became
-generally available in February 2023. In that release, the `tlsCipherPreference`
-class and the `tlsCipherPreference()` method parameter are replaced by the
-`postQuantumTlsEnabled()` method parameter. If you were using this example
-during the preview, you need to update your code.
+To see a complete working example of configuring and using hybrid post-quantum TLS with
+AWS KMS, see the [aws-kms-pq-tls-example](https://github.com/aws-samples/aws-kms-pq-tls-example "https://github.com/aws-samples/aws-kms-pq-tls-example") repository on GitHub.
 
 1. Add the AWS Common Runtime client to your Maven dependencies. We recommend using the
    latest available version.
 
 For example, this statement adds version `2.30.22` of the AWS Common
-Runtime client to your Maven dependencies.
+Runtime client to your Maven dependencies. Use version `2.30.22` or later to
+enable ML-KEM.
 
 ```
 <dependency>
@@ -62,22 +55,5 @@ configuration, call an AWS KMS API, such as `ListKeys`.
 ListKeysReponse keys = kmsAsync.listKeys().get();
 ```
 
-## Test your hybrid post-quantum TLS configuration
-
-Consider running the following tests with hybrid cipher suites on your applications that
-call AWS KMS.
-
-- View the `tlsDetails` section in the CloudTrail log entry for an
-  AWS KMS API call made by your application. The `keyExchange` field should
-  mention a hybrid algorithm such as `X25519MLKEM768`. For an example, see
-  [Decrypt with a standard symmetric encryption key over a post-quantum TLS connection](ct-decrypt.md#ct-decrypt-default-pqtls "ct-decrypt.md#ct-decrypt-default-pqtls").
-- Run benchmarks using hybrid post-quantum TLS. Hybrid key exchange increases the
-  size and processing time of some messages in the TLS handshake, but the overall performance
-  impact should be imperceptible in most cases.
-- Try connecting from different locations. Depending on the network path your request
-  takes, you might discover that legacy intermediate hosts, proxies, or firewalls with deep
-  packet inspection (DPI) block the request. This might result from using the new key exchange
-  groups in the [ClientHello](https://datatracker.ietf.org/doc/html/rfc8446#section-4.1.2 "https://datatracker.ietf.org/doc/html/rfc8446#section-4.1.2") part of the TLS handshake, or from the larger key exchange
-  messages. If you have trouble resolving these issues, work with your security team or IT
-  administrators to update the relevant configuration and unblock the new TLS key exchange
-  groups.
+To confirm that your call used hybrid post-quantum TLS, inspect its CloudTrail log entry as
+described in [Verifying Hybrid Post-Quantum TLS](pqtls.md#pqtls-verify "pqtls.md#pqtls-verify").

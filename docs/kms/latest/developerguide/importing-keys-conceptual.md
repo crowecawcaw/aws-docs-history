@@ -209,18 +209,6 @@ material.
       Public-Key Cryptography Standards (PKCS) #8 format that complies
       with [RFC 5208](https://datatracker.ietf.org/doc/html/rfc5208 "https://datatracker.ietf.org/doc/html/rfc5208").
 
-- **ML-DSA key**
-
-  - **Key specs:**
-
-    - ML\_DSA\_44
-    - ML\_DSA\_65
-    - ML\_DSA\_87
-
-###### Important
-
-Importing ML-DSA keys is not supported.
-
 - **SM2 asymmetric private key** (China Regions
   only)
 

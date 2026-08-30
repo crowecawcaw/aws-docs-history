@@ -1,9 +1,9 @@
 # AWS KMS cryptography essentials
 
-AWS KMS uses configurable cryptographic algorithms so that the system can quickly migrate
-from one approved algorithm, or mode, to another. The initial default set of cryptographic
-algorithms has been selected from Federal Information Processing Standard (FIPS-approved)
-algorithms for their security properties and performance.
+AWS KMS is built on a crypto-agile architecture, enabling smooth migration from one approved
+algorithm or mode to another as standards evolve. We select strong, widely vetted
+cryptographic algorithms and prioritize NIST-approved options to ensure customer data remains
+protected against both current and emerging threats.
 
 For more information on prefered and acceptable cryptographic algorithms, see [Supported cryptographic algorithms](supported-algorithms.md "supported-algorithms.md").
 

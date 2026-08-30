@@ -45,11 +45,13 @@ signatures with the KMS key.
 
 **Key usage restrictions**
 
-Key usage restrictions are not effective outside of AWS KMS. If you call the [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md") operation with a KMS key that
-has a `KeyUsage` of `SIGN_VERIFY`, the AWS KMS operation fails. But
-if you encrypt data outside of AWS KMS with a public key from a KMS key with a
-`KeyUsage` of `SIGN_VERIFY` or `KEY_AGREEMENT`, the
-data cannot be decrypted.
+Key usage restrictions are not effective outside of AWS KMS. An RSA key pair is
+structurally the same whether its key usage is `ENCRYPT_DECRYPT` or
+`SIGN_VERIFY`. So you can use the downloaded public key of a
+`SIGN_VERIFY` RSA KMS key to encrypt data outside of AWS KMS. However, AWS KMS
+can't decrypt that data using the corresponding private key. AWS KMS enforces key usage for
+the operations it performs, so it rejects [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md") requests on a
+`SIGN_VERIFY` key.
 
 **Algorithm restrictions**
 
