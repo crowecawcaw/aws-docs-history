@@ -14,4 +14,4 @@ Complete the following procedure to deploy and configure the Docker container.
 
 2. Select your preference for the welcome message.
 
-![The Wickr IO welcome message prompt.](images/wickrio-welcome-message-prompt.png)
+![The Wickr IO welcome message prompt.](/images/wickr/latest/wickrio/images/wickrio-welcome-message-prompt.png)
