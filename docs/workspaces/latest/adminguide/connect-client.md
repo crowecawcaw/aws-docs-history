@@ -28,3 +28,4 @@ There are client applications for the following devices:
 ###### Topics
 
 - [Control the WorkSpaces client experience for your users](control-client-experience.md "control-client-experience.md")
+- [Client management reference (Windows)](client-management-reference-windows.md "client-management-reference-windows.md")

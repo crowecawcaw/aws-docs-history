@@ -21,11 +21,13 @@ DCV WorkSpaces experience for end users, including:
 The following are supported by WorkSpaces.
 
 - Streaming protocol – DCV
-- WorkSpaces Windows client – Windows: 5.9.0.4110 and above.
+- WorkSpaces Windows client 5.9.0.4110 and above.
 
 ###### Note
 
 WorkSpaces Android, iOS clients, web access does not support DCV Extension
 SDK.
 
+- WorkSpaces macOS client 5.31.0 and above.
+- WorkSpaces Linux client 2025.1 and above.
 - WorkSpaces supported – Windows, Linux, and Ubuntu servers
