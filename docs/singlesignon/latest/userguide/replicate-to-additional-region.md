@@ -52,7 +52,7 @@ Console
 7. In the **Regions for IAM Identity Center** section, monitor
    the Region status. Use the **Refresh** button (circular arrow) to
    check the latest Region status as needed. After the replication completes, proceed
-   to Step 2.
+   to Step 3.
 
 AWS CLI
 
@@ -73,7 +73,7 @@ aws sso-admin describe-region \
     --region-name eu-west-1
 ```
 
-When the Region status is ACTIVE, you can proceed to Step 2.
+When the Region status is ACTIVE, you can proceed to Step 3.
 
 The duration of the initial replication to an additional Region depends on the amount of
 data in your IAM Identity Center instance. Subsequent incremental changes are replicated within seconds

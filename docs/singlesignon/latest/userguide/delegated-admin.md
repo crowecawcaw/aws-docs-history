@@ -172,24 +172,37 @@ admins from adding users to groups that grant access to the management account.
 Secondly, it prevents the issuance of SCIM bearer tokens.
 
 ```
-
 {
   "Version": "2012-10-17",
   "Statement": [
-  { "Effect": "Deny",
-    "Action": ["identitystore:CreateGroupMembership"],
-    "Resource": [ arn:${Partition}:identitystore:::group/${GroupId1},
-                  arn:${Partition}:identitystore:::group/${GroupId2}
-                 ]
-   }
-  ],
-  { "Effect": "Deny",
-    "Action": ["sso-directory:CreateBearerToken"],
-    "Resource": [ "*" ] }
+    {
+      "Effect": "Deny",
+      "Action": [
+        "identitystore:CreateGroupMembership"
+      ],
+      "Resource": [
+        "arn:`partition`:identitystore:::group/`group-id-1`",
+        "arn:`partition`:identitystore:::group/`group-id-2`"
+      ]
+    },
+    {
+      "Effect": "Deny",
+      "Action": [
+        "sso-directory:CreateBearerToken"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
   ]
 }
-
 ```
+
+Replace `partition` with your AWS partition
+(`aws`, `aws-cn`, or `aws-us-gov`), and replace
+`group-id-1` and
+`group-id-2` with the IDs of the identity store groups
+that you want to protect.
 
 ### Segregate IAM Identity Center configuration management from PermissionSet management
 

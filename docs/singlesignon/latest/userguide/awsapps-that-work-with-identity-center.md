@@ -73,9 +73,7 @@ for applications like Query Editor v2 that require permission sets, which are no
 supported by account instances.
 
 3 You enable account access manager in the primary
-Region of IAM Identity Center, which makes the AWS account access application available there.
-You can replicate the account access manager instance to additional Regions of IAM Identity Center
-to make the AWS account access application available in those additional Regions.
+Region of IAM Identity Center.
 
 ###### Note
 
