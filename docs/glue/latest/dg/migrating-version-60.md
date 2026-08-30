@@ -39,6 +39,14 @@ This section describes new features and advantages of AWS Glue version
   - Nanosecond-precision timestamps.
   - Geospatial data types (Geometry and Geography).
 
+###### Upgrading to Iceberg v3 is a one-way change
+
+If you upgrade an Iceberg table to format version 3, you can't
+downgrade it back to version 2—Iceberg rejects the `ALTER
+ TABLE ... SET TBLPROPERTIES('format-version'='2')` operation. If
+you use another service that doesn't support Iceberg v3, keep it as an
+Iceberg v2 table and don't upgrade it to v3.
+
 - **Spark Declarative Pipelines (SDP)** — A new declarative framework
   for defining end-to-end data pipelines using SQL or DataFrame API, with support for
   streaming tables and materialized views. For more information, see

@@ -96,6 +96,52 @@ To add additional spark configuration for Iceberg cross-region table access with
 -----
 ```
 
+## Specifying the Iceberg table format version
+
+AWS Glue 6.0 supports Iceberg table format versions 2 and 3. By default,
+AWS Glue creates Iceberg v2 tables. Iceberg v3 introduces
+additional capabilities, such as the VARIANT data type, nanosecond-precision timestamps,
+and geospatial data types.
+
+To create v3 tables, you can opt in using one of the following methods:
+
+- Per table – Set the format-version table property when you create the
+  table.
+
+```
+CREATE TABLE glue_catalog.`your_database`.`your_table`
+USING iceberg
+TBLPROPERTIES ('format-version'='3')
+AS SELECT ...
+```
+
+- Catalog-wide – Set the default format version on the catalog for your
+  Spark session. New tables are then created as v3 by default,
+  without setting the property on each table.
+
+```
+--conf spark.sql.catalog.glue_catalog.table-default.format-version=3
+```
+
+To upgrade an existing v2 table to v3, set the table property by using ALTER TABLE.
+This is an in-place metadata change and does not rewrite your data files.
+
+```
+ALTER TABLE glue_catalog.`your_database`.`your_table`
+SET TBLPROPERTIES ('format-version'='3')
+```
+
+###### Upgrading to v3 is a one-way change
+
+Before you adopt Iceberg v3, consider the following:
+
+- You can't downgrade a table from v3 back to v2. Iceberg
+  rejects setting `'format-version'='2'` on a v3 table, so plan to
+  adopt v3 as a one-way change.
+- If you use another service that doesn't support Iceberg
+  v3, keep it as an Iceberg v2 table rather than upgrading
+  it to v3.
+
 ## Example: Write an Iceberg table to Amazon S3 and register it to the AWS Glue Data Catalog
 
 This example script demonstrates how to write an Iceberg table to Amazon S3.
