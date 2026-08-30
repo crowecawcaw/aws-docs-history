@@ -28,7 +28,7 @@ represented.
 1. Choose the **Visualization type** icon for the visualization to
    change.
 
-![The icons used to configure a visualization with the "Visualization type" icon highlighted.](images/dashboard-edit-visualization-type-console.png) 2. In the visualization type bar, choose the icon for the type of visualization to
+![The icons used to configure a visualization with the "Visualization type" icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png) 2. In the visualization type bar, choose the icon for the type of visualization to
 apply.
 
 ![The visualization type picker.](images/dashboard-choose-visualization-type-console.png)
