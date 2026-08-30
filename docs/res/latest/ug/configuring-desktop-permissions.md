@@ -10,4 +10,4 @@ is disabled, this will automatically disable the corresponding permissions in th
 the permission in the desktop sharing profile will remain disabled until the administrator
 manually enables it.
 
-![environment boundaries](images/permission-policy-environment-boundaries.png)
+![environment boundaries](/images/res/latest/ug/images/permission-policy-environment-boundaries.png)
