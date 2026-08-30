@@ -34,7 +34,7 @@ multi-pass encoding for other reasons, set **Quality tuning level** to
 
 ###### Note
 
-Multi-pass encoding is a professional tier feature. For more information about
+Multi-pass encoding is a Professional tier feature. Multi-pass encoding might also read source files from Amazon S3 multiple times. If your source files use a storage class with per-retrieval fees (for example, S3 Glacier Instant Retrieval), we charge separately for each read. For more information about
 MediaConvert pricing tiers, see [MediaConvert pricing](https://aws.amazon.com/mediaconvert/pricing/ "https://aws.amazon.com/mediaconvert/pricing/").
 
 ## Setting QVBR quality tuning level

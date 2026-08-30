@@ -16,7 +16,7 @@ Accelerated transcoding:
 ###### Note
 
 Accelerated transcoding is a Professional tier feature. You pay more per minute of transcoded
-output for outputs that use Professional tier features. For more information about MediaConvert
+output for outputs that use Professional tier features. Accelerated transcoding might also read source files from Amazon S3 multiple times. If your source files use a storage class with per-retrieval fees (for example, S3 Glacier Instant Retrieval), we charge separately for each read. For more information about MediaConvert
 pricing tiers, see [MediaConvert
 pricing](https://aws.amazon.com/mediaconvert/pricing/ "https://aws.amazon.com/mediaconvert/pricing/").
 
