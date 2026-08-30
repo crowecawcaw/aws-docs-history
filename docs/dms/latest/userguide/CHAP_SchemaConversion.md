@@ -122,9 +122,8 @@ which paths support generative AI conversion.
 
 ###### Note
 
-IBM Db2 for LUW and IBM Db2 for z/OS conversion paths are not available in
-the AWS Management Console. To use these conversion paths, use the AWS DMS API or
-AWS CLI.
+IBM Db2 for z/OS conversion paths are not available in the
+AWS Management Console. To use these conversion paths, use the AWS DMS API or AWS CLI.
 
 For the supported versions of each database, see [Sources for DMS Schema Conversion](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.SchemaConversion") and [Targets for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion "CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion"). For more
 information about generative AI conversion, including how it uses cross-Region inference,
