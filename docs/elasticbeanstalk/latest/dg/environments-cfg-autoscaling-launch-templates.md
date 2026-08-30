@@ -67,10 +67,10 @@ Elastic Beanstalk to successfully create and update environments in your account
 
 - `ec2:RunInstances`
 - `ec2:CreateLaunchTemplate`
-- `ec2:CreateLaunchTemplateVersions`
+- `ec2:CreateLaunchTemplateVersion`
 - `ec2:DeleteLaunchTemplate`
 - `ec2:DeleteLaunchTemplateVersions`
-- `ec2:DescribeLaunchTemplate`
+- `ec2:DescribeLaunchTemplates`
 - `ec2:DescribeLaunchTemplateVersions`
 
 The following example IAM policy includes these permissions.
@@ -83,10 +83,10 @@ The following example IAM policy includes these permissions.
       "Action": [
         "ec2:RunInstances",
         "ec2:CreateLaunchTemplate",
-        "ec2:CreateLaunchTemplateVersions",
+        "ec2:CreateLaunchTemplateVersion",
         "ec2:DeleteLaunchTemplate",
         "ec2:DeleteLaunchTemplateVersions",
-        "ec2:DescribeLaunchTemplate",
+        "ec2:DescribeLaunchTemplates",
         "ec2:DescribeLaunchTemplateVersions"
       ],
       "Resource": [
