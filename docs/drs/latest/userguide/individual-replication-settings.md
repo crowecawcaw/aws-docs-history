@@ -91,6 +91,16 @@ AWS Elastic Disaster Recovery supports replicating Source Servers with up to 60 
 number of EBS Volume attachments. We recommend reviewing the
 [Dedicated Amazon EBS volume limit Documentation](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit") to ensure an appropriately sized EC2 Instance Type is selected.
 
+###### Note
+
+If the configured **Replication server instance
+type** is unavailable in the staging area subnet's Availability Zone,
+AWS Elastic Disaster Recovery automatically launches the replication server using an alternative
+instance type. This behavior maintains continuous data replication and
+protects your RPO. For more information, see
+[What happens if the
+configured replication server instance type is unavailable?](Replication-Related-FAQ.md#What-If-Replication-Server-Type-Unavailable "Replication-Related-FAQ.md#What-If-Replication-Server-Type-Unavailable")
+
 DRS Console
 
 ###### Updating the Replication server instance type

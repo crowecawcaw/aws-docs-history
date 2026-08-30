@@ -38,6 +38,22 @@ in the [replication settings](individual-replication-settings.md#replication-ser
 AWS Elastic Disaster Recovery provisions a t3.small server by default. The typical ratio of
 volumes to replication servers is 15:1.
 
+## What happens if the configured replication server instance type is unavailable?
+
+If the replication server instance type that you configured in your
+[replication settings](individual-replication-settings.md#replication-server-settings "individual-replication-settings.md#replication-server-settings") is
+unavailable in the staging area subnet's Availability Zone, AWS Elastic Disaster Recovery automatically
+launches the replication server using an alternative instance type. This can occur,
+for example, when the configured instance type returns an
+`InsufficientInstanceCapacity` error. This behavior allows continuous
+data replication to proceed without interruption so that your recovery point
+objective (RPO) is maintained.
+
+Replication servers are managed by AWS Elastic Disaster Recovery throughout their lifecycle and are
+automatically recycled approximately every 14 days. When a replication server is
+replaced, AWS Elastic Disaster Recovery provisions the new server using your current replication
+settings.
+
 ## Does AWS Elastic Disaster Recovery compress data during replication?
 
 Yes, AWS Elastic Disaster Recovery utilizes LZ4 compression during transit resulting in 60-70%
