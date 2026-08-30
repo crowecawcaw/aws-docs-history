@@ -41,8 +41,8 @@ Console
    - To launch the instances into a specific Capacity Block, for **Capacity Reservation**
      choose **Specify Capacity Reservation**, and then select the Capacity Block.
    - (_UltraServers only_) To launch the instances into an UltraServer Capacity Block
-     resource group, for **Capacity Reservation** choose **Specify Capacity Reservation resource
-     group**, and then select the resource group.
+     Capacity Reservation Resource Group, for **Capacity Reservation** choose **Specify Capacity Reservation Resource
+     Group**, and then select the Capacity Reservation Resource Group.
 
 6. Choose **Launch instance**.
 
@@ -65,7 +65,7 @@ aws ec2 run-instances \
 --capacity-reservation-specification CapacityReservationTarget={CapacityReservationId=`capacity_block_id`}**
 ```
 
-The following example launches an instance into an UltraServer Capacity Block resource group.
+The following example launches an instance into an UltraServer Capacity Block Capacity Reservation Resource Group.
 
 ```
 aws ec2 run-instances \
@@ -102,7 +102,7 @@ New-EC2Instance `
 -CapacityReservationTarget\_CapacityReservationId `capacity_block_id`**
 ```
 
-The following example launches an instance into an UltraServer Capacity Block resource group.
+The following example launches an instance into an UltraServer Capacity Block Capacity Reservation Resource Group.
 
 ```
 New-EC2Instance `

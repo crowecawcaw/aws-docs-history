@@ -16,6 +16,7 @@ Spot Fleet:
 | The number of Spot capacity pools (unique combination of instance<br>type and subnet) for EC2 Fleets of type `instant`                                           | Unlimited   |
 | The size of the user data in a launch specification                                                                                                              | 16 KB ²     |
 | The target capacity per EC2 Fleet or Spot Fleet                                                                                                                  | 10,000      |
+| The number of Capacity Reservations per EC2 Fleet request when using<br>`ReservedCapacityOptions`                                                                | 5,000 ²     |
 | The target capacity across all EC2 Fleets and Spot Fleets in a Region                                                                                            | 100,000 ¹   |
 | An EC2 Fleet request or a Spot Fleet request can't span Regions.                                                                                                 |             |
 | An EC2 Fleet request or a Spot Fleet request can't span different subnets from<br>the same Availability Zone.                                                    |             |

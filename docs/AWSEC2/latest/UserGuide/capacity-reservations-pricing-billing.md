@@ -38,7 +38,7 @@ continues while the Capacity Reservation remains provisioned in your account. Fo
 Capacity Reservations, this means that billing starts only after the Capacity Reservation is provisioned in your
 account at the requested future date.
 
-Capacity Reservations are billed at per-second granularity. This means that you are charged for
+Capacity Reservations are billed at per-second granularity, with a minimum of 60 seconds. This means that you are charged for
 partial hours. For example, if a Capacity Reservation remains provisioned in your account for
 `24` hours and `15` minutes, you are billed for
 `24.25` reservation hours.

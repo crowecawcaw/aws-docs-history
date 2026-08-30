@@ -45,9 +45,9 @@ Console
      the instances into a Capacity Reservation. If a Capacity Reservation ID isn't specified, the
      instances launch into an open Capacity Reservation. If capacity isn't
      available, the instances fail to launch.
-   - **Specify Capacity Reservation resource group only**
+   - **Specify Capacity Reservation Resource Group only**
      – Launches the instances into a Capacity Reservation in a Capacity Reservation
-     resource group. If a Capacity Reservation resource group ARN isn't
+     Resource Group. If a Capacity Reservation Resource Group ARN isn't
      specified, the instances launch into an open Capacity Reservation. If
      capacity isn't available, the instances fail to
      launch.

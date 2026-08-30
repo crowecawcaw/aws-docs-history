@@ -51,9 +51,9 @@ reservation to a new one:
   new reservation.
 - **Future-dated Capacity Reservations** – You can't
   split capacity for a future-dated Capacity Reservation during the commitment period.
-- **Resource groups** – If the existing
-  Capacity Reservation belongs to a resource group, the new Capacity Reservation will not be automatically
-  added to the resource group. You can add the new Capacity Reservation to a resource group
+- **Capacity Reservation Resource Groups** – If the existing
+  Capacity Reservation belongs to a Capacity Reservation Resource Group, the new Capacity Reservation will not be automatically
+  added to the Capacity Reservation Resource Group. You can add the new Capacity Reservation to a Capacity Reservation Resource Group
   after it is created, if necessary.
 - **Sharing** – If the existing Capacity Reservation is
   shared with a consumer account, the new Capacity Reservation will not be automatically

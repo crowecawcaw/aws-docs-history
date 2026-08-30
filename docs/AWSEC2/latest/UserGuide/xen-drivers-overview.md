@@ -79,6 +79,9 @@ the driver package and run the install program
 manually. For information about downloading and installing the
 AWS PV drivers, or upgrading a domain controller, see [Upgrade Windows Server instances (AWS PV upgrade) manually](Upgrading_PV_drivers.md#aws-pv-upgrade "Upgrading_PV_drivers.md#aws-pv-upgrade").
 
+For system requirements for installing the AWS PV driver package,
+see [System requirements for the AWS PV driver package](Upgrading_PV_drivers.md#aws-pv-requirements "Upgrading_PV_drivers.md#aws-pv-requirements").
+
 ### AWS PV driver package history
 
 The following table shows the changes to AWS PV drivers for each driver

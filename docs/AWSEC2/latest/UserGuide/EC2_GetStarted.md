@@ -90,7 +90,7 @@ you won't be able to connect to your instance using the methods described in
 this tutorial. 8. Under **Network settings**, notice that your default VPC is selected,
 the option to use the default subnet in an Availability Zone that is
 chosen for you, and a security group with a rule that allows
-connections to your instance from anywhere (`0.0.0.0.0/0`).
+connections to your instance from anywhere (`0.0.0.0/0`).
 
 ###### Warning
 

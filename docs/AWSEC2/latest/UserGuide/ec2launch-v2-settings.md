@@ -202,6 +202,21 @@ You can use the Command Line Interface (CLI) to configure your EC2Launch setting
 and manage the service. The following section contains descriptions and usage
 information for the CLI commands that you can use to manage EC2Launch v2.
 
+###### Note
+
+The EC2Launch v2 CLI executable, `EC2Launch.exe`, resides in
+`C:\Program Files\Amazon\EC2Launch\`. By default, this
+directory is not in the Windows PATH. The
+`ec2launch `command`` form shown in the
+examples in this section is shorthand that a shell does not recognize directly.
+To run a command, use the full path to the executable, or first change to the
+installation directory. The following PowerShell example uses the full path with
+the call operator:
+
+```
+& "C:\Program Files\Amazon\EC2Launch\EC2Launch.exe" status
+```
+
 ###### Commands
 
 - [collect-logs](#ec2launch-v2-collect-logs "#ec2launch-v2-collect-logs")
@@ -391,6 +406,20 @@ agent is finished. The process exit code determines the agent state:
 ```
 ec2launch status -b
 ```
+
+###### Note
+
+The `status` command writes a short message to the console (for
+example, `agent ran successfully`). However, the process exit code
+values listed previously determine the agent state, not that message. To view the
+exit code in PowerShell, read the `$LASTEXITCODE` automatic variable
+after you run the command, for example:
+
+```
+& "C:\Program Files\Amazon\EC2Launch\EC2Launch.exe" status; "ExitCode=$LASTEXITCODE"
+```
+
+An output of `ExitCode=0` indicates that the agent ran successfully.
 
 **Usage**
 

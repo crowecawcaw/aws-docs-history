@@ -27,7 +27,7 @@ Capacity Reservation for immediate use or you can request a Capacity Reservation
   matching attributes automatically runs in the Capacity Reservation. However, you can also target a Capacity Reservation for
   specific workloads. This allows you to explicitly control which instances are allowed to run
   in that reserved capacity. You can also specify that instances will only run in a Capacity Reservation or
-  Capacity Reservation resource group.
+  Capacity Reservation Resource Group.
 
 ###### Important
 
@@ -46,7 +46,6 @@ Capacity Reservations that you create and manage.
 - Amazon ECS
 - Amazon EKS
 - Amazon EMR
-- Amazon SageMaker AI
 - AWS Batch
 - AWS Elastic Beanstalk
 - AWS ParallelCluster
@@ -69,7 +68,6 @@ Capacity Reservations that you create and manage.
 - [Split off capacity from an existing Capacity Reservation](capacity-reservations-split.md "capacity-reservations-split.md")
 - [Cancel a Capacity Reservation](capacity-reservations-release.md "capacity-reservations-release.md")
 - [Use Capacity Reservations with placement groups](cr-cpg.md "cr-cpg.md")
-- [Capacity Reservation groups](create-cr-group.md "create-cr-group.md")
 - [Capacity Reservations in Local Zones](capacity-reservations-localzones.md "capacity-reservations-localzones.md")
 - [Capacity Reservations in Wavelength Zones](capacity-reservations-wavelengthzones.md "capacity-reservations-wavelengthzones.md")
 - [Capacity Reservations on AWS Outposts](capacity-reservations-outposts.md "capacity-reservations-outposts.md")
@@ -172,16 +170,12 @@ Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.m
 cmdlet and check the value of `PlatformDetails`.
 
 ```
-Get-EC2Image `
-    -ImageId `ami-0abcdef1234567890` | `
-    Select PlatformDetails
+(Get-EC2Image -ImageId `ami-0abcdef1234567890`).PlatformDetails
 ```
 
 The following is example output.
 
 ```
-PlatformDetails
----------------
 Linux/UNIX
 ```
 

@@ -76,6 +76,12 @@ For other scenarios, see [Security group rules for different use cases](security
    3. For **Destination type**, choose **Custom** and paste the security group ID that you copied into the field.
    4. Choose **Save rules**.
 
+###### Important
+
+The self-referencing inbound and outbound rules (allowing all traffic to and from the
+security group itself) are mandatory for EFA to function. Without these rules, EFA traffic
+between instances will be blocked.
+
 ## Step 2: Launch a temporary instance
 
 Launch a temporary instance that you can use to install and configure the EFA software
@@ -170,7 +176,7 @@ refer to the [Intel MPI documentation](https://www.intel.com/content/www/us/en/d
 You can also get the latest version by replacing the version number with `latest` in the preceding command.
 
 ```
-`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.49.0.tar.gz
+`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz
 ```
 
 5. (_Optional_) Verify the authenticity and integrity of the EFA tarball (`.tar.gz`) file.
@@ -210,7 +216,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 
 
     ```
-    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.49.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.49.0.tar.gz.sig
+    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.50.0.tar.gz.sig
     ```
 
     The following shows example output.
@@ -232,7 +238,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 the extracted directory.
 
 ```
-`$` tar -xf aws-efa-installer-1.49.0.tar.gz && cd aws-efa-installer
+`$` tar -xf aws-efa-installer-1.50.0.tar.gz && cd aws-efa-installer
 ```
 
 7. (_Optional_) Verify individual package signatures during installation.
@@ -652,7 +658,7 @@ you can reuse to launch your EFA-enabled instances.
    3. Choose **Create image**.
 
 5. In the navigation pane, choose **AMIs**.
-6. Locate the AMI tht you created in the list. Wait for the status to change from
+6. Locate the AMI that you created in the list. Wait for the status to change from
    `pending` to `available` before continuing to the next
    step.
 

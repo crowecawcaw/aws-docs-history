@@ -161,7 +161,7 @@ in the preceding examples.
 {
   "internalDiskPassword":"*internal-disk-admin\_password*",
   "rootVolumeUsername":"*root-volume-admin\_username*",
-  "rootVolumepassword":"*root-volume-admin\_password*"
+  "rootVolumePassword":"*root-volume-admin\_password*"
 }
 ```
 

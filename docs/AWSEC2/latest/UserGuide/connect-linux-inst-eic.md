@@ -28,7 +28,7 @@ EC2 Instance Connect is available at no additional cost.
 
 ###### Region availability
 
-EC2 Instance Connect is available in all AWS Regions except the AWS European Sovereign Cloud. It is not
+EC2 Instance Connect is available in all AWS Regions except AWS European Sovereign Cloud (Germany). It is not
 supported in Local Zones.
 
 ###### Contents

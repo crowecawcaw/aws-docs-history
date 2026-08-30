@@ -24,6 +24,7 @@ For more information about the configuration parameters, see [create-fleet](../.
 - [Example 9: Launch Spot Instances in a capacity-optimized fleet with priorities](#ec2-fleet-config10 "#ec2-fleet-config10")
 - [Example 10: Launch Spot Instances in a price-capacity-optimized fleet](#ec2-fleet-config11 "#ec2-fleet-config11")
 - [Example 11: Configure attribute-based instance type selection](#ec2-fleet-config12 "#ec2-fleet-config12")
+- [Example 12: Launch instances into multiple Capacity Reservation types using a Capacity Reservation Resource Group](#ec2-fleet-config13 "#ec2-fleet-config13")
   For more CLI examples for fleets of type `instant`, see [Configure an EC2 Fleet of type instant](instant-fleet.md "instant-fleet.md").
 
 ## Example 1: Launch Spot Instances as the default purchasing option
@@ -882,3 +883,71 @@ see [InstanceRequirements](../APIReference/API_InstanceRequirements.md "../APIRe
 	"Type": "`instant`"
 }
 ```
+
+## Example 12: Launch instances into multiple Capacity Reservation types using a Capacity Reservation Resource Group
+
+The following example configures an `instant` EC2 Fleet to launch instances
+across multiple Capacity Reservation types – On-Demand Capacity Reservations, Capacity Blocks for ML, and interruptible Capacity Reservations
+– using a single Capacity Reservation Resource Group. You specify these preferences in the
+`ReservedCapacityOptions` structure, and set
+`DefaultTargetCapacityType` to `reserved-capacity`.
+
+In the following example:
+
+- `ReservationTypes` – An ordered list of the Capacity Reservation
+  types to target. EC2 Fleet works through the types in this order:
+  `on-demand-capacity-reservation`, then
+  `capacity-block`, then
+  `interruptible-capacity-reservation`.
+- `AllocationStrategy` – Set to
+  `prioritized` to prioritize instance types within each
+  Capacity Reservation type according to your instance type override order.
+- `ReservedCapacityFallbackOptions` –
+  `MarketTypes` is set to `["on-demand"]`, so the
+  fleet launches On-Demand Instances for any target capacity that can't be met from
+  reserved capacity. If you omit this, the fleet does not fall back to any
+  other market type after the specified Capacity Reservation types are exhausted.
+
+The launch template targets the Capacity Reservation Resource Group. When you use
+`ReservedCapacityOptions`, you don't need to set a
+`MarketType` in the launch template – EC2 Fleet sets this
+automatically for each Capacity Reservation type.
+
+```
+{
+    "LaunchTemplateConfigs": [
+        {
+            "LaunchTemplateSpecification": {
+                "LaunchTemplateName": "`my-cr-resource-group-template`",
+                "Version": "`1`"
+            },
+            "Overrides": [
+                {
+                    "InstanceType": "`p5.48xlarge`",
+                    "AvailabilityZone": "`us-east-1a`",
+                    "Priority": 1
+                },
+                {
+                    "InstanceType": "`p4d.48xlarge`",
+                    "AvailabilityZone": "`us-east-1b`",
+                    "Priority": 2
+                }
+            ]
+        }
+    ],
+    "TargetCapacitySpecification": {
+        "TotalTargetCapacity": `100`,
+        "DefaultTargetCapacityType": "reserved-capacity"
+    },
+    "ReservedCapacityOptions": {
+        "ReservationTypes": ["on-demand-capacity-reservation", "capacity-block", "interruptible-capacity-reservation"],
+        "ReservedCapacityFallbackOptions": {
+            "MarketTypes": ["on-demand"]
+        },
+        "AllocationStrategy": "prioritized"
+    },
+    "Type": "instant"
+}
+```
+
+For a step-by-step tutorial, see [Tutorial: Configure your EC2 Fleet to launch instances into multiple Capacity Reservation types using a Capacity Reservation Resource Group](ec2-fleet-launch-instances-multiple-cr-types-walkthrough.md "ec2-fleet-launch-instances-multiple-cr-types-walkthrough.md").

@@ -46,7 +46,7 @@ Console
         selected Capacity Reservation does not have sufficient capacity for
         the number of instances you selected, the instance
         launch fails.
-      - **Specify Capacity Reservation resource group**
+      - **Specify Capacity Reservation Resource Group**
         – Launches the instances into any Capacity Reservation with
         matching attributes and available capacity in the
         selected Capacity Reservation group. If the selected group does not
@@ -58,10 +58,10 @@ Console
         isn't specified, the instances launch into an open
         Capacity Reservation. If capacity isn't available, the instances
         fail to launch.
-      - **Specify Capacity Reservation resource group
+      - **Specify Capacity Reservation Resource Group
         only** – Launches the instances
-        into a Capacity Reservation in a Capacity Reservation resource group. If a Capacity Reservation
-        resource group ARN isn't specified, the instances
+        into a Capacity Reservation in a Capacity Reservation Resource Group. If a Capacity Reservation
+        Resource Group ARN isn't specified, the instances
         launch into an open Capacity Reservation. If capacity isn't
         available, the instances fail to launch.
 

@@ -45,6 +45,13 @@ Capacity Reservations are configured as either `open` or
   specifically Examples 5 through 7.
 - For a tutorial that takes you through the steps for creating Capacity Reservations, using them in your
   fleet, and viewing how many Capacity Reservations are remaining, see [Tutorial: Configure EC2 Fleet to launch On-Demand Instances using targeted Capacity Reservations](ec2-fleet-launch-on-demand-instances-using-targeted-capacity-reservations-walkthrough.md "ec2-fleet-launch-on-demand-instances-using-targeted-capacity-reservations-walkthrough.md")
+- You can also configure an EC2 Fleet to launch instances across multiple Capacity Reservation types
+  – On-Demand Capacity Reservations, Capacity Blocks for ML, and interruptible Capacity Reservations – using a single Capacity Reservation
+  Resource Group, and optionally fall back to On-Demand capacity. To do this,
+  use
+  `ReservedCapacityOptions` with the
+  `DefaultTargetCapacityType` set to
+  `reserved-capacity`. For a tutorial, see [Tutorial: Configure your EC2 Fleet to launch instances into multiple Capacity Reservation types using a Capacity Reservation Resource Group](ec2-fleet-launch-instances-multiple-cr-types-walkthrough.md "ec2-fleet-launch-instances-multiple-cr-types-walkthrough.md").
 - For information about configuring Capacity Reservations, see [Reserve compute capacity with EC2 On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md") and
   the [On-Demand
   Capacity Reservation FAQs](https://aws.amazon.com/ec2/faqs/#On-Demand_Capacity_Reservation "https://aws.amazon.com/ec2/faqs/#On-Demand_Capacity_Reservation").

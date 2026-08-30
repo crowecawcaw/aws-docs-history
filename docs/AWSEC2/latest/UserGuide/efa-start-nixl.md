@@ -64,9 +64,16 @@ For other scenarios, see [Security group rules for different use cases](security
    2. For **Type**, choose **All traffic**.
    3. For **Destination type**, choose **Custom** and paste the security group ID that you copied into the field.
    4. Choose **Save rules**.
-      Launch a temporary instance that you can use to install and configure the EFA software
-      components. You use this instance to create an EFA-enabled AMI from which you
-      can launch your EFA-enabled instances.
+
+###### Important
+
+The self-referencing inbound and outbound rules (allowing all traffic to and from the
+security group itself) are mandatory for EFA to function. Without these rules, EFA traffic
+between instances will be blocked.
+
+Launch a temporary instance that you can use to install and configure the EFA software
+components. You use this instance to create an EFA-enabled AMI from which you
+can launch your EFA-enabled instances.
 
 ###### To launch a temporary instance
 
@@ -302,14 +309,14 @@ support EFA on your instance.
    version, use the following command.
 
 ```
-`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.49.0.tar.gz
+`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz
 ```
 
 3. Extract the files from the compressed `.tar.gz` file, delete the tarball, and navigate
    into the extracted directory.
 
 ```
-`$` tar -xf aws-efa-installer-1.49.0.tar.gz && rm -rf aws-efa-installer-1.49.0.tar.gz && cd aws-efa-installer
+`$` tar -xf aws-efa-installer-1.50.0.tar.gz && rm -rf aws-efa-installer-1.50.0.tar.gz && cd aws-efa-installer
 ```
 
 4. (_Optional_) Verify individual package signatures during installation.
@@ -672,7 +679,7 @@ you can reuse to launch your EFA-enabled instances.
    3. Choose **Create image**.
 
 5. In the navigation pane, choose **AMIs**.
-6. Locate the AMI tht you created in the list. Wait for the status to change from
+6. Locate the AMI that you created in the list. Wait for the status to change from
    `pending` to `available` before continuing to the next
    step.
    At this point, you no longer need the temporary instance that you launched.

@@ -7,7 +7,9 @@ There are two types of Capacity Reservations serving different use cases.
 
 - [On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md")
 - [Capacity Blocks for ML](ec2-capacity-blocks.md "ec2-capacity-blocks.md")
-  The following are some common use cases for On-Demand Capacity Reservations:
+  To organize your Capacity Reservations into logical collections, see [Capacity Reservation Resource Groups](cr-groups.md "cr-groups.md").
+
+The following are some common use cases for On-Demand Capacity Reservations:
 
 - **Scaling events** – Create On-Demand Capacity Reservations ahead of
   your business-critical events to ensure that you can scale when you need to.
