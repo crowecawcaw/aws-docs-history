@@ -17,7 +17,7 @@ To reduce the risk, as a best practice we recommend limiting the number of
 people who have **Users - Edit or Create** permissions.
 
 - [Use AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md") to log the
-  requests and responses of [UpdateUserIdentityInfo](../APIReference/API_UpdateUserIdentityInfo.md "../APIReference/API_UpdateUserIdentityInfo.md"). This enables you to track changes made to
+  requests and responses of [UpdateUserIdentityInfo](../APIReference/API_UpdateUserIdentityInfo.md "../APIReference/API_UpdateUserIdentityInfo.md"). With AWS CloudTrail, you can track changes made to
   user information. Someone who has the ability to call the
   `UpdateUserIdentityInfo` API can change a user's email address to
   one owned by an attacker, and then reset the password through email.

@@ -21,7 +21,7 @@ This section provides a description of each integration option to help you decid
 
 ### WebView integration
 
-The Connect Customer Chat WebView integration allows you to embed the full chat experience
+With the Connect Customer Chat WebView integration, you can embed the full chat experience
 into your mobile applications with minimal development effort. This method uses
 `WebView` on Android and `WKWebView` on iOS to provide a
 seamless and comprehensive chat interface. It is ideal for teams looking for a
@@ -47,7 +47,7 @@ client side chat logic and back-end communications similar to the Amazon Connect
 ChatJS Library.
 
 The Connect Customer Chat SDKs wrap the Connect Customer Participant Service APIs
-and abstracts away the management of the chat session and WebSocket. This allows you
+and abstracts away the management of the chat session and WebSocket. This helps you
 to focus on the user interface and experience while relying on the Connect Customer Chat SDK to interact with all the back-end services. This approach still requires
 you to use your own chat back end to call the Connect Customer
 `StartChatContact` API to initiate contact.

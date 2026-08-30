@@ -87,8 +87,7 @@ contact, choose the banner, and then choose **Close contact**.
 
 ## How to format messages
 
-When composing a chat message, you have the ability to format your message. This
-enables you to add structure and clarity to your support messages. You can add the
+When composing a chat message, you have the ability to format your message. With message formatting, you can add structure and clarity to your support messages. You can add the
 following formatting:
 
 - Bold

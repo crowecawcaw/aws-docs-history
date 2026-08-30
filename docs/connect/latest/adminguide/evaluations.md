@@ -12,7 +12,7 @@ capabilities, go to the Connect Customer console, choose your instance alias, ch
 **Edit**. You'll be prompted to create or choose an S3 bucket.
 After the bucket is created, you can store evaluations and export them.
 
-Connect Customer performance evaluations enables you to define custom performance evaluation criteria
+With Connect Customer performance evaluations, you can define custom performance evaluation criteria
 to assess, monitor and improve how agents and automated systems (bots, AI agents)
 interact with customers and resolve issues. You can then monitor performance by reviewing
 aggregated insights in dashboards, and drill-down into individual contacts where you can see
@@ -30,7 +30,7 @@ To perform manual evaluations, you can search for a contact, choose the appropri
    evaluations](evaluation-and-coaching-permissions.md "evaluation-and-coaching-permissions.md").
 2. Access the contact that you want to evaluate. There are a few ways you can do
    this. For example, someone might have shared the contact URL with you, or assigned you
-   a task that has the URL. Or, you might have the contact ID, which lets you search for
+   a task that has the URL. Or, you might have the contact ID, which you can use to search for
    the contact record by doing the following: on the navigation pane, choose
    **Analytics and optimization**, **Contact
    search**, and then search for the contact that you want to

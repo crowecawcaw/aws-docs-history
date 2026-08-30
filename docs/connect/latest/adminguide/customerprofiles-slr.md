@@ -71,7 +71,7 @@ creates the service-linked role for you again.
 
 ## Editing a service-linked role for Connect Customer Customer Profiles
 
-Connect Customer Customer Profiles does not allow you to edit the **AWSServiceRoleForProfile** prefixed
+With Connect Customer Customer Profiles, you can't edit the **AWSServiceRoleForProfile** prefixed
 service-linked role. After you create a service-linked role, you cannot change the name of the
 role because various entities might reference the role. However, you can edit the description
 of the role using IAM. For more information, see [Editing
@@ -105,7 +105,7 @@ service-linked role. For more information, see [Deleting a service-linked role](
 
 ## Supported regions for Connect Customer Customer Profiles service-linked roles
 
-Connect Customer Customer Profiles supports using service-linked roles in all of the regions where the service is
+Connect Customer Customer Profiles supports using service-linked roles in all of the Regions where the service is
 available. For more information, see [AWS regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
 
 | Region name              | Region identity | Support in Connect Customer |

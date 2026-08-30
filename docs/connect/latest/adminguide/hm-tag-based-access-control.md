@@ -9,7 +9,7 @@ Connect Customer also supports tag-based access controls for real-time metrics, 
 activity audit, dashboards and the login/logout report. For more information, see
 [Apply tag-based access controls to dashboards and reports in Connect Customer](dashboard-tag-based-access-control.md "dashboard-tag-based-access-control.md").
 
-Tag-based access controls enable you to configure granular access to specific
+With tag-based access controls, you can configure granular access to specific
 resources based on assigned resource tags. You can configure tag-based access
 controls by using the API or the Connect Customer admin website for supported resources. You must configure
 resource tags and access control tags before tag-based access control is applied to

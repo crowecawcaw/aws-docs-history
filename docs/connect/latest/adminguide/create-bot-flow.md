@@ -27,7 +27,7 @@ enter or search for the customer intents that should trigger the bot.
 
 When you search for intents, you can filter by the locale. The locale is only used for
 filtering, it is not tied to the locale when the bot is triggered. For example, you might
-find the BookHotel intent by using the English (US) locale, but the intent can be
+find the BookHotel intent by using the English (US) locale. However, the intent can be
 successfully returned in both English (US) and English (GB).
 
 For more information on finding intents, see [How to find intents](#find-notlisted-intents "#find-notlisted-intents").

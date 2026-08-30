@@ -1,6 +1,6 @@
-# AI models and data processing for manager assistant
+# AI models and data processing for manager assist
 
-Manager assistant is built on foundation models in Amazon Bedrock. It uses foundation models to
+Manager assist is built on foundation models in Amazon Bedrock. It uses foundation models to
 interpret questions written in plain language, identify the relevant metrics, retrieve data,
 and generate responses.
 
@@ -12,7 +12,7 @@ dashboards.
 
 ## Cross-Region inference
 
-Manager assistant uses cross-Region inference to select the optimal AWS Region for
+Manager assist uses cross-Region inference to select the optimal AWS Region for
 processing your data. Cross-Region inference improves the customer experience by
 maximizing the available resources and model availability. If you do not want your data
 processed in a Region other than the one that you selected, contact AWS Support.
@@ -23,7 +23,7 @@ Guide_.
 
 ## Responsible AI
 
-- Manager assistant inherits automated abuse detection from Amazon Bedrock.
+- It inherits automated abuse detection from Amazon Bedrock.
 - Guardrails prevent the generation of harmful or off-topic content.
 - Responses are grounded in the metrics data in your Connect Customer instance.
 - The read-only architecture prevents unintended modifications to your

@@ -1,6 +1,6 @@
 # Connect Customer contact events
 
-Connect Customer allows you to subscribe to a near real-time stream of contact (voice calls, chat,
+With Connect Customer, you can subscribe to a near real-time stream of contact (voice calls, chat,
 task, and email) events (for example, call is queued) in your Connect Customer contact center.
 
 You can use contact events to create analytics dashboards to monitor and track contact
@@ -619,7 +619,7 @@ Length Constraints: Minimum length of 0. Maximum length of 1024.
 
 The AWS Region where the contact was originally created and initiated.
 This might differ from the `ActiveRegion` if the contact has
-been transferred across regions.
+been transferred across Regions.
 
 Type: String
 
@@ -1172,7 +1172,7 @@ Type: String (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 
 Connect Customer contact events are published using [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/"), and can be enabled in a couple of steps for your Connect Customer instance
 in the Amazon EventBridge console by creating a new rule. Although events are not ordered, they
-have a timestamp which enables you to consume the data.
+have a timestamp which you can use to consume the data.
 
 Events are emitted on a
 [best effort](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md")

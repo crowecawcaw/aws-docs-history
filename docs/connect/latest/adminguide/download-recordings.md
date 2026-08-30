@@ -58,7 +58,7 @@ The following image shows a .json file in the Downloads folder. The name
 of the .json file is the contact ID.
 
 ![A json file transcript in the downloads folder.](images/downloaded-json-file.png) 2. To view a downloaded chat transcript, open the context menu for the .json file, and then
-open it with another app that enables you to view the contents in a readable
+open it with another app that you can use to view the contents in a readable
 format.
 
 The following image shows a sample downloaded transcript that has been

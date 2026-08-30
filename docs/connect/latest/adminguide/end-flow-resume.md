@@ -4,7 +4,7 @@
 
 ###### Important
 
-The End flow / Resume block is a terminal flow block. It enables you to end a
+The End flow / Resume block is a terminal flow block. With the **End flow / Resume** block, you can end a
 paused flow and return the contact without terminating the overall interaction.
 However, if you place the **End flow / Resume** block in an
 inbound flow or disconnect flow, it functions identically to the

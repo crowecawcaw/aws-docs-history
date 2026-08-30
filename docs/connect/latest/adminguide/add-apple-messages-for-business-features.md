@@ -81,7 +81,7 @@ credit card question for the billing department:
 A list picker prompts your customer to select an item, such as a product or the
 reason for their inquiry. A time picker prompts your customer to choose an available
 time slot, such as to schedule an appointment. A quick reply prompts your customer
-to select a simple, inline response. Forms allow you to create rich, multiple page,
+to select a simple, inline response. With forms, you can create rich, multiple page,
 interactive flows for customers.
 
 For information about how to set up list pickers, time pickers, forms, and quick
@@ -154,7 +154,7 @@ URL.
 
 ## Use Apple Messages for Business contact attributes in contact flows
 
-Contact attributes enable you to store temporary information about the contact so
+With contact attributes, you can store temporary information about the contact so
 you can use it in the flow.
 
 For example, if you have different lines of business using Apple Messages for Business, you can branch

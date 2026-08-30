@@ -1,7 +1,7 @@
 # Custom widgets
 
 Create tailored dashboard components from the ground up to meet your specific
-business needs. Custom widgets allow you to build unique visualizations without
+business needs. With custom widgets, you can build unique visualizations without
 any predefined data.
 
 ![Add customer widgets in the Profile explorer layout.](images/custom-widgets-1.png)
@@ -119,7 +119,7 @@ interaction and organization.
 
 ## Key value pair
 
-The Key Value Pair component enables you to create organized displays of
+With the Key Value Pair component, you can create organized displays of
 related data points in a flexible, readable format.
 
 ### Overview
@@ -214,7 +214,7 @@ This component does not currently support
 
 ## Key metric
 
-The Key Metric component enables you to prominently display critical
+With the Key Metric component, you can prominently display critical
 business metrics, KPIs, and vital statistics in an easily digestible
 format.
 

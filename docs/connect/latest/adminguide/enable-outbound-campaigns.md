@@ -34,7 +34,7 @@ You need a few things to use outbound campaigns:
 - Create a dedicated outbound campaigns queue to handle any contacts that will be routed to
   agents as a result of the campaign.
 - Assign the queue to the agent's routing profile.
-- Create and publish a flow that includes a [Check call progress](check-call-progress.md "check-call-progress.md") block. This block enables you to branch based on
+- Create and publish a flow that includes a [Check call progress](check-call-progress.md "check-call-progress.md") block. With this block, you can branch based on
   whether a person or a machine answered a call, for example.
 
 ## Create an AWS KMS key

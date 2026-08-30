@@ -7,8 +7,8 @@ _key:value_ pair.
 
 A _tag key_ typically represents a larger category, while a tag value
 represents a subset of that category. For example you could have _tag key=Color_ and _tag value=Blue_, which would produce the key:value pair
-`Color:Blue`. Note that you can set the value of a tag to an empty string,
-but you can't set the value of a tag to null. Omitting the tag value is the same as using an
+`Color:Blue`. Note that you can set the value of a tag to an empty string.
+However, you can't set the value of a tag to null. Omitting the tag value is the same as using an
 empty string.
 
 Tag keys can be up to 128 characters in length and tag values can be up to 256 characters

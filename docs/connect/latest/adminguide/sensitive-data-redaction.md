@@ -1,6 +1,6 @@
 # Use sensitive data redaction to protect customer privacy using conversational analytics
 
-To help you protect your customer's privacy, conversational analytics lets you automatically redact sensitive data from conversation transcripts,
+To help you protect your customer's privacy, you can use conversational analytics to automatically redact sensitive data from conversation transcripts,
 audio files, and email transcripts. It redacts sensitive data, such as name, address, and credit card
 information using Natural Language Understanding.
 

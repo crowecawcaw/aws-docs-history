@@ -42,6 +42,8 @@ external systems meet the following requirements:
   system is your contact center.
 - Verify you have SIPREC support or the ability to add SIPREC to the source
   system that will send the SIPREC replica call audio to conversational analytics.
+- The maximum call duration that can be streamed into Connect Customer is 3 hours and 45
+  minutes. Audio beyond this duration is not streamed or analyzed.
 
 ## Set up steps
 
@@ -88,12 +90,12 @@ integration will be visible in the Connect Customer console and the Connect Cust
 
   - **Analytics and Optimization - conversational analytics connectors
   * View** and **Edit**. The
-    **View** permission allows you see the list of
+    **View** permission helps you see the list of
     available conversational analytics connectors. The **Edit**
-    permission allows you to associate flows with a conversational analytics
+    permission helps you associate flows with a conversational analytics
     connector.
   - **Channels and Flows - Flows - View**: This
-    permission enables you to see the available flows you can associate with
+    permission helps you see the available flows you can associate with
     a conversational analytics connector.
     Only users who have these permissions will be able to access the
     conversational analytics connector on the Connect Customer admin website.

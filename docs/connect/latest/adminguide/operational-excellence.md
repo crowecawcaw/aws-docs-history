@@ -13,7 +13,7 @@ Consider the following areas to prepare for a Connect Customer workload.
 
 With AWS Organizations, you can set up multiple AWS accounts for each
 level of your development, staging, and quality assurance environments. This
-allows you to centrally govern your environment as you grow and scale your
+helps you centrally govern your environment as you grow and scale your
 workloads on AWS. Whether you are a growing startup or a large enterprise,
 Organizations helps you to centrally manage billing; control access, compliance,
 and security; and share resources across your AWS accounts. This is the
@@ -23,7 +23,7 @@ framework.
 ### Region selection
 
 Connect Customer Region selection is contingent upon data governance requirements, use
-case, services available in each Region, telephony costs in each region, and
+case, services available in each Region, telephony costs in each Region, and
 latency in relation to your agents, contacts, and external transfer endpoint
 geography.
 
@@ -147,7 +147,7 @@ See [Monitoring your Connect Customer instance using CloudWatch](monitoring-clou
 
 ### Contact attributes
 
-Connect Customer allows you to dynamically set and reference contact attributes within
+With Connect Customer, you can dynamically set and reference contact attributes within
 flows to create dynamic and personalized experiences for your contacts, create
 powerful self-service applications, data-driven IVRs, integrations with other
 AWS services, simplify phone number management, and allows for custom
@@ -242,7 +242,7 @@ the following diagram:
 
 ![Endpoints pointing to DynamoDB instead of retrieving data from the API.](images/architecture/amazonconnectapis2-oe.png)
 
-This architecture allows you to change polling intervals and add
+With this architecture, you can change polling intervals and add
 endpoints, as needed, without worrying about exceeding service quotas,
 giving you the ability to scale to however many concurrent connections your
 database solution supports. You can use this same concept with querying any

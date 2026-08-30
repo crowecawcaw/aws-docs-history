@@ -152,7 +152,7 @@ own permanent set of credentials and are automatically rotated.
 
 Credentials such as API keys should be stored outside of your flow application
 code, where they can be retrieved programmatically. To accomplish this, you can
-use AWS Secrets Manager or an existing third-party solution. Secrets Manager enables you to replace
+use AWS Secrets Manager or an existing third-party solution. With Secrets Manager, you can replace
 hardcoded credentials in your code, including passwords, with an API call to
 Secrets Manager to retrieve the secret programmatically.
 
@@ -259,7 +259,7 @@ to the following:
      [Security Best Practices for Connect Customer](security-best-practices.md "security-best-practices.md").
     * Mitigate insider threat and compliance risk associated with
      workloads that handle sensitive information, by creating a secure
-     IVR solution that enables you to bypass agent access to sensitive
+     IVR solution that you can use to bypass agent access to sensitive
      information. By encrypting contact input in your flows, you’re able
      to capture information securely without exposing it to your agents,
      their workstations, or their operating environments. For more
@@ -299,7 +299,7 @@ securing the external layer:
      DynamoDB from within your flow, including ANI, IP address for
      click-to-dial and chat endpoints, and any other identifying
      information to track how many contact requests occur during a given
-     period of time. This approach allows you to query and add contacts
+     period of time. With this approach, you can query and add contacts
      to deny lists, automatically disconnecting them if they exceed
      reasonable levels.
     * ANI Fraud detection solutions using [Connect Customer telephony

@@ -23,8 +23,8 @@ for contacts created through your widget.
 4. Here you can configure a contact form for your customers using the [no-code builder](no-code-ui-builder.md "no-code-ui-builder.md"). Some important
    tips:
 
-   - Using the Form component will allow you to link Form Inputs to your
-     contact on creation. Form linking will allow you to take input directly
+   - By using the Form component, you can link Form Inputs to your
+     contact on creation. With form linking, you can take input directly
      from anyone interacting with your widget and use the information they
      include in the form during contact creation.
    - The Connect Action component is the most important element in the form
@@ -97,9 +97,9 @@ header styling is displayed.
 
 You might choose between two display types for Contact Form widgets:
 
-- _Floating action button_ allows you to pin your widget
+- With _Floating action button_, you can pin your widget
   as an interactable button on the bottom right corner of the web page
-- _Embedded inline_ allows you to embed your widget
+- With _Embedded inline_, you can embed your widget
   directly in the web page without requiring a button push to load it
 
 ### Button styles

@@ -1,6 +1,6 @@
 # Personalize the customer experience for in-app, web, and video calling in Connect Customer
 
-The steps in this topic are optional but recommended. They enable you to personalize
+The steps in this topic are optional but recommended. With these steps, you can personalize
 the customer's experience based on their actions previously taken within your app. This
 option provides you more control when initiating new calls, including the ability to
 pass contextual information as attributes.

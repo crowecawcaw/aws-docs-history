@@ -80,7 +80,7 @@ one or few flows by using the dynamic nature of Connect Customer Flows. With thi
 can store configuration information like Prompts, Queues, Business Hours, Whisper
 Prompts/Flows, Queues, Queue Treatments and Hold Messages, in NoSQL Database
 DynamoDB. In Connect Customer, you can associate multiple phone numbers to the same flow and use
-the Lambda function to look up configurations for that phone number. This allows you
+the Lambda function to look up configurations for that phone number. This helps you
 to dynamically define the contact’s experience based on the attributes returned from
 DynamoDB.
 
@@ -109,7 +109,7 @@ the creation of custom agent desktop solutions using the [Connect Customer Strea
 Consider using the Streams API to increase performance efficiency in the following
 areas:
 
-- CRM integration - The Streams API allows you to embed the CCP in your CRM
+- CRM integration - With the Streams API, you can embed the CCP in your CRM
   application, create your own interface, or integrate with other AWS
   services and partner solutions to provide your agents with the tools and
   resources they need to service your contacts. With a custom desktop, like
@@ -153,7 +153,7 @@ Practices for Working with AWS Lambda functions](../../../lambda/latest/dg/best-
 Direct Connect is a cloud service solution that makes it more efficient to establish
 a dedicated network connection from your premises to AWS. It provides a
 durable, consistent connection rather than relying on your ISP to dynamically
-route requests to AWS resources. It allows you to configure your edge router
+route requests to AWS resources. With Direct Connect, you can configure your edge router
 to redirect AWS traffic across dedicated fiber rather than traversing the
 public WAN and establish private connectivity between AWS and your data
 center, office, or colocation environment. In many cases, this can reduce your
@@ -197,8 +197,8 @@ specific phrases. Contacts can perform tasks such as changing a password,
 requesting a balance on an account, or scheduling an appointment without ever
 speaking to an agent.
 
-Amazon Lex is a service that allows you to create intelligent conversational
-chatbots. It lets you turn your Connect Customer contact center flows into natural
+Amazon Lex is a service that you can use to create intelligent conversational
+chatbots. With Amazon Lex, you can turn your Connect Customer contact center flows into natural
 conversations that provide personalized experiences for your callers. Using the
 same technology that powers Amazon Alexa, an Amazon Lex chatbot can be attached to
 your Connect Customer Flow to recognize the intent of your caller, ask follow-up questions,

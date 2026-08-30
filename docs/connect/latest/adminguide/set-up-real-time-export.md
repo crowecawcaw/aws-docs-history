@@ -8,7 +8,7 @@ Stream.
 You can keep your source systems data, such as CRMs and marketing automation tools,
 up-to-date with the latest information from Connect Customer Customer Profiles. For example, when a
 customer calls your contact center to update their address, an agent can make the change
-to add the new customer address, and the updated profile information is sent to a
+to add the new customer address. The updated profile information is sent to a
 Kinesis Data Stream in real-time.
 
 To set this up, you need to enable **Data export** in the Customer Profiles

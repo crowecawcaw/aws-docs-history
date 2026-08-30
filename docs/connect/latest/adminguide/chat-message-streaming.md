@@ -1,6 +1,6 @@
 # Enable real-time chat message streaming in Connect Customer
 
-Connect Customer Chat provides [APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe
+Connect Customer Chat provides [APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that you can use to subscribe
 to a real-time stream of chat messages. Using these APIs, you can:
 
 - Stream chat messages in real time when a new chat contact is created.

@@ -20,7 +20,7 @@ Following are two use cases for the call and chat analytics API.
 
 When a contact is transferred from one agent to another agent, you can
 transfer a transcript of the conversation to the new agent. The new agent then
-has context for why the customer is contacting your contact center, and the
+has context for why the customer is contacting your contact center. The
 customer doesn't need to repeat information they already provided. Use the
 [ListRealtimeContactAnalysisSegments](../../../contact-lens/latest/APIReference/API_ListRealtimeContactAnalysisSegments.md "../../../contact-lens/latest/APIReference/API_ListRealtimeContactAnalysisSegments.md") API for voice contacts and the
 [ListRealtimeContactAnalysisSegmentsV2](../APIReference/API_ListRealtimeContactAnalysisSegmentsV2.md "../APIReference/API_ListRealtimeContactAnalysisSegmentsV2.md") API for chats to get the

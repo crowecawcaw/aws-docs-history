@@ -1,6 +1,6 @@
 # Create AI guardrails for AI agents
 
-An _AI guardrail_ is a resource that enables you to implement
+An _AI guardrail_ is a resource that you can use to implement
 safeguards based on your use cases and responsible AI policies.
 
 AI agents use Amazon Bedrock guardrails. You can create and edit these guardrails in the

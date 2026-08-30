@@ -2,7 +2,7 @@
 
 You can use Guides in the persona-based Workspace to run structured workflows that virtually any Connect user can follow. Before proceeding, make sure you've created a persona-based workspace first.
 
-Once in the UI builder, find the "Connect Application" component and drag it onto the canvas. This component allows you to embed a first-party Connect application in the View. You can configure the component with the following properties:
+Once in the UI builder, find the "Connect Application" component and drag it onto the canvas. With this component, you can embed a first-party Connect application in the View. You can configure the component with the following properties:
 
 1. Application Namespace: The type of application to embed in the component
 2. ContactFlowId: If 'Guide' is selected as the application namespace, choose the guide's contact flow ID to run in the component.

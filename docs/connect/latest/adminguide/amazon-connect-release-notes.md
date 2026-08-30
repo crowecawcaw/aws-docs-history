@@ -7,6 +7,23 @@ your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## August 2026 Updates
 
+### Connect Customer now supports pagination on analytics dashboard widgets
+
+Connect Customer now supports paginating directly within dashboard widgets, enabling you to
+navigate through large datasets without leaving the widget view. With this launch,
+table-based widgets display built-in page navigation controls, allowing users to browse
+through records page by page. For example, a supervisor monitoring hundreds of queues
+can now page through the full queue list directly within the widget, identifying queues
+that need attention faster.
+
+For more information, see [Widget pagination](dashboard-customize-widgets.md#dashboard-widget-pagination "dashboard-customize-widgets.md#dashboard-widget-pagination").
+
+### Connect Customer now supports viewing chart widgets as tables on analytics dashboards
+
+Connect Customer now enables you to view chart widgets as tables on analytics dashboards, allowing you to see exact metric values broken down by time intervals. With this capability, you can toggle any chart widget to a table view to analyze precise metric data across 15-minute, daily, weekly, or monthly intervals. For example, a workforce manager reviewing the average queue answer time trend can switch to table view to see exact handle times for each date interval, making it easier to identify specific periods of performance degradation and take corrective action.
+
+For more information, see [Toggle between table and bar chart](queue-performance-dashboard.md#toggle-table-bar-chart "queue-performance-dashboard.md#toggle-table-bar-chart").
+
 ### Connect Customer now establishes the persistent connection when the agent logs in
 
 When you select **Enable persistent connection** for an agent, the

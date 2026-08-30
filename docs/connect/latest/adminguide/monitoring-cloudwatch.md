@@ -387,9 +387,9 @@ The `AWS/CustomerProfiles` namespace includes the following metrics.
 **Real-time export metrics sent to CloudWatch**
 
 The two following metrics will be published to CloudWatch for every export task. These metrics
-will provide information on your export stream tasks and will allow you to configure your
-Kinesis streams based on your use case. In the case of being throttled, these metrics will
-enable you to provision your Kinesis stream to ensure delivery to your destination.
+will provide information on your export stream tasks and you can configure your
+Kinesis streams based on your use case. In the case of being throttled, you can use these metrics
+to provision your Kinesis stream to ensure delivery to your destination.
 
 **EventsProcessed**
 

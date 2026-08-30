@@ -1,6 +1,6 @@
 # Bot Advanced configuration support from Connect Customer
 
-The advanced configuration feature enables you to make detailed customizations to your bot
+With the advanced configuration feature, you can make detailed customizations to your bot
 without going to the Amazon Lex console.
 
 1. On the Connect Customer admin website, in the left navigation, choose **Flows**. Choose the

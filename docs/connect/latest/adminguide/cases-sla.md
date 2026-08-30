@@ -1,7 +1,7 @@
 # How SLAs work in Connect Customer Cases
 
 Service Level Agreements (SLAs) in Amazon Connect Cases are a type of related item that
-can be associated with a case. They allow you to track service goals for your contact
+can be associated with a case. With SLAs, you can track service goals for your contact
 center, specifying that particular types of cases should reach certain milestones within set
 timeframes.
 

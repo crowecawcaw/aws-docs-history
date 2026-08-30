@@ -49,7 +49,7 @@ The following image shows the requirements for Salesforce.
 application** page, choose **Next**. 7. On the **Establish connection** page, choose one of the
 following:
 
-    * **Use an existing connection**. This allows you to
+    * **Use an existing connection**. You can use this to
      reuse existing EventBridge resources that are linked to Amazon AppFlow flows that you might
      have created in your AWS account.
     * **Create a new connection**: Enter the information

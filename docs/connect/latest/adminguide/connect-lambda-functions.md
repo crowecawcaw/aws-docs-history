@@ -385,7 +385,7 @@ returned from Lambda.
 ### 2. Store variables as contact attributes
 
 If you store the variables as contact attributes, you can use them throughout your
-flow, and they are included in contact records.
+flow. They are included in contact records.
 
 To store the values returned as contact attributes and then reference them, use a
 **Set contact attributes** block in your flow after the

@@ -61,7 +61,7 @@ The following tabs appear at the top of the evaluation form page:
      also apply scoring to sections or questions.
 
 5. Choose **Save** at any time while creating your form.
-This enables you to navigate away from the page and return to the form
+After you save, you can navigate away from the page and return to the form
 later. 6. Continue to the next step to add sections and questions.
 
 ###### Import evaluation forms from another instance
@@ -232,7 +232,7 @@ be answered automatically on a contact using generative AI**, see
 
 ![The evaluation forms page, the scoring tab, the Enable scoring checkbox.](images/evaluationforms-enablescoring.png)
 
-This enables scoring for the entire form. It also enables you to add
+This enables scoring for the entire form. You can also use it to add
 ranges for answers to **Number** question types. 2. For **Scoring mode**, choose one of the following
 options:
 
@@ -337,8 +337,7 @@ values to each option. When multiple options are selected, their point
 values are summed. Optionally, select **Set cap** to
 configure a maximum point value cap for the question.
 
-![The Scoring tab for a multiple selection question with point values and Set cap option.](images/evaluationforms-pointbased-multi-select.png) 4. (Optional) Configure bonus options or bonus questions. Bonus points
-allow you to award extra credit without increasing the maximum possible
+![The Scoring tab for a multiple selection question with point values and Set cap option.](images/evaluationforms-pointbased-multi-select.png) 4. (Optional) Configure bonus options or bonus questions. With bonus points, you can award extra credit without increasing the maximum possible
 score.
 
     * **Bonus options** – An
@@ -374,7 +373,7 @@ automate the answer of certain questions, or continue to [preview the evaluation
 
 ### Step 5.3: Assign performance thresholds
 
-Performance thresholds allow you to classify evaluation results into
+With performance thresholds, you can classify evaluation results into
 categories such as "Needs Improvement" or "Exceeds Expectations" based on
 score thresholds. This feature is supported in both percentage-based and
 point-based scoring modes.
@@ -392,7 +391,7 @@ apply.
 
 ## Step 6: Enable automated evaluations
 
-Connect Customer enables you to automatically answer questions within
+With Connect Customer, you can automatically answer questions within
 evaluation forms (for example, did the agent adhere to the greeting script?) using
 insights and metrics from conversational analytics. Automation can be used
 to:
@@ -532,8 +531,8 @@ start an evaluation from within the Connect Customer admin website.
    toggle is shown in the following image.
 
 ![The Enable fully automated evaluations toggle set to On.](images/evaluationforms-automation4.png) 3. Activate the evaluation form. 4. Upon activation you will be asked to create a rule in conversational analytics
-that submits an automated evaluation. For more information, see [Create a rule in conversational analytics that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md"). The
-rule enables you to specify which contacts should be automatically evaluated
+that submits an automated evaluation. For more information, see [Create a rule in conversational analytics that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md"). With the
+rule, you can specify which contacts should be automatically evaluated
 using the evaluation form.
 
 ## Step 7: Preview the evaluation form

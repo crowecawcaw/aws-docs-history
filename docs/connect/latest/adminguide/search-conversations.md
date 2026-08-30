@@ -27,14 +27,14 @@ they are not indexed for search if conversational analytics is not enabled.
 ## Required permissions for searching conversations
 
 Before you can search conversations, you need the following permissions in
-your security profile. They allow you to do the type of search you want.
+your security profile. With these permissions, you can do the type of search you want.
 
 - Enable one of the following permissions to access the
   **Contact Search** page:
 
-  - **Contact search**. Allows you to search for
+  - **Contact search**. You can use it to search for
     all contacts.
-  - **View my contacts**: Allows you to search
+  - **View my contacts**: You can use it to search
     for only those contacts that you handled as an agent.
 
 - **Search contacts by conversation characteristics**.
@@ -127,7 +127,7 @@ You can enter up to 128 characters.
 
 With conversational analytics, you can search conversations for sentiment scores or
 sentiment shifts on a scale of -5 (most negative) to +5 (most positive). This
-enables you to identify patterns and factors for why calls go well or
+helps you identify patterns and factors for why calls go well or
 poorly.
 
 ![The contact search page, the sentiment score filter.](images/contact-lens-sentiment-score-shift.png)

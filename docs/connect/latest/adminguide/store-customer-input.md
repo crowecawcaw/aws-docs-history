@@ -6,7 +6,7 @@ encrypting it.
 ## Description
 
 This block is similar to **Get customer input**, but this one
-stores the input as a contact attribute (in the [Stored customer input](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") system attribute) and allows you to encrypt it.
+stores the input as a contact attribute (in the [Stored customer input](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") system attribute) and you can encrypt it.
 This way, you can encrypt sensitive input such as credit card numbers. This
 block:
 
@@ -16,7 +16,7 @@ block:
 - Plays an interruptible audio prompt or play text-to-speech for a customer
   to respond to.
 - Stores numerical input as in the [Stored customer input](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") system attribute.
-- Allows you to specify a custom terminating keypress.
+- You can specify a custom terminating keypress.
 - When a call
   includes no customer input, the contact takes the **Success
   branch**. The [Stored

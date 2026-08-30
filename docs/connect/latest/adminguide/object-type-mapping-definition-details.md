@@ -40,7 +40,7 @@ useful for indexing.
 - `Target`: Specifies where in a standard object type the
   data of this field should be mapped.
 
-Populating the standard profile allows you to use data ingested from
+By populating the standard profile, you can use data ingested from
 any data source with applications built on top of Customer Profiles without any
 specific knowledge of the format of the data being ingested.
 
@@ -94,7 +94,7 @@ Keys definitions are used in two ways:
 
 - Inside of Customer Profiles during ingestion, they are used to figure out what
   profile the object should be assigned to.
-- They allow you to use the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to search for the key value and find the
+- You can use the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to search for the key value and find the
   profile.
 
 ## Default search keys

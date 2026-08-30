@@ -23,7 +23,7 @@ at the AWS account level by usage type. For example:
     (inbound) or is reached from (outbound).
 
   This AWS generated tag helps if you have multiple phone numbers used
-  within your contact center. It enables you to group the costs associated
+  within your contact center. With this tag, you can group the costs associated
   against different phone numbers. For example, group inbound phone numbers
   for incoming calls, and group outbound numbers that are used for making
   outbound calls.

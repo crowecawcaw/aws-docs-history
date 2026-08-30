@@ -18,7 +18,7 @@ object:
 
 ```
 
-The following regions are supported:
+The following Regions are supported:
 
 | **Provider** | **apiTokenRegion**               | **Endpoint**                                                                                                                    |
 | ------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |

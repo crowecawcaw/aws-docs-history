@@ -1,6 +1,6 @@
 # Enable post-chat survey
 
-Post-chat survey enables you to collect end customer feedback immediately after a chat conversation ends. With the **`DisconnectOnCustomerExit`** parameter in the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API, you can configure automatic agent disconnection when end customer disconnects, making sure that disconnect flow is triggered consistently regardless of which participant disconnects first.
+With post-chat survey, you can collect end customer feedback immediately after a chat conversation ends. With the **`DisconnectOnCustomerExit`** parameter in the [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API, you can configure automatic agent disconnection when end customer disconnects, making sure that disconnect flow is triggered consistently regardless of which participant disconnects first.
 
 ## Implementation options
 

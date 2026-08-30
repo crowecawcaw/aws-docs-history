@@ -3,7 +3,7 @@
 You can view near real-time and historical performance data directly in the flow
 designer to identify bottlenecks and optimize your published flows and modules. You can
 see aggregate traffic through each completed and in-progress blocks in the flow. This
-allows you to identify behavioral patterns of your customers or pinpoint where errors
+helps you identify behavioral patterns of your customers or pinpoint where errors
 are being encountered.
 
 Following are a couple example use cases for this functionality:

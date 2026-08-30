@@ -36,7 +36,7 @@ logged into.
 ### Active Region Filter
 
 You'll see a new 'Active region' filter in the filters
-dropdown. This allows you to narrow your search specific to a region when
+dropdown. With the Active region filter, you can narrow your search specific to a region when
 needed.
 
 To use the Active region filter:
@@ -52,7 +52,7 @@ To use the Active region filter:
 ### Region-Specific Resource Filters
 
 When you use the following filters, the dropdown options display only
-resources that were created in your logged in region:
+resources that were created in your logged in Region:
 
 - Custom contact attributes
 - Contact categories
@@ -130,7 +130,7 @@ contact's active Region.
 
 ### Contact evaluations
 
-Contact evaluations are only available for contacts that are active in your logged in region. You cannot view
+Contact evaluations are only available for contacts that are active in your logged in Region. You cannot view
 or perform evaluations for replicated contacts from other regions.
 
 ### SearchContacts API

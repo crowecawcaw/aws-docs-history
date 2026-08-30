@@ -85,7 +85,7 @@ allowing you to:
   and Neural Text-to-Speech (NTTS) to achieve the most natural and
   human-like text-to-speech voices possible.
 
-Flows enable you to dynamically prompt contacts, collect and store contact
+With flows, you can dynamically prompt contacts, collect and store contact
 attributes, and route appropriately. You can assign a flow to multiple phone
 numbers, and manage and configure it through Connect Customer.
 

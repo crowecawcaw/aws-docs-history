@@ -232,7 +232,7 @@ error.
   assistance.
 
 Remember, this error is typically temporary, and following the provided
-instructions should allow you to successfully create your desired segment.
+instructions, you can successfully create your desired segment.
 
 ## Known limitations
 

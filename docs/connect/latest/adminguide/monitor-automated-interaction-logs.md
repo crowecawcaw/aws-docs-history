@@ -48,7 +48,7 @@ you must
 disable and re-enable this setting to activate the AI agent traces
 feature. 5. Under the **Automated interaction logs** section,
 select **Enable Automated Interaction Logs**. This
-enables you to view Flow details, Lex bot, and AI agent traces on the
+helps you view Flow details, Lex bot, and AI agent traces on the
 **Contact details** page.
 
 ## Permissions for automated interaction logs

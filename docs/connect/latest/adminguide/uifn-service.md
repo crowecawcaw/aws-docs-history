@@ -10,7 +10,7 @@ carrier support and might vary by country.
 
 ###### Note
 
-Connect Customer allows you to enable UIFNs in as many countries as you need, however, it
+With Connect Customer, you can enable UIFNs in as many countries as you need, however, it
 requires a minimum of 5 countries.
 
 A UIFN is composed of a 3-digit country code for a global service application, such as

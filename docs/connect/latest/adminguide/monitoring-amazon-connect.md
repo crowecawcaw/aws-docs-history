@@ -10,7 +10,7 @@ Connect Customer provides two options to set up contact monitoring:
   that have up to six participants. There's no additional charge for this
   option.
 
-This option enables you to [barge](monitor-barge.md "monitor-barge.md") into live
+With this option, you can [barge](monitor-barge.md "monitor-barge.md") into live
 conversations (voice and chats), and record chat transcripts.
 
 You enable this capability on the Connect Customer console by choosing **Enable

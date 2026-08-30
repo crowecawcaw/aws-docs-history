@@ -19,8 +19,7 @@ voiceprints.
 Following are guidelines for creating Voice ID domains:
 
 - Each Connect Customer instance can be associated with only one Voice ID domain.
-- Each Voice ID domain can be associated with multiple Connect Customer instances. This
-  enables you to use the same stored customer data across multiple Connect Customer
+- Each Voice ID domain can be associated with multiple Connect Customer instances. With a shared Voice ID domain, you can use the same stored customer data across multiple Connect Customer
   instances.
 - You can create multiple domains, but they don't share customer data between
   each other.

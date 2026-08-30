@@ -85,7 +85,7 @@ administrator to unblock HTTP range requests.
 
 ## Review recordings and transcripts of automated voice interactions (with IVR and bots)
 
-IVR recordings and logs enable you to monitor and improve your automated experiences
+With IVR recordings and logs, you can monitor and improve your automated experiences
 to better resolve the needs of the end-customer and maintain audio and system execution
 records of the interaction for compliance purposes. To review automated interaction
 (IVR) recordings and logs:

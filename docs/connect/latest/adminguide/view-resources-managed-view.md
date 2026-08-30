@@ -230,7 +230,7 @@ with three items in it.
 ```
 
 Form view
-The **Form view** allows you to provide your agents
+With the **Form view**, you can provide your agents
 with input fields to gather required data and submit data to backend
 systems. This view consists of multiple _Sections_
 with a predefined _Section_ style with a header. The
@@ -619,7 +619,7 @@ The following image shows an example of a confirmation.
 ```
 
 Cards view
-The **Cards view** allows you to guide your agent by
+With the **Cards view**, you can guide your agent by
 presenting them with a list of topics to choose from as soon as they
 accept the contact.
 

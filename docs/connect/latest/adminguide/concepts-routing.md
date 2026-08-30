@@ -7,7 +7,7 @@ routing priority.
 - A routing profile can have multiple agents assigned to it.
 
 ![A graphic that shows a group of agents mapped to one routing profile.](images/agents-routing-profile.png)
-Connect Customer uses routing profiles to allow you to manage your contact center at scale. To
+Connect Customer uses routing profiles so that you can manage your contact center at scale. To
 quickly change what a group of agents does, you only need to make an update in one
 place: the routing profile.
 
@@ -16,8 +16,7 @@ place: the routing profile.
 Connect Customer includes a default routing profile named **Basic routing
 profile**. Along with the [default
 flows](contact-flow-default.md "contact-flow-default.md") and default queue (named **BasicQueue**), it
-powers your contact center so you don't need to do any customization. This is what
-enables you to get started quickly.
+powers your contact center so you don't need to do any customization. This is what you can use to get started quickly.
 
 ## Routing Profiles Link Queues and Agents
 

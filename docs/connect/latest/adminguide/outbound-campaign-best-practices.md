@@ -268,8 +268,8 @@ of voicemail calls over live calls. However, the detection accuracy has limitati
 ### The pros, cons, and best uses of Answering Machine Detection
 
 The use of Answering Machine Detection (AMD) might not comply with telemarketing laws. You
-are responsible for implementing AMD in a manner that is compliant with applicable laws, and
-you should always consult your legal advisor regarding your specific use case.
+are responsible for implementing AMD in a manner that is compliant with applicable laws.
+You should always consult your legal advisor regarding your specific use case.
 
 Use case 1: AMD is on and leaving automatic voicemails
 

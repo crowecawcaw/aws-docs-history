@@ -110,14 +110,14 @@ aws connect start-contact-conversational-analytics-job \
   --contact-id "`contact-id`" \
   --region "`region`" \
   --cli-input-json '{
-    "ContactId": "`contact-id`",
-    "InstanceId": "`instance-id`",
     "AnalyticsModes": ["PostContact"],
-    "LanguageConfiguration": { "LanguageLocale": "en-US" },
-    "RedactionConfiguration": { "Behavior": "Enable", "Policy": "RedactedAndOriginal" },
-    "SentimentConfiguration": { "Behavior": "Enable" },
-    "SummaryConfiguration": { "SummaryModes": ["PostContact"] },
-    "RulesConfiguration": { "Behavior": "Enable" }
+    "AnalyticsConfiguration": {
+      "LanguageConfiguration": { "LanguageLocale": "en-US" },
+      "RedactionConfiguration": { "Behavior": "Enable", "Policy": "RedactedAndOriginal" },
+      "SentimentConfiguration": { "Behavior": "Enable" },
+      "SummaryConfiguration": { "SummaryModes": ["PostContact"] },
+      "RulesConfiguration": { "Behavior": "Enable" }
+    }
   }'
 ```
 

@@ -31,7 +31,7 @@ For more information, see [Object type mapping for Item Catalog](standard-loyalt
 
 ## Step 3: Creating Predictive Insights
 
-Connect Customer enables you to build and deploy specialized AI models tailored to
+With Connect Customer, you can build and deploy specialized AI models tailored to
 your specific product recommendation needs. These models can be configured through
 either the Connect Web UI or programmatically through APIs to match your unique business
 scenarios. Predictive Insights offers several types of recommendations:
@@ -244,7 +244,7 @@ domain requirements.
 
 After finalizing the agent configuration and publishing it, the next step
 involves creating a Amazon Lex bot under Flows. The inbound flow needs to be updated
-to include the GetCustomerInput block with the created Lex bot, and the new
+to include the GetCustomerInput block with the created Lex bot. The new
 SalesAgent should be selected in additional options. You will need to add both
 the Customer Profile flow block for profile ID retrieval and the Set-Contact
 Attributes flow block, setting CustomerId as the key for the profile ID and

@@ -6,6 +6,6 @@ Views designed for workspace pages function as single-step interfaces tailored t
 
 ## Pass input data from the workspace onto the view
 
-When using views to create workspace pages, you can pass input data at runtime through the page configuration wizard. This dynamic approach enables you to create reusable views that adapt to different contexts without requiring separate implementations for each use case.
+When using views to create workspace pages, you can pass input data at runtime through the page configuration wizard. This dynamic approach means you can create reusable views that adapt to different contexts without requiring separate implementations for each use case.
 
 For example, when creating a view for home pages, you might want to display personalized greetings to different users. Rather than building a unique view for each workspace, you can create a single view with dynamic header components and reuse that view across multiple workspaces, each with its own customized message content.

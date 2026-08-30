@@ -165,7 +165,7 @@ When configuring properties to get a case id:
 
 - If you link the contact to the case, then the contact and a link to contact details appear on the case that the agent sees in the agent application.
 - You can specify the **Contact to search** to fetch a case
-  linked to another contact in the current contact's [contact chain](contacts-contact-chains-attributes.md#contact-chains "contacts-contact-chains-attributes.md#contact-chains"). This enables you to link follow-up contacts such
+  linked to another contact in the current contact's [contact chain](contacts-contact-chains-attributes.md#contact-chains "contacts-contact-chains-attributes.md#contact-chains"). You can then link follow-up contacts such
   as email replies, call transfers, persistent chats, and queued callbacks to
   the same case more easily.
 

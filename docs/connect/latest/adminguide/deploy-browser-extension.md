@@ -69,7 +69,7 @@ allow list, see [Network requirements](sr-system-req.md#network-requirements "sr
 
 ## Deploy the extension through enterprise policy
 
-The Connect Customer browser extension is deployed at user scope. This lets you target the
+The Connect Customer browser extension is deployed at user scope. With user-scope deployment, you can target the
 extension to the specific users or groups who handle recorded contacts, without
 modifying per-machine settings on agent workstations.
 
@@ -150,7 +150,7 @@ All values use the `REG_SZ` type.
 ###### Note
 
 We recommend that you create a new, separate GPO rather than editing your
-primary domain policy. This allows you to link or unlink the Connect Customer extension
+primary domain policy. With a separate GPO, you can link or unlink the Connect Customer extension
 safely.
 
 - Open **Group Policy Management**

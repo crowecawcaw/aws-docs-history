@@ -1,6 +1,6 @@
 # Enable Profile explorer
 
-The following steps will allow you to enable Profile explorer for your administrators
+By following these steps, you can enable Profile explorer for your administrators
 and users. This process involves setting up permissions for both layout configuration
 and viewing access.
 

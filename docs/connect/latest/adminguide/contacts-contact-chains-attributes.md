@@ -37,7 +37,7 @@ routing occurs across multiple queues or agent transfers.
 
 The following image illustrates the hierarchical relationship among initial contact
 ID, related contact ID, and associated contact ID within the Connect Customer contact management
-framework. This hierarchical relationship enables you to trace and analyze the complete
+framework. With this hierarchical relationship, you can trace and analyze the complete
 lifecycle of customer interactions.
 
 ![The relationship among initial contact ID related contact ID, and associated contact ID.](images/contact-chain.png)
@@ -57,7 +57,7 @@ For example, you can customize welcome messages based on the customer's
 communication channel, for example, whether they're connecting through phone or
 chat. Essential system-defined attributes include customer endpoints (phone numbers
 or email addresses), agent names, communication channels (voice or chat), and more.
-These system-defined attributes enable you to build effective decision-making for
+With these system-defined attributes, you can build effective decision-making for
 processing customer interactions.
 
 ### User-defined attributes
@@ -67,7 +67,7 @@ user-defined attributes. These attributes encompass details such as line-of-busi
 names, customer account types, and contact drivers. Connect Customer offers two types of
 user-defined attributes:
 
-- **Contact attributes**: These allow you to
+- **Contact attributes**: With these attributes, you can
   attach your own business attributes (key-value pairs) to a specific contact
   ID.
 

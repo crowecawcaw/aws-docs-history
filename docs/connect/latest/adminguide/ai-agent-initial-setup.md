@@ -789,8 +789,7 @@ You have successfully integrated an existing Bedrock Knowledge Base with AI agen
 ## Step 4: Configure your flow for agent assist
 
 1. Add a [Connect assistant](connect-assistant-block.md "connect-assistant-block.md") block to
-   your flow. The block associates an agent assist domain to the current contact. This
-   enables you to display information from a specific domain, based on criteria
+   your flow. The block associates an agent assist domain to the current contact. With this block, you can display information from a specific domain, based on criteria
    about the contact.
 
 If you choose to [customize](customize-connect-ai-agents.md "customize-connect-ai-agents.md") the
@@ -818,7 +817,7 @@ agent assist uses [cross-region
 inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") to automatically select the optimal AWS Region
 for processing your data, improving the customer experience by maximizing available
 resources and model availability. If you do not want your data processed in a
-different region from what you selected, you can contact AWS
+different Region from what you selected, you can contact AWS
 Support.
 
 ###### Note

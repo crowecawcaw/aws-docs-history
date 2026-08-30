@@ -83,7 +83,7 @@ when the breach occurred.
 
 If an agent's schedule is changed within the last 30 days from the current
 date (not the date of the schedule), adherence is re-calculated with the new
-schedule. This enables you to make real-time adjustments to an agent's shift
+schedule. With this re-calculation, you can make real-time adjustments to an agent's shift
 and correctly evaluate their adherence.
 
 ## Display Week schedule view

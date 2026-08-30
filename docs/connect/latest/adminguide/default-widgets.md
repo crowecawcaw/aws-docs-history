@@ -75,13 +75,13 @@ specific needs.
 
 ## Calculated attribute
 
-The Calculated Attribute widget enables you to display a key metrics
+With the Calculated Attribute widget, you can display a key metrics
 component using data from your customer profiles' calculated
 attributes.
 
 ### Overview
 
-The Calculated Attribute widget enables you to display a key metrics
+With the Calculated Attribute widget, you can display a key metrics
 component using data from your customer profiles' calculated
 attributes.
 

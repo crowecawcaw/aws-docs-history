@@ -126,7 +126,7 @@ and destination applications](../../../appflow/latest/userguide/app-specific.md 
 
 Once Amazon AppFlow integration has been set up, you need to set up data mappings
 in Customer Profiles to define how data from the external application will
-be mapped to the Customer Profile. This will allow you to customize the data
+be mapped to the Customer Profile. With data mappings, you can customize the data
 that you want to use to build your unified customer profile. Choose your
 mapping carefully, as you will not be able to choose a different mapping
 after creating the integration.

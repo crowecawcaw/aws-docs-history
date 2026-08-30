@@ -56,5 +56,5 @@ The metrics APIs don't support agent queues.
 Connect Customer includes a default queue named **BasicQueue**. Along with
 the [default flows](contact-flow-default.md "contact-flow-default.md") and default routing
 profile (named **Basic routing profile**), it powers your contact
-center so you don't need to do any customization. This is what enables you to get
+center so you don't need to do any customization. This is what you can use to get
 started quickly.

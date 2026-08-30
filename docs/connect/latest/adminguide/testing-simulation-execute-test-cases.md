@@ -12,12 +12,12 @@ time out after 5 minutes with a failure status.
 
 When interaction groups are connected in sequence, each group depends on the
 successful validation of the prior group. If a prior interaction group fails to
-observe its expected event, subsequent interaction groups will not be executed,
-and the test will eventually time out after 5 minutes with a failure status.
+observe its expected event, subsequent interaction groups will not be executed.
+The test will eventually time out after 5 minutes with a failure status.
 
 When an interaction group is not connected to any other interaction groups, it
 is triggered when a matching event occurs independently of any dependent groups.
-This allows you to validate experiences that might occur in an undetermined
+With independent interaction groups, you can validate experiences that might occur in an undetermined
 sequence.
 
 During test execution, please be aware of the following limitations and behaviors:

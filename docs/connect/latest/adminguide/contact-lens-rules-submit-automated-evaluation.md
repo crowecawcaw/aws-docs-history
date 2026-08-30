@@ -1,6 +1,6 @@
 # Create a rule in conversational analytics that submits an automated evaluation
 
-Conversational analytics enables you to automatically fill and submit evaluations
+With Conversational analytics, you can automatically fill and submit evaluations
 by using insights and metrics from conversational analytics.
 
 ## Step 1: Configure automation on the evaluation form

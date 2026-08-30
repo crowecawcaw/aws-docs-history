@@ -20,7 +20,7 @@ Following is an overview of the steps to set up the email channel for your conta
 
     - The outbound email flow you configure here applies to agent replies to inbound email contacts received on this queue, and agent-initiated outbound emails when this queue is selected as the default outbound queue in the agent's routing profile.
     - If you do not specify an outbound email flow, the [Default outbound flow in Connect Customer: "This call is not being recorded"](default-outbound.md "default-outbound.md") is automatically used for all outbound emails from this queue.
-    - Similar to outbound voice contacts, configuring different outbound email flows per queue gives you flexibility to execute different contact flows based on the queue. This allows you to customize the outbound email experience for different teams, brands, or business units.
+    - Similar to outbound voice contacts, configuring different outbound email flows per queue gives you flexibility to execute different contact flows based on the queue. With per-queue outbound email flows, you can customize the outbound email experience for different teams, brands, or business units.
       In the **Additional email addresses** section:
 
   - **Search for email addresses**: Select up to 49 additional

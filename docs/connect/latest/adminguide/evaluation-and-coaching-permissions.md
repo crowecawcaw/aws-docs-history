@@ -37,8 +37,8 @@ form audit trail.
   needed to [create
   a rule to submit automated evaluations](contact-lens-rules-submit-automated-evaluation.md "contact-lens-rules-submit-automated-evaluation.md").
 - **Evaluation forms - ask AI assistant**: Provides access to
-  the **Ask AI** button while performing evaluations. The
-  **Ask AI** button enables you to get [generative AI-powered
+  the **Ask AI** button while performing evaluations. With the
+  **Ask AI** button, you can get [generative AI-powered
   recommendations](generative-ai-performance-evaluations.md "generative-ai-performance-evaluations.md") for answers to questions in evaluation forms.
 - **Evaluation forms - manage calibration sessions**: Allows
   admins to create and manage calibration sessions to drive consistency and

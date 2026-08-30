@@ -1,7 +1,7 @@
 # Change your audio device settings in the CCP or agent workspace
 
 When you're using the CCP or agent workspace, you can choose your preferred device for
-the audio, microphone, and ringer. This allows you to have audio notifications to ring
+the audio, microphone, and ringer. With these settings, you can have audio notifications to ring
 from a desktop/laptop speaker instead of a headset, for example.
 
 ###### Important

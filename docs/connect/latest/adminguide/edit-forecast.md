@@ -4,7 +4,7 @@ In the Connect Customer admin website, there are two ways you can edit a forecas
 level: you can make your edits directly in the user interface, or you can upload a
 CSV file that contains your edits.
 
-Editing the forecast allows you to modify the forecast values to better reflect
+By editing the forecast, you can modify the forecast values to better reflect
 changes in contact patterns, such as a special event that could increase volume by
 10 percent during a specific week. If the edited forecast is no longer applicable,
 you can also remove the changes.
@@ -61,8 +61,7 @@ the forecast:
 
     	You can also limit the edits to a specific time range
     	 by clearing **All day** and instead
-    	 selecting a start and end time. This feature allows you
-    	 to adjust the forecast for a specific time window.
+    	 selecting a start and end time. With this feature, you can adjust the forecast for a specific time window.
 
 
     	The following image shows the **Data
@@ -81,7 +80,7 @@ the forecast:
      selected queues. Similarly, you can select channels such as
      **Voice** or **Chat** as
      needed.
-    3. **Metrics**: Metrics allow you to apply
+    3. **Metrics**: With metrics, you can apply
      specific operations to your selection based on the type of edit
      you want to make. You can apply these operations to either [Contact volume](metrics-definitions.md#contact-volume "metrics-definitions.md#contact-volume"), [Average handle time](metrics-definitions.md#average-handle-time "metrics-definitions.md#average-handle-time"), or
      both, depending on your needs.

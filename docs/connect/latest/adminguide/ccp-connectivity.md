@@ -66,6 +66,5 @@ Connect Customer page. If you still get this message, contact your IT team.
 ###### Panic logout
 
 - If the browser window where the CCP is running is closed, the call remains
-  connected, but opening the browser and logging back in will not allow you to
-  re-establish the media connection. You are still able to transfer or end the
+  connected, but you can't re-establish the media connection by opening the browser and logging back in. You are still able to transfer or end the
   call, but no audio path is established between the agent and caller.

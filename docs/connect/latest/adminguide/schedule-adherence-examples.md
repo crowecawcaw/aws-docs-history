@@ -28,8 +28,8 @@ Agent Group 1, Adherence thresholds with NO shift overrides| | START | END |
 | Lunch | - | 12:00 PM | 12:10 PM | 12:50 PM | 1:00 PM | - |
 | Work | 12:55 PM | 1:00 PM | 1:07 PM | 4:50 PM | 5:00 PM | 5:15 PM |
 
-Use Case 2: Agent Group 2 has been setup to use the shift profile in the previous
-image, and the administrator has setup a shift profile override as shown in the
+Use Case 2: Agent Group 2 has been set up to use the shift profile in the previous
+image. The administrator has set up a shift profile override as shown in the
 following table.
 
 Agent Group 2, Shift profile is overridden| | START (Min) | END (Min) |

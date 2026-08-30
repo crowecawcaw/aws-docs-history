@@ -1,6 +1,6 @@
-# Summaries in manager assistant
+# Summaries
 
-Manager assistant can generate operational summaries that consolidate multiple metrics
+You can generate operational summaries that consolidate multiple metrics
 into a single narrative response. Instead of reading through individual dashboard widgets, you
 can request an overview and receive a short summary that highlights key trends and anomalies
 across your metrics.
@@ -24,7 +24,7 @@ There are two ways to get a summary:
   after you change the time range or when new data arrives. Choose **Learn
   more** to continue the conversation about the summary in the
   assistant panel.
-- **Manager assistant chat** – request a
+- **Manager assist chat** – request a
   summary in plain language, as described in the following sections.
 
 Summaries reflect the same underlying data as the corresponding dashboard, scoped by
@@ -64,7 +64,7 @@ them.
 ## Summary format
 
 Summaries are delivered as short narrative paragraphs rather than as lists of numbers.
-Manager assistant highlights notable trends, outliers, and anomalies instead of
+Summaries highlight notable trends, outliers, and anomalies instead of
 restating every data point. The following image shows an example summary.
 
 ![An example Dashboard summary that describes agent error states, contacts handled, average handle time, and available capacity for a queue.](images/manager-assistant-summary-example.png)

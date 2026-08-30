@@ -17,6 +17,7 @@ extension](deploy-browser-extension.md "deploy-browser-extension.md").
 
 - [Windows](#windows-client "#windows-client")
 - [Chrome OS](#chrome-os "#chrome-os")
+- [Release notes](release-notes.md "release-notes.md")
 
 ## Windows
 
@@ -25,21 +26,20 @@ extension](deploy-browser-extension.md "deploy-browser-extension.md").
 - Version: v3.0.4 (latest)
 - Release date: August 13, 2026
 - Download link: [AmazonConnectClientWin-v3.0.4](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.4.zip "https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.4.zip")
-- Release note: This version adds support for rule-based redaction of
-  agent screen recordings.
+- Release note: For more information, see [Release notes](release-notes.md "release-notes.md").
 
 The above link downloads the
 **AmazonConnectClientWin-[version].zip** file. The zip file
 contains the
 **Amazon.Connect.Client.Service.Setup.[version].msi** file.
-For installation instructions, see [Enable screen recording](enable-sr.md "enable-sr.md").
+For installation instructions, see [Client installation instructions](#client-install "#client-install").
 
 To be notified when there is an update to the Connect Customer Client Application, we recommend
 subscribing to the RSS feed of this administrator guide. Choose the
 **RSS** link that appears under the title of this page
 (it's next to the PDF link).
 
-### Client install instructions
+### Client installation instructions
 
 In this step you install the
 **Amazon.Connect.Client.Service** file onto the agent's

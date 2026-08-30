@@ -28,6 +28,8 @@ widgets in your dashboards. For more information, see. [Custom metrics](custom-m
   widgets](#widgets-move-charts "#widgets-move-charts")
 - [Create custom dashboards](#dashboard-create-custom "#dashboard-create-custom")
 - [Create custom calculations of service level metrics](#dashboard-custom-sl "#dashboard-custom-sl")
+- [Use compact mode](#dashboard-use-compact-mode "#dashboard-use-compact-mode")
+- [Widget pagination](#dashboard-widget-pagination "#dashboard-widget-pagination")
 
 ## Choose which metrics to display in a widget
 
@@ -101,7 +103,7 @@ The following image shows a vertical bar on a dashboard.
 
 In the widget's **Edit** pane you can choose to show the
 comparisons in your Trailing performance widgets by choosing the **Show
-comparison** option. This allows you to see how your performance
+comparison** option. With comparisons, you can see how your performance
 compares to the previous time range.
 
 ![The Show comparison option in the Edit pane, the Prior information on the chart.](images/dashboard-add-comparisons.png)
@@ -407,3 +409,47 @@ widget. Complete the following procedure.
 4. Configure any additional widget settings like time range, comparisons,
    or filters.
 5. Choose **Save** to apply your changes.
+
+## Use compact mode
+
+You can turn on compact mode to fit more data on the screen. Compact mode reduces
+the spacing and font sizes on the dashboard so you can see more metrics and table
+rows without scrolling.
+
+1. On the dashboard page, turn on the **Compact mode**
+   toggle, as shown in the following image.
+
+![The Compact mode toggle on the dashboard page.](images/dashboard-compact-mode-toggle.png) 2. To return to the default spacing, turn off the toggle.
+
+When compact mode is on, the following changes apply:
+
+- Summary widgets use smaller fonts and are no taller than two rows.
+- Compact mode hides widget descriptions.
+- The last updated time appears next to the widget name as a relative time,
+  for example **Now** or **5
+  seconds ago**. To see the exact time, pause on it.
+- Compact mode hides widget filters behind a filter icon. Choose the icon to
+  **Show filters** or **Hide filters** for
+  that widget.
+
+The following image shows the filter icon used to show or hide filters for a
+widget.
+
+![The filter icon used to show or hide filters in compact mode.](images/dashboard-show-hide-filter-toggle.png)
+
+## Widget pagination
+
+You can use the pagination controls at the bottom of table widgets to move between
+pages and to change how many rows the widget displays, as shown in the following
+image.
+
+![The pagination controls at the bottom of a table widget.](images/dashboard-widget-pagination.png)
+
+Note the following behavior when you use pagination controls:
+
+- Changing the number of rows per page or the sort order returns the widget
+  to the first page.
+- A downloaded CSV file includes only the rows shown on the current page. To
+  download more rows, increase the number of rows per page before you
+  download.
+- Widgets support a maximum page size of 200 items per page.

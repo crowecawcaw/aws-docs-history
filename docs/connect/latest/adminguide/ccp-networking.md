@@ -42,7 +42,7 @@ The following sections describe the two primary connectivity options for using t
 
 ## Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist
 
-This first option lets you significantly reduce your blast radius.
+With this first option, you can significantly reduce your blast radius.
 
 We recommend trying Option 1 and testing it with more than 200 calls. Test for
 softphone errors, dropped calls, and conference/transfer functionality. If your error
@@ -130,6 +130,7 @@ these endpoints to your allowlist instead.
 | af-south-1     | TurnNlb-29b8f2824c2958b8.elb.af-south-1.amazonaws.com                                                                                                                                                                                                                                |
 | ap-northeast-1 | TurnNlb-3c6ddabcbeb821d8.elb.ap-northeast-1.amazonaws.com                                                                                                                                                                                                                            |
 | ap-northeast-2 | TurnNlb-a2d59ac3f246f09a.elb.ap-northeast-2.amazonaws.com                                                                                                                                                                                                                            |
+| ap-northeast-3 | TurnNlb-fba2afb642c525c3.elb.ap-northeast-3.amazonaws.com                                                                                                                                                                                                                            |
 | ap-southeast-1 | TurnNlb-261982506d86d300.elb.ap-southeast-1.amazonaws.com                                                                                                                                                                                                                            |
 | ap-southeast-2 | TurnNlb-93f2de0c97c4316b.elb.ap-southeast-2.amazonaws.com                                                                                                                                                                                                                            |
 | ca-central-1   | TurnNlb-b019de6142240b9f.elb.ca-central-1.amazonaws.com                                                                                                                                                                                                                              |
@@ -344,6 +345,6 @@ route to AWS using private WAN/LAN, ISP, or both. While Direct Connect does not 
 specific to private LAN/WAN traversal to your edge router, it can help solve for latency
 and connectivity issues between your edge router and AWS resources. Direct Connect provides
 a durable, consistent connection rather than relying on your ISP to dynamically route
-requests to AWS resources. It also allows you to configure your edge router to
+requests to AWS resources. You can also use it to configure your edge router to
 redirect AWS traffic across dedicated fiber rather than traversing the public
 WAN.

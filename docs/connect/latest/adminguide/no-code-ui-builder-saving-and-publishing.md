@@ -1,6 +1,6 @@
 # Save and publish views to use in a step-by-step guide in Connect Customer
 
-View resources have versioning support. Versioning enables you to audit and even
+View resources have versioning support. With versioning, you can audit and even
 re-use the previous iterations of a view you have created or used in
 step-by-step guides.
 

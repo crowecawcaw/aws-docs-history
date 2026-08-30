@@ -1,6 +1,6 @@
 # Create conversational analytics rules using the Connect Customer admin website
 
-Conversational analytics rules allow you to automatically categorize contacts, receive
+With Conversational analytics rules, you can automatically categorize contacts, receive
 alerts, or generate tasks based on keywords that are used during a call, chat, or email,
 sentiment scores, customer attributes, and other criteria.
 

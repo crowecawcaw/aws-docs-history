@@ -60,7 +60,7 @@ campaigns enabled**
 
 ###### Note
 
-    * Upgrading outbound campaigns will allow you to use segmentation and orchestration
+    * By upgrading outbound campaigns, you can use segmentation and orchestration
      capabilities in the Connect Customer admin website
     * Upgrading outbound campaigns will update the current outbound campaigns page to new
      experience.

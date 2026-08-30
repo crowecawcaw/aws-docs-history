@@ -31,7 +31,7 @@ peer-to-peer connectivity. These are in addition to protocol specifications for
 reliable and secure real-time media and data streaming.
 
 Because Connect Customer uses WebRTC, you don't need to build and maintain complex
-infrastructure for real-time communication. It enables you to rapidly deploy
+infrastructure for real-time communication. With WebRTC, you can rapidly deploy
 omnichannel customer engagement solutions through Connect Customer, while benefiting from the
 low latency, high-quality media streaming, and secure peer-to-peer connectivity that
 WebRTC offers.

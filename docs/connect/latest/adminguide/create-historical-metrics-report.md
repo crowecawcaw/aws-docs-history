@@ -24,7 +24,7 @@ with queues might not provide much insight.
 
 When you create a report, the values for calculated metrics are displayed as
 rows in the report. The rows in the report are grouped by the grouping options
-you select. Grouping the data enables you to generate global data for your
+you select. By grouping the data, you can generate global data for your
 contact center, or more specific data for queues, agents, routing profiles, or
 agent hierarchy defined in your contact center.
 

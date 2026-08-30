@@ -1,6 +1,6 @@
 # Set up event filters
 
-Event filters allow you to filter the profile objects to be used in the
+With event filters, you can filter the profile objects to be used in the
 calculated attribute. For example, an event filter might filter the customer's
 standard asset objects so that only the assets with **Status is
 Installed OR Registered** are included in the calculation.

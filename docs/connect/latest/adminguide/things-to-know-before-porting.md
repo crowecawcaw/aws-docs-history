@@ -31,7 +31,7 @@ activity.
 
 **Phone number portability**
 
-Number portability allows you to transfer your telelphone numbers to
+With number portability, you can transfer your telelphone numbers to
 other carriers. Carriers and countries might have unique processes and
 procedures required.
 

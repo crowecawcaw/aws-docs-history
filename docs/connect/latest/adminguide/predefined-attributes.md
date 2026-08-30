@@ -38,7 +38,7 @@ described in this topic. Or programmatically by using the [Predefined attribute 
   special characters, but can't start with `aws:` or
   `connect:`.
 - You cannot create duplicate predefined attribute names or values. In addition,
-  case sensitivity does not allow you to use duplicate names. For example, a new
+  case sensitivity means you cannot use duplicate names. For example, a new
   predefined attribute with the name `language` cannot be created if a
   predefined attribute with name `Language` exists in your Connect Customer
   instance.

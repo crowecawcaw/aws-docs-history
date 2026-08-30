@@ -177,11 +177,22 @@ Screen recording uses OpenH264 codec.
 - **Is there a way to choose which audio (redacted or
   unredacted) gets used for screen recording?**
 
-By default, the screen recording uses the unredacted audio. If you enable
-[rule-based
-redaction](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md") for the contact, the redacted screen recording is
-stitched with the redacted call recording when conversational analytics call recording redaction is
-also enabled for the contact, and has no audio otherwise.
+By default, the screen recording uses unredacted audio.
+
+To preserve screen content and use redacted call audio, enable screen
+recording and [rule-based
+redaction](configure-rule-based-redaction.md "configure-rule-based-redaction.md") in the contact flow. Select
+**Denylist** and leave the URL and window title rule
+lists empty. Enable conversational analytics call recording redaction for the contact.
+
+The resulting redacted screen recording preserves screen content and
+contains redacted audio. Without conversational analytics call recording redaction, the redacted
+screen recording has no audio.
+
+Grant the **Screen recording (redacted) - Access**
+permission to anyone who needs access to the redacted recording. Remove the
+**Screen recording - Access** permission from anyone who
+must not access the original recording.
 
 - **Is there a service limit for screen
   recording?**
@@ -211,15 +222,17 @@ instance data storage configuration.
 - **Where are screen recordings
   stored?**
 
-Screen recordings are delivered to your Amazon S3 bucket under the
-following prefix:
+Screen recordings are delivered to your Amazon S3 bucket under your configured
+prefix:
 
 ```
-s3://`your-bucket`/connect/`your-instance-alias`/ScreenRecordings/`year`/`month`/`day`/`contact-id`_`UTC-timestamp`.mp4
+s3://`your-bucket`/`your-prefix`/`year`/`month`/`day`/`contact-id`_`UTC-timestamp`.mp4
 ```
 
-By default, the path prefix is `ScreenRecordings`, but
-this prefix is configurable.
+Here, `your-prefix` is the Amazon S3 prefix configured
+for your instance. The console default is
+`connect/`your-instance-alias`/ScreenRecordings`,
+and the prefix is configurable.
 
 ### Performance
 
@@ -413,12 +426,21 @@ contact.
 
 - **Where are redacted recordings stored?**
 
-Redacted recordings are stored in the same Amazon S3 bucket as unredacted
-recordings, under a separate prefix:
+Redacted recordings are stored in the same Amazon S3 bucket as the unredacted
+recordings, as a sibling of the unredacted file. The redacted key is rooted
+at the parent of your configured prefix, under a fixed
+`Analysis/ScreenRecordings/Redacted/` path.
 
 ```
-s3://`your-bucket`/connect/`your-instance-alias`/Analysis/ScreenRecordings/Redacted/`year`/`month`/`day`/`contact-id`_screen_recording_redacted_`UTC-timestamp`.mp4
+s3://`your-bucket`/`your-prefix-parent`/Analysis/ScreenRecordings/Redacted/`year`/`month`/`day`/`contact-id`_screen_recording_redacted_`UTC-timestamp`.mp4
 ```
+
+In this path, `your-prefix-parent` is your
+configured screen recordings prefix with its last segment removed. For
+example, with the console default prefix
+`connect/`your-instance-alias`/ScreenRecordings`,
+redacted recordings are stored under
+`connect/`your-instance-alias`/Analysis/ScreenRecordings/Redacted/`.
 
 - **How can I audit whether a specific contact was
   recorded with redaction enabled?**

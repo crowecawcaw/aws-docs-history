@@ -126,3 +126,19 @@ console:
   page.
 - Conversational analytics (transcript, sentiment, categories, summary) are
   visible in the **Contact Details** page.
+
+To retrieve details about the contact—such as its channel, initiation method,
+recording status, and contact attributes—you can call the DescribeContact API. For
+more information about the DescribeContact API, see [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md").
+
+In the following AWS CLI command, replace
+`instance-id`,
+`contact-id`, and
+`region` with your own values.
+
+```
+aws connect describe-contact \
+  --instance-id "`instance-id`" \
+  --contact-id "`contact-id`" \
+  --region "`region`"
+```

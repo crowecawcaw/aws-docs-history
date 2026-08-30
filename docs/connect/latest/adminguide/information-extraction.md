@@ -1,7 +1,7 @@
 # Information extraction
 
 Information extraction uses generative AI to extract information from conversations. That information could be verbatim — such as preferred name, invoice number, or
-reservation ID; or it could be derived – such as reason for contact, resolution provided, or
+reservation ID. Alternatively, it could be derived – such as reason for contact, resolution provided, or
 next steps promised. Information can be extracted from chat contacts or voice contacts
 with human agents. The extracted information is associated with the contact as structured
 data.
@@ -17,8 +17,8 @@ Extracted information is available in the following locations:
   after-call work.
 - **Contact details page** — After the contact
   ends.
-- **Contact search** — You can filter and search
-  contacts based on extracted information.
+- **Contact search** — Extracted information is
+  displayed in the contact search results table.
 - **S3 files** — Extracted data is included in the
   conversational analytics output files stored in Amazon S3.
 - **API** — Via

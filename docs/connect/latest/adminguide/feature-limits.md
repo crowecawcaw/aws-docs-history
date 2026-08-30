@@ -75,10 +75,10 @@ The following table lists the maximum message size for each messaging channel, d
 | --------------------------- | -------------------------- | ----------------- | ---------------------- | ---------------- |
 | SMS                         | Inbound                    | End customer      | Agent or Lex (Connect) | 1,024 characters |
 | Outbound                    | Agent or Lex bot (Connect) | End customer      | 1,024 characters       |
-| WhatsApp                    | Inbound                    | End customer      | Lex (Connect)          | 1,024 characters |
+| WhatsApp                    | Inbound                    | End customer      | Lex (Connect)          | 4,096 characters |
 | End customer                | Agent                      | 4,096 characters  |
 | Outbound                    | Agent or Lex bot (Connect) | End customer      | 4,096 characters       |
-| Apple Messages for Business | Inbound                    | End customer      | Lex (Connect)          | 1,024 characters |
+| Apple Messages for Business | Inbound                    | End customer      | Lex (Connect)          | 4,096 characters |
 | End customer                | Agent                      | 4,096 characters  |
 | Outbound                    | Agent or Lex bot (Connect) | End customer      | 4,096 characters       |
 | Chat                        | Inbound                    | End customer      | Lex (Connect)          | 1,024 characters |

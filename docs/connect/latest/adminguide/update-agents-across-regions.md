@@ -54,7 +54,7 @@ traffic distribution group ARN.
 ## Enable both AWS Regions during regular operations
 
 The `UpdateTrafficDistribution` API includes a distribution
-called `SignInConfig`. It allows you to choose which backend
+called `SignInConfig`. With this distribution, you can choose which backend
 sign-in servers are used to help the agent signing in to their
 instance group. Regardless of the `SignInConfig` set in your
 traffic distribution group, agents will be signed in to both instances in

@@ -20,7 +20,7 @@ Use any of the following methods to search for quick responses:
   (`/#G1`) in the agent application.
 
 ![Chat window with a welcome message and /#G1.](images/response-example.png)
-You can also search for quick responses by typing `/#{`search term`}` in the message input field. This syntax allows you to quickly find responses without needing to remember short codes.
+You can also search for quick responses by typing `/#{`search term`}` in the message input field. With this syntax, you can quickly find responses without needing to remember short codes.
 
 For information about creating, importing, and managing quick responses, including
 required permissions, see [Create quick responses for use with chat and email contacts in Connect Customer](create-quick-responses.md "create-quick-responses.md").

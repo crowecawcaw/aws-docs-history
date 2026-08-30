@@ -128,7 +128,7 @@ To send your email response:
 3. Choose **Send** to send the email.
 4. The email is sent through Amazon SES to the customer.
 
-After sending a response, the email contact remains active until you choose to end it. This allows you to send multiple messages within the same contact if needed.
+After sending a response, the email contact remains active until you choose to end it. While the email contact is active, you can send multiple messages within the same contact if needed.
 
 ### Using message templates
 

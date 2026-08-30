@@ -87,7 +87,7 @@ based on the logic defined in the flow.
 
 ## Outbound
 
-Connect Customer allows you the ability to programmatically make outbound contact attempts to
+With Connect Customer, you can programmatically make outbound contact attempts to
 local and international endpoints, reduce agent set-up time between contacts, and
 improve agent productivity. By using the [Connect Customer Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams") API
 and [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md"), you can develop your own outbound solution
@@ -101,6 +101,35 @@ the agents to initiate after a period of preview or programmatically contacted u
 the Connect Customer Outbound API, driven by your flow logic, and connecting to agents as
 needed. Typical outbound contact center use cases include fraud and service alerts,
 collections, and appointment confirmations.
+
+To place an outbound call to a customer and run the specified flow, use the
+following AWS CLI command. The destination phone number must be in E.164 format.
+You must specify either a source phone number or a queue. If you don't specify a
+queue, the outbound contact uses the queue defined in that flow.
+
+In the following command, replace
+`instance-id`,
+`contact-flow-id`, the phone number
+values, and `aws-region` with your own values.
+The `--source-phone-number` parameter is optional if you specify a queue
+in the flow.
+
+```
+aws connect start-outbound-voice-contact \
+    --instance-id "`instance-id`" \
+    --contact-flow-id "`contact-flow-id`" \
+    --destination-phone-number "`+15551234567`" \
+    --source-phone-number "`+15557654321`" \
+    --region "`aws-region`"
+```
+
+On success, the command returns the `ContactId` of the new contact:
+
+```
+{
+    "ContactId": "00000000-0000-0000-0000-000000000000"
+}
+```
 
 ## Hybrid
 
@@ -175,7 +204,7 @@ When you are evaluating Connect Customer for new or existing workloads, there ar
 strategies you can consider. For situations that require contact details to be
 included when contacts are transferred between Connect Customer and your legacy contact center
 solution, a Hybrid model architecture will be required until the migration is
-complete. The approaches described in this section allow you to move specific lines
+complete. With the approaches described in this section, you can move specific lines
 of business in phases, manage training and support, and mitigate risks associated
 with change.
 
@@ -186,7 +215,7 @@ increase flexibility and digital innovation potential by adopting a net new
 workload on Connect Customer. Net new workloads that do not require the Hybrid model
 architecture are less complex, are not affected by change in business process or
 agent routine, and have a faster time to market. Adopting a net new workload
-allows you to take advantage of usage-based, pay-as-you-go pricing. Your contact
+helps you take advantage of usage-based, pay-as-you-go pricing. Your contact
 center resources are available to create a new experience for their end users,
 test and implement it to evaluate the platform, gain confidence, and build the
 skills and operational mechanisms to prepare for larger migration across
@@ -239,7 +268,7 @@ following deployment models are the most commonly implemented.
 
 You can build a custom CCP with the [Connect Customer Streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams")
 API by creating a CCP with no media for call signaling. This way, the media is
-handled on the local desktop using standard CCP, and the signaling and call
+handled on the local desktop using standard CCP. The signaling and call
 controls are handled on the remote connection with the CCP with no media. The
 following diagram describes this approach.
 

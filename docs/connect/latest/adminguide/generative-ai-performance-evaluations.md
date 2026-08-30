@@ -9,7 +9,7 @@ security, and the responsible use of artificial intelligence (AI).
 
 Managers can specify their evaluation criteria in natural language, and use
 generative AI for automating evaluations of up to 100% of customer interactions.
-Generative AI can enable you to automate evaluations of additional agent behaviors (for
+With generative AI, you can automate evaluations of additional agent behaviors (for
 example, was the agent able to resolve the customer's issue?), enabling managers to
 comprehensively monitor and improve regulatory compliance, agent adherence to quality
 standards and sensitive data collection, while reducing the time spent on evaluating

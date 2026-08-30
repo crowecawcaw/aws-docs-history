@@ -34,6 +34,12 @@ Only one instance can be associated with a gateway, and that instance must be co
 
    **Allowed audiences** is the only field you must set for Connect Customer. You can leave the **Allowed clients**, **Allowed scopes**, and **Custom claims** fields empty.
 
+   ###### Add a supported protocol version to the gateway
+
+   The gateway's **Supported Versions** must include the Model Context Protocol (MCP) version that Connect Customer supports, which is `2025-03-26`. Gateways that you create or edit in the console must include protocol version `2025-03-26`.
+
+   To add the supported version, edit the gateway in Amazon Bedrock AgentCore. In **Additional Configurations**, add `2025-03-26` to the **Supported Versions** field.
+
    ![Additional gateway configuration options.](images/3p-apps-mcp-bedrock.png) 3. **Instance association (optional)**
 
    Select the instance that is configured with the selected gateway's Discovery URL. Defaults to **None**. If you are not ready to select an instance or if no instance has been associated with the selected gateway's Discovery URL, you might still create the MCP server integration now and associate an instance later.

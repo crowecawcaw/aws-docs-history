@@ -2,7 +2,7 @@
 
 In the lower left corner of the flow designer, there's a miniaturize view of the
 entire flow. Use this view to help you easily navigate the flow. The drag-to-move
-mini-map has visual highlights that enable you to quickly move to any point in the
+mini-map has visual highlights that you can use to quickly move to any point in the
 flow.
 
 The following image shows the location of the mini-map in the flow designer. The arrow

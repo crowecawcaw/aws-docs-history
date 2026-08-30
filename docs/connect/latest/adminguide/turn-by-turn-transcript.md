@@ -4,7 +4,7 @@ Supervisors are often required to review the contacts for many agents, for quali
 assurance purposes. The turn-by-turn transcript and sentiment data helps you quickly
 identify and navigate to the portion of the recording that is of interest to you.
 
-The following image of a contact record shows features that enable you to quickly
+The following image of a contact record shows features that you can use to quickly
 navigate transcripts and audio to find areas that need your attention. While the
 image shows a voice contact, the same features apply to chat contacts.
 

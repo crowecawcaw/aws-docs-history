@@ -5,9 +5,9 @@ API, see [Connect Customer Cases API Reference](../../../cases/latest/APIReferen
 
 ###### Tip
 
-A case is always associated with a customer profile. You must have Customer Profiles enabled.
-Check your instance settings in the Connect Customer console, and if a Customer Profiles domain does not yet
-exist, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
+You must have Customer Profiles enabled. Make sure that you check your instance settings in the
+Connect Customer console, and if a Customer Profiles domain does not yet exist, see
+[Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md "enable-customer-profiles.md").
 
 ## Requirements
 
@@ -70,8 +70,7 @@ After your cases domain is created, do the following:
 Make sure that you have the `cases:CreateRelatedItem`
 permission for your IAM entity. For more information on Cases
 permissions, see [Actions, resources, and condition keys for Connect Customer
-Cases](../../../service-authorization/latest/reference/list_amazonconnectcases.md "../../../service-authorization/latest/reference/list_amazonconnectcases.md"). 5. Optionally, add the [Cases](cases-block.md "cases-block.md") block to your flows. This block
-enables you to get, update, or create cases automatically. 6. Optionally, set up [case event
+Cases](../../../service-authorization/latest/reference/list_amazonconnectcases.md "../../../service-authorization/latest/reference/list_amazonconnectcases.md"). 5. Optionally, add the [Cases](cases-block.md "cases-block.md") block to your flows. With this block, you can get, update, or create cases automatically. 6. Optionally, set up [case event
 streams](case-event-streams.md "case-event-streams.md") to get near real-time updates when cases are created or
 modified. 7. Optionally, set up a [AI agents
 domain](ai-agent-initial-setup.md "ai-agent-initial-setup.md") and [Configure your

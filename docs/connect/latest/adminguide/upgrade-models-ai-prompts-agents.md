@@ -23,8 +23,8 @@ Before upgrading models, make sure you have the following:
 
 Amazon Connect notifies you when a model is scheduled for deprecation. Amazon Connect
 automatically redirects LLM inference to a supported model after any model passes its
-deprecation date, so there is no service disruption. However, upgrading manually before the
-deprecation date lets you choose the replacement model and test it in your environment. Use
+deprecation date, so there is no service disruption. However, by upgrading manually before the
+deprecation date, you can choose the replacement model and test it in your environment. Use
 the following steps to determine which scenarios apply to you.
 
 **Step 1: Check for custom AI agents.** In the admin website,

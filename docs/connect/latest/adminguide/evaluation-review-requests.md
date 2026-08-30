@@ -4,7 +4,7 @@ When an agent performance evaluation is submitted, you can automatically notify 
 
 ## How do I enable review requests (appeals)?
 
-Connect Customer enables you to specify which evaluation forms support review requests. To enable review requests on an evaluation form:
+With Connect Customer, you can specify which evaluation forms support review requests. To enable review requests on an evaluation form:
 
 1. Log in to Connect Customer with a user account that has the following security profile permission: **Analytics and Optimization** - **Evaluation forms - manage form definitions** - **Create**
 2. Choose **Analytics and optimization**, then choose **Evaluation forms**.

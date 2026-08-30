@@ -5,7 +5,7 @@ attributes by using formulas. You can use them to identify users' aggregate
 behaviors.
 
 You can create calculated attributes to define your own business logic to transform
-your customer profile data into actionable data points. This enables you to personalize
+your customer profile data into actionable data points. With calculated attributes, you can personalize
 automated experiences such as interactive voice responses.
 
 By using calculated attributes, you can identify key attributes about your customer's

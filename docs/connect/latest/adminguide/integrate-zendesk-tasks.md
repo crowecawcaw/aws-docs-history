@@ -43,7 +43,7 @@ Zendesk. Acknowledge the steps and choose **Next**.
 ![The select application page.](images/tasks-choose-an-app-zendesk.png) 6. On the **Establish connection** page, choose one of the
 following:
 
-    * **Use an existing connection**. This allows you
+    * **Use an existing connection**. You can use this
      to reuse existing EventBridge resources you might have created in your AWS
      account.
     * **Create a new connection**: Enter the

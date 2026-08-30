@@ -1,6 +1,6 @@
 # Create an outbound campaign
 
-Amazon Connect outbound campaigns enable you to reach customers proactively across
+With Connect Customer outbound campaigns, you can reach customers proactively across
 voice, SMS, email, and WhatsApp channels. You define a target audience using Customer Profiles
 segments, configure a campaign flow that controls the communication sequence, and schedule
 when the campaign runs. Campaigns support delivery status tracking, retry logic for failed

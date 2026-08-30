@@ -230,7 +230,7 @@ permission for custom IAM policies for the [Customer Profiles page](security-iam
 
 ## Edit a service-linked role for Connect Customer
 
-Connect Customer does not allow you to edit the AWSServiceRoleForAmazonConnect prefixed service-linked role. After you
+You cannot edit the AWSServiceRoleForAmazonConnect prefixed service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
 might reference the role. However, you can edit the description of the role using IAM. For
 more information, see [Editing a
@@ -249,5 +249,5 @@ cleans up the resources and deletes the service-linked role for you.
 
 ## Supported Regions for Connect Customer service-linked roles
 
-Connect Customer supports using service-linked roles in all of the regions where the service is
+Connect Customer supports using service-linked roles in all of the Regions where the service is
 available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md#connect_region "../../../general/latest/gr/rande.md#connect_region").

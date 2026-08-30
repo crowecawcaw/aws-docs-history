@@ -5,7 +5,7 @@
 **Trying to contact Amazon for support?** See [Amazon Customer Service](https://www.amazon.com/gp/help/customer/display.html?icmpid=docs_connect_messagingcap_customerservice "https://www.amazon.com/gp/help/customer/display.html?icmpid=docs_connect_messagingcap_customerservice") (Amazon orders and deliveries) or [AWS
 Support](https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_messagingcap_premiumsupport "https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_messagingcap_premiumsupport") (Amazon Web Services).
 
-Connect Customer lets you build chat messaging features—mobile chat, web chat, SMS, and
+With Connect Customer, you can build chat messaging features—mobile chat, web chat, SMS, and
 third-party messaging services— into your website and mobile apps. It enables
 your customers to start chatting with contact center agents from any of your business
 applications, web or mobile.

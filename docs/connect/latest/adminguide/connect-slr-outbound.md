@@ -100,7 +100,7 @@ instance with outbound campaigns, Connect Customer creates the service-linked ro
 
 ## Edit a service-linked role for outbound campaigns
 
-Outbound campaigns does not allow you to edit the
+With Outbound campaigns, you can't edit the
 `AWSServiceRoleForConnectCampaigns` service-linked role. After you create
 a service-linked role, you cannot change the name of the role because various entities
 might reference the role. However, you can edit the description of the role using IAM.

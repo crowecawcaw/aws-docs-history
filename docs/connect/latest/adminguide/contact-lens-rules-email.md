@@ -69,7 +69,7 @@ notification.
 
 Use **@ to add dynamic variables** that are populated during execution of the rule.
 For conversational analytics rules and evaluation forms rules, you can add **rule name, instance URL, contact, agent** and **queue** information for the contact that matched the rule.
-Evaluation forms rules additionally enable you to insert the **evaluation ID**.
+With evaluation forms rules, you can additionally insert the **evaluation ID**.
 
 ![The body of the email, the list of available variables.](images/rules-send-email-dynamic-variables.png)
 
@@ -77,8 +77,8 @@ Evaluation forms rules additionally enable you to insert the **evaluation ID**.
 
 Other rule types support different variables:
 
-    * Real-time metrics rules enable you to enter **rule name, instance URL** and list of **agents, queues, flows or routing profile** that breached the threshold to trigger the alert.
-    * Rules for cases allow you to insert **rule name, instance URL** and **case ID**.
+    * With real-time metrics rules, you can enter **rule name, instance URL** and list of **agents, queues, flows or routing profile** that breached the threshold to trigger the alert.
+    * With rules for cases, you can insert **rule name, instance URL** and **case ID**.
 
 8. Choose **Next**. Review your selections, and then
 choose **Save**. 9. After you add rules, they are applied to new contacts that occur after the rule was added. Rules are applied when Connect Customer conversational analytics analyzes conversations.

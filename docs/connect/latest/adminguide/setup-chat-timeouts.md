@@ -1,8 +1,8 @@
 # Set up chat timeouts for chat participants
 
 When a chat conversation between an agent and a customer has been inactive (no messages
-sent) for a certain amount of time, you might want to consider a chat participant to be idle,
-and you might even want to automatically disconnect an agent from the chat.
+sent) for a certain amount of time, you might want to consider a chat participant to be idle.
+You might even want to automatically disconnect an agent from the chat.
 
 To do this you can configure both idle timeouts and auto-close timeouts using the [UpdateParticipantRoleConfig](../APIReference/API_UpdateParticipantRoleConfig.md "../APIReference/API_UpdateParticipantRoleConfig.md") action.
 

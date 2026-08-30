@@ -57,7 +57,7 @@ recently updated attribute will be chosen.
 
 **Source with last updated timestamp**
 
-Allows you to prioritize records from a specific object type as your data
+You can prioritize records from a specific object type as your data
 source for managing profile conflicts. When there is a conflict between the
 values of two or more similar profiles, the most recently updated attribute
 from the specified object type will be chosen.

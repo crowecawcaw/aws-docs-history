@@ -1,6 +1,6 @@
 # Create a rule that generates a task
 
-Amazon Connect rules enables you to generate tasks. This helps you create traceable actions with owners and provides you visibility on task completion and productivity out the box.
+With Connect Customer rules, you can generate tasks. This helps you create traceable actions with owners and provides you visibility on task completion and productivity out the box.
 
 Following are some examples:
 
@@ -32,7 +32,7 @@ Following are some examples:
 
      In Name and Description, use **@ to add dynamic variables** that are populated during execution of the rule.
      For conversational analytics rules and evaluation forms rules, you can add **rule name, instance URL, contact, agent** and **queue** information for the contact that matched the rule.
-     Evaluation forms rules additionally enable you to insert the **evaluation ID**.
+     With evaluation forms rules, you can additionally insert the **evaluation ID**.
 
 
 
@@ -41,9 +41,9 @@ Following are some examples:
 
 
 
-    	* Real-time metrics rules enable you to enter **rule name, instance URL and list of agents, queues, flows or routing profile**
+    	* With real-time metrics rules, you can enter **rule name, instance URL and list of agents, queues, flows or routing profile**
     	 that breached the threshold to trigger the alert.
-    	* Rules for cases allow you to insert **rule name, instance URL** and **case ID**.
+    	* With rules for cases, you can insert **rule name, instance URL** and **case ID**.
     4. **Task reference name**: This is a default
      reference that automatically appears in the agent's CCP.
 
@@ -105,7 +105,7 @@ image:
 ## About dynamic values for ContactId, AgentId, QueueId, RuleName
 
 The dynamic values in brackets [ ] are called [contact attributes](what-is-a-contact-attribute.md "what-is-a-contact-attribute.md"). Contact
-attributes enable you to store temporary information about the contact so
+attributes help you store temporary information about the contact so
 you can use it in a flow.
 
 When you add contact attributes in brackets [ ] — such as ContactId,

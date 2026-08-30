@@ -77,7 +77,7 @@ For more information, see:
 
 Connect Customer uses the following services for ML/AI:
 
-- Amazon Lex—Lets you create a chatbot to use as Interactive Voice
+- Amazon Lex—You can use it to create a chatbot to use as Interactive Voice
   Response (IVR). For more information, see [Add an Amazon Lex bot to Connect Customer](amazon-lex.md "amazon-lex.md").
 - Amazon Polly—Provides text-to-speech in all flows. For more information,
   see [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md "text-to-speech.md") and

@@ -1,7 +1,7 @@
 # Enable URL restriction for screen sharing
 
 You can manage the URLs that your customers and agents are allowed to share during the
-contact. This enables you to achieve enhanced security and privacy. When a customer or
+contact. With URL restrictions, you can achieve enhanced security and privacy. When a customer or
 agent shares a URL that is not allowlisted, they receive an error message and the screen
 share video is automatically paused and blacked out.
 

@@ -1,8 +1,8 @@
-# Visualizations in manager assistant
+# Visualizations
 
-Manager assistant can generate visualizations to help you understand metric trends and
-patterns. When you ask a question about your contact center data, manager assistant can
-supplement the response with an interactive chart or table that is rendered in the chat
+You can generate charts and tables to help you understand metric trends and
+patterns. When you ask a question about your contact center data, the response can be
+supplemented with an interactive chart or table that is rendered in the chat
 panel.
 
 ![A response in the assistant panel with a combined bar and line chart that shows contacts handled per day and the abandonment rate for the same period.](images/manager-assistant-visualization.png)
@@ -26,8 +26,7 @@ panel.
 
 ## Request a visualization
 
-You can request your data in a specific visual format, or let manager assistant
-select the format. For example:
+You can request your data in a specific visual format, or let manager assist select the format. For example:
 
 - Show me contacts handled by queue today in a bar chart.
 - Chart the average handle time trend for this week as a line chart.
@@ -55,8 +54,8 @@ make the following types of changes:
 ## Update a previously generated visualization
 
 You can request a refresh of a previously generated visualization with new data or
-parameters. Manager assistant updates the existing visualization in place instead of
-creating a duplicate. For example:
+parameters. The existing visualization is updated in place instead of creating a
+duplicate. For example:
 
 - Refresh that chart with the latest data.
 - Show the same chart for last week instead of today.

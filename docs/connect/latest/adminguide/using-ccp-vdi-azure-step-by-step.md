@@ -16,72 +16,72 @@ Multimedia Redirection (MMR) with Connect Customer. For the complete set of Micr
 requirements, see [Prerequisites for multimedia redirection](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#prerequisites "https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#prerequisites") in the Microsoft
 documentation.
 
-- **Agent local device**
+**Agent local device**
 
-  - Connect to the remote session from one of the following
-    supported apps: Windows App on Windows, version 2.0.297.0 or
-    later, or Remote Desktop app on Windows, version 1.2.5709 or
-    later.
-  - Microsoft Visual C++ Redistributable version 14.32.31332.0 or
-    later.
+- Connect to the remote session from one of the following
+  supported apps: Windows App on Windows, version 2.0.297.0 or
+  later, or Remote Desktop app on Windows, version 1.2.5709 or
+  later.
+- Microsoft Visual C++ Redistributable version 14.32.31332.0 or
+  later.
 
-- **Azure session host (AVD or Windows 365)**
+**Azure session host (AVD or Windows 365)**
 
-  - Multimedia redirection installed on the session host. For
-    instructions, see [Install multimedia redirection on session hosts](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts "https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts") in
-    the Microsoft documentation.
-  - Microsoft Visual C++ Redistributable version 14.32.31332.0 or
-    later.
+- Multimedia redirection installed on the session host. For
+  instructions, see [Install multimedia redirection on session hosts](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts "https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts") in
+  the Microsoft documentation.
+- Microsoft Visual C++ Redistributable version 14.32.31332.0 or
+  later.
 
-- **Browser support**
+**Browser support**
 
-  - The latest version of Google Chrome or Microsoft Edge
-    on the session host. MMR Call Redirection does not
-    support other browsers.
+- The latest version of Google Chrome or Microsoft Edge
+  on the session host. MMR Call Redirection does not
+  support other browsers.
 
-- **MMR browser extension**
+**MMR browser extension**
 
-  - The Multimedia Redirection browser extension, version
-    1.0.2605.29004 or later, installed on the session
-    host for Microsoft Edge or Google Chrome. The single installer
-    that installs the Remote Desktop Multimedia Redirection Service
-    also installs the browser extension. After installation, enable
-    the extension. For instructions, see [Install multimedia redirection on session hosts](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts "https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts") in
-    the Microsoft documentation.
-  - If you want to test and validate with prerelease MMR features,
-    you can configure the MMR Insider extension. For more
-    information, see [Deploy the Insider version of the multimedia redirection
-    extension](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-insider-extension "https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-insider-extension") in the Microsoft documentation.
+- The Multimedia Redirection browser extension, version
+  1.0.2605.29004 or later, installed on the session
+  host for Microsoft Edge or Google Chrome. The single installer
+  that installs the Remote Desktop Multimedia Redirection Service
+  also installs the browser extension. After installation, enable
+  the extension. For instructions, see [Install multimedia redirection on session hosts](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts "https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#install-multimedia-redirection-on-session-hosts") in
+  the Microsoft documentation.
+- If you want to test and validate with prerelease MMR features,
+  you can configure the MMR Insider extension. For more
+  information, see [Deploy the Insider version of the multimedia redirection
+  extension](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-insider-extension "https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-insider-extension") in the Microsoft documentation.
 
-- **Call redirection allowlist**: The MMR
-  extension only redirects calls for domains on its
-  `AllowedCallRedirectionSites` policy allowlist.
+**Call redirection allowlist**
 
-  - If your agents use the Connect Customer agent workspace or a CCP hosted
-    on a Connect Customer domain (that is, if you pass
-    `allowFramedSoftphone` as `true` when
-    you initialize the CCP using [Connect Customer Streams JS](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") on the GitHub website), you don't
-    need to take any action. Connect Customer domains are included in the
-    Microsoft MMR extension default allowlist.
-  - If your agents use a custom CCP hosted on your own domain (that
-    is, with `allowFramedSoftphone: false`), your IT
-    administrator must add the domain hosting your custom CCP to the
-    `AllowedCallRedirectionSites` policy using Group
-    Policy, the registry, or Microsoft Intune. For instructions and
-    supported domain formats, see [Enable call redirection for specific domains](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#enable-call-redirection-for-specific-domains "https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#enable-call-redirection-for-specific-domains") in the
-    Microsoft documentation.
+The MMR extension only redirects calls for domains on its
+`AllowedCallRedirectionSites` policy allowlist.
 
-- **Networking and firewall
-  configuration**
+- If your agents use the Connect Customer agent workspace or a CCP hosted
+  on a Connect Customer domain (that is, if you pass
+  `allowFramedSoftphone` as `true` when
+  you initialize the CCP using [Connect Customer Streams JS](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") on the GitHub website), you don't
+  need to take any action. Connect Customer domains are included in the
+  Microsoft MMR extension default allowlist.
+- If your agents use a custom CCP hosted on your own domain (that
+  is, with `allowFramedSoftphone: false`), your IT
+  administrator must add the domain hosting your custom CCP to the
+  `AllowedCallRedirectionSites` policy using Group
+  Policy, the registry, or Microsoft Intune. For instructions and
+  supported domain formats, see [Enable call redirection for specific domains](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#enable-call-redirection-for-specific-domains "https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls?tabs=intune&pivots=azure-virtual-desktop#enable-call-redirection-for-specific-domains") in the
+  Microsoft documentation.
 
-  - **Session host configuration**:
-    Allow the Azure session host to reach Connect Customer over TCP/443 for the
-    domains shown in the following diagram. For more information, see
-    [Set up your network](ccp-networking.md "ccp-networking.md").
-  - **Agent local device
-    configuration**: This solution requires a media
-    connection between the agent's local device and Connect Customer over
-    Softphone Media UDP Port 3478. For more information, see [Set up your network](ccp-networking.md "ccp-networking.md").
+**Networking and firewall configuration**
+
+- **Session host configuration**:
+  Allow the Azure session host to reach Connect Customer over TCP/443 for the
+  domains shown in the following diagram. For more information, see
+  [Set up your network](ccp-networking.md "ccp-networking.md").
+- **Agent local device
+  configuration**: This solution requires a media
+  connection between the agent's local device and Connect Customer over
+  Softphone Media UDP Port 3478. For more information, see [Set up your network](ccp-networking.md "ccp-networking.md").
 
 ![Azure session host and agent local device firewall settings for Connect Customer MMR Call Redirection.](images/azure-mmr-server-firewall.png)
 

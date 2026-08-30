@@ -5,8 +5,8 @@ interactions with contact center customers.
 
 ## Description
 
-- Use to place an outbound call from an **Outbound
-  Whisper** flow.
+- Use this block to set the caller ID number for an outbound call in an
+  **Outbound Whisper** flow.
 
 ## Supported channels
 

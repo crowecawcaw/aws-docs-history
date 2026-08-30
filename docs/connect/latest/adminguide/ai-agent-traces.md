@@ -45,7 +45,7 @@ Agent Traces in Amazon Connect** (prior to June 5, 2026), you
 must disable and
 re-enable this setting to activate the AI agent traces
 feature. 5. Under the **Automated interaction logs** section, select
-**Enable Automated Interaction Logs**. This enables you to
+**Enable Automated Interaction Logs**. With Automated Interaction Logs enabled, you can
 view Flow details, Lex bot, and AI agent traces on
 the **Contact details** page.
 

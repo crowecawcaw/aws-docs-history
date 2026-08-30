@@ -3,7 +3,7 @@
 You can use agent hierarchies to control who has access to view specific agents
 and their performance related metrics in dashboards and reports.
 
-Hierarchy-based access control enables you to configure granular access to users based
+With hierarchy-based access control, you can configure granular access to users based
 on the [agent hierarchy](agent-hierarchy.md "agent-hierarchy.md") that is assigned to a
 user. You can [configure](hierarchy-based-access-control.md "hierarchy-based-access-control.md")
 hierarchy-based access controls by using the API/SDK or the Connect Customer admin website.

@@ -107,7 +107,7 @@ This permission isn't required by conversational analytics but it's helpful as i
 On the **Contact Search** page:
 
     + For voice contacts, you can access additional filters that
-     allow you to return results by sentiment score and non-talk
+     you can use to return results by sentiment score and non-talk
      time.
     + For chat contacts, you can access an additional filter to
      search for contacts by response time.
@@ -132,7 +132,7 @@ have this security profile permission.
 This permission isn't required by conversational analytics but it's helpful as it provides more search options.
 
     + On the **Contact Search** page, you can
-     access additional filters that allow you to search contacts by
+     access additional filters that you can use to search contacts by
      **Words or phrases**, such as
      "*thank you for your business*." For more
      information, see [Search for words or phrases](search-conversations.md#keyword-search "search-conversations.md#keyword-search").

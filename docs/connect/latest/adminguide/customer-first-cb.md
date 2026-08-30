@@ -151,7 +151,7 @@ that runs when the C4 contact is created. The recommended approach is:
    contact with an adjusted priority before it enters the working
    queue.
 
-This approach allows you to differentiate first-attempt callbacks from retries and
+With this approach, you can differentiate first-attempt callbacks from retries and
 apply custom prioritization logic without relying on external state.
 
 ###### Note
@@ -173,7 +173,7 @@ changes take effect at the point the contact re-enters the queue.
 By default, retry timing is not system-controlled for customer first callbacks
 – you have full control over when a retry is initiated.
 
-To introduce a delay between retry attempts, add a **Wait** block in the C4 creation flow before transferring to queue. This allows you to define a specific interval (for example,
+To introduce a delay between retry attempts, add a **Wait** block in the C4 creation flow before transferring to queue. With the **Wait** block, you can define a specific interval (for example,
 wait 5 minutes before queueing), preventing immediate back-to-back dial
 attempts.
 

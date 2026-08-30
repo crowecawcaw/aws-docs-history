@@ -346,7 +346,7 @@ manually** are selected.
 
 To configure time-out values for voice contacts, use the following session
 attributes in the **Get customer input** block that calls
-your Lex bot. These attributes allow you to specify how long to wait for the
+your Lex bot. With these attributes, you can specify how long to wait for the
 customer to finish speaking before Amazon Lex collects speech input from callers,
 such as answering a yes/no question, or providing a date or credit card
 number.

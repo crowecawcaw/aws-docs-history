@@ -1,8 +1,8 @@
 # Connect Customer Customer Profiles data limits
 
-Connect Customer Customer Profiles allows you to customize your data onboarding by setting data ingestion
+With Connect Customer Customer Profiles, you can customize your data onboarding by setting data ingestion
 limits on various types of customer data that you use to create a unified profile.
-Setting limits on your data mappings enables you to prioritize how much data to
+By setting limits on your data mappings, you can prioritize how much data to
 ingest across mappings. The default maximum limit across all mappings per profile is 1000.
 
 A per-object-type limit (also referred to as

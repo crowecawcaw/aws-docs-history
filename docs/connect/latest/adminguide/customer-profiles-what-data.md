@@ -7,7 +7,7 @@ _account-based profile_ is expected to have underlying
 sub-profiles.
 
 After you enable Connect Customer Customer Profiles, a unique customer profile is created for every contact.
-This allows you to create a customer profile that has all the information agents need
+With Connect Customer Customer Profiles, you can create a customer profile that has all the information agents need
 during customer interactions in a single place at no charge.
 
 To access customer profiles in your flows, use the [Customer profiles](customer-profiles-block.md "customer-profiles-block.md")

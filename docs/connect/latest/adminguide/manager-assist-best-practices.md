@@ -1,13 +1,12 @@
-# Best practices for manager assistant
+# Best practices for manager assist
 
-Follow these best practices to get the most accurate and useful responses from
-manager assistant.
+Follow these best practices to get the most accurate and useful responses.
 
 ## Prompting guidance
 
 ### Be specific about time ranges
 
-Include the period that you want data from. Manager assistant returns better
+Include the period that you want data from. You get better
 results when your question includes an explicit time reference.
 
 | Instead of this              | Try this                                                               |
@@ -19,7 +18,7 @@ results when your question includes an explicit time reference.
 ### Use exact resource names
 
 Refer to queues, routing profiles, and other resources by the exact names that they
-have in Connect Customer. If you are not sure of an exact name, ask manager assistant:
+have in Connect Customer. If you are not sure of an exact name, ask manager assist:
 `What queues are available?`
 
 ### Use standard metric terminology
@@ -69,9 +68,9 @@ Begin with an overview question, and then drill into specifics. For example:
 | End of day          | Summarize and compare.    | Compare today's performance to yesterday across all<br>queues. |
 | Self-service review | Optimize automation.      | What is our containment rate trend over the past 7<br>days?    |
 
-## How manager assistant interprets time ranges
+## How time ranges are interpreted
 
-Manager assistant interprets time references and calculation boundaries as
+Time references and calculation boundaries are interpreted as
 follows.
 
 | Expression  | Interpretation                                                                                 |
@@ -87,12 +86,12 @@ follows.
 
 - Cross-reference critical findings with your Connect Customer dashboards before you
   act.
-- Use manager assistant for rapid triage, and then confirm with formal reports
+- Use manager assist for rapid triage, and then confirm with formal reports
   for decisions that have significant operational impact.
-- Document decisions separately. Manager assistant provides insights, and is
+- Document decisions separately. Manager assist provides insights, and is
   not a system of record.
 
 ###### Important
 
-Responses from manager assistant might contain inaccuracies. Always validate
+Responses might contain inaccuracies. Always validate
 information before you make business decisions.

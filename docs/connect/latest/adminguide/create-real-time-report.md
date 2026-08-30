@@ -22,7 +22,7 @@ For more information, see [Security profiles for Connect Customer and Contact Co
    and then choose a report type. You can add multiple reports of the same
    report type.
 
-There's no limit to the number of tables you can add, but you might start
+There's no limit to the number of tables you can add. However, you might start
 experiencing performance issues if you add a lot of them. 5. To customize a report, choose the gear icon from its table. 6. On the **Time Range** tab, do the following:
 
     1. For **Trailing windows for time**, select the

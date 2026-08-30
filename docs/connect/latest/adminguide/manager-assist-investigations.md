@@ -1,22 +1,14 @@
-# Investigations and recommendations in manager assistant
+# Investigations and recommendations in manager assist
 
-When you ask manager assistant a question that starts with `why`, or
-when you request an investigation into a metric change, manager assistant runs an
-investigation. An investigation is a multi-step analysis that goes beyond returning a single
-metric value: it examines multiple related data points across your contact center to identify
-which factors contributed to the change, and what you can do about it.
+When you ask a question that starts with `why`, or when you request an investigation into a metric change, an investigation runs. An investigation is a multi-step analysis that goes beyond returning a single metric value: it examines multiple related data points across your contact center to identify which factors contributed to the change, and what you can do about it.
 
 ###### Important
 
-Responses generated during investigations might contain inaccuracies.
-Manager assistant identifies correlations in your data, and cannot confirm definitive
-root causes. Always validate investigation findings before you make operational
-decisions.
+Responses generated during investigations might contain inaccuracies. Investigations identify correlations in your data, and cannot confirm definitive root causes. Always validate investigation findings before you make operational decisions.
 
 ## How investigations work
 
-When you ask an investigative question, manager assistant performs the following
-steps:
+When you ask an investigative question, the following steps are performed:
 
 1. **Identify** – determines the metric or
    condition that you want explained.
@@ -34,29 +26,19 @@ The following example shows an investigation of a service level drop, starting w
 this question: `Our service level is impacted in the last hour but volume looks
  normal. Investigate what happened.`
 
-When manager assistant identifies a potential issue, it also suggests investigation
-prompts. Choosing a prompt starts the multi-step analysis.
+When a potential issue is identified, investigation prompts are also suggested. Choosing a prompt starts the multi-step analysis.
 
 ![A response that reports a service level of 40.6 percent against an 80 percent target, followed by suggested prompts to investigate the low service level, break it down by queue, and show the trend by day.](images/manager-assistant-investigation-prompts.png)
 
-During the investigation, manager assistant displays a processing state while it
-examines multiple data dimensions. Investigations require more processing time than
-standard metric lookups, so expect responses to take longer than they do for a simple
-question.
+During the investigation, a processing state is displayed while multiple data dimensions are examined. Investigations require more processing time than standard metric lookups, so expect responses to take longer than they do for a simple question.
 
 ![An investigation prompt in the chat, with a processing indicator displayed while the analysis runs.](images/manager-assistant-investigation-progress.png)
 
-When the investigation is complete, manager assistant returns a structured analysis.
-The format varies with the complexity of the issue, and typically includes the major
-contributing factors, the factors that were eliminated, and recommended actions.
+When the investigation is complete, a structured analysis is returned. The format varies with the complexity of the issue, and typically includes the major contributing factors, the factors that were eliminated, and recommended actions.
 
 ![Investigation results that list a staffing shortage as the primary driver, abandonment as an amplifying factor, and contact volume and handle time as factors that did not contribute.](images/manager-assistant-investigation-results.png)
 
-Following the analysis of the major contributing factors, manager assistant provides
-prioritized recommended actions. Each recommendation includes the reasoning for why it
-addresses the identified issue, and might include a confidence indicator that reflects how
-directly the action addresses that issue. The following table shows example recommended
-actions for this investigation.
+Following the analysis of the major contributing factors, prioritized recommended actions are provided. Each recommendation includes the reasoning for why it addresses the identified issue, and might include a confidence indicator that reflects how directly the action addresses that issue. The following table shows example recommended actions for this investigation.
 
 | Priority  | Action                                                                                                                                                                                                                                                                                                                      | Confidence     |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
@@ -108,11 +90,9 @@ You can start an investigation by asking why questions such as the following.
 
 ## Important considerations
 
-- Investigations are read-only. Manager assistant cannot make changes to your
-  contact center configuration.
+- Investigations are read-only. They cannot make changes to your contact center configuration.
 - Findings identify correlations and relationships in your data. They are not
   guaranteed root causes.
-- When the available data is insufficient to support a conclusion,
-  manager assistant states that explicitly instead of speculating.
+- When the available data is insufficient to support a conclusion, the response states that explicitly instead of speculating.
 - Investigations examine the same data that is available in your Connect Customer
   dashboards and reports.

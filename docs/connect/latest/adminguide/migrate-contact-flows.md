@@ -1,6 +1,6 @@
 # Migrate flows to an instance, Region, or environment in Connect Customer
 
-Connect Customer lets you efficiently migrate flows to another instance. For example, you might want
+With Connect Customer, you can efficiently migrate flows to another instance. For example, you might want
 to expand into new Regions, or move flows from your development environment to your
 production environment.
 

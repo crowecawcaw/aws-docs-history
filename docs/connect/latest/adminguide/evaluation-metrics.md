@@ -1,7 +1,6 @@
 # Evaluation metrics in Connect Customer
 
-You can view the following metrics on the [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md"). These metrics enable you
-to view aggregated agent performance, and get insights across agent cohorts and over
+You can view the following metrics on the [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md "agent-performance-evaluation-dashboard.md"). With these metrics, you can view aggregated agent performance, and get insights across agent cohorts and over
 time.
 
 ## Average evaluation score

@@ -4,7 +4,7 @@ You can use resource tags and access control tags to apply granular access to us
 queues, routing profiles, flows, flow modules, evaluation forms, and test cases on
 analytics user interfaces.
 
-Tag-based access controls enable you to configure granular access to specific
+With tag-based access controls, you can configure granular access to specific
 resources based on assigned resource tags. You can configure tag-based access controls
 by using the API or the Connect Customer admin website for supported resources. You must configure resource tags
 and access control tags before tag-based access control is applied to users, queues,
@@ -144,6 +144,22 @@ View**, **Test Cases - View**, **Evaluation forms
 | Queue performance summary                              | QUEUE         |
 | Self service AI performance summary                    | QUEUE         |
 | Test execution summary                                 | TEST\_CASE    |
+
+- The following metrics do not support filtering or grouping by routing profile when
+  the user's access to routing profiles is tag restricted. A widget or report that filters
+  or groups one of these metrics by routing profile returns no data, even when your security
+  profile permissions and resource tags are configured correctly. To view the data, filter
+  or group by queue instead.
+
+  - **Contacts in queue**
+  - **Oldest contact age**
+  - **Contacts scheduled**
+  - **Contacts queued (enqueue timestamp)**
+  - **Contacts handled (connected to agent timestamp)**
+    In the Real-time metrics report, **Contacts in queue**,
+    **Oldest contact age**, and **Contacts scheduled**
+    are named **In queue**, **Oldest**, and
+    **Scheduled**, respectively.
 
 ## How to transition to tag-based access control
 

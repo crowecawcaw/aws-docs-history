@@ -124,7 +124,7 @@ disconnected, the message is successfully stored in the Connect Customer back en
 working as expected and messages are all recorded in transcript, but the customer's
 device is unable to receive messages. When the client reconnects to the WebSocket,
 there is a gap in messages. Future incoming messages will appear again from the
-WebSocket, but the gap messages are still missing unless the code explicitly makes a
+WebSocket. However, the gap messages are still missing unless the code explicitly makes a
 call to the [GetTranscript](../../../connect-participant/latest/APIReference/API_GetTranscript.md "../../../connect-participant/latest/APIReference/API_GetTranscript.md") API.
 
 ### Solution

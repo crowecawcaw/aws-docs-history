@@ -5,7 +5,7 @@ sections in a flow.
 
 ## Description
 
-Calls a published module, which enables you create reusable sections of a contact
+Calls a published module, which you can use to create reusable sections of a contact
 flow.
 
 For more information, see [Flow modules for reusable functions in Connect Customer](contact-flow-modules.md "contact-flow-modules.md").

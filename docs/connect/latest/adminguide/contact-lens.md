@@ -8,7 +8,7 @@ take full advantage of the controls implemented in Amazon Bedrock to enforce saf
 the responsible use of artificial intelligence (AI).
 
 Connect Customer conversational analytics provides contact center analytics and quality management
-capabilities that enable you to monitor, measure, and continuously improve contact quality
+capabilities that you can use to monitor, measure, and continuously improve contact quality
 and agent performance for a better overall customer experience.
 
 - [Analyze conversations using

@@ -17,8 +17,7 @@ it's their turn.
 ## How callbacks keep their place in queue
 
 You can configure callbacks to remain in the same queue as the original inbound call
-or to be placed in a separate dedicated queue that you create. This separate queue
-enables you to get a clearer delineation between active inbound calls and callbacks in
+or to be placed in a separate dedicated queue that you create. With this separate queue, you can get a clearer delineation between active inbound calls and callbacks in
 real time reports.
 
 You can make sure that the callback maintains its position in queue even when you place
@@ -56,7 +55,7 @@ Use the steps provided in the following overview to set up queued callback.
   this flow. You can use the callback creation flow to [Check contact
   attributes](check-contact-attributes.md "check-contact-attributes.md") to see if the callback is a
   duplicate or if the customer issue is resolved before queuing the contact for an
-  agent. This flow also allows you to set a customer queue flow by adding a [Set customer queue
+  agent. With this flow, you can also set a customer queue flow by adding a [Set customer queue
   flow](set-customer-queue-flow.md "set-customer-queue-flow.md") block.
 - (Optional) Create a customer queue flow for callback. This flow is run if you
   choose a [Set customer queue
@@ -226,7 +225,7 @@ image.
 
 ![The optional parameters, set a queue set to callback queue.](images/transfer-to-callback-queue-tab-set-working-queue.png)
 
-Creating a queue just for callbacks lets you view in your real-time metrics
+By creating a queue just for callbacks, you can view in your real-time metrics
 reports how many customers are waiting for callbacks.
 
 If you don't set a working queue, Connect Customer uses the queue that was set previously

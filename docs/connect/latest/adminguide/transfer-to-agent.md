@@ -24,7 +24,7 @@ There are two ways to route contacts directly to an agent:
     information about standard queues and agent queues, see [Queues: standard and
     agent](concepts-queues-standard-and-agent.md "concepts-queues-standard-and-agent.md").
     This topic explains how to route contacts for this second scenario.
-    Agent queues enable you to route contacts directly to a specific agent. Following are
+    With agent queues, you can route contacts directly to a specific agent. Following are
     a couple of scenarios where you might want to do this:
 
 - Route contacts to the last agent the customer interacted with. This provides a

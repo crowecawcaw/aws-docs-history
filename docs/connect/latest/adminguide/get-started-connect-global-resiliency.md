@@ -40,7 +40,7 @@ US West (Oregon), Asia Pacific (Osaka), Asia Pacific (Tokyo), Europe (Frankfurt)
 You get started with Connect Customer Global Resiliency by creating a replica of your existing
 Connect Customer instance in another AWS Region, and by creating a traffic distribution group.
 
-A _traffic distribution group_ is a Connect Customer resource that enables you to link Connect Customer
+A _traffic distribution group_ is a Connect Customer resource that you can use to link Connect Customer
 instances that are in different AWS Regions. Phone numbers can be
 attached to the traffic distribution group. Traffic to these numbers can be distributed between the instances
 in the traffic distribution group.

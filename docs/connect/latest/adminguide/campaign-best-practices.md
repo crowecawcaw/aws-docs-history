@@ -298,8 +298,8 @@ of voicemail calls over live calls. However, the detection accuracy has limitati
 ### The pros, cons, and best uses of Answering Machine Detection
 
 The use of Answering Machine Detection (AMD) might not comply with telemarketing laws. You
-are responsible for implementing AMD in a manner that is compliant with applicable laws, and
-you should always consult your legal advisor regarding your specific use case.
+are responsible for implementing AMD in a manner that is compliant with applicable laws.
+You should always consult your legal advisor regarding your specific use case.
 
 Use case 1: AMD is on and leaving automatic voicemails
 
@@ -349,7 +349,7 @@ Use case 4: AMD is off and agents can leave a prerecorded voicemail
 
 As a best practice, give each Amazon Pinpoint journey a single, well-defined goal rather than covering
 a customer's entire experience in one journey. Keep the scope narrow, such as one goal, one
-audience, and one time window. A narrow scope lets you measure whether the journey works and
+audience, and one time window. With a narrow scope, you can measure whether the journey works and
 adjust it. You can then chain related journeys together, using the results of one journey to
 decide who enters the next.
 
@@ -447,7 +447,7 @@ number of attempts:
 
 ## Schedule best practices
 
-Connect Customer outbound campaigns enable you to limit calls to certain times of day and avoid calls
+With Connect Customer outbound campaigns, you can limit calls to certain times of day and avoid calls
 during quiet times in the evening or during weekends. You can also set calling exceptions in an
 Amazon Pinpoint journey. The exceptions overwrite the sending times configured for days of the
 week.
@@ -474,7 +474,7 @@ not receive marketing calls. Companies must check customer phone numbers against
 and remove those numbers before placing a call. You use Amazon Pinpoint to manage DNC lists in outbound
 campaigns.
 
-Journeys allow you to check the status of an endpoint against third-party data sources
+With journeys, you can check the status of an endpoint against third-party data sources
 before sending the messages. You can also add an AWS Lambda function that conducts external
 DNC checks and does or does not dial based on the response.
 

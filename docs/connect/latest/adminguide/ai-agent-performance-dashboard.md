@@ -48,7 +48,7 @@ By default, the dashboard displays data for the last week. You can customize the
 recent as the last 15 minutes or going back up to 3 months in history.
 
 Use the **Compare to** filter to select a time period to compare your current data against.
-This allows you to identify trends and track improvements or issues over time.
+With the **Compare to** filter, you can identify trends and track improvements or issues over time.
 
 ## Self-service AI performance summary
 

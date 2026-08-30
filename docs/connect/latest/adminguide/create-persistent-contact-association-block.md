@@ -6,7 +6,7 @@ enabling conversations with contacts to continue where they left off.
 ## Description
 
 - Enables persistent chat experience on the current chat.
-- This allows you to select the required rehydration mode. For more
+- With persistent chat, you can select the required rehydration mode. For more
   information about chat rehydration, see [Enable customers to resume chat conversations in Connect Customer](chat-persistence.md "chat-persistence.md").
 
 ## Supported channels

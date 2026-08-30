@@ -1,6 +1,6 @@
 # Calibration sessions for performance evaluations
 
-Connect Customer conversational analytics enables you to conduct calibration sessions to drive
+With Connect Customer conversational analytics, you can conduct calibration sessions to drive
 consistency and accuracy in how managers evaluate agent performance, so that agents
 receive feedback that is consistent. During a calibration, multiple managers can
 evaluate the same contact using the same evaluation form. You can then review

@@ -25,7 +25,7 @@ center.
 Within each AWS Region you can create a Connect Customer instance, with a minimum of
 3 AZs. When you create a Connect Customer instance, that instance is propagated across those AZs in an
 active-active-active configuration. If there is a failure in one AZ, that node is taken out
-of rotation without impacting production. This architecture allows you to perform
+of rotation without impacting production. With this architecture, you can perform
 maintenance, release new features, and expand infrastructure without requiring any
 downtime.
 
@@ -34,7 +34,7 @@ downtime.
 Connect Customer is integrated with multiple telephony providers with redundant dedicated network
 paths to three or more AZs in every AWS Region where the service is
 offered today. If a particular component, data center, or an entire AZ experiences
-failure, the affected endpoint is automatically taken out of rotation. This allows you
+failure, the affected endpoint is automatically taken out of rotation. This helps you
 to continue providing a consistent quality experience for your customers.
 
 Inbound (US toll-free) and outbound calls in Connect Customer are processed through multiple

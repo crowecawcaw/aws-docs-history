@@ -1,22 +1,15 @@
-# Capabilities overview for manager assistant
+# Capabilities overview for manager assist
 
-Manager assistant supports more than 150 Connect Customer metrics across all capability categories.
-You can ask about current performance, investigate historical trends, compare metrics across
-dimensions, and optimize self-service operations.
+More than 150 Connect Customer metrics are supported across all capability categories. You can ask about current performance, investigate historical trends, compare metrics across dimensions, and optimize self-service operations.
 
 ## How it works
 
-When you submit a question, manager assistant processes it in the following
-steps:
+When you submit a question, it is processed in the following steps:
 
 1. **Ask** – you type a question in plain
    language.
-2. **Interpret** – Manager assistant
-   identifies the metrics, entities (such as queues and agents), and time range in
-   your question.
-3. **Retrieve** – Manager assistant
-   retrieves the data that you have permission to view, and structures a
-   response.
+2. **Interpret** – the metrics, entities (such as queues and agents), and time range in your question are identified.
+3. **Retrieve** – the data that you have permission to view is retrieved and structured into a response.
 4. **Act** – you review the response and,
    optionally, ask a follow-up question.
 
@@ -72,8 +65,7 @@ steps:
 
 ## Self-service optimization questions
 
-Manager assistant helps you evaluate and optimize your self-service strategy. The
-following table provides example questions.
+You can evaluate and optimize your self-service strategy. The following table provides example questions.
 
 | Category                | Example question                                                                         |
 | ----------------------- | ---------------------------------------------------------------------------------------- |
@@ -87,8 +79,7 @@ following table provides example questions.
 
 ## Manage your chats
 
-Manager assistant saves each chat, so you can return to a chat later, start a new
-chat for an unrelated question, or continue where you left off.
+Each chat is saved, so you can return to a chat later, start a new chat for an unrelated question, or continue where you left off.
 
 ### Start a new chat
 
@@ -107,8 +98,7 @@ You can open it again from **History**.
 
 ### View your chat history
 
-Manager assistant keeps your chats from the last 60 days, so you can revisit an
-earlier response or continue an unfinished chat.
+Your chats from the last 60 days are kept, so you can revisit an earlier response or continue an unfinished chat.
 
 ###### To view your chat history
 
@@ -129,9 +119,7 @@ those that you still have permission to view.
 
 ### Resume a chat
 
-Resume a chat when you want to continue an earlier conversation.
-Manager assistant reloads the full chat, so responses to your follow-up questions
-reflect the earlier turns.
+Resume a chat when you want to continue an earlier conversation. The full chat is reloaded, so responses to your follow-up questions reflect the earlier turns.
 
 ###### To resume a chat
 
@@ -148,7 +136,4 @@ is unrelated.
 
 ###### Important
 
-Because a resumed chat carries the full earlier conversation,
-manager assistant might reference details from previous turns in its responses.
-To get a response that is based only on your new question, start a new
-chat.
+Because a resumed chat carries the full earlier conversation, responses might reference details from previous turns. To get a response that is based only on your new question, start a new chat.

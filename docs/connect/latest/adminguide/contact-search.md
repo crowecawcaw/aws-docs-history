@@ -59,7 +59,7 @@ contacts using the Connect Customer admin website. For the APIs used to search f
   progress](search-in-progress-contacts.md "search-in-progress-contacts.md") or completed using the **Contact status**
   filter.
 - Search a time range up to 8 weeks. Within the time range filter, you can
-  specify the **Timestamp type**. This enables you to specify the
+  specify the **Timestamp type**. With this timestamp type, you can specify the
   time range. You can choose from initiated, connected to agent, disconnected, and
   scheduled timestamps.
 

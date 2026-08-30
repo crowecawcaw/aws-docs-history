@@ -117,7 +117,7 @@ Following is an image of the FunFactSampleFlow that invokes the module:
 
 ## Module versioning and aliasing
 
-To improve maintenance efficiency and reduce deployment risks, versioning and aliasing are supported for modules. Module versions are Immutable snapshots to ensure each module version remains unchanged, providing consistency and reliability. Module aliases allows you to assign descriptive names to versions for easier identification and management. Latest revision tracking automatically updates to the newest version when you invoke a module and select $.LATEST as the alias.
+To improve maintenance efficiency and reduce deployment risks, versioning and aliasing are supported for modules. Module versions are Immutable snapshots to ensure each module version remains unchanged, providing consistency and reliability. With module aliases, you can assign descriptive names to versions for easier identification and management. Latest revision tracking automatically updates to the newest version when you invoke a module and select $.LATEST as the alias.
 
 ### Create version for modules
 
@@ -191,7 +191,7 @@ Following is an image of a sample customer support flow that invokes the module 
 
 ## Create module as tools
 
-To enable Flow Modules to be invoked outside of a Flow by various systems as independent execution units, expanding their utility and supporting powerful use cases with established automation tools such as Q in Connect, where AI Agents can use modules as tools to fulfill actions identified during customer service interactions, such as executing payment workflows and automated task workflows. This approach allows you to define business logic once as modules and execute it across multiple channels and contexts, ensuring consistency while reducing development overhead.
+To enable Flow Modules to be invoked outside of a Flow by various systems as independent execution units, expanding their utility and supporting powerful use cases with established automation tools such as Q in Connect, where AI Agents can use modules as tools to fulfill actions identified during customer service interactions, such as executing payment workflows and automated task workflows. With this approach, you can define business logic once as modules and execute it across multiple channels and contexts, ensuring consistency while reducing development overhead.
 
 ### Create new module as tool
 

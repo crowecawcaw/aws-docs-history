@@ -165,7 +165,7 @@ point to the agent network. Check:
 - **Virtual private network (VPN)**—does the issue reproduce without
   VPN (direct connection)? If VPN is required, is split-tunneling enabled for
   real-time traffic?
-- **Wi-Fi vs. wired**—does it reproduce on a
+- **Wi-Fi compared to wired**—does it reproduce on a
   wired connection?
 - **Firewall/proxy/NAT**—is UDP 3478 (media),
   TCP 443, and websocket traffic allowed? Use static NAT with keep-alives
@@ -183,7 +183,7 @@ Full procedure: [Troubleshoot your network for call quality and disconnect probl
 No abnormal network metrics points to the headset, device, or software.
 Check:
 
-- **Headset**—wired vs. wireless; does a
+- **Headset**—wired compared to wireless; does a
   wired headset resolve it? Confirm it meets the [minimum headset requirements](ccp-agent-hardware.md#ccp-agent-headset "ccp-agent-hardware.md#ccp-agent-headset").
 - **Audio Enhancement**—if enabled, does
   disabling it resolve the issue? Note these constraints:
@@ -256,7 +256,7 @@ If the issue persists after troubleshooting, [open a case](open-case-troubleshoo
   MTR**.
 - Agent environment details: VPN/firewall/VDI configuration, headset type, and
   Audio Enhancement mode.
-- CCP type (default vs. custom) and the downloaded CCP logs for the affected
+- CCP type (default compared to custom) and the downloaded CCP logs for the affected
   calls.
 - Frequency of the issue and the date/time it started (UTC).
 

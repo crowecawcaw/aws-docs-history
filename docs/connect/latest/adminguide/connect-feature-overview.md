@@ -93,7 +93,7 @@ always live on your website.
   customer message and automate responses to their questions, saving
   agents valuable time and effort.
 - **Third-party messaging apps**. To
-  integrate with third-party messaging apps, use the [Connect Customer APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that enable you to subscribe to a real-time
+  integrate with third-party messaging apps, use the [Connect Customer APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") that you can use to subscribe to a real-time
   stream of chat messages. Using these APIs, you can:
 
   - Stream chat messages in real time when a new chat contact is
@@ -112,7 +112,7 @@ calling](inapp-calling.md "inapp-calling.md") capabilities to enable your custom
 ever leaving your web or mobile application. You can use these capabilities to
 pass contextual information to Connect Customer. For example, if your customer is already
 logged into your app, they do not need to identify or authenticate themselves
-when they request a call or video conversation with an agent. This enables you
+when they request a call or video conversation with an agent. You can use this
 to personalize the customer experience based on attributes such as the
 customer's profile or other information, like actions previously taken within
 the app.
@@ -248,7 +248,7 @@ six step-by-step guides on the agent workspace in the following image.
 ![The agent workspace.](images/whatisconnect-aw2.png)
 
 In the following image the **Review transaction history**
-guide is open, and the first step is displayed for the agent to choose
+guide is open. The first step is displayed for the agent to choose
 **View transaction details** or **Choose a
 different account**.
 
@@ -401,7 +401,7 @@ analytics](analyze-conversations.md "analyze-conversations.md"), you can uncover
 understanding sentiment, conversation characteristics, emerging contact themes,
 and agent compliance risks while the call or chat is in progress. You can
 receive an alert, for example, when a customer is getting frustrated because the
-agent is unable to resolve a complicated problem. This allows you to provide
+agent is unable to resolve a complicated problem. With these alerts, you can provide
 more immediate assistance.
 
 The following image shows post-contact conversational analytics on the
@@ -531,7 +531,7 @@ agent workspace.
 
 ## Administrators: Configuration and flexibility
 
-Connect Customer provides a simple, self-service UI that enables you to make changes in
+Connect Customer provides a simple, self-service UI that you can use to make changes in
 minutes, not months.
 
 Anyone, from non-technical business leaders to experienced contact center
@@ -559,7 +559,7 @@ a network of telephony providers from around the world, removing the need for
 you to manage multiple vendors, negotiate complex multi-year contracts, or
 commit to peak call volumes.
 
-The telephony service allows you to claim and then use direct inward dial
+With the telephony service, you can claim and then use direct inward dial
 (DID) and toll-free phone numbers for more than 110 countries worldwide. There
 are also more than 200 available outbound calling destinations. For a list of
 destinations, see the [Connect Customer

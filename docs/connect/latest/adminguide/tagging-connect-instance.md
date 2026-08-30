@@ -9,8 +9,7 @@ of business, using tags can help you better organize and apply tag-based access 
 
 [AWS Tags](tagging.md "tagging.md") serve as a useful tool for organizing your
 AWS resources. They consist of key-value pairs that help you
-categorize resources based on criteria like purpose, owner, or environment. This enables
-you to identify and manage your resources. Connect Customer, allows you to add tags to
+categorize resources based on criteria like purpose, owner, or environment. With tags, you can identify and manage your resources. With Connect Customer, you can add tags to
 your instances directly from the AWS console, or by using public
 APIs.
 
@@ -135,7 +134,7 @@ JSON
 
 ## Additional information about instance tagging
 
-**Replicating instances:** When you create a [replica of your existing Connect Customer instance](create-replica-connect-instance.md "create-replica-connect-instance.md") to another region using the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API, tags from the source instance will not be
+**Replicating instances:** When you create a [replica of your existing Connect Customer instance](create-replica-connect-instance.md "create-replica-connect-instance.md") to another Region using the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API, tags from the source instance will not be
 automatically tagged to the newly replicated instance. You will have to tag the
 replicated instance manually.
 

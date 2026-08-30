@@ -69,7 +69,7 @@ to achieve the most accurate result.
 ### Attribute Type Selector
 
 The Attribute Types Selector holds vital configuration information for
-rule-based identity resolution, facilitating profile matching. This allows you
+rule-based identity resolution, facilitating profile matching. You can use this
 to fine-tune the comparison of profiles across attribute types and
 select the key attributes for matching within each type. Within this
 feature, you have the flexibility to configure three distinct attribute

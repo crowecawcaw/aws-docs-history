@@ -91,7 +91,7 @@ facilitating efficient customer management.
 **Description**
 
 The CTR template relies solely on the `_ctrContactId` key to search
-for an existing profile, and it automatically associates the contact event with
+for an existing profile. It automatically associates the contact event with
 the profile if a match is found. However, in cases where no existing profile is
 found, the template creates an inferred profile and populates it with the
 contact event meta-data.

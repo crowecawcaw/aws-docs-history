@@ -98,7 +98,7 @@ After the operation finishes, the number appears in the Connect Customer admin w
 
 You can create an inbound contact flow for use with your WhatsApp phone number, or you can
 reuse an existing flow. If you reuse a flow, you can add a `CheckContactAttribute`
-block and enable branching for the flow. The block enables you to send WhatsApp contacts to a
+block and enable branching for the flow. With the block, you can send WhatsApp contacts to a
 specific queue, or take another action.
 
 For more information about building your contact flow, including interactive messages and

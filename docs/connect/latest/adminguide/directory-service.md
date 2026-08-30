@@ -10,7 +10,7 @@ instance, you must delete the instance with which it is already associated.
 The following Directory Service directories are supported in Connect Customer:
 
 - [Microsoft Active
-  Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md")—Directory Service lets you run Microsoft Active Directory as a
+  Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md")—with Directory Service, you can run Microsoft Active Directory as a
   managed service.
 - [Active Directory
   Connector](../../../directoryservice/latest/admin-guide/directory_ad_connector.md "../../../directoryservice/latest/admin-guide/directory_ad_connector.md")—AD Connector is a directory gateway you can use to

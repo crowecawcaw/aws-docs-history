@@ -94,7 +94,7 @@ level configuration or an advanced metric using metric builder.
 
 ### Metrics builder
 
-The metrics builder is an interactive editor that allows you to define an
+The metrics builder is an interactive editor that you can use to define an
 advanced custom metric with metric primitives and mathematical operators. For
 the full list of primitives and operators, and examples of advanced custom
 metrics, please see [link](metric-primitive-definitions.md "metric-primitive-definitions.md")
@@ -283,7 +283,7 @@ page:
 
 ## Clone a custom metric
 
-Cloning a custom metric allows you to copy over an existing custom metric
+By cloning a custom metric, you can copy over an existing custom metric
 calculation, make changes, and save it as a new custom metric.
 
 ###### To clone a custom metric

@@ -71,7 +71,7 @@ scaled to fit the 280x60 logo component space.
 
 ## Step 3: Add your domain for the widget
 
-This step enables you to secure the communications widget so that it can be
+With this step, you can secure the communications widget so that it can be
 launched only from your website.
 
 1. Enter the website domains where you want to place the communications widget. The

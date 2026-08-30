@@ -26,7 +26,7 @@ option is shown in the following image.
 
 ![The apply override section, the link to download the .csv template file.](images/wfm-capacity-planning-download-override-template2.png)
 
-The .csv file template has one row, and it contains the values that were
+The .csv file template has one row. It contains the values that were
 displayed in the **Required FTEs (without Shrinkage)** row
 of the **Plan outputs** table. The following image shows an
 example of this data in a .csv file

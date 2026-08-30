@@ -1,6 +1,6 @@
-# Service quotas for manager assistant
+# Service quotas
 
-The following quotas apply to manager assistant during preview. These quotas might change
+The following quotas apply during preview. These quotas might change
 as the capability matures, so check this page for updates.
 
 ## Quotas
@@ -30,4 +30,4 @@ increased.
 ## Regional differences
 
 The request rate varies by AWS Region. The maximum message length and chat context
-behavior are the same in all Regions where manager assistant is available.
+behavior are the same in all Regions where manager assist is available.

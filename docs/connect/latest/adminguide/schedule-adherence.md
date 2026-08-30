@@ -56,7 +56,7 @@ For example, when an agent is scheduled for the Productive activity
 "Back-office work" and their status in Connect Customer is "Offline," they are
 considered non-adherent to their schedule.
 
-- The **Custom** method enables you to map specific shift
+- With the **Custom** method, you can map specific shift
   activities to agent statuses for determining adherence.
 
 An agent is adherent when their current status matches any of the mapped
@@ -171,8 +171,8 @@ appear in a historical metrics report.
 
 You can also view schedule adherence data in a calendar view. This view
 provides a visual and intuitive representation of adherence breaches by agent
-and day, for up to 30 days in the past, alongside their shifts. This
-visualization allows you to immediately spot adherence breaches across your
+and day, for up to 30 days in the past, alongside their shifts. With this
+visualization, you can immediately spot adherence breaches across your
 team, prioritize the most critical incidents, compare with past agent behavior,
 and take steps to address concerns with the agent. For more information, see
 [How supervisors
@@ -301,7 +301,7 @@ adherence will be re-calculated with the new shift.
 
 If an agent's schedule is changed within the last 30 days from the current
 date (not the date of the schedule), adherence is re-calculated with the new
-schedule. This allows you to make real-time adjustments to an agent's shift
+schedule. With this re-calculation, you can make real-time adjustments to an agent's shift
 and correctly evaluate their adherence.
 
 - **An agent starts an activity within the configured

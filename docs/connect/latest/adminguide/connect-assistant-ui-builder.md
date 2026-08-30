@@ -3,7 +3,7 @@
 The Connect assistant is integrated within the UI builder, enabling you to
 create and modify view resources using natural language. Instead of manually
 dragging components, configuring properties, and navigating complex panel settings,
-you can describe what you need in conversational prompts, and the Connect assistant
+you can describe what you need in conversational prompts. The Connect assistant
 generates the corresponding UI components on the canvas.
 
 For example, you can type "Create a customer feedback form with fields for

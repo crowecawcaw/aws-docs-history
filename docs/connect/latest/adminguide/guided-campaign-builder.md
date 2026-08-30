@@ -158,7 +158,7 @@ capacity reduces if any other campaigns start actively dialing.
 ###### Pacing controls
 
 When you select predictive dialing mode, the **Pacing controls**
-section lets you configure maximum ring time, dialing capacity allocation, agent allocation,
+section helps you configure maximum ring time, dialing capacity allocation, agent allocation,
 and abandonment rate thresholds:
 
 The following image shows the pacing controls section.

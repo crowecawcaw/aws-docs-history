@@ -71,7 +71,7 @@ Follow these best practices when forwarding email contacts:
 - **Follow up**: If you're forwarding an email for action by external parties, make sure to follow up to ensure the issue is resolved.
 - **Document the forward**: Add notes to the contact record indicating that you forwarded the email, to whom, and why.
 
-## Forwarding vs. transferring
+## Forwarding compared to transferring
 
 It's important to understand the difference between forwarding and transferring an email contact:
 

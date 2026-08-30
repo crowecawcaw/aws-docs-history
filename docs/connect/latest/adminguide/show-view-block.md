@@ -119,7 +119,7 @@ also supported. For more information, see the [Customer-managed views](https://d
   happened, any next steps, and prompts. The Confirmation view supports a
   persistent attribute bar, an icon or image, headline, and sub-headline,
   along with a back to home navigation button.
-- **Cards view**: Allows you to guide your customers
+- **Cards view**: You can guide your customers
   and agents by presenting them with a list of topics to choose from when
   the contact is presented to the agent.
 

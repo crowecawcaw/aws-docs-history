@@ -63,7 +63,7 @@ Object Lock for. 6. Choose **Save**.
    path prefix, search for the contact ID of the call recording.
 
 ![The Amazon S3 console, the search box, the path prefix.](images/s3-objectlock-pathprefix.png) 5. Select the **Show versions** toggle next to the
-**Search** box. This option allows you to attempt to
+**Search** box. With this option, you can attempt to
 delete the object instead of only applying a delete marker. Applying a
 delete marker is the standard behavior when you delete an object from an S3
 bucket with versioning enabled. 6. Select the call recording (the box to the left of the recording name), and

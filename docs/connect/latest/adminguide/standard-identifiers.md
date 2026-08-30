@@ -1,6 +1,6 @@
 # Standard identifiers for setting attributes on the key in Customer Profiles
 
-Standard identifiers allow you to set attributes on the key. Decide which
+With standard identifiers, you can set attributes on the key. Decide which
 identifiers to use based on how you want the data to be ingested in the
 profiles. For example, you mark phone number with the identifier PROFILE. This
 means phone number is to be treated as unique identifier. If Customer Profiles

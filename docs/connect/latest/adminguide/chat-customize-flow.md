@@ -60,7 +60,7 @@ inbound chat flow.
 - Set the **Timeout** property on the [Wait](wait.md "wait.md") block for the `ParticipantRole` =
   `CUSTOM_BOT`.
 - If the custom bot participant is not disconnected before the timeout, then the
-  contact is routed down the **Time Expired** branch. This allows you
+  contact is routed down the **Time Expired** branch. You can use this
   to decide which block to run next to resolve the customer's query.
 
 ###### Note
@@ -71,7 +71,7 @@ disconnected from the contact. You must call the [DisconnectParticipant](../../.
 ## Activate timers for customers who are joined to a custom participant
 
 You can activate timers on customers who are joined to custom participants, such as
-custom bots. This enables you to detect when a customer stops responding so you can then
+custom bots. With timers, you can detect when a customer stops responding so you can then
 terminate that bot conversation, and perform the next step in the flow. By terminating
 idle participants, you can reduce the number of open chats where there is a
 non-responsive customer engaged with a custom participant.

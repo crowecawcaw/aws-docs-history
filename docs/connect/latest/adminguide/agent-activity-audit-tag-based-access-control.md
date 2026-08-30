@@ -14,7 +14,7 @@ agents:**
 limited set of agents:**
 
 ![By using tag-based access controls, you can see a limited set of agents.](images/agent-activity-audit-tag-based-access-control-after.png)
-Tag-based access controls enable you to configure granular access to specific
+With tag-based access controls, you can configure granular access to specific
 resources based on assigned resource tags. You can configure tag based access
 controls by using the API/SDK or the Connect Customer admin website (for supported resources). You must
 configure user resource tags and access control tags before tag-based access
@@ -44,7 +44,7 @@ selected for **Access metrics** permission, along with
 access to the user resource. Note that if you enable **Access
 metrics**, then **Real-time metrics**,
 **Historical Metrics**, and **Agent Activity
-Audit** will be filled in automatically, and you therefore will
+Audit** will be filled in automatically. You therefore will
 be enabling users to see all data for historical metrics for which tag-based
 access controls are not currently applied.
 

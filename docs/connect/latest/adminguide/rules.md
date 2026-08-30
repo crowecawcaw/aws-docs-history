@@ -1,6 +1,6 @@
 # Automatically categorize contacts by matching conversations with natural language statements, or specific words and phrases
 
-Conversational analytics enables you to automatically
+With Conversational analytics, you can automatically
 categorize contacts to identify top drivers, customer experience, and agent
 behavior for your contacts. On the **Contact details** page for
 a chat, categories appear above the transcript, as shown in the following image.
@@ -156,8 +156,7 @@ evaluate as either True or False.
 
 ![The new rules page, the Natural language - Semantic match section.](images/contact-lens-add-category-rules-natural-language-semantic.png) 8. To add more words or phrases, choose **Add group of
 words or phrases**. In the following image, the
-first group of words or phrases are what the agent might utter,
-and the second group is what the customer might utter.
+first group of words or phrases are what the agent might utter. The second group is what the customer might utter.
 
 ![A Words or phrases - Exact match for agent, the word AND, a Words or phrases section for the customer.](images/contact-lens-add-category-rules-script3.png)
 

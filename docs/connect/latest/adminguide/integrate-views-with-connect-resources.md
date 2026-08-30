@@ -2,7 +2,7 @@
 
 You can create Views used in Guides that poll live data sources through specified intervals with View integrations. View integrations are view-level configurations available from the UI builder's global settings panel, as shown below.
 
-The view integrations panel allows you to configure and reference data on your view. Start by configuring a new tool to integrate with. A tool is a specific integration point between the View and a Connect resource. The following properties are required to configure a tool:
+With the view integrations panel, you can configure and reference data on your view. Start by configuring a new tool to integrate with. A tool is a specific integration point between the View and a Connect resource. The following properties are required to configure a tool:
 
 1. Integration Name: The custom name for the integration that will be used later to reference data on the view itself
 2. Integration Type: The format for the integration between the view and the Connect resource

@@ -6,8 +6,8 @@ Extracted information is available in the following locations:
   after-call work
 - **Contact details page** – After the
   contact ends
-- **Contact search** – Filter and search
-  contacts by extracted values
+- **Contact search** – Displayed in the
+  contact search results table
 
 ## Contact Control Panel (CCP)
 
@@ -27,11 +27,10 @@ details** page.
 
 ## Contact search
 
-You can search for contacts by extracted information values using the
-**Extracted Information** filter in the **Contact
-search** dropdown.
+Extracted information is displayed in the **Contact search**
+results table.
 
-![The Extracted Information filter in Contact search.](images/InformationExtraction-View-ContactSearch.png)
+![Extracted information displayed in the Contact search results table.](images/InformationExtraction-View-ContactSearch.png)
 
 ## Errors
 

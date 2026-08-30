@@ -1,14 +1,14 @@
 # Create forecast groups in Connect Customer
 
 Forecast groups are a way for you to combine different queues into one forecast.
-This enables you to create a forecast from aggregated data from multiple queues,
+With forecast groups, you can create a forecast from aggregated data from multiple queues,
 instead of from just one queue.
 
 ## Important things to know
 
 - Forecast groups are associated with a staffing group for scheduling
   purposes. Therefore, we recommend you group queues that share the same
-  pool of staff (agents) under the same forecast group. It enables you to
+  pool of staff (agents) under the same forecast group. With this grouping, you can
   generate a more accurate forecast.
 - Each queue can belong to only one forecast group. This prevents
   duplicates in the forecast.

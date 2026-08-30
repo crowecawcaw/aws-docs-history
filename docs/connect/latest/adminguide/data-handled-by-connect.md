@@ -54,7 +54,7 @@ limited to the following categories.
 
 ## External application data
 
-Amazon AppIntegrations enables you to integrate with external applications. It stores
+With Amazon AppIntegrations, you can integrate with external applications. It stores
 references to other AWS resources and client-service specified metadata. No data
 is stored other than incidentally while being processed. When syncing data
 periodically with a Connect Customer service, data is encrypted using a customer managed key and stored
@@ -151,8 +151,7 @@ access to call recording data.
 ## Contact metadata
 
 Connect Customer stores metadata related to contacts that flow through the system and allows
-authorized users to access this information. The Contact Search feature allows you
-to search and view contact data, such as origination phone numbers or other
+authorized users to access this information. With the Contact Search feature, you can search and view contact data, such as origination phone numbers or other
 attributes set by the flow, that are associated with a contact for diagnostics or
 reporting purposes.
 

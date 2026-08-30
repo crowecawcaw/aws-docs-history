@@ -1,6 +1,6 @@
 # Create a security profile in Connect Customer
 
-Creating a security profile enables you to grant your users only the permissions that
+By creating a security profile, you can grant your users only the permissions that
 they need.
 
 For each permission group, there is a set of resources and supported set of actions.

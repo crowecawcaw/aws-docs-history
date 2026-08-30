@@ -1,7 +1,7 @@
 # Evaluate the performance of your conversational AI bot in Connect Customer
 
 You can use the comprehensive analytics tools in Connect Customer to help you evaluate and optimize your
-conversational AI bot performance. These insights enable you to identify successful interactions,
+conversational AI bot performance. With these insights, you can identify successful interactions,
 pinpoint failure points, and visualize conversation patterns to continuously improve customer
 experience.
 

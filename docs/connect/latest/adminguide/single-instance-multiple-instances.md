@@ -23,7 +23,7 @@ customer experience.
   isolation across business units, brands, or regions must be
   designed.
 - **Single Geographic Location** – Latency
-  can be high in regions far away from the instance.
+  can be high in Regions far away from the instance.
 - **Service Quota Management** – Service
   quota management can be more challenging due to difficulty in
   anticipating usage and growth across multiple business units.
@@ -64,8 +64,8 @@ physical distance).
 
 ## Summary
 
-The decision of single- vs. multiple-instance architecture is nuanced, and highly
+The decision of single-instance compared to multiple-instance architecture is nuanced, and highly
 dependent on the nature of the customer's requirements. Considering the scalability,
 customizability, programmability, and security of Connect Customer, we generally recommend
 single-instance Connect Customer architectures (including a single Connect Customer Global Resiliency
-pair) in the absence of compelling requirements requiring multiple regions.
+pair) in the absence of compelling requirements requiring multiple Regions.

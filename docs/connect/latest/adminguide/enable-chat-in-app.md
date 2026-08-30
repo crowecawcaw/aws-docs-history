@@ -23,6 +23,47 @@ more information, see [Add Amazon Lex interactive messages for customers in chat
 - [Enable Apple Messages for Business with Connect Customer](apple-messages-for-business.md "apple-messages-for-business.md")
 - [Connect Customer Service API Documentation](../APIReference.md "../APIReference.md"), especially the
   [StartChatContact](../APIReference/API_StartChatContact.md "../APIReference/API_StartChatContact.md") API.
+
+The following example uses the AWS CLI to start a chat contact. The response
+returns the `ContactId`, `ParticipantId`, and
+`ParticipantToken`. Your back end uses these values to connect the
+participant by calling the Connect Customer Participant Service [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") API.
+
+###### Call StartChatContact from a trusted back end
+
+The `StartChatContact` API uses AWS Signature Version 4
+signing. Call it from your trusted back end (for example, an Lambda function),
+not directly from a customer's browser or mobile app. The following command
+is useful for testing and administration. For production chat integrations,
+use the Connect Customer ChatJS library. You can also use the
+`startChatContactAPI` back-end example in the [Connect Customer Chat SDK and Sample Implementations](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/ "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/") on the
+GitHub website.
+
+In the following command, replace
+`instance-id`,
+`contact-flow-id`, and
+`aws-region` with your own
+values:
+
+```
+aws connect start-chat-contact \
+    --instance-id "`instance-id`" \
+    --contact-flow-id "`contact-flow-id`" \
+    --participant-details DisplayName="`Jane Doe`" \
+    --initial-message ContentType="text/plain",Content="`Hello, I need help`" \
+    --region "`aws-region`"
+```
+
+The command returns the following response:
+
+```
+{
+    "ContactId": "00000000-0000-0000-0000-000000000000",
+    "ParticipantId": "00000000-0000-0000-0000-000000000000",
+    "ParticipantToken": "a-long-participant-token"
+}
+```
+
 - [Connect Customer Participant Service API](../../../connect-participant/latest/APIReference/Welcome.md "../../../connect-participant/latest/APIReference/Welcome.md").
 - [Connect Customer Chat SDK and Sample Implementations](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/ "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/")
 - [Connect Customer

@@ -4,7 +4,7 @@ Rule-based redaction for agent screen recordings automatically hides sensitive c
 from recorded agent desktops based on the browser pages and application windows that
 agents view during a contact. When an agent navigates to a URL or opens an application
 window that matches one of your redaction rules, the matching window is masked in the
-final recording. Redaction is applied when the recording is assembled, so the original
+final recording. Redaction is applied when the recording is assembled. The original
 unredacted video is not exposed to users who only have access to redacted
 recordings.
 
@@ -138,12 +138,21 @@ recording.
 
 ## Where redacted recordings are stored
 
-Redacted recordings are stored in the same Amazon S3 bucket as unredacted recordings,
-under a separate prefix.
+Redacted recordings are stored in the same Amazon S3 bucket as the unredacted
+recordings, as a sibling of the unredacted file. The redacted key is rooted at the
+parent of your configured prefix, under a fixed
+`Analysis/ScreenRecordings/Redacted/` path.
 
 ```
-s3://`your-bucket`/Analysis/ScreenRecordings/Redacted/`year`/`month`/`day`/`contact-id`_screen_recording_redacted_`UTC-timestamp`.mp4
+s3://`your-bucket`/`your-prefix-parent`/Analysis/ScreenRecordings/Redacted/`year`/`month`/`day`/`contact-id`_screen_recording_redacted_`UTC-timestamp`.mp4
 ```
+
+In this path, `your-prefix-parent` is your configured
+screen recordings prefix with its last segment removed. For example, with the
+console default prefix
+`connect/`your-instance-alias`/ScreenRecordings`,
+redacted recordings are stored under
+`connect/`your-instance-alias`/Analysis/ScreenRecordings/Redacted/`.
 
 Users with the appropriate permission can view and download redacted recordings
 from the contact detail page in the Connect Customer admin website. For instructions, see [Review agent screen

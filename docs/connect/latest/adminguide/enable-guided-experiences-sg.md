@@ -1,6 +1,6 @@
 # Enable step-by-step guides in Connect Customer
 
-The following steps allow you to provide your users with the ability to create guided
+With the following steps, you can provide your users with the ability to create guided
 experiences, and allow agents to interact with the experiences.
 
 1. **Enable admins to create step-by-step guides**

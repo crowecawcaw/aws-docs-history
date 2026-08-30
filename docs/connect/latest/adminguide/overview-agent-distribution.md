@@ -1,6 +1,6 @@
 # Set up your agent's experience with Connect Customer Global Resiliency
 
-Connect Customer Global Resiliency enables you to provide a global experience for agents with
+With Connect Customer Global Resiliency, you can provide a global experience for agents with
 global sign-in, agent distribution API, and Agent Workspace enhancements. With this
 set of features, you can:
 

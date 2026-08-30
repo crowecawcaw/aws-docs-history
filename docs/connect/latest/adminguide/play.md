@@ -197,7 +197,7 @@ represented by the [MessageParticipant](../APIReference/participant-actions-mess
 —OR—
 
 - You can provide the S3 path with concatenation, as shown in the
-  following example. This enables you to personalize the prompt, for
+  following example. With concatenation, you can personalize the prompt, for
   example, by line of business and language. For example:
   `https://example.s3.amazon.aws.com/$['Attributes']['Language']/$['Attributes']['LOB']/1.wav`
 

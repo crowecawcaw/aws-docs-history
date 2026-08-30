@@ -9,7 +9,7 @@ day to chat with friends and family. Any time customers use Search, Safari, Spot
 or Maps to call your registered phone number, they will be provided with the option to chat
 with your contact center.
 
-Apple Messages for Business integration with Connect Customer enables you to use the same configuration, analytics,
+Through Apple Messages for Business integration with Connect Customer, you can use the same configuration, analytics,
 routing, and agent UI that you already use for [Connect Customer
 Chat](web-and-mobile-chat.md "web-and-mobile-chat.md").
 
@@ -39,7 +39,7 @@ An Apple ID is typically for the personal use of Apple services, such as
 storing personal content in iCloud and downloading apps from the App Store. If
 you have a personal Apple ID, we recommend that you create a separate one using
 your organization’s email address to administer Messages for Business. A separate administrative
-Apple ID lets you distinguish Messages for Business communications from personal Apple
+Apple ID helps you distinguish Messages for Business communications from personal Apple
 communications. 3. Register a profile for a new Messages for Business account by accepting **Apple’s Terms
 of Service**. We recommend creating a [Commercial Messages for Business Account](https://register.apple.com/resources/messages/messaging-documentation/register-your-acct#create-a-commercial-business-chat-account "https://register.apple.com/resources/messages/messaging-documentation/register-your-acct#create-a-commercial-business-chat-account"). You then provide business details, such as
 a logo and support hours. 4. Select Connect Customer as your Messaging Service Provider. You can do this by selecting

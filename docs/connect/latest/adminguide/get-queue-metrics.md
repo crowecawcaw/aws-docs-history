@@ -36,7 +36,7 @@ By default, this block returns queue metrics for the current queue. You can opti
   - [Contact position in queue](metrics-definitions.md#position-in-queue "metrics-definitions.md#position-in-queue")
 
 - You can choose to return metrics by channel, for example, voice or chat.
-  You can also filter by queue or agent. These options enable you to know how
+  You can also filter by queue or agent. With these options, you can know how
   many chat and voice contacts are in a queue and if you have agents available
   to handle those contacts.
 - You can route contacts based on queue status, such as number of contacts

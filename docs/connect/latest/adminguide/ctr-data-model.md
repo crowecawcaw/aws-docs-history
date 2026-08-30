@@ -1637,7 +1637,7 @@ Length Constraints: Minimum length of 0. Maximum length of 1024.
 
 The AWS Region where the contact was originally created and initiated.
 This might differ from the `ActiveRegion` if the contact has been
-transferred across regions.
+transferred across Regions.
 
 Type: String
 

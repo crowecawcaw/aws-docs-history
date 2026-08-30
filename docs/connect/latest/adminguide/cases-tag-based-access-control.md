@@ -2,7 +2,7 @@
 
 You can use resource tags and access control tags to apply granular access to cases in Amazon Connect Cases. For example, you can control who has access to view, create, or edit cases containing sensitive customer information based on department, case type, or security classification.
 
-Tag-based access controls enable you to configure granular access to specific cases based on assigned resource tags. Cases inherit tags from their associated case templates, ensuring consistent access control without requiring agents to manually tag individual cases. You can configure tag-based access controls by using the API or the Amazon Connect admin website. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
+With tag-based access controls, you can configure granular access to specific cases based on assigned resource tags. Cases inherit tags from their associated case templates, ensuring consistent access control without requiring agents to manually tag individual cases. You can configure tag-based access controls by using the API or the Amazon Connect admin website. For more information, see [Add tags to resources in Connect Customer](tagging.md "tagging.md") and [Apply tag-based access control in Connect Customer](tag-based-access-control.md "tag-based-access-control.md").
 
 ## How tag propagation works for cases
 

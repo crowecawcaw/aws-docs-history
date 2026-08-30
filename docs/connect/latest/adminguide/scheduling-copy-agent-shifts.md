@@ -36,4 +36,4 @@ choosing **Confirm**.
   **Override rules check** does not override these
   validations.
 
-![The Copy shift page which allows you to copy one agent shift to another agent, or to the same agent.](images/scheduling-copy-agent-shifts-1.png)
+![The Copy shift page which you can use to copy one agent shift to another agent, or to the same agent.](images/scheduling-copy-agent-shifts-1.png)

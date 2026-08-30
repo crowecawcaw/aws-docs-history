@@ -1,6 +1,6 @@
 # Set up contact transfers in Connect Customer
 
-Connect Customer enables you to set up different kinds of transfers:
+With Connect Customer, you can set up different kinds of transfers:
 
 - [Agent-to-agent transfers](setup-agent-to-agent-transfers.md "setup-agent-to-agent-transfers.md"):
   For example, if you want agents to be able to transfer calls or tasks to other
@@ -31,7 +31,7 @@ Connect Customer enables you to set up different kinds of transfers:
 When you create the **Agent** or **Queue**
 quick connect, select a flow that matches the type of transfer to enable.
 **Phone number** quick connects require only a phone
-number, and do not allow you to set a queue or flow. 4. Add the quick connect that you created to any queue used in a flow for which
+number, and you can't set a queue or flow. 4. Add the quick connect that you created to any queue used in a flow for which
 to enable contact transfer, such as the queue used in the flow for incoming
 contacts. 5. Make sure the queue is in a routing profile assigned to the agents who
 transfers contacts.

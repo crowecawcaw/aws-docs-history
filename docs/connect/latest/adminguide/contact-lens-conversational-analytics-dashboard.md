@@ -3,7 +3,7 @@
 When conversational analytics is [enabled](enable-analytics.md "enable-analytics.md") on your contacts, you can analyze conversations between customers
 and agents by using speech and chat transcriptions, natural language processing, and
 intelligent search capabilities. conversational analytics performs
-sentiment analysis, detects issues, and enables you to automatically categorize
+sentiment analysis and detects issues. You can also automatically categorize
 contacts.
 
 The conversational analytics dashboard helps you

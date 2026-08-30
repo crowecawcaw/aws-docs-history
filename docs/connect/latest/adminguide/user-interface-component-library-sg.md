@@ -20,7 +20,7 @@ and visually on the page.
 
 To keep the contents of the page relatively consistent as you customize the
 top level view settings, we recommend using containers in all of your views.
-Containers also come with column layout. Column layout allows you to organize
+Containers also come with column layout. With column layout, you can organize
 the contents within a container.
 
 ## Create a form

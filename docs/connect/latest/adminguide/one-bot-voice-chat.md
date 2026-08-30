@@ -2,7 +2,7 @@
 
 You can use the same bot for voice and chat. However, you might want the bot to respond
 differently based on the channel. For example, you want to return SSML for voice so a number
-is read as a phone number, but you want to return normal text to chat. You can do this by
+is read as a phone number. However, you want to return normal text to chat. You can do this by
 passing the **Channel** attribute.
 
 1. In the **Get customer input** block, choose the

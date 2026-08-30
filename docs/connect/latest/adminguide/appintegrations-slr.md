@@ -141,7 +141,7 @@ service-linked role, you can use this same process to create the role again.
 
 ## Editing a service-linked role for Amazon AppIntegrations
 
-Amazon AppIntegrations does not allow you to edit the AWSServiceRoleForAppIntegrations service-linked role. After you
+You can't edit the AWSServiceRoleForAppIntegrations service-linked role with Amazon AppIntegrations. After you
 create a service-linked role, you cannot change the name of the role because various entities
 might reference the role. However, you can edit the description of the role using IAM. For
 more information, see [Editing a
@@ -199,9 +199,9 @@ service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md
 
 ## Supported regions for Amazon AppIntegrations service-linked roles
 
-Amazon AppIntegrations supports using service-linked roles in all of the regions where the service is available. For more information, see [AWS regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
+Amazon AppIntegrations supports using service-linked roles in all of the Regions where the service is available. For more information, see [AWS regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
 
-You can use the AWSServiceRoleForAppIntegrations role in the following regions.
+You can use the AWSServiceRoleForAppIntegrations role in the following Regions.
 
 | Region name              | Region identity | Support in Amazon AppIntegrations |
 | ------------------------ | --------------- | --------------------------------- |

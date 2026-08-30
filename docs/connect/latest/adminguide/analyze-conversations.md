@@ -2,7 +2,7 @@
 
 With conversational analytics, you can analyze conversations
 between customers and agents or customers and conversational AI, across voice, chat, and email, using natural language
-processing. Conversational analytics performs sentiment analysis, detects issues, and enables you to automatically categorize
+processing. Conversational analytics performs sentiment analysis and detects issues. You can also automatically categorize
 contacts.
 
 ###### Speech analytics support
@@ -11,7 +11,7 @@ contacts.
   resolve customer issues more proactively while the call is in progress. For
   example, it can [analyze and alert](add-rules-for-alerts.md "add-rules-for-alerts.md")
   you when a customer is getting frustrated because the agent is unable to resolve
-  a complicated problem. This allows you to provide more immediate assistance.
+  a complicated problem. With real-time call analytics, you can provide more immediate assistance.
 - **Post-call analytics**: Use to understand trends
   of customer conversations, self-service interactions, and agent compliance. This helps you identify
   opportunities to improve conversational AI and coach agents after the call.

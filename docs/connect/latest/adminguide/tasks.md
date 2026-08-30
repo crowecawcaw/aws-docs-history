@@ -1,6 +1,6 @@
 # The task channel in Connect Customer
 
-Connect Customer Tasks allows you to prioritize, assign, track, and even automate tasks across
+With Connect Customer Tasks, you can prioritize, assign, track, and even automate tasks across
 the disparate tools agents use to support customers. For example, using Tasks you
 can:
 
@@ -44,7 +44,7 @@ create tasks using Connect Customer APIs.
 
 For more information, see the [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md")
 API. 3. You can add a [Create task](create-task-block.md "create-task-block.md") block to your flows. This
-block enables you to create and orchestrate tasks directly from flows based
+block helps you create and orchestrate tasks directly from flows based
 on customer input
 (DTMF
 input), and contact and tasks information. 4. You can enable your agents to create tasks from the Contact Control Panel
@@ -182,7 +182,7 @@ available while the agent works on a task.
 
 ## Link task to contact by using the Create task block
 
-The Create task block enables you to automatically link the task to the current
+With the Create task block, you can automatically link the task to the current
 contact.
 
 The following image of the Properties page of the **Create task**
@@ -196,7 +196,7 @@ Agents who create tasks through CCP automatically have their agent resource ARN
 added onto the contact record as a
 [segment attribute](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes")
 called `CreatedByUser`. This attribute
-enables you to track the originating agent for a task. However, you can't
+helps you track the originating agent for a task. However, you can't
 access `CreatedByUser` by using the Connect Customer admin website; instead use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API.
 
 The `CreatedByUser` segment attribute is available to you on the [Create task](create-task-block.md "create-task-block.md") block. You can set the segment

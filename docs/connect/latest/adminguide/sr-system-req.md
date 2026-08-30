@@ -147,7 +147,7 @@ Contact Control Panel domain.
 This policy permits local network access to the loopback address
 from any site, not only from your Contact Control Panel. It is
 currently the most restrictive policy that allows screen recording
-to work on Firefox; a more narrowly scoped policy that limits the
+to work on Firefox. A more narrowly scoped policy that limits the
 exemption to your Contact Control Panel is pending a future Firefox
 update.
 

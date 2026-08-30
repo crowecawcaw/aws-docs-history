@@ -23,7 +23,7 @@ For detailed information about the activity of agents in your contact center, us
 - [Assign
   permissions](dashboard-required-permissions.md "dashboard-required-permissions.md")
 - [Dashboards](dashboards.md "dashboards.md")
-- [Manager assistant](manager-assistant.md "manager-assistant.md")
+- [Manager assist](manager-assist.md "manager-assist.md")
 - [Real-time metrics
   reports](real-time-metrics-reports.md "real-time-metrics-reports.md")
 - [Historical metrics

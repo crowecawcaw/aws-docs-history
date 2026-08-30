@@ -1,7 +1,7 @@
 # Enable Customer Profiles for your Connect Customer instance
 
 Connect Customer provides pre-built integrations so you can quickly combine customer information
-from multiple external applications, with contact history from Connect Customer. This allows you to
+from multiple external applications, with contact history from Connect Customer. With these integrations, you can
 create a customer profile that has all the information agents need during customer
 interactions in a single place.
 

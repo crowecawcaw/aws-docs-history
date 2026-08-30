@@ -45,12 +45,12 @@ processes the audio stream sessions.
 
 **Integrate blocks**
 
-| Flow block        | Effect    | Description                                                                                |
-| ----------------- | --------- | ------------------------------------------------------------------------------------------ |
-| Create Task       | Supported | Creates a new task manually or by using a task<br>template.                                |
-| Customer profiles | Supported | Enables you to retrieve, create, and update a customer<br>profile.                         |
-| Invoke AWS Lambda | Supported | Calls AWS Lambda, and optionally returns key-value pairs.                                  |
-| Invoke module     | Supported | Calls a published module, which enables you create reusable<br>sections of a contact flow. |
+| Flow block        | Effect    | Description                                                                                   |
+| ----------------- | --------- | --------------------------------------------------------------------------------------------- |
+| Create Task       | Supported | Creates a new task manually or by using a task<br>template.                                   |
+| Customer profiles | Supported | You can retrieve, create, and update a customer<br>profile.                                   |
+| Invoke AWS Lambda | Supported | Calls AWS Lambda, and optionally returns key-value pairs.                                     |
+| Invoke module     | Supported | Calls a published module, which you can use to create reusable<br>sections of a contact flow. |
 
 **Terminate/Transfer blocks**
 
