@@ -3,10 +3,11 @@
 The instructions in this section show you how to install, uninstall, reinstall, or update
 the CodeDeploy agent and how to verify the CodeDeploy agent is running.
 
-###### Important
+###### Version 2.0.x rollout status
 
-Version 2.0.0 of the CodeDeploy agent is being rolled out across AWS Regions and might not be
-available in all Regions yet. It is an opt-in upgrade. To upgrade to version 2.0.0, see [Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").
+Version 2.0.x of the CodeDeploy agent is being rolled out across AWS Regions and might not be
+available in all Regions yet. Version 2.0.0 is an opt-in upgrade. In order to upgrade to
+version 2.0.x from any older revisions, see [Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").
 
 ###### Tip
 

@@ -1,9 +1,10 @@
 # Install the CodeDeploy agent
 
-###### Important
+###### Version 2.0.x rollout status
 
-Version 2.0.0 of the CodeDeploy agent is being rolled out across AWS Regions and might not
-be available in all Regions yet. It is an opt-in upgrade.
+Version 2.0.x of the CodeDeploy agent is being rolled out across AWS Regions and might not
+be available in all Regions yet. Version 2.0.0 is an opt-in upgrade. Use the instructions on
+this page to upgrade to version 2.0.x from any older revisions.
 
 To use CodeDeploy on EC2 instances or on-premises servers, the CodeDeploy agent must be installed
 first. You can install the CodeDeploy agent with AWS Systems Manager or with the command line. For more
