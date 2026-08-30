@@ -11,20 +11,30 @@ image is running on.
 Following are the existing metrics supported by the data retention
 bot.
 
-| Metric                  | Description                                                       |
-| ----------------------- | ----------------------------------------------------------------- |
-| Messages\_Rx            | Messages received.                                                |
-| Messages\_Rx\_Failed    | Failures to process received messages.                            |
-| Messages\_Saved         | Messages saved to the received messages file.                     |
-| Messages\_Saved\_Failed | Failures to save messages to the received messages<br>file.       |
-| Files\_Saved            | Files received.                                                   |
-| Files\_Saved\_Bytes     | Number of bytes for files received.                               |
-| Files\_Saved\_Failed    | Failures to save files.                                           |
-| Logins                  | Logins (normally this will be 1 for each<br>interval).            |
-| Login\_Failures         | Failures to login (normally this will be 1 for each<br>interval). |
-| S3\_Post\_Errors        | Errors posting message files and files to Amazon S3<br>bucket.    |
-| Watchdog\_Failures      | Watchdog failures.                                                |
-| Watchdog\_Warnings      | Watchdog warnings.                                                |
+| Metric                             | Description                                                                                                                                                            |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Messages\_Rx                       | Messages received.                                                                                                                                                     |
+| Messages\_Rx\_Failed               | Failures to process received messages.                                                                                                                                 |
+| Messages\_Saved                    | Messages saved to the received messages file.                                                                                                                          |
+| Messages\_Saved\_Failed            | Failures to save messages to the received messages<br>file.                                                                                                            |
+| Files\_Saved                       | Files received.                                                                                                                                                        |
+| Files\_Saved\_Bytes                | Number of bytes for files received.                                                                                                                                    |
+| Files\_Saved\_Failed               | Failures to save files.                                                                                                                                                |
+| Logins                             | Logins (normally this will be 1 for each<br>interval).                                                                                                                 |
+| Login\_Failures                    | Failures to login (normally this will be 1 for each<br>interval).                                                                                                      |
+| S3\_Post\_Errors                   | Errors posting message files and files to Amazon S3<br>bucket.                                                                                                         |
+| Watchdog\_Failures                 | Watchdog failures.                                                                                                                                                     |
+| Watchdog\_Warnings                 | Watchdog warnings.                                                                                                                                                     |
+| Files\_Download\_Started           | A file download started and entered an active<br>download slot.                                                                                                        |
+| Files\_Download\_Complete          | A file download completed successfully.                                                                                                                                |
+| Files\_Download\_Retry             | A file download failed and was retried.                                                                                                                                |
+| Files\_Download\_Error             | A file download failed after reaching the maximum<br>number of retries and was not saved.                                                                              |
+| Files\_Download\_Sched\_Failed     | A file download could not be scheduled.                                                                                                                                |
+| Files\_Download\_Stalled           | The inactivity watchdog reclaimed a file download<br>after it exceeded the inactivity timeout.                                                                         |
+| Files\_Download\_Pending\_Enqueued | A file download entered the pending queue<br>because the number of active downloads reached the<br>maximum.                                                            |
+| Active\_Downloads\_Depth           | The number of file downloads currently<br>in progress.                                                                                                                 |
+| Pending\_Downloads\_Depth          | The number of file downloads waiting for an<br>available active download slot.                                                                                         |
+| Deferred\_Downloads\_Depth         | The number of file downloads saved to disk after they<br>failed all retries or were reclaimed by the inactivity<br>watchdog. Restart the bot to retry these downloads. |
 
 Metrics are generated to be consumed by CloudWatch. The namespace used for bots
 is `WickrIO`. Each metric has an array of dimensions. Following
