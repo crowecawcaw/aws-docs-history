@@ -722,7 +722,7 @@ following screenshot.
 The job results show the standard test output and artifacts, but no **Test report** tab. To
 generate a test report, schedule a new run with test insights enabled.
 
-![The job results for a completed Appium Java TestNG job without test insights enabled.](images/aws-device-farm-test-insights/console-instrumentation-insights-disabled-test-report.png)
+![The job results for a completed Appium Java TestNG job without test insights enabled.](/images/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-instrumentation-insights-disabled-test-report.png)
 
 ###### View a test report (AWS CLI)
 
