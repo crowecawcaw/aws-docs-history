@@ -369,12 +369,11 @@ Windows client application. Starting with version 3.1.4, hardware acceleration i
 off by default in the Windows client application.
 
 However, if you need to enable hardware acceleration in version 3.1.4 or later, for
-example if you're experiencing slow performance when using the client, see [Manage hardware acceleration](amazon-workspaces-windows-client.md#windows_hardware_acceleration "amazon-workspaces-windows-client.md#windows_hardware_acceleration").
+example if you're experiencing slow performance when using the client, see [Hardware acceleration](../adminguide/client-management-reference-windows.md#enabling-disabling-hardware-acceleration "../adminguide/client-management-reference-windows.md#enabling-disabling-hardware-acceleration").
 
 If you need to use version 3.1.3 or earlier of the Windows client application, you can
 disable hardware acceleration in Windows. To disable hardware acceleration for version
-3.1.3 or earlier, see [Managing Hardware
-Acceleration](amazon-workspaces-windows-client.md#hardware_acceleration_313 "amazon-workspaces-windows-client.md#hardware_acceleration_313"). Disabling hardware acceleration in Windows might affect the
+3.1.3 or earlier, see [Hardware acceleration](../adminguide/client-management-reference-windows.md#enabling-disabling-hardware-acceleration "../adminguide/client-management-reference-windows.md#enabling-disabling-hardware-acceleration"). Disabling hardware acceleration in Windows might affect the
 performance of other Windows applications.
 
 ## The WorkSpaces client for Windows prompts to update to a version that is already installed

@@ -69,8 +69,8 @@ To see which version of the WorkSpaces client you have, choose **Amazon WorkSpac
 Device or feature support might differ depending on which streaming protocol your WorkSpace
 is using, either PCoIP or DCV. In the 3.0+ versions of the macOS and Windows
 client applications, you can see which protocol your WorkSpace is using by choosing
-**Support**, **About My WorkSpace**. The iPad, Android, and
-Linux client applications currently support only the PCoIP protocol.
+**Support**, **About My WorkSpace**. The iPad and Android client applications currently
+support only the PCoIP protocol. The Linux client application supports both the PCoIP and DCV protocols.
 
 ## Verify networking requirements
 
