@@ -204,8 +204,9 @@ These are some common issues when transforming input in EventBridge pipes:
 
 - For Strings, quotes are required.
 - There is no validation when creating JSON path for your template.
-- If you specify a variable to match a JSON path that doesn't exist in the event, that
-  variable isn't created and won't appear in the output.
+- If you specify a variable to match a JSON path that doesn't exist in the event, EventBridge
+  replaces that variable with an empty string. EventBridge includes the key in the output with an
+  empty-string value instead of omitting it.
 - JSON properties like `aws.pipes.event.json` can only be used as the value of a JSON field, not inline in other strings.
 - EventBridge doesn't escape values extracted by _Input Path_,
   when populating the _Input Template_ for a target.
