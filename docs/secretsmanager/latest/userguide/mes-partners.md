@@ -20,6 +20,7 @@ secret to rotate.
 Topics| Integration Partner | Secret type |
 | --- | --- |
 | BigID | [BigIDClientSecret](mes-partner-BigId.md "mes-partner-BigId.md") |
+| Cisco | [CiscoSecurityPlatformApiKey](mes-partner-CiscoSecurityPlatformApiKey.md "mes-partner-CiscoSecurityPlatformApiKey.md") |
 | Confluent Cloud | [ConfluentCloudApiKey](mes-partner-ConfluentCloudApiKey.md "mes-partner-ConfluentCloudApiKey.md") |
 | Datadog | [DatadogApiKey](mes-partner-DatadogApiKey.md "mes-partner-DatadogApiKey.md") |
 | Datadog | [DatadogApplicationKey](mes-partner-DatadogApplicationKey.md "mes-partner-DatadogApplicationKey.md") |
@@ -28,6 +29,7 @@ Topics| Integration Partner | Secret type |
 | Jenkins | [JenkinsApiToken](mes-partner-JenkinsApiToken.md "mes-partner-JenkinsApiToken.md") |
 | MongoDB Atlas | [MongoDBAtlasServiceAccount](mes-partner-MongoDBAtlasServiceAccount.md "mes-partner-MongoDBAtlasServiceAccount.md") |
 | MongoDB Atlas | [MongoDBAtlasDatabaseUser](mes-partner-MongoDBAtlasDatabaseUser.md "mes-partner-MongoDBAtlasDatabaseUser.md") |
+| Netskope | [NetskopeApiToken](mes-partner-NetskopeApiToken.md "mes-partner-NetskopeApiToken.md") |
 | Paddle | [PaddleApiKey](mes-partner-PaddleApiKey.md "mes-partner-PaddleApiKey.md") |
 | Salesforce | [SalesforceClientSecret](mes-partner-salesforce.md "mes-partner-salesforce.md") |
 | Snowflake | [SnowflakeKeyPairAuthentication](mes-partner-Snowflake.md "mes-partner-Snowflake.md") |
