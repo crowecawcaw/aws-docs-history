@@ -5,6 +5,7 @@ Amazon Bedrock Powered by AWS Mantle provides the following APIs for data retrie
 | Actions                                                                                                                              | Description                                      | Access level |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | ------------ |
 | [CallWithBearerToken](#welcome "#welcome")                                                                                           | Make API calls using bearer token authentication | List         |
+| [CountTokens](../../../bedrock/latest/APIReference.md#welcome "../../../bedrock/latest/APIReference.md#welcome")                     | Count the tokens in an inference request         | Read         |
 | [GetAccountDataRetention](../../../bedrock/latest/APIReference.md#welcome "../../../bedrock/latest/APIReference.md#welcome")         | Retrieve the account-wide data retention setting | Read         |
 | [GetCustomizedModel](../../../bedrock/latest/APIReference.md#welcome "../../../bedrock/latest/APIReference.md#welcome")              | Get customized model                             | Read         |
 | [GetFile](../../../bedrock/latest/APIReference.md#welcome "../../../bedrock/latest/APIReference.md#welcome")                         | Retrieve information about a specific file       | Read         |
