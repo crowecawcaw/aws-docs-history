@@ -565,7 +565,7 @@ The response includes webhook information for integration. You can use this webh
 
 ### 11. (Optional) Create a skill, custom agent, and scheduled trigger
 
-You can give the agent custom knowledge and automate it on a schedule by creating assets and a trigger in the agent space. This example creates a skill, a custom agent, and a time-based trigger that runs the custom agent daily. For more information about managing assets, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+You can give the agent custom knowledge and automate it on a schedule by creating assets and a trigger in the agent space. This example creates a skill, a memory store, a custom agent, and a time-based trigger that runs the custom agent daily. For more information about managing assets, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
 
 Create a skill the agent loads when relevant:
 
@@ -575,6 +575,17 @@ aws devops-agent create-asset \
   --asset-type skill \
   --metadata '{"name":"rds-performance-investigation","description":"Investigation procedures for RDS performance issues.","agent_types":["GENERIC"]}' \
   --content '{"file":{"path":"SKILL.md","body":{"text":"# RDS Performance Investigation\nUse this skill when investigating database latency, connection errors, or query timeouts."}}}' \
+  --region <REGION>
+```
+
+Create a memory store the agent can draw on for operational context:
+
+```
+aws devops-agent create-asset \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --asset-type memory_store \
+  --metadata '{"name":"payments-runbook","description":"Standing guidance and known issues for the payments service.","agent_types":["GENERIC"]}' \
+  --content '{"file":{"path":"README.md","body":{"text":"Operational memories for the payments service."}}}' \
   --region <REGION>
 ```
 

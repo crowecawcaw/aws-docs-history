@@ -21,6 +21,7 @@ The following table describes the quotas for AWS DevOps Agent.
 | Custom agent invocation timeout                       | 1 hour            | No         | The maximum duration for a single custom agent invocation.                                                                                                  |
 | Memory stores per agent space                         | 50                | No         | The maximum number of memory stores that can exist in a single agent space.                                                                                 |
 | Memories per memory store                             | 200               | No         | The maximum number of individual memory files within a single memory store.                                                                                 |
+| Individual memory content size                        | 100 KB            | No         | The maximum size of a single memory file.                                                                                                                   |
 
 ## Requesting a quota increase
 

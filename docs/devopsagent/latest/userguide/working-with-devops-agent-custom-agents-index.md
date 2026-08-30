@@ -1,6 +1,6 @@
 # Custom Agents
 
-Custom agents are user-defined AI agents that automate operational tasks specific to your infrastructure and workflows. Unlike the built-in AWS DevOps Agent capabilities — which focus on incident response, on-demand queries, and proactive prevention — custom agents let you define your own agent with a tailored system prompt, a curated set of tools, and specialized skills.
+Custom agents are user-defined AI agents that automate operational tasks specific to your infrastructure and workflows. Unlike the built-in AWS DevOps Agent capabilities — which focus on incident response, on-demand queries, and proactive prevention — custom agents let you define your own agent with a tailored system prompt, a curated set of tools, specialized skills, and attached memory stores.
 
 Custom agents execute autonomously, using the MCP tools and skills available in your Agent Space. You can run them on demand or on a schedule to perform recurring operational work such as generating reports, auditing configurations, analyzing trends, or executing multi-step workflows across your connected tools.
 
@@ -12,6 +12,8 @@ Custom agents execute autonomously, using the MCP tools and skills available in 
 
 **Skills** – Modular instruction sets that provide additional domain knowledge, investigation procedures, or specialized capabilities to the agent at runtime. Skills can also enable output capabilities such as creating artifacts or recommendations. For more information about skills, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
 
+**Memory stores** – Collections of memory that you attach to give the agent focused, informational context, such as your topology, past root causes, standing directives, or a store you created. A custom agent reads the memory stores you attach to it, and can write to the custom stores among them (managed stores such as `monitors` and `directives` stay read-only), so you give it the knowledge its job needs and leave the rest out. A new custom agent starts with no memory stores attached, so it has no memory access until you attach one. For more information, see [DevOps Agent Memories](about-aws-devops-agent-devops-agent-memories.md "about-aws-devops-agent-devops-agent-memories.md").
+
 **Triggers** – Events or conditions that automatically invoke a custom agent. AWS DevOps Agent currently supports schedule-based triggers, which execute the agent at defined intervals using cron or rate expressions.
 
 **Invocation** – A single run of a custom agent. Each invocation produces a trajectory showing the agent's reasoning steps, tool calls, and outputs.
@@ -20,25 +22,27 @@ Custom agents execute autonomously, using the MCP tools and skills available in 
 
 When a custom agent executes, it:
 
-1. Loads its system prompt, tools, and skills from the configuration you defined.
+1. Loads its system prompt, tools, skills, and attached memory stores from the configuration you defined.
 2. Connects to the Agent Space MCP toolbox and accesses only the tools you assigned to it.
 3. Loads its assigned skill documents, making their instructions and domain knowledge available during invocation.
-4. Reasons through the task, calling tools and following skill instructions to accomplish its objective.
-5. Produces outputs — text responses, artifacts, or recommendations — based on its instructions and assigned skills.
-6. Records a complete invocation trajectory, including all reasoning steps, tool calls, and results.
+4. Reads the memory stores you attached, using their descriptions to open only the memories relevant to the task, and records what it learns back to any attached custom stores.
+5. Reasons through the task, calling tools and following skill instructions to accomplish its objective.
+6. Produces outputs — text responses, artifacts, or recommendations — based on its instructions and assigned skills.
+7. Records a complete invocation trajectory, including all reasoning steps, tool calls, and results.
 
 Custom agents have access to the same tools that power the built-in AWS DevOps Agent capabilities — including tools for your connected AWS accounts, observability platforms, CI/CD pipelines, ticketing systems, and custom MCP servers — but only the specific tools you assign to each agent.
 
 ## Custom agents compared to built-in capabilities
 
-| Capability      | Built-in Agent                                     | Custom Agent                                |
-| --------------- | -------------------------------------------------- | ------------------------------------------- |
-| Purpose         | Incident response, prevention, on-demand queries   | User-defined operational tasks              |
-| Configuration   | Managed by AWS DevOps Agent                        | You define the prompt, tools, and skills    |
-| Invocation      | Automatic (incidents, schedules) or conversational | On demand or through triggers you configure |
-| Tools available | All tools in the Agent Space                       | Only the tools you select                   |
-| Outputs         | Investigations, recommendations, chat responses    | Text responses, artifacts, recommendations  |
-| Concurrency     | Subject to built-in concurrency quotas             | Subject to custom agent concurrency quota   |
+| Capability      | Built-in Agent                                     | Custom Agent                                                     |
+| --------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
+| Purpose         | Incident response, prevention, on-demand queries   | User-defined operational tasks                                   |
+| Configuration   | Managed by AWS DevOps Agent                        | You define the prompt, tools, skills, and attached memory stores |
+| Invocation      | Automatic (incidents, schedules) or conversational | On demand or through triggers you configure                      |
+| Tools available | All tools in the Agent Space                       | Only the tools you select                                        |
+| Memory          | All memory stores in the Agent Space               | Only the memory stores you attach                                |
+| Outputs         | Investigations, recommendations, chat responses    | Text responses, artifacts, recommendations                       |
+| Concurrency     | Subject to built-in concurrency quotas             | Subject to custom agent concurrency quota                        |
 
 ## What custom agents can do
 
@@ -60,7 +64,7 @@ Dynamic subagent delegation lets your custom agents complete detailed analyses, 
 
 ## Next steps
 
-- [Creating a custom agent](custom-agents-creating-a-custom-agent.md "custom-agents-creating-a-custom-agent.md") – Define your first custom agent with a system prompt, tools, and skills.
+- [Creating a custom agent](custom-agents-creating-a-custom-agent.md "custom-agents-creating-a-custom-agent.md") – Define your first custom agent with a system prompt, tools, skills, and memory stores.
 - [Executing custom agents](custom-agents-executing-custom-agents.md "custom-agents-executing-custom-agents.md") – Run agents on demand or set up scheduled triggers, in the console or with the AWS SDK and AWS CloudFormation.
 - [Managing custom agents](custom-agents-managing-custom-agents.md "custom-agents-managing-custom-agents.md") – Edit, disable, or delete custom agents and view invocation history.
 - [Custom agent outputs](custom-agents-custom-agent-outputs.md "custom-agents-custom-agent-outputs.md") – Configure agents to produce artifacts and recommendations.

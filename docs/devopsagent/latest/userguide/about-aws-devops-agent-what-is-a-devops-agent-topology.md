@@ -27,9 +27,9 @@ The topology visualization in the Topology page in the Operator Web App offers m
 
 ### Learned
 
-Learned view is generated from the Agent Space understanding and pipeline skill and display structured summaries of your infrastructure. The following learned views are available:
+Learned views are built from the Agent Space Understanding and pipeline topology memory, and display structured summaries of your infrastructure. The following learned views are available:
 
-- **Topology** – The default view, generated from the Agent Space Understanding skill. Displays a structured summary of your infrastructure organized by logical services and request paths.
+- **Topology** – The default view, built from the Agent Space Understanding memory. Displays a structured summary of your infrastructure organized by logical services and request paths.
 - **Pipeline** – Displays your CI/CD pipeline topology, showing deployment stages, actions, and their relationships to infrastructure resources. This view is only available when pipeline topology has been generated for your agent space.
 
 ### Others
@@ -40,6 +40,16 @@ This view shows your infrastructure at different levels of granularity based on 
 - **Container** – Displays deployment stacks like CloudFormation stacks that contain related resources.
 - **Components** – Shows individual components within containers and their relationships.
 - **All Resources** – Shows the complete view with all discovered resources and their relationships.
+
+## Exporting the topology
+
+You can export the current topology view from the Topology page in the Operator Web App using the **Download** menu. Three formats are available:
+
+- **PNG** – A raster image of the topology graph as currently displayed, useful for sharing in documents, tickets, or presentations.
+- **JSON** – A structured representation of the topology's resources and relationships that you can process programmatically or archive.
+- **Mermaid** – The topology expressed as [Mermaid](https://mermaid.js.org/ "https://mermaid.js.org/") diagram source on the Mermaid website. You can embed it in Markdown-based documentation or render it in any tool that supports Mermaid.
+
+The export reflects the view currently selected in the **Show** menu, so you can download any of the available views, such as System, Container, or Components.
 
 ## Resource discovery
 
@@ -54,6 +64,6 @@ While the application topology provides important context during investigations,
 
 To limit the resources the agent has access to, restrict the policy for the role assigned to the agent to access cross-account resources. For more information, see [Limiting Agent Access in an AWS Account](aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md "aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md").
 
-## Topology and the Agent Space Understanding skill
+## Topology and the Agent Space Understanding memory
 
-The topology graph feeds into the Agent Space Understanding learned skill, which encodes a structured summary of your infrastructure for use during investigations. When topology discovery completes for a new agent space, the system automatically generates the Agent Space Understanding skill. For more information about learned skills, see [Learned Skills](about-aws-devops-agent-learned-skills.md "about-aws-devops-agent-learned-skills.md").
+The topology graph feeds the Agent Space Understanding memory, which holds a structured summary of your infrastructure for use during investigations. When topology discovery completes for a new Agent Space, AWS DevOps Agent automatically generates the Agent Space Understanding memory. For more information, see [DevOps Agent Memories](about-aws-devops-agent-devops-agent-memories.md "about-aws-devops-agent-devops-agent-memories.md").

@@ -41,7 +41,7 @@ AWS DevOps Agent continuously learns your environment, building deep understandi
 - **Application resource mapping** – Automatically discovers applications, their component services, and the resources that compose them. Maps these relationships into a dynamic, continuously updated topology.
 - **Continuous learning** – Release reviews get more relevant, investigations get faster, and recommendations more precise as the agent learns your environment over time.
 - **Extend capabilities with agent skills** – Add reusable, modular skills that encode your runbooks, architectural standards, and operational practices so the agent executes tasks consistently and reliably.
-- **Built-in and custom integrations** – Works with Amazon CloudWatch, Datadog, Dynatrace, New Relic, Splunk, Grafana, GitHub, GitLab, Azure DevOps, ServiceNow, PagerDuty, Slack, and Microsoft Teams. Connect to private or remote MCP servers to extend further into proprietary systems.
+- **Built-in and custom integrations** – Works with Amazon CloudWatch, Datadog, Dynatrace, New Relic, Splunk, Grafana, GitHub, GitLab, Azure DevOps, ServiceNow, PagerDuty, and Slack. Connect to private or remote MCP servers to extend further into proprietary systems.
 - **Access from anywhere** – Operates as a remote server so other applications or agents can invoke release readiness checks, trigger investigations, or query operational health. Supports MCP, ACP, and A2A protocols.
 
 ## How AWS DevOps Agent works

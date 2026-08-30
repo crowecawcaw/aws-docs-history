@@ -20,9 +20,31 @@ Once you choose "Start Investigation" you'll be asked to provide some additional
 
 Review and adjust these fields as needed, then choose "Start investigating..." to begin. You will then be taken to the investigation details page where you can see your DevOps Agent in action!
 
+### Viewing the investigation summary
+
+The **Summary** tab provides a concise, live view of an investigation. It updates as AWS DevOps Agent collects evidence and refines its analysis.
+
+Depending on the investigation and the available evidence, the summary can include:
+
+- The incident status, severity, and observed impact
+- The current cause hypothesis or confirmed root cause
+- The current investigation focus and next steps
+- Key metrics and an incident timeline
+- Investigation tasks and their status
+- Proposed or completed mitigation actions
+- Expandable findings and supporting evidence, including links to relevant resources
+
+Choose the **Timeline** tab to review the full chronological record of the agent's investigation steps and tool activity.
+
 ### Viewing authentication steps
 
 When AWS DevOps Agent authenticates to a downstream system during an investigation, you can see that step directly in the investigation timeline. For each authentication step, you can see its success or error status. If authentication fails, you can see the failure message and the underlying browser steps the agent took. This replaces a silent gap with actionable detail.
+
+### Viewing sub-agent execution timelines
+
+To investigate faster, AWS DevOps Agent can delegate parts of an investigation to parallel sub-agents. For example, it can gather CPU metrics for different compute services at the same time. Each sub-agent appears in the investigation timeline as its own entry, labeled with a name, the number of tool calls it made, and how long it ran, such as `ec2-cpu-metrics · 5 tool calls · 50s`.
+
+You can expand any sub-agent entry to see its complete nested timeline, including the context and task it was given, its individual reasoning steps with timing, the tool calls it made, and its own findings. You can trace exactly how each part of a parallel investigation reached its conclusions. Collapse the entry again to keep the overall timeline readable.
 
 ## Incident triage
 
@@ -149,7 +171,7 @@ All data shared with AWS Support follows your existing AWS data residency and se
 To use AWS DevOps Agent's AWS Support integration:
 
 1. Ensure you have an active AWS Support plan.
-2. Verify your AWS DevOps Agent’s IAM permissions include support case creation (support:CreateCase, support:DescribeCases).
+2. Verify that the IAM permissions for AWS DevOps Agent include support case creation (`support:CreateCase`, `support:DescribeCases`).
 3. When AWS DevOps Agent is investigating an issue and you need AWS Support assistance, choose **Ask for human support** from your DevOps Agent Space web app.
 4. Review the investigation summary that will be shared with AWS Support.
 5. Select the appropriate case severity based on your support plan entitlements.

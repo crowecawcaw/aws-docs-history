@@ -2,7 +2,9 @@
 
 AWS DevOps Agent uses service-specific AWS Identity and Access Management (IAM) actions to control access to its features and capabilities. These actions determine what users can do within the AWS DevOps Agent console and Operator Web App. This is separate from the AWS service API permissions that the agent itself uses to investigate your resources.
 
-For more information about limiting agent access, see [Limiting Agent Access in an AWS Account.](aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md "aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md")
+For more information about limiting agent access, see [Limiting Agent Access in an AWS Account](aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md "aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md").
+
+To let the agent perform directed actions in your AWS accounts, register an elevated IAM role on the account association. For example, you might use an elevated role to remediate an issue after operator approval. For more information about directed actions and registering an elevated IAM role, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md "working-with-devops-agent-working-with-directed-actions.md").
 
 ## Agent Space management actions
 
@@ -16,7 +18,7 @@ These actions control access to Agent Space configuration and management:
 
 These actions control access to incident investigation features:
 
-- **aidevops:ListExecutions** – Allows users to view execution metadata—including ID, status, and more—for investigations, mitigations, evaluations, and chat conversations associated with a task.
+- **aidevops:ListExecutions** – Allows you to view execution metadata, including ID, status, and more, for investigations, mitigations, evaluations, and chat conversations associated with a task.
 - **aidevops:ListJournalRecords** – Allows users to access detailed logs that show the agent's reasoning steps, actions taken, and data sources consulted during an investigation, mitigation, evaluation, and chat conversation. This is useful for understanding how the agent reached its conclusions.
 
 ## Chat management actions

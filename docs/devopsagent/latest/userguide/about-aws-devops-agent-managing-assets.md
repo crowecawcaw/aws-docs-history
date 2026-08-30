@@ -174,7 +174,7 @@ An `attachment` asset stores a binary or text file that the agent can reference 
 
 ### custom\_agent
 
-A `custom_agent` asset defines a specialized agent configuration with a curated set of tools and skills. Use a custom agent to scope the agent to a specific workflow or set of capabilities.
+A `custom_agent` asset defines a specialized agent configuration with a curated set of tools, skills, and attached memory stores. Use a custom agent to scope the agent to a specific workflow or set of capabilities.
 
 **Required `metadata` properties:**
 
@@ -184,6 +184,7 @@ A `custom_agent` asset defines a specialized agent configuration with a curated 
 
 - **tools** (array of strings) – The tool identifiers the custom agent is allowed to use. Defaults to an empty list when omitted.
 - **skills** (array of strings) – The skill identifiers the custom agent loads. Defaults to an empty list when omitted.
+- **memory\_stores** (array of strings) – The identifiers of the memory stores the custom agent can read and write. Defaults to an empty list when omitted. A custom agent accesses only the stores listed here.
 
 **Example `metadata`:**
 
@@ -191,7 +192,8 @@ A `custom_agent` asset defines a specialized agent configuration with a curated 
 {
   "name": "rds-firefighter",
   "tools": ["cloudwatch:GetMetricData", "rds:DescribeDBInstances"],
-  "skills": ["rds-performance-investigation"]
+  "skills": ["rds-performance-investigation"],
+  "memory_stores": ["incident-runbooks"]
 }
 ```
 
@@ -205,10 +207,7 @@ Create memories in two steps. First, create the `memory_store`. Then, create eac
 
 - **name** (string) – A unique identifier for the memory store. Lowercase letters, numbers, and hyphens only, 1–128 characters. Must not start or end with a hyphen.
 - **description** (string) – A 1–1024 character description of what the store holds. The agent uses it to decide whether to open the store.
-
-**Optional `metadata` properties:**
-
-- **agent\_types** (array of strings) – The lead agent types that can see the store. Use `["GENERIC"]` to make the store visible to all agent types.
+- **agent\_types** (array of strings) – One or more agent types that can see the store. Use `["GENERIC"]` to make the store visible to all agent types. A `CreateAsset` request without a non-empty `agent_types` fails.
 
 **Example `metadata`:**
 
@@ -229,10 +228,6 @@ A `memory` asset is an individual memory file that belongs to a memory store. Th
 - **name** (string) – An identifier for the memory, written as a `/`-separated path of lowercase kebab-case segments, 1–255 characters (for example, `databases/rds-failover`).
 - **description** (string) – A 1–1024 character description of what the memory contains.
 - **memory\_store\_id** (string) – The asset ID of the memory store this memory belongs to.
-
-**Optional `metadata` properties:**
-
-- **expires\_at** (number) – A retention deadline, in epoch seconds. When set, the service deletes the memory automatically after the deadline passes (typically within 48 hours). Omit this property to keep the memory until you delete it.
 
 **Example `metadata`:**
 
@@ -806,11 +801,27 @@ To create the skill deactivated, or to deactivate it later, set `status` in `Met
 
 ### Create a custom agent
 
-A custom agent is the same resource with a different `AssetType`, `Metadata`, and content. The following resource creates a `custom_agent` asset that curates a set of tools and skills. The `skills` list references skills by their `name` metadata, so you can reference the skill you created earlier.
+A custom agent is the same resource with a different `AssetType`, `Metadata`, and content. The following template creates an `incident-runbooks` memory store, then a `custom_agent` asset that curates a set of tools, skills, and attached memory stores. The `skills` and `memory_stores` lists reference assets by their `name` metadata—here, the `rds-performance-investigation` skill you created earlier and the `incident-runbooks` store defined alongside the agent. Because those references are by name, use `DependsOn` so the store is created before the agent that attaches it.
 
 ```
+  IncidentRunbooksStore:
+    Type: AWS::DevOpsAgent::Asset
+    Properties:
+      AgentSpaceId: !Ref AgentSpaceId
+      AssetType: memory_store
+      Metadata:
+        name: incident-runbooks
+        description: Standing runbooks and known issues for incident response.
+        agent_types:
+          - GENERIC
+      Files:
+        - Path: README.md
+          ContentText: |
+            Operational memories for incident response.
+
   RdsFirefighter:
     Type: AWS::DevOpsAgent::Asset
+    DependsOn: IncidentRunbooksStore
     Properties:
       AgentSpaceId: !Ref AgentSpaceId
       AssetType: custom_agent
@@ -821,6 +832,8 @@ A custom agent is the same resource with a different `AssetType`, `Metadata`, an
           - rds:DescribeDBInstances
         skills:
           - rds-performance-investigation
+        memory_stores:
+          - incident-runbooks
       Files:
         - Path: AGENT.md
           ContentText: |
@@ -862,7 +875,24 @@ The `AgentSpaceId`, `Type`, `Condition`, and `Action` properties are create-only
 
 The skill walkthrough above applies to every other asset type. The only difference is the `metadata` block and, for attachments, the choice of binary content. The minimal `CreateAsset` calls below illustrate each type.
 
-Memory stores and memories use the same `CreateAsset` operation. Create the store first, then the memory. For more information about their metadata, see [memory\_store](#memory_store "#memory_store") and [memory](#memory "#memory").
+Memory stores and memories use the same `CreateAsset` operation—create the store first, then a memory in it. For the metadata each accepts, see [memory\_store](#memory_store "#memory_store") and [memory](#memory "#memory") ; for a memory-store example with the AWS CLI, see the [AWS DevOps Agent CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md"). The following creates a memory in an existing store, using the store's `assetId` as `memory_store_id`:
+
+```
+aws devops-agent create-asset \
+  --agent-space-id 8f6187a7-0388-4926-8217-3a0fe32f757c \
+  --asset-type memory \
+  --metadata '{
+    "name": "alarms/checkout-latency",
+    "description": "The checkout latency alarm is expected to spike during nightly batch jobs.",
+    "memory_store_id": "<MEMORY_STORE_ASSET_ID>"
+  }' \
+  --content '{
+    "file": {
+      "path": "checkout-latency.md",
+      "body": { "text": "# Checkout latency\n\nExpected to spike during nightly batch jobs." }
+    }
+  }'
+```
 
 **Create an AGENTS.md:**
 

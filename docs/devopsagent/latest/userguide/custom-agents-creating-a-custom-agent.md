@@ -6,7 +6,7 @@ Before creating a custom agent, you must have an Agent Space with at least one c
 
 ## Creating a custom agent using the form
 
-The form lets you quickly create a custom agent by specifying a name, system prompt, and optional skills. To assign MCP tools to the agent, use Chat after creating the agent.
+The form lets you quickly create a custom agent by specifying a name, system prompt, and optional skills and memory stores. To assign MCP tools to the agent, use Chat after creating the agent.
 
 **To create a custom agent using the form:**
 
@@ -18,6 +18,7 @@ The form lets you quickly create a custom agent by specifying a name, system pro
    - **Name** – A unique identifier for your agent. Use lowercase letters, numbers, and hyphens only (maximum 64 characters). Must not start or end with a hyphen. Example: `weekly-health-report`
    - **System prompt** – Instructions that define what the agent does and how it operates, written in Markdown (minimum 10 characters, maximum 50,000 characters). For guidance on writing effective prompts, see [Writing a system prompt](#writing-a-system-prompt "#writing-a-system-prompt").
    - **Skills** (optional) – Select skills from your Agent Space that provide additional domain knowledge or capabilities to the agent. Use the search field to find skills by name.
+   - **Memory stores** (optional) – Select the memory stores the agent can access. Use the search field to find stores by name. The agent reads the stores you attach and can write to attached custom stores; managed stores are read-only.
 
 5. Choose **Create agent**.
 
@@ -36,7 +37,7 @@ Chat provides a guided, conversational experience for creating custom agents. Th
 
    - **Intent clarification** – Confirms the purpose and scope of your agent.
    - **Duplicate check** – Verifies no similar agent already exists in your Agent Space.
-   - **Tool and skill selection** – Proposes which MCP tools and skills the agent needs, and asks you to confirm.
+   - **Tool, skill, and memory selection** – Proposes which MCP tools, skills, and memory stores the agent needs, and asks you to confirm.
    - **Output type** – Determines whether the agent should produce text responses, artifacts, or recommendations.
    - **System prompt draft** – Writes a system prompt and presents it for your review. You can iterate until you are satisfied.
    - **Confirmation** – Suggests a name and confirms all settings before creating the agent.
@@ -188,3 +189,29 @@ You can assign skills during creation (using either the form or Chat) or add the
 Custom agents also have built-in capabilities for creating artifacts and recommendations that do not require skill assignment. For more information, see [Custom agent outputs](custom-agents-custom-agent-outputs.md "custom-agents-custom-agent-outputs.md").
 
 You can assign up to 200 skills per custom agent. Choose skills that are relevant to the agent's purpose to reduce context consumption and improve agent focus.
+
+## Configuring memory stores
+
+Memory stores give a custom agent focused, informational context, such as your topology, the recurring root causes for your monitors, your standing directives, or a store you created for a specific team or service. A custom agent reads the stores you attach to it, and can write to attached custom stores (managed stores are read-only).
+
+You can attach memory stores when you create an agent, using either the form or Chat, and change them later by editing the agent. To attach or remove stores in Chat, ask the agent. For example:
+
+```
+Attach the monitors and payments-runbook memory stores to my incident-triage agent.
+```
+
+```
+Give cost-auditor access to the billing-notes memory store.
+```
+
+```
+Attach the weekly-report-context store to my weekly-report agent so it follows our reporting standards.
+```
+
+```
+Remove the directives store from cluster-audit-agent.
+```
+
+Attach only the stores that are relevant to the agent's purpose. As with tools, a focused set follows the principle of least privilege and keeps the agent's decisions consistent.
+
+For more information about memory, see [DevOps Agent Memories](about-aws-devops-agent-devops-agent-memories.md "about-aws-devops-agent-devops-agent-memories.md"). For attachment limits, see [Quotas](quotas.md "quotas.md").

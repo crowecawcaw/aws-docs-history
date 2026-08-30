@@ -85,16 +85,16 @@ A private connection reaching **Active** confirms that the network path to your 
 
 **Symptom**
 
-You registered an OAuth-based MCP server capability provider (Client Credentials or 3LO) through a private connection, but token exchange fails even though the MCP server endpoint is reachable.
+You registered an OAuth-based MCP server (Client Credentials or 3LO) or a remote agent that uses OAuth Client Credentials through a private connection, but token exchange fails even though the MCP server or remote agent endpoint is reachable.
 
 **Cause**
 
-For OAuth-based capability providers, AWS DevOps Agent calls two endpoints: the **target URL** (the MCP server endpoint) and the **exchange URL** (the OAuth token exchange endpoint). When you select a single private connection, it applies to _both_ endpoints. If the two endpoints are reachable only through different network paths, a single private connection can't route to both.
+For OAuth-based capability providers, AWS DevOps Agent calls two endpoints: the **target URL** (the MCP server or remote agent endpoint) and the **exchange URL** (the OAuth token exchange endpoint). When you select a single private connection, it applies to _both_ endpoints. If the two endpoints are reachable only through different network paths, a single private connection can't route to both.
 
 **Resolution**
 
-- If both endpoints are reachable through the same path, ensure the private connection's host address can route to both the MCP server endpoint and the token exchange endpoint.
-- If the endpoints require different network paths, use the per-endpoint fields instead of a single `privateConnectionName`. Set `targetUrlPrivateConnectionName` for the MCP server endpoint and `exchangeUrlPrivateConnectionName` for the token exchange endpoint. If you set only one, the other endpoint is reached over the public internet, and it does not fall back to the other private connection. You can't combine the per-endpoint names with `privateConnectionName` in the same request. See [Routing the endpoint and the OAuth token exchange through different private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
+- If both endpoints are reachable through the same path, ensure the private connection's host address can route to both the MCP server or remote agent endpoint and the token exchange endpoint.
+- If the endpoints require different network paths, use the per-endpoint fields instead of a single `privateConnectionName`. Set `targetUrlPrivateConnectionName` for the MCP server or remote agent endpoint and `exchangeUrlPrivateConnectionName` for the token exchange endpoint. If you set only one, the other endpoint is reached over the public internet, and it does not fall back to the other private connection. You can't combine the per-endpoint names with `privateConnectionName` in the same request. See [Routing the endpoint and the OAuth token exchange through different private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
 
 ## Resource gateway or ENIs remain after you delete a connection
 

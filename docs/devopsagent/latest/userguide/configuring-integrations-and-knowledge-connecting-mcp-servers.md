@@ -152,6 +152,8 @@ After registering an MCP server at the account level, you can configure which to
 
 AWS DevOps Agent will now be able to use the allowlisted tools from your MCP server during investigations in this Agent Space.
 
+To control whether the agent can invoke an MCP tool as a read-only or mutating action, you classify each tool. Tools you register programmatically without supplying `toolDetails` default to read-only, and the agent runs them without requesting approval. For more information about classifying MCP tools as read-only or mutating, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md "working-with-devops-agent-working-with-directed-actions.md").
+
 ## Managing MCP server connections
 
 **Updating authentication credentials** – You can update the authentication credentials of a registered MCP server without deregistering it. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, select your MCP server, and choose **Update** from the **Actions** menu. Your Agent Space associations are preserved. What you can update depends on the authentication method:
@@ -220,7 +222,7 @@ Cross-account access without a dedicated role works as follows:
 
 1. **Register the MCP server without a role** – On the SigV4 authorization configuration step, choose **Register without a dedicated role**. AWS DevOps Agent registers the server but does not validate the connection yet, because there is no role to sign a validation request with.
 2. **Associate the MCP server with an Agent Space** – When you add the MCP server to an Agent Space, AWS DevOps Agent validates it using the **primary AWS account (monitor) role**. It assumes that role and calls `listTools` to confirm the server is reachable and the configuration is valid. The Agent Space must have a primary AWS account associated with it. That account's role must be able to invoke your MCP server.
-3. **During investigations** – When the agent uses the MCP server while operating on a specific account, it signs requests with that account's role — the **primary account role** for the primary account, and the corresponding **secondary account role** for each secondary account. Each primary or secondary account role that the agent will use with this MCP server must be able to invoke it.
+3. **During investigations** – When the agent uses the MCP server while operating on a specific account, it signs requests with that account's role, the **primary account role** for the primary account, and the corresponding **secondary account role** for each secondary account. Each primary or secondary account role that the agent will use with this MCP server must be able to invoke it.
 
 ### Requirements
 

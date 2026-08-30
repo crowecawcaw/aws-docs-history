@@ -221,8 +221,12 @@ When creating an access token, you can optionally specify an IP allowlist. When 
 
 ### Token rotation and revocation
 
-- **Rotation** – Rotate a token to generate a new token value while preserving the token's name, scopes, and IP allowlist. The old token is immediately invalidated. Update your client configuration with the new token value.
+- **Rotation** – Rotate a token to generate a new token value while preserving the token's name, scopes, and IP allowlist. The old token is immediately invalidated. Update your client configuration with the new token value. Rotation also starts a fresh chat history—see the following section.
 - **Revocation** – If a token is compromised, revoke it immediately. Revoked tokens cannot be used and cannot be restored.
+
+#### Chat history and token rotation
+
+Each token has its own chat history. When you rotate a token, AWS DevOps Agent treats the new token value as a new identity. Chats that you created with the previous token no longer appear through the remote server.
 
 #### Responding to a compromised token
 
