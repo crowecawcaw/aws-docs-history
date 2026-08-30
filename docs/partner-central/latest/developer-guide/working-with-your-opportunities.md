@@ -1,6 +1,6 @@
 The AWS Partner Central API Reference was restructured. For more information about the supported API operations, see the [AWS Partner Central API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-# Working with your opportunities
+# Working with opportunities in the AWS Partner Central API
 
 ## What is an Opportunity?
 

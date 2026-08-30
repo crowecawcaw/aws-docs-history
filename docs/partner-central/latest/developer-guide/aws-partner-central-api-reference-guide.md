@@ -106,7 +106,7 @@ opportunity forward. The invitation can be accepted or rejected by the partner.
 
 ###### Topics
 
-- [Working with your opportunities](working-with-your-opportunities.md "working-with-your-opportunities.md")
+- [Working with opportunities in the AWS Partner Central API](working-with-your-opportunities.md "working-with-your-opportunities.md")
 - [Working with opportunities from AWS](working-with-opportunities-from-aws.md "working-with-opportunities-from-aws.md")
 - [Working with opportunity updates](working-with-opportunity-updates.md "working-with-opportunity-updates.md")
 - [Working with multipartner opportunities](working-with-multi-partner-opportunities.md "working-with-multi-partner-opportunities.md")
