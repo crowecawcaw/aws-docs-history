@@ -8,7 +8,7 @@ directly to validate the Cloud Connector before any State Manager association
 exists.
 
 **Role name pattern:**
-`SSM-AzureRole-`connector-name`-`id8``
+`SSM-AzureRole-`connector-name``
 
 The trust policy includes two statements:
 

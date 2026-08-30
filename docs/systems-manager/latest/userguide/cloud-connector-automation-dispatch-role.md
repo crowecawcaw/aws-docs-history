@@ -8,7 +8,7 @@ Azure virtual machines match a Cloud Connector's targets when an association
 runs.
 
 **Role name pattern:**
-`SSM-AzureDispatchRole-`connector-name`-`id8``
+`SSM-AzureDispatchRole-`connector-name``
 
 The trust policy lets the Systems Manager service principal assume the role, scoped to
 your AWS account. Replace `123456789012` with your AWS account
@@ -38,9 +38,9 @@ The permissions policy grants the actions State Manager needs to dispatch
 Automation executions to a Cloud Connector's targets. Replace
 `123456789012` with your AWS account ID,
 `us-east-1` with the AWS Region that the Cloud Connector is
-created in, `SSM-AzureAssumeRole-MyConnector-a1b2c3d4` with the
+created in, `SSM-AzureAssumeRole-MyConnector` with the
 name of the automation assume role,
-`SSM-AzureRole-MyConnector-a1b2c3d4` with the name of the Azure
+`SSM-AzureRole-MyConnector` with the name of the Azure
 federation role, and `connector-id` with the ID of the Cloud
 Connector.
 
@@ -80,7 +80,7 @@ This policy includes the following permissions.
         {
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::123456789012:role/service-role/SSM-AzureAssumeRole-MyConnector-a1b2c3d4",
+            "Resource": "arn:aws:iam::123456789012:role/service-role/SSM-AzureAssumeRole-MyConnector",
             "Condition": {
                 "StringEquals": {
                     "iam:PassedToService": "ssm.amazonaws.com"
@@ -111,7 +111,7 @@ This policy includes the following permissions.
         {
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "arn:aws:iam::123456789012:role/service-role/SSM-AzureRole-MyConnector-a1b2c3d4"
+            "Resource": "arn:aws:iam::123456789012:role/service-role/SSM-AzureRole-MyConnector"
         },
         {
             "Effect": "Allow",

@@ -7,7 +7,7 @@ service role to Systems Manager and assume the Azure federation role to obtain A
 credentials.
 
 **Role name pattern:**
-`SSM-AzureAssumeRole-`connector-name`-`id8``
+`SSM-AzureAssumeRole-`connector-name``
 
 The trust policy lets the Systems Manager service principal assume the role, scoped
 to your AWS account. Replace `123456789012` with your
@@ -36,7 +36,7 @@ AWS account ID.
 The permissions policy grants the actions Automation needs to execute the
 onboarding runbooks. Replace `123456789012` with your
 AWS account ID, `us-east-1` with the AWS Region that the Cloud
-Connector is created in, `SSM-AzureRole-MyConnector-a1b2c3d4`
+Connector is created in, `SSM-AzureRole-MyConnector`
 with the name of the Azure federation role,
 `AmazonEC2RunCommandRoleForManagedInstances` with the name of
 the managed instance role attached to the Cloud Connector, and
@@ -73,7 +73,7 @@ This policy includes the following permissions.
         {
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "arn:aws:iam::123456789012:role/service-role/SSM-AzureRole-MyConnector-a1b2c3d4"
+            "Resource": "arn:aws:iam::123456789012:role/service-role/SSM-AzureRole-MyConnector"
         },
         {
             "Effect": "Allow",

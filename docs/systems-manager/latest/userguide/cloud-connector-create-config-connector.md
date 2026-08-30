@@ -14,8 +14,10 @@ step.
 
 1. Create the AWS Config connector. Replace
    `TENANT_ID` with your Azure tenant ID and
-   `CLIENT_ID` with the application (client)
-   ID of the Azure AD app you created for AWS Config.
+   `CLIENT_ID` with the **Config
+   Application (Client) ID** — the application (client) ID of the
+   AWS Config Azure AD app that you noted in the Azure prerequisites (Step
+   6).
 
 ```
 aws configservice put-connector \

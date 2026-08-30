@@ -65,3 +65,14 @@ nodes in the same account and Region as the requester.
 Yes, just-in-time node access supports requesting access to and starting sessions
 on nodes registered with a hybrid activation. The node must be registered in the
 same account and Region as the requester.
+
+## Why am I seeing a blank page when trying to connect using just-in-time node access on Session Manager?
+
+A blank screen can have more than one cause. If you access the Systems Manager console
+through an interface Amazon VPC endpoint with private DNS enabled, your browser might
+apply its Local Network Access policy. This policy can block the request. The
+request is also missing from your AWS CloudTrail event history, because your browser stops
+it before it reaches AWS. For details and workarounds, see [Allowing local network access in your browser](systems-manager-just-in-time-node-access-start-session.md#just-in-time-node-access-local-network-access "systems-manager-just-in-time-node-access-start-session.md#just-in-time-node-access-local-network-access").
+
+Otherwise, verify that an approval policy applies to the node and that you have
+the permissions required to create access requests. For more information, see [What happens if there isn't an approval policy that applies to a node?](#no-policy-error "#no-policy-error") and [Setting up just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md").

@@ -67,3 +67,49 @@ export AWS_SESSION_TOKEN=`AQoDYXdzEJr...<remainder of session token>`
 aws ssm start-session \
     --target i-02573cafcfEXAMPLE
 ```
+
+## Allowing local network access in your browser
+
+If you access the Systems Manager console through an interface Amazon VPC endpoint with private
+DNS enabled, your browser might block the access request screen. When private DNS is
+enabled, the Systems Manager endpoint for your AWS Region
+resolves to a private IP address in your VPC. Because the console is served from a
+public address, browsers treat requests to that private IP address as local network
+requests. Browsers block these requests unless you grant the console permission to
+make them. This behavior is known as _Local Network Access_
+(LNA), and was previously called _Private Network Access_
+(PNA).
+
+When your browser blocks these requests, you see the following behavior:
+
+- You choose **Connect**, but the access request screen
+  doesn't open and the connection doesn't succeed.
+- The blocked requests don't appear in your AWS CloudTrail event history, because
+  your browser stops them before they reach AWS.
+
+We recommend granting permission for the console address only, instead of turning
+off local network protections for all websites. To allow just-in-time node access
+requests in this configuration, use one of the following methods:
+
+- For Chromium-based browsers, such as Google Chrome and
+  Microsoft Edge, add the console address to the browser's
+  list of sites allowed to access the local network. In managed environments,
+  your administrator can configure this using the browser's enterprise
+  policies, such as the Microsoft Edge
+  `LocalNetworkAccessAllowedForUrls` policy. If your browser
+  prompts you to allow local network access when you choose
+  **Connect**, choose to allow the request.
+- For Mozilla Firefox, allow local network access for the
+  console address.
+
+For more information about configuring these permissions, see your browser's
+documentation. As an alternative, you can access the console from a network path
+where the Systems Manager endpoint resolves to a public IP address.
+
+###### Important
+
+Some browsers provide a setting that turns off local network protections for
+all websites. Because this setting reduces protection for your local network, we
+don't recommend it. If you use it to test this behavior, review the change
+against your organization's security requirements and revert it when you're
+finished.

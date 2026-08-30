@@ -21,7 +21,7 @@ first attempts throttling retries within the specified time limit, then applies 
 2. In the navigation pane, choose **Automation**.
 3. Choose the **Preferences** tab, and then choose
    **Edit**.
-4. In the **Throttling retry time limit** field, enter a
+4. In the **Throttled retry time limit** field, enter a
    value between 0 and 3600 seconds. This specifies the maximum time that the
    system retries a step that is throttled.
 5. Choose **Save**.

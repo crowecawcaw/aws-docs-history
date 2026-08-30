@@ -9,11 +9,11 @@ lets Systems Manager run Automation runbooks against your Azure virtual machines
 long-lived secrets.
 
 Each role name uses the pattern
-`SSM-Azure`Type`-`connector-name`-`id8``,
+`SSM-Azure`Type`-`connector-name``,
 where `connector-name` is the display name you provided
 (sanitized to alphanumeric characters, dashes, and underscores, then truncated
-to fit IAM's 64-character role-name limit) and `id8`
-is the first eight characters of a UUID. The roles are created in the
+to fit IAM's 64-character role-name limit). The AWS Management Console appends a unique
+suffix to each role name to keep it unique. The roles are created in the
 `/service-role/` IAM path.
 
 The console creates the roles in this order:
