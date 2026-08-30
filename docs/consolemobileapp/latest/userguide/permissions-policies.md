@@ -68,7 +68,7 @@ This policy allows a specific resource access to `GetDeviceIdentity`.
                 "consoleapp:GetDeviceIdentity"
             ],
             "Resource": [
-                "consoleapp::123456789012:device/2FQVtmveB13WEXAMPL3D3V1D/identity/AIDACKCEVSQ6C2EXAMPLE"
+                "arn:aws:consoleapp::123456789012:device/2FQVtmveB13WEXAMPL3D3V1D/identity/AIDACKCEVSQ6C2EXAMPLE"
             ]
         }
     ]
@@ -89,7 +89,7 @@ This policy denies a specific resource access to `GetDeviceIdentity`.
                 "consoleapp:GetDeviceIdentity"
             ],
             "Resource": [
-                "consoleapp::123456789012:device/2FQVtmveB13WEXAMPL3D3V1D/identity/AIDACKCEVSQ6C2EXAMPLE"
+                "arn:aws:consoleapp::123456789012:device/2FQVtmveB13WEXAMPL3D3V1D/identity/AIDACKCEVSQ6C2EXAMPLE"
             ]
         }
     ]
