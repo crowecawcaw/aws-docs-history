@@ -13,7 +13,7 @@ The **Create environment** wizard has been redesigned to provide an intuitive fl
 high level and easily identify which ones are optional. After you complete all of the desired and required information, all of your choices are summarized
 in a final review panel.
 
-![Configure environment panel. Linkable steps on left side of panel. Marked optional if applicable.](/images/elasticbeanstalk/latest/relnotes/images/2023-03-02-Step01-configure-middle-cut.png)
+![Configure environment panel. Linkable steps on left side of panel. Marked optional if applicable.](images/2023-03-02-Step01-configure-middle-cut.png)
 
 ![Review environment panel. Linkable steps on left side of panel. Marked optional if applicable.](images/2023-03-02-Step06-review-middle-cut.png)
 
