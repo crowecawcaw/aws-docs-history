@@ -239,11 +239,10 @@ From the Workspace UIFrom the Workspaces listFrom the Workspace UI###### Delete 
    choose **Workspaces** from the left
    navigation.
 2. Find your Workspace in the list, then select the check box next
-   to its name. You can select multiple Workspaces to delete at the
-   same time.
+   to its name.
 3. Choose **Delete** in the upper right of the
    **Workspaces** list and confirm that you want
-   to delete the selected Workspaces. Choose
+   to delete the selected Workspace. Choose
    **Delete** to confirm.
 4. If you want to remove the notebook files that were associated with the
    deleted Workspace from Amazon S3, follow the instructions for [Deleting

@@ -1,7 +1,13 @@
 # Prerequisites to configure Trusted Identity Propagation with EMR on EC2
 
+The prerequisites show you how to configure using either the AWS Console or the AWS CLI to create an IAM Identity Center instance and create users with the goal of setting up trusted identity propagation. Then you set up AWS Lake Formation to manage permissions for your AWS Glue Data Catalog objects and Amazon Simple Storage Service data locations. Each section goes into detail, including showing how to register Amazon Simple Storage Service locations for use with EMR and IAM Identity Center.
+
 All prerequisites can be set up using either the AWS Console or AWS CLI. This tutorial provides a CloudFront template, as well
 as AWS Console setup steps.
+
+###### Important
+
+Runtime role-based access control and Amazon EMR integration with AWS IAM Identity Center (trusted identity propagation) do not support High Availability (HA) clusters.
 
 ## Creating an Identity Center instance and syncing users
 
@@ -163,8 +169,26 @@ authorization to query [Parquet](emr-trusted-identity-auth-parquet.md "emr-trust
 #### 1. AWS Lake Formation setup to configure the roles
 
 To use AWS Lake Formation with Amazon EMR, create a custom role to register Amazon Simple Storage Service locations for your data source. You need to create a new custom role with Amazon S3 access. Do not use
-the default role, which is explained in more detail at [Service-linked role permissions
-for Lake Formation](../../../lake-formation/latest/dg/service-linked-roles.md#service-linked-role-permissions "../../../lake-formation/latest/dg/service-linked-roles.md#service-linked-role-permissions").
+the default role, which is explained in more detail at [Setting up AWS Lake Formation with IAM Identity Center](../../../singlesignon/latest/userguide/tip-tutorial-lf.md "../../../singlesignon/latest/userguide/tip-tutorial-lf.md").
+
+Use the following custom trust policy for the Lake Formation location registration role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "lakeformation.amazonaws.com"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
 
 - If you don't already have a test data source location in Amazon S3, go to the [Amazon S3 console](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/") and create a new
   bucket. For example, you can name it `s3://tip-blog-s3-lf-` followed by your AWS account ID.
@@ -306,7 +330,7 @@ aws emr create-security-configuration --name "IdentityCenterConfiguration-with-l
         "AuthenticationConfiguration":{
             "IdentityCenterConfiguration":{
                 "EnableIdentityCenter":true,
-                "IdentityCenterApplicationAssigmentRequired":false,
+                "IdentityCenterApplicationAssignmentRequired":false,
                 "IdentityCenterInstanceARN": "arn:aws:sso:::instance/ssoins-xxxxxxxxxxxx",
                 "IAMRoleForEMRIdentityCenterApplicationARN": "arn:aws:iam::1xxxxxxxxx0:role/emr-idc-application"
             }

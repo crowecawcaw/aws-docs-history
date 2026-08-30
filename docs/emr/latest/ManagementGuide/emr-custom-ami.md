@@ -447,6 +447,8 @@ aws ec2 --region `MyRegion` describe-images --owner amazon --query 'Images[?Name
 - If you create a custom AMI that includes the Amazon EC2 Systems Manager (SSM) agent, the enabled SSM agent
   can cause a provisioning error on the cluster. To avoid this, disable the SSM agent when you use a custom AMI. To do this, when you choose and
   launch your Amazon EC2 instance, disable the SSM agent prior to using the instance to create a custom AMI and subsequently creating your EMR cluster.
+- When preparing a new custom AMI (including base Amazon Linux AMIs) for use with Amazon EMR in a production environment, you should first test it in a development environment to ensure
+  that your cluster provisions successfully and your applications and customizations work as expected.
 
 For more information, see [Creating an Amazon EBS-backed Linux AMI](../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md "../../../AWSEC2/latest/UserGuide/creating-an-ami-ebs.md") in the
 _Amazon EC2 User Guide_.

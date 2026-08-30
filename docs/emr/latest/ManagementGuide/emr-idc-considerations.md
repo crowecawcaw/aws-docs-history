@@ -2,6 +2,7 @@
 
 Consider the following points when you use IAM Identity Center with Amazon EMR:
 
+- Runtime role-based access control and Amazon EMR integration with AWS IAM Identity Center (trusted identity propagation) do not support High Availability (HA) clusters.
 - Trusted Identity Propagation through Identity Center is supported on Amazon EMR 6.15.0 and higher, and only with Apache Spark. Also, Trusted Identity Propagation through Identity Center using EMR Runtime Roles feature
   is supported on Amazon EMR 7.8.0 and higher, and only with Apache Spark.
 - To enable EMR clusters with trusted identity propagation, you must use the AWS CLI to create a

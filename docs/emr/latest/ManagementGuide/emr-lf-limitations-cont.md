@@ -138,6 +138,7 @@ Iceberg:
 
 Review the following limitations when using Lake Formation with Amazon EMR .
 
+- Runtime role-based access control and Amazon EMR integration with AWS IAM Identity Center (trusted identity propagation) do not support High Availability (HA) clusters.
 - You can't turn off `DynamicResourceAllocation` for Lake Formation
   jobs.
 - You can only use Lake Formation with Spark jobs.

@@ -5,6 +5,5 @@ identity-based access controls across your data-lake environment.
 
 ###### Topics
 
-- [Configure trusted identity propagation with EMR on EC2](emr-trusted-identity-configure.md "emr-trusted-identity-configure.md")
-- [Using identity based authorization with OTFs](emr-trusted-identity-auth.md "emr-trusted-identity-auth.md")
-- [Cross account setup with trusted identity propagation](emr-trusted-identity-cross-account.md "emr-trusted-identity-cross-account.md")
+- [Using EMR Studio with Trusted Identity Propagation on Amazon EMR on EC2](emr-trusted-identity-emr-studio.md "emr-trusted-identity-emr-studio.md")
+- [Using Amazon SageMaker Unified Studio with Trusted Identity Propagation on Amazon EMR on EC2](emr-trusted-identity-smus-tip.md "emr-trusted-identity-smus-tip.md")

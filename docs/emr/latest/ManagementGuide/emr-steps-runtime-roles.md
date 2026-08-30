@@ -327,6 +327,7 @@ patch details, see [Amazon EMR release 6.9.0 known issues](../ReleaseGuide/emr-6
 Additionally, consider the following when you configure runtime roles for
 Amazon EMR.
 
+- Runtime role-based access control and Amazon EMR integration with AWS IAM Identity Center (trusted identity propagation) do not support High Availability (HA) clusters.
 - Amazon EMR supports runtime roles in all commercial AWS Regions.
 - Amazon EMR steps support Apache Spark and Apache Hive jobs with runtime roles when
   you use release `emr-6.7.0` or later.
