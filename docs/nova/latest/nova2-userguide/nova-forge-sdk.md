@@ -12,7 +12,7 @@ SageMaker HyperPod.
 Follow these steps to go from installation to your first training job:
 
 - [SDK Reference](https://sagemaker.readthedocs.io "https://sagemaker.readthedocs.io") on the Read the Docs website for SageMaker Python SDK
-- [Quick Start Notebook on GitHub](https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/model-customization-examples/sm-studio-nova-training-job-sample-notebook.ipynb "https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/model-customization-examples/sm-studio-nova-training-job-sample-notebook.ipynb") – Interactive Python notebook for hands-on exploration
+- [Quick Start Notebook on GitHub](https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/model-customization-examples/serverless/serverless_e2e_example.ipynb "https://github.com/aws/sagemaker-python-sdk/blob/master/v3-examples/model-customization-examples/serverless/serverless_e2e_example.ipynb") – Interactive Python notebook for hands-on exploration
 
 ## Benefits
 
