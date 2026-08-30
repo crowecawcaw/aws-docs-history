@@ -12,4 +12,5 @@ IAM permissions and network access configured.
 - [Manual installation on Amazon EC2](manual-installation.md "manual-installation.md")
 - [Install the CloudWatch agent using AWS Systems Manager](installing-cloudwatch-agent-ssm.md "installing-cloudwatch-agent-ssm.md")
 - [Install the CloudWatch agent on on-premises servers](install-CloudWatch-Agent-on-premise.md "install-CloudWatch-Agent-on-premise.md")
+- [Install the CloudWatch agent on Azure](install-CloudWatch-Agent-on-Azure.md "install-CloudWatch-Agent-on-Azure.md")
 - [Install the CloudWatch agent on new instances using CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md "Install-CloudWatch-Agent-New-Instances-CloudFormation.md")

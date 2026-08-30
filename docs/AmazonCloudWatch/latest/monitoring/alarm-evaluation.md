@@ -13,6 +13,10 @@ A metric alarm has the following possible states:
 In addition to the alarm state, each alarm has an evaluation state that provides information about the alarm evaluation process. The following states may occur:
 
 - `PARTIAL_DATA` – Indicates that not all the available data was able to be retrieved due to quota limitations. For more information, see [How partial data is handled](cloudwatch-metrics-insights-alarms-partial-data.md "cloudwatch-metrics-insights-alarms-partial-data.md").
+- `IN_WARM_UP` – Indicates that the alarm is in its warm-up
+  period and does not yet evaluate. The alarm remains in `INSUFFICIENT_DATA`
+  and does not perform alarm actions until the warm-up period ends. For more information,
+  see [Alarm warm-up periods](alarm-warm-up.md "alarm-warm-up.md").
 - `EVALUATION_ERROR` – Indicates configuration errors in alarm setup that require review and correction. Refer to StateReason field of the alarm for more details.
 - `EVALUATION_FAILURE` – Indicates temporary CloudWatch issues. We recommend manual monitoring until the issue is resolved
 

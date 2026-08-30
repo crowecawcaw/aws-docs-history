@@ -6,7 +6,7 @@ libraries.
 
 ###### Topics
 
-- [Common canary features](CloudWatch_Synthetics_Canaries_CommonFeatures.md "CloudWatch_Synthetics_Canaries_CommonFeatures.md")
+- [Common features for CloudWatch Synthetics canaries](CloudWatch_Synthetics_Canaries_CommonFeatures.md "CloudWatch_Synthetics_Canaries_CommonFeatures.md")
 - [Writing a canary script using the Java runtime](Synthetics_WritingCanary_Java.md "Synthetics_WritingCanary_Java.md")
 - [Writing a Node.js canary script using the Playwright runtime](Synthetics_WritingCanary_Nodejs_Playwright.md "Synthetics_WritingCanary_Nodejs_Playwright.md")
 - [Writing a Node.js canary script using the Puppeteer runtime](CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md "CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md")

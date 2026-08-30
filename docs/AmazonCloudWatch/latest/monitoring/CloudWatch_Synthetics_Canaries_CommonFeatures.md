@@ -1,4 +1,4 @@
-# Common canary features
+# Common features for CloudWatch Synthetics canaries
 
 You can use the following features with all canary runtimes.
 
