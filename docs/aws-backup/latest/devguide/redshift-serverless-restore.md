@@ -73,6 +73,13 @@ Console
    ensure the selected role includes the `iam:PassRole`
    permission.
 
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_.
+
 AWS CLI
 Use the **aws backup start-restore-job** command.
 

@@ -152,7 +152,13 @@ Console
 
 7. Optionally, configure advanced settings for custom restore order for Kubernetes resources.
 8. Choose the IAM restore role for the job. If not using the default role, ensure the selected role includes the iam:PassRole permission.
-9. Choose **Restore backup**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 9. Choose **Restore backup**.
 
 AWS CLI
 Use the `aws backup start-restore-job` command with Amazon EKS-specific metadata.

@@ -44,7 +44,14 @@ Backtrack** settings. 10. In the **Encryption** pane, accept the default or spec
 options for the **Enable encryption** or **Disable
 encryption** settings. 11. In the **Log exports** pane, choose the log types to publish to
 Amazon CloudWatch Logs. The **IAM role** is already defined. 12. In the **Restore role** pane, choose the IAM role that AWS Backup
-will assume for this restore. 13. After specifying all your settings, choose **Restore
+will assume for this restore.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 13. After specifying all your settings, choose **Restore
 backup**.
 
 The **Restore jobs** pane appears. A message at the top of the

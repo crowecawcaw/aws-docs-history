@@ -174,7 +174,14 @@ not affect the encryption for the bucket itself.
     	 text box. Alternatively, choose **Create key**.
 
 9. In the **Restore role** pane, choose the IAM role that AWS Backup
-will assume for this restore. 10. Choose **Restore backup**. The **Restore jobs**
+will assume for this restore.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 10. Choose **Restore backup**. The **Restore jobs**
 pane appears. A message at the top of the page provides information about the restore
 job.
 

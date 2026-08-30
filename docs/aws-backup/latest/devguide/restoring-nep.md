@@ -32,8 +32,14 @@ Cluster Snapshot](../../../neptune/latest/userguide/backup-restore-restore-snaps
    Amazon CloudWatch Logs. The **IAM role** is already defined.
 9. In the **Restore role** pane, choose the IAM role that AWS Backup
    will assume for this restore.
-10. After specifying all your settings, choose **Restore
-    backup**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 10. After specifying all your settings, choose **Restore
+backup**.
 
 The **Restore jobs** pane appears. A message at the top of the
 page provides information about the restore job. 11. After your restore finishes, attach your restored Neptune cluster to an Amazon RDS

@@ -83,7 +83,14 @@ the information to set your backup preferences. 12. In the **Restore role** sect
 AWS Backup will use to create and manage your backups on your behalf. We recommend that
 you choose the **Default role**. If there is no default role, one
 is created for you with the correct permissions. You can also provide your own
-IAM role. 13. Verify all your entries, and choose **Restore
+IAM role.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 13. Verify all your entries, and choose **Restore
 Backup**.
 
 AWS Backup supports Amazon FSx for Lustre file systems that have persistent storage
@@ -139,7 +146,14 @@ the information to set your backup preferences. 13. In the **Restore role** sect
 AWS Backup will use to create and manage your backups on your behalf. We recommend that
 you choose the **Default role**. If there is no default role, one
 is created for you with the correct permissions. You can also provide your IAM
-role. 14. Verify all your entries, and choose **Restore
+role.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 14. Verify all your entries, and choose **Restore
 Backup**.
 
 ###### To restore Amazon FSx for NetApp ONTAP volumes:
@@ -232,7 +246,14 @@ your file system’s network interface resides. 10. In the **Restore role** sect
 will use to create and manage your backups on your behalf. We recommend that you
 choose the **Default role**. If there is no default role, one is
 created for you with the correct permissions. You can also choose an IAM
-role. 11. Verify all your entries, and choose **Restore Backup**.
+role.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 11. Verify all your entries, and choose **Restore Backup**.
 
 ## Use the AWS Backup API, CLI, or SDK to restore Amazon FSx recovery points
 

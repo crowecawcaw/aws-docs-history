@@ -16,26 +16,37 @@
    enter a new table name.
 5. For **Restore role**, choose the IAM role that AWS Backup will
    assume for this restore.
-6. For **Encryption settings**:
 
-   1. If your backup is managed by DynamoDB (its ARN begins with
-      `arn:aws:dynamodb`), AWS Backup encrypts your restored table using an
-      AWS-owned key.
+###### Note
 
-   To choose a different key to encrypt your restored table, you can either use
-   the AWS Backup [StartRestoreJob
-   operation](API_StartRestoreJob.md "API_StartRestoreJob.md") or perform the restore from the [DynamoDB console](../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md#restoretable_console "../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md#restoretable_console"). 2. If your backup supports full AWS Backup management (its ARN begins with
-   `arn:aws:backup`), you can choose any of the following encryption
-   options to protect your restored table:
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 6. For **Encryption settings**:
 
-        * (Default) DynamoDB-owned KMS key (no additional charge for encryption)
-        * DynamoDB-managed KMS key (KMS charges apply)
-        * Customer-managed KMS key (KMS charges apply)
+    1. If your backup is managed by DynamoDB (its ARN begins with
+     `arn:aws:dynamodb`), AWS Backup encrypts your restored table using an
+     AWS-owned key.
 
-   "DynamoDB-owned" and "DynamoDB-managed" keys are the same as "AWS-owned" and
-   "AWS-managed" keys, respectively. For clarification, see [Encryption at Rest: How It Works](../../../amazondynamodb/latest/developerguide/encryption.howitworks.md "../../../amazondynamodb/latest/developerguide/encryption.howitworks.md") in the _Amazon DynamoDB Developer Guide_.
 
-   For more information about full AWS Backup management, see [Advanced DynamoDB backup](advanced-ddb-backup.md "advanced-ddb-backup.md").###### Note
+    To choose a different key to encrypt your restored table, you can either use
+     the AWS Backup [StartRestoreJob
+     operation](API_StartRestoreJob.md "API_StartRestoreJob.md") or perform the restore from the [DynamoDB console](../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md#restoretable_console "../../../amazondynamodb/latest/developerguide/Restore.Tutorial.md#restoretable_console").
+    2. If your backup supports full AWS Backup management (its ARN begins with
+     `arn:aws:backup`), you can choose any of the following encryption
+     options to protect your restored table:
+
+
+
+
+    	* (Default) DynamoDB-owned KMS key (no additional charge for encryption)
+    	* DynamoDB-managed KMS key (KMS charges apply)
+    	* Customer-managed KMS key (KMS charges apply)
+    "DynamoDB-owned" and "DynamoDB-managed" keys are the same as "AWS-owned" and
+     "AWS-managed" keys, respectively. For clarification, see [Encryption at Rest: How It Works](../../../amazondynamodb/latest/developerguide/encryption.howitworks.md "../../../amazondynamodb/latest/developerguide/encryption.howitworks.md") in the *Amazon DynamoDB Developer Guide*.
+
+
+    For more information about full AWS Backup management, see [Advanced DynamoDB backup](advanced-ddb-backup.md "advanced-ddb-backup.md").###### Note
 
 The following guidance applies only if you restore a copied backup AND want to
 encrypt the restored table with the same key you used to encrypt your original

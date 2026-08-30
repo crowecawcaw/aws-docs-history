@@ -22,6 +22,13 @@
 If you choose an IAM role, verify that it has permission to back up all the
 resources you are about assign. If your role encounters a resource that it doesn't
 have permission to back up, your backup plan will fail.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_.
 To assign your resources, in the **Assign resources** section, choose
 one of the two options under **Define resource selection**:
 

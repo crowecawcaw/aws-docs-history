@@ -87,7 +87,14 @@ your indexed backups](backup-search.md "backup-search.md") to find the file name
 6. For **Restore role**, choose the IAM role that AWS Backup will
 assume for this restore. If the AWS Backup default role is not present in your account, a
 **Default role** is created for you with the correct permissions.
-You can delete this default role or make it unusable. 7. Choose **Restore backup** (**Restore items** is
+You can delete this default role or make it unusable.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 7. Choose **Restore backup** (**Restore items** is
 displayed for file level restore).
 
 The **Restore jobs** pane will appear. A message at the top of
@@ -121,9 +128,15 @@ Console
 4. Input other settings: volume type, size, IOPS, availability zone,
    throughput, and encryption.
 5. Choose your **restore role**.
-6. Select **Restore backup**. On the confirmation pop up,
-   confirm the snapshots and restore type. Then, select **Restore
-   snapshot**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 6. Select **Restore backup**. On the confirmation pop up,
+confirm the snapshots and restore type. Then, select **Restore
+snapshot**.
 
 AWS CLI
 

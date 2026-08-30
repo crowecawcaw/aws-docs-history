@@ -62,14 +62,18 @@ type and key pair.
 5. In the **Restore role** pane, use the **Default
    role** or use **Choose an IAM role** to specify an IAM
    role that grants AWS Backup permission to restore the backup.
-6. In the **Protected resource tags** pane, we select **Copy
-   tags from the protected resource to the restored resource** by default. If
-   you do not want to copy these tags, clear the check box.
-7. In the **Advanced settings** pane, accept the default values for
-   the instance settings or change them as needed. For information about these settings,
-   choose **Info** for the setting to open its help pane.
-8. When you are finishing configuring the instance, choose **Restore
-   backup**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 6. In the **Protected resource tags** pane, we select **Copy
+tags from the protected resource to the restored resource** by default. If
+you do not want to copy these tags, clear the check box. 7. In the **Advanced settings** pane, accept the default values for
+the instance settings or change them as needed. For information about these settings,
+choose **Info** for the setting to open its help pane. 8. When you are finishing configuring the instance, choose **Restore
+backup**.
 
 ## Restore Amazon EC2 with AWS CLI
 

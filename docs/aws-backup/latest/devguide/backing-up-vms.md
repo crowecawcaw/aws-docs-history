@@ -364,14 +364,18 @@ backup plan using the **Assign resources to plan** feature.
 5. Choose a resource assignment **IAM role** to create backups and
    manage recovery points. If you do not have a specific IAM role to use, we recommend
    the **Default role** which has the correct permissions.
-6. In the **Backup plan** section, choose an existing
-   **Backup plan** from the dropdown list. Alternatively, choose
-   **Create backup plan** to create a new backup plan.
-7. Choose **Assign resources**.
-8. Optional: Verify your virtual machines are assigned to a backup plan by choosing
-   **View Backup plan**. Then, in the **Resource
-   assignments** section, choose the resource assignment
-   **Name**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 6. In the **Backup plan** section, choose an existing
+**Backup plan** from the dropdown list. Alternatively, choose
+**Create backup plan** to create a new backup plan. 7. Choose **Assign resources**. 8. Optional: Verify your virtual machines are assigned to a backup plan by choosing
+**View Backup plan**. Then, in the **Resource
+assignments** section, choose the resource assignment
+**Name**.
 
 ## Assigning virtual machines using the Create group assignment feature
 
@@ -393,34 +397,40 @@ assignment** feature.
 4. Choose a resource assignment **IAM role** to create backups and
    manage recovery points. If you do not have a specific IAM role to use, we recommend
    the **Default role** which has the correct permissions.
-5. In the **Resource group** section, select the **Group
-   type** dropdown menu. Your options are **Folder** or
-   **Hypervisor**.
 
-   1. Choose **Folder** to assign all the virtual machines in a
-      folder on a hypervisor. Select a folder **Group name**, such as
-      `datacenter/vm`, using the dropdown menu. You can also choose to
-      include **Subfolders**.
+###### Note
 
-   ###### Note
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 5. In the **Resource group** section, select the **Group
+type** dropdown menu. Your options are **Folder** or
+**Hypervisor**.
 
-   To make Folder-based assignments, during the discovery process, AWS Backup tags
-   virtual machines with the folder it finds them in during the discovery
-   process. If you later move a virtual machine to a different folder, AWS Backup
-   cannot update the tag for you due to AWS tagging best practices. This
-   assignment method might result in continuing to take backups of virtual
-   machines you moved out of your assigned folder. 2. Choose **Hypervisor** to assign all the virtual machines
-   managed by a hypervisor. Select a hypervisor ID **Group name**
-   using the dropdown menu.
+    1. Choose **Folder** to assign all the virtual machines in a
+     folder on a hypervisor. Select a folder **Group name**, such as
+     `datacenter/vm`, using the dropdown menu. You can also choose to
+     include **Subfolders**.
+
+
+    ###### Note
+
+    To make Folder-based assignments, during the discovery process, AWS Backup tags
+     virtual machines with the folder it finds them in during the discovery
+     process. If you later move a virtual machine to a different folder, AWS Backup
+     cannot update the tag for you due to AWS tagging best practices. This
+     assignment method might result in continuing to take backups of virtual
+     machines you moved out of your assigned folder.
+    2. Choose **Hypervisor** to assign all the virtual machines
+     managed by a hypervisor. Select a hypervisor ID **Group name**
+     using the dropdown menu.
 
 6. In the **Backup plan** section, choose an existing
-   **Backup plan** from the dropdown list. Alternatively, choose
-   **Create backup plan** to create a new backup plan.
-7. Choose **Create group assignment**.
-8. Optional: verify your virtual machines are assigned to a backup plan by choosing
-   **View Backup plan**. In the **Resource
-   assignments** section, choose the resource assignment
-   **Name**.
+**Backup plan** from the dropdown list. Alternatively, choose
+**Create backup plan** to create a new backup plan. 7. Choose **Create group assignment**. 8. Optional: verify your virtual machines are assigned to a backup plan by choosing
+**View Backup plan**. In the **Resource
+assignments** section, choose the resource assignment
+**Name**.
 
 **Next steps**
 

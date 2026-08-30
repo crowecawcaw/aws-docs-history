@@ -107,10 +107,15 @@ resources** to locate your recovery point.
 9. For **Restore role,** select either the **Default
    role** (recommended) or **Choose an IAM role** using the
    dropdown menu.
-10. Choose **Restore backup**.
-11. _Optional_: Check when your restore job has the status
-    `Completed`. In the left navigation menu, choose
-    **Jobs**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 10. Choose **Restore backup**. 11. _Optional_: Check when your restore job has the status
+`Completed`. In the left navigation menu, choose
+**Jobs**.
 
 ###### To restore a virtual machine to an Amazon EBS volume
 
@@ -137,13 +142,17 @@ resources** to locate your recovery point.
 10. Select your KMS key from the menu.
 11. For **Restore role,** select either the **Default
     role** (recommended) or **Choose an IAM role**.
-12. Choose **Restore backup**.
-13. _Optional_: Check when your restore job has the status
-    `Completed`. In the left navigation menu, choose
-    **Jobs**.
-14. _Optional_: Visit [How do I use LVM to
-    create a logical volume on an Amazon EBS volume's partition?](https://repost.aws/knowledge-center/create-lv-on-ebs-partition "https://repost.aws/knowledge-center/create-lv-on-ebs-partition") to learn more on how
-    to mount managed volumes and access data on the restored Amazon EBS volume.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 12. Choose **Restore backup**. 13. _Optional_: Check when your restore job has the status
+`Completed`. In the left navigation menu, choose
+**Jobs**. 14. _Optional_: Visit [How do I use LVM to
+create a logical volume on an Amazon EBS volume's partition?](https://repost.aws/knowledge-center/create-lv-on-ebs-partition "https://repost.aws/knowledge-center/create-lv-on-ebs-partition") to learn more on how
+to mount managed volumes and access data on the restored Amazon EBS volume.
 
 ###### To restore a virtual machine to an Amazon EC2 instance
 
@@ -171,7 +180,14 @@ original virtual machine. For more information, see the [Amazon EC2 Instance Typ
 cloud (VPC), which defines the networking environment for the instance. 8. For **Subnet**, choose one of the subnets in the VPC. Your
 instance receives a private IP address from the subnet address range. 9. For **security groups**, choose a security group, which acts as a
 firewall for traffic to your instance. 10. For **Restore role,** select either the **Default
-role** (recommended) or **Choose an IAM role**. 11. _Optional_: To run a script on your instance at launch, expand
+role** (recommended) or **Choose an IAM role**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 11. _Optional_: To run a script on your instance at launch, expand
 **Advanced settings** and enter the script in **User
 data**. 12. Choose **Restore backup**. 13. _Optional_: Check when your restore job has the status
 `Completed`. In the left navigation menu, choose

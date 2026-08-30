@@ -235,13 +235,13 @@ by doing the following steps:
     1. Run an update-alternatives command to create a symlink for Python 3 in
      '/usr/local/bin/' instead of directly using '/usr/bin/python3'. This commands will
      set Python 3.4 as the default version. The command is: `# sudo
-     update-alternatives —install /usr/local/bin/python3 python3 /usr/bin/python3.4
+     update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.4
      5`
     2. Add Python 3.6 to alternatives configuration by running the following command:
-     `# sudo update-alternatives —install /usr/local/bin/python3 python3
+     `# sudo update-alternatives --install /usr/local/bin/python3 python3
      /usr/bin/python3.6 2`
     3. Change the alternative configuration to Python 3.6 by running the following
-     command: `# sudo update-alternatives —config python3`
+     command: `# sudo update-alternatives --config python3`
 
 
     The following output should be displayed:
@@ -271,7 +271,7 @@ HANA database. If they cannot be reached, you can create Amazon VPC endpoints fo
 and SSM for SAP.
 
     1. Test access to Secrets Manager from Amazon EC2 host for HANA DB by running the following the
-     command: `aws secretsmanager get-secret-value —secret-id
+     command: `aws secretsmanager get-secret-value --secret-id
      hanaeccsbx_hbx_database_awsbkp` . If the command fails to return a value,
      the firewall is blocking access to Secrets Manager service endpoint. The log will stop at
      the step “Retrieving secrets from Secrets Manager”.

@@ -33,7 +33,13 @@ _Amazon RDS User Guide_.
     option for **Auto minor version upgrade**.
 11. In the **Restore role** pane, choose the IAM role that AWS Backup
     will assume for this restore.
-12. Choose **Restore backup**.
+
+###### Note
+
+If role manager is enabled in your account, AWS Backup selects the default
+service role for you, and a **Customize** option is available. For
+more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
+_IAM User Guide_. 12. Choose **Restore backup**.
 
 The **Restore jobs** pane appears. A message at the top of the
 page provides information about the restore job.
