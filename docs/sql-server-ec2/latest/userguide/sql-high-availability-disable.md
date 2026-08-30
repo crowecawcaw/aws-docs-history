@@ -29,5 +29,19 @@ Use the [disable-instance-sql-ha-standby-detections](../../../cli/latest/referen
 
 ```
 aws ec2 disable-instance-sql-ha-standby-detections \
---instance-ids `instance_ids`
+--instance-ids `i-1234567890abcdef0` `i-0fedcba0987654321`
 ```
+
+You can run these commands from [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"), which comes with the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")
+pre-installed.
+
+PowerShell
+Use the [Disable-EC2InstanceSqlHaStandbyDetection](../../../powershell/latest/reference/items/Disable-EC2InstanceSqlHaStandbyDetection.md "../../../powershell/latest/reference/items/Disable-EC2InstanceSqlHaStandbyDetection.md") cmdlet. For
+`-InstanceId`, specify the IDs of the instances to disable.
+
+```
+Disable-EC2InstanceSqlHaStandbyDetection `
+-InstanceId '`i-1234567890abcdef0`','`i-0fedcba0987654321`'
+```
+
+You can run these cmdlets from [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"), which comes with [AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-welcome.md "../../../powershell/latest/userguide/pstools-welcome.md") pre-installed. Run `pwsh` to start PowerShell.

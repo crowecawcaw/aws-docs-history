@@ -99,12 +99,30 @@ Console
 
 AWS CLI
 Use the [enable-instance-sql-ha-standby-detections](../../../cli/latest/reference/ec2/enable-instance-sql-ha-standby-detections.md "../../../cli/latest/reference/ec2/enable-instance-sql-ha-standby-detections.md") command. For `instance-ids`
-specify the IDs of the instances to opt in. If you choose to perform Step 3: Create secret
-for SQL Server credentials, specify the optional `--sql-server-credentials` with the
-Amazon Web Services secret arn that has the SQL Server credentials in.
+specify the IDs of the instances to opt in. Specify multiple instance IDs as a
+space-separated list. If you choose to perform Step 3: Create secret for SQL Server
+credentials, specify the optional `--sql-server-credentials` parameter. This
+parameter takes the Amazon Web Services secret ARN that has the SQL Server credentials.
 
 ```
 aws ec2 enable-instance-sql-ha-standby-detections \
---instance-ids `instance_ids` \
---sql-server-credentials `secret_manager_secret_arn`
+--instance-ids `i-1234567890abcdef0` `i-0fedcba0987654321` \
+--sql-server-credentials `arn:aws:secretsmanager:us-east-1:111122223333:secret:my-sql-creds`
 ```
+
+You can run these commands from [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"), which comes with the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")
+pre-installed.
+
+PowerShell
+Use the [Enable-EC2InstanceSqlHaStandbyDetection](../../../powershell/latest/reference/items/Enable-EC2InstanceSqlHaStandbyDetection.md "../../../powershell/latest/reference/items/Enable-EC2InstanceSqlHaStandbyDetection.md") cmdlet. For `-InstanceId`
+specify the IDs of the instances to opt in. If you choose to perform Step 3: Create secret
+for SQL Server credentials, specify the optional `-SqlServerCredential` parameter.
+This parameter takes the Amazon Web Services secret ARN that has the SQL Server credentials.
+
+```
+Enable-EC2InstanceSqlHaStandbyDetection `
+-InstanceId '`i-1234567890abcdef0`','`i-0fedcba0987654321`' `
+-SqlServerCredential '`arn:aws:secretsmanager:us-east-1:111122223333:secret:my-sql-creds`'
+```
+
+You can run these cmdlets from [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"), which comes with [AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-welcome.md "../../../powershell/latest/userguide/pstools-welcome.md") pre-installed. Run `pwsh` to start PowerShell.
