@@ -79,20 +79,24 @@ Dates with only a month and a year are approximate, and will be updated with an 
 | PostgreSQL minor engine version | Community release date | Aurora release date | Aurora end of standard support date |
 | ------------------------------- | ---------------------- | ------------------- | ----------------------------------- |
 | **18**                          |
+| 18.4                            | May 2026               | 21 August 2026      | 31 December 2027                    |
 | 18.3                            | 26 February 2026       | 11 June 2026        | 30 November 2027                    |
 | **17**                          |
+| 17.10                           | May 2026               | 21 August 2026      | 31 December 2027                    |
 | 17.9                            | 26 February 2026       | 6 April 2026        | 30 September 2027                   |
 | 17.7 (LTS)                      | 13 November 2025       | 18 December 2025    | 28 February 2030                    |
 | 17.6                            | 14 August 2025         | 25 November 2025    | 30 April 2027                       |
 | 17.5                            | 8 May 2025             | 30 June 2025        | 31 December 2026                    |
 | 17.4                            | 20 February 2025       | 1 May 2025          | 30 November 2026                    |
 | **16**                          |
+| 16.14                           | May 2026               | 21 August 2026      | 31 December 2027                    |
 | 16.13                           | 26 February 2026       | 6 April 2026        | 30 September 2027                   |
 | 16.11                           | 13 November 2025       | 18 December 2025    | 31 May 2027                         |
 | 16.10                           | 14 August 2025         | 25 November 2025    | 30 April 2027                       |
 | 16.9                            | 8 May 2025             | 30 June 2025        | 31 December 2026                    |
 | 16.8 (LTS)                      | 20 February 2025       | 8 April 2025        | 28 February 2029                    |
 | **15**                          |
+| 15.18                           | May 2026               | 21 August 2026      | 31 December 2027                    |
 | 15.17                           | 26 February 2026       | 6 April 2026        | 30 September 2027                   |
 | 15.15                           | 13 November 2025       | 18 December 2025    | 31 May 2027                         |
 | 15.14                           | 14 August 2025         | 25 November 2025    | 30 April 2027                       |
@@ -100,6 +104,7 @@ Dates with only a month and a year are approximate, and will be updated with an 
 | 15.12                           | 20 February 2025       | 8 April 2025        | 30 November 2026                    |
 | 15.10 (LTS)                     | 21 November 2024       | 13 December 2024    | 29 February 2028                    |
 | **14**                          |
+| 14.23                           | May 2026               | 21 August 2026      | 28 February 2027                    |
 | 14.22                           | 26 February 2026       | 6 April 2026        | 28 February 2027                    |
 | 14.20                           | 13 November 2025       | 18 December 2025    | 28 February 2027                    |
 | 14.19                           | 14 August 2025         | 25 November 2025    | 28 February 2027                    |

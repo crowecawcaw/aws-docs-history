@@ -41,7 +41,85 @@ Guide_.
 
 ###### Version updates
 
+- [PostgreSQL 18.4](#aurorapostgresql-versions-version184x "#aurorapostgresql-versions-version184x")
 - [PostgreSQL 18.3](#aurorapostgresql-versions-version183x "#aurorapostgresql-versions-version183x")
+
+### PostgreSQL 18.4
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 18.4. For more information about
+the improvements in PostgreSQL 18.4, see [PostgreSQL release
+18.4](https://www.postgresql.org/docs/18/release-18-4.html "https://www.postgresql.org/docs/18/release-18-4.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 18.4.1, August 21, 2026](#aurorapostgresql-versions-version1841x-1841 "#aurorapostgresql-versions-version1841x-1841")
+- [Aurora PostgreSQL 18.4, August 21, 2026](#aurorapostgresql-versions-version184x-184 "#aurorapostgresql-versions-version184x-184")
+
+#### Aurora PostgreSQL 18.4.1, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in the Aurora Storage Daemon that in rare cases could impact availability.
+
+#### Aurora PostgreSQL 18.4, August 21, 2026
+
+**New features**
+
+- Improved performance of heap and B-tree index operations through pre-allocation of free pages for regular tables and B-tree indexes.
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could lead to unavailability for Aurora Replica clusters after a restart.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.cve.org/CVERecord?id=CVE-2026-6472 "https://www.cve.org/CVERecord?id=CVE-2026-6472")
+  - [CVE-2026-6473](https://www.cve.org/CVERecord?id=CVE-2026-6473 "https://www.cve.org/CVERecord?id=CVE-2026-6473")
+  - [CVE-2026-6474](https://www.cve.org/CVERecord?id=CVE-2026-6474 "https://www.cve.org/CVERecord?id=CVE-2026-6474")
+  - [CVE-2026-6475](https://www.cve.org/CVERecord?id=CVE-2026-6475 "https://www.cve.org/CVERecord?id=CVE-2026-6475")
+  - [CVE-2026-6476](https://www.cve.org/CVERecord?id=CVE-2026-6476 "https://www.cve.org/CVERecord?id=CVE-2026-6476")
+  - [CVE-2026-6477](https://www.cve.org/CVERecord?id=CVE-2026-6477 "https://www.cve.org/CVERecord?id=CVE-2026-6477")
+  - [CVE-2026-6478](https://www.cve.org/CVERecord?id=CVE-2026-6478 "https://www.cve.org/CVERecord?id=CVE-2026-6478")
+  - [CVE-2026-6479](https://www.cve.org/CVERecord?id=CVE-2026-6479 "https://www.cve.org/CVERecord?id=CVE-2026-6479")
+  - [CVE-2026-6575](https://www.cve.org/CVERecord?id=CVE-2026-6575 "https://www.cve.org/CVERecord?id=CVE-2026-6575")
+  - [CVE-2026-6637](https://www.cve.org/CVERecord?id=CVE-2026-6637 "https://www.cve.org/CVERecord?id=CVE-2026-6637")
+  - [CVE-2026-6638](https://www.cve.org/CVERecord?id=CVE-2026-6638 "https://www.cve.org/CVERecord?id=CVE-2026-6638")
+
+- Fixed an issue in reader upgrades that could cause a few additional seconds of downtime when waiting for reader node process synchronization.
+- Fixed an issue that could cause upgrades to take a few seconds longer due to an unexpected termination of the logging process.
+- Fixed an issue that in rare cases causes contention during extremely heavy write workloads, resulting in slower query progress and potential database unavailability.
+
+**General enhancements**
+
+- Improved Aurora storage metadata management memory usage when managing tens of millions of objects and files.
+- Improved commit latency for Aurora Serverless instances when I/O optimized is enabled.
+- Improved Aurora Replica availability and replay throughput by eliminating unnecessary buffer cache allocation and I/O during write-ahead-log replay for all operations.
+- Fixed an issue in the Aurora storage daemon that in rare cases could cause brief periods of unavailability during a restart operation.
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Improved B-tree prefetch performance in scenarios where continued index scans were not properly utilizing prefetch buffers.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with longer downtime.
+- Added support for the `plv8.memory_limit` parameter, allowing customers to configure the memory limit for the plv8 extension. For more information, see [plv8 documentation](https://plv8.github.io/ "https://plv8.github.io/").
+- Fixed an issue where GRANT SET ON PARAMETER on extension parameters could bypass intended parameter privilege restrictions. Grants on unregistered extension parameters are no longer permitted, and GRANT SET ON PARAMETER privileges on restricted parameters are no longer honored for non-superuser roles.
+- Fixed a security issue in trusted PL/Perl that could allow privilege escalation.
+- Fixed multiple security issues in trusted PL/Tcl that could allow code execution or cause brief periods of unavailability.
+- Fixed a potential deadlock that could cause database shutdown to hang due to a lost wakeup race condition in the shutdown logic.
+- Added a safety guard within a diagnostic logging function to prevent a crash.
+- Fixed an issue that caused reader upgrades to experience slightly higher downtime due to delayed process synchronization.
+- Improved the handling of uninitialized Visibility Map pages migrated from RDS PostgreSQL.
+- Fixed a race condition in encryption key initialization that could cause a brief period of unavailability.
+- The pg\_repack extension is now compatible with tables that are part of a zero-ETL integration.
+- Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
+- Updated the following extensions:
+
+  - PostGIS to version 3.6.3.
+  - pg\_partman to version 5.4.3.
+  - PgTAP to version 1.3.4.
+  - pgvector to version 0.8.2.
+  - PgCollection to version 1.1.1.
 
 ### PostgreSQL 18.3
 
@@ -52,7 +130,7 @@ the improvements in PostgreSQL 18.3, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 18.3.3, July 20, 2026](#aurorapostgresql-versions-version183x-1833 "#aurorapostgresql-versions-version183x-1833")
-- [Aurora PostgreSQL 18.3](#aurorapostgresql-versions-version183x-183 "#aurorapostgresql-versions-version183x-183")
+- [Aurora PostgreSQL 18.3, June 11, 2026](#aurorapostgresql-versions-version183x-183 "#aurorapostgresql-versions-version183x-183")
 
 #### Aurora PostgreSQL 18.3.3, July 20, 2026
 
@@ -70,7 +148,7 @@ the improvements in PostgreSQL 18.3, see [PostgreSQL release
 - Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with increased downtime.
 - Fixed an issue where go-sqlcmd v1.9.0 failed to return query results.
 
-#### Aurora PostgreSQL 18.3
+#### Aurora PostgreSQL 18.3, June 11, 2026
 
 **New features**
 
@@ -156,12 +234,83 @@ the improvements in PostgreSQL 18.3, see [PostgreSQL release
 
 ###### Version updates
 
+- [PostgreSQL 17.10](#aurorapostgresql-versions-version1710x "#aurorapostgresql-versions-version1710x")
 - [PostgreSQL 17.9](#aurorapostgresql-versions-version179x "#aurorapostgresql-versions-version179x")
 - [PostgreSQL 17.7](#aurorapostgresql-versions-version177x "#aurorapostgresql-versions-version177x")
 - [PostgreSQL 17.6](#aurorapostgresql-versions-version176x "#aurorapostgresql-versions-version176x")
 - [PostgreSQL 17.5](#aurorapostgresql-versions-version175x "#aurorapostgresql-versions-version175x")
 - [PostgreSQL 17.4](#aurorapostgresql-versions-version174x "#aurorapostgresql-versions-version174x")
 - [PostgreSQL 17.0](#AuroraPostgreSQL.Updates.170X "#AuroraPostgreSQL.Updates.170X")
+
+### PostgreSQL 17.10
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 17.10. For more information about
+the improvements in PostgreSQL 17.10, see [PostgreSQL release
+17.10](https://www.postgresql.org/docs/17/release-17-10.html "https://www.postgresql.org/docs/17/release-17-10.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 17.10.1, August 21, 2026](#aurorapostgresql-versions-version17101x-17101 "#aurorapostgresql-versions-version17101x-17101")
+- [Aurora PostgreSQL 17.10, August 21, 2026](#aurorapostgresql-versions-version1710x-1710 "#aurorapostgresql-versions-version1710x-1710")
+
+#### Aurora PostgreSQL 17.10.1, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in the Aurora Storage Daemon that in rare cases could impact availability.
+
+#### Aurora PostgreSQL 17.10, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could lead to unavailability for Aurora Replica clusters after a restart.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.cve.org/CVERecord?id=CVE-2026-6472 "https://www.cve.org/CVERecord?id=CVE-2026-6472")
+  - [CVE-2026-6473](https://www.cve.org/CVERecord?id=CVE-2026-6473 "https://www.cve.org/CVERecord?id=CVE-2026-6473")
+  - [CVE-2026-6474](https://www.cve.org/CVERecord?id=CVE-2026-6474 "https://www.cve.org/CVERecord?id=CVE-2026-6474")
+  - [CVE-2026-6475](https://www.cve.org/CVERecord?id=CVE-2026-6475 "https://www.cve.org/CVERecord?id=CVE-2026-6475")
+  - [CVE-2026-6476](https://www.cve.org/CVERecord?id=CVE-2026-6476 "https://www.cve.org/CVERecord?id=CVE-2026-6476")
+  - [CVE-2026-6477](https://www.cve.org/CVERecord?id=CVE-2026-6477 "https://www.cve.org/CVERecord?id=CVE-2026-6477")
+  - [CVE-2026-6478](https://www.cve.org/CVERecord?id=CVE-2026-6478 "https://www.cve.org/CVERecord?id=CVE-2026-6478")
+  - [CVE-2026-6479](https://www.cve.org/CVERecord?id=CVE-2026-6479 "https://www.cve.org/CVERecord?id=CVE-2026-6479")
+  - [CVE-2026-6575](https://www.cve.org/CVERecord?id=CVE-2026-6575 "https://www.cve.org/CVERecord?id=CVE-2026-6575")
+  - [CVE-2026-6637](https://www.cve.org/CVERecord?id=CVE-2026-6637 "https://www.cve.org/CVERecord?id=CVE-2026-6637")
+  - [CVE-2026-6638](https://www.cve.org/CVERecord?id=CVE-2026-6638 "https://www.cve.org/CVERecord?id=CVE-2026-6638")
+
+- Fixed an issue that could cause upgrades to take a few seconds longer due to an unexpected termination of the logging process.
+- Fixed an issue that in rare cases causes contention during extremely heavy write workloads, resulting in slower query progress and potential database unavailability.
+
+**General enhancements**
+
+- Improved Aurora storage metadata management memory usage when managing tens of millions of objects and files.
+- Improved commit latency for Aurora Serverless instances when I/O optimized is enabled.
+- Improved Aurora Replica availability and replay throughput by eliminating unnecessary buffer cache allocation and I/O during write-ahead-log replay for all operations.
+- Fixed an issue in the Aurora storage daemon that in rare cases could cause brief periods of unavailability during a restart operation.
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Improved B-tree prefetch performance in scenarios where continued index scans were not properly utilizing prefetch buffers.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with longer downtime.
+- Added support for the `plv8.memory_limit` parameter, allowing customers to configure the memory limit for the plv8 extension. For more information, see [plv8 documentation](https://plv8.github.io/ "https://plv8.github.io/").
+- Fixed an issue where GRANT SET ON PARAMETER on extension parameters could bypass intended parameter privilege restrictions. Grants on unregistered extension parameters are no longer permitted, and GRANT SET ON PARAMETER privileges on restricted parameters are no longer honored for non-superuser roles.
+- Fixed a security issue in trusted PL/Perl that could allow privilege escalation.
+- Fixed multiple security issues in trusted PL/Tcl that could allow code execution or cause brief periods of unavailability.
+- Fixed a potential deadlock that could cause database shutdown to hang due to a lost wakeup race condition in the shutdown logic.
+- Added a safety guard within a diagnostic logging function to prevent a crash.
+- Fixed a race condition in encryption key initialization that could cause a brief period of unavailability.
+- The pg\_repack extension is now compatible with tables that are part of a zero-ETL integration.
+- Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
+- Updated the following extensions:
+
+  - PostGIS to version 3.5.6.
+  - pg\_partman to version 5.4.3.
+  - PgTAP to version 1.3.4.
+  - pgvector to version 0.8.2.
+  - PgCollection to version 1.1.1.
 
 ### PostgreSQL 17.9
 
@@ -1169,6 +1318,7 @@ persisted to Aurora storage.
 
 ###### Version updates
 
+- [PostgreSQL 16.14](#aurorapostgresql-versions-version1614x "#aurorapostgresql-versions-version1614x")
 - [PostgreSQL 16.13](#aurorapostgresql-versions-version1613x "#aurorapostgresql-versions-version1613x")
 - [PostgreSQL 16.11](#aurorapostgresql-versions-version1611x "#aurorapostgresql-versions-version1611x")
 - [PostgreSQL 16.10](#aurorapostgresql-versions-version1610x "#aurorapostgresql-versions-version1610x")
@@ -1179,6 +1329,73 @@ persisted to Aurora storage.
 - [PostgreSQL 16.3 (Deprecated)](#aurorapostgresql-versions-version163x "#aurorapostgresql-versions-version163x")
 - [PostgreSQL 16.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.162X "#AuroraPostgreSQL.Updates.20180305.162X")
 - [PostgreSQL 16.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.161X "#AuroraPostgreSQL.Updates.20180305.161X")
+
+### PostgreSQL 16.14
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 16.14. For more information about
+the improvements in PostgreSQL 16.14, see [PostgreSQL release
+16.14](https://www.postgresql.org/docs/16/release-16-14.html "https://www.postgresql.org/docs/16/release-16-14.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 16.14.1, August 21, 2026](#aurorapostgresql-versions-version16141x-16141 "#aurorapostgresql-versions-version16141x-16141")
+- [Aurora PostgreSQL 16.14, August 21, 2026](#aurorapostgresql-versions-version1614x-1614 "#aurorapostgresql-versions-version1614x-1614")
+
+#### Aurora PostgreSQL 16.14.1, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in the Aurora Storage Daemon that in rare cases could impact availability.
+
+#### Aurora PostgreSQL 16.14, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could lead to unavailability for Aurora Replica clusters after a restart.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.cve.org/CVERecord?id=CVE-2026-6472 "https://www.cve.org/CVERecord?id=CVE-2026-6472")
+  - [CVE-2026-6473](https://www.cve.org/CVERecord?id=CVE-2026-6473 "https://www.cve.org/CVERecord?id=CVE-2026-6473")
+  - [CVE-2026-6474](https://www.cve.org/CVERecord?id=CVE-2026-6474 "https://www.cve.org/CVERecord?id=CVE-2026-6474")
+  - [CVE-2026-6475](https://www.cve.org/CVERecord?id=CVE-2026-6475 "https://www.cve.org/CVERecord?id=CVE-2026-6475")
+  - [CVE-2026-6476](https://www.cve.org/CVERecord?id=CVE-2026-6476 "https://www.cve.org/CVERecord?id=CVE-2026-6476")
+  - [CVE-2026-6477](https://www.cve.org/CVERecord?id=CVE-2026-6477 "https://www.cve.org/CVERecord?id=CVE-2026-6477")
+  - [CVE-2026-6478](https://www.cve.org/CVERecord?id=CVE-2026-6478 "https://www.cve.org/CVERecord?id=CVE-2026-6478")
+  - [CVE-2026-6479](https://www.cve.org/CVERecord?id=CVE-2026-6479 "https://www.cve.org/CVERecord?id=CVE-2026-6479")
+  - [CVE-2026-6575](https://www.cve.org/CVERecord?id=CVE-2026-6575 "https://www.cve.org/CVERecord?id=CVE-2026-6575")
+  - [CVE-2026-6637](https://www.cve.org/CVERecord?id=CVE-2026-6637 "https://www.cve.org/CVERecord?id=CVE-2026-6637")
+  - [CVE-2026-6638](https://www.cve.org/CVERecord?id=CVE-2026-6638 "https://www.cve.org/CVERecord?id=CVE-2026-6638")
+
+- Fixed an issue that could cause upgrades to take a few seconds longer due to an unexpected termination of the logging process.
+
+**General enhancements**
+
+- Improved Aurora storage metadata management memory usage when managing tens of millions of objects and files.
+- Improved commit latency for Aurora Serverless instances when I/O optimized is enabled.
+- Improved Aurora Replica availability and replay throughput by eliminating unnecessary buffer cache allocation and I/O during write-ahead-log replay for all operations.
+- Fixed an issue in the Aurora storage daemon that in rare cases could cause brief periods of unavailability during a restart operation.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with longer downtime.
+- Added support for the `plv8.memory_limit` parameter, allowing customers to configure the memory limit for the plv8 extension. For more information, see [plv8 documentation](https://plv8.github.io/ "https://plv8.github.io/").
+- Fixed an issue where GRANT SET ON PARAMETER on extension parameters could bypass intended parameter privilege restrictions. Grants on unregistered extension parameters are no longer permitted, and GRANT SET ON PARAMETER privileges on restricted parameters are no longer honored for non-superuser roles.
+- Fixed a security issue in trusted PL/Perl that could allow privilege escalation.
+- Fixed multiple security issues in trusted PL/Tcl that could allow code execution or cause brief periods of unavailability.
+- Fixed a potential deadlock that could cause database shutdown to hang due to a lost wakeup race condition in the shutdown logic.
+- Added a safety guard within a diagnostic logging function to prevent a crash.
+- Fixed a race condition in encryption key initialization that could cause a brief period of unavailability.
+- The pg\_repack extension is now compatible with tables that are part of a zero-ETL integration.
+- Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
+- Updated the following extensions:
+
+  - PostGIS to version 3.5.6.
+  - pg\_partman to version 5.4.3.
+  - PgTAP to version 1.3.4.
+  - pgvector to version 0.8.2.
+  - PgCollection to version 1.1.1.
 
 ### PostgreSQL 16.13
 
@@ -3053,6 +3270,7 @@ For information about extensions and modules, see [Extensions supported for Auro
 
 ###### Version updates
 
+- [PostgreSQL 15.18](#aurorapostgresql-versions-version1518x "#aurorapostgresql-versions-version1518x")
 - [PostgreSQL 15.17](#aurorapostgresql-versions-version1517x "#aurorapostgresql-versions-version1517x")
 - [PostgreSQL 15.15](#aurorapostgresql-versions-version1515x "#aurorapostgresql-versions-version1515x")
 - [PostgreSQL 15.14](#aurorapostgresql-versions-version1514x "#aurorapostgresql-versions-version1514x")
@@ -3066,6 +3284,70 @@ For information about extensions and modules, see [Extensions supported for Auro
 - [PostgreSQL 15.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.154X "#AuroraPostgreSQL.Updates.20180305.154X")
 - [PostgreSQL 15.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.153X "#AuroraPostgreSQL.Updates.20180305.153X")
 - [PostgreSQL 15.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.152X "#AuroraPostgreSQL.Updates.20180305.152X")
+
+### PostgreSQL 15.18
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 15.18. For more information about
+the improvements in PostgreSQL 15.18, see [PostgreSQL release
+15.18](https://www.postgresql.org/docs/15/release-15-18.html "https://www.postgresql.org/docs/15/release-15-18.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 15.18.1, August 21, 2026](#aurorapostgresql-versions-version15181x-15181 "#aurorapostgresql-versions-version15181x-15181")
+- [Aurora PostgreSQL 15.18, August 21, 2026](#aurorapostgresql-versions-version1518x-1518 "#aurorapostgresql-versions-version1518x-1518")
+
+#### Aurora PostgreSQL 15.18.1, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in the Aurora Storage Daemon that in rare cases could impact availability.
+
+#### Aurora PostgreSQL 15.18, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could lead to unavailability for Aurora Replica clusters after a restart.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.cve.org/CVERecord?id=CVE-2026-6472 "https://www.cve.org/CVERecord?id=CVE-2026-6472")
+  - [CVE-2026-6473](https://www.cve.org/CVERecord?id=CVE-2026-6473 "https://www.cve.org/CVERecord?id=CVE-2026-6473")
+  - [CVE-2026-6474](https://www.cve.org/CVERecord?id=CVE-2026-6474 "https://www.cve.org/CVERecord?id=CVE-2026-6474")
+  - [CVE-2026-6475](https://www.cve.org/CVERecord?id=CVE-2026-6475 "https://www.cve.org/CVERecord?id=CVE-2026-6475")
+  - [CVE-2026-6476](https://www.cve.org/CVERecord?id=CVE-2026-6476 "https://www.cve.org/CVERecord?id=CVE-2026-6476")
+  - [CVE-2026-6477](https://www.cve.org/CVERecord?id=CVE-2026-6477 "https://www.cve.org/CVERecord?id=CVE-2026-6477")
+  - [CVE-2026-6478](https://www.cve.org/CVERecord?id=CVE-2026-6478 "https://www.cve.org/CVERecord?id=CVE-2026-6478")
+  - [CVE-2026-6479](https://www.cve.org/CVERecord?id=CVE-2026-6479 "https://www.cve.org/CVERecord?id=CVE-2026-6479")
+  - [CVE-2026-6575](https://www.cve.org/CVERecord?id=CVE-2026-6575 "https://www.cve.org/CVERecord?id=CVE-2026-6575")
+  - [CVE-2026-6637](https://www.cve.org/CVERecord?id=CVE-2026-6637 "https://www.cve.org/CVERecord?id=CVE-2026-6637")
+  - [CVE-2026-6638](https://www.cve.org/CVERecord?id=CVE-2026-6638 "https://www.cve.org/CVERecord?id=CVE-2026-6638")
+
+- Fixed an issue that could cause upgrades to take a few seconds longer due to an unexpected termination of the logging process.
+
+**General enhancements**
+
+- Improved Aurora storage metadata management memory usage when managing tens of millions of objects and files.
+- Improved commit latency for Aurora Serverless instances when I/O optimized is enabled.
+- Improved Aurora Replica availability and replay throughput by eliminating unnecessary buffer cache allocation and I/O during write-ahead-log replay for all operations.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with longer downtime.
+- Added support for the `plv8.memory_limit` parameter, allowing customers to configure the memory limit for the plv8 extension. For more information, see [plv8 documentation](https://plv8.github.io/ "https://plv8.github.io/").
+- Fixed an issue where GRANT SET ON PARAMETER on extension parameters could bypass intended parameter privilege restrictions. Grants on unregistered extension parameters are no longer permitted, and GRANT SET ON PARAMETER privileges on restricted parameters are no longer honored for non-superuser roles.
+- Fixed a security issue in trusted PL/Perl that could allow privilege escalation.
+- Fixed multiple security issues in trusted PL/Tcl that could allow code execution or cause brief periods of unavailability.
+- Added a safety guard within a diagnostic logging function to prevent a crash.
+- Fixed a race condition in encryption key initialization that could cause a brief period of unavailability.
+- Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
+- Updated the following extensions:
+
+  - PostGIS to version 3.5.6.
+  - pg\_partman to version 5.4.3.
+  - PgTAP to version 1.3.4.
+  - pgvector to version 0.8.2.
+  - PgCollection to version 1.1.1.
 
 ### PostgreSQL 15.17
 
@@ -5584,6 +5866,7 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 
 ###### Version updates
 
+- [PostgreSQL 14.23](#aurorapostgresql-versions-version1423x "#aurorapostgresql-versions-version1423x")
 - [PostgreSQL 14.22](#aurorapostgresql-versions-version1422x "#aurorapostgresql-versions-version1422x")
 - [PostgreSQL 14.20](#aurorapostgresql-versions-version1420x "#aurorapostgresql-versions-version1420x")
 - [PostgreSQL 14.19](#aurorapostgresql-versions-version1419x "#aurorapostgresql-versions-version1419x")
@@ -5601,6 +5884,68 @@ and prefetching during WAL recovery. In addition, sequences can be specified as 
 - [PostgreSQL 14.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.145X "#AuroraPostgreSQL.Updates.20180305.145X")
 - [PostgreSQL 14.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.144X "#AuroraPostgreSQL.Updates.20180305.144X")
 - [PostgreSQL 14.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.143X "#AuroraPostgreSQL.Updates.20180305.143X")
+
+### PostgreSQL 14.23
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 14.23. For more information about
+the improvements in PostgreSQL 14.23, see [PostgreSQL release
+14.23](https://www.postgresql.org/docs/14/release-14-23.html "https://www.postgresql.org/docs/14/release-14-23.html").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL 14.23.1, August 21, 2026](#aurorapostgresql-versions-version14231x-14231 "#aurorapostgresql-versions-version14231x-14231")
+- [Aurora PostgreSQL 14.23, August 21, 2026](#aurorapostgresql-versions-version1423x-1423 "#aurorapostgresql-versions-version1423x-1423")
+
+#### Aurora PostgreSQL 14.23.1, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue in the Aurora Storage Daemon that in rare cases could impact availability.
+
+#### Aurora PostgreSQL 14.23, August 21, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue that in rare cases could lead to unavailability for Aurora Replica clusters after a restart.
+
+**High priority enhancements**
+
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.cve.org/CVERecord?id=CVE-2026-6472 "https://www.cve.org/CVERecord?id=CVE-2026-6472")
+  - [CVE-2026-6473](https://www.cve.org/CVERecord?id=CVE-2026-6473 "https://www.cve.org/CVERecord?id=CVE-2026-6473")
+  - [CVE-2026-6474](https://www.cve.org/CVERecord?id=CVE-2026-6474 "https://www.cve.org/CVERecord?id=CVE-2026-6474")
+  - [CVE-2026-6475](https://www.cve.org/CVERecord?id=CVE-2026-6475 "https://www.cve.org/CVERecord?id=CVE-2026-6475")
+  - [CVE-2026-6476](https://www.cve.org/CVERecord?id=CVE-2026-6476 "https://www.cve.org/CVERecord?id=CVE-2026-6476")
+  - [CVE-2026-6477](https://www.cve.org/CVERecord?id=CVE-2026-6477 "https://www.cve.org/CVERecord?id=CVE-2026-6477")
+  - [CVE-2026-6478](https://www.cve.org/CVERecord?id=CVE-2026-6478 "https://www.cve.org/CVERecord?id=CVE-2026-6478")
+  - [CVE-2026-6479](https://www.cve.org/CVERecord?id=CVE-2026-6479 "https://www.cve.org/CVERecord?id=CVE-2026-6479")
+  - [CVE-2026-6575](https://www.cve.org/CVERecord?id=CVE-2026-6575 "https://www.cve.org/CVERecord?id=CVE-2026-6575")
+  - [CVE-2026-6637](https://www.cve.org/CVERecord?id=CVE-2026-6637 "https://www.cve.org/CVERecord?id=CVE-2026-6637")
+  - [CVE-2026-6638](https://www.cve.org/CVERecord?id=CVE-2026-6638 "https://www.cve.org/CVERecord?id=CVE-2026-6638")
+
+- Fixed an issue that could cause upgrades to take a few seconds longer due to an unexpected termination of the logging process.
+- Fixed an issue that in rare cases causes contention during extremely heavy write workloads, resulting in slower query progress and potential database unavailability.
+
+**General enhancements**
+
+- Improved Aurora storage metadata management memory usage when managing tens of millions of objects and files.
+- Improved Aurora Replica availability and replay throughput by eliminating unnecessary buffer cache allocation and I/O during write-ahead-log replay for all operations.
+- Fixed an issue where an internal timeout during Zero-Downtime Patching could exceed its intended duration, causing unnecessary fallback to a standard restart with longer downtime.
+- Fixed a security issue in trusted PL/Perl that could allow privilege escalation.
+- Fixed multiple security issues in trusted PL/Tcl that could allow code execution or cause brief periods of unavailability.
+- Added a safety guard within a diagnostic logging function to prevent a crash.
+- Fixed a race condition in encryption key initialization that could cause a brief period of unavailability.
+- Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
+- Fixed an issue with the multitransaction system that could cause database unavailability.
+- Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
+- Updated the following extensions:
+
+  - PostGIS to version 3.5.6.
+  - pg\_partman to version 5.4.3.
+  - PgTAP to version 1.3.4.
+  - pgvector to version 0.8.2.
+  - PgCollection to version 1.1.1.
 
 ### PostgreSQL 14.22
 
