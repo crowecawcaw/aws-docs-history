@@ -16,7 +16,7 @@ recommendations from Trusted Advisor and Security Hub CSPM in one convenient loc
 
 For more information about the Security Hub CSPM categories, see [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md").
 
-- Trusted Advisor onboarded Security Hub CSPM controls up to September 26, 2024. Controls released after September 26, 2024 are not yet onboarded to Trusted Advisor. You can find controls released after that date in the [Security Hub CSPM log](../../../securityhub/latest/userguide/doc-history.md "../../../securityhub/latest/userguide/doc-history.md").
+- Trusted Advisor onboarded Security Hub CSPM controls up to July 8, 2026. Controls released after July 8, 2026 are not yet onboarded to Trusted Advisor. You can find controls released after that date in the [Security Hub CSPM log](../../../securityhub/latest/userguide/doc-history.md "../../../securityhub/latest/userguide/doc-history.md").
 
 ###### Topics
 

@@ -12,7 +12,8 @@ To change your support plan, you must have AWS Identity and Access Management(IA
 
 To downgrade your Business Support+ plan, on the [Manage Support Plans](https://console.aws.amazon.com/support/plans/home "https://console.aws.amazon.com/support/plans/home") page, choose **Review downgrade** in the Basic Support plan section.
 
-To upgrade to an AWS Enterprise Support or AWS Unified Operations plan, choose **Contact sales**.
+To upgrade to an AWS Enterprise Support plan, see [Sign up for AWS Enterprise Support using self-service subscription](enterprise-support-sign-up.md "enterprise-support-sign-up.md"). To upgrade to an AWS Unified Operations
+plan, choose **Contact sales**.
 
 To upgrade to an AWS Business Support+ plan from Basic Support, complete the following steps:
 

@@ -20,28 +20,19 @@ you:
 - Change the support plan for your AWS account
 - Create support plan schedules for your AWS account
 - View a list of all support plan modifiers for your AWS account
+- Accept a support agreement for your AWS account
+- Cancel a support agreement for your AWS account
+- Create a support agreement for your AWS account
+- View a support agreement for your AWS account
+- View a list of support agreements for your AWS account
+- View a list of support agreement revisions for your AWS account
+- Reject a support agreement for your AWS account
+- Update a support agreement for your AWS account
+- Create the AWS Support Plans service-linked role for your AWS account
+- View the AWS Support Plans service-linked role for your AWS account
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "supportplans:GetSupportPlan",
- "supportplans:GetSupportPlanUpdateStatus",
- "supportplans:StartSupportPlanUpdate",
- "supportplans:CreateSupportPlanSchedule",
- "supportplans:ListSupportPlanModifiers"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+To view the permissions for this policy, see [AWSSupportPlansFullAccess](../../../aws-managed-policy/latest/reference/AWSSupportPlansFullAccess.md "../../../aws-managed-policy/latest/reference/AWSSupportPlansFullAccess.md") in the _AWS
+Managed Policy Reference_.
 
 For a list of changes to the policies, see [AWS Support Plans updates to AWS managed policies](#security-iam-awsmanpol-updates-support-plans "#security-iam-awsmanpol-updates-support-plans").
 
@@ -54,26 +45,12 @@ you:
 - View your support plan for your AWS account
 - View details about the status for a request to change your support plan
 - View a list of all support plan modifiers for your AWS account
+- View a support agreement for your AWS account
+- View a list of support agreements for your AWS account
+- View a list of support agreement revisions for your AWS account
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "supportplans:GetSupportPlan",
- "supportplans:GetSupportPlanUpdateStatus",
- "supportplans:ListSupportPlanModifiers"
- ],
- "Resource": "*"
- }
- ]
-}`
-
-```
+To view the permissions for this policy, see [AWSSupportPlansReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSSupportPlansReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSSupportPlansReadOnlyAccess.md") in the _AWS
+Managed Policy Reference_.
 
 For a list of changes to the policies, see [AWS Support Plans updates to AWS managed policies](#security-iam-awsmanpol-updates-support-plans "#security-iam-awsmanpol-updates-support-plans").
 
@@ -99,6 +76,7 @@ since September 29, 2022.
 
 AWS Support| Change | Description | Date |
 | --- | --- | --- |
+| [AWSSupportPlansReadOnlyAccess](#support-plan-read-only-access-managed-policy "#support-plan-read-only-access-managed-policy")<br>• Update to an existing policy<br>[AWSSupportPlansFullAccess](#support-plan-full-access-managed-policy "#support-plan-full-access-managed-policy") -<br>Update to an existing policy | Added support agreement actions to the<br>`AWSSupportPlansFullAccess` and<br>`AWSSupportPlansReadOnlyAccess` managed policies.<br>Also added service-linked role actions to the<br>`AWSSupportPlansFullAccess` managed policy. | August 27, 2026 |
 | [AWSSupportPlansReadOnlyAccess](#support-plan-read-only-access-managed-policy "#support-plan-read-only-access-managed-policy")<br>• Update to an existing policy<br>[AWSSupportPlansFullAccess](#support-plan-full-access-managed-policy "#support-plan-full-access-managed-policy") -<br>Update to an existing policy | Add `ListSupportPlanModifiers` action to<br>`AWSSupportPlansFullAccess` and `AWSSupportPlansReadOnlyAccess` managed<br>policies. | September 9, 2024 |
 | [AWSSupportPlansFullAccess](#support-plan-full-access-managed-policy "#support-plan-full-access-managed-policy")<br>• Update to<br>an existing policy | Add `CreateSupportPlanSchedule` action to<br>`AWSSupportPlansFullAccess` managed policy. | May 8, 2023 |
 | Change log published | Change log for the Support Plans managed policies. | September 29, 2022 |

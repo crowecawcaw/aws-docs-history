@@ -43,7 +43,7 @@ You can explicitly allow-list specific actions instead of using wildcards. The f
         "support-console:DeleteCaseDraft",
         "support-console:GetBanner",
         "support-console:DescribeDynamicHelp",
-        "support-console:CreateContact",
+        "support-console:CreateContact"
       ],
       "Resource": "*"
     }

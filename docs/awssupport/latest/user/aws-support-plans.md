@@ -24,6 +24,7 @@ Developer Support, Business Support, and Enterprise On-Ramp will remain availabl
 - [Features of AWS Support Plans](#features "#features")
 - [What is AWS Unified Operations](unified-operations-intro.md "unified-operations-intro.md")
 - [Change AWS Support Plans](changing-support-plans.md "changing-support-plans.md")
+- [Sign up for AWS Enterprise Support using self-service subscription](enterprise-support-sign-up.md "enterprise-support-sign-up.md")
 - [Configure promotional plan expiration notifications](configure-promo-plan-notifications.md "configure-promo-plan-notifications.md")
 - [Developer, Business, and Enterprise On-Ramp end of support](support-plans-eos.md "support-plans-eos.md")
 
