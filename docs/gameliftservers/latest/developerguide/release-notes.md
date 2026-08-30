@@ -18,7 +18,7 @@ GitHub organization.](https://github.com/amazon-gamelift/ "https://github.com/am
 | Service release                                                                   | AWS SDK                                                                                                                                            | Server SDK | Plugin for Unreal | Plugin for Unity | Client SDK   | Realtime client SDK |
 | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | ---------------- | ------------ | ------------------- |
 |                                                                                   | C++                                                                                                                                                | C#         | Unity (C#)        | C++              | Unreal (C++) | Go                  |       |       | C++   | Unreal (C++) | C#    | Unity (C#) |       |
-| [August 4, 2026 release notes](#release-notes-08042026 "#release-notes-08042026") | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later on GitHub | 5.5.0      | 5.5.0             | 5.6.0            | 5.6.0        | 5.5.0               | 3.4.0 | 3.3.0 | 1.0.1 | 1.0.1        | 1.0.0 | 1.0.0      | 1.2.0 |
+| [August 4, 2026 release notes](#release-notes-08042026 "#release-notes-08042026") | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later on GitHub | 5.5.1      | 5.5.1             | 5.6.0            | 5.6.0        | 5.6.0               | 3.4.0 | 3.3.1 | 1.0.1 | 1.0.1        | 1.0.0 | 1.0.0      | 1.2.0 |
 
 | Service release                                                                                                                                                                             | AWS SDK                                                                                                                                            | Server SDK            | Plugin for Unreal | Plugin for Unity | Client SDK | Realtime client SDK |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------- | ---------------- | ---------- | ------------------- |
@@ -99,9 +99,20 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-With Amazon GameLift Servers, you can now deploy 21 additional Amazon EC2 instance types for
-managed EC2 fleets and managed container fleets. The new types include
-compute-optimized C-series instances and general-purpose M-series instances:
+Amazon GameLift Servers now offers an additional layer of distributed-denial-of-service
+(DDoS) protection for Linux-based EC2 and Container Fleets on SDKv5. Amazon GameLift Servers
+Enhanced DDoS Protection leverages the resiliency of the AWS network and
+provides automatic protections that we have tuned and proven effective for
+protecting gaming workloads from common network and transport layer attacks.
+This feature is enabled by default with no configuration required and no
+additional cost.
+
+###### **Learn more:**
+
+- [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md "ddos-protection-intro.md"), _Amazon GameLift Servers Developer Guide_
+  With Amazon GameLift Servers, you can now deploy 21 additional Amazon EC2 instance types for
+  managed EC2 fleets and managed container fleets. The new types include
+  compute-optimized C-series instances and general-purpose M-series instances:
 
 - **C8a:**
   `c8a.medium`, `c8a.large`,
