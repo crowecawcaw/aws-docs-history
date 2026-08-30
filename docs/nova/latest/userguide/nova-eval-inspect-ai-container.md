@@ -81,6 +81,10 @@ aws iam create-role \
 
 Save the following as `eval_policy.json`, replacing all placeholder values (`REGION`, `ACCOUNT_ID`, bucket names) with your values:
 
+###### Scope down to resources in use
+
+Scope down each resource ARN to only the resources you need. The policy below provides a starting template — restrict bucket names, endpoint ARNs, and other resources to match your environment.
+
 ```
 {
   "Version": "2012-10-17",
@@ -276,13 +280,13 @@ aws iam put-role-policy \
 
 The eval recipe is a YAML configuration file that defines how the container runs your evaluations. The recipe specifies the inference provider, benchmarks, evaluation parameters, and output settings.
 
-For end-to-end examples, see the following notebooks:
+For end-to-end examples, see the following notebooks in the [Amazon Nova Samples](https://github.com/aws-samples/amazon-nova-samples "https://github.com/aws-samples/amazon-nova-samples") repository on GitHub:
 
 - [Evaluate an existing SageMaker endpoint](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_sagemaker_endpoint.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_sagemaker_endpoint.ipynb")
 - [Evaluate with a managed endpoint](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_managed_endpoint.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_managed_endpoint.ipynb")
 - [Evaluate a Amazon Bedrock model](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_bedrock_model.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_bedrock_model.ipynb")
 
-**Option A: Evaluate an existing SageMaker endpoint**
+### Option A: Evaluate an existing SageMaker endpoint
 
 Use this option when you have a model already deployed on a SageMaker inference endpoint.
 
@@ -306,7 +310,7 @@ output:
   s3_path: "s3://your-bucket/eval-results/"
 ```
 
-**Option B: Create endpoint, evaluate, then clean up**
+### Option B: Create endpoint, evaluate, then clean up
 
 Use this option to have the container deploy a Amazon Nova base or fine-tuned model, run evaluations, and tear down the endpoint automatically. This is the recommended approach for one-off evaluation runs. Retrieve the latest SageMaker inference container from the [Amazon Nova SageMaker Inference container images](nova-model-sagemaker-inference.md#nova-sagemaker-inference-container-images "nova-model-sagemaker-inference.md#nova-sagemaker-inference-container-images") documentation.
 
@@ -353,14 +357,14 @@ output:
   s3_path: "s3://your-bucket/eval-results/"
 ```
 
-**Note on `model_s3_uri`:**
+###### Note on model\_s3\_uri
 
 - **Amazon Nova GA models (base checkpoints)**: For example, `s3://escrow-nova-model-708977205387-us-east-1/nova-lite-2/prod/` — SageMaker manages access automatically, no additional S3 permissions needed.
 - **Customized Amazon Nova models (post-training checkpoints)**: `s3://customer-escrow-ACCOUNT_ID-SUFFIX/YOUR_RUN_NAME/outputs/checkpoints/step_N/` — this is the escrow bucket path from your training job output.
 
-**Option C: Evaluate through Amazon Bedrock**
+### Option C: Evaluate through Amazon Bedrock Runtime
 
-Use this option to evaluate a model available through Amazon Bedrock without managing an endpoint.
+Use this option to evaluate a model available through Amazon Bedrock Runtime without managing an endpoint. For more information about Amazon Bedrock endpoint options, see [Amazon Bedrock endpoints](../../../bedrock/latest/userguide/endpoints.md "../../../bedrock/latest/userguide/endpoints.md").
 
 ```
 inference_provider:
@@ -390,6 +394,131 @@ eval:
 
 output:
   s3_path: s3://your-bucket/eval/output/
+```
+
+### Option D: Evaluate through Amazon Bedrock Mantle
+
+[Amazon Bedrock Mantle](../../../bedrock/latest/userguide/inference-chat-completions-mantle.md "../../../bedrock/latest/userguide/inference-chat-completions-mantle.md") provides an OpenAI-compatible inference endpoint for models available through Amazon Bedrock. This option does not require a stored credential. The container generates a short-lived bearer token from your execution role's IAM credentials and automatically refreshes it between benchmarks.
+
+```
+inference_provider:
+  openai_compatible_endpoint:
+    auth: "bedrock_mantle"
+    region: "us-east-1"
+    model_name: "us.amazon.nova-pro-v1:0"
+
+benchmarks:
+  s3_path: "s3://your-bucket/benchmarks/my_benchmarks/"
+  tasks:
+    - name: mmlu
+
+eval:
+  max_connections: 10
+  max_retries: 50
+  timeout: 600
+
+output:
+  s3_path: s3://your-bucket/eval/output/
+```
+
+Add the following permission to your execution role (see [Step 1: Set up IAM permissions](#nova-eval-container-step1 "#nova-eval-container-step1")):
+
+```
+{
+  "Sid": "BedrockMantleInference",
+  "Effect": "Allow",
+  "Action": [
+    "bedrock-mantle:CreateInference",
+    "bedrock-mantle:CallWithBearerToken"
+  ],
+  "Resource": "*"
+}
+```
+
+For permissions guidance, see [Amazon Bedrock inference permissions](../../../bedrock/latest/userguide/inference.md "../../../bedrock/latest/userguide/inference.md") and [API key permissions control](../../../bedrock/latest/userguide/api-keys-permissions.md "../../../bedrock/latest/userguide/api-keys-permissions.md") in the Amazon Bedrock documentation.
+
+### Option E: Evaluate an OpenAI-compatible endpoint
+
+Use this option to evaluate through any OpenAI-compatible API endpoint — including [SageMaker Inference](https://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/ "https://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/") (AWS blog) or other OpenAI-compatible providers. This option uses the Inspect AI [OpenAI-compatible API provider](https://inspect.aisi.org.uk/providers.html#openai-api "https://inspect.aisi.org.uk/providers.html#openai-api") on the Inspect AI website, which sends the configured credential as a bearer token in the `Authorization` header with each inference request. Bearer tokens are not logged by default.
+
+###### Token provider guidance
+
+Always check your token provider's documentation for its recommended key management practices, rotation policies, and security guidance before configuring credential delivery.
+
+###### HTTPS requirement
+
+HTTPS is required for all endpoints that use bearer token authentication. HTTP is allowed only for localhost addresses.
+
+#### Using AWS Secrets Manager (recommended)
+
+[AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") provides encrypted storage, access auditing through CloudTrail, and automatic rotation for API keys and other secrets. Store the API key in Secrets Manager and reference it by ARN in the recipe. The container fetches the key at runtime and auto-refreshes between benchmarks.
+
+```
+inference_provider:
+  openai_compatible_endpoint:
+    model_name: "my-model"
+    base_url: "https://my-endpoint/v1"
+    auth: api_key
+    api_key_secret_arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:prod/my-api-key"
+    region: "us-east-1"
+
+benchmarks:
+  s3_path: "s3://your-bucket/benchmarks/my_benchmarks/"
+  tasks:
+    - name: mmlu
+
+eval:
+  max_connections: 10
+  max_retries: 50
+  timeout: 600
+
+output:
+  s3_path: s3://your-bucket/eval/output/
+```
+
+Add the following permission to your execution role (see [Step 1: Set up IAM permissions](#nova-eval-container-step1 "#nova-eval-container-step1")):
+
+```
+{
+  "Sid": "GetApiKeySecret",
+  "Effect": "Allow",
+  "Action": "secretsmanager:GetSecretValue",
+  "Resource": "arn:aws:secretsmanager:REGION:ACCOUNT_ID:secret:YOUR_SECRET_NAME"
+}
+```
+
+#### Using environment variables
+
+The API key can be passed through the environment variable `INFERENCE_API_KEY`. Check with your runtime environment documentation for how environment variables are passed and the security implications. For SageMaker Training Jobs, environment variables are visible in [DescribeTrainingJob](../../../sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.md "../../../sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.md") API responses and limited to 512 characters. For more information, see [SageMaker Training Job environment variables](../../../sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.md#automatic-model-tuning-define-variables "../../../sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.md#automatic-model-tuning-define-variables").
+
+```
+inference_provider:
+  openai_compatible_endpoint:
+    model_name: "my-model"
+    base_url: "https://my-endpoint/v1"
+    auth: api_key
+    # No key source specified — reads from INFERENCE_API_KEY environment variable
+
+benchmarks:
+  s3_path: "s3://your-bucket/benchmarks/my_benchmarks/"
+  tasks:
+    - name: mmlu
+
+eval:
+  max_connections: 10
+  max_retries: 50
+  timeout: 600
+
+output:
+  s3_path: s3://your-bucket/eval/output/
+```
+
+For example, on SageMaker Training Jobs:
+
+```
+aws sagemaker create-training-job \
+    ...
+    --environment '{"INFERENCE_API_KEY": "your-api-key"}'
 ```
 
 **Benchmarks configuration**
@@ -640,7 +769,7 @@ aws sagemaker create-training-job \
     --region us-west-2
 ```
 
-**Option B: SageMaker Python SDK V3**
+**Option B: SageMaker Python SDK v3**
 
 ```
 from sagemaker.train.evaluate import InspectAIEvaluator
