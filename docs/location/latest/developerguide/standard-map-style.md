@@ -113,7 +113,7 @@ To learn more, see [Localization and internationalization](maps-localization-int
 
 Languages
 
-![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](/images/location/latest/developerguide/images/standard-language-switcher.gif)
+![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](images/standard-language-switcher.gif)
 
 Political view
 
