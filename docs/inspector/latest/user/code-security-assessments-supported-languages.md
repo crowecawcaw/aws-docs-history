@@ -32,6 +32,10 @@ This topic includes the supported languages for Amazon Inspector Code Security.
 - Ruby (Ruby 2.7 and 3.2 only)
 - Rust
 
+###### Note
+
+For npm (Node.js) projects, Amazon Inspector code security software composition analysis identifies dependencies from the `package.json` manifest and excludes the `package-lock.json` lockfile from analysis. Dependencies that appear only in `package-lock.json`, including transitive dependencies and the exact versions that it pins, are not evaluated.
+
 ###### Languages for Infrastructure as Code
 
 - AWS CDK (Python and TypeScript)

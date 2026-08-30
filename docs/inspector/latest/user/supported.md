@@ -164,19 +164,18 @@ Some checks might not be evaluated or might return invalid remediation instructi
 | Operating system                | Version | CIS benchmark version |
 | ------------------------------- | ------- | --------------------- |
 | Amazon Linux 2023               | AL2023  | 1.0.0                 |
-| Red Hat Enterprise Linux (RHEL) | 8       | 3.0.0                 |
+| Red Hat Enterprise Linux (RHEL) | 8       | 4.0.0                 |
 | Red Hat Enterprise Linux (RHEL) | 9       | 2.0.0                 |
-| Rocky Linux                     | 8       | 2.0.0                 |
-| Rocky Linux                     | 9       | 1.0.0                 |
+| Rocky Linux                     | 8       | 3.0.0                 |
+| Rocky Linux                     | 9       | 2.0.0                 |
 | SUSE Linux Enterprise Server    | 15      | 2.0.1                 |
-| Ubuntu (Bionic)                 | 18.04   | 2.2.0                 |
 | Ubuntu (Focal)                  | 20.04   | 3.0.0                 |
-| Ubuntu (Jammy)                  | 22.04   | 2.0.0                 |
-| Ubuntu (Noble)                  | 24.04   | 1.0.0                 |
-| Windows Server                  | 2016    | 3.0.0                 |
-| Windows Server                  | 2019    | 4.0.0                 |
-| Windows Server                  | 2022    | 4.0.0                 |
-| Windows Server                  | 2025    | 1.0.0                 |
+| Ubuntu (Jammy)                  | 22.04   | 3.0.0                 |
+| Ubuntu (Noble)                  | 24.04   | 2.0.0                 |
+| Windows Server                  | 2016    | 4.0.0                 |
+| Windows Server                  | 2019    | 5.0.0                 |
+| Windows Server                  | 2022    | 5.0.0                 |
+| Windows Server                  | 2025    | 2.0.0                 |
 
 ### Supported operating systems: Amazon Inspector Scan API
 
@@ -443,6 +442,7 @@ The version of the programming language compiler used to build the application i
   - python3.11
   - python3.12
   - python3.13
+  - python3.14
 
 - Ruby
 
@@ -491,6 +491,7 @@ Amazon Inspector Lambda code scanning currently supports the following runtimes 
   - python3.11
   - python3.12
   - python3.13
+  - python3.14
 
 - Ruby
 
