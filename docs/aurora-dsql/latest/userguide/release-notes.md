@@ -8,6 +8,44 @@ history](doc-history.md "doc-history.md").
 
 ### August 2026
 
+August 26, 2026
+
+🐘 _PostgreSQL Compatibility_ — **Foreign key
+constraints** — Aurora DSQL now supports foreign key constraints. You can define foreign
+key constraints when you create a table, or add them to an existing table with `ALTER TABLE ...
+ ADD CONSTRAINT ... NOT VALID`. For more information, see
+[Working with foreign key constraints](working-with-foreign-key-constraints.md "working-with-foreign-key-constraints.md").
+
+August 26, 2026
+
+🐘 _PostgreSQL Compatibility_ — **Compression for
+character data types** — Aurora DSQL now compresses large values in `text`,
+`varchar`, and `bpchar` columns, storing text-heavy payloads more
+efficiently. Aurora DSQL compresses these values only in columns that aren't part of a key.
+Values in primary key columns and in the key columns of a secondary index are always
+stored uncompressed. For more information, see [Character data types](working-with-postgresql-compatibility-supported-data-types.md#character-data-types "working-with-postgresql-compatibility-supported-data-types.md#character-data-types").
+
+August 25, 2026
+
+🐘 _PostgreSQL Compatibility_ — **`numeric` precision
+and scale limits** — Aurora DSQL now supports higher precision and scale limits for
+`numeric` data type. The max precision is now 1000 and scale can be between -1000 to
+1000 when you declare numerics with explicit precision and scale.
+
+August 25, 2026
+
+🐘 _PostgreSQL Compatibility_ — **`SELECT FOR KEY
+ SHARE`** — Aurora DSQL now supports the `SELECT ... FOR KEY SHARE` clause, which
+declares that a transaction depends on the key columns of the selected rows. For more
+information about how Aurora DSQL detects conflicts between reads and concurrent writes, see [Concurrency control in Aurora DSQL](working-with-concurrency-control.md "working-with-concurrency-control.md").
+
+August 24, 2026
+
+🐘 _PostgreSQL Compatibility_ — **`SELECT FOR UPDATE`
+expanded support** — Now in Aurora DSQL you can use `FOR UPDATE` in a
+`SELECT` without specifying equality predicates on all primary key columns. You can also use
+`FOR UPDATE` with queries that span multiple tables. Transaction limits still apply.
+
 August 17, 2026
 
 _Monitoring_ — **Aurora DSQL Database Insights** — Aurora DSQL now supports Aurora DSQL Database Insights, per-statement cluster-level

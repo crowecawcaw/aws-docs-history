@@ -47,9 +47,9 @@ Adapt these common PostgreSQL patterns for Aurora DSQL compatibility:
 
 **Referential integrity patterns**
 
-Aurora DSQL supports table relationships and `JOIN` operations. For referential integrity, implement validation in your application layer. This design aligns with modern distributed database patterns where application-layer validation provides more flexibility and avoids performance bottlenecks from cascading operations.
+Aurora DSQL supports foreign keys, table relationships, and `JOIN` operations. Use foreign keys to keep data consistent across your tables. To learn more, see [Working with foreign key constraints in Aurora DSQL](working-with-foreign-key-constraints.md "working-with-foreign-key-constraints.md").
 
-**Pattern:** Implement referential integrity checks in your application layer using consistent naming conventions, validation logic, and transaction boundaries. Many high-scale applications prefer this approach for better control over error handling and performance.
+**Pattern:** Add foreign keys when you create your tables. Aurora DSQL then checks that related rows exist. You can also add checks in your app code for custom error handling.
 
 **Temporary data handling**
 

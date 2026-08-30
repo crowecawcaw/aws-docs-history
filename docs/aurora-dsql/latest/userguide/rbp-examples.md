@@ -113,7 +113,7 @@ This policy restricts access to principals within a specific Organizational Unit
       ],
       "Resource": "arn:aws:dsql:us-east-1:123456789012:cluster/mydsqlclusterid0123456789a",
       "Condition": {
-        "StringNotLike": {
+        "ForAnyValue:StringNotLike": {
           "aws:PrincipalOrgPaths": "o-exampleorgid/r-examplerootid/ou-exampleouid/*"
         }
       }
@@ -143,7 +143,7 @@ _us-east-1 policy:_
       ],
       "Condition": {
         "StringNotEquals": {
-          "aws:SourceVpc": "vpc-east1-id"
+          "aws:SourceVpc": "vpc-0a1b2c3d4e5f67890"
         },
         "Null": {
           "aws:SourceVpc": "true"
@@ -171,7 +171,7 @@ _us-east-2 policy:_
       ],
       "Condition": {
         "StringEquals": {
-          "aws:SourceVpc": "vpc-east2-id"
+          "aws:SourceVpc": "vpc-0f9e8d7c6b5a43210"
         }
       }
     }

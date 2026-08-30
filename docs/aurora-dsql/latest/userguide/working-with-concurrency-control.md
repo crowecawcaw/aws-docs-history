@@ -15,9 +15,9 @@ high-throughput applications where performance and scalability are critical.
 
 Aurora DSQL uses optimistic concurrency control (OCC), which works differently from
 traditional lock-based systems. Instead of using locks, OCC evaluates conflicts at commit
-time. When Aurora DSQL detects a conflict, it returns a PostgreSQL serialization failure with
-SQLSTATE code `40001`. The response message includes an OCC code that identifies
-the type of conflict:
+time. This process of commit time conflict evaluation is also called adjudication.
+When Aurora DSQL detects a conflict, it returns a PostgreSQL serialization failure with SQLSTATE code
+`40001`. The response message includes an OCC code that identifies the type of conflict:
 
 **OC000 — Data conflict**
 
@@ -50,6 +50,49 @@ design pattern is idempotent, enabling transaction retry as a first recourse whe
 possible. The recommended logic is similar to the abort and retry logic in a standard PostgreSQL
 lock timeout or deadlock situation. However, OCC requires your applications to exercise this
 logic more frequently.
+
+## Data conflict types
+
+Because of the Aurora DSQL concurrency control mechanism, the `SELECT ... FOR
+ UPDATE` and `SELECT ... FOR KEY SHARE` clauses produce results through
+optimistic conflict detection at commit time rather than locking. In Aurora DSQL, when one
+transaction writes a row and another reads it with one of the preceding clauses, a conflict
+might surface at commit time depending on which columns the transactions use. The following
+clauses determine how Aurora DSQL detects these conflicts.
+
+###### Key column definition
+
+**Key columns** are columns that are members of a unique,
+non-partial, non-expression index. All other columns are non-key columns.
+
+**`SELECT ... FOR UPDATE`**
+
+Declares that Aurora DSQL adjudicates the selected rows as if the transaction writes to
+them. If another transaction runs `UPDATE`, `DELETE`, `SELECT
+ ... FOR UPDATE`, or `SELECT ... FOR KEY SHARE` on the same row and
+commits first, the transaction that ran `SELECT ... FOR UPDATE` fails with an
+`OC000` response. This clause conflicts with any concurrent write to the row, and with
+concurrent `FOR UPDATE` or `FOR KEY SHARE` reads.
+
+**`SELECT ... FOR KEY SHARE`**
+
+Declares that the transaction depends on the key columns of the selected rows.
+If another transaction deletes the row, changes its key columns, or runs `SELECT
+ ... FOR UPDATE` and commits first, the transaction that ran `SELECT ... FOR
+ KEY SHARE` fails with an `OC000` response. A concurrent `UPDATE` to
+non-key columns doesn't conflict.
+
+Aurora DSQL doesn't support the `NO KEY UPDATE` or `FOR SHARE` clauses.
+However, DML implicitly uses the `NO KEY UPDATE` mechanism. The following matrix
+summarizes when two concurrent transactions that access the same row conflict. An `X`
+indicates that the two operations conflict: whichever transaction commits last fails with an
+`OC000` response. A blank cell indicates that both transactions can commit.
+
+| Operation                                                                 | `INSERT`, `DELETE`, `UPDATE` (key columns), or<br>`SELECT ... FOR UPDATE` | `UPDATE` (non-key columns only) | `SELECT ... FOR KEY SHARE` |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------- | -------------------------- |
+| `INSERT`, `DELETE`, `UPDATE` (key columns), or<br>`SELECT ... FOR UPDATE` | X                                                                         | X                               | X                          |
+| `UPDATE` (non-key columns only)                                           | X                                                                         | X                               |                            |
+| `SELECT ... FOR KEY SHARE`                                                | X                                                                         |                                 |                            |
 
 ## Guidelines for optimizing transaction performance
 

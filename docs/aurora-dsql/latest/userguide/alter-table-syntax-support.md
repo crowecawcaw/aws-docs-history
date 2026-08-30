@@ -30,6 +30,7 @@ where action is one of:
     ALTER [ COLUMN ] column_name { SET GENERATED { ALWAYS | BY DEFAULT } | SET sequence_option | RESTART [ [ WITH ] restart ] } [...]
     ALTER [ COLUMN ] column_name DROP IDENTITY [ IF EXISTS ]
     ALTER [ COLUMN ] column_name SET STORAGE { PLAIN | EXTERNAL | EXTENDED | MAIN | DEFAULT }
+    ALTER CONSTRAINT constraint_name [ DEFERRABLE | NOT DEFERRABLE ] [ INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
     ADD table_constraint NOT VALID
     ADD table_constraint_using_index
     DROP CONSTRAINT [ IF EXISTS ] constraint_name [ RESTRICT | CASCADE ]
@@ -38,12 +39,20 @@ where action is one of:
 and table_constraint is:
 
     [ CONSTRAINT constraint_name ]
-    CHECK ( expression )
+    { CHECK ( expression ) |
+      FOREIGN KEY ( column_name [, ... ] ) REFERENCES reftable [ ( refcolumn [, ... ] ) ]
+        [ MATCH FULL | MATCH SIMPLE ]
+        [ ON DELETE referential_action ] [ ON UPDATE referential_action ] }
+    [ DEFERRABLE | NOT DEFERRABLE ] [ INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
 
 and table_constraint_using_index is:
 
     [ CONSTRAINT constraint_name ]
     UNIQUE USING INDEX index_name
+
+and referential_action in a FOREIGN KEY/REFERENCES constraint is:
+
+    { NO ACTION | RESTRICT | CASCADE | SET NULL [ ( column_name [, ... ] ) ] | SET DEFAULT [ ( column_name [, ... ] ) ] }
 ```
 
 ## Description
@@ -116,13 +125,24 @@ see [Working with sequences and identity columns](sequences-identity-columns-wor
 This form sets the storage mode for a column. For details on the available storage
 modes, see [Storage mode](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") on the [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md") page.
 
+**`ALTER CONSTRAINT`**
+
+This form alters the attributes of an existing foreign key constraint. You
+can change a foreign key constraint between `DEFERRABLE` and `NOT
+ DEFERRABLE`, and set whether it defaults to `INITIALLY DEFERRED`
+or `INITIALLY IMMEDIATE`. For a description of these options, see
+[Deferrability](create-table-syntax-support.md#create-table-fk-deferrability "create-table-syntax-support.md#create-table-fk-deferrability") on the
+[CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md") page.
+
 **`ADD `table_constraint` NOT VALID`**
 
-This form adds a new `CHECK` constraint to a table. In Aurora DSQL,
-`CHECK` constraints added via `ALTER TABLE ADD CONSTRAINT` must
-use the `NOT VALID` option. Aurora DSQL creates the constraint but doesn't immediately
-validate it against existing data. This allows the constraint to be added without scanning
-the entire table. The constraint applies immediately to all new rows and updates.
+This form adds a new `CHECK` or `FOREIGN KEY` constraint to a
+table. In Aurora DSQL, `CHECK` and `FOREIGN KEY` constraints added via
+`ALTER TABLE ADD CONSTRAINT` must use the `NOT VALID` option.
+Aurora DSQL creates the
+constraint but doesn't immediately validate it against existing data. This allows the
+constraint to be added without scanning the entire table. The constraint applies
+immediately to all new rows and updates.
 
 After adding a constraint with `NOT VALID`, use `ALTER TABLE ASYNC ...
  VALIDATE CONSTRAINT` to validate that existing data also satisfies the constraint.
@@ -219,10 +239,9 @@ Data type of the new column.
 
 **`table_constraint`**
 
-A `CHECK` constraint definition. In Aurora DSQL, `CHECK` constraints
-must be added with the `NOT VALID` option using `ALTER TABLE ADD
- CONSTRAINT`. See [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md") for the full `CHECK` constraint
-syntax.
+A `CHECK` or `FOREIGN KEY` constraint definition. In Aurora DSQL, these
+constraints must be added with the `NOT VALID` option using `ALTER TABLE
+ ADD CONSTRAINT`. See [CREATE TABLE](create-table-syntax-support.md "create-table-syntax-support.md") for the full constraint syntax.
 
 **`constraint_name`**
 

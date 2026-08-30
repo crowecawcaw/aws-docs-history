@@ -48,7 +48,7 @@ aws dsql create-cluster --policy '{
         "Resource": "*",
         "Action": ["dsql:DbConnect", "dsql:DbConnectAdmin"],
         "Condition": {
-            "StringNotEquals": { "aws:SourceVpc": "vpc-123456" }
+            "StringNotEquals": { "aws:SourceVpc": "vpc-1a2b3c4d5e6f7a8b9" }
         }
     }]
 }'
@@ -70,7 +70,7 @@ policy = {
         "Resource": "*",
         "Action": ["dsql:DbConnect", "dsql:DbConnectAdmin"],
         "Condition": {
-            "StringNotEquals": { "aws:SourceVpc": "vpc-123456" }
+            "StringNotEquals": { "aws:SourceVpc": "vpc-1a2b3c4d5e6f7a8b9" }
         }
     }]
 }
@@ -100,7 +100,7 @@ String policy = """
     "Resource": "*",
     "Action": ["dsql:DbConnect", "dsql:DbConnectAdmin"],
     "Condition": {
-      "StringNotEquals": { "aws:SourceVpc": "vpc-123456" }
+      "StringNotEquals": { "aws:SourceVpc": "vpc-1a2b3c4d5e6f7a8b9" }
     }
   }]
 }

@@ -14,14 +14,14 @@ Aurora DSQL supports a subset of the common PostgreSQL types.
 
 Aurora DSQL supports the following PostgreSQL numeric data types.
 
-| Name                            | Aliases                                                     | Range and precision                                                                                                                     | Storage size                                                     | Index support |
-| ------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------- |
-| `smallint`                      | `int2`                                                      | -32768 to +32767                                                                                                                        | 2 bytes                                                          | Yes           |
-| `integer`                       | `int`, `int4`                                               | -2147483648 to +2147483647                                                                                                              | 4 bytes                                                          | Yes           |
-| `bigint`                        | `int8`                                                      | -9223372036854775808 to +9223372036854775807                                                                                            | 8 bytes                                                          | Yes           |
-| `real`                          | `float4`                                                    | 6 decimal digits precision                                                                                                              | 4 bytes                                                          | Yes           |
-| `double precision`              | `float8`                                                    | 15 decimal digits precision                                                                                                             | 8 bytes                                                          | Yes           |
-| `numeric` [ `(``p`,<br>`s``)` ] | `decimal` [ `(``p`,<br>`s``)` ]<br>`dec`[<br>`(``p`,`s``)`] | Exact numeric of selectable precision. The maximum precision is 38 and the<br>maximum scale is 37.1 The default is `numeric<br>(18,6)`. | 8 bytes + 2 bytes per precision digit. Maximum size is 27 bytes. | Yes           |
+| Name                            | Aliases                                                     | Range and precision                                                                                                                                    | Storage size                                                                | Index support |
+| ------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ------------- |
+| `smallint`                      | `int2`                                                      | -32768 to +32767                                                                                                                                       | 2 bytes                                                                     | Yes           |
+| `integer`                       | `int`, `int4`                                               | -2147483648 to +2147483647                                                                                                                             | 4 bytes                                                                     | Yes           |
+| `bigint`                        | `int8`                                                      | -9223372036854775808 to +9223372036854775807                                                                                                           | 8 bytes                                                                     | Yes           |
+| `real`                          | `float4`                                                    | 6 decimal digits precision                                                                                                                             | 4 bytes                                                                     | Yes           |
+| `double precision`              | `float8`                                                    | 15 decimal digits precision                                                                                                                            | 8 bytes                                                                     | Yes           |
+| `numeric` [ `(``p`,<br>`s``)` ] | `decimal` [ `(``p`,<br>`s``)` ]<br>`dec`[<br>`(``p`,`s``)`] | Exact numeric of selectable precision. The maximum precision is 1000 and scale can be between -1000 and 1000.<br>1 The default is `numeric<br>(18,6)`. | 8 bytes + 2 bytes per group of 4 decimal digits. Maximum size is 510 bytes. | Yes           |
 
 1 – If you don't explicitly specify a size when you run
 `CREATE TABLE` or `ALTER TABLE ADD COLUMN`, Aurora DSQL enforces the
@@ -34,15 +34,22 @@ Aurora DSQL supports the following PostgreSQL character data types.
 
 | Name                                 | Aliases                    | Description                                                                                                                                                   | Aurora DSQL limit | Storage size               | Index support |
 | ------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------- | ------------- |
-| `character` [<br>`(``n``)` ]         | `char` [ `(``n``)`<br>]    | Fixed-length character string                                                                                                                                 | 4096 bytes1       | Variable up to 4100 bytes  | Yes           |
-| `character varying` [<br>`(``n``)` ] | `varchar` [<br>`(``n``)` ] | Variable-length character string                                                                                                                              | 65535 bytes1      | Variable up to 65539 bytes | Yes           |
-| `bpchar` [<br>`(``n``)` ]            |                            | If fixed length, this is an alias for `char`. If variable length,<br>this is an alias for `varchar`, where trailing spaces are<br>semantically insignificant. | 4096 bytes1       | Variable up to 4100 bytes  | Yes           |
-| `text`                               |                            | Variable-length character string                                                                                                                              | 1 MiB1            | Variable up to 1 MiB       | Yes           |
+| `character` [<br>`(``n``)` ]         | `char` [ `(``n``)`<br>]    | Fixed-length character string                                                                                                                                 | 4096 bytes1,2     | Variable up to 4100 bytes  | Yes           |
+| `character varying` [<br>`(``n``)` ] | `varchar` [<br>`(``n``)` ] | Variable-length character string                                                                                                                              | 65535 bytes1,2    | Variable up to 65539 bytes | Yes           |
+| `bpchar` [<br>`(``n``)` ]            |                            | If fixed length, this is an alias for `char`. If variable length,<br>this is an alias for `varchar`, where trailing spaces are<br>semantically insignificant. | 4096 bytes1,2     | Variable up to 4100 bytes  | Yes           |
+| `text`                               |                            | Variable-length character string                                                                                                                              | 1 MiB1,2          | Variable up to 1 MiB       | Yes           |
 
 1 – If you don't explicitly specify a size when you run
 `CREATE TABLE` or `ALTER TABLE ADD COLUMN`, then Aurora DSQL enforces
 the defaults. Aurora DSQL applies limits when you run `INSERT` or
 `UPDATE` statements.
+
+2 – Aurora DSQL automatically applies compression to large `text`, `varchar`,
+and `bpchar` values during `INSERT` and `UPDATE` operations.
+Aurora DSQL compresses these values only in columns that aren't part of a key. Values in primary key
+columns and in the key columns of a secondary index are always stored uncompressed.
+
+To disable compression, use the `STORAGE` keyword. For more information, see [CREATE TABLE](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") and [ALTER TABLE](alter-table-syntax-support.md#alter-table-description "alter-table-syntax-support.md#alter-table-description").
 
 ## Date and time data types
 

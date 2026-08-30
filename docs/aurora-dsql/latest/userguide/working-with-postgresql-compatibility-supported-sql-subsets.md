@@ -17,3 +17,4 @@ PostgreSQL syntax elements that Aurora DSQL supports.
 - [CREATE VIEW](create-view.md "create-view.md")
 - [ALTER VIEW](alter-view-syntax-support.md "alter-view-syntax-support.md")
 - [DROP VIEW](drop-view-overview.md "drop-view-overview.md")
+- [SET CONSTRAINTS](set-constraints-syntax-support.md "set-constraints-syntax-support.md")
