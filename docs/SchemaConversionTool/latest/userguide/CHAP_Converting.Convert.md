@@ -22,7 +22,7 @@ schema to convert. Next, choose this schema from the left panel of your project.
 AWS SCT highlights the schema name in blue. Open the context (right-click) menu for the
 schema, and choose **Convert schema**, as shown following.
 
-![Convert schema](/images/SchemaConversionTool/latest/userguide/images/transform_schema.png)
+![Convert schema](images/transform_schema.png)
 
 After you have converted the schema from your source database, you can choose
 schema items from the left panel of your project and view the converted schema in the
