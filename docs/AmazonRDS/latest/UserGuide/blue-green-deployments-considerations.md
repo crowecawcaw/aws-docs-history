@@ -59,6 +59,28 @@ The following general limitations apply to blue/green deployments:
   Blue/green deployments are supported for Multi-AZ DB instance deployments. For
   more information about Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
 
+- After you switch over a blue/green deployment, point-in-time recovery (PITR) history
+  doesn't carry over to the new production DB instance. The green DB instance keeps its own resource
+  ID. Its earliest restorable time starts when you created the green environment. You
+  can't restore the new production DB instance to any point in time before that, including any
+  time before switchover. The blue DB instance keeps its own PITR history and automated backups
+  until you delete it. To restore the blue DB instance after switchover, use its resource ID
+  (`DbiResourceId`), not its name. The name changes during
+  switchover. For more information, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
+
+###### Important
+
+Plan for this PITR reset if you have backup retention or recovery point objective (RPO)
+requirements. The new production DB instance can't reach a recovery point from before you created
+the green environment, and its PITR window reaches your full backup retention period only
+after enough time passes.
+
+To keep the ability to recover to a time before switchover, don't delete the blue
+DB instance immediately. Keep the blue DB instance running for at least the length of your required
+recovery window.
+A retained blue DB instance still incurs charges for compute and storage until you delete
+it.
+
 ### RDS for MySQL limitations for blue/green deployments
 
 The following limitations apply to RDS for MySQL blue/green deployments:

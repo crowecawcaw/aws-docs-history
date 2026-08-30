@@ -18,3 +18,4 @@ to a later release. For more information, see [Upgrading an Oracle DB snapshot](
 - [Testing an Oracle DB upgrade](USER_UpgradeDBInstance.Oracle.UpgradeTesting.md "USER_UpgradeDBInstance.Oracle.UpgradeTesting.md")
 - [Upgrading the version of an RDS for Oracle DB instance](USER_UpgradeDBInstance.Oracle.Upgrading.md "USER_UpgradeDBInstance.Oracle.Upgrading.md")
 - [Upgrading an Oracle DB snapshot](USER_UpgradeDBSnapshot.Oracle.md "USER_UpgradeDBSnapshot.Oracle.md")
+- [Preparing for Oracle Database 21c end of support](USER_UpgradeDBInstance.Oracle.21c-end-of-support.md "USER_UpgradeDBInstance.Oracle.21c-end-of-support.md")

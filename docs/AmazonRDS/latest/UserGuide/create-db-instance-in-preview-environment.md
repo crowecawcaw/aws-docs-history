@@ -17,7 +17,7 @@ environment.
 You can navigate directly to the [Database Preview environment](https://us-east-2.console.aws.amazon.com/rds-preview/home?region=us-east-2# "https://us-east-2.console.aws.amazon.com/rds-preview/home?region=us-east-2#"). Before you can proceed, you must
 acknowledge and accept the limitations.
 
-![Preview environment limitations dialog.](images/preview-environment-console.png) 4. To create the RDS for PostgreSQL DB instance, follow the same process as that
+![Preview environment limitations dialog.](/images/AmazonRDS/latest/UserGuide/images/preview-environment-console.png) 4. To create the RDS for PostgreSQL DB instance, follow the same process as that
 for creating any Amazon RDS DB instance. For more information, see the [Console](USER_CreateDBInstance.md#USER_CreateDBInstance.CON "USER_CreateDBInstance.md#USER_CreateDBInstance.CON") procedure in [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
 To create an instance in the Database Preview Environment using the RDS API or the
 AWS CLI, use the following endpoint.
