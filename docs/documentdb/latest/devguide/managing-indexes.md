@@ -24,7 +24,16 @@ The following guidelines include basic limits and configuration tradeoffs when c
 - **Performance trade-off** - Increasing the number of workers in the index creation process increases CPU utilization and read IO on the primary instance of your Amazon DocumentDB database.
   The resources needed to create a new index will not be available to your running workload.
 - **Elastic clusters** - Parallel indexing is not supported on Amazon DocumentDB elastic clusters.
-- **Maximum workers** - The maximum number of workers you can configure depends on the size of your primary instance in your database cluster.
+- **Serverless clusters** - Parallel indexing on serverless clusters requires a minimum capacity of at least 32 DCUs.
+  Below this threshold, the `workers` parameter is accepted but the index build executes with a single worker.
+  The maximum number of parallel workers scales with your configured minimum capacity: approximately `min_DCU / 8` workers are available.
+  For example, at 32 DCUs you can use up to 4 workers, and at 64 DCUs you can use up to 8 workers.
+
+###### Note
+
+A cluster restart is required after changing the minimum capacity setting for the new parallel worker limit to take effect.
+
+- **Maximum workers (instance-based)** - The maximum number of workers you can configure depends on the size of your primary instance in your database cluster.
   It is half the total number of vCPUs on the primary instance of your database cluster.
   For example, you can run a maximum of 32 workers on a db.r6g.16xlarge instance that has 64 vCPUs.
 

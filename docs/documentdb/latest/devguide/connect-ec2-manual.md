@@ -131,7 +131,7 @@ Complete the following steps:
 
 ![Instances table listing two instances on the Amazon EC2 console.](images/ec2/ec2-instance-table.png) 2. Choose **Connect**.
 
-![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](/images/documentdb/latest/devguide/images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
+![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
 You must choose one and follow its instructions. When complete, choose **Connect**.
 
 ![Interface showing configuration options for the EC2 Instance Connect connection method.](images/ec2/connect-options.png)

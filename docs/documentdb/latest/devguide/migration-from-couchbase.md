@@ -80,7 +80,7 @@ Amazon DocumentDB supports a default primary index and the creation of secondary
 
 The search service supports the creation of indexes for full text search.
 
-Amazon DocumentDB's native full text search feature allows you to [perform text search on large textual data sets using special purpose text indexes](text-search.md "text-search.md") via the MongoDB API. For advanced search use cases, [Amazon DocumentDB zero-ETL integration with Amazon OpenSearch Service](https://aws.amazon.com/blogs/big-data/amazon-documentdb-zero-etl-integration-with-amazon-opensearch-service-is-now-available/ "https://aws.amazon.com/blogs/big-data/amazon-documentdb-zero-etl-integration-with-amazon-opensearch-service-is-now-available/") provides advanced search capabilities, such as fuzzy search, cross-collection search and multilingual search, on Amazon DocumentDB data.
+The native full text search feature of Amazon DocumentDB allows you to [perform basic text queries on large textual data sets using special purpose text indexes](text-search.md "text-search.md") by using the MongoDB API. For advanced capabilities such as fuzzy search, multilingual search, and cross-collection search, use [Amazon DocumentDB zero-ETL integration with Amazon OpenSearch Service](https://aws.amazon.com/blogs/big-data/amazon-documentdb-zero-etl-integration-with-amazon-opensearch-service-is-now-available/ "https://aws.amazon.com/blogs/big-data/amazon-documentdb-zero-etl-integration-with-amazon-opensearch-service-is-now-available/").
 
 #### Analytics service (cbas)
 
@@ -260,7 +260,7 @@ Migrate each collection to a different Amazon DocumentDB collection. In this sce
 
 Migrating to Amazon DocumentDB involves transferring not just data but also indexes to maintain query performance and optimize database operations. This section outlines the detailed step-by-step process for migrating indexes to Amazon DocumentDB while ensuring compatibility and efficiency.
 
-Use [Amazon Q](../../../amazonq/latest/qdeveloper-ug/chat-with-q.md "../../../amazonq/latest/qdeveloper-ug/chat-with-q.md") to convert SQL++ `CREATE INDEX` statements to Amazon DocumentDB `createIndex()` commands.
+Use [Amazon Q](../../../amazonq/latest/qdeveloper-ug/chat-with-q.md "../../../amazonq/latest/qdeveloper-ug/chat-with-q.md") (available in the AWS Management Console or your IDE) to convert SQL++ `CREATE INDEX` statements to Amazon DocumentDB `createIndex()` commands.
 
 1. Upload the **indexes-<bucket name>.txt** file(s) created by the Discovery Tool for Couchbase.
 2. Enter the following prompt:
@@ -315,14 +315,15 @@ Because the APIs are different between Couchbase Server and Amazon DocumentDB, y
 Using the [Hello Couchbase](https://docs.couchbase.com/python-sdk/current/hello-world/start-using-sdk.html#hello-couchbase "https://docs.couchbase.com/python-sdk/current/hello-world/start-using-sdk.html#hello-couchbase") Python code sample, Amazon Q generates the following (excerpt):
 
 ```
-from datetime import timedelta
 from pymongo import MongoClient
 
 # Connection parameters
 database_name = "travel-sample"
 
 # Connect to Amazon DocumentDB cluster
-client = MongoClient('<Amazon DocumentDB connection string>')
+client = MongoClient('<Amazon DocumentDB connection string>',
+                     tls=True,
+                     tlsCAFile='global-bundle.pem')
 
 # Get reference to database and collection
 db = client['travel-sample']
@@ -390,6 +391,10 @@ When migrating data to Amazon DocumentDB, there are two options:
 1. [offline migration](#offline-migration "#offline-migration")
 2. [online migration](#online-migration "#online-migration")
 
+###### Note
+
+Amazon DocumentDB uses the `_id` field as the primary key for each document. The migration approaches in this guide store the Couchbase document key in the `_id` field. For offline migration, this is done via the `--include-key _id` option in `cbexport`. For online migration, this is done via the Kafka connector's `ProvidedInKeyStrategy`.
+
 #### Offline migration
 
 Consider an offline migration when:
@@ -430,6 +435,8 @@ mongoimport \
   --db <database> \
   --collection <collection> \
   --uri "<Amazon DocumentDB cluster connection string>" \
+  --ssl \
+  --sslCAFile global-bundle.pem \
   --file export.json
 ```
 
@@ -440,6 +447,8 @@ mongoimport \
   --db <database> \
   --collection <collection> \
   --uri "<Amazon DocumentDB cluster connection string>" \
+  --ssl \
+  --sslCAFile global-bundle.pem \
   --jsonArray \
   --file export.json
 ```
@@ -472,6 +481,8 @@ mongoimport \
   --db <database> \
   --collection <collection> \
   --uri "<Amazon DocumentDB cluster connection string>" \
+  --ssl \
+  --sslCAFile global-bundle.pem \
   --file export.json
 ```
 
@@ -482,6 +493,8 @@ mongoimport \
   --db <database> \
   --collection <collection> \
   --uri "<Amazon DocumentDB cluster connection string>" \
+  --ssl \
+  --sslCAFile global-bundle.pem \
   --jsonArray \
   --file export.json
 ```
@@ -504,7 +517,7 @@ cbexport json \
   --collection-field "_collection"
 ```
 
-Since cbexport added the `_scope` and `_collection` fields to every exported document, you can remove them from every document in the export file via search and replace, `sed`, or whatever method you prefer.
+Because cbexport added the `_scope` and `_collection` fields to every exported document, you can remove them from every document in the export file via search and replace, `sed`, or whatever method you prefer.
 
 Import the data for each collection to an Amazon DocumentDB collection using [mongoimport](backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport "backup_restore-dump_restore_import_export_data.md#backup_restore-dump_restore_import_export_data-mongoimport") with the appropriate option to import the lines or list:
 
@@ -512,21 +525,25 @@ lines:
 
 ```
 mongoimport \
---db <database> \
---collection <collection> \
---uri "<Amazon DocumentDB cluster connection string>" \
---file export.json
+  --db <database> \
+  --collection <collection> \
+  --uri "<Amazon DocumentDB cluster connection string>" \
+  --ssl \
+  --sslCAFile global-bundle.pem \
+  --file export.json
 ```
 
 list:
 
 ```
 mongoimport \
---db <database> \
---collection <collection> \
---uri "<Amazon DocumentDB cluster connection string>" \
---jsonArray \
---file export.json
+  --db <database> \
+  --collection <collection> \
+  --uri "<Amazon DocumentDB cluster connection string>" \
+  --ssl \
+  --sslCAFile global-bundle.pem \
+  --jsonArray \
+  --file export.json
 ```
 
 #### Online migration
@@ -602,7 +619,7 @@ This section provides a detailed validation process to verify data consistency a
 ###### Topics
 
 - [Verify that all collections exist in the target](#validation-checklist-step-1 "#validation-checklist-step-1")
-- [Verify document count between souce and target clusters](#validation-checklist-step-2 "#validation-checklist-step-2")
+- [Verify document count between source and target clusters](#validation-checklist-step-2 "#validation-checklist-step-2")
 - [Compare documents between source and target clusters](#validation-checklist-step-3 "#validation-checklist-step-3")
 
 ### Verify that all collections exist in the target
@@ -638,7 +655,7 @@ db.getSiblingDB('<database>')
 db.getCollectionNames()
 ```
 
-### Verify document count between souce and target clusters
+### Verify document count between source and target clusters
 
 #### Couchbase source
 
@@ -659,7 +676,7 @@ cbq \
   -u <username> \
   -p <password> \
   -q "SELECT COUNT(*)
-       FROM `<bucket:>`"
+       FROM `<bucket>`"
 ```
 
 ##### Couchbase Server 7.0 or later
@@ -679,7 +696,7 @@ cbq \
   -u <username> \
   -p <password> \
   -q "SELECT COUNT(*)
-       FROM `<bucket:>`.`<scope>`.`<collection>`"
+       FROM `<bucket>`.`<scope>`.`<collection>`"
 ```
 
 #### Amazon DocumentDB target
@@ -709,11 +726,11 @@ option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html "htt
 
 ```
 cbq \
-  -e <source cluster endpoint>
+  -e <source cluster endpoint> \
   -u <username> \
   -p <password> \
   -q "SELECT META().id as _id, *
-       FROM `<bucket>` \
+       FROM `<bucket>`
        LIMIT 5"
 ```
 
@@ -722,8 +739,9 @@ cbq \
 option 1: query workbench
 
 ```
-SELECT COUNT(*)
+SELECT META().id as _id, *
 FROM `<bucket>`.`<scope>`.`<collection>`
+LIMIT 5
 ```
 
 option 2: [cbq](https://docs.couchbase.com/server/current/cli/cbq-tool.html "https://docs.couchbase.com/server/current/cli/cbq-tool.html")
@@ -733,8 +751,9 @@ cbq \
   -e <source cluster endpoint> \
   -u <username> \
   -p <password> \
-  -q "SELECT COUNT(*)
-       FROM `<bucket:>`.`<scope>`.`<collection>`"
+  -q "SELECT META().id as _id, *
+       FROM `<bucket>`.`<scope>`.`<collection>`
+       LIMIT 5"
 ```
 
 #### Amazon DocumentDB target

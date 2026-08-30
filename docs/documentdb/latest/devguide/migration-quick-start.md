@@ -23,8 +23,9 @@ Create DMS instance, source, and target endpoints and test each endpoint.
 
 ## Enable DocumentDB compression
 
-Enable compression by attaching a custom parameter group to your DocumentDB cluster and updating default\_collection\_compression parameter to enabled.
-See [Managing collection-level document compression](doc-compression.md "doc-compression.md") for more information.
+**Amazon DocumentDB 5.0:** Enable compression by attaching a custom parameter group to your Amazon DocumentDB cluster and setting the `default_collection_compression` parameter to `enabled`. See [Managing collection-level document compression](doc-compression.md "doc-compression.md") for more information.
+
+**Amazon DocumentDB 8.0:** Zstd compression is enabled by default. See [Managing dictionary-based compression in Amazon DocumentDB 8.0](dict-compression.md "dict-compression.md") for more information.
 
 ## Create a replication task
 
@@ -63,8 +64,6 @@ Focus on the following metrics:
 ## Additional information
 
 For more information about Amazon DocumentDB and AWS DMS, see:
-
-See for more information.
 
 - [Amazon DocumentDB migration runbook](docdb-migration-runbook.md "docdb-migration-runbook.md")
 - [Migrating from MongoDB to Amazon DocumentDB](../../../dms/latest/sbs/chap-mongodb2documentdb.md "../../../dms/latest/sbs/chap-mongodb2documentdb.md")
