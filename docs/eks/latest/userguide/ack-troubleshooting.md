@@ -154,7 +154,7 @@ The Capability Role needs `sts:AssumeRole` and `sts:TagSession` permissions for 
     {
       "Effect": "Allow",
       "Action": ["sts:AssumeRole", "sts:TagSession"],
-      "Resource": [.replaceable]`"arn:aws:iam::444455556666:role/cross-account-ack-role"`
+      "Resource": `"arn:aws:iam::444455556666:role/cross-account-ack-role"`
     }
   ]
 }

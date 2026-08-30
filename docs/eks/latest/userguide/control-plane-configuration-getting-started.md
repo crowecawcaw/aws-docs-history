@@ -38,6 +38,7 @@ Amazon EKS validates each parameter against the following ranges and rejects a r
 | `kubeSchedulerConfig.nodeResourcesFit.scoringStrategy.type`                                             | `LeastAllocated`, `MostAllocated` | `LeastAllocated`      |
 | `kubeSchedulerConfig.nodeResourcesFit.scoringStrategy.resources[].weight`                               | `1` to `100`                      | `cpu: 1`, `memory: 1` |
 | `kubeControllerManagerConfig.horizontalPodAutoscalerControllerConfig.horizontalPodAutoscalerSyncPeriod` | `10s` to `15s`                    | `15s`                 |
+| `kubeControllerManagerConfig.podGcControllerConfig.terminatedPodGcThreshold`                            | `10000` to `12500`                | `12500`               |
 | `kubeApiServerConfig.eventTtl`                                                                          | `10m` to `60m`                    | `60m`                 |
 | `kubeApiServerConfig.serviceNodePortRange.minPort`                                                      | `10260` to `32767`                | `30000`               |
 | `kubeApiServerConfig.serviceNodePortRange.maxPort`                                                      | `10260` to `32767`                | `32767`               |
@@ -148,6 +149,15 @@ The response includes a `controlPlaneComponentConfig` object, organized by contr
                             "constraints": {
                                 "min": "10s",
                                 "max": "15s"
+                            }
+                        }
+                    },
+                    "podGcControllerConfig": {
+                        "terminatedPodGcThreshold": {
+                            "defaultValue": 12500,
+                            "constraints": {
+                                "min": 10000,
+                                "max": 12500
                             }
                         }
                     }
