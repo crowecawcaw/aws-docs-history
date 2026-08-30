@@ -85,6 +85,7 @@ information, see [Quotas on Lambda@Edge](cloudfront-limits.md#limits-lambda-at-e
 - Lambda functions with more than 512 MB of ephemeral storage
 - Using a [customer managed key to encrypt
   your .zip deployment packages](../../../lambda/latest/dg/encrypt-zip-package.md "../../../lambda/latest/dg/encrypt-zip-package.md")
+- [Self-managed Amazon S3 code storage](../../../lambda/latest/dg/configuration-self-managed-storage.md "../../../lambda/latest/dg/configuration-self-managed-storage.md")
 
 ## Supported runtimes
 
