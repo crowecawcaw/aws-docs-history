@@ -7,8 +7,7 @@ currently supports the following AWS services to monitor your
 organization and the activity that happens within it.
 
 **AWS CloudTrail –** With
-CloudTrail you can capture API calls from the AWS Security
-Incident Response console. For example, when a user
+CloudTrail you can capture API calls from the AWS Security Incident Response console. For example, when a user
 authenticates, CloudTrail can record details such as the IP
 address in the request, who made the request, and when it was
 made.
@@ -30,5 +29,4 @@ In accordance with the
 Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/"), The AWS Security Incident Response
 responder team will have access to your history of CloudTrail,
 VPC, DNS and S3 log data. This data may be utilized during
-active security incidents when a case is open in the AWS
-Security Incident Response service portal.
+active security incidents when a case is open in the AWS Security Incident Response service portal.
