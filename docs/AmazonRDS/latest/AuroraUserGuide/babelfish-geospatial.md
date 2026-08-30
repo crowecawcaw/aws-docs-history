@@ -12,6 +12,7 @@ Starting with versions 3.5.0 and 4.1.0, Babelfish includes support for the follo
 - Supports point data type to store location data as points defined by latitude, longitude, and a valid Spatial Reference System Identifier (SRID). A point may contain Z (elevation), M (measure) values and can be empty.
 - Supports linestring data type (from version 5.4.0) defined by a sequence of points and the line segments connecting them and a valid Spatial Reference System Identifier (SRID). A linestring may contain points with Z (elevation), M (measure) values and can be empty.
 - Supports polygon data type (from version 5.5.0 and 6.0.0). A Polygon is a two-dimensional surface stored as a sequence of points defining an exterior bounding ring and zero or more interior rings.
+- Supports Multipoint data type (from version 5.6.0 and 6.1.0). A MultiPoint is a collection of zero or more points. The boundary of a MultiPoint instance is empty.
 - Applications connecting to Babelfish through drivers like JDBC, ODBC, DOTNET, and PYTHON can utilize this Geospatial feature.
 
 ### Geometry data type functions supported in Babelfish
@@ -74,6 +75,19 @@ Starting with versions 5.5.0 and 6.0.0, Babelfish includes support for the follo
 - STPolyFromText (`polygon_tagged_text`, SRID ) –
   Creates a polygon instance using WKT representation.
 
+Starting with versions 5.6.0 and 6.1.0, Babelfish includes support for the following spatial data functions:
+
+- STMPointFromText (`multipoint_tagged_text`, SRID ) –
+  Creates a multipoint instance using WKT representation.
+- <geometry\_instance>.STNumPoints –
+  Returns the sum of the number of points in each of the figures in a geometry instance.
+- <geometry\_instance>.STGeometryType –
+  Returns the geometry type name represented by a geometry instance.
+- <geometry\_instance>.MakeValid() –
+  Creates a valid representation of a given invalid geometry without losing any of the input vertices.
+- Parse (`WKT representation`) –
+  Creates a geometry instance from a Well-Known Text (WKT) string, assuming SRID 0. Equivalent to STGeomFromText() but without requiring the SRID parameter. Supports optional Z and M values.
+
 ### Geography data type functions supported in Babelfish
 
 - STGeomFromText (`geography_tagged_text`, SRID ) –
@@ -134,14 +148,26 @@ Starting with versions 5.5.0 and 6.0.0, Babelfish includes support for the follo
 - STPolyFromText (`polygon_tagged_text`, SRID ) –
   Creates a polygon instance using WKT representation.
 
+Starting with versions 5.6.0 and 6.1.0, Babelfish includes support for the following spatial data functions:
+
+- STMPointFromText (`multipoint_tagged_text`, SRID ) –
+  Creates a multipoint instance using WKT representation.
+- <geography\_instance>.STNumPoints –
+  Returns the sum of the number of points in each of the figures in a geography instance.
+- <geography\_instance>.STGeometryType –
+  Returns the geography type name represented by a geography instance.
+- <geography\_instance>.MakeValid() –
+  Creates a valid representation of a given invalid geography without losing any of the input vertices.
+- Parse (`WKT representation`) –
+  Creates a geography instance from a Well-Known Text (WKT) string, assuming SRID 4326. Equivalent to STGeomFromText() but without requiring the SRID parameter. Supports optional Z and M values.
+
 ## Limitations in Babelfish for Geospatial data types
 
-- Geometry and Geography types other than point, linestring and polygon instances aren't currently supported:
+- Geometry and Geography types other than point, linestring, polygon and multipoint instances aren't currently supported:
 
   - CircularString
   - CompoundCurve
   - CurvePolygon
-  - MultiPoint
   - MultiLineString
   - MultiPolygon
   - GeometryCollection

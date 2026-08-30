@@ -18,9 +18,14 @@ For information about write forwarding, see [Using write forwarding in an Amazon
 
 ## Limitations for RDS Proxy with global databases
 
-When the Aurora DB cluster has write forwarding turned on, RDS Proxy doesn't support the
-`SESSION` value for the `aurora_replica_read_consistency` variable.
-Setting this value can cause unexpected behavior.
+- When write forwarding is enabled on an Aurora MySQL Global Database secondary cluster,
+  RDS Proxy doesn't support the `SESSION` value for the
+  `aurora_replica_read_consistency` parameter. Setting this value can cause
+  unexpected behavior.
+- When write forwarding is enabled on an Aurora PostgreSQL Global Database secondary
+  cluster, RDS Proxy doesn't support the `SESSION` value for the
+  `apg_write_forward.consistency_mode` parameter. Setting this value can
+  cause unexpected behavior.
 
 ## How RDS Proxy endpoints work with global databases
 

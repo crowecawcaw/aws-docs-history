@@ -60,6 +60,28 @@ The following general limitations apply to blue/green deployments:
   - Aurora Serverless v1 DB clusters
   - CloudFormation
 
+- After you switch over a blue/green deployment, point-in-time recovery (PITR) history
+  doesn't carry over to the new production DB cluster. The green DB cluster keeps its own resource
+  ID. Its earliest restorable time starts when you created the green environment. You
+  can't restore the new production DB cluster to any point in time before that, including any
+  time before switchover. The blue DB cluster keeps its own PITR history and automated backups
+  until you delete it. To restore the blue DB cluster after switchover, use its resource ID
+  (`SourceDbClusterResourceId`), not its name. The name changes during
+  switchover. For more information, see [Restoring a DB cluster to a specified time](aurora-pitr.md "aurora-pitr.md").
+
+###### Important
+
+Plan for this PITR reset if you have backup retention or recovery point objective (RPO)
+requirements. The new production DB cluster can't reach a recovery point from before you created
+the green environment, and its PITR window reaches your full backup retention period only
+after enough time passes.
+
+To keep the ability to recover to a time before switchover, don't delete the blue
+DB cluster immediately. Keep the blue DB cluster running for at least the length of your required
+recovery window.
+A retained blue DB cluster still incurs charges for its DB instances and storage until you delete
+it.
+
 ### Aurora MySQL limitations for blue/green deployments
 
 The following limitations apply to Aurora MySQL blue/green deployments:

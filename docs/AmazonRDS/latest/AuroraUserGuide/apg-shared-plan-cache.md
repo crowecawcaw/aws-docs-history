@@ -6,6 +6,10 @@ Aurora PostgreSQL uses a process-per-user model where each client connection cre
 
 Aurora PostgreSQL versions 17.6 and later and 16.10 and later introduce shared plan cache functionality. When you enable this feature, backend processes can share generic plans, which reduces memory usage and improves performance by eliminating duplicate plan generation.
 
+###### Note
+
+Babelfish for Aurora PostgreSQL supports shared plan cache starting from versions 4.10 and 5.6.
+
 The shared plan cache uses the following components as its cache key:
 
 - Query string (including comments)

@@ -118,7 +118,7 @@ in-progress copies complete. No progress information is displayed about copy
 requests while they are in the queue. Progress information is displayed when the
 copying starts.
 
-Data transfer charges applies for cross-Region snapshot copy. Cross-Region snapshot copying creates full copies in the target data, but the data transfer
+Data transfer charges applies for cross-Region snapshot copy. Cross-Region snapshot copying creates full copies in the target Region, but the data transfer
 charges are incremental. Incremental data includes both the new data that has been added
 to a customer’s database since the last copy, as well as any changes made to existing
 data.
