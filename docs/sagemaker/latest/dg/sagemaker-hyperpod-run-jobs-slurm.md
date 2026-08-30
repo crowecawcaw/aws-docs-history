@@ -19,4 +19,5 @@ workshop](https://catalog.workshops.aws/sagemaker-hyperpod "https://catalog.work
 - [Accessing your SageMaker HyperPod cluster nodes](sagemaker-hyperpod-run-jobs-slurm-access-nodes.md "sagemaker-hyperpod-run-jobs-slurm-access-nodes.md")
 - [Scheduling a Slurm job on a SageMaker HyperPod cluster](sagemaker-hyperpod-run-jobs-slurm-schedule-slurm-job.md "sagemaker-hyperpod-run-jobs-slurm-schedule-slurm-job.md")
 - [Running Docker containers on a Slurm compute node on HyperPod](sagemaker-hyperpod-run-jobs-slurm-docker.md "sagemaker-hyperpod-run-jobs-slurm-docker.md")
+- [Injecting environment variables with a task prolog](sagemaker-hyperpod-run-jobs-slurm-task-prolog.md "sagemaker-hyperpod-run-jobs-slurm-task-prolog.md")
 - [Running distributed training workloads with Slurm on HyperPod](sagemaker-hyperpod-run-jobs-slurm-distributed-training-workload.md "sagemaker-hyperpod-run-jobs-slurm-distributed-training-workload.md")

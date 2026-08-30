@@ -28,6 +28,7 @@ Model Groups in the Model Registry.
 - [Create a Model Group](model-registry-model-group.md "model-registry-model-group.md")
 - [Delete a Model Group](model-registry-delete-model-group.md "model-registry-delete-model-group.md")
 - [Register a Model Version](model-registry-version.md "model-registry-version.md")
+- [Restrict artifact access to model package deployments](model-registry-restrict-s3-access.md "model-registry-restrict-s3-access.md")
 - [View Model Groups and Versions](model-registry-view.md "model-registry-view.md")
 - [Update the Details of a Model Version](model-registry-details.md "model-registry-details.md")
 - [Compare Model Versions](model-registry-version-compare.md "model-registry-version-compare.md")

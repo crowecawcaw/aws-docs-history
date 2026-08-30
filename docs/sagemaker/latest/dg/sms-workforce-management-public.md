@@ -1,10 +1,10 @@
 # Using the Amazon Mechanical Turk Workforce
 
-###### Note
+###### Amazon Mechanical Turk service closure
 
-Amazon SageMaker Mechanical Turk is no longer open to new customers.
-Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
-Mechanical Turk, but we do not plan to introduce new features.
+Amazon Mechanical Turk will permanently close on September 30, 2026. If you currently use the
+MTurk workforce option, we recommend that you review your affected workflows and
+transition to an alternative workforce option before September 30, 2026.
 
 The Amazon Mechanical Turk (Mechanical Turk) workforce provides the most workers for your [Amazon SageMaker Ground Truth](a2i.md "a2i.md") labeling job
 and [Amazon Augmented AI](a2i-use-augmented-ai-a2i-human-review-loops.md "a2i-use-augmented-ai-a2i-human-review-loops.md") human review task. The Amazon Mechanical Turk workforce is a world-wide resource.

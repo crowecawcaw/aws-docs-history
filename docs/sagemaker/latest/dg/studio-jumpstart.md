@@ -178,4 +178,5 @@ JumpStart.
 
 - [Amazon SageMaker JumpStart Foundation Models](jumpstart-foundation-models.md "jumpstart-foundation-models.md")
 - [Private curated hubs for foundation model access control in JumpStart](jumpstart-curated-hubs.md "jumpstart-curated-hubs.md")
+- [HubContentDocument schema](hub-content-document-schema.md "hub-content-document-schema.md")
 - [Amazon SageMaker JumpStart in Studio Classic](jumpstart-studio-classic.md "jumpstart-studio-classic.md")

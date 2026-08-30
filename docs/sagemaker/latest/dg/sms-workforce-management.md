@@ -1,5 +1,11 @@
 # Workforces
 
+###### Amazon Mechanical Turk service closure
+
+Amazon Mechanical Turk will permanently close on September 30, 2026. If you currently use the MTurk
+workforce option, we recommend that you review your affected workflows and transition to
+an alternative workforce option before September 30, 2026.
+
 A _workforce_ is the group of workers that you have selected to label
 your dataset. You can choose either the Amazon Mechanical Turk workforce, a vendor-managed workforce, or
 you can create your own private workforce to label or review your dataset. Whichever

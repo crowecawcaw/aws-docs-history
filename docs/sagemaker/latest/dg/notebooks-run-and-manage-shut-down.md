@@ -54,7 +54,7 @@ shut down an open notebook from the Studio Classic **File** menu.
 You can reach the **Running Terminals and Kernels** pane of
 Amazon SageMaker Studio Classic by selecting the **Running
 Terminals and Kernels** icon (
-![](images/studio/icons/running-terminals-kernels.png)
+![](/images/sagemaker/latest/dg/images/studio/icons/running-terminals-kernels.png)
 ). The **Running Terminals and Kernels** pane
 consists of four sections. Each section lists all the resources of that type. You can shut
 down each resource individually or shut down all the resources in a section at the same
