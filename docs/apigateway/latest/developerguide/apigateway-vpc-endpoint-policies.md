@@ -164,7 +164,7 @@ JSON
  ],
  "Condition": {
  "ArnEquals": {
- "execute-api:viaDomainArn": "arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.test.com+f4g5h6",
+ "execute-api:viaDomainArn": "arn:aws:execute-api:us-west-2:111122223333:/domainnames/private.test.com+f4g5h6"
  }
  }
  }

@@ -8,7 +8,7 @@ policies, see [Security policies for REST APIs in API Gateway](apigateway-securi
 ## `x-amazon-apigateway-security-policy` example
 
 The following example specifies
-`SecurityPolicy_TLS13_1_3_2025_0` for a REST API.
+`SecurityPolicy_TLS13_1_3_2025_09` for a REST API.
 
 ```
 "x-amazon-apigateway-security-policy": "SecurityPolicy_TLS13_1_3_2025_09"

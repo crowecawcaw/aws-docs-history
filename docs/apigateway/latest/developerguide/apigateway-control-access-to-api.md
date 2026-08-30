@@ -33,7 +33,7 @@ You can use the following mechanisms for authentication and authorization:
   information, see [CORS for REST APIs in API Gateway](how-to-cors.md "how-to-cors.md").
 - **Client-side SSL certificates** can be used to
   verify that HTTP requests to your backend system are from API Gateway. For more
-  information, see [Generate and configure an SSL certificate for backend authentication in API Gateway](getting-started-client-side-ssl-authentication.md "getting-started-client-side-ssl-authentication.md").
+  information, see [Use an API Gateway-generated certificate for backend authentication in API Gateway](getting-started-client-side-ssl-authentication.md "getting-started-client-side-ssl-authentication.md").
 - **AWS WAF** can be used to protect your API Gateway API from
   common web exploits. For more information, see [Use AWS WAF to protect your REST APIs in API Gateway](apigateway-control-access-aws-waf.md "apigateway-control-access-aws-waf.md").
   You can use the following mechanisms for tracking and limiting the access that you have

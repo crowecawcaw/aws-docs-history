@@ -8,8 +8,8 @@ learn how to enable these capabilities using API Gateway.
 
 ###### Topics
 
-- [How to turn on mutual TLS authentication for your REST APIs in API Gateway](rest-api-mutual-tls.md "rest-api-mutual-tls.md")
-- [Generate and configure an SSL certificate for backend authentication in API Gateway](getting-started-client-side-ssl-authentication.md "getting-started-client-side-ssl-authentication.md")
+- [Require client certificates for your API with mutual TLS authentication in API Gateway](rest-api-mutual-tls.md "rest-api-mutual-tls.md")
+- [Present client certificates to backend services with mutual TLS in API Gateway](rest-api-backend-authentication.md "rest-api-backend-authentication.md")
 - [Use AWS WAF to protect your REST APIs in API Gateway](apigateway-control-access-aws-waf.md "apigateway-control-access-aws-waf.md")
 - [Throttle requests to your REST APIs for better throughput in API Gateway](api-gateway-request-throttling.md "api-gateway-request-throttling.md")
 - [Private REST APIs in API Gateway](apigateway-private-apis.md "apigateway-private-apis.md")

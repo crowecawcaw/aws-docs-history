@@ -2,7 +2,7 @@
 
 API Gateway provides a number of ways to protect your API from certain threats, like malicious users or spikes in
 traffic. You can protect your API using strategies like generating SSL certificates or setting throttling targets.
-For more information about generating SSL certificates, see [Generate and configure an SSL certificate for backend authentication in API Gateway](getting-started-client-side-ssl-authentication.md "getting-started-client-side-ssl-authentication.md"). The rest of this section covers setting throttling targets.
+For more information about generating SSL certificates, see [Use an API Gateway-generated certificate for backend authentication in API Gateway](getting-started-client-side-ssl-authentication.md "getting-started-client-side-ssl-authentication.md"). The rest of this section covers setting throttling targets.
 
 You can configure throttling for your APIs to help protect them from being overwhelmed by too many
 requests. Throttles are applied on a best-effort basis and should be thought of as targets rather

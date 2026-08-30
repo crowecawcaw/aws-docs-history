@@ -1,4 +1,4 @@
-# How to turn on mutual TLS authentication for your REST APIs in API Gateway
+# Require client certificates for your API with mutual TLS authentication in API Gateway
 
 Mutual TLS authentication requires two-way authentication between the client and the
 server. With mutual TLS, clients must present X.509 certificates to verify their identity to
