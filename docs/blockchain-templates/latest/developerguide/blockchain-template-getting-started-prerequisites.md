@@ -166,7 +166,7 @@ _IAM User Guide_. You set up the IAM role for Amazon ECS and the EC2 instance pr
 5. Under **Select your use case**, choose **Elastic Container
    Service**, **Next:Permissions**.
 
-![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
+![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](/images/blockchain-templates/latest/developerguide/images/ecs-role.png) 6. For **Permissions policy**, leave the default policy
 (**AmazonEC2ContainerServiceRole**) selected, and choose
 **Next:Review**. 7. For **Role name**, enter a value that helps you identify the role,
 such as _ECSRoleForEthereum_. For **Role Description**,
@@ -176,7 +176,7 @@ you can search for the role name.
 ![IAM console showing ECSRoleForEtherium role selected in the roles list with search filter.](images/ecs-role-list.png) 10. Copy the **Role ARN** value and save it so that you can copy it again.
 You need this ARN when you create the Ethereum network.
 
-![AWS IAM role summary page showing role ARN, description, and attached policies.](/images/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
+![AWS IAM role summary page showing role ARN, description, and attached policies.](images/ecs-role-arn.png)
 
 The EC2 instance profile that you specify in the template is assumed by EC2 instances in the Ethereum network to interact with other AWS services. You create a permissions policy for the role, create the role (which automatically creates an instance profile of the same name), and then attach the permissions policy to the role.
 
