@@ -19,7 +19,7 @@ Create a new Azure DevOps project and add a new pipeline to the project based on
 _ASP.NET Core_ template. To follow along with the screenshots shown
 below, use the classic editor (that is, without YAML).
 
-![New build pipeline using classic editor](/images/vsts/latest/userguide/images/use-classic-editor.png)
+![New build pipeline using classic editor](images/use-classic-editor.png)
 
 ![New build pipeline based on ASP.NET Core template](images/select-template-s3.png)
 
