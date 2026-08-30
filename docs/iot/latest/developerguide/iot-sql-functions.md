@@ -871,7 +871,7 @@ null, undefined, or fails.
 
 ###### Note
 
-Functions that fetch data from customer owned resources, such as get\_secret, get\_dynamodb, aws\_lambda, get\_thing\_shadow, decode-protobuf, and machinelearning\_predict, are not allowed for the defaultValue parameter.
+Functions that fetch data from customer-owned resources, such as get\_secret, get\_dynamodb, aws\_lambda, get\_thing\_shadow, and decode-protobuf, are not allowed for the defaultValue parameter.
 
 The following table shows acceptable function arguments for each argument and
 their associated outputs:
@@ -1339,71 +1339,6 @@ Example:
 | Object        | The `String` representation of the Object (using<br>standard conversion rules) with all leading white space<br>removed.  |
 | Null          | `Undefined`.                                                                                                             |
 | Undefined     | `Undefined`.                                                                                                             |
-
-## machinelearning\_predict(modelId, roleArn, record)
-
-Use the `machinelearning_predict` function to make predictions using
-the data from an MQTT message based on an Amazon SageMaker AI model. Supported by SQL
-version 2015-10-08 and later. The arguments for the
-`machinelearning_predict` function are:
-
-modelId
-
-The ID of the model against which to run the prediction. The real-time
-endpoint of the model must be enabled.
-
-roleArn
-
-The IAM role that has a policy with
-`machinelearning:Predict` and
-`machinelearning:GetMLModel` permissions and allows
-access to the model against which the prediction is run.
-
-record
-
-The data to be passed into the SageMaker AI Predict API. This should be
-represented as a single layer JSON object. If the record is a
-multi-level JSON object, the record is flattened by serializing its
-values. For example, the following JSON:
-
-```
-{ "key1": {"innerKey1": "value1"}, "key2": 0}
-```
-
-would become:
-
-```
-{ "key1": "{\"innerKey1\": \"value1\"}", "key2": 0}
-```
-
-The function returns a JSON object with the following fields:
-
-predictedLabel
-
-The classification of the input based on the model.
-
-details
-
-Contains the following attributes:
-
-PredictiveModelType
-
-The model type. Valid values are REGRESSION, BINARY,
-MULTICLASS.
-
-Algorithm
-
-The algorithm used by SageMaker AI to make predictions. The value
-must be SGD.
-
-predictedScores
-
-Contains the raw classification score corresponding to each
-label.
-
-predictedValue
-
-The value predicted by SageMaker AI.
 
 ## mod(Decimal, Decimal)
 

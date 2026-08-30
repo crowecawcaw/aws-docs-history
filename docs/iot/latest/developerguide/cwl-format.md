@@ -44,21 +44,41 @@ The AWS IoT message broker generates log entries for the following events:
 The AWS IoT message broker generates a log entry with an `eventType` of
 `Connect` when an MQTT client connects.
 
-#### Connect log entry example
+#### Connect success log entry example
 
 ```
 {
     "timestamp": "2017-08-10 15:37:23.476",
     "logLevel": "INFO",
-    "traceId": "20b23f3f-d7f1-feae-169f-82263394fbdb",
-    "accountId": "123456789012",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountId": "111122223333",
     "status": "Success",
     "eventType": "Connect",
     "protocol": "MQTT",
     "clientId": "abf27092886e49a8a5c1922749736453",
     "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
-    "sourceIp": "205.251.233.181",
+    "sourceIp": "203.0.113.11",
     "sourcePort": 13490
+}
+```
+
+#### Connect failure log entry example
+
+```
+{
+    "timestamp": "2026-07-09 23:26:48.827",
+    "logLevel": "ERROR",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountId": "111122223333",
+    "status": "Failure",
+    "eventType": "Connect",
+    "protocol": "MQTT",
+    "clientId": "device-12345",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "203.0.113.1",
+    "sourcePort": 11238,
+    "reason": "throttled",
+    "details": "Exceeded Connect requests per second per account limit"
 }
 ```
 
@@ -86,6 +106,28 @@ The IP address where the request originated.
 sourcePort
 
 The port where the request originated.
+
+reason
+
+The reason for the `Connect` operation failure. This field is present
+only when the `status` is `Failure`. Valid values are
+`throttled`, `client_id_throttled`, or
+`INTERNAL_SERVER_ERROR`.
+
+details
+
+A brief explanation of the error. This field is present only when the
+`status` is `Failure`.
+
+#### Reason codes
+
+The following reason codes and details appear in `Connect` failure log
+entries.
+
+| Reason                | Details                                                  |
+| --------------------- | -------------------------------------------------------- |
+| `throttled`           | Exceeded Connect requests per second per account limit   |
+| `client_id_throttled` | Exceeded Connect requests per second per client ID limit |
 
 ### Disconnect log entry
 
@@ -612,25 +654,46 @@ The port where the API request originated.
 When the AWS IoT message broker receives an MQTT message, it generates a log entry
 with an `eventType` of `Publish-In`.
 
-#### Publish-In log entry example
+#### Publish-In success log entry example
 
 ```
 {
         "timestamp": "2017-08-10 15:39:30.961",
         "logLevel": "INFO",
-        "traceId": "672ec480-31ce-fd8b-b5fb-22e3ac420699",
-        "accountId": "123456789012",
+        "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+        "accountId": "111122223333",
         "status": "Success",
         "eventType": "Publish-In",
         "protocol": "MQTT",
         "topicName": "$aws/things/MyThing/shadow/get",
         "clientId": "abf27092886e49a8a5c1922749736453",
         "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
-        "sourceIp": "205.251.233.181",
+        "sourceIp": "203.0.113.12",
         "sourcePort": 13490,
         "retain": "True"
     }
 
+```
+
+#### Publish-In failure log entry example
+
+```
+{
+    "timestamp": "2026-07-09 22:01:12.858",
+    "logLevel": "ERROR",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountId": "111122223333",
+    "status": "Failure",
+    "eventType": "Publish-In",
+    "protocol": "MQTT",
+    "topicName": "testing/topic",
+    "clientId": "device-12345",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "203.0.113.4",
+    "sourcePort": 10872,
+    "reason": "throttled",
+    "details": "Exceeded Inbound publish requests per second per account limit"
+}
 ```
 
 In addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
@@ -669,27 +732,74 @@ topicName
 
 The name of the subscribed topic.
 
+reason
+
+The reason for the `Publish-In` operation failure. This field is
+present only when the `status` is `Failure`. Valid values
+are `throttled`, `connection_throttled`,
+`CLIENT_ERROR`, or `INTERNAL_SERVER_ERROR`.
+
+details
+
+A brief explanation of the error. This field is present only when the
+`status` is `Failure`.
+
+#### Reason codes
+
+The following reason codes and details appear in `Publish-In` failure log
+entries.
+
+| Reason                 | Details                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| `throttled`            | Exceeded Inbound publish requests per second per account limit                     |
+| `throttled`            | Exceeded Outbound publish requests per second per account limit                    |
+| `throttled`            | Exceeded Rule evaluations per second per account limit                             |
+| `throttled`            | Exceeded Retained message inbound publish requests per second per account<br>limit |
+| `throttled`            | Exceeded Retained message inbound publish requests per second per topic<br>limit   |
+| `throttled`            | Exceeded Maximum number of retained messages per account limit                     |
+| `connection_throttled` | Exceeded Publish requests per second per connection limit                          |
+| `CLIENT_ERROR`         | Exceeded Maximum inbound unacknowledged QoS 1 publish requests limit               |
+
 ### Publish-Out log entry
 
 When the message broker publishes an MQTT message, it generates a log entry with an
 `eventType` of `Publish-Out`
 
-#### Publish-Out log entry example
+#### Publish-Out success log entry example
 
 ```
 {
     "timestamp": "2017-08-10 15:39:30.961",
     "logLevel": "INFO",
-    "traceId": "672ec480-31ce-fd8b-b5fb-22e3ac420699",
-    "accountId": "123456789012",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "accountId": "111122223333",
     "status": "Success",
     "eventType": "Publish-Out",
     "protocol": "MQTT",
     "topicName": "$aws/things/MyThing/shadow/get",
     "clientId": "abf27092886e49a8a5c1922749736453",
     "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
-    "sourceIp": "205.251.233.181",
+    "sourceIp": "203.0.113.13",
     "sourcePort": 13490
+}
+```
+
+#### Publish-Out failure log entry example
+
+```
+{
+    "timestamp": "2026-07-14 21:12:33.026",
+    "logLevel": "ERROR",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "accountId": "111122223333",
+    "status": "Failure",
+    "eventType": "Publish-Out",
+    "protocol": "MQTT",
+    "topicName": "testing/topic",
+    "clientId": "subscriberClientThrottled",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "reason": "connection_throttled",
+    "details": "Exceeded Publish requests per second per connection limit"
 }
 ```
 
@@ -723,6 +833,31 @@ topicName
 
 The name of the subscribed topic.
 
+reason
+
+The reason for the `Publish-Out` operation failure. This field is
+present only when the `status` is `Failure`. Valid values
+are `throttled`, `connection_throttled`,
+`CLIENT_ERROR`, or `INTERNAL_SERVER_ERROR`.
+
+details
+
+A brief explanation of the error. This field is present only when the
+`status` is `Failure`.
+
+#### Reason codes
+
+The following reason codes and details appear in `Publish-Out` failure log
+entries.
+
+| Reason                 | Details                                                               |
+| ---------------------- | --------------------------------------------------------------------- |
+| `throttled`            | Exceeded Outbound publish requests per second per account limit       |
+| `connection_throttled` | Exceeded Publish requests per second per connection limit             |
+| `connection_throttled` | Exceeded Maximum outbound unacknowledged QoS 1 publish requests limit |
+| `CLIENT_ERROR`         | Client endpoint is not writable                                       |
+| `CLIENT_ERROR`         | Client is not connected                                               |
+
 ### Queued log entry
 
 When a device with a persistent session is disconnected, the MQTT message broker
@@ -736,8 +871,8 @@ stores the device's messages and AWS IoT generates log entries with an eventType
 {
     "timestamp": "2022-08-10 15:39:30.961",
     "logLevel": "ERROR",
-    "traceId": "672ec480-31ce-fd8b-b5fb-22e3ac420699",
-    "accountId": "123456789012",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountId": "111122223333",
     "topicName": "$aws/things/MyThing/get",
     "clientId": "123123123",
     "qos": "1",
@@ -782,8 +917,8 @@ The name of the subscribed topic.
 {
     "timestamp": "2022-08-10 15:39:30.961",
     "logLevel": "INFO",
-    "traceId": "672ec480-31ce-fd8b-b5fb-22e3ac420699",
-    "accountId": "123456789012",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "accountId": "111122223333",
     "topicName": "$aws/things/MyThing/get",
     "clientId": "123123123",
     "qos": "1",
@@ -821,14 +956,15 @@ The name of the subscribed topic.
 {
     "timestamp": "2022-08-10 15:39:30.961",
     "logLevel": "ERROR",
-    "traceId": "672ec480-31ce-fd8b-b5fb-22e3ac420699",
-    "accountId": "123456789012",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "accountId": "111122223333",
     "topicName": "$aws/things/MyThing/get",
     "clientId": "123123123",
     "qos": "1",
     "protocol": "MQTT",
     "eventType": "Queued",
     "status": "Failure",
+    "reason": "connection_throttled",
     "details": "Throttled while queueing offline message"
 }
 ```
@@ -843,10 +979,9 @@ The ID of the client to which the message is queued.
 
 details
 
-###### `Throttled while queueing offline message`
-
-The client exceeded the `Queued messages per second per account` limit, so the
-message wasn't stored.
+A brief explanation of the error. When `status` is
+`Failure`, the value is `Throttled while queueing offline
+ message`.
 
 protocol
 
@@ -858,6 +993,18 @@ qos
 The Quality of Service (QoS) level of the request. The value will always be
 1 because the messages with QoS of 0 aren't stored.
 
+reason
+
+###### `connection_throttled`
+
+The client exceeded the `Publish requests per second per
+ connection` limit, so the message wasn't stored.
+
+###### `throttled`
+
+The account exceeded the `Queued messages per second per account` limit, so the
+message wasn't stored.
+
 topicName
 
 The name of the subscribed topic.
@@ -867,22 +1014,43 @@ The name of the subscribed topic.
 The AWS IoT message broker generates a log entry with an `eventType` of
 `Subscribe` when an MQTT client subscribes to a topic.
 
-#### MQTT 3 Subscribe log entry example
+#### MQTT 3 Subscribe success log entry example
 
 ```
 {
     "timestamp": "2017-08-10 15:39:04.413",
     "logLevel": "INFO",
-    "traceId": "7aa5c38d-1b49-3753-15dc-513ce4ab9fa6",
-    "accountId": "123456789012",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountId": "111122223333",
     "status": "Success",
     "eventType": "Subscribe",
     "protocol": "MQTT",
     "topicName": "$aws/things/MyThing/shadow/#",
     "clientId": "abf27092886e49a8a5c1922749736453",
     "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
-    "sourceIp": "205.251.233.181",
+    "sourceIp": "203.0.113.14",
     "sourcePort": 13490
+}
+```
+
+#### Subscribe failure log entry example
+
+```
+{
+    "timestamp": "2026-07-09 23:07:45.633",
+    "logLevel": "ERROR",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "accountId": "111122223333",
+    "status": "Failure",
+    "eventType": "Subscribe",
+    "protocol": "MQTT",
+    "topicName": "subscribe/test",
+    "clientId": "device-12345",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "203.0.113.2",
+    "sourcePort": 10494,
+    "reason": "throttled",
+    "details": "Exceeded Subscriptions per second per account limit"
 }
 ```
 
@@ -915,14 +1083,26 @@ topicName
 
 The name of the subscribed topic.
 
+reason
+
+The reason for the `Subscribe` operation failure. This field is
+present only when the `status` is `Failure`. Valid values
+are `throttled`, `CLIENT_ERROR`, or
+`INTERNAL_SERVER_ERROR`.
+
+details
+
+A brief explanation of the error. This field is present only when the
+`status` is `Failure`.
+
 #### MQTT 5 Subscribe log entry example
 
 ```
 {
 	"timestamp": "2022-11-30 16:24:15.628",
 	"logLevel": "INFO",
-	"traceId": "7aa5c38d-1b49-3753-15dc-513ce4ab9fa6",
-	"accountId": "123456789012",
+	"traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+	"accountId": "111122223333",
 	"status": "Success",
 	"eventType": "Subscribe",
 	"protocol": "MQTT",
@@ -939,15 +1119,15 @@ The name of the subscribed topic.
 	],
 	"clientId": "abf27092886e49a8a5c1922749736453",
 	"principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
-	"sourceIp": "205.251.233.181",
+	"sourceIp": "203.0.113.15",
 	"sourcePort": 13490
 }
 ```
 
 For MQTT 5 Subscribe operations, in addition to the [Common CloudWatch Logs attributes](#cwl-common-attributes "#cwl-common-attributes")
 and the
-[MQTT 3 Subscribe log entry
-attributes](#log-mb-connect.example.subscribe "#log-mb-connect.example.subscribe"), MQTT 5 `Subscribe` log entries contain the following
+[Subscribe log entry
+attributes](#log-mb-subscribe "#log-mb-subscribe"), MQTT 5 `Subscribe` log entries contain the following
 attribute:
 
 subscriptions
@@ -956,26 +1136,63 @@ A list of mappings between the requested topics in the Subscribe request and
 the individual MQTT 5 reason code. For more information, see [MQTT reason
 codes](mqtt.md#mqtt5-reason-codes "mqtt.md#mqtt5-reason-codes").
 
+#### Reason codes
+
+The following reason codes and details appear in `Subscribe` failure log
+entries.
+
+| Reason         | Details                                                                       |
+| -------------- | ----------------------------------------------------------------------------- |
+| `throttled`    | Exceeded Subscriptions per second per account limit                           |
+| `throttled`    | Exceeded Subscriptions per account limit                                      |
+| `throttled`    | Exceeded Subscriptions per connection limit                                   |
+| `throttled`    | Exceeded Shared Subscriptions per group limit                                 |
+| `throttled`    | Exceeded Subscribe and unsubscribe requests per second per group limit        |
+| `CLIENT_ERROR` | Subscribe packet reuses a packet ID from a previous unacknowledged<br>request |
+| `CLIENT_ERROR` | Client is not connected                                                       |
+| `CLIENT_ERROR` | Exceeded Maximum subscriptions per subscribe request limit                    |
+| `CLIENT_ERROR` | Invalid topic filter                                                          |
+
 ### Unsubscribe log entry
 
 The AWS IoT message broker generates a log entry with an `eventType` of
 `Unsubscribe` when an MQTT client unsubscribes to an MQTT topic.
 
-#### MQTT unsubscribe log entry example
+#### Unsubscribe success log entry example
 
 ```
 {
     "timestamp": "2024-08-20 22:53:32.844",
     "logLevel": "INFO",
-    "traceId": "db6bd09a-2c3f-1cd2-27cc-fd6b1ce03b58",
-    "accountId": "123456789012",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "accountId": "111122223333",
     "status": "Success",
     "eventType": "Unsubscribe",
     "protocol": "MQTT",
     "clientId": "abf27092886e49a8a5c1922749736453",
     "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
-    "sourceIp": "205.251.233.181",
+    "sourceIp": "203.0.113.16",
     "sourcePort": 13490
+}
+```
+
+#### Unsubscribe failure log entry example
+
+```
+{
+    "timestamp": "2026-01-07 15:37:23.476",
+    "logLevel": "ERROR",
+    "traceId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "accountId": "111122223333",
+    "status": "Failure",
+    "eventType": "Unsubscribe",
+    "protocol": "MQTT",
+    "clientId": "device-12345",
+    "principalId": "145179c40e2219e18a909d896a5340b74cf97a39641beec2fc3eeafc5a932167",
+    "sourceIp": "203.0.113.3",
+    "sourcePort": 26051,
+    "reason": "throttled",
+    "details": "Exceeded Unsubscribe requests per second per account limit"
 }
 ```
 
@@ -1003,6 +1220,30 @@ The IP address where the request originated.
 sourcePort
 
 The port where the request originated.
+
+reason
+
+The reason for the `Unsubscribe` operation failure. This field is
+present only when the `status` is `Failure`. Valid values
+are `throttled`, `CLIENT_ERROR`, or
+`INTERNAL_SERVER_ERROR`.
+
+details
+
+A brief explanation of the error. This field is present only when the
+`status` is `Failure`.
+
+#### Reason codes
+
+The following reason codes and details appear in `Unsubscribe` failure log
+entries.
+
+| Reason         | Details                                                                         |
+| -------------- | ------------------------------------------------------------------------------- |
+| `throttled`    | Exceeded Unsubscribe requests per second per account limit                      |
+| `throttled`    | Exceeded Subscribe and unsubscribe requests per second per group limit          |
+| `CLIENT_ERROR` | Unsubscribe packet reuses a packet ID from a previous unacknowledged<br>request |
+| `CLIENT_ERROR` | Client is not connected                                                         |
 
 ### SendDirectMessage log entry
 
@@ -1101,24 +1342,25 @@ The port where the request originated.
 
 #### Reason codes
 
-The following reason codes and details will appear in the failure log entries:
+The following reason codes and details appear in `SendDirectMessage` failure log
+entries.
 
-SendDirectMessage reason codes| Reason | Details |
-| --- | --- |
-| `MALFORMED_CLIENTID` | This client ID isn't valid. Client IDs must not exceed 128 characters and can't start with a dollar sign ($). Enter a different client ID |
-| `INVALID_TOPIC` | This topic isn't valid. Topics size needs to be within 256 bytes, should contain less than 9 parts, and should not start with a dollar sign ($) |
-| `INVALID_TIMEOUT_PARAMETER` | Invalid timeout value. Must be an integer between 1 and 15 |
-| `INVALID_CONFIRMATION_PARAMETER` | Invalid confirmation value. Must be 'true' or 'false' |
-| `RECEIVE_AUTHORIZATION_FAILURE` | Authorization failed for the target client. Verify that your policy grants the necessary permissions |
-| `TARGET_CLIENT_ID_NOT_FOUND` | The client ID is not found. Verify that the client is connected and try again |
-| `TARGET_CLIENT_NOT_CONNECTED` | The target client ID is not connected, but it has an active persistent session |
-| `SEND_DIRECT_MESSAGE_THROTTLED` | The request was denied due to send direct message request rate exceeded |
-| `RECEIVE_SESSION_THROTTLED` | The request was denied because request rate exceeded the outbound publish requests per second per connection |
-| `RECEIVER_MAX_UNACKED_QOS1_EXCEEDED` | The receiver client has reached the maximum number of unacknowledged QoS 1 messages |
-| `DELIVERY_CONFIRMATION_TIMEOUT` | The delivery confirmation was not received within the specified timeout period |
-| `DELIVERY_CONFIRMATION_SENDER_DISCONNECT` | The sender disconnected before the delivery confirmation was received |
-| `CLIENT_ENDPOINT_NOT_WRITABLE` | The receiver client endpoint is not writable |
-| `INTERNAL_SERVER_ERROR` | Internal server error |
+| Reason                                    | Details                                                                                                                                         |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MALFORMED_CLIENTID`                      | This client ID isn't valid. Client IDs must not exceed 128 characters and can't start with a dollar sign ($). Enter a different client ID       |
+| `INVALID_TOPIC`                           | This topic isn't valid. Topics size needs to be within 256 bytes, should contain less than 9 parts, and should not start with a dollar sign ($) |
+| `INVALID_TIMEOUT_PARAMETER`               | Invalid timeout value. Must be an integer between 1 and 15                                                                                      |
+| `INVALID_CONFIRMATION_PARAMETER`          | Invalid confirmation value. Must be 'true' or 'false'                                                                                           |
+| `RECEIVE_AUTHORIZATION_FAILURE`           | Authorization failed for the target client. Verify that your policy grants the necessary permissions                                            |
+| `TARGET_CLIENT_ID_NOT_FOUND`              | The client ID is not found. Verify that the client is connected and try again                                                                   |
+| `TARGET_CLIENT_NOT_CONNECTED`             | The target client ID is not connected, but it has an active persistent session                                                                  |
+| `SEND_DIRECT_MESSAGE_THROTTLED`           | The request was denied due to send direct message request rate exceeded                                                                         |
+| `RECEIVE_SESSION_THROTTLED`               | The request was denied because request rate exceeded the outbound publish requests per second per connection                                    |
+| `RECEIVER_MAX_UNACKED_QOS1_EXCEEDED`      | The receiver client has reached the maximum number of unacknowledged QoS 1 messages                                                             |
+| `DELIVERY_CONFIRMATION_TIMEOUT`           | The delivery confirmation was not received within the specified timeout period                                                                  |
+| `DELIVERY_CONFIRMATION_SENDER_DISCONNECT` | The sender disconnected before the delivery confirmation was received                                                                           |
+| `CLIENT_ENDPOINT_NOT_WRITABLE`            | The receiver client endpoint is not writable                                                                                                    |
+| `INTERNAL_SERVER_ERROR`                   | Internal server error                                                                                                                           |
 
 ## Server certificate OCSP log entries
 
@@ -1513,8 +1755,7 @@ The AWS IoT rules engine generates logs for the following events:
 The rules engine generates a log entry with an `eventType` of
 `FunctionExecution` when a rule's SQL query calls an external function. An
 external function is called when a rule's action makes an HTTP request to AWS IoT or
-another web service (for example, calling `get_thing_shadow` or
-`machinelearning_predict`).
+another web service (for example, calling `get_thing_shadow`).
 
 #### FunctionExecution log entry example
 

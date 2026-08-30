@@ -28,6 +28,7 @@ different fields that can be substituted.
 - [DynamoDBv2](dynamodb-v2-rule-action.md "dynamodb-v2-rule-action.md")
 - [Elasticsearch](elasticsearch-rule-action.md "elasticsearch-rule-action.md")
 - [HTTP](https-rule-action.md "https-rule-action.md")
+- [InfluxDB](influxdb-rule-action.md "influxdb-rule-action.md")
 - [AWS IoT SiteWise](iotsitewise-rule-action.md "iotsitewise-rule-action.md")
 - [Kinesis Data Streams](kinesis-rule-action.md "kinesis-rule-action.md")
 - [Firehose](kinesis-firehose-rule-action.md "kinesis-firehose-rule-action.md")
