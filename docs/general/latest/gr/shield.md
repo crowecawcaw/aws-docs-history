@@ -11,40 +11,41 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name               | Region         | Endpoint                                                              | Protocol       |
-| ------------------------- | -------------- | --------------------------------------------------------------------- | -------------- |
-| US East (Ohio)            | us-east-2      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Africa (Cape Town)        | af-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Hong Kong)  | ap-east-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Hyderabad)  | ap-south-2     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Mumbai)     | ap-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Osaka)      | ap-northeast-3 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Seoul)      | ap-northeast-2 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Singapore)  | ap-southeast-1 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Sydney)     | ap-southeast-2 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Thailand)   | ap-southeast-7 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Canada (Central)          | ca-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Canada West (Calgary)     | ca-west-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Frankfurt)        | eu-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Ireland)          | eu-west-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (London)           | eu-west-2      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Milan)            | eu-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Paris)            | eu-west-3      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Spain)            | eu-south-2     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Stockholm)        | eu-north-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Zurich)           | eu-central-2   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Israel (Tel Aviv)         | il-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Mexico (Central)          | mx-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Middle East (Bahrain)     | me-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Middle East (UAE)         | me-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| South America (São Paulo) | sa-east-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Region Name                | Region         | Endpoint                                                              | Protocol       |
+| -------------------------- | -------------- | --------------------------------------------------------------------- | -------------- |
+| US East (Ohio)             | us-east-2      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US East (N. Virginia)      | us-east-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US West (N. California)    | us-west-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US West (Oregon)           | us-west-2      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Africa (Cape Town)         | af-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Hong Kong)   | ap-east-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Hyderabad)   | ap-south-2     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Mumbai)      | ap-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (New Zealand) | ap-southeast-6 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Osaka)       | ap-northeast-3 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Seoul)       | ap-northeast-2 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Singapore)   | ap-southeast-1 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney)      | ap-southeast-2 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Thailand)    | ap-southeast-7 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Canada (Central)           | ca-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Canada West (Calgary)      | ca-west-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Frankfurt)         | eu-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Ireland)           | eu-west-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (London)            | eu-west-2      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Milan)             | eu-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Paris)             | eu-west-3      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Spain)             | eu-south-2     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Stockholm)         | eu-north-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Zurich)            | eu-central-2   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Israel (Tel Aviv)          | il-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Mexico (Central)           | mx-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Middle East (Bahrain)      | me-south-1     | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Middle East (UAE)          | me-central-1   | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| South America (São Paulo)  | sa-east-1      | shield.us-east-1.amazonaws.com<br>shield-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
 
 ## Service quotas
 

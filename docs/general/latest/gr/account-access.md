@@ -19,6 +19,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Mumbai)     | ap-south-1     | account-access.ap-south-1.api.aws     |          |
 | Asia Pacific (Osaka)      | ap-northeast-3 | account-access.ap-northeast-3.api.aws |          |
 | Asia Pacific (Seoul)      | ap-northeast-2 | account-access.ap-northeast-2.api.aws |          |
+| Asia Pacific (Singapore)  | ap-southeast-1 | account-access.ap-southeast-1.api.aws |          |
 | Asia Pacific (Sydney)     | ap-southeast-2 | account-access.ap-southeast-2.api.aws |          |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | account-access.ap-northeast-1.api.aws |          |
 | Canada (Central)          | ca-central-1   | account-access.ca-central-1.api.aws   |          |
