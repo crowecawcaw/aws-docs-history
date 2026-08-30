@@ -43,8 +43,8 @@ With the installer, you can install the following submitters:
 | [Adobe After Effects](adobe-after-effects.md "adobe-after-effects.md")   | 2024<br>• 2026     | Included          | Not included    | Included                |
 | [Autodesk 3ds Max](autodesk-3ds-max.md "autodesk-3ds-max.md")            | 2024<br>• 2027     | Included          | Not included    | Not included            |
 | [Autodesk Arnold for Cinema 4D](maxon-cinema-4d.md "maxon-cinema-4d.md") | 4.8.4.1            | Included          | Not included    | Included                |
-| [Autodesk Arnold for Maya](autodesk-maya.md "autodesk-maya.md")          | 7.1<br>• 7.4       | Included          | Included        | Included                |
-| [Autodesk Maya](autodesk-maya.md "autodesk-maya.md")                     | 2023<br>• 2026     | Included          | Included        | Included                |
+| [Autodesk Arnold for Maya](autodesk-maya.md "autodesk-maya.md")          | 7.1<br>• 7.5       | Included          | Included        | Included                |
+| [Autodesk Maya](autodesk-maya.md "autodesk-maya.md")                     | 2023<br>• 2027     | Included          | Included        | Included                |
 | [Autodesk VRED](autodesk-vred.md "autodesk-vred.md")                     | 2025<br>• 2026     | Included          | Not included    | Not included            |
 | [Blender](blender.md "blender.md")                                       | 3.6<br>• 5.1       | Included          | Included        | Included                |
 | [Chaos V-Ray for Maya](autodesk-maya.md "autodesk-maya.md")              | 6<br>• 7           | Included          | Included        | Included                |

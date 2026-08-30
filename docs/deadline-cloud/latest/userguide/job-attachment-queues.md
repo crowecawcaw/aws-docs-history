@@ -21,6 +21,11 @@ configure the connection between a queue and its bucket:
   for one show, sharing a bucket between them is a reasonable simplification. The console
   sets up each queue with its own bucket and root prefix by default.
 
+Separate buckets keep job attachments separated in Amazon S3. On the worker host, a job runs
+code as the queue's operating system user. The job can write files to any location that
+user can write to, including locations that other queues' users can read. Separation on
+the host comes from the queue operating system users. For more information, see [Run jobs as dedicated OS users](job-run-as-user.md "job-run-as-user.md").
+
 To isolate your queues, you must configure the `Queue Role` to only allow
 queue access to the bucket and root prefix. In the following example, replace each
 `placeholder` with your resource-specific information.

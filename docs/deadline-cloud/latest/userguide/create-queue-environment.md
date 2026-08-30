@@ -57,12 +57,14 @@ Linux
   - `maya-mtoa=2024.5.3`
   - `maya-mtoa=2025.5.4`
   - `maya-mtoa=2026.5.5`
+  - `maya-mtoa=2027.5.6`
 
 - Autodesk Maya
 
   - `maya=2024`
   - `maya=2025`
   - `maya=2026`
+  - `maya=2027`
   - `maya-openjd`
 
 - Autodesk VRED

@@ -1,8 +1,9 @@
-# Quotas for Deadline Cloud
+# Service quotas and throttling for Deadline Cloud
 
 AWS Deadline Cloud provides resources, such as farms, fleets, and queues, that you can use to
 process jobs. When you create your AWS account, we set default quotas on these resources
-for each AWS Region.
+for each AWS Region. Deadline Cloud also limits the rate of API requests. For more information,
+see [API request throttling](#deadline-cloud-throttling "#deadline-cloud-throttling").
 
 Service Quotas is a central location where you can view and manage your quotas for
 AWS services. You can also request a quota increase for many of the resources that you
@@ -18,6 +19,10 @@ available in Service Quotas, use the [service quota increase
 form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 
 Your AWS account has the following quotas related to Deadline Cloud.
+
+Compute for service-managed fleets counts against the Deadline Cloud vCPU and GPU quotas in the
+following table, not against your Amazon Elastic Compute Cloud (Amazon EC2) service quotas. For more information,
+see [Quotas for related services](#related-service-quotas "#related-service-quotas").
 
 The following table includes quotas for persistent storage volumes used by
 service-managed fleets. For more information about persistent storage, see [Persistent storage for service-managed fleets](volumes.md "volumes.md").
@@ -56,3 +61,70 @@ service-managed fleets. For more information about persistent storage, see [Pers
 | Tasks per step                                                   | Each supported Region: 10,000  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas/L-3DE82FE6 "https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas/L-3DE82FE6") | The maximum number of tasks per step in the current AWS Region.                                                                                                                                          |
 | Wait-and-save vCPUs per region                                   | Each supported Region: 50      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas/L-B65B621C "https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas/L-B65B621C") | The maximum number of wait-and-save vCPUs that can be provisioned across all service-managed fleets in the current AWS Region.                                                                           |
 | Workers per farm                                                 | Each supported Region: 7,500   | [Yes](https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas/L-48CC9B8E "https://console.aws.amazon.com/servicequotas/home/services/deadline/quotas/L-48CC9B8E") | The maximum number of workers per farm in the current AWS Region.                                                                                                                                        |
+
+## API request throttling
+
+Deadline Cloud limits the rate of API requests for each AWS account in each AWS Region.
+The default request rates support large-scale workloads and usage. When your requests
+exceed the allowed rate, Deadline Cloud rejects the request with an HTTP 429 status code and a
+`ThrottlingException` error.
+
+The AWS SDKs and the AWS CLI automatically retry throttled requests using
+exponential backoff. Occasional throttling resolves without requiring changes to your
+application. If you experience sustained throttling, contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") to request higher request rates.
+
+## Quotas for related services
+
+Some Deadline Cloud features use other AWS services, and the quotas for those services
+also apply.
+
+### Amazon EC2 quotas for customer-managed fleets
+
+Your Amazon Elastic Compute Cloud (Amazon EC2) quotas apply to [customer-managed
+fleets](../developerguide/manage-cmf.md "../developerguide/manage-cmf.md"), because those workers run on instances in your own account.
+Compute for service-managed fleets counts against the Deadline Cloud vCPU and GPU quotas in
+the preceding table instead.
+
+To view or increase your Amazon EC2 quotas, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") and choose
+**Amazon Elastic Compute Cloud**. For more information, see [Amazon EC2 service
+quotas](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md") in the _Amazon EC2 User Guide_.
+
+### Amazon Bedrock quotas for the Deadline Cloud assistant
+
+The [Deadline Cloud assistant](deadline-cloud-assistant.md "deadline-cloud-assistant.md") uses Amazon Bedrock on-demand inference in
+your AWS account, so your account's Amazon Bedrock service quotas apply. The two primary
+constraints are:
+
+- **Requests per minute (RPM)** – The
+  number of model invocation requests allowed per minute.
+- **Tokens per minute (TPM)** – The
+  total number of input and output tokens processed per minute.
+
+Default quotas vary by Region. Some Regions have lower default limits, as low as
+20 RPM, which might result in throttling during heavy assistant usage. The
+assistant uses [cross-region
+inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") profiles, which support a minimum of 200 RPM. Cross-region
+inference can help alleviate throttling in Regions with lower single-Region limits.
+If your Region uses cross-region inference, the service quotas in the destination
+Regions also apply.
+
+If you experience throttling errors when using the assistant, you can request an
+Amazon Bedrock service quota increase:
+
+###### To request a quota increase
+
+1. Open the [Service Quotas
+   console](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
+2. In the navigation pane, choose **AWS services**, then
+   choose **Amazon Bedrock**.
+3. Find the quota for the model used by the assistant (look for quotas
+   related to `InvokeModelWithResponseStream` for the relevant
+   model).
+4. Choose the quota name, then choose **Request increase at account
+   level**.
+5. Enter your desired quota value and submit the request.
+
+You can monitor your Amazon Bedrock quota usage through CloudWatch metrics. Set up CloudWatch alarms
+on Amazon Bedrock throttling metrics to identify when you are approaching your quota limits.
+For more information, see [Monitoring
+Amazon Bedrock](../../../bedrock/latest/userguide/monitoring-overview.md "../../../bedrock/latest/userguide/monitoring-overview.md") in the _Amazon Bedrock User Guide_.

@@ -44,7 +44,7 @@ This domain is tied to the IAM Identity Center setup and should be the same for 
 
 - ``[Monitor alias]`.`[Region]`.deadlinecloud.amazonaws.com`
 
-This domain is for the Monitor setup in Deadline Cloud. Artists enter this link into their browser or Deadline Cloud monitor application. If Deadline Cloud is set up in additional accounts or regions in the future, this domain will change. You can find this value in the Deadline Cloud console in the _Dashboard_ → _Monitor overview_ → _Monitor details_ → _URL_.
+This domain is for the Monitor setup in Deadline Cloud. Artists enter this link into their browser or Deadline Cloud monitor application. If Deadline Cloud is set up in additional accounts or regions in the future, this domain will change. You can find this value in the Deadline Cloud console in the _Dashboard_ → _Monitor overview_ → _Monitor details_ → _URL_. The URL is reachable from any location on the internet. For information about what the URL exposes and how Deadline Cloud authorizes access to farm data, see [Access to the monitor web application](security-data-flow.md#security-data-flow-monitor "security-data-flow.md#security-data-flow-monitor").
 
 - ``[Bucket name]`.`[Region]`.s3.amazonaws.com`
 

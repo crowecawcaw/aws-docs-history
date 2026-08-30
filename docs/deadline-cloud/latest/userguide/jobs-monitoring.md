@@ -23,6 +23,11 @@ Open the context menu for a job, step, or task. You can:
   or the Deadline Cloud API, see [Modify a job in
   Deadline Cloud](../developerguide/build-jobs-modifying.md "../developerguide/build-jobs-modifying.md") in the _Deadline Cloud Developer Guide_.
 
+If your team uses automatic downloads, the jobs and tasks tables in the Deadline Cloud monitor desktop
+application also show a **Download status** column that reports whether each
+job's outputs reached your file system. For more information, see
+[View output download status in Deadline Cloud](auto-downloads-status.md "auto-downloads-status.md").
+
 Each task in a job or step has a status. The status of a job or step depends on the status
 of its tasks. The status is determined by tasks that have these statuses, in order. Step
 statuses are determined the same as the job status.

@@ -43,5 +43,6 @@ A job consists of:
 ###### Topics
 
 - [Using a Deadline Cloud submitter](jobs-using-submitter.md "jobs-using-submitter.md")
+- [Load and submit shared job bundles](jobs-shared-bundles.md "jobs-shared-bundles.md")
 - [Processing Deadline Cloud jobs](jobs-processing.md "jobs-processing.md")
 - [Monitoring Deadline Cloud jobs](jobs-monitoring.md "jobs-monitoring.md")

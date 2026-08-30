@@ -7,11 +7,11 @@ model:
   performs read operations (Get, List, Search) on Deadline Cloud resources and CloudWatch
   logs. It cannot modify your resources.
 - **Customer-account execution** – All
-  model invocations occur in your AWS account using your credentials
+  Amazon Bedrock model invocations occur in your AWS account using your credentials
   and service quotas.
-- **Scoped permissions** – The policy is
+- **Scoped permissions** – The Amazon Bedrock policy is
   scoped to cross-region inference profiles for your geographic region. Monitor users
-  cannot access actions beyond
+  cannot access Amazon Bedrock actions beyond
   `InvokeModelWithResponseStream`.
 - **Session isolation** – Conversations are
   isolated to individual browser sessions and are not persisted or shared.
@@ -20,15 +20,15 @@ model:
   call fails), the assistant UI is not displayed.
 - **Admin control** – Only administrators can
   enable or disable the assistant. Monitor users cannot self-escalate access.
-- **Abuse detection** – abuse detection
+- **Abuse detection** – Amazon Bedrock abuse detection
   capabilities apply to assistant usage. For more information, see [Abuse
-  detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") in the _User Guide_.
+  detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") in the _Amazon Bedrock User Guide_.
 
 ## Model information
 
 The Deadline Cloud assistant uses Anthropic Claude Sonnet 4.5
 (`anthropic.claude-sonnet-4-5-20250929-v1:0`) as its foundation model,
-accessed through cross-region inference profiles. The assistant also includes a
+accessed through Amazon Bedrock cross-region inference profiles. The assistant also includes a
 knowledge base built from public Deadline Cloud documentation, public AWS documentation,
 and public documentation for popular digital content creation applications. This
 knowledge base is fetched by the assistant at invocation time. AWS did not use
@@ -36,32 +36,32 @@ customer data from any Deadline Cloud account to build or fine-tune the assistan
 
 ## Data privacy
 
-The Deadline Cloud assistant is subject to the data protection policies. For more
-information about data protection, see [Data protection](../../../bedrock/latest/userguide/data-protection.md "../../../bedrock/latest/userguide/data-protection.md") in the
-_User Guide_.
+The Deadline Cloud assistant is subject to the Amazon Bedrock data protection policies. For more
+information about Amazon Bedrock data protection, see [Data protection](../../../bedrock/latest/userguide/data-protection.md "../../../bedrock/latest/userguide/data-protection.md") in the
+_Amazon Bedrock User Guide_.
 
 The assistant holds conversation history in browser memory only. Refreshing or
 closing the page permanently deletes the conversation. The assistant doesn't persist
 any conversation data to disk, databases, or AWS services.
 
-If you have model invocation logging enabled in your account, your
+If you have Amazon Bedrock model invocation logging enabled in your account, your
 assistant conversations (including log content sent to the model) are captured in your
 configured logging destination (your Amazon S3 bucket or CloudWatch Logs log group). Model
 invocation logging is disabled by default and is entirely under your control. For more
 information, see [Model invocation
-logging](../../../bedrock/latest/userguide/model-invocation-logging.md "../../../bedrock/latest/userguide/model-invocation-logging.md") in the _User Guide_.
+logging](../../../bedrock/latest/userguide/model-invocation-logging.md "../../../bedrock/latest/userguide/model-invocation-logging.md") in the _Amazon Bedrock User Guide_.
 
 ## Network path
 
 The Deadline Cloud assistant runs in your browser as part of the Deadline Cloud monitor application.
-When you interact with the assistant, your browser makes API calls
-(`InvokeModelWithResponseStream`) directly to the service endpoint
+When you interact with the assistant, your browser makes Amazon Bedrock API calls
+(`InvokeModelWithResponseStream`) directly to the Amazon Bedrock service endpoint
 by using your monitor user credentials. These calls travel
-over HTTPS (TLS 1.2 or higher) to the public endpoint in your Region.
+over HTTPS (TLS 1.2 or higher) to the public Amazon Bedrock endpoint in your Region.
 
 Because the assistant runs in the browser, Amazon VPC interface endpoints (AWS
-PrivateLink) do not apply to assistant traffic. PrivateLink support is designed
-for server-side workloads running within a Amazon VPC, not browser-based
+PrivateLink) do not apply to assistant traffic. Amazon Bedrock PrivateLink support is designed
+for server-side workloads running within your Amazon VPC, not browser-based
 applications.
 
 ## Organization-level controls
@@ -72,7 +72,7 @@ control over the assistant by using AWS Organizations (Organizations) service co
 prevents the assistant from functioning, even if a monitor administrator enables
 the feature.
 
-The following example SCP denies all model invocations, which disables the
+The following example SCP denies all Amazon Bedrock model invocations, which disables the
 assistant across all accounts in the organization or organizational unit (OU) where
 the policy is attached:
 
@@ -95,7 +95,7 @@ policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "
 
 ###### Note
 
-This SCP blocks all model invocations in the affected accounts, including
+This SCP blocks all Amazon Bedrock model invocations in the affected accounts, including
 those not related to Deadline Cloud. To block only the assistant, disable it through the
 monitor settings instead.
 
@@ -103,7 +103,7 @@ monitor settings instead.
 
 The assistant's activities are auditable through AWS CloudTrail (CloudTrail):
 
-- **invocations** – CloudTrail logs each
+- **Amazon Bedrock invocations** – CloudTrail logs each
   `InvokeModelWithResponseStream` call as a management event. The log
   entry records the model ID, user identity, timestamp, and source IP. The
   `additionalEventData.inferenceRegion` field identifies where the
@@ -123,9 +123,9 @@ The assistant's activities are auditable through AWS CloudTrail (CloudTrail):
 
 ## Abuse detection
 
-The automated abuse detection mechanisms apply to all assistant usage.
+The Amazon Bedrock automated abuse detection mechanisms apply to all assistant usage.
 For more information, see [Abuse detection](../../../bedrock/latest/userguide/abuse-detection.md "../../../bedrock/latest/userguide/abuse-detection.md") in the
-_User Guide_.
+_Amazon Bedrock User Guide_.
 
 ## Feedback data
 

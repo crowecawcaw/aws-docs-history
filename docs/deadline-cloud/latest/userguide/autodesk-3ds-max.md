@@ -50,9 +50,7 @@ Before setting up the 3ds Max submitter, configure the Deadline Cloud fleet as f
 
 ### Examples
 
-Examples are available for 3ds Max 2024 and 2025 with V-Ray, and for integrations with plugins such as tyFlow. To request additional examples, suggest ideas in the [discussion forum](https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions "https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions").
-
-For complete host configuration script examples, see [deadline-cloud-samples/host\_configuration\_scripts/3dsmax](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax").
+Examples are available for 3ds Max 2024-2027 in the [3ds Max host configuration scripts folder](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax") on the GitHub website. The examples cover the V-Ray, Corona, and Arnold renderers, and the tyFlow, Pencil+, and AEC plugins. To request additional examples, suggest ideas in the [GitHub discussion forum](https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions "https://github.com/aws-deadline/deadline-cloud-for-3ds-max/discussions").
 
 ###### Note
 
@@ -185,6 +183,52 @@ The practical limits are:
 
 Submitting a job that exceeds 50 parameters will fail with a validation error. If you need to render more state sets or batch views than the limit allows, split them across multiple job submissions.
 
+## Command-line rendering with 3dsmaxcmd
+
+Use the optional command-line render workflow to render your scene with `3dsmaxcmd.exe`, the 3ds Max command-line render server, instead of the standard adaptor. Because `3dsmaxcmd.exe` registers as a render server, network-licensed plugins such as PSOFT Pencil+ 4 NTR render without a watermark. The workflow is opt-in. Unless you enable it, the submitter uses its default behavior.
+
+### When to use the command-line render workflow
+
+Network-licensed plugins, such as PSOFT Pencil+ 4 NTR, add a watermark to output rendered through the standard adaptor. The watermark appears because `3dsmaxbatch.exe` does not register as a render server. Use the command-line render workflow when your scene uses a plugin that requires 3ds Max to run as a render server to produce watermark-free output.
+
+For most other scenes, use the standard submitter workflow. The standard adaptor provides sticky sessions and additional monitoring that the command-line render workflow does not.
+
+###### Note
+
+The command-line render workflow does not redirect V-Ray Frame Buffer raw output, such as raw and split-channel files. For V-Ray, use the standard **Output Filename** field or the standard adaptor workflow. Otherwise, V-Ray writes that output outside the captured job output.
+
+### How the command-line render workflow works
+
+When you enable the workflow, the submitter builds a job bundle that renders the scene with `3dsmaxcmd.exe`. On the worker, the task reads the session's Deadline Cloud path mapping rules. It then generates a pre-render MAXScript that remaps the scene's asset and output paths to their session locations. The task then invokes `3dsmaxcmd` once per frame. The job uses the name and description from **Shared job settings**. It also uses the **Job attachments** and **Host requirements** from the other submitter tabs.
+
+### Submitting a command-line render job
+
+To submit a job that renders with 3dsmaxcmd:
+
+1. Save your 3ds Max file.
+2. On the 3ds Max menu bar, choose **Deadline Cloud**.
+3. On the **3dsmaxcmd Render** tab, select **Enable 3dsmaxcmd Command-Line Render**.
+4. Configure the render options for the job.
+5. Choose **Submit** and follow the prompts to send your job to Deadline Cloud.
+
+The tab provides the following options:
+
+- **Frame List** – Frame range to render, for example `1-100` or `1,5,10-20`.
+- **Output Path** – Directory where rendered images are saved. The output path is required so that the render output goes to a captured location instead of the local output path baked into the scene.
+- **Output Filename** – Output file name with extension, for example `render.exr`. Leave blank to use the scene's Render Setup output.
+- **Camera** – Named camera to render. Leave blank to use the scene's active view.
+- **3dsmaxcmd Executable** – Path to `3dsmaxcmd.exe` on the worker. Defaults to `3dsmaxcmd`, resolved on the worker's PATH. Set a full path if the executable is not on the PATH.
+- **Override Task Run Timeout** – When selected, a frame render that exceeds the timeout is cancelled. Leave unselected to allow renders to run until complete.
+
+### Setting up a fleet for Pencil+
+
+Install Pencil+ 4 on service-managed fleet workers with a host configuration script, the same way you install 3ds Max. Example scripts that install 3ds Max and Pencil+ 4 are available for 3ds Max 2025 and 2027 on the GitHub website:
+
+- [3dsmax-2025-and-pencilplus-4.ps1](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-pencilplus-4.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-pencilplus-4.ps1")
+- [3dsmax-2027-and-pencilplus-4.ps1](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-pencilplus-4.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-pencilplus-4.ps1")
+
+The scripts install the Pencil+ 4 NTR edition, which renders watermark-free without consuming a license when 3ds Max runs as a render server. Because `3dsmaxcmd.exe` is a render server, you don't need to configure a license server for the command-line render path. For the general host configuration setup steps, see [Fleet host configuration](#3ds-max-fleet-host-config "#3ds-max-fleet-host-config").
+
 ## V-Ray standalone tile rendering
 
 For advanced V-Ray users, you can export V-Ray scene files (`.vrscene`) locally within 3ds Max and submit them as standalone job bundles with tile rendering support. This workflow is particularly useful for large resolution renders where tiling can reduce memory footprint and optimize render times.
@@ -268,6 +312,8 @@ Because 3ds Max is installed with host configuration scripts instead of conda pa
 - **RailClone** is a parametric modeling plugin for creating linear and area-based structures such as fences, roads, and buildings.
 
 For example host configuration scripts that include these plugins, see [3dsmax-2025-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins.ps1") and [3dsmax-2027-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins.ps1 "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins.ps1").
+
+You can also use the **Pencil+ 4** line rendering plugin from PSOFT. Because Pencil+ uses network (NTR) licensing, render it with the command-line render workflow to produce watermark-free output. For more information, see [Command-line rendering with 3dsmaxcmd](#3dsmaxcmd-render "#3dsmaxcmd-render").
 
 ## Advanced configurations
 

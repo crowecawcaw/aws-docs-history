@@ -64,6 +64,26 @@ If your studio filters outbound web traffic, see [Restricted network environment
 keep traffic between your VPC and Deadline Cloud off the public internet, use AWS PrivateLink
 interface endpoints. For more information, see [Access AWS Deadline Cloud using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
+## Access to the monitor web application
+
+Your monitor URL,
+`https://`monitor-alias`.`region`.deadlinecloud.amazonaws.com`,
+is reachable from any location on the internet, and you can't restrict the URL to a set of
+IP addresses. The URL serves the monitor web application, which is the same application for
+every Deadline Cloud monitor. The application holds none of your farm, queue, or job data, and anyone
+who opens the URL sees a sign-in page.
+
+Your farm data reaches the monitor through the Deadline Cloud APIs, so the API calls are where
+access is granted or denied. After you sign in through AWS IAM Identity Center (IAM Identity Center), Deadline Cloud assumes the
+monitor role for you. The monitor then calls the APIs from the browser with the role's
+temporary credentials. IAM authorizes every call. The managed policies on the monitor role
+allow each action only at the access levels that you granted. For more information, see
+[Monitor role](security-iam-service-roles.md#monitor-role "security-iam-service-roles.md#monitor-role") and [Managing users](managing-users.md "managing-users.md").
+
+To make farm data reachable only from your own network, apply the restriction to the
+API calls instead of the URL. You can allow only your IP ranges, or only requests that arrive
+through your VPC endpoints. For more information, see [Restrict farm access to your network](restrict-network-access.md "restrict-network-access.md").
+
 ## Encryption summary
 
 Each data store is encrypted at rest independently. The farm AWS KMS key applies only

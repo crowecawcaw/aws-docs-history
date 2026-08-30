@@ -1,6 +1,6 @@
 # How the assistant works
 
-When you interact with the assistant, it uses foundation models to
+When you interact with the assistant, it uses Amazon Bedrock foundation models to
 reason about your render job issues. The assistant has read-only access to your
 Deadline Cloud resources and CloudWatch logs, and follows a structured
 troubleshooting workflow:
@@ -16,5 +16,6 @@ troubleshooting workflow:
 - Navigating to relevant resources in the monitor (workers, logs, tasks)
 - Answering questions about Deadline Cloud concepts and terminology
 - Troubleshooting renderer-specific issues
-  All inference occurs within your AWS account using your own service quotas.
-  Refreshing the page clears conversation history.
+  All inference occurs within your AWS account using your own Amazon Bedrock service quotas.
+  For more information, see [Amazon Bedrock quotas for the Deadline Cloud assistant](deadline-cloud-quotas.md#assistant-bedrock-quotas "deadline-cloud-quotas.md#assistant-bedrock-quotas"). Refreshing the page clears conversation
+  history.

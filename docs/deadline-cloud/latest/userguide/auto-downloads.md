@@ -104,7 +104,7 @@ JSON
   - On Linux, the file is located at
     `~/.aws/credentials`
   - On Windows, the file is located at
-    `%USERPROFILE\.aws\credentials`
+    `%USERPROFILE%\.aws\credentials`
     Replace the following keys:
 
 ```
@@ -137,6 +137,10 @@ python -m pip install deadline
 $ deadline --version
 deadline, version 0.52.1
 ```
+
+To see download status in the Deadline Cloud monitor, use version 0.60.4 or newer. That version
+started recording the download status that the monitor reads. For more information,
+see [View output download status in Deadline Cloud](auto-downloads-status.md "auto-downloads-status.md").
 
 ## Test the output download command
 
@@ -590,14 +594,125 @@ If the outputs do not download, check the Troubleshooting section for the proces
 
 If you encounter issues with the automatic downloads, check the following:
 
-### Storage Profile Issues
+### Download error codes
+
+When a download fails, the **Download status** column in the Deadline Cloud monitor
+names the reason, and the `deadline queue sync-output` command records one of the
+following error codes. Most of these errors are resolved on the machine that runs the download
+command, which is often a different machine from the one you view the monitor on.
+
+`PERMISSION_DENIED` (Permission denied)
+
+The downloader isn't allowed to write to the output location, or its AWS credentials
+were denied access. Grant the user that runs the download command write access to the output
+location, confirm the command's AWS profile has access to the queue, and run the command
+again.
+
+`DISK_FULL` (Disk full)
+
+The machine running the download ran out of disk space. Free up space on the drive
+that holds the output location, then run the command again.
+
+`PATH_NOT_FOUND` (Path not found)
+
+The output destination doesn't exist or isn't mounted on the machine running the
+download. Create the directory or mount the shared drive, then run the command
+again.
+
+`NETWORK_ERROR` (Network error)
+
+A network interruption stopped the transfer. Network errors are usually transient.
+Run the command again, and check the machine's connectivity if the error repeats.
+
+`UNKNOWN` (Failed)
+
+The downloader couldn't identify a specific cause. The monitor shows
+**Failed** for this code and for any code it doesn't recognize. Check the
+log output of the
+`deadline queue sync-output` command for the underlying error.
+
+A job whose download fails is retried automatically on each later run. After five failed
+attempts, the downloader stops retrying the job and prints a warning. After you fix the cause,
+recover the job by running the download command with a lookback window that covers when the
+job finished:
+
+```
+deadline queue sync-output --farm-id `FARM_ID` --queue-id `QUEUE_ID` \
+    --storage-profile-id `STORAGE_PROFILE_ID` \
+    --force-bootstrap --bootstrap-lookback-minutes `1440`
+```
+
+Pass both flags together. The `--bootstrap-lookback-minutes` option defaults to
+0, so `--force-bootstrap` on its own recovers nothing.
+
+### Why was my job skipped?
+
+When the downloader skips a job, the **Download status** column names
+the reason directly in the cell:
+
+**No attachments** (`no_attachments`)
+
+The job wasn't submitted with job attachments, so it has no recorded output files to
+download. Some jobs never produce downloadable output, so a skipped job with no attachments
+usually needs no action.
+
+**Missing storage profile** (`missing_storage_profile`)
+
+The job was submitted without a storage profile while the download command uses one,
+so the downloader doesn't know where the job's files belong on each machine. Nothing
+downloads for the job until a storage profile is configured for it. A job's storage profile
+is set when the job is submitted, so submit the job with a storage profile and pass the
+same profile to the download command. In the tasks
+table, the **Missing storage profile** status is a link that opens an
+explanation, a documentation link, and a **Troubleshoot with AI** button.
+For more information, see [Storage profiles for job
+attachments](storage-profile.md "storage-profile.md").
+
+A skipped job with no reason shown was canceled or stopped before producing output. It
+needs no action.
+
+### Is it a download problem or a render problem?
+
+A problem in a task's **Download status** column can mean two different
+things, and they have different fixes. The status text tells you which one you have:
+
+- **No outputs** on a task whose run status is `FAILED` means
+  the task failed to render on the farm. No file was ever produced, so there was nothing to
+  download. Your drive and your network are fine. Check the task's logs to find the render
+  error, fix it, and requeue the task. A task can also show **No outputs**
+  after finishing successfully without writing any files, which is normal and needs no
+  action.
+- An error name, such as **Permission denied**, means the task rendered
+  and its output exists, and copying the files to your file system failed. Resolve the error
+  using [Download error codes](#download-error-codes "#download-error-codes").
+
+In the jobs table, both problems appear as a red segment in the job's download progress
+bar. Open the job's tasks table to tell them apart. A job where every task failed shows a dash
+instead of a download error, because the job never produced output. The job's own status
+column reports that failure. Diagnosing the download in these render-failure cases wastes
+time, so always check the task's run status first.
+
+### Troubleshoot with AI
+
+The download failure messages in the Deadline Cloud monitor, including the red
+**Output sync failed** indicator, include a
+**Troubleshoot with AI** button. The button opens the Deadline Cloud assistant, which
+reads the download status record for your queue and walks you through your specific failure,
+including the commands to run to fix it.
+
+Reach for it when a download keeps failing after you tried the fix for its error code,
+when you see an error you don't recognize, or when you aren't sure which machine the problem
+is on. The button appears when the Deadline Cloud assistant is enabled for your monitor. For more
+information, see [Deadline Cloud assistant](deadline-cloud-assistant.md "deadline-cloud-assistant.md").
+
+### Storage profile issues
 
 - An error like `[Errno 2] No such file or directory` or `[Errno 13] Permission denied` in the log file could be related to missing or misconfigured storage profiles.
 - See [Storage profiles](storage-profile-job-attachments.md "storage-profile-job-attachments.md") for information about how to set up your storage profiles
   when the downloading machine is different from the submitting machine.
 - For same-machine downloads, try the `--ignore-storage-profiles` flag.
 
-### Directory Permissions
+### Directory permissions
 
 - Ensure the scheduler service user has:
 
@@ -607,7 +722,7 @@ If you encounter issues with the automatic downloads, check the following:
 - For Linux and macOS, use `ls -la` to check permissions.
 - For Windows, review Security settings in the Properties folder.
 
-### Checking Scheduler Logs
+### Checking scheduler logs
 
 Linux
 
@@ -653,7 +768,7 @@ $ tail -100f /path/to/logs/deadline_sync.log
 ```
 
 # Look for your specific cron job executions
-$ sudo grep "deadline.*incremental-output-download" /var/log/syslog
+$ sudo grep "deadline.*sync-output" /var/log/syslog
 
 # Check for cron job starts and completions
 $ sudo grep "$(whoami).*CMD.*deadline" /var/log/syslog

@@ -1,11 +1,12 @@
 # Costs
 
-The Deadline Cloud assistant incurs usage costs in your
+The Deadline Cloud assistant incurs Amazon Bedrock usage costs in your
 AWS account. Costs are based on the number of input and output tokens processed during
 each interaction. Because the assistant uses cross-region inference, pricing is calculated
 based on your monitor's source Region.
 
-For current pricing, see [pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
+For current pricing, see [Amazon Bedrock
+pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 
 ###### Tip
 
@@ -14,7 +15,7 @@ token consumption.
 
 ## Tracking assistant costs
 
-supports cost allocation by AWS Identity and Access Management (IAM) principal, which you can use to track
+Amazon Bedrock supports cost allocation by AWS Identity and Access Management (IAM) principal, which you can use to track
 and attribute assistant inference costs across teams, projects, or cost centers. To
 set up cost tracking for the assistant, tag the monitor user role with attributes
 that represent your organizational structure, then activate those tags for cost
@@ -57,7 +58,7 @@ the tag keys to appear on the cost allocation tags page. It can then take up to
 For line-item cost attribution, create a AWS Cost and Usage Report () data export and select
 **Include caller identity (IAM principal) allocation data**. The
 export includes a `line_item_iam_principal` column that records the IAM
-ARN for each request, along with your IAM principal tags prefixed with
+ARN for each Amazon Bedrock request, along with your IAM principal tags prefixed with
 `iamPrincipal/`.
 
 For more information, see [Using IAM

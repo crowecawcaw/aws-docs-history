@@ -10,6 +10,15 @@ Two facts about fleets drive the decision:
   queues run on the same worker hosts. After a job runs, data can remain on the host,
   such as files in a temporary directory or the queue user's home directory, and a job
   can leave processes running that later jobs can observe.
+
+Some of that data remains by design. A job can cache data under the job user's
+home directory so that later sessions reuse it. For example, the conda queue
+environment caches downloaded packages there. On a service-managed fleet, all jobs
+run as one user, so every queue on the fleet shares those caches. Cached data
+remains until the worker shuts down, or across worker replacement when the fleet
+uses persistent storage. For more information, see [Sessions](../developerguide/build-jobs-scheduling.md#jobs-scheduling-sessions "../developerguide/build-jobs-scheduling.md#jobs-scheduling-sessions") in the _Deadline Cloud Developer Guide_ and [Persistent storage](volumes.md "volumes.md") in the _Deadline Cloud User
+Guide_.
+
 - Worker hosts run jobs as an operating system user. On a customer-managed fleet,
   you can give each queue its own user, so queues can share a fleet while their jobs'
   files and processes stay separated. On a service-managed fleet, all jobs run as a

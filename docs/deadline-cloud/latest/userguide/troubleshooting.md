@@ -122,7 +122,7 @@ Some possible reasons that a job can fail validation checks include the followin
 - There was an internal service error that prevents the job from being created.
 
 To see the quotas for the maximum number of steps and tasks in a job, use the Service Quotas
-console. For more information, see [Quotas for Deadline Cloud](deadline-cloud-quotas.md "deadline-cloud-quotas.md").
+console. For more information, see [Service quotas and throttling for Deadline Cloud](deadline-cloud-quotas.md "deadline-cloud-quotas.md").
 
 #### CHUNK[INT] task parameter error
 
