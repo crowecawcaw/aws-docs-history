@@ -33,7 +33,7 @@ AWS Fargate.
 
 The Amazon ECS container agent injects an environment variable into each container,
 referred to as the _task metadata endpoint_ which provides
-various task metadata and [Docker stats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") to the container.
+various task metadata and [Docker stats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") to the container.
 
 - Container introspection
 

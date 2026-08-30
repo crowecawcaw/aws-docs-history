@@ -1,7 +1,7 @@
 # Task metadata available for Amazon ECS tasks on EC2
 
 The Amazon ECS container agent provides a method to retrieve various task metadata and
-[Docker stats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats"). This is referred to as the task metadata endpoint. The
+[Docker stats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats"). This is referred to as the task metadata endpoint. The
 following versions are available:
 
 - Task metadata endpoint version 4 – Provides a variety of metadata and

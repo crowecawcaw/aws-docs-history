@@ -1,7 +1,7 @@
 # Amazon ECS task metadata available for tasks on Fargate
 
 Amazon ECS on Fargate provides a method to retrieve various metadata, network metrics,
-and [Docker stats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") about your containers and the tasks they are a part of. This
+and [Docker stats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") about your containers and the tasks they are a part of. This
 is referred to as the _task metadata endpoint_. The following task
 metadata endpoint versions are available for Amazon ECS on Fargate tasks:
 

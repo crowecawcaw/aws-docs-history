@@ -23,4 +23,4 @@ In tasks with multiple containers running as different users, Amazon ECS automat
 - Check that the volume is mounted in all containers that need access to it.
 
 For more information about configuring users in container definitions, see
-[Amazon ECS task definition parameters for Fargate](../../../task_definition_parameters.md "../../../task_definition_parameters.md") .
+[Amazon ECS task definition parameters for Fargate](task_definition_parameters.md "task_definition_parameters.md") .

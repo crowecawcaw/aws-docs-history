@@ -1216,7 +1216,7 @@ The number of `cpu` units the Amazon ECS container agent
 reserves for the container. On Linux, this parameter maps to
 `CpuShares`
 in the
-[Create a container](https://docs.docker.com/reference/api/engine/version/v1.38/#operation/ContainerCreate "https://docs.docker.com/reference/api/engine/version/v1.38/#operation/ContainerCreate") section.
+[Create a container](https://docs.docker.com/reference/api/engine/latest/#operation/ContainerCreate "https://docs.docker.com/reference/api/engine/latest/#operation/ContainerCreate") section.
 
 This field is optional for tasks that run on Amazon ECS Managed Instances. The total amount of CPU reserved for all the containers
 that are within a task must be lower than the task-level
@@ -1360,7 +1360,7 @@ Required: No
 
 The working directory to run commands inside the container in. This
 parameter maps to `WorkingDir` in the
-[Create a container](https://docs.docker.com/reference/api/engine/version/v1.38/#operation/ContainerCreate "https://docs.docker.com/reference/api/engine/version/v1.38/#operation/ContainerCreate") section of the [Docker Remote API](https://docs.docker.com/reference/api/engine/version/v1.38/ "https://docs.docker.com/reference/api/engine/version/v1.38/") and
+[Create a container](https://docs.docker.com/reference/api/engine/latest/#operation/ContainerCreate "https://docs.docker.com/reference/api/engine/latest/#operation/ContainerCreate") section of the [Docker Remote API](https://docs.docker.com/reference/api/engine/latest/ "https://docs.docker.com/reference/api/engine/latest/") and
 the `--workdir` option to [**docker run**](https://docs.docker.com/reference/cli/docker/container/run/ "https://docs.docker.com/reference/cli/docker/container/run/").
 
 ```

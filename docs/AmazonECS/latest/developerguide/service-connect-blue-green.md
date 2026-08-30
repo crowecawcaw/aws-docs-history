@@ -39,6 +39,10 @@ Test traffic header rules enable you to:
 
 The header-based routing mechanism works seamlessly with your existing application architecture. Client services don't need to be aware of the blue/green deployment process - they simply include the appropriate headers when sending test requests, and the Service Connect proxy handles the routing logic automatically.
 
+###### Important
+
+Test traffic header rules require that the Service Connect service port mapping has `appProtocol` set to `http`, `http2`, or `grpc`. If your service uses plain TCP without an application-layer protocol (that is, `appProtocol` is not set), you cannot use header-based `testTrafficRules` for blue/green deployments. In this case, use port-based test traffic routing instead.
+
 For more information about configuring test traffic header rules, see [ServiceConnectTestTrafficHeaderRules](../APIReference/API_ServiceConnectTestTrafficHeaderRules.md "../APIReference/API_ServiceConnectTestTrafficHeaderRules.md") in the _Amazon Elastic Container Service API Reference_.
 
 ### Header matching rules

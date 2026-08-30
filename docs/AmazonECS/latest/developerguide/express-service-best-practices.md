@@ -9,8 +9,8 @@ Learn about best practices and recommendations for using Express Mode service ef
 - **Use Secrets Manager for secrets** - Store sensitive data in Secrets Manager (e.g. private repository or database
   credentials).
 
-For more information Secrets Manager best practices, see [Secrets Manager best practices](secretsmanager/latest/userguide/best-practices.md "secretsmanager/latest/userguide/best-practices.md")
-in the _Secrets Manager User Guide_
+For more information about Secrets Manager best practices, see [Secrets Manager best practices](../../../secretsmanager/latest/userguide/best-practices.md "../../../secretsmanager/latest/userguide/best-practices.md")
+in the _Secrets Manager User Guide_.
 
 - **Enable encryption at rest** - Ensure secrets are encrypted when stored in AWS services.
 
@@ -35,7 +35,7 @@ aws ecs update-express-gateway-service \
 
 - **Use private subnets for sensitive applications** - Deploy applications that don't need direct internet access in private subnets.
 
-For more information on recommended architectures, refer to [Connect Amazon ECS application to the internet.](AmazonECS/latest/developerguide/networking-outbound.md "AmazonECS/latest/developerguide/networking-outbound.md")
+For more information about recommended architectures, see [Connect Amazon ECS application to the internet](networking-outbound.md "networking-outbound.md").
 
 - **Configure security groups to be minimally permissive** - Restrict inbound and outbound traffic to only necessary ports and sources.
 
@@ -85,7 +85,7 @@ AWS Compute Optimizer?](../../../compute-optimizer/latest/ug/what-is-compute-opt
 
 You can modify the service metric's target value in your Express Mode service console.
 
-Consider adding a predictive scaling policy, especially if your traffic follows a time-based pattern. See [Predictive Auto Scaling](AWSEC2ContainerServiceDocs/latest/shared/predictive-auto-scaling.md "AWSEC2ContainerServiceDocs/latest/shared/predictive-auto-scaling.md") for more information.
+Consider adding a predictive scaling policy, especially if your traffic follows a time-based pattern. For more information, see [Predictive Auto Scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
 
 - **Use multiple scaling metrics** - Consider using both CPU or Memory and request-based scaling for more responsive scaling.
 
@@ -123,11 +123,11 @@ check settings** you can adjust the timeout. Or, use `aws elbv2 modify-target-gr
 
 - **Enable Enhanced Container Insights** - Use CloudWatch; Enhanced Container Insights for comprehensive monitoring of your Express Mode service applications.
 
-See [Setting up Container Insights on Amazon ECS](AmazonCloudWatch/latest/monitoring/deploy-container-insights-ECS-cluster.md "AmazonCloudWatch/latest/monitoring/deploy-container-insights-ECS-cluster.md") for more information.
+For more information, see [Setting up Container Insights on Amazon ECS](../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-ECS-cluster.md "../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-ECS-cluster.md").
 
 - **Set up custom metrics** - Publish application-specific metrics to CloudWatch; for business logic monitoring.
 
-See [Public custom metrics](AmazonCloudWatch/latest/monitoring/publishingMetrics.md "AmazonCloudWatch/latest/monitoring/publishingMetrics.md") in the _CloudWatch User Guide_ for more information.
+For more information, see [Publish custom metrics](../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md "../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md") in the _CloudWatch User Guide_.
 
 - **Configure log retention** - Set appropriate log retention periods to balance cost and compliance requirements.
 
@@ -139,7 +139,7 @@ CloudWatch Log Groups created by Express Mode are configured to never expire and
 
 - **Implement bake times** - Express Mode implements a canary bake time to ensure deployments have time to stabilize
   while reducing blast radius of problematic deployments. If your application needs more time to stabilize, you can configure this in the Amazon ECS Service definition of your
-  Express Mode service. Refer to [Creating an Amazon ECS canary deployment](AmazonECS/latest/developerguide/deploy-canary-service.md "AmazonECS/latest/developerguide/deploy-canary-service.md") for more details.
+  Express Mode service. For more information, see [Creating an Amazon ECS canary deployment](deploy-canary-service.md "deploy-canary-service.md").
 - **Implement rollback procedures** - Have a plan to quickly revert to previous versions if issues occur.
 
 Meaningful health checks and alarm based rollbacks can both help with rollback. Express Mode's canary deployment strategy combined with alarm based rollbacks

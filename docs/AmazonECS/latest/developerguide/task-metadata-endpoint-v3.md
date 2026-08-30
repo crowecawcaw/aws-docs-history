@@ -13,7 +13,7 @@ Beginning with version 1.21.0 of the Amazon ECS container agent, the agent injec
 environment variable called `ECS_CONTAINER_METADATA_URI` into each
 container in a task. When you query the task metadata version 3 endpoint, various
 task metadata and [Docker
-stats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") are available to tasks. For tasks that use the `bridge`
+stats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") are available to tasks. For tasks that use the `bridge`
 network mode, network metrics are available when querying the `/stats`
 endpoints.
 
@@ -60,10 +60,10 @@ container instance tags that can be retrieved using the
 
 This path returns Docker stats JSON for the specific Docker
 container. For more information about each of the returned stats,
-see [ContainerStats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") in the Docker API documentation.
+see [ContainerStats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") in the Docker API documentation.
 
 `${ECS_CONTAINER_METADATA_URI}/task/stats`
 
 This path returns Docker stats JSON for all of the containers
 associated with the task. For more information about each of the
-returned stats, see [ContainerStats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") in the Docker API documentation.
+returned stats, see [ContainerStats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") in the Docker API documentation.

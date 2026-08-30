@@ -33,6 +33,9 @@ The following are the valid values for `overallStatus`:
   Available on Amazon ECS Managed Instances launch type.
 - `DAEMON` – Monitors the health of required daemon tasks on the
   container instance. Available on Amazon ECS Managed Instances launch type.
+- `AGENT_CONNECTIVITY` – Monitors the connectivity between the Amazon ECS
+  container agent and the Amazon ECS control plane. Available on Amazon ECS Managed Instances,
+  AWS Fargate, and Amazon EC2 launch types.
   You can also monitor health status changes through events. For more information,
   see [Amazon ECS container instance health change events](ecs_container_instance_health_events.md "ecs_container_instance_health_events.md").
 

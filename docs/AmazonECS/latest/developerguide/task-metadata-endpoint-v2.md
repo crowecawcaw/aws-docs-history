@@ -7,7 +7,7 @@ We recommend that you update the task metadata version 4 endpoint to get the
 latest metadata endpoint information. For more information, see [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md "task-metadata-endpoint-v4.md").
 
 Beginning with version 1.17.0 of the Amazon ECS container agent, various task metadata
-and [Docker stats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") are available to tasks that use the `awsvpc`
+and [Docker stats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") are available to tasks that use the `awsvpc`
 network mode at an HTTP endpoint that is provided by the Amazon ECS container
 agent.
 
@@ -26,7 +26,7 @@ We recommend that you update the task metadata version 4 endpoint to get the
 latest metadata endpoint information. For more information, see [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md "task-metadata-endpoint-v4.md").
 
 Beginning with version 1.17.0 of the Amazon ECS container agent, various task metadata
-and [Docker stats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") are available to tasks that use the `awsvpc`
+and [Docker stats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") are available to tasks that use the `awsvpc`
 network mode at an HTTP endpoint that is provided by the Amazon ECS container
 agent.
 
@@ -81,13 +81,13 @@ container instance tags that can be retrieved using the
 
 This endpoint returns Docker stats JSON for all of the containers
 associated with the task. For more information about each of the
-returned stats, see [ContainerStats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") in the Docker API documentation.
+returned stats, see [ContainerStats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") in the Docker API documentation.
 
 `169.254.170.2/v2/stats/`<container-id>``
 
 This endpoint returns Docker stats JSON for the specified Docker
 container ID. For more information about each of the returned stats,
-see [ContainerStats](https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/version/v1.30/#tag/Container/operation/ContainerStats") in the Docker API documentation.
+see [ContainerStats](https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats "https://docs.docker.com/reference/api/engine/latest/#tag/Container/operation/ContainerStats") in the Docker API documentation.
 
 ### Task metadata JSON response
 
