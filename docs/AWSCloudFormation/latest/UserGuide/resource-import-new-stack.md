@@ -136,7 +136,7 @@ step.
 The **Events** pane of the **Stack details** page for
 your new stack displays.
 
-![The Events tab in the console.](/images/AWSCloudFormation/latest/UserGuide/images/import-events.png) 8. (Optional) Run drift detection on the stack to make sure the template and actual
+![The Events tab in the console.](images/import-events.png) 8. (Optional) Run drift detection on the stack to make sure the template and actual
 configuration of the imported resources match. For more information about detecting drift, see
 [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md"). 9. (Optional) If your imported resources don't match their expected template configurations,
 either correct the template configurations or update the resources directly. In this
