@@ -73,13 +73,21 @@ JSON
  "Effect": "Allow",
  "Principal": {"Service": "compute-optimizer.amazonaws.com"},
  "Action": "s3:GetBucketAcl",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`"
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "Condition": {
+ "StringEquals": {"aws:SourceAccount": "`myAccountID`"},
+ "ArnLike": {"aws:SourceArn": "arn:aws:compute-optimizer:`myRegion`:`myAccountID`:*"}
+ }
  },
  {
  "Effect": "Allow",
  "Principal": {"Service": "compute-optimizer.amazonaws.com"},
  "Action": "s3:GetBucketPolicyStatus",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`"
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "Condition": {
+ "StringEquals": {"aws:SourceAccount": "`myAccountID`"},
+ "ArnLike": {"aws:SourceArn": "arn:aws:compute-optimizer:`myRegion`:`myAccountID`:*"}
+ }
  },
  {
  "Effect": "Allow",
@@ -121,13 +129,21 @@ JSON
  "Effect": "Allow",
  "Principal": {"Service": "compute-optimizer.amazonaws.com"},
  "Action": "s3:GetBucketAcl",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`"
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "Condition": {
+ "StringEquals": {"aws:SourceAccount": "`myAccountID`"},
+ "ArnLike": {"aws:SourceArn": "arn:aws:compute-optimizer:`myRegion`:`myAccountID`:*"}
+ }
  },
  {
  "Effect": "Allow",
  "Principal": {"Service": "compute-optimizer.amazonaws.com"},
  "Action": "s3:GetBucketPolicyStatus",
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`"
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "Condition": {
+ "StringEquals": {"aws:SourceAccount": "`myAccountID`"},
+ "ArnLike": {"aws:SourceArn": "arn:aws:compute-optimizer:`myRegion`:`myAccountID`:*"}
+ }
  },
  {
  "Effect": "Allow",
