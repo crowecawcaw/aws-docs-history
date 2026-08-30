@@ -508,7 +508,7 @@ Outputs:
      Value: !Ref PrivateSubnet2
 ```
 
-2. In your command prompt, navigate to the directory where `cfn-vpc-private.yml` is stored. For example:
+2. In your command prompt, navigate to the directory where `cfn-vpc-private.yaml` is stored. For example:
 
 ```
 cd mwaaproject
@@ -517,7 +517,7 @@ cd mwaaproject
 3. Use the [`aws cloudformation create-stack`](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") command to create the stack using the AWS CLI.
 
 ```
-aws cloudformation create-stack --stack-name mwaa-private-environment --template-body file://cfn-vpc-private.yml
+aws cloudformation create-stack --stack-name mwaa-private-environment --template-body file://cfn-vpc-private.yaml
 ```
 
 ###### Note

@@ -12,7 +12,7 @@ The following sample demonstrates how to use Amazon Managed Workflows for Apache
 - [Create a role for the mwaa namespace](#eksctl-role "#eksctl-role")
 - [Create and attach an IAM role for the Amazon EKS cluster](#eksctl-iam-role "#eksctl-iam-role")
 - [Create the requirements.txt file](#eksctl-requirements "#eksctl-requirements")
-- [Create an identity mapping for Amazon EKS](#eksctl-identity-map "#eksctl-identity-map")
+- [Grant the Amazon MWAA execution role access to the cluster](#eksctl-grant-access "#eksctl-grant-access")
 - [Create the kubeconfig](#eksctl-kube-config "#eksctl-kube-config")
 - [Create a DAG](#eksctl-create-dag "#eksctl-create-dag")
 - [Add the DAG and kube\_config.yaml to the Amazon S3 bucket](#eksctl-dag-bucket "#eksctl-dag-bucket")
@@ -60,8 +60,8 @@ new key in the same Region where you create your Amazon MWAA environment.
 ```
 eksctl create cluster \
 --name mwaa-eks \
---region us-west-2 \
---version 1.18 \
+--region `us-west-2` \
+--version 1.30 \
 --nodegroup-name linux-nodes \
 --nodes 3 \
 --nodes-min 1 \
@@ -78,10 +78,25 @@ It takes some time to complete creating the cluster. Once complete, you can veri
 
 ```
 eksctl utils associate-iam-oidc-provider \
---region us-west-2 \
+--region `us-west-2` \
 --cluster mwaa-eks \
 --approve
 ```
+
+###### EKS cluster authentication mode
+
+Amazon EKS supports three cluster authentication modes: `API`, `API_AND_CONFIG_MAP`, and `CONFIG_MAP`. The mode determines how you grant the Amazon MWAA execution role access to the cluster:
+
+- `API` (default for clusters created with recent tooling) – grant access by creating an Amazon EKS access entry. Use the steps in [Option A—API mode: create an EKS access entry](#eksctl-access-entry "#eksctl-access-entry").
+- `CONFIG_MAP` or `API_AND_CONFIG_MAP` – grant access through the `aws-auth` ConfigMap. Use the steps in [Option B—ConfigMap mode: create an identity mapping](#eksctl-identity-map "#eksctl-identity-map").
+  To check your cluster's current mode:
+
+```
+aws eks describe-cluster --name mwaa-eks --region `us-west-2` \
+  --query "cluster.accessConfig.authenticationMode"
+```
+
+If you create the cluster with the `eksctl` command shown here, check the mode afterward. If the mode is `API`, follow the access entry steps instead of the ConfigMap steps.
 
 ## Create a `mwaa` namespace
 
@@ -104,40 +119,42 @@ cat << EOF | kubectl apply -f - -n `mwaa`
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-name: mwaa-role
+  name: mwaa-role
 rules:
   - apiGroups:
-  - ""
-  - "apps"
-  - "batch"
-  - "extensions"
-resources:
-  - "jobs"
-  - "pods"
-  - "pods/attach"
-			- "pods/exec"
-  - "pods/log"
-  - "pods/portforward"
-  - "secrets"
-  - "services"
-verbs:
-  - "create"
-  - "delete"
-  - "describe"
-  - "get"
-  - "list"
-  - "patch"
-  - "update"
+      - ""
+      - "apps"
+      - "batch"
+      - "extensions"
+    resources:
+      - "jobs"
+      - "pods"
+      - "pods/attach"
+      - "pods/exec"
+      - "pods/log"
+      - "pods/portforward"
+      - "secrets"
+      - "services"
+    verbs:
+      - "create"
+      - "delete"
+      - "describe"
+      - "get"
+      - "list"
+      - "patch"
+      - "update"
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: mwaa-role-binding
-  subjects:
-    - kind: User
-  name: mwaa-service
-  roleRef:
-    kind: Role
+subjects:
+  - kind: User
+    name: mwaa-service
+  - kind: Group
+    name: mwaa-service
+roleRef:
+  kind: Role
   name: mwaa-role
   apiGroup: rbac.authorization.k8s.io
 EOF
@@ -162,6 +179,10 @@ No resources found in mwaa namespace.
 You must create an IAM role and then bind it to the Amazon EKS (k8s) cluster so that it
 can be used for authentication through IAM. The role is used only to log in to the
 cluster, and does not have any permissions for the console or API calls.
+
+###### Authentication and permissions
+
+This role only authenticates to the cluster. In ConfigMap mode, the actual in-cluster permissions come from the Kubernetes Role and RoleBinding. In API mode, permissions come from the access entry's access scope. Make sure you use the same Kubernetes group name in both the RoleBinding and whichever access method you choose.
 
 Create a new role for the Amazon MWAA environment using the steps in [Amazon MWAA execution role](mwaa-create-role.md "mwaa-create-role.md"). However, instead of
 creating and attaching the policies described in that topic, attach the following
@@ -304,22 +325,48 @@ To use the sample code in this section, ensure you've added one of the following
 
 ```
 kubernetes
-apache-airflow[cncf.kubernetes]==3.0.0
+apache-airflow-providers-cncf-kubernetes
 ```
 
-## Create an identity mapping for Amazon EKS
+## Grant the Amazon MWAA execution role access to the cluster
 
-Use the ARN for the role you created in the following command to create an identity
-mapping for Amazon EKS. Change the Region `us-east-1` to the Region
-where you created the environment. Replace the ARN for the role, and finally, replace `mwaa-execution-role` with your environment's execution role.
+The way you grant the Amazon MWAA execution role access to the cluster depends on the cluster's authentication mode (see the note in [Create the cluster](#create-cluster-eksctl "#create-cluster-eksctl")). Follow the path that matches your cluster.
+
+### Option A—API mode: create an EKS access entry
+
+If your cluster uses the `API` or `API_AND_CONFIG_MAP` authentication mode, create an access entry for the Amazon MWAA execution role. Replace the AWS Region, cluster name, and role ARN with your values.
+
+```
+aws eks create-access-entry \
+--region `us-west-2` \
+--cluster-name `mwaa-eks` \
+--principal-arn arn:aws:iam::`123456789012`:role/`mwaa-execution-role` \
+--kubernetes-groups mwaa-service \
+--username mwaa-service
+```
+
+The `mwaa-service` group must match the `subjects` group referenced by the RoleBinding you created in [Create a role for the mwaa namespace](#eksctl-role "#eksctl-role"). This binds the execution role to the `mwaa-role` permissions in the `mwaa` namespace.
+
+To confirm that you created the access entry:
+
+```
+aws eks list-access-entries --region `us-west-2` --cluster-name `mwaa-eks`
+```
+
+### Option B—ConfigMap mode: create an identity mapping
+
+If your cluster uses the `CONFIG_MAP` or `API_AND_CONFIG_MAP` authentication mode, create an identity mapping. This writes an entry to the cluster's `aws-auth` ConfigMap. This step has no effect on clusters using the `API` authentication mode.
 
 ```
 eksctl create iamidentitymapping \
---region `us-east-1` \
+--region `us-west-2` \
 --cluster mwaa-eks \
 --arn arn:aws:iam::`123456789012`:role/`mwaa-execution-role` \
---username mwaa-service
+--username mwaa-service \
+--group mwaa-service
 ```
+
+The `--group mwaa-service` value must match the Group subject in the RoleBinding you created in [Create a role for the mwaa namespace](#eksctl-role "#eksctl-role"). This binds the execution role to the `mwaa-role` permissions in the `mwaa` namespace, consistent with the access entry in Option A.
 
 ## Create the `kubeconfig`
 
@@ -327,7 +374,7 @@ Use the following command to create the `kubeconfig`:
 
 ```
 aws eks update-kubeconfig \
---region us-west-2 \
+--region `us-west-2` \
 --kubeconfig ./kube_config.yaml \
 --name mwaa-eks \
 --alias aws
@@ -366,33 +413,34 @@ from datetime import datetime
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
 
 default_args = {
-   'owner': 'aws',
-   'depends_on_past': False,
-   'start_date': datetime(2019, 2, 20),
-   'provide_context': True
+    'owner': 'aws',
+    'depends_on_past': False,
+    'start_date': datetime(2019, 2, 20),
+    'provide_context': True
 }
 
 dag = DAG(
-   'kubernetes_pod_example', default_args=default_args, schedule_interval=None)
+    'kubernetes_pod_example', default_args=default_args, schedule_interval=None)
 
 #use a kube_config stored in s3 dags folder for now
 kube_config_path = '/usr/local/airflow/dags/kube_config.yaml'
 
 podRun = KubernetesPodOperator(
-                       namespace="mwaa",
-                       image="ubuntu:18.04",
-                       cmds=["bash"],
-                       arguments=["-c", "ls"],
-                       labels={"foo": "bar"},
-                       name="mwaa-pod-test",
-                       task_id="pod-task",
-                       get_logs=True,
-                       dag=dag,
-                       is_delete_operator_pod=False,
-                       config_file=kube_config_path,
-                       in_cluster=False,
-                       cluster_context='aws'
-                       )
+    namespace="mwaa",
+    image="ubuntu:18.04",
+    cmds=["bash"],
+    arguments=["-c", "ls"],
+    labels={"foo": "bar"},
+    name="mwaa-pod-test",
+    task_id="pod-task",
+    get_logs=True,
+    dag=dag,
+    is_delete_operator_pod=False,
+    config_file=kube_config_path,
+    in_cluster=False,
+    cluster_context='aws'
+)
+
 ```
 
 ## Add the DAG and `kube_config.yaml` to the Amazon S3 bucket
@@ -423,5 +471,5 @@ mwaa-pod-test-aa11bb22cc3344445555666677778888 0/1 Completed 0 2m23s
 You can then verify the output of the pod with the following command. Replace the name value with the value returned from the previous command:
 
 ```
-kubectl logs -n `mwaa mwaa-pod-test-aa11bb22cc3344445555666677778888`
+kubectl logs -n mwaa `mwaa-pod-test-aa11bb22cc3344445555666677778888`
 ```

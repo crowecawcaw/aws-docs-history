@@ -1,7 +1,7 @@
 # Using dbt with Amazon MWAA
 
-This topic demonstrates how you can use dbt and Postgres with Amazon MWAA. In the following steps, you'll add the required dependencies to your `requirements.txt`, and upload a sample dbt project to your environment's Amazon S3 bucket.
-Then, you'll use a sample DAG to verify that Amazon MWAA has installed the dependencies, and finally use the `BashOperator` to run the dbt project.
+With Amazon MWAA, you can use dbt (data build tool) and PostgreSQL to build and run data transformation workflows. In the following steps, add the required dependencies using a startup script, and upload a sample dbt project to your environment's Amazon S3 bucket.
+Then, use a sample DAG to verify that Amazon MWAA has installed the dependencies. Finally, use the `BashOperator` to run the dbt project.
 
 ###### Topics
 
@@ -10,17 +10,18 @@ Then, you'll use a sample DAG to verify that Amazon MWAA has installed the depen
 - [Dependencies](#samples-dbt-dependencies "#samples-dbt-dependencies")
 - [Upload a dbt project to Amazon S3](#samples-dbt-upload-project "#samples-dbt-upload-project")
 - [Use a DAG to verify dbt dependency installation](#samples-dbt-test-dependencies "#samples-dbt-test-dependencies")
+- [Create and upload a dbt profiles.yml](#samples-dbt-profiles "#samples-dbt-profiles")
 - [Use a DAG to run a dbt project](#samples-dbt-run-project "#samples-dbt-run-project")
 
 ## Version
 
-You can use the code example on this page with **Apache Airflow v2** in [Python 3.10](https://peps.python.org/pep-0619/ "https://peps.python.org/pep-0619/") and **Apache Airflow v3** in [Python 3.11](https://peps.python.org/pep-0664/ "https://peps.python.org/pep-0664/").
+You can use the code example on this page with **Apache Airflow v2** in [Python 3.12](https://peps.python.org/pep-0693/ "https://peps.python.org/pep-0693/") on the Python website and **Apache Airflow v3** in [Python 3.12](https://peps.python.org/pep-0693/ "https://peps.python.org/pep-0693/") on the Python website.
 
 ## Prerequisites
 
-Before you can complete the following steps, you'll need the following:
+Before you can complete the following steps, you need the following:
 
-- An [Amazon MWAA environment](get-started.md "get-started.md") using Apache Airflow v2.2.2. This sample was written, and tested with v2.2.2. You might need to modify the sample to use
+- An [Amazon MWAA environment](get-started.md "get-started.md") using Apache Airflow v2.11.2. This sample was written, and tested with v2.11.2. You might need to modify the sample to use
   with other Apache Airflow versions.
 - A sample dbt project. To get started using dbt with Amazon MWAA, you can create a fork and clone the [dbt starter project](https://github.com/dbt-labs/dbt-starter-project "https://github.com/dbt-labs/dbt-starter-project") from the dbt-labs GitHub repository.
 
@@ -31,57 +32,60 @@ To use Amazon MWAA with dbt, add the following startup script to your environmen
 ```
 #!/bin/bash
 
-  if [[ "${MWAA_AIRFLOW_COMPONENT}" != "worker" ]]
-    then
-      exit 0
-  fi
+if [[ "${MWAA_AIRFLOW_COMPONENT}" != "worker" ]]
+  then
+    exit 0
+fi
 
-  echo "------------------------------"
-  echo "Installing virtual Python env"
-  echo "------------------------------"
+echo "------------------------------"
+echo "Installing virtual Python env"
+echo "------------------------------"
 
-  pip3 install --upgrade pip
+pip3 install --upgrade pip
 
-  echo "Current Python version:"
-  python3 --version
-  echo "..."
+echo "Current Python version:"
+python3 --version
+echo "..."
 
-  sudo pip3 install --user virtualenv
-  sudo mkdir python3-virtualenv
-  cd python3-virtualenv
-  sudo python3 -m venv dbt-env
-  sudo chmod -R 777 *
+sudo pip3 install --user virtualenv
+sudo mkdir -p /usr/local/airflow/python3-virtualenv
+cd /usr/local/airflow/python3-virtualenv
+sudo python3 -m venv dbt-env
+sudo chmod -R 777 *
 
-  echo "------------------------------"
-  echo "Activating venv in"
-  $DBT_ENV_PATH
-	  		echo "------------------------------"
+echo "------------------------------"
+echo "Activating venv in $DBT_ENV_PATH"
+echo "------------------------------"
 
-  source dbt-env/bin/activate
-  pip3 list
+source dbt-env/bin/activate
+pip3 list
 
-  echo "------------------------------"
-  echo "Installing libraries..."
-  echo "------------------------------"
+echo "------------------------------"
+echo "Installing libraries..."
+echo "------------------------------"
 
-  # do not use sudo, as it will install outside the venv
-  pip3 install dbt-redshift==1.6.1 dbt-postgres==1.6.1
+# do not use sudo, as it will install outside the venv
+pip3 install dbt-core==1.9.4 dbt-redshift==1.9.1 dbt-postgres==1.9.0
 
-  echo "------------------------------"
-  echo "Venv libraries..."
-  echo "------------------------------"
+echo "------------------------------"
+echo "Venv libraries..."
+echo "------------------------------"
 
-  pip3 list
-  dbt --version
+pip3 list
+dbt --version
 
-  echo "------------------------------"
-  echo "Deactivating venv..."
-  echo "------------------------------"
+echo "------------------------------"
+echo "Deactivating venv..."
+echo "------------------------------"
 
-  deactivate
+deactivate
 ```
 
-In the following sections, you'll upload your dbt project directory to Amazon S3 and
+###### Setting the DBT\_ENV\_PATH variable
+
+You can set `$DBT_ENV_PATH` in the startup script or set it as an Airflow configuration in your Amazon MWAA environment.
+
+In the following sections, upload your dbt project directory to Amazon S3 and
 run a DAG that validates whether Amazon MWAA has successfully installed the required dbt
 dependencies.
 
@@ -107,19 +111,18 @@ You can use different names for project sub-directories to organize multiple dbt
 
 The following DAG uses a `BashOperator` and a bash command to
 verify whether Amazon MWAA has successfully installed the dbt dependencies specified in
-`requirements.txt`.
+the startup script.
 
 ```
 from airflow import DAG
-			from airflow.operators.bash_operator import BashOperator
-			from airflow.utils.dates import days_ago
+from airflow.operators.bash_operator import BashOperator
+from airflow.utils.dates import days_ago
 
-			with DAG(dag_id="dbt-installation-test", schedule_interval=None, catchup=False, start_date=days_ago(1)) as dag:
-			cli_command = BashOperator(
-			task_id="bash_command",
-			bash_command="/usr/local/airflow/python3-virtualenv/dbt-env/bin/dbt --version"
-			)
-
+with DAG(dag_id="dbt-installation-test", schedule_interval=None, catchup=False, start_date=days_ago(1)) as dag:
+    cli_command = BashOperator(
+        task_id="bash_command",
+        bash_command="/usr/local/airflow/python3-virtualenv/dbt-env/bin/dbt --version"
+    )
 ```
 
 Do the following to access task logs and verify that dbt and its dependencies have been
@@ -133,8 +136,43 @@ installed.
 3. Using **Graph View**, choose the `bash_command`
    task to open the task instance details.
 4. Choose **Log** to open the task logs, then verify that the
-   logs successfully list the dbt version we specified in
-   `requirements.txt`.
+   logs successfully list the dbt version specified in
+   the startup script.
+
+## Create and upload a dbt profiles.yml
+
+To connect to your target database, dbt requires a `profiles.yml` file. The DAG in the next section passes `--profiles-dir /tmp/dbt`, so dbt looks for `profiles.yml` directly inside the `/tmp/dbt` directory. This is the `dbt` folder you uploaded to Amazon S3.
+
+The profile name in `profiles.yml` must match the `profile:` value defined in the starter project's `dbt_project.yml`. The dbt starter project uses `default`.
+
+###### To create and upload a profiles.yml
+
+1. In the directory where you cloned the starter project, create a file named `profiles.yml` with your database connection details.
+
+```
+default:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: `your-db-endpoint`.`region`.rds.amazonaws.com
+      port: 5432
+      user: `your_db_user`
+      password: `your_db_password`
+      dbname: `your_database`
+      schema: `your_schema`
+      threads: 4
+```
+
+2. Upload the file to the `dbt` sub-directory in your environment's DAGs folder.
+
+```
+`aws s3 cp profiles.yml s3://`amzn-s3-demo-bucket`/dags/dbt/profiles.yml`
+```
+
+###### Protecting database credentials
+
+To avoid storing plaintext credentials, reference secrets using the dbt `env_var()` function. Supply the values through Amazon MWAA environment variables or AWS Secrets Manager—for example, `password: "{{ env_var('DBT_PASSWORD') }}"`. Also make sure your Amazon MWAA VPC security groups allow your workers to reach your database on the configured port.
 
 ## Use a DAG to run a dbt project
 
@@ -146,25 +184,25 @@ the directory name according to the name of your project directory.
 
 ```
 from airflow import DAG
-			from airflow.operators.bash_operator import BashOperator
-			from airflow.utils.dates import days_ago
+from airflow.operators.bash_operator import BashOperator
+from airflow.utils.dates import days_ago
 
-			import os
+import os
 
-			DAG_ID = os.path.basename(__file__).replace(".py", "")
+DAG_ID = os.path.basename(__file__).replace(".py", "")
 
-			# assumes all files are in a subfolder of DAGs called dbt
+# assumes all files are in a subfolder of DAGs called dbt
 
-			with DAG(dag_id=DAG_ID, schedule_interval=None, catchup=False, start_date=days_ago(1)) as dag:
-			cli_command = BashOperator(
-			task_id="bash_command",
-			bash_command="source /usr/local/airflow/python3-virtualenv/dbt-env/bin/activate;\
-			cp -R /usr/local/airflow/dags/dbt /tmp;\
-			echo 'listing project files:';\
-			ls -R /tmp;\
-			cd /tmp/dbt/mwaa_dbt_test_project;\
-			/usr/local/airflow/python3-virtualenv/dbt-env/bin/dbt run --project-dir /tmp/dbt/mwaa_dbt_test_project --profiles-dir ..;\
-			cat /tmp/dbt_logs/dbt.log;\
-			rm -rf /tmp/dbt/mwaa_dbt_test_project"
-			)
+with DAG(dag_id=DAG_ID, schedule_interval=None, catchup=False, start_date=days_ago(1)) as dag:
+    cli_command = BashOperator(
+        task_id="bash_command",
+        bash_command="source /usr/local/airflow/python3-virtualenv/dbt-env/bin/activate;\
+        cp -R /usr/local/airflow/dags/dbt /tmp;\
+        echo 'listing project files:';\
+        ls -R /tmp;\
+        cd /tmp/dbt/dbt-starter-project;\
+        /usr/local/airflow/python3-virtualenv/dbt-env/bin/dbt run --project-dir /tmp/dbt/dbt-starter-project --profiles-dir /tmp/dbt;\
+        cat /tmp/dbt/dbt-starter-project/logs/dbt.log;\
+        rm -rf /tmp/dbt/dbt-starter-project"
+    )
 ```

@@ -22,13 +22,13 @@ and how to use these options to override Apache Airflow configuration settings o
   - [Scheduler configurations](configuring-env-variables.md#configuring-env-variables-scheduler "configuring-env-variables.md#configuring-env-variables-scheduler")
   - [Worker configurations](configuring-env-variables.md#configuring-env-variables-workers "configuring-env-variables.md#configuring-env-variables-workers")
   - [Webserver configurations](configuring-env-variables.md#configuring-env-variables-webserver "configuring-env-variables.md#configuring-env-variables-webserver")
-  - [Triggerer configurations](configuring-env-variables.md#configuring-env-variables-webserver "configuring-env-variables.md#configuring-env-variables-webserver")
+  - [Triggerer configurations](configuring-env-variables.md#configuring-env-variables-triggerer "configuring-env-variables.md#configuring-env-variables-triggerer")
 
 - [Unsupported configurations](configuring-env-variables.md#configuring-env-variables-unsupported "configuring-env-variables.md#configuring-env-variables-unsupported")
 - [Examples and sample code](configuring-env-variables.md#configuring-env-variables-code "configuring-env-variables.md#configuring-env-variables-code")
 
   - [Example DAG](configuring-env-variables.md#configuring-env-variables-dag "configuring-env-variables.md#configuring-env-variables-dag")
-  - [Example email notification settings](configuring-env-variables.md#configuring-env-variables-email "configuring-env-variables.md#configuring-env-variables-email")
+  - [Example email notification settings](configuring-env-variables.md#configuring-env-variables-email-example "configuring-env-variables.md#configuring-env-variables-email-example")
 
 - [What's next?](configuring-env-variables.md#configuring-env-variables-next-up "configuring-env-variables.md#configuring-env-variables-next-up")
 
@@ -103,10 +103,14 @@ We recommend using port 587 for SMTP traffic. By default, AWS blocks outbound SM
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | email.email\_backend         | The Apache Airflow utility used for email notifications in [email\_backend](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#email-backend "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#email-backend").                       | airflow.utils.email.send\_email\_smtp |
 | smtp.smtp\_host              | The name of the outbound server used for the email address in [smtp\_host](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-host "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-host").                                | localhost                             |
-| smtp.smtp\_starttls          | Transport Layer Security (TLS) is used to encrypt the email over the internet in [smtp\_starttls](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-starttls "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-starttls"). | False                                 |
-| smtp.smtp\_ssl               | Secure Sockets Layer (SSL) is used to connect the server and email client in [smtp\_ssl](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-ssl "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-ssl").                    | True                                  |
+| smtp.smtp\_starttls          | Transport Layer Security (TLS) is used to encrypt the email over the internet in [smtp\_starttls](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-starttls "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-starttls"). | True                                  |
+| smtp.smtp\_ssl               | Secure Sockets Layer (SSL) is used to connect the server and email client in [smtp\_ssl](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-ssl "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-ssl").                    | False                                 |
 | smtp.smtp\_port              | The Transmission Control Protocol (TCP) port designated to the server in [smtp\_port](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-port "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-port").                     | 587                                   |
 | smtp.smtp\_mail\_from        | The outbound email address in [smtp\_mail\_from](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-mail-from "https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-mail-from").                                                | myemail@domain.com                    |
+
+###### SMTP port and encryption settings
+
+Use 587 with STARTTLS (`smtp_starttls` : `True`, `smtp_ssl` : `False`), or 465 with the SSL/TLS wrapper (`smtp_ssl` : `True`).
 
 ### Task configurations
 
@@ -151,7 +155,7 @@ configurations available on Amazon MWAA for Apache Airflow v2 and v3.
 | Airflow configuration option                                      | Description                                                                                                                                                                                                                                                                                                                                           | Example value |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
 | mwaa.triggerer\_enabled                                           | Used for activating and deactivating the triggerer on Amazon MWAA. By default, this value is set to `True`. If set to `False`,<br>Amazon MWAA will not start any triggerer processes on schedulers.                                                                                                                                                   | True          |
-| triggerer.default\_capacity (in v2)<br>triggerer.capacity (in v3) | Defines the number triggers each triggerer can run in parallel. On Amazon MWAA, this capacity is set per each triggerer and per each scheduler as both components run alongside each other.<br>The default per scheduler is set to `60`, `125`, `250`, `500`, and `1000`<br>for small, medium and large, xlarge, and 2xlarge instances, respectively. | 125           |
+| triggerer.default\_capacity (in v2)<br>triggerer.capacity (in v3) | Defines the number of triggers each triggerer can run in parallel. On Amazon MWAA, this capacity is set for each triggerer and for each scheduler as both components run alongside each other.<br>The default per scheduler is set to `60`, `125`, `250`, `500`, and `1000`<br>for small, medium, large, xlarge, and 2xlarge instances, respectively. | 125           |
 
 ## Unsupported configurations
 
@@ -170,27 +174,31 @@ You can use the following DAG to print your `email_backend` Apache Airflow confi
 
 ```
 from airflow.decorators import dag
-				from datetime import datetime
+from airflow.operators.python import PythonOperator
+from datetime import datetime
 
-				def print_var(**kwargs):
-				email_backend = kwargs['conf'].get(section='email', key='email_backend')
-				print("email_backend")
-				return email_backend
 
-				@dag(
-				dag_id="print_env_variable_example",
-				schedule_interval=None,
-				start_date=datetime(`yyyy`, `m`, `d`),
-				catchup=False,
-				)
-				def print_variable_dag():
-				email_backend_test = PythonOperator(
-				task_id="email_backend_test",
-				python_callable=print_var,
-				provide_context=True
-				)
+def print_var(**kwargs):
+    email_backend = kwargs['conf'].get(section='email', key='email_backend')
+    print(email_backend)
+    return email_backend
 
-				print_variable_test = print_variable_dag()
+
+@dag(
+    dag_id="print_env_variable_example",
+    schedule_interval=None,
+    start_date=datetime(`yyyy`, `m`, `d`),
+    catchup=False,
+)
+def print_variable_dag():
+    email_backend_test = PythonOperator(
+        task_id="email_backend_test",
+        python_callable=print_var,
+        provide_context=True
+    )
+
+
+print_variable_test = print_variable_dag()
 ```
 
 ### Example email notification settings

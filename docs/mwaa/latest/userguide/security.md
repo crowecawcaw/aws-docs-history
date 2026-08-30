@@ -12,6 +12,7 @@ Security is a shared responsibility between AWS and you (the customer). The [sha
 
 ###### In this section:
 
+- [Shared responsibility model](shared-responsibility.md "shared-responsibility.md")
 - [Data Protection](data-protection.md "data-protection.md")
 - [AWS Identity and Access Management](security-iam.md "security-iam.md")
 - [Compliance Validation](compliance-validation.md "compliance-validation.md")

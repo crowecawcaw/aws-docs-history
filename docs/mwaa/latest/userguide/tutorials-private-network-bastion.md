@@ -1,6 +1,6 @@
 # Tutorial: Configuring private network access using a Linux Bastion Host
 
-This tutorial walks you through the steps to create an SSH tunnel from your computer to the to the Apache Airflow webserver for your Amazon Managed Workflows for Apache Airflow environment. It assumes you've already created an Amazon MWAA environment. Once set up, a Linux Bastion Host acts as a jump server allowing a secure connection from your computer to the resources in your VPC. You'll then use a SOCKS proxy management add-on to control the proxy settings in your browser to access your Apache Airflow UI.
+This tutorial walks you through the steps to create an SSH tunnel from your computer to the Apache Airflow webserver for your Amazon Managed Workflows for Apache Airflow environment. It assumes you've already created an Amazon MWAA environment. Once set up, a Linux Bastion Host acts as a jump server allowing a secure connection from your computer to the resources in your VPC. You then use a SOCKS proxy management add-on to control the proxy settings in your browser to access your Apache Airflow UI.
 
 ###### Note
 
@@ -12,8 +12,8 @@ This tutorial applies to the **Private network** access mode. If you chose **Bot
 - [Use cases](#private-network-lb-usecases "#private-network-lb-usecases")
 - [Before you begin](#private-network-lb-prereqs "#private-network-lb-prereqs")
 - [Objectives](#private-network-lb-objectives "#private-network-lb-objectives")
-- [Step one: Create the bastion instance](#private-network-lb-create-bastion "#private-network-lb-create-bastion")
-- [Step two: Create the ssh tunnel](#private-network-lb-create-test "#private-network-lb-create-test")
+- [Step 1: Create the bastion instance](#private-network-lb-create-bastion "#private-network-lb-create-bastion")
+- [Step 2: Create the SSH tunnel](#private-network-lb-create-test "#private-network-lb-create-test")
 - [Step three: Configure the bastion security group as an inbound rule](#private-network-lb-create-sgsource "#private-network-lb-create-sgsource")
 - [Step four: Copy the Apache Airflow URL](#private-network-lb-view-env "#private-network-lb-view-env")
 - [Step five: Configure proxy settings](#private-network-lb-browser-extension "#private-network-lb-browser-extension")
@@ -57,45 +57,19 @@ In this tutorial, you'll do the following:
 4. Create an SSH tunnel to the bastion instance.
 5. Install and configure the FoxyProxy add-on for the Firefox browser to access the Apache Airflow UI.
 
-## Step one: Create the bastion instance
+## Step 1: Create the bastion instance
 
-The following section describes the steps to create the linux bastion instance using a [CloudFormation template for an existing VPC](https://fwd.aws/vWMxm "https://fwd.aws/vWMxm") on the CloudFormation console.
+The following section describes the steps to create the Linux bastion instance.
 
-###### To create the Linux Bastion Host
+Open the Amazon Elastic Compute Cloud console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"), and create an Amazon EC2 instance in one of the public subnets in the VPC that is used for your Amazon MWAA environment.
 
-1. Open the [Deploy Quick Start](https://fwd.aws/Jwzqv "https://fwd.aws/Jwzqv") page on the CloudFormation console.
-2. Use the region selector in the navigation bar to choose the same AWS Region as your Amazon MWAA environment.
-3. Choose **Next**.
-4. Enter a name in the **Stack name** text field, such as `mwaa-linux-bastion`.
-5. On the **Parameters**, **Network configuration** pane, choose the following options:
+###### Note
 
-   1. Choose your Amazon MWAA environment's **VPC ID**.
-   2. Choose your Amazon MWAA environment's **Public subnet 1 ID**.
-   3. Choose your Amazon MWAA environment's **Public subnet 2 ID**.
-   4. Enter the narrowest possible address range (for example, an internal CIDR range) in **Allowed bastion external access CIDR**.
+We recommend that you allow TCP forwarding on the Amazon EC2 instance. TCP forwarding means SSH TCP forwarding — allowing `ssh -L/-D` tunnels through the host. The `AllowTcpForwarding` directive in the SSH daemon config (`/etc/ssh/sshd_config`) controls this setting. It defaults to `yes` on most Amazon Linux and Ubuntu AMIs, but is often disabled on hardened bastion AMIs.
 
-   ###### Note
+## Step 2: Create the SSH tunnel
 
-   The simplest way to identify a range is to use the same CIDR range as your public subnets. For example, the public subnets in the CloudFormation template on the [Create the VPC network](vpc-create.md "vpc-create.md") page are `10.192.10.0/24` and `10.192.11.0/24`.
-
-6. On the **Amazon EC2 configuration** pane, choose the following:
-
-   1. Choose your SSH key in the dropdown list in **Key pair name**.
-   2. Enter a name in **Bastion Host Name**.
-   3. Choose **true** for **TCP forwarding**.
-
-   ###### Warning
-
-   TCP forwarding must be set to **true** in this step. Otherwise, you won't be able to create an SSH tunnel in the next step.
-
-7. Choose **Next**, **Next**.
-8. Select the acknowledgement, and then choose **Create stack**.
-
-To learn more about the architecture of your Linux Bastion Host, refer to [Linux Bastion Hosts on the AWS Cloud: Architecture](../../../quickstart/latest/linux-bastion/architecture.md "../../../quickstart/latest/linux-bastion/architecture.md").
-
-## Step two: Create the ssh tunnel
-
-The following steps describe how to create the ssh tunnel to your linux bastion. An SSH tunnel recieves the request from your local IP address to the linux bastion, which is why TCP forwarding for the linux bastion was set to `true` in previous steps.
+The following steps describe how to create the SSH tunnel to your Linux bastion. An SSH tunnel receives the request from your local IP address to the Linux bastion, which is why TCP forwarding for the Linux bastion was set to `true` in previous steps.
 
 macOS/Linux
 
@@ -161,13 +135,13 @@ If you use an SSH tunnel with dynamic port forwarding, you must use a SOCKS prox
 
 ### Option one: Setup an SSH Tunnel using local port forwarding
 
-If you do not wish to use a SOCKS proxy, you can set up an SSH tunnel using local port forwarding. The following example command accesses the Amazon EC2 _ResourceManager_ web interface by forwarding traffic on local port 8157.
+If you do not wish to use a SOCKS proxy, you can set up an SSH tunnel using local port forwarding. The following example command accesses the Apache Airflow webserver by forwarding traffic on local port 8157.
 
 1. Open a new command prompt window.
 2. Enter the following command to open an SSH tunnel.
 
 ```
-ssh -i `mykeypair.pem` -N -L 8157:`YOUR_VPC_ENDPOINT_ID`-vpce.`us-east-1`.airflow.amazonaws.com:443 ubuntu@`YOUR_PUBLIC_IPV4_DNS`.`us-east-1`.compute.amazonaws.com
+ssh -i `mykeypair.pem` -N -L 8157:`YOUR_VPC_ENDPOINT_ID`-vpce.`us-east-1`.airflow.amazonaws.com:443 ec2-user@`YOUR_PUBLIC_IPV4_DNS`
 ```
 
 `-L` signifies the use of local port forwarding which you can use to specify a local port used to forward data to the identified remote port on the node's local webserver. 3. Enter `http://localhost:8157/` in your browser.

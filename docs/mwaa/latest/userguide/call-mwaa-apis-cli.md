@@ -47,7 +47,7 @@ aws mwaa create-cli-token --name `YOUR_ENVIRONMENT_NAME`
 
 ## Using a curl script
 
-The following example uses a curl script to call the [create-web-login-token](../../../cli/latest/reference/mwaa/create-cli-token.md "../../../cli/latest/reference/mwaa/create-cli-token.md") command in the AWS CLI to invoke the Apache Airflow CLI through an endpoint on the Apache Airflow webserver.
+Use the following curl script to call the [create-cli-token](../../../cli/latest/reference/mwaa/create-cli-token.md "../../../cli/latest/reference/mwaa/create-cli-token.md") command in the AWS CLI to invoke the Apache Airflow CLI through an endpoint on the Apache Airflow webserver and trigger a DAG.
 
 Apache Airflow v3
 
@@ -64,14 +64,14 @@ CLI_JSON=$(aws mwaa --region `us-east-1` create-cli-token --name `YOUR_ENVIRONME
 && CLI_RESULTS=$(curl -L --request POST "https://$WEB_SERVER_HOSTNAME/aws_mwaa/cli" \
 --header "Authorization: Bearer $CLI_TOKEN" \
 --header "Content-Type: text/plain" \
---data-raw "dags trigger YOUR_DAG_NAME --logical-date $(date -u +"%Y-%m-%dT%H:%M:%SZ")") \
+--data-raw "dags trigger `YOUR_DAG_NAME` --logical-date $(date -u +"%Y-%m-%dT%H:%M:%SZ")") \
 && echo "Output:" \
 && echo $CLI_RESULTS | jq -r '.stdout' | base64 --decode \
 && echo "Errors:" \
 && echo $CLI_RESULTS | jq -r '.stderr' | base64 --decode
 ```
 
-2. Substitute the placeholders in `red` for the AWS Region for your environment, `YOUR_DAG_NAME`, and `YOUR_ENVIRONMENT_NAME`.
+2. Replace `YOUR_DAG_NAME` with the name of your DAG, `YOUR_ENVIRONMENT_NAME` with your environment name, and the AWS Region with your environment's Region.
    For example, a host name for a public network resembles (without the _https://)_:
 
 ```
@@ -109,7 +109,7 @@ CLI_JSON=$(aws mwaa --region `us-east-1` create-cli-token --name `YOUR_ENVIRONME
 && echo $CLI_RESULTS | jq -r '.stderr' | base64 --decode
 ```
 
-2. Substitute the placeholders in `red` for the AWS Region for your environment, `YOUR_DAG_NAME`, and `YOUR_ENVIRONMENT_NAME`. For example, a host name for a public network resembles (without the _https://)_:
+2. Replace `YOUR_DAG_NAME` with the name of your DAG, `YOUR_ENVIRONMENT_NAME` with your environment name, and the AWS Region with your environment's Region. For example, a host name for a public network resembles (without the _https://)_:
 
 ```
 123456a0-0101-2020-9e11-1b159eec9000.c2.`us-east-1`.airflow.amazonaws.com
@@ -126,7 +126,7 @@ Your command prompt displays:
 
 ## Using a bash script
 
-The following example uses a bash script to call the [create-cli-token](../../../cli/latest/reference/mwaa/create-cli-token.md "../../../cli/latest/reference/mwaa/create-cli-token.md") command in the AWS CLI to create an Apache Airflow CLI token.
+Use the following bash script to call the [create-cli-token](../../../cli/latest/reference/mwaa/create-cli-token.md "../../../cli/latest/reference/mwaa/create-cli-token.md") command in the AWS CLI, create an Apache Airflow CLI token, and trigger a DAG.
 
 Apache Airflow v3
 
@@ -135,14 +135,15 @@ Apache Airflow v3
 
 ```
 # brew install jq
-								aws mwaa create-cli-token --name `YOUR_ENVIRONMENT_NAME` | export CLI_TOKEN=$(jq -r .CliToken) && curl -L --request POST "https://`YOUR_HOST_NAME`/aws_mwaa/cli" \
-								--header "Authorization: Bearer $CLI_TOKEN" \
-								--header "Content-Type: text/plain" \
-								--data-raw "dags trigger `YOUR_DAG_NAME` --logical-date $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+CLI_TOKEN=$(aws mwaa create-cli-token --name `YOUR_ENVIRONMENT_NAME` | jq -r '.CliToken') \
+&& curl -L --request POST "https://`YOUR_HOST_NAME`/aws_mwaa/cli" \
+--header "Authorization: Bearer $CLI_TOKEN" \
+--header "Content-Type: text/plain" \
+--data-raw "dags trigger `YOUR_DAG_NAME` --logical-date $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 ```
 
-2. Substitute the placeholders in `red` for `YOUR_ENVIRONMENT_NAME`,
-   `YOUR_HOST_NAME`, and `YOUR_DAG_NAME`. For example, a host name for a public
+2. Replace `YOUR_ENVIRONMENT_NAME` with your environment name,
+   `YOUR_HOST_NAME` with your webserver hostname, and `YOUR_DAG_NAME` with the name of your DAG. For example, a host name for a public
    network resembles (without the _https://)_:
 
 ```
@@ -167,13 +168,14 @@ Apache Airflow v2
 
 ```
 # brew install jq
-aws mwaa create-cli-token --name `YOUR_ENVIRONMENT_NAME` | export CLI_TOKEN=$(jq -r .CliToken) && curl --request POST "https://`YOUR_HOST_NAME`/aws_mwaa/cli" \
+CLI_TOKEN=$(aws mwaa create-cli-token --name `YOUR_ENVIRONMENT_NAME` | jq -r '.CliToken') \
+&& curl --request POST "https://`YOUR_HOST_NAME`/aws_mwaa/cli" \
 --header "Authorization: Bearer $CLI_TOKEN" \
 --header "Content-Type: text/plain" \
 --data-raw "dags trigger `YOUR_DAG_NAME`"
 ```
 
-2. Substitute the placeholders in `red` for `YOUR_ENVIRONMENT_NAME`, `YOUR_HOST_NAME`, and `YOUR_DAG_NAME`. For example, a host name for a public network resembles (without the _https://)_:
+2. Replace `YOUR_ENVIRONMENT_NAME` with your environment name, `YOUR_HOST_NAME` with your webserver hostname, and `YOUR_DAG_NAME` with the name of your DAG. For example, a host name for a public network resembles (without the _https://)_:
 
 ```
 123456a0-0101-2020-9e11-1b159eec9000.c2.`us-east-1`.airflow.amazonaws.com
