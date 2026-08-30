@@ -12,9 +12,9 @@ You must activate the post-launch actions using one of these options:
 
   - Navigate to the **Source servers** page and select a
     source server.
-  - Click **Post-launch settings > Edit**.
+  - Choose **Post-launch settings > Edit**.
   - You are redirected to the **Edit post-launch
-    settings** screen. Activate the toggle and click **Save
+    settings** screen. Activate the toggle and choose **Save
     settings**.
     Alternatively, you can select a specific source server, open the **Test and cutover** drop-down menu located in the top right corner of the screen and
     select **Edit post-launch settings** .

@@ -10,12 +10,12 @@ EC2 article.](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/la
 
 To add tags, take these steps:
 
-- Click **Manage tags**.
-- The **Manage tags** page opens. Click **Add new tag**.
+- Choose **Manage tags**.
+- The **Manage tags** page opens. Choose **Add new tag**.
 - Add a tag **Key** and an optional tag **Value**.
-- Click **Save**.
+- Choose **Save**.
   To remove a tag, take these steps:
 
-- Click **Remove**, located to the right of the tag you want
+- Choose **Remove**, located to the right of the tag you want
   to remove.
-- Click **Save**.
+- Choose **Save**.

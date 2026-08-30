@@ -62,25 +62,6 @@ servers.
 - Disconnect servers from service
 - Mark as archived
 - Start/stop replication
-- Change staging disk type
-- Edit replication settings
-- Launch settings – edit general launch settings only
-- Post launch
-
-  - Deactivate the post-launch feature for this server
-  - Change deployment settings (test and cutover, test only, or cutover
-    only)
-
-- Start/stop replication
-- Test and cutover drop-down menu:
-
-  - Launch test
-  - Mark as ready for cutover
-  - Revert to ready for testing
-  - Launch cutover
-  - Finalize cutover
-  - Revert to ready for cutover
-  - Terminate launch instances
 
 ## Applications
 

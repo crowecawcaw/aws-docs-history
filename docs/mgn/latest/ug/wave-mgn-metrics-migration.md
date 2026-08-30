@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 The application **Migration status** metric provides an
 aggregated overview of the migration status of the wave's associated applications. You can look
-up an individual application **Migration status** status in the
+up an individual application's **Migration status** in the
 **Applications** table.
 
 ![Pie chart showing migration status: 50% in progress and 50% not started, one application each.](images/wave-9.png)

@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Source servers
 
 The **Source servers** tab shows migration metrics aggregating
-statuses as well as a list of all the wave's associated applications.
+statuses as well as a list of all the wave's associated source servers.
 
 The source server migration metrics provide an aggregated overview of the wave's associated
 servers on three topics: **Alerts**, **Data

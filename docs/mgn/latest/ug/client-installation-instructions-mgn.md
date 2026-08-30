@@ -64,7 +64,7 @@ info in each field and then press **Enter**:
     * Path to VDDK tarball - Provide the path to the VDDK tarball that you previously
      downloaded onto the VM. (example:
      `path/to/VMware-vix-disklib-7.0.3-21933544.x86_64.tar.gz`). You can
-     download VDDK tarball from your Broadcomm account.
+     download VDDK tarball from your Broadcom account.
     * Resource tags for the AWS vCenter client (optional) - Use this format for
      tagging:
 

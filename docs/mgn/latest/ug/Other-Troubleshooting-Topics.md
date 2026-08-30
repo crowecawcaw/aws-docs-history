@@ -19,7 +19,7 @@ Use the information in this section to help you with other troubleshooting.
 
 AWS Transform MGN can be re-initialized in case of any issues with IAM service roles
 
-To re-initialize the MGN service, please follow these steps:
+To re-initialize the MGN service, follow these steps:
 
 - Open the AWS Transform MGN Console and navigate to the correct region you are migrating to.
 - In the left navigation pane, select "Settings". Under "Replication template," choose "Reinitialize service permissions" and then choose "Confirm."
@@ -60,7 +60,7 @@ Potential solutions:
 - If the MAC address of the Source had changed, that would require a reinstallation of the
   AWS Replication Agent.
 - If the source server was rebooted recently or the AWS Transform MGN
-  were restarted, the disks are re-read after this and until its finished, the Lag will
+  was restarted, the disks are re-read after this and until it's finished, the Lag will
   grow.
 - If the source server had a spike of write operations, the lag will grow until
   AWS Transform MGN manages to flush all the written data to the test or cutover
@@ -68,7 +68,7 @@ Potential solutions:
 - Make sure you have selected the right replication instance and EBS type by using the following runbook: [AWSSupport-CalculateEBSPerformanceMetrics automation runbook](../../../systems-manager-automation-runbooks/latest/userguide/automation-calculate-ebs-performance-metrics.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-calculate-ebs-performance-metrics.md") .
   The replication instance ID, which is used as an input parameter for the runbook, is available under the source server replication dashboard.
 
-To learn more about replication lag troubleshooting, please refer [AWS Support knowlege center article](https://repost.aws/knowledge-center/mgn-windows-fix-replication-lag "https://repost.aws/knowledge-center/mgn-windows-fix-replication-lag").
+To learn more about replication lag troubleshooting, refer to this [AWS Support Knowledge Center article](https://repost.aws/knowledge-center/mgn-windows-fix-replication-lag "https://repost.aws/knowledge-center/mgn-windows-fix-replication-lag").
 
 ## Windows Driver changes
 

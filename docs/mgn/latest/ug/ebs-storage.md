@@ -13,7 +13,7 @@ by default.
 
 ### Amazon EBS volume type
 
-Choose the default Amazon **Amazon EBS volume type**
+Choose the default **Amazon EBS volume type**
 to be used by the replication servers for large disks.
 
 Each disk has minimum and maximum sizes and varying performance metrics and

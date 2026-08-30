@@ -18,8 +18,8 @@ Use this menu to perform the following actions:
   testing for this wave after you have completed all the necessary tests in preparation for
   cutover.
 
-Once the **Mark servers as "Ready for cutover"** dialog will
-appear, select whether you want to terminate the launched instances used for testing. It is
+After you choose this option, the **Mark servers as "Ready for cutover"** dialog
+appears. Select whether you want to terminate the launched instances used for testing. It is
 recommended to terminate these instances, as you will be charged for them even though you will
 no longer need them. Check the **Yes, terminate launched instances
 (recommended)** box and choose **Continue**.
@@ -63,8 +63,8 @@ This action is applicable if all the wave's associated servers are **Agentless s
 
 ###### Important
 
-A wave can be archived only if all servers that are part of in one of these states:
-archived, cutover or disconnected. If that is the case, the wave and its associated
+A wave can be archived only if all servers that are part of it are in one of these states:
+archived, cutover, or disconnected. If that is the case, the wave and its associated
 applications will be archived. The servers that are not yet archived (but can be) will also
 be archived.
 

@@ -76,7 +76,7 @@ Create the following interface endpoints:
 ```
 
 For more information, see
-[Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html")
+[Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint")
 in the _Amazon VPC User Guide_.
 
 ## Create a Route 53 inbound endpoint
@@ -122,4 +122,4 @@ Ensure that the security groups associated with the MGN VPC endpoint allow inbou
 ## Verify VPC endpoints are being used
 
 Use CloudTrail to verify that calls to AWS services from the MGN connector and its associated source servers,
-are made via the **vpcEndpointId**s of the VPC endpoints you have created.
+are made via the **vpcEndpointId** values of the VPC endpoints you have created.

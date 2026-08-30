@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Storage related
+# Storage related FAQs
 
 This section contains answers to frequently asked questions about storage options
 in AWS Transform MGN.

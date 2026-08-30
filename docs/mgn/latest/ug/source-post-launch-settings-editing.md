@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Editing the post-launch settings
 
-To edit the post-launch settings for a single source servers, check the box to the left of
+To edit the post-launch settings for a single source server, check the box to the left of
 the Hostname of each source server for which you want to edit the post-launch settings, open
 the **Replication** menu, and choose **Edit
 post-launch settings**.
@@ -11,13 +11,13 @@ Alternatively, when editing the settings for a single server, you can choose **E
 tab.
 
 These settings can be edited within the post-launch settings template. Once you
-have edited all your settings, click **Save template**.
+have edited all your settings, choose **Save template**.
 
 ## Types of post-launch actions
 
 AWS MGN supports post-launch modernization actions, giving you the opportunity to move
 and improve. All post-launch actions are based on SSM documents (either public or ones you
-created) that can executed on your EC2 launch instances.
+created) that can be executed on your EC2 launch instances.
 
 There are 2 types of post-launch actions:
 
@@ -34,5 +34,5 @@ To edit a custom post-launch action, see [Edit custom post-launch actions](post-
 Use the **Filter by** options on the left-hand side to
 filter the available actions according to your preferences.
 
-Click the settings icon in the right-hand corner of the screen to alternate between card
+Choose the settings icon in the right-hand corner of the screen to alternate between card
 and list view, according to your preferences.

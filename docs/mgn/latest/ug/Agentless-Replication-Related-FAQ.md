@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Agentless replication related
+# Agentless replication related FAQs
 
 This section contains answers to questions about agentless replication.
 
@@ -91,7 +91,7 @@ documentation](installing-vcenter-appliance-mgn.md "installing-vcenter-appliance
 
 ## Can a proxy server be used between the source server and the AWS Transform MGN console?
 
-Yes. You can configure transparent proxy either by using an environment variable before the installation (Linux and Windows),
+Yes. You can configure transparent proxy either by using an environment variable before the installation,
 or by using the --proxy-address flag in the Linux installer:
 
 - Using the installer: ./aws-vcenter-client-installer-init.py --proxy-address http://PROXY:PORT/

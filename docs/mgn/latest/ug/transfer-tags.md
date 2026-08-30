@@ -26,7 +26,7 @@ Transfer server tags only copies tags associated with the source servers in the
 AWS Transform MGN console, and does not copy the EC2 source server tags (in case of AWS to AWS migration)
 
 If you choose the **No** option, server tags are not
-transferred. You can always add tags from the Amazon EC2 console as described in [this EC2 article.](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-resources)%5C "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-resources)%5C")
+transferred. You can always add tags from the Amazon EC2 console as described in [this EC2 article.](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-resources "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-resources")
 
 ###### Note
 

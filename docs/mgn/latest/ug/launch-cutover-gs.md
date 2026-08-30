@@ -138,7 +138,7 @@ cutover. You will still be able to access the archived servers through filtering
 
 To archive your cutover source servers:
 
-    1. Check the box to the left of the of each source server for which the **Migration lifecycle** column states **Cutover
+    1. Check the box to the left of each source server for which the **Migration lifecycle** column states **Cutover
      complete**.
     2. Open the **Actions** menu and choose **Mark as archived**.
     3. When the **Archive X server** dialog appears, choose

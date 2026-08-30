@@ -45,7 +45,7 @@ your agent. The block is actually coming from the Windows Operating System itsel
 The simple requirement is just to have enough free space. There is no need for this to be
 a separate mount. The need for the '/tmp' requirement is actually only if '/tmp' is a separate
 mount. If '/tmp' is not a separate mount, then it would fall under '/', for which we have the 2
-GiB free requirement. This allows for the '/tmp' to fall into this requirement.
+GB free requirement. This allows for the '/tmp' to fall into this requirement.
 
 ### Installation failed - old agent
 
@@ -92,7 +92,7 @@ If the installation failed on a Linux Source server, check the following:
 
 1. **Free Disk Space**
 
-Free disk space on the root directory – verify that you have at least 3 GB of free disk
+Free disk space on the root directory – verify that you have at least 2 GB of free disk
 on the root directory (/) of your Source Server. To check the available disk space on the
 root directory, run the following command: df -h /
 
@@ -251,7 +251,7 @@ number of the kernel.To handle this issue, follow these steps:
 
 
     	* [RHEL and Centos](https://access.redhat.com/ "https://access.redhat.com/")
-    	* [Oracle](https://access.redhat.com/ "https://access.redhat.com/")
+    	* [Oracle Linux](https://yum.oracle.com/ "https://yum.oracle.com/")
     	* [SUSE](https://scc.suse.com/packages?name=SUSE "https://scc.suse.com/packages?name=SUSE")
     	* [Debian](https://www.debian.org/distrib/packages/ "https://www.debian.org/distrib/packages/")
     	* [Ubuntu](https://packages.ubuntu.com/ "https://packages.ubuntu.com/")
@@ -345,7 +345,7 @@ the following steps:
 The MGN Agent logs are stored in agent.log.0:
 
 - **Linux:** /var/lib/aws-replication-agent/agent.log.0
-- **Windows 64 bit:** Windows 64 bit: C:\Program Files (x86)\AWS Replication Agent\agent.log.0
+- **Windows 64 bit:** C:\Program Files (x86)\AWS Replication Agent\agent.log.0
 - **Windows 32 bit:** C:\Program Files\AWS Replication Agent\agent.log.0
 
 In addition, you can review the installation log located in:

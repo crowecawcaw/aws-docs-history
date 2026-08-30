@@ -13,7 +13,7 @@ settings](post-launch-settings.md#post-launch-settings-activation "post-launch-s
 
 After it was activated once, the feature can also be deactivated and reactivated for a
 single server. Simply selecting a server, go to the **Post-launch
-settings** tab and click **Edit**.
+settings** tab and choose **Edit**.
 
 When the feature is inactive:
 

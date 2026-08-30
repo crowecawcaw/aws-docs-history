@@ -11,7 +11,7 @@ documentation](launching-test-servers.md "launching-test-servers.md").
   test instance for this server.
 
 When the **Launch test instances for X** servers dialog
-appears, cick **Launch** to begin the test.
+appears, choose **Launch** to begin the test.
 
 The AWS Transform MGN console indicates **1 launch job
 complete** after the test has been completed successfully.
@@ -62,7 +62,7 @@ indicating that the cutover is in progress but has not yet been finalized.
 This changes your source servers' **Migration
 lifecycle** status to **Cutover complete**, indicating
 that the cutover is complete and that the migration has been performed successfully. In
-addition, this stops data replication and cause all replicated data to be discarded. All
+addition, this stops data replication and causes all replicated data to be discarded. All
 AWS resources used for data replication are terminated.
 
 The **Finalize cutover for X servers** dialog appears.
@@ -88,11 +88,11 @@ uninstall the agent from your source server.
   revert a finalized cutover for this server if you encounter any issues or want to reverse the
   cutover for any reason.
 
-This revert syour source servers' **Migration lifecycle**
+This reverts your source servers' **Migration lifecycle**
 to the **Ready for cutover** status, indicating that these
 servers have not undergone cutover.
 
-The **Revert cutover for X servers** dialog appears. Click
+The **Revert cutover for X servers** dialog appears. Choose
 **Revert**.
 
 - **Edit launch settings** – Use this option to edit the
@@ -106,4 +106,4 @@ The **Revert cutover for X servers** dialog appears. Click
   selected for a server that has a launched test or cutover instance.
 
 When the **Terminate launched instance** dialog appears,
-click **Terminate**.
+choose **Terminate**.

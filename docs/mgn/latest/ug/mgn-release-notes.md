@@ -4,12 +4,26 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## August 2026
 
-Added support for Amazon Linux 2023 with kernel 6.18.
+- Added support for the following operating systems:
+
+  - Amazon Linux 2023 with kernel 6.18
+  - Oracle Linux 9.6
+  - RHEL 10.2
+  - Rocky Linux 10.2
+  - AlmaLinux 10.2
+
+- The user-provided ID for a source server is now case insensitive. For more
+  information, see [Edit server](add-server-server-page.md#server-edit-main "add-server-server-page.md#server-edit-main").
+- Resolved an issue that caused the MS-SQL license conversion post-launch
+  action to fail for SQL Server named instances.
 
 ## July 2026
 
-Added support for RHEL 9.8, Rocky Linux 9.8, and
-AlmaLinux 9.8.
+Added support for the following operating systems:
+
+- RHEL 9.8
+- Rocky Linux 9.8
+- AlmaLinux 9.8
 
 ## June 2026
 
@@ -78,7 +92,7 @@ AlmaLinux 9.8.
   communication and application migrations.
 - Added support for the following operating systems:
 
-  - Rocky OS 9–9.6
+  - Rocky Linux 9–9.6
   - RHEL 10
 
 ## October 2025

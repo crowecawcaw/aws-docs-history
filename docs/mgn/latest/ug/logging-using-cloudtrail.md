@@ -37,7 +37,7 @@ information, see the following:
   files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
 
 All AWS Transform MGN actions are logged by CloudTrail and are documented in the AWS Transform MGN API. For example, calls to the
-`DescribeSourceServers` action to generate entries in the CloudTrail log files.
+`DescribeSourceServers` action generate entries in the CloudTrail log files.
 
 Every event or log entry contains information about who generated the request. The
 identity information helps you determine the following:

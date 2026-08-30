@@ -11,7 +11,7 @@ servers** table at the bottom of the page.
 
 - A healthy server for which a test or cutover instance has not been
   launched will display a **Healthy** status.
-- A healthy server for which a test of cutover instance has been
+- A healthy server for which a test or cutover instance has been
   launched will display a **Healthy** status.
 - A server that is experiencing a temporary issue such as lag or backlog
   will display a **Lagging** status.

@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Agent related
+# Agent related FAQs
 
 This section contains answers to questions about the AWS Replication Agent.
 
@@ -72,7 +72,7 @@ both SSL Interception and Authentication.
 
 A web proxy cannot be used for communication between the source server and the staging
 area subnet where replication server launched for replication over TCP Port 1500. To use
-private routing for data replication, please see [Data routing
+private routing for data replication, see [Data routing
 and throttling](replication-server-settings.md#data-routing "replication-server-settings.md#data-routing").
 
 ## What are the prerequisites needed to install the AWS Replication Agent?
@@ -95,9 +95,9 @@ If the installation fails due to insufficient permissions, you may need to manua
 
 ## Is it possible to install the agent on servers running operating systems that are not listed as supported?
 
-The agent is designed and tested to work on the officially supported operating systems listed in the documentation. Installing the agent on other unsupported operating systems may be possible but is not recommended.
+The agent is designed and tested to work on the officially supported operating systems listed in the documentation. Installing the agent on other unsupported operating systems might be possible but is not recommended.
 Any installation or replication issues encountered when using unsupported operating systems will need to be handled through your own troubleshooting or support channels, as the AWS engineering team will be limited in their ability to assist.
-We advise using the agent only on supported OS versions to ensure the best experience. Please refer to [Supported operating systems](Supported-Operating-Systems.md "Supported-Operating-Systems.md").
+We advise using the agent only on supported OS versions to ensure the best experience. Refer to [Supported operating systems](Supported-Operating-Systems.md "Supported-Operating-Systems.md").
 
 ## What kind of resources does the AWS Replication Agent use?
 
@@ -187,7 +187,7 @@ rescanning the original volumes. This is not a resync, but a scan, to verify tha
 blocks on the source still match the blocks on the replication side. This process is
 significantly quicker than a resync, as there is no actual block data transferred, unless there
 is a difference. This is needed, as a reinstall results in the driver which performs the IO
-tracking being unloaded and reset, so we have no way of being certain of the sync status. Whilst
+tracking being unloaded and reset, so we have no way of being certain of the sync status. While
 the rescan on the original volumes is happening, the agent is also ensuring that the initial
 sync of the new volume is being completed in parallel.
 
@@ -234,13 +234,13 @@ Supported OSs include:
 
 - CentOS 6–8, Stream 9, Stream 10
 - Oracle 6–8
-- RHEL 6–9.8, 10, 10.1
-- Rocky Linux 8–9.8, 10, 10.1
+- RHEL 6–9.8, 10, 10.1, 10.2
+- Rocky Linux 8–9.8, 10, 10.1, 10.2
 - SLES 12 and 15
 - Debian 9–11
 - Ubuntu 16, 18, 20, and 22
 - Amazon Linux 2 and 2023
-- AlmaLinux 9.6, 9.7, 9.8, 10, 10.1
+- AlmaLinux 9.6, 9.7, 9.8, 10, 10.1, 10.2
 
 ###### Note
 

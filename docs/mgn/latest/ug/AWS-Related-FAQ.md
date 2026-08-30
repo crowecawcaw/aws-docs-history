@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# AWS related
+# AWS related FAQs
 
 This section contains answers to questions about AWS and AWS Transform MGN.
 
@@ -72,7 +72,7 @@ instance created by AWS Transform MGN.
 AWS Transform MGN automatically installs EC2Config. After installation,
 EC2Config automatically installs the SSM EC2 Configuration Service.
 
-CloudWatch, AWS Powershell or CLI are not automatically installed. This can be done by the
+CloudWatch, AWS PowerShell or CLI are not automatically installed. This can be done by
 combining the AWS Transform MGN APIs and the AWS APIs – you can use the
 AWS Transform MGN APIs to determine the EC2 instance IDs of the machines and
 then use AWS API/CLI to turn on the detailed monitoring. An alternative approach would be to
@@ -81,8 +81,8 @@ would be to do so from the post-launch script.
 
 AWS Transform MGN installs EC2Launch (Windows 2016 only). You will need to
 configure EC2Launch based on [these specific requirements](../../../AWSEC2/latest/WindowsGuide/ec2launch.md#ec2launch-config "../../../AWSEC2/latest/WindowsGuide/ec2launch.md#ec2launch-config"). This configuration step needs to be performed post
-Migration using the wizard in C:\Program
-Data\Amazon\EC2-Windows\Launch\Settings\Ec2LaunchSettings.exe on the test or cutover
+Migration using the wizard in
+C:\ProgramData\Amazon\EC2-Windows\Launch\Settings\Ec2LaunchSettings.exe on the test or cutover
 instance.
 
 ## How long does it take to copy a disk from the AWS Transform MGN staging area to production?
@@ -111,7 +111,7 @@ result in failed conversions.
 
 ## Can I prevent AWS Transform MGN from cleaning up test instance resources in AWS?
 
-AWS Transform MGN will, by default, removes any resources created during the
+AWS Transform MGN will, by default, remove any resources created during the
 test process either when requested by the user or when a new Test instance is launched.
 
 To prevent this in AWS, you can [activate Termination Protection](../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination "../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination") for the test or cutover instance, and the resources
@@ -122,7 +122,7 @@ will not be removed upon a new instance launch.
 When launching test or cutover instances Windows Server may boot with all the disks as
 read-only.
 
-This a common issue that occurs when detaching and attaching data disks. This issue can be
+This is a common issue that occurs when detaching and attaching data disks. This issue can be
 resolved using steps in [this
 Microsoft TechNet article](https://blogs.technet.microsoft.com/askcore/2011/06/02/my-disk-is-read-only-help/ "https://blogs.technet.microsoft.com/askcore/2011/06/02/my-disk-is-read-only-help/").
 
@@ -165,7 +165,7 @@ adjusting to the AWS virtual hardware.
 
 This applies only when using Amazon EBS as the target storage type.
 
-The EBS volumes attached to the test or cutover instances are created from snapshots of convertered volumes. For any volume type that were created from snapshots, the storage blocks are pulled down from Amazon S3 and written to the volume before accessed by you. This process may take significant time and varies based on the EBS volume type. For additional details and EBS initialization options, refer to [Initialize Amazon EBS volumes](../../../ebs/latest/userguide/ebs-initialize.md "../../../ebs/latest/userguide/ebs-initialize.md")
+The EBS volumes attached to the test or cutover instances are created from snapshots of converted volumes. For any volume type that was created from snapshots, the storage blocks are pulled down from Amazon S3 and written to the volume before you access them. This process might take significant time and varies based on the EBS volume type. For additional details and EBS initialization options, refer to [Initialize Amazon EBS volumes](../../../ebs/latest/userguide/ebs-initialize.md "../../../ebs/latest/userguide/ebs-initialize.md")
 
 ## What are the Amazon EBS volume limits for AWS Transform MGN?
 
@@ -190,7 +190,7 @@ use this connection to allow AWS Transform MGN to communicate with your
 resources on your VPC without going through the public internet.
 
 Amazon VPC is an AWS service that you can use to launch AWS resources in a virtual
-network that you define. With a VPC, you have control over your network settings, such the
+network that you define. With a VPC, you have control over your network settings, such as the
 IP address range, subnets, route tables, and network gateways. With VPC endpoints, the
 routing between the VPC and AWS services is handled by the AWS network, and you can use IAM
 policies to control access to service resources.

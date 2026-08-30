@@ -19,4 +19,4 @@ You can filter by a variety of properties, including:
   You can filter by multiple properties at once to narrow down your results.
 
 To clear the selected filtering properties, choose **Clear
-filters** t.
+filters**.

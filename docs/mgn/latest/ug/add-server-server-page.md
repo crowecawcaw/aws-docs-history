@@ -2,11 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Add a source server
 
-To add a server, simply click **Add server**.
-
-To run a variety of commands on your source servers, select one or more servers and choose
-the **Actions**, **Replication**, or
-**Test and cutover** menu.
+To add a server, simply choose **Add server**.
 
 The **Add servers** prompt opens, allowing you to create
 a custom installation command by taking these steps:
@@ -48,7 +44,7 @@ To edit a source server, select the server and choose **Edit**.
 You can edit the following fields:
 
 - **User-provided ID** – Edit the user-provided identifier
-  for the source server. This value is case sensitive.
+  for the source server. This value is case insensitive.
 - **FQDN** – Edit the fully qualified domain name for the
   source server.
 - **Platform** – Edit the platform of the source server.
@@ -89,7 +85,7 @@ On the **Archive X servers** dialog, select **Archive**.
 To see your archived servers, open the **Preferences** menu
 by choosing the gear button.
 
-Select the **Show only archived servers** option and click
+Select the **Show only archived servers** option and choose
 **Confirm**.
 
 You are now able to see all of your archived servers. Unselect this option to see

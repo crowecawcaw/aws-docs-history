@@ -23,7 +23,7 @@ update your account-level launch template.
 - You can change the settings for specific servers without affecting the launch template
   as described in [Edit replication settings for
   a server](replication-settings-template.md#edit-replication-settings "replication-settings-template.md#edit-replication-settings") .
-- See [Assign an IPv6 address to an instance](../../../WSEC2/latest/UserGuide/working-with-ipv6-addresses.md#assign-ipv6-address "../../../WSEC2/latest/UserGuide/working-with-ipv6-addresses.md#assign-ipv6-address") in the _Amazon EC2 User Guide_
+- See [Assign an IPv6 address to an instance](../../../AWSEC2/latest/UserGuide/working-with-ipv6-addresses.md#assign-ipv6-address "../../../AWSEC2/latest/UserGuide/working-with-ipv6-addresses.md#assign-ipv6-address") in the _Amazon EC2 User Guide_
   for a list of instance types that do not support IPv6 addresses
 
 ###### Topics
@@ -39,7 +39,7 @@ define:
 
 - **Instance type right sizing**: If you select this
   option, MGN launches a test or cutover AWS instance type that best
-  matches the OS, CPU, and RAM of your source server. Please note that the AWS
+  matches the OS, CPU, and RAM of your source server. Note that the AWS
   instance type selected by MGN when this option is selected overwrites the
   instance type defined in your EC2 launch template.
 - **Start instance upon launch**: Choose whether to start your test and cutover instances automatically upon launch
@@ -66,9 +66,8 @@ Select the “Bring your own license (**BYOL**)” option if you are migrating a
 licenses are BYOL by default. Any RHEL, SUSE or Debian licenses are transferred
 in their current form to the migrated instance.
 
-For Windows servers choose if you want to **BYOL**)”. This sets
-set up a Dedicated Host. All the licenses from the source Windows source server are
-automatically transferred to the test or cutover instance. Please note that if
+For Windows servers, choose whether you want to use **BYOL**. This sets up a Dedicated Host. All the licenses from the source Windows server are
+automatically transferred to the test or cutover instance. Note that if
 you use BYOL licensing for Windows you have to change the **Placement.tenancy** type in the EC2 launch template to **Host**. Otherwise, instance launch fails.
 
 - **Boot mode**: When a computer boots, the first
@@ -130,15 +129,15 @@ after you make the changes.
 ## MAP program tagging setting
 
 Use this setting to determine whether to apply Migration Acceleration Program
-(MAP) tags to your launched instances. Learn more about MAP tagging in [What is tagging for
-MAP](https://aws.amazon.com/migration-acceleration-program "https://aws.amazon.com/migration-acceleration-program") in the AWS Migration Hub Launch Guide.
+(MAP) tags to your launched instances. Learn more about the [AWS Migration
+Acceleration Program (MAP)](https://aws.amazon.com/migration-acceleration-program "https://aws.amazon.com/migration-acceleration-program").
 
-Select**Add MAP tag to Launched Instances** option,
+Select **Add MAP tag to Launched Instances** option,
 if you want MGN to automatically tag your launched instances with the tag key and
 value combination required for MAP program. Once selected you must specify the MAP tag
-value that is used in your MAP tagging. MGN automatically tagw your migrated resources
+value that is used in your MAP tagging. MGN automatically tags your migrated resources
 with the key: “map-migrated” and the value of the tag that you provided. For more
-details about the tag value that should be used here, please refer to the MAP tagging
+details about the tag value that should be used here, refer to the MAP tagging
 guide provided in your MAP term.
 
 [Learn more

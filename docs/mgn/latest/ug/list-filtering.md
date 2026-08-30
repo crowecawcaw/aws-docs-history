@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 You can customize the **Source servers** page through
 filtering. Filtering allows you to easily filter your servers by one or multiple properties.
 
-Click within the **Filter servers** field and choose the
+Choose the **Filter servers** field and choose the
 filtering property from the **Properties** menu.
 
 You can filter by a variety of properties, including:

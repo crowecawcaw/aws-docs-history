@@ -29,7 +29,7 @@ Try to delete all VMWare snapshots on the guest, and wait for the next iteration
 
 - dataReplicationError is LAST\_SNAPSHOT\_JOB\_FAILED
 
-Check to see if the snapshots are successfully being created in vCenter. You can check this by choosing on the VM which is in the error state > Choosing Monitor tab > Tasks
+Check to see if the snapshots are successfully being created in vCenter. You can check this by choosing the VM which is in the error state > choosing the Monitor tab > Tasks
 
 Check the replication log which can be found at `/var/lib/aws-vcenter-client/active/tmp/*Unique-ID*/*snapshot-num*.log.0`
 **Logs**

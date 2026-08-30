@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Access details on a source server
 
-You can access the server details view by clicking on the **Source
+You can access the server details view by choosing the **Source
 server name** of any server on the **Source servers**
 page.
 

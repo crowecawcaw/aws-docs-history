@@ -13,7 +13,7 @@ multiple vCenter environments, you can either use a different AWS account for ea
 or you can migrate your VMs serially, environment by environment, into the same AWS account.
 
 After the MGN vCenter Client has been installed, it discovers all of the VMs in
-your vCenter environment and add them to MGN.
+your vCenter environment and adds them to MGN.
 
 ## MGN vCenter Client requirements
 
@@ -28,7 +28,7 @@ Once you have read the notes, proceed to [install the client](client-installatio
   to connect to AWS.
 - The MGN vCenter Client currently only supports VirtualDiskFlatVer2BackingInfo VMDK on
   CBT.
-- You must log in to your Broadcomm account and download VDDK 7.0.3.3 to the VM on which
+- You must log in to your Broadcom account and download VDDK 7.0.3.3 to the VM on which
   the MGN vCenter Client is installed. VDDK 7.0.3.3 must be used, regardless of the
   vCenter version used.
 - The MGN vCenter Client requires these vCenter user permissions for agentless
@@ -71,7 +71,7 @@ Once you have read the notes, proceed to [install the client](client-installatio
 - The VM on which the MGN vCenter Client is installed should only allow outgoing
   traffic as following:
 
-  - Egress TCP on the port on which the vCenter API is ran.
+  - Egress TCP on the port on which the vCenter API runs.
   - Egress TCP on port 443 for communication with the MGN API.
   - Egress TCP on port 1500 – for the replication server.
 
@@ -108,7 +108,6 @@ Once you have read the notes, proceed to [install the client](client-installatio
 - These flags are used by the installer:
 
   - usage: aws-vcenter-client-installer-init.py [-h]
-  - [--aws-access-key-id AWS\_ACCESS\_KEY\_ID]
   - [--aws-access-key-id AWS\_ACCESS\_KEY\_ID]
   - [--aws-secret-access-key AWS\_SECRET\_ACCESS\_KEY]
   - [--region REGION]

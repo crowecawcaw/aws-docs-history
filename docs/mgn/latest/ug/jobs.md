@@ -3,9 +3,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Review launch history
 
 The **Launch history** tab allows you to track and manage all
-of the operation performed in AWS Transform MGN.
+of the operations performed in AWS Transform MGN.
 
-You can access the Launch History by choose **Launch history**
+You can access the Launch History by choosing **Launch history**
 on the left-hand navigation menu.
 
 ## Overview
@@ -63,7 +63,7 @@ Use the **Filter job log by property or value** search bar to
 filter the job log.
 
 You can filter by a variety of properties, including **Time, Event,
-Source server Id, Source server hostname, Conversion server instance IS, Test/cutover instance
+Source server Id, Source server hostname, Conversion server instance ID, Test/cutover instance
 ID**, and **Error**.
 
 You can filter by multiple values at once.
@@ -77,5 +77,5 @@ You can use the **Filter source servers by property or
 value** search bar to filter by **Source server name**
 or **Status**.
 
-Choose the **Source server name** of any of source server
+Choose the **Source server name** of any source server
 from the list to open the Server Details view for that server. [Learn more about server details.](server-details.md "server-details.md")

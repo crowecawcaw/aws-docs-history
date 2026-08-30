@@ -13,15 +13,15 @@ rotate and remove access keys safely. For more information, see [Rotating access
 
 1. Open the **AWS Management Console** and look for **IAM** under **Find Services**.
 2. From the **IAM** main page, choose **Users** from the left-hand navigation menu.
-3. You can either select an existing user or add a new user. To add a new user, click
+3. You can either select an existing user or add a new user. To add a new user, choose
    **Add user**.
-4. Give the user a **User name** and select the **Programmatic access** access type. Click **Next:
+4. Give the user a **User name** and select the **Programmatic access** access type. Choose **Next:
    Permissions**.
 5. Choose the **Attach existing policies directly** option.
    Search for **AWSApplicationMigrationVCenterClientPolicy** and
    **AWSApplicationMigrationAgentPolicy**. Select the policies and
-   click **Next: Tags.**
-6. Add tags if you wish to use them and then click **Next:
+   choose **Next: Tags.**
+6. Add tags if you wish to use them and then choose **Next:
    Review.**
 7. Review the information. Ensure that the **Programmatic
    access** type is selected and that the correct policy is attached to the user.
@@ -30,11 +30,11 @@ rotate and remove access keys safely. For more information, see [Rotating access
    ID** and **Secret access key** that you need in
    order to install the AWS Replication Agent on your source servers.
 
-To save this information as .csv file, click **Download
+To save this information as .csv file, choose **Download
 .csv**.
 
 You can also access this information and re-generate your security credentials by
-navigating to **IM > Users > Your user**.
+navigating to **IAM > Users > Your user**.
 
 Open the **Security credentials** tab and scroll down to
 **Access keys**. Here you can manage your access keys (create,

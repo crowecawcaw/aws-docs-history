@@ -36,7 +36,7 @@ cutover. You are still able to access the archived servers through filtering opt
 
 To archive your cutover source servers:
 
-    1. Check the box to the left of the of each source server for which the **Migration lifecycle** column states **Cutover
+    1. Check the box to the left of each source server for which the **Migration lifecycle** column states **Cutover
      complete**.
     2. Open the **Actions** menu and choose **Mark as archived**.
     3. When the **Archive X server** dialog appears,
@@ -49,4 +49,4 @@ To archive your cutover source servers:
      choose **Confirm**.
 
 
-    You are now be able to see all of your archived servers. Untoggle the **Show only archived servers** option to show non-archived servers.
+    You are now able to see all of your archived servers. Untoggle the **Show only archived servers** option to show non-archived servers.

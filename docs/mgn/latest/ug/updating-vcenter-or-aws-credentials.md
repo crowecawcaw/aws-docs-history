@@ -15,7 +15,7 @@ in each field and then press Enter:
 
     * New vCenter username (--new-vcenter-username)
     * New vCenter password (--new-vcenter-password)
-    * New AWS Secret Key ID (--new-aws-access-key-id)
+    * New AWS Access Key ID (--new-aws-access-key-id)
     * New AWS Secret Access Key (--new-aws-secret-access-key)
     * New path to the CA (optional) (--new-ca-path)
 
@@ -23,7 +23,7 @@ in each field and then press Enter:
 update the CA path. If you answer yes, it prompts you for the new CA path. If you answer
 no, the tool uses the CA path from the previous configuration. The tool verifies the
 new vCenter and AWS credentials by attempting to connect to vCenter and MGN using them. 5. Upon successful connection to vCenter and MGN, the tool saves the new credentials
-and restart the necessary services. 6. In case of failure to connect to vCenter or MGN, the new credentials are not stored,
+and restarts the necessary services. 6. In case of failure to connect to vCenter or MGN, the new credentials are not stored,
 and the previous configuration is retained. This error message is
 displayed: `Failed to connect to the vCenter endpoint or MGN using the new connection
  details. The configuration changes will not be applied.`

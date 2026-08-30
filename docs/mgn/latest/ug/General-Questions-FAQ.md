@@ -156,7 +156,7 @@ MGN uses the following Private API resources as actions in the IAM Policy. [Lear
 - UpdateAgentSourcePropertiesForMgn – Grants permission to update agent source
   properties.
 - CreateVcenterClientForMgn – Grants permission to create a vCenter client.
-- GetVcenterClientCommandsForMgn – Grants permission get a vCenter client.
+- GetVcenterClientCommandsForMgn – Grants permission to get vCenter client commands.
 - SendVcenterClientCommandResultForMgn – Grants permission to send vCenter client
   command result.
 - SendVcenterClientLogsForMgn – Grants permission to send vCenter client logs.

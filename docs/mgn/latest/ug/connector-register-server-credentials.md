@@ -2,18 +2,18 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Register server credentials
 
-Once you have the MGN connector set up and ready to use, you can register source servers to the MGN connector. To do so choose on the MGN connector name, then choose “Register servers“.
+After you have the MGN connector set up and ready to use, you can register source servers to the MGN connector. To do so, choose the MGN connector name, then choose **Register servers**.
 
-The servers list contain the source servers that were imported via the import feature or discovered by the agentless replication process.
+The servers list contains the source servers that were imported via the import feature or discovered by the agentless replication process.
 
-Select the source servers you want to register to the MGN connector. Choose the "Register servers with the MGN connector" button.
+Select the source servers you want to register to the MGN connector. Choose the **Register servers with the MGN connector** button.
 
 To perform actions on your source server, you must provide source server
 credentials. Server credentials are stored in AWS Secrets Manager. You can use an
 existing secret from the AWS Secrets Manager or create a new one. You can create the
 credentials in the MGN console, by choosing **Register server
 credentials** from the **Actions**
-men.
+menu.
 
 - Use existing secret
 
@@ -26,8 +26,8 @@ men.
 
 - Create new secret
 
-  - **Secret name** - Enter a name for your new secret. The name you specify will be saved in AWS Secret Manager.
-  - **Encryption key** - To encrypt, either use the KMS key provided by Secret Manager or create your own customer managed KMS key.
+  - **Secret name** - Enter a name for your new secret. The name you specify will be saved in AWS Secrets Manager.
+  - **Encryption key** - To encrypt, either use the KMS key provided by Secrets Manager or create your own customer managed KMS key.
   - **For Windows servers:**
 
     - **Communication protocol** –

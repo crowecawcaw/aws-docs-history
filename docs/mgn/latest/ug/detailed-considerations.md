@@ -101,7 +101,7 @@ Each disk is composed of the following fields:
      AWS automatically distributes volumes across available EBS cards.
     + **Delete on termination** – Specifies whether an Amazon EBS
      volume is automatically deleted when the attached Amazon EC2 instance is terminated.
-     Set this to **No** iif you want the volumes to persist after
+     Set this to **No** if you want the volumes to persist after
      instance termination, for example to preserve data for rollback or to reattach the volume to
      another instance. Set this to **Yes** for data volumes when you
      want to avoid orphaned volumes that continue incurring storage costs.This setting takes effect
@@ -127,13 +127,13 @@ Each disk is composed of the following fields:
   - **Device index** – **Do
     not** change or edit this field. The value should always be "**0**".
   - **Network interface** – Use this option only if you want
-    use a pre-existing ENI (Elastic Network Interface). The Launch Template overwrites
+    to use a pre-existing ENI (Elastic Network Interface). The Launch Template overwrites
     certain ENI settings. Use this if you want to add an Elastic IP. You have to attach
     the Elastic IP to the ENI.
 
   ###### Note
 
-  When selecting an pre-existing ENI, you must change the **Auto-assign public IP** value to **Don't include in launch
+  When selecting a pre-existing ENI, you must change the **Auto-assign public IP** value to **Don't include in launch
   template** for a successful target launch.
   - **Description** – Add an optional description for the
     network interface (if chosen).

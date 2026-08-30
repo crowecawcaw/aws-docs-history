@@ -22,7 +22,7 @@ instances.
 For many customers, there is no need to modify the launch settings or the EC2 launch
 template to launch test or cutover instances.
 
-Launch settings can only be changed for one server at a time though the AWS Transform MGN
+Launch settings can only be changed for one server at a time through the AWS Transform MGN
 console.
 
 ###### Note

@@ -230,7 +230,7 @@ FlexClone volumes for all source servers in the launch job.
 Increase the SSD storage capacity of your FSx for ONTAP file system.
 
 1. Open the FSx for ONTAP console at
-   [https://console.aws.amazon.com/fsx/](../../../fsx.md "../../../fsx.md"),
+   [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"),
    and choose **File systems**.
 2. Select the file system shown in the error message.
 3. On the **Summary** panel, choose

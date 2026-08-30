@@ -13,7 +13,7 @@ AWS Virtual Private Network or AWS Direct Connect. To use the Site-to-Site VPN o
 
 To allow the AWS Replication Agent installer to communicate with MGN, create an
 interface VPC endpoint for MGN in your staging area subnet. For more information, see
-[Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html") in the _Amazon VPC User
+[Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint") in the _Amazon VPC User
 Guide_.
 
 If the AWS replication agents are installed with a principal using [AWSApplicationMigrationAgentInstallationPolicy](security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md#security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.title "security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.md#security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy.title") and a VPCE policy is used (to scope
@@ -52,7 +52,7 @@ Site-to-Site VPN/Direct Connect by using the --s3-endpoint installation paramete
 Guide._
 
 Run the AWS Replication Agent installer with the --s3-endpoint parameter. Enter your
-endpoint-specific DNS hostname. The installer is then able to connect to MGN via the
+endpoint-specific DNS hostname. The installer is then able to connect to Amazon S3 via the
 endpoint over your Site-to-Site VPN/Direct Connect connection.
 
 ## Prescriptive guidance

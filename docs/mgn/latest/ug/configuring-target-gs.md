@@ -13,7 +13,7 @@ the default settings or configure the settings to fit your requirements.
 You can change the launch settings after a test or cutover instance has been launched. You
 will need to launch a new test or cutover instance for the new settings to take effect.
 
-You can access the launch settings by choosing on the source server name of a source server
+You can access the launch settings by choosing the source server name of a source server
 on the **Source servers** page.
 
 Within the individual server view, navigate to the **Launch

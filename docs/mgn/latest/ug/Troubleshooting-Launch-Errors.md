@@ -51,7 +51,7 @@ This error mostly occurs when the conversion server is unable to communicate wit
 
 - Check if any network changes were made in the staging area that could affect the conversion server reaching the AWS Endpoints (firewall settings, DNS settings, security group settings, route table settings, and access control list settings).
 - Test TCP Port 443 connectivity with a test instance from the staging area subnet, to the [required endpoints.](Network-Requirements.md#Communication-TCP-443-Staging "Network-Requirements.md#Communication-TCP-443-Staging")
-- If the issue persists after confirming network connectivity please [create a case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md") with AWS Premium Support for further investigation.
+- If the issue persists after confirming network connectivity, [create a case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md") with AWS Premium Support for further investigation.
 
 ## Could not take up-to-date snapshot. Launching from snapshot taken on...
 

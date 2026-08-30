@@ -14,6 +14,6 @@ parameters:
 - **Associate applications (optional)** – You can add up to
   200 applications to a single wave. Checking an application in the dropdown list will associate
   it with the wave.
-- **Add tags (optional)** – You can up to 50 tags according to
+- **Add tags (optional)** – You can add up to 50 tags according to
   your preferences.
   Choose **Add wave** to create the wave.

@@ -20,7 +20,7 @@ these requirements:
   replication stops. If this happens, you need to reinstall the AWS Replication
   Agent and start replication from the beginning.
 - AWS Transform MGN does not support fully paravirtualized source servers. Source servers with
-  partial paravirtualization, such as VMWare's paravirtualization of I/O devices, is supported.
+  partial paravirtualization, such as VMWare's paravirtualization of I/O devices, are supported.
 - The AWS Replication Agent installer supports multipath.
 
 ### Source server requirements
@@ -55,7 +55,7 @@ make gcc perl tar gawk rpm
   - At least 2 GB of free disk space on the
     root directory (/) of your source server for the installation. To check the available
     disk space on the root directory, run the `df -h /` command.
-  - At least 1 GB of free diskspace on the _/tmp_ directory for the
+  - At least 1 GB of free disk space on the _/tmp_ directory for the
     duration of the installation process. To check the available disk
     space on the /tmp directory run the `df -h
    /tmp` command.
@@ -100,7 +100,7 @@ This example illustrates the troubleshooting procedure:
 ![Terminal commands showing mount output filtered for tmp, then remounting and verifying.](images/agent66.png)
 
 - The AWS Transform MGN user needs to be either a root user or a user in the sudoers list.
-- Ensure that the dhclient package is installed. If not, please install the package
+- Ensure that the dhclient package is installed. If not, install the package
   using:
 
 For Redhat/CentOS/Fedora/AmazonLinux:
@@ -144,7 +144,7 @@ number of the kernel. To handle this issue, follow these steps:
     2. Identify the version of your *kernel-devel/linux-headers*.
 
 
-    To identify the version of your running kernel, run this command:
+    To identify the version of your installed kernel-devel/linux-headers packages, run this command:
 
 
     On RHEL/CENTOS/Oracle/SUSE:
@@ -284,7 +284,7 @@ including:
 - At least 2 GB of free disk space on the disk containing the "Program Files(x86)"
   directory
 - Install all available Windows updates on the server.
-- A graceful reboot from the OS menu or Windows CLI of a Windows source server does not triggers
+- A graceful reboot from the OS menu or Windows CLI of a Windows source server does not trigger
   a rescan in MGN once the source server is restarted. Hard reboots, disk changes,
   and crashes trigger a rescan.
 - Mount points must be assigned a drive letter to be recognized by AWS Transform MGN. A folder path is not recognized.

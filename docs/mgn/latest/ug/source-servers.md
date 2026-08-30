@@ -22,10 +22,10 @@ console, and is the page that you interact with the most. On the Source servers 
 view all of your source servers, monitor their migration lifecycle and data replication state, see
 the next step in the migration process for each server, and sort your servers by a variety of
 categories. You can also perform a variety of commands from the Source servers page through the
-command menus. These menus allow you to full control your servers by managing data replication,
+command menus. These menus allow you to fully control your servers by managing data replication,
 launching test and cutover instances, and disconnecting servers from AWS Transform MGN.
 
-You can click on any individual source server on the Source servers page in order to access
+You can choose any individual source server on the Source servers page in order to access
 the server details view. This view allows you to see the details for individual servers. Here
 you are able to see an in-depth view of the server's migration lifecycle, browse an overview
 of the server's technical details, manage tags, manage disks, and most importantly, configure the

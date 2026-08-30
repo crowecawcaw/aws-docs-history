@@ -80,6 +80,29 @@ For details on configuring DNS and network connectivity for domain-joined server
 [Target instance cannot connect to Active
 Directory after migration](ad-connectivity-after-migration.md "ad-connectivity-after-migration.md").
 
+###### Important
+
+Isolate your test VPC from your production network. If you launch a domain controller
+into a test VPC that has a network route back to your on-premises or production environment,
+production clients might bind to the launched domain controller instead of your production
+Active Directory, which can disrupt production workloads. When testing, we recommend that you
+do not launch Active Directory domain controllers into an environment that has connectivity
+to production, and that you remove any routes between your test VPC and your production
+network.
+
+Cutover is different. A cutover instance is intended to replace your production server,
+so connectivity to your existing environment is expected. When you cut over a domain
+controller, plan the timing carefully: coordinate the shutdown of the corresponding
+on-premises or source domain controller with the cutover so that clients transition to the
+migrated domain controller in a controlled way, rather than having two active domain
+controllers serve the same clients at once.
+
+If you plan to operate in a hybrid configuration, where your on-premises environment
+remains online alongside servers migrated to the cloud, plan network connectivity between
+the two environments carefully. Ensure that clients resolve and connect to the intended
+Active Directory domain controllers so that you avoid unexpected results, such as clients
+binding to the wrong domain controller.
+
 ## Required connectivity settings
 
 To prepare your network for running AWS Transform MGN, configure the following connectivity
@@ -293,21 +316,21 @@ and the FSx for ONTAP file system. For detailed security group configuration, se
 
 MGN replication servers require iSCSI initiator and multipath packages to replicate
 data to FSx for ONTAP. These packages are installed automatically using `yum`
-from the Amazon Linux 2 package repository.
+from the Amazon Linux 2023 (AL2023) package repository.
 
 - **Connected subnets (internet via NAT or internet gateway)**:
   Allowlist the following URLs in your firewall or DNS rules:
 
 ```
 https://cdn.amazonlinux.com/
-https://amazonlinux-2-repos-<region>.s3.<region>.amazonaws.com/
+https://al2023-repos-<region>-de612dc2.s3.dualstack.<region>.amazonaws.com/
 ```
 
 - **Isolated subnets (Amazon S3 VPC gateway endpoint only)**:
   Add the following resource ARN to the endpoint policy:
 
 ```
-"arn:aws:s3:::amazonlinux-2-repos-<region>/*"
+"arn:aws:s3:::al2023-repos-<region>-de612dc2/*"
 ```
 
 If neither option is available, you must pre-install the packages on the source server

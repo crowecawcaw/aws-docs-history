@@ -46,7 +46,7 @@ This column is hidden by default.
 
   - **Stalled** – An application that has
     at least one server that is experiencing significant issues, such as
-    a stall,.
+    a stall.
   - **Lagging** – An application that has
     at least one server that is experiencing a temporary issue such as
     lag or backlog.

@@ -42,8 +42,8 @@ need to define them after the test or cutover instance has been launched. This c
 through a post launch action.
 
 If you wish to use an Elastic IP, you must create an ENI to specify the IP and then edit
-the Network interfaces to use the ENI. Learn more about working with Amazon Elastic Inference
-in [this Developer Guide article.](../../../elastic-inference/latest/developerguide/working-with-ei.md "../../../elastic-inference/latest/developerguide/working-with-ei.md") 7. **Networking platform** – AWS Transform MGN only supports **Virtual Private Cloud (VPC)**. EC2-Classic is **not** supported. Do **not** add any security groups
+the Network interfaces to use the ENI. Learn more about working with Elastic network interfaces
+in [the Amazon EC2 User Guide.](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") 7. **Networking platform** – AWS Transform MGN only supports **Virtual Private Cloud (VPC)**. EC2-Classic is **not** supported. Do **not** add any security groups
 under the network platform. 8. **Custom device name** – Do not alter this field. AWS Transform MGN
 uses the device name as defined on the source server to map disks on the test or
 cutover instance. You can use this field to identify your disks. 9. **Disks** – You cannot add disks to the EC2 launch

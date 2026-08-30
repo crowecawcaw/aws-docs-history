@@ -26,8 +26,9 @@ documentation for that service.
 ## AWSServiceRoleForApplicationMigrationService service-linked role
 
 AWS Transform MGN uses the service-linked role named
-**AWSServiceRoleForApplicationMigrationService**. This is a managed
-IAM policy with scoped permissions that AWS Transform MGN needs to run in your account.
+**AWSServiceRoleForApplicationMigrationService**. This service-linked
+role has scoped permissions that AWS Transform MGN needs to run in your account. Its permissions
+are defined by the AWSApplicationMigrationServiceRolePolicy AWS managed policy.
 
 The AWSServiceRoleForApplicationMigrationService service-linked role trusts the `mgn.amazonaws.com` service principal to assume the role. The role permissions are defined in the [AWSApplicationMigrationServiceRolePolicy](security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md "security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md") AWS managed policy.
 
@@ -79,7 +80,7 @@ resources, the deletion might fail. If that happens, wait for a few minutes and 
 operation again.
 
 **To clean up AWS Transform MGN resources used
-by AWSServiceRoleforApplicationMigrationService**
+by AWSServiceRoleForApplicationMigrationService**
 
 1. Identify and delete any waves and applications in all
    AWS Regions
@@ -154,9 +155,10 @@ by AWSServiceRoleforApplicationMigrationService**
    aws mgn delete-replication-configuration-template --replication-configuration-template-id {rct-TemplateID}
    ```
 
-Resources can be cleaned up without stopping any service provided by
+Resources cannot be cleaned up without stopping the services provided by
 AWS Transform MGN. Cleaning up AWS Transform MGN
-resources will cause AWS Transform MGN to stop working. For more
+resources will cause AWS Transform MGN to stop working. Before you run the following
+commands, confirm that migrations and replication are no longer needed. For more
 information, see [Cleaning up a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 

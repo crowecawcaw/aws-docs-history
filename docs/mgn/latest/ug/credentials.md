@@ -51,7 +51,7 @@ server within the same account.
   IAM role**.
 - Use a role that contains the [AWSApplicationMigrationServiceEc2InstancePolicy](security-iam-awsmanpol-AWSApplicationMigrationServiceEc2InstancePolicy.md "security-iam-awsmanpol-AWSApplicationMigrationServiceEc2InstancePolicy.md") policy.
 
-If none exists, click **Create new IAM role**, attach the
+If none exists, choose **Create new IAM role**, attach the
 policy and return to the Amazon EC2 console window.
 
-- Select your new role from the drop-down list and click **Update**.
+- Select your new role from the drop-down list and choose **Update**.

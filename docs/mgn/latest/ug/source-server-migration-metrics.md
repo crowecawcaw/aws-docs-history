@@ -15,7 +15,7 @@ servers** table at the bottom of the page.
 
 - A healthy server for which a test or cutover instance has not been launched displays
   a **Healthy** status.
-- A healthy server for which a test of cutover instance has been launched displays a
+- A healthy server for which a test or cutover instance has been launched displays a
   **Healthy** status.
 - A server that is experiencing a temporary issue such as lag or backlog displays a
   **Lagging** status.
@@ -25,7 +25,7 @@ servers** table at the bottom of the page.
 ## Understand data replication status
 
 The source server **Data replication status** migration
-metric presents an aggregated overview of the your source servers' data replication status. You
+metric presents an aggregated overview of your source servers' data replication status. You
 can look up an individual source server's **Data replication
 status** status in the **Source servers** table at the
 bottom of the page.

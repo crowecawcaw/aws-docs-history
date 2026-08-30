@@ -4,8 +4,8 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 The source server **Data replication status**
 migration metric presents an aggregated overview of the application associated
-servers data replication status. You can look up an individual source server
-**Data replication status** status at the
+servers data replication status. You can look up an individual source server's
+**Data replication status** at the
 **Source servers** table at the bottom of the
 page.
 

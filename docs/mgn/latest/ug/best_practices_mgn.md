@@ -14,7 +14,7 @@ During the phases of your migration project, review these best practices to help
 
 ## Testing
 
-1. Perform test at least two weeks before you plan to migrate your source servers. This time
+1. Perform a test at least two weeks before you plan to migrate your source servers. This time
    frame is intended for identifying potential problems and solving them, before the actual
    cutover takes place. After performing the test launch, validate connectivity to your test
    instances (using SSH for Linux or RDP for Windows), and perform acceptance tests for your

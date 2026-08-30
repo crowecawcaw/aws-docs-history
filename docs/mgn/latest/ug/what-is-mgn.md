@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # What Is AWS Transform MGN?
 
 AWS Transform MGN (MGN) automates the migration of physical, virtual, and cloud servers to
-AWS with minimal downtime — typically cutover windows of minutes. MGN performs
+AWS with minimal downtime, typically cutover windows of minutes. MGN performs
 continuous block-level replication of your source servers and converts them for launch on
 AWS, allowing you to migrate large numbers of servers without compatibility issues or
 performance disruption.
@@ -13,8 +13,8 @@ various Linux distributions, and supports both IPv4 and IPv6 network configurati
 can replicate into standard Availability Zones or AWS Local Zones without any special
 configuration.
 
-The service uses three configurable templates — replication, launch, and
-post-launch — to control how servers are replicated, launched, and configured after
+The service uses three configurable templates (replication, launch, and
+post-launch) to control how servers are replicated, launched, and configured after
 migration. Template settings are applied to each newly added server, and you can override
 settings for individual servers at any time.
 

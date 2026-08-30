@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 Complete these steps to install the AWS Replication Agent on Windows source
 servers.
 
-Ensure that the necessary service roles have been created by clicking on the **Reinitialize service permissions** button on the AWS Transform MGN console
+Ensure that the necessary service roles have been created by choosing the **Reinitialize service permissions** button on the AWS Transform MGN console
 replication settings page. You must have the permissions necessary to create IAM roles in
 order for this operation to succeed.
 
@@ -62,7 +62,7 @@ https://aws-application-migration-service-hashes-us-east-1.s3.us-east-1.amazonaw
   . Replace `<REGION>` with the AWS Region into which you are replicating.
 
 If you need to validate the installer hash, the correct hash can be found here:
-`https://aws-application-migration-service-hashes-<region>.s3.amazonaws.com/latest/windows_legacy/AwsReplicationWindows2012LegacyInstaller.exe.sha512`
+`https://aws-application-migration-service-hashes-<region>.s3.amazonaws.com/latest/windows_legacy/windows_2012_legacy/AwsReplicationWindows2012LegacyInstaller.exe.sha512`
 (replace <region> with the AWS Region into which you are replicating.
 
 | Region name                | Region identity | Download Link                                                                                                                                                                                                                                                                                                                          |
@@ -423,8 +423,8 @@ If you do not enter these parameters as part of the installation script, you are
 prompted to enter them one by one as described above. (for example: `AwsReplicationWindowsInstaller.exe --region regionname --aws-access-key-id
  AKIAIOSFODNN7EXAMPLE --aws-secret-access-key
  wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY)` 4. Once you have entered your credentials, the installer verifies that the source server
-has enough free disk space for Agent installation and identify volumes for replication. The
-installer displays the identified disks and prompt you to choose the disks you want to
+has enough free disk space for Agent installation and identifies volumes for replication. The
+installer displays the identified disks and prompts you to choose the disks you want to
 replicate.
 
 ![AWS Replication Agent installation window showing region, access key, and disk space verification.](images/new-soureservers-windows3.png)
@@ -446,7 +446,7 @@ When identifying specific disks for replication, do not use apostrophes, bracket
 disk paths that do not exist. Type only existing disk paths. Each disk that you selected for
 replication is displayed with the caption **Disk to replicate
 identified**. However, the displayed list of identified disks for replication may
-differ from the data you entered. This difference can due to several reasons:
+differ from the data you entered. This difference can be due to several reasons:
 
     * The root disk of the source server is always replicated, whether you select it or
      not. Therefore, it always appears on the list of identified disks for replication.

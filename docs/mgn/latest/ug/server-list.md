@@ -84,7 +84,7 @@ This column shows a variety of information, including:
 - **Last snapshot** – This column shows the time the last
   consistent snapshot was taken of the source server. Servers that are still in the initial sync
   process and those that have been disconnected do not show any info in this field. Healthy
-  servers shows a recent snapshot. Unhealthy servers' last snapshot indicates the last time
+  servers show a recent snapshot. Unhealthy servers' last snapshot indicates the last time
   they were healthy.
 - **Next step** – This column shows the next step that needs
   to be undertaken in order to successfully complete a cutover for the server. The information

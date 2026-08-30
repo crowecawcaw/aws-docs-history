@@ -28,7 +28,7 @@ You must complete both steps to finalize the service initialization process.
 ## Creating the required IAM roles
 
 To initialize MGN with the API, create the following IAM roles through the [IAM
-CreateRoleAPI](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md"). Learn more about [creating IAM
+CreateRole API](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md"). Learn more about [creating IAM
 roles in the AWS IAM documentation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md"). Creation of each role must include the following
 parameters:
 
@@ -59,8 +59,9 @@ parameters:
 
 Once the policies are attached to the roles, run the `aws mgn
  initialize-service` command. This will automatically create the service-linked role,
-create instance profiles, add Roles to Instance Profiles, and will finish service
-initialization.
+create instance profiles, and add Roles to Instance Profiles. After running this command, you
+must still create the replication configuration template and launch configuration template to
+finalize initialization.
 
 [Learn more about AWS Transform MGN roles and managed
 policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md").

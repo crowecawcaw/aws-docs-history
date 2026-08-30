@@ -39,7 +39,7 @@ The columns include:
 A wave that has at least one application that is experiencing significant issues, such as
 a stall, will display a **Stalled** status.
 
-An wave that has at least one application that is experiencing a temporary issue such as
+A wave that has at least one application that is experiencing a temporary issue such as
 lag or backlog will display a **Lagging** status.
 
 A healthy active wave will display a **Healthy** status.

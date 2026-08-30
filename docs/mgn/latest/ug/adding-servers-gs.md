@@ -42,5 +42,5 @@ process. Lifecycle states include:
 
 [Learn more about the migration lifecycle states.](migration-dashboard.md#lifecycle "migration-dashboard.md#lifecycle")
 
-Once the initial async process has completed successfully, data replication will start
+After the initial sync process has completed successfully, data replication will start
 automatically.

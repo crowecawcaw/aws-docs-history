@@ -7,7 +7,7 @@ To import your inventory from a local disk, take the following steps:
 1. Select **Import** from the left-hand navigation menu (under
    **Import and export**) and you’ll be navigated to the **Import inventory** tab.
 2. Select **Import from local disk**.
-3. Choose **Choose file** to choose the CSV file from your
+3. Choose **Choose file** to select the CSV file from
    which you want to import the data.
 4. Choose **Import**.
 

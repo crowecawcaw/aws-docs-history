@@ -19,5 +19,5 @@ Choose **Yes** if you want to use a private IP. The IP is shown in brackets next
 - Removing a private IP from a specific server's settings does not remove it from the launch template.
 - If you chose **Yes**, ensure that the IP range of the
   subnet you set in the EC2 launch template includes the private IP address.
-- If the both the source server and the test or cutover instance shares the same subnet
-  though a VPN, then the source private IP is already in use, and the **Copy private IP** option should not be used.
+- If both the source server and the test or cutover instance share the same subnet
+  through a VPN, then the source private IP is already in use, and the **Copy private IP** option should not be used.

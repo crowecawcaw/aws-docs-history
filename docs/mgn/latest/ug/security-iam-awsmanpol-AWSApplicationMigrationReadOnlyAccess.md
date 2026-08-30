@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 You can attach the `AWSApplicationMigrationReadOnlyAccess` policy to your
 IAM identities.
 
-The Read-Only policy allows a user to This policy provides permissions to all read-only public APIs of AWS Transform MGN, as well as some read-only APIs of other AWS services that are required in
+This policy provides permissions to all read-only public APIs of AWS Transform MGN, as well as some read-only APIs of other AWS services that are required in
 order to make full read-only use of the MGN console. It does not allow them to perform any actions, such as initialize the
 service, replicate servers, or launch servers in AWS. This policy can be granted to a
 user in a support role.

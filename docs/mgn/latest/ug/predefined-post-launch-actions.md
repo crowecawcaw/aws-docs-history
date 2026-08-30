@@ -61,7 +61,7 @@ This action installs the AWS Elastic Disaster Recovery Replication Agent on your
 instance.
 
 You must select the target disaster recovery region, which is the AWS Region
-in which the Recovery instances is deployed. AWS Elastic Disaster Recovery must be available in the
+in which the Recovery instances are deployed. AWS Elastic Disaster Recovery must be available in the
 selected Region and initiated in your account. You must initialize Elastic Disaster Recovery for this
 action to work.
 
@@ -144,7 +144,9 @@ times in the list.
 ## Convert MS-SQL license
 
 Use the **Windows MS-SQL license conversion**
-feature to easily convert Windows MS-SQL BYOL to an AWS license.
+feature to easily convert Windows MS-SQL BYOL to an AWS license. MGN
+detects SQL Server installed as either the default instance (MSSQLSERVER) or
+as a named instance (for example, MSSQL$SQLPROD).
 
 MGN:
 
@@ -174,7 +176,7 @@ that allows the SSM document to run, to run this post-launch action. This is in
 addition to the [full access
 policy](security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md "security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md"):
 
-The launched instance requirea these policies:
+The launched instance requires these policies:
 
 - CloudWatchAgentServerPolicy – The permissions required to use
   AmazonCloudWatchAgent on servers
@@ -204,7 +206,7 @@ with those permissions.
 ## Upgrade Windows
 
 Use the **Windows upgrade** feature to upgrade
-your migrated server to a more recent verions of Windows Server ([see the full list of available OS versions](../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md")).
+your migrated server to a more recent version of Windows Server ([see the full list of available OS versions](../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md")).
 
 You need the AWSApplicationMigrationSSMAccess policy, or a user-defined policy
 that allows the SSM document to run, to run this post-launch action. This is in

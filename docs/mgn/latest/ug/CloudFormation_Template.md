@@ -28,7 +28,7 @@ deploy these permissions manually.
                         {
                             "Effect": "Allow",
                             "Principal": {
-                                "AWS": "arn:aws:iam::`111122223333`:`ROLE-NAME`"
+                                "AWS": "arn:aws:iam::`111122223333`:role/`ROLE-NAME`"
                             },
                             "Action": "sts:AssumeRole"
                         }
@@ -102,7 +102,7 @@ deploy these permissions manually.
                                     ],
                                     "Resource": [
                                         "arn:aws:s3:::`aws-application-migration-service-us-east-2`/latest/source-automation-client/linux/ssaf-client/ssaf_client",
-                                        "arn:aws:s3:::`us-east-2`/*"
+                                        "arn:aws:s3:::`aws-application-migration-service-us-east-2`/*"
                                     ],
                                     "Effect": "Allow"
                                 },
@@ -149,7 +149,7 @@ Via AWS CloudFormation console
     4. Choose **Next**.
     5. In the following screen, choose a name for your CloudFormation stack (for example: `aws-mgn-connector-iam-principals-stack`) and choose **Next**.
     6. Choose **Next** again.
-    7. Acknowledge the required capabilities and choose on **Submit**.
+    7. Acknowledge the required capabilities and choose **Submit**.
     8. Wait for the stack to finish creation.
 
 Via AWS CLI

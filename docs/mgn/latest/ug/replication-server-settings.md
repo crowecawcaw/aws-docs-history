@@ -68,8 +68,8 @@ can change the replication server instance type to speed up the initial sync of
 data from your source servers to AWS. Changing the instance type will likely
 lead to increased compute costs.
 
-You can choose a the **Replication server
-instance** type from the drop-down menu
+You can choose the **Replication server
+instance** type from the drop-down menu, which
 contains all available types. Recommended and commonly used instance
 types are displayed first. You can also search for a specific instance type in the search box.
 
@@ -282,7 +282,7 @@ the normal operation of AWS Transform MGN.
 
 To add a new tag, take the following steps:
 
-1. Click **Add new tag**.
+1. Choose **Add new tag**.
 2. Enter a **Custom tag key** and an
    optional tag value.
 

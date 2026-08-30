@@ -27,7 +27,7 @@ In order to use the export feature, you will need to create a role with the foll
    "Action": [
      "s3:GetObject"
   ],
-   "Resource":  "arn:aws:s3:::amzn-s3-demo-bucket"
+   "Resource":  "arn:aws:s3:::amzn-s3-demo-bucket/*"
 },
 {
    "Sid": "AllowMgnStartExport",
@@ -60,7 +60,7 @@ JSON
  "Action": [
  "s3:PutObject"
  ],
- "Resource": "arn:aws:s3:::amzn-s3-demo-bucket"
+ "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*"
  }
  ]
 }`
@@ -101,7 +101,7 @@ The exported file can include multiple parameters, including:
 | **mgn:launch:nic:0:subnet-id**                      | The subnet ID that appears first in the network interface that appears first in the launch template.                                                                                                                                                                                                                                                                          |
 | **mgn:launch:placement:host-id**                    | The host ID of the placement of the launch instance.                                                                                                                                                                                                                                                                                                                          |
 | **mgn:launch:placement:operating-system-licensing** | The operating system licensing approach, LI, (license Included) or BYOL (bring your own license).                                                                                                                                                                                                                                                                             |
-| **mgn:launch:placement:tenancy**                    | This tenancy of the launch instance. Expected values: default, dedicated, or host.                                                                                                                                                                                                                                                                                            |
+| **mgn:launch:placement:tenancy**                    | The tenancy of the launch instance. Expected values: default, dedicated, or host.                                                                                                                                                                                                                                                                                             |
 | **mgn:launch:tag:instance:key1**                    | The value of launch instance tag "key1" (in this example, the tag key is key1).                                                                                                                                                                                                                                                                                               |
 | **mgn:launch:volume:/dev/sda:type**                 | The type of the launch instance's volume whose name is /dev/sda (in this example, the volume's name is /dev/sda).                                                                                                                                                                                                                                                             |
 | **mgn:region**                                      | The AWS Region to which you are importing, which must be the Region of your MGN console.<br>If left blank, defaults to the console Region.                                                                                                                                                                                                                                    |

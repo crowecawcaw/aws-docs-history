@@ -17,7 +17,7 @@ console.
 
 ## Uninstalling the Agent through the AWS Transform MGN console
 
-To uninstall the AWS Replication Agent though the AWS Transform MGN console.
+To uninstall the AWS Replication Agent through the AWS Transform MGN console:
 
 Navigate to the **Source servers** page.
 
@@ -26,7 +26,7 @@ uninstalling the AWS Replication Agent). Open the **Actions**
 menu, and choose the **Disconnect from service** option to
 disconnect the selected server from MGN and AWS.
 
-On the **Disconnect X server/s from service** dialog, click
+On the **Disconnect X server/s from service** dialog, choose
 **Disconnect**.
 
 The AWS Replication Agent is uninstalled from all of the selected source servers.

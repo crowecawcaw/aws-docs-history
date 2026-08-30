@@ -125,7 +125,7 @@ document or ones you created and uploaded to your account.
 You can configure a custom action to execute any SSM document that is available
 in your account.
 
-To add a new customer action, go to the **Post-launch actions
+To add a new custom action, go to the **Post-launch actions
 settings** and choose **Create
 action**.
 

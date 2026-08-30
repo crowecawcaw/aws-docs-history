@@ -5,11 +5,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 Complete these steps to install the AWS Replication Agent on Linux source
 servers.
 
-1. Ensure that the necessary service roles have been created by clicking on the
+1. Ensure that the necessary service roles have been created by choosing the
    Reinitialize service permissions button on the AWS Transform MGN console's replication settings page.
    You must have the permissions necessary to create IAM roles in order for this operation to
    succeed.
-2. Download the agent installer with the wget command your Linux source server. This wget
+2. Download the agent installer with the wget command on your Linux source server. This wget
    command downloads the Agent installer file - aws-replication-installer-init onto your
    server.
 
@@ -218,27 +218,58 @@ example, eu-central-1) and the full credentials.
 
 ![Terminal window showing AWS Replication Agent installation with region and credential inputs.](images/sourceservers-linuxagent2.png)
 
+If you want to install the Agent without answering the interactive prompts, you can
+pass your credentials to the installer through environment variables instead. We recommend
+that you use temporary credentials from AWS Security Token Service (AWS STS). First, set
+the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and
+`AWS_SESSION_TOKEN` environment variables. Then, run the installer with the
+`sudo -E` command (to preserve the environment variables) and the
+`--no-prompt` option. For example:
+
+```
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+export AWS_SESSION_TOKEN=AQoDYXdzEJr//////////wEa8AMDSomethingEXAMPLE
+chmod +x aws-replication-installer-init
+sudo -E ./aws-replication-installer-init --region us-east-1 --no-prompt
+```
+
 ###### Note
 
-    * You can also enter these values as part of the installation script command
-     parameters. If you do not enter these parameters as part of the installation script, you
-     are prompted to enter them one by one as described above. (for example: `sudo
-     chmod +x aws-replication-installer-init; sudo ./aws-replication-installer-init --region
-     regionname --aws-access-key-id AKIAIOSFODNN7EXAMPLE --aws-secret-access-key
-     wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`).
+    * You can also pass the AWS Access Key ID and AWS Secret Access Key as
+     command-line parameters. In the following example, replace
+     `<region>` with the AWS Region into which you are replicating:
+
+
+
+    ```
+    sudo chmod +x aws-replication-installer-init
+    sudo ./aws-replication-installer-init --region <region> --aws-access-key-id AKIAIOSFODNN7EXAMPLE --aws-secret-access-key wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    ```
+
+    ###### Warning
+
+    Credentials that you pass as command-line parameters are visible to other
+     users on the source server through the process list (for example, through the
+     `ps` command). To avoid exposing your credentials, use the environment
+     variable method described in the previous step. If you do pass credentials as
+     command-line parameters, use temporary credentials from AWS STS and rotate them
+     after installation.
+    * If you do not enter these parameters as part of the installation script, you are
+     prompted to enter them one by one as described in the previous step.
     * The AWS Access Key ID and AWS Secret Access Key values are hidden when
      entered into the installer.
 
-6. Once you have entered your credentials, the installer identifies volumes for
-replication. The installer displays the identified disks and prompt you to choose the
+6. After you enter your credentials, the installer identifies volumes for
+replication. The installer displays the identified disks and prompts you to choose the
 disks you want to replicate.
 
 ![Terminal window showing disk selection prompt listing identified volumes for replication.](images/sourceservers-linuxagent3.png)
 
 To replicate some of the disks, type the path of the disks, separated by a comma, as
 illustrated in the installer (such as: /dev/sda, /dev/sdb, and more). To replicate all of the
-disks, click **Enter**. The installer identifies the selected
-disks and print their size.
+disks, press **Enter**. The installer identifies the selected
+disks and prints their size.
 
 ![Terminal output showing selected disks with their reported sizes.](images/sourceservers-linuxagent4.png)
 
@@ -252,7 +283,7 @@ When identifying specific disks for replication, do not use apostrophes, bracket
 disk paths that do not exist. Type only existing disk paths. Each disk you selected for
 replication is displayed with the caption **Disk to replicate
 identified**. However, the displayed list of identified disks for replication may
-differ from the data you entered. This difference can due to several reasons:
+differ from the data you entered. This difference can be due to several reasons:
 
     * The root disk of the source server is always replicated, whether you select it or
      not. Therefore, it always appears on the list of identified disks for replication.
