@@ -86,6 +86,8 @@ Globals:
   CapacityProvider:
     InstanceRequirements:
     KmsKeyArn:
+    LoggingConfig:
+    ManagedResourceTags:
     OperatorRole:
     PropagateTags:
     ScalingConfig:

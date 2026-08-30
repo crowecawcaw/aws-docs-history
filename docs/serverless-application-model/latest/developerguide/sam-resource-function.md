@@ -123,6 +123,18 @@ AWS SAM generates [AWS::Lambda::Version](../../../AWSCloudFormation/latest/UserG
 information about this scenario, see [AutoPublishAlias property is specified](sam-specification-generated-resources-function.md#sam-specification-generated-resources-function-autopublishalias "sam-specification-generated-resources-function.md#sam-specification-generated-resources-function-autopublishalias"). For
 general information about generated CloudFormation resources, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
 
+###### Version publishing and intrinsic functions
+
+AWS SAM determines whether to publish a new version by comparing property values in
+the template between deployments. For values supplied through intrinsic functions, AWS SAM
+compares the unresolved reference, not the resolved value. One example is an environment
+variable set to `!Ref` of a template parameter.
+
+If a deployment changes only the value of a stack parameter, the template itself is
+unchanged. In this case, AWS SAM does not publish a new version or update the alias. AWS SAM
+applies the change to the function's `$LATEST` version only. For workarounds,
+see example using [AWS::LanguageExtensions](#sam-function-autopublishaliasallproperties "#sam-function-autopublishaliasallproperties").
+
 _Type_: String
 
 _Required_: No
@@ -141,6 +153,37 @@ properties are modified:
   `SnapStart`.
 - Any change that results in an update to the `Code` property, such as
   `CodeDict`, `ImageUri`, or `InlineCode`.
+
+###### Parameter changes and version publishing
+
+AWS SAM publishes a new version only when a property's value changes in the
+template. If a property value comes from an intrinsic function, AWS SAM sees the unresolved
+reference. One example is an environment variable defined as `!Ref` of a
+template parameter. Deployments that change only the parameter's value do not publish a new
+version, even with `AutoPublishAliasAllProperties: true`. AWS SAM applies the
+change to `$LATEST` only.
+
+Use one of the following workarounds to force AWS SAM to publish a new version when only
+a parameter value changes:
+
+- **Standard AWS SAM and CloudFormation deployments**: add the
+  [AWS::LanguageExtensions transform](../../../AWSCloudFormation/latest/UserGuide/transform-aws-languageextensions.md "../../../AWSCloudFormation/latest/UserGuide/transform-aws-languageextensions.md") before
+  `AWS::Serverless-2016-10-31` in your template's `Transform`
+  section. CloudFormation resolves references to their actual values before AWS SAM computes the
+  version hash. A change to the parameter's value then publishes a new version and updates
+  the alias:
+
+```
+Transform:
+  - AWS::LanguageExtensions
+  - AWS::Serverless-2016-10-31
+```
+
+- **AWS Serverless Application Repository applications**: the AWS Serverless Application Repository supports only the
+  `AWS::Serverless-2016-10-31` transform and rejects templates that declare
+  `AWS::LanguageExtensions`. For applications that you publish through the
+  AWS Serverless Application Repository, supply the value directly as a literal in the template instead of referencing a
+  parameter. This makes the change visible when AWS SAM computes the version hash.
 
 This property requires `AutoPublishAlias` to be defined.
 

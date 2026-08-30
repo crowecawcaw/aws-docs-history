@@ -31,7 +31,9 @@ Properties:
   PropagateTags: `Boolean`
   InstanceRequirements: `InstanceRequirements`
   ScalingConfig: `ScalingConfig`
+  LoggingConfig: `CapacityProviderLoggingConfig`
   KmsKeyArn: `String`
+  ManagedResourceTags: `ManagedResourceTags`
 
 ```
 
@@ -128,6 +130,21 @@ _CloudFormation compatibility_: This property is passed directly to the
 `CapacityProviderScalingConfig` property of an
 `AWS::Lambda::CapacityProvider` resource.
 
+`LoggingConfig`
+
+Use `LoggingConfig` to configure system logging for the capacity provider. System logs capture
+scaling activity and operational events and send them to a Amazon CloudWatch
+log group at a configurable log level.
+
+_Type_: [CapacityProviderLoggingConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderloggingconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderloggingconfig.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: This property is passed directly to the
+`LoggingConfig` property of
+`TelemetryConfig` of an
+`AWS::Lambda::CapacityProvider` resource.
+
 `KmsKeyArn`
 
 The ARN of the AWS KMS key used to encrypt data at rest and in transit for the capacity provider.
@@ -138,6 +155,19 @@ _Required_: No
 
 _CloudFormation compatibility_: This property is passed directly to the
 `KmsKeyArn` property of an
+`AWS::Lambda::CapacityProvider` resource.
+
+`ManagedResourceTags`
+
+Applies explicit tags to the Amazon Elastic Compute Cloud instances and other managed
+resources that the capacity provider provisions on your behalf.
+
+_Type_: [ManagedResourceTags](sam-property-capacityprovider-managedresourcetags.md "sam-property-capacityprovider-managedresourcetags.md")
+
+_Required_: No
+
+_CloudFormation compatibility_: AWS SAM uses this property to construct the
+`PropagateTags` property of an
 `AWS::Lambda::CapacityProvider` resource.
 
 ## Return Values
@@ -209,6 +239,13 @@ AdvancedCapacityProvider:
       ManualScalingPolicies:
         AverageCPUUtilization: 70.0
     KmsKeyArn: arn:aws:kms:`us-east-1`:`123456789012`:key/`12345678-1234-1234-1234-123456789012`
+    LoggingConfig:
+      LogGroup: /aws/lambda/capacity-provider/`advanced-capacity-provider`
+      SystemLogLevel: INFO
+    ManagedResourceTags:
+      Tags:
+        CostCenter: `cc-1234`
+        Environment: `Production`
     Tags:
       Environment: Production
       CostCenter: Engineering
