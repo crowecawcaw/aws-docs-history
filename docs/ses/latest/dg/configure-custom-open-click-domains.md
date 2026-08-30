@@ -258,34 +258,20 @@ not installed, the link falls back to the web browser. Because these verificatio
 use path-prefix matching, you need control over the path segment in your tracking
 URLs.
 
-Use the `ses:custom-path` attribute on individual `<a>`
-tags in your email HTML to add a fixed path segment to the tracking URL:
+To configure deep linking with custom path segments, complete these steps:
 
-```
-<a href="https://example.com/product/123" ses:custom-path="myapp">View product</a>
-```
+1. Host a verification file on your custom redirect domain.
+2. Add the `ses:custom-path` attribute to links in your email
+   HTML.
 
-The following examples show the difference between a tracking URL without and with
-`ses:custom-path`:
+In the following instructions,
+`{your-custom-redirect-domain}` is the custom redirect domain you
+configured in Part 1 (for example,
+`click.mail.yourcompany.com`).
 
-- Without `ses:custom-path` (default):
-  `https://{your-custom-redirect-domain}/CL0/{encodedUrl}/{index}/{messageId}/{hmac}`
-- With `ses:custom-path="myapp"`:
-  `https://{your-custom-redirect-domain}/CL1/myapp/{encodedUrl}/{index}/{messageId}/{hmac}`
+### Step 1: Host a verification file
 
-The `ses:custom-path` value must meet the following requirements:
-
-- Letters (A–Z, a–z), digits (0–9), hyphens (-), periods
-  (.), or underscores (\_) only
-- 1–32 characters, case-sensitive
-- SES removes this attribute from the email before delivery
-- Falls back to the default format if the value is invalid (same as omitting
-  `ses:custom-path`)
-
-The `ses:custom-path` value does not appear in click event data. To
-identify which link was clicked in events, use `ses:tags`.
-
-### iOS Universal Links
+#### iOS Universal Links
 
 To authorize your iOS app to handle Universal Links on your custom redirect
 domain, host the following file at
@@ -305,15 +291,26 @@ domain, host the following file at
 }
 ```
 
-Replace `TEAMID`.`com.example.myapp`
-with your Apple Team ID and app bundle identifier, and
-`myapp` with the value you specify in
-`ses:custom-path`.
+- Replace `TEAMID` with your Apple Team ID
+  (find it at
+  `https://developer.apple.com/account/#/membership/`)
+- Replace `com.example.myapp` with your
+  app's bundle identifier
+- Replace `myapp` in the path with the value
+  you will use in `ses:custom-path`
+- The file must be served over HTTPS with content type
+  `application/json`
 
-### Android App Links
+After hosting this file, add your custom redirect domain to your app's
+Associated Domains in Xcode
+(`applinks:{your-custom-redirect-domain}`). For full setup
+details, see the [Apple Universal Links documentation on the Apple Developer
+website](https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content "https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content").
 
-To authorize your Android app to handle App Links on your custom redirect domain,
-host the following file at
+#### Android App Links
+
+To authorize your Android app to handle App Links on your custom redirect
+domain, host the following file at
 `https://{your-custom-redirect-domain}/.well-known/assetlinks.json`:
 
 ```
@@ -327,16 +324,57 @@ host the following file at
 }]
 ```
 
-Replace `com.example.myapp` with your app's package name
-and `certificate-fingerprint` with your app's signing
-certificate fingerprint.
+- Replace `com.example.myapp` with your
+  app's package name
+- Replace `certificate-fingerprint` with your
+  app's signing certificate SHA-256 fingerprint
 
-###### Note
-
-Android handles path-prefix matching differently from iOS. Instead of defining
-path prefixes in the `assetlinks.json` file, configure an intent
-filter in your app's `AndroidManifest.xml` with
+After hosting this file, add an intent filter in your app's
+`AndroidManifest.xml` with your custom redirect domain and
 `android:pathPrefix="/CL1/`myapp`/"`,
-where `myapp` is the value you specify in
-`ses:custom-path`. For more information, see the [Android App Links
+where `myapp` is the value you will use in
+`ses:custom-path`. For full setup details, see the [Android App Links
 documentation on the Android Developers website](https://developer.android.com/training/app-links "https://developer.android.com/training/app-links").
+
+### Step 2: Add ses:custom-path to your email HTML
+
+Use the `ses:custom-path` attribute on individual
+`<a>` tags in your email HTML to add a fixed path segment to
+the tracking URL:
+
+```
+<a href="https://example.com/product/123" ses:custom-path="myapp">View product</a>
+```
+
+The following examples show the difference between a tracking URL without and
+with `ses:custom-path`:
+
+- Without `ses:custom-path` (default):
+  `https://{your-custom-redirect-domain}/CL0/{encodedUrl}/{index}/{messageId}/{hmac}`
+- With `ses:custom-path="myapp"`:
+  `https://{your-custom-redirect-domain}/CL1/myapp/{encodedUrl}/{index}/{messageId}/{hmac}`
+
+The `ses:custom-path` value must meet the following
+requirements:
+
+- Letters (A–Z, a–z), digits (0–9), hyphens (-),
+  periods (.), or underscores (\_) only
+- 1–32 characters, case-sensitive
+- SES removes this attribute from the email before
+  delivery
+- Falls back to the default format if the value is invalid (same as
+  omitting `ses:custom-path`)
+
+The `ses:custom-path` value does not appear in click event data.
+To attach custom metadata to click events for link identification or analytics,
+use the optional `ses:tags` attribute:
+
+```
+<a href="https://example.com/product/123"
+   ses:custom-path="myapp"
+   ses:tags="category:product">View product</a>
+```
+
+Tag values appear in the click event's `linkTags` field. For
+details, see [Can I tag links with
+unique identifiers?](faqs-metrics.md#sending-metric-faqs-clicks-q5 "faqs-metrics.md#sending-metric-faqs-clicks-q5").
