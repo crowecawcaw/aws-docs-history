@@ -17,6 +17,21 @@ Subscribe to the RSS feed to get notified about new releases automatically:
 The highlights below cover notable releases from the past year, most recent
 first.
 
+## CID Data Collection v3.14.8: refactored Service Quotas module (August 26, 2026)
+
+- **Native quota utilization API** — the Service Quotas module now uses the native
+  Service Quotas utilization API to retrieve quota values and usage, improving
+  accuracy and reliability of the collected data.
+- **Parallel regional processing** — quotas are now collected across regions in
+  parallel, significantly reducing collection time.
+- **Collect all quotas** — improved logic now collects all quotas rather than only
+  those with applied quota changes, giving broader visibility into quota
+  utilization.
+
+See [CID Data Collection](data-collection.md "data-collection.md").
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/releases/tag/3.14.8 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/releases/tag/3.14.8").
+
 ## cid-cmd v4.4.17: merge taxonomy fields and account mapping (August 14, 2026)
 
 - **Merge taxonomy fields into a single dimension** (since v4.4.16) — combine

@@ -15,7 +15,7 @@ Key capabilities include:
 
 The following screenshot shows the Executive Summary tab of the Kiro User Activity Dashboard:
 
-![The Kiro User Activity Dashboard Executive Summary tab showing Active Users](/images/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/kiro-executive-view.png)
+![The Kiro User Activity Dashboard Executive Summary tab showing Active Users](images/images/dashboards/kiro-executive-view.png)
 
 ## Demo Dashboard
 
