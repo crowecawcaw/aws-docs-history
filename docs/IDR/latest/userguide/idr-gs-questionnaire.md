@@ -66,7 +66,7 @@ Once engineers from AWS Incident Detection and Response have reviewed your alarm
 - AWS Incident Detection and Response alarms should only enter "Alarm" state upon significant business impact to the monitored workload
   (loss of revenue/degraded customer experience) that requires immediate operator attention.
 - AWS Incident Detection and Response alarms must also engage your resolvers for the workload at the same time or prior to engagement.
-  AWS Incident Managers collaborate with your resolvers in the mitigation process, and do not serve as a first-line responders who then escalate to you.
+  AWS Incident Managers collaborate with your resolvers in the mitigation process, and do not serve as first-line responders who then escalate to you.
 - AWS Incident Detection and Response alarm thresholds must be set to an appropriate threshold and duration so that any time an alarm fires
   an investigation must take place. If an alarm is moving between the "Alarm" and "OK" state, sufficient impact is occurring to warrant operator response
   and attention.
@@ -79,7 +79,7 @@ to this criteria and is engaging the Incident Management team unnecessarily at a
 
 ###### Important
 
-Provide a group distribution email addresses when supplying contact addresses, so that you can control recipient additions and deletions
+Provide a group distribution email address when supplying contact addresses, so that you can control recipient additions and deletions
 without runbook updates.
 
 Provide the contact phone number for your site reliability engineering (SRE) team if you would like the AWS Incident Detection and Response team to call them after sending

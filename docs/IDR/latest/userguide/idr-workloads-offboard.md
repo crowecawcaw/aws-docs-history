@@ -7,7 +7,7 @@ To offboard a workload from AWS Incident Detection and Response, create a new su
 
 ###### Important
 
-If you create a support case to offboard a workload from the incorrect account, you might experience delays and requests for additional information before your workloads can be offloaded.
+If you create a support case to offboard a workload from the incorrect account, you might experience delays and requests for additional information before your workloads can be offboarded.
 
 ###### Request to offboard a workload
 

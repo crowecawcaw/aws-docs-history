@@ -220,7 +220,7 @@ AWS Incident Detection and Response**
 
 ## Option 2: Manual integration
 
-![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](images/example-int-partner-event-bus.png)
+![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](/images/IDR/latest/userguide/images/example-int-partner-event-bus.png)
 
 Complete the following steps for each AWS account and AWS
 Region where AWS Incident Detection and Response needs to ingest alarms from. AWS Incident Detection and Response

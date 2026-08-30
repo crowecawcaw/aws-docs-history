@@ -1,6 +1,6 @@
 # Develop runbooks and response plans for responding to an incident in Incident Detection and Response
 
-AWS Incident Detection and Response uses information captured from your IDR CLI onboarding to develop runbooks
+AWS Incident Detection and Response uses information captured during your workload onboarding to develop runbooks
 for the management of incidents affecting your workloads. Runbooks
 document steps Incident Managers take when responding to an incident. A response plan is
 mapped to at least one of your workloads. The incident management team creates these
