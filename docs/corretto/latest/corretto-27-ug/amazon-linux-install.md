@@ -27,9 +27,9 @@ java -version
 Expected output for 27.0.0:
 
 ```
-openjdk 27 2026-08-06
- OpenJDK Runtime Environment Corretto-27.0.0.33.1 (build 27+33-FR)
- OpenJDK 64-Bit Server VM Corretto-27.0.0.33.1 (build 27+33-FR, mixed mode, sharing)
+openjdk 27 2026-08-20
+ OpenJDK Runtime Environment Corretto-27.0.0.34.1 (build 27+34-FR)
+ OpenJDK 64-Bit Server VM Corretto-27.0.0.34.1 (build 27+34-FR, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`,

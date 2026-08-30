@@ -65,7 +65,7 @@ sudo apt-get update && sudo apt-get install java-common
 ###### Example
 
 ```
-sudo dpkg --install java-27-amazon-corretto-jdk_27.0.0.33-1_amd64.deb
+sudo dpkg --install java-27-amazon-corretto-jdk_27.0.0.34-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -81,9 +81,9 @@ java -version
 Expected output for 27.0.0:
 
 ```
-openjdk 27 2026-08-06
- OpenJDK Runtime Environment Corretto-27.0.0.33.1 (build 27+33-FR)
- OpenJDK 64-Bit Server VM Corretto-27.0.0.33.1 (build 27+33-FR, mixed mode, sharing)
+openjdk 27 2026-08-20
+ OpenJDK Runtime Environment Corretto-27.0.0.34.1 (build 27+34-FR)
+ OpenJDK 64-Bit Server VM Corretto-27.0.0.34.1 (build 27+34-FR, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -164,7 +164,7 @@ sudo zypper install java-27-amazon-corretto-devel
 ###### Example
 
 ```
-sudo yum localinstall java-27-amazon-corretto-devel-27.0.0.33-1.x86_64.rpm
+sudo yum localinstall java-27-amazon-corretto-devel-27.0.0.34-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -180,9 +180,9 @@ java -version
 Expected output for 27.0.0:
 
 ```
-openjdk 27 2026-08-06
- OpenJDK Runtime Environment Corretto-27.0.0.33.1 (build 27+33-FR)
- OpenJDK 64-Bit Server VM Corretto-27.0.0.33.1 (build 27+33-FR, mixed mode, sharing)
+openjdk 27 2026-08-20
+ OpenJDK Runtime Environment Corretto-27.0.0.34.1 (build 27+34-FR)
+ OpenJDK 64-Bit Server VM Corretto-27.0.0.34.1 (build 27+34-FR, mixed mode, sharing)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
