@@ -626,6 +626,15 @@ tables.
 A property that sets number of rows to skip at the beginning of
 each source file.
 
+'format-version'='_version_'
+
+Specifies the Iceberg table format version. Possible
+values: '2' (default), '3'. Format version 3 supports
+additional capabilities such as default column values.
+At CREATE time, if not specified, Amazon Redshift creates the table
+as Iceberg v2. On an existing table, setting this property
+to '3' upgrades the table from v2 to v3.
+
 PARTITION (
 _partition\_column_=_partition\_value_ [,
 ...] SET LOCATION { 's3://_bucket_/_folder_'

@@ -117,6 +117,11 @@ Selecting _$size* or *$path_ incurs
 charges because Redshift Spectrum scans the data files in Amazon S3 to determine the size of the
 result set. For more information, see [Amazon Redshift Pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 
+For Iceberg v3 tables, two additional pseudo-columns
+_\_row\_id_ and
+_\_last\_updated\_sequence\_number_ are available. For
+more information, see [Row lineage](iceberg-v3-features.md#iceberg-v3-row-lineage "iceberg-v3-features.md#iceberg-v3-row-lineage").
+
 ## Setting data handling options
 
 You can set table parameters to specify input handling for data being queried in

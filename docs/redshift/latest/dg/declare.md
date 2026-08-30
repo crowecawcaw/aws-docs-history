@@ -58,8 +58,10 @@ Amazon Redshift cursors are supported with the following limitations:
 - Only one cursor at a time can be open per session.
 - Cursors must be used within a transaction (BEGIN … END).
 - The maximum cumulative result set size for all cursors is constrained based on
-  the cluster node type. If you need larger result sets, you can resize to an XL or
-  8XL node configuration.
+  the cluster node type. This is a cluster-wide total that is shared across all
+  cursors that are open at the same time; a single cursor can use only part of it,
+  because some capacity is reserved so that multiple cursors can run concurrently.
+  If you need larger result sets, you can resize to a larger node configuration.
 
 For more information, see [Cursor constraints](#declare-constraints "#declare-constraints").
 
@@ -68,27 +70,35 @@ For more information, see [Cursor constraints](#declare-constraints "#declare-co
 When the first row of a cursor is fetched, the entire result set is materialized on
 the leader node. If the result set doesn't fit in memory, it is written to disk as
 needed. To protect the integrity of the leader node, Amazon Redshift enforces constraints on
-the size of all cursor result sets, based on the cluster's node type.
+the size of cursor result sets, based on the cluster's node type.
 
-The following table shows the maximum total result set size for each cluster node
-type. Maximum result set sizes are in megabytes.
+The value in the following table is a cluster-wide total, not a per-cursor limit. To
+make sure that multiple cursors can be open concurrently, a portion of this total
+capacity is reserved for concurrent use. As a result, a single cursor can't use the
+entire cumulative maximum on its own; the largest result set that one cursor can hold is
+less than the total shown in the table. An individual cursor can fail when its result
+set reaches this per-cursor boundary, even when the cluster's overall cursor
+capacity isn't fully used.
 
-| Node type                   | Maximum result set per cluster (MB) |
-| --------------------------- | ----------------------------------- |
-| rg.12xlarge multiple nodes  | 7,200,000                           |
-| rg.4xlarge multiple nodes   | 1,600,000                           |
-| rg.xlarge multiple nodes    | 240,000                             |
-| rg.large multiple nodes     | 100,000                             |
-| ra3.16xlarge multiple nodes | 14,400,000                          |
-| ra3.4xlarge multiple nodes  | 3,200,000                           |
-| ra3.xlplus multiple nodes   | 1,000,000                           |
-| ra3.xlplus single node      | 64,000                              |
-| ra3.large multiple nodes    | 240,000                             |
-| ra3.large single node       | 8,000                               |
-| Amazon Redshift Serverless  | 150,000                             |
-| dc2.8xlarge multiple nodes  | 3,200,000                           |
-| dc2.large multiple nodes    | 192,000                             |
-| dc2.large single node       | 8,000                               |
+The following table shows the maximum cumulative result set size for each cluster
+node type. Maximum result set sizes are in megabytes.
+
+| Node type                   | Maximum cumulative result set per cluster (MB) |
+| --------------------------- | ---------------------------------------------- |
+| rg.12xlarge multiple nodes  | 7,200,000                                      |
+| rg.4xlarge multiple nodes   | 1,600,000                                      |
+| rg.xlarge multiple nodes    | 240,000                                        |
+| rg.large multiple nodes     | 100,000                                        |
+| ra3.16xlarge multiple nodes | 14,400,000                                     |
+| ra3.4xlarge multiple nodes  | 3,200,000                                      |
+| ra3.xlplus multiple nodes   | 1,000,000                                      |
+| ra3.xlplus single node      | 64,000                                         |
+| ra3.large multiple nodes    | 240,000                                        |
+| ra3.large single node       | 8,000                                          |
+| Amazon Redshift Serverless  | 150,000                                        |
+| dc2.8xlarge multiple nodes  | 3,200,000                                      |
+| dc2.large multiple nodes    | 192,000                                        |
+| dc2.large single node       | 8,000                                          |
 
 To view the active cursor configuration for a cluster, query the [STV\_CURSOR\_CONFIGURATION](r_STV_CURSOR_CONFIGURATION.md "r_STV_CURSOR_CONFIGURATION.md")
 system table as a superuser. To view the state of active cursors, query the [STV\_ACTIVE\_CURSORS](r_STV_ACTIVE_CURSORS.md "r_STV_ACTIVE_CURSORS.md") system table.

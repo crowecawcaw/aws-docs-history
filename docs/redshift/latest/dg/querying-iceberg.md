@@ -50,7 +50,20 @@ Consider the following when using Amazon Redshift with Iceberg tables:
   - Version 2 adds the ability to support row-level updates and deletes
     while keeping the existing data files unchanged, and handling table data
     changes using delete files.
-    For the difference between version 1 and version 2 tables, see [Format version changes](https://iceberg.apache.org/spec/#appendix-e-format-version-changes "https://iceberg.apache.org/spec/#appendix-e-format-version-changes") in the Apache Iceberg documentation.
+  - Version 3 introduces default column values, row lineage
+    tracking, and deletion vectors. Default values let you
+    define initial values for columns that are applied when
+    values are not explicitly provided. Row lineage provides
+    pseudo-columns that track row identity and modification
+    history. Deletion vectors offer a more compact
+    representation of row-level deletes, enabling faster reads
+    and writes compared to Iceberg v2 delete files. For more
+    information, see [Apache Iceberg v3 features in Amazon Redshift](iceberg-v3-features.md "iceberg-v3-features.md").
+    For the differences between version 1, version 2, and version 3
+    tables, see [Format version changes](https://iceberg.apache.org/spec/#appendix-e-format-version-changes "https://iceberg.apache.org/spec/#appendix-e-format-version-changes") in the Apache Iceberg documentation.
+
+For more information about the Iceberg v3 features that Amazon Redshift
+supports, and current limitations, see [Apache Iceberg v3 features in Amazon Redshift](iceberg-v3-features.md "iceberg-v3-features.md").
 
 - Adding partitions – You don't need to
   manually add partitions for your Apache Iceberg tables. New partitions in Apache
