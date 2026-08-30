@@ -6,6 +6,6 @@ These tutorials walk through hosting an agent on the **Instances** compute type.
 
 - An AWS account with access to Amazon Bedrock AgentCore.
 - Permissions to create AgentCore capacity providers and agent runtimes, and to create or pass the required IAM roles. For more information, see [IAM roles](runtime-instances-how-it-works.md#runtime-instances-permissions "runtime-instances-how-it-works.md#runtime-instances-permissions").
-- An agent or tool artifact — either a container image in Amazon ECR, or an agent package in an Amazon S3 bucket.
+- An agent or tool artifact — either a container image in Amazon ECR, or an agent package in an Amazon S3 bucket. A container image must implement the AgentCore Runtime HTTP service contract. It must serve `GET /ping` (returning `200` with a healthy-status JSON body) and `POST /invocations` (returning `200` with the response payload) on port `8080`. An image that does not implement this contract fails to become healthy. For the full requirements, see [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md").
 
 ###### Topics

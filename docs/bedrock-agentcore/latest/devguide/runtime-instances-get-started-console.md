@@ -41,7 +41,7 @@ You can’t change the compute type after you create the runtime.
 ## Step 3: Invoke and monitor
 
 1. From the runtime’s detail page, choose **Test** and provide a payload, or use the **View invocation code** snippet to call the agent from your own application.
-2. The first invocation for a new session provisions an EC2 instance in your account and launches the agent, so it takes longer than subsequent invocations. The instance appears in your account’s EC2 console.
+2. The first invocation for a new session provisions an EC2 instance in your account and launches the agent, so it typically takes longer than later invocations. Subsequent invocations to the same session are much faster. AgentCore provisions the instance as an [Amazon EC2 managed instance](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md"), which is hidden from your EC2 console views and `DescribeInstances` by default. For more information about managed instance visibility, see the [managed resource visibility setting](../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings "../../../AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.md#managed-resource-visibility-settings").
 3. Use the **Observability** metrics and **Logs and tracing** on the runtime’s detail page to monitor sessions, invocations, error rate, and resource consumption.
 
 ## Step 4: Clean up

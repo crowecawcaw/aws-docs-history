@@ -50,9 +50,11 @@ The following table shows the supported Availability Zone IDs for each region:
 | ------------------------- | -------------- | ----------------------------- |
 | US East (N. Virginia)     | us-east-1      | use1-az1 use1-az2 use1-az4    |
 | US East (Ohio)            | us-east-2      | use2-az1 use2-az2 use2-az3    |
+| US West (N. California)   | us-west-1      | usw1-az1 usw1-az3             |
 | US West (Oregon)          | us-west-2      | usw2-az1 usw2-az2 usw2-az3    |
 | Asia Pacific (Malaysia)   | ap-southeast-5 | apse5-az1 apse5-az2 apse5-az3 |
 | Asia Pacific (Mumbai)     | ap-south-1     | aps1-az1 aps1-az2 aps1-az3    |
+| Asia Pacific (Hyderabad)  | ap-south-2     | aps2-az1 aps2-az2 aps2-az3    |
 | Asia Pacific (Seoul)      | ap-northeast-2 | apne2-az1 apne2-az2 apne2-az3 |
 | Asia Pacific (Singapore)  | ap-southeast-1 | apse1-az1 apse1-az2 apse1-az3 |
 | Asia Pacific (Sydney)     | ap-southeast-2 | apse2-az1 apse2-az2 apse2-az3 |

@@ -54,6 +54,8 @@ A namespace can have different levels of granularity:
 
 For example code, see [Enable long-term memory](long-term-enabling-long-term-memory.md "long-term-enabling-long-term-memory.md").
 
+For more information about organizing long-term memories with namespaces, including custom namespace variables and IAM access control, see [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md "specify-long-term-memory-organization.md").
+
 ### Restrict access with IAM
 
 You can create IAM policies to restrict memory access by the scopes you define, such as actor, session, and namespace. Use the scopes as context keys in your IAM polices.

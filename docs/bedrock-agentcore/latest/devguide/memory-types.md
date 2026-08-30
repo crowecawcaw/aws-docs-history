@@ -23,7 +23,7 @@ Event metadata lets you attach additional context information to your short-term
 
 Long-term memory records store structured information extracted from raw agent interactions, which is retained across multiple sessions. Long-term memory preserves only the key insights such as summaries of the conversations, facts and knowledge, or user preferences. For example, if a customer tells the agent their preferred shoe brand during a conversation, the AI agent stores this as a long-term memory. Later, even in a different conversation, the agent can remember and suggest the shoe brand, making the interaction personalized and relevant.
 
-Long-term memory generation is an asynchronous process that runs in the background and automatically extracts insights after raw conversation/context is stored in short-term memory via `CreateEvent` . This efficiently consolidates key information without interrupting live interactions. As part of the long-term memory generation, AgentCore Memory performs the following operations:
+Long-term memory generation is an asynchronous process that runs in the background and automatically extracts insights after raw conversation/context is stored in short-term memory via `CreateEvent`, or submitted directly through `IngestData`. This efficiently consolidates key information without interrupting live interactions. As part of the long-term memory generation, AgentCore Memory performs the following operations:
 
 - **Extraction** : Extracts information from raw interactions with the agent
 - **Consolidation** : Consolidates newly extracted information with existing information in the AgentCore Memory.

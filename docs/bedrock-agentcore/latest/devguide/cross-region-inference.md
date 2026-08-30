@@ -2,7 +2,7 @@
 
 With cross-region inference, Amazon Bedrock AgentCore Memory, Policy in AgentCore, and AgentCore Evaluations will automatically select the optimal region (as described in more detail below) to process your inference request, maximizing available compute resources and model availability, and providing the best customer experience.
 
-For AgentCore Memory, Policy in AgentCore (in select regions), and AgentCore Evaluations, cross-region inference requests are kept within the AWS Regions that are part of the geography where the data originally resides. For example, a request made within the US is kept within the AWS Regions in the US. Although the data remains stored only in the primary region, when using cross-region inference, your input prompts and output results may move outside of your primary region. All data will be transmitted encrypted across Amazon’s secure network. For Policy in AgentCore, inference requests originating in Canada (Central) (ca-central-1) and South America (São Paulo) (sa-east-1) use global cross-region inference and will be securely routed to all available compute resources across all global commercial AWS Regions. For more information, see [Global cross-region inference for Policy in AgentCore](#cross-region-inference-policy-global "#cross-region-inference-policy-global"). For AgentCore Evaluations, inference requests originating in Asia Pacific (Seoul) (ap-northeast-2) use global cross-region inference and will be securely routed to all available compute resources across all global commercial AWS Regions. For more information, see [Global cross-region inference for AgentCore Evaluations](#cross-region-inference-evaluations-global "#cross-region-inference-evaluations-global").
+For AgentCore Memory, Policy in AgentCore (in select regions), and AgentCore Evaluations, cross-region inference requests are kept within the AWS Regions that are part of the geography where the data originally resides. For example, a request made within the US is kept within the AWS Regions in the US. Although the data remains stored only in the primary region, when using cross-region inference, your input prompts and output results may move outside of your primary region. All data will be transmitted encrypted across Amazon’s secure network. For Policy in AgentCore, inference requests originating in Canada (Central) (ca-central-1) and South America (São Paulo) (sa-east-1) use global cross-region inference and will be securely routed to all available compute resources across all global commercial AWS Regions. For more information, see [Global cross-region inference for Policy in AgentCore](#cross-region-inference-policy-global "#cross-region-inference-policy-global"). For AgentCore Evaluations, inference requests originating in Asia Pacific (Hyderabad) (ap-south-2), Asia Pacific (Malaysia) (ap-southeast-5), Asia Pacific (Seoul) (ap-northeast-2), and Asia Pacific (Thailand) (ap-southeast-7) use global cross-region inference and will be securely routed to all available compute resources across all global commercial AWS Regions. For more information, see [Global cross-region inference for AgentCore Evaluations](#cross-region-inference-evaluations-global "#cross-region-inference-evaluations-global").
 
 AWS GovCloud (US) is an isolated AWS partition. Data originating in AWS GovCloud (US) never leaves the partition and is never routed to commercial AWS Regions.
 
@@ -33,11 +33,11 @@ For a list of Region codes and endpoints supported in AgentCore, see [Supported 
 
 For a list of Region codes and endpoints supported in AgentCore, see [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md") . For endpoints, see [Amazon Bedrock AgentCore endpoints and quotas](../../../general/latest/gr/bedrock_agentcore.md "../../../general/latest/gr/bedrock_agentcore.md").
 
-| Supported Policy in AgentCore geography | Inference regions                                                                                                                                                                                                                                                                                                     |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| United States                           | US East (N. Virginia) (us-east-1) US East (Ohio) (us-east-2) US West (Oregon) (us-west-2)                                                                                                                                                                                                                             |
-| Europe                                  | Europe (Frankfurt) (eu-central-1) Europe (Stockholm) (eu-north-1) Europe (Milan) (eu-south-1) Europe (Spain) (eu-south-2) Europe (Ireland) (eu-west-1) Europe (Paris) (eu-west-3)                                                                                                                                     |
-| Asia Pacific                            | Asia Pacific (Tokyo) (ap-northeast-1) Asia Pacific (Seoul) (ap-northeast-2) Asia Pacific (Osaka) (ap-northeast-3) Asia Pacific (Mumbai) (ap-south-1) Asia Pacific (Hyderabad) (ap-south-2) Asia Pacific (Singapore) (ap-southeast-1) Asia Pacific (Sydney) (ap-southeast-2) Asia Pacific (Melbourne) (ap-southeast-4) |
+| Supported Policy in AgentCore geography | Inference regions                                                                                                                                                                                                                                                               |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| United States                           | US East (N. Virginia) (us-east-1) US East (Ohio) (us-east-2) US West (N. California) (us-west-1) US West (Oregon) (us-west-2)                                                                                                                                                   |
+| Europe                                  | Europe (Frankfurt) (eu-central-1) Europe (Stockholm) (eu-north-1) Europe (Milan) (eu-south-1) Europe (Spain) (eu-south-2) Europe (Ireland) (eu-west-1) Europe (Paris) (eu-west-3)                                                                                               |
+| Asia Pacific                            | Asia Pacific (Tokyo) (ap-northeast-1) Asia Pacific (Seoul) (ap-northeast-2) Asia Pacific (Osaka) (ap-northeast-3) Asia Pacific (Mumbai) (ap-south-1) Asia Pacific (Singapore) (ap-southeast-1) Asia Pacific (Sydney) (ap-southeast-2) Asia Pacific (Melbourne) (ap-southeast-4) |
 
 ## Global cross-region inference for Policy in AgentCore
 
@@ -47,6 +47,7 @@ Customers with data residency or compliance requirements should assess whether g
 
 | Source AWS Region                        |
 | ---------------------------------------- |
+| Asia Pacific (Hyderabad) (ap-south-2)    |
 | Asia Pacific (Malaysia) (ap-southeast-5) |
 | Asia Pacific (Thailand) (ap-southeast-7) |
 | Canada (Central) (ca-central-1)          |
@@ -69,6 +70,9 @@ AgentCore Evaluations supports global cross-region inference from the following 
 
 Customers with data residency or compliance requirements should assess whether global cross-region inference fits their compliance framework, because requests may be processed in any global commercial AWS Region.
 
-| Source AWS Region                     |
-| ------------------------------------- |
-| Asia Pacific (Seoul) (ap-northeast-2) |
+| Source AWS Region                        |
+| ---------------------------------------- |
+| Asia Pacific (Hyderabad) (ap-south-2)    |
+| Asia Pacific (Malaysia) (ap-southeast-5) |
+| Asia Pacific (Seoul) (ap-northeast-2)    |
+| Asia Pacific (Thailand) (ap-southeast-7) |

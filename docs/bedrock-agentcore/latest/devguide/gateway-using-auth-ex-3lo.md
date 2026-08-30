@@ -7,7 +7,7 @@ You can use the `_meta` field in the `params` object of the request body to modi
 ```
 {
     "aws.bedrock-agentcore.gateway/credentialProviderConfiguration": {
-        "oauthcredentialProvider": {
+        "oauthCredentialProvider": {
             "returnUrl": "string",
             "forceAuthentication": bool
         }

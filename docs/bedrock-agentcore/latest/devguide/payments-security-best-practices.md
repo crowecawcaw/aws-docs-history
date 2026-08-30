@@ -91,6 +91,8 @@ The `payTo` address specifies the recipient wallet. AgentCore payments does not 
 - **Prefer AgentCore Gateway** for endpoint discovery, because it provides verified `payTo` addresses through the x402 Bazaar.
 - **Apply Cedar policies** to constrain which addresses an agent can pay.
 - **Don’t cache addresses across sessions.** Always use the current merchant-provided address, validated against your allowlist.
+- **Recipient screening.** Session limits bound how much an agent can spend, not who it can pay. Use a wallet policy to deny payments to specific recipients. For Stripe (Privy), follow the [sanctions screening for payments](https://docs.privy.io/recipes/agent-integrations/x402-sanctions-screening "https://docs.privy.io/recipes/agent-integrations/x402-sanctions-screening") guidance on the Privy website. Coinbase automatically screens all transactions against the OFAC sanctions list.
+- **Use payment provider policies** to restrict wallet actions such as signing and transfer. For more information, see the [Stripe (Privy) policies documentation](https://docs.privy.io/controls/policies/overview "https://docs.privy.io/controls/policies/overview") on the Privy website and the [Coinbase security and policies documentation](https://docs.cdp.coinbase.com/wallets/security-and-policies/security-overview "https://docs.cdp.coinbase.com/wallets/security-and-policies/security-overview") on the Coinbase website.
 
 ### Secure network access
 

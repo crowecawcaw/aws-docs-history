@@ -271,7 +271,7 @@ Interactive
 agentcore deploy
 ```
 
-![Deploy progress: CloudFormation resource creation and deployment status](/images/bedrock-agentcore/latest/devguide/images/tui/common-deploy-progress.png)
+![Deploy progress: CloudFormation resource creation and deployment status](images/tui/common-deploy-progress.png)
 
 To preview the deployment without making changes, use the `--dry-run` flag:
 

@@ -27,6 +27,7 @@ Both features are built on the AgentCore Memory connector described on this page
 - [Inbound and outbound authentication modes](#memory-gateway-connector-auth-modes "#memory-gateway-connector-auth-modes")
 - [How the outbound credential mode affects Memory access control](#memory-gateway-connector-credential-modes "#memory-gateway-connector-credential-modes")
 - [Set up a gateway with a Memory connector target](memory-gateway-setup.md "memory-gateway-setup.md")
+- [Create a Memory connector using the console](memory-gateway-connector-console.md "memory-gateway-connector-console.md")
 - [Authenticate end users to Memory with OAuth](memory-gateway-oauth.md "memory-gateway-oauth.md")
 - [Fine-grained access control for Memory](memory-gateway-fgac.md "memory-gateway-fgac.md")
 - [Restrict direct access to Memory](memory-gateway-restrict-access.md "memory-gateway-restrict-access.md")

@@ -49,7 +49,7 @@ Interactive
 
 
 
-![Remove resource type selection](images/tui/eval-remove-select.png)
+![Remove resource type selection](/images/bedrock-agentcore/latest/devguide/images/tui/eval-remove-select.png)
 
 
 AgentCore SDK

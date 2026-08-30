@@ -37,7 +37,7 @@ Because the Memory connector makes each Memory operation available as a Cedar ac
 
 ###### Note
 
-You can set up fine-grained access control for Memory through the AWS SDK and AWS Command Line Interface (AWS CLI).
+You can set up fine-grained access control for Memory through the AWS Management Console, the AWS SDK, and the AWS Command Line Interface (AWS CLI).
 
 After you have a gateway with a Memory connector target (see [Access AgentCore Memory through a gateway](memory-gateway-connector.md "memory-gateway-connector.md")):
 

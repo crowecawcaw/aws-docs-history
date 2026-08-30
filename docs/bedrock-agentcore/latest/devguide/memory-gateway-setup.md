@@ -4,7 +4,7 @@ To front a Memory resource with a gateway, you create a gateway with an inbound 
 
 ###### Note
 
-You can set up the Memory connector through the AWS SDK and AWS Command Line Interface (AWS CLI).
+You can set up the Memory connector through the AWS Management Console, the AWS SDK, and the AWS Command Line Interface (AWS CLI). This page uses the AWS CLI; for console steps, see [Create a Memory connector using the console](memory-gateway-connector-console.md "memory-gateway-connector-console.md").
 
 **Prerequisites**
 

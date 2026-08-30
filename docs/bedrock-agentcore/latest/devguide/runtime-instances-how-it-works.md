@@ -33,7 +33,7 @@ A **capacity provider** defines the EC2 infrastructure your agents run on: the o
 
 Key characteristics:
 
-- A capacity provider is created in a `CREATING` state and becomes `ACTIVE` after its configuration is validated.
+- A capacity provider is created in a `CREATING` state and becomes `READY` after its configuration is validated. If validation fails, it enters `CREATE_FAILED`.
 - After a capacity provider is created, only its description can be edited. To change other configurations, duplicate the capacity provider and make your updates in the duplicate flow.
 - You can list the runtimes (and runtime versions) associated with a capacity provider, and you must disassociate them before the capacity provider can be deleted.
 - Deleting a capacity provider stops and deletes all of its associated sessions and their persistent storage.

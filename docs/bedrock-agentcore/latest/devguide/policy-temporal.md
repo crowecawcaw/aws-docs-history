@@ -106,25 +106,27 @@ Temporal policies are available in the AWS Regions marked in the following table
 
 | Region name               | Temporal policies |
 | ------------------------- | ----------------- |
-| US West (Oregon)          | ✓                 |
-| US East (N. Virginia)     | ✓                 |
-| Europe (Frankfurt)        | ✓                 |
-| Asia Pacific (Sydney)     | ✓                 |
-| Asia Pacific (Mumbai)     | ✓                 |
-| Asia Pacific (Singapore)  | ✓                 |
-| Europe (Ireland)          | ✓                 |
-| Asia Pacific (Tokyo)      | ✓                 |
-| US East (Ohio)            | ✓                 |
-| Europe (London)           | ✓                 |
-| Canada (Central)          | ✓                 |
-| Europe (Stockholm)        | ✓                 |
-| Asia Pacific (Seoul)      | ✓                 |
-| Europe (Paris)            | ✓                 |
-| South America (São Paulo) | ✓                 |
-| Europe (Spain)            | ✓                 |
-| Asia Pacific (Thailand)   | ✗                 |
-| Europe (Milan)            | ✗                 |
-| Asia Pacific (Malaysia)   | ✗                 |
+| Asia Pacific (Hyderabad)  | No                |
+| Asia Pacific (Malaysia)   | No                |
+| Asia Pacific (Mumbai)     | ✓ Yes             |
+| Asia Pacific (Seoul)      | ✓ Yes             |
+| Asia Pacific (Singapore)  | ✓ Yes             |
+| Asia Pacific (Sydney)     | ✓ Yes             |
+| Asia Pacific (Thailand)   | No                |
+| Asia Pacific (Tokyo)      | ✓ Yes             |
+| Canada (Central)          | ✓ Yes             |
+| Europe (Frankfurt)        | ✓ Yes             |
+| Europe (Ireland)          | ✓ Yes             |
+| Europe (London)           | ✓ Yes             |
+| Europe (Milan)            | No                |
+| Europe (Paris)            | ✓ Yes             |
+| Europe (Spain)            | ✓ Yes             |
+| Europe (Stockholm)        | ✓ Yes             |
+| South America (São Paulo) | ✓ Yes             |
+| US East (N. Virginia)     | ✓ Yes             |
+| US East (Ohio)            | ✓ Yes             |
+| US West (N. California)   | No                |
+| US West (Oregon)          | ✓ Yes             |
 
 ## Considerations
 

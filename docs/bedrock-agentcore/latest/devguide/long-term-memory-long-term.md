@@ -10,6 +10,7 @@ This section provides examples using the AWS SDK (Boto3). For complete end-to-en
 - [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md "specify-long-term-memory-organization.md")
 - [Configure built-in strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md")
 - [Configure a custom strategy](long-term-configuring-custom-strategies.md "long-term-configuring-custom-strategies.md")
+- [Ingest content into long-term memory](long-term-ingest-data.md "long-term-ingest-data.md")
 - [Save and retrieve insights](long-term-saving-and-retrieving-insights.md "long-term-saving-and-retrieving-insights.md")
 - [Retrieve memory records](long-term-retrieve-records.md "long-term-retrieve-records.md")
 - [List memory records](long-term-list-memory-records.md "long-term-list-memory-records.md")

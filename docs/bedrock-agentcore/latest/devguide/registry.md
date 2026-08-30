@@ -17,6 +17,7 @@
 - [Curating the registry](registry-curating.md "registry-curating.md")
 - [Discovering the registry](registry-searching.md "registry-searching.md")
 - [Notifications (Amazon EventBridge)](registry-eventbridge.md "registry-eventbridge.md")
+- [Sharing a registry across accounts with AWS RAM](registry-cross-account-sharing.md "registry-cross-account-sharing.md")
 - [Log Registry API calls with AWS CloudTrail](registry-cloudtrail.md "registry-cloudtrail.md")
 - [IAM Permissions](registry-iam-permissions.md "registry-iam-permissions.md")
 - [Using service-linked roles for AWS Agent Registry](using-service-linked-role-agent-registry.md "using-service-linked-role-agent-registry.md")

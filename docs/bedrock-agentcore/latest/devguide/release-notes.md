@@ -4,6 +4,12 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## August 2026
 
+### AWS Agent Registry: Cross-account sharing with AWS RAM
+
+AWS Agent Registry now supports cross-account sharing through AWS Resource Access Manager (RAM). Choose from four managed permissions (ReadOnly, Consumer, Publisher, Admin) to control what shared accounts can do. RAM manages the resource-based policy on your behalf. For accounts within the same AWS Organization, sharing takes effect automatically; for external accounts, the consumer accepts an invitation.
+
+For more information, see [Sharing a registry across accounts with AWS RAM](registry-cross-account-sharing.md "registry-cross-account-sharing.md").
+
 ### Payments: Coinbase wallet usage is billed through AWS Marketplace
 
 To use Coinbase as a payment provider with AgentCore payments, subscribe to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace. The subscription is mandatory and is enforced when you create a Coinbase payment connector and when you perform Coinbase wallet operations, such as creating a payment instrument or processing a payment.

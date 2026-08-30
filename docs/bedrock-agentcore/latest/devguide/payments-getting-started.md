@@ -301,7 +301,7 @@ agentcore add payment-connector \
   --manager my-payment-manager \
   --name my-coinbase-connector \
   --provider CoinbaseCDP \
-  --quick-create
+  --provision-mode QUICK_CREATE
 
 agentcore deploy
 ```

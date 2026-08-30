@@ -146,14 +146,14 @@ The wizard prompts for manager name, pattern, auto-payment toggle, spend limit, 
 
 **Coinbase — Quick create (recommended):**
 
-Quick create provisions the Coinbase credential provider for you, so you do not pass any API keys. Add the connector with the `--quick-create` flag, then deploy:
+Quick create provisions the Coinbase credential provider for you, so you do not pass any API keys. Add the connector with the `--provision-mode QUICK_CREATE` flag, then deploy:
 
 ```
 agentcore add payment-connector \
   --manager MyPaymentManager \
   --name CoinbaseConnector \
   --provider CoinbaseCDP \
-  --quick-create
+  --provision-mode QUICK_CREATE
 
 agentcore deploy
 ```
