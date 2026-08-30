@@ -1,11 +1,11 @@
-# Plan and billing for Amazon Quick Free and Plus accounts
+# Plan and billing for Amazon Quick Free, Plus, and Max accounts
 
 This topic describes how to view and manage your plan and billing information for
-Amazon Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
+Amazon Quick Free, Plus, and Max accounts created at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 
 ###### Note
 
-This section applies to Amazon Quick Free and Plus accounts. If your organization
+This section applies to Amazon Quick Free, Plus, and Max accounts. If your organization
 manages Amazon Quick through the AWS Management Console, billing is handled through your
 AWS account. For more information, see [AWS
 Billing and Cost Management](../../../billing/latest/userguide/billing-what-is.md "../../../billing/latest/userguide/billing-what-is.md").
@@ -16,6 +16,9 @@ Billing and Cost Management](../../../billing/latest/userguide/billing-what-is.m
 - [Viewing your current plan](#standalone-billing-current-plan "#standalone-billing-current-plan")
 - [Billing history](#standalone-billing-history "#standalone-billing-history")
 - [Billing preferences](#standalone-billing-preferences "#standalone-billing-preferences")
+- [How collaborator billing works](#standalone-billing-collaborator "#standalone-billing-collaborator")
+- [Annual subscription terms](#standalone-billing-annual "#standalone-billing-annual")
+- [Billing cycle and proration](#standalone-billing-proration "#standalone-billing-proration")
 - [Changing your plan](#standalone-billing-change-plan "#standalone-billing-change-plan")
 
 ## Accessing Plan & Billing
@@ -49,8 +52,8 @@ The Plan & Billing page displays the following information about your current
 subscription:
 
 - **Current plan** – The name and type of
-  your active plan. For example, **FREE** or
-  **PLUS**.
+  your active plan. For example, **FREE**,
+  **PLUS**, or **MAX**.
 - **Manage plan** – Choose this button to
   view available plans and change your subscription. For more information,
   see [Upgrading your Amazon Quick plan](../../../quicksuite/latest/userguide/standalone-upgrade.md "../../../quicksuite/latest/userguide/standalone-upgrade.md").
@@ -92,6 +95,63 @@ processed.
 
 Choose the **Preferences** button on the Plan & Billing page to
 configure your billing notification preferences.
+
+## How collaborator billing works
+
+When you add a collaborator to your Amazon Quick Plus or Max account, billing for
+their seat begins when the collaborator **accepts the
+invitation**
+– not when the invitation is sent.
+
+### When billing starts
+
+- You incur no charges for a pending invitation. You are charged only for
+  collaborators who accept.
+- When a collaborator accepts, billing begins for their seat at a prorated
+  rate for the remainder of your current billing cycle.
+- The prorated charge appears on your next invoice. It is not charged to
+  your payment method on the day the invitation is accepted.
+
+### Removing a collaborator
+
+- Removing a collaborator does not result in a refund for the current
+  billing period.
+- The seat charge applies through the end of your current billing cycle,
+  regardless of when the collaborator is removed.
+- This applies even if the collaborator is removed shortly after accepting
+  the invitation.
+
+### Canceling a pending invitation
+
+- If a collaborator never accepts the invitation, your account incurs no
+  charge for that seat.
+- You can cancel a pending invitation at any time at no cost.
+
+## Annual subscription terms
+
+When you commit to an annual plan, your subscription is billed for the full annual
+term.
+
+- Annual subscriptions cannot be canceled mid-term.
+- Cancellations and downgrades take effect at the end of your annual term. You
+  receive no refund for the remaining period.
+- Upgrades to a higher plan during your annual term apply a credit for the
+  unused portion of your current annual subscription, and you are charged the new
+  plan's annual rate for the remainder of your term.
+
+## Billing cycle and proration
+
+Amazon Quick bills on a calendar-month basis.
+
+- Your billing month starts at 12:00 AM (UTC) on the first day of the month and
+  ends at 11:59 PM (UTC) on the last day.
+- If you subscribe partway through a month, your first charge is prorated for
+  the remaining days in that month. Your next full billing cycle starts on the 1st
+  of the following month.
+- If you upgrade mid-month, you are billed immediately for the full new plan rate
+  minus a full credit for your previous plan's monthly charge. Overage charges, if
+  applicable, appear as a separate line item at the end of the billing
+  cycle.
 
 ## Changing your plan
 

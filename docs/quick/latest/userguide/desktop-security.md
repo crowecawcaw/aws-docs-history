@@ -90,17 +90,24 @@ data plane operations, remote configuration, application updates, and identity
 provider authentication. In restricted network environments, add the following
 domains to your allow list so that the application can operate.
 
-| Category             | Domains                                                                            | Purpose                                                       |
-| -------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| Amazon Quick Service | `*.quicksight.aws.amazon.com`,<br>`*.aws.dev`                                      | Discovery, data plane (inference, search, Quick<br>resources) |
-| Remote configuration | `*.cloudfront.net`                                                                 | Feature flags, admin controls                                 |
-| Auto-update          | `*.cloudfront.net`                                                                 | Application updates                                           |
-| Telemetry            | `cognito-identity.*.amazonaws.com`                                                 | Usage and operational telemetry                               |
-| Identity provider    | Customer-specific (for example,<br>`login.microsoftonline.com` or<br>`*.okta.com`) | OIDC authentication                                           |
+| Category                         | Domains                                                         | Wildcard meaning                                             | Purpose                                                   |
+| -------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------- |
+| Amazon Quick console             | `*.quicksight.aws.amazon.com`                                   | `*` = AWS Region (for example,<br>`us-east-1`)               | Web console, resource discovery                           |
+| Amazon Quick data plane          | `*.dp.appintegrations.*.prod.plato.ai.aws.dev`                  | First `*` = per-account cell ID.<br>Second `*` = AWS Region. | Inference, streaming, search                              |
+| Amazon Quick enterprise gateway  | `*.desktop.enterprise.quick.aws.dev`                            | `*` = multi-level subdomain<br>(`<cell>.<stage>.<region>`)   | Enterprise account bidirectional streaming                |
+| Remote configuration and updates | `*.cloudfront.net`                                              | `*` = CloudFront distribution ID                             | Feature flags, application updates, Quick Apps<br>content |
+| Telemetry                        | `cognito-identity.*.amazonaws.com`                              | `*` = AWS Region                                             | Operational telemetry                                     |
+| Identity provider                | Customer-specific (for example,<br>`login.microsoftonline.com`) | Not applicable                                               | Enterprise SSO authentication                             |
+
+For strict proxy environments that can't use wildcards, you can determine the
+account-specific cell hostname after you first sign in. It follows the pattern
+`<cell-id>.dp.appintegrations.<region>.prod.plato.ai.aws.dev`,
+where `<cell-id>` is a stable per-account identifier and
+`<region>` is the account's home region.
 
 If the application cannot sign in, load content, or update in a restricted
-environment, verify that these domains are reachable, and check your firewall and
-VPN settings, which might block the required connections.
+environment, verify that these domains are reachable, and check your firewall
+and VPN settings.
 
 ## Privacy controls
 

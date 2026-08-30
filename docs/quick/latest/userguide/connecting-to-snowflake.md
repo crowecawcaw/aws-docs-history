@@ -5,14 +5,16 @@ warehousing and collaboration to data science and generative AI. Snowflake is an
 Partner](https://partners.amazonaws.com/partners/001E000000d8qQcIAI/Snowflake "https://partners.amazonaws.com/partners/001E000000d8qQcIAI/Snowflake") with multiple AWS accreditations that include AWS ISV
 Competencies in Generative AI, Machine Learning, Data and Analytics, and Retail.
 
-Amazon Quick Sight offers two ways to connect to Snowflake: with your Snowflake login credentials
-or with OAuth client credentials. Use the following sections to learn about both methods
-of connection.
+Amazon Quick Sight offers multiple ways to connect to Snowflake: with your Snowflake login
+credentials, with OAuth client credentials, or with three-legged OAuth (3LO) using
+end-user identities. Use the following sections to learn about these methods of
+connection.
 
 ###### Topics
 
 - [Creating an Quick Sight data source connection to Snowflake with login credentials](#create-connection-to-snowflake "#create-connection-to-snowflake")
 - [Creating an Quick Sight data source connection to Snowflake with OAuth client credentials](#create-connection-to-snowflake-oauth-credentials "#create-connection-to-snowflake-oauth-credentials")
+- [Creating an Quick Sight data source connection to Snowflake with three-legged OAuth (3LO)](#create-connection-to-snowflake-3lo "#create-connection-to-snowflake-3lo")
 
 ## Creating an Quick Sight data source connection to Snowflake with login credentials
 
@@ -124,6 +126,14 @@ OAuth secrets:
 - `client_secret`: the OAuth client
   secret
 
+###### Storing token-based OAuth credentials is optional
+
+For token-based OAuth, storing these credentials in Secrets Manager
+is optional. Instead of creating a secret and passing its ARN, you can pass
+the `username`, `client_id`, and
+`client_secret` as inline credentials in the
+`CreateDataSource` request.
+
 ### Creating a Snowflake OAuth connection with the Quick Sight APIs
 
 After you create a secret in Secrets Manager that contains your Snowflake
@@ -179,3 +189,46 @@ used.
 After you have successfully created a data source connection between your
 Quick Sight and Snowflake accounts, you can begin [Creating datasets](creating-data-sets.md "creating-data-sets.md") that
 contain Snowflake data.
+
+## Creating an Quick Sight data source connection to Snowflake with three-legged OAuth (3LO)
+
+Quick Sight supports three-legged OAuth (3LO) with end-user
+identities for Snowflake.
+
+### Administrator setup: Client application configuration
+
+The Quick Sight account administrator must configure a client application
+before authors can create 3LO data sources. Complete the following steps:
+
+1. In the Quick Sight console, choose **Manage
+   Account**. Under **Security**, choose
+   **Manage OAuth Client Applications**.
+2. Choose **Add OAuth client application** and provide
+   the following information:
+
+   1. Config ID
+   2. OAuth client application name
+   3. Authentication type
+   4. Client ID
+   5. Client secret
+   6. Token endpoint URL
+   7. Authorization endpoint URL
+   8. OAuth scopes
+   9. VPC connection ARN (optional)
+   10. Data source type (select **SNOWFLAKE**)
+
+3. Choose **Add** to save the client application.
+
+### Author setup: Creating a 3LO data source
+
+After the administrator configures the client application, authors can create a
+Snowflake data source with 3LO authentication.
+
+1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
+2. Choose **Datasets**, then choose **New
+   dataset** to open the **Create Data
+   Source** page.
+3. Choose **Snowflake**.
+4. Choose **3LO** as the authentication method.
+5. Enter the required connection information.
+6. Choose **Create data source**.
