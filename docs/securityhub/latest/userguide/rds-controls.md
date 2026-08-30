@@ -65,10 +65,6 @@ choose **Private**.
 This control checks whether Amazon RDS instances are publicly accessible by evaluating the
 `PubliclyAccessible` field in the instance configuration item.
 
-Neptune DB instances and Amazon DocumentDB clusters do not have the `PubliclyAccessible`
-flag and cannot be evaluated. However, this control can still generate findings for these
-resources. You can suppress these findings.
-
 The `PubliclyAccessible` value in the RDS instance configuration indicates
 whether the DB instance is publicly accessible. When the DB instance is configured with
 `PubliclyAccessible`, it is an Internet-facing instance with a publicly resolvable

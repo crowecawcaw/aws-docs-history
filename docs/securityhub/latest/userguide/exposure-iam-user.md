@@ -36,22 +36,22 @@ use case, switch to roles or federation instead of using IAM users. For more inf
 - [Unused access traits for IAM users](exposure-iam-user.md#iam-user-unused-access "exposure-iam-user.md#iam-user-unused-access")
 - [Impact traits for IAM users](exposure-iam-user.md#iam-user-impact "exposure-iam-user.md#iam-user-impact")
 
-  - [Full control privileged executor](exposure-iam-user.md#full-control-privileged-executor "exposure-iam-user.md#full-control-privileged-executor")
-  - [Direct policy escalation](exposure-iam-user.md#direct-policy-escalation "exposure-iam-user.md#direct-policy-escalation")
-  - [Trust policy hijack](exposure-iam-user.md#trust-policy-hijack "exposure-iam-user.md#trust-policy-hijack")
-  - [Data ransomware](exposure-iam-user.md#data-ransomware "exposure-iam-user.md#data-ransomware")
-  - [Remove restriction](exposure-iam-user.md#remove-restriction "exposure-iam-user.md#remove-restriction")
-  - [Pass role create executor](exposure-iam-user.md#pass-role-create-executor "exposure-iam-user.md#pass-role-create-executor")
-  - [Swap role existing executor](exposure-iam-user.md#swap-role-existing-executor "exposure-iam-user.md#swap-role-existing-executor")
-  - [Role chain escalation](exposure-iam-user.md#role-chain-escalation "exposure-iam-user.md#role-chain-escalation")
-  - [Inject code privileged executor](exposure-iam-user.md#inject-code-privileged-executor "exposure-iam-user.md#inject-code-privileged-executor")
-  - [Disable audit trail](exposure-iam-user.md#disable-audit-trail "exposure-iam-user.md#disable-audit-trail")
-  - [Access existing executor](exposure-iam-user.md#access-existing-executor "exposure-iam-user.md#access-existing-executor")
-  - [Credential minting](exposure-iam-user.md#credential-minting "exposure-iam-user.md#credential-minting")
-  - [Pass role data access](exposure-iam-user.md#pass-role-data-access "exposure-iam-user.md#pass-role-data-access")
-  - [Pass role task hijack](exposure-iam-user.md#pass-role-task-hijack "exposure-iam-user.md#pass-role-task-hijack")
-  - [Single hop data access](exposure-iam-user.md#single-hop-data-access "exposure-iam-user.md#single-hop-data-access")
-  - [Capability advancing](exposure-iam-user.md#capability-advancing "exposure-iam-user.md#capability-advancing")
+  - [Has full control privileged executor path](exposure-iam-user.md#has-full-control-privileged-executor-path "exposure-iam-user.md#has-full-control-privileged-executor-path")
+  - [Has direct policy escalation path](exposure-iam-user.md#has-direct-policy-escalation-path "exposure-iam-user.md#has-direct-policy-escalation-path")
+  - [Has trust policy hijack path](exposure-iam-user.md#has-trust-policy-hijack-path "exposure-iam-user.md#has-trust-policy-hijack-path")
+  - [Has data ransomware path](exposure-iam-user.md#has-data-ransomware-path "exposure-iam-user.md#has-data-ransomware-path")
+  - [Has remove restriction path](exposure-iam-user.md#has-remove-restriction-path "exposure-iam-user.md#has-remove-restriction-path")
+  - [Has pass role create executor path](exposure-iam-user.md#has-pass-role-create-executor-path "exposure-iam-user.md#has-pass-role-create-executor-path")
+  - [Has swap role existing executor path](exposure-iam-user.md#has-swap-role-existing-executor-path "exposure-iam-user.md#has-swap-role-existing-executor-path")
+  - [Has role chain escalation path](exposure-iam-user.md#has-role-chain-escalation-path "exposure-iam-user.md#has-role-chain-escalation-path")
+  - [Has inject code privileged executor path](exposure-iam-user.md#has-inject-code-privileged-executor-path "exposure-iam-user.md#has-inject-code-privileged-executor-path")
+  - [Has disable audit trail path](exposure-iam-user.md#has-disable-audit-trail-path "exposure-iam-user.md#has-disable-audit-trail-path")
+  - [Has access existing executor path](exposure-iam-user.md#has-access-existing-executor-path "exposure-iam-user.md#has-access-existing-executor-path")
+  - [Has credential minting path](exposure-iam-user.md#has-credential-minting-path "exposure-iam-user.md#has-credential-minting-path")
+  - [Has pass role data access path](exposure-iam-user.md#has-pass-role-data-access-path "exposure-iam-user.md#has-pass-role-data-access-path")
+  - [Has pass role task hijack path](exposure-iam-user.md#has-pass-role-task-hijack-path "exposure-iam-user.md#has-pass-role-task-hijack-path")
+  - [Has single hop data access path](exposure-iam-user.md#has-single-hop-data-access-path "exposure-iam-user.md#has-single-hop-data-access-path")
+  - [Has capability advancing path](exposure-iam-user.md#has-capability-advancing-path "exposure-iam-user.md#has-capability-advancing-path")
 
 ## Misconfiguration traits for IAM users
 
@@ -174,66 +174,66 @@ and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "..
 least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the
 _IAM User Guide_.
 
-### Full control privileged executor
+### Has full control privileged executor path
 
 The associated principal can pass a role to and inject code into a compute resource that already has elevated permissions. This allows the principal to gain full control over the executor and perform any action that the executor's role permits.
 
-### Direct policy escalation
+### Has direct policy escalation path
 
 The associated principal can directly modify IAM policies to grant itself additional permissions, escalating its own privileges without intermediate resources.
 
-### Trust policy hijack
+### Has trust policy hijack path
 
 The associated principal can modify the trust policy of an IAM role to allow itself to assume that role, gaining the role's permissions.
 
-### Data ransomware
+### Has data ransomware path
 
 The associated principal can encrypt or delete data in a way that could be used for ransomware, such as encrypting Amazon S3 objects with a customer-managed AWS KMS key and then modifying the key policy.
 
-### Remove restriction
+### Has remove restriction path
 
 The associated principal can remove security restrictions such as permission boundaries, service control policies, or resource-based policy deny statements, expanding what other principals or the resource itself can do.
 
-### Pass role create executor
+### Has pass role create executor path
 
 The associated principal can create a new compute resource (such as a Lambda function or Amazon EC2 instance) and pass it a privileged role, effectively laundering its own permissions through the new resource.
 
-### Swap role existing executor
+### Has swap role existing executor path
 
 The associated principal can change the IAM role attached to an existing compute resource, replacing it with a more privileged role to escalate access.
 
-### Role chain escalation
+### Has role chain escalation path
 
 The associated principal can assume a sequence of roles, where each role in the chain has progressively broader permissions, ultimately reaching a highly privileged role.
 
-### Inject code privileged executor
+### Has inject code privileged executor path
 
 The associated principal can inject code into a running compute resource that has elevated permissions, executing arbitrary operations under that resource's privileged role.
 
-### Disable audit trail
+### Has disable audit trail path
 
 The associated principal can disable logging or monitoring services such as CloudTrail, effectively covering its tracks during or after an escalation.
 
-### Access existing executor
+### Has access existing executor path
 
 The associated principal can invoke or connect to an existing compute resource and use its attached role to perform privileged actions.
 
-### Credential minting
+### Has credential minting path
 
 The associated principal can create new long-term credentials (such as access keys or login profiles) for other principals, establishing persistent access paths that survive password rotations or session expirations.
 
-### Pass role data access
+### Has pass role data access path
 
 The associated principal can create a service resource and pass it a role that has access to sensitive data, gaining indirect access to that data through the new resource.
 
-### Pass role task hijack
+### Has pass role task hijack path
 
 The associated principal can pass a role to a scheduled or event-driven task (such as a Lambda function triggered by an event), allowing it to execute arbitrary code with that role's permissions.
 
-### Single hop data access
+### Has single hop data access path
 
 The associated principal can directly access sensitive data resources (such as Amazon S3 buckets or DynamoDB tables) through its existing permissions, without needing intermediate escalation steps.
 
-### Capability advancing
+### Has capability advancing path
 
 The associated principal has a privilege escalation path that advances its overall capabilities beyond what its directly assigned permissions would suggest. This is a general classification for paths that do not match a more specific pattern.

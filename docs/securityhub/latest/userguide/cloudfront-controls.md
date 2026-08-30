@@ -236,7 +236,8 @@ configuration
 This control checks if Amazon CloudFront distributions are using a custom SSL/TLS certificate
 and are configured to use SNI to serve HTTPS requests. This control fails if a custom
 SSL/TLS certificate is associated but the SSL/TLS support method is a dedicated IP
-address.
+address. The control also fails if the distribution uses default CloudFront SSL/TLS
+certificate.
 
 Server Name Indication (SNI) is an extension to the TLS protocol that is supported by
 browsers and clients released after 2010. If you configure CloudFront to serve HTTPS requests
