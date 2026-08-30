@@ -30,6 +30,11 @@ Database (NVD) at [nvd.nist.gov](https://nvd.nist.gov "https://nvd.nist.gov").
 
 ###### CVEs and minimum fixed Aurora MySQL versions
 
+- [CVE-2026-21936](https://www.cve.org/CVERecord?id=CVE-2026-21936 "https://www.cve.org/CVERecord?id=CVE-2026-21936"): [3.13.0](AuroraMySQL.Updates.3130.md "AuroraMySQL.Updates.3130.md")
+- [CVE-2026-21937](https://www.cve.org/CVERecord?id=CVE-2026-21937 "https://www.cve.org/CVERecord?id=CVE-2026-21937"): [3.13.0](AuroraMySQL.Updates.3130.md "AuroraMySQL.Updates.3130.md")
+- [CVE-2026-21941](https://www.cve.org/CVERecord?id=CVE-2026-21941 "https://www.cve.org/CVERecord?id=CVE-2026-21941"): [3.13.0](AuroraMySQL.Updates.3130.md "AuroraMySQL.Updates.3130.md")
+- [CVE-2026-21948](https://www.cve.org/CVERecord?id=CVE-2026-21948 "https://www.cve.org/CVERecord?id=CVE-2026-21948"): [3.13.0](AuroraMySQL.Updates.3130.md "AuroraMySQL.Updates.3130.md")
+- [CVE-2026-21968](https://www.cve.org/CVERecord?id=CVE-2026-21968 "https://www.cve.org/CVERecord?id=CVE-2026-21968"): [3.13.0](AuroraMySQL.Updates.3130.md "AuroraMySQL.Updates.3130.md")
 - [CVE-2025-53040](https://www.cve.org/CVERecord?id=CVE-2025-53040 "https://www.cve.org/CVERecord?id=CVE-2025-53040"): [3.12.0](AuroraMySQL.Updates.3120.md "AuroraMySQL.Updates.3120.md")
 - [CVE-2025-53042](https://www.cve.org/CVERecord?id=CVE-2025-53042 "https://www.cve.org/CVERecord?id=CVE-2025-53042"): [3.12.0](AuroraMySQL.Updates.3120.md "AuroraMySQL.Updates.3120.md")
 - [CVE-2025-53044](https://www.cve.org/CVERecord?id=CVE-2025-53044 "https://www.cve.org/CVERecord?id=CVE-2025-53044"): [3.12.0](AuroraMySQL.Updates.3120.md "AuroraMySQL.Updates.3120.md")
@@ -62,7 +67,7 @@ Database (NVD) at [nvd.nist.gov](https://nvd.nist.gov "https://nvd.nist.gov").
 - [CVE-2025-50098](https://www.cve.org/CVERecord?id=CVE-2025-50098 "https://www.cve.org/CVERecord?id=CVE-2025-50098"): [3.11.0](AuroraMySQL.Updates.3110.md "AuroraMySQL.Updates.3110.md")
 - [CVE-2025-50100](https://www.cve.org/CVERecord?id=CVE-2025-50100 "https://www.cve.org/CVERecord?id=CVE-2025-50100"): [3.11.0](AuroraMySQL.Updates.3110.md "AuroraMySQL.Updates.3110.md")
 - [CVE-2025-50104](https://www.cve.org/CVERecord?id=CVE-2025-50104 "https://www.cve.org/CVERecord?id=CVE-2025-50104"): [3.11.0](AuroraMySQL.Updates.3110.md "AuroraMySQL.Updates.3110.md")
-- [CVE-2026-46863](https://www.cve.org/CVERecord?id=CVE-2026-46863 "https://www.cve.org/CVERecord?id=CVE-2026-46863"): [3.10.5](AuroraMySQL.Updates.3105.md "AuroraMySQL.Updates.3105.md")
+- [CVE-2026-46863](https://www.cve.org/CVERecord?id=CVE-2026-46863 "https://www.cve.org/CVERecord?id=CVE-2026-46863"): [3.13.0](AuroraMySQL.Updates.3130.md "AuroraMySQL.Updates.3130.md"), [3.10.5](AuroraMySQL.Updates.3105.md "AuroraMySQL.Updates.3105.md")
 - [CVE-2025-21501](https://www.cve.org/CVERecord?id=CVE-2025-21501 "https://www.cve.org/CVERecord?id=CVE-2025-21501"): [3.10.0](AuroraMySQL.Updates.3100.md "AuroraMySQL.Updates.3100.md")
 - [CVE-2025-21500](https://www.cve.org/CVERecord?id=CVE-2025-21500 "https://www.cve.org/CVERecord?id=CVE-2025-21500"): [3.10.0](AuroraMySQL.Updates.3100.md "AuroraMySQL.Updates.3100.md")
 - [CVE-2025-21543](https://www.cve.org/CVERecord?id=CVE-2025-21543 "https://www.cve.org/CVERecord?id=CVE-2025-21543"): [3.10.0](AuroraMySQL.Updates.3100.md "AuroraMySQL.Updates.3100.md")

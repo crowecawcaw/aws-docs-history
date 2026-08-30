@@ -63,6 +63,7 @@ Amazon RDS Extended Support charges apply only to certain minor versions after a
 | Aurora MySQL version                                                 | Aurora MySQL release date | Aurora MySQL end of standard support date |
 | -------------------------------------------------------------------- | ------------------------- | ----------------------------------------- |
 | *_8.4.7_<br>• (Compatible with Community MySQL 8.4.7)                | May 21, 2026              | November 30, 2027                         |
+| *_3.13_<br>• (Compatible with Community MySQL 8.0.45)                | August 27, 2026           | August 27, 2027                           |
 | *_3.12_<br>• (Compatible with Community MySQL 8.0.44)                | February 17, 2026         | February 17, 2027                         |
 | *_3.11_<br>• (Compatible with Community MySQL 8.0.43)                | November 13, 2025         | November 13, 2026                         |
 | *_3.10_<br>• (Compatible with Community MySQL 8.0.42) (LTS)          | July 31, 2025             | April 30, 2028                            |
