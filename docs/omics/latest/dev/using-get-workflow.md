@@ -26,3 +26,12 @@ The response includes workflow details, including the status, as shown.
 ```
 
 You can start a run using this workflow after the status transitions to `ACTIVE`.
+
+###### Note
+
+For Nextflow DSL2 workflows, HealthOmics runs the built-in strict linter
+during creation. If the linter detects errors or warnings, the workflow still transitions to
+ACTIVE, with the `statusMessage` field containing structured lint results. If you
+start a run on a workflow with linter errors, your run may fail due to an incorrect workflow
+definition. For an example of the `GetWorkflow` response with lint findings, see
+[Workflow linters in HealthOmics](workflows-linter.md "workflows-linter.md").

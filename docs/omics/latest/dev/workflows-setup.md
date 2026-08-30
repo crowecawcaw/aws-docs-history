@@ -23,8 +23,9 @@ creating the workflow:
   your Amazon ECR private repository.
 - **(Optional) Sentieon licenses:** Request a Sentieon license to use the
   Sentieon software in private workflows.
-  Optionally, you can run a linter on the workflow definition before or after you create the workflow. The
-  **linter** topic describes the linters available in HealthOmics.
+  In addition to built-in linters, you can optionally run a linter locally on your workflow definition
+  before you create the workflow. For more information on built-in and optional external linters, see
+  [Workflow linters in HealthOmics](workflows-linter.md "workflows-linter.md").
 
 ###### Topics
 

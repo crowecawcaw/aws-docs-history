@@ -176,4 +176,4 @@ All omics.g4dn instances use Nvidia Tesla T4 GPUs.
 | omics.g4dn.4xlarge  | 16              | 64 GiB  | 1              | 16 GiB     |
 | omics.g4dn.8xlarge  | 32              | 128 GiB | 1              | 16 GiB     |
 | omics.g4dn.12xlarge | 48              | 192 GiB | 4              | 64 GiB     |
-| omics.g4dn.16xlarge | 64              | 256 GiB | 1              | 24 GiB     |
+| omics.g4dn.16xlarge | 64              | 256 GiB | 1              | 16 GiB     |

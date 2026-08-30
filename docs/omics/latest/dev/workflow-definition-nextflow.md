@@ -17,6 +17,7 @@ the workflow.
 - [Export task content](#exporting-task-content-nextflow "#exporting-task-content-nextflow")
 - [Generate Nextflow execution reports](#nextflow-execution-reports "#nextflow-execution-reports")
 - [Specify the Nextflow syntax version](#nextflow-syntax-version "#nextflow-syntax-version")
+- [Automatic syntax validation during workflow creation](#nextflow-automatic-validation "#nextflow-automatic-validation")
 - [Using scratch storage efficiently in Nextflow](#nextflow-scratch-storage "#nextflow-scratch-storage")
 - [Nextflow v26.04 release notes](#nextflow-v26-release-notes "#nextflow-v26-release-notes")
 
@@ -528,6 +529,29 @@ to `v1` in the **StartRun** request:
 ```
 
 For Nextflow v25.10.0 and earlier, HealthOmics does not support the v2 parser.
+
+## Automatic syntax validation during workflow creation
+
+HealthOmics automatically runs the Nextflow built-in strict DSL2 linter (nf-lang/v2) when you create or update
+a Nextflow DSL2 workflow. This linter runs during `CreateWorkflow` and
+`CreateWorkflowVersion`. It applies to all supported DSL2 versions (v22.04, v23.10, v24.10,
+v25.10, and v26.04). DSL1 workflows are not linted.
+
+The linter operates in non-blocking mode. Lint findings don't prevent the workflow from becoming
+ACTIVE. Findings appear as structured JSON in the `statusMessage` field of the
+`GetWorkflow` response.
+
+###### Note
+
+The built-in linter validates your workflow definition syntax at creation time. It is distinct from
+the strict syntax _parser_ available for Nextflow v26.04, which is controlled by
+`engineSettings.syntaxVersion` and affects runtime behavior. The linter checks syntax across
+all DSL2 versions at creation time, regardless of which parser the workflow uses at runtime. On
+Nextflow v22.04, v23.10, and v24.10 (legacy grammar), findings are advisory. On Nextflow v25.10 and
+v26.04, findings reflect strict mode syntax requirements.
+
+For more information about the lint output format and how to address findings, see
+[Workflow linters in HealthOmics](workflows-linter.md "workflows-linter.md").
 
 ## Using scratch storage efficiently in Nextflow
 

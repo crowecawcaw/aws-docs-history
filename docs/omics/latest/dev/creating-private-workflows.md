@@ -39,6 +39,12 @@ To create a private workflow, you need:
 Use workflow versioning to organize and structure you workflows. Versions also help you to manage the
 introduction of iterative workflow updates. For more information about versions, see [Create a workflow version](workflows-version-create.md "workflows-version-create.md").
 
+###### Note
+
+After you create a WDL or Nextflow DSL2 workflow, use `GetWorkflow` to check the
+`statusMessage` field for any lint findings. For more information, see
+[Workflow linters in HealthOmics](workflows-linter.md "workflows-linter.md").
+
 ###### Topics
 
 - [Create a private workflow](create-private-workflow.md "create-private-workflow.md")
