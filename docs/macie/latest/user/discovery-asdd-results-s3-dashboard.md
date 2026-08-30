@@ -16,7 +16,7 @@ If automated sensitive data discovery is enabled, the **Summary** dashboard incl
 statistics. The statistics capture the status and results of automated discovery activities that Macie has
 performed thus far for your Amazon S3 data. The following image shows an example of these statistics.
 
-![Sensitive data discovery statistics on the Summary dashboard. Each statistic has example data.](/images/macie/latest/user/images/scrn-summary-dashboard-sensitivity.png)
+![Sensitive data discovery statistics on the Summary dashboard. Each statistic has example data.](images/scrn-summary-dashboard-sensitivity.png)
 The statistics are organized primarily into two sections, **Automated discovery**
 and **Coverage issues**. Statistics in the **Automated discovery**
 section provide a snapshot of the current status and results of automated sensitive data discovery activities. Statistics

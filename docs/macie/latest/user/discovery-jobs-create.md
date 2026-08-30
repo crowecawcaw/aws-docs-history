@@ -399,7 +399,7 @@ identifiers](custom-data-identifiers.md "custom-data-identifiers.md").
 
 To review or test the settings for a custom data identifier before you
 select it, choose the link icon (
-![The link icon, which is a blue box that has an arrow in it.](images/icon-external-link.png)
+![The link icon, which is a blue box that has an arrow in it.](/images/macie/latest/user/images/icon-external-link.png)
 ) next to the
 identifier's name. Macie opens a page that displays the identifier's
 settings.
@@ -426,7 +426,7 @@ lists](allow-lists.md "allow-lists.md").
 
 To review the settings for an allow list before you select it, choose the
 link icon (
-![The link icon, which is a blue box that has an arrow in it.](images/icon-external-link.png)
+![The link icon, which is a blue box that has an arrow in it.](/images/macie/latest/user/images/icon-external-link.png)
 ) next to the list's name. Macie opens a page
 that displays the list's settings.
 
