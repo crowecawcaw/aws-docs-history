@@ -4,14 +4,12 @@ AWS Security Hub CSPM provides you with a comprehensive view of your security st
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Security Hub CSPM is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How Security Hub CSPM differs
-
-The following differences apply to Security Hub CSPM:
 
 **Product integrations**
 

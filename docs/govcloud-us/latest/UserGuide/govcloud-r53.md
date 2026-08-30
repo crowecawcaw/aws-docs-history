@@ -20,7 +20,6 @@ The following differences apply to Amazon Route 53:
 - The customer managed key that you use with DNSSEC signing must be in AWS GovCloud (US-West).
 - The CloudWatch Logs log group for query logging must be in AWS GovCloud (US-West).
 - CloudWatch metrics like DNSQueries can be found in AWS GovCloud (US-West).
-- IP-based routing type is not available.
 - Route 53 [Traffic Flow](../../../Route53/latest/DeveloperGuide/traffic-flow.md "../../../Route53/latest/DeveloperGuide/traffic-flow.md") is supported as follows:
 
   - You can create traffic policies using all routing policy types.
@@ -32,6 +31,7 @@ The following differences apply to Amazon Route 53:
 
 - You can create private hosted zones in the AWS GovCloud (US). In general, the functionality is the same as for private hosted zones in the commercial version of Route 53.
 - Latency based, geolocation, and geoproximity routing types are not available in private hosted zones.
+- You cannot use IP-based routing policy for records in a private hosted zone.
 - Route 53 Resolver delegation is not available.
 
 **Health Checking**

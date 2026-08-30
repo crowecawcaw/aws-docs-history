@@ -4,12 +4,12 @@ Amazon Glacier is a storage service optimized for infrequently used data, or col
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+S3 Glacier is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Amazon Glacier differs
+## How S3 Glacier differs
 
 There are no differences for this service.
 

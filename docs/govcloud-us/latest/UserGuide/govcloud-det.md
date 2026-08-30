@@ -4,14 +4,12 @@ Amazon Detective makes it easy to analyze, investigate, and quickly identify the
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Detective is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Detective differs
-
-The following differences apply to Detective:
+## How Amazon Detective differs
 
 - In GovCloud Regions, Detective does not validate the email address for member accounts, and does not send invitation emails to member accounts.
 - When accounts are terminated in AWS, Detective cannot automatically remove them from the behavior graph.

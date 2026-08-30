@@ -23,6 +23,7 @@ The following differences apply to Connect Customer:
   - Amazon Connect Voice ID
   - Amazon Connect Live Media Streaming
   - Amazon Connect Chat integration with Apple Business Chat
+  - Amazon Connect email channel
   - Amazon Connect Cases
   - Amazon Connect Outbound Campaigns
   - Granular access controls for real-time metrics

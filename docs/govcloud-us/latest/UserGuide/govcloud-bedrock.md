@@ -13,19 +13,8 @@ This service is available in the following AWS GovCloud (US) Regions:
 
 The following differences apply to Amazon Bedrock:
 
-- Model availability for all regions, including AWS GovCloud (US), is available at [Model support by AWS Region](../../../bedrock/latest/userguide/models-regions.md "../../../bedrock/latest/userguide/models-regions.md").
-- The following models have FedRAMP and IL4/5 authorization
-
-  - All Titan Models
-  - Claude Sonnet 4.5
-  - Claude 3.7 Sonnet
-  - Claude 3.5 Sonnet v1
-  - Claude 3 Haiku
-  - Llama 3 8B
-  - Llama 3 70B
-
-- Feature support for all regions, including AWS GovCloud (US), is available at [Feature support by AWS Region](../../../bedrock/latest/userguide/features-regions.md "../../../bedrock/latest/userguide/features-regions.md").
-- Bedrock Data Automation is currently available in AWS GovCloud (US-West).
+- Model availability for all regions, including AWS GovCloud (US), is available at [Regional availability by models](../../../bedrock/latest/userguide/models-region-compatibility.md "../../../bedrock/latest/userguide/models-region-compatibility.md").
+- FedRAMP Class D certification and DoD CSP SRG IL-4 and IL-5 approvals are available at [Amazon Bedrock models - FedRAMP and DoD CSP SRG (IL4/IL5) certification status](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/amazon-bedrock-models/ "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/amazon-bedrock-models/").
 
 ## Documentation
 

@@ -4,14 +4,12 @@ AWS Service Catalog allows organizations to create and manage catalogs of IT ser
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+AWS Service Catalog is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Service Catalog differs
-
-The following differences apply to Service Catalog:
+## How AWS Service Catalog differs
 
 - In AWS GovCloud (US) Copy Product is only supported within AWS GovCloud (US) Regions in the GovCloud partition.
 - Stack Sets are not currently supported.

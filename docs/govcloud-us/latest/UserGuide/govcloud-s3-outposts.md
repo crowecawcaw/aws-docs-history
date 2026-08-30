@@ -4,14 +4,12 @@ Amazon S3 on Outposts delivers object storage to your on-premises AWS Outposts e
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon S3 on Outposts is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
 ## How Amazon S3 on Outposts differs
-
-The following differences apply to Amazon S3 on Outposts:
 
 - AWS CloudFormation is not available.
 
