@@ -28,6 +28,7 @@ information, see [Updating a HealthLake data store](managing-data-stores-update.
 
 ###### Topics
 
+- [Creating a SMART on FHIR enabled HealthLake data store](reference-smart-on-fhir-create-data-store.md "reference-smart-on-fhir-create-data-store.md")
 - [Getting started with SMART on FHIR](reference-smart-on-fhir-getting-started.md "reference-smart-on-fhir-getting-started.md")
 - [HealthLake authentication requirements for SMART on FHIR](reference-smart-on-fhir-authentication.md "reference-smart-on-fhir-authentication.md")
 - [SMART on FHIR OAuth 2.0 scopes supported by HealthLake](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md")

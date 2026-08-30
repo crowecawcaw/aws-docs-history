@@ -13,7 +13,7 @@ proof-of-concept in a development account.
    or AWS SigV4-only) and AWS KMS encryption key. The authorization
    configuration is specified as part of the create data store request. For
    more information, see [Creating a HealthLake data store](managing-data-stores-create.md "managing-data-stores-create.md") and
-   .
+   [Creating a SMART on FHIR enabled HealthLake data store](reference-smart-on-fhir-create-data-store.md "reference-smart-on-fhir-create-data-store.md").
 2. Set up your API Gateway proxy.
 3. Confirm that HealthLake works with your EHR's FHIR API integration
    patterns.
@@ -53,7 +53,7 @@ posture:
 | `minimal`          | Resources are validated minimally, ignoring certain R4<br>rules. Resources that fail structure checks required for<br>search/analytics are updated to include a warning extension<br>for audit.                                                                                                                                                                                                      |
 
 For more information about validation levels, see
-.
+[Importing FHIR data with AWS HealthLake](importing-fhir-data.md "importing-fhir-data.md").
 
 ## Step 4: Validate the import
 
