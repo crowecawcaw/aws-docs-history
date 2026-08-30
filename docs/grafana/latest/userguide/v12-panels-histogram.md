@@ -17,7 +17,7 @@ The histogram visualization calculates the distribution of values and presents t
 as a bar chart. The Y-axis and the height of each bar represent the count of values that
 fall into each bracket while the X-axis represents the value range.
 
-![An image showing an example of a histogram visualization in Grafana.](/images/grafana/latest/userguide/images/viz/histogram-example.png)
+![An image showing an example of a histogram visualization in Grafana.](images/viz/histogram-example.png)
 
 ## Supported formats
 
