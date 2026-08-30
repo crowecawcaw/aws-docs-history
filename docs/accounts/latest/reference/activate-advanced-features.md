@@ -32,7 +32,7 @@ to your management account and the AWS Organization that contains your projects:
   organization instance using Account access manager. You can use this feature to modify user access, while still allowing your users to sign in using
   `aws login` to receive their IAM role session credentials from the browser.
   For more information, see [AWS Account Access Manager](../../../IAM/latest/UserGuide/account-access-manager.md "../../../IAM/latest/UserGuide/account-access-manager.md").
-- AWS creates a member account in your organization with a delegated administrator
+- AWS creates a member account called Identity Delegated Admin in your organization with a delegated administrator
   role. This role is used to perform most administrative tasks in the IAM Identity Center
   and account access manager. The delegated administrator role must be used in US East (N. Virginia).
   For more information, see [Delegated administration](../../../singlesignon/latest/userguide/delegated-admin.md "../../../singlesignon/latest/userguide/delegated-admin.md").

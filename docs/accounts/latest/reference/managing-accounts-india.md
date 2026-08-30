@@ -126,6 +126,8 @@ You can view your customer verification status at any time on the
 failed**, create or update your customer verification information and
 submit it for verification.
 
+If your management account has enabled customer verification inheritance, your account's verification status reflects that account's status. You do not need to take any action when inheritance is active.
+
 ### Create your customer verification information
 
 To complete customer verification, you will need to provide information from an
@@ -157,8 +159,12 @@ of account registration, your organization type, and the name, document type,
 document upload, or document information you want to use for verification.
 
 If you edit the name or document type to use for customer verification, or update
-any document information, saving the changes will require your identity to be
-verified again.
+any document information, you must verify your identity again when you save the
+changes.
+
+###### Verification inheritance is active
+
+If your management account has enabled customer verification inheritance, you cannot edit or submit your own customer verification information. Your verification information appears in read-only mode.
 
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. On the navigation bar, in the upper-right corner, choose your account name
@@ -194,6 +200,34 @@ saved, you will be notified of the customer verification result and any next
 steps by email. You can also view the results by returning to the
 **Customer verification** page or in the AWS Health
 Dashboard.
+
+### Manage customer verification inheritance for AWS Organizations
+
+With [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md"), you can enable customer verification inheritance for your organization. When you enable inheritance, India-based member accounts in your organization inherit your management account's verification status. They do not need to complete customer verification independently.
+
+Your management account must complete its own customer verification before it can enable inheritance. After you enable inheritance, you do not need to resubmit your verification documents.
+
+When your management account enables customer verification inheritance, your verification status extends to India-based member accounts in your organization. For those member accounts, we might use or disclose your verification information in response to law enforcement or regulatory requests.
+
+#### Enable or disable customer verification inheritance
+
+Use the following procedure to turn customer verification inheritance on or off for your organization's India-based member accounts.
+
+1. Open the AWS Management Console at [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+2. On the navigation bar, choose your account name (or alias), and then choose **Account**.
+3. Under **Other settings**, choose **Customer verification**.
+4. Under **Customer verification settings**, turn the **Inheritance** toggle on to enable inheritance or off to disable it.
+5. Review the confirmation dialog box, and then confirm your choice.
+
+When you enable inheritance, all India-based member accounts in your organization inherit your verification status. When you disable inheritance, we restore the prior verification status for member accounts that previously completed their own verification. A member account without prior verification must complete customer verification independently.
+
+#### Customer verification for AWS Organizations member accounts
+
+If your account has an India-based contact or billing address, you inherit the management account's verification status. This applies when your management account has enabled customer verification inheritance. You can see a message on the **Customer verification** page that confirms this.
+
+When inheritance is active, you cannot submit or edit your own customer verification information. You do not need to take any action.
+
+If your management account disables inheritance, you must have your own customer verification status. The same applies if your account leaves the organization, or the management account removes your account from the organization. If you previously submitted your own verification information, we restore your prior verification status. You do not need to repeat the process. This restoration applies only if your name and address have not changed since your last verification.
 
 ### Accepted India documents for customer verification
 
