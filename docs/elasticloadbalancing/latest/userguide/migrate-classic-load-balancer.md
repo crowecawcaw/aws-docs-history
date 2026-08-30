@@ -225,15 +225,19 @@ load balancers and their listeners.
 ```
 {
     "Version": "2012-10-17",
-    "Effect": "Deny",
-    "Action": "elasticloadbalancing:CreateLoadBalancer",
-    "Resource": [
-        "arn:aws:elasticloadbalancing:*:*:loadbalancer/*"
-    ],
-    "Condition": {
-        "Null": {
-            "elasticloadbalancing:ListenerProtocol": false
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "elasticloadbalancing:CreateLoadBalancer",
+            "Resource": [
+                "arn:aws:elasticloadbalancing:*:*:loadbalancer/*"
+            ],
+            "Condition": {
+                "Null": {
+                    "elasticloadbalancing:ListenerProtocol": false
+                }
+            }
         }
-    }
+    ]
 }
 ```
