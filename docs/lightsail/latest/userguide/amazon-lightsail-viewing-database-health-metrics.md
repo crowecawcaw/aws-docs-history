@@ -31,6 +31,9 @@ The following database metrics are available:
 - **Disk queue depth (`DiskQueueDepth`)**
   — The number of outstanding IOs (read/write requests) that are waiting to access
   the disk.
+- **Free memory (`FreeableMemory`)** —
+  The amount of available random access memory (RAM) on the database. Your database
+  allocates this memory to new connections, queries, and caching.
 - **Free storage space (`FreeStorageSpace`)**
   — The amount of available storage space.
 - **Network receive throughput
@@ -41,6 +44,9 @@ The following database metrics are available:
   (`NetworkTransmitThroughput`)** — The outgoing (Transmit)
   network traffic on the database, including both customer database traffic and AWS
   traffic used for monitoring and replication.
+- **Swap usage (`SwapUsage`)** — The
+  amount of swap space used on the database. A high value typically indicates that the
+  database is memory-deficient.
 
 ## Viewing database metrics in the Lightsail console
 

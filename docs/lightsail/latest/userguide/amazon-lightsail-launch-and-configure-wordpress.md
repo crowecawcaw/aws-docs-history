@@ -126,7 +126,11 @@ resources.
 While setup is in progress, do not stop or make changes to your instance.
 It can take up to 15 minutes to configure your instance. You can view the progress for
 each step in the instance connect tab. 7. After the website setup is complete, verify that the URLs that you specified in the
-domain assignments step open your WordPress site.
+domain assignments step open your WordPress site. 8. Your WordPress instance is automatically configured to redirect HTTP connections
+into encrypted HTTPS. You can verify that automatic redirection is configured by going
+to `http://`<DomainName>``. You should see that
+ once your site loads, you will be redirected to
+ `https://`<DomainName>``.
 
 ## Step 4: Get the admin password for your WordPress website
 
