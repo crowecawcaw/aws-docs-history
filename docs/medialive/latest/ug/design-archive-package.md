@@ -25,4 +25,4 @@ one video encode with embedded captions, and two audio encodes.
 This diagram illustrates an Archive output group that contains one output that holds
 one video encode, two audio encodes, and two object-style captions encode.
 
-![Output group labeled Output containing five elements: V, A, A, C, and C.](images/output4-nonABR-V-2A-2C.png)
+![Output group labeled Output containing five elements: V, A, A, C, and C.](/images/medialive/latest/ug/images/output4-nonABR-V-2A-2C.png)
