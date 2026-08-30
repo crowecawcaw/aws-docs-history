@@ -10,7 +10,7 @@ combine the Amazon Cognito directory with an external identity provider. With yo
 you can choose the API authorization model that works best for your app. And you can add
 AWS Lambda functions that modify or overhaul the default behavior of Amazon Cognito.
 
-![A diagram with a high-level overview of how user pools work. Clients can sign in with applications build using an AWS SDK or with the OIDC IdP built in to user pools. User pools also unify sign-in processes for multiple social, OpenID Connect, and SAML 2.0 identity providers.](images/scenario-authentication-cup.png)
+![A diagram with a high-level overview of how user pools work. Clients can sign in with applications build using an AWS SDK or with the OIDC IdP built in to user pools. User pools also unify sign-in processes for multiple social, OpenID Connect, and SAML 2.0 identity providers.](/images/cognito/latest/developerguide/images/scenario-authentication-cup.png)
 
 ###### Topics
 

@@ -145,8 +145,17 @@ is as follows.
 ### Remove the TOTP token
 
 Finally, your app should allow your user to deactivate their TOTP configuration.
-Currently, you can't delete a user's TOTP software token. To replace your user's
-software token, associate and verify a new software token. To deactivate TOTP MFA for a
+To delete your user's TOTP software token, use [AdminDeleteSoftwareToken](../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteSoftwareToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteSoftwareToken.md"). After you delete your user's software token, they
+can no longer sign in with TOTP MFA and can register a new software token. Use this
+operation when your user loses access to their TOTP-generating device, for example a
+lost or reset phone. When your user pool requires MFA and no other factor is
+available, Amazon Cognito returns an `MFA_SETUP` challenge at your user's next
+sign-in. When your user has another factor available, such as SMS message MFA, sign-in
+falls back to that factor.
+
+If your user still has access to their TOTP-generating device, you don't need to
+delete their software token. Amazon Cognito disassociates the existing software
+token when your user verifies a new one. To deactivate TOTP MFA for your
 user, call [SetUserMFAPreference](../../../cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.md "../../../cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.md") to modify your user to use no MFA, or only SMS
 MFA.
 
