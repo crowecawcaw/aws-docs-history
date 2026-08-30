@@ -83,18 +83,3 @@ as the source to match for the percent to scale.
 This block supports both graceful and ungraceful execution modes. You can configure ungraceful
 execution by specifying the minimum percentage of compute capacity to be matched in the target Region
 before Region switch proceeds to the next step in the plan.
-
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several critical checks on your EC2 Auto Scaling group execution block configuration
-and permissions. Region switch evaluation verifies that Auto Scaling groups are present in both Regions, ensures that they are properly configured
-and accessible, and notes the number of running instances in each Region. It also
-confirms that the maximum capacity in the target Region's Auto Scaling group is sufficient to handle the specified
-percentage match of scale for the required capacity.
-
-Region switch also validates that the plan's IAM role has
-the correct permissions for Auto Scaling. For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
-
-If any of the checks fail, Region switch returns warning messages, which you can view in the console. Or, you can receive
-the validation warnings through EventBridge or by using API operations.

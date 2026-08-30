@@ -54,21 +54,3 @@ including deciding whether to keep it running, stop it, or delete it based on yo
 
 This execution block is designed for post-recovery workflows and requires the source Region to be
 healthy and accessible. It should be used after a successful failover to re-establish cross-Region replication.
-
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several checks on your Amazon RDS execution block configuration
-and permissions. Region switch verifies that the following is correct:
-
-- The database instance ARNs in the configuration are valid and properly formatted.
-- The source database instances exist in their respective Regions.
-- The source database instances are in an available state.
-
-Region switch also validates that the plan's IAM role has the required permissions for creating Amazon RDS read replicas.
-For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
-
-The correct IAM permissions are essential for the proper functioning of the Amazon RDS execution block. If
-any of these validations fail, Region switch returns warnings that there are issues, and provides specific error messages to help
-you resolve the permissions or configuration issues. This ensures that your plan has the necessary access to manage
-and interact with Amazon RDS during when this step runs during a plan execution.

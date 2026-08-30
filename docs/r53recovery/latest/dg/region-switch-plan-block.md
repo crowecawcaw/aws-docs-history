@@ -34,8 +34,3 @@ as the parent plan (that is, active/active or active/passive).
 This block supports both graceful and ungraceful execution modes. Ungraceful settings will start child
 plans with their ungraceful configuration. If Region switch block was executed gracefully, and then switched to
 ungraceful execution mode, any child plan will also switch to ungraceful execution mode.
-
-## What is evaluated as part of plan evaluation
-
-If you share a plan across accounts, and the plan is no longer shared with the account of the parent plan,
-Region switch evaluation returns a warning that the plan is not valid.

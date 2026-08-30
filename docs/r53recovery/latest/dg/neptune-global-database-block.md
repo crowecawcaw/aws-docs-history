@@ -69,23 +69,3 @@ completes the step immediately without making any changes.
 
 For more information about Amazon Neptune Global Database disaster recovery, see
 [Using switchover or failover in Amazon Neptune global databases](../../../neptune/latest/userguide/neptune-global-database-failover.md "../../../neptune/latest/userguide/neptune-global-database-failover.md") in the Amazon Neptune User Guide.
-
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several checks on your Amazon Neptune execution block configuration
-and permissions. Region switch verifies that the following is correct:
-
-- The Amazon Neptune global cluster specified in the configuration exists.
-- The configured cluster ARNs are members of the specified global cluster.
-- There are Amazon Neptune DB clusters in both the source and destination Regions.
-- The source and destination DB clusters are in a state that allows Global Database switchover.
-- There are DB instances in both the source and destination clusters.
-
-Region switch also validates that the plan's IAM role has the required permissions for Amazon Neptune failover and switchover.
-For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
-
-The correct IAM permissions are essential for the proper functioning of the Amazon Neptune execution block. If
-any of these validations fail, Region switch returns warnings that there are issues, and provides specific error messages to help
-you resolve the permissions or configuration issues. This ensures that your plan has the necessary access to manage
-and interact with Amazon Neptune when this step runs during a plan execution.

@@ -117,16 +117,3 @@ by using the following patch: `{"spec":{"behavior":{"scaleDown":{"selectPolicy":
 
 Make sure to configure any drift-correcting tool, such as GitOps tooling, to ignore the replica
 field for the resources in the patch, as well as the HorizontalPodAutoscaler field.
-
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several checks on your configured EKS execution
-block and permissions. Region switch verifies that the plan’s IAM role has the correct permissions to
-describe EKS clusters and list associated Access Entry policies. Region switch also validates that the
-IAM role is associated to the correct Access Entry policy, so that Region switch has the required
-permissions to act on the Kubernetes resources. Finally, Region switch confirms that the configured EKS clusters
-and Kubernetes resources exist.
-
-In addition, Region switch checks that it has successfully collected and stored the necessary monitoring
-data (Kubernetes replica count) and captures the number of running pods that are required to execute
-the Region switch plan.

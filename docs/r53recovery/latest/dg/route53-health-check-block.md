@@ -104,14 +104,6 @@ The combination of no control plane dependency (globally distributed data plane)
 (STOP pattern) makes this a highly available DNS failover mechanism when the customer is only operating from two Regions.
 See STOP pattern documented here: [Creating disaster recovery mechanisms using Amazon Route 53](https://aws.amazon.com/blogs/networking-and-content-delivery/creating-disaster-recovery-mechanisms-using-amazon-route-53/ "https://aws.amazon.com/blogs/networking-and-content-delivery/creating-disaster-recovery-mechanisms-using-amazon-route-53/").
 
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several checks on your Route 53 health check execution block configuration
-and permissions. Region switch verifies that health checks are attached to the DNS records
-specified in the execution block configuration. That is, Region switch
-verifies that the DNS records for a specific AWS Region
-are configured to use health checks for that Region.
-
 ## Comparing ARC routing controls and Route 53 health check execution blocks
 
 The Amazon Route 53 health check execution block in Region switch provides a lower-cost alternative

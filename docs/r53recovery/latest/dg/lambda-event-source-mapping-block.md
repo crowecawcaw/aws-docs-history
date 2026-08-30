@@ -57,22 +57,3 @@ on the specified Lambda event source mapping. Region switch then waits until the
 (complete or paused because of failure) before proceeding to the next step in the plan.
 If the mapping is already in the desired state, Region switch marks the step as complete immediately.
 When a plan containing this execution block configured for ungraceful execution is run in ungraceful mode, the plan skips the execution of this step.
-
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several checks on your Lambda event source mapping execution block
-configuration and permissions. Region switch verifies that the following is correct:
-
-- The event source mapping exists in the Region embedded in the ARN.
-- The Lambda function associated with the event source mapping exists.
-- The event source mapping ARN's embedded Region is one of the plan's configured Regions.
-- For enable actions: The Lambda function is not throttled (provisioned concurrency is not set to 0).
-- For enable actions: The Lambda function is in an active state.
-
-Region switch also validates that the plan's IAM role has the required permissions for managing event source mappings.
-For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
-
-The correct IAM permissions are essential for the proper functioning of the Lambda event source mapping execution block. If
-any of these validations fail, Region switch returns warnings that there are issues, and provides specific error messages to help
-you resolve the permissions or configuration issues.

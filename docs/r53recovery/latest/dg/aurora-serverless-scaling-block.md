@@ -114,21 +114,6 @@ To configure an Aurora Serverless Scaling execution block, enter the following v
 
 Then, choose **Save step.**
 
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several critical checks on your Aurora Serverless Scaling
-execution block configuration and permissions. Region switch evaluation
-verifies that Aurora Serverless clusters are present in both Regions, ensures that they are properly
-configured and accessible, and notes the current capacity in each Region. It also confirms that the
-maximum capacity in the target Region's cluster is sufficient to handle the specified percentage
-match of scale for the required capacity.
-
-Region switch also validates that the plan's IAM role has the correct permissions for Aurora
-Serverless scaling. For more information about the required permissions for Region switch execution
-blocks, see [Aurora serverless scaling execution block sample policy](security_iam_region_switch_aurora_serverless_scaling.md "security_iam_region_switch_aurora_serverless_scaling.md"). If any of the checks
-fail, Region switch returns warning messages, which you can view in the console. Or, you can
-receive the validation warnings through or by using API operations.
-
 ## Related resources
 
 - [Aurora serverless scaling execution block sample policy](security_iam_region_switch_aurora_serverless_scaling.md "security_iam_region_switch_aurora_serverless_scaling.md")

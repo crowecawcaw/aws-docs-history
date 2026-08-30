@@ -52,25 +52,3 @@ settings perform an Aurora Global Database _failover_, which might cause data lo
 
 For more information about Aurora Global Database disaster recovery, including failover and switchover, see
 [Using switchover or failover in Amazon Aurora global databases](../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md") in the Amazon Aurora User Guide.
-
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several checks on your Aurora execution block configuration
-and permissions. Region switch verifies that the following is correct:
-
-- The Aurora global cluster specified in the configuration exists.
-- There are Aurora DB clusters in both the source and destination Regions.
-- The source and destination DB clusters are in a state that allows Global Database switchover.
-- There are DB instances in both the source and destination clusters
-- The global cluster engine versions for the switchover action are compatible. This includes verifying that
-  the clusters are on the same Major, Minor, and patch versions, with some exceptions that are listed in
-  the Aurora documentation.
-
-Region switch also validates that the plan's IAM role has the required permissions for Aurora failover and switchover.
-For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
-
-The correct IAM permissions are essential for the proper functioning of the Aurora execution block. If
-any of these validations fail, Region switch returns warnings that there are issues, and provides specific error messages to help
-you resolve the permissions or configuration issues. This ensures that your plan has the necessary access to manage
-and interact with the Aurora during when this step runs during a plan execution.

@@ -22,6 +22,7 @@ adding execution block steps in your workflows.
 
 ###### Contents
 
+- [Plan evaluation](working-with-rs-plan-evaluation.md "working-with-rs-plan-evaluation.md")
 - [Create a plan](working-with-rs-create-plan.md "working-with-rs-create-plan.md")
 - [Create workflows](working-with-rs-workflows.md "working-with-rs-workflows.md")
 - [Add execution blocks](working-with-rs-execution-blocks.md "working-with-rs-execution-blocks.md")

@@ -49,20 +49,6 @@ that you use.
 
 This block does not support ungraceful execution mode.
 
-## What is evaluated as part of plan evaluation
-
-When Region switch evaluates your plan, Region switch performs several checks on your routing controls execution block configuration
-and permissions. Region switch verifies that the specified routing controls are properly configured and accessible.
-
-Region switch also validates that the plan's IAM role has the required permissions for accessing and updating routing
-control states. For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
-
-The correct IAM permissions are essential for the proper functioning of the routing control execution block. If
-any of these validations fail, Region switch returns warnings that there are issues, and provides specific error messages to help
-you resolve the permissions or configuration issues. This ensures that your plan has the necessary access to manage
-and interact with the ARC routing controls during when this step runs during a plan execution.
-
 ## Comparing ARC routing controls and Route 53 health check execution blocks
 
 The Amazon Route 53 health check execution block in Region switch provides a lower-cost alternative
