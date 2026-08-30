@@ -12,12 +12,12 @@ document. The following operations are supported:
 - Manage and monitor video and audio published to the stage
 - Get WebRTC statistics for each peer connection
 - All operations from the IVS low-latency streaming iOS broadcast SDK
-  **Latest version of iOS broadcast SDK:** 1.45.0 ([Release
-  Notes](release-notes.md#jul30-26-broadcast-mobile-rt "release-notes.md#jul30-26-broadcast-mobile-rt"))
+  **Latest version of iOS broadcast SDK:** 1.46.0 ([Release
+  Notes](release-notes.md#aug27-26-broadcast-mobile-rt "release-notes.md#aug27-26-broadcast-mobile-rt"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS iOS broadcast SDK, see the reference
-documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.45.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.45.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.45.0/ios/").
+documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/").
 
 **Sample code:** See the iOS sample repository on GitHub:
 [https://github.com/aws-samples/amazon-ivs-real-time-streaming-ios-samples](https://github.com/aws-samples/amazon-ivs-real-time-streaming-ios-samples "https://github.com/aws-samples/amazon-ivs-real-time-streaming-ios-samples").

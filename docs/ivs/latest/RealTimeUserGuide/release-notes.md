@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## August 27, 2026
+
+### Amazon IVS Broadcast SDK: Android 1.46.0, iOS 1.46.0 (Real-Time Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.46.0](broadcast-android.md "broadcast-android.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/android/")<br>• Fixed a rare crash that could occur when calling `leave()` on a stage while it is handling a fatal error.<br>• Introduced `RealTimeConnection` APIs that create a persistent connection across multiple stages, reducing time to video when users transition between stages.<br>• Fixed a rare crash that could occur if OpenSL ES audio playback failed to start correctly.<br>• Fixed rare playback and recording issues on some device models when using STUDIO or SUBSCRIBE\_ONLY audio use case presets.                                                              |
+| [iOS Broadcast SDK<br>1.46.0](broadcast-ios.md "broadcast-ios.md")             | **Download for real-time streaming:**<br>[https://broadcast.live-video.net/1.46.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.46.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.46.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>**Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/")<br>• Fixed a rare crash that could occur when calling `leave()` on a stage while it is handling a fatal error.<br>• Introduced `IVSRealTimeConnection` APIs that create a persistent connection across multiple stages, reducing time to video when users transition between stages. |
+
+#### Broadcast SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 6.089 MB        | 14.784 MB         |
+| armeabi-v7a  | 5.277 MB        | 10.235 MB         |
+| x86\_64      | 6.206 MB        | 15.378 MB         |
+| x86          | 6.481 MB        | 16.010 MB         |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 4.085 MB        | 8.297 MB          |
+
+## August 27, 2026
+
+### IVS Broadcast SDK: Web 1.39.0 (Real-Time Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.39.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Fixed an issue where Firefox users could not reconnect to a stage after being offline for an extended period.<br>• Fixed a [RangeError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError")<br>that causes publishing to fail on Chrome 152+ when simulcast was enabled. |
+
 ## August 19, 2026
 
 ### Connection Reuse Across Stages

@@ -18,7 +18,7 @@ tag:
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Import the SDK -->
-  <script src="https://web-broadcast.live-video.net/1.38.1/amazon-ivs-web-broadcast.js"></script>
+  <script src="https://web-broadcast.live-video.net/1.39.0/amazon-ivs-web-broadcast.js"></script>
 </head>
 
 <body>
