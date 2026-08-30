@@ -56,6 +56,13 @@ them.
 
 You can find public events from your AWS Health Dashboard and the AWS Health Dashboard – Service health.
 
+###### Important
+
+Public events are not available through AWS managed notifications in AWS User Notifications. To
+receive public events, you must create an Amazon EventBridge rule or a User-configured notification
+(UCN) within AWS User Notifications. For more information, see [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md") and [Managing
+notifications in AWS User Notifications](../../../notifications/latest/userguide/managing-notifications.md "../../../notifications/latest/userguide/managing-notifications.md").
+
 If you have an account, see [Getting started with your AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md").
 
 If you don't have an account, see [AWS Health Dashboard](aws-health-dashboard-status.md "aws-health-dashboard-status.md").

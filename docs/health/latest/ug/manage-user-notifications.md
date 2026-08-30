@@ -1,5 +1,12 @@
 # Manage AWS Health notifications in AWS User Notifications
 
+###### Important
+
+Public events are not available through AWS managed notifications in AWS User Notifications. To
+receive public events, you must create an Amazon EventBridge rule or a User-configured notification
+(UCN) within AWS User Notifications. For more information, see [Monitoring events in AWS Health with Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md") and [Managing
+notifications in AWS User Notifications](../../../notifications/latest/userguide/managing-notifications.md "../../../notifications/latest/userguide/managing-notifications.md").
+
 AWS managed notifications in AWS User Notifications lets you receive and manage notifications about events that affect your AWS accounts and services. When you use AWS managed notifications in AWS User Notifications, you can specify which AWS Health event categories to receive, set up organizational view for emails, and get consolidated notifications instead of multiple similar emails.
 
 You can choose the following additional channels to receive your AWS Health events through AWS User Notifications:
