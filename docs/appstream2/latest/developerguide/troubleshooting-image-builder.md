@@ -185,11 +185,11 @@ The application optimization manifest was created with elevated privileges. To c
 
 The image assistant in the image builder displays the following error message:
 "The installed SSM Agent version x is below the recommended minimum version
-3.3.3598.0. Consider updating the SSM Agent to ensure full functionality."
+3.3.0.0. Consider updating the SSM Agent to ensure full functionality."
 
 AWS Systems Manager is deprecating the ec2messages (Amazon Message Delivery
 Service) endpoints that older SSM Agent versions use for Run Command execution.
-SSM Agent 3.3.3598.0 and above uses the newer ssmmessages (Amazon Message Gateway
+SSM Agent 3.3.0.0 and above uses the newer ssmmessages (Amazon Message Gateway
 Service) endpoints, which provide improved security and reliability.
 
 To resolve this issue, complete the following steps:
@@ -197,7 +197,7 @@ To resolve this issue, complete the following steps:
 1. Manually update the SSM Agent by following the instructions in the
    [Systems Manager User
    Guide](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
-2. Confirm that the SSM Agent version is 3.3.3598.0 or above by running the
+2. Confirm that the SSM Agent version is 3.3.0.0 or above by running the
    following PowerShell command:
 
 ```
