@@ -1,18 +1,18 @@
+
+
 # AwsBackup resources in ASFF
+<a name="asff-resourcedetails-awsbackup"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsBackup` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsBackupBackupPlan
+<a name="asff-resourcedetails-awsbackupbackupplan"></a>
 
-The `AwsBackupBackupPlan` object provides information about an AWS Backup
-backup plan. An AWS Backup backup plan is a policy expression that defines when and how you
-want to back up your AWS resources.
+The `AwsBackupBackupPlan` object provides information about an AWS Backup backup plan. An AWS Backup backup plan is a policy expression that defines when and how you want to back up your AWS resources.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsBackupBackupPlan`
-object. To view descriptions of `AwsBackupBackupPlan` attributes, see [AwsBackupBackupPlan](../../1.0/APIReference/API_AwsBackupBackupPlanDetails.md "../../1.0/APIReference/API_AwsBackupBackupPlanDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsBackupBackupPlan` object. To view descriptions of `AwsBackupBackupPlan` attributes, see [AwsBackupBackupPlan](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsBackupBackupPlanDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -68,14 +68,11 @@ object. To view descriptions of `AwsBackupBackupPlan` attributes, see [AwsBackup
 ```
 
 ## AwsBackupBackupVault
+<a name="asff-resourcedetails-awsbackupbackupvault"></a>
 
-The `AwsBackupBackupVault` object provides information about an AWS Backup
-backup vault. A AWS Backup backup vault is a container that stores and organizes your
-backups.
+The `AwsBackupBackupVault` object provides information about an AWS Backup backup vault. A AWS Backup backup vault is a container that stores and organizes your backups.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsBackupBackupVault` object. To view descriptions of
-`AwsBackupBackupVault` attributes, see [AwsBackupBackupVault](../../1.0/APIReference/API_AwsBackupBackupVaultDetails.md "../../1.0/APIReference/API_AwsBackupBackupVaultDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsBackupBackupVault` object. To view descriptions of `AwsBackupBackupVault` attributes, see [AwsBackupBackupVault](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsBackupBackupVaultDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -97,7 +94,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the
     		},
     		"Resource": "*"
     	}],
-    	"Version": "2012-10-17"
+    	"Version": "2012-10-17"		 	 	 
     },
     "BackupVaultArn": "arn:aws:backup:us-east-1:123456789012:backup-vault:aws/efs/automatic-backup-vault",
     "BackupVaultName": "aws/efs/automatic-backup-vault",
@@ -110,14 +107,11 @@ The following example shows the AWS Security Finding Format (ASFF) for the
 ```
 
 ## AwsBackupRecoveryPoint
+<a name="asff-resourcedetails-awsbackuprecoverypoint"></a>
 
-The `AwsBackupRecoveryPoint` object provides information about an AWS Backup
-backup, also referred to as a recovery point. An AWS Backup recovery point represents the
-content of a resource at a specified time.
+The `AwsBackupRecoveryPoint` object provides information about an AWS Backup backup, also referred to as a recovery point. An AWS Backup recovery point represents the content of a resource at a specified time.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsBackupRecoveryPoint` object. To view descriptions of
-`AwsBackupBackupVault` attributes, see [AwsBackupRecoveryPoint](../../1.0/APIReference/API_AwsBackupRecoveryPointDetails.md "../../1.0/APIReference/API_AwsBackupRecoveryPointDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsBackupRecoveryPoint` object. To view descriptions of `AwsBackupBackupVault` attributes, see [AwsBackupRecoveryPoint](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsBackupRecoveryPointDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

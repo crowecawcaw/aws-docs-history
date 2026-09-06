@@ -1,19 +1,18 @@
+
+
 # AwsEcr resources in ASFF
+<a name="asff-resourcedetails-awsecr"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEcr` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsEcrContainerImage
+<a name="asff-resourcedetails-awsecrcontainerimage"></a>
 
-The `AwsEcrContainerImage` object provides information about an Amazon ECR
-image.
+The `AwsEcrContainerImage` object provides information about an Amazon ECR image.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEcrContainerImage` object. To view descriptions of
-`AwsEcrContainerImage` attributes, see [AwsEcrContainerImageDetails](../../1.0/APIReference/API_AwsEcrContainerImageDetails.md "../../1.0/APIReference/API_AwsEcrContainerImageDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEcrContainerImage` object. To view descriptions of `AwsEcrContainerImage` attributes, see [AwsEcrContainerImageDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEcrContainerImageDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -29,13 +28,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsEcrRepository
+<a name="asff-resourcedetails-awsecrrepository"></a>
 
-The `AwsEcrRepository` object provides information about an Amazon Elastic Container Registry
-repository.
+The `AwsEcrRepository` object provides information about an Amazon Elastic Container Registry repository.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEcrRepository` object. To view descriptions of
-`AwsEcrRepository` attributes, see [AwsEcrRepositoryDetails](../../1.0/APIReference/API_AwsEcrRepositoryDetails.md "../../1.0/APIReference/API_AwsEcrRepositoryDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEcrRepository` object. To view descriptions of `AwsEcrRepository` attributes, see [AwsEcrRepositoryDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEcrRepositoryDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -43,7 +40,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the
 "AwsEcrRepository": {
     "LifecyclePolicy": {
         "RegistryId": "123456789012",
-    },
+    },  
     "RepositoryName": "sample-repo",
     "Arn": "arn:aws:ecr:us-west-2:111122223333:repository/sample-repo",
     "ImageScanningConfiguration": {

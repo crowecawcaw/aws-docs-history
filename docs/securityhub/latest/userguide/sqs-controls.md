@@ -1,9 +1,12 @@
-# Security Hub CSPM controls for Amazon SQS
 
-These AWS Security Hub CSPM controls evaluate the Amazon Simple Queue Service (Amazon SQS) service and resources. The
-controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+
+# Security Hub CSPM controls for Amazon SQS
+<a name="sqs-controls"></a>
+
+These AWS Security Hub CSPM controls evaluate the Amazon Simple Queue Service (Amazon SQS) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 
 ## [SQS.1] Amazon SQS queues should be encrypted at rest
+<a name="sqs-1"></a>
 
 **Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
 
@@ -11,34 +14,31 @@ controls might not be available in all AWS Regions. For more information, see [A
 
 **Severity:** Medium
 
-**Resource type:**
-`AWS::SQS::Queue`
+**Resource type:** `AWS::SQS::Queue`
 
-**AWS Config rule:**
-`sqs-queue-encrypted` (custom Security Hub CSPM rule)
+**AWS Config rule:** `sqs-queue-encrypted` (custom Security Hub CSPM rule)
 
 **Schedule type:** Change triggered
 
 **Parameters:** None
 
-This control checks whether an Amazon SQS queue is encrypted at rest. The control fails if the queue isn't encrypted with
-an SQS-managed key (SSE-SQS) or an AWS Key Management Service (AWS KMS) key (SSE-KMS).
+This control checks whether an Amazon SQS queue is encrypted at rest. The control fails if the queue isn't encrypted with an SQS-managed key (SSE-SQS) or an AWS Key Management Service (AWS KMS) key (SSE-KMS).
 
-Encrypting data at rest reduces the risk of an unauthorized user accessing data stored on disk. Server-side encryption
-(SSE) protects the contents of messages in SQS queues using SQS-managed encryption keys (SSE-SQS) or AWS KMS keys (SSE-KMS).
+Encrypting data at rest reduces the risk of an unauthorized user accessing data stored on disk. Server-side encryption (SSE) protects the contents of messages in SQS queues using SQS-managed encryption keys (SSE-SQS) or AWS KMS keys (SSE-KMS).
 
 ### Remediation
+<a name="sqs-1-remediation"></a>
 
-To configure SSE for an SQS queue, see [Configuring server-side encryption (SSE) for a queue (console)](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.md") in the _Amazon Simple Queue Service Developer Guide_.
+To configure SSE for an SQS queue, see [ Configuring server-side encryption (SSE) for a queue (console)](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html) in the *Amazon Simple Queue Service Developer Guide*.
 
 ## [SQS.2] SQS queues should be tagged
+<a name="sqs-2"></a>
 
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low
 
-**Resource type:**
-`AWS::SQS::Queue`
+**Resource type:** `AWS::SQS::Queue`
 
 **AWS Config rule:** `tagged-sqs-queue` (custom Security Hub CSPM rule)
 
@@ -46,77 +46,46 @@ To configure SSE for an SQS queue, see [Configuring server-side encryption (SSE)
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`              |
 
-This control checks whether an Amazon SQS queue has tags with the specific keys defined in the parameter
-`requiredTagKeys`. The control fails if the queue doesn’t have any tag keys or if it doesn’t have all the keys specified in the
-parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence
-of a tag key and fails if the queue isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`,
-are ignored.
+| Parameter | Description | Type | Allowed custom values | Security Hub CSPM default value | 
+| --- | --- | --- | --- | --- | 
+|  requiredTagKeys  | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive.  | StringList (maximum of 6 items)  | 1–6 tag keys that meet [AWS requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions).  |  No default value  | 
 
-A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to
-categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources.
-Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based
-access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles)
-and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC
-policies to allow operations when the principal's tag matches the resource tag. For more information, see
-[What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_.
+This control checks whether an Amazon SQS queue has tags with the specific keys defined in the parameter `requiredTagKeys`. The control fails if the queue doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence of a tag key and fails if the queue isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored.
 
-###### Note
+A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [What is ABAC for AWS?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*.
 
-Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible
-to many AWS services, including AWS Billing. For more tagging best practices, see
-[Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
-_AWS General Reference_.
+**Note**  
+Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Tagging your AWS resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices) in the *AWS General Reference*.
 
 ### Remediation
+<a name="sqs-2-remediation"></a>
 
-To add tags to an existing queue using the Amazon SQS console, see [Configuring cost allocation tags for an Amazon SQS queue (console)](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-tag-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-tag-queue.md") in the _Amazon Simple Queue Service Developer Guide_.
+To add tags to an existing queue using the Amazon SQS console, see [ Configuring cost allocation tags for an Amazon SQS queue (console)](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-tag-queue.html) in the *Amazon Simple Queue Service Developer Guide*.
 
 ## [SQS.3] SQS queue access policies should not allow public access
+<a name="sqs-3"></a>
 
 **Category:** Protect > Secure access management > Resource not publicly accessible
 
 **Severity:** Critical
 
-**Resource type:**
-`AWS::SQS::Queue`
+**Resource type:** `AWS::SQS::Queue`
 
-**AWS Config rule:**
-[sqs-queue-no-public-access](../../../config/latest/developerguide/sqs-queue-no-public-access.md "../../../config/latest/developerguide/sqs-queue-no-public-access.md")
+**AWS Config rule:** [sqs-queue-no-public-access](https://docs.aws.amazon.com/config/latest/developerguide/sqs-queue-no-public-access.html)
 
 **Schedule type:** Change triggered
 
 **Parameters:** None
 
-This controls checks whether an Amazon SQS access policy allows public access to an SQS
-queue. The control fails if an SQS access policy allows public access to the
-queue.
+This controls checks whether an Amazon SQS access policy allows public access to an SQS queue. The control fails if an SQS access policy allows public access to the queue.
 
-An Amazon SQS access policy can allow public access to an SQS queue, which might allow an
-anonymous user or any authenticated AWS IAM identity to access the queue. SQS access
-policies typically provide this access by specifying the wildcard character (`*`) in the
-`Principal` element of the policy, not using proper conditions to restrict access to the
-queue, or both. If an SQS access policy allows public access, third parties might be
-able to perform tasks such as receive messages from the queue, send messages to the
-queue, or modify the access policy for the queue. This could result in events such as
-data exfiltration, a denial of service, or injection of messages into the queue by a
-threat actor.
+An Amazon SQS access policy can allow public access to an SQS queue, which might allow an anonymous user or any authenticated AWS IAM identity to access the queue. SQS access policies typically provide this access by specifying the wildcard character (`*`) in the `Principal` element of the policy, not using proper conditions to restrict access to the queue, or both. If an SQS access policy allows public access, third parties might be able to perform tasks such as receive messages from the queue, send messages to the queue, or modify the access policy for the queue. This could result in events such as data exfiltration, a denial of service, or injection of messages into the queue by a threat actor.
 
-###### Note
-
-This control doesn't evaluate policy conditions that use wildcard characters or
-variables. To produce a `PASSED` finding, conditions in the Amazon SQS access
-policy for a queue must only use fixed values, which are values that don't contain
-wildcard characters or policy variables. For information about policy variables, see
-[Variables and
-tags](../../../IAM/latest/UserGuide/reference_policies_variables.md "../../../IAM/latest/UserGuide/reference_policies_variables.md") in the _AWS Identity and Access Management User
-Guide_.
+**Note**  
+This control doesn't evaluate policy conditions that use wildcard characters or variables. To produce a `PASSED` finding, conditions in the Amazon SQS access policy for a queue must only use fixed values, which are values that don't contain wildcard characters or policy variables. For information about policy variables, see [Variables and tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html) in the *AWS Identity and Access Management User Guide*.
 
 ### Remediation
+<a name="sqs-3-remediation"></a>
 
-For information about configuring the SQS access policy for an SQS queue, see
-[Using custom policies with the Amazon SQS Access Policy Language](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.md") in the
-_Amazon Simple Queue Service Developer Guide_.
+For information about configuring the SQS access policy for an SQS queue, see [Using custom policies with the Amazon SQS Access Policy Language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Amazon Simple Queue Service Developer Guide*.

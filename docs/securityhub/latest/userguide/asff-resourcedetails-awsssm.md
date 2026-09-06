@@ -1,20 +1,18 @@
+
+
 # AwsSsm resources in ASFF
+<a name="asff-resourcedetails-awsssm"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSsm` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsSsmPatchCompliance
+<a name="asff-resourcedetails-awsssmpatchcompliance"></a>
 
-The `AwsSsmPatchCompliance` object provides information about the state of
-a patch on an instance based on the patch baseline that was used to patch the
-instance.
+The `AwsSsmPatchCompliance` object provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsSsmPatchCompliance` object. To view descriptions of
-`AwsSsmPatchCompliance` attributes, see [AwsSsmPatchComplianceDetails](../../1.0/APIReference/API_AwsSsmPatchComplianceDetails.md "../../1.0/APIReference/API_AwsSsmPatchComplianceDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsSsmPatchCompliance` object. To view descriptions of `AwsSsmPatchCompliance` attributes, see [AwsSsmPatchComplianceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSsmPatchComplianceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

@@ -1,19 +1,18 @@
+
+
 # AwsCodeBuild resources in ASFF
+<a name="asff-resourcedetails-awscodebuild"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCodeBuild` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsCodeBuildProject
+<a name="asff-resourcedetails-awscodebuildproject"></a>
 
-The `AwsCodeBuildProject` object provides information about an AWS CodeBuild
-project.
+The `AwsCodeBuildProject` object provides information about an AWS CodeBuild project.
 
-The following is an example `AwsCodeBuildProject` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of `AwsCodeBuildProject`
-attributes, see [AwsCodeBuildProjectDetails](../../1.0/APIReference/API_AwsCodeBuildProjectDetails.md "../../1.0/APIReference/API_AwsCodeBuildProjectDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsCodeBuildProject` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsCodeBuildProject` attributes, see [AwsCodeBuildProjectDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsCodeBuildProjectDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -57,7 +56,7 @@ _AWS Security Hub API Reference_.
            }
       ],
    "ImagePullCredentialsType": "string",
-   "PrivilegedMode": boolean,
+   "PrivilegedMode": boolean, 
    "RegistryCredential": {
        "Credential": "string",
        "CredentialProvider": "string"

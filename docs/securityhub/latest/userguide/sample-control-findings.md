@@ -1,46 +1,34 @@
+
+
 # Samples of control findings
+<a name="sample-control-findings"></a>
 
-The following samples provide examples of AWS Security Hub CSPM control findings in the AWS Security Finding Format (ASFF).
-The contents of control findings vary depending on whether you enabled consolidated control
-findings.
+The following samples provide examples of AWS Security Hub CSPM control findings in the AWS Security Finding Format (ASFF). The contents of control findings vary depending on whether you enabled consolidated control findings.
 
-If you enable consolidated control findings, Security Hub CSPM generates a single finding for a
-control, even if the control applies to multiple enabled standards. If you don't enable this
-feature, Security Hub CSPM generates a separate control finding for each enabled standard that a control
-applies to. For example, if you enable two standards and a control applies to both of them,
-you receive two separate findings for the control, one for each standard. If you enable
-consolidated control findings, you receive only one finding for the control. For more
-information, see [Consolidated control findings](controls-findings-create-update.md#consolidated-control-findings "controls-findings-create-update.md#consolidated-control-findings").
+If you enable consolidated control findings, Security Hub CSPM generates a single finding for a control, even if the control applies to multiple enabled standards. If you don't enable this feature, Security Hub CSPM generates a separate control finding for each enabled standard that a control applies to. For example, if you enable two standards and a control applies to both of them, you receive two separate findings for the control, one for each standard. If you enable consolidated control findings, you receive only one finding for the control. For more information, see [Consolidated control findings](controls-findings-create-update.md#consolidated-control-findings).
 
-The samples on this page provide examples for both scenarios. The samples include: control
-findings for individual Security Hub CSPM standards when consolidated control findings is disabled, and a
-control finding for multiple Security Hub CSPM standards when consolidated control findings is
-enabled.
+The samples on this page provide examples for both scenarios. The samples include: control findings for individual Security Hub CSPM standards when consolidated control findings is disabled, and a control finding for multiple Security Hub CSPM standards when consolidated control findings is enabled.
 
-###### Samples of control findings
+**Topics**
++ [Sample finding for the AWS Foundational Security Best Practices standard](#sample-finding-fsbp)
++ [Sample finding for CIS AWS Foundations Benchmark v5.0.0](#sample-finding-cis-5)
++ [Sample finding for CIS AWS Foundations Benchmark v3.0.0](#sample-finding-cis-3)
++ [Sample finding for CIS AWS Foundations Benchmark v1.4.0](#sample-finding-cis-1.4)
++ [Sample finding for CIS AWS Foundations Benchmark v1.2.0](#sample-finding-cis-1.2)
++ [Sample finding for the NIST SP 800-53 Revision 5 standard](#sample-finding-nist-800-53)
++ [Sample finding for the NIST SP 800-171 Revision 2 standard](#sample-finding-nist-800-171)
++ [Sample finding for Payment Card Industry Data Security Standard v3.2.1](#sample-finding-pcidss-v321)
++ [Sample finding for the AWS Resource Tagging standard](#sample-finding-tagging)
++ [Sample finding for the AWS Control Tower service-managed standard](#sample-finding-service-managed-aws-control-tower)
++ [Sample consolidated finding for multiple standards](#sample-finding-consolidation)
 
-- [Sample finding for the AWS Foundational Security Best Practices standard](#sample-finding-fsbp "#sample-finding-fsbp")
-- [Sample finding for CIS AWS Foundations Benchmark v5.0.0](#sample-finding-cis-5 "#sample-finding-cis-5")
-- [Sample finding for CIS AWS Foundations Benchmark v3.0.0](#sample-finding-cis-3 "#sample-finding-cis-3")
-- [Sample finding for CIS AWS Foundations Benchmark v1.4.0](#sample-finding-cis-1.4 "#sample-finding-cis-1.4")
-- [Sample finding for CIS AWS Foundations Benchmark v1.2.0](#sample-finding-cis-1.2 "#sample-finding-cis-1.2")
-- [Sample finding for the NIST SP 800-53 Revision 5 standard](#sample-finding-nist-800-53 "#sample-finding-nist-800-53")
-- [Sample finding for the NIST SP 800-171 Revision 2 standard](#sample-finding-nist-800-171 "#sample-finding-nist-800-171")
-- [Sample finding for Payment Card Industry Data Security Standard v3.2.1](#sample-finding-pcidss-v321 "#sample-finding-pcidss-v321")
-- [Sample finding for the AWS Resource Tagging standard](#sample-finding-tagging "#sample-finding-tagging")
-- [Sample finding for the AWS Control Tower service-managed standard](#sample-finding-service-managed-aws-control-tower "#sample-finding-service-managed-aws-control-tower")
-- [Sample consolidated finding for multiple standards](#sample-finding-consolidation "#sample-finding-consolidation")
-
-###### Note
-
-Control findings reference different fields and values in the China Regions and the
-AWS GovCloud (US) Regions. For more information, see [Impact of consolidation on ASFF fields and values](asff-changes-consolidation.md "asff-changes-consolidation.md").
+**Note**  
+Control findings reference different fields and values in the China Regions and the AWS GovCloud (US) Regions. For more information, see [Impact of consolidation on ASFF fields and values](asff-changes-consolidation.md).
 
 ## Sample finding for the AWS Foundational Security Best Practices standard
+<a name="sample-finding-fsbp"></a>
 
-The following sample provides an example of a finding for a control that applies to the
-AWS Foundational Security Best Practices (FSBP) standard. In this sample, consolidated
-control findings is disabled.
+The following sample provides an example of a finding for a control that applies to the AWS Foundational Security Best Practices (FSBP) standard. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -119,9 +107,9 @@ control findings is disabled.
 ```
 
 ## Sample finding for CIS AWS Foundations Benchmark v5.0.0
+<a name="sample-finding-cis-5"></a>
 
-The following sample provides an example of a finding for a control that applies to
-CIS AWS Foundations Benchmark v5.0.0. In this sample, consolidated control findings is disabled.
+The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v5.0.0. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -210,9 +198,9 @@ CIS AWS Foundations Benchmark v5.0.0. In this sample, consolidated control findi
 ```
 
 ## Sample finding for CIS AWS Foundations Benchmark v3.0.0
+<a name="sample-finding-cis-3"></a>
 
-The following sample provides an example of a finding for a control that applies to
-CIS AWS Foundations Benchmark v3.0.0. In this sample, consolidated control findings is disabled.
+The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v3.0.0. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -298,9 +286,9 @@ CIS AWS Foundations Benchmark v3.0.0. In this sample, consolidated control findi
 ```
 
 ## Sample finding for CIS AWS Foundations Benchmark v1.4.0
+<a name="sample-finding-cis-1.4"></a>
 
-The following sample provides an example of a finding for a control that applies to
-CIS AWS Foundations Benchmark v1.4.0. In this sample, consolidated control findings is disabled.
+The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v1.4.0. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -382,9 +370,9 @@ CIS AWS Foundations Benchmark v1.4.0. In this sample, consolidated control findi
 ```
 
 ## Sample finding for CIS AWS Foundations Benchmark v1.2.0
+<a name="sample-finding-cis-1.2"></a>
 
-The following sample provides an example of a finding for a control that applies to
-CIS AWS Foundations Benchmark v1.2.0. In this sample, consolidated control findings is disabled.
+The following sample provides an example of a finding for a control that applies to CIS AWS Foundations Benchmark v1.2.0. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -463,10 +451,9 @@ CIS AWS Foundations Benchmark v1.2.0. In this sample, consolidated control findi
 ```
 
 ## Sample finding for the NIST SP 800-53 Revision 5 standard
+<a name="sample-finding-nist-800-53"></a>
 
-The following sample provides an example of a finding for a control that applies to the
-NIST SP 800-53 Revision 5 standard. In this sample, consolidated control findings is
-disabled.
+The following sample provides an example of a finding for a control that applies to the NIST SP 800-53 Revision 5 standard. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -558,10 +545,9 @@ disabled.
 ```
 
 ## Sample finding for the NIST SP 800-171 Revision 2 standard
+<a name="sample-finding-nist-800-171"></a>
 
-The following sample provides an example of a finding for a control that applies to the
-NIST SP 800-171 Revision 2 standard. In this sample, consolidated control findings is
-disabled.
+The following sample provides an example of a finding for a control that applies to the NIST SP 800-171 Revision 2 standard. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -649,10 +635,9 @@ disabled.
 ```
 
 ## Sample finding for Payment Card Industry Data Security Standard v3.2.1
+<a name="sample-finding-pcidss-v321"></a>
 
-The following sample provides an example of a finding for a control that applies to
-Payment Card Industry Data Security Standard (PCI DSS) v3.2.1. In this sample, consolidated
-control findings is disabled.
+The following sample provides an example of a finding for a control that applies to Payment Card Industry Data Security Standard (PCI DSS) v3.2.1. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -734,10 +719,9 @@ control findings is disabled.
 ```
 
 ## Sample finding for the AWS Resource Tagging standard
+<a name="sample-finding-tagging"></a>
 
-The following sample provides an example of a finding for a control that applies to the
-AWS Resource Tagging standard. In this sample, consolidated control findings is
-disabled.
+The following sample provides an example of a finding for a control that applies to the AWS Resource Tagging standard. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -838,10 +822,9 @@ disabled.
 ```
 
 ## Sample finding for the AWS Control Tower service-managed standard
+<a name="sample-finding-service-managed-aws-control-tower"></a>
 
-The following sample provides an example of a finding for a control that applies to the
-AWS Control Tower service-managed standard. In this sample, consolidated control findings is
-disabled.
+The following sample provides an example of a finding for a control that applies to the AWS Control Tower service-managed standard. In this sample, consolidated control findings is disabled.
 
 ```
 {
@@ -920,9 +903,9 @@ disabled.
 ```
 
 ## Sample consolidated finding for multiple standards
+<a name="sample-finding-consolidation"></a>
 
-The following sample provides an example of a finding for a control that applies to
-multiple enabled standards. In this sample, consolidated control findings is enabled.
+The following sample provides an example of a finding for a control that applies to multiple enabled standards. In this sample, consolidated control findings is enabled.
 
 ```
 {

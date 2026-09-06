@@ -1,59 +1,34 @@
+
+
 # Security Hub concepts
+<a name="securityhub-v2-concepts"></a>
 
-In Security Hub, we build on common AWS concepts and terminology and use these additional terms.
+ In Security Hub, we build on common AWS concepts and terminology and use these additional terms. 
 
-Account
+Account  
+ The standard AWS account containing your AWS resources. Sign in to AWS with your AWS account to enable Security Hub.   
+ If your account is enrolled in AWS Organizations, your organization designates a Security Hub administrator account. This account can enable other organization accounts as member accounts.   
+ An organization can only have one administrator account. An account cannot be an administrator account and a member account simultaneously.   
+ Security Hub supports the following accounts:   
++  Organization management account — an AWS account that administers an AWS organization. 
++  Delegated administrator account — an AWS account that manages the use of an AWS service for an AWS organization. 
++  Member account — an AWS account that is a member of an AWS organization. 
++  Standalone account — an AWS account without AWS Organizations enabled. 
 
-The standard AWS account containing your AWS resources.
-Sign in to AWS with your AWS account to enable Security Hub.
+Administrator account  
+ This type of AWS account can view findings for associated member accounts.   
+ This type of AWS account becomes an administrator account when the account is designated by an organization management account as the Security Hub administrator account. The Security Hub administrator account can enable any organization account as a member account and can also invite other accounts to be member accounts.   
+ An organization can only have one administrator account. An account cannot be an administrator account and a member account simultaneously. 
 
-If your account is enrolled in AWS Organizations, your organization designates a Security Hub administrator account.
-This account can enable other organization accounts as member accounts.
+Aggregation Region  
+ An aggregation Region allows you to view security findings from multiple AWS Regions in a single pane of glass.   
+ The aggregation Region is the AWS Region where you view and manage findings. Findings are aggregated in the aggregation Region from linked Regions. Updated findings are replicated across Regions.   
+ In the aggregation Region, the dashboard and inventory pages include data from all linked Regions. The automations page can only be used to define automation rules in the aggregation region. Third-party ticketing integrations can only be configured in the aggregation region. 
 
-An organization can only have one administrator account.
-An account cannot be an administrator account and a member account simultaneously.
-
-Security Hub supports the following accounts:
-
-- Organization management account — an AWS account that administers an AWS organization.
-- Delegated administrator account — an AWS account that manages the use of an AWS service for an AWS organization.
-- Member account — an AWS account that is a member of an AWS organization.
-- Standalone account — an AWS account without AWS Organizations enabled.
-
-Administrator account
-
-This type of AWS account can view findings for associated member accounts.
-
-This type of AWS account becomes an administrator account when the account is designated by an organization management account as the Security Hub administrator account.
-The Security Hub administrator account can enable any organization account as a member account and can also invite other accounts to be member accounts.
-
-An organization can only have one administrator account.
-An account cannot be an administrator account and a member account simultaneously.
-
-Aggregation Region
-
-An aggregation Region allows you to view security findings from multiple AWS Regions in a single pane of glass.
-
-The aggregation Region is the AWS Region where you view and manage findings.
-Findings are aggregated in the aggregation Region from linked Regions.
-Updated findings are replicated across Regions.
-
-In the aggregation Region, the dashboard and inventory pages include data from all linked Regions.
-The automations page can only be used to define automation rules in the aggregation region.
-Third-party ticketing integrations can only be configured in the aggregation region.
-
-Archived finding
-
-A finding with a status of `ARCHIVED`.
-These findings indicate the finding provider or customer investigating the finding believes the finding is no longer relevant.
-
-Finding providers can archive ﬁndings they create.
-Customers can archive any findings that they believe are no longer relevant using the [BatchUpdateFindingsV2](../../1.0/APIReference/API_BatchUpdateFindingsV2.md "../../1.0/APIReference/API_BatchUpdateFindingsV2.md") operation of the Security Hub API or by updating the status in the Security Hub console.
-
-In the Security Hub console, default filter settings exclude archived findings from finding lists and tables.
-You can update the filters to include archived findings.
-If you retrieve findings by using the [GetFindingsV2](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md") operation, the operation retrieves both archived and active findings.
-The following example shows how to exclude archived findings in the results.
+Archived finding  
+ A finding with a status of `ARCHIVED`. These findings indicate the finding provider or customer investigating the finding believes the finding is no longer relevant.   
+ Finding providers can archive ﬁndings they create. Customers can archive any findings that they believe are no longer relevant using the [BatchUpdateFindingsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindingsV2.html) operation of the Security Hub API or by updating the status in the Security Hub console.   
+ In the Security Hub console, default filter settings exclude archived findings from finding lists and tables. You can update the filters to include archived findings. If you retrieve findings by using the [GetFindingsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsV2.html) operation, the operation retrieves both archived and active findings. The following example shows how to exclude archived findings in the results.   
 
 ```
 {
@@ -71,112 +46,56 @@ The following example shows how to exclude archived findings in the results.
 }
 ```
 
-Cross-Region aggregation
+Cross-Region aggregation  
+ The aggregation of findings and resources from linked Regions to an aggregation Region. You can view all of your data from the aggregation Region and update findings from the aggregation Region. 
 
-The aggregation of findings and resources from linked Regions to an aggregation Region.
-You can view all of your data from the aggregation Region and update findings from the aggregation Region.
+Delegated administrator account  
+In AWS Organizations, the delegated administrator account for a service is able to manage the use of a service for the organization.  
+In Security Hub, the Security Hub administrator account is also the delegated administrator account for Security Hub. When the organization management account first designates the Security Hub administrator account, Security Hub calls Organizations to make that account the delegated administrator account.  
+The organization management account must then choose the delegated administrator account as the Security Hub administrator account in all Regions.
 
-Delegated administrator account
+Exposure  
+ Exposures are broader weaknesses in security controls, misconfigurations, or other areas that could be exploited by active threats.   
+ Examples of exposures include:   
++  Misconfigured control plane for a resource. 
++  Presence of a software vulnerability that has a high potential for exploitability. 
++  Publicly accessible resource (network or API). 
 
-In AWS Organizations, the delegated administrator account for a service is able to
-manage the use of a service for the organization.
+Exposure finding  
+ A type of finding that describes an exposure present in your environment. An exposure finding includes traits and signals. A signal can include one or more types of exposure traits. AWS Security Hub generates an exposure finding when signals from AWS Security Hub CSPM, Amazon Inspector, Amazon GuardDuty, Amazon Macie, or other AWS services, indicate the presence of an exposure. A resource can be involved in one or more exposure findings. If a resource does not have any exposure traits or has insufficient traits, Security Hub does not generate an exposure finding for that resource.   
+ An example of an exposure finding is: An EC2 instance that is reachable from the internet and has software vulnerabilities which have a high likelihood of exploitation. 
 
-In Security Hub, the Security Hub administrator account is also the delegated administrator
-account for Security Hub. When the organization management account first designates the
-Security Hub administrator account, Security Hub calls Organizations to make that account the delegated
-administrator account.
+Finding  
+ The observable record of a security check or security-related detection. Security Hub generates and updates findings through the correlation of other security findings. These are called *exposure findings*. Findings can also come from integrations with other AWS services and third-party products. 
 
-The organization management account must then choose the delegated
-administrator account as the Security Hub administrator account in all Regions.
+Finding ingestion  
+ The import of findings into Security Hub . Finding ingestion events include both new findings and updates to existing findings. 
 
-Exposure
+Linked Region  
+ When you enable cross-Region aggregation, a linked Region is a region that aggregates findings and resource inventory to the aggregation Region.   
+ In a linked Region, the dashboard and inventory pages only contain findings for that AWS Region. 
 
-Exposures are broader weaknesses in security controls, misconfigurations, or other areas that could be exploited by active threats.
+Open cybersecurity schema framework (OCSF)  
+ The [Open Cybersecurity Schema Framework (OCSF)](https://schema.ocsf.io/) is a collaborative, open-source effort by AWS and leading partners in the cybersecurity industry. OCSF provides a standard schema for common security events, defines versioning criteria to facilitate schema evolution, and includes a self-governance process for security log producers and consumers. For more information, see [OCSF findings in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-ocsf.html). 
 
-Examples of exposures include:
+Member account  
+ An AWS account that granted permission to an administrator account to view and take action on their findings. This kind of AWS account becomes a member account when the Security Hub administrator account enables it as a member account. 
 
-- Misconfigured control plane for a resource.
-- Presence of a software vulnerability that has a high potential for exploitability.
-- Publicly accessible resource (network or API).
+Signal  
+ A finding that contributes to an exposure finding. A signal can be referred to as a *contributing finding*. A signal can originate in Security Hub CSPM, AWS Config, or other AWS services, such as Amazon Inspector. 
 
-Exposure finding
+**Service-linked configuration recorder**  
+ A type of AWS Config recorder that is used to record configuration data on service-specific resources. Security Hub uses these recorders in an event-driven approach to obtain resource configuration items for exposure analysis coverage, resource inventory reporting, and posture management control evaluations. This capability is provided to all Security Hub customers as part of the Essential plan pricing. After you enable Security Hub, the following service-linked configuration recorders are created in your account:   
++  In each AWS account and AWS Region, a service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssets` is created. 
++  For global resource types, an additional service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssetsGlobal` is created in the us-east-1 AWS Region. 
++  If Security Hub and Security Hub CSPM are both enabled in an AWS account and AWS Region, a service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubCSPM` is created. 
+ For more information, see [Considerations for service-linked configuration recorders](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html#stop-start-recorder-considerations-service-linked) and [Recording regional and global resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all). 
 
-A type of finding that describes an exposure present in your environment.
-An exposure finding includes traits and signals.
-A signal can include one or more types of exposure traits.
-AWS Security Hub generates an exposure finding when signals from AWS Security Hub CSPM, Amazon Inspector, Amazon GuardDuty, Amazon Macie, or other AWS services, indicate the presence of an exposure.
-A resource can be involved in one or more exposure findings.
-If a resource does not have any exposure traits or has insufficient traits, Security Hub does not generate an exposure finding for that resource.
+**Service-linked analyzer**  
+ An IAM Access Analyzer that Security Hub creates and manages on your behalf. When you enable Security Hub, it automatically creates a service-linked unused access analyzer to identify IAM roles, users, access keys, and permissions that have not been used within a 90-day lookback period. The analyzer runs in US East (N. Virginia) because IAM is a global service. Security Hub replicates unused access findings to all Regions where you have enabled Security Hub. You do not need to separately enable IAM Access Analyzer or take any additional action. This capability is provided to all Security Hub customers as part of the Essential plan pricing. You can view the service-linked analyzer in the IAM Access Analyzer console, but you cannot modify or delete it while Security Hub is enabled. Security Hub deletes the analyzer when you disable the service in all regions of an AWS account. For more information, see [Understanding unused access findings in Security Hub](unused-access-findings.md). 
 
-An example of an exposure finding is: An EC2 instance that is reachable from the internet and has software vulnerabilities which have a high likelihood of exploitation.
+ **Trait**   
+ A security deviation that results in an exposure finding. Trait types include **Assumability**, **Misconfiguration**, **Reachability**, **Sensitive Data**, and **Vulnerability**. A trait is associated with one signal, and a signal can contain multiple traits. For example, a Security Hub CSPM control indicates a customer-managed policy allows administrative access control. This signal contains a misconfiguration trait. 
 
-Finding
-
-The observable record of a security check or security-related detection. Security Hub
-generates and updates findings through the correlation of other security findings.
-These are called _exposure findings_. Findings
-can also come from integrations with other AWS services and third-party
-products.
-
-Finding ingestion
-
-The import of findings into Security Hub .
-Finding ingestion events include both new findings and updates to existing
-findings.
-
-Linked Region
-
-When you enable cross-Region aggregation, a linked Region is a region that aggregates findings and resource inventory to the aggregation Region.
-
-In a linked Region, the dashboard and inventory pages only contain findings for that AWS Region.
-
-Open cybersecurity schema framework (OCSF)
-
-The [Open Cybersecurity Schema Framework (OCSF)](https://schema.ocsf.io/ "https://schema.ocsf.io/") is a collaborative, open-source effort by AWS and leading partners in the cybersecurity industry.
-OCSF provides a standard schema for common security events, defines versioning criteria to facilitate schema evolution, and includes a self-governance process for security log producers and consumers.
-For more information, see [OCSF findings in Security Hub](securityhub-ocsf.md "securityhub-ocsf.md").
-
-Member account
-
-An AWS account that granted permission to an administrator account to view and take action on their findings.
-This kind of AWS account becomes a member account when the Security Hub administrator account enables it as a member account.
-
-Signal
-
-A finding that contributes to an exposure finding.
-A signal can be referred to as a _contributing finding_.
-A signal can originate in Security Hub CSPM, AWS Config, or other AWS services, such as Amazon Inspector.
-
-**Service-linked configuration recorder**
-
-A type of AWS Config recorder that is used to record configuration data on service-specific resources.
-Security Hub uses these recorders in an event-driven approach to obtain resource configuration items for exposure analysis coverage, resource inventory reporting, and posture management control evaluations.
-This capability is provided to all Security Hub customers as part of the Essential plan pricing.
-After you enable Security Hub, the following service-linked configuration recorders are created in your account:
-
-- In each AWS account and AWS Region, a service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssets` is created.
-- For global resource types, an additional service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubAssetsGlobal` is created in the us-east-1 AWS Region.
-- If Security Hub and Security Hub CSPM are both enabled in an AWS account and AWS Region, a service-linked configuration recorder named `AWSConfigurationRecorderForSecurityHubCSPM` is created.
-
-For more information, see [Considerations for service-linked configuration recorders](../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked "../../../config/latest/developerguide/stop-start-recorder.md#stop-start-recorder-considerations-service-linked") and [Recording regional and global resources](../../../config/latest/developerguide/select-resources.md#select-resources-all "../../../config/latest/developerguide/select-resources.md#select-resources-all").
-
-**Service-linked analyzer**
-
-An IAM Access Analyzer that Security Hub creates and manages on your behalf.
-When you enable Security Hub, it automatically creates a service-linked unused access analyzer to identify IAM roles, users, access keys, and permissions that have not been used within a 90-day lookback period.
-The analyzer runs in US East (N. Virginia) because IAM is a global service. Security Hub replicates unused access findings to all Regions where you have enabled Security Hub.
-You do not need to separately enable IAM Access Analyzer or take any additional action. This capability is provided to all Security Hub customers as part of the Essential plan pricing.
-You can view the service-linked analyzer in the IAM Access Analyzer console, but you cannot modify or delete it while Security Hub is enabled. Security Hub deletes the analyzer when you disable the service in all regions of an AWS account.
-For more information, see [Understanding unused access findings in Security Hub](unused-access-findings.md "unused-access-findings.md").
-
-**Trait**
-
-A security deviation that results in an exposure finding.
-Trait types include **Assumability**, **Misconfiguration**, **Reachability**, **Sensitive Data**, and **Vulnerability**.
-A trait is associated with one signal, and a signal can contain multiple traits.
-For example, a Security Hub CSPM control indicates a customer-managed policy allows administrative access control.
-This signal contains a misconfiguration trait.
-
-Unused access finding
-
-A finding that identifies an IAM role, user, access key, or set of permissions that has not been used within a 90-day lookback period. Security Hub generates unused access findings using a service-linked IAM Access Analyzer. There are four types of unused access findings: unused IAM roles, unused IAM user access keys, unused IAM user passwords, and unused permissions.
+Unused access finding  
+ A finding that identifies an IAM role, user, access key, or set of permissions that has not been used within a 90-day lookback period. Security Hub generates unused access findings using a service-linked IAM Access Analyzer. There are four types of unused access findings: unused IAM roles, unused IAM user access keys, unused IAM user passwords, and unused permissions. 

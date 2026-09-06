@@ -1,32 +1,30 @@
-# Resource specific objects
 
-These are complex nested objects that provide detailed information for specific resource types and services.
-Each object contains multiple fields and sub-objects with service-specific configuration and metadata.
+
+# Resource specific objects
+<a name="aws-extension-resource-specific-objects"></a>
+
+ These are complex nested objects that provide detailed information for specific resource types and services. Each object contains multiple fields and sub-objects with service-specific configuration and metadata. 
 
 ## Device
+<a name="device"></a>
 
-Enhanced cloud instance attributes for compute resources including encryption details, image information, instance profile, and launch time.
+ Enhanced cloud instance attributes for compute resources including encryption details, image information, instance profile, and launch time. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
+**OCSF status**  
+Added to `resource_details`. See the OCSF [Device](https://schema.ocsf.io/1.6.0/objects/device) object definition. 
 
-Added to `resource_details`.
-See the OCSF [Device](https://schema.ocsf.io/1.6.0/objects/device "https://schema.ocsf.io/1.6.0/objects/device") object definition.
-
-AWS Extension adds the following attributes to this object:
-
-- `encryption_details` - The encryption details of resource
-- `image` - Image information
-- `instance_profile` - The IAM instance profile to associate with the instance
-- `launch_time` - The time the instance was launched
-- `uid_alt` - Amazon Resource Name (ARN) of the resource
+ AWS Extension adds the following attributes to this object: 
++ `encryption_details` - The encryption details of resource
++ `image` - Image information
++ `instance_profile` - The IAM instance profile to associate with the instance
++ `launch_time` - The time the instance was launched
++ `uid_alt` - Amazon Resource Name (ARN) of the resource
 
 Example
 
@@ -61,31 +59,26 @@ Example
     "uid": "i-99999999"
   }
 }
-
 ```
 
 ## Network interface
+<a name="network-interface"></a>
 
-Network interface details and configuration including attachments and security groups.
+ Network interface details and configuration including attachments and security groups. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
+**OCSF status**  
+Added to `resource_details`. See the OCSF [Network Interface](https://schema.ocsf.io/1.6.0/objects/network_interface) object definition. 
 
-Added to `resource_details`.
-See the OCSF [Network Interface](https://schema.ocsf.io/1.6.0/objects/network_interface "https://schema.ocsf.io/1.6.0/objects/network_interface") object definition.
-
-AWS Extension adds the following attributes to this object:
-
-- `attachments` - Information about the network interface attachments
-- `security_groups` - Array of security group unique identifiers
-- `uid_alt` - Amazon Resource Name (ARN) of the resource
+ AWS Extension adds the following attributes to this object: 
++ `attachments` - Information about the network interface attachments
++ `security_groups` - Array of security group unique identifiers
++ `uid_alt` - Amazon Resource Name (ARN) of the resource
 
 Example
 
@@ -116,34 +109,30 @@ Example
     ]
   }
 }
-
 ```
 
 ## Storage device
+<a name="storage-device"></a>
 
-Storage device details including attachments, encryption, and snapshot information.
+ Storage device details including attachments, encryption, and snapshot information. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
-
+**OCSF status**  
 New
 
-The storage device object includes the following attributes:
-
-- `name` - The name of the storage device
-- `uid` - The unique identifier of the storage device
-- `attachments` - The storage device attachments
-- `encryption_details` - The storage device encryption key
-- `is_encrypted` - Whether the storage device is encrypted (required)
-- `snapshot_id` - The storage device snapshot identifier
-- `uid_alt` - Amazon Resource Name (ARN) of the resource
+ The storage device object includes the following attributes: 
++ `name` - The name of the storage device
++ `uid` - The unique identifier of the storage device
++ `attachments` - The storage device attachments
++ `encryption_details` - The storage device encryption key
++ `is_encrypted` - Whether the storage device is encrypted (required)
++ `snapshot_id` - The storage device snapshot identifier
++ `uid_alt` - Amazon Resource Name (ARN) of the resource
 
 Example
 
@@ -157,43 +146,38 @@ Example
     "uid_alt": "arn:aws:ec2:us-west-2:123456789000:volume/vol-09d5050dea915943d"
   }
 }
-
 ```
 
 ## Database
+<a name="database"></a>
 
-Database instance attributes including engine type, endpoint, and user information.
+ Database instance attributes including engine type, endpoint, and user information. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
+**OCSF status**  
+Added to `resource_details`. See the OCSF [Database](https://schema.ocsf.io/1.6.0/objects/database) object definition. 
 
-Added to `resource_details`.
-See the OCSF [Database](https://schema.ocsf.io/1.6.0/objects/database "https://schema.ocsf.io/1.6.0/objects/database") object definition.
-
-AWS Extension adds the following attributes to this object:
-
-- `cluster_uid` - The database cluster identifier
-- `db_endpoint` - The database endpoint
-- `encryption_details` - The database encryption details
-- `engine` - The database engine name (for example, mysql)
-- `is_encrypted` - Whether the database is encrypted
-- `is_iam_authentication` - Whether IAM authentication is enabled
-- `is_public` - Whether the database is publicly accessible
-- `port` - The database port number
-- `security_groups` - Array of VPC security groups associated with the database instance
-- `snapshot_details` - The database snapshot details
-- `status` - The database status (for example, available)
-- `subnet_group` - A database subnet group is a collection of subnets in a VPC
-- `uid_alt` - Amazon Resource Name (ARN) of the resource
-- `user` - The database user
-- `version` - The database version
+ AWS Extension adds the following attributes to this object: 
++ `cluster_uid` - The database cluster identifier
++ `db_endpoint` - The database endpoint
++ `encryption_details` - The database encryption details
++ `engine` - The database engine name (for example, mysql)
++ `is_encrypted` - Whether the database is encrypted
++ `is_iam_authentication` - Whether IAM authentication is enabled
++ `is_public` - Whether the database is publicly accessible
++ `port` - The database port number
++ `security_groups` - Array of VPC security groups associated with the database instance
++ `snapshot_details` - The database snapshot details
++ `status` - The database status (for example, available)
++ `subnet_group` - A database subnet group is a collection of subnets in a VPC
++ `uid_alt` - Amazon Resource Name (ARN) of the resource
++ `user` - The database user
++ `version` - The database version
 
 Example
 
@@ -210,43 +194,39 @@ Example
     "version": "13.6"
   }
 }
-
 ```
 
 ## Database cluster
+<a name="database-cluster"></a>
 
-Database instance attributes including engine type, endpoint, and user information.
+ Database instance attributes including engine type, endpoint, and user information. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
-
+**OCSF status**  
 New
 
-The database object includes the following attributes:
-
-- `uid` - The unique identifier of the database cluster
-- `uid_alt` - Amazon Resource Name (ARN) of the resource
-- `name` - The name of the database cluster
-- `status` - The database cluster status
-- `engine` - The engine associated with the cluster
-- `version` - The database cluster version
-- `cluster_members` - List of database instances that are part of the cluster
-- `security_groups` - Array of security groups associated with the cluster
-- `is_encrypted` - Whether the database cluster is encrypted
-- `is_iam_authentication` - Whether IAM authentication is enabled
-- `encryption_details` - The database cluster encryption details
-- `subnet_group` - The subnet group associated with the cluster
-- `port` - The database cluster port number
-- `zones` - List of availability zones
-- `db_endpoint` - The database cluster endpoint
-- `snapshot_details` - Details of the database snapshot
+ The database object includes the following attributes: 
++ `uid` - The unique identifier of the database cluster
++ `uid_alt` - Amazon Resource Name (ARN) of the resource
++ `name` - The name of the database cluster
++ `status` - The database cluster status
++ `engine` - The engine associated with the cluster
++ `version` - The database cluster version
++ `cluster_members` - List of database instances that are part of the cluster
++ `security_groups` - Array of security groups associated with the cluster
++ `is_encrypted` - Whether the database cluster is encrypted
++ `is_iam_authentication` - Whether IAM authentication is enabled
++ `encryption_details` - The database cluster encryption details
++ `subnet_group` - The subnet group associated with the cluster
++ `port` - The database cluster port number
++ `zones` - List of availability zones
++ `db_endpoint` - The database cluster endpoint
++ `snapshot_details` - Details of the database snapshot
 
 Example
 
@@ -289,39 +269,35 @@ Example
     }
   }
 }
-
 ```
 
 ## Cloud function
+<a name="cloud-function"></a>
 
-Cloud function attributes for serverless functions including handler, layers, and runtime configuration.
+ Cloud function attributes for serverless functions including handler, layers, and runtime configuration. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
-
+**OCSF status**  
 New
 
-The cloud function object includes the following attributes:
-
-- `name` - The name of the cloud function
-- `uid` - The unique identifier of the cloud function
-- `uid_alt` - Amazon Resource Name (ARN) of the resource
-- `encryption_details` - The cloud function encryption details
-- `handler` - The method in the function code that processes events
-- `layers` - The list of cloud function layers that contain supplementary code or data
-- `runtime` - The cloud function language-specific environment
-- `security_groups` - Array of security groups associated with the cloud function
-- `subnet_info_list` - Details about subnets associated with the cloud function
-- `user` - Details about the IAM entity that grants the cloud\_function permission to access services
-- `version` - The cloud function version
-- `vpc_uid` - The unique identifier of the VPC if the cloud function is in a VPC
+ The cloud function object includes the following attributes: 
++ `name` - The name of the cloud function
++ `uid` - The unique identifier of the cloud function
++ `uid_alt` - Amazon Resource Name (ARN) of the resource
++ `encryption_details` - The cloud function encryption details
++ `handler` - The method in the function code that processes events
++ `layers` - The list of cloud function layers that contain supplementary code or data
++ `runtime` - The cloud function language-specific environment
++ `security_groups` - Array of security groups associated with the cloud function
++ `subnet_info_list` - Details about subnets associated with the cloud function
++ `user` - Details about the IAM entity that grants the cloud\_function permission to access services
++ `version` - The cloud function version
++ `vpc_uid` - The unique identifier of the VPC if the cloud function is in a VPC
 
 Example
 
@@ -355,28 +331,23 @@ Example
     "vpc_uid": "vpc-0ef6045717b0362f6"
   }
 }
-
 ```
 
 ## Databucket
+<a name="databucket"></a>
 
-S3 bucket or data storage attributes.
+ S3 bucket or data storage attributes. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
+**OCSF status**  
+Added to `resource_details`. See the OCSF [Databucket](https://schema.ocsf.io/1.6.0/objects/databucket) object definition. 
 
-Added to `resource_details`.
-See the OCSF [Databucket](https://schema.ocsf.io/1.6.0/objects/databucket "https://schema.ocsf.io/1.6.0/objects/databucket") object definition.
-
-Note: This object is added to resource\_details by the AWS Extension.
-The core OCSF Databucket object is used without additional attributes.
+ Note: This object is added to resource\_details by the AWS Extension. The core OCSF Databucket object is used without additional attributes. 
 
 Example
 
@@ -388,30 +359,25 @@ Example
     "uid": "my-bucket-name"
   }
 }
-
 ```
 
 ## Image
+<a name="image"></a>
 
-Image information for compute resources including platform and usage details.
+ Image information for compute resources including platform and usage details. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
+**OCSF status**  
+Added to `resource_details`. See the OCSF [Image](https://schema.ocsf.io/1.6.0/objects/image) object definition. 
 
-Added to `resource_details`.
-See the OCSF [Image](https://schema.ocsf.io/1.6.0/objects/image "https://schema.ocsf.io/1.6.0/objects/image") object definition.
-
-AWS Extension adds the following attributes to this object:
-
-- `platform` - The operating system platform of the image
-- `in_use_count` - Count of resources using this image
+ AWS Extension adds the following attributes to this object: 
++ `platform` - The operating system platform of the image
++ `in_use_count` - Count of resources using this image
 
 Example
 
@@ -425,37 +391,33 @@ Example
     "in_use_count": 2
   }
 }
-
 ```
 
 ## Subnet info
+<a name="subnet-info"></a>
 
-Details about the subnet where the resource is located.
+ Details about the subnet where the resource is located. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
-
+**OCSF status**  
 New
 
-The subnet info object includes the following attributes:
-
-- `uid` - The unique identifier of the subnet
-- `uid_alt` - Amazon Resource Name (ARN) of the resource
-- `name` - The name of the subnet
-- `zone` - The availability zone
-- `ip_count` - The number of IP addresses in the subnet
-- `cidr_block` - The CIDR block of the subnet
-- `is_default` - Whether this is the default subnet
-- `is_public` - Whether the subnet is publicly accessible
-- `state` - The state of the subnet
-- `vpc_uid` - The VPC ID where the subnet is located
+ The subnet info object includes the following attributes: 
++ `uid` - The unique identifier of the subnet
++ `uid_alt` - Amazon Resource Name (ARN) of the resource
++ `name` - The name of the subnet
++ `zone` - The availability zone
++ `ip_count` - The number of IP addresses in the subnet
++ `cidr_block` - The CIDR block of the subnet
++ `is_default` - Whether this is the default subnet
++ `is_public` - Whether the subnet is publicly accessible
++ `state` - The state of the subnet
++ `vpc_uid` - The VPC ID where the subnet is located
 
 Example
 
@@ -474,30 +436,25 @@ Example
     "vpc_uid": "vpc-0123456789abcdef0"
   }
 }
-
 ```
 
 ## User
+<a name="user"></a>
 
-IAM user attributes including instance profiles and policies.
+ IAM user attributes including instance profiles and policies. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Object
 
-**OCSF status**
+**OCSF status**  
+Added to `resource_details`. See the OCSF [User](https://schema.ocsf.io/1.6.0/objects/user) object definition. 
 
-Added to `resource_details`.
-See the OCSF [User](https://schema.ocsf.io/1.6.0/objects/user "https://schema.ocsf.io/1.6.0/objects/user") object definition.
-
-The user object includes the following attributes:
-
-- `instance_profiles` - List of instance profiles attached to an cloud instance
-- `policies` - Policies that assign permissions for users, groups, roles, and resources
+ The user object includes the following attributes: 
++ `instance_profiles` - List of instance profiles attached to an cloud instance
++ `policies` - Policies that assign permissions for users, groups, roles, and resources
 
 Example
 
@@ -527,5 +484,4 @@ Example
     ]
   }
 }
-
 ```

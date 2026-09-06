@@ -1,20 +1,16 @@
+
+
 # AWS Security Finding Format (ASFF)
+<a name="securityhub-findings-format"></a>
 
-AWS Security Hub CSPM consumes and aggregates findings from integrated AWS services and third-party
-products. Security Hub CSPM processes these findings using a standard findings format called the
-_AWS Security Finding Format (ASFF)_, which eliminates the need for
-time-consuming data conversion efforts.
+AWS Security Hub CSPM consumes and aggregates findings from integrated AWS services and third-party products. Security Hub CSPM processes these findings using a standard findings format called the *AWS Security Finding Format (ASFF)*, which eliminates the need for time-consuming data conversion efforts.
 
-This page provides a complete outline of the JSON for a finding in the AWS Security Finding Format (ASFF). The
-format derives from [JSON Schema](https://json-schema.org/ "https://json-schema.org/"). Choose the
-name of a linked object to review an example of a finding for that object. Comparing your
-Security Hub CSPM findings with the resources and examples shown here can help you interpret your
-findings.
+This page provides a complete outline of the JSON for a finding in the AWS Security Finding Format (ASFF). The format derives from [JSON Schema](https://json-schema.org/). Choose the name of a linked object to review an example of a finding for that object. Comparing your Security Hub CSPM findings with the resources and examples shown here can help you interpret your findings.
 
-For descriptions of individual ASFF attributes, see [Required top-level ASFF attributes](asff-required-attributes.md "asff-required-attributes.md") and [Optional top-level ASFF attributes](asff-top-level-attributes.md "asff-top-level-attributes.md").
+For descriptions of individual ASFF attributes, see [Required top-level ASFF attributes](asff-required-attributes.md) and [Optional top-level ASFF attributes](asff-top-level-attributes.md).
 
 ```
-"Findings": [
+"Findings": [ 
     {
     	"Action": {
     		"ActionType": "string",
@@ -647,7 +643,7 @@ For descriptions of individual ASFF attributes, see [Required top-level ASFF att
     				"HealthCheckType": "string",
     				"LaunchConfigurationName": "string",
     				"LoadBalancerNames": ["string"],
-    				"LaunchTemplate": {
+    				"LaunchTemplate": {                            
                         "LaunchTemplateId": "string",
                         "LaunchTemplateName": "string",
                         "Version": "string"
@@ -878,7 +874,7 @@ For descriptions of individual ASFF attributes, see [Required top-level ASFF att
     			"StackName": "string",
     			"StackStatus": "string",
     			"StackStatusReason": "string",
-    			"TimeoutInMinutes": number
+    			"TimeoutInMinutes": number 
     		},
     		"AwsCloudFrontDistribution": {
     			"CacheBehaviors": {
@@ -920,8 +916,8 @@ For descriptions of individual ASFF attributes, see [Required top-level ASFF att
     						"OriginSslProtocols": {
     							"Items": ["string"],
     							"Quantity": number
-    						}
-    					},
+    						} 
+    					},		
     					"DomainName": "string",
     					"Id": "string",
     					"OriginPath": "string",
@@ -1056,7 +1052,7 @@ For descriptions of individual ASFF attributes, see [Required top-level ASFF att
     			"DatabaseName": "string",
     			"EndpointArn": "string",
     			"EndpointIdentifier": "string",
-    			"EndpointType": "string",
+    			"EndpointType": "string", 
     			"EngineName": "string",
     			"KmsKeyId": "string",
     			"Port": integer,
@@ -1258,14 +1254,14 @@ For descriptions of individual ASFF attributes, see [Required top-level ASFF att
     			"Monitoring": {
     				"State": "string"
     			},
-    			"NetworkInterfaces": [{
+    			"NetworkInterfaces": [{                
     				"NetworkInterfaceId": "string"
     			}],
     			"SubnetId": "string",
-    			"Type": "string",
+    			"Type": "string",    			
     			"VirtualizationType": "string",
     			"VpcId": "string"
-    		},
+    		},   
     		"AwsEc2LaunchTemplate": {
     			"DefaultVersionNumber": "string",
     			"ElasticGpuSpecifications": ["string"],
@@ -3171,20 +3167,20 @@ For descriptions of individual ASFF attributes, see [Required top-level ASFF att
     			}
     		},
     		"AwsSnsTopic": {
-    			"ApplicationSuccessFeedbackRoleArn": "string",
+    			"ApplicationSuccessFeedbackRoleArn": "string",		
     			"FirehoseFailureFeedbackRoleArn": "string",
     			"FirehoseSuccessFeedbackRoleArn": "string",
     			"HttpFailureFeedbackRoleArn": "string",
     			"HttpSuccessFeedbackRoleArn": "string",
-    			"KmsMasterKeyId": "string",
+    			"KmsMasterKeyId": "string",                 
     			"Owner": "string",
     			"SqsFailureFeedbackRoleArn": "string",
-    			"SqsSuccessFeedbackRoleArn": "string",
+    			"SqsSuccessFeedbackRoleArn": "string",	
     			"Subscription": {
     				"Endpoint": "string",
     				"Protocol": "string"
     			},
-    			"TopicName": "string"
+    			"TopicName": "string"   			              
     		},
     		"AwsSqsQueue": {
     			"DeadLetterTargetArn": "string",
@@ -3432,7 +3428,7 @@ For descriptions of individual ASFF attributes, see [Required top-level ASFF att
     				"Name": "string",
     				"MountPath": "string"
     			}]
-    		},
+    		}, 
     		"Other": {
     			"string": "string"
     		},

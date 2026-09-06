@@ -1,9 +1,12 @@
-# Resource attributes in the ASFF
 
-Here are descriptions and examples for the `Resources` object in the AWS Security Finding Format (ASFF). For
-more information about these fields, see [Resources](asff-required-attributes.md#Resources "asff-required-attributes.md#Resources").
+
+# Resource attributes in the ASFF
+<a name="asff-resources-attributes"></a>
+
+Here are descriptions and examples for the `Resources` object in the AWS Security Finding Format (ASFF). For more information about these fields, see [Resources](asff-required-attributes.md#Resources).
 
 ## ApplicationArn
+<a name="asff-resources-applicationarn"></a>
 
 Identifies the Amazon Resource Name (ARN) of the application involved in the finding.
 
@@ -14,6 +17,7 @@ Identifies the Amazon Resource Name (ARN) of the application involved in the fin
 ```
 
 ## ApplicationName
+<a name="asff-resources-applicationname"></a>
 
 Identifies the name of the application involved in the finding.
 
@@ -24,9 +28,9 @@ Identifies the name of the application involved in the finding.
 ```
 
 ## DataClassification
+<a name="asff-resources-dataclassification"></a>
 
-The [DataClassification](../../1.0/APIReference/API_DataClassificationDetails.md "../../1.0/APIReference/API_DataClassificationDetails.md") field provides information about
-sensitive data that was detected on the resource.
+The [DataClassification](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DataClassificationDetails.html) field provides information about sensitive data that was detected on the resource.
 
 **Example**
 
@@ -117,8 +121,8 @@ sensitive data that was detected on the resource.
         "CustomDataIdentifiers": {
             "Detections": [
                  {
-                     "Arn": "1712be25e7c7f53c731fe464f1c869b8",
-                     "Name": "1712be25e7c7f53c731fe464f1c869b8",
+                     "Arn": "1712be25e7c7f53c731fe464f1c869b8", 
+                     "Name": "1712be25e7c7f53c731fe464f1c869b8", 
                      "Count": 2,
                  }
             ],
@@ -129,38 +133,20 @@ sensitive data that was detected on the resource.
 ```
 
 ## Details
+<a name="asff-resources-details"></a>
 
-The [Details](../../1.0/APIReference/API_ResourceDetails.md "../../1.0/APIReference/API_ResourceDetails.md") field provides additional information about a
-single resource using the appropriate objects. Each resource must be provided in a
-separate resource object in the `Resources` object.
+The [Details](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ResourceDetails.html) field provides additional information about a single resource using the appropriate objects. Each resource must be provided in a separate resource object in the `Resources` object.
 
-Note that if the finding size exceeds the maximum of 240 KB, then the
-`Details` object is removed from the finding. For control findings that
-use AWS Config rules, you can view the resource details on the AWS Config console.
+Note that if the finding size exceeds the maximum of 240 KB, then the `Details` object is removed from the finding. For control findings that use AWS Config rules, you can view the resource details on the AWS Config console.
 
-Security Hub CSPM provides a set of available resource details for its supported resource types.
-These details correspond to values of the `Type` object. Use the provided
-types whenever possible.
+Security Hub CSPM provides a set of available resource details for its supported resource types. These details correspond to values of the `Type` object. Use the provided types whenever possible.
 
-For example, if the resource is an S3 bucket, then set the resource `Type`
-to `AwsS3Bucket` and provide the resource details in the [AwsS3Bucket](asff-resourcedetails-awss3.md#asff-resourcedetails-awss3bucket "asff-resourcedetails-awss3.md#asff-resourcedetails-awss3bucket")
-object.
+For example, if the resource is an S3 bucket, then set the resource `Type` to `AwsS3Bucket` and provide the resource details in the [`AwsS3Bucket`](asff-resourcedetails-awss3.md#asff-resourcedetails-awss3bucket) object.
 
-The [Other](asff-resourcedetails-other.md "asff-resourcedetails-other.md") object allows
-you to provide custom fields and values. You use the `Other` object in the
-following cases:
-
-- The resource type (the value of the resource `Type`) does not have
-  a corresponding details object. To provide details for the resource, you use the
-  [Other](asff-resourcedetails-other.md "asff-resourcedetails-other.md")
-  object.
-- The object for the resource type does not include all of the fields that you
-  want to populate. In this case, use the details object for the resource type to
-  populate the available fields. Use the `Other` object to populate the
-  fields that are not in the type-specific object.
-- The resource type is not one of the provided types. In this case, set
-  `Resource.Type` to `Other`, and use the
-  `Other` object to populate the details.
+The [`Other`](asff-resourcedetails-other.md) object allows you to provide custom fields and values. You use the `Other` object in the following cases:
++ The resource type (the value of the resource `Type`) does not have a corresponding details object. To provide details for the resource, you use the [`Other`](asff-resourcedetails-other.md) object.
++ The object for the resource type does not include all of the fields that you want to populate. In this case, use the details object for the resource type to populate the available fields. Use the `Other` object to populate the fields that are not in the type-specific object.
++ The resource type is not one of the provided types. In this case, set `Resource.Type` to `Other`, and use the `Other` object to populate the details.
 
 **Example**
 
@@ -194,22 +180,20 @@ following cases:
     "OwnerId": "da4d66eac431652a4d44d490a00500bded52c97d235b7b4752f9f688566fe6de",
     "OwnerName": "acmes3bucketowner"
   },
-  "Other": { "LightPen": "blinky", "SerialNo": "1234abcd"}
+  "Other": { "LightPen": "blinky", "SerialNo": "1234abcd"}  
 }
 ```
 
 ## Id
+<a name="asff-resources-id"></a>
 
 The identifier for the given resource type.
 
-For AWS resources that are identified by Amazon Resource Names (ARNs), this is the
-ARN.
+For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN.
 
-For AWS resources that lack ARNs, this is the identifier as defined by the AWS
-service that created the resource.
+For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource.
 
-For non-AWS resources, this is a unique identifier that is associated with the
-resource.
+For non-AWS resources, this is a unique identifier that is associated with the resource.
 
 **Example**
 
@@ -218,15 +202,14 @@ resource.
 ```
 
 ## Partition
+<a name="asff-resources-partition"></a>
 
-The partition in which the resource is located. A partition is a group of AWS Regions.
-Each AWS account is scoped to one partition.
+The partition in which the resource is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition.
 
 The following partitions are supported:
-
-- `aws` – AWS Regions
-- `aws-cn` – China Regions
-- `aws-us-gov` – AWS GovCloud (US) Region
++ `aws` – AWS Regions
++ `aws-cn` – China Regions
++ `aws-us-gov` – AWS GovCloud (US) Region
 
 **Example**
 
@@ -235,9 +218,9 @@ The following partitions are supported:
 ```
 
 ## Region
+<a name="asff-resources-region"></a>
 
-The code for the AWS Region where this resource is located. For a list of Region codes,
-see [Regional endpoints](../../../general/latest/gr/rande.md#regional-endpoints "../../../general/latest/gr/rande.md#regional-endpoints").
+The code for the AWS Region where this resource is located. For a list of Region codes, see [Regional endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
 
 **Example**
 
@@ -246,9 +229,9 @@ see [Regional endpoints](../../../general/latest/gr/rande.md#regional-endpoints 
 ```
 
 ## ResourceRole
+<a name="asff-resources-resourcerole"></a>
 
-Identifies the role of the resource in the finding. A resource is either the target of
-the finding activity or the actor that performed the activity.
+Identifies the role of the resource in the finding. A resource is either the target of the finding activity or the actor that performed the activity.
 
 **Example**
 
@@ -257,30 +240,19 @@ the finding activity or the actor that performed the activity.
 ```
 
 ## Tags
+<a name="asff-resources-tags"></a>
 
-This field provides tag key and value information for the resource
-involved in a finding. You can tag [resources that are supported](../../../resourcegroupstagging/latest/APIReference/supported-services.md "../../../resourcegroupstagging/latest/APIReference/supported-services.md") by the `GetResources`
-operation of the AWS Resource Groups Tagging API. Security Hub CSPM calls this operation though the [service-linked role](using-service-linked-roles.md "using-service-linked-roles.md") and retrieves the resource tags if the AWS Security Finding Format (ASFF)
-`Resource.Id` field is populated with the AWS resource ARN. Invalid resource IDs are ignored.
+This field provides tag key and value information for the resource involved in a finding. You can tag [resources that are supported](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html) by the `GetResources` operation of the AWS Resource Groups Tagging API. Security Hub CSPM calls this operation though the [service-linked role](using-service-linked-roles.md) and retrieves the resource tags if the AWS Security Finding Format (ASFF) `Resource.Id` field is populated with the AWS resource ARN. Invalid resource IDs are ignored. 
 
-You can add resource tags to findings that Security Hub CSPM ingests, including findings from integrated
-AWS services and third-party products.
+You can add resource tags to findings that Security Hub CSPM ingests, including findings from integrated AWS services and third-party products.
 
-Adding tags tells you the
-tags that were associated with a resource at the time the finding was processed.
-You can include the `Tags` attribute only for resources that have an associated
-tag. If a resource has no associated tag, don't include a `Tags` attribute in
-the finding.
+Adding tags tells you the tags that were associated with a resource at the time the finding was processed. You can include the `Tags` attribute only for resources that have an associated tag. If a resource has no associated tag, don't include a `Tags` attribute in the finding.
 
-The inclusion of resource tags in findings eliminates the need to build data enrichment pipelines or
-manually enrich the metadata of security findings. You can also use tags to search or filter findings and insights and
-create [automation rules](automation-rules.md "automation-rules.md").
+The inclusion of resource tags in findings eliminates the need to build data enrichment pipelines or manually enrich the metadata of security findings. You can also use tags to search or filter findings and insights and create [automation rules](automation-rules.md).
 
-For information about restrictions that apply to tags, see [Tag naming limits and requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions").
+For information about restrictions that apply to tags, see [ Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions).
 
-You can only provide tags that exist on an AWS resource in this field. To
-provide data that isn't defined in the AWS Security Finding Format, use the
-`Other` details subfield.
+You can only provide tags that exist on an AWS resource in this field. To provide data that isn't defined in the AWS Security Finding Format, use the `Other` details subfield.
 
 **Example**
 
@@ -292,17 +264,15 @@ provide data that isn't defined in the AWS Security Finding Format, use the
 ```
 
 ## Type
+<a name="asff-resources-type"></a>
 
 The type of resource that you are providing details for.
 
-Whenever possible, use one of the provided resource types, such as
-`AwsEc2Instance` or `AwsS3Bucket`.
+Whenever possible, use one of the provided resource types, such as `AwsEc2Instance` or `AwsS3Bucket`.
 
-If the resource type does not match any of the provided resource types, then set the
-resource `Type` to `Other`, and use the `Other` details
-subfield to populate the details.
+If the resource type does not match any of the provided resource types, then set the resource `Type` to `Other`, and use the `Other` details subfield to populate the details.
 
-Supported values are listed under [Resources](asff-resources.md "asff-resources.md").
+Supported values are listed under [Resources](asff-resources.md).
 
 **Example**
 

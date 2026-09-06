@@ -1,18 +1,18 @@
+
+
 # AwsKms resources in ASFF
+<a name="asff-resourcedetails-awskms"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsKms`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsKms` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsKmsKey
+<a name="asff-resourcedetails-awskmskey"></a>
 
 The `AwsKmsKey` object provides details about an AWS KMS key.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsKmsKey` object. To view descriptions of `AwsKmsKey`
-attributes, see [AwsKmsKeyDetails](../../1.0/APIReference/API_AwsKmsKeyDetails.md "../../1.0/APIReference/API_AwsKmsKeyDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsKmsKey` object. To view descriptions of `AwsKmsKey` attributes, see [AwsKmsKeyDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsKmsKeyDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

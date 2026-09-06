@@ -1,24 +1,23 @@
+
+
 # AwsIam resources in ASFF
+<a name="asff-resourcedetails-awsiam"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsIam`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsIam` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsIamAccessKey
+<a name="asff-resourcedetails-awsiamaccesskey"></a>
 
-The `AwsIamAccessKey` object contains details about an IAM access key
-that is related to a finding.
+The `AwsIamAccessKey` object contains details about an IAM access key that is related to a finding.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsIamAccessKey` object. To view descriptions of
-`AwsIamAccessKey` attributes, see [AwsIamAccessKeyDetails](../../1.0/APIReference/API_AwsIamAccessKeyDetails.md "../../1.0/APIReference/API_AwsIamAccessKeyDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsIamAccessKey` object. To view descriptions of `AwsIamAccessKey` attributes, see [AwsIamAccessKeyDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsIamAccessKeyDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsIamAccessKey": {
+"AwsIamAccessKey": { 
                         "AccessKeyId": "string",
                         "AccountId": "string",
                         "CreatedAt": "string",
@@ -43,12 +42,11 @@ The following example shows the AWS Security Finding Format (ASFF) for the
 ```
 
 ## AwsIamGroup
+<a name="asff-resourcedetails-awsiamgroup"></a>
 
 The `AwsIamGroup` object contains details about an IAM group.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsIamGroup` object. To view descriptions of `AwsIamGroup`
-attributes, see [AwsIamGroupDetails](../../1.0/APIReference/API_AwsIamGroupDetails.md "../../1.0/APIReference/API_AwsIamGroupDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsIamGroup` object. To view descriptions of `AwsIamGroup` attributes, see [AwsIamGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsIamGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -73,12 +71,11 @@ attributes, see [AwsIamGroupDetails](../../1.0/APIReference/API_AwsIamGroupDetai
 ```
 
 ## AwsIamPolicy
+<a name="asff-resourcedetails-awsiampolicy"></a>
 
 The `AwsIamPolicy` object represents an IAM permissions policy.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsIamPolicy` object. To view descriptions of `AwsIamPolicy`
-attributes, see [AwsIamPolicyDetails](../../1.0/APIReference/API_AwsIamPolicyDetails.md "../../1.0/APIReference/API_AwsIamPolicyDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsIamPolicy` object. To view descriptions of `AwsIamPolicy` attributes, see [AwsIamPolicyDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsIamPolicyDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -105,19 +102,17 @@ attributes, see [AwsIamPolicyDetails](../../1.0/APIReference/API_AwsIamPolicyDet
 ```
 
 ## AwsIamRole
+<a name="asff-resourcedetails-awsiamrole"></a>
 
-The `AwsIamRole` object contains information about an IAM role, including
-all of the role's policies.
+The `AwsIamRole` object contains information about an IAM role, including all of the role's policies.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsIamRole` object. To view descriptions of `AwsIamRole`
-attributes, see [AwsIamRoleDetails](../../1.0/APIReference/API_AwsIamRoleDetails.md "../../1.0/APIReference/API_AwsIamRoleDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsIamRole` object. To view descriptions of `AwsIamRole` attributes, see [AwsIamRoleDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsIamRoleDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
 "AwsIamRole": {
-    "AssumeRolePolicyDocument": "{'Version': '2012-10-17','Statement': [{'Effect': 'Allow','Action': 'sts:AssumeRole'}]}",
+    "AssumeRolePolicyDocument": "{'Version': '2012-10-17',		 	 	 'Statement': [{'Effect': 'Allow','Action': 'sts:AssumeRole'}]}",
     "AttachedManagedPolicies": [
         {
             "PolicyArn": "arn:aws:iam::aws:policy/ExamplePolicy1",
@@ -165,12 +160,11 @@ attributes, see [AwsIamRoleDetails](../../1.0/APIReference/API_AwsIamRoleDetails
 ```
 
 ## AwsIamUser
+<a name="asff-resourcedetails-awsiamuser"></a>
 
 The `AwsIamUser` object provides information about a user.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsIamUser` object. To view descriptions of `AwsIamUser`
-attributes, see [AwsIamUserDetails](../../1.0/APIReference/API_AwsIamUserDetails.md "../../1.0/APIReference/API_AwsIamUserDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsIamUser` object. To view descriptions of `AwsIamUser` attributes, see [AwsIamUserDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsIamUserDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

@@ -1,19 +1,18 @@
+
+
 # AwsRds resources in ASFF
+<a name="asff-resourcedetails-awsrds"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsRds` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsRdsDbCluster
+<a name="asff-resourcedetails-awsrdsdbcluster"></a>
 
-The `AwsRdsDbCluster` object provides details about an Amazon RDS database
-cluster.
+The `AwsRdsDbCluster` object provides details about an Amazon RDS database cluster.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsDbCluster` object. To view
-descriptions of `AwsRdsDbCluster` attributes, see
-[AwsRdsDbClusterDetails](../../1.0/APIReference/API_AwsRdsDbClusterDetails.md "../../1.0/APIReference/API_AwsRdsDbClusterDetails.md")
-in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsDbCluster` object. To view descriptions of `AwsRdsDbCluster` attributes, see [AwsRdsDbClusterDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRdsDbClusterDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -85,18 +84,14 @@ in the _AWS Security Hub API Reference_.
         }
     ],
 }
-
 ```
 
 ## AwsRdsDbClusterSnapshot
+<a name="asff-resourcedetails-awsrdsdbclustersnapshot"></a>
 
-The `AwsRdsDbClusterSnapshot` object contains information about an Amazon RDS DB
-cluster snapshot.
+The `AwsRdsDbClusterSnapshot` object contains information about an Amazon RDS DB cluster snapshot.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsRdsDbClusterSnapshot` object. To view descriptions of
-`AwsRdsDbClusterSnapshot` attributes, see [AwsRdsDbClusterSnapshotDetails](../../1.0/APIReference/API_AwsRdsDbClusterSnapshotDetails.md "../../1.0/APIReference/API_AwsRdsDbClusterSnapshotDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsDbClusterSnapshot` object. To view descriptions of `AwsRdsDbClusterSnapshot` attributes, see [AwsRdsDbClusterSnapshotDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRdsDbClusterSnapshotDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -129,17 +124,14 @@ _AWS Security Hub API Reference_.
     "StorageEncrypted": true,
     "VpcId": "vpc-faf7e380"
 }
-
 ```
 
 ## AwsRdsDbInstance
+<a name="asff-resourcedetails-awsrdsdbinstance"></a>
 
-The `AwsRdsDbInstance` object provides details about an Amazon RDS DB
-instance.
+The `AwsRdsDbInstance` object provides details about an Amazon RDS DB instance.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsRdsDbInstance` object. To view descriptions of
-`AwsRdsDbInstance` attributes, see [AwsRdsDbInstanceDetails](../../1.0/APIReference/API_AwsRdsDbInstanceDetails.md "../../1.0/APIReference/API_AwsRdsDbInstanceDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsDbInstance` object. To view descriptions of `AwsRdsDbInstance` attributes, see [AwsRdsDbInstanceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRdsDbInstanceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -167,7 +159,7 @@ The following example shows the AWS Security Finding Format (ASFF) for the
             "ParameterApplyStatus": "in-sync"
         }
     ],
-    "DbSecurityGroups": [],
+    "DbSecurityGroups": [],                                                                                                                                                                                                 
     "DbSubnetGroup": {
         "DbSubnetGroupName": "my-group-123abc",
         "DbSubnetGroupDescription": "My subnet group",
@@ -264,14 +256,11 @@ The following example shows the AWS Security Finding Format (ASFF) for the
 ```
 
 ## AwsRdsDbSecurityGroup
+<a name="asff-resourcedetails-awsrdsdbsecuritygroup"></a>
 
-The `AwsRdsDbSecurityGroup` object contains information about an
-Amazon Relational Database Service
+The `AwsRdsDbSecurityGroup` object contains information about an Amazon Relational Database Service
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsRdsDbSecurityGroup` object. To view descriptions of
-`AwsRdsDbSecurityGroup` attributes, see [AwsRdsDbSecurityGroupDetails](../../1.0/APIReference/API_AwsRdsDbSecurityGroupDetails.md "../../1.0/APIReference/API_AwsRdsDbSecurityGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsDbSecurityGroup` object. To view descriptions of `AwsRdsDbSecurityGroup` attributes, see [AwsRdsDbSecurityGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRdsDbSecurityGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -300,13 +289,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsRdsDbSnapshot
+<a name="asff-resourcedetails-awsrdsdbsnapshot"></a>
 
-The `AwsRdsDbSnapshot` object contains details about an Amazon RDS DB cluster
-snapshot.
+The `AwsRdsDbSnapshot` object contains details about an Amazon RDS DB cluster snapshot.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsRdsDbSnapshot` object. To view descriptions of
-`AwsRdsDbSnapshot` attributes, see [AwsRdsDbSnapshotDetails](../../1.0/APIReference/API_AwsRdsDbSnapshotDetails.md "../../1.0/APIReference/API_AwsRdsDbSnapshotDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsDbSnapshot` object. To view descriptions of `AwsRdsDbSnapshot` attributes, see [AwsRdsDbSnapshotDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRdsDbSnapshotDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -343,15 +330,11 @@ The following example shows the AWS Security Finding Format (ASFF) for the
 ```
 
 ## AwsRdsEventSubscription
+<a name="asff-resourcedetails-awsrdseventsubscription"></a>
 
-The `AwsRdsEventSubscription` contains details about an RDS event
-notification subscription. The subscription allows RDS to post events to an SNS
-topic.
+The `AwsRdsEventSubscription` contains details about an RDS event notification subscription. The subscription allows RDS to post events to an SNS topic.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsRdsEventSubscription` object. To view descriptions of
-`AwsRdsEventSubscription` attributes, see [AwsRdsEventSubscriptionDetails](../../1.0/APIReference/API_AwsRdsEventSubscriptionDetails.md "../../1.0/APIReference/API_AwsRdsEventSubscriptionDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRdsEventSubscription` object. To view descriptions of `AwsRdsEventSubscription` attributes, see [AwsRdsEventSubscriptionDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRdsEventSubscriptionDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

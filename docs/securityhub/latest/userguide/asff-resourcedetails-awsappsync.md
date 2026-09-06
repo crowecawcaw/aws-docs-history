@@ -1,20 +1,18 @@
+
+
 # AwsAppSync resources in ASFF
+<a name="asff-resourcedetails-awsappsync"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAppSync`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAppSync` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsAppSyncGraphQLApi
+<a name="asff-resourcedetails-awsappsyncgraphqlapi"></a>
 
-`AwsAppSyncGraphQLApi` provides information about an AWS AppSync GraphQL API, which is a top-level construct for your
-application.
+`AwsAppSyncGraphQLApi` provides information about an AWS AppSync GraphQL API, which is a top-level construct for your application.
 
-The following example shows the ASFF for the `AwsAppSyncGraphQLApi` object. To view
-descriptions of `AwsAppSyncGraphQLApi` attributes, see
-[AwsAppSyncGraphQLApi](../../1.0/APIReference/API_AwsAppSyncGraphQLApiDetails.md "../../1.0/APIReference/API_AwsAppSyncGraphQLApiDetails.md")
-in the _AWS Security Hub API Reference_.
+The following example shows the ASFF for the `AwsAppSyncGraphQLApi` object. To view descriptions of `AwsAppSyncGraphQLApi` attributes, see [AwsAppSyncGraphQLApi](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsAppSyncGraphQLApiDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

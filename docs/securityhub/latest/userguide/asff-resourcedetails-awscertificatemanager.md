@@ -1,19 +1,18 @@
+
+
 # AwsCertificateManager resources in ASFF
+<a name="asff-resourcedetails-awscertificatemanager"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCertificateManager` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsCertificateManagerCertificate
+<a name="asff-resourcedetails-awscertificatemanagercertificate"></a>
 
-The `AwsCertificateManagerCertificate` object provides details about an
-AWS Certificate Manager (ACM) certificate.
+The `AwsCertificateManagerCertificate` object provides details about an AWS Certificate Manager (ACM) certificate.
 
-The following is an example `AwsCertificateManagerCertificate` finding in
-the AWS Security Finding Format (ASFF). To view descriptions of
-`AwsCertificateManagerCertificate` attributes, see [AwsCertificateManagerCertificateDetails](../../1.0/APIReference/API_AwsCertificateManagerCertificateDetails.md "../../1.0/APIReference/API_AwsCertificateManagerCertificateDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsCertificateManagerCertificate` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsCertificateManagerCertificate` attributes, see [AwsCertificateManagerCertificateDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsCertificateManagerCertificateDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

@@ -1,21 +1,18 @@
+
+
 # AwsWaf resources in ASFF
+<a name="asff-resourcedetails-awswaf"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsWaf` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsWafRateBasedRule
+<a name="asff-resourcedetails-awswafratebasedrule"></a>
 
-The `AwsWafRateBasedRule` object contains details about an AWS WAF
-rate-based rule for global resources. An AWS WAF rate-based rule provides settings to
-indicate when to allow, block, or count a request. Rate-based rules include the number
-of requests that arrive over a specified period of time.
+The `AwsWafRateBasedRule` object contains details about an AWS WAF rate-based rule for global resources. An AWS WAF rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsWafRateBasedRule` object. To view descriptions of
-`AwsWafRateBasedRule` attributes, see [AwsWafRateBasedRuleDetails](../../1.0/APIReference/API_AwsWafRateBasedRuleDetails.md "../../1.0/APIReference/API_AwsWafRateBasedRuleDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsWafRateBasedRule` object. To view descriptions of `AwsWafRateBasedRule` attributes, see [AwsWafRateBasedRuleDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafRateBasedRuleDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -35,16 +32,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsWafRegionalRateBasedRule
+<a name="asff-resourcedetails-awswafregionalratebasedrule"></a>
 
-The `AwsWafRegionalRateBasedRule` object contains details about a
-rate-based rule for Regional resources. A rate-based rule provides settings to indicate
-when to allow, block, or count a request. Rate-based rules include the number of
-requests that arrive over a specified period of time.
+The `AwsWafRegionalRateBasedRule` object contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsWafRegionalRateBasedRule` object. To view descriptions of
-`AwsWafRegionalRateBasedRule` attributes, see [AwsWafRegionalRateBasedRuleDetails](../../1.0/APIReference/API_AwsWafRegionalRateBasedRuleDetails.md "../../1.0/APIReference/API_AwsWafRegionalRateBasedRuleDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsWafRegionalRateBasedRule` object. To view descriptions of `AwsWafRegionalRateBasedRule` attributes, see [AwsWafRegionalRateBasedRuleDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafRegionalRateBasedRuleDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -64,20 +56,16 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsWafRegionalRule
+<a name="asff-resourcedetails-awswafregionalrule"></a>
 
-The `AwsWafRegionalRule` object provides details about an AWS WAF Regional
-rule . This rule identifies the web requests that you want to allow, block, or
-count.
+The `AwsWafRegionalRule` object provides details about an AWS WAF Regional rule . This rule identifies the web requests that you want to allow, block, or count.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsWafRegionalRule` object. To view descriptions of
-`AwsWafRegionalRule` attributes, see [AwsWafRegionalRuleDetails](../../1.0/APIReference/API_AwsWafRegionalRuleDetails.md "../../1.0/APIReference/API_AwsWafRegionalRuleDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsWafRegionalRule` object. To view descriptions of `AwsWafRegionalRule` attributes, see [AwsWafRegionalRuleDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafRegionalRuleDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsWafRegionalRule": {
+"AwsWafRegionalRule": { 
     "MetricName": "SampleWAF_Rule__Metric_1",
     "Name": "bb-waf-regional-rule-not-empty-conditions-compliant",
     "RuleId": "8f651760-24fa-40a6-a9ed-4b60f1de95fe",
@@ -90,20 +78,16 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsWafRegionalRuleGroup
+<a name="asff-resourcedetails-awswafregionalrulegroup"></a>
 
-The `AwsWafRegionalRuleGroup` object provides details about an AWS WAF
-Regional rule group. A rule group is a collection of predefined rules that you add to a
-web access control list (web ACL).
+The `AwsWafRegionalRuleGroup` object provides details about an AWS WAF Regional rule group. A rule group is a collection of predefined rules that you add to a web access control list (web ACL).
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsWafRegionalRuleGroup` object. To view descriptions of
-`AwsWafRegionalRuleGroup` attributes, see [AwsWafRegionalRuleGroupDetails](../../1.0/APIReference/API_AwsWafRegionalRuleGroupDetails.md "../../1.0/APIReference/API_AwsWafRegionalRuleGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsWafRegionalRuleGroup` object. To view descriptions of `AwsWafRegionalRuleGroup` attributes, see [AwsWafRegionalRuleGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafRegionalRuleGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsWafRegionalRuleGroup": {
+"AwsWafRegionalRuleGroup": { 
     "MetricName": "SampleWAF_Metric_1",
     "Name": "bb-WAFClassicRuleGroupWithRuleCompliant",
     "RuleGroupId": "2012ca6d-e66d-4d9b-b766-bfb03ad77cfb",
@@ -116,19 +100,14 @@ _AWS Security Hub API Reference_.
         "RuleId": "cdd225da-32cf-4773-8dc5-3bca3ed9c19c",
         "Type": "REGULAR"
 }
-
 ```
 
 ## AwsWafRegionalWebAcl
+<a name="asff-resourcedetails-awswafregionalwebacl"></a>
 
-`AwsWafRegionalWebAcl` provides details about an AWS WAF Regional web access
-control list (web ACL). A web ACL contains the rules that identify the requests that you
-want to allow, block, or count.
+`AwsWafRegionalWebAcl` provides details about an AWS WAF Regional web access control list (web ACL). A web ACL contains the rules that identify the requests that you want to allow, block, or count.
 
-The following is an example `AwsWafRegionalWebAcl` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of
-`AwsApiGatewayV2Stage` attributes, see [AwsWafRegionalWebAclDetails](../../1.0/APIReference/API_AwsWafRegionalWebAclDetails.md "../../1.0/APIReference/API_AwsWafRegionalWebAclDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsWafRegionalWebAcl` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage` attributes, see [AwsWafRegionalWebAclDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafRegionalWebAclDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -161,13 +140,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsWafRule
+<a name="asff-resourcedetails-awswafrule"></a>
 
-`AwsWafRule` provides information about an AWS WAF rule. An AWS WAF rule
-identifies the web requests that you want to allow, block, or count.
+`AwsWafRule` provides information about an AWS WAF rule. An AWS WAF rule identifies the web requests that you want to allow, block, or count.
 
-The following is an example `AwsWafRule` finding in the AWS Security
-Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage`
-attributes, see [AwsWafRuleDetails](../../1.0/APIReference/API_AwsWafRuleDetails.md "../../1.0/APIReference/API_AwsWafRuleDetails.md") in the _AWS Security Hub API Reference_.
+The following is an example `AwsWafRule` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage` attributes, see [AwsWafRuleDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafRuleDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -185,14 +162,11 @@ attributes, see [AwsWafRuleDetails](../../1.0/APIReference/API_AwsWafRuleDetails
 ```
 
 ## AwsWafRuleGroup
+<a name="asff-resourcedetails-awswafrulegroup"></a>
 
-`AwsWafRuleGroup` provides information about an AWS WAF rule group. An AWS WAF
-rule group is a collection of predefined rules that you add to a web access control list
-(web ACL).
+`AwsWafRuleGroup` provides information about an AWS WAF rule group. An AWS WAF rule group is a collection of predefined rules that you add to a web access control list (web ACL).
 
-The following is an example `AwsWafRuleGroup` finding in the AWS Security
-Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage`
-attributes, see [AwsWafRuleGroupDetails](../../1.0/APIReference/API_AwsWafRuleGroupDetails.md "../../1.0/APIReference/API_AwsWafRuleGroupDetails.md") in the _AWS Security Hub API Reference_.
+The following is an example `AwsWafRuleGroup` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage` attributes, see [AwsWafRuleGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafRuleGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -213,14 +187,11 @@ attributes, see [AwsWafRuleGroupDetails](../../1.0/APIReference/API_AwsWafRuleGr
 ```
 
 ## AwsWafv2RuleGroup
+<a name="asff-resourcedetails-awswafv2rulegroup"></a>
 
-The `AwsWafv2RuleGroup` object provides details about an AWS WAFV2 rule
-group.
+The `AwsWafv2RuleGroup` object provides details about an AWS WAFV2 rule group.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsWafv2RuleGroup` object. To view descriptions of
-`AwsWafv2RuleGroup` attributes, see [AwsWafv2RuleGroupDetails](../../1.0/APIReference/API_AwsWafv2RuleGroupDetails.md "../../1.0/APIReference/API_AwsWafv2RuleGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsWafv2RuleGroup` object. To view descriptions of `AwsWafv2RuleGroup` attributes, see [AwsWafv2RuleGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafv2RuleGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -264,12 +235,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsWafWebAcl
+<a name="asff-resourcedetails-awswafwebacl"></a>
 
 The `AwsWafWebAcl` object provides details about an AWS WAF web ACL.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsWafWebAcl` object. To view descriptions of `AwsWafWebAcl`
-attributes, see [AwsWafWebAclDetails](../../1.0/APIReference/API_AwsWafWebAclDetails.md "../../1.0/APIReference/API_AwsWafWebAclDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsWafWebAcl` object. To view descriptions of `AwsWafWebAcl` attributes, see [AwsWafWebAclDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafWebAclDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -300,13 +270,11 @@ attributes, see [AwsWafWebAclDetails](../../1.0/APIReference/API_AwsWafWebAclDet
 ```
 
 ## AwsWafv2WebAcl
+<a name="asff-resourcedetails-awswafv2webacl"></a>
 
-The `AwsWafv2WebAcl` object provides details about an AWS WAFV2 web
-ACL.
+The `AwsWafv2WebAcl` object provides details about an AWS WAFV2 web ACL.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsWafv2WebAcl` object. To view descriptions of
-`AwsWafv2WebAcl` attributes, see [AwsWafv2WebAclDetails](../../1.0/APIReference/API_AwsWafv2WebAclDetails.md "../../1.0/APIReference/API_AwsWafv2WebAclDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsWafv2WebAcl` object. To view descriptions of `AwsWafv2WebAcl` attributes, see [AwsWafv2WebAclDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsWafv2WebAclDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

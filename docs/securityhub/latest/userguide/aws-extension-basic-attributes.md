@@ -1,22 +1,22 @@
-# Basic attributes
 
-These are fundamental attributes used for resource identification, location, and basic metadata.
-They consist of simple data types such as strings, timestamps, and arrays.
+
+# Basic attributes
+<a name="aws-extension-basic-attributes"></a>
+
+ These are fundamental attributes used for resource identification, location, and basic metadata. They consist of simple data types such as strings, timestamps, and arrays. 
 
 ## Cloud partition
+<a name="cloud-partition"></a>
 
-The cloud partition where the resource exists.
+ The cloud partition where the resource exists. 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 String
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -32,19 +32,17 @@ Example
 ```
 
 ## Owner account ID
+<a name="owner-account-id"></a>
 
-A 12-digit account identifier that the resource belongs to.
+ A 12-digit account identifier that the resource belongs to. 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 String
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -64,23 +62,20 @@ Example
 ```
 
 ## Resource type
+<a name="resource-type"></a>
 
-The AWS CloudFormation resource type that identifies the specific service and resource.
+ The AWS CloudFormation resource type that identifies the specific service and resource. 
 
-**Requirement**
-
+**Requirement**  
 Required
 
-**Type**
-
+**Type**  
 String
 
-**Format**
-
+**Format**  
 Must follow AWS CloudFormation resource type naming convention: `AWS::<Service>::<ResourceType>`
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -96,23 +91,20 @@ Example
 ```
 
 ## Resource identifier
+<a name="resource-id"></a>
 
-The unique identifier for the cloud resource (for example, i-1234567890abcdef0).
+ The unique identifier for the cloud resource (for example, i-1234567890abcdef0). 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 String
 
-**Format**
-
+**Format**  
 Must be a valid resource identifier. Minimum length of 1. Maximum length of 768.
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -128,29 +120,24 @@ Example
 ```
 
 ## Alternate resource identifier
+<a name="arn"></a>
 
-The unique identifier for the cloud resource, typically the Amazon Resource Name (ARN).
+ The unique identifier for the cloud resource, typically the Amazon Resource Name (ARN). 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 String
 
-**Format**
-
-Should be a valid AWS ARN. Common patterns include:
-
-- `"arn:partition:service:region:account-id:resource-id"`
-- `"arn:partition:service:region:account-id:resource-type/resource-id"`
-- `"arn:partition:service:region:account-id:resource-type:resource-id"`
-
+**Format**  
+Should be a valid AWS ARN. Common patterns include:  
++ `"arn:partition:service:region:account-id:resource-id"`
++ `"arn:partition:service:region:account-id:resource-type/resource-id"`
++ `"arn:partition:service:region:account-id:resource-type:resource-id"`
 Note: Some services like S3 use variations such as arn:aws:s3:::bucket-name (without region or account-id).
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Examples
@@ -176,23 +163,20 @@ Examples
 ```
 
 ## Resource name
+<a name="resource-name"></a>
 
-The unique name for the cloud resource.
+ The unique name for the cloud resource. 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 String
 
-**Format**
-
+**Format**  
 User-created names whose values will depend on the environment.
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -208,23 +192,20 @@ Example
 ```
 
 ## Cloud region
+<a name="cloud-region"></a>
 
-The AWS region where the resource is located.
+ The AWS region where the resource is located. 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 String
 
-**Format**
-
+**Format**  
 Valid cloud region identifier (for example, us-east-1, eu-west-1, ap-southeast-2)
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -240,23 +221,20 @@ Example
 ```
 
 ## Resource creation time
+<a name="resource-creation-time"></a>
 
-The time when the resource was created.
+ The time when the resource was created. 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 Timestamp
 
-**Format**
-
+**Format**  
 Unix timestamp in milliseconds since epoch (January 1, 1970, 00:00:00 UTC)
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -272,23 +250,20 @@ Example
 ```
 
 ## Tags
+<a name="tags"></a>
 
-Key-value pairs for resource metadata and organization.
+ Key-value pairs for resource metadata and organization. 
 
-**Requirement**
-
+**Requirement**  
 Recommended
 
-**Type**
-
+**Type**  
 Array of key:value objects
 
-**Format**
-
+**Format**  
 A generic object allowing to define a key:value pair.
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -313,23 +288,20 @@ Example
 ```
 
 ## IP address
+<a name="ip-address"></a>
 
-The IP address associated with the instance in either IPv4 or IPv6 format.
+ The IP address associated with the instance in either IPv4 or IPv6 format. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 String
 
-**Format**
-
+**Format**  
 Valid IPv4 or IPv6 address
 
-**OCSF status**
-
+**OCSF status**  
 Existing
 
 Example
@@ -345,19 +317,17 @@ Example
 ```
 
 ## IP addresses
+<a name="ip-addresses"></a>
 
-An array of IP addresses (IPv4 or IPv6) associated with the device. These may include both public and private IP addresses.
+ An array of IP addresses (IPv4 or IPv6) associated with the device. These may include both public and private IP addresses. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 Array of IP addresses
 
-**OCSF status**
-
+**OCSF status**  
 New
 
 Example
@@ -373,23 +343,20 @@ Example
 ```
 
 ## VPC UID
+<a name="vpc-uid"></a>
 
-The VPC ID where the resource is located.
+ The VPC ID where the resource is located. 
 
-**Requirement**
-
+**Requirement**  
 Optional
 
-**Type**
-
+**Type**  
 String
 
-**Format**
-
+**Format**  
 VPC identifier (for example, vpc-12345678900)
 
-**OCSF status**
-
+**OCSF status**  
 Added to `resource_details`
 
 Example
@@ -405,6 +372,7 @@ Example
 ```
 
 ## Example resource object with basic attributes
+<a name="example-resource-object"></a>
 
 ```
 {

@@ -1,117 +1,98 @@
+
+
 # Subscribing to Security Hub CSPM announcements with Amazon SNS
+<a name="securityhub-announcements"></a>
 
-This section provides information about subscribing to AWS Security Hub CSPM announcements with
-Amazon Simple Notification Service (Amazon SNS) to receive notifications about Security Hub CSPM.
+This section provides information about subscribing to AWS Security Hub CSPM announcements with Amazon Simple Notification Service (Amazon SNS) to receive notifications about Security Hub CSPM. 
 
-After subscribing, you will receive notifications about the following events (note the
-corresponding `AnnouncementType` for each event):
+After subscribing, you will receive notifications about the following events (note the corresponding `AnnouncementType` for each event):
++ `NEW_STANDARDS_CONTROLS` – New Security Hub CSPM controls or standards have been added.
++ `RETIRED_STANDARDS_CONTROLS` – Existing Security Hub CSPM controls or standards have been retired.
 
-- `NEW_STANDARDS_CONTROLS` – New Security Hub CSPM controls or standards have
-  been added.
-- `RETIRED_STANDARDS_CONTROLS` – Existing Security Hub CSPM controls or
-  standards have been retired.
-  Notifications are available in all formats that Amazon SNS supports. You can subscribe to Security Hub CSPM
-  announcements in all [AWS Regions that Security Hub CSPM is available in](../../../general/latest/gr/sechub.md "../../../general/latest/gr/sechub.md").
+Notifications are available in all formats that Amazon SNS supports. You can subscribe to Security Hub CSPM announcements in all [AWS Regions that Security Hub CSPM is available in](https://docs.aws.amazon.com/general/latest/gr/sechub.html).
 
-A user must have `Subscribe` permissions to subscribe to an Amazon SNS topic. You
-can achieve this with Amazon SNS policies, IAM policies, or both. For more information, see
-[IAM
-and Amazon SNS policies together](../../../sns/latest/dg/sns-using-identity-based-policies.md#iam-and-sns-policies "../../../sns/latest/dg/sns-using-identity-based-policies.md#iam-and-sns-policies") in the _Amazon Simple Notification Service Developer Guide_.
+A user must have `Subscribe` permissions to subscribe to an Amazon SNS topic. You can achieve this with Amazon SNS policies, IAM policies, or both. For more information, see [IAM and Amazon SNS policies together](https://docs.aws.amazon.com/sns/latest/dg/sns-using-identity-based-policies.html#iam-and-sns-policies) in the *Amazon Simple Notification Service Developer Guide*.
 
-###### Note
+**Note**  
+Security Hub CSPM sends Amazon SNS announcements about updates to the Security Hub CSPM service to any subscribed AWS account. To receive notifications about Security Hub CSPM findings, see [Reviewing finding details and history in Security Hub CSPM](securityhub-findings-viewing.md).
 
-Security Hub CSPM sends Amazon SNS announcements about updates to the Security Hub CSPM service to any subscribed
-AWS account. To receive notifications about Security Hub CSPM findings, see [Reviewing finding details and history in Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md").
+You can subscribe to an Amazon Simple Queue Service (Amazon SQS) queue for an Amazon SNS topic, but you must use an Amazon SNS topic Amazon Resource Name (ARN) that is in the same Region. For more information, see [Subscribing a queue to an Amazon SNS topic](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.html) in the *Amazon Simple Queue Service Developer Guide*.
 
-You can subscribe to an Amazon Simple Queue Service (Amazon SQS) queue for an Amazon SNS topic, but you must use an Amazon SNS topic Amazon Resource Name (ARN) that is in the same Region. For more information, see [Subscribing a queue to an Amazon SNS topic](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md") in the _Amazon Simple Queue Service Developer Guide_.
-
-You can also use an AWS Lambda function to invoke events when you receive notifications.
-For more information, including sample function code, see [Tutorial: Using AWS Lambda with
-Amazon Simple Notification Service](../../../lambda/latest/dg/with-sns-example.md "../../../lambda/latest/dg/with-sns-example.md") in the _AWS Lambda Developer Guide_.
+You can also use an AWS Lambda function to invoke events when you receive notifications. For more information, including sample function code, see [Tutorial: Using AWS Lambda with Amazon Simple Notification Service](https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html) in the *AWS Lambda Developer Guide*.
 
 The Amazon SNS topic ARNs for each Region are as follows.
 
-| AWS Region                | Amazon SNS topic ARN                                                     |
-| ------------------------- | ------------------------------------------------------------------------ |
-| US East (Ohio)            | `arn:aws:sns:us-east-2:291342846459:SecurityHubAnnouncements`            |
-| US East (N. Virginia)     | `arn:aws:sns:us-east-1:088139225913:SecurityHubAnnouncements`            |
-| US West (N. California)   | `arn:aws:sns:us-west-1:137690824926:SecurityHubAnnouncements`            |
-| US West (Oregon)          | `arn:aws:sns:us-west-2:393883065485:SecurityHubAnnouncements`            |
-| Africa (Cape Town)        | `arn:aws:sns:af-south-1:463142546776:SecurityHubAnnouncements`           |
-| Asia Pacific (Hong Kong)  | `arn:aws:sns:ap-east-1:464812404305:SecurityHubAnnouncements`            |
-| Asia Pacific (Hyderabad)  | `arn:aws:sns:ap-south-2:849907286123:SecurityHubAnnouncements`           |
-| Asia Pacific (Jakarta)    | `arn:aws:sns:ap-southeast-3:627843640627:SecurityHubAnnouncements`       |
-| Asia Pacific (Mumbai)     | `arn:aws:sns:ap-south-1:707356269775:SecurityHubAnnouncements`           |
-| Asia Pacific (Osaka)      | `arn:aws:sns:ap-northeast-3:633550238216:SecurityHubAnnouncements`       |
-| Asia Pacific (Seoul)      | `arn:aws:sns:ap-northeast-2:374299265323:SecurityHubAnnouncements`       |
-| Asia Pacific (Singapore)  | `arn:aws:sns:ap-southeast-1:512267288502:SecurityHubAnnouncements`       |
-| Asia Pacific (Sydney)     | `arn:aws:sns:ap-southeast-2:475730049140:SecurityHubAnnouncements`       |
-| Asia Pacific (Tokyo)      | `arn:aws:sns:ap-northeast-1:592469075483:SecurityHubAnnouncements`       |
-| Canada (Central)          | `arn:aws:sns:ca-central-1:137749997395:SecurityHubAnnouncements`         |
-| China (Beijing)           | `arn:aws-cn:sns:cn-north-1:672341567257:SecurityHubAnnouncements`        |
-| China (Ningxia)           | `arn:aws-cn:sns:cn-northwest-1:672534482217:SecurityHubAnnouncements`    |
-| Europe (Frankfurt)        | `arn:aws:sns:eu-central-1:871975303681:SecurityHubAnnouncements`         |
-| Europe (Ireland)          | `arn:aws:sns:eu-west-1:705756202095:SecurityHubAnnouncements`            |
-| Europe (London)           | `arn:aws:sns:eu-west-2:883600840440:SecurityHubAnnouncements`            |
-| Europe (Milan)            | `arn:aws:sns:eu-south-1:151363035580:SecurityHubAnnouncements`           |
-| Europe (Paris)            | `arn:aws:sns:eu-west-3:313420042571:SecurityHubAnnouncements`            |
-| Europe (Spain)            | `arn:aws:sns:eu-south-2:777487947751:SecurityHubAnnouncements`           |
-| Europe (Stockholm)        | `arn:aws:sns:eu-north-1:191971010772:SecurityHubAnnouncements`           |
-| Europe (Zurich)           | `arn:aws:sns:eu-central-2:704347005078:SecurityHubAnnouncements`         |
-| Israel (Tel Aviv)         | `arn:aws:sns:il-central-1:726652212146:SecurityHubAnnouncements`         |
-| Middle East (Bahrain)     | `arn:aws:sns:me-south-1:585146626860:SecurityHubAnnouncements`           |
-| Middle East (UAE)         | `arn:aws:sns:me-central-1:431548502100:SecurityHubAnnouncements`         |
-| South America (São Paulo) | `arn:aws:sns:sa-east-1:359811883282:SecurityHubAnnouncements`            |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:sns:us-gov-east-1:239368469855:SecurityHubAnnouncements` |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:sns:us-gov-west-1:239334163374:SecurityHubAnnouncements` |
 
-Messages are typically the same across Regions within a [partition](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"), so you can
-subscribe to one Region in each partition to receive announcements that affect all Regions
-in that partition. Announcements associated with member accounts are not replicated in the
-administrator account. As a result, each account, including the administrator account, will
-only have one copy of each announcement. You can decide which account you want to use to
-subscribe to Security Hub CSPM announcements.
+| AWS Region | Amazon SNS topic ARN | 
+| --- | --- | 
+| US East (Ohio) | arn:aws:sns:us-east-2:291342846459:SecurityHubAnnouncements | 
+| US East (N. Virginia) | arn:aws:sns:us-east-1:088139225913:SecurityHubAnnouncements | 
+| US West (N. California) | arn:aws:sns:us-west-1:137690824926:SecurityHubAnnouncements | 
+| US West (Oregon) | arn:aws:sns:us-west-2:393883065485:SecurityHubAnnouncements | 
+| Africa (Cape Town) | arn:aws:sns:af-south-1:463142546776:SecurityHubAnnouncements | 
+| Asia Pacific (Hong Kong) | arn:aws:sns:ap-east-1:464812404305:SecurityHubAnnouncements | 
+| Asia Pacific (Hyderabad) | arn:aws:sns:ap-south-2:849907286123:SecurityHubAnnouncements | 
+| Asia Pacific (Jakarta) | arn:aws:sns:ap-southeast-3:627843640627:SecurityHubAnnouncements | 
+| Asia Pacific (Mumbai) | arn:aws:sns:ap-south-1:707356269775:SecurityHubAnnouncements | 
+| Asia Pacific (Osaka) | arn:aws:sns:ap-northeast-3:633550238216:SecurityHubAnnouncements | 
+| Asia Pacific (Seoul) | arn:aws:sns:ap-northeast-2:374299265323:SecurityHubAnnouncements | 
+| Asia Pacific (Singapore) | arn:aws:sns:ap-southeast-1:512267288502:SecurityHubAnnouncements | 
+| Asia Pacific (Sydney) | arn:aws:sns:ap-southeast-2:475730049140:SecurityHubAnnouncements | 
+| Asia Pacific (Tokyo) | arn:aws:sns:ap-northeast-1:592469075483:SecurityHubAnnouncements | 
+| Canada (Central) | arn:aws:sns:ca-central-1:137749997395:SecurityHubAnnouncements | 
+| China (Beijing) | arn:aws-cn:sns:cn-north-1:672341567257:SecurityHubAnnouncements | 
+| China (Ningxia) | arn:aws-cn:sns:cn-northwest-1:672534482217:SecurityHubAnnouncements | 
+| Europe (Frankfurt) | arn:aws:sns:eu-central-1:871975303681:SecurityHubAnnouncements | 
+| Europe (Ireland) | arn:aws:sns:eu-west-1:705756202095:SecurityHubAnnouncements | 
+| Europe (London) | arn:aws:sns:eu-west-2:883600840440:SecurityHubAnnouncements | 
+| Europe (Milan) | arn:aws:sns:eu-south-1:151363035580:SecurityHubAnnouncements | 
+| Europe (Paris) | arn:aws:sns:eu-west-3:313420042571:SecurityHubAnnouncements | 
+| Europe (Spain) | arn:aws:sns:eu-south-2:777487947751:SecurityHubAnnouncements | 
+| Europe (Stockholm) | arn:aws:sns:eu-north-1:191971010772:SecurityHubAnnouncements | 
+| Europe (Zurich) | arn:aws:sns:eu-central-2:704347005078:SecurityHubAnnouncements | 
+| Israel (Tel Aviv) | arn:aws:sns:il-central-1:726652212146:SecurityHubAnnouncements | 
+| Middle East (Bahrain) | arn:aws:sns:me-south-1:585146626860:SecurityHubAnnouncements | 
+| Middle East (UAE) | arn:aws:sns:me-central-1:431548502100:SecurityHubAnnouncements | 
+| South America (São Paulo) | arn:aws:sns:sa-east-1:359811883282:SecurityHubAnnouncements | 
+| AWS GovCloud (US-East) | arn:aws-us-gov:sns:us-gov-east-1:239368469855:SecurityHubAnnouncements | 
+| AWS GovCloud (US-West) | arn:aws-us-gov:sns:us-gov-west-1:239334163374:SecurityHubAnnouncements | 
 
-For information about the cost of subscribing to Security Hub CSPM announcements, see [Amazon SNS pricing](https://aws.amazon.com/sns/pricing/ "https://aws.amazon.com/sns/pricing/").
+Messages are typically the same across Regions within a [partition](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html), so you can subscribe to one Region in each partition to receive announcements that affect all Regions in that partition. Announcements associated with member accounts are not replicated in the administrator account. As a result, each account, including the administrator account, will only have one copy of each announcement. You can decide which account you want to use to subscribe to Security Hub CSPM announcements.
 
-###### Subscribing to Security Hub CSPM announcements (console)
+For information about the cost of subscribing to Security Hub CSPM announcements, see [Amazon SNS pricing](https://aws.amazon.com/sns/pricing/).
 
-1. Open the Amazon SNS console at
-   [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
-2. In the Region list, choose the Region in which you want to subscribe to Security Hub CSPM
-   announcements. This example uses the `us-west-2` Region.
-3. In the navigation pane, choose **Subscriptions**, and then choose
-   **Create subscription**.
-4. Enter the topic ARN into the **Topic ARN** box. For example,
-   `arn:aws:sns:us-west-2:393883065485:SecurityHubAnnouncements`.
-5. For **Protocol**, choose how you want to receive Security Hub CSPM
-   announcements. If you choose **Email**, for
-   **Endpoint**, enter the email address that you want to use to
-   receive announcements.
-6. Choose **Create subscription**.
-7. Confirm the subscription. For example, if you chose email protocol, Amazon SNS will
-   send a subscription confirmation message to the email you provided.
+**Subscribing to Security Hub CSPM announcements (console)**
 
-###### Subscribing to Security Hub CSPM announcements (AWS CLI)
+1. Open the Amazon SNS console at [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home).
+
+1. In the Region list, choose the Region in which you want to subscribe to Security Hub CSPM announcements. This example uses the `us-west-2` Region.
+
+1. In the navigation pane, choose **Subscriptions**, and then choose **Create subscription**.
+
+1. Enter the topic ARN into the **Topic ARN** box. For example, `arn:aws:sns:us-west-2:393883065485:SecurityHubAnnouncements`.
+
+1. For **Protocol**, choose how you want to receive Security Hub CSPM announcements. If you choose **Email**, for **Endpoint**, enter the email address that you want to use to receive announcements.
+
+1. Choose **Create subscription**.
+
+1. Confirm the subscription. For example, if you chose email protocol, Amazon SNS will send a subscription confirmation message to the email you provided.
+
+**Subscribing to Security Hub CSPM announcements (AWS CLI)**
 
 1. Run the following command:
 
-```
- aws  sns --region `us-west-2` subscribe --topic-arn `arn:aws:sns:us-west-2:393883065485:SecurityHubAnnouncements` --protocol `email` --notification-endpoint `your_email@your_domain.com`
-```
+   ```
+    aws  sns --region {{us-west-2}} subscribe --topic-arn {{arn:aws:sns:us-west-2:393883065485:SecurityHubAnnouncements}} --protocol {{email}} --notification-endpoint {{your_email@your_domain.com}}
+   ```
 
-2. Confirm the subscription. For example, if you chose email protocol, Amazon SNS will
-   send a subscription confirmation message to the email you provided.
+1. Confirm the subscription. For example, if you chose email protocol, Amazon SNS will send a subscription confirmation message to the email you provided.
 
 ## Amazon SNS message format
+<a name="securityhub-announcements-example"></a>
 
-The following examples show Security Hub CSPM announcements from Amazon SNS about the introduction of
-new security controls. Message content varies based on announcement type, but the format
-is the same for all announcement types. Optionally, a `Link` field that
-provides details about the announcement may be included.
+The following examples show Security Hub CSPM announcements from Amazon SNS about the introduction of new security controls. Message content varies based on announcement type, but the format is the same for all announcement types. Optionally, a `Link` field that provides details about the announcement may be included.
 
-**Example: Security Hub CSPM announcement for new controls (email
-protocol)**
+**Example: Security Hub CSPM announcement for new controls (email protocol)**
 
 ```
 {
@@ -122,8 +103,7 @@ Amazon Simple Storage Service (Amazon S3) (S3.13), Amazon Simple Notification Se
 }
 ```
 
-**Example: Security Hub CSPM announcement for new controls (email-JSON
-protocol)**
+**Example: Security Hub CSPM announcement for new controls (email-JSON protocol)**
 
 ```
 {

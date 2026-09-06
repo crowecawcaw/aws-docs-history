@@ -1,19 +1,18 @@
+
+
 # AwsAutoScaling resources in ASFF
+<a name="asff-resourcedetails-awsautoscaling"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAutoScaling` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsAutoScalingAutoScalingGroup
+<a name="asff-resourcedetails-awsautoscalingautoscalinggroup"></a>
 
-The `AwsAutoScalingAutoScalingGroup` object provides details about an
-automatic scaling group.
+The `AwsAutoScalingAutoScalingGroup` object provides details about an automatic scaling group.
 
-The following is an example `AwsAutoScalingAutoScalingGroup` finding in the
-AWS Security Finding Format (ASFF). To view descriptions of
-`AwsAutoScalingAutoScalingGroup` attributes, see [AwsAutoScalingAutoScalingGroupDetails](../../1.0/APIReference/API_AwsAutoScalingAutoScalingGroupDetails.md "../../1.0/APIReference/API_AwsAutoScalingAutoScalingGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsAutoScalingAutoScalingGroup` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsAutoScalingAutoScalingGroup` attributes, see [AwsAutoScalingAutoScalingGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsAutoScalingAutoScalingGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -24,7 +23,7 @@ _AWS Security Hub API Reference_.
         "HealthCheckType": "EC2",
         "LaunchConfigurationName": "mylaunchconf",
         "LoadBalancerNames": [],
-        "LaunchTemplate": {
+        "LaunchTemplate": {                            
             "LaunchTemplateId": "string",
             "LaunchTemplateName": "string",
             "Version": "string"
@@ -58,16 +57,13 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsAutoScalingLaunchConfiguration
+<a name="asff-resourcedetails-awsautoscalinglaunchconfiguration"></a>
 
-The `AwsAutoScalingLaunchConfiguration` object provides details about a
-launch configuration.
+The `AwsAutoScalingLaunchConfiguration` object provides details about a launch configuration.
 
-The following is an example `AwsAutoScalingLaunchConfiguration` finding in
-the AWS Security Finding Format (ASFF).
+The following is an example `AwsAutoScalingLaunchConfiguration` finding in the AWS Security Finding Format (ASFF).
 
-To view descriptions of `AwsAutoScalingLaunchConfiguration` attributes, see
-[AwsAutoScalingLaunchConfigurationDetails](../../1.0/APIReference/API_AwsAutoScalingLaunchConfigurationDetails.md "../../1.0/APIReference/API_AwsAutoScalingLaunchConfigurationDetails.md") in the
-_AWS Security Hub API Reference_.
+To view descriptions of `AwsAutoScalingLaunchConfiguration` attributes, see [AwsAutoScalingLaunchConfigurationDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsAutoScalingLaunchConfigurationDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -130,5 +126,4 @@ AwsAutoScalingLaunchConfiguration: {
     "AssociatePublicIpAddress": true,
     "SpotPrice": "0.045"
 }
-
 ```

@@ -1,19 +1,18 @@
+
+
 # AwsRedshift resources in ASFF
+<a name="asff-resourcedetails-awsredshift"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsRedshift` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsRedshiftCluster
+<a name="asff-resourcedetails-awsredshiftcluster"></a>
 
-The `AwsRedshiftCluster` object contains details about an Amazon Redshift
-cluster.
+The `AwsRedshiftCluster` object contains details about an Amazon Redshift cluster.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsRedshiftCluster` object. To view descriptions of
-`AwsRedshiftCluster` attributes, see [AwsRedshiftClusterDetails](../../1.0/APIReference/API_AwsRedshiftClusterDetails.md "../../1.0/APIReference/API_AwsRedshiftClusterDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRedshiftCluster` object. To view descriptions of `AwsRedshiftCluster` attributes, see [AwsRedshiftClusterDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRedshiftClusterDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -43,7 +42,7 @@ _AWS Security Hub API Reference_.
         }
         ],
     "ClusterParameterGroups": [
-        {
+        { 
             "ClusterParameterStatusList": [
                 {
                     "ParameterName": "max_concurrency_scaling_clusters",
@@ -104,7 +103,7 @@ _AWS Security Hub API Reference_.
             "ParameterApplyStatus": "in-sync",
             "ParameterGroupName": "temp"
         }
-    ],
+    ], 
     "ClusterPublicKey": "JalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY Amazon-Redshift",
     "ClusterRevisionNumber": 17498,
     "ClusterSecurityGroups": [
@@ -134,7 +133,7 @@ _AWS Security Hub API Reference_.
         "ElasticIp": "203.0.113.29",
         "Status": "active"
     },
-    "ElasticResizeNumberOfNodeOptions": "4",
+    "ElasticResizeNumberOfNodeOptions": "4",  
     "Encrypted": false,
     "Endpoint": {
         "Address": "redshift-cluster-1.example.us-west-2.redshift.amazonaws.com",
@@ -151,7 +150,7 @@ _AWS Security Hub API Reference_.
     "IamRoles": [
         {
              "ApplyStatus": "in-sync",
-             "IamRoleArn": "arn:aws:iam::111122223333:role/RedshiftCopyUnload"
+             "IamRoleArn": "arn:aws:iam::111122223333:role/RedshiftCopyUnload"   
         }
     ],
     "KmsKeyId": "kmsKeyId",

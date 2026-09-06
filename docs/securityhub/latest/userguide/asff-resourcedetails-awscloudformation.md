@@ -1,24 +1,23 @@
+
+
 # AwsCloudFormation resources in ASFF
+<a name="asff-resourcedetails-awscloudformation"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudFormation` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsCloudFormationStack
+<a name="asff-resourcedetails-awscloudformationstack"></a>
 
-The `AwsCloudFormationStack` object provides details about an AWS CloudFormation
-stack that is nested as a resource in a top-level template.
+The `AwsCloudFormationStack` object provides details about an AWS CloudFormation stack that is nested as a resource in a top-level template.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsCloudFormationStack` object. To view descriptions of
-`AwsCloudFormationStack` attributes, see [AwsCloudFormationStackDetails](../../1.0/APIReference/API_AwsCloudFormationStackDetails.md "../../1.0/APIReference/API_AwsCloudFormationStackDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsCloudFormationStack` object. To view descriptions of `AwsCloudFormationStack` attributes, see [AwsCloudFormationStackDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsCloudFormationStackDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsCloudFormationStack": {
+"AwsCloudFormationStack": { 
 	"Capabilities": [
 		"CAPABILITY_IAM",
 		"CAPABILITY_NAMED_IAM"

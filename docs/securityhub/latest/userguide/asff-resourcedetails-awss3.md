@@ -1,19 +1,18 @@
+
+
 # AwsS3 resources in ASFF
+<a name="asff-resourcedetails-awss3"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsS3` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsS3AccessPoint
+<a name="asff-resourcedetails-awss3accesspoint"></a>
 
-`AwsS3AccessPoint` provides information about an Amazon S3 access point. S3 access points are named network
-endpoints that are attached to S3 buckets that you can use to perform S3 object operations.
+`AwsS3AccessPoint` provides information about an Amazon S3 access point. S3 access points are named network endpoints that are attached to S3 buckets that you can use to perform S3 object operations.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsS3AccessPoint` object. To view descriptions of
-`AwsS3AccessPoint` attributes, see [AwsS3AccessPointDetails](../../1.0/APIReference/API_AwsS3AccessPointDetails.md "../../1.0/APIReference/API_AwsS3AccessPointDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsS3AccessPoint` object. To view descriptions of `AwsS3AccessPoint` attributes, see [AwsS3AccessPointDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsS3AccessPointDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -38,14 +37,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsS3AccountPublicAccessBlock
+<a name="asff-resourcedetails-awss3accountpublicaccessblock"></a>
 
-`AwsS3AccountPublicAccessBlock` provides information about the Amazon S3 Public
-Access Block configuration for accounts.
+`AwsS3AccountPublicAccessBlock` provides information about the Amazon S3 Public Access Block configuration for accounts.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsS3AccountPublicAccessBlock` object. To view descriptions of
-`AwsS3AccountPublicAccessBlock` attributes, see [AwsS3AccountPublicAccessBlockDetails](../../1.0/APIReference/API_AwsS3AccountPublicAccessBlockDetails.md "../../1.0/APIReference/API_AwsS3AccountPublicAccessBlockDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsS3AccountPublicAccessBlock` object. To view descriptions of `AwsS3AccountPublicAccessBlock` attributes, see [AwsS3AccountPublicAccessBlockDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsS3AccountPublicAccessBlockDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -59,12 +55,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsS3Bucket
+<a name="asff-resourcedetails-awss3bucket"></a>
 
 The `AwsS3Bucket` object provides details about an Amazon S3 bucket.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsS3Bucket` object. To view descriptions of `AwsS3Bucket`
-attributes, see [AwsS3BucketDetails](../../1.0/APIReference/API_AwsS3BucketDetails.md "../../1.0/APIReference/API_AwsS3BucketDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsS3Bucket` object. To view descriptions of `AwsS3Bucket` attributes, see [AwsS3BucketDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsS3BucketDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -204,12 +199,11 @@ attributes, see [AwsS3BucketDetails](../../1.0/APIReference/API_AwsS3BucketDetai
 ```
 
 ## AwsS3Object
+<a name="asff-resourcedetails-awss3object"></a>
 
 The `AwsS3Object` object provides information about an Amazon S3 object.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsS3Object` object. To view descriptions of `AwsS3Object`
-attributes, see [AwsS3ObjectDetails](../../1.0/APIReference/API_AwsS3ObjectDetails.md "../../1.0/APIReference/API_AwsS3ObjectDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsS3Object` object. To view descriptions of `AwsS3Object` attributes, see [AwsS3ObjectDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsS3ObjectDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

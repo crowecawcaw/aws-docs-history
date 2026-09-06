@@ -1,16 +1,16 @@
-# EventBridge event formats for Security Hub CSPM
 
-The **Security Hub Findings - Imported**,
-**Security Findings - Custom Action**,
-and **Security Hub Insight Results** event
-types use the following event formats.
+
+# EventBridge event formats for Security Hub CSPM
+<a name="securityhub-cwe-event-formats"></a>
+
+The **Security Hub Findings - Imported**, **Security Findings - Custom Action**, and **Security Hub Insight Results** event types use the following event formats.
 
 The event format is the format that is used when Security Hub CSPM sends an event to EventBridge.
 
 ## Security Hub Findings - Imported
+<a name="securityhub-cwe-event-formats-findings-imported"></a>
 
-**Security Hub Findings - Imported**
-events that are sent from Security Hub CSPM to EventBridge use the following format.
+**Security Hub Findings - Imported** events that are sent from Security Hub CSPM to EventBridge use the following format.
 
 ```
 {
@@ -26,26 +26,22 @@ events that are sent from Security Hub CSPM to EventBridge use the following for
    ],
    "detail":{
       "findings": [{
-         `<finding content>`
+         {{<finding content>}}
        }]
    }
 }
 ```
 
-`<finding content>` is the content, in
-JSON format, of the finding that is sent by the event. Each event sends a single
-finding.
+`{{<finding content>}}` is the content, in JSON format, of the finding that is sent by the event. Each event sends a single finding.
 
-For a complete list of finding attributes, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+For a complete list of finding attributes, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
-For information about how to configure EventBridge rules that are triggered by these
-events, see [Configuring an EventBridge rule for Security Hub CSPM findings](securityhub-cwe-all-findings.md "securityhub-cwe-all-findings.md").
+For information about how to configure EventBridge rules that are triggered by these events, see [Configuring an EventBridge rule for Security Hub CSPM findings](securityhub-cwe-all-findings.md).
 
 ## Security Hub Findings - Custom Action
+<a name="securityhub-cwe-event-formats-findings-custom-action"></a>
 
-**Security Hub Findings - Custom
-Action** events that are sent from Security Hub CSPM to EventBridge use the
-following format. Each finding is sent in a separate event.
+**Security Hub Findings - Custom Action** events that are sent from Security Hub CSPM to EventBridge use the following format. Each finding is sent in a separate event.
 
 ```
 {
@@ -64,29 +60,26 @@ following format. Each finding is sent in a separate event.
     "actionDescription": "description of the action",
     "findings": [
       {
-        `<finding content>`
+        {{<finding content>}}
       }
     ]
   }
 }
 ```
 
-`<finding content>` is the content, in
-JSON format, of the finding that is sent by the event. Each event sends a single
-finding.
+`{{<finding content>}}` is the content, in JSON format, of the finding that is sent by the event. Each event sends a single finding.
 
-For a complete list of finding attributes, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+For a complete list of finding attributes, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
-For information about how to configure EventBridge rules that are triggered by these
-events, see [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
+For information about how to configure EventBridge rules that are triggered by these events, see [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md).
 
 ## Security Hub Insight Results
+<a name="securityhub-cwe-event-formats-insight-results"></a>
 
-**Security Hub Insight Results**
-events that are sent from Security Hub CSPM to EventBridge use the following format.
+**Security Hub Insight Results** events that are sent from Security Hub CSPM to EventBridge use the following format.
 
 ```
-{
+{ 
   "version": "0",
   "id": "1a1111a1-b22b-3c33-444d-5555e5ee5555",
   "detail-type": "Security Hub Insight Results",
@@ -112,5 +105,4 @@ events that are sent from Security Hub CSPM to EventBridge use the following for
 }
 ```
 
-For information about how to create an EventBridge rule that is triggered by these
-events, see [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
+For information about how to create an EventBridge rule that is triggered by these events, see [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md).

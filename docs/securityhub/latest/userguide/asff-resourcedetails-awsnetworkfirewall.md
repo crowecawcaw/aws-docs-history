@@ -1,27 +1,25 @@
+
+
 # AwsNetworkFirewall resources in ASFF
+<a name="asff-resourcedetails-awsnetworkfirewall"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsNetworkFirewall`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsNetworkFirewall` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsNetworkFirewallFirewall
+<a name="asff-resourcedetails-awsnetworkfirewallfirewall"></a>
 
-The `AwsNetworkFirewallFirewall` object contains details about an
-AWS Network Firewall firewall.
+The `AwsNetworkFirewallFirewall` object contains details about an AWS Network Firewall firewall.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsNetworkFirewallFirewall` object. To view descriptions of
-`AwsNetworkFirewallFirewall` attributes, see [AwsNetworkFirewallFirewallDetails](../../1.0/APIReference/API_AwsNetworkFirewallFirewallDetails.md "../../1.0/APIReference/API_AwsNetworkFirewallFirewallDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsNetworkFirewallFirewall` object. To view descriptions of `AwsNetworkFirewallFirewall` attributes, see [AwsNetworkFirewallFirewallDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsNetworkFirewallFirewallDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
 "AwsNetworkFirewallFirewall": {
     "DeleteProtection": false,
-    "FirewallArn": "arn:aws:network-firewall:us-east-1:024665936331:firewall/testfirewall",
+    "FirewallArn": "arn:aws:network-firewall:us-east-1:024665936331:firewall/testfirewall", 
     "FirewallPolicyArn": "arn:aws:network-firewall:us-east-1:444455556666:firewall-policy/InitialFirewall",
     "FirewallId": "dea7d8e9-ae38-4a8a-b022-672a830a99fa",
     "FirewallName": "testfirewall",
@@ -40,20 +38,17 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsNetworkFirewallFirewallPolicy
+<a name="asff-resourcedetails-awsnetworkfirewallfirewallpolicy"></a>
 
-The `AwsNetworkFirewallFirewallPolicy` object provides details about a
-firewall policy. A firewall policy defines the behavior of a network firewall.
+The `AwsNetworkFirewallFirewallPolicy` object provides details about a firewall policy. A firewall policy defines the behavior of a network firewall.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsNetworkFirewallFirewallPolicy` object. To view descriptions of
-`AwsNetworkFirewallFirewallPolicy` attributes, see [AwsNetworkFirewallFirewallPolicyDetails](../../1.0/APIReference/API_AwsNetworkFirewallFirewallPolicyDetails.md "../../1.0/APIReference/API_AwsNetworkFirewallFirewallPolicyDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsNetworkFirewallFirewallPolicy` object. To view descriptions of `AwsNetworkFirewallFirewallPolicy` attributes, see [AwsNetworkFirewallFirewallPolicyDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsNetworkFirewallFirewallPolicyDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
 "AwsNetworkFirewallFirewallPolicy": {
-   "FirewallPolicy": {
+   "FirewallPolicy": {  
     "StatefulRuleGroupReferences": [
         {
             "ResourceArn": "arn:aws:network-firewall:us-east-1:444455556666:stateful-rulegroup/PatchesOnly"
@@ -76,18 +71,13 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsNetworkFirewallRuleGroup
+<a name="asff-resourcedetails-awsnetworkfirewallrulegroup"></a>
 
-The `AwsNetworkFirewallRuleGroup` object provides details about an
-AWS Network Firewall rule group. Rule groups are used to inspect and control network traffic.
-Stateless rule groups apply to individual packets. Stateful rule groups apply to packets
-in the context of their traffic flow.
+The `AwsNetworkFirewallRuleGroup` object provides details about an AWS Network Firewall rule group. Rule groups are used to inspect and control network traffic. Stateless rule groups apply to individual packets. Stateful rule groups apply to packets in the context of their traffic flow.
 
 Rule groups are referenced in firewall policies.
 
-The following examples show the AWS Security Finding Format (ASFF) for the
-`AwsNetworkFirewallRuleGroup` object. To view descriptions of
-`AwsNetworkFirewallRuleGroup` attributes, see [AwsNetworkFirewallRuleGroupDetails](../../1.0/APIReference/API_AwsNetworkFirewallRuleGroupDetails.md "../../1.0/APIReference/API_AwsNetworkFirewallRuleGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+The following examples show the AWS Security Finding Format (ASFF) for the `AwsNetworkFirewallRuleGroup` object. To view descriptions of `AwsNetworkFirewallRuleGroup` attributes, see [AwsNetworkFirewallRuleGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsNetworkFirewallRuleGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example – stateless rule group**
 
@@ -173,7 +163,7 @@ _AWS Security Hub API Reference_.
                          {
                             "Keyword": "sid:1"
                          }
-                     ]
+                     ]      
                  }
              ]
          }
@@ -181,31 +171,16 @@ _AWS Security Hub API Reference_.
 }
 ```
 
-The following is a list of valid value examples for
-`AwsNetworkFirewallRuleGroup` attributes:
+The following is a list of valid value examples for `AwsNetworkFirewallRuleGroup` attributes:
++ `Action`
 
-- `Action`
+  Valid values: `PASS` \| `DROP` \| `ALERT`
++ `Protocol`
 
-Valid values: `PASS` | `DROP` |
-`ALERT`
+  Valid values: `IP` \| `TCP` \| `UDP` \| `ICMP` \| `HTTP` \| `FTP` \| `TLS` \| `SMB` \| `DNS` \| `DCERPC` \| `SSH` \| `SMTP` \| `IMAP` \| `MSN` \| `KRB5` \| `IKEV2` \| `TFTP` \| `NTP` \| `DHCP`
++ `Flags`
 
-- `Protocol`
+  Valid values: `FIN` \| `SYN` \| `RST` \| `PSH` \| `ACK` \| `URG` \| `ECE` \| `CWR`
++ `Masks`
 
-Valid values: `IP` | `TCP` | `UDP` |
-`ICMP` | `HTTP` | `FTP` | `TLS`
-| `SMB` | `DNS` | `DCERPC` | `SSH` |
-`SMTP` | `IMAP` | `MSN` | `KRB5`
-| `IKEV2` | `TFTP` | `NTP` |
-`DHCP`
-
-- `Flags`
-
-Valid values: `FIN` | `SYN` | `RST` |
-`PSH` | `ACK` | `URG` | `ECE` |
-`CWR`
-
-- `Masks`
-
-Valid values: `FIN` | `SYN` | `RST` |
-`PSH` | `ACK` | `URG` | `ECE` |
-`CWR`
+  Valid values: `FIN` \| `SYN` \| `RST` \| `PSH` \| `ACK` \| `URG` \| `ECE` \| `CWR`

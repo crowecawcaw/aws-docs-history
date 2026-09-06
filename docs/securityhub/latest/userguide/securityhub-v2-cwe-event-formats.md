@@ -1,10 +1,12 @@
+
+
 # EventBridge event formats
+<a name="securityhub-v2-cwe-event-formats"></a>
 
-The **Findings Imported V2** event type uses the following event format.
+ The **Findings Imported V2** event type uses the following event format. 
 
-###### Example
-
-This format is used when Security Hub sends an event to EventBridge.
+**Example**  
+ This format is used when Security Hub sends an event to EventBridge. 
 
 ```
 {
@@ -20,13 +22,12 @@ This format is used when Security Hub sends an event to EventBridge.
    ],
    "detail":{
       "findings": [{
-         `<finding content>`
+         {{<finding content>}}
        }]
    }
 }
 ```
 
-Each event sends a single finding.
-`<finding content>` is the content in JSON of the finding sent by the event.
+ Each event sends a single finding. `{{<finding content>}}` is the content in JSON of the finding sent by the event. 
 
-For a complete list of finding attributes, see [OCSF findings in Security Hub CSPM](security-hub-adv-ocsf-findings.md "security-hub-adv-ocsf-findings.md").
+ For a complete list of finding attributes, see [OCSF findings in Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/security-hub-adv-ocsf-findings.html). 

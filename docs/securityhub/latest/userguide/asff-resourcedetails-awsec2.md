@@ -1,18 +1,18 @@
+
+
 # AwsEc2 resources in ASFF
+<a name="asff-resourcedetails-awsec2"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEc2` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsEc2ClientVpnEndpoint
+<a name="asff-resourcedetails-awsec2clientvpnendpoint"></a>
 
-The `AwsEc2ClientVpnEndpoint` object provides information about an AWS Client VPN endpoint. A Client VPN endpoint
-is the resource that you create and configure to enable and manage client VPN sessions. It's the termination point for
-all client VPN sessions.
+The `AwsEc2ClientVpnEndpoint` object provides information about an AWS Client VPN endpoint. A Client VPN endpoint is the resource that you create and configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2ClientVpnEndpoint` object.
-To view descriptions of `AwsEc2ClientVpnEndpoint` attributes, see [AwsEc2ClientVpnEndpointDetails](../../1.0/APIReference/API_AwsEc2ClientVpnEndpointDetails.md "../../1.0/APIReference/API_AwsEc2ClientVpnEndpointDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2ClientVpnEndpoint` object. To view descriptions of `AwsEc2ClientVpnEndpoint` attributes, see [AwsEc2ClientVpnEndpointDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2ClientVpnEndpointDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -53,12 +53,11 @@ To view descriptions of `AwsEc2ClientVpnEndpoint` attributes, see [AwsEc2ClientV
 ```
 
 ## AwsEc2Eip
+<a name="asff-resourcedetails-awsec2eip"></a>
 
-The `AwsEc2Eip` object provides information about an Elastic IP
-address.
+The `AwsEc2Eip` object provides information about an Elastic IP address.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Eip` object.
-To view descriptions of `AwsEc2Eip` attributes, see [AwsEc2EipDetails](../../1.0/APIReference/API_AwsEc2EipDetails.md "../../1.0/APIReference/API_AwsEc2EipDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Eip` object. To view descriptions of `AwsEc2Eip` attributes, see [AwsEc2EipDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2EipDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -78,17 +77,16 @@ To view descriptions of `AwsEc2Eip` attributes, see [AwsEc2EipDetails](../../1.0
 ```
 
 ## AwsEc2Instance
+<a name="asff-resourcedetails-awsec2instance"></a>
 
-The `AwsEc2Instance` object provides details about an Amazon EC2
-instance.
+The `AwsEc2Instance` object provides details about an Amazon EC2 instance.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Instance`
-object. To view descriptions of `AwsEc2Instance` attributes, see [AwsEc2InstanceDetails](../../1.0/APIReference/API_AwsEc2InstanceDetails.md "../../1.0/APIReference/API_AwsEc2InstanceDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Instance` object. To view descriptions of `AwsEc2Instance` attributes, see [AwsEc2InstanceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2InstanceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsEc2Instance": {
+"AwsEc2Instance": { 
     "IamInstanceProfileArn": "arn:aws:iam::123456789012:instance-profile/AdminRole",
     "ImageId": "ami-1234",
     "IpV4Addresses": [ "1.1.1.1" ],
@@ -117,14 +115,11 @@ object. To view descriptions of `AwsEc2Instance` attributes, see [AwsEc2Instance
 ```
 
 ## AwsEc2LaunchTemplate
+<a name="asff-resourcedetails-awsec2launchtemplate"></a>
 
-The `AwsEc2LaunchTemplate` object contains details about an Amazon Elastic Compute Cloud
-launch template that specifies instance configuration information.
+The `AwsEc2LaunchTemplate` object contains details about an Amazon Elastic Compute Cloud launch template that specifies instance configuration information.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEc2LaunchTemplate` object. To view descriptions of
-`AwsEc2LaunchTemplate` attributes, see [AwsEc2LaunchTemplateDetails](../../1.0/APIReference/API_AwsEc2LaunchTemplateDetals.md "../../1.0/APIReference/API_AwsEc2LaunchTemplateDetals.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2LaunchTemplate` object. To view descriptions of `AwsEc2LaunchTemplate` attributes, see [AwsEc2LaunchTemplateDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2LaunchTemplateDetals.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -165,12 +160,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsEc2NetworkAcl
+<a name="asff-resourcedetails-awsec2networkacl"></a>
 
-The `AwsEc2NetworkAcl` object contains details about an Amazon EC2 network
-access control list (ACL).
+The `AwsEc2NetworkAcl` object contains details about an Amazon EC2 network access control list (ACL).
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2NetworkAcl`
-object. To view descriptions of `AwsEc2NetworkAcl` attributes, see [AwsEc2NetworkAclDetails](../../1.0/APIReference/API_AwsEc2NetworkAclDetails.md "../../1.0/APIReference/API_AwsEc2NetworkAclDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2NetworkAcl` object. To view descriptions of `AwsEc2NetworkAcl` attributes, see [AwsEc2NetworkAclDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2NetworkAclDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -205,14 +199,11 @@ object. To view descriptions of `AwsEc2NetworkAcl` attributes, see [AwsEc2Networ
 ```
 
 ## AwsEc2NetworkInterface
+<a name="asff-resourcedetails-awsec2networkinterface"></a>
 
-The `AwsEc2NetworkInterface` object provides information about an Amazon EC2
-network interface.
+The `AwsEc2NetworkInterface` object provides information about an Amazon EC2 network interface.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEc2NetworkInterface` object. To view descriptions of
-`AwsEc2NetworkInterface` attributes, see [AwsEc2NetworkInterfaceDetails](../../1.0/APIReference/API_AwsEc2NetworkInterfaceDetails.md "../../1.0/APIReference/API_AwsEc2NetworkInterfaceDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2NetworkInterface` object. To view descriptions of `AwsEc2NetworkInterface` attributes, see [AwsEc2NetworkInterfaceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2NetworkInterfaceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -239,12 +230,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsEc2RouteTable
+<a name="asff-resourcedetails-awsec2routetable"></a>
 
-The `AwsEc2RouteTable` object provides information about an Amazon EC2 route
-table.
+The `AwsEc2RouteTable` object provides information about an Amazon EC2 route table.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2RouteTable`
-object. To view descriptions of `AwsEc2RouteTable` attributes, see [AwsEc2RouteTableDetails](../../1.0/APIReference/API_AwsEc2RouteTableDetails.md "../../1.0/APIReference/API_AwsEc2RouteTableDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2RouteTable` object. To view descriptions of `AwsEc2RouteTable` attributes, see [AwsEc2RouteTableDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2RouteTableDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -279,12 +269,11 @@ object. To view descriptions of `AwsEc2RouteTable` attributes, see [AwsEc2RouteT
 ```
 
 ## AwsEc2SecurityGroup
+<a name="asff-resourcedetails-awsec2securitygroup"></a>
 
 The `AwsEc2SecurityGroup` object describes an Amazon EC2 security group.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2SecurityGroup`
-object. To view descriptions of `AwsEc2SecurityGroup` attributes, see [AwsEc2SecurityGroupDetails](../../1.0/APIReference/API_AwsEc2SecurityGroupDetails.md "../../1.0/APIReference/API_AwsEc2SecurityGroupDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2SecurityGroup` object. To view descriptions of `AwsEc2SecurityGroup` attributes, see [AwsEc2SecurityGroupDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2SecurityGroupDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -325,12 +314,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsEc2Subnet
+<a name="asff-resourcedetails-awsec2subnet"></a>
 
-The `AwsEc2Subnet` object provides information about a subnet in
-Amazon EC2.
+The `AwsEc2Subnet` object provides information about a subnet in Amazon EC2.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Subnet`
-object. To view descriptions of `AwsEc2Subnet` attributes, see [AwsEc2SubnetDetails](../../1.0/APIReference/API_AwsEc2SubnetDetails.md "../../1.0/APIReference/API_AwsEc2SubnetDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Subnet` object. To view descriptions of `AwsEc2Subnet` attributes, see [AwsEc2SubnetDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2SubnetDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -357,14 +345,11 @@ AwsEc2Subnet: {
 ```
 
 ## AwsEc2TransitGateway
+<a name="asff-resourcedetails-awsec2transitgateway"></a>
 
-The `AwsEc2TransitGateway` object provides details about an Amazon EC2 transit
-gateway that interconnects your virtual private clouds (VPCs) and on-premises
-networks.
+The `AwsEc2TransitGateway` object provides details about an Amazon EC2 transit gateway that interconnects your virtual private clouds (VPCs) and on-premises networks.
 
-The following is an example `AwsEc2TransitGateway` finding in the AWS Security Finding Format
-(ASFF). To view descriptions of `AwsEc2TransitGateway` attributes, see [AwsEc2TransitGatewayDetails](../../1.0/APIReference/API_AwsEc2TransitGatewayDetails.md "../../1.0/APIReference/API_AwsEc2TransitGatewayDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsEc2TransitGateway` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsEc2TransitGateway` attributes, see [AwsEc2TransitGatewayDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2TransitGatewayDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -386,11 +371,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsEc2Volume
+<a name="asff-resourcedetails-awsec2volume"></a>
 
 The `AwsEc2Volume` object provides details about an Amazon EC2 volume.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Volume`
-object. To view descriptions of `AwsEc2Volume` attributes, see [AwsEc2VolumeDetails](../../1.0/APIReference/API_AwsEc2VolumeDetails.md "../../1.0/APIReference/API_AwsEc2VolumeDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Volume` object. To view descriptions of `AwsEc2Volume` attributes, see [AwsEc2VolumeDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2VolumeDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -414,11 +399,11 @@ object. To view descriptions of `AwsEc2Volume` attributes, see [AwsEc2VolumeDeta
 ```
 
 ## AwsEc2Vpc
+<a name="asff-resourcedetails-awsec2vpc"></a>
 
 The `AwsEc2Vpc` object provides details about an Amazon EC2 VPC.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Vpc` object.
-To view descriptions of `AwsEc2Vpc` attributes, see [AwsEc2VpcDetails](../../1.0/APIReference/API_AwsEc2VpcDetails.md "../../1.0/APIReference/API_AwsEc2VpcDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2Vpc` object. To view descriptions of `AwsEc2Vpc` attributes, see [AwsEc2VpcDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2VpcDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -445,14 +430,11 @@ To view descriptions of `AwsEc2Vpc` attributes, see [AwsEc2VpcDetails](../../1.0
 ```
 
 ## AwsEc2VpcEndpointService
+<a name="asff-resourcedetails-awsec2vpcendpointservice"></a>
 
-The `AwsEc2VpcEndpointService` object contains details about the service
-configuration for a VPC endpoint service.
+The `AwsEc2VpcEndpointService` object contains details about the service configuration for a VPC endpoint service.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEc2VpcEndpointService` object. To view descriptions of
-`AwsEc2VpcEndpointService` attributes, see [AwsEc2VpcEndpointServiceDetails](../../1.0/APIReference/API_AwsEc2VpcEndpointServiceDetails.md "../../1.0/APIReference/API_AwsEc2VpcEndpointServiceDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2VpcEndpointService` object. To view descriptions of `AwsEc2VpcEndpointService` attributes, see [AwsEc2VpcEndpointServiceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2VpcEndpointServiceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -483,19 +465,16 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsEc2VpcPeeringConnection
+<a name="asff-resourcedetails-awsec2vpcpeeringconnection"></a>
 
-The `AwsEc2VpcPeeringConnection` object provides details about the
-networking connection between two VPCs.
+The `AwsEc2VpcPeeringConnection` object provides details about the networking connection between two VPCs.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEc2VpcPeeringConnection` object. To view descriptions of
-`AwsEc2VpcPeeringConnection` attributes, see [AwsEc2VpcPeeringConnectionDetails](../../1.0/APIReference/API_AwsEc2VpcPeeringConnectionDetails.md "../../1.0/APIReference/API_AwsEc2VpcPeeringConnectionDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEc2VpcPeeringConnection` object. To view descriptions of `AwsEc2VpcPeeringConnection` attributes, see [AwsEc2VpcPeeringConnectionDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEc2VpcPeeringConnectionDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsEc2VpcPeeringConnection": {
+"AwsEc2VpcPeeringConnection": { 
 	"AccepterVpcInfo": {
 		"CidrBlock": "10.0.0.0/28",
 		"CidrBlockSet": [{

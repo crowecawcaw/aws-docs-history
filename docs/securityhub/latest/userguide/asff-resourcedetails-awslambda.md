@@ -1,20 +1,18 @@
+
+
 # AwsLambda
+<a name="asff-resourcedetails-awslambda"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsLambda`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsLambda` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsLambdaFunction
+<a name="asff-resourcedetails-awslambdafunction"></a>
 
-The `AwsLambdaFunction` object provides details about a Lambda function's
-configuration.
+The `AwsLambdaFunction` object provides details about a Lambda function's configuration.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsLambdaFunction` object. To view descriptions of
-`AwsLambdaFunction` attributes, see [AwsLambdaFunctionDetails](../../1.0/APIReference/API_AwsLambdaFunctionDetails.md "../../1.0/APIReference/API_AwsLambdaFunctionDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsLambdaFunction` object. To view descriptions of `AwsLambdaFunction` attributes, see [AwsLambdaFunctionDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsLambdaFunctionDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -69,14 +67,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsLambdaLayerVersion
+<a name="asff-resourcedetails-awslambdalayerversion"></a>
 
-The `AwsLambdaLayerVersion` object provides details about a Lambda layer
-version.
+The `AwsLambdaLayerVersion` object provides details about a Lambda layer version.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsLambdaLayerVersion` object. To view descriptions of
-`AwsLambdaLayerVersion` attributes, see [AwsLambdaLayerVersionDetails](../../1.0/APIReference/API_AwsLambdaLayerVersionDetails.md "../../1.0/APIReference/API_AwsLambdaLayerVersionDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsLambdaLayerVersion` object. To view descriptions of `AwsLambdaLayerVersion` attributes, see [AwsLambdaLayerVersionDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsLambdaLayerVersionDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

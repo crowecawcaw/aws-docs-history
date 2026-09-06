@@ -1,17 +1,12 @@
+
+
 # Sample exposure finding
+<a name="exposure-findings-sample"></a>
 
-AWS Security Hub normalizes exposure findings in the Open Cybersecurity Schema Framework (OCSF).
+AWS Security Hub normalizes exposure findings in the Open Cybersecurity Schema Framework (OCSF). 
 
-###### Sample exposure finding
-
-In the following sample exposure finding, the
-`related_events` parameter contains details unique to the
-exposure finding, such as contributing findings. Contributing findings are the
-traits and signals associated with an exposure finding. A single contributing
-finding can include one or more traits. The `observables` parameter
-identifies the resource associated with the contributing finding. This can be
-different from the `resources` parameter, which identifies the
-resource associated with the exposure finding.
+**Sample exposure finding**  
+In the following sample exposure finding, the `related_events` parameter contains details unique to the exposure finding, such as contributing findings. Contributing findings are the traits and signals associated with an exposure finding. A single contributing finding can include one or more traits. The `observables` parameter identifies the resource associated with the contributing finding. This can be different from the `resources` parameter, which identifies the resource associated with the exposure finding. 
 
 ```
 {

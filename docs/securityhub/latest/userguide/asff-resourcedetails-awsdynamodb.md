@@ -1,25 +1,25 @@
+
+
 # AwsDynamoDB resources in ASFF
+<a name="asff-resourcedetails-awsdynamodb"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsDynamoDB` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsDynamoDbTable
+<a name="asff-resourcedetails-awsdynamodbtable"></a>
 
-The `AwsDynamoDbTable` object provides details about an Amazon DynamoDB
-table.
+The `AwsDynamoDbTable` object provides details about an Amazon DynamoDB table.
 
-The following is an example `AwsDynamoDbTable` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of `AwsDynamoDbTable`
-attributes, see [AwsDynamoDbTableDetails](../../1.0/APIReference/API_AwsDynamoDbTableDetails.md "../../1.0/APIReference/API_AwsDynamoDbTableDetails.md") in the _AWS Security Hub API Reference_.
+The following is an example `AwsDynamoDbTable` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsDynamoDbTable` attributes, see [AwsDynamoDbTableDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsDynamoDbTableDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
 "AwsDynamoDbTable": {
-    "AttributeDefinitions": [
-        {
+    "AttributeDefinitions": [   
+        {        
             "AttributeName": "attribute1",
             "AttributeType": "value 1"
         },
@@ -41,7 +41,7 @@ attributes, see [AwsDynamoDbTableDetails](../../1.0/APIReference/API_AwsDynamoDb
     "GlobalSecondaryIndexes": [
         {
             "Backfilling": false,
-            "IndexArn": "arn:aws:dynamodb:us-west-2:111122223333:table/exampleTable/index/exampleIndex",
+            "IndexArn": "arn:aws:dynamodb:us-west-2:111122223333:table/exampleTable/index/exampleIndex",                
             "IndexName": "standardsControlArnIndex",
             "IndexSizeBytes": 1862513,
             "IndexStatus": "ACTIVE",
@@ -50,16 +50,16 @@ attributes, see [AwsDynamoDbTableDetails](../../1.0/APIReference/API_AwsDynamoDb
                 {
                     "AttributeName": "City",
                     "KeyType": "HASH"
-                },
+                },     
                 {
                     "AttributeName": "Date",
                     "KeyType": "RANGE"
                 }
-            ],
+            ],      
             "Projection": {
                 "NonKeyAttributes": ["predictorName"],
                 "ProjectionType": "ALL"
-            },
+            },     
             "ProvisionedThroughput": {
                 "LastIncreaseDateTime": "2019-03-14T13:21:00.399Z",
                 "LastDecreaseDateTime": "2019-03-14T12:47:35.193Z",
@@ -92,7 +92,7 @@ attributes, see [AwsDynamoDbTableDetails](../../1.0/APIReference/API_AwsDynamoDb
             "Projection": {
                 "NonKeyAttributes": ["predictorName"],
                 "ProjectionType": "ALL"
-            },
+            },  
         }
     ],
     "ProvisionedThroughput": {
@@ -106,7 +106,7 @@ attributes, see [AwsDynamoDbTableDetails](../../1.0/APIReference/API_AwsDynamoDb
         {
             "GlobalSecondaryIndexes":[
                 {
-                    "IndexName": "CITY_DATE_INDEX_NAME",
+                    "IndexName": "CITY_DATE_INDEX_NAME", 
                     "ProvisionedThroughputOverride": {
                         "ReadCapacityUnits": 10
                     }

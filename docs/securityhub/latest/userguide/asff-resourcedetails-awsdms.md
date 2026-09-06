@@ -1,18 +1,18 @@
+
+
 # AwsDms resources in ASFF
+<a name="asff-resourcedetails-awsdms"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsDms` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsDmsEndpoint
+<a name="asff-resourcedetails-awsdmsendpoint"></a>
 
-The `AwsDmsEndpoint` object provides information about an AWS Database Migration Service (AWS DMS) endpoint. An endpoint provides
-connection, data store type, and location information about your data store.
+The `AwsDmsEndpoint` object provides information about an AWS Database Migration Service (AWS DMS) endpoint. An endpoint provides connection, data store type, and location information about your data store.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsEndpoint` object. To view descriptions of `AwsDmsEndpoint` attributes, see
-[AwsDmsEndpointDetails](../../1.0/APIReference/API_AwsDmsEndpointDeatils.md "../../1.0/APIReference/API_AwsDmsEndpointDeatils.md")
-in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsEndpoint` object. To view descriptions of `AwsDmsEndpoint` attributes, see [AwsDmsEndpointDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsDmsEndpointDeatils.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -22,7 +22,7 @@ in the _AWS Security Hub API Reference_.
     "DatabaseName": "Test",
     "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:EXAMPLEQB3CZY33F7XV253NAJVBNPK6MJQVFVQA",
     "EndpointIdentifier": "target-db",
-    "EndpointType": "TARGET",
+    "EndpointType": "TARGET", 
     "EngineName": "mariadb",
     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "Port": 3306,
@@ -33,14 +33,11 @@ in the _AWS Security Hub API Reference_.
 ```
 
 ## AwsDmsReplicationInstance
+<a name="asff-resourcedetails-awsdmsreplicationinstance"></a>
 
-The `AwsDmsReplicationInstance` object provides information about an AWS Database Migration Service (AWS DMS) replication instance.
-DMS uses a replication instance to connect to your source data store, read the source data, and format the data for consumption by
-the target data store.
+The `AwsDmsReplicationInstance` object provides information about an AWS Database Migration Service (AWS DMS) replication instance. DMS uses a replication instance to connect to your source data store, read the source data, and format the data for consumption by the target data store.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsReplicationInstance` object. To view descriptions of `AwsDmsReplicationInstance` attributes, see
-[AwsDmsReplicationInstanceDetails](../../1.0/APIReference/API_AwsDmsReplicationInstanceDetails.md "../../1.0/APIReference/API_AwsDmsReplicationInstanceDetails.md")
-in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsReplicationInstance` object. To view descriptions of `AwsDmsReplicationInstance` attributes, see [AwsDmsReplicationInstanceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsDmsReplicationInstanceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -68,13 +65,11 @@ in the _AWS Security Hub API Reference_.
 ```
 
 ## AwsDmsReplicationTask
+<a name="asff-resourcedetails-awsdmsreplicationtask"></a>
 
-The `AwsDmsReplicationTask` object provides information about an AWS Database Migration Service (AWS DMS) replication task.
-A replication task moves a set of data from the source endpoint to the target endpoint.
+The `AwsDmsReplicationTask` object provides information about an AWS Database Migration Service (AWS DMS) replication task. A replication task moves a set of data from the source endpoint to the target endpoint.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsReplicationInstance` object. To view descriptions of `AwsDmsReplicationInstance` attributes, see
-[AwsDmsReplicationInstance](../../1.0/APIReference/API_AwsDmsReplicationTaskDetails.md "../../1.0/APIReference/API_AwsDmsReplicationTaskDetails.md")
-in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsDmsReplicationInstance` object. To view descriptions of `AwsDmsReplicationInstance` attributes, see [AwsDmsReplicationInstance](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsDmsReplicationTaskDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

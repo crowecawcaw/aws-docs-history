@@ -1,81 +1,85 @@
-# AWS Security Hub Cost Estimator
 
-The Security Hub cost estimator is a console feature that provides estimates for Security Hub capabilities across your AWS environment.
-The cost estimator shows you what your individual service costs are across AWS Security Hub CSPM, Amazon Inspector, and Amazon GuardDuty and what your estimated costs would be in Security Hub with Security Hub's simplified pricing plans.
-You can adjust estimated usage and resource counts to match your AWS usage to increase the accuracy of your estimate.
-The cost estimator is available in all regions where Security Hub is available.
+
+# AWS Security Hub Cost Estimator
+<a name="security-hub-cost-estimator"></a>
+
+The Security Hub cost estimator is a console feature that provides estimates for Security Hub capabilities across your AWS environment. The cost estimator shows you what your individual service costs are across AWS Security Hub CSPM, Amazon Inspector, and Amazon GuardDuty and what your estimated costs would be in Security Hub with Security Hub's simplified pricing plans. You can adjust estimated usage and resource counts to match your AWS usage to increase the accuracy of your estimate. The cost estimator is available in all regions where Security Hub is available.
 
 The cost estimator estimates monthly costs for security capabilities using two pricing models:
++ **Individual services pricing** – Pay for each security feature separately (GuardDuty, Amazon Inspector, Security Hub CSPM).
++ **Security Hub simplified pricing** – Unified pricing across 3 pricing plans, essentials plan with per-resource pricing, threat analytics with per-event and per-GB logs pricing, and Lambda Code scanning with per-resource pricing.
 
-- **Individual services pricing** – Pay for each security feature separately (GuardDuty, Amazon Inspector, Security Hub CSPM).
-- **Security Hub simplified pricing** – Unified pricing across 3 pricing plans, essentials plan with per-resource pricing, threat analytics with per-event and per-GB logs pricing, and Lambda Code scanning with per-resource pricing.
-  The estimator uses AWS Cost Explorer data when available. When Cost Explorer data is unavailable, you can manually enter usage data.
-  Cost estimates are based on observed and user provided usage, and public pricing information. Estimates might not reflect enterprise discounts.
+The estimator uses AWS Cost Explorer data when available. When Cost Explorer data is unavailable, you can manually enter usage data. Cost estimates are based on observed and user provided usage, and public pricing information. Estimates might not reflect enterprise discounts. 
 
 Key benefits of the cost estimator include:
-
-- See how the cost with unified pricing, when enabling Security Hub, compares against cost with individual service without enabling Security Hub
-- Estimate costs before enabling capabilities
-- Adjust usage parameters to model different scenarios
-- Export estimates as PDF for stakeholder review
++ See how the cost with unified pricing, when enabling Security Hub, compares against cost with individual service without enabling Security Hub
++ Estimate costs before enabling capabilities
++ Adjust usage parameters to model different scenarios
++ Export estimates as PDF for stakeholder review
 
 ## Access by account type
+<a name="access-by-account-type"></a>
 
-###### Note
+**Note**  
+ For Delegated administrator and member accounts, the cost estimator opens in edit mode by default, allowing you to immediately enter usage data. Management account and standalone accounts open in view mode when Cost Explorer data is available. 
 
-For Delegated administrator and member accounts, the cost estimator opens in edit mode by default, allowing you to immediately enter usage data.
-Management account and standalone accounts open in view mode when Cost Explorer data is available.
+ This feature automatically retrieves information on actual past usage to estimate the cost for certain account types. See the following table for details on each of the account types and the data that is available for each account type. 
 
-This feature automatically retrieves information on actual past usage to estimate the cost for certain account types.
-See the following table for details on each of the account types and the data that is available for each account type.
 
-Access permissions by account type| Account Type | Cost Explorer Data | Data Entry | Scope |
-| --- | --- | --- | --- |
-| Management Account (MA) | Auto-populated | Manual override available | Organization-wide |
-| Delegated Administrator (DA) | Auto-populated via cross-account role\* | Manual override available | Organization-wide |
-| Member Account | Auto-populated via cross-account role\* | Manual override available | Organization-wide |
-| Standalone Account (SA) | Auto-populated | Manual override available | Single account |
+**Access permissions by account type**  
 
-\* Requires cross-account IAM role configuration in management account. See [Setting up cross-account access](setting-up-cross-account-access.md "setting-up-cross-account-access.md") section below.
+| Account Type | Cost Explorer Data | Data Entry | Scope | 
+| --- | --- | --- | --- | 
+| Management Account (MA) | Auto-populated | Manual override available | Organization-wide | 
+| Delegated Administrator (DA) | Auto-populated via cross-account role\* | Manual override available | Organization-wide | 
+| Member Account | Auto-populated via cross-account role\* | Manual override available | Organization-wide | 
+| Standalone Account (SA) | Auto-populated | Manual override available | Single account | 
+
+ \* Requires cross-account IAM role configuration in management account. See [Setting up cross-account access](setting-up-cross-account-access.md) section below. 
 
 ## Prerequisites
+<a name="cost-estimator-prerequisites"></a>
 
 ### Required IAM permissions
+<a name="required-iam-permissions"></a>
 
 To use all of the cost estimator's capabilities, your IAM principal must have the following permissions:
 
-Required IAM permissions for Cost Estimator| API Operation | Service | Purpose |
-| --- | --- | --- |
-| `ce:GetCostAndUsage` | AWS Cost Explorer | Retrieve historical usage and cost data |
-| `pricing:GetProducts` | AWS Pricing | Get current pricing rates |
-| `organizations:ListAccounts` | AWS Organizations | Count accounts in organization |
-| `organizations:DescribeOrganization` | AWS Organizations | Determine account type |
-| `securityhub:ListOrganizationAdminAccounts` | Security Hub | List organization admin accounts |
-| `iam:GetRole` | IAM | Check cross-account role existence (Management account only)\* |
-| `sts:AssumeRole` | IAM | Assume cross-account role (Delegated administrator/Member account only)\*\* |
 
-\* Required only for Management Account users to verify cross-account role status.
+**Required IAM permissions for Cost Estimator**  
 
-\*\* Required only for Delegated Administrator and Organization Member accounts using cross-account access.
+| API Operation | Service | Purpose | 
+| --- | --- | --- | 
+| ce:GetCostAndUsage | AWS Cost Explorer | Retrieve historical usage and cost data | 
+| pricing:GetProducts | AWS Pricing | Get current pricing rates | 
+| organizations:ListAccounts | AWS Organizations | Count accounts in organization | 
+| organizations:DescribeOrganization | AWS Organizations | Determine account type | 
+| securityhub:ListOrganizationAdminAccounts | Security Hub | List organization admin accounts | 
+| iam:GetRole | IAM | Check cross-account role existence (Management account only)\* | 
+| sts:AssumeRole | IAM | Assume cross-account role (Delegated administrator/Member account only)\*\* | 
+
+ \* Required only for Management Account users to verify cross-account role status. 
+
+ \*\* Required only for Delegated Administrator and Organization Member accounts using cross-account access. 
 
 ### Additional requirements
+<a name="additional-requirements"></a>
 
-**Cost Explorer**
-
+**Cost Explorer**  
 Must be enabled for automatic data population (24-hour processing delay after enablement).
 
 ## Important notes
-
-- **Estimates are based on observed and user provided usage, and public pricing information** – Actual costs might vary based on usage patterns and enterprise agreements
-- **30-day look back** – Cost Explorer data reflects the past 30 days of usage
-- **Pricing region** – All estimates use us-east-1 (N. Virginia) rates
-- **No impact on settings** – Changes in the estimator do not affect your current Security Hub or service configurations
-- **Enterprise discounts** – Modified estimates do not include enterprise discounts; only Cost Explorer data reflects actual discounted costs
-- **Data refresh** – Cost Explorer data updates daily; refresh the page to see the latest data
+<a name="important-notes"></a>
++ **Estimates are based on observed and user provided usage, and public pricing information** – Actual costs might vary based on usage patterns and enterprise agreements
++ **30-day look back** – Cost Explorer data reflects the past 30 days of usage
++ **Pricing region** – All estimates use us-east-1 (N. Virginia) rates
++ **No impact on settings** – Changes in the estimator do not affect your current Security Hub or service configurations
++ **Enterprise discounts** – Modified estimates do not include enterprise discounts; only Cost Explorer data reflects actual discounted costs
++ **Data refresh** – Cost Explorer data updates daily; refresh the page to see the latest data
 
 ## Related information
-
-- [AWS Security Hub pricing](https://aws.amazon.com/security-hub/pricing/ "https://aws.amazon.com/security-hub/pricing/")
-- [AWS Cost Explorer User Guide](../../../cost-management/latest/userguide.md "../../../cost-management/latest/userguide.md")
-- [AWS Pricing API Reference](../../../aws-cost-management/latest/APIReference.md "../../../aws-cost-management/latest/APIReference.md")
-- [Enabling Security Hub](securityhub-settingup.md "securityhub-settingup.md")
+<a name="related-information"></a>
++ [AWS Security Hub pricing](https://aws.amazon.com/security-hub/pricing/)
++ [AWS Cost Explorer User Guide](https://docs.aws.amazon.com/cost-management/latest/userguide/)
++ [AWS Pricing API Reference](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/)
++ [Enabling Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html)

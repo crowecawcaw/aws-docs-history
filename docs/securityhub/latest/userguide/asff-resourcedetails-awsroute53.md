@@ -1,19 +1,18 @@
+
+
 # AwsRoute53 resources in ASFF
+<a name="asff-resourcedetails-awsroute53"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsRoute53` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsRoute53HostedZone
+<a name="asff-resourcedetails-awsroute53hostedzone"></a>
 
-The `AwsRoute53HostedZone` object provides information about an Amazon Route 53 hosted zone, including the four
-name servers assigned to the hosted zone. A hosted zone represents a collection of records that can be managed together, belonging
-to a single parent domain name.
+The `AwsRoute53HostedZone` object provides information about an Amazon Route 53 hosted zone, including the four name servers assigned to the hosted zone. A hosted zone represents a collection of records that can be managed together, belonging to a single parent domain name.
 
-The following example shows the AWS Security Finding Format (ASFF) for the `AwsRoute53HostedZone` object. To view descriptions of `AwsRoute53HostedZone` attributes, see
-[AwsRoute53HostedZoneDetails](../../1.0/APIReference/API_AwsRoute53HostedZoneDetails.md "../../1.0/APIReference/API_AwsRoute53HostedZoneDetails.md")
-in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsRoute53HostedZone` object. To view descriptions of `AwsRoute53HostedZone` attributes, see [AwsRoute53HostedZoneDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsRoute53HostedZoneDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

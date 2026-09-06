@@ -1,24 +1,23 @@
+
+
 # AwsEfs resources in ASFF
+<a name="asff-resourcedetails-awsefs"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEfs` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsEfsAccessPoint
+<a name="asff-resourcedetails-awsefsaccesspoint"></a>
 
-The `AwsEfsAccessPoint` object provides details about files stored in
-Amazon Elastic File System.
+The `AwsEfsAccessPoint` object provides details about files stored in Amazon Elastic File System.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEfsAccessPoint` object. To view descriptions of
-`AwsEfsAccessPoint` attributes, see [AwsEfsAccessPointDetails](../../1.0/APIReference/API_AwsEfsAccessPointDetails.md "../../1.0/APIReference/API_AwsEfsAccessPointDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEfsAccessPoint` object. To view descriptions of `AwsEfsAccessPoint` attributes, see [AwsEfsAccessPointDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEfsAccessPointDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsEfsAccessPoint": {
+"AwsEfsAccessPoint": { 
 	"AccessPointId": "fsap-05c4c0e79ba0b118a",
 	"Arn": "arn:aws:elasticfilesystem:us-east-1:863155670886:access-point/fsap-05c4c0e79ba0b118a",
 	"ClientToken": "AccessPointCompliant-ASk06ZZSXsEp",

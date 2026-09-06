@@ -1,20 +1,18 @@
+
+
 # AwsOpenSearchService resources in ASFF
+<a name="asff-resourcedetails-awsopensearchservice"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsOpenSearchService`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsOpenSearchService` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsOpenSearchServiceDomain
+<a name="asff-resourcedetails-awsopensearchservicedomain"></a>
 
-The `AwsOpenSearchServiceDomain` object contains information about an
-Amazon OpenSearch Service domain.
+The `AwsOpenSearchServiceDomain` object contains information about an Amazon OpenSearch Service domain.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsOpenSearchServiceDomain` object. To view descriptions of
-`AwsOpenSearchServiceDomain` attributes, see [AwsOpenSearchServiceDomainDetails](../../1.0/APIReference/API_AwsOpenSearchServiceDomainDetails.md "../../1.0/APIReference/API_AwsOpenSearchServiceDomainDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsOpenSearchServiceDomain` object. To view descriptions of `AwsOpenSearchServiceDomain` attributes, see [AwsOpenSearchServiceDomainDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsOpenSearchServiceDomainDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

@@ -1,27 +1,20 @@
+
+
 # Configuring rules for EventBridge
+<a name="securityhub-v2-cwe-event-rules"></a>
 
-You can create a rule in Amazon EventBridge that defines an action to take when a **Findings Imported V2** event is
-received. **Findings Imported V2** events are triggered by updates through [`BatchUpdateFindingsV2`](../../1.0/APIReference/API_BatchUpdateFindingsV2.md "../../1.0/APIReference/API_BatchUpdateFindingsV2.md").
+You can create a rule in Amazon EventBridge that defines an action to take when a **Findings Imported V2** event is received. **Findings Imported V2** events are triggered by updates through [`BatchUpdateFindingsV2`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindingsV2.html).
 
-Each rule contains an event pattern, which identifies the events that trigger the
-rule. The event pattern always contains the event source (`aws.securityhub`)
-and the event type (**Findings Imported V2**).
-The event pattern can also specify filters to identify the findings that the rule
-applies to.
+Each rule contains an event pattern, which identifies the events that trigger the rule. The event pattern always contains the event source (`aws.securityhub`) and the event type (**Findings Imported V2**). The event pattern can also specify filters to identify the findings that the rule applies to.
 
-The event rule then identifies the rule targets. The targets are the actions to take
-when EventBridge receives a **Findings Imported V2**
-event and the finding matches the filters.
+The event rule then identifies the rule targets. The targets are the actions to take when EventBridge receives a **Findings Imported V2** event and the finding matches the filters.
 
-The instructions provided here use the EventBridge console. When you use the console, EventBridge
-automatically creates the required resource-based policy that enables EventBridge to write to
-Amazon CloudWatch Logs.
+The instructions provided here use the EventBridge console. When you use the console, EventBridge automatically creates the required resource-based policy that enables EventBridge to write to Amazon CloudWatch Logs.
 
-You can also use the [`PutRule`](../../../eventbridge/latest/APIReference/API_PutRule.md "../../../eventbridge/latest/APIReference/API_PutRule.md")
-operation of the EventBridge API. However, if you use the EventBridge API, then you must create
-the resource-based policy. For information about the required policy, see [CloudWatch Logs permissions](../../../eventbridge/latest/userguide/resource-based-policies-eventbridge.md#cloudwatchlogs-permissions "../../../eventbridge/latest/userguide/resource-based-policies-eventbridge.md#cloudwatchlogs-permissions") in the _Amazon EventBridge User Guide_.
+You can also use the [`PutRule`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutRule.html) operation of the EventBridge API. However, if you use the EventBridge API, then you must create the resource-based policy. For information about the required policy, see [CloudWatch Logs permissions](https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#cloudwatchlogs-permissions) in the *Amazon EventBridge User Guide*.
 
 ## Format of the event pattern
+<a name="securityhub-cwe-all-findings-rule-format"></a>
 
 The format of the event pattern for **Findings Imported V2** events is as follows:
 
@@ -35,43 +28,28 @@ The format of the event pattern for **Findings Imported V2** events is as follow
   ],
   "detail": {
     "findings": {
-      `<attribute filter values>`
+      {{<attribute filter values>}}
     }
   }
 }
 ```
++ `source` identifies Security Hub as the service that generates the event.
++ `detail-type` identifies the type of event.
++ `detail` is optional and provides the filter values for the event pattern. If the event pattern does not contain a `detail` field, then all findings trigger the rule.
 
-- `source` identifies Security Hub as the service that generates the
-  event.
-- `detail-type` identifies the type of event.
-- `detail` is optional and provides the filter values for the
-  event pattern. If the event pattern does not contain a `detail`
-  field, then all findings trigger the rule.
-
-You can filter the findings based on any finding attribute. For each attribute,
-you provide a comma-separated array of one or more values.
+You can filter the findings based on any finding attribute. For each attribute, you provide a comma-separated array of one or more values.
 
 ```
-"`<attribute name>`": [ "`<value1>`", "`<value2>`"]
+"{{<attribute name>}}": [ "{{<value1>}}", "{{<value2>}}"]
 ```
 
-If you provide more than one value for an attribute, then those values are joined
-by `OR`. A finding matches the filter for an individual attribute if the
-finding has any of the listed values. For example, if you provide both
-`INFORMATIONAL` and `LOW` as values for
-`Severity.Label`, then the finding matches if it has a severity label
-of either `INFORMATIONAL` or `LOW`.
+If you provide more than one value for an attribute, then those values are joined by `OR`. A finding matches the filter for an individual attribute if the finding has any of the listed values. For example, if you provide both `INFORMATIONAL` and `LOW` as values for `Severity.Label`, then the finding matches if it has a severity label of either `INFORMATIONAL` or `LOW`.
 
-The attributes are joined by `AND`. A finding matches if it matches the
-filter criteria for all of the provided attributes.
+The attributes are joined by `AND`. A finding matches if it matches the filter criteria for all of the provided attributes.
 
-When you provide an attribute value, it must reflect the location of that
-attribute within the AWS Open Cybersecurity Schema Framework (OCSF) structure.
+When you provide an attribute value, it must reflect the location of that attribute within the AWS Open Cybersecurity Schema Framework (OCSF) structure.
 
-In the following example, the event pattern provides filter values for
-`ProductArn` and `Severity.Label`, so a finding matches if
-it is generated by Amazon Inspector and it has a severity label of either
-`INFORMATIONAL` or `LOW`.
+In the following example, the event pattern provides filter values for `ProductArn` and `Severity.Label`, so a finding matches if it is generated by Amazon Inspector and it has a severity label of either `INFORMATIONAL` or `LOW`.
 
 ```
 {
@@ -93,45 +71,27 @@ it is generated by Amazon Inspector and it has a severity label of either
 ```
 
 ## Creating an event rule
+<a name="securityhub-cwe-all-findings-predefined-pattern"></a>
 
-You can use a predefined event pattern or a custom event pattern to create a rule
-in EventBridge. If you select a predefined pattern, EventBridge automatically fills in
-`source` and `detail-type`. EventBridge also provides fields to
-specify filter values for the following finding attributes:
+You can use a predefined event pattern or a custom event pattern to create a rule in EventBridge. If you select a predefined pattern, EventBridge automatically fills in `source` and `detail-type`. EventBridge also provides fields to specify filter values for the following finding attributes:
++ `cloud.account.uid`
++ `compliance.status`
++ `metadata.product.name`
++ `resources.uid`
++ `severity`
++ `status`
 
-- `cloud.account.uid`
-- `compliance.status`
-- `metadata.product.name`
-- `resources.uid`
-- `severity`
-- `status`
+**To create an EventBridge rule (console)**
 
-###### To create an EventBridge rule (console)
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. Using the following values, create an EventBridge rule that monitors finding
-   events:
+1. Using the following values, create an EventBridge rule that monitors finding events:
+   + For **Rule type**, choose **Rule with an event pattern**.
+   + Choose how to build the event pattern.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-cwe-event-rules.html)
+   + For **Target types**, choose **AWS service**, and for **Select a target**, choose a target such as an Amazon SNS topic or AWS Lambda function. The target is triggered when an event is received that matches the event pattern defined in the rule.
 
-   - For **Rule type**, choose **Rule with an
-     event pattern**.
-   - Choose how to build the event pattern.
+   For details about creating rules, see [Creating Amazon EventBridge rules that react to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html) in the *Amazon EventBridge User Guide*.
 
-   | To build the event pattern with...                                                                                                                       | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-   | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-   | A template                                                                                                                                               | In the **Event pattern**<br>section, choose the following options:<br>+ For **Event source**,<br>choose **AWS services**.<br>+ For **AWS service**,<br>choose **Security Hub**.<br>+ For **Event type**, choose<br>**Findings Imported V2**.<br>+ (Optional) To make the rule more specific,<br>add filter values. For example, to limit the rule<br>to findings with active record states, for<br>**Specific Record state(s)**,<br>choose **Active**.                                                                                                                                                                                                                                                                                                                                           |
-   | A custom event pattern<br>(Use a custom pattern if you want to filter<br>findings based on attributes that do not appear in<br>the EventBridge console.) | + In the **Event pattern**<br>section, choose **Custom patterns (JSON<br>editor)**, and then paste the following<br>event pattern into the text area:<br>``<br>{<br>"source": [<br>"aws.securityhub"<br>],<br>"detail-type": [<br>"Findings Imported V2"<br>],<br>"detail": {<br>"findings": {<br>"`<attribute name>`": [ "`<value1>`", "`<value2>`"]<br>}<br>}<br>}<br>``<br>+ Update the event pattern to include the<br>attribute and attribute values that you want to<br>use as a filter.<br>For example, to apply the rule to findings<br>that have a severity of<br>`Critical`, use the following<br>pattern example:<br>`<br>{<br>"source":["aws.securityhub"],<br>"detail-type":["Findings Imported V2"],<br>"detail":{<br>"findings":{<br>"Severity": ["Critical"]<br>}<br>}<br>}<br>` |
-   - For **Target types**, choose
-     **AWS service**, and for
-     **Select a target**, choose a
-     target such as an Amazon SNS topic or AWS Lambda function. The target is
-     triggered when an event is received that matches the event pattern
-     defined in the rule.
-     For details about creating rules, see [Creating Amazon EventBridge
-     rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User
-     Guide_.
-
-###### Note
-
-If you have EventBridge rules defined for findings in Security Hub CSPM, the rules could overlap with rules defined for Security Hub.
-To avoid sending duplicate findings, evaluate the rules you have defined for Security Hub CSPM to determine if they overlap with rules you have defined for Security Hub.
-Where applicable, disable any Security Hub CSPM rules that are replaced by Security Hub rules.
+**Note**  
+ If you have EventBridge rules defined for findings in Security Hub CSPM, the rules could overlap with rules defined for Security Hub. To avoid sending duplicate findings, evaluate the rules you have defined for Security Hub CSPM to determine if they overlap with rules you have defined for Security Hub. Where applicable, disable any Security Hub CSPM rules that are replaced by Security Hub rules. 

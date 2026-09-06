@@ -1,18 +1,18 @@
+
+
 # AwsSqs resources in ASFF
+<a name="asff-resourcedetails-awssqs"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSqs` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsSqsQueue
+<a name="asff-resourcedetails-awssqsqueue"></a>
 
-The `AwsSqsQueue` object contains information about an Amazon Simple Queue Service
-queue.
+The `AwsSqsQueue` object contains information about an Amazon Simple Queue Service queue.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsSqsQueue` object. To view descriptions of `AwsSqsQueue`
-attributes, see [AwsSqsQueueDetails](../../1.0/APIReference/API_AwsSqsQueueDetails.md "../../1.0/APIReference/API_AwsSqsQueueDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsSqsQueue` object. To view descriptions of `AwsSqsQueue` attributes, see [AwsSqsQueueDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSqsQueueDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

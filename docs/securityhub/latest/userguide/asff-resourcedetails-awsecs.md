@@ -1,18 +1,18 @@
+
+
 # AwsEcs resources in ASFF
+<a name="asff-resourcedetails-awsecs"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsEcs` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsEcsCluster
+<a name="asff-resourcedetails-awsecscluster"></a>
 
-The `AwsEcsCluster` object provides details about an Amazon Elastic Container Service
-cluster.
+The `AwsEcsCluster` object provides details about an Amazon Elastic Container Service cluster.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEcsCluster` object. To view descriptions of
-`AwsEcsCluster` attributes, see [AwsEcsClusterDetails](../../1.0/APIReference/API_AwsEcsClusterDetails.md "../../1.0/APIReference/API_AwsEcsClusterDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEcsCluster` object. To view descriptions of `AwsEcsCluster` attributes, see [AwsEcsClusterDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEcsClusterDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -49,13 +49,11 @@ The following example shows the AWS Security Finding Format (ASFF) for the
 ```
 
 ## AwsEcsContainer
+<a name="asff-resourcedetails-awsecscontainer"></a>
 
-The `AwsEcsContainer` object contains details about an Amazon ECS
-container.
+The `AwsEcsContainer` object contains details about an Amazon ECS container.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEcsContainer` object. To view descriptions of
-`AwsEcsContainer` attributes, see [AwsEcsContainerDetails](../../1.0/APIReference/API_AwsEcsContainerDetails.md "../../1.0/APIReference/API_AwsEcsContainerDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEcsContainer` object. To view descriptions of `AwsEcsContainer` attributes, see [AwsEcsContainerDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEcsContainerDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -67,18 +65,16 @@ The following example shows the AWS Security Finding Format (ASFF) for the
         "SourceVolume": "vol-03909e9"
     }],
     "Name": "knote",
-    "Privileged": true
+    "Privileged": true 
 }
 ```
 
 ## AwsEcsService
+<a name="asff-resourcedetails-awsecsservice"></a>
 
-The `AwsEcsService` object provides details about a service within an Amazon ECS
-cluster.
+The `AwsEcsService` object provides details about a service within an Amazon ECS cluster.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEcsService` object. To view descriptions of
-`AwsEcsService` attributes, see [AwsEcsServiceDetails](../../1.0/APIReference/API_AwsEcsServiceDetails.md "../../1.0/APIReference/API_AwsEcsServiceDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEcsService` object. To view descriptions of `AwsEcsService` attributes, see [AwsEcsServiceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEcsServiceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -155,17 +151,14 @@ The following example shows the AWS Security Finding Format (ASFF) for the
     ],
     "TaskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/example-taskdef:1"
 }
-
 ```
 
 ## AwsEcsTask
+<a name="asff-resourcedetails-awsecstask"></a>
 
-The `AwsEcsTask` object provides details about an Amazon ECS task.
+The `AwsEcsTask` object provides details about an Amazon ECS task. 
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEcsTask` object. To view descriptions of `AwsEcsTask`
-attributes, see [AwsEcsTask](../../1.0/APIReference/API_AwsEcsTaskDetails.md "../../1.0/APIReference/API_AwsEcsTaskDetails.md") in
-the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEcsTask` object. To view descriptions of `AwsEcsTask` attributes, see [AwsEcsTask](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEcsTaskDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -197,15 +190,11 @@ the _AWS Security Hub API Reference_.
 ```
 
 ## AwsEcsTaskDefinition
+<a name="asff-resourcedetails-awsecstaskdefinition"></a>
 
-The `AwsEcsTaskDefinition` object contains details about a task definition.
-A task definition describes the container and volume definitions of an Amazon Elastic Container Service
-task.
+The `AwsEcsTaskDefinition` object contains details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsEcsTaskDefinition` object. To view descriptions of
-`AwsEcsTaskDefinition` attributes, see [AwsEcsTaskDefinitionDetails](../../1.0/APIReference/API_AwsEcsTaskDefinitionDetails.md "../../1.0/APIReference/API_AwsEcsTaskDefinitionDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsEcsTaskDefinition` object. To view descriptions of `AwsEcsTaskDefinition` attributes, see [AwsEcsTaskDefinitionDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsEcsTaskDefinitionDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -234,7 +223,7 @@ _AWS Security Hub API Reference_.
                         "awslogs-stream-prefix": "ecs"
                     },
                     "SecretOptions": []
-
+                    
                 },
                 "MemoryReservation": 128,
                 "Name": "web",

@@ -1,98 +1,98 @@
+
+
 # Allowed actions by administrator and member accounts in Security Hub CSPM
+<a name="securityhub-accounts-allowed-actions"></a>
 
-Administrator and member accounts have access to AWS Security Hub CSPM actions noted in the following
-tables. In the tables, the values have the following meanings:
+Administrator and member accounts have access to AWS Security Hub CSPM actions noted in the following tables. In the tables, the values have the following meanings:
++ **Any –** The account can perform the action for any member account under the same administrator.
++ **Current –** The account can perform the action only for itself (the account that you're currently signed in to).
++ **Dash –** Indicates that the account cannot perform the action.
 
-- **Any –** The account can perform the action
-  for any member account under the same administrator.
-- **Current –** The account can perform the
-  action only for itself (the account that you're currently signed in to).
-- **Dash –** Indicates that the account cannot perform the action.
-  As noted in the tables, allowed actions differ based on whether you integrate with AWS Organizations and which configuration
-  type your organization uses. For information about the difference between central and local configuration, see
-  [Managing accounts with AWS Organizations](securityhub-accounts.md#securityhub-orgs-account-management-overview "securityhub-accounts.md#securityhub-orgs-account-management-overview").
+As noted in the tables, allowed actions differ based on whether you integrate with AWS Organizations and which configuration type your organization uses. For information about the difference between central and local configuration, see [Managing accounts with AWS Organizations](securityhub-accounts.md#securityhub-orgs-account-management-overview).
 
-Security Hub CSPM doesn't copy member account findings into the administrator account. In Security Hub CSPM, all
-findings are ingested into a specific Region for a specific account. In each Region, the
-administrator account can view and manage findings for their member accounts in that
-Region.
+Security Hub CSPM doesn't copy member account findings into the administrator account. In Security Hub CSPM, all findings are ingested into a specific Region for a specific account. In each Region, the administrator account can view and manage findings for their member accounts in that Region.
 
-If you set an aggregation Region, the
-administrator account can view and manage member account findings from linked Regions that
-are replicated to the aggregation Region. For more information about
-cross-Region aggregation, see [Cross-Region aggregation](finding-aggregation.md "finding-aggregation.md").
+If you set an aggregation Region, the administrator account can view and manage member account findings from linked Regions that are replicated to the aggregation Region. For more information about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html).
 
-The following tables specify the default permissions for administrator and member
-accounts. You can use custom IAM policies to further restrict access to Security Hub CSPM features and
-functions. For guidance and examples, see the blog post[Aligning IAM policies to user personas for AWS Security Hub CSPM](https://aws.amazon.com/blogs/security/aligning-iam-policies-to-user-personas-for-aws-security-hub/ "https://aws.amazon.com/blogs/security/aligning-iam-policies-to-user-personas-for-aws-security-hub/").
+The following tables specify the default permissions for administrator and member accounts. You can use custom IAM policies to further restrict access to Security Hub CSPM features and functions. For guidance and examples, see the blog post[ Aligning IAM policies to user personas for AWS Security Hub CSPM](https://aws.amazon.com/blogs/security/aligning-iam-policies-to-user-personas-for-aws-security-hub/).
+
+## Allowed actions if you integrate with Organizations and use central configuration
+<a name="central-configuration-allowed-actions"></a>
 
 Administrator and member accounts can access Security Hub CSPM actions as follows if you integrate with Organizations and use central configuration.
 
-| Action                                                     | Security Hub CSPM delegated administrator account                       | Centrally managed member account | Self-managed member account                                    |
-| ---------------------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------- | -------------------------------------------------------------- |
-| Create and manage Security Hub CSPM configuration policies | For self and centrally managed accounts                                 | –                                | –                                                              |
-| View organization accounts                                 | Any                                                                     | –                                | –                                                              |
-| Disassociate member account                                | Any                                                                     | –                                | –                                                              |
-| Delete member account                                      | Any non-organization account                                            | –                                | –                                                              |
-| Disable Security Hub CSPM                                  | For current account and centrally managed accounts                      | –                                | Current (must be disassociated from the administrator account) |
-| View findings and finding history                          | Any                                                                     | Current                          | Current                                                        |
-| Update findings                                            | Any                                                                     | Current                          | Current                                                        |
-| View insight results                                       | Any                                                                     | Current                          | Current                                                        |
-| View control details                                       | Any                                                                     | Current                          | Current                                                        |
-| Turn consolidated control findings on or off               | Any                                                                     | –                                | –                                                              |
-| Enable and disable standards                               | For current account and centrally managed accounts                      | –                                | Current                                                        |
-| Enable and disable controls                                | For current account and centrally managed accounts                      | –                                | Current                                                        |
-| Enable and disable integrations                            | Current                                                                 | Current                          | Current                                                        |
-| Configure cross-Region aggregation                         | Any                                                                     | –                                | –                                                              |
-| Select home Region and linked Regions                      | Any (must stop and restart central configuration to change home Region) | –                                | –                                                              |
-| Configure custom actions                                   | Current                                                                 | Current                          | Current                                                        |
-| Configure automation rules                                 | Any                                                                     | –                                | –                                                              |
-| Configure custom insights                                  | Current                                                                 | Current                          | Current                                                        |
 
-Administrator and member accounts can access Security Hub CSPM actions as follows if you integrate with Organizations and use
-local configuration.
+|  Action  |  Security Hub CSPM delegated administrator account  |  Centrally managed member account  |  Self-managed member account  | 
+| --- | --- | --- | --- | 
+| Create and manage Security Hub CSPM configuration policies | For self and centrally managed accounts | – | – | 
+| View organization accounts | Any | – | – | 
+| Disassociate member account | Any | – | – | 
+| Delete member account | Any non-organization account | – | – | 
+| Disable Security Hub CSPM | For current account and centrally managed accounts | – | Current (must be disassociated from the administrator account) | 
+| View findings and finding history | Any | Current | Current | 
+| Update findings | Any | Current | Current | 
+| View insight results | Any | Current | Current | 
+| View control details | Any | Current | Current | 
+| Turn consolidated control findings on or off | Any | – | – | 
+| Enable and disable standards | For current account and centrally managed accounts | – | Current | 
+| Enable and disable controls | For current account and centrally managed accounts | – | Current | 
+| Enable and disable integrations | Current | Current | Current | 
+| Configure cross-Region aggregation | Any | – | – | 
+| Select home Region and linked Regions | Any (must stop and restart central configuration to change home Region) | – | – | 
+| Configure custom actions | Current | Current | Current | 
+| Configure automation rules | Any | – | – | 
+| Configure custom insights | Current | Current | Current | 
 
-| Action                                                                                    | Security Hub CSPM delegated administrator account | Member account                                                     |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------ |
-| Create and manage Security Hub CSPM configuration policies                                | –                                                 | –                                                                  |
-| View organization accounts                                                                | Any                                               | –                                                                  |
-| Disassociate member account                                                               | Any                                               | –                                                                  |
-| Delete member account                                                                     | –                                                 | –                                                                  |
-| Disable Security Hub CSPM                                                                 | –                                                 | Current (if account is disassociated from delegated administrator) |
-| View findings and finding history                                                         | Any                                               | Current                                                            |
-| Update findings                                                                           | Any                                               | Current                                                            |
-| View insight results                                                                      | Any                                               | Current                                                            |
-| View control details                                                                      | Any                                               | Current                                                            |
-| Turn consolidated control findings on or off                                              | Any                                               | –                                                                  |
-| Enable and disable standards                                                              | Current                                           | Current                                                            |
-| Automatically enable Security Hub CSPM and default standards in new organization accounts | For current account and new organization accounts | –                                                                  |
-| Enable and disable controls                                                               | Current                                           | Current                                                            |
-| Enable and disable integrations                                                           | Current                                           | Current                                                            |
-| Configure cross-Region aggregation                                                        | Any                                               | –                                                                  |
-| Configure custom actions                                                                  | Current                                           | Current                                                            |
-| Configure automation rules                                                                | Any                                               | –                                                                  |
-| Configure custom insights                                                                 | Current                                           | Current                                                            |
+## Allowed actions if you integrate with Organizations and use local configuration
+<a name="orgs-allowed-actions"></a>
 
-Administrator and member accounts can access Security Hub CSPM actions as follows if you use the invitation-based method to
-manually manage accounts instead of integrating with AWS Organizations.
+Administrator and member accounts can access Security Hub CSPM actions as follows if you integrate with Organizations and use local configuration.
 
-| Action                                                                                    | Security Hub CSPM administrator account           | Member account                                                   |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------- |
-| Create and manage Security Hub CSPM configuration policies                                | –                                                 | –                                                                |
-| View organization accounts                                                                | Any                                               | –                                                                |
-| Disassociate member account                                                               | Any                                               | Current                                                          |
-| Delete member account                                                                     | Any                                               | –                                                                |
-| Disable Security Hub CSPM                                                                 | Current (if there are no enabled member accounts) | Current (if account is disassociated from administrator account) |
-| View findings and finding history                                                         | Any                                               | Current                                                          |
-| Update findings                                                                           | Any                                               | Current                                                          |
-| View insight results                                                                      | Any                                               | Current                                                          |
-| View control details                                                                      | Any                                               | Current                                                          |
-| Turn consolidated control findings on or off                                              | Any                                               | –                                                                |
-| Enable and disable standards                                                              | Current                                           | Current                                                          |
-| Automatically enable Security Hub CSPM and default standards in new organization accounts | –                                                 | –                                                                |
-| Enable and disable controls                                                               | Current                                           | Current                                                          |
-| Enable and disable integrations                                                           | Current                                           | Current                                                          |
-| Configure cross-Region aggregation                                                        | Any                                               | –                                                                |
-| Configure custom actions                                                                  | Current                                           | Current                                                          |
-| Configure automation rules                                                                | Any                                               | –                                                                |
-| Configure custom insights                                                                 | Current                                           | Current                                                          |
+
+|  Action  |  Security Hub CSPM delegated administrator account  |  Member account  | 
+| --- | --- | --- | 
+| Create and manage Security Hub CSPM configuration policies | – | – | 
+| View organization accounts | Any | – | 
+| Disassociate member account | Any | – | 
+| Delete member account | – | – | 
+| Disable Security Hub CSPM | – | Current (if account is disassociated from delegated administrator) | 
+| View findings and finding history | Any | Current | 
+| Update findings | Any | Current | 
+| View insight results | Any | Current | 
+| View control details | Any | Current | 
+| Turn consolidated control findings on or off | Any | – | 
+| Enable and disable standards | Current | Current | 
+| Automatically enable Security Hub CSPM and default standards in new organization accounts | For current account and new organization accounts | – | 
+| Enable and disable controls | Current | Current | 
+| Enable and disable integrations | Current | Current | 
+| Configure cross-Region aggregation | Any | – | 
+| Configure custom actions | Current | Current | 
+| Configure automation rules | Any | – | 
+| Configure custom insights | Current | Current | 
+
+## Allowed actions for invitation-based accounts
+<a name="manual-allowed-actions"></a>
+
+Administrator and member accounts can access Security Hub CSPM actions as follows if you use the invitation-based method to manually manage accounts instead of integrating with AWS Organizations.
+
+
+|  Action  |  Security Hub CSPM administrator account  |  Member account  | 
+| --- | --- | --- | 
+| Create and manage Security Hub CSPM configuration policies | – | – | 
+| View organization accounts | Any | – | 
+| Disassociate member account | Any | Current | 
+| Delete member account | Any | – | 
+| Disable Security Hub CSPM | Current (if there are no enabled member accounts) | Current (if account is disassociated from administrator account) | 
+| View findings and finding history | Any | Current | 
+| Update findings | Any | Current | 
+| View insight results | Any | Current | 
+| View control details | Any | Current | 
+| Turn consolidated control findings on or off | Any | – | 
+| Enable and disable standards | Current | Current | 
+| Automatically enable Security Hub CSPM and default standards in new organization accounts | – | – | 
+| Enable and disable controls | Current | Current | 
+| Enable and disable integrations | Current | Current | 
+| Configure cross-Region aggregation | Any | – | 
+| Configure custom actions | Current | Current | 
+| Configure automation rules | Any | – | 
+| Configure custom insights | Current | Current | 

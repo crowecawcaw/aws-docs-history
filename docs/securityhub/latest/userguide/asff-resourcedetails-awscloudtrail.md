@@ -1,19 +1,18 @@
+
+
 # AwsCloudTrail resources in ASFF
+<a name="asff-resourcedetails-awscloudtrail"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsCloudTrail` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsCloudTrailTrail
+<a name="asff-resourcedetails-awscloudtrailtrail"></a>
 
-The `AwsCloudTrailTrail` object provides details about a AWS CloudTrail
-trail.
+The `AwsCloudTrailTrail` object provides details about a AWS CloudTrail trail.
 
-The following is an example `AwsCloudTrailTrail` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of `AwsCloudTrailTrail`
-attributes, see [AwsCloudTrailTrailDetails](../../1.0/APIReference/API_AwsCloudTrailTrailDetails.md "../../1.0/APIReference/API_AwsCloudTrailTrailDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsCloudTrailTrail` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsCloudTrailTrail` attributes, see [AwsCloudTrailTrailDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsCloudTrailTrailDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

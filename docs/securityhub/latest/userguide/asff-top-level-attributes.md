@@ -1,13 +1,14 @@
-# Optional top-level ASFF attributes
 
-The following top-level attributes in the AWS Security Finding Format (ASFF) are optional for findings in Security Hub CSPM.
-For more information about these attributes, see [AwsSecurityFinding](../../1.0/APIReference/API_AwsSecurityFinding.md "../../1.0/APIReference/API_AwsSecurityFinding.md") in the _AWS Security Hub API
-Reference_.
+
+# Optional top-level ASFF attributes
+<a name="asff-top-level-attributes"></a>
+
+The following top-level attributes in the AWS Security Finding Format (ASFF) are optional for findings in Security Hub CSPM. For more information about these attributes, see [AwsSecurityFinding](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSecurityFinding.html) in the *AWS Security Hub API Reference*.
 
 ## Action
+<a name="asff-action"></a>
 
-The [`Action`](../../1.0/APIReference/API_Action.md "../../1.0/APIReference/API_Action.md") object provides details about an action that
-affects or was taken on a resource.
+The [`Action`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Action.html) object provides details about an action that affects or was taken on a resource.
 
 **Example**
 
@@ -50,6 +51,7 @@ affects or was taken on a resource.
 ```
 
 ## AwsAccountName
+<a name="asff-awsaccountname"></a>
 
 The AWS account name that the finding applies to.
 
@@ -60,19 +62,13 @@ The AWS account name that the finding applies to.
 ```
 
 ## CompanyName
+<a name="asff-companyname"></a>
 
-The name of the company for the product that generated the finding. For
-control-based findings, the company is AWS.
+The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
 
-Security Hub CSPM populates this attribute automatically for each finding. You cannot update
-it using [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") or [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md"). The exception to this is
-when you use a custom integration. See [Integrating Security Hub CSPM with custom products](securityhub-custom-providers.md "securityhub-custom-providers.md").
+Security Hub CSPM populates this attribute automatically for each finding. You cannot update it using [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) or [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html). The exception to this is when you use a custom integration. See [Integrating Security Hub CSPM with custom products](securityhub-custom-providers.md).
 
-When you use the Security Hub CSPM console to filter findings by company name, you use this
-attribute. When you use the Security Hub CSPM API to filter findings by company name, you use
-the `aws/securityhub/CompanyName` attribute under
-`ProductFields`. Security Hub CSPM does not synchronize those two
-attributes.
+When you use the Security Hub CSPM console to filter findings by company name, you use this attribute. When you use the Security Hub CSPM API to filter findings by company name, you use the `aws/securityhub/CompanyName` attribute under `ProductFields`. Security Hub CSPM does not synchronize those two attributes.
 
 **Example**
 
@@ -81,9 +77,9 @@ attributes.
 ```
 
 ## Compliance
+<a name="asff-compliance"></a>
 
-The [`Compliance`](../../1.0/APIReference/API_Compliance.md "../../1.0/APIReference/API_Compliance.md") object typically provides details about a control
-finding, such as applicable standards and the status of the control check.
+The [`Compliance`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Compliance.html) object typically provides details about a control finding, such as applicable standards and the status of the control check.
 
 **Example**
 
@@ -126,20 +122,15 @@ finding, such as applicable standards and the status of the control check.
 ```
 
 ## Confidence
+<a name="asff-confidence"></a>
 
-The likelihood that a finding accurately identifies the behavior or issue that it
-was intended to identify.
+The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify.
 
-`Confidence` should only be updated using [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md").
+`Confidence` should only be updated using [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
 
-Finding providers who want to provide a value for `Confidence` should
-use the `Confidence` attribute under `FindingProviderFields`.
-See [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
+Finding providers who want to provide a value for `Confidence` should use the `Confidence` attribute under `FindingProviderFields`. See [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields).
 
-`Confidence` is scored on a 0–100 basis using a ratio scale. 0
-means 0 percent confidence, and 100 means 100 percent confidence. For example, a
-data exfiltration detection based on a statistical deviation of network traffic has
-low confidence because an actual exfiltration hasn't been verified.
+`Confidence` is scored on a 0–100 basis using a ratio scale. 0 means 0 percent confidence, and 100 means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified.
 
 **Example**
 
@@ -148,41 +139,25 @@ low confidence because an actual exfiltration hasn't been verified.
 ```
 
 ## Criticality
+<a name="asff-criticality"></a>
 
-The level of importance that is assigned to the resources that are associated with
-a finding.
+The level of importance that is assigned to the resources that are associated with a finding.
 
-`Criticality` should only be updated by calling the [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") API operation. Don't update this
-object with [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md").
+`Criticality` should only be updated by calling the [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html) API operation. Don't update this object with [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html).
 
-Finding providers who want to provide a value for `Criticality` should
-use the `Criticality` attribute under `FindingProviderFields`.
-See [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
+Finding providers who want to provide a value for `Criticality` should use the `Criticality` attribute under `FindingProviderFields`. See [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields).
 
-`Criticality` is scored on a 0–100 basis, using a ratio scale
-that supports only full integers. A score of 0 means that the underlying resources
-have no criticality, and a score of 100 is reserved for the most critical
-resources.
+`Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources.
 
-For each resource, consider the following when assigning
-`Criticality`:
-
-- Does the affected resource contain sensitive data (for example, an S3
-  bucket with PII)?
-- Does the affected resource enable an adversary to deepen their access or
-  extend their capabilities to carry out additional malicious activity (for
-  example, a compromised sysadmin account)?
-- Is the resource a business-critical asset (for example, a key business
-  system that if compromised could have significant revenue impact)?
+For each resource, consider the following when assigning `Criticality`:
++ Does the affected resource contain sensitive data (for example, an S3 bucket with PII)? 
++ Does the affected resource enable an adversary to deepen their access or extend their capabilities to carry out additional malicious activity (for example, a compromised sysadmin account)?
++ Is the resource a business-critical asset (for example, a key business system that if compromised could have significant revenue impact)?
 
 You can use the following guidelines:
-
-- A resource powering mission-critical systems or containing highly
-  sensitive data can be scored in the 75–100 range.
-- A resource powering important (but not critical systems) or containing
-  moderately important data can be scored in the 25–74 range.
-- A resource powering unimportant systems or containing nonsensitive data
-  should be scored in the 0–24 range.
++ A resource powering mission-critical systems or containing highly sensitive data can be scored in the 75–100 range.
++ A resource powering important (but not critical systems) or containing moderately important data can be scored in the 25–74 range.
++ A resource powering unimportant systems or containing nonsensitive data should be scored in the 0–24 range.
 
 **Example**
 
@@ -191,12 +166,9 @@ You can use the following guidelines:
 ```
 
 ## Detection
+<a name="asff-detection"></a>
 
-The `Detection` object provides details about an attack sequence finding from Amazon GuardDuty Extended Threat Detection.
-GuardDuty generates an attack sequence finding when multiple
-events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in AWS Security Hub CSPM, you
-must have GuardDuty enabled in your account. For more information, see [Amazon GuardDuty Extended Threat Detection](../../../guardduty/latest/ug/guardduty-extended-threat-detection.md "../../../guardduty/latest/ug/guardduty-extended-threat-detection.md")
-in the _Amazon GuardDuty User Guide_.
+The `Detection` object provides details about an attack sequence finding from Amazon GuardDuty Extended Threat Detection. GuardDuty generates an attack sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in AWS Security Hub CSPM, you must have GuardDuty enabled in your account. For more information, see [Amazon GuardDuty Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) in the *Amazon GuardDuty User Guide*.
 
 **Example**
 
@@ -312,28 +284,22 @@ in the _Amazon GuardDuty User Guide_.
 ```
 
 ## FindingProviderFields
+<a name="asff-findingproviderfields"></a>
 
 `FindingProviderFields` includes the following attributes:
++ `Confidence`
++ `Criticality`
++ `RelatedFindings`
++ `Severity`
++ `Types`
 
-- `Confidence`
-- `Criticality`
-- `RelatedFindings`
-- `Severity`
-- `Types`
+The preceding fields are nested under the `FindingProviderFields` object, but have analogues of the same name as top-level ASFF fields. When a new finding is sent to Security Hub CSPM by a finding provider, Security Hub CSPM populates the `FindingProviderFields` object automatically if it is empty based on the corresponding top-level fields.
 
-The preceding fields are nested under the `FindingProviderFields` object, but have analogues of the same name
-as top-level ASFF fields. When a new finding is sent to Security Hub CSPM by a finding provider, Security Hub CSPM populates the
-`FindingProviderFields` object automatically if it is empty based on the corresponding top-level fields.
+Finding providers can update `FindingProviderFields` by using the[`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) operation of the Security Hub CSPM API. Finding providers cannot update this object with [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
 
-Finding providers can update `FindingProviderFields` by using the[`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") operation of the Security Hub CSPM API. Finding providers cannot update
-this object with [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md").
+For details on how Security Hub CSPM handles updates from `BatchImportFindings` to `FindingProviderFields` and to the corresponding top-level attributes, see [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields).
 
-For details on how Security Hub CSPM handles updates from `BatchImportFindings` to
-`FindingProviderFields` and to the corresponding top-level
-attributes, see [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
-
-Customers can update the top-level fields by using the `BatchUpdateFindings` operation. Customers can't
-update `FindingProviderFields`.
+Customers can update the top-level fields by using the `BatchUpdateFindings` operation. Customers can't update `FindingProviderFields`.
 
 **Example**
 
@@ -342,13 +308,13 @@ update `FindingProviderFields`.
     "Confidence": 42,
     "Criticality": 99,
     "RelatedFindings":[
-      {
-        "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/guardduty",
-        "Id": "123e4567-e89b-12d3-a456-426655440000"
+      { 
+        "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/guardduty", 
+        "Id": "123e4567-e89b-12d3-a456-426655440000" 
       }
     ],
     "Severity": {
-        "Label": "MEDIUM",
+        "Label": "MEDIUM", 
         "Original": "MEDIUM"
     },
     "Types": [ "Software and Configuration Checks/Vulnerabilities/CVE" ]
@@ -356,18 +322,13 @@ update `FindingProviderFields`.
 ```
 
 ## FirstObservedAt
+<a name="asff-firstobservedat"></a>
 
-Indicates when the potential security issue or event captured by a finding was
-first observed.
+Indicates when the potential security issue or event captured by a finding was first observed.
 
-This timestamp specifies when the event or vulnerability was first observed.
-Consequently, it can differ from the `CreatedAt` timestamp, which reflects
-when this finding record was created.
+This timestamp specifies when the event or vulnerability was first observed. Consequently, it can differ from the `CreatedAt` timestamp, which reflects when this finding record was created.
 
-For control findings that Security Hub CSPM generates and updates, this timestamp can also
-indicate when the compliance status of a resource most recently changed. For other types
-of findings, this timestamp should be immutable between updates of the finding record,
-but can be updated if a more accurate timestamp is determined.
+For control findings that Security Hub CSPM generates and updates, this timestamp can also indicate when the compliance status of a resource most recently changed. For other types of findings, this timestamp should be immutable between updates of the finding record, but can be updated if a more accurate timestamp is determined.
 
 **Example**
 
@@ -376,18 +337,13 @@ but can be updated if a more accurate timestamp is determined.
 ```
 
 ## LastObservedAt
+<a name="asff-lastobservedat"></a>
 
-Indicates when the potential security issue or event captured by a finding was most
-recently observed by the security findings product.
+Indicates when the potential security issue or event captured by a finding was most recently observed by the security findings product.
 
-This timestamp specifies when the event or vulnerability was last or most recently
-observed. Consequently, it can differ from the `UpdatedAt` timestamp, which
-reflects when this finding record was last or most recently updated.
+This timestamp specifies when the event or vulnerability was last or most recently observed. Consequently, it can differ from the `UpdatedAt` timestamp, which reflects when this finding record was last or most recently updated. 
 
-You can provide this timestamp, but it isn't required upon first observation. If you
-populate this field upon first observation, the timestamp should be the same as the
-`FirstObservedAt` timestamp. You should update this field to reflect the
-last or most recently observed timestamp each time a finding is observed.
+You can provide this timestamp, but it isn't required upon first observation. If you populate this field upon first observation, the timestamp should be the same as the `FirstObservedAt` timestamp. You should update this field to reflect the last or most recently observed timestamp each time a finding is observed.
 
 **Example**
 
@@ -396,9 +352,9 @@ last or most recently observed timestamp each time a finding is observed.
 ```
 
 ## Malware
+<a name="asff-malware"></a>
 
-The [`Malware`](../../1.0/APIReference/API_Malware.md "../../1.0/APIReference/API_Malware.md")
-object provides a list of malware related to a finding.
+The [`Malware`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Malware.html) object provides a list of malware related to a finding.
 
 **Example**
 
@@ -414,12 +370,11 @@ object provides a list of malware related to a finding.
 ```
 
 ## Network (Retired)
+<a name="asff-network"></a>
 
-The [`Network`](../../1.0/APIReference/API_Network.md "../../1.0/APIReference/API_Network.md")
-object provides network-related information about a finding.
+The [`Network`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Network.html) object provides network-related information about a finding.
 
-This object is retired. To provide this data, you can either map the data to a
-resource in `Resources`, or use the `Action` object.
+This object is retired. To provide this data, you can either map the data to a resource in `Resources`, or use the `Action` object.
 
 **Example**
 
@@ -444,10 +399,9 @@ resource in `Resources`, or use the `Action` object.
 ```
 
 ## NetworkPath
+<a name="asff-networkpath"></a>
 
-The [`NetworkPath`](../../1.0/APIReference/API_NetworkPathComponent.md "../../1.0/APIReference/API_NetworkPathComponent.md") object provides information about a
-network path that is related to a finding. Each entry in `NetworkPath`
-represents a component of the path.
+The [`NetworkPath`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_NetworkPathComponent.html) object provides information about a network path that is related to a finding. Each entry in `NetworkPath` represents a component of the path.
 
 **Example**
 
@@ -488,16 +442,14 @@ represents a component of the path.
         }
      }
 ]
-
 ```
 
 ## Note
+<a name="asff-note"></a>
 
-The [`Note`](../../1.0/APIReference/API_Note.md "../../1.0/APIReference/API_Note.md") object specifies a user-defined note that you can
-add to a finding.
+The [`Note`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Note.html) object specifies a user-defined note that you can add to a finding.
 
-A finding provider can provide an initial note for a finding, but cannot add notes
-after that. You can only update a note using [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md").
+A finding provider can provide an initial note for a finding, but cannot add notes after that. You can only update a note using [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
 
 **Example**
 
@@ -510,9 +462,9 @@ after that. You can only update a note using [`BatchUpdateFindings`](../../1.0/A
 ```
 
 ## PatchSummary
+<a name="asff-patchsummary"></a>
 
-The [`PatchSummary`](../../1.0/APIReference/API_PatchSummary.md "../../1.0/APIReference/API_PatchSummary.md") object provides a summary of the patch
-compliance status for an instance against a selected compliance standard.
+The [`PatchSummary`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_PatchSummary.html) object provides a summary of the patch compliance status for an instance against a selected compliance standard.
 
 **Example**
 
@@ -533,9 +485,9 @@ compliance status for an instance against a selected compliance standard.
 ```
 
 ## Process
+<a name="asff-process"></a>
 
-The [`Process`](../../1.0/APIReference/API_ProcessDetails.md "../../1.0/APIReference/API_ProcessDetails.md") object provides process-related details about a
-finding.
+The [`Process`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ProcessDetails.html) object provides process-related details about a finding.
 
 Example:
 
@@ -551,52 +503,39 @@ Example:
 ```
 
 ## ProcessedAt
+<a name="asff-processedat"></a>
 
 Indicates when Security Hub CSPM received a finding and began to process it.
 
-This differs from `CreatedAt` and `UpdatedAt`, which are
-required timestamps that relate to the finding provider's interaction with the security
-issue and finding. The `ProcessedAt` timestamp indicates when Security Hub CSPM starts to
-process a finding. A finding appears in a user's account after processing is
-complete.
+This differs from `CreatedAt` and `UpdatedAt`, which are required timestamps that relate to the finding provider's interaction with the security issue and finding. The `ProcessedAt` timestamp indicates when Security Hub CSPM starts to process a finding. A finding appears in a user's account after processing is complete.
 
 ```
 "ProcessedAt": "2023-03-23T13:22:13.933Z"
 ```
 
 ## ProductFields
+<a name="asff-productfields"></a>
 
-A data type where security findings products can include additional
-solution-specific details that are not part of the defined AWS Security Finding Format.
+A data type where security findings products can include additional solution-specific details that are not part of the defined AWS Security Finding Format.
 
-For findings generated by Security Hub CSPM controls, `ProductFields` includes
-information about the control. See [Generating and updating control findings](controls-findings-create-update.md "controls-findings-create-update.md").
+For findings generated by Security Hub CSPM controls, `ProductFields` includes information about the control. See [Generating and updating control findings](controls-findings-create-update.md).
 
-This field should not contain redundant data and must not contain data that
-conflicts with AWS Security Finding Format fields.
+This field should not contain redundant data and must not contain data that conflicts with AWS Security Finding Format fields.
 
-The "`aws/`" prefix represents a reserved namespace for AWS products
-and services only and must not be submitted with findings from third-party
-integrations.
+The "`aws/`" prefix represents a reserved namespace for AWS products and services only and must not be submitted with findings from third-party integrations.
 
-Although not required, products should format field names as
-`company-id/product-id/field-name`, where the
-`company-id` and `product-id` match those supplied
-in the `ProductArn` of the finding.
+Although not required, products should format field names as `company-id/product-id/field-name`, where the `company-id` and `product-id` match those supplied in the `ProductArn` of the finding.
 
-The fields referencing `Archival` are used when Security Hub CSPM archives an existing finding. For example,
-Security Hub CSPM archives existing findings when you disable a control or standard and when you turn [consolidated control findings](controls-findings-create-update.md#consolidated-control-findings "controls-findings-create-update.md#consolidated-control-findings")
-on or off.
+The fields referencing `Archival` are used when Security Hub CSPM archives an existing finding. For example, Security Hub CSPM archives existing findings when you disable a control or standard and when you turn [consolidated control findings](controls-findings-create-update.md#consolidated-control-findings) on or off.
 
-This field may also include information about the standard that includes the control that
-produced the finding.
+This field may also include information about the standard that includes the control that produced the finding.
 
 **Example**
 
 ```
 "ProductFields": {
     "API", "DeleteTrail",
-    "ArchivalReasons:0/Description": "The finding is in an `ARCHIVED` state because consolidated control findings has been turned on or off. This causes findings in the previous state to be archived when new findings are being generated.",
+    "ArchivalReasons:0/Description": "The finding is in an ARCHIVED state because consolidated control findings has been turned on or off. This causes findings in the previous state to be archived when new findings are being generated.",
     "ArchivalReasons:0/ReasonCode": "CONSOLIDATED_CONTROL_FINDINGS_UPDATE",
     "aws/inspector/AssessmentTargetName": "My prod env",
     "aws/inspector/AssessmentTemplateName": "My daily CVE assessment",
@@ -608,45 +547,32 @@ produced the finding.
 ```
 
 ## ProductName
+<a name="asff-productname"></a>
 
-Provides the name of the product that generated the finding. For control-based
-findings, the product name is Security Hub CSPM.
+Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
 
-Security Hub CSPM populates this attribute automatically for each finding. You cannot update
-it using [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") or [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md"). The exception to this is when you
-use a custom integration. See [Integrating Security Hub CSPM with custom products](securityhub-custom-providers.md "securityhub-custom-providers.md").
+Security Hub CSPM populates this attribute automatically for each finding. You cannot update it using [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) or [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html). The exception to this is when you use a custom integration. See [Integrating Security Hub CSPM with custom products](securityhub-custom-providers.md).
 
-When you use the Security Hub CSPM console to filter findings by product name, you use this
-attribute.
+When you use the Security Hub CSPM console to filter findings by product name, you use this attribute.
 
-When you use the Security Hub CSPM API to filter findings by product name, you use the
-`aws/securityhub/ProductName` attribute under
-`ProductFields`.
+When you use the Security Hub CSPM API to filter findings by product name, you use the `aws/securityhub/ProductName` attribute under `ProductFields`.
 
 Security Hub CSPM does not synchronize those two attributes.
 
 ## RecordState
+<a name="asff-recordstate"></a>
 
-Provides the record state of a finding.
+Provides the record state of a finding. 
 
-By default, when initially generated by a service, findings are considered
-`ACTIVE`.
+By default, when initially generated by a service, findings are considered `ACTIVE`.
 
-The `ARCHIVED` state indicates that a finding should be hidden from
-view. Archived findings are not deleted immediately. You can search, review, and report
-on them. Security Hub CSPM automatically archives control-based findings if the associated resource
-is deleted, the resource does not exist, or the control is disabled.
+The `ARCHIVED` state indicates that a finding should be hidden from view. Archived findings are not deleted immediately. You can search, review, and report on them. Security Hub CSPM automatically archives control-based findings if the associated resource is deleted, the resource does not exist, or the control is disabled.
 
-`RecordState` is intended for finding providers, and can be updated
-only by using the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") operation. You cannot update it by
-using the [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") operation.
+`RecordState` is intended for finding providers, and can be updated only by using the [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) operation. You cannot update it by using the [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html) operation.
 
-To track the status of your investigation into a finding, use [Workflow](#asff-workflow "#asff-workflow") instead of
-`RecordState`.
+To track the status of your investigation into a finding, use [`Workflow`](#asff-workflow) instead of `RecordState`.
 
-If the record state changes from `ARCHIVED` to `ACTIVE`, and
-the workflow status of the finding is `NOTIFIED` or `RESOLVED`,
-Security Hub CSPM automatically changes the workflow status to `NEW`.
+If the record state changes from `ARCHIVED` to `ACTIVE`, and the workflow status of the finding is `NOTIFIED` or `RESOLVED`, Security Hub CSPM automatically changes the workflow status to `NEW`.
 
 **Example**
 
@@ -655,11 +581,11 @@ Security Hub CSPM automatically changes the workflow status to `NEW`.
 ```
 
 ## Region
+<a name="asff-region"></a>
 
 Specifies the AWS Region from which the finding was generated.
 
-Security Hub CSPM populates this attribute automatically for each finding. You cannot update
-it using [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") or [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md").
+Security Hub CSPM populates this attribute automatically for each finding. You cannot update it using [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) or [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
 
 **Example**
 
@@ -668,30 +594,29 @@ it using [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.
 ```
 
 ## RelatedFindings
+<a name="asff-relatedfindings"></a>
 
 Provides a list of findings that are related to the current finding.
 
-`RelatedFindings` should only be updated with the [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") API operation. You should not
-update this object with [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md").
+`RelatedFindings` should only be updated with the [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html) API operation. You should not update this object with [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html).
 
-For [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") requests, finding providers should
-use the `RelatedFindings` object under [FindingProviderFields](#asff-findingproviderfields "#asff-findingproviderfields").
+For [`BatchImportFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html) requests, finding providers should use the `RelatedFindings` object under [`FindingProviderFields`](#asff-findingproviderfields).
 
-To view descriptions of `RelatedFindings` attributes, see [`RelatedFinding`](../../1.0/APIReference/API_RelatedFinding.md "../../1.0/APIReference/API_RelatedFinding.md") in the
-_AWS Security Hub API Reference_.
+To view descriptions of `RelatedFindings` attributes, see [`RelatedFinding`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_RelatedFinding.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
 "RelatedFindings": [
-    { "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/guardduty",
+    { "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/guardduty", 
       "Id": "123e4567-e89b-12d3-a456-426655440000" },
-    { "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/guardduty",
+    { "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/guardduty", 
       "Id": "AcmeNerfHerder-111111111111-x189dx7824" }
 ]
 ```
 
 ## RiskAssessment
+<a name="asff-riskassessment"></a>
 
 **Example**
 
@@ -736,9 +661,9 @@ _AWS Security Hub API Reference_.
 ```
 
 ## Remediation
+<a name="asff-remediation"></a>
 
-The [`Remediation`](../../1.0/APIReference/API_Remediation.md "../../1.0/APIReference/API_Remediation.md") object provides information about recommended
-remediation steps to address the finding.
+The [`Remediation`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Remediation.html) object provides information about recommended remediation steps to address the finding.
 
 **Example**
 
@@ -752,6 +677,7 @@ remediation steps to address the finding.
 ```
 
 ## Sample
+<a name="asff-sample"></a>
 
 Specifies whether the finding is a sample finding.
 
@@ -760,18 +686,18 @@ Specifies whether the finding is a sample finding.
 ```
 
 ## SourceUrl
+<a name="asff-sourceurl"></a>
 
-The `SourceUrl` object provides a URL that links to a page about the
-current finding in the finding product.
+The `SourceUrl` object provides a URL that links to a page about the current finding in the finding product.
 
 ```
 "SourceUrl": "http://sourceurl.com"
 ```
 
 ## ThreatIntelIndicators
+<a name="asff-threatintelindicators"></a>
 
-The [`ThreatIntelIndicator`](../../1.0/APIReference/API_ThreatIntelIndicator.md "../../1.0/APIReference/API_ThreatIntelIndicator.md") object provides threat
-intelligence details that are related to a finding.
+The [`ThreatIntelIndicator`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ThreatIntelIndicator.html) object provides threat intelligence details that are related to a finding.
 
 **Example**
 
@@ -789,9 +715,9 @@ intelligence details that are related to a finding.
 ```
 
 ## Threats
+<a name="asff-threats"></a>
 
-The [Threats](../../1.0/APIReference/API_Threat.md "../../1.0/APIReference/API_Threat.md") object provides details about the threat
-detected by a finding.
+The [Threats](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Threat.html) object provides details about the threat detected by a finding.
 
 **Example**
 
@@ -810,16 +736,13 @@ detected by a finding.
 ```
 
 ## UserDefinedFields
+<a name="asff-userdefinedfields"></a>
 
-Provides a list of name-value string pairs that are associated with the finding.
-These are custom, user-defined fields that are added to a finding. These fields can
-be generated automatically through your specific configuration.
+Provides a list of name-value string pairs that are associated with the finding. These are custom, user-defined fields that are added to a finding. These fields can be generated automatically through your specific configuration.
 
-Finding providers should not use this field for data that the product generates.
-Instead, finding providers can use the `ProductFields` field for data
-that does not map to any standard AWS Security Finding Format field.
+Finding providers should not use this field for data that the product generates. Instead, finding providers can use the `ProductFields` field for data that does not map to any standard AWS Security Finding Format field.
 
-These fields can only be updated using [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md").
+These fields can only be updated using [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
 
 **Example**
 
@@ -831,24 +754,20 @@ These fields can only be updated using [`BatchUpdateFindings`](../../1.0/APIRefe
 ```
 
 ## VerificationState
+<a name="asff-verificationstate"></a>
 
-Provides the veracity of a finding. Findings products can provide a value of
-`UNKNOWN` for this field. A findings product should provide a value
-for this field if there is a meaningful analog in the findings product's system.
-This field is typically populated by a user determination or action after
-investigating a finding.
+Provides the veracity of a finding. Findings products can provide a value of `UNKNOWN` for this field. A findings product should provide a value for this field if there is a meaningful analog in the findings product's system. This field is typically populated by a user determination or action after investigating a finding.
 
-A finding provider can provide an initial value for this attribute, but cannot
-update it after that. You can only update this attribute by using [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md").
+A finding provider can provide an initial value for this attribute, but cannot update it after that. You can only update this attribute by using [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html).
 
 ```
 "VerificationState": "Confirmed"
 ```
 
 ## Vulnerabilities
+<a name="asff-vulnerabilities"></a>
 
-The [Vulnerabilities](../../1.0/APIReference/API_Vulnerability.md "../../1.0/APIReference/API_Vulnerability.md") object provides a list of
-vulnerabilities that are associated with a finding.
+The [Vulnerabilities](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Vulnerability.html) object provides a list of vulnerabilities that are associated with a finding.
 
 **Example**
 
@@ -917,15 +836,13 @@ vulnerabilities that are associated with a finding.
 ```
 
 ## Workflow
+<a name="asff-workflow"></a>
 
-The [`Workflow`](../../1.0/APIReference/API_Workflow.md "../../1.0/APIReference/API_Workflow.md") object provides information about the status of
-the investigation into a finding.
+The [`Workflow`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_Workflow.html) object provides information about the status of the investigation into a finding.
 
-This field is intended for customers to use with remediation, orchestration, and
-ticketing tools. It is not intended for finding providers.
+This field is intended for customers to use with remediation, orchestration, and ticketing tools. It is not intended for finding providers.
 
-You can only update the `Workflow` field with [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md"). Customers can also update it from
-the console. See [Setting the workflow status of findings in Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md").
+You can only update the `Workflow` field with [`BatchUpdateFindings`](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html). Customers can also update it from the console. See [Setting the workflow status of findings in Security Hub CSPM](findings-workflow-status.md).
 
 **Example**
 
@@ -936,14 +853,11 @@ the console. See [Setting the workflow status of findings in Security Hub CSPM](
 ```
 
 ## WorkflowState (Retired)
+<a name="asff-workflowstate"></a>
 
-This object is retired and has been replaced by the `Status` field of
-the `Workflow` object.
+This object is retired and has been replaced by the `Status` field of the `Workflow` object.
 
-This field provides the workflow state of a finding. Findings products can provide
-the value of `NEW` for this field. A findings product can provide a value
-for this field if there is a meaningful analog in the findings product's
-system.
+This field provides the workflow state of a finding. Findings products can provide the value of `NEW` for this field. A findings product can provide a value for this field if there is a meaningful analog in the findings product's system.
 
 **Example**
 

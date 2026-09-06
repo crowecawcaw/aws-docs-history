@@ -1,144 +1,76 @@
-# Security Hub CSPM controls for AWS Batch
 
-These Security Hub CSPM controls evaluate the AWS Batch service and resources. The controls might not be
-available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+
+# Security Hub CSPM controls for AWS Batch
+<a name="batch-controls"></a>
+
+These Security Hub CSPM controls evaluate the AWS Batch service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 
 ## [Batch.1] Batch job queues should be tagged
+<a name="batch-1"></a>
 
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low
 
-**Resource type:**
-`AWS::Batch::JobQueue`
+**Resource type:** `AWS::Batch::JobQueue`
 
-**AWS Config rule:** [batch-job-queue-tagged](../../../config/latest/developerguide/batch-job-queue-tagged.md "../../../config/latest/developerguide/batch-job-queue-tagged.md")
+**AWS Config rule:** [batch-job-queue-tagged](https://docs.aws.amazon.com/config/latest/developerguide/batch-job-queue-tagged.html)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `requiredKeyTags` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
-This control checks whether an AWS Batch job queue has tags with the specific keys defined in the parameter
-`requiredKeyTags`. The control fails if the job queue doesn’t have any tag keys or if it doesn’t have all the keys specified in the
-parameter `requiredKeyTags`. If the parameter `requiredKeyTags` isn't provided, the control only checks for the existence
-of a tag key and fails if the job queue isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`,
-are ignored.
+| Parameter | Description | Type | Allowed custom values | Security Hub CSPM default value | 
+| --- | --- | --- | --- | --- | 
+|  requiredKeyTags  | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive.  | StringList (maximum of 6 items)  | 1–6 tag keys that meet [AWS requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions).  | No default value  | 
 
-A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to
-categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources.
-Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based
-access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles)
-and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC
-policies to allow operations when the principal's tag matches the resource tag. For more information, see
-[Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md")
-in the _IAM User Guide_.
+This control checks whether an AWS Batch job queue has tags with the specific keys defined in the parameter `requiredKeyTags`. The control fails if the job queue doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredKeyTags`. If the parameter `requiredKeyTags` isn't provided, the control only checks for the existence of a tag key and fails if the job queue isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored.
 
-###### Note
+A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [Define permissions based on attributes with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*.
 
-Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible
-to many AWS services, including AWS Billing. For more tagging best practices, see
-[Best practices and strategies](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
-_Tagging AWS Resources and Tag Editor User Guide_.
+**Note**  
+Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices) in the *Tagging AWS Resources and Tag Editor User Guide*.
 
 ### Remediation
+<a name="batch-1-remediation"></a>
 
-To add tags to a Batch job queue, see [Tag your resources](../../../batch/latest/userguide/tag-resources.md "../../../batch/latest/userguide/tag-resources.md") in the _AWS Batch User Guide_.
+To add tags to a Batch job queue, see [Tag your resources](https://docs.aws.amazon.com/batch/latest/userguide/tag-resources.html) in the *AWS Batch User Guide*.
 
 ## [Batch.2] Batch scheduling policies should be tagged
+<a name="batch-2"></a>
 
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low
 
-**Resource type:**
-`AWS::Batch::SchedulingPolicy`
+**Resource type:** `AWS::Batch::SchedulingPolicy`
 
-**AWS Config rule:** [batch-scheduling-policy-tagged](../../../config/latest/developerguide/batch-scheduling-policy-tagged.md "../../../config/latest/developerguide/batch-scheduling-policy-tagged.md")
+**AWS Config rule:** [batch-scheduling-policy-tagged](https://docs.aws.amazon.com/config/latest/developerguide/batch-scheduling-policy-tagged.html)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `requiredKeyTags` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
-This control checks whether an AWS Batch scheduling policy has tags with the specific keys defined in the parameter
-`requiredKeyTags`. The control fails if the scheduling policy doesn’t have any tag keys or if it doesn’t have all the keys specified in the
-parameter `requiredKeyTags`. If the parameter `requiredKeyTags` isn't provided, the control only checks for the existence
-of a tag key and fails if the scheduling policy isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`,
-are ignored.
+| Parameter | Description | Type | Allowed custom values | Security Hub CSPM default value | 
+| --- | --- | --- | --- | --- | 
+|  requiredKeyTags  | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive.  | StringList (maximum of 6 items)  | 1–6 tag keys that meet [AWS requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions).  | No default value  | 
 
-A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to
-categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources.
-Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based
-access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles)
-and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC
-policies to allow operations when the principal's tag matches the resource tag. For more information, see
-[Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md")
-in the _IAM User Guide_.
+This control checks whether an AWS Batch scheduling policy has tags with the specific keys defined in the parameter `requiredKeyTags`. The control fails if the scheduling policy doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredKeyTags`. If the parameter `requiredKeyTags` isn't provided, the control only checks for the existence of a tag key and fails if the scheduling policy isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored.
 
-###### Note
+A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [Define permissions based on attributes with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*.
 
-Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible
-to many AWS services, including AWS Billing. For more tagging best practices, see
-[Best practices and strategies](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
-_Tagging AWS Resources and Tag Editor User Guide_.
+**Note**  
+Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices) in the *Tagging AWS Resources and Tag Editor User Guide*.
 
 ### Remediation
+<a name="batch-2-remediation"></a>
 
-To add tags to a Batch scheduling policy, see [Tag your resources](../../../batch/latest/userguide/tag-resources.md "../../../batch/latest/userguide/tag-resources.md") in the _AWS Batch User Guide_.
+To add tags to a Batch scheduling policy, see [Tag your resources](https://docs.aws.amazon.com/batch/latest/userguide/tag-resources.html) in the *AWS Batch User Guide*.
 
 ## [Batch.3] Batch compute environments should be tagged
-
-**Category:** Identify > Inventory > Tagging
-
-**Severity:** Low
-
-**Resource type:**
-`AWS::Batch::ComputeEnvironment`
-
-**AWS Config rule:** [batch-compute-environment-tagged](../../../config/latest/developerguide/batch-compute-environment-tagged.md "../../../config/latest/developerguide/batch-compute-environment-tagged.md")
-
-**Schedule type:** Change triggered
-
-**Parameters:**
-
-| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `requiredKeyTags` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
-
-This control checks whether an AWS Batch compute environment has tags with the specific keys defined in the parameter
-`requiredKeyTags`. The control fails if the compute environment doesn’t have any tag keys or if it doesn’t have all the keys specified in the
-parameter `requiredKeyTags`. If the parameter `requiredKeyTags` isn't provided, the control only checks for the existence
-of a tag key and fails if the compute environment isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`,
-are ignored.
-
-A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to
-categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources.
-Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based
-access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles)
-and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC
-policies to allow operations when the principal's tag matches the resource tag. For more information, see
-[Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md")
-in the _IAM User Guide_.
-
-###### Note
-
-Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible
-to many AWS services, including AWS Billing. For more tagging best practices, see
-[Best practices and strategies](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
-_Tagging AWS Resources and Tag Editor User Guide_.
-
-### Remediation
-
-To add tags to a Batch compute environment, see [Tag your resources](../../../batch/latest/userguide/tag-resources.md "../../../batch/latest/userguide/tag-resources.md") in the _AWS Batch User Guide_.
-
-## [Batch.4] Compute resources properties in managed Batch compute environments should be tagged
+<a name="batch-3"></a>
 
 **Category:** Identify > Inventory > Tagging
 
@@ -146,45 +78,57 @@ To add tags to a Batch compute environment, see [Tag your resources](../../../ba
 
 **Resource type:** `AWS::Batch::ComputeEnvironment`
 
-**AWS Config rule:** [batch-managed-compute-env-compute-resources-tagged](../../../config/latest/developerguide/batch-managed-compute-env-compute-resources-tagged.md "../../../config/latest/developerguide/batch-managed-compute-env-compute-resources-tagged.md")
+**AWS Config rule:** [batch-compute-environment-tagged](https://docs.aws.amazon.com/config/latest/developerguide/batch-compute-environment-tagged.html)
 
 **Schedule type:** Change triggered
 
 **Parameters:**
 
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub CSPM default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value                |
 
-This control checks whether the compute resources property in a managed AWS Batch
-compute environment has the tag keys specified by the
-`requiredKeyTags` parameter. The control fails if the compute
-resources property doesn't have any tag keys, or it doesn't have all the keys specified
-by the `requiredKeyTags` parameter. If you don't specify any values
-for the `requiredKeyTags` parameter, the control checks only for the
-existence of a tag key and fails if a compute resources property doesn't have any tag
-keys. The control ignores system tags, which are applied automatically and have the
-`aws:` prefix. This control doesn’t evaluate unmanaged compute
-environments, or managed environments that use AWS Fargate resources.
+| Parameter | Description | Type | Allowed custom values | Security Hub CSPM default value | 
+| --- | --- | --- | --- | --- | 
+|  requiredKeyTags  | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive.  | StringList (maximum of 6 items)  | 1–6 tag keys that meet [AWS requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions).  | No default value  | 
 
-A tag is a label that you create and assign to an AWS resource. Each tag consists of
-a required tag key and an optional tag value. You can use tags to categorize resources
-by purpose, owner, environment, or other criteria. They can help you identify, organize,
-search for, and filter resources. They can also help you track resource owners for
-actions and notifications. You can also use tags to implement attribute-based access
-control (ABAC) as an authorization strategy. For more information about ABAC strategies,
-see [Define
-permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
-[Tagging AWS Resources and Tag Editor User
-Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+This control checks whether an AWS Batch compute environment has tags with the specific keys defined in the parameter `requiredKeyTags`. The control fails if the compute environment doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredKeyTags`. If the parameter `requiredKeyTags` isn't provided, the control only checks for the existence of a tag key and fails if the compute environment isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored.
 
-###### Note
+A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [Define permissions based on attributes with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*.
 
-Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
-accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+**Note**  
+Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices) in the *Tagging AWS Resources and Tag Editor User Guide*.
 
 ### Remediation
+<a name="batch-3-remediation"></a>
 
-For information about adding tags to compute resources in a managed AWS Batch compute environment, see
-[Tag your resources](../../../batch/latest/userguide/tag-resources.md "../../../batch/latest/userguide/tag-resources.md") in
-the _AWS Batch User Guide_.
+To add tags to a Batch compute environment, see [Tag your resources](https://docs.aws.amazon.com/batch/latest/userguide/tag-resources.html) in the *AWS Batch User Guide*.
+
+## [Batch.4] Compute resources properties in managed Batch compute environments should be tagged
+<a name="batch-4"></a>
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:** `AWS::Batch::ComputeEnvironment`
+
+**AWS Config rule:** [batch-managed-compute-env-compute-resources-tagged](https://docs.aws.amazon.com/config/latest/developerguide/batch-managed-compute-env-compute-resources-tagged.html)
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+
+| Parameter | Description | Type | Allowed custom values | Security Hub CSPM default value | 
+| --- | --- | --- | --- | --- | 
+| requiredKeyTags | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions). | No default value | 
+
+This control checks whether the compute resources property in a managed AWS Batch compute environment has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the compute resources property doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if a compute resources property doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. This control doesn’t evaluate unmanaged compute environments, or managed environments that use AWS Fargate resources.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html).
+
+**Note**  
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+<a name="batch-4-remediation"></a>
+
+For information about adding tags to compute resources in a managed AWS Batch compute environment, see [Tag your resources](https://docs.aws.amazon.com/batch/latest/userguide/tag-resources.html) in the *AWS Batch User Guide*.

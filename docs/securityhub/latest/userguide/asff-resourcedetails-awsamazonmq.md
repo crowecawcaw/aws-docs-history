@@ -1,18 +1,18 @@
+
+
 # AwsAmazonMQ resources in ASFF
+<a name="asff-resourcedetails-awsamazonmq"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAmazonMQ`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsAmazonMQ` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsAmazonMQBroker
+<a name="asff-resourcedetails-awsamazonmqbroker"></a>
 
-`AwsAmazonMQBroker` provides information about an Amazon MQ broker, which
-is a message broker environment running on Amazon MQ.
+`AwsAmazonMQBroker` provides information about an Amazon MQ broker, which is a message broker environment running on Amazon MQ.
 
-The following example shows the ASFF for the `AwsAmazonMQBroker` object. To
-view descriptions of `AwsAmazonMQBroker` attributes, see [AwsAmazonMQBroker](../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md "../../1.0/APIReference/API_AwsAmazonMQBrokerDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the ASFF for the `AwsAmazonMQBroker` object. To view descriptions of `AwsAmazonMQBroker` attributes, see [AwsAmazonMQBroker](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsAmazonMQBrokerDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

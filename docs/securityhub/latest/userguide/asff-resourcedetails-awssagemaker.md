@@ -1,20 +1,18 @@
+
+
 # AwsSageMaker resources in ASFF
+<a name="asff-resourcedetails-awssagemaker"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsSageMaker` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsSageMakerNotebookInstance
+<a name="asff-resourcedetails-awssagemakernotebookinstance"></a>
 
-The `AwsSageMakerNotebookInstance` object provides information about a
-Amazon SageMaker AI notebook instance, which is a machine learning compute instance running the
-Jupyter Notebook App.
+The `AwsSageMakerNotebookInstance` object provides information about a Amazon SageMaker AI notebook instance, which is a machine learning compute instance running the Jupyter Notebook App.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsSageMakerNotebookInstance` object. To view descriptions of
-`AwsSageMakerNotebookInstance` attributes, see [AwsSageMakerNotebookInstanceDetails](../../1.0/APIReference/API_AwsSageMakerNotebookInstanceDetails.md "../../1.0/APIReference/API_AwsSageMakerNotebookInstanceDetails.md") in the
-_AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsSageMakerNotebookInstance` object. To view descriptions of `AwsSageMakerNotebookInstance` attributes, see [AwsSageMakerNotebookInstanceDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsSageMakerNotebookInstanceDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 

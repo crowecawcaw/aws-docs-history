@@ -1,23 +1,23 @@
+
+
 # AwsKinesis resources in ASFF
+<a name="asff-resourcedetails-awskinesis"></a>
 
-The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsKinesis`
-resources.
+The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsKinesis` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsKinesisStream
+<a name="asff-resourcedetails-awskinesisstream"></a>
 
 The `AwsKinesisStream` object provides details about Amazon Kinesis Data Streams.
 
-The following example shows the AWS Security Finding Format (ASFF) for the
-`AwsKinesisStream` object. To view descriptions of
-`AwsKinesisStream` attributes, see [AwsKinesisStreamDetails](../../1.0/APIReference/API_AwsKinesisStreamDetails.md "../../1.0/APIReference/API_AwsKinesisStreamDetails.md") in the _AWS Security Hub API Reference_.
+The following example shows the AWS Security Finding Format (ASFF) for the `AwsKinesisStream` object. To view descriptions of `AwsKinesisStream` attributes, see [AwsKinesisStreamDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsKinesisStreamDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
-"AwsKinesisStream": {
+"AwsKinesisStream": { 
 	"Name": "test-vir-kinesis-stream",
 	"Arn": "arn:aws:kinesis:us-east-1:293279581038:stream/test-vir-kinesis-stream",
 	"RetentionPeriodHours": 24,

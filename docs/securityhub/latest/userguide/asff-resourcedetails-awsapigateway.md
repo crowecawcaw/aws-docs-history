@@ -1,19 +1,18 @@
+
+
 # AwsApiGateway resources in ASFF
+<a name="asff-resourcedetails-awsapigateway"></a>
 
 The following are examples of the AWS Security Finding Format (ASFF) syntax for `AwsApiGateway` resources.
 
-AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see
-[AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
+AWS Security Hub CSPM normalizes findings from various sources into ASFF. For background information about ASFF, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md).
 
 ## AwsApiGatewayRestApi
+<a name="asff-resourcedetails-awsapigatewayrestapi"></a>
 
-The `AwsApiGatewayRestApi` object contains information about a REST API in
-version 1 of Amazon API Gateway.
+The `AwsApiGatewayRestApi` object contains information about a REST API in version 1 of Amazon API Gateway.
 
-The following is an example `AwsApiGatewayRestApi` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of
-`AwsApiGatewayRestApi` attributes, see [AwsApiGatewayRestApiDetails](../../1.0/APIReference/API_AwsApiGatewayRestApiDetails.md "../../1.0/APIReference/API_AwsApiGatewayRestApiDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsApiGatewayRestApi` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayRestApi` attributes, see [AwsApiGatewayRestApiDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsApiGatewayRestApiDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -36,21 +35,18 @@ AwsApiGatewayRestApi: {
 ```
 
 ## AwsApiGatewayStage
+<a name="asff-resourcedetails-awsapigatewaystage"></a>
 
-The `AwsApiGatewayStage` object provides information about a version 1
-Amazon API Gateway stage.
+The `AwsApiGatewayStage` object provides information about a version 1 Amazon API Gateway stage.
 
-The following is an example `AwsApiGatewayStage` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayStage`
-attributes, see [AwsApiGatewayStageDetails](../../1.0/APIReference/API_AwsApiGatewayStageDetails.md "../../1.0/APIReference/API_AwsApiGatewayStageDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsApiGatewayStage` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayStage` attributes, see [AwsApiGatewayStageDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsApiGatewayStageDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
 ```
 "AwsApiGatewayStage": {
     "DeploymentId": "n7hlmf",
-    "ClientCertificateId": "a1b2c3",
+    "ClientCertificateId": "a1b2c3", 
     "StageName": "Prod",
     "Description" : "Stage Description",
     "CacheClusterEnabled": false,
@@ -94,14 +90,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsApiGatewayV2Api
+<a name="asff-resourcedetails-awsapigatewayv2api"></a>
 
-The `AwsApiGatewayV2Api` object contains information about a version 2 API
-in Amazon API Gateway.
+The `AwsApiGatewayV2Api` object contains information about a version 2 API in Amazon API Gateway.
 
-The following is an example `AwsApiGatewayV2Api` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Api`
-attributes, see [AwsApiGatewayV2ApiDetails](../../1.0/APIReference/API_AwsApiGatewayV2ApiDetails.md "../../1.0/APIReference/API_AwsApiGatewayV2ApiDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsApiGatewayV2Api` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Api` attributes, see [AwsApiGatewayV2ApiDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsApiGatewayV2ApiDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
@@ -134,14 +127,11 @@ _AWS Security Hub API Reference_.
 ```
 
 ## AwsApiGatewayV2Stage
+<a name="asff-resourcedetails-awsapigatewayv2stage"></a>
 
-`AwsApiGatewayV2Stage` contains information about a version 2 stage for
-Amazon API Gateway.
+`AwsApiGatewayV2Stage` contains information about a version 2 stage for Amazon API Gateway.
 
-The following is an example `AwsApiGatewayV2Stage` finding in the AWS
-Security Finding Format (ASFF). To view descriptions of
-`AwsApiGatewayV2Stage` attributes, see [AwsApiGatewayV2StageDetails](../../1.0/APIReference/API_AwsApiGatewayV2StageDetails.md "../../1.0/APIReference/API_AwsApiGatewayV2StageDetails.md") in the
-_AWS Security Hub API Reference_.
+The following is an example `AwsApiGatewayV2Stage` finding in the AWS Security Finding Format (ASFF). To view descriptions of `AwsApiGatewayV2Stage` attributes, see [AwsApiGatewayV2StageDetails](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AwsApiGatewayV2StageDetails.html) in the *AWS Security Hub API Reference*.
 
 **Example**
 
