@@ -1,29 +1,27 @@
-# Choose a route using Suggest and the ability to highlight matched query terms
 
-With the Suggest API, you get real-time autocomplete suggestions as users type their
-search queries for places or categories. Results are ranked by relevance, with the most
-likely matches appearing first. The API response includes highlighting information that
-shows how each suggestion matches the user's query.
+
+# Choose a route using Suggest and the ability to highlight matched query terms
+<a name="suggest-highlight-matched-query-terms"></a>
+
+With the Suggest API, you get real-time autocomplete suggestions as users type their search queries for places or categories. Results are ranked by relevance, with the most likely matches appearing first. The API response includes highlighting information that shows how each suggestion matches the user's query.
 
 ## Potential use cases
+<a name="suggest-disambiguate-results-potential-use"></a>
 
-Use highlighting to show users which parts of each suggestion match their input,
-making it easier to quickly select the desired result.
+Use highlighting to show users which parts of each suggestion match their input, making it easier to quickly select the desired result.
 
 ## Examples
+<a name="suggest-hightlight-results-examples"></a>
 
-When displaying the result list to users, the **Highlights**
-fields in the response can be used to help the user identify how the input has been
-matched to the results. In the example below, the user makes a query for “Effel
-tow”. This matches a result with the **Title** “Tour Eiffel (Eiffel
-Tower)”. Using the Highlights result field, the result can be styled to show where
-the input query was matched to the output, resulting in the text being showed to the
-user as “Tour Eiffel (**Eiffel Tow**er).”
+When displaying the result list to users, the **Highlights** fields in the response can be used to help the user identify how the input has been matched to the results. In the example below, the user makes a query for “Effel tow”. This matches a result with the **Title** “Tour Eiffel (Eiffel Tower)”. Using the Highlights result field, the result can be styled to show where the input query was matched to the output, resulting in the text being showed to the user as “Tour Eiffel (**Eiffel Tow**er).”
 
-This example demonstrates how to use the Suggest API to look up a
-misspelled point of interest.
+### Highlight the query results with the Suggest API
+<a name="suggest-hightlight-example"></a>
 
-Sample request
+This example demonstrates how to use the Suggest API to look up a misspelled point of interest.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -45,7 +43,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -133,7 +132,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -158,7 +158,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} \
@@ -167,9 +168,9 @@ aws geo-places suggest --key ${YourKey} \
 --additional-features "Core"
 ```
 
-## Developer tips
+------
 
-Display search results using the `Title` response field to provide
-users with concise, recognizable entries. For results that might look similar, use
-the `Place.Address.Label` field to show additional address details that
-help users distinguish between them. For more information, see [How to help users disambiguate between similar results](suggest-disambiguate-results.md "suggest-disambiguate-results.md").
+## Developer tips
+<a name="suggest-highlight-developer-tips"></a>
+
+Display search results using the `Title` response field to provide users with concise, recognizable entries. For results that might look similar, use the `Place.Address.Label` field to show additional address details that help users distinguish between them. For more information, see [How to help users disambiguate between similar results](suggest-disambiguate-results.md).

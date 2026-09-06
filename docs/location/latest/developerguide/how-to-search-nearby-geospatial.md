@@ -1,42 +1,47 @@
+
+
 # How to search nearby using geospatial context
+<a name="how-to-search-nearby-geospatial"></a>
 
-The SearchNearby API enables you to explore nearby, while restricting results within
-geospatial context (such as a circle or bounding box).
+The SearchNearby API enables you to explore nearby, while restricting results within geospatial context (such as a circle or bounding box).
 
-The SearchNearby API lets you filter results using geospatial contexts such as circles
-and bounding boxes. By defining these geographic boundaries, you can limit search
-results to specific areas.
+The SearchNearby API lets you filter results using geospatial contexts such as circles and bounding boxes. By defining these geographic boundaries, you can limit search results to specific areas.
 
 ## Potential use cases
-
-- Limit search results to a specific geographic area
-- Search within custom-defined boundaries
-- Focus results on targeted neighborhoods or districts
+<a name="potential-use-search-nearby-geospatial"></a>
++ Limit search results to a specific geographic area
++ Search within custom-defined boundaries
++ Focus results on targeted neighborhoods or districts
 
 ## Examples
+<a name="search-neaby-geospatial-examples"></a>
 
-The following example demonstrates how to search for schools within a
-1000-meter radius of the specified coordinates.
+### Search using query radius
+<a name="search-nearby-geospatial-example"></a>
 
-Sample request
-This request searches for schools within a 1000-meter
-(1-kilometer) radius.
+The following example demonstrates how to search for schools within a 1000-meter radius of the specified coordinates.
+
+------
+#### [ Sample request ]
+
+This request searches for schools within a 1000-meter (1-kilometer) radius.
 
 ```
 {
     "QueryPosition": [
-                 -122.741803,
+                 -122.741803, 
          49.002478
         ],
         "QueryRadius":1000,
         "Filter" : {
             "IncludeCategories": ["school"]
     }
-
+    
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -104,7 +109,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -112,7 +118,7 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{
     "QueryPosition": [
-         -122.741803,
+         -122.741803, 
          49.002478
     ],
     "QueryRadius": 1000,
@@ -122,7 +128,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-nearby --key ${YourKey} \
@@ -131,6 +138,8 @@ aws geo-places search-nearby --key ${YourKey} \
 --filter '{"IncludeCategories": ["school"]}'
 ```
 
-## Developer Tips
+------
 
-- Alternatively, you can use a bounding box filter.
+## Developer Tips
+<a name="search-nearby-geospatial-developer-tips"></a>
++ Alternatively, you can use a bounding box filter.

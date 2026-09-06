@@ -1,29 +1,30 @@
+
+
 # How to get secondary addresses of a Place ID
+<a name="how-to-get-secondary-addresses-placeid"></a>
 
-###### Note
+**Note**  
+ For customers in `ap-southeast-1` and `ap-southeast-5`, this use case is not supported, as the `SecondaryAddresses` field is not available. Refer to the [GetPlace API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html) for details. 
 
-For customers in `ap-southeast-1` and `ap-southeast-5`, this
-use case is not supported, as the `SecondaryAddresses` field is not available. Refer to the
-[GetPlace API Reference](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") for details.
-
-The `SecondaryAddresses` API command allows you to retrieve all secondary
-addresses that are under a main address. Geocode also returns secondary units, if any
-that are present within the `QueryText` parameter.
+The `SecondaryAddresses` API command allows you to retrieve all secondary addresses that are under a main address. Geocode also returns secondary units, if any that are present within the `QueryText` parameter.
 
 ## Potential use cases
+<a name="goecode-secondary-address-placeid-potential-use"></a>
 
-**Retrieve all secondary addresses that are under a main
-address.** This can be used for address form completion use cases to
-select a more accurate secondary address which includes more accurate positional
-information as well.
+**Retrieve all secondary addresses that are under a main address.** This can be used for address form completion use cases to select a more accurate secondary address which includes more accurate positional information as well.
 
-Sample request
+## Get secondary addresses for a place ID
+<a name="geocode-2nd-address-placeid-example"></a>
+
+------
+#### [ Sample request ]
 
 ```
 https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAGAAY8Dw_tn6pyN_R5E9_mfwAP5h9Rd5E_xY2CyyRHpX2wolGeK8O3IY13k5xeHmF4To445fCLg0x3GPnTZnCuUWXbfg9SKpijUskj-xf6jNC_3CUSabHVKy-Or51xHTd3KNi6idTkrfeQOjZOkXZ5TaoXsg0GHGMWqs-sZhmr8npQc?additional-features=SecondaryAddresses&key=Your_Key
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -109,14 +110,16 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl ‐‐request GET \
   ‐‐url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAGAAY8Dw_tn6pyN_R5E9_mfwAP5h9Rd5E_xY2CyyRHpX2wolGeK8O3IY13k5xeHmF4To445fCLg0x3GPnTZnCuUWXbfg9SKpijUskj-xf6jNC_3CUSabHVKy-Or51xHTd3KNi6idTkrfeQOjZOkXZ5TaoXsg0GHGMWqs-sZhmr8npQc?key=Your_Key&additional-features=SecondaryAddresses'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 export PLACEID=AQAAAGAAY8Dw_tn6pyN_R5E9_mfwAP5h9Rd5E_xY2CyyRHpX2wolGeK8O3IY13k5xeHmF4To445fCLg0x3GPnTZnCuUWXbfg9SKpijUskj-xf6jNC_3CUSabHVKy-Or51xHTd3KNi6idTkrfeQOjZOkXZ5TaoXsg0GHGMWqs-sZhmr8npQc
@@ -125,3 +128,5 @@ aws geo-places get-place ‐‐key ${YourKey} \
 ‐‐place-id ${PLACEID} \
 ‐‐additional-features "SecondaryAddresses"
 ```
+
+------

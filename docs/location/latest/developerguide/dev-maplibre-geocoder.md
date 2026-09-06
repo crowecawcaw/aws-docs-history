@@ -1,21 +1,20 @@
-# Use Amazon Location MapLibre Geocoder GL plugin
 
-The Amazon Location MapLibre geocoder plugin is designed to make it easier for you
-to incorporate Amazon Location functionality into your JavaScript applications,
-when working with map rendering and geocoding using the
-[maplibre-gl-geocoder](https://github.com/maplibre/maplibre-gl-geocoder "https://github.com/maplibre/maplibre-gl-geocoder") library.
+
+# Use Amazon Location MapLibre Geocoder GL plugin
+<a name="dev-maplibre-geocoder"></a>
+
+The Amazon Location MapLibre geocoder plugin is designed to make it easier for you to incorporate Amazon Location functionality into your JavaScript applications, when working with map rendering and geocoding using the [maplibre-gl-geocoder](https://github.com/maplibre/maplibre-gl-geocoder) library.
 
 ## Installation
+<a name="geocoder-installation"></a>
 
-Install Amazon Location MapLibre geocoder plugin from NPM for usage with modules. Type this
-command:
+Install Amazon Location MapLibre geocoder plugin from NPM for usage with modules. Type this command:
 
 ```
 npm install @aws/amazon-location-for-maplibre-gl-geocoder
 ```
 
-You can also import HTML and CSS files for usage directly in the
-browser with a script:
+You can also import HTML and CSS files for usage directly in the browser with a script:
 
 ```
 <script src="https://cdn.jsdelivr.net/npm/@aws/amazon-location-for-maplibre-gl-geocoder@2"></script>
@@ -26,11 +25,9 @@ browser with a script:
 ```
 
 ## Usage with module - standalone GeoPlaces SDK
+<a name="geocoder-module"></a>
 
-This example uses the [AWS SDK for JavaScript
-V3](https://github.com/aws/aws-sdk-js-v3 "https://github.com/aws/aws-sdk-js-v3") to get a GeoPlacesClient to provide to the library and
-[AuthHelper](https://github.com/aws-geospatial/amazon-location-utilities-auth-helper-js "https://github.com/aws-geospatial/amazon-location-utilities-auth-helper-js") for authenticating the GeoPlacesClient. It
-enables all APIs for the geocoder.
+This example uses the [AWS SDK for JavaScript V3](https://github.com/aws/aws-sdk-js-v3) to get a GeoPlacesClient to provide to the library and [AuthHelper](https://github.com/aws-geospatial/amazon-location-utilities-auth-helper-js) for authenticating the GeoPlacesClient. It enables all APIs for the geocoder.
 
 ```
 // Import MapLibre GL JS
@@ -70,15 +67,12 @@ map.addControl(amazonLocationMaplibreGeocoder.getPlacesGeocoder());
 ```
 
 ## Usage with a browser - standalone GeoPlaces SDK
+<a name="geocoder-browser"></a>
 
-This example uses the Amazon Location client to make a request that
-authenticates using an API key.
+This example uses the Amazon Location client to make a request that authenticates using an API key.
 
-###### Note
-
-Some of these example use the Amazon Location GeoPlacesClient. This client is based on the [AWS SDK for
-JavaScript V3](https://github.com/aws/aws-sdk-js-v3 "https://github.com/aws/aws-sdk-js-v3") and allows for making calls to Amazon Location
-through a script referenced in an HTML file.
+**Note**  
+Some of these example use the Amazon Location GeoPlacesClient. This client is based on the [AWS SDK for JavaScript V3](https://github.com/aws/aws-sdk-js-v3) and allows for making calls to Amazon Location through a script referenced in an HTML file.
 
 Include the following in an HTML file:
 
@@ -124,43 +118,37 @@ map.addControl(amazonLocationMaplibreGeocoderObject.getPlacesGeocoder());
 ```
 
 ## Functions
+<a name="geocoder-functions"></a>
 
-Listed below are the functions used in the Amazon Location MapLibre geocoder
-plugin:
+Listed below are the functions used in the Amazon Location MapLibre geocoder plugin:
++ `buildAmazonLocationMaplibreGeocoder`
 
-- `buildAmazonLocationMaplibreGeocoder`
+  This class creates an instance of the `AmazonLocationMaplibreGeocder`, which is the entry point to the other all other calls.
 
-This class creates an instance of the
-`AmazonLocationMaplibreGeocder`, which is the entry point to
-the other all other calls.
+  Using standalone `GeoPlacesClient` API calls (client is instance of `GeoPlacesClient`):
 
-Using standalone `GeoPlacesClient` API calls (client is
-instance of `GeoPlacesClient`):
+  ```
+  const amazonLocationMaplibreGeocoder = buildAmazonLocationMaplibreGeocoder(client, { enableAll: true });
+  ```
 
-```
-const amazonLocationMaplibreGeocoder = buildAmazonLocationMaplibreGeocoder(client, { enableAll: true });
-```
+  Using consolidated `LocationClient` API calls (client is instance of `LocationClient`):
 
-Using consolidated `LocationClient` API calls (client is instance of `LocationClient`):
+  ```
+  const amazonLocationMaplibreGeocoder = buildAmazonLocationMaplibreGeocoder(client, {
+    enableAll: true,
+    placesIndex: placeIndex,
+  });
+  ```
++ `getPlacesGeocoder`
 
-```
-const amazonLocationMaplibreGeocoder = buildAmazonLocationMaplibreGeocoder(client, {
-  enableAll: true,
-  placesIndex: placeIndex,
-});
-```
+  Returns a ready-to-use IControl object that can be added directly to a map.
 
-- `getPlacesGeocoder`
-
-Returns a ready-to-use IControl object that can be added directly to a
-map.
-
-```
-const geocoder = getPlacesGeocoder();
-
-// Initialize map see: <insert link to initializing a map instance here>
-let map = await initializeMap();
-
-// Add the geocoder to the map.
-map.addControl(geocoder);
-```
+  ```
+  const geocoder = getPlacesGeocoder();
+  
+  // Initialize map see: <insert link to initializing a map instance here>
+  let map = await initializeMap();
+  
+  // Add the geocoder to the map.
+  map.addControl(geocoder);
+  ```

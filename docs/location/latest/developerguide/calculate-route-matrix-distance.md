@@ -1,16 +1,24 @@
+
+
 # How to calculate a route matrix of distance and time for multiple origins and destinations
+<a name="calculate-route-matrix-distance"></a>
 
 The CalculateRouteMatrix API calculates routes and provides travel time and travel distance for each combination of origins and destinations. This capability is useful for applications requiring route planning and optimization across multiple locations.
 
 The response includes `Distance` in meters and `Duration` in seconds for each origin-destination pair.
 
 ## Potential use cases
-
-- **Optimize route planning:** Use the route matrix as input for route optimization software to enhance service efficiency and reduce travel time.
+<a name="calculate-route-matrix-potential-use"></a>
++ **Optimize route planning:** Use the route matrix as input for route optimization software to enhance service efficiency and reduce travel time.
 
 ## Examples
+<a name="calculate-route-matrix-examples"></a>
 
-Sample request
+### CalculateRouteMatrix with an unbounded routing boundary
+<a name="calculate-route-matrix-unbounded"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -34,7 +42,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -59,7 +68,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -86,7 +96,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-route-matrix --key ${YourKey} \
@@ -96,7 +107,13 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 --routing-boundary '{"Unbounded": true}'
 ```
 
-Sample request
+------
+
+### CalculateRouteMatrix with a geometry-based routing boundary
+<a name="calculate-route-matrix-geometry"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -125,7 +142,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -159,7 +177,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -191,7 +210,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-route-matrix --key ${YourKey} \
@@ -200,3 +220,5 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 --departure-time "2024-05-28T21:27:56Z" \
 --routing-boundary '{"Geometry": {"AutoCircle": {"Margin": 10000, "MaxRadius": 30000}}}'
 ```
+
+------

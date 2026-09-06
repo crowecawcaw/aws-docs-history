@@ -1,27 +1,28 @@
+
+
 # How to geocode using geospatial context
+<a name="how-to-geocode-geospatial"></a>
 
-The Geocode API enables you to use geospatial context (such as bias position) to get
-desired results.
+The Geocode API enables you to use geospatial context (such as bias position) to get desired results.
 
-###### Note
-
-"Bias position" refers to a mechanism that prioritizes search results based on a
-user's specified location or a defined area. It essentially shifts the focus of
-search results towards locations that are geographically closer to a designated bias
-point, without necessarily excluding other results.
+**Note**  
+"Bias position" refers to a mechanism that prioritizes search results based on a user's specified location or a defined area. It essentially shifts the focus of search results towards locations that are geographically closer to a designated bias point, without necessarily excluding other results. 
 
 ## Potential use
+<a name="geospatial-uses"></a>
 
-Use geospatial context to get the correct results based on your business
-needs.
+Use geospatial context to get the correct results based on your business needs.
 
 ## Examples
+<a name="geospatial-examples"></a>
 
-By biasing to a position, you can change the rankings of your results. Try
-the following example, with— and then without—the
-`BiasPosition` value and compare the results.
+### Bias results to a position
+<a name="bias-position-example"></a>
 
-Sample request
+By biasing to a position, you can change the rankings of your results. Try the following example, with— and then without—the `BiasPosition` value and compare the results.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -33,7 +34,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -93,7 +95,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -108,13 +111,16 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "George Street" --bias-position 151.2059 -33.8691
 ```
 
-## Developer tips
+------
 
-For address geocoding, try to use complete addresses or a query component with a
-combination of bias position, including country and place. To learn more, see [How to geocode an address](how-to-geocode-address.md "how-to-geocode-address.md").
+## Developer tips
+<a name="geospatial-developer-tips"></a>
+
+For address geocoding, try to use complete addresses or a query component with a combination of bias position, including country and place. To learn more, see [How to geocode an address](how-to-geocode-address.md).

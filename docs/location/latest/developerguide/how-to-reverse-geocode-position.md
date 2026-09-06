@@ -1,19 +1,21 @@
-# How to reverse geocode for a position
 
-The Reverse Geocode API allows you to convert a geocode to a geographic area based on
-a position query. The API response includes place details, providing information about
-the location associated with specific coordinates.
+
+# How to reverse geocode for a position
+<a name="how-to-reverse-geocode-position"></a>
+
+The Reverse Geocode API allows you to convert a geocode to a geographic area based on a position query. The API response includes place details, providing information about the location associated with specific coordinates.
 
 ## Potential use cases
+<a name="potential-use"></a>
++ **Store place information:** Add place details to a datastore containing geocoordinates.
++ **Map visualization:** Use place information to display data on a map.
++ **User location detection:** Identify the user's location based on their device position.
 
-- **Store place information:** Add place
-  details to a datastore containing geocoordinates.
-- **Map visualization:** Use place information
-  to display data on a map.
-- **User location detection:** Identify the
-  user's location based on their device position.
+## Reverse geocode a position
+<a name="reverse-geocode-position"></a>
 
-Sample request
+------
+#### [ Sample request ]
 
 ```
 {
@@ -24,7 +26,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -58,7 +61,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -72,13 +76,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.28126"
 ```
 
-Sample request
+------
+
+## Reverse geocode a position with multiple results
+<a name="reverse-geocode-position-multiple-results"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -90,7 +101,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -129,7 +141,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -144,13 +157,17 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places reverse-geocode --key ${YourKey} --query-position "-123.11694,49.28126" --max-results "3"
 ```
 
+------
+
 ## Developer tips
+<a name="developer-tips"></a>
 
 For targeted results, use `IncludePlaceTypes` in the filter.
 

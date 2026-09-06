@@ -1,21 +1,20 @@
+
+
 # How to filter POI on the map
+<a name="how-to-filter-poi-map"></a>
 
-With Amazon Location Service, you can control which points of interest (POIs) appear on your map and how
-many are shown. The recommended approach uses the `PoiCategories` and
-`PoiDensity` query parameters in the [GetStyleDescriptor](../APIReference/API_geomaps_GetStyleDescriptor.md "../APIReference/API_geomaps_GetStyleDescriptor.md") API. Filtering is configured server-side, so maps
-display correctly with no additional client-side code — on web, mobile, and headless
-renderers alike.
+With Amazon Location Service, you can control which points of interest (POIs) appear on your map and how many are shown. The recommended approach uses the `PoiCategories` and `PoiDensity` query parameters in the [GetStyleDescriptor](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStyleDescriptor.html) API. Filtering is configured server-side, so maps display correctly with no additional client-side code — on web, mobile, and headless renderers alike.
 
-For styles that do not support these parameters, you can use client-side layer
-visibility toggling as a fallback. For more information about supported styles and
-values, see [Rich
-POI](standard-map-style.md#standard-rich-poi "standard-map-style.md#standard-rich-poi").
+For styles that do not support these parameters, you can use client-side layer visibility toggling as a fallback. For more information about supported styles and values, see [Rich POI](https://docs.aws.amazon.com/location/latest/developerguide/standard-map-style.html#standard-rich-poi).
 
-Pass `PoiCategories` and `PoiDensity` as query
-parameters when requesting the style descriptor. Amazon Location Service returns a style that
-renders only the requested categories at the chosen density.
+## Filter POI using GetStyleDescriptor (recommended)
+<a name="filter-poi-server-side"></a>
 
-Filter by category
+Pass `PoiCategories` and `PoiDensity` as query parameters when requesting the style descriptor. Amazon Location Service returns a style that renders only the requested categories at the chosen density.
+
+------
+#### [ Filter by category ]
+
 Show only food and transportation POIs:
 
 ```
@@ -51,7 +50,9 @@ Show only food and transportation POIs:
 </html>
 ```
 
-Control density
+------
+#### [ Control density ]
+
 Reduce POI clutter by setting density to Sparse:
 
 ```
@@ -88,7 +89,9 @@ Reduce POI clutter by setting density to Sparse:
 </html>
 ```
 
-Combined
+------
+#### [ Combined ]
+
 Show only SightsAndMuseums and FoodAndDrink at Dense level — ideal for a tourist map:
 
 ```
@@ -126,19 +129,20 @@ Show only SightsAndMuseums and FoodAndDrink at Dense level — ideal for a touri
 </html>
 ```
 
-###### Note
+------
 
-The `PoiCategories` and `PoiDensity` parameters
-are supported on the Standard and Hybrid styles.
+**Note**  
+The `PoiCategories` and `PoiDensity` parameters are supported on the Standard and Hybrid styles.
 
-For map styles that do not support server-side POI filtering, you can
-toggle MapLibre layer visibility on the client side. This approach requires
-knowledge of the specific layer names in the style descriptor.
+## Filter POI using client-side layer toggling (fallback)
+<a name="filter-poi-client-side"></a>
 
-In this example, you display an interactive map that allows you to filter on
-POI categories by toggling layer visibility.
+For map styles that do not support server-side POI filtering, you can toggle MapLibre layer visibility on the client side. This approach requires knowledge of the specific layer names in the style descriptor.
 
-Index.html
+In this example, you display an interactive map that allows you to filter on POI categories by toggling layer visibility.
+
+------
+#### [ Index.html ]
 
 ```
 <!DOCTYPE html>
@@ -278,14 +282,12 @@ Index.html
         </script>
     </body>
 </html>
-
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body {
     margin: 0;
     padding: 0;
@@ -332,5 +334,6 @@ body,
 .active {
     background: #ee8a65;
 }
-
 ```
+
+------

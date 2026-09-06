@@ -1,39 +1,40 @@
+
+
 # How to search for a place within a country
+<a name="how-to-search-place-in-country"></a>
 
-The `SearchText` API enables you limit search results to within one or more
-countries. This feature useful for searching in border areas or smaller countries that
-neighbour each other.
+The `SearchText` API enables you limit search results to within one or more countries. This feature useful for searching in border areas or smaller countries that neighbour each other.
 
-One way to use the SearchText API is to let end users do a free-text search and an
-application set's bias position. These bias positions can be a device position, IP
-position, or a map‘s view port center. Additionally, end users can provide the city name
-or place and the application can bias results based on geo-coordinates.
+One way to use the SearchText API is to let end users do a free-text search and an application set's bias position. These bias positions can be a device position, IP position, or a map‘s view port center. Additionally, end users can provide the city name or place and the application can bias results based on geo-coordinates. 
 
 ## Potential use cases
-
-- Limit the search results to within a country for an area that has a nearby
-  international border.
-- Filter results to withing multiple countries.
+<a name="potential-use-place-in-country"></a>
++ Limit the search results to within a country for an area that has a nearby international border.
++ Filter results to withing multiple countries.
 
 ## Examples
+<a name="search-place-in-country-examples"></a>
 
-In this example, the bias position is near the USA and Canada border.
-Without specifying `IncludeCountries": ["CAN"]`, the API would
-return results from both Canada and the USA.
+### Search within a country
+<a name="search-within-country"></a>
 
-Sample request
+In this example, the bias position is near the USA and Canada border. Without specifying `IncludeCountries": ["CAN"]`, the API would return results from both Canada and the USA.
+
+------
+#### [ Sample request ]
 
 ```
 {
     "QueryText": "Starbucks",
     "BiasPosition": [
-                -122.741803,
+                -122.741803, 
                  49.002478
             ]
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -144,7 +145,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -153,14 +155,17 @@ curl --request POST \
   --data '{
     "QueryText": "Starbucks",
     "BiasPosition": [
-                -122.741803,
+                -122.741803, 
                 49.002478
             ]
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-text --key ${YourKey} --query-text "Starbucks" --bias-position -122.741803 49.002478
 ```
+
+------

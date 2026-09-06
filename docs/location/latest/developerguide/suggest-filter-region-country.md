@@ -1,21 +1,24 @@
-# Use Suggest and the ability to filter for a region or country
 
-The Suggest API enables completing queries for places or categories of results. The
-results are sorted for most likely to less likely matches. Additionally, you can further
-filter results to specific regions or countries.
+
+# Use Suggest and the ability to filter for a region or country
+<a name="suggest-filter-region-country"></a>
+
+The Suggest API enables completing queries for places or categories of results. The results are sorted for most likely to less likely matches. Additionally, you can further filter results to specific regions or countries.
 
 ## Potential use cases
-
-- **Filter the results:** When performing a
-  search, you can filter by country or only the region in which your business
-  operates.
+<a name="suggest-filter-region-country-potential-use"></a>
++ **Filter the results: **When performing a search, you can filter by country or only the region in which your business operates.
 
 ## Examples
+<a name="suggest-filter-region-country-examples"></a>
 
-Adding a filter by country ensures you only receive the most relevant results. Use
-Filter.IncludeCountries for this.
+Adding a filter by country ensures you only receive the most relevant results. Use Filter.IncludeCountries for this.
 
-Sample request
+### Enable users to filter by country
+<a name="suggest-filter-region-country-examples"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -34,7 +37,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -154,7 +158,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -176,7 +181,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} \
@@ -186,13 +192,15 @@ aws geo-places suggest --key ${YourKey} \
 --additional-features "Core"
 ```
 
-Adding a filter-by-region option for a search limits results to only those which fit
-within the provided region. This is used to limit the scope of the search to the region
-that concerns your business. The following example shows a misspelled search for
-Marriott hotels near the Boston area being completed with some hotel results and a
-follow-up query.
+------
 
-Sample request
+Adding a filter-by-region option for a search limits results to only those which fit within the provided region. This is used to limit the scope of the search to the region that concerns your business. The following example shows a misspelled search for Marriott hotels near the Boston area being completed with some hotel results and a follow-up query.
+
+## Enable users to filter by region
+<a name="suggest-filter-region-examples"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -212,7 +220,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -323,7 +332,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -346,7 +356,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} \
@@ -355,9 +366,9 @@ aws geo-places suggest --key ${YourKey} \
 --additional-features "Core"
 ```
 
-## Developer tips
+------
 
-Display search results using the `Title` response field to provide
-users with concise, recognizable entries. For results that might look similar, use
-the `Place.Address.Label` field to show additional address details that
-help users distinguish between them. For more information, see [How to help users disambiguate between similar results](suggest-disambiguate-results.md "suggest-disambiguate-results.md").
+## Developer tips
+<a name="suggest-filter-region-developer-tips"></a>
+
+Display search results using the `Title` response field to provide users with concise, recognizable entries. For results that might look similar, use the `Place.Address.Label` field to show additional address details that help users distinguish between them. For more information, see [How to help users disambiguate between similar results](suggest-disambiguate-results.md).

@@ -1,26 +1,25 @@
-# How to complete an address with filters
 
-The Autocomplete API enables you to complete partially typed addresses, facilitating
-quick and standardized address input for end users. By using the
-`AdditionalFeatures` parameter, you can customize the information
-provided in the response to meet specific requirements.
+
+# How to complete an address with filters
+<a name="how-to-complete-address-with-filters"></a>
+
+The Autocomplete API enables you to complete partially typed addresses, facilitating quick and standardized address input for end users. By using the `AdditionalFeatures` parameter, you can customize the information provided in the response to meet specific requirements.
 
 ## Potential use cases
-
-- **Minimize data for cost efficiency:** Reduce
-  response size and data transfer costs by requesting only essential address
-  components when a follow-up query is anticipated.
-- **Include necessary details for direct use:**
-  Retrieve comprehensive address information to eliminate the need for
-  additional queries.
+<a name="potential-use"></a>
++ **Minimize data for cost efficiency:** Reduce response size and data transfer costs by requesting only essential address components when a follow-up query is anticipated.
++ **Include necessary details for direct use:** Retrieve comprehensive address information to eliminate the need for additional queries.
 
 ## Examples
+<a name="autocomplete-address-examples"></a>
 
-This example applies a country filter to refine results, enabling a
-standardized form of the user-inputted address to populate form fields
-accurately.
+### Complete address with country filter
+<a name="autocomplete-country-filter"></a>
 
-Sample request
+This example applies a country filter to refine results, enabling a standardized form of the user-inputted address to populate form fields accurately.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -33,7 +32,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -120,7 +120,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -136,18 +137,23 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places autocomplete --key ${YourKey} --query-text "100 McCullum Rd" \
 --filter '{"IncludeCountries": ["GBR"]}'
 ```
 
-This example returns additional data, allowing the returned address
-details to be used without a follow-up query. The `Core` set of
-additional features is sufficient for this use case.
+------
 
-Sample request
+### Complete address with additional data
+<a name="autocomplete-additional-data"></a>
+
+This example returns additional data, allowing the returned address details to be used without a follow-up query. The `Core` set of additional features is sufficient for this use case.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -163,7 +169,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -250,7 +257,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -269,10 +277,13 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places autocomplete --key ${YourKey} --query-text "100 McCullum Rd" \
 --additional-features "Core" \
 --filter '{"IncludeCountries": ["GBR"]}'
 ```
+
+------

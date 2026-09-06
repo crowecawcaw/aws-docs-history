@@ -1,20 +1,23 @@
-# How to get address translations
 
-`AddressTranslations` allows you to retrieve all name translations and
-alternative names for address components in all available languages. You specify which
-address components to translate using the `AddressTranslations` request
-parameter.
+
+# How to get address translations
+<a name="how-to-geocode-translations"></a>
+
+`AddressTranslations` allows you to retrieve all name translations and alternative names for address components in all available languages. You specify which address components to translate using the `AddressTranslations` request parameter.
 
 ## Potential use cases
-
-- **Multilingual applications:** Display address
-  components in multiple languages for international users.
-- **Localization:** Show both local-language and
-  user-preferred-language names for cities and regions.
+<a name="geocode-translations-use"></a>
++ **Multilingual applications:** Display address components in multiple languages for international users.
++ **Localization:** Show both local-language and user-preferred-language names for cities and regions.
 
 ## Examples
+<a name="geocode-translations-example"></a>
 
-Sample request
+### Get translations for locality and region
+<a name="geocode-translations-city-region"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -23,7 +26,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -80,7 +84,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -92,21 +97,17 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "1 Rue de Rivoli, Paris" --address-translations Locality Region
 ```
 
-## Developer tips
+------
 
-- Valid values for `AddressTranslations` are
-  `District`, `Locality`, `Region`,
-  and `SubRegion`.
-- Each translation includes a `Type` field indicating
-  the kind of name variant: `BaseName` (official name),
-  `Abbreviation`, `Exonym` (translation to
-  another language), `Shortened`, or
-  `Synonym`.
-- The `Primary` field indicates the primary name variant
-  for a given language.
+## Developer tips
+<a name="geocode-translations-dev-tips"></a>
++ Valid values for `AddressTranslations` are `District`, `Locality`, `Region`, and `SubRegion`.
++ Each translation includes a `Type` field indicating the kind of name variant: `BaseName` (official name), `Abbreviation`, `Exonym` (translation to another language), `Shortened`, or `Synonym`.
++ The `Primary` field indicates the primary name variant for a given language.

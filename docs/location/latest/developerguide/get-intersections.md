@@ -1,23 +1,23 @@
-# How to get intersections
 
-`Intersections` allows you to retrieve all nearby intersections. This can
-potentially be used by emergency services and delivery couriers.
+
+# How to get intersections
+<a name="get-intersections"></a>
+
+`Intersections` allows you to retrieve all nearby intersections. This can potentially be used by emergency services and delivery couriers. 
 
 ## Potential use cases
-
-- **Emergency response:** Emergency response
-  vehicles often need to identify nearby intersections for optimal positioning
-  when responding to calls. This allows them to maintain clear access routes
-  and faster response times, while ensuring visibility from multiple
-  approaches.
-- **Delivery couriers:** Delivery couriers can
-  utilize intersection data to find more efficient parking spots, especially
-  in dense urban areas where door-to-door parking may be limited or
-  restricted.
+<a name="get-intersections-use"></a>
++ **Emergency response:** Emergency response vehicles often need to identify nearby intersections for optimal positioning when responding to calls. This allows them to maintain clear access routes and faster response times, while ensuring visibility from multiple approaches. 
++ **Delivery couriers:** Delivery couriers can utilize intersection data to find more efficient parking spots, especially in dense urban areas where door-to-door parking may be limited or restricted.
 
 ## Example
+<a name="get-intersections-example"></a>
 
-Sample request
+### Get secondary addresses
+<a name="get-secondary-addresses-intersections"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -26,7 +26,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -152,7 +153,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -164,8 +166,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "910 Beach Avenue, Vancouver" --additional-features "Intersections"
 ```
+
+------

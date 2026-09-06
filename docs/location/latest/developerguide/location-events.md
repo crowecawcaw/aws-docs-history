@@ -1,127 +1,98 @@
+
+
 # React to Amazon Location Service events with Amazon EventBridge
+<a name="location-events"></a>
 
-Amazon EventBridge is a serverless event bus that efficiently connects applications together using
-data from AWS services like Amazon Location. EventBridge receives events from Amazon Location and routes that
-data to targets like AWS Lambda. You can set up routing rules to determine where to send your
-data to build application architectures that react in real time.
+Amazon EventBridge is a serverless event bus that efficiently connects applications together using data from AWS services like Amazon Location. EventBridge receives events from Amazon Location and routes that data to targets like AWS Lambda. You can set up routing rules to determine where to send your data to build application architectures that react in real time.
 
-Only geofence events (`ENTER` and `EXIT` events, as devices enter or
-leave the geofenced areas) are sent to EventBridge by default. You can also enable all filtered
-position update events for a tracker resource. For more information, see [Enable update events for a tracker](#enable-update-events "#enable-update-events").
+Only geofence events (`ENTER` and `EXIT` events, as devices enter or leave the geofenced areas) are sent to EventBridge by default. You can also enable all filtered position update events for a tracker resource. For more information, see [Enable update events for a tracker](#enable-update-events).
 
-For more information, see [the Events and
-Event Patterns](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in _the Amazon EventBridge User
-Guide_.
+For more information, see [the Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in *the Amazon EventBridge User Guide*.
 
-###### Topics
-
-- [Enable update events for a tracker](#enable-update-events "#enable-update-events")
-- [Create event rules for Amazon Location](#create-event-rule "#create-event-rule")
-- [Amazon EventBridge event examples for Amazon Location Service](#example-event "#example-event")
+**Topics**
++ [Enable update events for a tracker](#enable-update-events)
++ [Create event rules for Amazon Location](#create-event-rule)
++ [Amazon EventBridge event examples for Amazon Location Service](#example-event)
 
 ## Enable update events for a tracker
+<a name="enable-update-events"></a>
 
-By default, Amazon Location sends only `ENTER` and `EXIT` geofence
-events to EventBridge. You can enable all filtered position `UPDATE` events for a
-tracker to be sent to EventBridge. You can do this when you [create](../APIReference/API_WaypointTracking_CreateTracker.md "../APIReference/API_WaypointTracking_CreateTracker.md") or [update](../APIReference/API_WaypointTracking_UpdateTracker.md "../APIReference/API_WaypointTracking_UpdateTracker.md") a tracker.
+By default, Amazon Location sends only `ENTER` and `EXIT` geofence events to EventBridge. You can enable all filtered position `UPDATE` events for a tracker to be sent to EventBridge. You can do this when you [create](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_CreateTracker.html) or [update](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_UpdateTracker.html) a tracker.
 
-For example, to update an existing tracker using the AWS CLI, you can use the following
-command (use the name of your tracker resource in place of
-`MyTracker`).
+For example, to update an existing tracker using the AWS CLI, you can use the following command (use the name of your tracker resource in place of {{MyTracker}}).
 
 ```
-aws location update-tracker --tracker-name `MyTracker` --event-bridge-enabled
+aws location update-tracker --tracker-name {{MyTracker}} --event-bridge-enabled
 ```
 
-To turn off position events for a tracker, you must use the API or the Amazon Location Service
-console.
+To turn off position events for a tracker, you must use the API or the Amazon Location Service console.
 
 ## Create event rules for Amazon Location
+<a name="create-event-rule"></a>
 
-You can create [up to 300 rules per event
-bus](../../../eventbridge/latest/userguide/eb-quota.md "../../../eventbridge/latest/userguide/eb-quota.md") in EventBridge to configure actions taken in response to an Amazon Location event.
+You can create [up to 300 rules per event bus](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) in EventBridge to configure actions taken in response to an Amazon Location event. 
 
-For example, you can create a rule for geofence events where a push notification will
-be sent when a phone is detected within a geofenced boundary.
+For example, you can create a rule for geofence events where a push notification will be sent when a phone is detected within a geofenced boundary.
 
 **To create a rule for Amazon Location events**
 
-Using the following values, [create an EventBridge rule](../../../eventbridge/latest/userguide/eb-create-rule-visual.md "../../../eventbridge/latest/userguide/eb-create-rule-visual.md")
-based on Amazon Location events:
+Using the following values, [create an EventBridge rule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-visual.html) based on Amazon Location events:
++ For **Rule type**, choose **Rule with an event pattern**.
++ In the **Event pattern** box, add the following pattern:
 
-- For **Rule type**, choose **Rule with an event
-  pattern**.
-- In the **Event pattern** box, add the following
-  pattern:
-
-```
-{
-  "source": ["aws.geo"],
-  "detail-type": ["Location Geofence Event"]
-}
-```
-
-To create a rule for tracker position updates, you can instead use the
-following pattern:
-
-```
-{
-  "source": ["aws.geo"],
-  "detail-type": ["Location Device Position Event"]
-}
-```
-
-You can optionally specify only `ENTER` or `EXIT` events
-by adding a `detail` tag (if your rule is for tracker position
-updates, there is only a single `EventType`, so there is no need to
-filter on it):
-
-```
-{
-  "source": ["aws.geo"],
-  "detail-type": ["Location Geofence Event"],
-  "detail": {
-    "EventType": ["ENTER"]
+  ```
+  {
+    "source": ["aws.geo"],
+    "detail-type": ["Location Geofence Event"]
   }
-}
-```
+  ```
 
-You can also optionally filter on properties of the position or
-geofence:
+  To create a rule for tracker position updates, you can instead use the following pattern:
 
-```
-{
-  "source": ["aws.geo"],
-  "detail-type": ["Location Geofence Event"],
-  "detail": {
-    "EventType": ["ENTER"],
-    "GeofenceProperties": {
-      "Type": "LoadingDock"
-    },
-    "PositionProperties": {
-      "VehicleType": "Truck"
+  ```
+  {
+    "source": ["aws.geo"],
+    "detail-type": ["Location Device Position Event"]
+  }
+  ```
+
+  You can optionally specify only `ENTER` or `EXIT` events by adding a `detail` tag (if your rule is for tracker position updates, there is only a single `EventType`, so there is no need to filter on it):
+
+  ```
+  {
+    "source": ["aws.geo"],
+    "detail-type": ["Location Geofence Event"],
+    "detail": {
+      "EventType": ["ENTER"]
     }
   }
-}
-```
+  ```
 
-- For **Select targets**, choose the target action to take when
-  an event is received from Amazon Location Service.
+  You can also optionally filter on properties of the position or geofence:
 
-For example, use an Amazon Simple Notification Service (SNS) topic to send an email or text message
-when an event occurs. You first need to create an Amazon SNS topic using the Amazon SNS
-console. For more information, see [Using Amazon SNS for user
-notifications](../../../sns/latest/dg/sns-user-notifications.md "../../../sns/latest/dg/sns-user-notifications.md").
+  ```
+  {
+    "source": ["aws.geo"],
+    "detail-type": ["Location Geofence Event"],
+    "detail": {
+      "EventType": ["ENTER"],
+      "GeofenceProperties": {
+        "Type": "LoadingDock"
+      },
+      "PositionProperties": {
+        "VehicleType": "Truck"
+      }
+    }
+  }
+  ```
++ For **Select targets**, choose the target action to take when an event is received from Amazon Location Service.
 
-###### Warning
+  For example, use an Amazon Simple Notification Service (SNS) topic to send an email or text message when an event occurs. You first need to create an Amazon SNS topic using the Amazon SNS console. For more information, see [Using Amazon SNS for user notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-user-notifications.html).
 
-It's best practice to confirm that the event rule was successfully applied or your
-automated action may not initiate as expected. To verify your event rule, initiate
-conditions for the event rule. For example, simulate a device entering a geofenced
-area.
+**Warning**  
+It's best practice to confirm that the event rule was successfully applied or your automated action may not initiate as expected. To verify your event rule, initiate conditions for the event rule. For example, simulate a device entering a geofenced area. 
 
-You can also capture all events from Amazon Location, by just excluding the
-`detail-type` section. For example:
+You can also capture all events from Amazon Location, by just excluding the `detail-type` section. For example:
 
 ```
 {
@@ -131,15 +102,13 @@ You can also capture all events from Amazon Location, by just excluding the
 }
 ```
 
-###### Note
-
-The same event may be delivered more than one time. You can use the event id to
-de-duplicate the events that you receive.
+**Note**  
+The same event may be delivered more than one time. You can use the event id to de-duplicate the events that you receive.
 
 ## Amazon EventBridge event examples for Amazon Location Service
+<a name="example-event"></a>
 
-The following is an example of an event for entering a geofence initiated by calling
-`BatchUpdateDevicePosition`.
+The following is an example of an event for entering a geofence initiated by calling `BatchUpdateDevicePosition`.
 
 ```
 {
@@ -178,8 +147,7 @@ The following is an example of an event for entering a geofence initiated by cal
 }
 ```
 
-The following is an example of an event for exiting a geofence initiated by calling
-`BatchUpdateDevicePosition`.
+The following is an example of an event for exiting a geofence initiated by calling `BatchUpdateDevicePosition`.
 
 ```
 {
@@ -218,8 +186,7 @@ The following is an example of an event for exiting a geofence initiated by call
 }
 ```
 
-The following is an example of an event for a position update, initiated by calling
-`BatchUpdateDevicePosition`.
+The following is an example of an event for a position update, initiated by calling `BatchUpdateDevicePosition`.
 
 ```
 {

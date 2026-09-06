@@ -1,26 +1,26 @@
+
+
 # How to search nearby places based on category
+<a name="how-to-search-nearby-category"></a>
 
-The SearchNearby API enables querying for points of interest (POI) with the inclusion
-or exclusion of specified categories. This can help users explore neighborhoods,
-discover local POIs, and more. The API requires a `QueryPosition`, which can
-be based on a device's location, IP position, or the center of the map viewport.
-Alternatively, users can specify a city or place, and the application will bias results
-based on that location’s coordinates.
+The SearchNearby API enables querying for points of interest (POI) with the inclusion or exclusion of specified categories. This can help users explore neighborhoods, discover local POIs, and more. The API requires a `QueryPosition`, which can be based on a device's location, IP position, or the center of the map viewport. Alternatively, users can specify a city or place, and the application will bias results based on that location’s coordinates.
 
-To learn more about supported categories, see [Categories filters](places-filtering.md#place-categories "places-filtering.md#place-categories").
+To learn more about supported categories, see [Categories filters](places-filtering.md#place-categories).
 
 ## Potential use cases
-
-- **Explore local facilities:** Find available
-  facilities within a neighborhood.
-- **Discover tourist attractions:** Identify
-  tourist spots within a city.
-- **Plan travel in a city:** Organize travel
-  around different POIs within a chosen city.
+<a name="potential-use"></a>
++ **Explore local facilities:** Find available facilities within a neighborhood.
++ **Discover tourist attractions:** Identify tourist spots within a city.
++ **Plan travel in a city:** Organize travel around different POIs within a chosen city.
 
 ## Examples
+<a name="search-nearby-category-examples"></a>
 
-Sample request
+### Include category
+<a name="include-category"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -34,7 +34,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -132,7 +133,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -150,7 +152,8 @@ curl --request POST \
 }
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-nearby --key ${YourKey} \
@@ -159,7 +162,13 @@ aws geo-places search-nearby --key ${YourKey} \
 --max-results 2
 ```
 
-Sample request
+------
+
+### Exclude category
+<a name="exclude-category"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -173,7 +182,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -319,7 +329,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -336,7 +347,8 @@ curl --request POST \
 }
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-nearby --key ${YourKey} \
@@ -344,3 +356,5 @@ aws geo-places search-nearby --key ${YourKey} \
 --filter '{"ExcludeCategories": ["airport"]}' \
 --max-results 2
 ```
+
+------

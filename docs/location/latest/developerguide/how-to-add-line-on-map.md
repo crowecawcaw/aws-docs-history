@@ -1,18 +1,22 @@
-# How to add a line on the map
 
-With Amazon Location Service, you can add both pre-recorded GPS traces as line-strings and real-time
-GPS traces to dynamic maps.
+
+# How to add a line on the map
+<a name="how-to-add-line-on-map"></a>
+
+With Amazon Location Service, you can add both pre-recorded GPS traces as line-strings and real-time GPS traces to dynamic maps.
 
 ## Adding a pre-recorded line
+<a name="add-pre-recorded-line"></a>
 
-In this example, you will add a pre-recorded GPS trace as a GeoJSON (main.js) to
-the dynamic map. To do so, you need to add a source (like GeoJSON) and a layer with
-line styling of your choice to the map.
+In this example, you will add a pre-recorded GPS trace as a GeoJSON (main.js) to the dynamic map. To do so, you need to add a source (like GeoJSON) and a layer with line styling of your choice to the map. 
 
-index.html
+### Pre-recorded line code example
+<a name="web-code-example-pre-recorded-line"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -64,22 +68,20 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
 
-main.js
+------
+#### [ main.js ]
 
 ```
-
 const routeGeoJSON = {
     type: "FeatureCollection",
     features: [
@@ -101,18 +103,22 @@ const routeGeoJSON = {
         }
     ]
 };
-
 ```
+
+------
 
 ## Add a line in real-time
+<a name="add-real-time-line"></a>
 
-In this example, you will simulate adding new GPS coordinates one by one to create
-a real-time GPS trace. This is useful for tracking real-time data updates.
+In this example, you will simulate adding new GPS coordinates one by one to create a real-time GPS trace. This is useful for tracking real-time data updates.
 
-index.html
+### Real-time line code example
+<a name="web-code-example-real-time-line"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -182,22 +188,20 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
 
-main.js
+------
+#### [ main.js ]
 
 ```
-
 const routeGeoJSON = {
     type: "FeatureCollection",
     features: [
@@ -219,18 +223,17 @@ const routeGeoJSON = {
         }
     ]
 };
-
 ```
+
+------
 
 ## Developer tips
+<a name="developer-tips"></a>
 
-**Fitting bounds:** You can fit the line to the map
-bounds by calculating the bounds of the line's coordinates:
+**Fitting bounds:** You can fit the line to the map bounds by calculating the bounds of the line's coordinates:
 
 ```
-
 const coordinates = routeGeoJSON.features[0].geometry.coordinates;
 const bounds = coordinates.reduce((bounds, coord) => bounds.extend(coord), new maplibregl.LngLatBounds(coordinates[0], coordinates[0]));
 map.fitBounds(bounds, { padding: 20 });
-
 ```

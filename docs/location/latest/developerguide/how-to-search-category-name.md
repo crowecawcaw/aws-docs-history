@@ -1,25 +1,28 @@
+
+
 # How to search using category name or food type
+<a name="how-to-search-category-name"></a>
 
-The `SearchText` API enables you to search by name of category such as
-restaurants, schools and more. You can also search by food type.
+The `SearchText` API enables you to search by name of category such as restaurants, schools and more. You can also search by food type.
 
-One way to use the SearchText API is to let end users search by name (category and
-food type) and an application set's bias position. These bias positions can be a device
-position, IP position, or a map‘s view port center. Additionally, end users can provide
-the city name or place and the application can bias results based on
-geo-coordinates.
+One way to use the SearchText API is to let end users search by name (category and food type) and an application set's bias position. These bias positions can be a device position, IP position, or a map‘s view port center. Additionally, end users can provide the city name or place and the application can bias results based on geo-coordinates.
 
-For more information, see [Categories filters](places-filtering.md#place-categories "places-filtering.md#place-categories") and [Food Type filters](places-filtering.md#food-type "places-filtering.md#food-type").
+For more information, see [Categories filters](places-filtering.md#place-categories) and [Food Type filters](places-filtering.md#food-type).
 
 ## Potential use cases
-
-- Search for specific POI or place as a part of exploring a neighborhood.
-- Search for specific tourist spot for travel planning.
-- Search for restaurants that serve a specific food.
+<a name="potential-use-category-name"></a>
++ Search for specific POI or place as a part of exploring a neighborhood. 
++ Search for specific tourist spot for travel planning.
++ Search for restaurants that serve a specific food.
 
 ## Examples
+<a name="search-category-examples"></a>
 
-Sample request
+### Search on a category
+<a name="search-category-result"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -27,11 +30,12 @@ Sample request
     "BiasPosition": [
                 -123.11336,
                 49.26038
-            ],
+            ],    
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -147,7 +151,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -162,17 +167,22 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-text --key ${YourKey} --query-text "Nursing Home" --bias-position -123.11336 49.26038
 ```
 
-Specify a food type for `QueryText` to select restaurants by
-food type. Filtering by food type enables restaurants to be indexed,
-queried, and displayed by food type.
+------
 
-Sample request
+### Search on a food type
+<a name="search-food-result"></a>
+
+Specify a food type for `QueryText` to select restaurants by food type. Filtering by food type enables restaurants to be indexed, queried, and displayed by food type.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -184,7 +194,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -342,7 +353,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -357,8 +369,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-text --key ${YourKey} --query-text "Sushi" --bias-position -123.11336 49.26038
 ```
+
+------

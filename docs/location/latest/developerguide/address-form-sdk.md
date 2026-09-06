@@ -1,82 +1,87 @@
+
+
 # Address Form SDK
+<a name="address-form-sdk"></a>
 
 The Address Form SDK streamlines building smart address-entry forms. Address forms built with the SDK provide relevant address suggestions as users begin typing. When a user selects a suggestion, an address form automatically fills in fields such as city, state, and postal code. This reduces errors and speeds up data entry by minimizing manual input. Users can also preview the selected address on a map and adjust its location pin to indicate specific entrances or pick-up locations, significantly improving accuracy.
 
-![Address Form SDK demonstration showing autocomplete functionality](/images/location/latest/developerguide/images/address-form-demo.gif)
+![Address Form SDK demonstration showing autocomplete functionality](http://docs.aws.amazon.com/location/latest/developerguide/images/address-form-demo.gif)
+
 
 ## Try It
+<a name="address-form-try-it"></a>
 
 ### Demo
+<a name="address-form-demo"></a>
 
-Try the fully functional [address form demo](https://aws-geospatial.github.io/address-form-sdk-js/ "https://aws-geospatial.github.io/address-form-sdk-js/").
+Try the fully functional [address form demo](https://aws-geospatial.github.io/address-form-sdk-js/). 
 
 ### Build It Yourself
+<a name="address-form-builder"></a>
 
-Jump to [Getting Started](#address-form-getting-started "#address-form-getting-started") to begin implementing address forms using the Address Form SDK, or try the no-code approach with the Location Service’s WYSIWYG [Address Form Builder wizard](https://console.aws.amazon.com/location/solution-builder/home#/address-form "https://console.aws.amazon.com/location/solution-builder/home#/address-form"), powered by this SDK and accessible in the Amazon Location Service console at [https://console.aws.amazon.com/location/](https://console.aws.amazon.com/location/ "https://console.aws.amazon.com/location/"). This interactive wizard lets you create customized forms with predictive suggestions, automatic field population, and flexible layouts. Developers can download ready-to-use packages in React JavaScript, React TypeScript, or standalone HTML/JavaScript for easy integration without writing any code.
+Jump to [Getting Started](#address-form-getting-started) to begin implementing address forms using the Address Form SDK, or try the no-code approach with the Location Service’s WYSIWYG [Address Form Builder wizard](https://console.aws.amazon.com/location/solution-builder/home#/address-form), powered by this SDK and accessible in the Amazon Location Service console at [https://console.aws.amazon.com/location/](https://console.aws.amazon.com/location/). This interactive wizard lets you create customized forms with predictive suggestions, automatic field population, and flexible layouts. Developers can download ready-to-use packages in React JavaScript, React TypeScript, or standalone HTML/JavaScript for easy integration without writing any code.
 
 ## Key Features
+<a name="address-form-features"></a>
 
 Key features of the Address Form SDK include:
-
-- Provides built-in typeahead suggestions for addresses and POIs, speeding up data entry.
-- Enables configurable place-type search (e.g., postal codes, localities) for more precise results.
-- Offers automatic browser location detection to quickly center users on their current area.
-- Displays built-in map visualizations for greater clarity and context.
-- Allows address locations to be adjusted on the map without losing the system-provided location, ensuring both accuracy and control.
-- Includes a WYSIWYG builder tool that requires no coding, saving time and effort.
-- Implements debouncing and caching for typeahead APIs to optimize performance and reduce costs.
-- Supports style customization to match your application's brand and user experience.
++ Provides built-in typeahead suggestions for addresses and POIs, speeding up data entry.
++ Enables configurable place-type search (e.g., postal codes, localities) for more precise results.
++ Offers automatic browser location detection to quickly center users on their current area.
++ Displays built-in map visualizations for greater clarity and context.
++ Allows address locations to be adjusted on the map without losing the system-provided location, ensuring both accuracy and control.
++ Includes a WYSIWYG builder tool that requires no coding, saving time and effort.
++ Implements debouncing and caching for typeahead APIs to optimize performance and reduce costs.
++ Supports style customization to match your application's brand and user experience.
 
 It uses the following Amazon Location Service API operations to provide address information to address forms:
 
-**[GetTile](../APIReference/API_geomaps_GetTile.md "../APIReference/API_geomaps_GetTile.md")**
-
+**[GetTile](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetTile.html)**  
 Retrieves map tiles for rendering the interactive map to visualize the location of the address and adjust the position of an address.
 
-**[Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md")**
-
+**[Autocomplete](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Autocomplete.html)**  
 Provides real-time address suggestions as users type.
 
-**[Suggest](../APIReference/API_geoplaces_Suggest.md "../APIReference/API_geoplaces_Suggest.md")**
-
+**[Suggest](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Suggest.html)**  
 Provides real-time address and POI suggestions as users type.
 
-**[ReverseGeocode](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md")**
-
+**[ReverseGeocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html)**  
 Converts a user's current location to the nearest known address address if they choose to auto-fill their address based on their current location.
 
-**[GetPlace](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md")**
-
+**[GetPlace](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html)**  
 Retrieves detailed place information for selected addresses after selecting an address from the results of the Autocomplete or Suggest API.
 
 ## Pricing
+<a name="address-form-pricing"></a>
 
-The SDK is free and [open sourced](https://github.com/aws-geospatial/address-form-sdk-js "https://github.com/aws-geospatial/address-form-sdk-js") under the Apache-2.0 license. You only pay for API usage. Please consult the [Amazon Location Service pricing page](https://aws.amazon.com/location/pricing/ "https://aws.amazon.com/location/pricing/").
+The SDK is free and [open sourced](https://github.com/aws-geospatial/address-form-sdk-js) under the Apache-2.0 license. You only pay for API usage. Please consult the [Amazon Location Service pricing page](https://aws.amazon.com/location/pricing/).
 
 ## Getting Started
+<a name="address-form-getting-started"></a>
 
 The Address Form SDK can be used within a React app or in a standalone HTML and JavaScript page. Get started by following the instructions below.
 
 ### Prerequisites
+<a name="address-form-prerequisites"></a>
 
-###### Note
-
-The Address Form SDK requires an API key with the required permissions to work properly. Create an API key with the following permissions using the [Address Form SDK Builder wizard](https://console.aws.amazon.com/location/solution-builder/home#/address-form "https://console.aws.amazon.com/location/solution-builder/home#/address-form") in Amazon Location Service console, or follow the instructions below to create it manually.
+**Note**  
+The Address Form SDK requires an API key with the required permissions to work properly. Create an API key with the following permissions using the [Address Form SDK Builder wizard](https://console.aws.amazon.com/location/solution-builder/home#/address-form) in Amazon Location Service console, or follow the instructions below to create it manually.
 
 Use of the Address Form SDK requires the following actions to be allowed in the API key policy:
++ `geo-maps:GetTile` - This is required when displaying the map component. See the [GetTile](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetTile.html) API reference.
++ `geo-places:Autocomplete` - This is required when using the `Autocomplete` operation for typeahead functionality. See the [Autocomplete](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Autocomplete.html) API reference.
++ `geo-places:Suggest` - This is required when using the `Suggest` operation for typeahead functionality. See the [Suggest](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Suggest.html) API reference.
++ `geo-places:ReverseGeocode` - This is required when allowing users to provide their current location using browsers' geolocation API. See the [ReverseGeocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html) API reference.
++ `geo-places:GetPlace` - This is required when using the typeahead functionality. See the [GetPlace](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html) API reference.
 
-- `geo-maps:GetTile` - This is required when displaying the map component. See the [GetTile](../APIReference/API_geomaps_GetTile.md "../APIReference/API_geomaps_GetTile.md") API reference.
-- `geo-places:Autocomplete` - This is required when using the `Autocomplete` operation for typeahead functionality. See the [Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md") API reference.
-- `geo-places:Suggest` - This is required when using the `Suggest` operation for typeahead functionality. See the [Suggest](../APIReference/API_geoplaces_Suggest.md "../APIReference/API_geoplaces_Suggest.md") API reference.
-- `geo-places:ReverseGeocode` - This is required when allowing users to provide their current location using browsers' geolocation API. See the [ReverseGeocode](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md") API reference.
-- `geo-places:GetPlace` - This is required when using the typeahead functionality. See the [GetPlace](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") API reference.
+Follow the [Use API Keys to authenticate](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html) guide to create an Amazon Location Service API key with the necessary permissions.
 
-Follow the [Use API Keys to authenticate](using-apikeys.md "using-apikeys.md") guide to create an Amazon Location Service API key with the necessary permissions.
+Example key policy for the [CreateKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_CreateKey.html) API with required permissions:
 
-Example key policy for the [CreateKey](../APIReference/API_geoapikeys_CreateKey.md "../APIReference/API_geoapikeys_CreateKey.md") API with required permissions:
+#### CreateKey request for Address Form permissions
+<a name="createkey-example"></a>
 
 ```
-
 {
   "KeyName": "ExampleKey",
   "ExpireTime": "YYYY-MM-DDThh:mm:ss.sss",
@@ -94,17 +99,17 @@ Example key policy for the [CreateKey](../APIReference/API_geoapikeys_CreateKey.
     ]
   }
 }
-
 ```
 
 ### Installation
+<a name="address-form-installation"></a>
 
 #### HTML/JavaScript
+<a name="address-form-html-js-install"></a>
 
 Include the following CSS and JavaScript for the SDK in your HTML code
 
 ```
-
 ...
 <head>
 ...
@@ -120,35 +125,33 @@ href="https://cdn.jsdelivr.net/npm/@aws/address-form-sdk-js/dist/standalone/addr
 <script src="https://cdn.jsdelivr.net/npm/@aws/address-form-sdk-js/dist/standalone/address-form-sdk.umd.js"></script>
 </body>
 ...
-
 ```
 
 #### React
+<a name="address-form-react-install"></a>
 
 Install the SDK from npm: `npm install @aws/address-form-sdk-js`
 
 ### Use the SDK
+<a name="address-form-use-sdk"></a>
 
 Add the following code to your React app. Update `AMAZON_LOCATION_API_KEY` with your API key and `AMAZON_LOCATION_REGION` with the region where the API key was created. When the form is submitted, the `onSubmit` callback provides a `getData` async function. Call this function with an `intendedUse` value to retrieve the form data.
 
 ```
-
 onSubmit: async (getData) => {
   const data = await getData({
     intendedUse: "SingleUse", // or "Storage"
   });
 };
-
 ```
 
-###### Note
+**Note**  
+Use `"Storage"` if you need to store or cache the results. This ensures compliance with Amazon Location Service [intended use requirements](https://docs.aws.amazon.com/location/latest/developerguide/places-intended-use.html).
 
-Use `"Storage"` if you need to store or cache the results. This ensures compliance with Amazon Location Service [intended use requirements](places-intended-use.md "places-intended-use.md").
-
-HTML/JavaScript
+------
+#### [ HTML/JavaScript ]
 
 ```
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -202,13 +205,12 @@ script src="https://cdn.jsdelivr.net/npm/@aws/address-form-sdk-js/dist/standalon
     </script>
   </body>
 </html>
-
 ```
 
-React
+------
+#### [ React ]
 
 ```
-
 import React from 'react';
 import { AddressForm, Flex } from "@aws/address-form-sdk-js";
 
@@ -278,30 +280,33 @@ export default function App() {
     </AddressForm>
   );
 }
-
 ```
 
+------
+
 ## Supported Countries
+<a name="address-form-supported-countries"></a>
 
 The Address Form SDK supports auto-filling addresses globally using Amazon Location Service. The following countries have full support with address field parsing, where each address component is populated into its respective field:
-
-- Australia (AU)
-- Canada (CA)
-- France (FR)
-- Hong Kong (HK)
-- Ireland (IE)
-- New Zealand (NZ)
-- Philippines (PH)
-- Singapore (SG)
-- United Kingdom (GB)
-- United States (US)
++ Australia (AU)
++ Canada (CA)
++ France (FR)
++ Hong Kong (HK)
++ Ireland (IE)
++ New Zealand (NZ)
++ Philippines (PH)
++ Singapore (SG)
++ United Kingdom (GB)
++ United States (US)
 
 All other countries are in Preview status. Preview countries display the complete address in `addressLineOne` field without country-specific formatting. Future releases will improve this behavior and you can access these improvements by using the latest version of the SDK.
 
 ## Supported AWS Regions
+<a name="address-form-supported-aws-regions"></a>
 
-The Address Form SDK and Address Form Builder wizard are available in all AWS regions where Amazon Location Service operates, using the `Current` version of its APIs. View the complete list of supported regions in [Amazon Location supported regions](location-regions.md "location-regions.md").
+The Address Form SDK and Address Form Builder wizard are available in all AWS regions where Amazon Location Service operates, using the `Current` version of its APIs. View the complete list of supported regions in [Amazon Location supported regions](https://docs.aws.amazon.com/location/latest/developerguide/location-regions.html).
 
 ## API Reference
+<a name="address-form-api-reference"></a>
 
-Refer to [README API Reference](https://github.com/aws-geospatial/address-form-sdk-js#api-reference "https://github.com/aws-geospatial/address-form-sdk-js#api-reference").
+Refer to [README API Reference](https://github.com/aws-geospatial/address-form-sdk-js#api-reference).

@@ -1,24 +1,27 @@
+
+
 # How to search for contact and opening hours
+<a name="how-to-search-opening-hours"></a>
 
-The `SearchText` API enables you to search for contacts and opening hours
-of a POI (Point of Interest).
+The `SearchText` API enables you to search for contacts and opening hours of a POI (Point of Interest).
 
-One way to use the SearchText API is to get the contact information for a location
-(phone number, website, email) and opening hours by searching with business name and
-bias position. These bias positions can be a device position, IP position, map‘s view
-port center. Another way is to let end users provide the city name or place name and the
-application can bias results based on the geo-coordinates.
+One way to use the SearchText API is to get the contact information for a location (phone number, website, email) and opening hours by searching with business name and bias position. These bias positions can be a device position, IP position, map‘s view port center. Another way is to let end users provide the city name or place name and the application can bias results based on the geo-coordinates.
 
-For more information, see [Contacts and opening hours](contacts-opening-hours.md "contacts-opening-hours.md").
+For more information, see [Contacts and opening hours](contacts-opening-hours.md).
 
 ## Potential use cases
+<a name="potential-use-opening-hours"></a>
 
-You can use the `SearchText` API to filter on contacts and opening
-hours.
+You can use the `SearchText` API to filter on contacts and opening hours.
 
 ## Examples
+<a name="search-opening-hours-examples"></a>
 
-Sample request
+### Search by category name
+<a name="search-category-name"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -28,11 +31,12 @@ Sample request
                 49.26038
             ],
         "AdditionalFeatures":["Contact"]
-
+    
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -506,7 +510,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -518,14 +523,17 @@ curl --request POST \
                 -123.11336,
                 49.26038
        ],
-    "AdditionalFeatures":["Contact"]
+    "AdditionalFeatures":["Contact"]    
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-text --key ${YourKey} --query-text "Nursing Home" \
 --bias-position -123.11336 49.26038 \
 --additional-features "Contact"
 ```
+
+------

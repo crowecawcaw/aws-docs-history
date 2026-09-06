@@ -1,25 +1,29 @@
-# How to get administrative address names
 
-Use the `address-names-mode` query parameter set to
-`Administrative` to return official administrative names for address
-components. `Administrative` currently applies only to addresses in the
-United States.
+
+# How to get administrative address names
+<a name="how-to-get-place-address-names-mode"></a>
+
+Use the `address-names-mode` query parameter set to `Administrative` to return official administrative names for address components. `Administrative` currently applies only to addresses in the United States.
 
 ## Potential use cases
-
-- **Address standardization:** Normalize
-  city names to their official administrative form when displaying place
-  details.
+<a name="get-place-address-names-mode-use"></a>
++ **Address standardization:** Normalize city names to their official administrative form when displaying place details.
 
 ## Examples
+<a name="get-place-address-names-mode-example"></a>
 
-Sample request
+### Use Administrative mode
+<a name="get-place-address-names-mode-admin"></a>
+
+------
+#### [ Sample request ]
 
 ```
 https://places.geo.eu-central-1.amazonaws.com/v2/place/YourPlaceId?address-names-mode=Administrative&key=Your_Key
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -33,15 +37,19 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request GET \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/YourPlaceId?address-names-mode=Administrative&key=Your_Key'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places get-place --key ${YourKey} --place-id "YourPlaceId" --address-names-mode Administrative
 ```
+
+------

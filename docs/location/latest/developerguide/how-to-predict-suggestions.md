@@ -1,17 +1,22 @@
-# How to predict suggestions based on input
 
-The Suggest API enables applications to complete user queries for places or categories
-of results. These suggestions can be used directly or refined further with the
-SearchText API to retrieve additional details and results.
+
+# How to predict suggestions based on input
+<a name="how-to-predict-suggestions"></a>
+
+The Suggest API enables applications to complete user queries for places or categories of results. These suggestions can be used directly or refined further with the SearchText API to retrieve additional details and results.
 
 ## Potential use cases
-
-- **Restaurant or park lookup:** Locate
-  restaurants, parks, or other places near a specific position.
+<a name="potential-use"></a>
++ **Restaurant or park lookup:** Locate restaurants, parks, or other places near a specific position.
 
 ## Examples
+<a name="suggest-api-examples"></a>
 
-Sample request
+### Look up restaurants near a position
+<a name="lookup-restaurants"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -21,7 +26,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -48,7 +54,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -61,7 +68,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} \
@@ -70,7 +78,13 @@ aws geo-places suggest --key ${YourKey} \
 --additional-features "Core"
 ```
 
-Sample request
+------
+
+### Look up locations of a chain near a position
+<a name="lookup-chain-locations"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -80,7 +94,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -107,7 +122,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -120,7 +136,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} \
@@ -129,7 +146,13 @@ aws geo-places suggest --key ${YourKey} \
 --additional-features "Core"
 ```
 
-Sample request (SearchText)
+------
+
+### Complete a query using a QueryId
+<a name="complete-query-queryid"></a>
+
+------
+#### [ Sample request (SearchText) ]
 
 ```
 {
@@ -138,7 +161,8 @@ Sample request (SearchText)
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -363,7 +387,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -375,7 +400,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} \
@@ -383,11 +409,12 @@ aws geo-places suggest --key ${YourKey} \
 --additional-features "Core"
 ```
 
-## Developer tips
+------
 
-Use filters such as `Filter.IncludeCountries` or
-`Filter.BoundingBox` with `BiasPosition`. These filters
-apply to subsequent queries using the `QueryId`.
+## Developer tips
+<a name="developer-tips"></a>
+
+Use filters such as `Filter.IncludeCountries` or `Filter.BoundingBox` with `BiasPosition`. These filters apply to subsequent queries using the `QueryId`. 
 
 ```
 {

@@ -1,17 +1,22 @@
-# How to add an icon on the map
 
-Amazon Location Service enables you to add icons, preferably in PNG format, to the map. You can add
-icons to specific geolocations and style them as needed.
+
+# How to add an icon on the map
+<a name="how-to-add-icon-on-map"></a>
+
+Amazon Location Service enables you to add icons, preferably in PNG format, to the map. You can add icons to specific geolocations and style them as needed.
 
 ## Add a static icon
+<a name="add-static-icon"></a>
 
-In this example, you will use an external URL to add an icon to the map using a
-symbol layer.
+In this example, you will use an external URL to add an icon to the map using a symbol layer.
 
-index.html
+### Static icon code example
+<a name="web-code-example-static-icon"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,7 +33,7 @@ index.html
         <div id="map"></div>
         <script>
             const apiKey = "<API_KEY>";
-            const mapStyle = "Standard";  // e.g., Standard, Monochrome, Hybrid, Satellite
+            const mapStyle = "Standard";  // e.g., Standard, Monochrome, Hybrid, Satellite  
             const awsRegion = "eu-central-1"; // e.g., us-east-2, us-east-1, us-west-2, etc.
             const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
@@ -70,14 +75,14 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------

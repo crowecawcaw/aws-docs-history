@@ -1,12 +1,20 @@
-# How to show transit details on a map
 
-Amazon Location Service lets you add transit features to maps. The `Transit` `TravelMode` displays routing information for public transit, such as color-coded train lines. Also check how to set [logistics TravelMode](how-to-create-logistic-map.md "how-to-create-logistic-map.md") for additional options.
+
+# How to show transit details on a map
+<a name="how-to-show-transit-details-map"></a>
+
+Amazon Location Service lets you add transit features to maps. The `Transit` `TravelMode` displays routing information for public transit, such as color-coded train lines. Also check how to set [logistics TravelMode](https://docs.aws.amazon.com/location/latest/developerguide/how-to-create-logistic-map.html) for additional options.
 
 ## Create a map with transit details
+<a name="how-to-show-transit-map"></a>
 
 This example shows how to create a map with transit details with Transit TravelMode for public transportation.
 
-index.html
+### Transit example
+<a name="how-to-show-transit-map-code"></a>
+
+------
+#### [ index.html ]
 
 ```
 <!DOCTYPE html>
@@ -37,7 +45,8 @@ index.html
 </html>
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
 body {
@@ -50,3 +59,5 @@ body {
     height: 100vh;
 }
 ```
+
+------

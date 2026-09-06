@@ -1,131 +1,67 @@
+
+
 # Places terminology
+<a name="places-terminology"></a>
 
-This section provides essential definitions to understand core concepts within
-Amazon Location Service Places, such as location data types, geographic boundaries, and filtering
-options. These terms enable accurate use of the Places API capabilities.
+This section provides essential definitions to understand core concepts within Amazon Location Service Places, such as location data types, geographic boundaries, and filtering options. These terms enable accurate use of the Places API capabilities.
 
-**Location**
+**Location**  
+A specific point on Earth's surface, typically defined by geographic coordinates (longitude and latitude). Locations can represent any place or area, such as a city, building, or point of interest.
 
-A specific point on Earth's surface, typically defined by geographic
-coordinates (longitude and latitude). Locations can represent any place or
-area, such as a city, building, or point of interest.
+**Places**  
+Any location that includes administrative areas, addresses, points of interest (POI), geographic areas, and more. Places often have associated information, such as name, address, coordinates, types, business hours, contacts, and categories.
 
-**Places**
+**Address**  
+Includes point-based addresses (like offices, homes), street addresses, and interpolated addresses, providing precise location data.  
+See the definition of *interpolation* below. 
 
-Any location that includes administrative areas, addresses, points of
-interest (POI), geographic areas, and more. Places often have associated
-information, such as name, address, coordinates, types, business hours,
-contacts, and categories.
+**Secondary address**  
+An address that includes secondary designators, such as a suite or unit number, building, or floor information.
 
-**Address**
+**Inferred secondary address**  
+An inferred address that includes secondary designators, such as a suite or unit number, building, or floor information. Inferred secondary addresses are derived from the input query and are not guaranteed to exist.
 
-Includes point-based addresses (like offices, homes), street addresses,
-and interpolated addresses, providing precise location data.
+**Point of Interest (POI)**  
+A POI refers to notable locations, such as businesses (like restaurants, stores) or landmarks (like parks, monuments).
 
-See the definition of _interpolation_
-below.
+**Administrative areas**  
+Regions such as countries, provinces, states, districts, blocks, and postal areas that organize geographical data.
 
-**Secondary address**
+**Geographic area**  
+Areas including cities, localities, and neighborhoods, offering additional levels of granularity in geographical data.
 
-An address that includes secondary designators, such as a suite or unit
-number, building, or floor information.
+**Position**  
+A precise set of coordinates (longitude and latitude) that pinpoints where a place is located on a map.
 
-**Inferred secondary address**
+**Bias position**  
+A reference point in geographic data that helps prioritize search results closer to this location, enhancing relevance in searches.
 
-An inferred address that includes secondary designators, such as a suite or unit number,
-building, or floor information. Inferred secondary addresses are derived from the input query
-and are not guaranteed to exist.
+**Bounding box**  
+A rectangular geographic area defined by southwest and northeast coordinates, used to narrow down searches or display content within the area on a map.
 
-**Point of Interest (POI)**
+**Place type**  
+A classification for places based on function or characteristics. Types include country, region, locality, district, postal area, block, intersection, street address, point address, interpolated address, or POI.
 
-A POI refers to notable locations, such as businesses (like restaurants,
-stores) or landmarks (like parks, monuments).
+**Category**  
+A grouping for businesses and landmarks based on the type of services or activities they offer, such as restaurants, hotels, schools, and parks. Categories make it easier for users to find specific types of POIs in searches.
 
-**Administrative areas**
+**Match score**  
+An indicator of how closely a search result aligns with the input, aiding in determining relevance.
 
-Regions such as countries, provinces, states, districts, blocks, and
-postal areas that organize geographical data.
+**Interpolation**  
+The method of estimating unknown addresses by using known address locations as reference points.
 
-**Geographic area**
+**ISO 3166 country codes**  
+Amazon Location Service Places use International Organization for Standardization (ISO) 3166 country codes for identifying countries or regions. Find the code for each country on the ISO Online Browsing Platform.
 
-Areas including cities, localities, and neighborhoods, offering additional
-levels of granularity in geographical data.
+**Address translations**  
+All name translations and alternative names for the requested address fields in all available languages. Specify which address components to include translations for using the `AddressTranslations` request parameter. Valid values are `District`, `Locality`, `Region`, and `SubRegion`. Available in Geocode.
 
-**Position**
+**Address names mode**  
+Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to `Matched`, address names in the response are based on the input query rather than official names. When set to `Administrative`, the service returns the official administrative names for address components. `Administrative` currently applies only to addresses in the United States. Available in Geocode, Reverse Geocode, and GetPlace.
 
-A precise set of coordinates (longitude and latitude) that pinpoints where
-a place is located on a map.
+**Cross-references**  
+The list of supplier references available for a place, enabling correlation of places across external systems. Requires the `CrossReferences` additional feature to be enabled. Available in GetPlace, SearchText, SearchNearby, and Suggest.
 
-**Bias position**
-
-A reference point in geographic data that helps prioritize search results
-closer to this location, enhancing relevance in searches.
-
-**Bounding box**
-
-A rectangular geographic area defined by southwest and northeast
-coordinates, used to narrow down searches or display content within the area
-on a map.
-
-**Place type**
-
-A classification for places based on function or characteristics. Types
-include country, region, locality, district, postal area, block,
-intersection, street address, point address, interpolated address, or
-POI.
-
-**Category**
-
-A grouping for businesses and landmarks based on the type of services or
-activities they offer, such as restaurants, hotels, schools, and parks.
-Categories make it easier for users to find specific types of POIs in
-searches.
-
-**Match score**
-
-An indicator of how closely a search result aligns with the input, aiding
-in determining relevance.
-
-**Interpolation**
-
-The method of estimating unknown addresses by using known address
-locations as reference points.
-
-**ISO 3166 country codes**
-
-Amazon Location Service Places use International Organization for Standardization (ISO)
-3166 country codes for identifying countries or regions. Find the code for
-each country on the ISO Online Browsing Platform.
-
-**Address translations**
-
-All name translations and alternative names for the requested address
-fields in all available languages. Specify which address components to
-include translations for using the `AddressTranslations`
-request parameter. Valid values are `District`,
-`Locality`, `Region`, and
-`SubRegion`. Available in Geocode.
-
-**Address names mode**
-
-Specifies how address names are returned. If not set, the service returns
-normalized (official) names by default. When set to `Matched`,
-address names in the response are based on the input query rather than
-official names. When set to `Administrative`, the service
-returns the official administrative names for address components.
-`Administrative` currently applies only to addresses in the
-United States. Available in Geocode, Reverse Geocode, and GetPlace.
-
-**Cross-references**
-
-The list of supplier references available for a place, enabling
-correlation of places across external systems. Requires the
-`CrossReferences` additional feature to be enabled. Available
-in GetPlace, SearchText, SearchNearby, and Suggest.
-
-**Travel mode**
-
-Indicates the mode of mobility you are traveling in. This improves
-the relevance of search results. Valid values are
-`Car`, `Scooter`, and `Truck`. Available
-in SearchText and Suggest.
+**Travel mode**  
+Indicates the mode of mobility you are traveling in. This improves the relevance of search results. Valid values are `Car`, `Scooter`, and `Truck`. Available in SearchText and Suggest.

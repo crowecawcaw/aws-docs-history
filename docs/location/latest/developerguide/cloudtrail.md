@@ -1,132 +1,94 @@
+
+
 # Monitor and log with AWS CloudTrail
+<a name="cloudtrail"></a>
 
-AWS CloudTrail is a service that provides a record of actions taken by a user, role, or an AWS
-service. CloudTrail records all API calls as events. You can use Amazon Location Service with CloudTrail to monitor
-your API calls, which include calls from the Amazon Location Service console and AWS SDK calls to the
-Amazon Location Service API operations.
+AWS CloudTrail is a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail records all API calls as events. You can use Amazon Location Service with CloudTrail to monitor your API calls, which include calls from the Amazon Location Service console and AWS SDK calls to the Amazon Location Service API operations. 
 
-CloudTrail is automatically enabled when you create your AWS account. When activity occurs in
-Amazon Location Service, that activity is recorded in a CloudTrail event along with other AWS service events in
-**Event history**. You can view, search, and download event
-history for the past 90 days per AWS Region.
+CloudTrail is automatically enabled when you create your AWS account. When activity occurs in Amazon Location Service, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download event history for the past 90 days per AWS Region.
 
-For more information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md"). There are no CloudTrail charges for viewing the **Event history**.
+For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/). There are no CloudTrail charges for viewing the **Event history**.
 
-For an ongoing records of events in your AWS account past 90 days, including events from
-Amazon Location Service, create a trail or a [CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") data
-store.
+For an ongoing records of events in your AWS account past 90 days, including events from Amazon Location Service, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) data store.
 
 **CloudTrail trails**
 
-A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. When you create a trail in
-AWS Management Console, the trail applies to all AWS Regions. The trail logs events from all regions in
-the AWS Partition and delivers the log files to the S3 bucket that you specify.
-Additionally, you can configure other AWS services to further analyze and act upon the
-event data collected in CloudTrail logs.
+A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. When you create a trail in AWS Management Console, the trail applies to all AWS Regions. The trail logs events from all regions in the AWS Partition and delivers the log files to the S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. 
 
-For more information on how to create a trail, see [Overview
-for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md").
+For more information on how to create a trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html). 
 
-For a list of CloudTrail supported services and integrations, see [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations").
+For a list of CloudTrail supported services and integrations, see [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations).
 
-You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no
-charge from CloudTrail by creating a trail. However, there are Amazon S3 storage charges.
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail. However, there are Amazon S3 storage charges. 
 
-For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-For information about Amazon S3 pricing, see [Amazon S3
-pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+For information about Amazon S3 pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/).
 
 **CloudTrail Lake event data stores**
 
-CloudTrail Lake lets you run SQL-based queries on your events. Events are aggregated into
-_event data stores_, which are immutable collections of
-events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store
-control which events persist and are available for you to query.
+CloudTrail Lake lets you run SQL-based queries on your events. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors). The selectors that you apply to an event data store control which events persist and are available for you to query. 
 
-For more information about CloudTrail Lake, see [Working with AWS CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md").
+For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html).
 
-CloudTrail Lake event data stores and queries incur costs. When you create an event data store,
-you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option
-determines the cost for ingesting and storing events, and the default and maximum retention
-period for the event data store.
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html#cloudtrail-lake-manage-costs-pricing-option) you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. 
 
-For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+For more information about CloudTrail pricing, see [AWS CloudTrail pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-###### Topics
-
-- [Amazon Location management events in CloudTrail](#cloudtrail-management-events "#cloudtrail-management-events")
-- [Amazon Location data events in CloudTrail](#cloudtrail-data-events "#cloudtrail-data-events")
-- [Learn about Amazon Location Service log file entries](#cloudtrail-log-entries "#cloudtrail-log-entries")
-- [Example: CloudTrail log file entry for an Amazon Location management event](#cloudtrail-management-event-example "#cloudtrail-management-event-example")
-- [Example: CloudTrail log file entry for an Amazon Location data event](#cloudtrail-data-event-example "#cloudtrail-data-event-example")
+**Topics**
++ [Amazon Location management events in CloudTrail](#cloudtrail-management-events)
++ [Amazon Location data events in CloudTrail](#cloudtrail-data-events)
++ [Learn about Amazon Location Service log file entries](#cloudtrail-log-entries)
++ [Example: CloudTrail log file entry for an Amazon Location management event](#cloudtrail-management-event-example)
++ [Example: CloudTrail log file entry for an Amazon Location data event](#cloudtrail-data-event-example)
 
 ## Amazon Location management events in CloudTrail
+<a name="cloudtrail-management-events"></a>
 
-You can view Amazon Location management events in your CloudTrail event history. These events
-include all API calls that manage Amazon Location resources and configurations. For a complete
-list of supported actions, refer to the [Amazon Location Service API references](../APIReference/Welcome.md "../APIReference/Welcome.md").
+You can view Amazon Location management events in your CloudTrail event history. These events include all API calls that manage Amazon Location resources and configurations. For a complete list of supported actions, refer to the [Amazon Location Service API references](https://docs.aws.amazon.com/location/latest/APIReference/Welcome.html). 
 
 ## Amazon Location data events in CloudTrail
+<a name="cloudtrail-data-events"></a>
 
-Data events provide information about operations performed directly on a resource.
-These events, also known as data plane operations, can be high-volume. By default, CloudTrail
-does not log data events, and the CloudTrail Event History does not record them. You incur
-additional charges when you enable data events. For more information about CloudTrail pricing,
-see [AWS CloudTrail
-Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+ Data events provide information about operations performed directly on a resource. These events, also known as data plane operations, can be high-volume. By default, CloudTrail does not log data events, and the CloudTrail Event History does not record them. You incur additional charges when you enable data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/). 
 
-You can choose which Amazon Location resource types log data events by using the CloudTrail
-console, AWS CLI, or CloudTrail API operations. For instructions on how to enable and manage
-data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") .
+ You can choose which Amazon Location resource types log data events by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For instructions on how to enable and manage data events, see [ Logging data events with the AWS Management Console ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [ Logging data events with the AWS Command Line Interface ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI). 
 
-The following table lists the Amazon Location resource types for which you can log data
-events:
+The following table lists the Amazon Location resource types for which you can log data events:
 
-Supported Amazon Location Data Events| Data event type (console) | resources.type value | Data APIs logged to CloudTrail |
-| --- | --- | --- |
-| Geo Maps | AWS::GeoMaps::Provider | See the Amazon [GeoMaps API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Maps "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Maps") reference |
-| Geo Places | AWS::GeoPlaces::Provider | See the Amazon [GeoPlaces API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Places "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Places") reference |
-| Geo Routes | AWS::GeoRoutes::Provider | See the Amazon [GeoRoutes API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Routes "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Routes") reference |
 
-###### Note
+**Supported Amazon Location Data Events**  
 
-Amazon Location does not publish CloudTrail events for the following GeoMaps APIs:
-`GetStyleDescriptor`, `GetGlyphs`, and
-`GetSprites`. These APIs are free of charge and do not require
-authentication.
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| Geo Maps | AWS::GeoMaps::Provider | See the Amazon [GeoMaps API](https://docs.aws.amazon.com/location/latest/APIReference/Welcome.html#Welcome_Amazon_Location_Service_Maps) reference | 
+| Geo Places | AWS::GeoPlaces::Provider | See the Amazon [GeoPlaces API](https://docs.aws.amazon.com/location/latest/APIReference/Welcome.html#Welcome_Amazon_Location_Service_Places) reference | 
+| Geo Routes | AWS::GeoRoutes::Provider | See the Amazon [GeoRoutes API](https://docs.aws.amazon.com/location/latest/APIReference/Welcome.html#Welcome_Amazon_Location_Service_Routes) reference | 
 
-You can configure advanced event selectors to filter events by
-`eventName`, `readOnly`, and `resources.ARN`. This
-helps you log only those events that matter to you. For more information, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") .
+**Note**  
+Amazon Location does not publish CloudTrail events for the following GeoMaps APIs: `GetStyleDescriptor`, `GetGlyphs`, and `GetSprites`. These APIs are free of charge and do not require authentication. 
+
+ You can configure advanced event selectors to filter events by `eventName`, `readOnly`, and `resources.ARN`. This helps you log only those events that matter to you. For more information, see [ AdvancedFieldSelector ](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html). 
 
 ## Learn about Amazon Location Service log file entries
+<a name="cloudtrail-log-entries"></a>
 
-When you configure a trail, CloudTrail delivers events as log files to an S3 bucket that
-you specify, or to Amazon CloudWatch Logs. For more information, see [Working with CloudTrail log files](../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md "../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.md") in the AWS CloudTrail User Guide.
+ When you configure a trail, CloudTrail delivers events as log files to an S3 bucket that you specify, or to Amazon CloudWatch Logs. For more information, see [ Working with CloudTrail log files ](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-working-with-log-files.html) in the AWS CloudTrail User Guide. 
 
-CloudTrail log files can contain one or more log entries. Each event entry represents a
-single request from any source and includes details such as the requested operation, the
-date and time of the operation, request parameters, and more.
+ CloudTrail log files can contain one or more log entries. Each event entry represents a single request from any source and includes details such as the requested operation, the date and time of the operation, request parameters, and more. 
 
-###### Note
+**Note**  
+CloudTrail log files are not an ordered stack trace of API calls. They do not appear in chronological order. To determine the order of operations, use `[eventTime](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_Event.html)`. 
 
-CloudTrail log files are not an ordered stack trace of API calls. They do not appear in
-chronological order. To determine the order of operations, use `eventTime`.
-
-Every event or log entry contains information about who made the request. This
-identity information helps you determine:
-
-- Whether the request was made with root or user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  a federated user.
-- Whether the request was made by another AWS service.
+ Every event or log entry contains information about who made the request. This identity information helps you determine: 
++ Whether the request was made with root or user credentials.
++ Whether the request was made with temporary security credentials for a role or a federated user.
++ Whether the request was made by another AWS service.
 
 ## Example: CloudTrail log file entry for an Amazon Location management event
+<a name="cloudtrail-management-event-example"></a>
 
-The following example shows a CloudTrail log entry for the `CreateTracker`
-operation, which creates a tracker resource.
+ The following example shows a CloudTrail log entry for the `CreateTracker` operation, which creates a tracker resource. 
 
 ```
 {
@@ -177,9 +139,9 @@ operation, which creates a tracker resource.
 ```
 
 ## Example: CloudTrail log file entry for an Amazon Location data event
+<a name="cloudtrail-data-event-example"></a>
 
-The following example shows a CloudTrail log entry for the `Geocode` operation,
-which retrieves coordinates, addresses, and other details about a place.
+ The following example shows a CloudTrail log entry for the `Geocode` operation, which retrieves coordinates, addresses, and other details about a place. 
 
 ```
 {

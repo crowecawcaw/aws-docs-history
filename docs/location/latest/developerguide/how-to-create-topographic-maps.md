@@ -1,15 +1,22 @@
+
+
 # How to create topographic maps
+<a name="how-to-create-topographic-maps"></a>
 
 Amazon Location Service allows you to create topographic maps using Terrain and Contour density features to visualize elevation changes and geographic characteristics.
 
 ## Show Hillshade
+<a name="show-hillshade"></a>
 
 The Terrain feature allows you to visualize Hillshade, elevation changes and related geographic features.
 
-index.html
+### Hillshade example
+<a name="hillshade-example"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,26 +43,30 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
 
+------
+
 ## Show elevation with Contour Density lines
+<a name="show-contour-density"></a>
 
 Amazon Location Service allows you to add Contour Density features to your map. This provides visualization of geographic steepness and elevation changes.
 
-index.html
+### Contour Density example
+<a name="contour-density-example"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -75,33 +86,37 @@ index.html
             const map = new maplibregl.Map({
                 container: 'map',
                 style: `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?contour-density=Medium&key=${apiKey}`,
-                center: [-119.3047, 37.7887],
+                center: [-119.3047, 37.7887], 
                 zoom: 12,
                 validateStyle: false, // Disable style validation for faster map load
             });
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
 
+------
+
 ## Show both Hillshade and Contour Density lines
+<a name="show-hillshade-contour"></a>
 
 With Amazon Location Service you to combine both Hillshade and Contour Density features on your map for comprehensive terrain visualization. This provides enhanced depth perception and a complete understanding of topographical variations and terrain characteristics.
 
-index.html
+### Hillshade with Contour Density example
+<a name="hillshade-contour-example"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -128,14 +143,14 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------

@@ -1,21 +1,23 @@
-# How to geocode an administrative and postal area
 
-The Geocode API allows you to perform geocoding for a geographic area using a query
-text input, such as the name of a country, region (state or province), or city. The API
-response includes location details like geographic coordinates, bounding boxes for map
-visualizations, and match scores indicating the result's relevance to the query.
+
+# How to geocode an administrative and postal area
+<a name="how-to-geocode-admin-postal-area"></a>
+
+The Geocode API allows you to perform geocoding for a geographic area using a query text input, such as the name of a country, region (state or province), or city. The API response includes location details like geographic coordinates, bounding boxes for map visualizations, and match scores indicating the result's relevance to the query.
 
 ## Potential use cases
-
-- **Obtain coordinates for an administrative
-  area:** Use coordinates as a bias position or center in other
-  Places APIs.
-- **Visualize information on a map:** Geocoded
-  coordinates can be used to display data visually on a map.
+<a name="goecode-admin-potential-use"></a>
++ **Obtain coordinates for an administrative area:** Use coordinates as a bias position or center in other Places APIs.
++ **Visualize information on a map:** Geocoded coordinates can be used to display data visually on a map.
 
 ## Examples
+<a name="geocode-admin-examples"></a>
 
-Sample request
+### Geocode a Country
+<a name="geocode-country"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -23,7 +25,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -53,7 +56,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -64,13 +68,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places geocode --key ${`YourAPIKey`} --query-text "Canada"
+aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "Canada"
 ```
 
-Sample request
+------
+
+### Geocode a Region
+<a name="geocode-region"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -78,7 +89,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -112,7 +124,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -123,13 +136,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places geocode --key ${`YourAPIKey`} --query-text "BC"
+aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "BC"
 ```
 
-Sample request
+------
+
+### Geocode a City
+<a name="geocode-city"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -137,7 +157,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -176,7 +197,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -187,16 +209,22 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places geocode --key ${`YourAPIKey`} --query-text "Vancouver"
+aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "Vancouver"
 ```
 
-You can geocode a postal code. Use `IncludePlaceTypes` with
-`["PostalCode"]` for more precise results.
+------
 
-Sample request
+### Geocode a Postal Code
+<a name="geocode-postal-code"></a>
+
+You can geocode a postal code. Use `IncludePlaceTypes` with `["PostalCode"]` for more precise results.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -205,7 +233,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -242,7 +271,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -254,18 +284,19 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places geocode --key ${`YourAPIKey`} --query-text "800006" --filter '{"IncludePlaceTypes": ["PostalCode"]}'
+aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "800006" --filter '{"IncludePlaceTypes": ["PostalCode"]}'
 ```
+
+------
 
 ## Developer tips
+<a name="goecode-admin-developer-tips"></a>
 
-Use filters like `IncludeCountries` and `IncludePlaceTypes`
-for more targeted results. For example, to ensure results from Vancouver in the USA,
-set `"IncludeCountries": ["USA"]`. For more details, see
-.
+Use filters like `IncludeCountries` and `IncludePlaceTypes` for more targeted results. For example, to ensure results from Vancouver in the USA, set `"IncludeCountries": ["USA"]`. For more details, see .
 
 ```
 {

@@ -1,21 +1,23 @@
-# How to search with travel mode
 
-`TravelMode` indicates your mode of mobility. This improves
-the relevance of search results. For example, a search for
-"EV charging station" returns charging stations suitable for trucks when
-`TravelMode` is set to `Truck`.
+
+# How to search with travel mode
+<a name="how-to-search-travel-mode"></a>
+
+`TravelMode` indicates your mode of mobility. This improves the relevance of search results. For example, a search for "EV charging station" returns charging stations suitable for trucks when `TravelMode` is set to `Truck`.
 
 ## Potential use cases
-
-- **Fleet management:** Find fuel stations or
-  rest stops that accommodate trucks or commercial vehicles.
-- **Navigation apps:** Provide more relevant
-  results based on whether the user is driving a car, riding a scooter, or
-  operating a truck.
+<a name="search-text-travel-mode-use"></a>
++ **Fleet management:** Find fuel stations or rest stops that accommodate trucks or commercial vehicles.
++ **Navigation apps:** Provide more relevant results based on whether the user is driving a car, riding a scooter, or operating a truck.
 
 ## Examples
+<a name="search-text-travel-mode-example"></a>
 
-Sample request
+### Search for truck-friendly fuel stations
+<a name="search-text-travel-mode-truck"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -25,7 +27,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -40,7 +43,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -53,16 +57,16 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-text --key ${YourKey} --query-text "fuel station" --bias-position -122.3321 47.6062 --travel-mode Truck
 ```
 
-## Developer tips
+------
 
-- Valid values are `Car`, `Scooter`, and
-  `Truck`.
-- `TravelMode` improves relevance but does not filter results.
-  Results may still include places that are not specific to the travel
-  mode.
+## Developer tips
+<a name="search-text-travel-mode-dev-tips"></a>
++ Valid values are `Car`, `Scooter`, and `Truck`.
++ `TravelMode` improves relevance but does not filter results. Results may still include places that are not specific to the travel mode.

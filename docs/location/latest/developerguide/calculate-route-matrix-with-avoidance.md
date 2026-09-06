@@ -1,14 +1,22 @@
+
+
 # How to calculate route matrix with avoidance
+<a name="calculate-route-matrix-with-avoidance"></a>
 
 The CalculateRouteMatrix API computes routes and returns travel time and distance from each origin to each destination in the specified lists. The response includes `Distance` in meters and `Duration` in seconds. The API can be used to set avoidance options for specific areas or road features, ensuring routes avoid specified zones or conditions. If an alternative route is not feasible, the avoidance preference may be bypassed.
 
 ## Potential use cases
-
-- **Route planning and optimization:** Use route matrix as input for software that requires optimized travel routes while avoiding certain areas or road features.
+<a name="calculate-route-matrix-potential-use"></a>
++ **Route planning and optimization:** Use route matrix as input for software that requires optimized travel routes while avoiding certain areas or road features.
 
 ## Examples
+<a name="calculate-route-matrix-examples"></a>
 
-Sample request
+### CalculateRouteMatrix with an avoidance area
+<a name="calculate-route-matrix-avoidance-area"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -42,7 +50,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -61,7 +70,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -98,7 +108,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-route-matrix --key ${YourKey} \
@@ -108,7 +119,13 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 --routing-boundary '{"Unbounded": true}'
 ```
 
-Sample request
+------
+
+### CalculateRouteMatrix avoiding toll roads, highways, and ferries
+<a name="calculate-route-matrix-avoidance-features"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -125,7 +142,7 @@ Sample request
     "Avoid": {
         "TollRoads": true,
         "ControlledAccessHighways": true,
-        "Ferries": true
+        "Ferries": true    
     },
     "RoutingBoundary": {
         "Unbounded": true
@@ -133,7 +150,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -152,7 +170,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -172,7 +191,7 @@ curl --request POST \
     "Avoid": {
         "TollRoads": true,
         "ControlledAccessHighways": true,
-        "Ferries": true
+        "Ferries": true    
     },
     "RoutingBoundary": {
         "Unbounded": true
@@ -180,7 +199,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-route-matrix --key ${YourKey} \
@@ -189,3 +209,5 @@ aws geo-routes calculate-route-matrix --key ${YourKey} \
 --avoid '{"TollRoads": true, "ControlledAccessHighways": true, "Ferries": true}' \
 --routing-boundary '{"Unbounded": true}'
 ```
+
+------

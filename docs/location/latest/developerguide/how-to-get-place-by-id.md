@@ -1,27 +1,30 @@
-# How to get results for a PlaceId
 
-The GetPlace API retrieves detailed information about a place using its unique
-PlaceId, allowing applications to access comprehensive details about specified
-locations.
+
+# How to get results for a PlaceId
+<a name="how-to-get-place-by-id"></a>
+
+The GetPlace API retrieves detailed information about a place using its unique PlaceId, allowing applications to access comprehensive details about specified locations.
 
 ## Potential use cases
-
-- **Retrieve store locations:** Use PlaceId to
-  obtain details about various store locations for improved user experience
-  and efficient resource management.
-- **Access related place details:** Fetch
-  details of places that were identified using other PlaceIds returned by
-  previous queries.
+<a name="potential-use"></a>
++ **Retrieve store locations:** Use PlaceId to obtain details about various store locations for improved user experience and efficient resource management.
++ **Access related place details:** Fetch details of places that were identified using other PlaceIds returned by previous queries.
 
 ## Examples
+<a name="get-place-examples"></a>
 
-Sample request
+### Get place with a PlaceId
+<a name="get-place-by-id"></a>
+
+------
+#### [ Sample request ]
 
 ```
 https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?key=Your_Key
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -80,16 +83,20 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request GET \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?key=Your_Key&language=en'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 export PLACEID=AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIs
 aws geo-places get-place --key ${YourKey} --place-id ${PLACEID}
 ```
+
+------

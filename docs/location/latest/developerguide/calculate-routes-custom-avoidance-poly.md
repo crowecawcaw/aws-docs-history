@@ -1,14 +1,22 @@
+
+
 # How to create routes with custom avoidance
+<a name="calculate-routes-custom-avoidance-poly"></a>
 
 The CalculateRoutes API helps you to find the best routes between origin and destination, as well as the best opportunities for driver resting. It supports travel modes such as car, truck, pedestrian and scooter. It also supports up to 25 waypoints (stopovers) including the origin and destination, with only a few constraints.
 
 ## Potential use cases
-
-- **Calculate routes with custom avoidance:** Customize routes with avoidance for better routes and commute planning.
+<a name="potential-use-cases"></a>
++ **Calculate routes with custom avoidance:** Customize routes with avoidance for better routes and commute planning.
 
 ## Examples
+<a name="calculate-routes-custom-avoidance-examples"></a>
 
-Sample request
+### Use CalculateRoutes with an avoid BoundingBox to create custom routes.
+<a name="calculate-routes-custom-avoidance-poly"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -38,7 +46,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -231,7 +240,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -264,7 +274,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -272,10 +283,15 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.01791785749363 49.22782762759908 \
 --travel-mode "Car" \
 --avoid '{"Areas":[{"Geometry":{"BoundingBox":[-123.054638,49.238987,-123.054638,49.251694]}}]}'
-
 ```
 
-Sample request
+------
+
+### Use CalculateRoutes with an avoid polygon to create custom routes.
+<a name="calculate-routes-custom-avoidance-poly-polygon"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -319,7 +335,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -536,7 +553,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -583,7 +601,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -591,10 +610,15 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.01791785749363 49.22782762759908 \
 --travel-mode "Car" \
 --avoid '{"Areas":[{"Geometry":{"Polygon":[[[-123.06953,49.256419],[-123.05167,49.242115],[-123.02381,49.242115],[-123.06953,49.256419]]]}}]}'
-
 ```
 
-Sample request
+------
+
+### Use CalculateRoutes with PolylinePolygon to create custom routes.
+<a name="calculate-routes-custom-avoidance-poly-polyline"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -621,7 +645,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -838,7 +863,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -868,7 +894,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -876,10 +903,15 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.01791785749363 49.22782762759908 \
 --travel-mode "Car" \
 --avoid '{"Areas":[{"Geometry":{"PolylinePolygon":["BF0s0sJxglvXr5CvkCAgpEs5CvkC"]}}]}'
-
 ```
 
-Sample request
+------
+
+### Use CalculateRoutes with avoid Corridor to create custom routes.
+<a name="calculate-routes-custom-avoidance-corridor"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -907,7 +939,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -1091,7 +1124,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -1122,7 +1156,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -1130,10 +1165,15 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.01791785749363 49.22782762759908 \
 --travel-mode "Car" \
 --avoid '{"Areas": [{"Geometry": {"PolylineCorridor": {"Polyline": "BF2mysJnmkvX5ekiC", "Radius": 10}}}]}'
-
 ```
 
-Sample request
+------
+
+### Use CalculateRoutes with an avoid PolylineCorridor to create custom routes.
+<a name="calculate-routes-custom-avoidance-polyline-corridor"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -1170,7 +1210,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -1354,7 +1395,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -1394,7 +1436,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -1402,5 +1445,6 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.01791785749363 49.22782762759908 \
 --travel-mode "Car" \
 --avoid '{"Areas":[{"Geometry":{"Corridor":{"LineString":[[-123.06532243038754,49.245226301868776],[-123.0547357660333,49.24030469850804]],"Radius":10}}}]}'
-
 ```
+
+------

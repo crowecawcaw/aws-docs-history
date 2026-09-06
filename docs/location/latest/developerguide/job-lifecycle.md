@@ -1,27 +1,24 @@
+
+
 # Job lifecycle
+<a name="job-lifecycle"></a>
 
 Jobs progress through the following states:
 
-Pending
-
+Pending  
 New jobs begin in this state while waiting for processing resources.
 
-Running
-
+Running  
 The job has started and is actively processing data.
 
-Completed
-
+Completed  
 The job has finished successfully and results are available in your designated Amazon S3 output location.
 
-Failed
-
+Failed  
 The job enters this state if errors occur during processing. You can obtain error details using the `GetJob` operation.
 
-Cancelling
-
+Cancelling  
 The job enters this state temporarily when you explicitly cancel it using the `CancelJob` operation.
 
-Cancelled
-
+Cancelled  
 The job enters this state when the `CancelJob` operation finishes stopping the job.

@@ -1,23 +1,24 @@
-# How to search for a place, POI, or business using a name
 
-The SearchText API allows users to search for a place, POI, or business by name, using
-free text input. Results can be refined by setting a bias position, which may be based
-on device location, IP position, or map viewport center. Alternatively, users can
-provide a specific city or place, with results biased based on the provided
-geocoordinates.
+
+# How to search for a place, POI, or business using a name
+<a name="how-to-search-for-place-poi-business"></a>
+
+The SearchText API allows users to search for a place, POI, or business by name, using free text input. Results can be refined by setting a bias position, which may be based on device location, IP position, or map viewport center. Alternatively, users can provide a specific city or place, with results biased based on the provided geocoordinates.
 
 ## Potential use cases
-
-- **Locate a place by name:** Retrieve
-  locations based on place names, such as "Gas Town".
-- **Find points of interest (POIs):** Search
-  for places of interest by name, such as "Stanley Park".
-- **Search by business name:** Locate
-  businesses by name, like "Starbucks".
+<a name="potential-use"></a>
++ **Locate a place by name:** Retrieve locations based on place names, such as "Gas Town".
++ **Find points of interest (POIs):** Search for places of interest by name, such as "Stanley Park".
++ **Search by business name:** Locate businesses by name, like "Starbucks".
 
 ## Examples
+<a name="search-text-examples"></a>
 
-Sample request
+### Search by place name
+<a name="search-by-place-name"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -29,7 +30,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -72,7 +74,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -87,13 +90,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places search-text --key ${`YourKey`} --query-text "Gas Town" --bias-position -123.11336 49.26038
+aws geo-places search-text --key ${{{YourKey}}} --query-text "Gas Town" --bias-position -123.11336 49.26038
 ```
 
-Sample request
+------
+
+### Search by POI name
+<a name="search-by-poi-name"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -105,7 +115,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -166,7 +177,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -181,13 +193,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places search-text --key ${`YourKey`} --query-text "Stanley Park" --bias-position -123.11336 49.26038
+aws geo-places search-text --key ${{{YourKey}}} --query-text "Stanley Park" --bias-position -123.11336 49.26038
 ```
 
-Sample request
+------
+
+### Search by business name
+<a name="search-by-business-name"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -199,7 +218,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -264,7 +284,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -279,8 +300,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places search-text --key ${`YourKey`} --query-text "Amazon YVR11" --bias-position -123.11336 49.26038
+aws geo-places search-text --key ${{{YourKey}}} --query-text "Amazon YVR11" --bias-position -123.11336 49.26038
 ```
+
+------

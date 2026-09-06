@@ -1,64 +1,73 @@
+
+
 # How to get a static map of a specific position
+<a name="get-static-map-specific-position"></a>
 
 In this topic, you will learn how to retrieve static maps from Amazon Location Service based on specific parameters. You will learn how to generate a static map for a center position, a bounding box, and a set of bounded positions. The examples provided will help you customize the width, height, and style of the map.
 
-###### Note
-
+**Note**  
 You must pass either `map` or `map@2x` when generating a static map.
 
 ## Get map image for a center position
+<a name="get-map-center-position"></a>
 
-In this example, you will create a map image with a width of `1024` and a
-height of `1024` with the center coordinates set at
-`-123.1143,49.2763`, where `longitude=-123.1143` and
-`latitude=49.2763`, and a zoom level of `15`.
+In this example, you will create a map image with a width of `1024` and a height of `1024` with the center coordinates set at `-123.1143,49.2763`, where `longitude=-123.1143` and `latitude=49.2763`, and a zoom level of `15`.
 
-Request URL
+------
+#### [ Request URL ]
 
 ```
-https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&zoom=15&center=-123.1156126,49.2767046&key=`API_KEY`
+https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&zoom=15&center=-123.1156126,49.2767046&key={{API_KEY}}
 ```
 
-Response image
+------
+#### [ Response image ]
 
-![Static Maps API response centered on Vancouver, Canada at zoom level 15, showing the waterfront and downtown area in satellite style.](images/static-center.png)
+![Static Maps API response centered on Vancouver, Canada at zoom level 15, showing the waterfront and downtown area in satellite style.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-center.png)
+
+
+------
 
 ## Get map image for bounding box
+<a name="get-map-bounding-box"></a>
 
-In this example, you'll generate a map image of Southeast Asia by setting the bounding
-box for the area.
+In this example, you'll generate a map image of Southeast Asia by setting the bounding box for the area. 
 
-The `bbox` format is
-`{southwest_longitude},{southwest_latitude},{northeast_longitude},{northeast_latitude}`.
+The `bbox` format is `{southwest_longitude},{southwest_latitude},{northeast_longitude},{northeast_latitude}`.
 
-Request URL
+------
+#### [ Request URL ]
 
 ```
-https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&bounding-box=90.00,-21.94,146.25,31.95&key=`API_KEY`
+https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&bounding-box=90.00,-21.94,146.25,31.95&key={{API_KEY}}
 ```
 
-Response image
+------
+#### [ Response image ]
 
-![Satellite view of Southeast Asia showing mainland Southeast Asia, Indonesia, Philippines, and northern Australia.](images/static-bounding-box.png)
+![Satellite view of Southeast Asia showing mainland Southeast Asia, Indonesia, Philippines, and northern Australia.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-bounding-box.png)
+
+
+------
 
 ## Get map image for bounded positions
+<a name="get-map-bounded-positions"></a>
 
-In this example, you will generate a map that covers several must-see places in Paris,
-each specified by its coordinates (longitude, latitude). The bounded positions
-include: Eiffel Tower, Louvre Museum, Notre-Dame Cathedral, Champs-Élysées, Arc de
-Triomphe, Sacré-Cœur Basilica, Luxembourg Gardens, Musée d'Orsay, Place de la
-Concorde, and Palais Garnier.
+In this example, you will generate a map that covers several must-see places in Paris, each specified by its coordinates (longitude, latitude). The bounded positions include: Eiffel Tower, Louvre Museum, Notre-Dame Cathedral, Champs-Élysées, Arc de Triomphe, Sacré-Cœur Basilica, Luxembourg Gardens, Musée d'Orsay, Place de la Concorde, and Palais Garnier. 
 
-The format for bounding positions is
-`{longitude1},{latitude1},{longitude2},{latitude2} ...
- {longitudeN},{latitudeN}`.
+The format for bounding positions is `{longitude1},{latitude1},{longitude2},{latitude2} ... {longitudeN},{latitudeN}`.
 
-Request URL
+------
+#### [ Request URL ]
 
 ```
-https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&bounded-positions=2.2945,48.8584,2.3376,48.8606,2.3500,48.8529,2.3076,48.8698,2.2950,48.8738,2.3431,48.8867,2.3372,48.8462,2.3266,48.8600,2.3212,48.8656,2.3317,48.8719&key=`API_KEY`
+https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&bounded-positions=2.2945,48.8584,2.3376,48.8606,2.3500,48.8529,2.3076,48.8698,2.2950,48.8738,2.3431,48.8867,2.3372,48.8462,2.3266,48.8600,2.3212,48.8656,2.3317,48.8719&key={{API_KEY}}
 ```
 
-Response image
+------
+#### [ Response image ]
 
-![Static Maps API response showing Paris bounded by ten landmark coordinates including the Eiffel Tower, Louvre, and Notre-Dame, with the Seine River visible.](images/static-bounding-position.png)
+![Static Maps API response showing Paris bounded by ten landmark coordinates including the Eiffel Tower, Louvre, and Notre-Dame, with the Seine River visible.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-bounding-position.png)
+
+
+------

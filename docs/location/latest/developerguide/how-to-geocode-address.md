@@ -1,25 +1,24 @@
-# How to geocode an address
 
-The Geocode API enables you to geocode a specific point address, interpolated address,
-or street. The API response contains location information, including geographical
-coordinates and match scores that i ndicate how accurately the result aligns with the
-query.
+
+# How to geocode an address
+<a name="how-to-geocode-address"></a>
+
+The Geocode API enables you to geocode a specific point address, interpolated address, or street. The API response contains location information, including geographical coordinates and match scores that i ndicate how accurately the result aligns with the query.
 
 ## Potential use cases
-
-- **Clean address database:** Enhance data
-  quality by identifying and correcting errors in address records.
-- **Normalize and standardize addresses:**
-  Ensure consistent address formatting across datasets for improved data
-  interoperability.
-- **Enrich addresses with additional
-  information:** Add geographic coordinates and other relevant
-  details to address records to support location-based analytics and
-  insights.
+<a name="potential-use"></a>
++ **Clean address database:** Enhance data quality by identifying and correcting errors in address records.
++ **Normalize and standardize addresses:** Ensure consistent address formatting across datasets for improved data interoperability.
++ **Enrich addresses with additional information:** Add geographic coordinates and other relevant details to address records to support location-based analytics and insights.
 
 ## Examples
+<a name="geocode-address-examples"></a>
 
-Sample request
+### Use query text
+<a name="geocode-query-text"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -27,7 +26,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -102,7 +102,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -111,13 +112,20 @@ curl --request POST \
   --data '{"QueryText": "510 W Georgia St, Vancouver, BC"}'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places geocode --key ${`YourAPIKey`} --query-text "510 W Georgia St, Vancouver, BC"
+aws geo-places geocode --key ${{{YourAPIKey}}} --query-text "510 W Georgia St, Vancouver, BC" 
 ```
 
-Sample request
+------
+
+### Use query components
+<a name="geocode-query-components"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -131,7 +139,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -274,7 +283,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -283,10 +293,11 @@ curl --request POST \
   --data '{"QueryComponents": {"AddressNumber": "510", "Locality": "Vancouver", "Region": "BC", "Country": "Canada", "Street": "Georgia"}}'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-./aws geo-places geocode --key ${`YourAPIKey`} --query-components '{
+./aws geo-places geocode --key ${{{YourAPIKey}}} --query-components '{
 "AddressNumber" : "510",
 "Locality": "vancouver",
 "Region": "BC",
@@ -294,7 +305,13 @@ AWS CLI
 "Street": "Georgia"}'
 ```
 
-Sample request
+------
+
+### Use hybrid query
+<a name="geocode-hybrid-query"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -306,7 +323,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -380,7 +398,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -389,17 +408,20 @@ curl --request POST \
   --data '{"QueryText": "W. 6th St", "QueryComponents": {"AddressNumber": "415", "Locality": "Vancouver"}}'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-./aws geo-places geocode -key ${`YourAPIKey`} --query-text "W. 6th St" \
+./aws geo-places geocode -key ${{{YourAPIKey}}} --query-text "W. 6th St" \
 --query-components '{"AddressNumber" : "415", "Locality": "Vancouver"}'
 ```
 
-## Developer Tips
+------
 
-Use filters like `IncludeCountries` and `IncludePlaceTypes` to obtain accurate results. For instance, if you need Vancouver from the USA, apply `"IncludeCountries": ["USA"]` to prioritize results in the USA.
-To learn more, see [How to geocode using filters](how-to-geocode-filters.md "how-to-geocode-filters.md").
+## Developer Tips
+<a name="geocode-address-developer-tips"></a>
+
+Use filters like `IncludeCountries` and `IncludePlaceTypes` to obtain accurate results. For instance, if you need Vancouver from the USA, apply `"IncludeCountries": ["USA"]` to prioritize results in the USA. To learn more, see [How to geocode using filters](how-to-geocode-filters.md).
 
 ```
 {

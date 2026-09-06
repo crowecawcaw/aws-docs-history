@@ -1,17 +1,22 @@
-# How to add a polygon on the map
 
-Amazon Location Service allows you to add polygons to the map. You can style the polygon based on
-your business needs, including adding fill and border styling.
+
+# How to add a polygon on the map
+<a name="how-to-add-polygon-on-map"></a>
+
+Amazon Location Service allows you to add polygons to the map. You can style the polygon based on your business needs, including adding fill and border styling.
 
 ## Add a polygon
+<a name="add-polygon"></a>
 
-In this example, you will add a polygon to the map and style it with a fill color
-and a border.
+In this example, you will add a polygon to the map and style it with a fill color and a border.
 
-index.html
+### Polygon code example
+<a name="web-code-example-polygon"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -71,22 +76,20 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
 
-main.js
+------
+#### [ main.js ]
 
 ```
-
 const barclayHeritageSquare = {
     "type": "FeatureCollection",
     "features": [
@@ -118,5 +121,6 @@ const barclayHeritageSquare = {
         }
     ]
 };
-
 ```
+
+------

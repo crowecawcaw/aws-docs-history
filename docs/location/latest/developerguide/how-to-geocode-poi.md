@@ -1,20 +1,23 @@
-# How to geocode a point of interest
 
-You can use the geocode API to geocode the coordinates of a known place (Point of
-interest) such as business addresses, landmark, or tourist spot. The API response
-contains location information, including geographical coordinates, and match scores that
-indicate how well the result matches the query.
+
+# How to geocode a point of interest
+<a name="how-to-geocode-poi"></a>
+
+You can use the geocode API to geocode the coordinates of a known place (Point of interest) such as business addresses, landmark, or tourist spot. The API response contains location information, including geographical coordinates, and match scores that indicate how well the result matches the query.
 
 ## Potential use cases
-
-- Provide geographical coordinates that correspond to points of interest
-  enhances the user experience
-- Provide geographical coordinates that correspond to points of interest can
-  optimize logistics
+<a name="geocode-poi-use-case"></a>
++ Provide geographical coordinates that correspond to points of interest enhances the user experience
++ Provide geographical coordinates that correspond to points of interest can optimize logistics
 
 ## Examples
+<a name="geocode-poi-examples"></a>
 
-Sample request
+### Geocode a business
+<a name="geocode-business-example"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -22,7 +25,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -1303,7 +1307,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -1314,13 +1319,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "Starbucks , Vancouver"
 ```
 
-Sample request
+------
+
+### Geocode a tourist spot
+<a name="geocode-tourist-example"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -1328,7 +1340,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -1535,7 +1548,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -1546,25 +1560,26 @@ curl --request POST \
     }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "Eiffel Tower, Paris"
 ```
 
+------
+
 ## Developer tips
+<a name="geocode-poi-developer-tips"></a>
++ Use complete addresses or query component for better results. To learn more, see [How to geocode an address](how-to-geocode-address.md).
++ Use filters like `IncludeCountries` and `IncludePlaceTypes` to obtain accurate results. For instance, if you need Vancouver from the USA, apply `"IncludeCountries": ["USA"]` to prioritize results in the USA. To learn more, see [How to geocode using filters](how-to-geocode-filters.md).
 
-- Use complete addresses or query component for better results. To learn
-  more, see [How to geocode an address](how-to-geocode-address.md "how-to-geocode-address.md").
-- Use filters like `IncludeCountries` and `IncludePlaceTypes` to obtain accurate results. For instance, if you need Vancouver from the USA, apply `"IncludeCountries": ["USA"]` to prioritize results in the USA.
-  To learn more, see [How to geocode using filters](how-to-geocode-filters.md "how-to-geocode-filters.md").
-
-```
-{
-  "QueryText": "Vancouver",
-  "Filter": {
-    "IncludeCountries": ["USA"],
-    "IncludePlaceTypes": ["City"]
+  ```
+  {
+    "QueryText": "Vancouver",
+    "Filter": {
+      "IncludeCountries": ["USA"],
+      "IncludePlaceTypes": ["City"]
+    }
   }
-}
-```
+  ```

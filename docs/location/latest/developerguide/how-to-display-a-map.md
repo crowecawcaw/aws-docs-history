@@ -1,17 +1,22 @@
-# How to display a map
 
-Amazon Location Service allows you to display both interactive and non-interactive maps using our map
-styles. See [AWS map styles and features](map-styles.md "map-styles.md") to learn more.
+
+# How to display a map
+<a name="how-to-display-a-map"></a>
+
+Amazon Location Service allows you to display both interactive and non-interactive maps using our map styles. See [AWS map styles and features](map-styles.md) to learn more.
 
 ## Interactive map
+<a name="interactive-map"></a>
 
-In this example, you will display an interactive map that allows users to zoom,
-pan, pinch, and pitch.
+In this example, you will display an interactive map that allows users to zoom, pan, pinch, and pitch.
 
-index.html
+### Interactive map code example
+<a name="interactive-map-web-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,27 +46,30 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------
 
 ## Restrict map panning beyond an area
+<a name="restrict-map-panning"></a>
 
-In this example, you will restrict the map from being panned beyond a defined
-boundary.
+In this example, you will restrict the map from being panned beyond a defined boundary.
 
-index.html
+### Restrict map panning code example
+<a name="restrict-map-panning-web-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -95,27 +103,30 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------
 
 ## Non-interactive map
+<a name="non-interactive-map"></a>
 
-In this example, you will display a non-interactive map by disabling user
-interaction.
+In this example, you will display a non-interactive map by disabling user interaction.
 
-index.html
+### Non-interactive map code example
+<a name="non-interactive-map-web-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -146,14 +157,14 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------

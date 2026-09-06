@@ -1,24 +1,25 @@
-# How to complete an address
 
-The Autocomplete API enables you to complete partially typed addresses, providing
-standardized input for end users and improving efficiency during data entry.
+
+# How to complete an address
+<a name="how-to-complete-address"></a>
+
+The Autocomplete API enables you to complete partially typed addresses, providing standardized input for end users and improving efficiency during data entry.
 
 ## Potential use cases
-
-- **Complete an address during checkout:**
-  Facilitate accurate and fast address input as customers type into a checkout
-  form.
-- **Country-specific address completion:**
-  Restrict suggestions to a specific country for compliance or relevance to
-  the user’s location.
+<a name="potential-use"></a>
++ **Complete an address during checkout:** Facilitate accurate and fast address input as customers type into a checkout form.
++ **Country-specific address completion:** Restrict suggestions to a specific country for compliance or relevance to the user’s location.
 
 ## Examples
+<a name="autocomplete-address-examples"></a>
 
-In this example, minimal data is returned to keep the response concise and
-cost-effective. Complete place details can be retrieved later using the
-PlaceId with the GetPlace API.
+### Complete address with minimal data
+<a name="autocomplete-minimal-data"></a>
 
-Sample request
+In this example, minimal data is returned to keep the response concise and cost-effective. Complete place details can be retrieved later using the PlaceId with the GetPlace API.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -26,7 +27,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -41,7 +43,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -52,17 +55,22 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places autocomplete --key ${YourKey} --query-text "100 McCullum Rd"
 ```
 
-This example returns multiple address suggestions, allowing users to
-select a standardized address format for populating form fields
-accurately.
+------
 
-Sample request
+### Complete address with address component
+<a name="autocomplete-address-component"></a>
+
+This example returns multiple address suggestions, allowing users to select a standardized address format for populating form fields accurately.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -73,7 +81,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -161,7 +170,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -175,8 +185,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places autocomplete --key ${YourKey} --query-text "100 McCullum Rd" --additional-features "Core"
 ```
+
+------

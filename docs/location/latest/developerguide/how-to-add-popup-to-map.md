@@ -1,17 +1,22 @@
-# How to add a popup to a map
 
-Amazon Location Service allows you to add popups to the map. You can add simple popups,
-click-triggered popups on markers, hover-triggered popups, and popups for multiple
-markers.
+
+# How to add a popup to a map
+<a name="how-to-add-popup-to-map"></a>
+
+Amazon Location Service allows you to add popups to the map. You can add simple popups, click-triggered popups on markers, hover-triggered popups, and popups for multiple markers. 
 
 ## Add your first popup
+<a name="add-first-popup"></a>
 
 In this example, you will add your first popup.
 
-index.html
+### First popup code example
+<a name="first-popup-web"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -46,27 +51,30 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------
 
 ## Show popup on click on a marker
+<a name="show-popup-on-click"></a>
 
-In this example, you will attach a popup to a marker and display it on
-click.
+In this example, you will attach a popup to a marker and display it on click.
 
-index.html
+### Popup on marker click example
+<a name="click-popup-web"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -106,27 +114,30 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------
 
 ## Show popup on hover on a marker
+<a name="show-popup-on-hover"></a>
 
-In this example, you will attach a popup to a marker and display it on
-hover.
+In this example, you will attach a popup to a marker and display it on hover.
 
-index.html
+### Popup on marker hover example
+<a name="hover-popup-web"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -169,27 +180,30 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------
 
 ## Show popup on click on multiple markers
+<a name="popup-on-multiple-markers"></a>
 
-In this example, you will attach a popup to multiple markers and display it on
-click.
+In this example, you will attach a popup to multiple markers and display it on click.
 
-index.html
+### Popup on click on multiple markers example
+<a name="popup-on-multiple-markers-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -206,14 +220,14 @@ index.html
         <div id="map"></div>
         <script>
             const apiKey = "Your API Key";
-            const mapStyle = "Monochrome";
+            const mapStyle = "Monochrome";  
             const awsRegion = "eu-central-1";
             const colorScheme ="Light";
             const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?color-scheme=${colorScheme}&key=${apiKey}`;
 
             const map = new maplibregl.Map({
-                container: 'map',
-                style: styleUrl,
+                container: 'map', 
+                style: styleUrl, 
                 center: [-123.126979, 49.2841563],
                 zoom: 15,
                 minZoom: 13,
@@ -239,7 +253,7 @@ index.html
                     }
                 }))
             };
-
+            
             map.on('load', async () => {
                 try {
                     const image = await loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png');
@@ -288,27 +302,30 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------
 
 ## Show popup on hover on multiple markers
+<a name="popup-on-hover-multiple-markers"></a>
 
-In this example, you will attach a popup to multiple markers and display it on
-hover.
+In this example, you will attach a popup to multiple markers and display it on hover.
 
-index.html
+### Popup on hover on multiple markers example
+<a name="popup-on-hover-multiple-markers-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -321,11 +338,11 @@ index.html
         <script src='https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.js'></script>
     </head>
     <body>
-        <!-- Map container -->
+        <!-- Map container --> 
         <div id="map" style="width: 100%; height: 100vh;"></div>
         <script>
             const apiKey = "You API Key";
-            const mapStyle = "Monochrome";  // eg. Standard, Monochrome, Hybrid, Satellite
+            const mapStyle = "Monochrome";  // eg. Standard, Monochrome, Hybrid, Satellite  
             const awsRegion = "eu-central-1"; // eg. us-east-2, us-east-1, etc.
             const colorScheme ="Light"; // eg Dark, Light (default)
             const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?color-scheme=${colorScheme}&key=${apiKey}`;
@@ -353,7 +370,7 @@ index.html
                 type: "FeatureCollection",
                 features: locations.map(location => ({
                     type: "Feature",
-                    properties: {
+                    properties: { 
                         id: location.id,
                         name: location.name // Use the name property for popup
                     },
@@ -363,7 +380,7 @@ index.html
                     }
                 }))
             };
-
+            
             // Add the GeoJSON source and layers when the map loads
             map.on('load', async () => {
                 try {
@@ -427,14 +444,14 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
-body { margin: 0; padding: 0; }
+body { margin: 0; padding: 0; } 
 html, body, #map { height: 100%; }
-
 ```
+
+------

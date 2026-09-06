@@ -1,14 +1,22 @@
+
+
 # How to optimize waypoints for a route
+<a name="optimize-waypoints"></a>
 
 The OptimizeWaypoints API calculates the most efficient route between a series of waypoints, minimizing either travel time or total distance. This API solves the Traveling Salesman Problem by considering road networks and traffic conditions to determine the optimal path.
 
 ## Potential use cases
-
-- **Analyze service area patterns:** Use waypoint optimization to make informed decisions about business service areas and improve logistics efficiency.
+<a name="optimize-waypoints-potential-use"></a>
++ **Analyze service area patterns:** Use waypoint optimization to make informed decisions about business service areas and improve logistics efficiency.
 
 ## Examples
+<a name="optimize-waypoints-examples"></a>
 
-Sample Request
+### Optimize waypoints using Car TravelMode
+<a name="optimize-waypoints-car"></a>
+
+------
+#### [ Sample Request ]
 
 ```
 {
@@ -39,7 +47,8 @@ Sample Request
 }
 ```
 
-Sample Response
+------
+#### [ Sample Response ]
 
 ```
 {
@@ -115,7 +124,8 @@ Sample Response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -149,7 +159,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes optimize-waypoints --key ${YourKey} \
@@ -159,3 +170,5 @@ aws geo-routes optimize-waypoints --key ${YourKey} \
 --departure-time "2024-10-25T18:13:42Z" \
 --travel-mode "Car"
 ```
+
+------

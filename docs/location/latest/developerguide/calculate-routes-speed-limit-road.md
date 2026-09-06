@@ -1,15 +1,23 @@
+
+
 # How to find a speed limit for a road span
+<a name="calculate-routes-speed-limit-road"></a>
 
 The CalculateRoutes API helps you to find the best routes between origin and destination, as well as the best opportunities for driver resting. It supports travel modes such as car, truck, pedestrian and scooter. It also supports up to 25 waypoints (stopovers) including the origin and destination, with only a few constraints.
 
 ## Potential use cases
-
-- **Audit speed limit compliance:** Stays aware of speed limits and compliance to them.
-- **Inform the driver of the speed limit:** Notifies the driver of the speed limit when it might not be clear otherwise.
+<a name="potential-use-cases"></a>
++ **Audit speed limit compliance:** Stays aware of speed limits and compliance to them.
++ **Inform the driver of the speed limit:** Notifies the driver of the speed limit when it might not be clear otherwise.
 
 ## Examples
+<a name="calculate-routes-speed-examples"></a>
 
-Sample request
+### Find speed limits in Car TravelMode
+<a name="calculate-routes-speed"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -26,7 +34,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -422,7 +431,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -442,7 +452,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -451,3 +462,5 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --travel-mode "Car" \
 --span-additional-features "SpeedLimit"
 ```
+
+------

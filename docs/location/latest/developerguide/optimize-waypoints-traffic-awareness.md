@@ -1,14 +1,22 @@
+
+
 # How to optimize waypoints for a route with traffic awareness
+<a name="optimize-waypoints-traffic-awareness"></a>
 
 The OptimizeWaypoints API calculates the optimal route between multiple waypoints to minimize travel time or total distance. It utilizes advanced algorithms to solve the Traveling Salesman Problem, determining the most efficient path while accounting for factors such as road networks and real-time traffic conditions.
 
 ## Potential use cases
-
-- **Optimize multi-stop routes for delivery efficiency:** Improve delivery operations by calculating the shortest or fastest route among several stops. This is useful for reducing operational costs, fuel consumption, and travel time in logistics and delivery services.
+<a name="optimize-waypoints-potential-use"></a>
++ **Optimize multi-stop routes for delivery efficiency:** Improve delivery operations by calculating the shortest or fastest route among several stops. This is useful for reducing operational costs, fuel consumption, and travel time in logistics and delivery services.
 
 ## Examples
+<a name="optimize-waypoints-examples"></a>
 
-Sample request
+### Optimize waypoints with traffic awareness using car TravelMode
+<a name="optimize-waypoints-traffic-car"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -42,7 +50,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -120,7 +129,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -157,7 +167,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes optimize-waypoints --key ${YourKey} \
@@ -168,3 +179,5 @@ aws geo-routes optimize-waypoints --key ${YourKey} \
 --travel-mode "Car" \
 --traffic '{"Usage": "UseTrafficData"}'
 ```
+
+------

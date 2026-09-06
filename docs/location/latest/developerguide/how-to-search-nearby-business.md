@@ -1,32 +1,36 @@
-# How to search nearby based on business chain
 
-The SearchNearby API enables you to query nearby business chains. You can include or
-exclude specific business chains in your search. This feature allows end users to
-explore neighborhoods, discover points of interest, and more.
+
+# How to search nearby based on business chain
+<a name="how-to-search-nearby-business"></a>
+
+The SearchNearby API enables you to query nearby business chains. You can include or exclude specific business chains in your search. This feature allows end users to explore neighborhoods, discover points of interest, and more.
 
 To use the SearchNearby API, you need to provide a QueryPosition, which can be:
++ A device position
++ An IP-based position
++ A map's viewport center
 
-- A device position
-- An IP-based position
-- A map's viewport center
-  Alternatively, users can provide a city name or place, and the application can bias
-  results based on the geo-coordinates of that location.
+Alternatively, users can provide a city name or place, and the application can bias results based on the geo-coordinates of that location.
 
-For more information about supported business chains, see [Business Chains filter](places-filtering.md#business-chains "places-filtering.md#business-chains").
+For more information about supported business chains, see [Business Chains filter](places-filtering.md#business-chains).
 
 ## Potential use cases
-
-- Explore businesses in the vicinity
-- Expand your business by finding nearby B2B customers
+<a name="potential-use-search-nearby-business"></a>
++ Explore businesses in the vicinity
++ Expand your business by finding nearby B2B customers
 
 ## Examples
+<a name="search-neaby-business-examples"></a>
 
-The following example demonstrates how to search for nearby Starbucks
-locations.
+### Search nearby places by business chain
+<a name="search-nearby-business-example"></a>
 
-Sample request
-This request searches for Starbucks locations near the
-specified coordinates.
+The following example demonstrates how to search for nearby Starbucks locations.
+
+------
+#### [ Sample request ]
+
+This request searches for Starbucks locations near the specified coordinates.
 
 ```
 {
@@ -36,11 +40,12 @@ specified coordinates.
     ],
     "Filter" : {
         "IncludeBusinessChains": ["Starbucks"]
-    }
+    }    
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -102,7 +107,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -115,11 +121,12 @@ curl --request POST \
         ],
         "Filter" : {
         "IncludeBusinessChains": ["Starbucks"]
-    }
+    }    
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-nearby --key ${YourKey} \
@@ -127,8 +134,9 @@ aws geo-places search-nearby --key ${YourKey} \
 --filter '{"IncludeBusinessChains": ["Starbucks"]}'
 ```
 
-## Developer Tips
+------
 
-- You can use `ExcludeBusinessChains` to exclude certain business
-  chains from your results.
-- You can exclude or include multiple business chains.
+## Developer Tips
+<a name="search-nearby-business-developer-tips"></a>
++ You can use `ExcludeBusinessChains` to exclude certain business chains from your results.
++ You can exclude or include multiple business chains.

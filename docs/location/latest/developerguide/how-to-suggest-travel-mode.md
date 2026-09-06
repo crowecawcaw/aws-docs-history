@@ -1,18 +1,23 @@
-# How to get suggestions with travel mode
 
-Use `TravelMode` in Suggest requests to improve the relevance of place
-suggestions based on the user's mode of transportation.
+
+# How to get suggestions with travel mode
+<a name="how-to-suggest-travel-mode"></a>
+
+Use `TravelMode` in Suggest requests to improve the relevance of place suggestions based on the user's mode of transportation.
 
 ## Potential use cases
-
-- **Fleet apps:** Suggest truck-friendly
-  stops and services as drivers type their query.
-- **Ride-sharing:** Prioritize relevant
-  pickup and drop-off locations based on vehicle type.
+<a name="suggest-travel-mode-use"></a>
++ **Fleet apps:** Suggest truck-friendly stops and services as drivers type their query.
++ **Ride-sharing:** Prioritize relevant pickup and drop-off locations based on vehicle type.
 
 ## Examples
+<a name="suggest-travel-mode-example"></a>
 
-Sample request
+### Suggest places for scooter users
+<a name="suggest-travel-mode-scooter"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -22,7 +27,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -40,7 +46,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -53,15 +60,16 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} --query-text "parking" --bias-position -122.3321 47.6062 --travel-mode Scooter
 ```
 
-## Developer tips
+------
 
-- Valid values are `Car`, `Scooter`, and
-  `Truck`.
-- `TravelMode` improves relevance but does not filter
-  results.
+## Developer tips
+<a name="suggest-travel-mode-dev-tips"></a>
++ Valid values are `Car`, `Scooter`, and `Truck`.
++ `TravelMode` improves relevance but does not filter results.

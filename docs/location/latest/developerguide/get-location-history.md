@@ -1,25 +1,21 @@
+
+
 # Get a device's location history from a tracker
+<a name="get-location-history"></a>
 
-Your Amazon Location tracker resource maintains the location history of all your
-tracked devices for a period of 30 days. You can retrieve device location history,
-including all associated metadata, from your tracker resource. The following
-examples use the AWS CLI, or the Amazon Location APIs.
+ Your Amazon Location tracker resource maintains the location history of all your tracked devices for a period of 30 days. You can retrieve device location history, including all associated metadata, from your tracker resource. The following examples use the AWS CLI, or the Amazon Location APIs.
 
-API
-**To get the device location history from a
-tracker using the Amazon Location APIs**
+------
+#### [ API ]
 
-Use the `GetDevicePositionHistory` operation from the
-Amazon Location Trackers APIs.
+**To get the device location history from a tracker using the Amazon Location APIs**
 
-The following example uses an API URI request to get the device
-location history of `ExampleDevice` from a
-tracker called `ExampleTracker` starting from
-`19:05:07` (inclusive) and ends at `19:20:07`
-(exclusive) on `2020–10–02`.
+Use the `[GetDevicePositionHistory](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_GetDevicePositionHistory.html)` operation from the Amazon Location Trackers APIs. 
+
+The following example uses an API URI request to get the device location history of {{ExampleDevice}} from a tracker called {{ExampleTracker}} starting from `19:05:07` (inclusive) and ends at `19:20:07` (exclusive) on `2020–10–02`.
 
 ```
-POST /tracking/v0/trackers/`ExampleTracker`/devices/`ExampleDevice`/list-positions
+POST /tracking/v0/trackers/{{ExampleTracker}}/devices/{{ExampleDevice}}/list-positions 
 Content-type: application/json
 {
   "StartTimeInclusive": "2020-10-02T19:05:07.327Z",
@@ -27,23 +23,22 @@ Content-type: application/json
 }
 ```
 
-AWS CLI
-**To get the device location history from a
-tracker using AWS CLI commands**
+------
+#### [ AWS CLI ]
 
-Use the `get-device-position-history` command.
+**To get the device location history from a tracker using AWS CLI commands**
 
-The following example uses an AWS CLI to get the device location history
-of `ExampleDevice` from a tracker called
-`ExampleTracker` starting from
-`19:05:07` (inclusive) and ends at `19:20:07`
-(exclusive) on `2020–10–02`.
+Use the `[get-device-position-history](https://docs.aws.amazon.com/cli/latest/reference/location/get-device-position-history.html)` command.
+
+The following example uses an AWS CLI to get the device location history of {{ExampleDevice}} from a tracker called {{ExampleTracker}} starting from `19:05:07` (inclusive) and ends at `19:20:07` (exclusive) on `2020–10–02`.
 
 ```
 aws location \
     get-device-position-history \
-        --device-id "`ExampleDevice`" \
+        --device-id "{{ExampleDevice}}" \
         --start-time-inclusive "2020-10-02T19:05:07.327Z" \
         --end-time-exclusive "2020-10-02T19:20:07.327Z" \
-        --tracker-name "``ExampleTracker``"
+        --tracker-name "{{{{ExampleTracker}}}}"
 ```
+
+------

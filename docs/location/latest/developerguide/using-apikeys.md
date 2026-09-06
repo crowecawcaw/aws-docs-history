@@ -1,140 +1,90 @@
+
+
 # Use API keys to authenticate
+<a name="using-apikeys"></a>
 
-###### Note
+**Note**  
+API keys are available to use only with **map**, **place**, and **route** resources, and you can't modify or create those resources. If your application needs access to other resources or actions for unauthenticated users, you can use Amazon Cognito to provide access along with, or instead of, API keys. For more information, see [Use Amazon Cognito to authenticate](authenticating-using-cognito.md).
 
-API keys are available to use only with **map**,
-**place**, and **route** resources, and you can't modify or create those resources. If
-your application needs access to other resources or actions for unauthenticated
-users, you can use Amazon Cognito to provide access along with, or instead of, API keys.
-For more information, see [Use Amazon Cognito to authenticate](authenticating-using-cognito.md "authenticating-using-cognito.md").
+*API keys* are a key value that is associated with specific Amazon Location Service resources or API in your AWS account, and specific actions that you can perform on those resources. You can use an API key in your application to make unauthenticated calls to the Amazon Location APIs for those resources. 
 
-_API keys_ are a key value that is associated with
-specific Amazon Location Service resources or API in your AWS account, and specific actions that you
-can perform on those resources. You can use an API key in your application to make
-unauthenticated calls to the Amazon Location APIs for those resources.
+For example, if you associate an API key with a resource and/or the `GetPlace*` API, then an application that uses that API key will be able to call specific APIs. That same API key would not give permissions to change or update any resource or call APIs that it isn't associated with.
 
-For example, if you associate an API key with a resource and/or the
-`GetPlace*` API, then an application that uses that API key will be able
-to call specific APIs. That same API key would not give permissions to change or update
-any resource or call APIs that it isn't associated with.
+When you call Amazon Location Service APIs in your applications, you typically make this call as an *authenticated user* who is authorized to make the API calls. However, there are some cases where you don't want to authenticate every user of your application. 
 
-When you call Amazon Location Service APIs in your applications, you typically make this call as an
-_authenticated user_ who is authorized to make the
-API calls. However, there are some cases where you don't want to authenticate every user
-of your application.
+For example, you might want a web application that shows your business location to be available to anyone using the website, whether they are logged in or not. In this case, one alternative is to use API keys to make the API calls.
 
-For example, you might want a web application that shows your business location to be
-available to anyone using the website, whether they are logged in or not. In this case,
-one alternative is to use API keys to make the API calls.
+See [API key optimization](auth-best-practices.md#auth-bp-apikeys) for additional information about when to use API keys.
 
-See [API key optimization](auth-best-practices.md#auth-bp-apikeys "auth-best-practices.md#auth-bp-apikeys") for additional information about when to
-use API keys.
-
-For more information about working with keys using the Amazon Location Service API, see the following
-topics in the _Amazon Location Service API Reference_:
-
-- [CreateKey](../APIReference/API_geoapikeys_CreateKey.md "../APIReference/API_geoapikeys_CreateKey.md")
-- [DeleteKey](../APIReference/API_geoapikeys_DeleteKey.md "../APIReference/API_geoapikeys_DeleteKey.md")
-- [DescribeKey](../APIReference/API_geoapikeys_DescribeKey.md "../APIReference/API_geoapikeys_DescribeKey.md")
-- [ListKeys](../APIReference/API_geoapikeys_ListKeys.md "../APIReference/API_geoapikeys_ListKeys.md")
-- [UpdateKey](../APIReference/API_geoapikeys_UpdateKey.md "../APIReference/API_geoapikeys_UpdateKey.md")
+For more information about working with keys using the Amazon Location Service API, see the following topics in the *Amazon Location Service API Reference*:
++ [CreateKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_CreateKey.html)
++ [DeleteKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_DeleteKey.html)
++ [DescribeKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_DescribeKey.html)
++ [ListKeys](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_ListKeys.html)
++ [UpdateKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_UpdateKey.html)
 
 ## Create an API key for Amazon Location Service
+<a name="create-api-key"></a>
 
-You can create an API key through the Amazon Location Service console, AWS CLI, or Amazon Location API.
-Continue with the appropriate procedures below.
+You can create an API key through the Amazon Location Service console, AWS CLI, or Amazon Location API. Continue with the appropriate procedures below.
 
-Amazon Location console
+------
+#### [ Amazon Location console ]
 
-###### To create an API key using the Amazon Location Service console
+**To create an API key using the Amazon Location Service console**
 
-1. In the [**Amazon Location console**](https://console.aws.amazon.com/location "https://console.aws.amazon.com/location"), choose
-   **API keys** from the left menu.
-2. On the **API keys** page, choose
-   **Create API key**.
-3. On the **Create API key** page,
-   fill in the following information:
+1. In the [**Amazon Location console**](https://console.aws.amazon.com/location), choose **API keys** from the left menu.
 
-   - **Name** – A name for your API
-     key, such as `ExampleKey`.
-   - **Description** – An optional
-     description for your API key.
-   - **Resources** – In the
-     dropdown, choose the Amazon Location resources to give access
-     to with this API key. You can add more than one resource
-     by choosing **Add resource**.
-   - **Actions** – Specify the
-     actions you want to authorize with this API key. You
-     must select at least one action to match each resource
-     type you have selected. For example, if you selected a
-     place resource, you must select at least one of the
-     choices under **Places
-     Actions**.
-   - **Expiration time** –
-     Optionally, add an expiration date and time for your API
-     key. For more information, see [API key optimization](auth-best-practices.md#auth-bp-apikeys "auth-best-practices.md#auth-bp-apikeys").
-   - **Client restrictions** –
-     Optionally, add one or more web domains or one or more
-     Android or Apple apps where you can use the API key. For
-     example, if the API key is to allow an application
-     running on the website `example.com`, then
-     you could put `*.example.com/` as an allowed
-     referrer.
-   - **Tags** – Optionally, add
-     tags to the API key.
+1. On the **API keys** page, choose **Create API key**.
 
-4. Choose **Create API key** to create the API
-   key.
-5. On the detail page for the API key, you can see information
-   about the API key that you have created. Choose **Show
-   API key** to see the key value that you use when
-   calling Amazon Location APIs. The key value will have the format
-   `v1.public.`a1b2c3d4...``.
+1. On the **Create API key **page, fill in the following information:
+   + **Name** – A name for your API key, such as `ExampleKey`.
+   + **Description** – An optional description for your API key.
+   + **Resources** – In the dropdown, choose the Amazon Location resources to give access to with this API key. You can add more than one resource by choosing **Add resource**.
+   + **Actions** – Specify the actions you want to authorize with this API key. You must select at least one action to match each resource type you have selected. For example, if you selected a place resource, you must select at least one of the choices under **Places Actions**.
+   + **Expiration time** – Optionally, add an expiration date and time for your API key. For more information, see [API key optimization](auth-best-practices.md#auth-bp-apikeys).
+   + **Client restrictions** – Optionally, add one or more web domains or one or more Android or Apple apps where you can use the API key. For example, if the API key is to allow an application running on the website `example.com`, then you could put `*.example.com/` as an allowed referrer.
+   + **Tags** – Optionally, add tags to the API key.
 
-AWS CLI
+1. Choose **Create API key** to create the API key.
 
-1. Use the [create-key](../../../cli/latest/reference/location/create-key.md "../../../cli/latest/reference/location/create-key.md") command. The following example creates
-   an API key called `ExampleKey` with no expiration
-   date and access to a single map resource.
+1. On the detail page for the API key, you can see information about the API key that you have created. Choose **Show API key** to see the key value that you use when calling Amazon Location APIs. The key value will have the format `v1.public.{{a1b2c3d4...}}`. 
 
-```
-aws location \
-  create-key \
-  --key-name ExampleKey \
-  --restrictions '{"AllowActions":["geo-maps:*"],"AllowResources":["arn:aws:geo-maps:region::provider/default"]}' \
-  --no-expiry
-```
+------
+#### [ AWS CLI ]
 
-2. The response includes the API key value to use when accessing
-   resources in your applications. The key value will have the
-   format `v1.public.a1b2c3d4...`. To learn more about
-   using the API key to render maps, see [Use an API key to call an Amazon Location API](#using-apikeys-in-api "#using-apikeys-in-api"). The response to create-key
-   looks like the following:
+1. Use the [create-key](https://docs.aws.amazon.com/cli/latest/reference/location/create-key.html) command. The following example creates an API key called `ExampleKey` with no expiration date and access to a single map resource.
 
-```
-{
-    "Key": "v1.public.a1b2c3d4...",
-    "KeyArn": "arn:aws:geo:region:accountId:api-key/ExampleKey",
-    "KeyName": "ExampleKey",
-    "CreateTime": "2023-02-06T22:33:15.693Z"
-}
-```
+   ```
+   aws location \
+     create-key \
+     --key-name ExampleKey \
+     --restrictions '{"AllowActions":["geo-maps:*"],"AllowResources":["arn:aws:geo-maps:region::provider/default"]}' \
+     --no-expiry
+   ```
 
-3. You can also use `describe-key` to find the key
-   value at a later time. The following example shows how to call
-   `describe-key` on an API key named
-   `ExampleKey`.
+1. The response includes the API key value to use when accessing resources in your applications. The key value will have the format `v1.public.a1b2c3d4...`. To learn more about using the API key to render maps, see [Use an API key to call an Amazon Location API](#using-apikeys-in-api). The response to create-key looks like the following:
 
-```
-aws location describe-key \
-    --key-name ExampleKey
-```
+   ```
+   {
+       "Key": "v1.public.a1b2c3d4...",
+       "KeyArn": "arn:aws:geo:region:accountId:api-key/ExampleKey",
+       "KeyName": "ExampleKey",
+       "CreateTime": "2023-02-06T22:33:15.693Z"
+   }
+   ```
 
-Amazon Location API
-Use the [CreateKey](../APIReference/API_geoapikeys_CreateKey.md "../APIReference/API_geoapikeys_CreateKey.md") operation from the Amazon Location APIs. The following
-example is an API request to create an API key called
-`ExampleKey` with no expiration date and access to a
-single map resource.
+1. You can also use `describe-key` to find the key value at a later time. The following example shows how to call `describe-key` on an API key named `ExampleKey`.
+
+   ```
+   aws location describe-key \
+       --key-name ExampleKey
+   ```
+
+------
+#### [ Amazon Location API ]
+
+Use the [CreateKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_CreateKey.html) operation from the Amazon Location APIs. The following example is an API request to create an API key called `ExampleKey` with no expiration date and access to a single map resource.
 
 ```
 POST /metadata/v0/keys HTTP/1.1
@@ -157,37 +107,38 @@ Content-type: application/json
 }
 ```
 
-The response includes the API key value to use when accessing
-resources in your applications. The key value will have the format
-`v1.public.a1b2c3d4...`.
+The response includes the API key value to use when accessing resources in your applications. The key value will have the format `v1.public.a1b2c3d4...`.
 
-You can also use the [DescribeKey](../APIReference/API_geoapikeys_DescribeKey.md "../APIReference/API_geoapikeys_DescribeKey.md") API to find the key value for a key at a later
-time.
+You can also use the [DescribeKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geoapikeys_DescribeKey.html) API to find the key value for a key at a later time.
+
+------
 
 ## Use an API key to call an Amazon Location API
+<a name="using-apikeys-in-api"></a>
 
-After you create an API key, you can use the key value to make calls to Amazon Location
-APIs in your application.
+After you create an API key, you can use the key value to make calls to Amazon Location APIs in your application.
 
-API
-The APIs that support API keys have an additional parameter that takes
-the API key value. For example, if you call the `GetPlace`
-API, you can fill in the [key](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") parameter, as follows
+------
+#### [ API ]
 
-```
-curl --request GET —url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/{`PLACEID`}?key={`APIKEY`}&language=jp'
-```
-
-AWS CLI
-When you use the `--key` parameter, you should also use the
-`--no-sign-request` parameter, to avoid signing with Sig
-v4.
+The APIs that support API keys have an additional parameter that takes the API key value. For example, if you call the `GetPlace` API, you can fill in the [key](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html) parameter, as follows
 
 ```
-aws geo-places get-place --place-id $`PLACEID` --language jp --key $`APIKEY`
+curl --request GET —url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/{{{PLACEID}}}?key={{{APIKEY}}}&language=jp'
 ```
 
-SDK (web)
+------
+#### [ AWS CLI ]
+
+When you use the `--key` parameter, you should also use the `--no-sign-request` parameter, to avoid signing with Sig v4.
+
+```
+aws geo-places get-place --place-id $PLACEID --language jp --key $APIKEY
+```
+
+------
+#### [ SDK (web) ]
+
 Use the following code:
 
 ```
@@ -206,12 +157,12 @@ Use the following code:
         </style>
     </head>
     <body>
-
+         
         <div id="map"></div>
         <script>
-
+     
             const apiKey = "<api key>"; // check how to create api key for Amazon Location
-            const mapStyle = "Standard";  // eg. Standard, Monochrome, Hybrid, Satellite
+            const mapStyle = "Standard";  // eg. Standard, Monochrome, Hybrid, Satellite  
             const awsRegion = "eu-central-1"; // eg. us-east-2, us-east-1, us-west-2, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-south-2, eu-north-1, sa-east-1
             const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
@@ -227,7 +178,9 @@ Use the following code:
 </html>
 ```
 
-SDK (iOS, Swift)
+------
+#### [ SDK (iOS, Swift) ]
+
 Use the following code:
 
 ```
@@ -235,23 +188,23 @@ import UIKit
 import MapLibre
 
 class ViewController: UIViewController {
-    let apiKey = "`Enter your API key`" // The previously-created API Key to use
-    let regionName = "`Enter your region name`" // The service region - us-east-1, ap-south-1, etc
+    let apiKey = "Enter your API key" // The previously-created API Key to use
+    let regionName = "Enter your region name" // The service region - us-east-1, ap-south-1, etc
     var mapView: MLNMapView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMap()
     }
-
+    
     func loadMap() {
         let styleName = "Standard" // The map style - Standard, Monochrome, Hybrid, Satellite
         let colorName = "Light" // The color scheme - Light, Dark
-
+        
         // The Amazon Location Service map style URL that MapLibre will use to render the maps.
         let styleURL = URL(string: "https://maps.geo.\(regionName).amazonaws.com/v2/styles/\(styleName)/descriptor?key=\(apiKey)&color-scheme=\(colorName)")
 
-        // Initialize MapLibre
+        // Initialize MapLibre        
         mapView = MLNMapView(frame: view.bounds)
         mapView.styleURL = styleURL
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -262,7 +215,9 @@ class ViewController: UIViewController {
 }
 ```
 
-SDK (Android, Kotlin)
+------
+#### [ SDK (Android, Kotlin) ]
+
 Use the following code:
 
 ```
@@ -299,7 +254,7 @@ class MapActivity : Activity(), OnMapReadyCallback {
     // Return the Amazon Location Service map style URL
     // MapLibre will use this to render the maps.
     // awsRegion: The service region - us-east-1, ap-south-1, etc
-    // mapStyle: The map style - Standard, Monochrome, Hybrid, Satellite
+    // mapStyle: The map style - Standard, Monochrome, Hybrid, Satellite  
     // API_KEY: The previously-created API Key to use
     // colorName: The color scheme to use - Light, Dark
     private fun getMapUrl() =
@@ -341,3 +296,5 @@ class MapActivity : Activity(), OnMapReadyCallback {
     }
 }
 ```
+
+------

@@ -1,14 +1,22 @@
+
+
 # How to calculate a service area based on avoidance
+<a name="calculate-service-area-based-on-avoidance"></a>
 
 The CalculateIsolines API allows you to determine reachable service areas within specified ranges of time or distance, factoring in road networks and traffic conditions to avoid. This capability supports applications in defining service areas for restaurants, grocery stores, or other service providers which can assist in planning fuel efficiency and defining accessible areas for service coverage.
 
 ## Potential use cases
-
-- **Plan service areas:** Use this API to plan accessible areas for services like restaurants or grocery delivery based on avoidance.
+<a name="calculate-service-area-avoidance-potential-use"></a>
++ **Plan service areas:** Use this API to plan accessible areas for services like restaurants or grocery delivery based on avoidance.
 
 ## Examples
+<a name="calculate-service-area-avoidance-examples"></a>
 
-Sample request
+### Calculate a service area based on avoidance with Car TravelMode
+<a name="calculate-service-area-avoidance-car"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -41,7 +49,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -67,7 +76,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -103,7 +113,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-isolines --key ${YourKey} \
@@ -114,7 +125,13 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 --travel-mode "Car"
 ```
 
-Sample request
+------
+
+### Calculate a service area based on avoidance with Truck TravelMode
+<a name="calculate-service-area-avoidance-truck"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -147,7 +164,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -173,7 +191,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -209,7 +228,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-isolines --key ${YourKey} \
@@ -220,7 +240,13 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 --travel-mode "Truck"
 ```
 
-Sample request
+------
+
+### Calculate a service area based on avoidance for pedestrians
+<a name="calculate-service-area-avoidance-truck"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -252,7 +278,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -278,7 +305,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -313,7 +341,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-isolines --key ${YourKey} \
@@ -324,7 +353,13 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 --travel-mode "Pedestrian"
 ```
 
-Sample request
+------
+
+### Calculate a service area based on avoidance with Scooter TravelMode
+<a name="calculate-service-area-avoidance-scooter"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -357,7 +392,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -383,7 +419,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -418,7 +455,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-isolines --key ${YourKey} \
@@ -428,3 +466,5 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 --avoid '{"TollRoads": true, "ControlledAccessHighways": true, "Ferries": true, "DirtRoads": true, "SeasonalClosure": true, "CarShuttleTrains": true, "TollTransponders": true, "ZoneCategories": [{"Category": "Environmental"}]}' \
 --travel-mode "Scooter"
 ```
+
+------

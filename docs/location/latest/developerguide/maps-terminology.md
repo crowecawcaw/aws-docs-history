@@ -1,39 +1,33 @@
+
+
 # Maps terminology
+<a name="maps-terminology"></a>
 
 Understanding these key terms helps you effectively use Amazon Location Service mapping APIs and resources.
 
-**Basemap**
-
+**Basemap**  
 A basemap provides geographic context to your map, stored as vector tile layers. These tile layers include geographical features such as street names, buildings, and land use for visual reference.
 
-**Vector**
-
+**Vector**  
 Vector data consists of points, lines, and polygons, and is used to represent roads, locations, and areas on a map. Vector shapes can also be used as icons for markers on a map.
 
-**Raster**
-
+**Raster**  
 Raster data is image data made up of a grid, typically representing continuous data like terrain, satellite imagery, or heat maps. Raster images can also be used as icons or textures on a map.
 
-**Map rendering**
+**Map rendering**  
+The map rendering library pulls data from Amazon Location Service at runtime, rendering the map based on the selected map resource. A map resource defines the data provider and map style. Amazon Location Service requires the [MapLibre](https://maplibre.org/) rendering engine.
 
-The map rendering library pulls data from Amazon Location Service at runtime, rendering the map based on the selected map resource. A map resource defines the data provider and map style. Amazon Location Service requires the [MapLibre](https://maplibre.org/ "https://maplibre.org/") rendering engine.
+**Vector tile**  
+A vector tile stores map data using vector shapes. It adjusts to display resolution and selectively renders features while maintaining small file size for optimal performance. Supported format:[ Mapbox Vector Tiles (MVT)](https://docs.mapbox.com/data/tilesets/guides/vector-tiles-standards/).
 
-**Vector tile**
-
-A vector tile stores map data using vector shapes. It adjusts to display resolution and selectively renders features while maintaining small file size for optimal performance. Supported format: [Mapbox Vector Tiles (MVT)](https://docs.mapbox.com/data/tilesets/guides/vector-tiles-standards/ "https://docs.mapbox.com/data/tilesets/guides/vector-tiles-standards/").
-
-**Map style**
-
+**Map style**  
 A map style defines color and other styling information for map data, determining how the map appears when rendered. Amazon Location Service provides map styles based on the Mapbox GL style specification.
 
-**Glyph file**
-
+**Glyph file**  
 A binary file containing encoded Unicode characters, used by a map renderer to display labels.
 
-**Sprite file**
-
+**Sprite file**  
 A Portable Network Graphic (PNG) image file that contains small raster images and corresponding location descriptions in a JSON file. Used by a map renderer to display icons or textures on a map.
 
-**Bounding box**
-
+**Bounding box**  
 A bounding box is defined by two diagonal corner points: the northwest (NW) (top-left) and southeast (SE) (bottom-right) points. These points specify the spatial extent of a map.

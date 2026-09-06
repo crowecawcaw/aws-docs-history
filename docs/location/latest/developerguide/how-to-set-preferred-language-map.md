@@ -1,23 +1,25 @@
+
+
 # How to set a preferred language for a map
+<a name="how-to-set-preferred-language-map"></a>
 
-Amazon Location Service enables you to set the preferred language at the client-side by updating the
-style descriptor for a specific language. You can set a preferred language and display
-content in that language where embedded. Otherwise, it will fall back to another
-language.
+Amazon Location Service enables you to set the preferred language at the client-side by updating the style descriptor for a specific language. You can set a preferred language and display content in that language where embedded. Otherwise, it will fall back to another language.
 
-###### Note
-
-For more information, see [Localization and internationalization](maps-localization-internationalization.md "maps-localization-internationalization.md").
+**Note**  
+For more information, see [Localization and internationalization](maps-localization-internationalization.md).
 
 ## Set preferred language to Japanese and show map of Japan
+<a name="set-preferred-language-japanese"></a>
 
-In this example, you will set update style to show map labels in Japanese
-(ja).
+In this example, you will set update style to show map labels in Japanese (ja).
 
-index.html
+### Set preferred language to Japanese example
+<a name="set-preferred-language-japanese-example"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <html>
 <head>
     <link href="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css" rel="stylesheet" />
@@ -31,10 +33,10 @@ index.html
         const apiKey = "Add Your Api Key";
         const mapStyle = "Standard";
         const awsRegion = "eu-central-1";
-        const initialLocation = [139.76694, 35.68085]; //Japan
-
+        const initialLocation = [139.76694, 35.68085]; //Japan   
+        
         async function initializeMap() {
-            // get updated style object for preferred language.
+            // get updated style object for preferred language. 
             const styleObject = await getStyleWithPreferredLanguage("ja");
             // Initialize the MapLibre map with the fetched style object
             const map = new maplibregl.Map({
@@ -45,30 +47,28 @@ index.html
                 hash:true,
             });
             map.addControl(new maplibregl.NavigationControl(), "top-left");
-
-            return map;
+        
+            return map; 
         }
-
+  
         initializeMap();
     </script>
 </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; }
 #map { height: 100vh; }
-
 ```
 
-main.js
+------
+#### [ main.js ]
 
 ```
-
 async function getStyleWithPreferredLanguage(preferredLanguage) {
     const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
@@ -145,18 +145,22 @@ const recurseExpression = (exp, prevPropertyRegex, nextProperty) => {
         ['get', 'name']
     ];
 };
-
 ```
+
+------
 
 ## Set preferred language based on end user's browser language
+<a name="set-preferred-language-browser"></a>
 
-In this example, you will set update style to show map labels in user's device
-language.
+In this example, you will set update style to show map labels in user's device language. 
 
-index.html
+### Set preferred language based on browser language example
+<a name="set-preferred-language-browser-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <html>
 <head>
     <link href="https://unpkg.com/maplibre-gl@5.x/dist/maplibre-gl.css" rel="stylesheet" />
@@ -170,7 +174,7 @@ index.html
         const apiKey = "Add Your Api Key";
         const mapStyle = "Standard";
         const awsRegion = "eu-central-1";
-        const initialLocation = [139.76694, 35.68085]; //Japan
+        const initialLocation = [139.76694, 35.68085]; //Japan     
         const userLanguage = navigator.language || navigator.userLanguage;
         const languageCode = userLanguage.split('-')[0];
 
@@ -184,29 +188,27 @@ index.html
                  hash:true,
              });
              map.addControl(new maplibregl.NavigationControl(), "top-left");
-             return map;
+             return map; 
         }
 
         initializeMap();
     </script>
 </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; }
 #map { height: 100vh; }
-
 ```
 
-main.js
+------
+#### [ main.js ]
 
 ```
-
 async function getStyleWithPreferredLanguage(preferredLanguage) {
     const styleUrl = `https://maps.geo.${awsRegion}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}`;
 
@@ -283,5 +285,6 @@ const recurseExpression = (exp, prevPropertyRegex, nextProperty) => {
         ['get', 'name']
     ];
 };
-
 ```
+
+------

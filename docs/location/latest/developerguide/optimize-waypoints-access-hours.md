@@ -1,14 +1,22 @@
+
+
 # How to optimize waypoints for a route with access hours awareness
+<a name="optimize-waypoints-access-hours"></a>
 
 The OptimizeWaypoints API also calculates the optimal route between a set of waypoints, with the goal of minimizing either the travel time or the total distance covered. It solves the Traveling Salesman Problem of determining the most efficient path, taking into account factors such as the road network and traffic conditions.
 
 ## Potential use cases
-
-- **Analyze customer access hours:** Plan for efficiency around your customer’s access hours.
+<a name="optimize-waypoints-access-hours-potential-use"></a>
++ **Analyze customer access hours:** Plan for efficiency around your customer’s access hours.
 
 ## Examples
+<a name="optimize-waypoints-examples"></a>
 
-Sample Request
+### Optimize waypoints with access hours awareness using Car TravelMode
+<a name="optimize-waypoints-car"></a>
+
+------
+#### [ Sample Request ]
 
 ```
 {
@@ -69,7 +77,8 @@ Sample Request
 }
 ```
 
-Sample Response
+------
+#### [ Sample Response ]
 
 ```
 {
@@ -147,7 +156,8 @@ Sample Response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -211,7 +221,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes optimize-waypoints --key ${YourKey} \
@@ -221,3 +232,5 @@ aws geo-routes optimize-waypoints --key ${YourKey} \
 --departure-time "2024-10-25T18:13:42Z" \
 --travel-mode "Car"
 ```
+
+------

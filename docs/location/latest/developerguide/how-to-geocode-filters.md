@@ -1,19 +1,27 @@
+
+
 # How to geocode using filters
+<a name="how-to-geocode-filters"></a>
 
 The Geocode API enables you to use filters to get desired results.
 
 ## Potential use
+<a name="geocode-filters-uses"></a>
 
 Use filters to restrict results based on your business needs.
 
 ## Examples
+<a name="geocode-filters-examples"></a>
 
-Specify a value for `IncludeCountries` to return values for
-that country in the results.
+### Limit results within a country
+<a name="geocode-filter-country-example"></a>
 
-Sample request
-Without `IncludeCountries": ["USA"]`, the Geocode
-API will return Vancouver, BC, Canada.
+Specify a value for `IncludeCountries` to return values for that country in the results.
+
+------
+#### [ Sample request ]
+
+Without `IncludeCountries": ["USA"]`, the Geocode API will return Vancouver, BC, Canada.
 
 ```
 {
@@ -24,7 +32,8 @@ API will return Vancouver, BC, Canada.
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -73,7 +82,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -87,21 +97,24 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "Vancouver" --filter '{"IncludeCountries": ["USA"]}'
 ```
 
-Specify a value for `IncludePlaceTypes` to return values for
-that place in the results.
+------
 
-Sample request
-Without `IncludePlaceTypes": ["Street"]`, the
-Geocode API will return Georgia, a country. You can further
-refine the results by adding `"IncludeCountries"`
-with values of **CAN** and
-**USA** and compare the results.
+### Refine results with place type filters
+<a name="geocode-filter-place-example"></a>
+
+Specify a value for `IncludePlaceTypes` to return values for that place in the results.
+
+------
+#### [ Sample request ]
+
+Without `IncludePlaceTypes": ["Street"]`, the Geocode API will return Georgia, a country. You can further refine the results by adding `"IncludeCountries"` with values of **CAN** and **USA** and compare the results.
 
 ```
 {
@@ -113,7 +126,8 @@ with values of **CAN** and
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -170,7 +184,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -185,13 +200,16 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "Georgia" --filter '{"IncludePlaceTypes": ["Street"]}'
 ```
 
-## Developer tips
+------
 
-For address geocoding, try to use complete addresses or a query component with a
-combination of bias position, including country and place. To learn more, see [How to geocode an address](how-to-geocode-address.md "how-to-geocode-address.md").
+## Developer tips
+<a name="geocode-filters-developer-tips"></a>
+
+For address geocoding, try to use complete addresses or a query component with a combination of bias position, including country and place. To learn more, see [How to geocode an address](how-to-geocode-address.md).

@@ -1,28 +1,35 @@
+
+
 # Localization and internationalization
+<a name="maps-localization-internationalization"></a>
 
 Amazon Location Service supports localization features that enable you to customize maps for specific languages and regions. This includes support for local place names and the ability to render maps in different languages.
 
-| Style      | Political View                                                                                                                           | Languages                             |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| Standard   | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library |
-| Monochrome | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library |
-| Hybrid     | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library |
-| Satellite  | Not supported                                                                                                                            | Not supported                         |
+
+| Style | Political View | Languages | 
+| --- | --- | --- | 
+| Standard | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library | 
+| Monochrome | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library | 
+| Hybrid | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library | 
+| Satellite | Not supported | Not supported | 
 
 ## Languages
+<a name="maps-languages"></a>
 
 Amazon Location Service provides Maps APIs that enable you to customize the language of map labels and text elements. This capability helps your applications cater to a global audience or regions with multiple languages. By displaying maps in the user's preferred language, you enhance the overall user experience, making the maps more accessible and relevant to your diverse user base.
 
-For more information, see [How to set a preferred language for a map](how-to-set-preferred-language-map.md "how-to-set-preferred-language-map.md").
+For more information, see [How to set a preferred language for a map](how-to-set-preferred-language-map.md).
 
-![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](images/standard-language-switcher.gif)
+![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](http://docs.aws.amazon.com/location/latest/developerguide/images/standard-language-switcher.gif)
+
 
 ## Political view
+<a name="maps-political"></a>
 
-By default, Amazon Location Service presents an international perspective, which visually represents disputed territories with dashed borders. To switch from the international perspective to a country-specific geopolitical view, use the _political view_ parameter in your API query. This helps businesses comply with local laws, as certain countries require adherence to their specific geopolitical views for maps and map data.
+By default, Amazon Location Service presents an international perspective, which visually represents disputed territories with dashed borders. To switch from the international perspective to a country-specific geopolitical view, use the *political view* parameter in your API query. This helps businesses comply with local laws, as certain countries require adherence to their specific geopolitical views for maps and map data.
 
-In addition to the default international perspective, Amazon Location Service supports the geopolitical views of the following countries: Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay. To activate a geopolitical view, pass the appropriate value to the _political view_ parameter.
+In addition to the default international perspective, Amazon Location Service supports the geopolitical views of the following countries: Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay. To activate a geopolitical view, pass the appropriate value to the *political view* parameter.
 
-For more information, see [How to set the political view of a map](how-to-set-political-view-map.md "how-to-set-political-view-map.md").
+For more information, see [How to set the political view of a map](how-to-set-political-view-map.md).
 
-![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](images/maps-political-view.png)
+![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](http://docs.aws.amazon.com/location/latest/developerguide/images/maps-political-view.png)

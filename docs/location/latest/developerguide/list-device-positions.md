@@ -1,33 +1,23 @@
+
+
 # List your device positions
+<a name="list-device-positions"></a>
 
-You can view a list device positions for a tracker using the AWS CLI, or the
-Amazon Location APIs, with the ListDevicePositions API.
-When you call the ListDevicePositions API, a list of the latest positions for all
-devices associated with a given tracker is returned. By default this API returns 100 of the latest
-device positions per page of results for a given tracker.
-To only return devices within a specific region use the `FilterGeometry` parameter
-to create a Bounding Polygon Query.
-This way when you call ListDevicePositions, only devices inside the polygon will be returned.
+You can view a list device positions for a tracker using the AWS CLI, or the Amazon Location APIs, with the ListDevicePositions API. When you call the ListDevicePositions API, a list of the latest positions for all devices associated with a given tracker is returned. By default this API returns 100 of the latest device positions per page of results for a given tracker. To only return devices within a specific region use the `FilterGeometry` parameter to create a Bounding Polygon Query. This way when you call ListDevicePositions, only devices inside the polygon will be returned.
 
-###### Note
-
-If you wish to encrypt your data using your own AWS KMS customer managed key, then the Bounding
-Polygon Queries feature will be disabled by default. This is because by using
-this feature, a representation of your device positions will not be encrypted
-using your AWS KMS managed key. The exact device position, however; is still
-encrypted using your managed key.
-
+**Note**  
+If you wish to encrypt your data using your own AWS KMS customer managed key, then the Bounding Polygon Queries feature will be disabled by default. This is because by using this feature, a representation of your device positions will not be encrypted using your AWS KMS managed key. The exact device position, however; is still encrypted using your managed key.  
 You can choose to opt-in to the Bounding Polygon Queries feature. This is done by setting the `KmsKeyEnableGeospatialQueries` parameter to true when creating or updating a Tracker.
 
-API
-Use the `ListDevicePositions` operation from the Amazon Location
-Trackers APIs.
+------
+#### [ API ]
 
-The following example is an API request to get a list of device positions in polygonal area,
-using the optional parameter `FilterGeometry`. The example returns 3 device locations present in the area defined by the `Polygon` array.
+Use the `[ListDevicePositions](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_ListDevicePositions.html)` operation from the Amazon Location Trackers APIs.
+
+The following example is an API request to get a list of device positions in polygonal area, using the optional parameter `[FilterGeometry](https://docs.aws.amazon.com/)`. The example returns 3 device locations present in the area defined by the `Polygon` array.
 
 ```
-POST /tracking/v0/trackers/`TrackerName`/list-positions HTTP/1.1
+POST /tracking/v0/trackers/{{TrackerName}}/list-positions HTTP/1.1
 Content-type: application/json
 
 {
@@ -66,7 +56,7 @@ Content-type: application/json
 }
 ```
 
-The following is an example response for `ListDevicePositions`:
+The following is an example response for `[ListDevicePositions](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_ListDevicePositions.html)`:
 
 ```
 {
@@ -106,11 +96,15 @@ The following is an example response for `ListDevicePositions`:
 }
 ```
 
-CLI
-Use the `list-trackers` command.
+------
+#### [ CLI ]
 
-The following example is an AWS CLI to get a list of devices in a polygonal area.
+Use the `[list-trackers](https://docs.aws.amazon.com/cli/latest/reference/location/list-trackers.html)` command.
+
+The following example is an AWS CLI to get a list of devices in a polygonal area. 
 
 ```
 aws location list-device-positions TODO: add arguments add props for filter geo
 ```
+
+------

@@ -1,32 +1,31 @@
+
+
 # How to use authentication helpers
+<a name="how-to-auth-helper"></a>
 
 This section provides additional information about authentication helpers.
 
-The Amazon Location JavaScript authentication utilities assist in authenticating when making Amazon Location Service API calls from JavaScript applications.
-These utilities specifically support authentication using API keys or Amazon Cognito.
+## Web
+<a name="loc-sdk-auth-web"></a>
+
+The Amazon Location JavaScript authentication utilities assist in authenticating when making Amazon Location Service API calls from JavaScript applications. These utilities specifically support authentication using API keys or Amazon Cognito.
 
 **Installation**
++ Install this library using NPM:
 
-- Install this library using NPM:
+  ```
+  npm install @aws/amazon-location-utilities-auth-helper
+  ```
++ To use it directly in the browser, include the following in your HTML file:
 
-```
-npm install @aws/amazon-location-utilities-auth-helper
-```
-
-- To use it directly in the browser, include the following in your HTML file:
-
-```
-<script src="https://cdn.jsdelivr.net/npm/@aws/amazon-location-utilities-auth-helper@1"></script>
-```
+  ```
+  <script src="https://cdn.jsdelivr.net/npm/@aws/amazon-location-utilities-auth-helper@1"></script>
+  ```
 
 ### Usage
+<a name="loc-sdk-auth-usage"></a>
 
-To use the authentication helpers, import the library and call the necessary utility functions.
-This library supports authenticating requests from the Amazon Location Service SDKs,
-including the [Maps](../../../AWSJavaScriptSDK/v3/latest/client/geo-maps.md "../../../AWSJavaScriptSDK/v3/latest/client/geo-maps.md"),
-[Places](../../../AWSJavaScriptSDK/v3/latest/client/geo-places.md "../../../AWSJavaScriptSDK/v3/latest/client/geo-places.md"), and
-[Routes](../../../AWSJavaScriptSDK/v3/latest/client/geo-routes.md "../../../AWSJavaScriptSDK/v3/latest/client/geo-routes.md") standalone SDKs, as well as
-rendering maps with [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js "https://github.com/maplibre/maplibre-gl-js").
+To use the authentication helpers, import the library and call the necessary utility functions. This library supports authenticating requests from the Amazon Location Service SDKs, including the [Maps](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/geo-maps/), [Places](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/geo-places/), and [Routes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/geo-routes/) standalone SDKs, as well as rendering maps with [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js).
 
 **Usage with Modules**
 
@@ -143,17 +142,19 @@ const authHelper = await amazonLocationAuthHelper.withIdentityPoolId(identityPoo
 });
 ```
 
-The Amazon Location Service Mobile Authentication SDK for iOS helps authenticate requests to Amazon Location Service APIs from iOS applications.
-It specifically supports authentication via API keys or Amazon Cognito.
+## iOS
+<a name="loc-sdk-auth-ios"></a>
+
+The Amazon Location Service Mobile Authentication SDK for iOS helps authenticate requests to Amazon Location Service APIs from iOS applications. It specifically supports authentication via API keys or Amazon Cognito.
 
 **Installation**
-
-- Open Xcode and go to **File > Add Package Dependencies**.
-- Type the package URL ([https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios/](https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios/ "https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios/")) into the search bar and press Enter.
-- Select the "amazon-location-mobile-auth-sdk-ios" package and click **Add Package**.
-- Choose the "AmazonLocationiOSAuthSDK" package product and click **Add Package**.
++ Open Xcode and go to **File > Add Package Dependencies**.
++ Type the package URL ([https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios/](https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios/)) into the search bar and press Enter.
++ Select the "amazon-location-mobile-auth-sdk-ios" package and click **Add Package**.
++ Choose the "AmazonLocationiOSAuthSDK" package product and click **Add Package**.
 
 ### Usage
+<a name="loc-sdk-auth-usage"></a>
 
 After installing the library, use the `AuthHelper` class to configure client settings for either API keys or Amazon Cognito.
 
@@ -286,35 +287,35 @@ func locationExample() {
 }
 ```
 
-The Amazon Location Service Mobile Authentication SDK for Android helps you authenticate requests to Amazon Location Service APIs from
-Android applications, specifically supporting authentication using Amazon Cognito.
+## Android
+<a name="loc-sdk-auth-android"></a>
+
+The Amazon Location Service Mobile Authentication SDK for Android helps you authenticate requests to Amazon Location Service APIs from Android applications, specifically supporting authentication using Amazon Cognito.
 
 **Installation**
++ This authentication SDK works with the overall AWS Kotlin SDK. Both SDKs are published to Maven Central. Check the latest version of the [auth SDK](https://mvnrepository.com/artifact/software.amazon.location/auth) on Maven Central.
++ Add the following lines to the dependencies section of your `build.gradle` file in Android Studio:
 
-- This authentication SDK works with the overall AWS Kotlin SDK. Both SDKs are published to Maven Central. Check the latest version of the [auth SDK](https://mvnrepository.com/artifact/software.amazon.location/auth "https://mvnrepository.com/artifact/software.amazon.location/auth") on Maven Central.
-- Add the following lines to the dependencies section of your `build.gradle` file in Android Studio:
+  ```
+  implementation("software.amazon.location:auth:1.1.0")
+  implementation("org.maplibre.gl:android-sdk:11.5.2")
+  implementation("com.squareup.okhttp3:okhttp:4.12.0")
+  ```
++ For the standalone Maps, Places, and Routes SDKs, add the following lines:
 
-```
-implementation("software.amazon.location:auth:1.1.0")
-implementation("org.maplibre.gl:android-sdk:11.5.2")
-implementation("com.squareup.okhttp3:okhttp:4.12.0")
-```
+  ```
+  implementation("aws.sdk.kotlin:geomaps:1.3.65")
+  implementation("aws.sdk.kotlin:geoplaces:1.3.65")
+  implementation("aws.sdk.kotlin:georoutes:1.3.65")
+  ```
++ For the consolidated Location SDK that includes Geofencing and Tracking, add the following line:
 
-- For the standalone Maps, Places, and Routes SDKs, add the following lines:
-
-```
-implementation("aws.sdk.kotlin:geomaps:1.3.65")
-implementation("aws.sdk.kotlin:geoplaces:1.3.65")
-implementation("aws.sdk.kotlin:georoutes:1.3.65")
-```
-
-- For the consolidated Location SDK that includes Geofencing and Tracking, add the following line:
-
-```
-implementation("aws.sdk.kotlin:location:1.3.65")
-```
+  ```
+  implementation("aws.sdk.kotlin:location:1.3.65")
+  ```
 
 ### Usage
+<a name="loc-sdk-auth-usage"></a>
 
 Import the following classes in your code:
 
@@ -341,11 +342,11 @@ You can create an `AuthHelper` and use it with the AWS Kotlin SDK:
 ```
 private suspend fun exampleCognitoLogin() {
     val authHelper = AuthHelper.withCognitoIdentityPool("MY-COGNITO-IDENTITY-POOL-ID", applicationContext)
-
+    
     var geoMapsClient = GeoMapsClient(authHelper?.getGeoMapsClientConfig())
     var geoPlacesClient = GeoPlacesClient(authHelper?.getGeoPlacesClientConfig())
     var geoRoutesClient = GeoRoutesClient(authHelper?.getGeoRoutesClientConfig())
-
+    
     var locationClient = LocationClient(authHelper?.getLocationClientConfig())
 }
 ```
@@ -359,7 +360,7 @@ private suspend fun exampleCustomCredentialLogin() {
     var geoMapsClient = GeoMapsClient(authHelper?.getGeoMapsClientConfig())
     var geoPlacesClient = GeoPlacesClient(authHelper?.getGeoPlacesClientConfig())
     var geoRoutesClient = GeoRoutesClient(authHelper?.getGeoRoutesClientConfig())
-
+    
     var locationClient = LocationClient(authHelper?.getLocationClientConfig())
 }
 ```
@@ -373,7 +374,7 @@ private suspend fun exampleApiKeyLogin() {
     var geoMapsClient = GeoMapsClient(authHelper?.getGeoMapsClientConfig())
     var geoPlacesClient = GeoPlacesClient(authHelper?.getGeoPlacesClientConfig())
     var geoRoutesClient = GeoRoutesClient(authHelper?.getGeoRoutesClientConfig())
-
+    
     var locationClient = LocationClient(authHelper?.getLocationClientConfig())
 }
 ```

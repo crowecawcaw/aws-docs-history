@@ -1,14 +1,22 @@
+
+
 # How to find the fastest route
+<a name="calculate-routes-custom-avoidance-fast"></a>
 
 The CalculateRoutes API helps you to find the fastest routes between origin and destination.
 
 ## Potential use cases
-
-- **Optimize routes for time efficiency:** Improve delivery operations by calculating the fastest route. This is useful for reducing travel time in logistics and delivery services.
+<a name="calculate-routes-fast-potential-use"></a>
++ **Optimize routes for time efficiency:** Improve delivery operations by calculating the fastest route. This is useful for reducing travel time in logistics and delivery services.
 
 ## Examples
+<a name="calculate-routes-fast-examples"></a>
 
-Sample request
+### Calculate the fastest route
+<a name="calculate-routes-fast-car"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -25,7 +33,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -166,7 +175,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -186,7 +196,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -194,5 +205,6 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.020098 49.232872 \
 --travel-mode "Car" \
 --optimize-routing-for "FastestRoute"
-
 ```
+
+------

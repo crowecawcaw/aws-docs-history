@@ -1,53 +1,74 @@
+
+
 # How to get a static map of a specific dimension
+<a name="get-static-map-specific-dimension"></a>
 
 In this topic, you will learn how to set the dimensions (height and width) for static maps using Amazon Location Service. Customizing the dimensions of a map image allows you to balance performance, visual quality, and usability. The maximum values for both `width` and `height` are 1400 pixels, while the minimum values are 64 pixels. The maximum result size is 6 MB.
 
 Additionally, you can use the `bbox` and `bounds` parameters along with `padding` to ensure that important map features near the edges are fully visible and not cut off.
 
 ## Get map image with specific height and width
+<a name="get-map-specific-dimension"></a>
 
 In this example, you will create a low-resolution and mid-resolution map image of Helsinki, Finland.
 
-Request URL for low-resolution thumbnail
+------
+#### [ Request URL for low-resolution thumbnail ]
 
 ```
-https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=200&height=200&zoom=11.5&center=24.9460,60.1690&key=`API_KEY`
+https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=200&height=200&zoom=11.5&center=24.9460,60.1690&key={{API_KEY}}
 ```
 
-Response (Thumbnail 200x200)
+------
+#### [ Response (Thumbnail 200x200) ]
 
-![Static Maps API response of Helsinki, Finland at low resolution, demonstrating minimum dimension settings.](images/static-specific-dimension-low.png)
+![Static Maps API response of Helsinki, Finland at low resolution, demonstrating minimum dimension settings.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-low.png)
 
-Request URL for mid-resolution image
+
+------
+#### [ Request URL for mid-resolution image ]
 
 ```
-https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=700&height=700&zoom=13&center=24.9460,60.1690&key=`API_KEY`
+https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=700&height=700&zoom=13&center=24.9460,60.1690&key={{API_KEY}}
 ```
 
-Response image (700x700)
+------
+#### [ Response image (700x700) ]
 
-![Static Maps API response of Helsinki, Finland at mid resolution, showing increased detail compared to the low-resolution version.](images/static-specific-dimension-mid.png)
+![Static Maps API response of Helsinki, Finland at mid resolution, showing increased detail compared to the low-resolution version.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-mid.png)
+
+
+------
 
 ## Get map image with padding on all sides
+<a name="get-map-with-padding"></a>
 
 In this example, you will generate a map using several must-see places in Helsinki, Finland, with their coordinates (longitude, latitude), both with and without padding.
 
-Request URL with padding
+------
+#### [ Request URL with padding ]
 
 ```
-https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&padding=150&bounded-positions=24.9526,60.1692,24.9850,60.1465,24.9270,60.1725,24.9226,60.1826,24.9509,60.1675,24.9566,60.1685,24.9457,60.1674,24.9397,60.1719,24.9414,60.1715,24.9387,60.1720&key=`API_KEY`
+https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&padding=150&bounded-positions=24.9526,60.1692,24.9850,60.1465,24.9270,60.1725,24.9226,60.1826,24.9509,60.1675,24.9566,60.1685,24.9457,60.1674,24.9397,60.1719,24.9414,60.1715,24.9387,60.1720&key={{API_KEY}}
 ```
 
-Response image (with padding)
+------
+#### [ Response image (with padding) ]
 
-![Static Maps API response of Helsinki with padding applied, showing extra space around the bounded area to prevent features from being cut off at edges.](images/static-specific-dimension-padding.png)
+![Static Maps API response of Helsinki with padding applied, showing extra space around the bounded area to prevent features from being cut off at edges.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-padding.png)
 
-Request URL without padding
+
+------
+#### [ Request URL without padding ]
 
 ```
-https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&bounded-positions=24.9526,60.1692,24.9850,60.1465,24.9270,60.1725,24.9226,60.1826,24.9509,60.1675,24.9566,60.1685,24.9457,60.1674,24.9397,60.1719,24.9414,60.1715,24.9387,60.1720&key=`API_KEY`
+https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=1024&height=1024&bounded-positions=24.9526,60.1692,24.9850,60.1465,24.9270,60.1725,24.9226,60.1826,24.9509,60.1675,24.9566,60.1685,24.9457,60.1674,24.9397,60.1719,24.9414,60.1715,24.9387,60.1720&key={{API_KEY}}
 ```
 
-Response image (without padding)
+------
+#### [ Response image (without padding) ]
 
-![Static Maps API response of Helsinki without padding, showing a tighter crop where edge features may be partially cut off.](images/static-specific-dimension-no-padding.png)
+![Static Maps API response of Helsinki without padding, showing a tighter crop where edge features may be partially cut off.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-no-padding.png)
+
+
+------

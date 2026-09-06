@@ -1,18 +1,22 @@
-# How to get results for a partially typed or misspelled query
 
-The Suggest API enables applications to complete user queries for places or categories
-of results. These results are sorted from most likely to less-likely matches, allowing
-the API to resolve incomplete or misspelled words.
+
+# How to get results for a partially typed or misspelled query
+<a name="how-to-get-results-for-partial-or-misspelled-queries"></a>
+
+The Suggest API enables applications to complete user queries for places or categories of results. These results are sorted from most likely to less-likely matches, allowing the API to resolve incomplete or misspelled words.
 
 ## Potential use cases
-
-- **Complete a partially typed point of interest
-  query:** Assists users by providing suggestions based on
-  partially typed or incorrect entries.
+<a name="potential-use"></a>
++ **Complete a partially typed point of interest query:** Assists users by providing suggestions based on partially typed or incorrect entries.
 
 ## Examples
+<a name="suggest-api-examples"></a>
 
-Sample request
+### Look up a misspelled point of interest
+<a name="misspelled-point-of-interest"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -28,7 +32,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -67,7 +72,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -83,7 +89,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places suggest --key ${YourKey} \
@@ -92,11 +99,12 @@ aws geo-places suggest --key ${YourKey} \
 --additional-features "Core"
 ```
 
-## Developer tips
+------
 
-Use filters such as `Filter.IncludeCountries` or
-`Filter.BoundingBox` with `BiasPosition`. These filters
-can help narrow down possible results and improve accuracy.
+## Developer tips
+<a name="developer-tips"></a>
+
+Use filters such as `Filter.IncludeCountries` or `Filter.BoundingBox` with `BiasPosition`. These filters can help narrow down possible results and improve accuracy.
 
 ```
 {

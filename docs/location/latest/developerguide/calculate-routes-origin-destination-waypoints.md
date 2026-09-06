@@ -1,14 +1,22 @@
+
+
 # How to find a route for an origin and destination
+<a name="calculate-routes-origin-destination-waypoints"></a>
 
 The CalculateRoutes API helps you find the best routes between origin and destination, as well as the best opportunities for driver resting. It supports travel modes such as truck, pedestrian, car and scooter. It also supports up to 25 waypoints (stopovers) including the origin and destination with only a few constraints.
 
 ## Potential use cases
-
-- **Find point-to-point routes:** Determine the best route between two locations based on various travel modes and additional options.
+<a name="potential-use-cases"></a>
++ **Find point-to-point routes:** Determine the best route between two locations based on various travel modes and additional options.
 
 ## Examples
+<a name="calculate-routes-examples"></a>
 
-Sample request
+### Calculate routes from origin to destination using Car TravelMode
+<a name="calculate-routes-car-mode"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -23,7 +31,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -111,7 +120,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -129,10 +139,13 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
 --origin -123.118105 49.282423 \
 --destination -123.020098 49.232872
 ```
+
+------

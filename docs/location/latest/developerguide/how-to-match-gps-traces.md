@@ -1,18 +1,26 @@
+
+
 # How to match GPS traces to a road network
+<a name="how-to-match-gps-traces"></a>
 
 The SnapToRoads API allows you to match GPS traces onto the road network. A GPS trace includes positions and metadata like timestamp, speed, and heading that are recorded using a GPS device. These traces often have a margin of error, making them challenging to use for analysis and visualization directly.
 
 SnapToRoads considers legal and time restrictions for the specified travel mode while matching traces. If the trace strongly suggests a restriction violation, the actual route taken is maintained.
 
 ## Potential use cases
-
-- **Overlay GPS traces onto the most likely driven roads:** This feature helps align GPS data to the most accurate path on the road network, supporting clearer data visualization.
-- **Interpolate gaps in GPS traces:** SnapToRoads can fill in gaps by snapping coordinates to road segments, creating a more continuous and useful dataset for applications.
-- **Filter noise and outliers:** By snapping to the nearest road, this API can help remove outliers and reduce GPS noise, improving data reliability for analysis.
+<a name="potential-use"></a>
++ **Overlay GPS traces onto the most likely driven roads:** This feature helps align GPS data to the most accurate path on the road network, supporting clearer data visualization.
++ **Interpolate gaps in GPS traces:** SnapToRoads can fill in gaps by snapping coordinates to road segments, creating a more continuous and useful dataset for applications.
++ **Filter noise and outliers:** By snapping to the nearest road, this API can help remove outliers and reduce GPS noise, improving data reliability for analysis.
 
 ## Examples
+<a name="examples"></a>
 
-Sample request
+### Match GPS trace using car mode
+<a name="match-gps-car-mode"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -31,7 +39,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -55,7 +64,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -77,7 +87,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes snap-to-roads --key ${YourKey} \
@@ -85,7 +96,13 @@ aws geo-routes snap-to-roads --key ${YourKey} \
 --travel-mode "Car"
 ```
 
-Sample request
+------
+
+### Match GPS trace using truck mode with options
+<a name="match-gps-truck-mode-options"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -109,7 +126,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -133,7 +151,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -160,7 +179,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes snap-to-roads --key ${YourKey} \
@@ -168,3 +188,5 @@ aws geo-routes snap-to-roads --key ${YourKey} \
 --travel-mode "Truck" \
 --travel-mode-options '{"Truck": {"GrossWeight": 10000}}'
 ```
+
+------

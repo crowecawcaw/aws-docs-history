@@ -1,20 +1,27 @@
-# How to geocode for the time zone of a city
 
-You can use the Geocode API to provide time zone information such as UTC offset and
-time zone name.
+
+# How to geocode for the time zone of a city
+<a name="how-to-geocode-timezone"></a>
+
+You can use the Geocode API to provide time zone information such as UTC offset and time zone name.
 
 ## Potential use
+<a name="geocode-timezone-uses"></a>
 
 Possible uses for geocode time zones:
-
-- Create a world clock
-- Schedule meetings in different geographies
++ Create a world clock
++ Schedule meetings in different geographies
 
 ## Examples
+<a name="geocode-timezone-examples"></a>
+
+### Example
+<a name="geocode-timezone-example"></a>
 
 Geocode in Brussels, with time zone request.
 
-Sample request
+------
+#### [ Sample request ]
 
 ```
 {
@@ -28,7 +35,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -82,7 +90,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -99,10 +108,13 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "Brussels" \
 --filter '{"IncludePlaceTypes": ["Locality"]}' \
 --additional-features "TimeZone"
 ```
+
+------

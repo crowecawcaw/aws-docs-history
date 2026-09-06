@@ -1,4 +1,7 @@
+
+
 # Error handling
+<a name="error-handling"></a>
 
 Jobs handle errors at both the job level and individual record level. Job-level errors prevent the entire job from completing and are reported through the job status. These include authentication failures, permission issues, and service errors.
 

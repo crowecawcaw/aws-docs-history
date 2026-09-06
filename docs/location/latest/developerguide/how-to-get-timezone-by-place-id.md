@@ -1,26 +1,30 @@
-# How to get the time zone for a PlaceId
 
-The GetPlace API allows retrieval of contact information associated with a specific
-PlaceId, providing you with details such as phone numbers, time zones, and website
-URLs.
+
+# How to get the time zone for a PlaceId
+<a name="how-to-get-timezone-by-place-id"></a>
+
+The GetPlace API allows retrieval of contact information associated with a specific PlaceId, providing you with details such as phone numbers, time zones, and website URLs.
 
 ## Potential use cases
-
-- **Obtain additional time zone information for a saved
-  PlaceId:** Create a world clock with store PlaceId.
-- **Retrieve time zone details for addresses from
-  Autocomplete:** Track daylight savings time for a
-  PlaceId.
+<a name="potential-use"></a>
++ **Obtain additional time zone information for a saved PlaceId:** Create a world clock with store PlaceId.
++ **Retrieve time zone details for addresses from Autocomplete:** Track daylight savings time for a PlaceId.
 
 ## Examples
+<a name="get-contacts-examples"></a>
 
-Sample request
+### Get the time zone for a PlaceId
+<a name="get-contacts-by-place-id"></a>
+
+------
+#### [ Sample request ]
 
 ```
 https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?additional-features=TimeZone&key=Your_Key
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -84,14 +88,16 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request GET \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?key=Your_Key&=TimeZone'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 export PLACEID=AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP
@@ -100,3 +106,5 @@ aws geo-places get-place --key ${YourKey} \
 --place-id ${PLACEID} \
 --additional-features "TimeZone"
 ```
+
+------

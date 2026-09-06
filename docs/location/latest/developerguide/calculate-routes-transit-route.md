@@ -1,20 +1,23 @@
-# How to find a transit route
 
-The CalculateRoutes API supports the `Transit` travel mode to calculate routes
-using public transportation such as buses, subways, trains, and monorails. Transit routes
-include pedestrian legs for walking to and from transit stops.
+
+# How to find a transit route
+<a name="calculate-routes-transit-route"></a>
+
+The CalculateRoutes API supports the `Transit` travel mode to calculate routes using public transportation such as buses, subways, trains, and monorails. Transit routes include pedestrian legs for walking to and from transit stops.
 
 ## Potential use cases
-
-- **Plan public transit journeys:** Find the best public
-  transit route between two locations, including walking directions to and from stops.
-- **Filter transit modes:** Use `AllowedModes`
-  to restrict routes to specific transit types (for example, only subways and buses), or use
-  `ExcludedModes` to remove unwanted modes (for example, exclude ferries).
+<a name="transit-potential-use-cases"></a>
++ **Plan public transit journeys:** Find the best public transit route between two locations, including walking directions to and from stops.
++ **Filter transit modes:** Use `AllowedModes` to restrict routes to specific transit types (for example, only subways and buses), or use `ExcludedModes` to remove unwanted modes (for example, exclude ferries).
 
 ## Examples
+<a name="calculate-routes-transit-examples"></a>
 
-Sample request
+### Calculate a route using public transit
+<a name="calculate-routes-transit-mode"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -31,7 +34,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -178,7 +182,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -198,7 +203,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes \
@@ -206,10 +212,15 @@ aws geo-routes calculate-routes \
 --destination -122.3493 47.6205 \
 --travel-mode "Transit" \
 --depart-now
-
 ```
 
-Sample request
+------
+
+### Calculate a route using public transit excluding certain transport modes
+<a name="calculate-routes-transit-excluded-modes"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -231,7 +242,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -380,7 +392,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -405,7 +418,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes \
@@ -414,5 +428,6 @@ aws geo-routes calculate-routes \
 --travel-mode "Transit" \
 --travel-mode-options '{"Transit": {"ExcludedModes": ["Monorail"]}}' \
 --depart-now
-
 ```
+
+------

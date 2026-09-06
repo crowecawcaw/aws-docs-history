@@ -1,15 +1,23 @@
+
+
 # How to find routes with turn-by-turn directions
+<a name="how-to-find-turn-by-turn-route"></a>
 
 The CalculateRoutes API helps you to find the best routes between origin and destination, as well as the best opportunities for driver resting. It supports travel modes such as car, truck, pedestrian and scooter. It also supports up to 25 waypoints (stopovers) including the origin and destination, with only a few constraints.
 
 ## Potential use cases
-
-- **Create a navigation mobile app:** Use the API to get turn-by-turn navigation instructions.
-- **Display directions on a web platform:** Show detailed route guidance for web applications to assist you with navigation.
+<a name="potential-use-cases-turn-by-turn"></a>
++ **Create a navigation mobile app:** Use the API to get turn-by-turn navigation instructions.
++ **Display directions on a web platform:** Show detailed route guidance for web applications to assist you with navigation.
 
 ## Examples
+<a name="calculate-routes-examples-turn-by-turn"></a>
 
-Sample request
+### Calculate routes using Car TravelMode
+<a name="calculate-routes-car-mode-turn-by-turn"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -26,7 +34,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -108,7 +117,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -128,7 +138,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -137,3 +148,5 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --travel-step-type "TurnByTurn" \
 --travel-mode "Car"
 ```
+
+------

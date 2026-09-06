@@ -1,30 +1,29 @@
+
+
 # How to add control on the map
+<a name="how-to-add-control-on-map"></a>
 
-Amazon Location Service allows you to add multiple controls to the map, including navigation,
-geolocation, fullscreen, scale, and attribution controls.
+Amazon Location Service allows you to add multiple controls to the map, including navigation, geolocation, fullscreen, scale, and attribution controls.
++ **Navigation control**: Contains zoom buttons and a compass.
++ **Geolocate control**: Provides a button that uses the browser's geolocation API to locate the user on the map.
++ **Fullscreen control**: Contains a button for toggling the map in and out of fullscreen mode.
++ **Scale control**: Displays the ratio of a distance on the map to the corresponding distance on the ground.
++ **Attribution control**: Presents the map's attribution information. By default, the attribution control is expanded (regardless of map width).
 
-- **Navigation control**: Contains zoom buttons and
-  a compass.
-- **Geolocate control**: Provides a button that
-  uses the browser's geolocation API to locate the user on the map.
-- **Fullscreen control**: Contains a button for
-  toggling the map in and out of fullscreen mode.
-- **Scale control**: Displays the ratio of a
-  distance on the map to the corresponding distance on the ground.
-- **Attribution control**: Presents the map's
-  attribution information. By default, the attribution control is expanded
-  (regardless of map width).
-  You can add the controls to any corner of the map: top-left, bottom-left,
-  bottom-right, or top-right.
+You can add the controls to any corner of the map: top-left, bottom-left, bottom-right, or top-right.
 
 ## Adding map controls
+<a name="add-map-controls"></a>
 
 In the following example, you'll add the map controls listed above.
 
-index.html
+### Map control code example
+<a name="web-code-example"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -62,59 +61,65 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body { margin: 0; padding: 0; }
 html, body, #map { height: 100%; }
-
 ```
+
+------
 
 ## Developer tips
+<a name="developer-tips"></a>
+
+### Navigation control options
+<a name="navigationcontrol-options"></a>
 
 ```
-
-new maplibregl.NavigationControl({
+new maplibregl.NavigationControl({ 
     showCompass: true, // show or hide compass (default: true)
     showZoom: true // show or hide zoom controls (default: true)
 });
-
 ```
 
-```
+### Geolocate control options
+<a name="geolocatecontrol-options"></a>
 
-new maplibregl.GeolocateControl({
+```
+new maplibregl.GeolocateControl({ 
     positionOptions: { enableHighAccuracy: true }, // default: false
     trackUserLocation: true // default: false
 });
-
 ```
 
-```
+### Attribution control options
+<a name="attributioncontrol-options"></a>
 
+```
 new maplibregl.AttributionControl({
     compact: true, // compact (collapsed) mode (default: false)
 });
-
 ```
 
-```
+### Scale control options
+<a name="scalecontrol-options"></a>
 
-new maplibregl.ScaleControl({
+```
+new maplibregl.ScaleControl({ 
     maxWidth: 100, // width of the scale (default: 50)
     unit: 'imperial' // imperial or metric (default: metric)
 });
-
 ```
 
-```
+### Fullscreen control options
+<a name="fullscreencontrol-options"></a>
 
+```
 map.addControl(new maplibregl.FullscreenControl({
     container: document.querySelector('body') // container for fullscreen mode
 }));
-
 ```

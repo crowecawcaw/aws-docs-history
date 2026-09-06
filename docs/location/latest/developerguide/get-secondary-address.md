@@ -1,38 +1,31 @@
+
+
 # How to get secondary addresses
+<a name="get-secondary-address"></a>
 
-`SecondaryAddresses` allows you to retrieve all secondary addresses that
-are under a main address. Additionally, `Geocode` also returns secondary
-units, if any are present within the `QueryText`.
+`SecondaryAddresses` allows you to retrieve all secondary addresses that are under a main address. Additionally, `Geocode` also returns secondary units, if any are present within the `QueryText`. 
 
-A result item with a place type of `InferredSecondaryAddress` may be returned if
-there is parsed query support, `ParsedQuery.Address.SecondaryAddressComponents`, for that country.
-`InferredSecondaryAddress` results are returned based on provided data in the query.
+A result item with a place type of `InferredSecondaryAddress` may be returned if there is parsed query support, `ParsedQuery.Address.SecondaryAddressComponents`, for that country. `InferredSecondaryAddress` results are returned based on provided data in the query. 
 
 ## Potential use cases
-
-- **Address form completion:** To select a more
-  accurate secondary address, which also includes more accurate positional
-  information.
-- **Deliveries:** For countries that lack
-  secondary address coverage, this information can help inform deliveries by
-  including all provided unit information.
+<a name="get-secondary-address-use"></a>
++ **Address form completion:** To select a more accurate secondary address, which also includes more accurate positional information.
++ **Deliveries:** For countries that lack secondary address coverage, this information can help inform deliveries by including all provided unit information.
 
 ## Examples
+<a name="get-secondary-address-example"></a>
 
-###### Note
+### Get secondary addresses
+<a name="get-secondary-addresses"></a>
 
-Coverage for `Address.SecondaryAddressComponents` is
-available in the following countries:
-
-AUS, CAN, NZL, USA, PRI
-
-Coverage for
-`ParsedQuery.Address.SecondaryAddressComponents` is
-available in the following countries:
-
+**Note**  
+Coverage for `Address.SecondaryAddressComponents` is available in the following countries:  
+AUS, CAN, NZL, USA, PRI  
+Coverage for `ParsedQuery.Address.SecondaryAddressComponents` is available in the following countries:  
 AUS, AUT, BRA, CAN, ESP, FRA, GBR, HKG, IDN, IND, NZL, TUR, TWN, USA
 
-Sample request
+------
+#### [ Sample request ]
 
 ```
 {
@@ -41,7 +34,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -171,7 +165,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -183,16 +178,22 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "910 Beach Avenue, Vancouver" --additional-features "SecondaryAddresses"
 ```
 
-Coverage for this functionality is available in the following countries:
-AUS, AUT, BRA, CAN, ESP, FRA, GBR, IDN, IND, NZL, TUR, TWN, USA.
+------
 
-Sample request
+### Get secondary units provided in an address
+<a name="get-all-secondary-units"></a>
+
+Coverage for this functionality is available in the following countries: AUS, AUT, BRA, CAN, ESP, FRA, GBR, IDN, IND, NZL, TUR, TWN, USA.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -200,7 +201,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -324,7 +326,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -335,8 +338,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "101-910 Beach Avenue, Vancouver"
 ```
+
+------

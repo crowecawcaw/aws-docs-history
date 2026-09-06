@@ -1,16 +1,23 @@
-# How to search places using query ID
 
-The `SearchText` API enables you get details of the query result returned
-by [Suggest](suggest.md "suggest.md").
+
+# How to search places using query ID
+<a name="how-to-search-query-id"></a>
+
+The `SearchText` API enables you get details of the query result returned by [Suggest](suggest.md).
 
 ## Potential use cases
+<a name="potential-use-query-id"></a>
 
-Get search results for Query ID, which are returned by the `Suggestion`
-API.
+Get search results for Query ID, which are returned by the `Suggestion` API.
 
 ## Examples
+<a name="search-query-id-examples"></a>
 
-Sample request
+### Search by query ID
+<a name="search-query-id"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -18,7 +25,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -313,7 +321,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -324,8 +333,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-text --key ${YourKey} --query-id "<Redacted>"
 ```
+
+------

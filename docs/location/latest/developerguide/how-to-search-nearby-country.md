@@ -1,33 +1,38 @@
+
+
 # How to search nearby within a country
+<a name="how-to-search-nearby-country"></a>
 
-The SearchNearby API enables you to search for nearby places within a specific
-country. To use the API, you need to provide a QueryPosition, which can be:
+The SearchNearby API enables you to search for nearby places within a specific country. To use the API, you need to provide a QueryPosition, which can be:
++ A device position
++ An IP-based position
++ A map's viewport center
 
-- A device position
-- An IP-based position
-- A map's viewport center
-  Alternatively, users can provide a city name or place, and the application can bias
-  results based on the geocoordinates of that location.
+Alternatively, users can provide a city name or place, and the application can bias results based on the geocoordinates of that location.
 
 ## Potential use cases
-
-- Explore businesses within a country
-- Find nearby B2B customers within a country
-- Explore tourist places within a country
+<a name="potential-use-search-nearby-country"></a>
++ Explore businesses within a country
++ Find nearby B2B customers within a country
++ Explore tourist places within a country
 
 ## Examples
+<a name="search-neaby-country-examples"></a>
 
-The following example demonstrates how to search for golf courses within
-Canada near specified coordinates.
+### Search for golf courses in Canada
+<a name="search-nearby-country-example"></a>
 
-Sample request
-This request searches for golf courses in Canada near the
-specified location.
+The following example demonstrates how to search for golf courses within Canada near specified coordinates.
+
+------
+#### [ Sample request ]
+
+This request searches for golf courses in Canada near the specified location.
 
 ```
 {
     "QueryPosition": [
-            -122.741803,
+            -122.741803, 
             49.002478
     ],
     "Filter" : {
@@ -37,7 +42,8 @@ specified location.
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -112,7 +118,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -120,21 +127,24 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{
     "QueryPosition": [
-         -122.741803,
+         -122.741803, 
          49.002478
         ],
         "Filter" : {
         "IncludeCategories": ["golf_course"],
               "IncludeCountries": ["CAN"]
     }
-
+    
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-nearby --key ${YourKey} \
 --query-position -122.741803 49.002478 \
 --filter '{"IncludeCategories": ["golf_course"], "IncludeCountries": ["CAN"]}'
 ```
+
+------

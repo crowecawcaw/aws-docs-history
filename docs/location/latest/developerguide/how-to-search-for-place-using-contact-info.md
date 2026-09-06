@@ -1,21 +1,24 @@
-# How to search for a place using contact information
 
-The SearchText API allows users to search for a place using a phone number, supporting
-both international and local formats. Users can bias results by setting a position based
-on device location, IP address, or map viewport center, or by specifying a city or place
-to refine results based on geocoordinates.
+
+# How to search for a place using contact information
+<a name="how-to-search-for-place-using-contact-info"></a>
+
+The SearchText API allows users to search for a place using a phone number, supporting both international and local formats. Users can bias results by setting a position based on device location, IP address, or map viewport center, or by specifying a city or place to refine results based on geocoordinates.
 
 ## Potential use cases
-
-- **Locate a place with a phone number:** Find
-  a POI by using its contact number to retrieve its address.
+<a name="potential-use"></a>
++ **Locate a place with a phone number:** Find a POI by using its contact number to retrieve its address.
 
 ## Examples
+<a name="search-by-contact-examples"></a>
 
-In this example, the Vancouver Aquarium is searched using its phone number
-"+1 778-655-9554" from a bias position in Vancouver, BC.
+### Search using phone number
+<a name="search-by-phone-number"></a>
 
-Sample request
+In this example, the Vancouver Aquarium is searched using its phone number "\+1 778-655-9554" from a bias position in Vancouver, BC.
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -27,7 +30,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -89,7 +93,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -104,8 +109,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
-aws geo-places search-text --key ${`YourKey`} --query-text "+1 778-655-9554" --bias-position -123.11336 49.26038
+aws geo-places search-text --key ${{{YourKey}}} --query-text "+1 778-655-9554" --bias-position -123.11336 49.26038
 ```
+
+------

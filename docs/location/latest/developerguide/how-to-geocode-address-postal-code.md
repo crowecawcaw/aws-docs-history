@@ -1,15 +1,19 @@
-# How to geocode an address number with a postal code
 
-In countries where postal codes are highly specific (linking only a few addresses on
-the same street), an address can be found using only the house number and postal code.
-This practice is common in transportation and parcel delivery logistics. This feature is
-supported in Canada, the United Kingdom, the Netherlands, the United States (ZIP+4),
-Israel, Ireland, and Singapore. In both Ireland and Singapore, postal codes provide
-exact location details down to the specific house number.
+
+# How to geocode an address number with a postal code
+<a name="how-to-geocode-address-postal-code"></a>
+
+In countries where postal codes are highly specific (linking only a few addresses on the same street), an address can be found using only the house number and postal code. This practice is common in transportation and parcel delivery logistics. This feature is supported in Canada, the United Kingdom, the Netherlands, the United States (ZIP\+4), Israel, Ireland, and Singapore. In both Ireland and Singapore, postal codes provide exact location details down to the specific house number.
 
 ## Examples
+<a name="geocode-postal-code-examples"></a>
 
-Sample request
+### Geocode an address with postal code
+<a name="geocode-postal-code-example1"></a>
+
+------
+#### [ Sample request ]
+
 Use query component
 
 ```
@@ -29,7 +33,8 @@ Use free text
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -100,7 +105,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -114,21 +120,25 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-components '{"AddressNumber" : "1368", "PostalCode": "V5N 1T2"}'
 ```
 
-In Ireland, the Eircode system assigns a unique code to every home and
-business, while in Singapore, postal codes are equally specific. In both
-countries, a postal code alone can identify an exact address: there is no
-need for the street name, city, or house number.
+------
 
-- Singapore: 6-digit postal code
-- Ireland: 7-character Eircode
+### Geocode an address with postal code in Singapore and Ireland
+<a name="geocode-postal-code-example2"></a>
 
-Sample request
+In Ireland, the Eircode system assigns a unique code to every home and business, while in Singapore, postal codes are equally specific. In both countries, a postal code alone can identify an exact address: there is no need for the street name, city, or house number.
++ Singapore: 6-digit postal code
++ Ireland: 7-character Eircode
+
+------
+#### [ Sample request ]
+
 Use query component
 
 ```
@@ -147,7 +157,8 @@ Use free text
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -213,7 +224,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -226,13 +238,16 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-components '{"PostalCode": "V5N 1T2"}'
 ```
 
-## Developer tips
+------
 
-Learn more about [ZIP+4](https://en.wikipedia.org/wiki/ZIP_Code#ZIP+4 "https://en.wikipedia.org/wiki/ZIP_Code#ZIP+4") (United States) and [Eircode](https://en.wikipedia.org/wiki/Postal_addresses_in_the_Republic_of_Ireland "https://en.wikipedia.org/wiki/Postal_addresses_in_the_Republic_of_Ireland") (Ireland). Also, learn about postal code system in Canada, the
-United Kingdom, the Netherlands, Singapore, and Israel.
+## Developer tips
+<a name="geocode-postal-code-dev-tips"></a>
+
+Learn more about [ZIP\+4](https://en.wikipedia.org/wiki/ZIP_Code#ZIP+4) (United States) and [ Eircode](https://en.wikipedia.org/wiki/Postal_addresses_in_the_Republic_of_Ireland) (Ireland). Also, learn about postal code system in Canada, the United Kingdom, the Netherlands, Singapore, and Israel.

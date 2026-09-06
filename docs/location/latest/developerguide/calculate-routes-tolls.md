@@ -1,15 +1,23 @@
+
+
 # How to calculate the tolls for a route
+<a name="calculate-routes-tolls"></a>
 
 The CalculateRoutes API helps you to find the best routes between origin and destination, as well as the best opportunities for driver resting. It supports travel modes such as car, truck, pedestrian and scooter. It also supports up to 25 waypoints (stopovers) including the origin and destination, with only a few constraints.
 
 ## Potential use cases
-
-- **Calculate tolls:** Be able to calculate toll costs during route planning.
-- **Audit tolls:** Be able to audit toll costs after traveling.
+<a name="potential-use-cases"></a>
++ **Calculate tolls:** Be able to calculate toll costs during route planning.
++ **Audit tolls:** Be able to audit toll costs after traveling.
 
 ## Examples
+<a name="calculate-routes-tolls-examples"></a>
 
-Sample request
+### Calculate tolls for your routes in Car TravelMode
+<a name="calculate-routes-tolls"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -29,7 +37,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -534,7 +543,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -557,7 +567,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -566,3 +577,5 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --travel-mode "Car" \
 --tolls '{"AllTransponders": true, "AllVignettes": true}'
 ```
+
+------

@@ -1,16 +1,22 @@
-# How to create a 3D map
 
-Amazon Location Service lets you add three-dimensional features to maps, such as `Terrain3D` to display elevation data as a
-three-dimensional surface, or `Buildings3D` to display urban structures with height and volume.
+
+# How to create a 3D map
+<a name="how-to-create-a-3d-map"></a>
+
+Amazon Location Service lets you add three-dimensional features to maps, such as `Terrain3D` to display elevation data as a three-dimensional surface, or `Buildings3D` to display urban structures with height and volume. 
 
 ## Create a map with three-dimensional terrain details
+<a name="how-to-show-3d-terrain-map"></a>
 
-This example shows how to create a map with `Terrain3D` parameter.
+This example shows how to create a map with `Terrain3D` parameter. 
 
-index.html
+### Terrain3D example
+<a name="how-to-show-3d-terrain-map-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,13 +44,12 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body {
     margin: 0;
     padding: 0;
@@ -54,17 +59,22 @@ body {
     width: 100%;
     height: 100vh;
 }
-
 ```
+
+------
 
 ## Create a map with three-dimensional buildings details
+<a name="how-to-show-3d-buildings-map"></a>
 
-This example shows how to create a map with `Buildings3D` parameter.
+This example shows how to create a map with `Buildings3D` parameter. 
 
-index.html
+### Buildings3D example
+<a name="how-to-show-3d-buildings-map-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -93,13 +103,12 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body {
     margin: 0;
     padding: 0;
@@ -109,17 +118,22 @@ body {
     width: 100%;
     height: 100vh;
 }
-
 ```
+
+------
 
 ## Enable/disable Globe view
+<a name="how-to-enable-disable-globe-view"></a>
 
-This example shows how to enable or disable the Globe view projection. By default, Globe view is enabled.
+This example shows how to enable or disable the Globe view projection. By default, Globe view is enabled. 
 
-index.html
+### Globe view example
+<a name="how-to-enable-disable-globe-view-code"></a>
+
+------
+#### [ index.html ]
 
 ```
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -153,13 +167,12 @@ index.html
         </script>
     </body>
 </html>
-
 ```
 
-style.css
+------
+#### [ style.css ]
 
 ```
-
 body {
     margin: 0;
     padding: 0;
@@ -169,5 +182,6 @@ body {
     width: 100%;
     height: 100vh;
 }
-
 ```
+
+------

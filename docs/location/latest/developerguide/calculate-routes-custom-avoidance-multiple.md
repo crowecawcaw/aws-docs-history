@@ -1,14 +1,22 @@
+
+
 # How to create routes with custom avoidance of several potential items
+<a name="calculate-routes-custom-avoidance-multiple"></a>
 
 The CalculateRoutes API helps you to find the best routes between origin and destination, as well as the best opportunities for driver resting. It supports travel modes such as car, truck, pedestrian and scooter. It also supports up to 25 waypoints (stopovers) including the origin and destination, with only a few constraints.
 
 ## Potential use cases
-
-- **Calculate routes with custom avoidance:** Customize routes with avoidance for better routes and commute planning.
+<a name="potential-use-cases"></a>
++ **Calculate routes with custom avoidance:** Customize routes with avoidance for better routes and commute planning.
 
 ## Examples
+<a name="calculate-routes-examples"></a>
 
-Sample request
+### Use CalculateRoutes with avoidance of tolls, u-turns, ferries, highways, tunnels and more.
+<a name="calculate-routes-custom-avoidance-tolls-ferries"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -31,7 +39,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -172,7 +181,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -198,7 +208,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -206,5 +217,6 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.020098 49.232872 \
 --travel-mode "Car" \
 --avoid '{"TollRoads": true, "UTurns": true, "Ferries": true, "ControlledAccessHighways": true, "Tunnels": true}'
-
 ```
+
+------

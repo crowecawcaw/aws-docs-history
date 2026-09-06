@@ -1,29 +1,24 @@
-# How to find an intermodal route
 
-The CalculateRoutes API supports the `Intermodal` travel mode to calculate routes
-that combine multiple transport types in a single journey, such as driving to a park-and-ride
-location and then taking public transit to your destination. Pedestrian legs are always enabled
-to connect between other transport types.
+
+# How to find an intermodal route
+<a name="calculate-routes-intermodal-route"></a>
+
+The CalculateRoutes API supports the `Intermodal` travel mode to calculate routes that combine multiple transport types in a single journey, such as driving to a park-and-ride location and then taking public transit to your destination. Pedestrian legs are always enabled to connect between other transport types.
 
 ## Potential use cases
-
-- **Park and ride:** Drive to a transit station,
-  park, and take public transit to avoid congestion and parking costs in city centers.
-  Use `Vehicle` enabled for `FirstLeg` with `Taxi`
-  and `Rental` disabled.
-- **Taxi and ride:** Take a taxi from your starting
-  point to a well-connected transit station, then switch to public transit for the
-  remainder of the journey. This is useful for areas not well connected by public
-  transportation or when you want to avoid parking entirely. Use `Taxi`
-  enabled for `FirstLeg` with `Vehicle` and `Rental`
-  disabled.
-- **Last-mile transit:** Take public transit for
-  the majority of the journey and use a taxi or rental for the last leg to reach
-  the final destination.
+<a name="intermodal-potential-use-cases"></a>
++ **Park and ride:** Drive to a transit station, park, and take public transit to avoid congestion and parking costs in city centers. Use `Vehicle` enabled for `FirstLeg` with `Taxi` and `Rental` disabled.
++ **Taxi and ride:** Take a taxi from your starting point to a well-connected transit station, then switch to public transit for the remainder of the journey. This is useful for areas not well connected by public transportation or when you want to avoid parking entirely. Use `Taxi` enabled for `FirstLeg` with `Vehicle` and `Rental` disabled.
++ **Last-mile transit:** Take public transit for the majority of the journey and use a taxi or rental for the last leg to reach the final destination.
 
 ## Examples
+<a name="calculate-routes-intermodal-examples"></a>
 
-Sample request
+### Calculate a park and ride intermodal route
+<a name="calculate-routes-intermodal-park-and-ride"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -53,7 +48,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -228,7 +224,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -261,7 +258,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes \
@@ -270,5 +268,6 @@ aws geo-routes calculate-routes \
 --travel-mode "Intermodal" \
 --travel-mode-options '{"Intermodal": {"Vehicle": {"EnabledFor": ["FirstLeg"]}, "Taxi": {"EnabledFor": ["None"]}, "Rental": {"EnabledFor": ["None"]}}}' \
 --depart-now
-
 ```
+
+------

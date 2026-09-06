@@ -1,20 +1,23 @@
-# How to geocode in a specific language
 
-This feature allows the selection of a preferred response language from
-BCP47-compliant codes. It detects the query language based on name variants and uses the
-preferred language for unmatched tokens and ambiguous cases. If there is no requested
-language, the **Places** API provides results in the official country
-language, but prioritizes the regional language in regions where it differs. As a
-fallback strategy, if any address elements are unavailable in the requested language,
-**Places** APIs return addresses in the default language.
+
+# How to geocode in a specific language
+<a name="how-to-geocode-specific-language"></a>
+
+This feature allows the selection of a preferred response language from BCP47-compliant codes. It detects the query language based on name variants and uses the preferred language for unmatched tokens and ambiguous cases. If there is no requested language, the **Places** API provides results in the official country language, but prioritizes the regional language in regions where it differs. As a fallback strategy, if any address elements are unavailable in the requested language, **Places** APIs return addresses in the default language.
 
 ## Potential use cases
+<a name="potential-use-geocode-language"></a>
 
 One potential use case is to localize the query and/or the result.
 
 ## Examples
+<a name="geocode-language-examples"></a>
 
-Sample request
+### Get result in a specific language
+<a name="geocode-language-result"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -23,7 +26,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -74,7 +78,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -86,13 +91,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "पटना, बिहार, भारत" --language "HI"
 ```
 
-Sample request
+------
+
+### Query in a specific language
+<a name="geocode-language-query"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -100,7 +112,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -151,7 +164,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -162,13 +176,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "पटना, बिहार, भारत"
 ```
 
-Sample request
+------
+
+### Query and result in a specific language
+<a name="geocode-language-query-result"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -177,7 +198,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -228,7 +250,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -240,8 +263,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "पटना, बिहार, भारत" --language "HI"
 ```
+
+------

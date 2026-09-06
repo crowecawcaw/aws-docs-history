@@ -1,25 +1,30 @@
+
+
 # How to search for an address
+<a name="how-to-search-address"></a>
 
 The `SearchText` API enables you to search for an address.
 
-One way to use the SearchText API is to let end users search for an address and an
-application set's bias position. These bias positions can be a device position, IP
-position, or a map‘s view port center. Additionally, end users can provide the city name
-or place and the application can bias results based on geo-coordinates.
+One way to use the SearchText API is to let end users search for an address and an application set's bias position. These bias positions can be a device position, IP position, or a map‘s view port center. Additionally, end users can provide the city name or place and the application can bias results based on geo-coordinates. 
 
 ## Potential use cases
-
-- Search for an address based on a bias position.
-- Filter results to include or remove specific addresses.
+<a name="potential-use-address"></a>
++ Search for an address based on a bias position.
++ Filter results to include or remove specific addresses.
 
 ## Examples
+<a name="search-address-examples"></a>
 
-Sample request
+### Search for an address
+<a name="search-address"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
     "QueryText":"1368 E 8 Ave Vancouver",
-        "BiasPosition":[
+        "BiasPosition":[    
                 -123.18544,
                 49.24643
         ],
@@ -27,7 +32,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -82,7 +88,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -98,8 +105,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places search-text --key ${YourKey} --query-text "1368 E 8 Ave Vancouver" --bias-position -123.18544 49.24643 --max-results 1
 ```
+
+------

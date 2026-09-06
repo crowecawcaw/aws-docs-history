@@ -1,22 +1,25 @@
+
+
 # How to get intersections
+<a name="reverse-how-to-get-intersections"></a>
 
 ReverseGeocode API can retrieve nearby intersections to the specified location.
 
 ## Potential use case
+<a name="reversed-goecode-intersections-potential-use"></a>
 
-**Retrieve all nearby intersections.** This can be
-used by emergency services and delivery couriers. Emergency response vehicles often
-need to identify nearby intersections for optimal positioning when responding to
-calls. This allows them to maintain clear access routes and faster response times
-while ensuring visibility from multiple approaches. Similarly, delivery couriers can
-utilize intersection data to find more efficient parking spots, especially in dense
-urban areas where door-to-door parking may be limited or restricted.
+**Retrieve all nearby intersections. **This can be used by emergency services and delivery couriers. Emergency response vehicles often need to identify nearby intersections for optimal positioning when responding to calls. This allows them to maintain clear access routes and faster response times while ensuring visibility from multiple approaches. Similarly, delivery couriers can utilize intersection data to find more efficient parking spots, especially in dense urban areas where door-to-door parking may be limited or restricted.
 
 ## Get nearby intersections
+<a name="get-nearby-intersections"></a>
 
 Intersections are returned when the result type is Street, PointAddress, or InterpolatedAddress. To ensure you get nearby intersections, set the `Heading` parameter or filter for Street, PointAddress, or InterpolatedAddress types.
 
-Sample request
+## Get nearby intersections with heading
+<a name="reverse-geocode-intersections-heading-example"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -26,7 +29,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -119,7 +123,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -134,13 +139,20 @@ curl --request POST \
 }
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places reverse-geocode --key ${YourKey} --query-position -123.11694, 49.28126 --additional-features "Intersections" --heading 45
 ```
 
-Sample request
+------
+
+## Get nearby intersections with street filter
+<a name="reverse-geocode-intersections-street-example"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -152,7 +164,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -244,7 +257,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -261,8 +275,11 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places reverse-geocode --key ${YourKey} --query-position -123.11694, 49.28126 --additional-features "Intersections" --filter '{"IncludePlaceTypes": ["Street"]}'
 ```
+
+------

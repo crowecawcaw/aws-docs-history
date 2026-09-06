@@ -1,32 +1,33 @@
+
+
 # How to get contacts for a PlaceId
+<a name="how-to-get-contacts-by-place-id"></a>
 
-###### Note
+**Note**  
+ For customers in `ap-southeast-1` and `ap-southeast-5`, this use case is not supported, as the `Contacts` field is not available. Refer to the [GetPlace API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html) for details. 
 
-For customers in `ap-southeast-1` and `ap-southeast-5`, this
-use case is not supported, as the `Contacts` field is not available. Refer to the
-[GetPlace API Reference](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") for details.
-
-The GetPlace API allows retrieval of contact information associated with a specific
-PlaceId, providing you with details such as phone numbers and website URLs.
+The GetPlace API allows retrieval of contact information associated with a specific PlaceId, providing you with details such as phone numbers and website URLs.
 
 ## Potential use cases
-
-- **Obtain additional contact information for a saved
-  PlaceId:** Enhance stored place details by accessing contact
-  data.
-- **Retrieve contact details for addresses from
-  Autocomplete:** Use the PlaceId from the Autocomplete API to
-  fetch specific contact details.
+<a name="potential-use"></a>
++ **Obtain additional contact information for a saved PlaceId:** Enhance stored place details by accessing contact data.
++ **Retrieve contact details for addresses from Autocomplete:** Use the PlaceId from the Autocomplete API to fetch specific contact details.
 
 ## Examples
+<a name="get-contacts-examples"></a>
 
-Sample request
+### Get contacts for a PlaceId
+<a name="get-contacts-by-place-id"></a>
+
+------
+#### [ Sample request ]
 
 ```
 https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?additional-features=Contact&key=Your_Key
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -100,16 +101,20 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request GET \
   --url 'https://places.geo.eu-central-1.amazonaws.com/v2/place/AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP?key=Your_Key&additional-features=Contact&language=en'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 export PLACEID=AQAAAFUAcrFHu947JATTY9gIGcfNlNVzD3UftkkI9ayJjtquaC7IquYz-_FFnJnzJSQ7JePd-sY0MSpA64V0w4aXLc-lB2fZLJKk6uoAMSgtwvwxzg1fvPxFM9zXsx77EaLXarl7F4gSPTyQ6fiEnj0b0ipOXpnOoIsP
 aws geo-places get-place --key ${YourKey} --place-id ${PLACEID} --additional-features "Contact" --language "en"
 ```
+
+------

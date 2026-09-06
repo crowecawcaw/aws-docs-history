@@ -1,14 +1,22 @@
+
+
 # How to find the shortest routes
+<a name="calculate-routes-custom-avoidance-shortest"></a>
 
 The CalculateRoutes API helps you to find the shortest routes between origin and destination.
 
 ## Potential use cases
-
-- **Optimize routes for time efficiency:** Improve delivery operations by calculating the shortest route. This is useful for reducing travel distance in logistics and delivery services.
+<a name="calculate-routes-short-potential-use"></a>
++ **Optimize routes for time efficiency:** Improve delivery operations by calculating the shortest route. This is useful for reducing travel distance in logistics and delivery services.
 
 ## Examples
+<a name="calculate-routes-short-examples"></a>
 
-Sample request
+### Use CalculateRoutes to find the shortest route and save on travel distance.
+<a name="calculate-routes-shortest"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -25,7 +33,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -166,7 +175,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -186,7 +196,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-routes --key ${YourKey} \
@@ -194,5 +205,6 @@ aws geo-routes calculate-routes --key ${YourKey} \
 --destination -123.020098 49.232872 \
 --travel-mode "Scooter" \
 --optimize-routing-for "ShortestRoute"
-
 ```
+
+------

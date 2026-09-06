@@ -1,143 +1,90 @@
+
+
 # Data encryption at rest for Amazon Location Service
+<a name="encryption-at-rest"></a>
 
-Amazon Location Service provides encryption by default to protect sensitive customer data at rest
-using AWS owned encryption keys.
+Amazon Location Service provides encryption by default to protect sensitive customer data at rest using AWS owned encryption keys.
++ **AWS owned keys** — Amazon Location uses these keys by default to automatically encrypt personally identifiable data. You can't view, manage, or use AWS owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*. 
 
-- **AWS owned keys** — Amazon Location uses these keys
-  by default to automatically encrypt personally identifiable data. You can't
-  view, manage, or use AWS owned keys, or audit their use. However, you don't
-  have to take any action or change any programs to protect the keys that encrypt
-  your data. For more information, see [AWS owned
-  keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer
-  Guide_.
-  Encryption of data at rest by default helps reduce the operational overhead and
-  complexity involved in protecting sensitive data. At the same time, it enables you to
-  build secure applications that meet strict encryption compliance and regulatory
-  requirements.
+Encryption of data at rest by default helps reduce the operational overhead and complexity involved in protecting sensitive data. At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements. 
 
-While you can't disable this layer of encryption or select an alternate encryption
-type, you can add a second layer of encryption over the existing AWS owned encryption
-keys by choosing a customer managed key when you create your tracker and geofence collection
-resources:
+While you can't disable this layer of encryption or select an alternate encryption type, you can add a second layer of encryption over the existing AWS owned encryption keys by choosing a customer managed key when you create your tracker and geofence collection resources:
++ **Customer managed keys** — Amazon Location supports the use of a symmetric customer managed key that you create, own, and manage to add a second layer of encryption over the existing AWS owned encryption. Because you have full control of this layer of encryption, you can perform such tasks as: 
+  + Establishing and maintaining key policies
+  + Establishing and maintaining IAM policies and grants
+  + Enabling and disabling key policies
+  + Rotating key cryptographic material
+  + Adding tags
+  + Creating key aliases
+  + Scheduling keys for deletion
 
-- **Customer managed keys** — Amazon Location supports
-  the use of a symmetric customer managed key that you create, own, and manage to add a
-  second layer of encryption over the existing AWS owned encryption. Because you
-  have full control of this layer of encryption, you can perform such tasks as:
+  For more information, see [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the *AWS Key Management Service Developer Guide*. 
 
-  - Establishing and maintaining key policies
-  - Establishing and maintaining IAM policies and grants
-  - Enabling and disabling key policies
-  - Rotating key cryptographic material
-  - Adding tags
-  - Creating key aliases
-  - Scheduling keys for deletion
-    For more information, see [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-    in the _AWS Key Management Service Developer Guide_.
-    The following table summarizes how Amazon Location encrypts personally identifiable
-    data.
+The following table summarizes how Amazon Location encrypts personally identifiable data.
 
-| Data type                                                                                                                                                                                                                                                                                                                                                                 | AWS owned key encryption | Customer managed key encryption (Optional) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
-| `Position`A point geometry containing [the device position details](../APIReference/API_WaypointTracking_DevicePosition.md "../APIReference/API_WaypointTracking_DevicePosition.md").                                                                                                                                                                                     | Enabled                  | Enabled                                    |
-| `PositionProperties`A set of key-value pairs [associated with the position update](../APIReference/API_WaypointTracking_DevicePosition.md "../APIReference/API_WaypointTracking_DevicePosition.md").                                                                                                                                                                      | Enabled                  | Enabled                                    |
-| `GeofenceGeometry`A polygon [geofence geometry](../APIReference/API_WaypointGeofencing_GeofenceGeometry.md "../APIReference/API_WaypointGeofencing_GeofenceGeometry.md") representing the geofenced<br>area.                                                                                                                                                              | Enabled                  | Enabled                                    |
-| `DeviceId`The device identifier specified when<br>[uploading a device position update](../APIReference/API_WaypointTracking_DevicePositionUpdate.md "../APIReference/API_WaypointTracking_DevicePositionUpdate.md") to a tracker<br>resource.                                                                                                                             | Enabled                  | Not supported                              |
-| `GeofenceId`An identifier specified when [storing a geofence geometry](../APIReference/API_WaypointGeofencing_PutGeofence.md "../APIReference/API_WaypointGeofencing_PutGeofence.md"), or a [batch of geofences](../APIReference/API_WaypointGeofencing_BatchPutGeofence.md "../APIReference/API_WaypointGeofencing_BatchPutGeofence.md") in a given geofence collection. | Enabled                  | Not supported                              |
 
-###### Note
+| Data type | AWS owned key encryption | Customer managed key encryption (Optional) | 
+| --- | --- | --- | 
+| PositionA point geometry containing [the device position details](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_DevicePosition.html). | Enabled | Enabled | 
+| PositionPropertiesA set of key-value pairs [associated with the position update](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_DevicePosition.html). | Enabled | Enabled | 
+| GeofenceGeometryA polygon [geofence geometry](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GeofenceGeometry.html) representing the geofenced area. | Enabled | Enabled | 
+| DeviceIdThe device identifier specified when [uploading a device position update](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_DevicePositionUpdate.html) to a tracker resource. | Enabled | Not supported | 
+| GeofenceIdAn identifier specified when [storing a geofence geometry](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_PutGeofence.html), or a [batch of geofences](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_BatchPutGeofence.html) in a given geofence collection.  | Enabled | Not supported | 
 
-Amazon Location automatically enables encryption at rest using AWS owned keys to
-protect personally identifiable data at no charge.
+**Note**  
+Amazon Location automatically enables encryption at rest using AWS owned keys to protect personally identifiable data at no charge.   
+However, AWS KMS charges apply for using a customer managed key. For more information about pricing, see the [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/).
 
-However, AWS KMS charges apply for using a customer managed key. For more information about
-pricing, see the [AWS Key Management Service
-pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
-
-For more information on AWS KMS, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")
+For more information on AWS KMS, see [What is AWS Key Management Service?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) 
 
 ## How Amazon Location Service uses grants in AWS KMS
+<a name="encryption-grant"></a>
 
-Amazon Location requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your
-customer managed key.
+Amazon Location requires a [grant](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) to use your customer managed key.
 
-When you create a [tracker resource](trackers.md "trackers.md") or [geofence collection](geofences.md "geofences.md") encrypted with a customer managed key, Amazon Location creates a
-grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request
-to AWS KMS. Grants in AWS KMS are used to give Amazon Location access to a KMS key in a
-customer account.
+When you create a [tracker resource](https://docs.aws.amazon.com/location/latest/developerguide/trackers.html) or [geofence collection](https://docs.aws.amazon.com/location/latest/developerguide/geofences.html) encrypted with a customer managed key, Amazon Location creates a grant on your behalf by sending a [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) request to AWS KMS. Grants in AWS KMS are used to give Amazon Location access to a KMS key in a customer account.
 
-Amazon Location requires the grant to use your customer managed key for the following internal
-operations:
+Amazon Location requires the grant to use your customer managed key for the following internal operations:
++ Send [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) requests to AWS KMS to verify that the symmetric customer managed KMS key ID entered when creating a tracker or geofence collection is valid.
++ Send [GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html) requests to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data.
 
-- Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md")
-  requests to AWS KMS to verify that the symmetric customer managed KMS key ID
-  entered when creating a tracker or geofence collection is valid.
-- Send [GenerateDataKeyWithoutPlaintext](../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md "../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md") requests to AWS KMS to generate
-  data keys encrypted by your customer managed key.
-- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests
-  to AWS KMS to decrypt the encrypted data keys so that they can be used to
-  encrypt your data.
-
-You can revoke access to the grant, or remove the service's access to the
-customer managed key at any time. If you do, Amazon Location won't be able to access any of the data
-encrypted by the customer managed key, which affects operations that are dependent on that
-data. For example, if you attempt to [get
-device positions](../APIReference/API_WaypointTracking_GetDevicePosition.md "../APIReference/API_WaypointTracking_GetDevicePosition.md") from an encrypted tracker that Amazon Location can't access,
-then the operation would return an `AccessDeniedException` error.
+You can revoke access to the grant, or remove the service's access to the customer managed key at any time. If you do, Amazon Location won't be able to access any of the data encrypted by the customer managed key, which affects operations that are dependent on that data. For example, if you attempt to [get device positions](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_GetDevicePosition.html) from an encrypted tracker that Amazon Location can't access, then the operation would return an `AccessDeniedException` error.
 
 ## Create a customer managed key
+<a name="create-key"></a>
 
-You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS
-APIs.
+ You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs.
 
 **To create a symmetric customer managed key**
 
-Follow the steps for [Creating
-symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer
-Guide_.
+Follow the steps for [Creating symmetric customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide*.
 
 **Key policy**
 
-Key policies control access to your customer managed key. Every customer managed key must have exactly
-one key policy, which contains statements that determine who can use the key and how
-they can use it. When you create your customer managed key, you can specify a key policy. For
-more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service
-Developer Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*.
 
-To use your customer managed key with your Amazon Location resources, the following API operations
-must be permitted in the key policy:
+To use your customer managed key with your Amazon Location resources, the following API operations must be permitted in the key policy:
++ `[kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html)` – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations) Amazon Location requires. For more information about [Using Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html), see the *AWS Key Management Service Developer Guide*.
 
-- `kms:CreateGrant` – Adds a grant to a customer managed key.
-  Grants control access to a specified KMS key, which allows access to [grant
-  operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon Location requires. For more information about [Using
-  Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"), see the _AWS Key Management Service Developer
-  Guide_.
-
-This allows Amazon Location to do the following:
-
-    + Call `GenerateDataKeyWithoutPlainText` to generate an
-     encrypted data key and store it, because the data key isn't
-     immediately used to encrypt.
-    + Call `Decrypt` to use the stored encrypted data key to
-     access encrypted data.
-    + Set up a retiring principal to allow the service to
-     `RetireGrant`.
-
-- `kms:DescribeKey` – Provides the customer managed key details to
-  allow Amazon Location to validate the key.
+  This allows Amazon Location to do the following:
+  + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted data key and store it, because the data key isn't immediately used to encrypt.
+  + Call `Decrypt` to use the stored encrypted data key to access encrypted data.
+  + Set up a retiring principal to allow the service to `RetireGrant`.
++ `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html)` – Provides the customer managed key details to allow Amazon Location to validate the key.
 
 The following are policy statement examples you can add for Amazon Location:
 
 ```
-  "Statement" : [
+  "Statement" : [ 
     {
       "Sid" : "Allow access to principals authorized to use Amazon Location",
       "Effect" : "Allow",
       "Principal" : {
         "AWS" : "*"
       },
-      "Action" : [
-        "kms:DescribeKey",
+      "Action" : [ 
+        "kms:DescribeKey", 
         "kms:CreateGrant"
       ],
       "Resource" : "*",
@@ -153,10 +100,10 @@ The following are policy statement examples you can add for Amazon Location:
       "Principal": {
         "AWS": "arn:aws:iam::111122223333:root"
        },
-      "Action" : [
+      "Action" : [ 
         "kms:*"
        ],
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`"
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}"
     },
     {
       "Sid" : "Allow read-only access to key metadata to the account",
@@ -164,7 +111,7 @@ The following are policy statement examples you can add for Amazon Location:
       "Principal" : {
         "AWS" : "arn:aws:iam::111122223333:root"
       },
-      "Action" : [
+      "Action" : [ 
         "kms:Describe*",
         "kms:Get*",
         "kms:List*",
@@ -175,44 +122,32 @@ The following are policy statement examples you can add for Amazon Location:
   ]
 ```
 
-For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md"), see the _AWS Key Management Service Developer Guide_.
+For more information about [specifying permissions in a policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html), see the *AWS Key Management Service Developer Guide*.
 
-For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_.
+For more information about [troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html#example-no-iam), see the *AWS Key Management Service Developer Guide*.
 
 ## Specifying a customer managed key for Amazon Location
+<a name="enable-custom-encryption"></a>
 
-You can specify a customer managed key as a second layer encryption for the following
-resources:
+You can specify a customer managed key as a second layer encryption for the following resources:
++ [Create a tracker](start-create-tracker.md)
++ [Get started with Amazon Location Service Geofences](geofence-gs.md)
 
-- [Create a tracker](start-create-tracker.md "start-create-tracker.md")
-- [Get started with Amazon Location Service Geofences](geofence-gs.md "geofence-gs.md")
-
-When you create a resource, you can specify the data key by entering a **KMS ID**, which Amazon Location uses to encrypt the identifiable
-personal data stored by the resource.
-
-- **KMS ID** — A [key
-  identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key. Enter a key ID, key ARN,
-  alias name, or alias ARN.
+When you create a resource, you can specify the data key by entering a **KMS ID**, which Amazon Location uses to encrypt the identifiable personal data stored by the resource.
++ **KMS ID** — A [key identifier](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) for an AWS KMS customer managed key. Enter a key ID, key ARN, alias name, or alias ARN.
 
 ## Amazon Location Service encryption context
+<a name="location-encryption-context"></a>
 
-An [encryption
-context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain additional
-contextual information about the data.
+An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data.
 
-AWS KMS uses the encryption context as [additional
-authenticated data](../../../kms/latest/cryptographic-details/crypto-primitives.md "../../../kms/latest/cryptographic-details/crypto-primitives.md") to support [authenticated encryption](../../../kms/latest/cryptographic-details/crypto-primitives.md "../../../kms/latest/cryptographic-details/crypto-primitives.md"). When you include an encryption context in a
-request to encrypt data, AWS KMS binds the encryption context to the encrypted data.
-To decrypt data, you include the same encryption context in the request.
+AWS KMS uses the encryption context as [additional authenticated data](https://docs.aws.amazon.com/kms/latest/cryptographic-details/crypto-primitives.html) to support [authenticated encryption](https://docs.aws.amazon.com/kms/latest/cryptographic-details/crypto-primitives.html). When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request.
 
 **Amazon Location Service encryption context**
 
-Amazon Location uses the same encryption context in all AWS KMS cryptographic
-operations, where the key is `aws:geo:arn` and the value is the
-resource [Amazon Resource
-Name](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") (ARN).
+Amazon Location uses the same encryption context in all AWS KMS cryptographic operations, where the key is `aws:geo:arn` and the value is the resource [Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) (ARN).
 
-###### Example
+**Example**  
 
 ```
 "encryptionContext": {
@@ -222,28 +157,16 @@ Name](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserG
 
 **Using encryption context for monitoring**
 
-When you use a symmetric customer managed key to encrypt your tracker or geofence collection,
-you can also use the encryption context in audit records and logs to identify how
-the customer managed key is being used. The encryption context also appears in [logs generated by AWS CloudTrail or
-Amazon CloudWatch Logs](#example-custom-encryption "#example-custom-encryption").
+When you use a symmetric customer managed key to encrypt your tracker or geofence collection, you can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in [logs generated by AWS CloudTrail or Amazon CloudWatch Logs](#example-custom-encryption).
 
-**Using encryption context to control access to your
-customer managed key**
+**Using encryption context to control access to your customer managed key**
 
-You can use the encryption context in key policies and IAM policies as
-`conditions` to control access to your symmetric customer managed key. You can
-also use encryption context constraints in a grant.
+You can use the encryption context in key policies and IAM policies as `conditions` to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant.
 
-Amazon Location uses an encryption context constraint in grants to control access to the
-customer managed key in your account or region. The grant constraint requires that the
-operations that the grant allows use the specified encryption context.
+Amazon Location uses an encryption context constraint in grants to control access to the customer managed key in your account or region. The grant constraint requires that the operations that the grant allows use the specified encryption context.
 
-###### Example
-
-The following are example key policy statements to grant access to a customer managed key
-for a specific encryption context. The condition in this policy statement
-requires that the grants have an encryption context constraint that specifies
-the encryption context.
+**Example**  
+The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context.  
 
 ```
 {
@@ -272,27 +195,18 @@ the encryption context.
 ```
 
 ## Monitoring your encryption keys for Amazon Location Service
+<a name="example-custom-encryption"></a>
 
-When you use an AWS KMS customer managed key with your Amazon Location Service resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")
-or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
-to track requests that Amazon Location sends to AWS KMS.
+When you use an AWS KMS customer managed key with your Amazon Location Service resources, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track requests that Amazon Location sends to AWS KMS.
 
-The following examples are AWS CloudTrail events for `CreateGrant`,
-`GenerateDataKeyWithoutPlainText`, `Decrypt`, and
-`DescribeKey` to monitor KMS operations called by Amazon Location to access
-data encrypted by your customer managed key:
+The following examples are AWS CloudTrail events for `CreateGrant`, `GenerateDataKeyWithoutPlainText`, `Decrypt`, and `DescribeKey` to monitor KMS operations called by Amazon Location to access data encrypted by your customer managed key:
 
-CreateGrant
-When you use an AWS KMS customer managed key to encrypt your tracker or geofence
-collection resources, Amazon Location sends a `CreateGrant` request
-on your behalf to access the KMS key in your AWS account. The grant
-that Amazon Location creates are specific to the resource associated with the
-AWS KMS customer managed key. In addition, Amazon Location uses the
-`RetireGrant` operation to remove a grant when you delete
-a resource.
+------
+#### [ CreateGrant ]
 
-The following example event records the `CreateGrant`
-operation:
+When you use an AWS KMS customer managed key to encrypt your tracker or geofence collection resources, Amazon Location sends a `CreateGrant` request on your behalf to access the KMS key in your AWS account. The grant that Amazon Location creates are specific to the resource associated with the AWS KMS customer managed key. In addition, Amazon Location uses the `RetireGrant` operation to remove a grant when you delete a resource.
+
+The following example event records the `CreateGrant` operation:
 
 ```
 {
@@ -355,14 +269,12 @@ operation:
 }
 ```
 
-GenerateDataKeyWithoutPlainText
-When you enable an AWS KMS customer managed key for your tracker or geofence
-collection resource, Amazon Location creates a unique table key. It sends a
-`GenerateDataKeyWithoutPlainText` request to AWS KMS that
-specifies the AWS KMS customer managed key for the resource.
+------
+#### [ GenerateDataKeyWithoutPlainText ]
 
-The following example event records the
-`GenerateDataKeyWithoutPlainText` operation:
+When you enable an AWS KMS customer managed key for your tracker or geofence collection resource, Amazon Location creates a unique table key. It sends a `GenerateDataKeyWithoutPlainText` request to AWS KMS that specifies the AWS KMS customer managed key for the resource.
+
+The following example event records the `GenerateDataKeyWithoutPlainText` operation:
 
 ```
 {
@@ -403,13 +315,12 @@ The following example event records the
 }
 ```
 
-Decrypt
-When you access an encrypted tracker or geofence collection,Amazon Location
-calls the `Decrypt` operation to use the stored encrypted
-data key to access the encrypted data.
+------
+#### [ Decrypt ]
 
-The following example event records the `Decrypt`
-operation:
+When you access an encrypted tracker or geofence collection,Amazon Location calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data. 
+
+The following example event records the `Decrypt` operation:
 
 ```
 {
@@ -450,13 +361,12 @@ operation:
 }
 ```
 
-DescribeKey
-Amazon Location uses the `DescribeKey` operation to verify if the
-AWS KMS customer managed key associated with your tracker or geofence collection
-exists in the account and region.
+------
+#### [ DescribeKey ]
 
-The following example event records the `DescribeKey`
-operation:
+Amazon Location uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your tracker or geofence collection exists in the account and region.
+
+The following example event records the `DescribeKey` operation:
 
 ```
 {
@@ -510,13 +420,11 @@ operation:
 }
 ```
 
+------
+
 ## Learn more
+<a name="Learn-more-data-at-rest-encryption"></a>
 
-The following resources provide more information about data encryption at
-rest.
-
-- For more information about [AWS Key Management Service basic
-  concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md"), see the _AWS Key Management Service Developer
-  Guide_.
-- For more information about [Security best
-  practices for AWS Key Management Service](../../../kms/latest/developerguide/kms-security.md "../../../kms/latest/developerguide/kms-security.md"), see the _AWS Key Management Service Developer Guide_.
+The following resources provide more information about data encryption at rest.
++ For more information about [AWS Key Management Service basic concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html), see the *AWS Key Management Service Developer Guide*.
++ For more information about [Security best practices for AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/kms-security.html), see the *AWS Key Management Service Developer Guide*.

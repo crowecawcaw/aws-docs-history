@@ -1,14 +1,22 @@
+
+
 # How to calculate a service area based on ranges of time
+<a name="calculate-service-area-based-on-time"></a>
 
 The CalculateIsolines API allows you to determine reachable service areas within specified ranges of time or distance, factoring in road networks and traffic conditions. This capability supports applications in defining service areas for restaurants, grocery stores, or other service providers which can assist in planning fuel efficiency and defining accessible areas for service coverage.
 
 ## Potential use cases
-
-- **Plan service areas:** Use this API to plan accessible areas for services like restaurants or grocery delivery based on travel time or distance.
+<a name="calculate-service-area-time-potential-use"></a>
++ **Plan service areas:** Use this API to plan accessible areas for services like restaurants or grocery delivery based on travel time or distance.
 
 ## Examples
+<a name="calculate-service-area-time-examples"></a>
 
-Sample request
+### Calculate a service area based on a time range with Car TravelMode
+<a name="calculate-service-area-time"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -28,7 +36,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -76,7 +85,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -99,7 +109,8 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-routes calculate-isolines --key ${YourKey} \
@@ -108,3 +119,5 @@ aws geo-routes calculate-isolines --key ${YourKey} \
 --thresholds '{"Time": [500, 1000, 1500]}' \
 --travel-mode "Car"
 ```
+
+------

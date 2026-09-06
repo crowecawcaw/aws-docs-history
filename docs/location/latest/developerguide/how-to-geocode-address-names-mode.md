@@ -1,25 +1,23 @@
-# How to control address name variants
 
-`AddressNamesMode` specifies how address names are returned. If not set,
-the service returns normalized (official) names by default. When set to
-`Matched`, address names in the response are based on the input query
-rather than official names. When set to `Administrative`, the service
-returns the official administrative names for address components.
-`Administrative` currently applies only to addresses in the United
-States.
+
+# How to control address name variants
+<a name="how-to-geocode-address-names-mode"></a>
+
+`AddressNamesMode` specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to `Matched`, address names in the response are based on the input query rather than official names. When set to `Administrative`, the service returns the official administrative names for address components. `Administrative` currently applies only to addresses in the United States.
 
 ## Potential use cases
-
-- **Address form completion:** Use
-  `Matched` to return names consistent with what the user
-  typed, reducing confusion in autocomplete workflows.
-- **Address standardization:** Use
-  `Administrative` to normalize city names to their official
-  administrative form for data quality and deduplication.
+<a name="geocode-address-names-mode-use"></a>
++ **Address form completion:** Use `Matched` to return names consistent with what the user typed, reducing confusion in autocomplete workflows.
++ **Address standardization:** Use `Administrative` to normalize city names to their official administrative form for data quality and deduplication.
 
 ## Examples
+<a name="geocode-address-names-mode-example"></a>
 
-Sample request
+### Use Matched mode
+<a name="geocode-address-names-mode-matched"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -28,7 +26,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -62,7 +61,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -74,13 +74,20 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "100 Universal City Plaza, Hollywood, CA" --address-names-mode Matched
 ```
 
-Sample request
+------
+
+### Use Administrative mode
+<a name="geocode-address-names-mode-administrative"></a>
+
+------
+#### [ Sample request ]
 
 ```
 {
@@ -89,7 +96,8 @@ Sample request
 }
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -123,7 +131,8 @@ Sample response
 }
 ```
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl --request POST \
@@ -135,15 +144,16 @@ curl --request POST \
 }'
 ```
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws geo-places geocode --key ${YourKey} --query-text "100 Universal City Plaza, Hollywood, CA" --address-names-mode Administrative
 ```
 
-## Developer tips
+------
 
-- If not set, the service returns normalized (official) names by
-  default.
-- `Administrative` currently applies only to addresses in
-  the United States.
+## Developer tips
+<a name="geocode-address-names-mode-dev-tips"></a>
++ If not set, the service returns normalized (official) names by default.
++ `Administrative` currently applies only to addresses in the United States.
