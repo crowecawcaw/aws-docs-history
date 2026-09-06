@@ -1,16 +1,15 @@
+
+
 # Hello Amazon Keyspaces
+<a name="example_keyspaces_Hello_section"></a>
 
 The following code examples show how to get started using Amazon Keyspaces.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples). 
 
 ```
 namespace KeyspacesActions;
@@ -43,24 +42,14 @@ public class HelloKeyspaces
         await keyspacesWrapper.ListKeyspaces();
     }
 }
-
-
-
 ```
++  For API details, see [ListKeyspaces](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/ListKeyspaces) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListKeyspaces](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/ListKeyspaces.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/ListKeyspaces.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -107,26 +96,16 @@ public class HelloKeyspaces {
         }
     }
 }
+```
++  For API details, see [ListKeyspaces](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/ListKeyspaces) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples). 
 
 ```
-
-- For API details, see
-  [ListKeyspaces](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/ListKeyspaces.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/ListKeyspaces.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples").
-
-```
-
 /**
 Before running this Kotlin code example, set up your development environment, including your credentials.
 
@@ -152,23 +131,14 @@ suspend fun listKeyspaces() {
         }
     }
 }
-
-
 ```
++  For API details, see [ListKeyspaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListKeyspaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples). 
 
 ```
 import boto3
@@ -192,14 +162,9 @@ def hello_keyspaces(keyspaces_client):
 
 if __name__ == "__main__":
     hello_keyspaces(boto3.client("keyspaces"))
-
-
 ```
++  For API details, see [ListKeyspaces](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/ListKeyspaces) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListKeyspaces](../../../goto/boto3/keyspaces-2022-02-10/ListKeyspaces.md "../../../goto/boto3/keyspaces-2022-02-10/ListKeyspaces.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

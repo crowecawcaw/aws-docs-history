@@ -1,45 +1,49 @@
+
+
 # Turn off PITR for an Amazon Keyspaces table
+<a name="disable_PITR"></a>
 
-You can turn off PITR for an Amazon Keyspaces table at any time using the console, CQL, or the AWS CLI.
+You can turn off PITR for an Amazon Keyspaces table at any time using the console, CQL, or the AWS CLI. 
 
-###### Important
+**Important**  
+Disabling PITR deletes your backup history immediately, even if you reenable PITR on the table within 35 days.
 
-Disabling PITR deletes your backup history immediately, even if you reenable
-PITR on the table within 35 days.
+To learn how to restore a table, see [Restore a table from backup to a specified point in time in Amazon Keyspaces](restoretabletopointintime.md).
 
-To learn how to restore a table, see [Restore a table from backup to a specified point in time in Amazon Keyspaces](restoretabletopointintime.md "restoretabletopointintime.md").
+------
+#### [ Console ]
 
-Console
+**Disable PITR for a table using the console**
 
-###### Disable PITR for a table using the console
+1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home).
 
-1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home "https://console.aws.amazon.com/keyspaces/home").
-2. In the navigation pane, choose **Tables** and select the
-   table you want to edit.
-3. On the **Backups** tab, choose
-   **Edit**.
-4. In the **Edit point-in-time recovery settings** section,
-   clear the **Enable Point-in-time recovery** check
-   box.
-5. Choose **Save changes**.
+1. In the navigation pane, choose **Tables** and select the table you want to edit.
 
-Cassandra Query Language (CQL)
+1. On the **Backups** tab, choose **Edit**.
 
-###### Disable PITR for a table using CQL
+1. In the **Edit point-in-time recovery settings** section, clear the **Enable Point-in-time recovery** check box.
 
-- To disable PITR for an existing table, run the following CQL command.
+1. Choose **Save changes**.
 
-```
-ALTER TABLE `mykeyspace.mytable`
-WITH custom_properties = {'point_in_time_recovery': {'status': 'disabled'}}
-```
+------
+#### [ Cassandra Query Language (CQL) ]
 
-CLI
+**Disable PITR for a table using CQL**
++ To disable PITR for an existing table, run the following CQL command.
 
-###### Disable PITR for a table using the AWS CLI
+  ```
+  ALTER TABLE {{mykeyspace.mytable}}
+  WITH custom_properties = {'point_in_time_recovery': {'status': 'disabled'}}
+  ```
 
-- To disable PITR for an existing table, run the following AWS CLI command.
+------
+#### [ CLI ]
 
-```
-aws keyspaces update-table --keyspace-name 'myKeyspace' --table-name 'myTable' --point-in-time-recovery 'status=DISABLED'
-```
+**Disable PITR for a table using the AWS CLI**
++ To disable PITR for an existing table, run the following AWS CLI command.
+
+  ```
+  aws keyspaces update-table --keyspace-name 'myKeyspace' --table-name 'myTable' --point-in-time-recovery 'status=DISABLED'
+  ```
+
+------

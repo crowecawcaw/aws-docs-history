@@ -1,119 +1,125 @@
+
+
 # Amazon Keyspaces (for Apache Cassandra) libraries and tools
+<a name="examples-tools"></a>
 
 This section provides information about Amazon Keyspaces (for Apache Cassandra) libraries, code examples, and tools.
 
-###### Topics
-
-- [Libraries and examples](#examples "#examples")
-- [Highlighted sample and developer tool repos](#highlights "#highlights")
+**Topics**
++ [Libraries and examples](#examples)
++ [Highlighted sample and developer tool repos](#highlights)
 
 ## Libraries and examples
+<a name="examples"></a>
 
-You can find Amazon Keyspaces open-source libraries and developer tools on GitHub in the [AWS](https://github.com/aws "https://github.com/aws") and [AWS samples](https://github.com/aws-samples "https://github.com/aws-samples") repos.
+You can find Amazon Keyspaces open-source libraries and developer tools on GitHub in the [AWS](https://github.com/aws) and [AWS samples](https://github.com/aws-samples) repos.
 
 ### Amazon Keyspaces (for Apache Cassandra) developer toolkit
+<a name="docker-container"></a>
 
-This repository provides a docker image with helpful developer tools for Amazon Keyspaces.
-For example, it includes a CQLSHRC file with best practices, an optional AWS authentication expansion for cqlsh, and helper tools to perform common tasks.
-The toolkit is optimized for Amazon Keyspaces, but also works with Apache Cassandra clusters.
+This repository provides a docker image with helpful developer tools for Amazon Keyspaces. For example, it includes a CQLSHRC file with best practices, an optional AWS authentication expansion for cqlsh, and helper tools to perform common tasks. The toolkit is optimized for Amazon Keyspaces, but also works with Apache Cassandra clusters.
 
-[https://github.com/aws-samples/amazon-keyspaces-toolkit](https://github.com/aws-samples/amazon-keyspaces-toolkit "https://github.com/aws-samples/amazon-keyspaces-toolkit").
+[https://github.com/aws-samples/amazon-keyspaces-toolkit](https://github.com/aws-samples/amazon-keyspaces-toolkit).
 
 ### Amazon Keyspaces (for Apache Cassandra) examples
+<a name="code-examples"></a>
 
-This repo is our official list of Amazon Keyspaces example code. The repo is subdivided into sections by
-language (see [Examples](https://github.com/aws-samples/amazon-keyspaces-examples#Examples/ "https://github.com/aws-samples/amazon-keyspaces-examples#Examples/")). Each language has
-its own subsection of examples.
-These examples demonstrate common Amazon Keyspaces service implementations and patterns that you can use when building applications.
+This repo is our official list of Amazon Keyspaces example code. The repo is subdivided into sections by language (see [Examples](https://github.com/aws-samples/amazon-keyspaces-examples#Examples/)). Each language has its own subsection of examples. These examples demonstrate common Amazon Keyspaces service implementations and patterns that you can use when building applications.
 
-[https://github.com/aws-samples/amazon-keyspaces-examples/](https://github.com/aws-samples/amazon-keyspaces-examples/ "https://github.com/aws-samples/amazon-keyspaces-examples/").
+[https://github.com/aws-samples/amazon-keyspaces-examples/](https://github.com/aws-samples/amazon-keyspaces-examples/).
 
 ### AWS Signature Version 4 (SigV4) authentication plugins
+<a name="auth-plugins"></a>
 
 The plugins enable you to manage access to Amazon Keyspaces by using AWS Identity and Access Management (IAM) users and roles.
 
-Java: [https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin").
+Java: [https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-java-driver-plugin).
 
-Node.js: [https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin").
+Node.js: [https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-nodejs-driver-plugin).
 
-Python: [https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin").
+Python: [https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-python-driver-plugin).
 
-Go: [https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin "https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin").
+Go: [https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin](https://github.com/aws/aws-sigv4-auth-cassandra-gocql-driver-plugin).
 
 ## Highlighted sample and developer tool repos
+<a name="highlights"></a>
 
 Below are a selection of helpful community tools for Amazon Keyspaces (for Apache Cassandra).
 
 ### Amazon Keyspaces Protocol Buffers
+<a name="protocol_buffers"></a>
 
-You can use Protocol Buffers (Protobuf) with Amazon Keyspaces to provide an alternative to Apache Cassandra User Defined Types (UDTs).
-Protobuf is a free and open-source cross-platform data format which is used to serialize structured data. You can store
-Protobuf data using the CQL `BLOB` data type and refactor UDTs while preserving structured data across
-applications and programming languages.
+You can use Protocol Buffers (Protobuf) with Amazon Keyspaces to provide an alternative to Apache Cassandra User Defined Types (UDTs). Protobuf is a free and open-source cross-platform data format which is used to serialize structured data. You can store Protobuf data using the CQL `BLOB` data type and refactor UDTs while preserving structured data across applications and programming languages. 
 
-This repository provides a code example that connects to Amazon Keyspaces, creates a new table, and inserts a row containing a
-Protobuf message. Then the row is read with strong consistency.
+This repository provides a code example that connects to Amazon Keyspaces, creates a new table, and inserts a row containing a Protobuf message. Then the row is read with strong consistency.
 
-[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types")
+[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/protobuf-user-defined-types)
 
 ### CloudFormation template to create Amazon CloudWatch dashboard for Amazon Keyspaces (for Apache Cassandra) metrics
+<a name="dashboard"></a>
 
-This repository provides CloudFormation templates to quickly set up CloudWatch metrics for Amazon Keyspaces. Using this template will allow you to get started
-more easily by providing deployable prebuilt CloudWatch dashboards with commonly used metrics.
+This repository provides CloudFormation templates to quickly set up CloudWatch metrics for Amazon Keyspaces. Using this template will allow you to get started more easily by providing deployable prebuilt CloudWatch dashboards with commonly used metrics.
 
-[https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates "https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates").
+[https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates).
 
 ### Using Amazon Keyspaces (for Apache Cassandra) with AWS Lambda
+<a name="lambda"></a>
 
 The repository contains examples that show how to connect to Amazon Keyspaces from Lambda. Below are some examples.
 
-C#/.NET: [https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/dotnet/datastax-v3/connection-lambda](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/dotnet/datastax-v3/connection-lambda "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/dotnet/datastax-v3/connection-lambda").
+C\#/.NET: [https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/dotnet/datastax-v3/connection-lambda](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/dotnet/datastax-v3/connection-lambda).
 
-Java: [https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/connection-lambda](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/connection-lambda "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/connection-lambda").
+Java: [https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/connection-lambda](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/connection-lambda).
 
 Another Lambda example that shows how to deploy and use Amazon Keyspaces from a Python Lambda is available from the following repo.
 
-[https://github.com/aws-samples/aws-keyspaces-lambda-python](https://github.com/aws-samples/aws-keyspaces-lambda-python "https://github.com/aws-samples/aws-keyspaces-lambda-python")
+[https://github.com/aws-samples/aws-keyspaces-lambda-python](https://github.com/aws-samples/aws-keyspaces-lambda-python)
 
 ### Using Amazon Keyspaces (for Apache Cassandra) with Spring
+<a name="spring"></a>
 
 This is an example that shows you how to use Amazon Keyspaces with Spring Boot.
 
-[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/spring](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/spring "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/spring")
+[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/spring](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/java/datastax-v4/spring)
 
 ### Using Amazon Keyspaces (for Apache Cassandra) with Scala
+<a name="scala"></a>
 
 This is an example that shows how to connect to Amazon Keyspaces using the SigV4 authentication plugin with Scala.
 
-[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/connection-sigv4](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/connection-sigv4 "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/connection-sigv4")
+[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/connection-sigv4](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/connection-sigv4)
 
 ### Using Amazon Keyspaces (for Apache Cassandra) with AWS Glue
+<a name="glue"></a>
 
 This is an example that shows how to use Amazon Keyspaces with AWS Glue.
 
-[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue "https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue")
+[https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue](https://github.com/aws-samples/amazon-keyspaces-examples/tree/main/scala/datastax-v4/aws-glue)
 
 ### Amazon Keyspaces (for Apache Cassandra) Cassandra query language (CQL) to CloudFormation converter
+<a name="cfn-converter"></a>
 
-This package implements a command-line tool for converting Apache Cassandra Query Language (CQL) scripts to CloudFormation
-(CloudFormation) templates, which allows Amazon Keyspaces schemas to be easily managed in CloudFormation stacks.
+This package implements a command-line tool for converting Apache Cassandra Query Language (CQL) scripts to CloudFormation (CloudFormation) templates, which allows Amazon Keyspaces schemas to be easily managed in CloudFormation stacks. 
 
-[https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter](https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter "https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter").
+[https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter](https://github.com/aws/amazon-keyspaces-cql-to-cfn-converter).
 
 ### Amazon Keyspaces (for Apache Cassandra) helpers for Apache Cassandra driver for Java
+<a name="java"></a>
 
-This repository contains driver policies, examples, and best practices when using the DataStax Java Driver with Amazon Keyspaces (for Apache Cassandra).
+This repository contains driver policies, examples, and best practices when using the DataStax Java Driver with Amazon Keyspaces (for Apache Cassandra). 
 
-[https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers](https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers "https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers").
+[https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers](https://github.com/aws-samples/amazon-keyspaces-java-driver-helpers).
 
 ### Amazon Keyspaces (for Apache Cassandra) snappy compression demo
+<a name="compression"></a>
 
 This repository demonstrates how to compress, store, and read/write large objects for faster performance and lower throughput and storage costs.
 
-[https://github.com/aws-samples/amazon-keyspaces-compression-example](https://github.com/aws-samples/amazon-keyspaces-compression-example "https://github.com/aws-samples/amazon-keyspaces-compression-example").
+[https://github.com/aws-samples/amazon-keyspaces-compression-example](https://github.com/aws-samples/amazon-keyspaces-compression-example).
 
 ### Amazon Keyspaces (for Apache Cassandra) and Amazon S3 codec demo
+<a name="S3-codec"></a>
 
-Custom Amazon S3 Codec supports transparent, user-configurable mapping of UUID pointers to Amazon S3 objects.
+Custom Amazon S3 Codec supports transparent, user-configurable mapping of UUID pointers to Amazon S3 objects. 
 
-[https://github.com/aws-samples/amazon-keyspaces-large-object-s3-demo](https://github.com/aws-samples/amazon-keyspaces-large-object-s3-demo "https://github.com/aws-samples/amazon-keyspaces-large-object-s3-demo").
+[https://github.com/aws-samples/amazon-keyspaces-large-object-s3-demo](https://github.com/aws-samples/amazon-keyspaces-large-object-s3-demo).

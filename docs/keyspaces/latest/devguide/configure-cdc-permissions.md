@@ -1,23 +1,22 @@
+
+
 # Configure permissions to work with CDC streams in Amazon Keyspaces
+<a name="configure-cdc-permissions"></a>
 
-To enable CDC streams, the principal, for example
-an IAM user or role, needs the following permissions.
+To enable CDC streams, the principal, for example an IAM user or role, needs the following permissions.
 
-For more information about AWS Identity and Access Management, see [AWS Identity and Access Management for Amazon Keyspaces](security-iam.md "security-iam.md").
+For more information about AWS Identity and Access Management, see [AWS Identity and Access Management for Amazon Keyspaces](security-iam.md).
 
 ## Permissions to enable a CDC stream for a table
+<a name="cdc-permissions-enable"></a>
 
-To enable a CDC stream for an Amazon Keyspaces table, the principal first needs permissions to
-create or alter a table and second the permissions to create the service linked role
-[AWSServiceRoleForAmazonKeyspacesCDC](using-service-linked-roles-CDC-streams.md#service-linked-role-permissions-CDC-streams "using-service-linked-roles-CDC-streams.md#service-linked-role-permissions-CDC-streams").
-Amazon Keyspaces uses the service linked role
-to publish CloudWatch metrics into your account on your behalf
+To enable a CDC stream for an Amazon Keyspaces table, the principal first needs permissions to create or alter a table and second the permissions to create the service linked role [AWSServiceRoleForAmazonKeyspacesCDC](using-service-linked-roles-CDC-streams.md#service-linked-role-permissions-CDC-streams). Amazon Keyspaces uses the service linked role to publish CloudWatch metrics into your account on your behalf
 
 The following IAM policy is an example of this.
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement":[
         {
             "Effect":"Allow",
@@ -28,8 +27,8 @@ The following IAM policy is an example of this.
                 "cassandra:AlterMultiRegionResource"
             ],
             "Resource":[
-                "arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/`my_keyspace`/*",
-                "arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/system*"
+                "arn:aws:cassandra:{{us-east-1}}:{{111122223333}}:/keyspace/{{my_keyspace}}/*",
+                "arn:aws:cassandra:{{us-east-1}}:{{111122223333}}:/keyspace/system*"
             ]
         },
         {
@@ -50,36 +49,34 @@ The following IAM policy is an example of this.
 To disable a stream, only `ALTER TABLE` permissions are required.
 
 ## Permissions to view a CDC stream
+<a name="cdc-permissions-view"></a>
 
-To view or list CDC streams, the principal needs read permissions for the system keyspace. For
-more information, see [system\_schema\_mcs](working-with-keyspaces.md#keyspace_system_schema_mcs "working-with-keyspaces.md#keyspace_system_schema_mcs").
+To view or list CDC streams, the principal needs read permissions for the system keyspace. For more information, see [`system_schema_mcs`](working-with-keyspaces.md#keyspace_system_schema_mcs).
 
 The following IAM policy is an example of this.
 
 ```
 {
-   "Version":"2012-10-17",
+   "Version":"2012-10-17",		 	 	 
    "Statement":[
       {
          "Effect":"Allow",
          "Action":"cassandra:Select",
          "Resource":[
-             "arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/system*"
+             "arn:aws:cassandra:{{us-east-1}}:{{111122223333}}:/keyspace/system*"
          ]
       }
    ]
 }
 ```
 
-To view or list CDC streams with the AWS CLI or the Amazon Keyspaces API, the principal needs
-additional permissions for the actions `cassandra:ListStreams` and
-`cassandra:GetStream`.
+To view or list CDC streams with the AWS CLI or the Amazon Keyspaces API, the principal needs additional permissions for the actions `cassandra:ListStreams` and `cassandra:GetStream`.
 
 The following IAM policy is an example of this.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -95,12 +92,13 @@ The following IAM policy is an example of this.
 ```
 
 ## Permissions to read a CDC stream
+<a name="cdc-permissions-read"></a>
 
 To read CDC streams, the principal needs the following permissions.
 
 ```
 {
-   "Version":"2012-10-17",
+   "Version":"2012-10-17",		 	 	 
    "Statement":[
       {
          "Effect":"Allow",
@@ -110,7 +108,7 @@ To read CDC streams, the principal needs the following permissions.
             "cassandra:GetRecords"
          ],
          "Resource":[
-            "arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/`my_keyspace`/table/`my_table`/stream/`stream_label`"
+            "arn:aws:cassandra:{{us-east-1}}:{{111122223333}}:/keyspace/{{my_keyspace}}/table/{{my_table}}/stream/{{stream_label}}"
          ]
       }
    ]
@@ -118,20 +116,16 @@ To read CDC streams, the principal needs the following permissions.
 ```
 
 ## Permissions to process Amazon Keyspaces CDC streams with the Kinesis Client Library (KCL)
+<a name="cdc-permissions-kcl"></a>
 
-To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the following permissions.
-
-- `Amazon Keyspaces` – Read-only access to a specified Amazon Keyspaces CDC stream.
-- `DynamoDB` – Permissions to create `shard lease` tables, read and write access to the tables, and
-  read-access to the index as required for KCL stream processing.
-- `CloudWatch` – Permissions to publish metric data from Amazon Keyspaces CDC streams
-  processing with KCL into the namespace of your KCL client application in
-  your CloudWatch account. For more information about monitoring, see [Monitor
-  the Kinesis Client Library with Amazon CloudWatch](../../../streams/latest/dev/monitoring-with-kcl.md "../../../streams/latest/dev/monitoring-with-kcl.md").
+To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the following permissions. 
++ `Amazon Keyspaces` – Read-only access to a specified Amazon Keyspaces CDC stream.
++ `DynamoDB` – Permissions to create `shard lease` tables, read and write access to the tables, and read-access to the index as required for KCL stream processing.
++ `CloudWatch` – Permissions to publish metric data from Amazon Keyspaces CDC streams processing with KCL into the namespace of your KCL client application in your CloudWatch account. For more information about monitoring, see [Monitor the Kinesis Client Library with Amazon CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-kcl.html).
 
 ```
 {
-   "Version":"2012-10-17",
+   "Version":"2012-10-17",		 	 	 
    "Statement":[
       {
          "Effect":"Allow",
@@ -141,7 +135,7 @@ To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the fo
             "cassandra:GetRecords"
          ],
          "Resource":[
-            "arn:aws:cassandra:`us-east-1`:`111122223333`:/keyspace/`my_keyspace`/table/`my_table`/stream/`stream_label`"
+            "arn:aws:cassandra:{{us-east-1}}:{{111122223333}}:/keyspace/{{my_keyspace}}/table/{{my_table}}/stream/{{stream_label}}"
          ]
       },
       {
@@ -157,7 +151,7 @@ To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the fo
             "dynamodb:Scan"
          ],
          "Resource":[
-            "arn:aws:dynamodb:`us-east-1`:`111122223333`:table/`KCL_APPLICATION_NAME`"
+            "arn:aws:dynamodb:{{us-east-1}}:{{111122223333}}:table/{{KCL_APPLICATION_NAME}}"
          ]
       },
       {
@@ -172,8 +166,8 @@ To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the fo
             "dynamodb:Scan"
          ],
          "Resource":[
-            "arn:aws:dynamodb:`us-east-1`:`111122223333`:table/`KCL_APPLICATION_NAME`-WorkerMetricStats",
-            "arn:aws:dynamodb:`us-east-1`:`111122223333`:table/`KCL_APPLICATION_NAME`-CoordinatorState"
+            "arn:aws:dynamodb:{{us-east-1}}:{{111122223333}}:table/{{KCL_APPLICATION_NAME}}-WorkerMetricStats",
+            "arn:aws:dynamodb:{{us-east-1}}:{{111122223333}}:table/{{KCL_APPLICATION_NAME}}-CoordinatorState"
          ]
       },
       {
@@ -182,7 +176,7 @@ To process Amazon Keyspaces CDC streams with KCL, the IAM principal needs the fo
             "dynamodb:Query"
          ],
          "Resource":[
-            "arn:aws:dynamodb:`us-east-1`:`111122223333`:table/`KCL_APPLICATION_NAME`/index/*"
+            "arn:aws:dynamodb:{{us-east-1}}:{{111122223333}}:table/{{KCL_APPLICATION_NAME}}/index/*"
          ]
       },
       {

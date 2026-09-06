@@ -1,22 +1,20 @@
+
+
 # Learn the basics of Amazon Keyspaces with an AWS SDK
+<a name="example_keyspaces_Scenario_GetStartedKeyspaces_section"></a>
 
 The following code examples show how to:
++ Create a keyspace and table. The table schema holds movie data and has point-in-time recovery enabled.
++ Connect to the keyspace using a secure TLS connection with SigV4 authentication.
++ Query the table. Add, retrieve, and update movie data.
++ Update the table. Add a column to track watched movies.
++ Restore the table to its previous state and clean up resources.
 
-- Create a keyspace and table. The table schema holds movie data and has point-in-time recovery enabled.
-- Connect to the keyspace using a secure TLS connection with SigV4 authentication.
-- Query the table. Add, retrieve, and update movie data.
-- Update the table. Add a column to track watched movies.
-- Restore the table to its previous state and clean up resources.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Keyspaces#code-examples). 
 
 ```
 global using System.Security.Cryptography.X509Certificates;
@@ -308,9 +306,6 @@ public class KeyspacesBasics
         Console.WriteLine("The keyspace has been deleted and the demo is now complete.");
     }
 }
-
-
-
 ```
 
 ```
@@ -499,9 +494,6 @@ public class KeyspacesWrapper
     }
 
 }
-
-
-
 ```
 
 ```
@@ -703,33 +695,24 @@ public class CassandraWrapper
         }
     }
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateKeyspace](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/CreateKeyspace)
+  + [CreateTable](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/CreateTable)
+  + [DeleteKeyspace](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteKeyspace)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteTable)
+  + [GetKeyspace](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/GetKeyspace)
+  + [GetTable](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/GetTable)
+  + [ListKeyspaces](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/ListKeyspaces)
+  + [ListTables](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/ListTables)
+  + [RestoreTable](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/RestoreTable)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/DotNetSDKV3/keyspaces-2022-02-10/UpdateTable)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-  - [CreateKeyspace](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateKeyspace.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateKeyspace.md")
-  - [CreateTable](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateTable.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateTable.md")
-  - [DeleteKeyspace](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteKeyspace.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteKeyspace.md")
-  - [DeleteTable](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteTable.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteTable.md")
-  - [GetKeyspace](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/GetKeyspace.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/GetKeyspace.md")
-  - [GetTable](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/GetTable.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/GetTable.md")
-  - [ListKeyspaces](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/ListKeyspaces.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/ListKeyspaces.md")
-  - [ListTables](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/ListTables.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/ListTables.md")
-  - [RestoreTable](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/RestoreTable.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/RestoreTable.md")
-  - [UpdateTable](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/UpdateTable.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/UpdateTable.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/keyspaces#code-examples). 
 
 ```
 /**
@@ -1284,35 +1267,26 @@ public class ScenarioKeyspaces {
         }
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateKeyspace](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/CreateKeyspace)
+  + [CreateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/CreateTable)
+  + [DeleteKeyspace](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteKeyspace)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteTable)
+  + [GetKeyspace](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/GetKeyspace)
+  + [GetTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/GetTable)
+  + [ListKeyspaces](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/ListKeyspaces)
+  + [ListTables](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/ListTables)
+  + [RestoreTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/RestoreTable)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/keyspaces-2022-02-10/UpdateTable)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [CreateKeyspace](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateKeyspace.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateKeyspace.md")
-  - [CreateTable](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateTable.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateTable.md")
-  - [DeleteKeyspace](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteKeyspace.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteKeyspace.md")
-  - [DeleteTable](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteTable.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteTable.md")
-  - [GetKeyspace](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/GetKeyspace.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/GetKeyspace.md")
-  - [GetTable](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/GetTable.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/GetTable.md")
-  - [ListKeyspaces](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/ListKeyspaces.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/ListKeyspaces.md")
-  - [ListTables](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/ListTables.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/ListTables.md")
-  - [RestoreTable](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/RestoreTable.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/RestoreTable.md")
-  - [UpdateTable](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/UpdateTable.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/UpdateTable.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/keyspaces#code-examples").
-
-```
-
 /**
  Before running this Kotlin code example, set up your development environment, including your credentials.
 
@@ -1875,34 +1849,25 @@ suspend fun createKeySpace(keyspaceNameVal: String) {
         println("The ARN of the KeySpace is ${response.resourceArn}")
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CreateKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListKeyspaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListTables](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [RestoreTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [UpdateTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [CreateKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListKeyspaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListTables](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [RestoreTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [UpdateTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/keyspaces#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class KeyspaceScenario:
@@ -2130,11 +2095,8 @@ if __name__ == "__main__":
         scenario.run_scenario()
     except Exception:
         logging.exception("Something went wrong with the demo.")
-
-
 ```
-
-Define a class that wraps keyspace and table actions.
+Define a class that wraps keyspace and table actions.  
 
 ```
 class KeyspaceWrapper:
@@ -2397,14 +2359,8 @@ class KeyspaceWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
-
 ```
-
-Define a class that creates a TLS connection to a keyspace, authenticates with SigV4, and sends CQL queries to a table in the keyspace.
+Define a class that creates a TLS connection to a keyspace, authenticates with SigV4, and sends CQL queries to a table in the keyspace.  
 
 ```
 class QueryManager:
@@ -2540,25 +2496,19 @@ class QueryManager:
             ),
             parameters=[title, year],
         )
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateKeyspace](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/CreateKeyspace)
+  + [CreateTable](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/CreateTable)
+  + [DeleteKeyspace](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/DeleteKeyspace)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/DeleteTable)
+  + [GetKeyspace](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/GetKeyspace)
+  + [GetTable](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/GetTable)
+  + [ListKeyspaces](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/ListKeyspaces)
+  + [ListTables](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/ListTables)
+  + [RestoreTable](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/RestoreTable)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/boto3/keyspaces-2022-02-10/UpdateTable)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateKeyspace](../../../goto/boto3/keyspaces-2022-02-10/CreateKeyspace.md "../../../goto/boto3/keyspaces-2022-02-10/CreateKeyspace.md")
-  - [CreateTable](../../../goto/boto3/keyspaces-2022-02-10/CreateTable.md "../../../goto/boto3/keyspaces-2022-02-10/CreateTable.md")
-  - [DeleteKeyspace](../../../goto/boto3/keyspaces-2022-02-10/DeleteKeyspace.md "../../../goto/boto3/keyspaces-2022-02-10/DeleteKeyspace.md")
-  - [DeleteTable](../../../goto/boto3/keyspaces-2022-02-10/DeleteTable.md "../../../goto/boto3/keyspaces-2022-02-10/DeleteTable.md")
-  - [GetKeyspace](../../../goto/boto3/keyspaces-2022-02-10/GetKeyspace.md "../../../goto/boto3/keyspaces-2022-02-10/GetKeyspace.md")
-  - [GetTable](../../../goto/boto3/keyspaces-2022-02-10/GetTable.md "../../../goto/boto3/keyspaces-2022-02-10/GetTable.md")
-  - [ListKeyspaces](../../../goto/boto3/keyspaces-2022-02-10/ListKeyspaces.md "../../../goto/boto3/keyspaces-2022-02-10/ListKeyspaces.md")
-  - [ListTables](../../../goto/boto3/keyspaces-2022-02-10/ListTables.md "../../../goto/boto3/keyspaces-2022-02-10/ListTables.md")
-  - [RestoreTable](../../../goto/boto3/keyspaces-2022-02-10/RestoreTable.md "../../../goto/boto3/keyspaces-2022-02-10/RestoreTable.md")
-  - [UpdateTable](../../../goto/boto3/keyspaces-2022-02-10/UpdateTable.md "../../../goto/boto3/keyspaces-2022-02-10/UpdateTable.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

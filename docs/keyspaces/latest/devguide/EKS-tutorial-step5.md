@@ -1,115 +1,114 @@
+
+
 # Step 5: (Optional) Cleanup
+<a name="EKS-tutorial-step5"></a>
 
 Follow these steps to remove all the resources created in this tutorial.
 
-###### Remove the resources created in this tutorial
+**Remove the resources created in this tutorial**
 
 1. Delete your deployment. You can use the following command to do so.
 
-```
-kubectl delete deployment `my-keyspaces-app` -n `my-eks-namespace`
-```
+   ```
+   kubectl delete deployment {{my-keyspaces-app}} -n {{my-eks-namespace}}
+   ```
 
-2. Delete the Amazon EKS cluster and all Pods contained in it. This also deletes related resources
-   like the service account and OIDC identity provider. You can use the following
-   command to do so.
+1. Delete the Amazon EKS cluster and all Pods contained in it. This also deletes related resources like the service account and OIDC identity provider. You can use the following command to do so.
 
-```
-eksctl delete cluster --name `my-eks-cluster` --region `us-east-1`
-```
+   ```
+   eksctl delete cluster --name {{my-eks-cluster}} --region {{us-east-1}}
+   ```
 
-3. Delete the IAM role used for the Amazon EKS service account with access permissions to Amazon Keyspaces. First, you have to remove
-   the managed policy that is attached to the role.
+1. Delete the IAM role used for the Amazon EKS service account with access permissions to Amazon Keyspaces. First, you have to remove the managed policy that is attached to the role.
 
-```
-aws iam detach-role-policy --role-name `my-iam-role` --policy-arn arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess
-```
+   ```
+   aws iam detach-role-policy --role-name {{my-iam-role}} --policy-arn arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess
+   ```
 
-Then you can delete the role using the following command.
+   Then you can delete the role using the following command.
 
-```
-aws iam delete-role --role-name `my-iam-role`
-```
+   ```
+   aws iam delete-role --role-name {{my-iam-role}}
+   ```
 
-For more information, see
-[Deleting an IAM role (AWS CLI)](../../../IAM/latest/UserGuide/id_roles_manage_delete.md#roles-managingrole-deleting-cli "../../../IAM/latest/UserGuide/id_roles_manage_delete.md#roles-managingrole-deleting-cli")
-in the _IAM User Guide_. 4. Delete the Amazon ECR repository including all the images stored in it. You can do so using the
-following command.
+   For more information, see [Deleting an IAM role (AWS CLI)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli) in the *IAM User Guide*. 
 
-```
-aws ecr delete-repository \
-      --repository-name `my-ecr-repository` \
-      --force \
-      --region `us-east-1`
-```
+1. Delete the Amazon ECR repository including all the images stored in it. You can do so using the following command.
 
-Note that the `force` flag is required to delete a repository that
-contains images. To delete your image first, you can do so using the following
-command.
+   ```
+   aws ecr delete-repository \
+         --repository-name {{my-ecr-repository}} \
+         --force \
+         --region {{us-east-1}}
+   ```
 
-```
-aws ecr batch-delete-image \
-      --repository-name `my-ecr-repository` \
-      --image-ids imageTag=latest \
-      --region `us-east-1`
-```
+   Note that the `force` flag is required to delete a repository that contains images. To delete your image first, you can do so using the following command. 
 
-For more information, see [Delete an image](../../../AmazonECR/latest/userguide/getting-started-cli.md#cli-delete-image "../../../AmazonECR/latest/userguide/getting-started-cli.md#cli-delete-image") in the Amazon Elastic Container Registry User Guide. 5. Delete the Amazon Keyspaces keyspace and table. Deleting the keyspace automatically deletes all tables in that keyspace. You can use one the following options to do so.
+   ```
+   aws ecr batch-delete-image \
+         --repository-name {{my-ecr-repository}} \
+         --image-ids imageTag=latest \
+         --region {{us-east-1}}
+   ```
 
-AWS CLI
+   For more information, see [Delete an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html#cli-delete-image) in the Amazon Elastic Container Registry User Guide.
 
-```
-aws keyspaces delete-keyspace --keyspace-name '`aws`'
-```
+1. Delete the Amazon Keyspaces keyspace and table. Deleting the keyspace automatically deletes all tables in that keyspace. You can use one the following options to do so.
 
-To confirm that the keyspace was deleted, you can use the following command.
+------
+#### [ AWS CLI ]
 
-```
-aws keyspaces list-keyspaces
-```
+   ```
+   aws keyspaces delete-keyspace --keyspace-name '{{aws}}'
+   ```
 
-To delete the table first, you can use the following command.
+   To confirm that the keyspace was deleted, you can use the following command.
 
-```
-aws keyspaces delete-table --keyspace-name '`aws`' --table-name '`user`'
-```
+   ```
+   aws keyspaces list-keyspaces
+   ```
 
-To confirm that your table was deleted, you can use the following command.
+   To delete the table first, you can use the following command.
 
-```
-aws keyspaces list-tables --keyspace-name '`aws`'
-```
+   ```
+   aws keyspaces delete-table --keyspace-name '{{aws}}' --table-name '{{user}}'
+   ```
 
-For more information, see [delete keyspace](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/keyspaces/delete-keyspace.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/keyspaces/delete-keyspace.html") and [delete table](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/keyspaces/delete-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/keyspaces/delete-table.html") in the _AWS CLI Command Reference_.
+   To confirm that your table was deleted, you can use the following command.
 
-cqlsh
+   ```
+   aws keyspaces list-tables --keyspace-name '{{aws}}'
+   ```
 
-```
-DROP KEYSPACE IF EXISTS "`aws`";
-```
+   For more information, see [delete keyspace](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/keyspaces/delete-keyspace.html) and [delete table](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/keyspaces/delete-table.html) in the *AWS CLI Command Reference*.
 
-To verify that your keyspaces was deleted, you can use the following statement.
+------
+#### [ cqlsh ]
 
-```
-SELECT * FROM system_schema.keyspaces ;
-```
+   ```
+   DROP KEYSPACE IF EXISTS "{{aws}}";
+   ```
 
-Your keyspace should not be listed in the output of this
-statement. Note that there can be a delay until the keyspaces is
-deleted. For more information, see [DROP KEYSPACE](cql.ddl.keyspace.md#cql.ddl.keyspace.drop "cql.ddl.keyspace.md#cql.ddl.keyspace.drop").
+   To verify that your keyspaces was deleted, you can use the following statement.
 
-To delete the table first, you can use the following command.
+   ```
+   SELECT * FROM system_schema.keyspaces ;
+   ```
 
-```
-DROP TABLE "`aws.user`"
-```
+   Your keyspace should not be listed in the output of this statement. Note that there can be a delay until the keyspaces is deleted. For more information, see [DROP KEYSPACE](cql.ddl.keyspace.md#cql.ddl.keyspace.drop).
 
-To confirm that your table was deleted, you can use the following command.
+   To delete the table first, you can use the following command.
 
-```
-SELECT * FROM system_schema.tables WHERE keyspace_name = "`aws`";
-```
+   ```
+   DROP TABLE "{{aws.user}}"
+   ```
 
-Your table should not be listed in the output of this
-statement. Note that there can be a delay until the table is
-deleted. For more information, see [DROP TABLE](cql.ddl.table.md#cql.ddl.table.drop "cql.ddl.table.md#cql.ddl.table.drop").
+   To confirm that your table was deleted, you can use the following command.
+
+   ```
+   SELECT * FROM system_schema.tables WHERE keyspace_name = "{{aws}}";
+   ```
+
+   Your table should not be listed in the output of this statement. Note that there can be a delay until the table is deleted. For more information, see [DROP TABLE](cql.ddl.table.md#cql.ddl.table.drop).
+
+------

@@ -1,9 +1,12 @@
+
+
 # Prerequisites: Steps to complete before you can upload data using `cqlsh COPY FROM`
+<a name="bulk-upload-prequs"></a>
 
 You must complete the following tasks before you can start this tutorial.
 
-1. If you have not already done so, sign up for an AWS account by following the
-   steps at [Setting up Amazon Keyspaces](accessing.md#SettingUp.KEY "accessing.md#SettingUp.KEY").
-2. Create service-specific credentials by following the steps at [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").
-3. Set up the Cassandra Query Language shell (cqlsh) connection and confirm that
-   you can connect to Amazon Keyspaces by following the steps at [Using cqlsh to connect to Amazon Keyspaces](programmatic.cqlsh.md "programmatic.cqlsh.md").
+1. If you have not already done so, sign up for an AWS account by following the steps at [Setting up Amazon Keyspaces](accessing.md#SettingUp.KEY).
+
+1. Create service-specific credentials by following the steps at [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md).
+
+1. Set up the Cassandra Query Language shell (cqlsh) connection and confirm that you can connect to Amazon Keyspaces by following the steps at [Using `cqlsh` to connect to Amazon Keyspaces](programmatic.cqlsh.md). 

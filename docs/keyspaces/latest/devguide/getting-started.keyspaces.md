@@ -1,131 +1,132 @@
+
+
 # Create a keyspace in Amazon Keyspaces
+<a name="getting-started.keyspaces"></a>
 
-In this section, you create a keyspace using the
-console, `cqlsh`, or the AWS CLI.
+In this section, you create a keyspace using the console, `cqlsh`, or the AWS CLI.
 
-###### Note
+**Note**  
+Before you begin, make sure that you have configured all the [tutorial prerequisites](getting-started.before-you-begin.md). 
 
-Before you begin, make sure that you have configured
-all the [tutorial prerequisites](getting-started.before-you-begin.md "getting-started.before-you-begin.md").
+A *keyspace* groups related tables that are relevant for one or more applications. A keyspace contains one or more tables and defines the replication strategy for all the tables it contains. For more information about keyspaces, see the following topics:
++ Data definition language (DDL) statements in the CQL language reference: [Keyspaces](cql.ddl.keyspace.md)
++ [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md)
 
-A _keyspace_ groups related tables that are relevant for one or
-more applications. A keyspace contains one or more tables and defines the replication
-strategy for all the tables it contains. For more information about keyspaces, see the
-following topics:
+In this tutorial we create a single-Region keyspace, and the replication strategy of the keyspace is `SingleRegionStrategy`. Using `SingleRegionStrategy`, Amazon Keyspaces replicates data across three [ Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) in one AWS Region. To learn how to create multi-Region keyspaces, see [Create a multi-Region keyspace in Amazon Keyspaces](keyspaces-mrr-create.md).
 
-- Data definition language (DDL) statements in the CQL language reference: [Keyspaces](cql.ddl.keyspace.md "cql.ddl.keyspace.md")
-- [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md")
-  In this tutorial we create a single-Region keyspace, and the replication strategy of
-  the keyspace is `SingleRegionStrategy`. Using
-  `SingleRegionStrategy`, Amazon Keyspaces replicates data across three [Availability
-  Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") in one AWS Region. To learn how to create multi-Region keyspaces, see
-  [Create a multi-Region keyspace in Amazon Keyspaces](keyspaces-mrr-create.md "keyspaces-mrr-create.md").
+## Using the console
+<a name="getting-started.keyspaces.con"></a>
 
-###### To create a keyspace using the console
+**To create a keyspace using the console**
 
-1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home "https://console.aws.amazon.com/keyspaces/home").
-2. In the navigation pane, choose **Keyspaces**.
-3. Choose **Create keyspace**.
-4. In the **Keyspace name** box, enter
-   `catalog` as the name for your
-   keyspace.
+1. Sign in to the AWS Management Console, and open the Amazon Keyspaces console at [https://console.aws.amazon.com/keyspaces/home](https://console.aws.amazon.com/keyspaces/home).
 
-**Name constraints:**
+1. In the navigation pane, choose **Keyspaces**.
 
-    * The name can't be empty.
-    * Allowed characters: alphanumeric characters and underscore ( `_` ).
-    * Maximum length is 48 characters.
+1. Choose **Create keyspace**.
 
-5. Under **AWS Regions**, confirm that **Single-Region replication** is the
-replication strategy for the keyspace. 6. To create the keyspace, choose **Create
-keyspace**. 7. Verify that the keyspace `catalog` was created by doing
-the following:
+1. In the **Keyspace name** box, enter **catalog** as the name for your keyspace.
 
-    1. In the navigation pane, choose **Keyspaces**.
-    2. Locate your keyspace `catalog` in the list of keyspaces.
+   **Name constraints:**
+   + The name can't be empty.
+   + Allowed characters: alphanumeric characters and underscore ( `_` ).
+   + Maximum length is 48 characters.
+
+1. Under **AWS Regions**, confirm that **Single-Region replication** is the replication strategy for the keyspace.
+
+1. To create the keyspace, choose **Create keyspace**.
+
+1. Verify that the keyspace `catalog` was created by doing the following:
+
+   1. In the navigation pane, choose **Keyspaces**.
+
+   1. Locate your keyspace `catalog` in the list of keyspaces.
+
+## Using CQL
+<a name="getting-started.keyspaces.cql"></a>
 
 The following procedure creates a keyspace using CQL.
 
-###### To create a keyspace using CQL
+**To create a keyspace using CQL**
 
-1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update `us-east-1` with your
-   own Region.
+1. Open AWS CloudShell and connect to Amazon Keyspaces using the following command. Make sure to update {{us-east-1}} with your own Region.
 
-```
-cqlsh-expansion cassandra.`us-east-1`.amazonaws.com 9142 --ssl
-```
+   ```
+   cqlsh-expansion cassandra.{{us-east-1}}.amazonaws.com 9142 --ssl
+   ```
 
-The output of that command should look like this.
+   The output of that command should look like this.
 
-```
-`Connected to Amazon Keyspaces at cassandra.us-east-1.amazonaws.com:9142
-[cqlsh 6.1.0 | Cassandra 3.11.2 | CQL spec 3.4.4 | Native protocol v4]
-Use HELP for help.
-cqlsh current consistency level is ONE.`
-```
+   ```
+   Connected to Amazon Keyspaces at cassandra.us-east-1.amazonaws.com:9142
+   [cqlsh 6.1.0 | Cassandra 3.11.2 | CQL spec 3.4.4 | Native protocol v4]
+   Use HELP for help.
+   cqlsh current consistency level is ONE.
+   ```
 
-2. Create your keyspace using the following CQL command.
+1. Create your keyspace using the following CQL command.
 
-```
-CREATE KEYSPACE catalog WITH REPLICATION = {'class': 'SingleRegionStrategy'};
-```
+   ```
+   CREATE KEYSPACE catalog WITH REPLICATION = {'class': 'SingleRegionStrategy'};
+   ```
 
-`SingleRegionStrategy` uses a replication factor of three and
-replicates data across three AWS Availability Zones in its Region.
+   `SingleRegionStrategy` uses a replication factor of three and replicates data across three AWS Availability Zones in its Region.
+**Note**  
+Amazon Keyspaces defaults all input to lowercase unless you enclose it in quotation marks. 
 
-###### Note
+1. Verify that your keyspace was created.
 
-Amazon Keyspaces defaults all input to lowercase unless you enclose it in
-quotation marks. 3. Verify that your keyspace was created.
+   ```
+   SELECT * from system_schema.keyspaces;
+   ```
 
-```
-SELECT * from system_schema.keyspaces;
-```
+   The output of this command should look similar to this.
 
-The output of this command should look similar to this.
+   ```
+   cqlsh> SELECT * from system_schema.keyspaces;
+   
+    keyspace_name           | durable_writes | replication
+   -------------------------+----------------+-------------------------------------------------------------------------------------
+              system_schema |           True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
+          system_schema_mcs |           True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
+                     system |           True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
+    system_multiregion_info |           True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
+                    catalog |           True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
+   
+   (5 rows)
+   ```
 
-```
-`cqlsh> SELECT * from system_schema.keyspaces;
-
- keyspace_name | durable_writes | replication
--------------------------+----------------+-------------------------------------------------------------------------------------
- system_schema | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- system_schema_mcs | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- system | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- system_multiregion_info | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
- catalog | True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '3'}
-
-(5 rows)`
-```
+## Using the AWS CLI
+<a name="getting-started.keyspaces.cli"></a>
 
 The following procedure creates a keyspace using the AWS CLI.
 
-###### To create a keyspace using the AWS CLI
+**To create a keyspace using the AWS CLI**
 
 1. To confirm that your environment is setup, you can run the following command in CloudShell.
 
-```
-aws keyspaces help
-```
+   ```
+   aws keyspaces help
+   ```
 
-2. Create your keyspace using the following AWS CLI statement.
+1. Create your keyspace using the following AWS CLI statement.
 
-```
-aws keyspaces create-keyspace --keyspace-name 'catalog'
-```
+   ```
+   aws keyspaces create-keyspace --keyspace-name 'catalog'
+   ```
 
-3. Verify that your keyspace was created with the following AWS CLI statement
+1. Verify that your keyspace was created with the following AWS CLI statement
 
-```
-aws keyspaces get-keyspace --keyspace-name 'catalog'
-```
+   ```
+   aws keyspaces get-keyspace --keyspace-name 'catalog'
+   ```
 
-The output of this command should look similar to this example.
+   The output of this command should look similar to this example.
 
-```
-`{
- "keyspaceName": "catalog",
- "resourceArn": "arn:aws:cassandra:us-east-1:111122223333:/keyspace/catalog/",
- "replicationStrategy": "SINGLE_REGION"
-}`
-```
+   ```
+   {
+       "keyspaceName": "catalog",
+       "resourceArn": "arn:aws:cassandra:us-east-1:111122223333:/keyspace/catalog/",
+       "replicationStrategy": "SINGLE_REGION"
+   }
+   ```

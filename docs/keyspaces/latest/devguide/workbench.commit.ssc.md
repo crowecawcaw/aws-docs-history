@@ -1,21 +1,22 @@
+
+
 # Connect to Amazon Keyspaces with service-specific credentials
+<a name="workbench.commit.ssc"></a>
 
-This section shows how to use service-specific credentials to commit the data model
-you created or edited with NoSQL Workbench.
+This section shows how to use service-specific credentials to commit the data model you created or edited with NoSQL Workbench.
 
-1. To create a new connection using service-specific credentials, choose the
-   **Connect by using user name and password** tab.
+1. To create a new connection using service-specific credentials, choose the **Connect by using user name and password** tab. 
 
-   1. Before you begin, you must create service-specific credentials using
-      the process documented at [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md "programmatic.credentials.ssc.md").After you have obtained the service-specific credentials, you can continue to
-      set up the connection. Continue with one of the following:
-   - **User name** – Enter the user name.
-   - **Password** – Enter the password.
-   - **AWS Region** – For available Regions, see
-     [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md "programmatic.endpoints.md").
-   - **Port** – Amazon Keyspaces uses port 9142.
-     Alternatively, you can import saved credentials from a file.
+   1. Before you begin, you must create service-specific credentials using the process documented at [Create service-specific credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.ssc.md).
 
-2. Choose **Commit** to update Amazon Keyspaces with the data model.
+   After you have obtained the service-specific credentials, you can continue to set up the connection. Continue with one of the following:
+   + **User name** – Enter the user name.
+   + **Password** – Enter the password.
+   + **AWS Region** – For available Regions, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md).
+   + **Port** – Amazon Keyspaces uses port 9142. 
 
-![Console screenshot that shows a connection to Amazon Keyspaces using service-specific credentials.](images/workbench/key_nosql_SSC.png)
+   Alternatively, you can import saved credentials from a file.
+
+1. Choose **Commit** to update Amazon Keyspaces with the data model.
+
+![Console screenshot that shows a connection to Amazon Keyspaces using service-specific credentials.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_SSC.png)
