@@ -1,28 +1,26 @@
+
+
 # Use `PutRecordBatch` with an AWS SDK or CLI
+<a name="example_firehose_PutRecordBatch_section"></a>
 
 The following code examples show how to use `PutRecordBatch`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Put records to Firehose](example_firehose_Scenario_PutRecords_section.md) 
 
-- [Put records to Firehose](example_firehose_Scenario_PutRecords_section.md "example_firehose_Scenario_PutRecords_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To write multiple records to a stream**
-
-The following `put-record-batch` example writes three records to a stream. The data is encoded in Base64 format.
+**AWS CLI**  
+**To write multiple records to a stream**  
+The following `put-record-batch` example writes three records to a stream. The data is encoded in Base64 format.  
 
 ```
-`aws firehose put-record-batch \
- --delivery-stream-name `my-stream` \
- --records `file://records.json``
-
+aws firehose put-record-batch \
+    --delivery-stream-name {{my-stream}} \
+    --records {{file://records.json}}
 ```
-
-Contents of `myfile.json`:
+Contents of `myfile.json`:  
 
 ```
 [
@@ -31,8 +29,7 @@ Contents of `myfile.json`:
     {"Data": "VGhpcmQgdGhpbmc="}
 ]
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -51,22 +48,14 @@ Output:
     ]
 }
 ```
+For more information, see [Sending Data to an Amazon Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-write.html) in the *Amazon Kinesis Data Firehose Developer Guide*.  
++  For API details, see [PutRecordBatch](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/firehose/put-record-batch.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Sending Data to an Amazon Kinesis Data Firehose Delivery Stream](basic-write.md "basic-write.md") in the _Amazon Kinesis Data Firehose Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [PutRecordBatch](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/firehose/put-record-batch.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/firehose/put-record-batch.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples). 
 
 ```
     /**
@@ -117,23 +106,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException("Failed to put record batch: " + e.getMessage(), e);
         }
     }
-
-
 ```
++  For API details, see [PutRecordBatch](https://docs.aws.amazon.com/goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutRecordBatch](../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch.md "../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose#code-examples). 
 
 ```
 class FirehoseClient:
@@ -186,24 +166,14 @@ class FirehoseClient:
                 self._log_batch_response(response, len(batch))
             except Exception as e:
                 logger.info(f"Failed to send batch of {len(batch)} records. Error: {e}")
-
-
-
 ```
++  For API details, see [PutRecordBatch](https://docs.aws.amazon.com/goto/boto3/firehose-2015-08-04/PutRecordBatch) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutRecordBatch](../../../goto/boto3/firehose-2015-08-04/PutRecordBatch.md "../../../goto/boto3/firehose-2015-08-04/PutRecordBatch.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/firehose#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/firehose#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/firehose#code-examples). 
 
 ```
 async fn put_record_batch(
@@ -218,23 +188,14 @@ async fn put_record_batch(
         .send()
         .await
 }
-
-
 ```
++  For API details, see [PutRecordBatch](https://docs.rs/aws-sdk-firehose/latest/aws_sdk_firehose/client/struct.Client.html#method.put_record_batch) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [PutRecordBatch](https://docs.rs/aws-sdk-firehose/latest/aws_sdk_firehose/client/struct.Client.html#method.put_record_batch "https://docs.rs/aws-sdk-firehose/latest/aws_sdk_firehose/client/struct.Client.html#method.put_record_batch")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples). 
 
 ```
     TRY.
@@ -256,14 +217,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_frhserviceunavailex.
         MESSAGE 'Service temporarily unavailable.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutRecordBatch](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutRecordBatch](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Firehose with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Firehose with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

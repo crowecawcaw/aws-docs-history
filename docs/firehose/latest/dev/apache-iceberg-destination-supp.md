@@ -1,12 +1,12 @@
-# Understand supported data types
 
-Firehose supports all the primitive and complex data types that Apache Iceberg supports.
-For more information, see [Schemas and Data
-Types](https://iceberg.apache.org/spec/#schemas-and-data-types "https://iceberg.apache.org/spec/#schemas-and-data-types"). When sending binary data as a string, you must use Firehose supported
-encoding types - Basic Base64, MIME Base64, URL and filename safe Base64, and Hex. For
-Timestamp data types, you must always send in microseconds.
+
+# Understand supported data types
+<a name="apache-iceberg-destination-supp"></a>
+
+Firehose supports all the primitive and complex data types that Apache Iceberg supports. For more information, see [Schemas and Data Types](https://iceberg.apache.org/spec/#schemas-and-data-types). When sending binary data as a string, you must use Firehose supported encoding types - Basic Base64, MIME Base64, URL and filename safe Base64, and Hex. For Timestamp data types, you must always send in microseconds. 
 
 ## Data types examples
+<a name="apache-iceberg-destination-supp-dt"></a>
 
 The following section shows examples of different data types.
 
@@ -29,8 +29,7 @@ The following section shows examples of different data types.
 }
 ```
 
-**BinaryType (base64-default, base64-mime, base64-url-safe,
-hex)**
+**BinaryType (base64-default, base64-mime, base64-url-safe, hex)**
 
 ```
 {
@@ -41,8 +40,7 @@ hex)**
 }
 ```
 
-**TimeType (Epoch in Microseconds, LocalTime Java
-Object)**
+**TimeType (Epoch in Microseconds, LocalTime Java Object)**
 
 ```
 {
@@ -51,8 +49,7 @@ Object)**
 }
 ```
 
-**TimestampType.withZone (Epoch in Microseconds,
-OffsetDateTime Java Object, LocalDateTime Java Object)**
+**TimestampType.withZone (Epoch in Microseconds, OffsetDateTime Java Object, LocalDateTime Java Object)**
 
 ```
 {
@@ -100,9 +97,7 @@ OffsetDateTime Java Object, LocalDateTime Java Object)**
 }
 ```
 
-**TimestampType.withoutZone (Epoch in Microseconds,
-LocalDateTime Java Object, OffsetDateTime Java Object, ZonedDateTime Java
-Object)**
+**TimestampType.withoutZone (Epoch in Microseconds, LocalDateTime Java Object, OffsetDateTime Java Object, ZonedDateTime Java Object)**
 
 ```
 {

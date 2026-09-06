@@ -1,30 +1,21 @@
+
+
 # Configure Amazon S3 object name format
+<a name="s3-object-name"></a>
 
-When Firehose delivers data to Amazon S3, S3 object key name follows the format
-_<evaluated prefix><suffix>_, where the suffix has
-the format _<Firehose stream name>-<Firehose stream
- version>-<year>-<month>-<day>-<hour>-<minute>-<second>-<uuid><file
- extension> <Firehose stream version>_ begins with 1 and increases by 1
-for every configuration change of Firehose stream. You can change Firehose stream configurations
-(for example, the name of the S3 bucket, buffering hints, compression, and encryption).
-You can do so by using the Firehose console or the [UpdateDestination](../APIReference/API_UpdateDestination.md "../APIReference/API_UpdateDestination.md") API operation.
+When Firehose delivers data to Amazon S3, S3 object key name follows the format *<evaluated prefix><suffix>*, where the suffix has the format *<Firehose stream name>-<Firehose stream version>-<year>-<month>-<day>-<hour>-<minute>-<second>-<uuid><file extension> <Firehose stream version>* begins with 1 and increases by 1 for every configuration change of Firehose stream. You can change Firehose stream configurations (for example, the name of the S3 bucket, buffering hints, compression, and encryption). You can do so by using the Firehose console or the [UpdateDestination](https://docs.aws.amazon.com/firehose/latest/APIReference/API_UpdateDestination.html) API operation. 
 
-For _<evaluated prefix>_, Firehose adds a default time prefix in the format `YYYY/MM/dd/HH`.
-This prefix creates a logical hierarchy in the bucket, where each forward slash (/) creates a level in the hierarchy.
-You can modify this structure by specifying a custom prefix that includes expressions that are evaluated at runtime.
-For information about how to specify a custom prefix, see [Custom Prefixes for Amazon Simple Storage Service Objects](s3-prefixes.md "s3-prefixes.md").
+For *<evaluated prefix>*, Firehose adds a default time prefix in the format `YYYY/MM/dd/HH`. This prefix creates a logical hierarchy in the bucket, where each forward slash (/) creates a level in the hierarchy. You can modify this structure by specifying a custom prefix that includes expressions that are evaluated at runtime. For information about how to specify a custom prefix, see [Custom Prefixes for Amazon Simple Storage Service Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 
-By default, the time zone used for time prefix and suffix is in UTC, but you can
-change it to a time zone that you prefer. For example, to use Japan Standard Time
-instead of UTC, you can configure the time zone to Asia/Tokyo in the AWS Management Console or in
-[API
-parameter setting (CustomTimeZone)](../APIReference/API_ExtendedS3DestinationConfiguration.md "../APIReference/API_ExtendedS3DestinationConfiguration.md"). The following list contains time zones
-that Firehose supports for S3 prefix configuration.
+By default, the time zone used for time prefix and suffix is in UTC, but you can change it to a time zone that you prefer. For example, to use Japan Standard Time instead of UTC, you can configure the time zone to Asia/Tokyo in the AWS Management Console or in [API parameter setting (CustomTimeZone)](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html). The following list contains time zones that Firehose supports for S3 prefix configuration.
 
-Following is a list of time zones that Firehose supports for S3 prefix
-configuration.
+## Supported time zones
+<a name="collapsible-section-1"></a>
 
-Africa
+Following is a list of time zones that Firehose supports for S3 prefix configuration.
+
+------
+#### [ Africa ]
 
 ```
 Africa/Abidjan
@@ -77,7 +68,8 @@ Africa/Tunis
 Africa/Windhoek
 ```
 
-America
+------
+#### [ America ]
 
 ```
 America/Adak
@@ -155,7 +147,8 @@ America/Vancouver
 America/Winnipeg
 ```
 
-Antarctica
+------
+#### [ Antarctica ]
 
 ```
 Antarctica/Casey
@@ -165,7 +158,8 @@ Antarctica/McMurdo
 Antarctica/Palmer
 ```
 
-Asia
+------
+#### [ Asia ]
 
 ```
 Asia/Aden
@@ -234,7 +228,8 @@ Asia/Yekaterinburg
 Asia/Yerevan
 ```
 
-Atlantic
+------
+#### [ Atlantic ]
 
 ```
 Atlantic/Azores
@@ -249,7 +244,8 @@ Atlantic/St_Helena
 Atlantic/Stanley
 ```
 
-Australia
+------
+#### [ Australia ]
 
 ```
 Australia/Adelaide
@@ -262,7 +258,8 @@ Australia/Perth
 Australia/Sydney
 ```
 
-Europe
+------
+#### [ Europe ]
 
 ```
 Europe/Amsterdam
@@ -307,7 +304,8 @@ Europe/Warsaw
 Europe/Zurich
 ```
 
-Indian
+------
+#### [ Indian ]
 
 ```
 Indian/Antananarivo
@@ -323,7 +321,8 @@ Indian/Mayotte
 Indian/Reunion
 ```
 
-Pacific
+------
+#### [ Pacific ]
 
 ```
 Pacific/Apia
@@ -363,20 +362,21 @@ Pacific/Wake
 Pacific/Wallis
 ```
 
-You cannot change the suffix field except _<file extension>_. When you enable data format conversion or compression,
-Firehose will append a file extension based on the configuration. The following table explains the default file extension appended by Firehose:
+------
 
-| Configuration                   | File extension |
-| ------------------------------- | -------------- |
-| Data Format Conversion: Parquet | .parquet       |
-| Data Format Conversion: ORC     | .orc           |
-| Compression: Gzip               | .gz            |
-| Compression: Zip                | .zip           |
-| Compression: Snappy             | .snappy        |
-| Compression: Hadoop-Snappy      | .hsnappy       |
+You cannot change the suffix field except *<file extension>*. When you enable data format conversion or compression, Firehose will append a file extension based on the configuration. The following table explains the default file extension appended by Firehose: 
 
-You can also specify a file extension that you prefer in the Firehose console or API. File extension must start with a period (.) and can contain allowed characters: 0-9a-z!-\_.\*‘(). File extension cannot exceed 128 characters.
 
-###### Note
+| Configuration | File extension | 
+| --- | --- | 
+| Data Format Conversion: Parquet | .parquet | 
+| Data Format Conversion: ORC | .orc | 
+| Compression: Gzip | .gz | 
+| Compression: Zip | .zip | 
+| Compression: Snappy | .snappy | 
+| Compression: Hadoop-Snappy | .hsnappy | 
 
-When you specify a file extension, it will override the default file extension that Firehose adds when [data format conversion](record-format-conversion.md "record-format-conversion.md") or compression is enabled.
+You can also specify a file extension that you prefer in the Firehose console or API. File extension must start with a period (.) and can contain allowed characters: 0-9a-z\!-\_.\*‘(). File extension cannot exceed 128 characters.
+
+**Note**  
+When you specify a file extension, it will override the default file extension that Firehose adds when [data format conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) or compression is enabled.

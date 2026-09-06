@@ -1,18 +1,16 @@
+
+
 # Use Amazon Data Firehose to process individual and batch records
+<a name="example_firehose_Scenario_PutRecords_section"></a>
 
 The following code examples show how to use Firehose to process individual and batch records.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples").
-
-This example puts individual and batch records to Firehose.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples). 
+This example puts individual and batch records to Firehose.  
 
 ```
 /**
@@ -216,26 +214,17 @@ public class FirehoseScenario {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [PutRecord](https://docs.aws.amazon.com/goto/SdkForJavaV2/firehose-2015-08-04/PutRecord)
+  + [PutRecordBatch](https://docs.aws.amazon.com/goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [PutRecord](../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecord.md "../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecord.md")
-  - [PutRecordBatch](../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch.md "../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose/scenarios/firehose-put-actions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose/scenarios/firehose-put-actions#code-examples").
-
-This script puts individual and batch records to Firehose.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose/scenarios/firehose-put-actions#code-examples). 
+This script puts individual and batch records to Firehose.  
 
 ```
 import json
@@ -482,11 +471,8 @@ if __name__ == "__main__":
     except Exception as e:
         logger.info(f"Put record batch failed after retries and backoff: {e}")
     client.monitor_metrics()
-
-
 ```
-
-This file contains config for the above script.
+This file contains config for the above script.  
 
 ```
 class Config:
@@ -500,15 +486,11 @@ class Config:
 
 def get_config():
     return Config()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [PutRecord](https://docs.aws.amazon.com/goto/boto3/firehose-2015-08-04/PutRecord)
+  + [PutRecordBatch](https://docs.aws.amazon.com/goto/boto3/firehose-2015-08-04/PutRecordBatch)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [PutRecord](../../../goto/boto3/firehose-2015-08-04/PutRecord.md "../../../goto/boto3/firehose-2015-08-04/PutRecord.md")
-  - [PutRecordBatch](../../../goto/boto3/firehose-2015-08-04/PutRecordBatch.md "../../../goto/boto3/firehose-2015-08-04/PutRecordBatch.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Firehose with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Firehose with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,12 +1,9 @@
-# Extract message after decompression of CloudWatch Logs
 
-When you enable decompression, you have the option to also enable message
-extraction. When using message extraction, Firehose filters out all metadata, such as
-owner, loggroup, logstream, and others from the decompressed CloudWatch Logs records and
-delivers only the content inside the message fields. If you are delivering data to a
-Splunk destination, you must turn on message extraction for Splunk to parse the
-data. Following are sample outputs after decompression with and without message
-extraction.
+
+# Extract message after decompression of CloudWatch Logs
+<a name="Message_extraction"></a>
+
+When you enable decompression, you have the option to also enable message extraction. When using message extraction, Firehose filters out all metadata, such as owner, loggroup, logstream, and others from the decompressed CloudWatch Logs records and delivers only the content inside the message fields. If you are delivering data to a Splunk destination, you must turn on message extraction for Splunk to parse the data. Following are sample outputs after decompression with and without message extraction.
 
 Fig 1: Sample output after decompression without message extraction:
 

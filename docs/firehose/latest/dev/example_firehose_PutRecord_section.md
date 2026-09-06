@@ -1,28 +1,26 @@
+
+
 # Use `PutRecord` with an AWS SDK or CLI
+<a name="example_firehose_PutRecord_section"></a>
 
 The following code examples show how to use `PutRecord`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Put records to Firehose](example_firehose_Scenario_PutRecords_section.md) 
 
-- [Put records to Firehose](example_firehose_Scenario_PutRecords_section.md "example_firehose_Scenario_PutRecords_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To write a record to a stream**
-
-The following `put-record` example writes data to a stream. The data is encoded in Base64 format.
+**AWS CLI**  
+**To write a record to a stream**  
+The following `put-record` example writes data to a stream. The data is encoded in Base64 format.  
 
 ```
-`aws firehose put-record \
- --delivery-stream-name `my-stream` \
- --record '`{"Data":"SGVsbG8gd29ybGQ="}`'`
-
+aws firehose put-record \
+    --delivery-stream-name {{my-stream}} \
+    --record '{{{"Data":"SGVsbG8gd29ybGQ="}}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -30,22 +28,14 @@ Output:
     "Encrypted": false
 }
 ```
+For more information, see [Sending Data to an Amazon Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-write.html) in the *Amazon Kinesis Data Firehose Developer Guide*.  
++  For API details, see [PutRecord](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/firehose/put-record.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Sending Data to an Amazon Kinesis Data Firehose Delivery Stream](basic-write.md "basic-write.md") in the _Amazon Kinesis Data Firehose Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [PutRecord](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/firehose/put-record.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/firehose/put-record.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/firehose#code-examples). 
 
 ```
     /**
@@ -77,23 +67,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException("Failed to put record: " + e.getMessage(), e);
         }
     }
-
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/goto/SdkForJavaV2/firehose-2015-08-04/PutRecord) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutRecord](../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecord.md "../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecord.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/firehose#code-examples). 
 
 ```
 class FirehoseClient:
@@ -144,24 +125,14 @@ class FirehoseClient:
         except Exception:
             logger.info(f"Fail record: {record}.")
             raise
-
-
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/goto/boto3/firehose-2015-08-04/PutRecord) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutRecord](../../../goto/boto3/firehose-2015-08-04/PutRecord.md "../../../goto/boto3/firehose-2015-08-04/PutRecord.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/frh#code-examples). 
 
 ```
     TRY.
@@ -179,14 +150,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_frhserviceunavailex.
         MESSAGE 'Service temporarily unavailable.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutRecord](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutRecord](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Firehose with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Firehose with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
