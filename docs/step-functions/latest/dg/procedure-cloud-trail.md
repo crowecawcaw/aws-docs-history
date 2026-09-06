@@ -101,7 +101,6 @@ _AWS CloudTrail API Reference_.
 **Executions**
 
 - [StartExecution](../apireference/API_StartExecution.md "../apireference/API_StartExecution.md")
-- [StartSyncExecution](../apireference/API_StartSyncExecution.md "../apireference/API_StartSyncExecution.md")
 - [RedriveExecution](../apireference/API_RedriveExecution.md "../apireference/API_RedriveExecution.md")
 - [ListExecutions](../apireference/API_ListExecutions.md "../apireference/API_ListExecutions.md")
 - [DescribeExecution](../apireference/API_DescribeExecution.md "../apireference/API_DescribeExecution.md")
@@ -115,7 +114,6 @@ _AWS CloudTrail API Reference_.
 - [ListActivities](../apireference/API_ListActivities.md "../apireference/API_ListActivities.md")
 - [DescribeActivity](../apireference/API_DescribeActivity.md "../apireference/API_DescribeActivity.md")
 - [DeleteActivity](../apireference/API_DeleteActivity.md "../apireference/API_DeleteActivity.md")
-- [GetActivityTask](../apireference/API_GetActivityTask.md "../apireference/API_GetActivityTask.md")
 
 **Task Token**
 

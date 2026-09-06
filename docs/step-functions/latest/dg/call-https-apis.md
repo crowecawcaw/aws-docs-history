@@ -925,7 +925,7 @@ Workflow Studio. 5. In the **Test state** dialog box, do the following:
 
 
 
-    ![Output of a selected state which succeeds the test for the TRACE level.](images/test-state-trace-success.png)
+    ![Output of a selected state which succeeds the test for the TRACE level.](/images/step-functions/latest/dg/images/test-state-trace-success.png)
     8. Choose **Start test**.
     9. If the test succeeds, you can see your HTTP details under the
      **HTTP request & response** tab.
