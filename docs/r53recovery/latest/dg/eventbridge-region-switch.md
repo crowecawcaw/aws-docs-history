@@ -57,7 +57,7 @@ the Region switch capability in ARC.
 ```
 {
     "source": [ "aws.arc-region-switch" ],
-    "detail-type": [ "ARC Region switch Plan Execution" ]
+    "detail-type": [ "ARC Region Switch Plan Execution" ]
 }
 ```
 

@@ -26,11 +26,11 @@ list of data plane operations, see [Region switch API operations](actions.region
 
 ## 2. Plan execution from healthy Region
 
-When executing a Region switch plan to recover your application, you need to execute from the
-Region you are activating. This ensures your recovery does not take a dependency on the
-Region that is experiencing issues. Region switch provides an independent console in each
+When executing a Region switch plan to recover your application, you execute from the
+Region you are activating. For active/passive architectures, this means executing from your standby Region, the one you are bringing online. For active/active architectures, where both Regions are already serving traffic, you execute from the healthy Region that will absorb the workload. In both cases, this ensures your recovery does not take a dependency on the
+Region that is experiencing issues. Region Switch provides an independent console in each
 AWS Region that calls data plane API operations for recovery tasks, so you can use the
-console in the Region that you're activating to execute plans for application recovery.
+console in the target Region to execute plans for application recovery.
 This design ensures that recovery remains highly reliable and available regardless of the
 state of the impaired Region.
 
