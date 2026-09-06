@@ -1,24 +1,22 @@
+
+
 # Use `CreateIdentityPool` with an AWS SDK or CLI
+<a name="cognito-identity_example_cognito-identity_CreateIdentityPool_section"></a>
 
 The following code examples show how to use `CreateIdentityPool`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create an identity pool with Cognito identity pool provider**
-
-This example creates an identity pool named MyIdentityPool. It has a Cognito identity pool provider.
-Unauthenticated identities are not allowed.
-
-Command:
+**AWS CLI**  
+**To create an identity pool with Cognito identity pool provider**  
+This example creates an identity pool named MyIdentityPool. It has a Cognito identity pool provider. Unauthenticated identities are not allowed.  
+Command:  
 
 ```
-`aws cognito-identity create-identity-pool --identity-pool-name `MyIdentityPool` --no-allow-unauthenticated-identities --cognito-identity-providers ProviderName="cognito-idp.us-west-2.amazonaws.com/us-west-2_aaaaaaaaa",ClientId="3n4b5urk1ft4fl3mg5e62d9ado",ServerSideTokenCheck=false`
-
+aws cognito-identity create-identity-pool --identity-pool-name {{MyIdentityPool}} --no-allow-unauthenticated-identities --cognito-identity-providers ProviderName="cognito-idp.us-west-2.amazonaws.com/us-west-2_aaaaaaaaa",ClientId="3n4b5urk1ft4fl3mg5e62d9ado",ServerSideTokenCheck=false
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -34,20 +32,13 @@ Output:
   ]
 }
 ```
++  For API details, see [CreateIdentityPool](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/create-identity-pool.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateIdentityPool](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/create-identity-pool.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/create-identity-pool.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -106,26 +97,19 @@ public class CreateIdentityPool {
         return "";
     }
 }
-
-
 ```
++  For API details, see [CreateIdentityPool](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-identity-2014-06-30/CreateIdentityPool) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateIdentityPool](../../../goto/SdkForJavaV2/cognito-identity-2014-06-30/CreateIdentityPool.md "../../../goto/SdkForJavaV2/cognito-identity-2014-06-30/CreateIdentityPool.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Creates a new Identity Pool which allows unauthenticated identities.**
+**Tools for PowerShell V4**  
+**Example 1: Creates a new Identity Pool which allows unauthenticated identities.**  
 
 ```
 New-CGIIdentityPool -AllowUnauthenticatedIdentities $true -IdentityPoolName CommonTests13
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 LoggedAt                       : 8/12/2015 4:56:07 PM
@@ -139,21 +123,15 @@ ResponseMetadata               : Amazon.Runtime.ResponseMetadata
 ContentLength                  : 136
 HttpStatusCode                 : OK
 ```
++  For API details, see [CreateIdentityPool](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateIdentityPool](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Creates a new Identity Pool which allows unauthenticated identities.**
+**Tools for PowerShell V5**  
+**Example 1: Creates a new Identity Pool which allows unauthenticated identities.**  
 
 ```
 New-CGIIdentityPool -AllowUnauthenticatedIdentities $true -IdentityPoolName CommonTests13
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 LoggedAt                       : 8/12/2015 4:56:07 PM
@@ -167,20 +145,13 @@ ResponseMetadata               : Amazon.Runtime.ResponseMetadata
 ContentLength                  : 136
 HttpStatusCode                 : OK
 ```
++  For API details, see [CreateIdentityPool](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateIdentityPool](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples). 
 
 ```
 import AWSCognitoIdentity
@@ -198,28 +169,22 @@ import AWSCognitoIdentity
         do {
             let cognitoInputCall = CreateIdentityPoolInput(developerProviderName: "com.exampleco.CognitoIdentityDemo",
                                                            identityPoolName: name)
-
+            
             let result = try await cognitoIdentityClient.createIdentityPool(input: cognitoInputCall)
             guard let poolId = result.identityPoolId else {
                 return nil
             }
-
+            
             return poolId
         } catch {
             print("ERROR: createIdentityPool:", dump(error))
             throw error
         }
     }
-
-
-
 ```
++  For more information, see [AWS SDK for Swift developer guide](https://docs.aws.amazon.com/sdk-for-swift/latest/developer-guide/getting-started.html). 
++  For API details, see [CreateIdentityPool](https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/createidentitypool(input:)) in *AWS SDK for Swift API reference*. 
 
-- For more information, see [AWS SDK for Swift developer guide](../../../sdk-for-swift/latest/developer-guide/getting-started.md "../../../sdk-for-swift/latest/developer-guide/getting-started.md").
-- For API details, see
-  [CreateIdentityPool](<https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/createidentitypool(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/createidentitypool(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

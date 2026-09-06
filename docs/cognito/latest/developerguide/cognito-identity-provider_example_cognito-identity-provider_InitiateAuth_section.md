@@ -1,25 +1,22 @@
+
+
 # Use `InitiateAuth` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_InitiateAuth_section"></a>
 
 The following code examples show how to use `InitiateAuth`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md) 
++  [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md) 
++  [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md) 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
++  [Write custom activity data with a Lambda function after Amazon Cognito user authentication](cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md) 
 
-- [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md "cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md")
-- [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md "cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md")
-- [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md "cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md")
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
-- [Write custom activity data with a Lambda function after Amazon Cognito user authentication](cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md "cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -48,32 +45,24 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response;
     }
+```
++  For API details, see [InitiateAuth](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/InitiateAuth) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To sign in a user**  
+The following `initiate-auth` example signs in a user with the basic username-password flow and no additional challenges.  
 
 ```
-
-- For API details, see
-  [InitiateAuth](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/InitiateAuth.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/InitiateAuth.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To sign in a user**
-
-The following `initiate-auth` example signs in a user with the basic username-password flow and no additional challenges.
-
+aws cognito-idp initiate-auth \
+    --auth-flow {{USER_PASSWORD_AUTH}} \
+    --client-id {{1example23456789}} \
+    --analytics-metadata {{AnalyticsEndpointId=d70b2ba36a8c4dc5a04a0451aEXAMPLE}} \
+    --auth-parameters {{USERNAME=testuser,PASSWORD=[Password]}} --user-context-data {{EncodedData=mycontextdata}} --client-metadata {{MyTestKey=MyTestValue}}
 ```
-`aws cognito-idp initiate-auth \
- --auth-flow `USER_PASSWORD_AUTH` \
- --client-id `1example23456789` \
- --analytics-metadata `AnalyticsEndpointId=d70b2ba36a8c4dc5a04a0451aEXAMPLE` \
- --auth-parameters `USERNAME=testuser,PASSWORD=[Password]` --user-context-data `EncodedData=mycontextdata` --client-metadata `MyTestKey=MyTestValue``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -90,25 +79,16 @@ Output:
     }
 }
 ```
+For more information, see [Authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html) in the *Amazon Cognito Developer Guide*.  
++  For API details, see [InitiateAuth](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/initiate-auth.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Authentication](authentication.md "authentication.md") in the _Amazon Cognito Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [InitiateAuth](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/initiate-auth.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/initiate-auth.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -145,24 +125,14 @@ func (actor CognitoActions) SignIn(ctx context.Context, clientId string, userNam
 	}
 	return authResult, err
 }
-
-
-
 ```
++  For API details, see [InitiateAuth](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [InitiateAuth](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 const initiateAuth = ({ username, password, clientId }) => {
@@ -179,25 +149,15 @@ const initiateAuth = ({ username, password, clientId }) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [InitiateAuth](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [InitiateAuth](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
-
-This example shows you how to start authentication with a tracked device. To complete sign-in, the client must respond correctly to Secure Remote Password (SRP) challenges.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
+This example shows you how to start authentication with a tracked device. To complete sign-in, the client must respond correctly to Secure Remote Password (SRP) challenges.  
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -303,15 +263,9 @@ class CognitoIdentityProviderWrapper:
             raise
         else:
             return auth_tokens
-
-
-
 ```
++  For API details, see [InitiateAuth](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/InitiateAuth) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InitiateAuth](../../../goto/boto3/cognito-idp-2016-04-18/InitiateAuth.md "../../../goto/boto3/cognito-idp-2016-04-18/InitiateAuth.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

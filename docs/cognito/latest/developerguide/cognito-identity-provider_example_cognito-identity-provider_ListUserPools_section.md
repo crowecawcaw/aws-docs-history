@@ -1,16 +1,15 @@
+
+
 # Use `ListUserPools` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_ListUserPools_section"></a>
 
 The following code examples show how to use `ListUserPools`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Cognito#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -30,30 +29,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return userPools;
     }
+```
++  For API details, see [ListUserPools](https://docs.aws.amazon.com/goto/DotNetSDKV4/cognito-idp-2016-04-18/ListUserPools) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list user pools**  
+The following `list-user-pools` example lists 3 of the available user pools in the AWS account of the current CLI credentials.  
 
 ```
-
-- For API details, see
-  [ListUserPools](../../../goto/DotNetSDKV4/cognito-idp-2016-04-18/ListUserPools.md "../../../goto/DotNetSDKV4/cognito-idp-2016-04-18/ListUserPools.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list user pools**
-
-The following `list-user-pools` example lists 3 of the available user pools in the AWS account of the current CLI credentials.
-
+aws cognito-idp list-user-pools \
+    --max-results {{3}}
 ```
-`aws cognito-idp list-user-pools \
- --max-results `3``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -94,25 +84,16 @@ Output:
     ]
 }
 ```
+For more information, see [Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools.html) in the *Amazon Cognito Developer Guide*.  
++  For API details, see [ListUserPools](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/list-user-pools.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Amazon Cognito user pools](cognito-user-pools.md "cognito-user-pools.md") in the _Amazon Cognito Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [ListUserPools](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/list-user-pools.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/list-user-pools.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
 ```
-
 package main
 
 import (
@@ -159,24 +140,14 @@ func main() {
 		}
 	}
 }
-
-
-
 ```
++  For API details, see [ListUserPools](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.ListUserPools) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListUserPools](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.ListUserPools "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.ListUserPools")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -220,23 +191,14 @@ public class ListUserPools {
         }
     }
 }
-
-
 ```
++  For API details, see [ListUserPools](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUserPools) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListUserPools](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUserPools.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUserPools.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/cognitoidentityprovider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/cognitoidentityprovider#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/cognitoidentityprovider#code-examples). 
 
 ```
 async fn show_pools(client: &Client) -> Result<(), Error> {
@@ -261,14 +223,9 @@ async fn show_pools(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListUserPools](https://docs.rs/aws-sdk-cognitoidentityprovider/latest/aws_sdk_cognitoidentityprovider/client/struct.Client.html#method.list_user_pools) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListUserPools](https://docs.rs/aws-sdk-cognitoidentityprovider/latest/aws_sdk_cognitoidentityprovider/client/struct.Client.html#method.list_user_pools "https://docs.rs/aws-sdk-cognitoidentityprovider/latest/aws_sdk_cognitoidentityprovider/client/struct.Client.html#method.list_user_pools")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,39 +1,29 @@
+
+
 # Example Amazon Cognito events
+<a name="understanding-amazon-cognito-entries"></a>
 
-Amazon Cognito logs information to AWS CloudTrail about user authentication activity and
-administrative management activity. This applies to both user pools and identity pools. For
-example, you can see `GetId` and `UpdateIdentityPool` events in the
-same trail, or `UpdateAuthEventFeedback` and `SetRiskConfiguration`
-events. You'll also see user pool logs for hosted UI activity that doesn't correspond to
-operations in the user pools API. This section has some examples of logs you might see. To
-understand the CloudTrail event schema for any operation, generate a request for that operation
-and review the events that it creates in your trail.
+Amazon Cognito logs information to AWS CloudTrail about user authentication activity and administrative management activity. This applies to both user pools and identity pools. For example, you can see `GetId` and `UpdateIdentityPool` events in the same trail, or `UpdateAuthEventFeedback` and `SetRiskConfiguration` events. You'll also see user pool logs for hosted UI activity that doesn't correspond to operations in the user pools API. This section has some examples of logs you might see. To understand the CloudTrail event schema for any operation, generate a request for that operation and review the events that it creates in your trail.
 
-A trail can deliver events as log files to an Amazon S3 bucket that you specify. CloudTrail log
-files contain one or more log entries. An event represents a single request from any source
-and includes information about the requested action, the date and time of the action,
-request parameters, and so on. CloudTrail log files are not an ordered stack trace of the public
-API calls, so they do not appear in any specific order.
+ A trail can deliver events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order.
 
-###### Topics
-
-- [Example CloudTrail events for a hosted UI sign-up](#cognito-cloudtrail-events-federated-sign-up "#cognito-cloudtrail-events-federated-sign-up")
-- [Example CloudTrail event for a SAML request](#cognito-cloudtrail-event-saml-post "#cognito-cloudtrail-event-saml-post")
-- [Example CloudTrail events for requests to the token endpoint](#cognito-cloudtrail-events-token-endpoint-requests "#cognito-cloudtrail-events-token-endpoint-requests")
-- [Example CloudTrail event for CreateIdentityPool](#cognito-cloudtrail-events-createidentitypool "#cognito-cloudtrail-events-createidentitypool")
-- [Example CloudTrail event for GetCredentialsForIdentity](#cognito-cloudtrail-events-getcredentialsforidentity "#cognito-cloudtrail-events-getcredentialsforidentity")
-- [Example CloudTrail event for GetId](#cognito-cloudtrail-events-getid "#cognito-cloudtrail-events-getid")
-- [Example CloudTrail event for GetOpenIdToken](#cognito-cloudtrail-events-getopenidtoken "#cognito-cloudtrail-events-getopenidtoken")
-- [Example CloudTrail event for GetOpenIdTokenForDeveloperIdentity](#cognito-cloudtrail-events-getopenidtokenfordeveloperidentity "#cognito-cloudtrail-events-getopenidtokenfordeveloperidentity")
-- [Example CloudTrail event for UnlinkIdentity](#cognito-cloudtrail-events-unlinkidentity "#cognito-cloudtrail-events-unlinkidentity")
+**Topics**
++ [Example CloudTrail events for a hosted UI sign-up](#cognito-cloudtrail-events-federated-sign-up)
++ [Example CloudTrail event for a SAML request](#cognito-cloudtrail-event-saml-post)
++ [Example CloudTrail events for requests to the token endpoint](#cognito-cloudtrail-events-token-endpoint-requests)
++ [Example CloudTrail event for CreateIdentityPool](#cognito-cloudtrail-events-createidentitypool)
++ [Example CloudTrail event for GetCredentialsForIdentity](#cognito-cloudtrail-events-getcredentialsforidentity)
++ [Example CloudTrail event for GetId](#cognito-cloudtrail-events-getid)
++ [Example CloudTrail event for GetOpenIdToken](#cognito-cloudtrail-events-getopenidtoken)
++ [Example CloudTrail event for GetOpenIdTokenForDeveloperIdentity](#cognito-cloudtrail-events-getopenidtokenfordeveloperidentity)
++ [Example CloudTrail event for UnlinkIdentity](#cognito-cloudtrail-events-unlinkidentity)
 
 ## Example CloudTrail events for a hosted UI sign-up
+<a name="cognito-cloudtrail-events-federated-sign-up"></a>
 
-The following example CloudTrail events demonstrate the information that Amazon Cognito logs when a
-user signs up through the hosted UI.
+The following example CloudTrail events demonstrate the information that Amazon Cognito logs when a user signs up through the hosted UI.
 
-Amazon Cognito logs the following event when a new user navigates to the sign-in page for your
-app.
+Amazon Cognito logs the following event when a new user navigates to the sign-in page for your app.
 
 ```
 {
@@ -85,8 +75,7 @@ app.
 }
 ```
 
-Amazon Cognito logs the following event when a new user chooses **Sign up**
-from the sign-in page for your app.
+Amazon Cognito logs the following event when a new user chooses **Sign up** from the sign-in page for your app.
 
 ```
 {
@@ -141,9 +130,7 @@ from the sign-in page for your app.
 }
 ```
 
-Amazon Cognito logs the following event when a new user chooses a username, enters an email
-address, and chooses a password from the sign-in page for your app. Amazon Cognito doesn't log
-identifying information about the user's identity to CloudTrail.
+Amazon Cognito logs the following event when a new user chooses a username, enters an email address, and chooses a password from the sign-in page for your app. Amazon Cognito doesn't log identifying information about the user's identity to CloudTrail.
 
 ```
 {
@@ -214,8 +201,7 @@ identifying information about the user's identity to CloudTrail.
 }
 ```
 
-Amazon Cognito logs the following event when a new user accesses the user confirmation page in
-the hosted UI after they sign up.
+Amazon Cognito logs the following event when a new user accesses the user confirmation page in the hosted UI after they sign up.
 
 ```
 {
@@ -270,8 +256,7 @@ the hosted UI after they sign up.
 }
 ```
 
-Amazon Cognito logs the following event when, in the user confirmation page in the hosted UI, a
-user enters a code that Amazon Cognito sent them in an email message.
+Amazon Cognito logs the following event when, in the user confirmation page in the hosted UI, a user enters a code that Amazon Cognito sent them in an email message.
 
 ```
 {
@@ -359,9 +344,9 @@ user enters a code that Amazon Cognito sent them in an email message.
 ```
 
 ## Example CloudTrail event for a SAML request
+<a name="cognito-cloudtrail-event-saml-post"></a>
 
-Amazon Cognito logs the following event when a user who has authenticated with your SAML IdP
-submits the SAML assertion to your `/saml2/idpresponse` endpoint.
+Amazon Cognito logs the following event when a user who has authenticated with your SAML IdP submits the SAML assertion to your `/saml2/idpresponse` endpoint.
 
 ```
 {
@@ -413,11 +398,11 @@ submits the SAML assertion to your `/saml2/idpresponse` endpoint.
 ```
 
 ## Example CloudTrail events for requests to the token endpoint
+<a name="cognito-cloudtrail-events-token-endpoint-requests"></a>
 
-The following are example events from requests to the [Token endpoint](token-endpoint.md "token-endpoint.md").
+The following are example events from requests to the [Token endpoint](token-endpoint.md).
 
-Amazon Cognito logs the following event when a user who has authenticated and received an
-authorization code submits the code to your `/oauth2/token` endpoint.
+Amazon Cognito logs the following event when a user who has authenticated and received an authorization code submits the code to your `/oauth2/token` endpoint.
 
 ```
 {
@@ -476,9 +461,7 @@ authorization code submits the code to your `/oauth2/token` endpoint.
 }
 ```
 
-Amazon Cognito logs the following event when your backend system submits a
-`client_credentials` request for an access token to your
-`/oauth2/token` endpoint.
+Amazon Cognito logs the following event when your backend system submits a `client_credentials` request for an access token to your `/oauth2/token` endpoint.
 
 ```
 {
@@ -529,8 +512,7 @@ Amazon Cognito logs the following event when your backend system submits a
 }
 ```
 
-Amazon Cognito logs the following event when your app exchanges a refresh token for a new ID
-and access token with your `/oauth2/token` endpoint.
+Amazon Cognito logs the following event when your app exchanges a refresh token for a new ID and access token with your `/oauth2/token` endpoint.
 
 ```
 {
@@ -586,10 +568,9 @@ and access token with your `/oauth2/token` endpoint.
 ```
 
 ## Example CloudTrail event for CreateIdentityPool
+<a name="cognito-cloudtrail-events-createidentitypool"></a>
 
-The following example is a log entry for a request for the
-`CreateIdentityPool` action. The request was made by an IAM user named
-Alice.
+The following example is a log entry for a request for the `CreateIdentityPool` action. The request was made by an IAM user named Alice. 
 
 ```
 {
@@ -631,9 +612,9 @@ Alice.
 ```
 
 ## Example CloudTrail event for GetCredentialsForIdentity
+<a name="cognito-cloudtrail-events-getcredentialsforidentity"></a>
 
-The following example is a log entry for a request for the
-`GetCredentialsForIdentity` action.
+The following example is a log entry for a request for the `GetCredentialsForIdentity` action.
 
 ```
 {
@@ -677,9 +658,9 @@ The following example is a log entry for a request for the
 ```
 
 ## Example CloudTrail event for GetId
+<a name="cognito-cloudtrail-events-getid"></a>
 
-The following example is a log entry for a request for the `GetId`
-action.
+The following example is a log entry for a request for the `GetId` action.
 
 ```
 {
@@ -718,9 +699,9 @@ action.
 ```
 
 ## Example CloudTrail event for GetOpenIdToken
+<a name="cognito-cloudtrail-events-getopenidtoken"></a>
 
-The following example is a log entry for a request for the `GetOpenIdToken`
-action.
+The following example is a log entry for a request for the `GetOpenIdToken` action.
 
 ```
 {
@@ -759,9 +740,9 @@ action.
 ```
 
 ## Example CloudTrail event for GetOpenIdTokenForDeveloperIdentity
+<a name="cognito-cloudtrail-events-getopenidtokenfordeveloperidentity"></a>
 
-The following example is a log entry for a request for the
-`GetOpenIdTokenForDeveloperIdentity` action.
+The following example is a log entry for a request for the `GetOpenIdTokenForDeveloperIdentity` action.
 
 ```
 {
@@ -818,9 +799,9 @@ The following example is a log entry for a request for the
 ```
 
 ## Example CloudTrail event for UnlinkIdentity
+<a name="cognito-cloudtrail-events-unlinkidentity"></a>
 
-The following example is a log entry for a request for the `UnlinkIdentity`
-action.
+The following example is a log entry for a request for the `UnlinkIdentity` action.
 
 ```
 {

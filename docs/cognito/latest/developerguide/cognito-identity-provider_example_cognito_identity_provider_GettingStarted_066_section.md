@@ -1,24 +1,22 @@
+
+
 # Getting started with user pools
+<a name="cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section"></a>
 
 The following code example shows how to:
++ Create a user pool
++ Create an app client
++ Set up a domain for your user pool
++ Create a user as an administrator
++ Enable self-registration
++ List users in the user pool
++ Clean up resources
 
-- Create a user pool
-- Create an app client
-- Set up a domain for your user pool
-- Create a user as an administrator
-- Enable self-registration
-- List users in the user pool
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/066-amazon-cognito-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/066-amazon-cognito-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/066-amazon-cognito-gs) repository. 
 
 ```
 #!/bin/bash
@@ -44,7 +42,7 @@ echo "All commands and outputs will be logged to $LOG_FILE"
 check_error() {
   local output=$1
   local cmd=$2
-
+  
   if echo "$output" | grep -qi "error\|failed"; then
     echo "ERROR: Command failed: $cmd" >&2
     echo "Output: $output" >&2
@@ -57,7 +55,7 @@ check_error() {
 check_aws_error() {
   local exit_code=$?
   local cmd=$1
-
+  
   if [ $exit_code -ne 0 ]; then
     echo "ERROR: AWS CLI command failed with exit code $exit_code: $cmd" >&2
     cleanup_on_error
@@ -68,14 +66,14 @@ check_aws_error() {
 # Function to clean up resources on error
 cleanup_on_error() {
   echo "Error encountered. Attempting to clean up resources..." >&2
-
+  
   if [ -n "${DOMAIN_NAME:-}" ] && [ -n "${USER_POOL_ID:-}" ]; then
     echo "Deleting user pool domain: $DOMAIN_NAME" >&2
     aws cognito-idp delete-user-pool-domain \
       --user-pool-id "$USER_POOL_ID" \
       --domain "$DOMAIN_NAME" 2>/dev/null || true
   fi
-
+  
   if [ -n "${USER_POOL_ID:-}" ]; then
     echo "Deleting user pool: $USER_POOL_ID" >&2
     aws cognito-idp delete-user-pool \
@@ -419,24 +417,21 @@ echo "Script completed at $(date)"
 
 # Remove trap to prevent cleanup on successful exit
 trap - EXIT ERR
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AdminConfirmSignUp](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/AdminConfirmSignUp)
+  + [AdminCreateUser](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/AdminCreateUser)
+  + [CreateUserPool](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/CreateUserPool)
+  + [CreateUserPoolClient](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/CreateUserPoolClient)
+  + [CreateUserPoolDomain](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/CreateUserPoolDomain)
+  + [DeleteUserPool](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/DeleteUserPool)
+  + [DeleteUserPoolDomain](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/DeleteUserPoolDomain)
+  + [DescribeUserPool](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/DescribeUserPool)
+  + [DescribeUserPoolClient](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/DescribeUserPoolClient)
+  + [InitiateAuth](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/InitiateAuth)
+  + [ListUsers](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/ListUsers)
+  + [SignUp](https://docs.aws.amazon.com/goto/aws-cli/cognito-idp-2016-04-18/SignUp)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AdminConfirmSignUp](../../../goto/aws-cli/cognito-idp-2016-04-18/AdminConfirmSignUp.md "../../../goto/aws-cli/cognito-idp-2016-04-18/AdminConfirmSignUp.md")
-  - [AdminCreateUser](../../../goto/aws-cli/cognito-idp-2016-04-18/AdminCreateUser.md "../../../goto/aws-cli/cognito-idp-2016-04-18/AdminCreateUser.md")
-  - [CreateUserPool](../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPool.md "../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPool.md")
-  - [CreateUserPoolClient](../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPoolClient.md "../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPoolClient.md")
-  - [CreateUserPoolDomain](../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPoolDomain.md "../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPoolDomain.md")
-  - [DeleteUserPool](../../../goto/aws-cli/cognito-idp-2016-04-18/DeleteUserPool.md "../../../goto/aws-cli/cognito-idp-2016-04-18/DeleteUserPool.md")
-  - [DeleteUserPoolDomain](../../../goto/aws-cli/cognito-idp-2016-04-18/DeleteUserPoolDomain.md "../../../goto/aws-cli/cognito-idp-2016-04-18/DeleteUserPoolDomain.md")
-  - [DescribeUserPool](../../../goto/aws-cli/cognito-idp-2016-04-18/DescribeUserPool.md "../../../goto/aws-cli/cognito-idp-2016-04-18/DescribeUserPool.md")
-  - [DescribeUserPoolClient](../../../goto/aws-cli/cognito-idp-2016-04-18/DescribeUserPoolClient.md "../../../goto/aws-cli/cognito-idp-2016-04-18/DescribeUserPoolClient.md")
-  - [InitiateAuth](../../../goto/aws-cli/cognito-idp-2016-04-18/InitiateAuth.md "../../../goto/aws-cli/cognito-idp-2016-04-18/InitiateAuth.md")
-  - [ListUsers](../../../goto/aws-cli/cognito-idp-2016-04-18/ListUsers.md "../../../goto/aws-cli/cognito-idp-2016-04-18/ListUsers.md")
-  - [SignUp](../../../goto/aws-cli/cognito-idp-2016-04-18/SignUp.md "../../../goto/aws-cli/cognito-idp-2016-04-18/SignUp.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

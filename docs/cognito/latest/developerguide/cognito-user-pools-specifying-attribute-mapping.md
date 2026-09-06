@@ -1,232 +1,114 @@
+
+
 # Mapping IdP attributes to profiles and tokens
+<a name="cognito-user-pools-specifying-attribute-mapping"></a>
 
-Identity provider (IdP) services, including Amazon Cognito, can typically record more
-information about a user. You might want to know what company they work for, how to
-contact them, and other identifying information. But the format that these attributes
-take has variations between providers. For example, set up three IdPs from three
-different vendors with your user pool and examine an example SAML assertion, ID token,
-or `userInfo` payload from each. One will represent the user's email address
-as `email`, another as `emailaddress`, and the third as
-`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+Identity provider (IdP) services, including Amazon Cognito, can typically record more information about a user. You might want to know what company they work for, how to contact them, and other identifying information. But the format that these attributes take has variations between providers. For example, set up three IdPs from three different vendors with your user pool and examine an example SAML assertion, ID token, or `userInfo` payload from each. One will represent the user's email address as `email`, another as `emailaddress`, and the third as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-A major benefit that comes from consolidation of IdPs with a user pool is the ability
-to map the variety of attribute names into a single OIDC token schema with consistent,
-predicable, shared attribute names. This way, your developers aren't required to
-maintain the logic for processing a complex variety of single sign-on events. This
-format consolidation is attribute mapping. User pool attribute mapping assigns IdP
-attribute names to the corresponding user pool attribute names. For example, you can
-configure your user pool to write the value of an `emailaddress` claim to the
-standard user pool attribute `email`.
+A major benefit that comes from consolidation of IdPs with a user pool is the ability to map the variety of attribute names into a single OIDC token schema with consistent, predicable, shared attribute names. This way, your developers aren't required to maintain the logic for processing a complex variety of single sign-on events. This format consolidation is attribute mapping. User pool attribute mapping assigns IdP attribute names to the corresponding user pool attribute names. For example, you can configure your user pool to write the value of an `emailaddress` claim to the standard user pool attribute `email`.
 
-Each user pool IdP has a separate attribute-mapping schema. To specify attribute
-mappings for your IdP, configure a user pool identity provider in the Amazon Cognito console, an
-AWS SDK, or the user pools REST API .
+Each user pool IdP has a separate attribute-mapping schema. To specify attribute mappings for your IdP, configure a user pool identity provider in the Amazon Cognito console, an AWS SDK, or the user pools REST API .
 
 ## Things to know about mappings
+<a name="cognito-user-pools-specifying-attribute-mapping-requirements"></a>
 
-Before you begin to set up user-attribute mapping, review the following important
-details.
+Before you begin to set up user-attribute mapping, review the following important details.
++ When a federated user signs in to your application, a mapping must be present for each user pool attribute that your user pool requires. For example, if your user pool requires an `email` attribute for sign-up, map this attribute to its equivalent from the IdP.
++ By default, mapped email addresses are unverified. You can't verify a mapped email address using a one-time code. Instead, map an attribute from your IdP to get the verification status. For example, Google and most OIDC providers include the `email_verified` attribute.
++ You can map identity provider (IdP) tokens to custom attributes in your user pool. Social providers present an access token, and OIDC providers present an access and ID token. To map a token, add a custom attribute with a maximum length of 2,048 characters, grant your app client write access to the attribute, and map `access_token` or `id_token` from the IdP to the custom attribute.
++ For each mapped user pool attribute, the maximum value length of 2,048 characters must be large enough for the value that Amazon Cognito obtains from the IdP. Otherwise, Amazon Cognito reports an error when users sign in to your application. Amazon Cognito doesn't support mapping IdP tokens to custom attributes when the tokens are more than 2,048 characters long.
++ Amazon Cognito derives the `username` attribute in a federated user's profile from specific claims that your federated IdP passes, as shown in the following table. Amazon Cognito prepends this attribute value with the name of your IdP, for example `MyOIDCIdP_[sub]`. When you want your federated users to have an attribute that exactly matches an attribute in your external user directory, map that attribute to a Amazon Cognito sign-in attribute like `preferred_username`.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html)
++ When a user pool is [case insensitive](user-pool-case-sensitivity.md), Amazon Cognito converts the entire automatically generated username of a federated user to lowercase, including the IdP name prefix. The following is an example username for a case-sensitive user pool: `MySAML_TestUser@example.com`. The following is the same username for a case-*insensitive* user pool: `mysaml_testuser@example.com`.
 
-- When a federated user signs in to your application, a mapping must be
-  present for each user pool attribute that your user pool requires. For
-  example, if your user pool requires an `email` attribute for
-  sign-up, map this attribute to its equivalent from the IdP.
-- By default, mapped email addresses are unverified. You can't verify a
-  mapped email address using a one-time code. Instead, map an attribute from
-  your IdP to get the verification status. For example, Google and most OIDC
-  providers include the `email_verified` attribute.
-- You can map identity provider (IdP) tokens to custom attributes in your
-  user pool. Social providers present an access token, and OIDC providers
-  present an access and ID token. To map a token, add a custom attribute with
-  a maximum length of 2,048 characters, grant your app client write access to
-  the attribute, and map `access_token` or `id_token`
-  from the IdP to the custom attribute.
-- For each mapped user pool attribute, the maximum value length of 2,048
-  characters must be large enough for the value that Amazon Cognito obtains from the
-  IdP. Otherwise, Amazon Cognito reports an error when users sign in to your
-  application. Amazon Cognito doesn't support mapping IdP tokens to custom attributes
-  when the tokens are more than 2,048 characters long.
-- Amazon Cognito derives the `username` attribute in a federated user's
-  profile from specific claims that your federated IdP passes, as shown in the
-  following table. Amazon Cognito prepends this attribute value with the name of your
-  IdP, for example `MyOIDCIdP_[sub]`. When you want your federated
-  users to have an attribute that exactly matches an attribute in your
-  external user directory, map that attribute to a Amazon Cognito sign-in attribute
-  like `preferred_username`.
+  In case-insensitive user pools, your Lambda triggers that process the username must account for changes to the entire username. These changes include any mixed-case values from the username source attributes that you mapped from your IdP. To link your IdP to a user pool with a different case-sensitivity setting than your current pool, create a new user pool.
++ Amazon Cognito must be able to update your mapped user pool attributes when users sign in to your application. When a user signs in through an IdP, Amazon Cognito updates the mapped attributes with the latest information from the IdP. Amazon Cognito only updates mapped attributes when their values change. To ensure that Amazon Cognito can update the attributes, check the following requirements:
+  + All of the user pool custom attributes that you map from your IdP must be *mutable*. You can update mutable custom attributes at any time. By contrast, you can only set a value for a user's *immutable* custom attribute when you first create the user profile. To create a mutable custom attribute in the Amazon Cognito console, activate the **Mutable** checkbox for the attribute you add when you select **Add custom attributes** in the **Sign-up** menu. Or, if you create your user pool by using the [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) API operation, you can set the `Mutable` parameter for each of these attributes to `true`. If your IdP sends a value for a mapped immutable attribute, Amazon Cognito returns an error and sign-in fails.
+  + In the app client settings for your application, the mapped attributes must be *writable*. You can set which attributes are writable in the **App clients** page in the Amazon Cognito console. Or, if you create the app client by using the [`CreateUserPoolClient`](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) API operation, you can add these attributes to the `WriteAttributes` array. If your IdP sends a value for a mapped non-writable attribute, Amazon Cognito doesn't set the attribute value and proceeds with authentication.
++ When IdP attributes contain multiple values, Amazon Cognito flattens all values into a single comma-delimited string enclosed in the square-bracket characters `[` and `]`. Amazon Cognito URL form-encodes the values containing non-alphanumeric characters except for `.`, `-`, `*`, and `_`. You must decode and parse the individual values before you use them in your app.
++ The destination attribute retains any value that your attribute-mapping rules assign to it unless a sign-in or administrative action changes it. Amazon Cognito doesn't remove attributes from users when the source attribute is no longer sent in the provider token or SAML assertion. The following actions remove the value of an attribute from a user pool profile for a federated user:
 
-| Identity Provider               | `username` source attribute |
-| ------------------------------- | --------------------------- |
-| Facebook                        | `id`                        |
-| Google                          | `sub`                       |
-| Login with Amazon               | `user_id`                   |
-| Sign in with Apple              | `sub`                       |
-| SAML providers                  | `NameID`                    |
-| OpenID Connect (OIDC) providers | `sub`                       |
+  1. The IdP sends a blank value for the source attribute and a mapping rule applies the blank value to the destination attribute.
 
-- When a user pool is [case
-  insensitive](user-pool-case-sensitivity.md "user-pool-case-sensitivity.md"), Amazon Cognito converts the entire automatically generated
-  username of a federated user to lowercase, including the IdP name prefix.
-  The following is an example username for a case-sensitive user pool:
-  `MySAML_TestUser@example.com`. The following is the same
-  username for a case-_insensitive_ user
-  pool: `mysaml_testuser@example.com`.
-
-In case-insensitive user pools, your Lambda triggers that process the
-username must account for changes to the entire username. These changes
-include any mixed-case values from the username source attributes that you
-mapped from your IdP. To link your IdP to a user pool with a different
-case-sensitivity setting than your current pool, create a new user
-pool.
-
-- Amazon Cognito must be able to update your mapped user pool attributes when users
-  sign in to your application. When a user signs in through an IdP, Amazon Cognito
-  updates the mapped attributes with the latest information from the IdP.
-  Amazon Cognito only updates mapped attributes when their values change. To ensure that
-  Amazon Cognito can update the attributes, check the following requirements:
-
-  - All of the user pool custom attributes that you map from your IdP
-    must be _mutable_. You can update
-    mutable custom attributes at any time. By contrast, you can only set
-    a value for a user's _immutable_
-    custom attribute when you first create the user profile. To create a
-    mutable custom attribute in the Amazon Cognito console, activate the
-    **Mutable** checkbox for the attribute you add
-    when you select **Add custom attributes** in the
-    **Sign-up** menu. Or, if you create your user
-    pool by using the [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") API operation, you can set the
-    `Mutable` parameter for each of these attributes to
-    `true`. If your IdP sends a value for a mapped
-    immutable attribute, Amazon Cognito returns an error and sign-in
-    fails.
-  - In the app client settings for your application, the mapped
-    attributes must be _writable_. You
-    can set which attributes are writable in the **App
-    clients** page in the Amazon Cognito console. Or, if you create
-    the app client by using the [`CreateUserPoolClient`](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md") API operation,
-    you can add these attributes to the `WriteAttributes`
-    array. If your IdP sends a value for a mapped non-writable
-    attribute, Amazon Cognito doesn't set the attribute value and proceeds with
-    authentication.
-
-- When IdP attributes contain multiple values, Amazon Cognito flattens all values
-  into a single comma-delimited string enclosed in the square-bracket
-  characters `[` and `]`. Amazon Cognito URL form-encodes the
-  values containing non-alphanumeric characters except for `.`,
-  `-`, `*`, and `_`. You must decode and
-  parse the individual values before you use them in your app.
-- The destination attribute retains any value that your attribute-mapping
-  rules assign to it unless a sign-in or administrative action changes it.
-  Amazon Cognito doesn't remove attributes from users when the source attribute is no
-  longer sent in the provider token or SAML assertion. The following actions
-  remove the value of an attribute from a user pool profile for a federated
-  user:
-
-  1.  The IdP sends a blank value for the source attribute and a mapping
-      rule applies the blank value to the destination attribute.
-  2.  You clear the value of the mapped attribute with an [DeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md") or [AdminDeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md") request.
+  1. You clear the value of the mapped attribute with an [DeleteUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.html) or [AdminDeleteUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.html) request.
 
 ## Specifying identity provider attribute mappings for your user pool (AWS Management Console)
+<a name="cognito-user-pools-specifying-attribute-mapping-console"></a>
 
-You can use the AWS Management Console to specify attribute mappings for the IdP your user
-pool.
+You can use the AWS Management Console to specify attribute mappings for the IdP your user pool.
 
-###### Note
+**Note**  
+Amazon Cognito will map incoming claims to user pool attributes only if the claims exist in the incoming token. If a previously mapped claim no longer exists in the incoming token, it won't be deleted or changed. If your application requires mapping of deleted claims, you can use the Pre-Authentication Lambda trigger to delete the custom attribute during authentication and allow these attributes to repopulate from the incoming token.
 
-Amazon Cognito will map incoming claims to user pool attributes only if the claims
-exist in the incoming token. If a previously mapped claim no longer exists in
-the incoming token, it won't be deleted or changed. If your application requires
-mapping of deleted claims, you can use the Pre-Authentication Lambda trigger to
-delete the custom attribute during authentication and allow these attributes to
-repopulate from the incoming token.
+**To specify a social IdP attribute mapping**
 
-###### To specify a social IdP attribute mapping
+1. Sign in to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home). If prompted, enter your AWS credentials.
 
-1. Sign in to the [Amazon Cognito
-   console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). If prompted, enter your AWS credentials.
-2. In the navigation pane, choose **User Pools**, and choose
-   the user pool you want to edit.
-3. Choose the **Social and external providers** menu.
-4. Choose **Add an identity provider**, or choose the
-   **Facebook**, **Google**,
-   **Amazon** or **Apple** IdP you have
-   configured. Locate **Attribute mapping** and choose
-   **Edit**.
+1. In the navigation pane, choose **User Pools**, and choose the user pool you want to edit.
 
-For more information about adding a social IdP, see [Using social identity providers with a user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md"). 5. For each attribute you need to map, complete the following steps:
+1. Choose the **Social and external providers** menu.
 
-    1. Select an attribute from the **User pool
-     attribute** column. This is the attribute that is
-     assigned to the user profile in your user pool. Custom attributes
-     are listed after standard attributes.
-    2. Select an attribute from the
-     **`<provider>`
-     attribute** column. This will be the attribute passed
-     from the provider directory. Known attributes from the social
-     provider are provided in a drop-down list.
-    3. To map additional attributes between your IdP and Amazon Cognito, choose
-     **Add another attribute**.
+1. Choose **Add an identity provider**, or choose the **Facebook**, **Google**, **Amazon** or **Apple** IdP you have configured. Locate **Attribute mapping** and choose **Edit**. 
 
-6. Choose **Save changes**.
+   For more information about adding a social IdP, see [Using social identity providers with a user pool](cognito-user-pools-social-idp.md).
 
-###### To specify a SAML provider attribute mapping
+1. For each attribute you need to map, complete the following steps:
 
-1. Sign in to the [Amazon Cognito
-   console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). If prompted, enter your AWS credentials.
-2. In the navigation pane, choose **User Pools**, and choose
-   the user pool you want to edit.
-3. Choose the **Social and external providers** menu.
-4. Choose **Add an identity provider**, or choose the SAML
-   IdP you have configured. Locate **Attribute mapping**, and
-   choose **Edit**. For more information about adding a SAML
-   IdP, see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
-5. For each attribute you need to map, complete the following steps:
+   1. Select an attribute from the **User pool attribute** column. This is the attribute that is assigned to the user profile in your user pool. Custom attributes are listed after standard attributes.
 
-   1. Select an attribute from the **User pool
-      attribute** column. This is the attribute that is
-      assigned to the user profile in your user pool. Custom attributes
-      are listed after standard attributes.
-   2. Select an attribute from the **SAML attribute**
-      column. This will be the attribute passed from the provider
-      directory.
+   1. Select an attribute from the **{{<provider>}} attribute** column. This will be the attribute passed from the provider directory. Known attributes from the social provider are provided in a drop-down list.
 
-   Your IdP might offer sample SAML assertions for reference. Some
-   IdPs use simple names, such as `email`, while others use
-   URL-formatted attribute names similar to:
+   1. To map additional attributes between your IdP and Amazon Cognito, choose **Add another attribute**.
 
-   ```
-   `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-   ```
-   3. To map additional attributes between your IdP and Amazon Cognito, choose
-      **Add another attribute**.
+1. Choose **Save changes**.
 
-6. Choose **Save changes**.
+**To specify a SAML provider attribute mapping**
+
+1. Sign in to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home). If prompted, enter your AWS credentials.
+
+1. In the navigation pane, choose **User Pools**, and choose the user pool you want to edit.
+
+1. Choose the **Social and external providers** menu.
+
+1. Choose **Add an identity provider**, or choose the SAML IdP you have configured. Locate **Attribute mapping**, and choose **Edit**. For more information about adding a SAML IdP, see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md).
+
+1. For each attribute you need to map, complete the following steps:
+
+   1. Select an attribute from the **User pool attribute** column. This is the attribute that is assigned to the user profile in your user pool. Custom attributes are listed after standard attributes.
+
+   1. Select an attribute from the **SAML attribute** column. This will be the attribute passed from the provider directory.
+
+      Your IdP might offer sample SAML assertions for reference. Some IdPs use simple names, such as `email`, while others use URL-formatted attribute names similar to:
+
+      ```
+      http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
+      ```
+
+   1. To map additional attributes between your IdP and Amazon Cognito, choose **Add another attribute**.
+
+1. Choose **Save changes**.
 
 ## Specifying identity provider attribute mappings for your user pool (AWS CLI and AWS API)
+<a name="cognito-user-pools-specifying-attribute-mapping-cli-api"></a>
 
-The following request body for [CreateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md") or [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md") maps the SAML provider "MyIdP" attributes
-`emailaddress`, `birthdate`, and `phone` to the
-user pool attributes `email`, `birthdate`, and
-`phone_number`, in that order. This is a complete request body for a
-SAML 2.0 provider—your request body will vary depending on IdP type and
-specific details. The attribute mapping is in the `AttributeMapping`
-parameter.
+The following request body for [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html) or [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html) maps the SAML provider "MyIdP" attributes `emailaddress`, `birthdate`, and `phone` to the user pool attributes `email`, `birthdate`, and `phone_number`, in that order. This is a complete request body for a SAML 2.0 provider—your request body will vary depending on IdP type and specific details. The attribute mapping is in the `AttributeMapping` parameter.
 
 ```
 {
-   "AttributeMapping": {
+   "AttributeMapping": { 
       "email" : "emailaddress",
       "birthdate" : "birthdate",
       "phone_number" : "phone"
    },
-   "IdpIdentifiers": [
+   "IdpIdentifiers": [ 
       "IdP1",
       "pdxsaml"
    ],
-   "ProviderDetails": {
-      "IDPInit": "true",
-      "IDPSignout": "true",
-      "EncryptedResponses" : "true",
-      "MetadataURL": "https://auth.example.com/sso/saml/metadata",
+   "ProviderDetails": { 
+      "IDPInit": "true", 
+      "IDPSignout": "true", 
+      "EncryptedResponses" : "true", 
+      "MetadataURL": "https://auth.example.com/sso/saml/metadata", 
       "RequestSigningAlgorithm": "rsa-sha256"
    },
    "ProviderName": "MyIdP",
@@ -235,63 +117,43 @@ parameter.
 }
 ```
 
-Use the following commands to specify IdP attribute mappings for your user
-pool.
+Use the following commands to specify IdP attribute mappings for your user pool.
 
-###### To specify attribute mappings at provider creation time
+**To specify attribute mappings at provider creation time**
++ AWS CLI: `aws cognito-idp create-identity-provider`
 
-- AWS CLI: `aws cognito-idp create-identity-provider`
+  Example with metadata file: `aws cognito-idp create-identity-provider --user-pool-id {{<user_pool_id>}} --provider-name=SAML_provider_1 --provider-type SAML --provider-details file:///details.json --attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-Example with metadata file: `aws cognito-idp create-identity-provider
- --user-pool-id `<user_pool_id>`
- --provider-name=SAML_provider_1 --provider-type SAML --provider-details
- file:///details.json --attribute-mapping
- email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+  Where `details.json` contains:
 
-Where `details.json` contains:
+  ```
+  { 
+      "MetadataFile": "{{<SAML metadata XML>}}"
+  }
+  ```
+**Note**  
+If the {{<SAML metadata XML>}} contains any quotations (`"`), they must be escaped (`\"`).
 
-```
-{
-    "MetadataFile": "`<SAML metadata XML>`"
-}
-```
+  Example with metadata URL:
 
-###### Note
+  ```
+  aws cognito-idp create-identity-provider \
+  --user-pool-id {{us-east-1_EXAMPLE}} \
+  --provider-name=SAML_provider_1 \
+  --provider-type SAML \
+  --provider-details MetadataURL={{https://myidp.example.com/saml/metadata}} \
+  --attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
+  ```
++ API/SDK: [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html)
 
-If the `<SAML metadata XML>` contains
-any quotations (`"`), they must be escaped
-(`\"`).
+**To specify attribute mappings for an existing IdP**
++ AWS CLI: `aws cognito-idp update-identity-provider`
 
-Example with metadata URL:
+  Example: `aws cognito-idp update-identity-provider --user-pool-id {{<user_pool_id>}} --provider-name {{<provider_name>}} --attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
++ API/SDK: [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html)
 
-```
-aws cognito-idp create-identity-provider \
---user-pool-id `us-east-1_EXAMPLE` \
---provider-name=SAML_provider_1 \
---provider-type SAML \
---provider-details MetadataURL=`https://myidp.example.com/saml/metadata` \
---attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
-```
+**To get information about attribute mapping for a specific IdP**
++ AWS CLI: `aws cognito-idp describe-identity-provider`
 
-- API/SDK: [CreateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md")
-
-###### To specify attribute mappings for an existing IdP
-
-- AWS CLI: `aws cognito-idp update-identity-provider`
-
-Example: `aws cognito-idp update-identity-provider --user-pool-id
- `<user_pool_id>`--provider-name
-`<provider_name>` --attribute-mapping
- email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-
-- API/SDK: [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md")
-
-###### To get information about attribute mapping for a specific IdP
-
-- AWS CLI: `aws cognito-idp describe-identity-provider`
-
-Example: `aws cognito-idp describe-identity-provider --user-pool-id
- `<user_pool_id>`--provider-name
-`<provider_name>``
-
-- API/SDK: [DescribeIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md")
+  Example: `aws cognito-idp describe-identity-provider --user-pool-id {{<user_pool_id>}} --provider-name {{<provider_name>}}`
++ API/SDK: [DescribeIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.html)

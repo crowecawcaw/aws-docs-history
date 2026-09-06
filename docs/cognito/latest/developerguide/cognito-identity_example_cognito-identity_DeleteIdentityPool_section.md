@@ -1,38 +1,30 @@
+
+
 # Use `DeleteIdentityPool` with an AWS SDK or CLI
+<a name="cognito-identity_example_cognito-identity_DeleteIdentityPool_section"></a>
 
 The following code examples show how to use `DeleteIdentityPool`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To delete identity pool**
-
-The following `delete-identity-pool` example deletes the specified identity pool.
-
-Command:
+**AWS CLI**  
+**To delete identity pool**  
+The following `delete-identity-pool` example deletes the specified identity pool.  
+Command:  
 
 ```
-`aws cognito-identity delete-identity-pool \
- --identity-pool-id `"us-west-2:11111111-1111-1111-1111-111111111111"``
-
+aws cognito-identity delete-identity-pool \
+    --identity-pool-id {{"us-west-2:11111111-1111-1111-1111-111111111111"}}
 ```
+This command produces no output.  
++  For API details, see [DeleteIdentityPool](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/delete-identity-pool.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Java ]
 
-- For API details, see
-  [DeleteIdentityPool](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/delete-identity-pool.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/delete-identity-pool.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -92,51 +84,33 @@ public class DeleteIdentityPool {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteIdentityPool](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-identity-2014-06-30/DeleteIdentityPool) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteIdentityPool](../../../goto/SdkForJavaV2/cognito-identity-2014-06-30/DeleteIdentityPool.md "../../../goto/SdkForJavaV2/cognito-identity-2014-06-30/DeleteIdentityPool.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Deletes a specific Identity Pool.**
+**Tools for PowerShell V4**  
+**Example 1: Deletes a specific Identity Pool.**  
 
 ```
 Remove-CGIIdentityPool -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
-
 ```
++  For API details, see [DeleteIdentityPool](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteIdentityPool](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Deletes a specific Identity Pool.**
+**Tools for PowerShell V5**  
+**Example 1: Deletes a specific Identity Pool.**  
 
 ```
 Remove-CGIIdentityPool -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
-
 ```
++  For API details, see [DeleteIdentityPool](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteIdentityPool](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples). 
 
 ```
 import AWSCognitoIdentity
@@ -152,22 +126,17 @@ import AWSCognitoIdentity
             let input = DeleteIdentityPoolInput(
                 identityPoolId: id
             )
-
+            
             _ = try await cognitoIdentityClient.deleteIdentityPool(input: input)
         } catch {
             print("ERROR: deleteIdentityPool:", dump(error))
             throw error
         }
     }
-
-
 ```
++  For more information, see [AWS SDK for Swift developer guide](https://docs.aws.amazon.com/sdk-for-swift/latest/developer-guide/getting-started.html). 
++  For API details, see [DeleteIdentityPool](https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/deleteidentitypool(input:)) in *AWS SDK for Swift API reference*. 
 
-- For more information, see [AWS SDK for Swift developer guide](../../../sdk-for-swift/latest/developer-guide/getting-started.md "../../../sdk-for-swift/latest/developer-guide/getting-started.md").
-- For API details, see
-  [DeleteIdentityPool](<https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/deleteidentitypool(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/deleteidentitypool(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

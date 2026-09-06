@@ -1,21 +1,18 @@
+
+
 # Use `AdminGetUser` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section"></a>
 
 The following code examples show how to use `AdminGetUser`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
 
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -37,24 +34,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         Console.WriteLine($"User status {response.UserStatus}");
         return response.UserStatus;
     }
-
-
-
 ```
++  For API details, see [AdminGetUser](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [AdminGetUser](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -81,30 +68,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                   << outcome.GetError().GetMessage()
                   << std::endl;
     }
+```
++  For API details, see [AdminGetUser](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get a user**  
+This example gets information about username jane@example.com.  
+Command:  
 
 ```
-
-- For API details, see
-  [AdminGetUser](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get a user**
-
-This example gets information about username jane@example.com.
-
-Command:
-
+aws cognito-idp admin-get-user --user-pool-id {{us-west-2_aaaaaaaaa}} --username {{jane@example.com}}
 ```
-`aws cognito-idp admin-get-user --user-pool-id `us-west-2_aaaaaaaaa` --username `jane@example.com``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -137,20 +115,13 @@ Output:
   "UserLastModifiedDate": 1548108509.537
 }
 ```
++  For API details, see [AdminGetUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-get-user.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [AdminGetUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-get-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-get-user.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
     public static void getAdminUser(CognitoIdentityProviderClient identityProviderClient, String userName,
@@ -169,23 +140,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [AdminGetUser](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [AdminGetUser](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/#code-examples). 
 
 ```
 const adminGetUser = ({ userPoolId, username }) => {
@@ -198,23 +160,14 @@ const adminGetUser = ({ userPoolId, username }) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [AdminGetUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [AdminGetUser](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
 ```
 suspend fun getAdminUser(
@@ -232,23 +185,14 @@ suspend fun getAdminUser(
         println("User status ${response.userStatus}")
     }
 }
-
-
 ```
++  For API details, see [AdminGetUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [AdminGetUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -311,31 +255,21 @@ class CognitoIdentityProviderWrapper:
                 )
                 raise
         return confirmed
-
-
-
 ```
++  For API details, see [AdminGetUser](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/AdminGetUser) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AdminGetUser](../../../goto/boto3/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminGetUser.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
 ```
 import AWSClientRuntime
 import AWSCognitoIdentityProvider
 
     /// Get information about a specific user in a user pool.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The Amazon Cognito Identity Provider client to use.
     ///   - userName: The user to retrieve information about.
@@ -364,14 +298,9 @@ import AWSCognitoIdentityProvider
             return false
         }
     }
-
-
 ```
++  For API details, see [AdminGetUser](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [AdminGetUser](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

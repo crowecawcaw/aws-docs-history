@@ -1,23 +1,20 @@
+
+
 # Use `DeleteUser` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_DeleteUser_section"></a>
 
 The following code examples show how to use `DeleteUser`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md) 
++  [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md) 
++  [Write custom activity data with a Lambda function after Amazon Cognito user authentication](cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md) 
 
-- [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md "cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md")
-- [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md "cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md")
-- [Write custom activity data with a Lambda function after Amazon Cognito user authentication](cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md "cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -41,45 +38,29 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << outcome.GetError().GetMessage()
                       << std::endl;
         }
+```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/DeleteUser) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete a user**  
+This example deletes a user.  
+Command:  
 
 ```
+aws cognito-idp delete-user --access-token {{ACCESS_TOKEN}}
+```
++  For API details, see [DeleteUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/delete-user.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../goto/SdkForCpp/cognito-idp-2016-04-18/DeleteUser.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/DeleteUser.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To delete a user**
-
-This example deletes a user.
-
-Command:
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
 ```
-`aws cognito-idp delete-user --access-token `ACCESS_TOKEN``
-
-```
-
-- For API details, see
-  [DeleteUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/delete-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/delete-user.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples").
-
-```
-
 import (
 	"context"
 	"errors"
@@ -106,24 +87,14 @@ func (actor CognitoActions) DeleteUser(ctx context.Context, userAccessToken stri
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-pools-triggers#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-pools-triggers#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-pools-triggers#code-examples). 
 
 ```
 /**
@@ -143,14 +114,9 @@ export const deleteUser = async ({ region, accessToken }) => {
     return [null, err];
   }
 };
-
-
 ```
++  For API details, see [DeleteUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteUserCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteUser](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteUserCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

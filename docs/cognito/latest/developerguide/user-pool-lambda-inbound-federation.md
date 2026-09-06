@@ -1,47 +1,40 @@
+
+
 # Inbound federation Lambda trigger
+<a name="user-pool-lambda-inbound-federation"></a>
 
-The inbound federation trigger transforms federated user attributes during the
-authentication process with external identity providers. When users authenticate through
-configured identity providers, this trigger allows you to modify responses from external
-SAML and OIDC providers by intercepting and transforming data in the authentication process,
-providing programmatic control over how Amazon Cognito user pools handle federated users and their
-attributes.
+The inbound federation trigger transforms federated user attributes during the authentication process with external identity providers. When users authenticate through configured identity providers, this trigger allows you to modify responses from external SAML and OIDC providers by intercepting and transforming data in the authentication process, providing programmatic control over how Amazon Cognito user pools handle federated users and their attributes.
 
-Use this trigger to add, override, or suppress attributes before creating new users or
-updating existing federated user profiles. This trigger receives raw identity provider
-attributes as input and returns modified attributes that Amazon Cognito applies to the user
-profile.
+Use this trigger to add, override, or suppress attributes before creating new users or updating existing federated user profiles. This trigger receives raw identity provider attributes as input and returns modified attributes that Amazon Cognito applies to the user profile.
 
-###### Topics
-
-- [Flow overview](#cognito-user-pools-lambda-trigger-inbound-federation-flow "#cognito-user-pools-lambda-trigger-inbound-federation-flow")
-- [Inbound federation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-inbound-federation "#cognito-user-pools-lambda-trigger-syntax-inbound-federation")
-- [Inbound federation example: Group membership management](#aws-lambda-triggers-inbound-federation-example-groups "#aws-lambda-triggers-inbound-federation-example-groups")
-- [Inbound federation example: Truncate large attributes](#aws-lambda-triggers-inbound-federation-example-truncate "#aws-lambda-triggers-inbound-federation-example-truncate")
-- [Inbound federation example: Logging federation events](#aws-lambda-triggers-inbound-federation-example-logging "#aws-lambda-triggers-inbound-federation-example-logging")
+**Topics**
++ [Flow overview](#cognito-user-pools-lambda-trigger-inbound-federation-flow)
++ [Inbound federation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-inbound-federation)
++ [Inbound federation example: Group membership management](#aws-lambda-triggers-inbound-federation-example-groups)
++ [Inbound federation example: Truncate large attributes](#aws-lambda-triggers-inbound-federation-example-truncate)
++ [Inbound federation example: Logging federation events](#aws-lambda-triggers-inbound-federation-example-logging)
 
 ## Flow overview
+<a name="cognito-user-pools-lambda-trigger-inbound-federation-flow"></a>
 
-When a user authenticates with an external identity provider, Amazon Cognito invokes the
-inbound federation trigger before creating or updating the user profile. The trigger
-receives the raw attributes from the identity provider and can transform them before
-Amazon Cognito stores them. This flow occurs for both new federated users and existing users who
-sign in again through federation.
+When a user authenticates with an external identity provider, Amazon Cognito invokes the inbound federation trigger before creating or updating the user profile. The trigger receives the raw attributes from the identity provider and can transform them before Amazon Cognito stores them. This flow occurs for both new federated users and existing users who sign in again through federation.
 
-![Inbound federation Lambda trigger flow](images/lambda-inbound-federation.png)
+![Inbound federation Lambda trigger flow](http://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-inbound-federation.png)
+
 
 ## Inbound federation Lambda trigger parameters
+<a name="cognito-user-pools-lambda-trigger-syntax-inbound-federation"></a>
 
-The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
-[common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
+The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the [common parameters](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#cognito-user-pools-lambda-trigger-syntax-shared) that Amazon Cognito adds to all requests.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
     "version": "string",
     "triggerSource": "InboundFederation_ExternalProvider",
-    "region": `AWSRegion`,
+    "region": {{AWSRegion}},
     "userPoolId": "string",
     "userName": "string",
     "callerContext": {
@@ -80,98 +73,59 @@ JSON
 }
 ```
 
+------
+
 ### Inbound federation request parameters
+<a name="cognito-user-pools-lambda-trigger-syntax-inbound-federation-request"></a>
 
-**providerName**
-
+**providerName**  
 The name of the external identity provider.
 
-**providerType**
+**providerType**  
+The type of the external identity provider. Valid values: `OIDC`, `SAML`, `Facebook`, `Google`, `SignInWithApple`, `LoginWithAmazon`.
 
-The type of the external identity provider. Valid values:
-`OIDC`, `SAML`, `Facebook`,
-`Google`, `SignInWithApple`,
-`LoginWithAmazon`.
+**attributes**  
+The raw attributes received from the identity provider before processing. The structure varies based on provider type.
 
-**attributes**
+**attributes.tokenResponse**  
+OAuth token response data from the `/token` endpoint. Available for OIDC and social providers only. Contains `access_token`, `id_token`, `refresh_token`, `token_type`, `expires_in`, and `scope`.
 
-The raw attributes received from the identity provider before
-processing. The structure varies based on provider type.
+**attributes.idToken**  
+Decoded and validated ID token JWT claims. Available for OIDC and social providers only. Contains verified user identity information including `sub` (unique user identifier), `email`, `name`, `iss` (issuer), `aud` (audience), `exp` (expiration), and `iat` (issued time).
 
-**attributes.tokenResponse**
+**attributes.userInfo**  
+Extended user profile information from the UserInfo endpoint. Available for OIDC and social providers only. Contains detailed profile attributes such as `given_name`, `family_name`, `picture`, `address`, and other provider-specific fields. May be empty if the IdP doesn't support the UserInfo endpoint or if the endpoint call fails.
 
-OAuth token response data from the `/token` endpoint.
-Available for OIDC and social providers only. Contains
-`access_token`, `id_token`,
-`refresh_token`, `token_type`,
-`expires_in`, and `scope`.
-
-**attributes.idToken**
-
-Decoded and validated ID token JWT claims. Available for OIDC and
-social providers only. Contains verified user identity information
-including `sub` (unique user identifier), `email`,
-`name`, `iss` (issuer), `aud`
-(audience), `exp` (expiration), and `iat` (issued
-time).
-
-**attributes.userInfo**
-
-Extended user profile information from the UserInfo endpoint.
-Available for OIDC and social providers only. Contains detailed profile
-attributes such as `given_name`, `family_name`,
-`picture`, `address`, and other
-provider-specific fields. May be empty if the IdP doesn't support the
-UserInfo endpoint or if the endpoint call fails.
-
-**attributes.samlResponse**
-
-SAML assertion attributes. Available for SAML providers only. Contains
-attributes from the SAML response.
+**attributes.samlResponse**  
+SAML assertion attributes. Available for SAML providers only. Contains attributes from the SAML response.
 
 ### Inbound federation response parameters
+<a name="cognito-user-pools-lambda-trigger-syntax-inbound-federation-response"></a>
 
-**userAttributesToMap**
-
+**userAttributesToMap**  
 The user attributes to apply to the user profile.
 
-###### Important
+**Important**  
+You must include ALL user attributes you want to retain in the response, including attributes you are not modifying. Any attributes not included in the `userAttributesToMap` response will be dropped and not stored in the user profile. This applies to both modified and unmodified attributes.
 
-You must include ALL user attributes you want to retain in the response,
-including attributes you are not modifying. Any attributes not included in the
-`userAttributesToMap` response will be dropped and not stored in
-the user profile. This applies to both modified and unmodified
-attributes.
+**Empty response behavior**  
+If you return an empty object `{}` for `userAttributesToMap`, all original attributes from the identity provider are retained unchanged. This acts as a no-op, as if the Lambda function was never executed. This is different from omitting attributes, which drops them.
 
-###### Empty response behavior
-
-If you return an empty object `{}` for
-`userAttributesToMap`, all original attributes from the identity
-provider are retained unchanged. This acts as a no-op, as if the Lambda function
-was never executed. This is different from omitting attributes, which drops
-them.
-
-###### Provider-specific attributes
-
-The structure of `request.attributes` varies based on the
-`providerType`. OIDC and social providers include
-`tokenResponse`, `idToken`, and `userInfo`
-objects. SAML providers include only the `samlResponse`
-object.
+**Provider-specific attributes**  
+The structure of `request.attributes` varies based on the `providerType`. OIDC and social providers include `tokenResponse`, `idToken`, and `userInfo` objects. SAML providers include only the `samlResponse` object.
 
 ## Inbound federation example: Group membership management
+<a name="aws-lambda-triggers-inbound-federation-example-groups"></a>
 
-This example shows how to map federated identity provider groups to Amazon Cognito user pools groups.
-This function extracts group membership from the federated response and automatically
-adds users to corresponding Amazon Cognito groups, eliminating the need for post-authentication
-triggers.
+This example shows how to map federated identity provider groups to Amazon Cognito user pools groups. This function extracts group membership from the federated response and automatically adds users to corresponding Amazon Cognito groups, eliminating the need for post-authentication triggers.
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 exports.handler = async (event) => {
     const { providerType, attributes } = event.request;
-
+    
     // Extract user attributes based on provider type
     let userAttributesFromIdp = {};
     if (providerType === 'SAML') {
@@ -183,41 +137,42 @@ exports.handler = async (event) => {
             ...(attributes.idToken || {})
         };
     }
-
+    
     // Extract groups from federated response
     const federatedGroups = userAttributesFromIdp.groups?.split(',') || [];
-
+    
     // Map federated groups to Cognito groups
     const groupMapping = {
         'Domain Admins': 'Administrators',
         'Engineering': 'Developers',
         'Sales': 'SalesTeam'
     };
-
+    
     // Filter to only in-scope groups
     const mappedGroups = federatedGroups
         .map(group => groupMapping[group.trim()])
         .filter(group => group); // Remove undefined values
-
+    
     // Pass through attributes with mapped groups as custom attribute
     const attributesToMap = {
         ...userAttributesFromIdp,
         'custom:user_groups': mappedGroups.join(',')
     };
-
+    
     // Remove original groups attribute
     delete attributesToMap.groups;
-
+    
     event.response.userAttributesToMap = attributesToMap;
     return event;
 };
 ```
 
-Amazon Cognito passes event information to your Lambda function. The function then returns the same event
-object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test
-event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+------
 
-JSON
+Amazon Cognito passes event information to your Lambda function. The function then returns the same event object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -241,23 +196,24 @@ JSON
 }
 ```
 
+------
+
 ## Inbound federation example: Truncate large attributes
+<a name="aws-lambda-triggers-inbound-federation-example-truncate"></a>
 
-This example shows how to truncate attribute values that exceed Amazon Cognito's storage
-limits. This function checks each attribute from the identity provider. If an attribute
-value exceeds 2048 characters, it truncates the value and adds ellipsis to indicate
-truncation. All other attributes pass through unchanged.
+This example shows how to truncate attribute values that exceed Amazon Cognito's storage limits. This function checks each attribute from the identity provider. If an attribute value exceeds 2048 characters, it truncates the value and adds ellipsis to indicate truncation. All other attributes pass through unchanged.
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 exports.handler = async (event) => {
     const MAX_ATTRIBUTE_LENGTH = 2048;
-
+    
     // Get the identity provider attributes based on provider type
     const { providerType, attributes } = event.request;
     let idpAttributes = {};
-
+    
     if (providerType === 'SAML') {
         idpAttributes = attributes.samlResponse || {};
     } else {
@@ -267,9 +223,9 @@ exports.handler = async (event) => {
             ...(attributes.idToken || {})
         };
     }
-
+    
     const userAttributes = {};
-
+    
     // Process each attribute
     for (const [key, value] of Object.entries(idpAttributes)) {
         if (typeof value === 'string' && value.length > MAX_ATTRIBUTE_LENGTH) {
@@ -281,18 +237,19 @@ exports.handler = async (event) => {
             userAttributes[key] = value;
         }
     }
-
+    
     // Return the modified attributes
     event.response.userAttributesToMap = userAttributes;
     return event;
 };
 ```
 
-Amazon Cognito passes event information to your Lambda function. The function then returns the same event
-object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test
-event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+------
 
-JSON
+Amazon Cognito passes event information to your Lambda function. The function then returns the same event object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -332,18 +289,20 @@ JSON
 }
 ```
 
+------
+
 ## Inbound federation example: Logging federation events
+<a name="aws-lambda-triggers-inbound-federation-example-logging"></a>
 
-This example shows how to log federated authentication events for monitoring and
-debugging. This example function captures detailed information about federated users and
-their attributes, providing visibility into the authentication process.
+This example shows how to log federated authentication events for monitoring and debugging. This example function captures detailed information about federated users and their attributes, providing visibility into the authentication process.
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 exports.handler = async (event) => {
     const { providerName, providerType, attributes } = event.request;
-
+    
     // Extract user attributes based on provider type
     let userAttributesFromIdp = {};
     if (providerType === 'SAML') {
@@ -355,7 +314,7 @@ exports.handler = async (event) => {
             ...(attributes.idToken || {})
         };
     }
-
+    
     // Log federated authentication details
     console.log(JSON.stringify({
         timestamp: new Date().toISOString(),
@@ -365,18 +324,19 @@ exports.handler = async (event) => {
         attributeCount: Object.keys(userAttributesFromIdp).length,
         attributes: userAttributesFromIdp
     }));
-
+    
     // Pass through all attributes unchanged
     event.response.userAttributesToMap = userAttributesFromIdp;
     return event;
 };
 ```
 
-Amazon Cognito passes event information to your Lambda function. The function then returns the same event
-object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test
-event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+------
 
-JSON
+Amazon Cognito passes event information to your Lambda function. The function then returns the same event object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -408,9 +368,12 @@ JSON
 }
 ```
 
+------
+
 Expected CloudWatch Logs output:
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -428,3 +391,5 @@ JSON
     }
 }
 ```
+
+------

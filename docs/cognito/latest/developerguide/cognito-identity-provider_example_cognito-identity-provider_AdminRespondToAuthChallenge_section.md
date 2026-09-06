@@ -1,21 +1,18 @@
+
+
 # Use `AdminRespondToAuthChallenge` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_AdminRespondToAuthChallenge_section"></a>
 
 The following code examples show how to use `AdminRespondToAuthChallenge`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
 
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -53,24 +50,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         Console.WriteLine($"Response to Authentication {response.AuthenticationResult.TokenType}");
         return response.AuthenticationResult;
     }
-
-
-
 ```
++  For API details, see [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [AdminRespondToAuthChallenge](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -104,33 +91,25 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << std::endl;
             return false;
         }
+```
++  For API details, see [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To respond to an authentication challenge**  
+There are many ways to respond to different authentication challenges, depending on your authentication flow, user pool configuration, and user settings. The following `admin-respond-to-auth-challenge` example provides a TOTP MFA code for diego@example.com and completes sign-in. This user pool has device remembering turned on, so the authentication result also returns a new device key.  
 
 ```
-
-- For API details, see
-  [AdminRespondToAuthChallenge](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To respond to an authentication challenge**
-
-There are many ways to respond to different authentication challenges, depending on your authentication flow, user pool configuration, and user settings. The following `admin-respond-to-auth-challenge` example provides a TOTP MFA code for diego@example.com and completes sign-in. This user pool has device remembering turned on, so the authentication result also returns a new device key.
-
+aws cognito-idp admin-respond-to-auth-challenge \
+    --user-pool-id {{us-west-2_EXAMPLE}} \
+    --client-id {{1example23456789}} \
+    --challenge-name {{SOFTWARE_TOKEN_MFA}} \
+    --challenge-responses {{USERNAME=diego@example.com,SOFTWARE_TOKEN_MFA_CODE=000000}} \
+    --session {{AYABeExample...}}
 ```
-`aws cognito-idp admin-respond-to-auth-challenge \
- --user-pool-id `us-west-2_EXAMPLE` \
- --client-id `1example23456789` \
- --challenge-name `SOFTWARE_TOKEN_MFA` \
- --challenge-responses `USERNAME=diego@example.com,SOFTWARE_TOKEN_MFA_CODE=000000` \
- --session `AYABeExample...``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -148,22 +127,14 @@ Output:
     }
 }
 ```
+For more information, see [Admin authentication flow](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#amazon-cognito-user-pools-admin-authentication-flow) in the *Amazon Cognito Developer Guide*.  
++  For API details, see [AdminRespondToAuthChallenge](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-respond-to-auth-challenge.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Admin authentication flow](amazon-cognito-user-pools-authentication-flow.md#amazon-cognito-user-pools-admin-authentication-flow "amazon-cognito-user-pools-authentication-flow.md#amazon-cognito-user-pools-admin-authentication-flow") in the _Amazon Cognito Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [AdminRespondToAuthChallenge](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-respond-to-auth-challenge.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-respond-to-auth-challenge.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
     // Respond to an authentication challenge.
@@ -187,23 +158,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         System.out.println("respondToAuthChallengeResult.getAuthenticationResult()"
                 + respondToAuthChallengeResult.authenticationResult());
     }
-
-
 ```
++  For API details, see [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [AdminRespondToAuthChallenge](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 const adminRespondToAuthChallenge = ({
@@ -227,23 +189,14 @@ const adminRespondToAuthChallenge = ({
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [AdminRespondToAuthChallenge](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
 ```
 // Respond to an authentication challenge.
@@ -271,25 +224,15 @@ suspend fun adminRespondToAuthChallenge(
         println("respondToAuthChallengeResult.getAuthenticationResult() ${respondToAuthChallengeResult.authenticationResult}")
     }
 }
-
-
 ```
++  For API details, see [AdminRespondToAuthChallenge](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [AdminRespondToAuthChallenge](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
-
-Respond to an MFA challenge by providing a code generated by an associated MFA application.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
+Respond to an MFA challenge by providing a code generated by an associated MFA application.  
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -354,24 +297,14 @@ class CognitoIdentityProviderWrapper:
                 raise
         else:
             return auth_result
-
-
-
 ```
++  For API details, see [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AdminRespondToAuthChallenge](../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples). 
 
 ```
     TRY.
@@ -420,23 +353,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cgpnotauthorizedex INTO DATA(lo_auth_ex).
         MESSAGE 'Not authorized. Check MFA configuration.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [AdminRespondToAuthChallenge](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
 ```
 import AWSClientRuntime
@@ -445,7 +369,7 @@ import AWSCognitoIdentityProvider
     /// Respond to the authentication challenge received from Cognito after
     /// initiating an authentication session. This involves sending a current
     /// MFA code to the service.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The `CognitoIdentityProviderClient` to use.
     ///   - userName: The user's username.
@@ -500,14 +424,9 @@ import AWSCognitoIdentityProvider
             return
         }
     }
-
-
 ```
++  For API details, see [AdminRespondToAuthChallenge](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [AdminRespondToAuthChallenge](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

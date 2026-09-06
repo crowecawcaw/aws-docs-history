@@ -1,21 +1,18 @@
+
+
 # Use `ConfirmDevice` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_ConfirmDevice_section"></a>
 
 The following code examples show how to use `ConfirmDevice`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
 
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -37,54 +34,37 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _cognitoService.ConfirmDeviceAsync(request);
         return response.UserConfirmationNecessary;
     }
+```
++  For API details, see [ConfirmDevice](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmDevice) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To confirm a user device**  
+The following `confirm-device` example adds a new remembered device for the current user.  
 
 ```
-
-- For API details, see
-  [ConfirmDevice](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmDevice.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmDevice.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To confirm a user device**
-
-The following `confirm-device` example adds a new remembered device for the current user.
-
+aws cognito-idp confirm-device \
+   --access-token {{eyJra456defEXAMPLE}} \
+   --device-key {{us-west-2_a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
+   --device-secret-verifier-config {{PasswordVerifier=TXlWZXJpZmllclN0cmluZw,Salt=TXlTUlBTYWx0}}
 ```
-`aws cognito-idp confirm-device \
- --access-token `eyJra456defEXAMPLE` \
- --device-key `us-west-2_a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` \
- --device-secret-verifier-config `PasswordVerifier=TXlWZXJpZmllclN0cmluZw,Salt=TXlTUlBTYWx0``
-
-```
-
-Output:
+Output:  
 
 ```
 {
      "UserConfirmationNecessary": false
 }
 ```
+For more information, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) in the *Amazon Cognito Developer Guide*.  
++  For API details, see [ConfirmDevice](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/confirm-device.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with user devices in your user pool](amazon-cognito-user-pools-device-tracking.md "amazon-cognito-user-pools-device-tracking.md") in the _Amazon Cognito Developer Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [ConfirmDevice](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/confirm-device.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/confirm-device.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 const confirmDevice = ({ deviceKey, accessToken, passwordVerifier, salt }) => {
@@ -101,23 +81,14 @@ const confirmDevice = ({ deviceKey, accessToken, passwordVerifier, salt }) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [ConfirmDevice](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmDeviceCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ConfirmDevice](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmDeviceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmDeviceCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -197,15 +168,9 @@ class CognitoIdentityProviderWrapper:
             raise
         else:
             return user_confirm
-
-
-
 ```
++  For API details, see [ConfirmDevice](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/ConfirmDevice) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ConfirmDevice](../../../goto/boto3/cognito-idp-2016-04-18/ConfirmDevice.md "../../../goto/boto3/cognito-idp-2016-04-18/ConfirmDevice.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

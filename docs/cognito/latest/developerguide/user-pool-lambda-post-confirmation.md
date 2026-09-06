@@ -1,37 +1,33 @@
+
+
 # Post confirmation Lambda trigger
+<a name="user-pool-lambda-post-confirmation"></a>
 
-Amazon Cognito invokes this trigger after a signed-up user confirms their user account. In your
-post confirmation Lambda function, you can send custom messages or add custom API requests.
-For example, you can query an external system and populate additional attributes to the
-user. Amazon Cognito invokes this trigger only for user who sign up in your user pool, not for user
-accounts that you create with your administrator credentials.
+Amazon Cognito invokes this trigger after a signed-up user confirms their user account. In your post confirmation Lambda function, you can send custom messages or add custom API requests. For example, you can query an external system and populate additional attributes to the user. Amazon Cognito invokes this trigger only for user who sign up in your user pool, not for user accounts that you create with your administrator credentials.
 
-The request contains the current attributes for the confirmed user. Your user pool invokes
-your post confirmation function on [ConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md"), [AdminConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md"), and [ConfirmForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md"). This trigger also runs when users confirm sign-up or
-password reset in [managed
-login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md").
+The request contains the current attributes for the confirmed user. Your user pool invokes your post confirmation function on [ConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.html), [AdminConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.html), and [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html). This trigger also runs when users confirm sign-up or password reset in [managed login](cognito-user-pools-managed-login.md).
 
-###### Topics
-
-- [Post confirmation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-post-confirmation "#cognito-user-pools-lambda-trigger-syntax-post-confirmation")
-- [Post confirmation example](#aws-lambda-triggers-post-confirmation-example "#aws-lambda-triggers-post-confirmation-example")
+**Topics**
++ [Post confirmation Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-post-confirmation)
++ [Post confirmation example](#aws-lambda-triggers-post-confirmation-example)
 
 ## Post confirmation Lambda trigger parameters
+<a name="cognito-user-pools-lambda-trigger-syntax-post-confirmation"></a>
 
-The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the
-[common parameters](cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared "cognito-user-pools-working-with-lambda-triggers.md#cognito-user-pools-lambda-trigger-syntax-shared") that Amazon Cognito adds to all requests.
+The request that Amazon Cognito passes to this Lambda function is a combination of the parameters below and the [common parameters](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#cognito-user-pools-lambda-trigger-syntax-shared) that Amazon Cognito adds to all requests.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
     "request": {
             "userAttributes": {
-                "`string`": "`string`",
+                "{{string}}": "{{string}}",
                 . . .
             },
             "clientMetadata": {
-            	"`string`": "`string`",
+            	"{{string}}": "{{string}}",
             	. . .
             }
         },
@@ -39,29 +35,29 @@ JSON
 }
 ```
 
+------
+
 ### Post confirmation request parameters
+<a name="cognito-user-pools-lambda-trigger-syntax-post-confirmation-request"></a>
 
-**userAttributes**
-
+**userAttributes**  
 One or more key-value pairs representing user attributes.
 
-**clientMetadata**
-
-One or more key-value pairs that you can provide as custom input to
-the Lambda function that you specify for the post confirmation trigger.
-You can pass this data to your Lambda function by using the
-ClientMetadata parameter in the following API actions: [AdminConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.md"), [ConfirmForgotPassword](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.md"), [ConfirmSignUp](../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.md"), and [SignUp](../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md "../../../cognito-user-identity-pools/latest/APIReference/API_SignUp.md").
+**clientMetadata**  
+One or more key-value pairs that you can provide as custom input to the Lambda function that you specify for the post confirmation trigger. You can pass this data to your Lambda function by using the ClientMetadata parameter in the following API actions: [AdminConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.html), [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html), [ConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.html), and [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html).
 
 ### Post confirmation response parameters
+<a name="cognito-user-pools-lambda-trigger-syntax-post-confirmation-response"></a>
 
 No additional return information is expected in the response.
 
 ## Post confirmation example
+<a name="aws-lambda-triggers-post-confirmation-example"></a>
 
-This example Lambda function sends a confirmation email message to your user using
-Amazon SES. For more information see [Amazon Simple Email Service Developer Guide](../../../ses/latest/DeveloperGuide.md "../../../ses/latest/DeveloperGuide.md").
+This example Lambda function sends a confirmation email message to your user using Amazon SES. For more information see [Amazon Simple Email Service Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/). 
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 // Import required AWS SDK clients and commands for Node.js. Note that this requires
@@ -106,17 +102,16 @@ const sendTheEmail = async (to, body) => {
 };
 
 export { handler };
-
 ```
 
-Amazon Cognito passes event information to your Lambda function. The function then returns the same event
-object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test
-event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+------
 
-JSON
+Amazon Cognito passes event information to your Lambda function. The function then returns the same event object to Amazon Cognito, with any changes in the response. In the Lambda console, you can set up a test event with data that is relevant to your Lambda trigger. The following is a test event for this code sample:
+
+------
+#### [ JSON ]
 
 ```
-
 {
     "request": {
         "userAttributes": {
@@ -127,3 +122,5 @@ JSON
     "response": {}
 }
 ```
+
+------

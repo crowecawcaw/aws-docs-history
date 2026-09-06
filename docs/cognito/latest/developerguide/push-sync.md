@@ -1,93 +1,79 @@
+
+
 # Implementing push synchronization
+<a name="push-sync"></a>
 
-###### Note
+**Note**  
+If you're new to Amazon Cognito Sync, use [AWS AppSync](https://aws.amazon.com/appsync/). Like Amazon Cognito Sync, AWS AppSync is a service for synchronizing application data across devices.  
+It enables user data like app preferences or game state to be synchronized. It also extends these capabilities by allowing multiple users to synchronize and collaborate in real time on shared data.
 
-If you're new to Amazon Cognito Sync, use [AWS AppSync](https://aws.amazon.com/appsync/ "https://aws.amazon.com/appsync/"). Like Amazon Cognito Sync, AWS AppSync is
-a service for synchronizing application data across devices.
+Amazon Cognito automatically tracks the association between identity and devices. Using the push synchronization, or push sync, feature, you can ensure that every instance of a given identity is notified when identity data changes. Push sync ensures that, whenever the sync store data changes for a particular identity, all devices associated with that identity receive a silent push notification informing them of the change.
 
-It enables user data like app preferences or game state to be synchronized.
-It also extends these capabilities by allowing multiple users to
-synchronize and collaborate in real time on shared data.
-
-Amazon Cognito automatically tracks the association between identity and devices. Using the push
-synchronization, or push sync, feature, you can ensure that every instance of a given identity
-is notified when identity data changes. Push sync ensures that, whenever the sync store data
-changes for a particular identity, all devices associated with that identity receive a silent
-push notification informing them of the change.
-
-###### Note
-
+**Note**  
 Push sync is not supported for JavaScript, Unity, or Xamarin.
 
-Before you can use push sync, you must first set up your account for push sync and enable
-push sync in the Amazon Cognito console.
+Before you can use push sync, you must first set up your account for push sync and enable push sync in the Amazon Cognito console.
 
 ## Create an Amazon Simple Notification Service (Amazon SNS) app
+<a name="create-an-amazon-SNS-app"></a>
 
-Create and configure an Amazon SNS app for your supported platforms, as described in the
-[SNS Developer
-Guide](../../../sns/latest/dg/SNSMobilePush.md "../../../sns/latest/dg/SNSMobilePush.md").
+Create and configure an Amazon SNS app for your supported platforms, as described in the [SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html).
 
 ## Enable push sync in the Amazon Cognito console
+<a name="enable-push-sync-in-the-amazon-cognito-console"></a>
 
-You can enable push sync via the Amazon Cognito console. From the [console home page](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"):
+You can enable push sync via the Amazon Cognito console. From the [console home page](https://console.aws.amazon.com/cognito/home):
 
-1. Click the name of the identity pool for which you want to enable push sync. The
-   **Dashboard** page for your identity pool appears.
-2. In the top-right corner of the **Dashboard** page, click
-   **Manage Identity Pools**. The **Federated
-   Identities** page appears.
-3. Scroll down and click **Push synchronization** to expand it.
-4. In the **Service role** dropdown menu, select the IAM role that
-   grants Cognito permission to send an SNS notification. Click **Create
-   role** to create or modify the roles associated with your identity pool in
-   the [AWS IAM Console](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home").
-5. Select a platform application, and then click **Save
-   Changes**.
-6. Grant SNS Access to Your Application
+1. Click the name of the identity pool for which you want to enable push sync. The **Dashboard** page for your identity pool appears.
 
-In the AWS Identity and Access Management console, configure your IAM roles to have full Amazon SNS access, or
-create a new role that has full Amazon SNS access. The following example role trust policy grants
-Amazon Cognito Sync a limited ability to assume an IAM role. Amazon Cognito Sync can only assume the role when
-it does so on behalf of both the identity pool in the `aws:SourceArn` condition
-and the account in the `aws:SourceAccount` condition.
+1. In the top-right corner of the **Dashboard** page, click **Manage Identity Pools**. The **Federated Identities** page appears.
 
-JSON
+1. Scroll down and click **Push synchronization** to expand it.
+
+1. In the **Service role** dropdown menu, select the IAM role that grants Cognito permission to send an SNS notification. Click **Create role** to create or modify the roles associated with your identity pool in the [AWS IAM Console](https://console.aws.amazon.com/iam/home).
+
+1. Select a platform application, and then click **Save Changes**.
+
+1. Grant SNS Access to Your Application
+
+In the AWS Identity and Access Management console, configure your IAM roles to have full Amazon SNS access, or create a new role that has full Amazon SNS access. The following example role trust policy grants Amazon Cognito Sync a limited ability to assume an IAM role. Amazon Cognito Sync can only assume the role when it does so on behalf of both the identity pool in the `aws:SourceArn` condition and the account in the `aws:SourceAccount` condition.
+
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "cognito-sync.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "AWS:SourceAccount": "`123456789012`"
- },
- "ArnLike": {
- "AWS:SourceArn": "arn:aws:cognito-identity:`us-east-1`:`123456789012`:identitypool/`us-east-1`:`177a950c-2c08-43f0-9983-28727EXAMPLE`"
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cognito-sync.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceAccount": "{{123456789012}}"
+                },
+                "ArnLike": {
+                    "AWS:SourceArn": "arn:aws:cognito-identity:{{us-east-1}}:{{123456789012}}:identitypool/{{us-east-1}}:{{177a950c-2c08-43f0-9983-28727EXAMPLE}}"
+                }
+            }
+        }
+    ]
+}
 ```
 
-To learn more about IAM roles, see [Roles (Delegation and
-Federation)](../../../IAM/latest/UserGuide/WorkingWithRoles.md "../../../IAM/latest/UserGuide/WorkingWithRoles.md").
+------
+
+To learn more about IAM roles, see [Roles (Delegation and Federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html).
 
 ## Use push sync in your app: Android
+<a name="push-sync-1.android"></a>
 
-Your application will need to import the Google Play services. You can download the
-latest version of the Google Play SDK via the [Android SDK
-manager](http://developer.android.com/tools/help/sdk-manager.html "http://developer.android.com/tools/help/sdk-manager.html"). Follow the Android documentation on [Android Implementation](https://developers.google.com/instance-id/guides/android-implementation "https://developers.google.com/instance-id/guides/android-implementation")
-to register your app and receive a registration ID from GCM. Once you have the registration
-ID, you need to register the device with Amazon Cognito, as shown in the snippet below:
+Your application will need to import the Google Play services. You can download the latest version of the Google Play SDK via the [Android SDK manager](http://developer.android.com/tools/help/sdk-manager.html). Follow the Android documentation on [Android Implementation](https://developers.google.com/instance-id/guides/android-implementation) to register your app and receive a registration ID from GCM. Once you have the registration ID, you need to register the device with Amazon Cognito, as shown in the snippet below:
 
 ```
 String registrationId = "MY_GCM_REGISTRATION_ID";
@@ -115,9 +101,7 @@ if (client.isDeviceRegistered()) {
 }
 ```
 
-To stop receiving push notifications from a dataset, simply call the unsubscribe method.
-To subscribe to all datasets (or a specific subset) in the `CognitoSyncManager`
-object, use `subscribeAll()`:
+To stop receiving push notifications from a dataset, simply call the unsubscribe method. To subscribe to all datasets (or a specific subset) in the `CognitoSyncManager` object, use `subscribeAll()`:
 
 ```
 if (client.isDeviceRegistered()) {
@@ -131,8 +115,7 @@ if (client.isDeviceRegistered()) {
 }
 ```
 
-In your implementation of the [Android BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html "http://developer.android.com/reference/android/content/BroadcastReceiver.html") object, you can check the latest version of the
-modified dataset and decide if your app needs to synchronize again:
+In your implementation of the [Android BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) object, you can check the latest version of the modified dataset and decide if your app needs to synchronize again:
 
 ```
 @Override
@@ -167,25 +150,16 @@ public void onReceive(Context context, Intent intent) {
 ```
 
 The following keys are available in the push notification payload:
-
-- `source`: cognito-sync. This can serve as a differentiating factor
-  between notifications.
-- `identityPoolId`: The identity pool ID. This can be used for validation
-  or additional information, though it's not integral from the receiver's point of
-  view.
-- `identityId`: The identity ID within the pool.
-- `datasetName`: The name of the dataset that was updated. This is
-  available for the sake of the openOrCreateDataset call.
-- `syncCount`: The sync count for the remote dataset. You can use this as
-  a way to make sure that the local dataset is out of date, and that the incoming
-  synchronization is new.
++ `source`: cognito-sync. This can serve as a differentiating factor between notifications.
++ `identityPoolId`: The identity pool ID. This can be used for validation or additional information, though it's not integral from the receiver's point of view.
++ `identityId`: The identity ID within the pool.
++ `datasetName`: The name of the dataset that was updated. This is available for the sake of the openOrCreateDataset call.
++ `syncCount`: The sync count for the remote dataset. You can use this as a way to make sure that the local dataset is out of date, and that the incoming synchronization is new.
 
 ## Use push sync in your app: iOS - Objective-C
+<a name="push-sync-1.ios-objc"></a>
 
-To obtain a device token for your app, follow the Apple documentation on Registering for
-Remote Notifications. Once you've received the device token as an NSData object from APNs,
-you'll need to register the device with Amazon Cognito using the `registerDevice:` method
-of the sync client, as shown below:
+To obtain a device token for your app, follow the Apple documentation on Registering for Remote Notifications. Once you've received the device token as an NSData object from APNs, you'll need to register the device with Amazon Cognito using the `registerDevice:` method of the sync client, as shown below:
 
 ```
 AWSCognito *syncClient = [AWSCognito defaultCognito];
@@ -200,9 +174,7 @@ AWSCognito *syncClient = [AWSCognito defaultCognito];
     ];
 ```
 
-In debug mode, your device will register with the APNs sandbox; in release mode, it will
-register with APNs. To receive updates from a particular dataset, use the
-`subscribe` method:
+In debug mode, your device will register with the APNs sandbox; in release mode, it will register with APNs. To receive updates from a particular dataset, use the `subscribe` method:
 
 ```
 [[[syncClient openOrCreateDataset:@"MyDataset"] subscribe] continueWithBlock:^id(AWSTask *task) {
@@ -216,8 +188,7 @@ register with APNs. To receive updates from a particular dataset, use the
     ];
 ```
 
-To stop receiving push notifications from a dataset, simply call the
-`unsubscribe` method:
+To stop receiving push notifications from a dataset, simply call the `unsubscribe` method:
 
 ```
 [[[syncClient openOrCreateDataset:@”MyDataset”] unsubscribe] continueWithBlock:^id(AWSTask *task) {
@@ -231,8 +202,7 @@ To stop receiving push notifications from a dataset, simply call the
     ];
 ```
 
-To subscribe to all datasets in the `AWSCognito` object, call
-`subscribeAll`:
+To subscribe to all datasets in the `AWSCognito` object, call `subscribeAll`:
 
 ```
 [[syncClient subscribeAll] continueWithBlock:^id(AWSTask *task) {
@@ -246,11 +216,9 @@ To subscribe to all datasets in the `AWSCognito` object, call
     ];
 ```
 
-Before calling `subscribeAll`, be sure to synchronize at least once on each
-dataset, so that the datasets exist on the server.
+Before calling `subscribeAll`, be sure to synchronize at least once on each dataset, so that the datasets exist on the server.
 
-To react to push notifications, you need to implement the
-`didReceiveRemoteNotification` method in your app delegate:
+To react to push notifications, you need to implement the `didReceiveRemoteNotification` method in your app delegate:
 
 ```
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
@@ -259,9 +227,7 @@ To react to push notifications, you need to implement the
     }
 ```
 
-If you post a notification using notification handler, you can then respond to the
-notification elsewhere in the application where you have a handle to your dataset. If you
-subscribe to the notification like this ...
+If you post a notification using notification handler, you can then respond to the notification elsewhere in the application where you have a handle to your dataset. If you subscribe to the notification like this ...
 
 ```
 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceivePushSync:)
@@ -288,26 +254,16 @@ subscribe to the notification like this ...
 ```
 
 The following keys are available in the push notification payload:
-
-- `source`: cognito-sync. This can serve as a differentiating factor
-  between notifications.
-- `identityPoolId`: The identity pool ID. This can be used for validation
-  or additional information, though it's not integral from the receiver's point of
-  view.
-- `identityId`: The identity ID within the pool.
-- `datasetName`: The name of the dataset that was updated. This is
-  available for the sake of the `openOrCreateDataset` call.
-- `syncCount`: The sync count for the remote dataset. You can use this as a
-  way to make sure that the local dataset is out of date, and that the incoming
-  synchronization is new.
++ `source`: cognito-sync. This can serve as a differentiating factor between notifications.
++ `identityPoolId`: The identity pool ID. This can be used for validation or additional information, though it's not integral from the receiver's point of view.
++ `identityId`: The identity ID within the pool.
++ `datasetName`: The name of the dataset that was updated. This is available for the sake of the `openOrCreateDataset` call.
++ `syncCount`: The sync count for the remote dataset. You can use this as a way to make sure that the local dataset is out of date, and that the incoming synchronization is new.
 
 ## Use push sync in your app: iOS - Swift
+<a name="push-sync-1.ios-swift"></a>
 
-To obtain a device token for your app, follow the Apple documentation on Registering for
-Remote Notifications. Once you've received the device token as an NSData object from APNs,
-you'll need to register the device with Amazon Cognito using the registerDevice: method of the sync
-client, as shown
-below:
+To obtain a device token for your app, follow the Apple documentation on Registering for Remote Notifications. Once you've received the device token as an NSData object from APNs, you'll need to register the device with Amazon Cognito using the registerDevice: method of the sync client, as shown below:
 
 ```
 let syncClient = AWSCognito.default()
@@ -320,12 +276,9 @@ syncClient.registerDevice(devToken).continueWith(block: { (task: AWSTask!) -> An
     }
     return task
 })
-
 ```
 
-In debug mode, your device will register with the APNs sandbox; in release mode, it will
-register with APNs. To receive updates from a particular dataset, use the
-`subscribe` method:
+In debug mode, your device will register with the APNs sandbox; in release mode, it will register with APNs. To receive updates from a particular dataset, use the `subscribe` method:
 
 ```
 syncClient.openOrCreateDataset("MyDataset").subscribe().continueWith(block: { (task: AWSTask!) -> AnyObject! in
@@ -337,11 +290,9 @@ syncClient.openOrCreateDataset("MyDataset").subscribe().continueWith(block: { (t
   }
   return task
 })
-
 ```
 
-To stop receiving push notifications from a dataset, call the `unsubscribe`
-method:
+To stop receiving push notifications from a dataset, call the `unsubscribe` method:
 
 ```
 syncClient.openOrCreateDataset("MyDataset").unsubscribe().continueWith(block: { (task: AWSTask!) -> AnyObject! in
@@ -353,11 +304,9 @@ syncClient.openOrCreateDataset("MyDataset").unsubscribe().continueWith(block: { 
   }
   return task
 })
-
 ```
 
-To subscribe to all datasets in the `AWSCognito` object, call
-`subscribeAll`:
+To subscribe to all datasets in the `AWSCognito` object, call `subscribeAll`:
 
 ```
 syncClient.openOrCreateDataset("MyDataset").subscribeAll().continueWith(block: { (task: AWSTask!) -> AnyObject! in
@@ -369,14 +318,11 @@ syncClient.openOrCreateDataset("MyDataset").subscribeAll().continueWith(block: {
   }
   return task
 })
-
 ```
 
-Before calling `subscribeAll`, be sure to synchronize at least once on each
-dataset, so that the datasets exist on the server.
+Before calling `subscribeAll`, be sure to synchronize at least once on each dataset, so that the datasets exist on the server.
 
-To react to push notifications, you need to implement the
-`didReceiveRemoteNotification` method in your app delegate:
+To react to push notifications, you need to implement the `didReceiveRemoteNotification` method in your app delegate:
 
 ```
 func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
@@ -385,9 +331,7 @@ func application(application: UIApplication, didReceiveRemoteNotification userIn
 })
 ```
 
-If you post a notification using notification handler, you can then respond to the
-notification elsewhere in the application where you have a handle to your dataset. If you
-subscribe to the notification like this ...
+If you post a notification using notification handler, you can then respond to the notification elsewhere in the application where you have a handle to your dataset. If you subscribe to the notification like this ...
 
 ```
 NSNotificationCenter.defaultCenter().addObserver(observer:self,
@@ -417,15 +361,8 @@ func didReceivePushSync(notification: NSNotification) {
 ```
 
 The following keys are available in the push notification payload:
-
-- `source`: cognito-sync. This can serve as a differentiating factor
-  between notifications.
-- `identityPoolId`: The identity pool ID. This can be used for validation
-  or additional information, though it's not integral from the receiver's point of
-  view.
-- `identityId`: The identity ID within the pool.
-- `datasetName`: The name of the dataset that was updated. This is
-  available for the sake of the `openOrCreateDataset` call.
-- `syncCount`: The sync count for the remote dataset. You can use this as
-  a way to make sure that the local dataset is out of date, and that the incoming
-  synchronization is new.
++ `source`: cognito-sync. This can serve as a differentiating factor between notifications.
++ `identityPoolId`: The identity pool ID. This can be used for validation or additional information, though it's not integral from the receiver's point of view.
++ `identityId`: The identity ID within the pool.
++ `datasetName`: The name of the dataset that was updated. This is available for the sake of the `openOrCreateDataset` call.
++ `syncCount`: The sync count for the remote dataset. You can use this as a way to make sure that the local dataset is out of date, and that the incoming synchronization is new.

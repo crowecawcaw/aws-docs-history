@@ -1,21 +1,18 @@
+
+
 # Use `VerifySoftwareToken` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_VerifySoftwareToken_section"></a>
 
 The following code examples show how to use `VerifySoftwareToken`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
 
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -36,24 +33,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return verifyResponse.Status;
     }
-
-
-
 ```
++  For API details, see [VerifySoftwareToken](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/VerifySoftwareToken) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [VerifySoftwareToken](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -80,52 +67,36 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << std::endl;
             return false;
         }
+```
++  For API details, see [VerifySoftwareToken](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/VerifySoftwareToken) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To confirm registration of a TOTP authenticator**  
+The following `verify-software-token` example completes TOTP registration for the current user.  
 
 ```
-
-- For API details, see
-  [VerifySoftwareToken](../../../goto/SdkForCpp/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To confirm registration of a TOTP authenticator**
-
-The following `verify-software-token` example completes TOTP registration for the current user.
-
+aws cognito-idp verify-software-token \
+    --access-token {{eyJra456defEXAMPLE}} \
+    --user-code {{123456}}
 ```
-`aws cognito-idp verify-software-token \
- --access-token `eyJra456defEXAMPLE` \
- --user-code `123456``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "Status": "SUCCESS"
 }
 ```
+For more information, see [Adding MFA to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html) in the *Amazon Cognito Developer Guide*.  
++  For API details, see [VerifySoftwareToken](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/verify-software-token.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Adding MFA to a user pool](user-pool-settings-mfa.md "user-pool-settings-mfa.md") in the _Amazon Cognito Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [VerifySoftwareToken](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/verify-software-token.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/verify-software-token.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
     // Verify the TOTP and register for MFA.
@@ -144,23 +115,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [VerifySoftwareToken](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/VerifySoftwareToken) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [VerifySoftwareToken](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 const verifySoftwareToken = (totp) => {
@@ -182,23 +144,14 @@ const verifySoftwareToken = (totp) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [VerifySoftwareToken](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/VerifySoftwareTokenCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [VerifySoftwareToken](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/VerifySoftwareTokenCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/VerifySoftwareTokenCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
 ```
 // Verify the TOTP and register for MFA.
@@ -217,23 +170,14 @@ suspend fun verifyTOTP(
         println("The status of the token is ${verifyResponse.status}")
     }
 }
-
-
 ```
++  For API details, see [VerifySoftwareToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [VerifySoftwareToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -275,24 +219,14 @@ class CognitoIdentityProviderWrapper:
         else:
             response.pop("ResponseMetadata", None)
             return response
-
-
-
 ```
++  For API details, see [VerifySoftwareToken](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [VerifySoftwareToken](../../../goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples). 
 
 ```
     TRY.
@@ -315,23 +249,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cgpenbsoftwaretokmf00 INTO DATA(lo_enabled_ex).
         MESSAGE 'Software token MFA is already enabled.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [VerifySoftwareToken](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [VerifySoftwareToken](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
 ```
 import AWSClientRuntime
@@ -339,7 +264,7 @@ import AWSCognitoIdentityProvider
 
     /// Confirm that the user's TOTP authenticator is configured correctly by
     /// sending a code to it to check that it matches successfully.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The `CongnitoIdentityProviderClient` to use.
     ///   - session: An authentication session previously returned by an
@@ -377,14 +302,9 @@ import AWSCognitoIdentityProvider
             return
         }
     }
-
-
 ```
++  For API details, see [VerifySoftwareToken](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/verifysoftwaretoken(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [VerifySoftwareToken](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/verifysoftwaretoken(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/verifysoftwaretoken(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

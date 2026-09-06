@@ -1,23 +1,22 @@
+
+
 # Use `ListIdentityPools` with an AWS SDK or CLI
+<a name="cognito-identity_example_cognito-identity_ListIdentityPools_section"></a>
 
 The following code examples show how to use `ListIdentityPools`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list identity pools**
-
-This example lists identity pools. There s a maximum of 20 identities listed.
-
-Command:
+**AWS CLI**  
+**To list identity pools**  
+This example lists identity pools. There s a maximum of 20 identities listed.  
+Command:  
 
 ```
-`aws cognito-identity list-identity-pools --max-results `20``
-
+aws cognito-identity list-identity-pools --max-results {{20}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -37,20 +36,13 @@ Output:
   ]
 }
 ```
++  For API details, see [ListIdentityPools](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/list-identity-pools.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListIdentityPools](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/list-identity-pools.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/list-identity-pools.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -95,26 +87,19 @@ public class ListIdentityPools {
         }
     }
 }
-
-
 ```
++  For API details, see [ListIdentityPools](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-identity-2014-06-30/ListIdentityPools) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListIdentityPools](../../../goto/SdkForJavaV2/cognito-identity-2014-06-30/ListIdentityPools.md "../../../goto/SdkForJavaV2/cognito-identity-2014-06-30/ListIdentityPools.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Retrieves a list of existing Identity Pools.**
+**Tools for PowerShell V4**  
+**Example 1: Retrieves a list of existing Identity Pools.**  
 
 ```
 Get-CGIIdentityPoolList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 IdentityPoolId                                                     IdentityPoolName
@@ -123,21 +108,15 @@ us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1                     CommonTests1
 us-east-1:118d242d-204e-4b88-b803-EXAMPLEGUID2                     Tests2
 us-east-1:15d49393-ab16-431a-b26e-EXAMPLEGUID3                     CommonTests13
 ```
++  For API details, see [ListIdentityPools](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListIdentityPools](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Retrieves a list of existing Identity Pools.**
+**Tools for PowerShell V5**  
+**Example 1: Retrieves a list of existing Identity Pools.**  
 
 ```
 Get-CGIIdentityPoolList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 IdentityPoolId                                                     IdentityPoolName
@@ -146,20 +125,13 @@ us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1                     CommonTests1
 us-east-1:118d242d-204e-4b88-b803-EXAMPLEGUID2                     Tests2
 us-east-1:15d49393-ab16-431a-b26e-EXAMPLEGUID3                     CommonTests13
 ```
++  For API details, see [ListIdentityPools](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListIdentityPools](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity/FindOrCreateIdentityPool#code-examples). 
 
 ```
 import AWSCognitoIdentity
@@ -185,7 +157,7 @@ import AWSCognitoIdentity
                     print("ERROR: listIdentityPoolsPaginated returned nil contents.")
                     continue
                 }
-
+                
                 /// Read pages of identity pools from Cognito until one is found
                 /// whose name matches the one specified in the `name` parameter.
                 /// Return the matching pool's ID.
@@ -200,15 +172,11 @@ import AWSCognitoIdentity
             print("ERROR: getIdentityPoolID:", dump(error))
             throw error
         }
-
+        
         return nil
     }
-
-
-
 ```
-
-Get the ID of an existing identity pool or create it if it doesn't already exist.
+Get the ID of an existing identity pool or create it if it doesn't already exist.  
 
 ```
 import AWSCognitoIdentity
@@ -224,28 +192,22 @@ import AWSCognitoIdentity
     ///
     public func getOrCreateIdentityPoolID(name: String) async throws -> String? {
         // See if the pool already exists. If it doesn't, create it.
-
+        
         do {
             guard let poolId = try await getIdentityPoolID(name: name) else {
                 return try await createIdentityPool(name: name)
             }
-
+            
             return poolId
         } catch {
             print("ERROR: getOrCreateIdentityPoolID:", dump(error))
             throw error
         }
     }
-
-
-
 ```
++  For more information, see [AWS SDK for Swift developer guide](https://docs.aws.amazon.com/sdk-for-swift/latest/developer-guide/getting-started.html). 
++  For API details, see [ListIdentityPools](https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/listidentitypools(input:)) in *AWS SDK for Swift API reference*. 
 
-- For more information, see [AWS SDK for Swift developer guide](../../../sdk-for-swift/latest/developer-guide/getting-started.md "../../../sdk-for-swift/latest/developer-guide/getting-started.md").
-- For API details, see
-  [ListIdentityPools](<https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/listidentitypools(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentity/latest/documentation/awscognitoidentity/cognitoidentityclient/listidentitypools(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

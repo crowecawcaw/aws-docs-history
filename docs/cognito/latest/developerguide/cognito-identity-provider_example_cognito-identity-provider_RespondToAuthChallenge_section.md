@@ -1,30 +1,28 @@
+
+
 # Use `RespondToAuthChallenge` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_RespondToAuthChallenge_section"></a>
 
 The following code examples show how to use `RespondToAuthChallenge`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
 
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To respond to a NEW\_PASSWORD\_REQUIRED challenge**
-
-The following `respond-to-auth-challenge` example responds to a NEW\_PASSWORD\_REQUIRED challenge that initiate-auth returned. It sets a password for the user `jane@example.com`.
+**AWS CLI**  
+**Example 1: To respond to a NEW\_PASSWORD\_REQUIRED challenge**  
+The following `respond-to-auth-challenge` example responds to a NEW\_PASSWORD\_REQUIRED challenge that initiate-auth returned. It sets a password for the user `jane@example.com`.  
 
 ```
-`aws cognito-idp respond-to-auth-challenge \
- --client-id `1example23456789` \
- --challenge-name `NEW_PASSWORD_REQUIRED` \
- --challenge-responses `USERNAME=jane@example.com,NEW_PASSWORD=[Password]` \
- --session `AYABeEv5HklEXAMPLE``
-
+aws cognito-idp respond-to-auth-challenge \
+    --client-id {{1example23456789}} \
+    --challenge-name {{NEW_PASSWORD_REQUIRED}} \
+    --challenge-responses {{USERNAME=jane@example.com,NEW_PASSWORD=[Password]}} \
+    --session {{AYABeEv5HklEXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -42,23 +40,18 @@ Output:
     }
 }
 ```
-
-For more information, see [Authentication](authentication.md "authentication.md") in the _Amazon Cognito Developer Guide_.
-
-**Example 2: To respond to a SELECT\_MFA\_TYPE challenge**
-
-The following `respond-to-auth-challenge` example chooses TOTP MFA as the MFA option for the current user. The user was prompted to select an MFA type and will next be prompted to enter their MFA code.
+For more information, see [Authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html) in the *Amazon Cognito Developer Guide*.  
+**Example 2: To respond to a SELECT\_MFA\_TYPE challenge**  
+The following `respond-to-auth-challenge` example chooses TOTP MFA as the MFA option for the current user. The user was prompted to select an MFA type and will next be prompted to enter their MFA code.  
 
 ```
-`aws cognito-idp respond-to-auth-challenge \
- --client-id `1example23456789`
- --session `AYABeEv5HklEXAMPLE`
- --challenge-name `SELECT_MFA_TYPE`
- --challenge-responses `USERNAME=testuser,ANSWER=SOFTWARE_TOKEN_MFA``
-
+aws cognito-idp respond-to-auth-challenge \
+    --client-id {{1example23456789}}
+    --session {{AYABeEv5HklEXAMPLE}}
+    --challenge-name {{SELECT_MFA_TYPE}}
+    --challenge-responses {{USERNAME=testuser,ANSWER=SOFTWARE_TOKEN_MFA}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -69,23 +62,18 @@ Output:
     }
 }
 ```
-
-For more information, see [Adding MFA](user-pool-settings-mfa.md "user-pool-settings-mfa.md") in the _Amazon Cognito Developer Guide_.
-
-**Example 3: To respond to a SOFTWARE\_TOKEN\_MFA challenge**
-
-The following `respond-to-auth-challenge` example provides a TOTP MFA code and completes sign-in.
+For more information, see [Adding MFA](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html) in the *Amazon Cognito Developer Guide*.  
+**Example 3: To respond to a SOFTWARE\_TOKEN\_MFA challenge**  
+The following `respond-to-auth-challenge` example provides a TOTP MFA code and completes sign-in.  
 
 ```
-`aws cognito-idp respond-to-auth-challenge \
- --client-id `1example23456789` \
- --session `AYABeEv5HklEXAMPLE` \
- --challenge-name `SOFTWARE_TOKEN_MFA` \
- --challenge-responses `USERNAME=testuser,SOFTWARE_TOKEN_MFA_CODE=123456``
-
+aws cognito-idp respond-to-auth-challenge \
+    --client-id {{1example23456789}} \
+    --session {{AYABeEv5HklEXAMPLE}} \
+    --challenge-name {{SOFTWARE_TOKEN_MFA}} \
+    --challenge-responses {{USERNAME=testuser,SOFTWARE_TOKEN_MFA_CODE=123456}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -102,22 +90,14 @@ Output:
     }
 }
 ```
+For more information, see [Adding MFA](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html) in the *Amazon Cognito Developer Guide*.  
++  For API details, see [RespondToAuthChallenge](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/respond-to-auth-challenge.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Adding MFA](user-pool-settings-mfa.md "user-pool-settings-mfa.md") in the _Amazon Cognito Developer Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [RespondToAuthChallenge](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/respond-to-auth-challenge.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/respond-to-auth-challenge.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 const respondToAuthChallenge = ({
@@ -142,25 +122,15 @@ const respondToAuthChallenge = ({
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [RespondToAuthChallenge](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/RespondToAuthChallengeCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [RespondToAuthChallenge](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/RespondToAuthChallengeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/RespondToAuthChallengeCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
-
-Sign in with a tracked device. To complete sign-in, the client must respond correctly to Secure Remote Password (SRP) challenges.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
+Sign in with a tracked device. To complete sign-in, the client must respond correctly to Secure Remote Password (SRP) challenges.  
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -266,15 +236,9 @@ class CognitoIdentityProviderWrapper:
             raise
         else:
             return auth_tokens
-
-
-
 ```
++  For API details, see [RespondToAuthChallenge](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/RespondToAuthChallenge) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [RespondToAuthChallenge](../../../goto/boto3/cognito-idp-2016-04-18/RespondToAuthChallenge.md "../../../goto/boto3/cognito-idp-2016-04-18/RespondToAuthChallenge.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

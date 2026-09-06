@@ -1,31 +1,29 @@
+
+
 # Use `AdminCreateUser` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section"></a>
 
 The following code examples show how to use `AdminCreateUser`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md) 
++  [Write custom activity data with a Lambda function after Amazon Cognito user authentication](cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md) 
 
-- [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md "cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md")
-- [Write custom activity data with a Lambda function after Amazon Cognito user authentication](cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md "cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create a user**
-
-The following `admin-create-user` example creates a user with the specified settings email address and phone number.
+**AWS CLI**  
+**To create a user**  
+The following `admin-create-user` example creates a user with the specified settings email address and phone number.  
 
 ```
-`aws cognito-idp admin-create-user \
- --user-pool-id `us-west-2_aaaaaaaaa` \
- --username `diego` \
- --user-attributes `Name=email,Value=diego@example.com` Name=phone_number,Value="+15555551212" \
- --message-action `SUPPRESS``
-
+aws cognito-idp admin-create-user \
+    --user-pool-id {{us-west-2_aaaaaaaaa}} \
+    --username {{diego}} \
+    --user-attributes {{Name=email,Value=diego@example.com}} Name=phone_number,Value="+15555551212" \
+    --message-action {{SUPPRESS}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -52,23 +50,15 @@ Output:
     }
 }
 ```
++  For API details, see [AdminCreateUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-create-user.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [AdminCreateUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-create-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-create-user.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -105,15 +95,9 @@ func (actor CognitoActions) AdminCreateUser(ctx context.Context, userPoolId stri
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [AdminCreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminCreateUser) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [AdminCreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminCreateUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminCreateUser")
-  in _AWS SDK for Go API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

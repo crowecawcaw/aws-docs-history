@@ -1,113 +1,80 @@
+
+
 # Accessing AWS services using an identity pool after sign-in
+<a name="amazon-cognito-integrating-user-pools-with-identity-pools"></a>
 
-After your users sign in with a user pool, they can access AWS services with temporary
-API credentials that are issued from an identity pool.
+After your users sign in with a user pool, they can access AWS services with temporary API credentials that are issued from an identity pool.
 
-Your web or mobile app receives tokens from a user pool. When you configure your user pool
-as an identity provider to your identity pool, the identity pool exchanges tokens for
-temporary AWS credentials. These credentials can be scoped to IAM roles and their policies
-that give users access to a limited set of AWS resources. For more information, see [Identity pools authentication flow](authentication-flow.md "authentication-flow.md").
+Your web or mobile app receives tokens from a user pool. When you configure your user pool as an identity provider to your identity pool, the identity pool exchanges tokens for temporary AWS credentials. These credentials can be scoped to IAM roles and their policies that give users access to a limited set of AWS resources. For more information, see [Identity pools authentication flow](authentication-flow.md).
 
-The following diagram shows how an application signs in with a user pool, retrieves
-identity pool credentials, and requests an asset from an AWS service.
+The following diagram shows how an application signs in with a user pool, retrieves identity pool credentials, and requests an asset from an AWS service.
 
-![A flow diagram of an application that authenticates with an Amazon Cognito user pool and authorizes access to AWS resources with an identity pool.](images/access-services-identity-pool.png)
+![A flow diagram of an application that authenticates with an Amazon Cognito user pool and authorizes access to AWS resources with an identity pool.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/access-services-identity-pool.png)
+
+
 You can use identity pool credentials to:
++ Make fine-grained authorization requests to Amazon Verified Permissions with your user's own credentials.
++ Connect to an Amazon API Gateway REST API or an AWS AppSync GraphQL API that authorizes connections with IAM.
++ Connect to a database backend like Amazon DynamoDB or Amazon RDS that authorizes connections with IAM.
++ Retrieve application assets from an Amazon S3 bucket.
++ Initiate a session with an Amazon WorkSpaces virtual desktop.
 
-- Make fine-grained authorization requests to Amazon Verified Permissions with your user's own
-  credentials.
-- Connect to an Amazon API Gateway REST API or an AWS AppSync GraphQL API that authorizes
-  connections with IAM.
-- Connect to a database backend like Amazon DynamoDB or Amazon RDS that authorizes connections with
-  IAM.
-- Retrieve application assets from an Amazon S3 bucket.
-- Initiate a session with an Amazon WorkSpaces virtual desktop.
-  Identity pools don't operate exclusively within an authenticated session with a user pool.
-  They also accept authentication directly from third-party identity providers and can generate
-  credentials for unauthenticated guest users.
+Identity pools don't operate exclusively within an authenticated session with a user pool. They also accept authentication directly from third-party identity providers and can generate credentials for unauthenticated guest users.
 
-For more information about using identity pools together with user pool groups to control
-access to your AWS resources, see [Adding groups to a user pool](cognito-user-pools-user-groups.md "cognito-user-pools-user-groups.md") and [Using role-based access control](role-based-access-control.md "role-based-access-control.md"). Also, for
-more information about identity pools and AWS Identity and Access Management, see [Identity pools authentication flow](authentication-flow.md "authentication-flow.md").
+For more information about using identity pools together with user pool groups to control access to your AWS resources, see [Adding groups to a user pool](cognito-user-pools-user-groups.md) and [Using role-based access control](role-based-access-control.md). Also, for more information about identity pools and AWS Identity and Access Management, see [Identity pools authentication flow](authentication-flow.md).
 
 ## Setting up a user pool with the AWS Management Console
+<a name="amazon-cognito-integrating-user-pools-with-identity-pools-setting-up"></a>
 
-Create an Amazon Cognito user pool and make a note of the **User Pool ID** and
-**App Client ID** for each of your client apps. For more information
-about creating user pools, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md").
+Create an Amazon Cognito user pool and make a note of the **User Pool ID** and **App Client ID** for each of your client apps. For more information about creating user pools, see [Getting started with user pools](getting-started-user-pools.md).
 
 ## Setting up an identity pool with the AWS Management Console
+<a name="amazon-cognito-integrating-user-pools-with-identity-pools-configuring"></a>
 
-The following procedure describes how to use the AWS Management Console to integrate an identity pool
-with one or more user pools and client apps.
+The following procedure describes how to use the AWS Management Console to integrate an identity pool with one or more user pools and client apps.
 
-###### To add an Amazon Cognito user pools identity provider (IdP)
+**To add an Amazon Cognito user pools identity provider (IdP)**
 
-1. Choose **Identity pools** from the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). Select an identity
-   pool.
-2. Choose the **User access** tab.
-3. Select **Add identity provider**.
-4. Choose **Amazon Cognito user pool**.
-5. Enter a **User pool ID** and an **App client
-   ID**.
-6. To set the role that Amazon Cognito requests when it issues credentials to users who have
-   authenticated with this provider, configure **Role settings**.
+1. Choose **Identity pools** from the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home). Select an identity pool.
 
-   1. You can give users from that IdP the **Default role** that you
-      set up when you configured your **Authenticated role**, or you can
-      **Choose role with rules**. With an Amazon Cognito user pool IdP, you can
-      also **Choose role with preferred\_role claim in tokens**. For more
-      information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+1. Choose the **User access** tab.
 
-      1. If you chose **Choose role with rules**, enter the source
-         **Claim** from your user's authentication, the
-         **Operator** that you want to use to compare the claim to the
-         rule, the **Value** that will cause a match to this role
-         choice, and the **Role** that you want to assign when the
-         **Role assignment** matches. Select **Add
-         another** to create an additional rule based on a different
-         condition.
-      2. If you chose **Choose role with preferred\_role claim in
-         tokens**, Amazon Cognito issues credentials for the role in your user's
-         `cognito:preferred_role` claim. If no preferred role claim is
-         present, Amazon Cognito issues credentials based on your **Role
-         resolution**.
+1. Select **Add identity provider**.
 
-   2. Choose a **Role resolution**. When your user's claims don't
-      match your rules, you can deny credentials or issue credentials for your
-      **Authenticated role**.
+1. Choose **Amazon Cognito user pool**.
 
-7. To change the principal tags that Amazon Cognito assigns when it issues credentials to users
-   who have authenticated with this provider, configure **Attributes for access
-   control**.
+1. Enter a **User pool ID** and an **App client ID**.
 
-   - To apply no principal tags, choose **Inactive**.
-   - To apply principal tags based on `sub` and `aud` claims,
-     choose **Use default mappings**.
-   - To create your own custom schema of attributes to principal tags, choose
-     **Use custom mappings**. Then enter a **Tag
-     key** that you want to source from each **Claim** that
-     you want to represent in a tag.
+1. To set the role that Amazon Cognito requests when it issues credentials to users who have authenticated with this provider, configure **Role settings**.
 
-8. Select **Save changes**.
+   1. You can give users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**. With an Amazon Cognito user pool IdP, you can also **Choose role with preferred\_role claim in tokens**. For more information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups).
+
+      1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to use to compare the claim to the rule, the **Value** that will cause a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
+
+      1. If you chose **Choose role with preferred\_role claim in tokens**, Amazon Cognito issues credentials for the role in your user's `cognito:preferred_role` claim. If no preferred role claim is present, Amazon Cognito issues credentials based on your **Role resolution**.
+
+   1. Choose a **Role resolution**. When your user's claims don't match your rules, you can deny credentials or issue credentials for your **Authenticated role**.
+
+1. To change the principal tags that Amazon Cognito assigns when it issues credentials to users who have authenticated with this provider, configure **Attributes for access control**.
+   + To apply no principal tags, choose **Inactive**.
+   + To apply principal tags based on `sub` and `aud` claims, choose **Use default mappings**.
+   + To create your own custom schema of attributes to principal tags, choose **Use custom mappings**. Then enter a **Tag key** that you want to source from each **Claim** that you want to represent in a tag.
+
+1. Select **Save changes**.
 
 ## Integrating a user pool with an identity pool
+<a name="amazon-cognito-integrating-user-pools-with-identity-pools-using"></a>
 
-After your app user is authenticated, add that user's identity token to the logins map
-in the credentials provider. The provider name will depend on your Amazon Cognito user pool ID. It
-will have the following structure:
+After your app user is authenticated, add that user's identity token to the logins map in the credentials provider. The provider name will depend on your Amazon Cognito user pool ID. It will have the following structure:
 
 ```
-cognito-idp.`<region>`.amazonaws.com/`<YOUR_USER_POOL_ID>`
+cognito-idp.{{<region>}}.amazonaws.com/{{<YOUR_USER_POOL_ID>}}
 ```
 
-You can derive the value for `<region>` from the
-**User Pool ID**. For example, if the user pool ID is
-`us-east-1_EXAMPLE1`, then the `<region>` is
-`us-east-1`. If the user pool ID is `us-west-2_EXAMPLE2`, then the
-`<region>` is `us-west-2`.
+You can derive the value for {{<region>}} from the **User Pool ID**. For example, if the user pool ID is `us-east-1_EXAMPLE1`, then the {{<region>}} is `us-east-1`. If the user pool ID is `us-west-2_EXAMPLE2`, then the {{<region>}} is `us-west-2`.
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 var cognitoUser = userPool.getCurrentUser();
@@ -119,9 +86,9 @@ if (cognitoUser != null) {
 
 			// Add the User's Id Token to the Cognito credentials login map.
 			AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-				IdentityPoolId: '`YOUR_IDENTITY_POOL_ID`',
+				IdentityPoolId: '{{YOUR_IDENTITY_POOL_ID}}',
 				Logins: {
-					'cognito-idp.`<region>`.amazonaws.com/`<YOUR_USER_POOL_ID>`': result.getIdToken().getJwtToken()
+					'cognito-idp.{{<region>}}.amazonaws.com/{{<YOUR_USER_POOL_ID>}}': result.getIdToken().getJwtToken()
 				}
 			});
 		}
@@ -129,7 +96,8 @@ if (cognitoUser != null) {
 }
 ```
 
-Android
+------
+#### [ Android ]
 
 ```
 cognitoUser.getSessionInBackground(new AuthenticationHandler() {
@@ -138,29 +106,33 @@ cognitoUser.getSessionInBackground(new AuthenticationHandler() {
 		String idToken = session.getIdToken().getJWTToken();
 
 		Map<String, String> logins = new HashMap<String, String>();
-		logins.put("cognito-idp.`<region>`.amazonaws.com/`<YOUR_USER_POOL_ID>`", session.getIdToken().getJWTToken());
+		logins.put("cognito-idp.{{<region>}}.amazonaws.com/{{<YOUR_USER_POOL_ID>}}", session.getIdToken().getJWTToken());
 		credentialsProvider.setLogins(logins);
 	}
 
 });
 ```
 
-iOS - objective-C
+------
+#### [ iOS - objective-C ]
 
 ```
 AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:@"`YOUR_CLIENT_ID`"  clientSecret:@"`YOUR_CLIENT_SECRET`" poolId:@"`YOUR_USER_POOL_ID`"];
+AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:@"{{YOUR_CLIENT_ID}}"  clientSecret:@"{{YOUR_CLIENT_SECRET}}" poolId:@"{{YOUR_USER_POOL_ID}}"];
 [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration userPoolConfiguration:userPoolConfiguration forKey:@"UserPool"];
 AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
-AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"`YOUR_IDENTITY_POOL_ID`" identityProviderManager:pool];
+AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"{{YOUR_IDENTITY_POOL_ID}}" identityProviderManager:pool];
 ```
 
-iOS - swift
+------
+#### [ iOS - swift ]
 
 ```
 let serviceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: nil)
-let userPoolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: "`YOUR_CLIENT_ID`", clientSecret: "`YOUR_CLIENT_SECRET`", poolId: "`YOUR_USER_POOL_ID`")
+let userPoolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: "{{YOUR_CLIENT_ID}}", clientSecret: "{{YOUR_CLIENT_SECRET}}", poolId: "{{YOUR_USER_POOL_ID}}")
 AWSCognitoIdentityUserPool.registerCognitoIdentityUserPoolWithConfiguration(serviceConfiguration, userPoolConfiguration: userPoolConfiguration, forKey: "UserPool")
 let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
-let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "`YOUR_IDENTITY_POOL_ID`", identityProviderManager:pool)
+let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "{{YOUR_IDENTITY_POOL_ID}}", identityProviderManager:pool)
 ```
+
+------

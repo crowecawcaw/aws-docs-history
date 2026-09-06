@@ -1,24 +1,21 @@
+
+
 # Use `SignUp` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_SignUp_section"></a>
 
 The following code examples show how to use `SignUp`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md) 
++  [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md) 
++  [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md) 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
 
-- [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md "cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md")
-- [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md "cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md")
-- [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md "cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md")
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -52,24 +49,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _cognitoService.SignUpAsync(signUpRequest);
         return response.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
-
 ```
++  For API details, see [SignUp](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/SignUp) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [SignUp](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/SignUp.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/SignUp.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -105,30 +92,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << std::endl;
             return false;
         }
+```
++  For API details, see [SignUp](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/SignUp) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To sign up a user**  
+This example signs up jane@example.com.  
+Command:  
 
 ```
-
-- For API details, see
-  [SignUp](../../../goto/SdkForCpp/cognito-idp-2016-04-18/SignUp.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/SignUp.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To sign up a user**
-
-This example signs up jane@example.com.
-
-Command:
-
+aws cognito-idp sign-up --client-id {{3n4b5urk1ft4fl3mg5e62d9ado}} --username {{jane@example.com}} --password {{PASSWORD}} --user-attributes Name="email",Value="jane@example.com" Name="name",Value="Jane"
 ```
-`aws cognito-idp sign-up --client-id `3n4b5urk1ft4fl3mg5e62d9ado` --username `jane@example.com` --password `PASSWORD` --user-attributes Name="email",Value="jane@example.com" Name="name",Value="Jane"`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -136,23 +114,15 @@ Output:
   "UserSub": "e04d60a6-45dc-441c-a40b-e25a787d4862"
 }
 ```
++  For API details, see [SignUp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/sign-up.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [SignUp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/sign-up.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/sign-up.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -192,24 +162,14 @@ func (actor CognitoActions) SignUp(ctx context.Context, clientId string, userNam
 	}
 	return confirmed, err
 }
-
-
-
 ```
++  For API details, see [SignUp](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.SignUp) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [SignUp](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.SignUp "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.SignUp")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
     public static void signUp(CognitoIdentityProviderClient identityProviderClient, String clientId, String userName,
@@ -237,23 +197,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [SignUp](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/SignUp) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SignUp](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/SignUp.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/SignUp.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 const signUp = ({ clientId, username, password, email }) => {
@@ -268,23 +219,14 @@ const signUp = ({ clientId, username, password, email }) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [SignUp](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [SignUp](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
 ```
 suspend fun signUp(
@@ -314,23 +256,14 @@ suspend fun signUp(
         println("User has been signed up")
     }
 }
-
-
 ```
++  For API details, see [SignUp](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [SignUp](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -393,31 +326,21 @@ class CognitoIdentityProviderWrapper:
                 )
                 raise
         return confirmed
-
-
-
 ```
++  For API details, see [SignUp](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/SignUp) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SignUp](../../../goto/boto3/cognito-idp-2016-04-18/SignUp.md "../../../goto/boto3/cognito-idp-2016-04-18/SignUp.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
 ```
 import AWSClientRuntime
 import AWSCognitoIdentityProvider
 
     /// Create a new user in a user pool.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The `CognitoIdentityProviderClient` to use.
     ///   - clientId: The ID of the app client to create a user for.
@@ -462,14 +385,9 @@ import AWSCognitoIdentityProvider
 
         return true
     }
-
-
 ```
++  For API details, see [SignUp](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/signup(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [SignUp](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/signup(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/signup(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

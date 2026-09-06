@@ -1,29 +1,25 @@
+
+
 # Use `CreateUserPool` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_CreateUserPool_section"></a>
 
 The following code examples show how to use `CreateUserPool`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md) 
 
-- [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md "cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create a minimally configured user pool**
-
-This example creates a user pool named MyUserPool using default values. There are no required attributes
-and no application clients. MFA and advanced security is disabled.
-
-Command:
+**AWS CLI**  
+**To create a minimally configured user pool**  
+This example creates a user pool named MyUserPool using default values. There are no required attributes and no application clients. MFA and advanced security is disabled.  
+Command:  
 
 ```
-`aws cognito-idp create-user-pool --pool-name `MyUserPool``
-
+aws cognito-idp create-user-pool --pool-name {{MyUserPool}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -265,21 +261,14 @@ Output:
   }
 }
 ```
-
-**To create a user pool with two required attributes**
-
-This example creates a user pool MyUserPool. The pool is configured to accept
-email as a username attribute. It also sets the email source address to a
-validated address using Amazon Simple Email Service.
-
-Command:
+**To create a user pool with two required attributes**  
+This example creates a user pool MyUserPool. The pool is configured to accept email as a username attribute. It also sets the email source address to a validated address using Amazon Simple Email Service.  
+Command:  
 
 ```
-`aws cognito-idp create-user-pool --pool-name `MyUserPool` --username-attributes `"email"` --email-configuration=SourceArn="arn:aws:ses:us-east-1:111111111111:identity/jane@example.com",ReplyToEmailAddress="jane@example.com"`
-
+aws cognito-idp create-user-pool --pool-name {{MyUserPool}} --username-attributes {{"email"}} --email-configuration=SourceArn="arn:aws:ses:us-east-1:111111111111:identity/jane@example.com",ReplyToEmailAddress="jane@example.com"
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -527,20 +516,13 @@ Output:
   }
 }
 ```
++  For API details, see [CreateUserPool](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/create-user-pool.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateUserPool](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/create-user-pool.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/create-user-pool.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -600,14 +582,9 @@ public class CreateUserPool {
         return "";
     }
 }
-
-
 ```
++  For API details, see [CreateUserPool](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/CreateUserPool) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateUserPool](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/CreateUserPool.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/CreateUserPool.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

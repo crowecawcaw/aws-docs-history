@@ -1,22 +1,19 @@
+
+
 # Use `ListUsers` with an AWS SDK or CLI
+<a name="cognito-identity-provider_example_cognito-identity-provider_ListUsers_section"></a>
 
 The following code examples show how to use `ListUsers`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md) 
++  [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md) 
 
-- [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md "cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md")
-- [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md "cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
     /// <summary>
@@ -41,32 +38,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return users;
     }
+```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/ListUsers) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**Example 1: To list users with a server-side filter**  
+The following `list-users` example lists 3 users in the requested user pool whose email addresses begin with `testuser`.  
 
 ```
-
-- For API details, see
-  [ListUsers](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ListUsers.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ListUsers.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To list users with a server-side filter**
-
-The following `list-users` example lists 3 users in the requested user pool whose email addresses begin with `testuser`.
-
+aws cognito-idp list-users \
+    --user-pool-id {{us-west-2_EXAMPLE}} \
+    --filter email^=\"testuser\" \
+    --max-items {{3}}
 ```
-`aws cognito-idp list-users \
- --user-pool-id `us-west-2_EXAMPLE` \
- --filter email^=\"testuser\" \
- --max-items `3``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -126,22 +114,17 @@ Output:
     ]
 }
 ```
-
-For more information, see [Managing and searching for users](how-to-manage-user-accounts.md "how-to-manage-user-accounts.md") in the _Amazon Cognito Developer Guide_.
-
-**Example 2: To list users with a client-side filter**
-
-The following `list-users` example lists the attributes of three users who have an attribute, in this case their email address, that contains the email domain "@example.com". If other attributes contained this string, they would also be displayed. The second user has no attributes that match the query and is excluded from the displayed output, but not from the server response.
+For more information, see [Managing and searching for users](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html) in the *Amazon Cognito Developer Guide*.  
+**Example 2: To list users with a client-side filter**  
+The following `list-users` example lists the attributes of three users who have an attribute, in this case their email address, that contains the email domain "@example.com". If other attributes contained this string, they would also be displayed. The second user has no attributes that match the query and is excluded from the displayed output, but not from the server response.  
 
 ```
-`aws cognito-idp list-users \
- --user-pool-id `us-west-2_EXAMPLE` \
- --max-items `3`
- --query Users\[\*\].Attributes\[\?Value\.contains\(\@\,\'@example.com\'\)\]`
-
+aws cognito-idp list-users \
+    --user-pool-id {{us-west-2_EXAMPLE}} \
+    --max-items {{3}}
+    --query Users\[\*\].Attributes\[\?Value\.contains\(\@\,\'@example.com\'\)\]
 ```
-
-Output:
+Output:  
 
 ```
 [
@@ -160,22 +143,14 @@ Output:
     ]
 ]
 ```
+For more information, see [Managing and searching for users](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html) in the *Amazon Cognito Developer Guide*.  
++  For API details, see [ListUsers](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/list-users.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Managing and searching for users](how-to-manage-user-accounts.md "how-to-manage-user-accounts.md") in the _Amazon Cognito Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ListUsers](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/list-users.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/list-users.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -259,23 +234,14 @@ public class ListUsers {
         }
     }
 }
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUsers) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUsers.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUsers.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 const listUsers = ({ userPoolId }) => {
@@ -287,23 +253,14 @@ const listUsers = ({ userPoolId }) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUsersCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUsersCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUsersCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
 ```
 suspend fun listAllUsers(userPoolId: String) {
@@ -319,23 +276,14 @@ suspend fun listAllUsers(userPoolId: String) {
         }
     }
 }
-
-
 ```
++  For API details, see [ListUsers](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListUsers](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -373,24 +321,14 @@ class CognitoIdentityProviderWrapper:
             raise
         else:
             return users
-
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/ListUsers) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListUsers](../../../goto/boto3/cognito-idp-2016-04-18/ListUsers.md "../../../goto/boto3/cognito-idp-2016-04-18/ListUsers.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cgp#code-examples). 
 
 ```
     TRY.
@@ -408,23 +346,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cgpnotauthorizedex INTO DATA(lo_auth_ex).
         MESSAGE 'Not authorized to list users.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListUsers](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListUsers](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
 
 ```
         do {
@@ -433,7 +362,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
                     userPoolId: poolId
                 )
             )
-
+            
             guard let users = output.users else {
                 print("No users found.")
                 return
@@ -453,14 +382,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
             print("*** An unexpected type of error occurred.")
             return
         }
-
-
 ```
++  For API details, see [ListUsers](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/listusers(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListUsers](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/listusers(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/listusers(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

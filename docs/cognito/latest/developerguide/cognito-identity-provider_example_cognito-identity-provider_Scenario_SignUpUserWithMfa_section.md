@@ -1,20 +1,18 @@
+
+
 # Sign up a user with an Amazon Cognito user pool that requires MFA using an AWS SDK
+<a name="cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section"></a>
 
 The following code examples show how to:
++ Sign up and confirm a user with a username, password, and email address.
++ Set up multi-factor authentication by associating an MFA application with the user.
++ Sign in by using a password and an MFA code.
 
-- Sign up and confirm a user with a username, password, and email address.
-- Set up multi-factor authentication by associating an MFA application with the user.
-- Sign in by using a password and an MFA code.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Cognito#code-examples). 
 
 ```
 namespace CognitoBasics;
@@ -469,35 +467,26 @@ public class CognitoWrapper
     }
 
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [AdminGetUser](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser)
+  + [AdminInitiateAuth](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminInitiateAuth)
+  + [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge)
+  + [AssociateSoftwareToken](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/AssociateSoftwareToken)
+  + [ConfirmDevice](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmDevice)
+  + [ConfirmSignUp](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmSignUp)
+  + [InitiateAuth](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/InitiateAuth)
+  + [ListUsers](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/ListUsers)
+  + [ResendConfirmationCode](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/ResendConfirmationCode)
+  + [RespondToAuthChallenge](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/RespondToAuthChallenge)
+  + [SignUp](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/SignUp)
+  + [VerifySoftwareToken](https://docs.aws.amazon.com/goto/DotNetSDKV3/cognito-idp-2016-04-18/VerifySoftwareToken)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-  - [AdminGetUser](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser.md")
-  - [AdminInitiateAuth](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminInitiateAuth.md")
-  - [AdminRespondToAuthChallenge](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  - [AssociateSoftwareToken](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AssociateSoftwareToken.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AssociateSoftwareToken.md")
-  - [ConfirmDevice](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmDevice.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmDevice.md")
-  - [ConfirmSignUp](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmSignUp.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ConfirmSignUp.md")
-  - [InitiateAuth](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/InitiateAuth.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/InitiateAuth.md")
-  - [ListUsers](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ListUsers.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ListUsers.md")
-  - [ResendConfirmationCode](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ResendConfirmationCode.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/ResendConfirmationCode.md")
-  - [RespondToAuthChallenge](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/RespondToAuthChallenge.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/RespondToAuthChallenge.md")
-  - [SignUp](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/SignUp.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/SignUp.md")
-  - [VerifySoftwareToken](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -846,34 +835,26 @@ bool AwsDoc::Cognito::adminInitiateAuthorization(const Aws::String &clientID,
 
     return outcome.IsSuccess();
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [AdminGetUser](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser)
+  + [AdminInitiateAuth](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/AdminInitiateAuth)
+  + [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge)
+  + [AssociateSoftwareToken](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/AssociateSoftwareToken)
+  + [ConfirmDevice](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/ConfirmDevice)
+  + [ConfirmSignUp](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/ConfirmSignUp)
+  + [InitiateAuth](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/InitiateAuth)
+  + [ListUsers](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/ListUsers)
+  + [ResendConfirmationCode](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/ResendConfirmationCode)
+  + [RespondToAuthChallenge](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/RespondToAuthChallenge)
+  + [SignUp](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/SignUp)
+  + [VerifySoftwareToken](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/VerifySoftwareToken)
 
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-  - [AdminGetUser](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser.md")
-  - [AdminInitiateAuth](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminInitiateAuth.md")
-  - [AdminRespondToAuthChallenge](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  - [AssociateSoftwareToken](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AssociateSoftwareToken.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AssociateSoftwareToken.md")
-  - [ConfirmDevice](../../../goto/SdkForCpp/cognito-idp-2016-04-18/ConfirmDevice.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/ConfirmDevice.md")
-  - [ConfirmSignUp](../../../goto/SdkForCpp/cognito-idp-2016-04-18/ConfirmSignUp.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/ConfirmSignUp.md")
-  - [InitiateAuth](../../../goto/SdkForCpp/cognito-idp-2016-04-18/InitiateAuth.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/InitiateAuth.md")
-  - [ListUsers](../../../goto/SdkForCpp/cognito-idp-2016-04-18/ListUsers.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/ListUsers.md")
-  - [ResendConfirmationCode](../../../goto/SdkForCpp/cognito-idp-2016-04-18/ResendConfirmationCode.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/ResendConfirmationCode.md")
-  - [RespondToAuthChallenge](../../../goto/SdkForCpp/cognito-idp-2016-04-18/RespondToAuthChallenge.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/RespondToAuthChallenge.md")
-  - [SignUp](../../../goto/SdkForCpp/cognito-idp-2016-04-18/SignUp.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/SignUp.md")
-  - [VerifySoftwareToken](../../../goto/SdkForCpp/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -1200,36 +1181,27 @@ public class CognitoMVP {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AdminGetUser](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser)
+  + [AdminInitiateAuth](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminInitiateAuth)
+  + [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge)
+  + [AssociateSoftwareToken](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/AssociateSoftwareToken)
+  + [ConfirmDevice](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/ConfirmDevice)
+  + [ConfirmSignUp](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/ConfirmSignUp)
+  + [InitiateAuth](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/InitiateAuth)
+  + [ListUsers](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUsers)
+  + [ResendConfirmationCode](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/ResendConfirmationCode)
+  + [RespondToAuthChallenge](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/RespondToAuthChallenge)
+  + [SignUp](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/SignUp)
+  + [VerifySoftwareToken](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/VerifySoftwareToken)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [AdminGetUser](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser.md")
-  - [AdminInitiateAuth](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminInitiateAuth.md")
-  - [AdminRespondToAuthChallenge](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  - [AssociateSoftwareToken](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AssociateSoftwareToken.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AssociateSoftwareToken.md")
-  - [ConfirmDevice](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ConfirmDevice.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ConfirmDevice.md")
-  - [ConfirmSignUp](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ConfirmSignUp.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ConfirmSignUp.md")
-  - [InitiateAuth](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/InitiateAuth.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/InitiateAuth.md")
-  - [ListUsers](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUsers.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUsers.md")
-  - [ResendConfirmationCode](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ResendConfirmationCode.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ResendConfirmationCode.md")
-  - [RespondToAuthChallenge](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/RespondToAuthChallenge.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/RespondToAuthChallenge.md")
-  - [SignUp](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/SignUp.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/SignUp.md")
-  - [VerifySoftwareToken](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/scenarios/basic#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/scenarios/basic#code-examples").
-
-For the best experience, clone the GitHub repository and run this example. The following code represents a sample of the full example application.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider/scenarios/basic#code-examples). 
+For the best experience, clone the GitHub repository and run this example. The following code represents a sample of the full example application.  
 
 ```
 import { logger } from "@aws-doc-sdk-examples/lib/utils/util-log.js";
@@ -1573,37 +1545,28 @@ const verifySoftwareToken = (totp) => {
 
   return client.send(command);
 };
+```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [AdminGetUser](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand)
+  + [AdminInitiateAuth](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminInitiateAuthCommand)
+  + [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand)
+  + [AssociateSoftwareToken](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AssociateSoftwareTokenCommand)
+  + [ConfirmDevice](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmDeviceCommand)
+  + [ConfirmSignUp](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmSignUpCommand)
+  + [InitiateAuth](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand)
+  + [ListUsers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUsersCommand)
+  + [ResendConfirmationCode](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ResendConfirmationCodeCommand)
+  + [RespondToAuthChallenge](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/RespondToAuthChallengeCommand)
+  + [SignUp](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand)
+  + [VerifySoftwareToken](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/VerifySoftwareTokenCommand)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
-
-  - [AdminGetUser](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand.md")
-  - [AdminInitiateAuth](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminInitiateAuthCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminInitiateAuthCommand.md")
-  - [AdminRespondToAuthChallenge](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand.md")
-  - [AssociateSoftwareToken](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AssociateSoftwareTokenCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AssociateSoftwareTokenCommand.md")
-  - [ConfirmDevice](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmDeviceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmDeviceCommand.md")
-  - [ConfirmSignUp](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmSignUpCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ConfirmSignUpCommand.md")
-  - [InitiateAuth](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand.md")
-  - [ListUsers](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUsersCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUsersCommand.md")
-  - [ResendConfirmationCode](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ResendConfirmationCodeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ResendConfirmationCodeCommand.md")
-  - [RespondToAuthChallenge](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/RespondToAuthChallengeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/RespondToAuthChallengeCommand.md")
-  - [SignUp](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand.md")
-  - [VerifySoftwareToken](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/VerifySoftwareTokenCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/VerifySoftwareTokenCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cognito#code-examples").
-
-```
-
 /**
  Before running this Kotlin code example, set up your development environment, including your credentials.
 
@@ -1631,7 +1594,7 @@ suspend fun main(args: Array<String>) {
             <clientId> <poolId>
         Where:
             clientId - The app client Id value that you can get from the AWS CDK script.
-            poolId - The pool Id that you can get from the AWS CDK script.
+            poolId - The pool Id that you can get from the AWS CDK script. 
     """
 
     if (args.size != 2) {
@@ -1849,36 +1812,27 @@ suspend fun signUp(
         println("User has been signed up")
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [AdminGetUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [AdminInitiateAuth](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [AdminRespondToAuthChallenge](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [AssociateSoftwareToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ConfirmDevice](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ConfirmSignUp](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [InitiateAuth](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListUsers](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ResendConfirmationCode](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [RespondToAuthChallenge](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [SignUp](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [VerifySoftwareToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [AdminGetUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [AdminInitiateAuth](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [AdminRespondToAuthChallenge](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [AssociateSoftwareToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ConfirmDevice](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ConfirmSignUp](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [InitiateAuth](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListUsers](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ResendConfirmationCode](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [RespondToAuthChallenge](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [SignUp](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [VerifySoftwareToken](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
-
-Create a class that wraps Amazon Cognito functions used in the scenario.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
+Create a class that wraps Amazon Cognito functions used in the scenario.  
 
 ```
 class CognitoIdentityProviderWrapper:
@@ -2332,14 +2286,8 @@ class CognitoIdentityProviderWrapper:
             raise
         else:
             return auth_tokens
-
-
-
-
-
 ```
-
-Create a class that runs the scenario. This example also registers an MFA device to be tracked by Amazon Cognito and shows you how to sign in by using a password and information from the tracked device. This avoids the need to enter a new MFA code.
+Create a class that runs the scenario. This example also registers an MFA device to be tracked by Amazon Cognito and shows you how to sign in by using a password and information from the tracked device. This avoids the need to enter a new MFA code.  
 
 ```
 def run_scenario(cognito_idp_client, user_pool_id, client_id):
@@ -2488,36 +2436,27 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AdminGetUser](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/AdminGetUser)
+  + [AdminInitiateAuth](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/AdminInitiateAuth)
+  + [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge)
+  + [AssociateSoftwareToken](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/AssociateSoftwareToken)
+  + [ConfirmDevice](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/ConfirmDevice)
+  + [ConfirmSignUp](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/ConfirmSignUp)
+  + [InitiateAuth](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/InitiateAuth)
+  + [ListUsers](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/ListUsers)
+  + [ResendConfirmationCode](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/ResendConfirmationCode)
+  + [RespondToAuthChallenge](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/RespondToAuthChallenge)
+  + [SignUp](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/SignUp)
+  + [VerifySoftwareToken](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-  - [AdminGetUser](../../../goto/boto3/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminGetUser.md")
-  - [AdminInitiateAuth](../../../goto/boto3/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminInitiateAuth.md")
-  - [AdminRespondToAuthChallenge](../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
-  - [AssociateSoftwareToken](../../../goto/boto3/cognito-idp-2016-04-18/AssociateSoftwareToken.md "../../../goto/boto3/cognito-idp-2016-04-18/AssociateSoftwareToken.md")
-  - [ConfirmDevice](../../../goto/boto3/cognito-idp-2016-04-18/ConfirmDevice.md "../../../goto/boto3/cognito-idp-2016-04-18/ConfirmDevice.md")
-  - [ConfirmSignUp](../../../goto/boto3/cognito-idp-2016-04-18/ConfirmSignUp.md "../../../goto/boto3/cognito-idp-2016-04-18/ConfirmSignUp.md")
-  - [InitiateAuth](../../../goto/boto3/cognito-idp-2016-04-18/InitiateAuth.md "../../../goto/boto3/cognito-idp-2016-04-18/InitiateAuth.md")
-  - [ListUsers](../../../goto/boto3/cognito-idp-2016-04-18/ListUsers.md "../../../goto/boto3/cognito-idp-2016-04-18/ListUsers.md")
-  - [ResendConfirmationCode](../../../goto/boto3/cognito-idp-2016-04-18/ResendConfirmationCode.md "../../../goto/boto3/cognito-idp-2016-04-18/ResendConfirmationCode.md")
-  - [RespondToAuthChallenge](../../../goto/boto3/cognito-idp-2016-04-18/RespondToAuthChallenge.md "../../../goto/boto3/cognito-idp-2016-04-18/RespondToAuthChallenge.md")
-  - [SignUp](../../../goto/boto3/cognito-idp-2016-04-18/SignUp.md "../../../goto/boto3/cognito-idp-2016-04-18/SignUp.md")
-  - [VerifySoftwareToken](../../../goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken.md "../../../goto/boto3/cognito-idp-2016-04-18/VerifySoftwareToken.md")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples").
-
-The `Package.swift` file.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/cognito-identity-provider#code-examples). 
+The `Package.swift` file.  
 
 ```
 // swift-tools-version: 5.9
@@ -2558,11 +2497,8 @@ let package = Package(
 
     ]
 )
-
-
 ```
-
-The Swift code file.
+The Swift code file.  
 
 ```
 // An example demonstrating various features of Amazon Cognito. Before running
@@ -2618,8 +2554,8 @@ struct ExampleCommand: ParsableCommand {
         """
     )
 
-    /// Prompt for an input string of at least a minimum length.
-    ///
+    /// Prompt for an input string of at least a minimum length.  
+    /// 
     /// - Parameters:
     ///   - prompt: The prompt string to display.
     ///   - minLength: The minimum number of characters to allow in the
@@ -2643,7 +2579,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Ask a yes/no question.
-    ///
+    /// 
     /// - Parameter prompt: A prompt string to print.
     ///
     /// - Returns: `true` if the user answered "Y", otherwise `false`.
@@ -2657,7 +2593,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Get information about a specific user in a user pool.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The Amazon Cognito Identity Provider client to use.
     ///   - userName: The user to retrieve information about.
@@ -2688,7 +2624,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Create a new user in a user pool.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The `CognitoIdentityProviderClient` to use.
     ///   - clientId: The ID of the app client to create a user for.
@@ -2776,7 +2712,7 @@ struct ExampleCommand: ParsableCommand {
     ///   - clientId: The app client ID the user is signing up for.
     ///   - userName: The username of the user whose code is being sent.
     ///   - code: The user's confirmation code.
-    ///
+    /// 
     /// - Returns: `true` if the code was successfully confirmed; otherwise `false`.
     func confirmSignUp(cipClient: CognitoIdentityProviderClient, clientId: String,
                        userName: String, code: String) async -> Bool {
@@ -2848,7 +2784,7 @@ struct ExampleCommand: ParsableCommand {
 
     /// Request and display an MFA secret token that the user should enter
     /// into their authenticator to set it up for the user account.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The `CognitoIdentityProviderClient` to use.
     ///   - authSession: The authentication session to request an MFA secret
@@ -2882,7 +2818,7 @@ struct ExampleCommand: ParsableCommand {
 
     /// Confirm that the user's TOTP authenticator is configured correctly by
     /// sending a code to it to check that it matches successfully.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The `CongnitoIdentityProviderClient` to use.
     ///   - session: An authentication session previously returned by an
@@ -2924,7 +2860,7 @@ struct ExampleCommand: ParsableCommand {
     /// Respond to the authentication challenge received from Cognito after
     /// initiating an authentication session. This involves sending a current
     /// MFA code to the service.
-    ///
+    /// 
     /// - Parameters:
     ///   - cipClient: The `CognitoIdentityProviderClient` to use.
     ///   - userName: The user's username.
@@ -3077,7 +3013,7 @@ struct ExampleCommand: ParsableCommand {
         // and password as already entered.
 
         print("\nNow starting the sign-in process for user \(userName)...\n")
-
+        
         let session2 = await initiateAuth(cipClient: cipClient, clientId: clientId,
                                     userName: userName, password: password, userPoolId: poolId)
         guard let session2 else {
@@ -3108,27 +3044,23 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [AdminGetUser](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:))
+  + [AdminInitiateAuth](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admininitiateauth(input:))
+  + [AdminRespondToAuthChallenge](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:))
+  + [AssociateSoftwareToken](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/associatesoftwaretoken(input:))
+  + [ConfirmDevice](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/confirmdevice(input:))
+  + [ConfirmSignUp](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/confirmsignup(input:))
+  + [InitiateAuth](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/initiateauth(input:))
+  + [ListUsers](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/listusers(input:))
+  + [ResendConfirmationCode](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/resendconfirmationcode(input:))
+  + [RespondToAuthChallenge](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/respondtoauthchallenge(input:))
+  + [SignUp](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/signup(input:))
+  + [VerifySoftwareToken](https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/verifysoftwaretoken(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [AdminGetUser](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:)")
-  - [AdminInitiateAuth](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admininitiateauth(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admininitiateauth(input:)")
-  - [AdminRespondToAuthChallenge](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:)")
-  - [AssociateSoftwareToken](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/associatesoftwaretoken(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/associatesoftwaretoken(input:)")
-  - [ConfirmDevice](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/confirmdevice(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/confirmdevice(input:)")
-  - [ConfirmSignUp](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/confirmsignup(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/confirmsignup(input:)")
-  - [InitiateAuth](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/initiateauth(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/initiateauth(input:)")
-  - [ListUsers](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/listusers(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/listusers(input:)")
-  - [ResendConfirmationCode](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/resendconfirmationcode(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/resendconfirmationcode(input:)")
-  - [RespondToAuthChallenge](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/respondtoauthchallenge(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/respondtoauthchallenge(input:)")
-  - [SignUp](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/signup(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/signup(input:)")
-  - [VerifySoftwareToken](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/verifysoftwaretoken(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/verifysoftwaretoken(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

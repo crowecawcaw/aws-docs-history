@@ -1,18 +1,16 @@
+
+
 # Hello Amazon Cognito
+<a name="cognito-identity-provider_example_cognito-identity-provider_Hello_section"></a>
 
 The following code examples show how to get started using Amazon Cognito.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito/hello_cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito/hello_cognito#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cognito/hello_cognito#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -42,7 +40,7 @@ find_package(AWSSDK REQUIRED COMPONENTS ${SERVICE_COMPONENTS})
 if (WINDOWS_BUILD AND AWSSDK_INSTALL_AS_SHARED_LIBS)
      # Copy relevant AWS SDK for C++ libraries into the current binary directory for running and debugging.
 
-     # set(BIN_SUB_DIR "/Debug") # If you are building from the command line, you may need to uncomment this
+     # set(BIN_SUB_DIR "/Debug") # If you are building from the command line, you may need to uncomment this 
                                     # and set the proper subdirectory to the executables' location.
 
      AWSSDK_CPY_DYN_LIBS(SERVICE_COMPONENTS "" ${CMAKE_CURRENT_BINARY_DIR}${BIN_SUB_DIR})
@@ -53,11 +51,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_cognito.cpp source file.
+Code for the hello\_cognito.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -124,26 +119,16 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return result;
 }
+```
++  For API details, see [ListUserPools](https://docs.aws.amazon.com/goto/SdkForCpp/cognito-idp-2016-04-18/ListUserPools) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples). 
 
 ```
-
-- For API details, see
-  [ListUserPools](../../../goto/SdkForCpp/cognito-idp-2016-04-18/ListUserPools.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/ListUserPools.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/cognito#code-examples").
-
-```
-
 package main
 
 import (
@@ -190,24 +175,14 @@ func main() {
 		}
 	}
 }
-
-
-
 ```
++  For API details, see [ListUserPools](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.ListUserPools) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListUserPools](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.ListUserPools "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.ListUserPools")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cognito#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -251,23 +226,14 @@ public class ListUserPools {
         }
     }
 }
-
-
 ```
++  For API details, see [ListUserPools](https://docs.aws.amazon.com/goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUserPools) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListUserPools](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUserPools.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/ListUserPools.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cognito-identity-provider#code-examples). 
 
 ```
 import {
@@ -291,26 +257,16 @@ export const helloCognito = async () => {
   console.log(userPoolNames.join("\n"));
   return userPoolNames;
 };
+```
++  For API details, see [ListUserPools](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUserPoolsCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples). 
 
 ```
-
-- For API details, see
-  [ListUserPools](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUserPoolsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUserPoolsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cognito#code-examples").
-
-```
-
 import boto3
 
 # Create a Cognito Identity Provider client
@@ -336,27 +292,16 @@ if user_pools:
         print(f"Name: {pool['Name']}, ID: {pool['Id']}")
 else:
     print("No user pools found.")
+```
++  For API details, see [ListUserPools](https://docs.aws.amazon.com/goto/boto3/cognito-idp-2016-04-18/ListUserPools) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cognito#code-examples). 
 
 ```
-
-- For API details, see
-  [ListUserPools](../../../goto/boto3/cognito-idp-2016-04-18/ListUserPools.md "../../../goto/boto3/cognito-idp-2016-04-18/ListUserPools.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cognito#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cognito#code-examples").
-
-```
-
 require 'aws-sdk-cognitoidentityprovider'
 require 'logger'
 
@@ -394,15 +339,9 @@ if $PROGRAM_NAME == __FILE__
   manager = CognitoManager.new(cognito_client)
   manager.list_user_pools
 end
-
-
-
 ```
++  For API details, see [ListUserPools](https://docs.aws.amazon.com/goto/SdkForRubyV3/cognito-idp-2016-04-18/ListUserPools) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListUserPools](../../../goto/SdkForRubyV3/cognito-idp-2016-04-18/ListUserPools.md "../../../goto/SdkForRubyV3/cognito-idp-2016-04-18/ListUserPools.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
