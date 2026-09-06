@@ -1,47 +1,44 @@
+
+
 # Troubleshooting
+<a name="troubleshooting"></a>
 
 This section provides solutions to common issues when working with Amazon Nova models.
 
 ## Authentication and setup
+<a name="authentication-setup"></a>
 
-Missing permissions
-
-**Symptoms:** Unable to access Nova models or features
-
-**Solution:**
-
-- Ensure your IAM role has AmazonBedrockFullAccess or appropriate permissions
-- Request specific model access through the Amazon Bedrock console
-- Verify permissions for model access and tool usage
+Missing permissions  
+**Symptoms:** Unable to access Nova models or features  
+**Solution:**  
++ Ensure your IAM role has AmazonBedrockFullAccess or appropriate permissions
++ Request specific model access through the Amazon Bedrock console
++ Verify permissions for model access and tool usage
 
 ## Model access denied
+<a name="model-access-denied"></a>
 
-**Symptoms:** Model access request fails
-
-**Solution:**
-
-- Request specific model access through the Amazon Bedrock console
-- Verify your account has been granted access to the requested model
-- Check regional availability of the model
+**Symptoms:** Model access request fails  
+**Solution:**  
++ Request specific model access through the Amazon Bedrock console
++ Verify your account has been granted access to the requested model
++ Check regional availability of the model
 
 ## Regional availability issues
+<a name="regional-availability-issues"></a>
 
-**Symptoms:** Feature not available in selected region
-
-**Solution:**
-
-- Web Grounding is only available in US regions with US CRIS profiles
-- Verify the model and features are available in your selected region
-- Switch to a supported region if necessary
+**Symptoms:** Feature not available in selected region  
+**Solution:**  
++ Web Grounding is only available in US regions with US CRIS profiles
++ Verify the model and features are available in your selected region
++ Switch to a supported region if necessary
 
 ## Timeout configuration
+<a name="timeout-configuration"></a>
 
-**Symptoms:** Requests timing out before completion
-
-**Cause:** Default timeout too short for complex
-operations
-
-**Solution:** Configure extended timeout settings
+**Symptoms:** Requests timing out before completion  
+**Cause:** Default timeout too short for complex operations  
+**Solution:** Configure extended timeout settings  
 
 ```
 from botocore.config import Config
@@ -54,78 +51,53 @@ bedrock = boto3.client(
     )
 )
 ```
-
-###### Note
-
 Amazon Nova inference requests can take up to 60 minutes for complex operations.
 
 ## API response issues
+<a name="api-response-issues"></a>
 
 Understanding stop reasons:
 
-end\_turn
-
+end\_turn  
 Normal completion. No action needed.
 
-max\_tokens
+max\_tokens  
+Token limit reached.   
+**Solution**: Increase `maxTokens` parameter in `inferenceConfig`.
 
-Token limit reached.
-
-**Solution**: Increase `maxTokens` parameter in
-`inferenceConfig`.
-
-content\_filtered
-
-Content violated AWS Responsible AI policy.
-
+content\_filtered  
+Content violated AWS Responsible AI policy.   
 Solution: Review and modify your input to comply with content policies.
 
-malformed\_model\_output
+malformed\_model\_output  
+Invalid output format.   
+Solution: Check your output schema and constraints; verify JSON schema is properly formatted.
 
-Invalid output format.
+malformed\_tool\_use  
+Invalid tool call format.   
+Solution: Verify tool definitions match expected schema; check tool input parameters are correctly formatted.
 
-Solution: Check your output schema and constraints; verify JSON schema is properly
-formatted.
+service\_unavailable  
+Built-in tool service unavailable.   
+Solution: Retry the request after a brief delay; check AWS service health dashboard.
 
-malformed\_tool\_use
+invalid\_query  
+Invalid query to built-in tool.   
+Solution: Review query format and parameters; ensure query meets tool requirements.
 
-Invalid tool call format.
-
-Solution: Verify tool definitions match expected schema; check tool input parameters are
-correctly formatted.
-
-service\_unavailable
-
-Built-in tool service unavailable.
-
-Solution: Retry the request after a brief delay; check AWS service health
-dashboard.
-
-invalid\_query
-
-Invalid query to built-in tool.
-
-Solution: Review query format and parameters; ensure query meets tool
-requirements.
-
-max\_tool\_invocations
-
-Tool retries exhausted.
-
-Solution: Simplify the task or break it into smaller steps; review tool error messages
-for specific issues.
+max\_tool\_invocations  
+Tool retries exhausted.   
+Solution: Simplify the task or break it into smaller steps; review tool error messages for specific issues.
 
 ## Reasoning mode errors
+<a name="reasoning-mode-errors"></a>
 
-Truncated responses with high reasoning effort
-
+Truncated responses with high reasoning effort  
 **Solution:** For high reasoning effort, unset these parameters: `temperature`, `topP`, `maxToken`. This allows the model to use optimal settings for complex reasoning tasks.
 
-Insufficient tokens for reasoning
-
-**Error:** "maxTokens is insufficient"
-
-**Solution:** Automatically retry with increased limit
+Insufficient tokens for reasoning  
+**Error:** "maxTokens is insufficient"  
+**Solution:** Automatically retry with increased limit  
 
 ```
 token_limits = {
@@ -155,29 +127,26 @@ except Exception as e:
 ```
 
 ## Tool use issues
+<a name="tool-use-issues"></a>
 
 ### Schema validation failures
+<a name="schema-validation-failures"></a>
 
-Tool schema validation errors
+Tool schema validation errors  
+**Solution:**  
++ Limit JSON schemas to two layers of nesting for best performance
++ Ensure all required fields are properly defined
++ Validate schema against JSON Schema specification
 
-**Solution:**
+Model not using tools correctly  
+**Solution:**  
++ Ensure tool name clearly describes its purpose
++ Provide detailed description of tool functionality
++ Explicitly define input schema with clear parameter descriptions
++ Include examples in the description when helpful
 
-- Limit JSON schemas to two layers of nesting for best performance
-- Ensure all required fields are properly defined
-- Validate schema against JSON Schema specification
-
-Model not using tools correctly
-
-**Solution:**
-
-- Ensure tool name clearly describes its purpose
-- Provide detailed description of tool functionality
-- Explicitly define input schema with clear parameter descriptions
-- Include examples in the description when helpful
-
-Inconsistent tool calling behavior
-
-**Solution:** Set temperature to 0 for tool calling:
+Inconsistent tool calling behavior  
+**Solution:** Set temperature to 0 for tool calling:  
 
 ```
 inferenceConfig={
@@ -185,14 +154,11 @@ inferenceConfig={
     "maxTokens": 10000
 }
 ```
-
 This enables greedy decoding for more reliable tool use.
 
-Tool choice conflicts
-
-**Problem:** Error when using custom tools with web search or code interpreter
-
-**Solution:** Do not include a custom toolSpec with name `nova_grounding` - this conflicts with the system tool. Use the system tool configuration instead:
+Tool choice conflicts  
+**Problem:** Error when using custom tools with web search or code interpreter  
+**Solution:** Do not include a custom toolSpec with name `nova_grounding` - this conflicts with the system tool. Use the system tool configuration instead:  
 
 ```
 # Correct - use system tool
@@ -211,12 +177,11 @@ tool_config = {
 ```
 
 ### Web Grounding issues
+<a name="web-grounding-issues"></a>
 
-Access control problems
-
-**Problem:** Web Grounding and Code Interpreter not working
-
-**Solution:** Ensure your IAM policy includes:
+Access control problems  
+**Problem:** Web Grounding and Code Interpreter not working  
+**Solution:** Ensure your IAM policy includes:  
 
 ```
 {
@@ -230,73 +195,52 @@ Access control problems
 }
 ```
 
-Service Control Policy issues
-
-**Problem:** Web Grounding blocked by SCP
-
+Service Control Policy issues  
+**Problem:** Web Grounding blocked by SCP  
 **Solution:** If you have Service Control Policies with `aws:requestedRegion` condition, update them to allow "unspecified" region for Web Grounding functionality.
 
 ### Media processing limitations
+<a name="media-processing-limitations"></a>
 
-Poor understanding of multilingual content in images/videos
+Poor understanding of multilingual content in images/videos  
+**Limitation:** Nova models have limited understanding of multilingual content in visual media  
+**Workaround:**  
++ Provide text translations alongside images
++ Use text-based inputs for multilingual content when possible
 
-**Limitation:** Nova models have limited understanding of multilingual content in visual media
-
-**Workaround:**
-
-- Provide text translations alongside images
-- Use text-based inputs for multilingual content when possible
-
-People identification
-
-**Problem:** Model refuses to identify people in images
-
-**Expected Behavior:** Models will refuse to identify or name individuals in images, documents, or videos for privacy and safety reasons
-
+People identification  
+**Problem:** Model refuses to identify people in images  
+**Expected Behavior:** Models will refuse to identify or name individuals in images, documents, or videos for privacy and safety reasons  
 **Workaround:** Ask about general characteristics or context instead of specific identities
 
-Spatial reasoning limitations
+Spatial reasoning limitations  
+**Problem:** Inaccurate localization or layout analysis  
+**Limitation:** Limited capabilities for precise spatial reasoning  
+**Workaround:**  
++ Use bounding box detection for object localization
++ Provide clear reference points in your prompts
++ Break complex spatial queries into simpler components
 
-**Problem:** Inaccurate localization or layout analysis
-
-**Limitation:** Limited capabilities for precise spatial reasoning
-
-**Workaround:**
-
-- Use bounding box detection for object localization
-- Provide clear reference points in your prompts
-- Break complex spatial queries into simpler components
-
-Small text in images/videos
-
-**Problem:** Cannot read small text in media
-
-**Solution:**
-
-- Crop images to focus on relevant text sections
-- Increase resolution of source media
-- Provide text separately if available
+Small text in images/videos  
+**Problem:** Cannot read small text in media  
+**Solution:**  
++ Crop images to focus on relevant text sections
++ Increase resolution of source media
++ Provide text separately if available
 
 ### Document and file handling
+<a name="document-file-handling"></a>
 
-Unsupported content
+Unsupported content  
+**Problem:** PDF processing fails  
+**Causes:**  
++ PDFs with CMYK color profiles
++ PDFs containing SVG images
+**Solution:**  
++ Convert PDFs to RGB color profile
++ Rasterize SVG images before including in PDFs
 
-**Problem:** PDF processing fails
-
-**Causes:**
-
-- PDFs with CMYK color profiles
-- PDFs containing SVG images
-
-**Solution:**
-
-- Convert PDFs to RGB color profile
-- Rasterize SVG images before including in PDFs
-
-Token estimation
-
-**Problem:** Unexpected token usage with PDFs
-
-**Guideline:** Estimate approximately 2,560 tokens per standard 8.5×11" PDF page
-
+Token estimation  
+**Problem:** Unexpected token usage with PDFs  
+**Guideline:** Estimate approximately 2,560 tokens per standard 8.5×11" PDF page  
 **Solution:** Adjust `maxTokens` accordingly based on document length

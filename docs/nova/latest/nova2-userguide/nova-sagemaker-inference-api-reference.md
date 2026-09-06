@@ -1,15 +1,19 @@
-# API Reference
 
-Amazon Nova models on SageMaker use the standard SageMaker Runtime API for inference. For complete API documentation, see [Test a deployed model](../../../sagemaker/latest/dg/realtime-endpoints-test-endpoints.md "../../../sagemaker/latest/dg/realtime-endpoints-test-endpoints.md").
+
+# API Reference
+<a name="nova-sagemaker-inference-api-reference"></a>
+
+Amazon Nova models on SageMaker use the standard SageMaker Runtime API for inference. For complete API documentation, see [Test a deployed model](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html).
 
 ## Endpoint invocation
+<a name="nova-sagemaker-inference-api-invocation"></a>
 
 Amazon Nova models on SageMaker support two invocation methods:
-
-- **Synchronous invocation**: Use the [InvokeEndpoint](../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.md "../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.md") API for real-time, non-streaming inference requests.
-- **Streaming invocation**: Use the [InvokeEndpointWithResponseStream](../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md") API for real-time streaming inference requests.
++ **Synchronous invocation**: Use the [InvokeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html) API for real-time, non-streaming inference requests.
++ **Streaming invocation**: Use the [InvokeEndpointWithResponseStream](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html) API for real-time streaming inference requests.
 
 ## Request format
+<a name="nova-sagemaker-inference-api-request"></a>
 
 Amazon Nova models support two request formats:
 
@@ -83,23 +87,23 @@ Use this format for image and text inputs:
 ```
 
 **Request parameters**
-
-- `messages` (array): For chat completion format. Array of message objects with `role` and `content` fields. Content can be a string for text-only or an array for multimodal inputs.
-- `prompt` (string): For text completion format. The input text to generate from.
-- `max_tokens` (integer): Maximum number of tokens to generate in the response. Range: 1 or greater.
-- `max_completion_tokens` (integer): Alternative to max\_tokens for chat completions. Maximum number of completion tokens to generate.
-- `temperature` (float): Controls randomness in generation. Range: 0.0 to 2.0 (0.0 = deterministic, 2.0 = maximum randomness).
-- `top_p` (float): Nucleus sampling threshold. Range: 1e-10 to 1.0.
-- `top_k` (integer): Limits token selection to top K most likely tokens. Range: -1 or greater (-1 = no limit).
-- `stream` (boolean): Whether to stream the response. Set to `true` for streaming, `false` for non-streaming.
-- `logprobs` (boolean/integer): For chat completions, use boolean. For text completions, use integer for number of log probabilities to return. Range: 1 to 20.
-- `top_logprobs` (integer): Number of most likely tokens to return log probabilities for (chat completions only).
-- `reasoning_effort` (string): Level of reasoning effort. Options: "low", "high" (chat completions for Nova 2 Lite custom models only).
-- `allowed_token_ids` (array): List of token IDs that are allowed to be generated. Restricts output to specified tokens.
-- `truncate_prompt_tokens` (integer): Truncate the prompt to this many tokens if it exceeds the limit.
-- `stream_options` (object): Options for streaming responses. Contains `include_usage` boolean to include token usage in streaming responses.
++ `messages` (array): For chat completion format. Array of message objects with `role` and `content` fields. Content can be a string for text-only or an array for multimodal inputs.
++ `prompt` (string): For text completion format. The input text to generate from.
++ `max_tokens` (integer): Maximum number of tokens to generate in the response. Range: 1 or greater.
++ `max_completion_tokens` (integer): Alternative to max\_tokens for chat completions. Maximum number of completion tokens to generate.
++ `temperature` (float): Controls randomness in generation. Range: 0.0 to 2.0 (0.0 = deterministic, 2.0 = maximum randomness).
++ `top_p` (float): Nucleus sampling threshold. Range: 1e-10 to 1.0.
++ `top_k` (integer): Limits token selection to top K most likely tokens. Range: -1 or greater (-1 = no limit).
++ `stream` (boolean): Whether to stream the response. Set to `true` for streaming, `false` for non-streaming.
++ `logprobs` (boolean/integer): For chat completions, use boolean. For text completions, use integer for number of log probabilities to return. Range: 1 to 20.
++ `top_logprobs` (integer): Number of most likely tokens to return log probabilities for (chat completions only).
++ `reasoning_effort` (string): Level of reasoning effort. Options: "low", "high" (chat completions for Nova 2 Lite custom models only).
++ `allowed_token_ids` (array): List of token IDs that are allowed to be generated. Restricts output to specified tokens.
++ `truncate_prompt_tokens` (integer): Truncate the prompt to this many tokens if it exceeds the limit.
++ `stream_options` (object): Options for streaming responses. Contains `include_usage` boolean to include token usage in streaming responses.
 
 ## Response format
+<a name="nova-sagemaker-inference-api-response"></a>
 
 The response format depends on the invocation method and request type:
 
@@ -368,17 +372,16 @@ data: [DONE]
 ```
 
 **Response fields explanation**
++ `id`: Unique identifier for the completion
++ `object`: Type of object returned ("chat.completion", "text\_completion", "chat.completion.chunk")
++ `created`: Unix timestamp of when the completion was created
++ `model`: Model used for the completion
++ `choices`: Array of completion choices
++ `usage`: Token usage information including prompt, completion, and total tokens
++ `logprobs`: Log probability information for tokens (when requested)
++ `finish_reason`: Reason why the model stopped generating ("stop", "length", "content\_filter")
++ `delta`: Incremental content in streaming responses
++ `reasoning`: Reasoning content when reasoning\_effort is used
++ `token_ids`: Array of token IDs for the generated text
 
-- `id`: Unique identifier for the completion
-- `object`: Type of object returned ("chat.completion", "text\_completion", "chat.completion.chunk")
-- `created`: Unix timestamp of when the completion was created
-- `model`: Model used for the completion
-- `choices`: Array of completion choices
-- `usage`: Token usage information including prompt, completion, and total tokens
-- `logprobs`: Log probability information for tokens (when requested)
-- `finish_reason`: Reason why the model stopped generating ("stop", "length", "content\_filter")
-- `delta`: Incremental content in streaming responses
-- `reasoning`: Reasoning content when reasoning\_effort is used
-- `token_ids`: Array of token IDs for the generated text
-
-For complete API documentation, see [InvokeEndpoint API reference](../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.md "../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.md") and [InvokeEndpointWithResponseStream API reference](../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md").
+For complete API documentation, see [InvokeEndpoint API reference](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html) and [InvokeEndpointWithResponseStream API reference](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html).

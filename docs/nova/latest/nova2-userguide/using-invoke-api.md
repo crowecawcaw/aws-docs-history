@@ -1,13 +1,15 @@
+
+
 # Using the Invoke API
+<a name="using-invoke-api"></a>
 
-The Invoke API provides direct access to Amazon Nova models with more ability to control the request and response format. Unlike the Converse API which abstracts model-specific details, the Invoke API allows you to work directly with the model's native request and response structures.
+ The Invoke API provides direct access to Amazon Nova models with more ability to control the request and response format. Unlike the Converse API which abstracts model-specific details, the Invoke API allows you to work directly with the model's native request and response structures. 
 
-###### Note
-
-The Invoke API supports the same features as the Converse API except for document
-input modality, which is specific to the Converse API.
+**Note**  
+The Invoke API supports the same features as the Converse API except for document input modality, which is specific to the Converse API.
 
 ## Request structure
+<a name="invoke-api-request"></a>
 
 An Invoke API request requires the model ID and a JSON request body:
 
@@ -44,14 +46,10 @@ if text_block is not None:
 ```
 
 ## Request parameters
+<a name="invoke-api-parameters"></a>
 
 The Invoke API supports the following key parameters:
-
-- `messages`: Array of conversation messages with role and
-  content
-- `system`: Optional system prompt for context and
-  instructions
-- `inferenceConfig`: Parameters controlling model output
-  (temperature, maxTokens, topP, topK, stopSequences, reasoningConfig)
-- `toolConfig`: Tool specifications and tool choice for function
-  calling
++ `messages`: Array of conversation messages with role and content
++ `system`: Optional system prompt for context and instructions
++ `inferenceConfig`: Parameters controlling model output (temperature, maxTokens, topP, topK, stopSequences, reasoningConfig)
++ `toolConfig`: Tool specifications and tool choice for function calling

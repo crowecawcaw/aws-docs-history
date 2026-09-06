@@ -1,4 +1,7 @@
+
+
 # Responsible AI
+<a name="nova-forge-responsible-ai"></a>
 
 **Content moderation settings**: Amazon Nova Forge customers have access to Customizable Content Moderation Settings (CCMS) for Amazon Nova Lite 1.0 and Pro 1.0 models. CCMS allows you to adjust content moderation controls to align with your specific business requirements while maintaining essential responsible AI safeguards. To determine if your business use case qualifies for CCMS, contact your Amazon Web Services account manager.
 

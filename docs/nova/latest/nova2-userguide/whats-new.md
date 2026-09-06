@@ -1,85 +1,71 @@
-# What's new in Amazon Nova 2
 
-Amazon Nova 2 introduces significant enhancements across understanding, creative and speech
-capabilities. The following sections describe the key new features and improvements.
+
+# What's new in Amazon Nova 2
+<a name="whats-new"></a>
+
+Amazon Nova 2 introduces significant enhancements across understanding, creative and speech capabilities. The following sections describe the key new features and improvements.
 
 ## New models
+<a name="whats-new-models"></a>
 
-**Nova 2 Lite**
+**Nova 2 Lite**  
+Enhanced models that offer advanced reasoning with extended thinking support, three-level intensity control and multimodal understanding optimized for production-scale agentic workflows.
 
-Enhanced models that offer advanced reasoning with extended thinking support, three-level
-intensity control and multimodal understanding optimized for production-scale agentic
-workflows.
+**Nova 2 Sonic**  
+An upgraded conversational speech model with improved speech understanding, natural language processing and voice generation capabilities across seven languages.
 
-**Nova 2 Sonic**
-
-An upgraded conversational speech model with improved speech understanding, natural
-language processing and voice generation capabilities across seven languages.
-
-**Nova Multimodal Embeddings**
-
-A multimodal embedding model that processes text, image, document, video and audio inputs
-and generates embeddings.
+**Nova Multimodal Embeddings**  
+A multimodal embedding model that processes text, image, document, video and audio inputs and generates embeddings.
 
 ## New features and capabilities
+<a name="whats-new-features"></a>
 
 ### Nova Multimodal Embeddings
+<a name="whats-new-novamme"></a>
 
-Nova Multimodal Embeddings supports text, documents, images, video and audio through a
-single model, enabling cross-modal retrieval applications. Nova Multimodal Embeddings maps each
-of these content types into a unified semantic space, enabling you to conduct unimodal,
-cross-modal and multimodal vector operations, powering applications such as agentic
-retrieval-augmented generation (RAG) and multimodal semantic search.
+Nova Multimodal Embeddings supports text, documents, images, video and audio through a single model, enabling cross-modal retrieval applications. Nova Multimodal Embeddings maps each of these content types into a unified semantic space, enabling you to conduct unimodal, cross-modal and multimodal vector operations, powering applications such as agentic retrieval-augmented generation (RAG) and multimodal semantic search.
 
 ### Extended thinking and reasoning
+<a name="whats-new-reasoning"></a>
 
-Nova 2 Lite supports extended thinking, which allows the models to spend more time
-reasoning through complex problems before generating responses. This capability improves
-accuracy for multi-step reasoning tasks, including agentic workflows with multiple tools,
-advanced mathematics, complex planning and code generation.
+Nova 2 Lite supports extended thinking, which allows the models to spend more time reasoning through complex problems before generating responses. This capability improves accuracy for multi-step reasoning tasks, including agentic workflows with multiple tools, advanced mathematics, complex planning and code generation.
 
-To learn more, navigate to [Extended thinking in Amazon Nova 2](extended-thinking.md "extended-thinking.md").
+To learn more, navigate to [Extended thinking in Amazon Nova 2](extended-thinking.md).
 
 ### Built-in tools
+<a name="whats-new-tools"></a>
 
-Amazon Nova 2 includes built-in tools that extend model capabilities without requiring external
-integrations:
-
-- **Web grounding** – Accesses real-time information from the
-  web to provide up-to-date responses and reduce hallucinations.
-- **Code interpreter** – Executes Python code to perform
-  calculations.
+Amazon Nova 2 includes built-in tools that extend model capabilities without requiring external integrations:
++ **Web grounding** – Accesses real-time information from the web to provide up-to-date responses and reduce hallucinations.
++ **Code interpreter** – Executes Python code to perform calculations.
 
 ### AI agent building
+<a name="whats-new-agents"></a>
 
-Amazon Nova 2 models are optimized for building AI agents. The models provide improved tool use,
-better reasoning for multi-step tasks and enhanced ability to maintain context across complex
-agent workflows.
+Amazon Nova 2 models are optimized for building AI agents. The models provide improved tool use, better reasoning for multi-step tasks and enhanced ability to maintain context across complex agent workflows.
 
 ### Improved document understanding
+<a name="whats-new-document-processing"></a>
 
-Nova 2 Lite provides enhanced document processing capabilities with better understanding of
-complex document layouts, tables, charts and multi-page documents. The models extract
-information more accurately from PDFs, spreadsheets and other document formats.
+Nova 2 Lite provides enhanced document processing capabilities with better understanding of complex document layouts, tables, charts and multi-page documents. The models extract information more accurately from PDFs, spreadsheets and other document formats.
 
 ### Enhanced video understanding
+<a name="whats-new-video-understanding"></a>
 
-Nova 2 Lite offers improved video analysis capabilities, including better visual
-perception, temporal understanding, action recognition and the ability to process longer video
-sequences with higher accuracy.
+Nova 2 Lite offers improved video analysis capabilities, including better visual perception, temporal understanding, action recognition and the ability to process longer video sequences with higher accuracy.
 
 ### Model customization
+<a name="whats-new-customization"></a>
 
-Nova 2 Lite supports supervised fine-tuning (SFT) and reinforcement fine-tuning (RFT) on
-Amazon Bedrock and SageMaker AI, allowing you to adapt Amazon Nova 2 to your specific business needs.
+Nova 2 Lite supports supervised fine-tuning (SFT) and reinforcement fine-tuning (RFT) on Amazon Bedrock and SageMaker AI, allowing you to adapt Amazon Nova 2 to your specific business needs.
 
 ### Amazon Nova Forge
+<a name="whats-new-forge"></a>
 
-Amazon Nova Forge is a first-of-its-kind service that offers organizations the easiest and most
-cost-effective way to build their own frontier models using Amazon Nova.
+Amazon Nova Forge is a first-of-its-kind service that offers organizations the easiest and most cost-effective way to build their own frontier models using Amazon Nova.
 
 ## Next steps
-
-- To learn about Amazon Nova models and capabilities, see [What is Amazon Nova 2?](what-is-nova-2.md "what-is-nova-2.md").
-- To start using Amazon Nova 2.0, see [Getting started with Amazon Nova 2](getting-started-nova-2.md "getting-started-nova-2.md").
-- To explore core inference features, see [Core inference](core-inference.md "core-inference.md").
+<a name="whats-new-next-steps"></a>
++ To learn about Amazon Nova models and capabilities, see [What is Amazon Nova 2?](what-is-nova-2.md).
++ To start using Amazon Nova 2.0, see [Getting started with Amazon Nova 2](getting-started-nova-2.md).
++ To explore core inference features, see [Core inference](core-inference.md).

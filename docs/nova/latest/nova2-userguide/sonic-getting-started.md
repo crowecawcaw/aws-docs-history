@@ -1,26 +1,23 @@
+
+
 # Getting started with speech-to-speech
+<a name="sonic-getting-started"></a>
 
-The following sections provide an example and step-by-step explanation of how to
-implement a simple, real-time audio streaming application using Amazon Nova 2 Sonic. This
-simplified version demonstrates the core functionality needed to create an audio
-conversation with the Amazon Nova 2 Sonic model.
+The following sections provide an example and step-by-step explanation of how to implement a simple, real-time audio streaming application using Amazon Nova 2 Sonic. This simplified version demonstrates the core functionality needed to create an audio conversation with the Amazon Nova 2 Sonic model.
 
-You can access the following example in our [Nova samples GitHub
-repo](https://github.com/aws-samples/amazon-nova-samples "https://github.com/aws-samples/amazon-nova-samples").
+You can access the following example in our [Nova samples GitHub repo](https://github.com/aws-samples/amazon-nova-samples).
 
-There is a connection limit of 8 minutes, with connection renewal and conversation continuation pattern available on [GitHub](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic/repeatable-patterns/session-continuation/console-python "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic/repeatable-patterns/session-continuation/console-python") .
+There is a connection limit of 8 minutes, with connection renewal and conversation continuation pattern available on [ GitHub ](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/amazon-nova-2-sonic/repeatable-patterns/session-continuation/console-python).
 
 ## State the imports and configuration
+<a name="sonic-imports-config"></a>
 
-This section imports necessary libraries and sets audio configuration
-parameters:
-
-- `asyncio`: For asynchronous programming
-- `base64`: For encoding and decoding audio data
-- `pyaudio`: For audio capture and playback
-- Amazon Bedrock SDK components for streaming
-- Audio constants define the format of audio capture (16kHz sample rate,
-  mono channel)
+This section imports necessary libraries and sets audio configuration parameters:
++ `asyncio`: For asynchronous programming
++ `base64`: For encoding and decoding audio data
++ `pyaudio`: For audio capture and playback
++ Amazon Bedrock SDK components for streaming
++ Audio constants define the format of audio capture (16kHz sample rate, mono channel)
 
 ```
 import os
@@ -43,16 +40,13 @@ CHUNK_SIZE = 1024
 ```
 
 ## Define the `SimpleNovaSonic` class
+<a name="sonic-define-class"></a>
 
-The `SimpleNovaSonic` class is the main class that handles the Amazon
-Nova Sonic interaction:
-
-- `model_id`: The Amazon Nova Sonic model ID
-  (`amazon.nova-2-sonic-v1:0`)
-- `region`: The AWS Region, the default is
-  `us-east-1`
-- Unique IDs for prompt and content tracking
-- An asynchronous queue for audio playback
+The `SimpleNovaSonic` class is the main class that handles the Amazon Nova Sonic interaction:
++ `model_id`: The Amazon Nova Sonic model ID (`amazon.nova-2-sonic-v1:0`)
++ `region`: The AWS Region, the default is `us-east-1`
++ Unique IDs for prompt and content tracking
++ An asynchronous queue for audio playback
 
 ```
 class SimpleNovaSonic:
@@ -71,13 +65,12 @@ class SimpleNovaSonic:
 ```
 
 ## Initialize the client
+<a name="sonic-initialize-client"></a>
 
 This method configures the Amazon Bedrock client with the following:
-
-- The appropriate endpoint for the specified region
-- Authentication information using environment variables for AWS
-  credentials
-- The SigV4 authentication scheme for the AWS API calls
++ The appropriate endpoint for the specified region
++ Authentication information using environment variables for AWS credentials
++ The SigV4 authentication scheme for the AWS API calls
 
 ```
     def _initialize_client(self):
@@ -93,9 +86,9 @@ This method configures the Amazon Bedrock client with the following:
 ```
 
 ## Handle events
+<a name="sonic-handle-events"></a>
 
-This helper method sends JSON events to the bidirectional stream, which is used
-for all communication with the Amazon Nova Sonic model:
+This helper method sends JSON events to the bidirectional stream, which is used for all communication with the Amazon Nova Sonic model:
 
 ```
     async def send_event(self, event_json):
@@ -107,22 +100,22 @@ for all communication with the Amazon Nova Sonic model:
 ```
 
 ## Start the session
+<a name="sonic-start-session"></a>
 
-This method initiates the session and setups the remaining events to start audio
-streaming. These events need to be sent in the same order.
+This method initiates the session and setups the remaining events to start audio streaming. These events need to be sent in the same order.
 
 ```
     async def start_session(self):
         """Start a new session with Nova Sonic."""
         if not self.client:
             self._initialize_client()
-
+            
         # Initialize the stream
         self.stream = await self.client.invoke_model_with_bidirectional_stream(
             InvokeModelWithBidirectionalStreamOperationInput(model_id=self.model_id)
         )
         self.is_active = True
-
+        
         # Send session start event
         session_start = '''
         {
@@ -141,7 +134,7 @@ streaming. These events need to be sent in the same order.
         }
         '''
         await self.send_event(session_start)
-
+        
         # Send prompt start event
         prompt_start = f'''
         {{
@@ -165,7 +158,7 @@ streaming. These events need to be sent in the same order.
         }}
         '''
         await self.send_event(prompt_start)
-
+        
         # Send system prompt
         text_content_start = f'''
         {{
@@ -184,12 +177,12 @@ streaming. These events need to be sent in the same order.
         }}
         '''
         await self.send_event(text_content_start)
-
+        
         system_prompt = "You are a friendly assistant. The user and you will engage in a spoken dialog " \
             "exchanging the transcripts of a natural real-time conversation. Keep your responses short, " \
             "generally two or three sentences for chatty scenarios."
-
-
+        
+        
         text_input = f'''
         {{
             "event": {{
@@ -202,7 +195,7 @@ streaming. These events need to be sent in the same order.
         }}
         '''
         await self.send_event(text_input)
-
+        
         text_content_end = f'''
         {{
             "event": {{
@@ -214,21 +207,18 @@ streaming. These events need to be sent in the same order.
         }}
         '''
         await self.send_event(text_content_end)
-
+        
         # Start processing responses
         self.response = asyncio.create_task(self._process_responses())
 ```
 
 ## Handle audio input
+<a name="sonic-handle-audio-input"></a>
 
 These methods handle the audio input lifecycle:
-
-- `start_audio_input`: Configures and starts the audio input
-  stream
-- `send_audio_chunk`: Encodes and sends audio chunks to the
-  model
-- `end_audio_input`: Properly closes the audio input
-  stream
++ `start_audio_input`: Configures and starts the audio input stream
++ `send_audio_chunk`: Encodes and sends audio chunks to the model
++ `end_audio_input`: Properly closes the audio input stream
 
 ```
     async def start_audio_input(self):
@@ -255,12 +245,12 @@ These methods handle the audio input lifecycle:
         }}
         '''
         await self.send_event(audio_content_start)
-
+    
     async def send_audio_chunk(self, audio_bytes):
         """Send an audio chunk to the stream."""
         if not self.is_active:
             return
-
+            
         blob = base64.b64encode(audio_bytes)
         audio_event = f'''
         {{
@@ -274,7 +264,7 @@ These methods handle the audio input lifecycle:
         }}
         '''
         await self.send_event(audio_event)
-
+    
     async def end_audio_input(self):
         """End audio input stream."""
         audio_content_end = f'''
@@ -291,19 +281,19 @@ These methods handle the audio input lifecycle:
 ```
 
 ## End the session
+<a name="sonic-end-session"></a>
 
 This method properly closes the session by:
-
-- Sending a `promptEnd` event
-- Sending a `sessionEnd` event
-- Closing the input stream
++ Sending a `promptEnd` event
++ Sending a `sessionEnd` event
++ Closing the input stream
 
 ```
     async def end_session(self):
         """End the session."""
         if not self.is_active:
             return
-
+            
         prompt_end = f'''
         {{
             "event": {{
@@ -314,7 +304,7 @@ This method properly closes the session by:
         }}
         '''
         await self.send_event(prompt_end)
-
+        
         session_end = '''
         {
             "event": {
@@ -328,15 +318,13 @@ This method properly closes the session by:
 ```
 
 ## Handle responses
+<a name="sonic-handle-responses"></a>
 
-This method continuously processes responses from the model and does the
-following:
-
-- Waits for output from the stream.
-- Parses the JSON response.
-- Handles text output by printing to the console with automatic speech
-  recognition and transcription.
-- Handles audio output by decoding and queuing for playback.
+This method continuously processes responses from the model and does the following:
++ Waits for output from the stream.
++ Parses the JSON response.
++ Handles text output by printing to the console with automatic speech recognition and transcription.
++ Handles audio output by decoding and queuing for playback.
 
 ```
     async def _process_responses(self):
@@ -345,15 +333,15 @@ following:
             while self.is_active:
                 output = await self.stream.await_output()
                 result = await output[1].receive()
-
+                
                 if result.value and result.value.bytes_:
                     response_data = result.value.bytes_.decode('utf-8')
                     json_data = json.loads(response_data)
-
+                    
                     if 'event' in json_data:
                         # Handle content start event
                         if 'contentStart' in json_data['event']:
-                            content_start = json_data['event']['contentStart']
+                            content_start = json_data['event']['contentStart'] 
                             # set role
                             self.role = content_start['role']
                             # Check for speculative content
@@ -363,16 +351,16 @@ following:
                                     self.display_assistant_text = True
                                 else:
                                     self.display_assistant_text = False
-
+                                
                         # Handle text output event
                         elif 'textOutput' in json_data['event']:
-                            text = json_data['event']['textOutput']['content']
-
+                            text = json_data['event']['textOutput']['content']    
+                           
                             if (self.role == "ASSISTANT" and self.display_assistant_text):
                                 print(f"Assistant: {text}")
                             elif self.role == "USER":
                                 print(f"User: {text}")
-
+                        
                         # Handle audio output
                         elif 'audioOutput' in json_data['event']:
                             audio_content = json_data['event']['audioOutput']['content']
@@ -383,13 +371,13 @@ following:
 ```
 
 ## Playback audio
+<a name="sonic-playback-audio"></a>
 
 This method will perform the following tasks:
-
-- Initialize a `PyAudio` input stream
-- Continuously retrieves audio data from the queue
-- Plays the audio through the speakers
-- Properly cleans up resources when done
++ Initialize a `PyAudio` input stream
++ Continuously retrieves audio data from the queue
++ Plays the audio through the speakers
++ Properly cleans up resources when done
 
 ```
     async def play_audio(self):
@@ -401,13 +389,11 @@ This method will perform the following tasks:
             rate=OUTPUT_SAMPLE_RATE,
             output=True
         )
-
 ```
 
 try:
 
 ```
-
             while self.is_active:
                 audio_data = await self.audio_queue.get()
                 stream.write(audio_data)
@@ -420,14 +406,14 @@ try:
 ```
 
 ## Capture audio
+<a name="sonic-capture-audio"></a>
 
 This method will perform the following tasks:
-
-- Initializes a `PyAudio` output stream
-- Starts the audio input session
-- Continuously captures audio chunks from the microphone
-- Sends each chunk to the Amazon Nova Sonic model
-- Properly cleans up resources when done
++ Initializes a `PyAudio` output stream
++ Starts the audio input session
++ Continuously captures audio chunks from the microphone
++ Sends each chunk to the Amazon Nova Sonic model
++ Properly cleans up resources when done
 
 ```
     async def capture_audio(self):
@@ -440,18 +426,16 @@ This method will perform the following tasks:
             input=True,
             frames_per_buffer=CHUNK_SIZE
         )
-
+        
         print("Starting audio capture. Speak into your microphone...")
         print("Press Enter to stop...")
-
+        
         await self.start_audio_input()
-
 ```
 
 try:
 
 ```
-
             while self.is_active:
                 audio_data = stream.read(CHUNK_SIZE, exception_on_overflow=False)
                 await self.send_audio_chunk(audio_data)
@@ -467,36 +451,35 @@ try:
 ```
 
 ## Run the main function
+<a name="sonic-run-main"></a>
 
-The main function orchestrates the entire process by performing the
-following:
-
-- Creates an Amazon Nova 2 Sonic client
-- Starts the session
-- Creates concurrent tasks for audio playback and capture
-- Waits for the user to press `Enter` to stop
-- Properly ends the session and cleans up tasks
+The main function orchestrates the entire process by performing the following:
++ Creates an Amazon Nova 2 Sonic client
++ Starts the session
++ Creates concurrent tasks for audio playback and capture
++ Waits for the user to press **Enter** to stop
++ Properly ends the session and cleans up tasks
 
 ```
 async def main():
     # Create Nova Sonic client
     nova_client = SimpleNovaSonic()
-
+    
     # Start session
     await nova_client.start_session()
-
+    
     # Start audio playback task
     playback_task = asyncio.create_task(nova_client.play_audio())
-
+    
     # Start audio capture task
     capture_task = asyncio.create_task(nova_client.capture_audio())
-
+    
     # Wait for user to press Enter to stop
     await asyncio.get_event_loop().run_in_executor(None, input)
-
+    
     # End session
     nova_client.is_active = False
-
+    
     # First cancel the tasks
     tasks = []
     if not playback_task.done():
@@ -507,11 +490,11 @@ async def main():
         task.cancel()
     if tasks:
         await asyncio.gather(*tasks, return_exceptions=True)
-
+    
     # cancel the response task
     if nova_client.response and not nova_client.response.done():
         nova_client.response.cancel()
-
+    
     await nova_client.end_session()
     print("Session ended")
 

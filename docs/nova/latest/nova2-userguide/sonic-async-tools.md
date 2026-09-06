@@ -1,29 +1,30 @@
+
+
 # Asynchronous tool calling
+<a name="sonic-async-tools"></a>
 
-Unlike traditional synchronous tool calling where the AI waits silently for tool
-results, Amazon Nova 2 Sonic's asynchronous approach allows it to:
-
-- Continue accepting user input while tools are running
-- Respond to new questions without waiting for pending tool results
-- Handle multiple tool calls simultaneously
-- Maintain natural conversation flow without awkward pauses
-- No extra configuration is required. Asynchronous tool calling works out of
-  the box.
+Unlike traditional synchronous tool calling where the AI waits silently for tool results, Amazon Nova 2 Sonic's asynchronous approach allows it to:
++ Continue accepting user input while tools are running
++ Respond to new questions without waiting for pending tool results
++ Handle multiple tool calls simultaneously
++ Maintain natural conversation flow without awkward pauses
++ No extra configuration is required. Asynchronous tool calling works out of the box.
 
 ## How it works
+<a name="sonic-async-tools-works"></a>
 
-When Nova 2 Sonic issues a tool call, it doesn't pause the conversation.
-Instead, it continues listening and responsing naturally until the tool
-arrives.
+When Nova 2 Sonic issues a tool call, it doesn't pause the conversation. Instead, it continues listening and responsing naturally until the tool arrives.
 
-![Flow diagram showing Nova Sonic responding to user queries while weather and calendar tools run asynchronously.](images/Asynchronous-Tool-Calling_6.png)
+![Flow diagram showing Nova Sonic responding to user queries while weather and calendar tools run asynchronously.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Asynchronous-Tool-Calling_6.png)
+
 
 ## Handling user interruptions
+<a name="sonic-async-tools-interruptions"></a>
 
-If a user changes their request while a tool is executing, Nova 2 Sonic
-handles it intelligently without canceling pending tools calls.
+If a user changes their request while a tool is executing, Nova 2 Sonic handles it intelligently without canceling pending tools calls.
 
-![Sequence diagram showing user interrupting flight search from Chicago to Seattle mid-process.](images/Asynchronous-User-Interruption_7.png)
+![Sequence diagram showing user interrupting flight search from Chicago to Seattle mid-process.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Asynchronous-User-Interruption_7.png)
+
 
 Example Scenario
 
@@ -39,20 +40,12 @@ User: "Can I book a flight from Boston to Chicago?"
 ```
 
 ## How it works
+<a name="sonic-async-tools-how-it-works"></a>
 
-Tool results are always delivered: When a tool call completes, its result is
-always sent to the model, even if the user has changed their request. The model
-uses its reasoning capabilities to determine how to handle the
-information.
+Tool results are always delivered: When a tool call completes, its result is always sent to the model, even if the user has changed their request. The model uses its reasoning capabilities to determine how to handle the information.
 
-Context-aware processing: The model understands the conversation context and
-can appropriately handle outdated tool results. For example:
+Context-aware processing: The model understands the conversation context and can appropriately handle outdated tool results. For example:
++ If the user says "thank you" after changing their mind, the model still needs the original results for context
++ If the user changes their request, the model can acknowledge the original results while focusing on the new request
 
-- If the user says "thank you" after changing their mind, the model
-  still needs the original results for context
-- If the user changes their request, the model can acknowledge the
-  original results while focusing on the new request
-
-No automatic cancellation: The system does not automatically cancel or ignore
-tool calls based on new user input. This ensures the model has complete
-information to make intelligent decisions about how to respond.
+No automatic cancellation: The system does not automatically cancel or ignore tool calls based on new user input. This ensures the model has complete information to make intelligent decisions about how to respond.

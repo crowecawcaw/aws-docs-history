@@ -1,59 +1,47 @@
+
+
 # Voice conversation prompts
+<a name="sonic-system-prompts"></a>
 
-Nova 2 introduces **Speech Prompts** – a specialized
-prompting capability designed to control speech-specific transcription formatting for
-Hindi. Speech prompts work alongside your system prompt but serve a distinct
-purpose:
-
-- **System Prompt**: Controls your assistant's
-  behavior, personality, and response style
-- **Speech Prompt**: Controls transcription
-  formatting for Hindi code-switching (Latin/Devanagari/mixed scripts)
+Nova 2 introduces **Speech Prompts** – a specialized prompting capability designed to control speech-specific transcription formatting for Hindi. Speech prompts work alongside your system prompt but serve a distinct purpose:
++ **System Prompt**: Controls your assistant's behavior, personality, and response style
++ **Speech Prompt**: Controls transcription formatting for Hindi code-switching (Latin/Devanagari/mixed scripts)
 
 ## Important Guidelines
+<a name="sonic-important-guidelines"></a>
 
-**Speech prompts are pre-configured and should be used exactly
-as documented.** They are designed for specific transcription
-formatting needs and should not be modified or customized, as changes may cause
-unexpected behavior.
+**Speech prompts are pre-configured and should be used exactly as documented.** They are designed for specific transcription formatting needs and should not be modified or customized, as changes may cause unexpected behavior.
 
 **When to use Speech Prompts:**
-
-- You need to control script output for Hindi code-switching
-  (Latin/Devanagari/mixed)
++ You need to control script output for Hindi code-switching (Latin/Devanagari/mixed)
 
 **When NOT to use Speech Prompts:**
++ For general instructions or assistant behavior (use system prompt instead)
++ If you're not working with Hindi transcription formatting
++ If the specific formatting need doesn't apply to your use case
 
-- For general instructions or assistant behavior (use system prompt
-  instead)
-- If you're not working with Hindi transcription formatting
-- If the specific formatting need doesn't apply to your use case
-
-**Best Practice:** Only include a speech prompt if
-you specifically need Hindi transcription formatting. All other instructions –
-including language preferences, response style, verbosity, and reasoning – should go
-in your system prompt.
+**Best Practice:** Only include a speech prompt if you specifically need Hindi transcription formatting. All other instructions – including language preferences, response style, verbosity, and reasoning – should go in your system prompt.
 
 **Important:** Speech prompts must be sent **after** the system prompt to the model.
 
 ## Recommended Baseline System Prompt for Voice
+<a name="sonic-baseline-system-prompt"></a>
 
 ```
 You are a warm, professional, and helpful AI assistant. Give accurate answers that sound natural, direct, and human. Start by answering the user's question clearly in 1–2 sentences. Then, expand only enough to make the answer understandable, staying within 3–5 short sentences total. Avoid sounding like a lecture or essay.
 ```
 
 ## Speech Prompt Configuration
+<a name="sonic-speech-prompt-config"></a>
 
 ### Code Switching
+<a name="sonic-code-switching"></a>
 
-**Note:** This feature currently applies to Hindi
-language only.
+**Note:** This feature currently applies to Hindi language only.
 
-Choose one of the following prompts based on your desired output
-script:
+Choose one of the following prompts based on your desired output script:
 
-**For Latin script output (Romanized
-Hindi):**
+**For Latin script output (Romanized Hindi):**
 
 ```
 If the input audio/speech contains hindi, then the transcription and response should be in All Latin script (romanized Hindi).
@@ -65,16 +53,17 @@ If the input audio/speech contains hindi, then the transcription and response sh
 If the input audio/speech contains hindi, then the transcription and response should be in All Devanagari script (Hindi).
 ```
 
-**For mixed script output (natural
-code-switching):**
+**For mixed script output (natural code-switching):**
 
 ```
 If the input audio/speech contains hindi, then the transcription and response can mix Latin and Devanagari scripts naturally for code-switching.
 ```
 
 ## System Prompt Configuration
+<a name="sonic-system-prompt-config"></a>
 
 ### Controlling Response Verbosity
+<a name="sonic-controlling-verbosity"></a>
 
 **Concise, conversational responses:**
 
@@ -89,9 +78,9 @@ You are a warm, professional, and helpful AI assistant. Give accurate, complete 
 ```
 
 ### Language Mirroring
+<a name="sonic-language-mirroring"></a>
 
-Nova can recognize and respond in the language the user speaks. Use this
-prompt to maintain language consistency:
+Nova can recognize and respond in the language the user speaks. Use this prompt to maintain language consistency:
 
 ```
 CRITICAL LANGUAGE MIRRORING RULES:
@@ -100,39 +89,28 @@ CRITICAL LANGUAGE MIRRORING RULES:
 ```
 
 ## Gender Agreement for Gendered Languages
+<a name="sonic-gender-agreement"></a>
 
-Some languages require gender agreement in verbs, adjectives, or pronouns when the
-assistant describes itself. For these languages, specify the assistant's gender in
-your system prompt to match your selected voice.
+Some languages require gender agreement in verbs, adjectives, or pronouns when the assistant describes itself. For these languages, specify the assistant's gender in your system prompt to match your selected voice.
 
-**Languages affected:** Hindi, Portuguese, French,
-Italian, Spanish, Russian, Polish
+**Languages affected:** Hindi, Portuguese, French, Italian, Spanish, Russian, Polish
 
 **When gender agreement matters:**
-
-- **Hindi:** Always needed - verbs conjugate
-  based on speaker's gender in first person
-- **Portuguese/French:** Needed when using past
-  participles or adjectives (such as, "I am tired" - "Estou
-  cansada/cansado")
-- **Italian/Spanish:** Needed when using
-  adjectives to describe oneself (such as, "I am happy" - "Sono
-  contenta/contento")
++ **Hindi:** Always needed - verbs conjugate based on speaker's gender in first person
++ **Portuguese/French:** Needed when using past participles or adjectives (such as, "I am tired" - "Estou cansada/cansado")
++ **Italian/Spanish:** Needed when using adjectives to describe oneself (such as, "I am happy" - "Sono contenta/contento")
 
 **Implementation:**
 
-Include the appropriate gender identifier at the start of your system prompt based
-on your voice selection:
+Include the appropriate gender identifier at the start of your system prompt based on your voice selection:
 
-**For feminine-sounding voices (kiara, carolina, ambre,
-beatrice, lupe, tiffany):**
+**For feminine-sounding voices (kiara, carolina, ambre, beatrice, lupe, tiffany):**
 
 ```
 You are a warm, professional, and helpful female AI assistant.
 ```
 
-**For masculine-sounding voices (arjun, leo, florian, lorenzo,
-carlos, matthew):**
+**For masculine-sounding voices (arjun, leo, florian, lorenzo, carlos, matthew):**
 
 ```
 You are a warm, professional, and helpful male AI assistant.
@@ -146,8 +124,7 @@ You are a warm, professional, and helpful male AI assistant.
 You are a warm, professional, and helpful female AI assistant.
 ```
 
-Result: "मैं अच्छी हूँ" (main achchhi hoon) vs "मैं अच्छा हूँ" (main achchha
-hoon)
+Result: "मैं अच्छी हूँ" (main achchhi hoon) vs "मैं अच्छा हूँ" (main achchha hoon)
 
 **Italian with masculine voice (lorenzo):**
 
@@ -158,9 +135,9 @@ You are a warm, professional, and helpful male AI assistant.
 Result: "Sono contento" vs "Sono contenta"
 
 ## Chain of thought for Speech: Constitutional Reasoning
+<a name="sonic-constitutional-reasoning"></a>
 
-Use this prompt when you want the model to show its reasoning for complex
-problems:
+Use this prompt when you want the model to show its reasoning for complex problems:
 
 ```
 You are a friendly assistant. The user will give you a problem. Explain your reasoning following the guidelines given in CONSTITUTION - REASONING, and summarize your decision at the end of your response, in one sentence.
@@ -171,9 +148,7 @@ You are a friendly assistant. The user will give you a problem. Explain your rea
 3. For subjective matters or comparisons: explain your thought process step-by-step.
 ```
 
-**Note:** If you don't want the model to go through
-reasoning for every request, you can add a couple of shot examples to the prompt
-(see examples below).
+**Note:** If you don't want the model to go through reasoning for every request, you can add a couple of shot examples to the prompt (see examples below).
 
 ```
 You are a warm, professional, and helpful AI assistant. You converse in fluid and conversational English. Give accurate, complete answers that sound warm, direct, and human. Answer the question directly in the first 1–2 sentences. Keep a confident, kind, conversational tone; never robotic or theatrical. Avoid formatted lists or numbering and keep your output as a spoken transcript. Be concise but thorough; add examples or context only when helpful. Prefer accuracy and safety over speculation; if unsure, say so and suggest what to check. The user will give you a problem. Explain your reasoning following the guidelines given in CONSTITUTION - REASONING, and summarize your decision at the end of your response in one sentence.
@@ -196,15 +171,11 @@ Assistant: (step-by-step breakdown + one-sentence conclusion)
 ```
 
 ## Overuse of suggested phrases
+<a name="sonic-overuse-phrases"></a>
 
-**Nova Sonic 2 is more sensitive to phrase suggestions than
-Sonic 1.** This increased sensitivity isn't inherently good or bad—it
-depends on your use case. If you want consistent, predictable phrasing, this can be
-beneficial. However, if you want more natural variation, explicit phrase lists can
-lead to overuse.
+**Nova Sonic 2 is more sensitive to phrase suggestions than Sonic 1.** This increased sensitivity isn't inherently good or bad—it depends on your use case. If you want consistent, predictable phrasing, this can be beneficial. However, if you want more natural variation, explicit phrase lists can lead to overuse.
 
-If you include prompts with explicit lists of phrases, the model will use them
-very frequently:
+If you include prompts with explicit lists of phrases, the model will use them very frequently:
 
 **Example 1 - Emphasis phrases:**
 
@@ -219,18 +190,15 @@ Include natural speech elements like "Well," "You know," "Actually," "I mean," o
 ```
 
 **Recommendation:**
-
-- **If you want consistent phrasing:** Explicit
-  phrase lists work well in Sonic 2 for creating predictable, on-brand
-  responses.
-- **If you want natural variation:** Avoid
-  providing explicit lists of phrases. Instead, use general guidance like
-  "sound natural and conversational" or provide one-shot examples.
++ **If you want consistent phrasing:** Explicit phrase lists work well in Sonic 2 for creating predictable, on-brand responses.
++ **If you want natural variation:** Avoid providing explicit lists of phrases. Instead, use general guidance like "sound natural and conversational" or provide one-shot examples.
 
 **Better approach - Use one-shot examples:**
 
-Instead of listing phrases, provide 1-2 examples demonstrating the desired tone
-and style:
+Instead of listing phrases, provide 1-2 examples demonstrating the desired tone and style:
+
+### Natural, helpful tone
+<a name="sonic-example-natural-tone"></a>
 
 ```
 You are a warm, professional, and helpful AI assistant. Sound natural and conversational in your responses.
@@ -240,6 +208,9 @@ User: How do I reset my password?
 Assistant: You can reset your password by clicking the "Forgot Password" link on the login page. You'll get an email with instructions to create a new one. The whole process usually takes just a couple of minutes.
 ```
 
+### Concise and direct
+<a name="sonic-example-concise"></a>
+
 ```
 You are a helpful AI assistant. Provide clear, direct answers without unnecessary elaboration.
 
@@ -247,6 +218,9 @@ Example:
 User: What's the weather like today?
 Assistant: It's 72 degrees and sunny with a light breeze. Perfect day to be outside.
 ```
+
+### Professional with empathy
+<a name="sonic-example-empathy"></a>
 
 ```
 You are a professional and empathetic AI assistant. Acknowledge the user's situation while providing practical solutions.
@@ -256,6 +230,9 @@ User: I'm frustrated because my order hasn't arrived yet.
 Assistant: I understand how frustrating that must be, especially when you're waiting for something important. Let me check your order status right now. Can you provide your order number?
 ```
 
+### Technical but accessible
+<a name="sonic-example-technical"></a>
+
 ```
 You are a knowledgeable AI assistant who explains technical concepts in accessible language.
 
@@ -264,5 +241,4 @@ User: What is machine learning?
 Assistant: Machine learning is when computers learn from examples rather than following strict rules. Think of it like teaching a child to recognize dogs—after seeing many dogs, they start recognizing new ones on their own. The computer does something similar with data.
 ```
 
-This approach shows the model the desired behavior without triggering repetitive
-phrase patterns, while still maintaining control over tone and style.
+This approach shows the model the desired behavior without triggering repetitive phrase patterns, while still maintaining control over tone and style.

@@ -1,16 +1,19 @@
+
+
 # Reinforcement fine-tuning (RFT) on Nova 2.0 on SageMaker HyperPod
+<a name="nova-hp-rft-nova2"></a>
 
-This section covers the sample recipe, starting a fine-tuning job, hyperparameter guidance, and training monitoring for RFT on Nova 2.0 Lite on SageMaker HyperPod. For information about the data format, supported features, constraints, and best practices for preparing RFT training data, see
-[Preparing data for RFT on Amazon Nova 2](nova-data-prep-rft-2.md "nova-data-prep-rft-2.md").
+This section covers the sample recipe, starting a fine-tuning job, hyperparameter guidance, and training monitoring for RFT on Nova 2.0 Lite on SageMaker HyperPod. For information about the data format, supported features, constraints, and best practices for preparing RFT training data, see [Preparing data for RFT on Amazon Nova 2](nova-data-prep-rft-2.md).
 
-To determine whether RFT is a good fit for your use case, see
-[Reinforcement fine-tuning (RFT)](nova-hp-rft.md "nova-hp-rft.md").
+To determine whether RFT is a good fit for your use case, see [Reinforcement fine-tuning (RFT)](nova-hp-rft.md).
 
-###### Topics
+**Topics**
++ [Starting a fine-tuning job on SageMaker HyperPod](#nova-rft-2-starting-job)
++ [Hyperparameter guidance](#nova-hp-rft-monitoring-hyperparams)
++ [Monitoring RFT training](nova-hp-rft-monitoring.md)
 
-- [Starting a fine-tuning job on SageMaker HyperPod](#nova-rft-2-starting-job "#nova-rft-2-starting-job")
-- [Hyperparameter guidance](#nova-hp-rft-monitoring-hyperparams "#nova-hp-rft-monitoring-hyperparams")
-- [Monitoring RFT training](nova-hp-rft-monitoring.md "nova-hp-rft-monitoring.md")
+## Sample RFT recipe
+<a name="nova-rft-2-sample-recipe"></a>
 
 ```
 # Note:
@@ -82,13 +85,15 @@ training_config:
 ```
 
 ## Starting a fine-tuning job on SageMaker HyperPod
+<a name="nova-rft-2-starting-job"></a>
 
 ### Preparing your data
+<a name="nova-rft-2-preparing-data"></a>
 
-For information about the data format, supported features, constraints, and best practices for preparing RFT training data, see
-[Preparing data for RFT on Amazon Nova 2](nova-data-prep-rft-2.md "nova-data-prep-rft-2.md").
+For information about the data format, supported features, constraints, and best practices for preparing RFT training data, see [Preparing data for RFT on Amazon Nova 2](nova-data-prep-rft-2.md).
 
 ### Uploading your data
+<a name="nova-rft-2-data-upload"></a>
 
 Upload your training dataset to an S3 bucket. Specify its location in the recipe's `run` block:
 
@@ -97,19 +102,15 @@ Upload your training dataset to an S3 bucket. Specify its location in the recipe
 run:
   ...
   data_s3_path: "s3://<bucket-name>/<training-directory>/<training-file>.jsonl"
-
 ```
 
-###### Note
-
-Replace `<bucket-name>`,
-`<training-directory>`, and `<training-file>` with actual
-S3 paths.
+**Note**  
+Replace `<bucket-name>`, `<training-directory>`, and `<training-file>` with actual S3 paths.
 
 ### Defining your config
+<a name="nova-rft-2-defining-config"></a>
 
-Define the base model using the `model_type` and
-`model_name_or_path` fields in the `run` block:
+Define the base model using the `model_type` and `model_name_or_path` fields in the `run` block:
 
 ```
 ## Run config
@@ -121,22 +122,19 @@ run:
 ```
 
 ## Hyperparameter guidance
+<a name="nova-hp-rft-monitoring-hyperparams"></a>
 
 Use the following recommended hyperparameters based on your training approach:
 
 **General:**
-
-- Epochs: 1
-- Learning rate (lr): 1e-7
-- Number of generations: 8
-- Max new tokens: 8192
-- Batch size: 256
++ Epochs: 1
++ Learning rate (lr): 1e-7
++ Number of generations: 8
++ Max new tokens: 8192
++ Batch size: 256
 
 **LoRA (Low-Rank Adaptation):**
++ LoRA Rank: 32
 
-- LoRA Rank: 32
-
-###### Note
-
-Adjust these values based on your dataset size and validation performance. Monitor
-training metrics to prevent overfitting.
+**Note**  
+Adjust these values based on your dataset size and validation performance. Monitor training metrics to prevent overfitting.

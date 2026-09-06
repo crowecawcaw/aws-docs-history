@@ -1,10 +1,14 @@
-# Customizing Amazon Nova models on SageMaker AI
 
-You can customize Amazon Nova models, including the enhanced Amazon Nova 2.0 models, through [recipes](nova-model-recipes.md#nova-model-get-recipes "nova-model-recipes.md#nova-model-get-recipes") and train them on SageMaker. These recipes support techniques such as supervised fine-tuning (SFT) and Reinforcement Fine-Tuning (RFT), with both full-rank and low-rank adaptation (LoRA) options.
+
+# Customizing Amazon Nova models on SageMaker AI
+<a name="nova-model"></a>
+
+You can customize Amazon Nova models, including the enhanced Amazon Nova 2.0 models, through [recipes](nova-model-recipes.md#nova-model-get-recipes) and train them on SageMaker. These recipes support techniques such as supervised fine-tuning (SFT) and Reinforcement Fine-Tuning (RFT), with both full-rank and low-rank adaptation (LoRA) options.
 
 The end-to-end customization workflow involves stages like model training, model evaluation, and deployment for inference. This model customization approach on SageMaker provides greater flexibility and control to fine-tune its supported Amazon Nova models, optimize hyperparameters with precision, and implement techniques such as LoRA parameter-efficient fine-tuning (PEFT), full-rank SFT, RFT, and Continued Pre-Training (CPT).
 
 ## Customization approaches
+<a name="nova-model-customization-approaches"></a>
 
 SageMaker offers two approaches for customizing Amazon Nova models:
 
@@ -12,12 +16,15 @@ SageMaker offers two approaches for customizing Amazon Nova models:
 
 **Code-based experience** – Use the SageMaker Python SDK, Nova SDK and training recipes to customize models programmatically. This approach offers greater flexibility, allowing you to configure advanced hyperparameters, integrate with CI/CD pipelines, and automate training workflows. The code-based experience is recommended for production workloads, complex customization requirements, and teams with established MLOps practices.
 
-| Approach   | Best for                                        | Key benefits                                            |
-| ---------- | ----------------------------------------------- | ------------------------------------------------------- |
-| UI-based   | Experimentation, prototyping, quick iterations  | Simple setup, guided workflow, no coding required       |
-| Code-based | Production, automation, advanced configurations | Full flexibility, pipeline integration, version control |
+
+
+| Approach | Best for | Key benefits | 
+| --- | --- | --- | 
+| UI-based | Experimentation, prototyping, quick iterations | Simple setup, guided workflow, no coding required | 
+| Code-based | Production, automation, advanced configurations | Full flexibility, pipeline integration, version control | 
 
 ## Customization platforms
+<a name="nova-model-customization-platforms"></a>
 
 AWS offers three platforms for customizing Amazon Nova models, each designed for different use cases and requirements:
 
@@ -27,15 +34,15 @@ AWS offers three platforms for customizing Amazon Nova models, each designed for
 
 **SageMaker HyperPod** – Offers a specialized environment for large-scale distributed training by requiring you to create and manage EKS clusters with restricted instance groups (RIGs). This platform gives you maximum flexibility in configuring your training environment with specialized GPU instances and integrated Amazon FSx for Lustre storage, making it particularly well-suited for advanced distributed training scenarios, ongoing model development, and enterprise-scale customization workloads.
 
-| Platform                | Complexity | Flexibility | Best for                                         |
-| ----------------------- | ---------- | ----------- | ------------------------------------------------ |
-| Amazon Bedrock          | Lowest     | Standard    | Fastest customization, minimal setup             |
-| SageMaker training jobs | Medium     | High        | Balanced flexibility and ease of use             |
-| SageMaker HyperPod      | Highest    | Maximum     | Large distributed training, enterprise workloads |
 
-###### Note
 
-If you provide a KMS key to your Amazon Nova model customization training job for encryption in the Amazon-owned output S3 bucket:
+| Platform | Complexity | Flexibility | Best for | 
+| --- | --- | --- | --- | 
+| Amazon Bedrock | Lowest | Standard | Fastest customization, minimal setup | 
+| SageMaker training jobs | Medium | High | Balanced flexibility and ease of use | 
+| SageMaker HyperPod | Highest | Maximum | Large distributed training, enterprise workloads | 
 
-- You must provide the same KMS key when calling subsequent iterative training jobs, or when calling the Amazon Bedrock CreateCustomModel API leveraging the encrypted model.
-- The identity calling the `CreateTrainingJob` API (rather than the execution role) must have permissions to `CreateGrant`, `RetireGrant`, `Encrypt`, and `GenerateDataKey` as defined in KMS key policy.
+**Note**  
+If you provide a KMS key to your Amazon Nova model customization training job for encryption in the Amazon-owned output S3 bucket:  
+You must provide the same KMS key when calling subsequent iterative training jobs, or when calling the Amazon Bedrock CreateCustomModel API leveraging the encrypted model.
+The identity calling the `CreateTrainingJob` API (rather than the execution role) must have permissions to `CreateGrant`, `RetireGrant`, `Encrypt`, and `GenerateDataKey` as defined in KMS key policy.

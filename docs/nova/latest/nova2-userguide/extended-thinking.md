@@ -1,62 +1,41 @@
-# Extended thinking in Amazon Nova 2
 
-Amazon Nova 2 Lite introduces **extended thinking** capabilities
-that enable the model to engage in deeper reasoning for complex problems. This optional
-feature gives you control over when and how the model allocates additional computational
-resources to think through challenging tasks.
+
+# Extended thinking in Amazon Nova 2
+<a name="extended-thinking"></a>
+
+Amazon Nova 2 Lite introduces **extended thinking** capabilities that enable the model to engage in deeper reasoning for complex problems. This optional feature gives you control over when and how the model allocates additional computational resources to think through challenging tasks.
 
 ## How Extended Thinking Works
+<a name="how-extended-thinking-works"></a>
 
-Amazon Nova 2 introduces extended thinking as a **hybrid
-capability**. You have complete control:
-
-- **Extended thinking OFF (default)**: Amazon Nova 2
-  operates with efficient latent reasoning, optimal for everyday tasks and
-  high-volume applications.
-- **Extended thinking ON**: Amazon Nova 2 engages in
-  explicit, step-by-step reasoning best for complex problems requiring deep
-  analysis.
+ Amazon Nova 2 introduces extended thinking as a **hybrid capability**. You have complete control:
++ **Extended thinking OFF (default)**: Amazon Nova 2 operates with efficient latent reasoning, optimal for everyday tasks and high-volume applications.
++ **Extended thinking ON**: Amazon Nova 2 engages in explicit, step-by-step reasoning best for complex problems requiring deep analysis.
 
 ### Reasoning effort
+<a name="reasoning-effort"></a>
 
 The following shows different levels of reasoning effort.
 
 #### Low Effort (maxReasoningeffort:"low")
+<a name="reasoning-effort-low"></a>
 
-**Best for:** Tasks with added complexity
-requiring structured thinking. For example, you can use this for code review and
-improvement suggestions where the model needs to carefully consider existing
-code quality, analysis tasks that require thoughtful consideration of multiple
-factors, or problem-solving scenarios that benefit from a methodical approach.
-Low effort is ideal for compound tasks where basic reasoning improves accuracy
-without requiring deep multi-step planning.
+**Best for:** Tasks with added complexity requiring structured thinking. For example, you can use this for code review and improvement suggestions where the model needs to carefully consider existing code quality, analysis tasks that require thoughtful consideration of multiple factors, or problem-solving scenarios that benefit from a methodical approach. Low effort is ideal for compound tasks where basic reasoning improves accuracy without requiring deep multi-step planning.
 
 #### Medium effort (maxReasoningEffort: "medium")
+<a name="reasoning-effort-medium"></a>
 
-**Best for:** Multi-step tasks and coding
-workflows. For example, you can use this for software development and debugging
-where the model needs to understand existing code structure before implementing
-changes, code generation that requires coordination across multiple files or
-components, multi-step calculations with interdependencies, or planning tasks
-with multiple constraints. Medium effort is optimal for agentic workflows that
-coordinate multiple tools and require the model to maintain context across
-several sequential operations.
+**Best for:** Multi-step tasks and coding workflows. For example, you can use this for software development and debugging where the model needs to understand existing code structure before implementing changes, code generation that requires coordination across multiple files or components, multi-step calculations with interdependencies, or planning tasks with multiple constraints. Medium effort is optimal for agentic workflows that coordinate multiple tools and require the model to maintain context across several sequential operations.
 
 #### High Effort (maxReasoningeffort:"high")
+<a name="reasoning-effort-high"></a>
 
-**Best for:** STEM reasoning and advanced
-problem-solving. For example, you can use this for advanced mathematical
-problems and proofs that require rigorous step-by-step verification, scientific
-analysis and research tasks demanding deep investigation, complex system design
-with architectural considerations across multiple dimensions, or critical
-decision-making scenarios with significant implications. High effort delivers
-maximum accuracy for tasks requiring sophisticated reasoning, careful evaluation
-of alternatives, and thorough validation of conclusions.
+**Best for:** STEM reasoning and advanced problem-solving. For example, you can use this for advanced mathematical problems and proofs that require rigorous step-by-step verification, scientific analysis and research tasks demanding deep investigation, complex system design with architectural considerations across multiple dimensions, or critical decision-making scenarios with significant implications. High effort delivers maximum accuracy for tasks requiring sophisticated reasoning, careful evaluation of alternatives, and thorough validation of conclusions.
 
 ### Quick start: Enabling Extended Thinking
+<a name="enable-extended-thinking"></a>
 
-Extended thinking is controlled through the `reasoningConfig`
-parameter.
+Extended thinking is controlled through the `reasoningConfig` parameter.
 
 ```
 import boto3
@@ -97,27 +76,20 @@ for item in content_list:
 ```
 
 Reasoning Parameters:
++ `type: enabled` or `disabled` (default: `disabled`)
++ `maxReasoningEffort`: `low`, `medium`, or `high`
 
-- `type: enabled` or `disabled` (default:
-  `disabled`)
-- `maxReasoningEffort`: `low`, `medium`, or
-  `high`
+**Note**  
+Temperature, topP and topK cannot be used with `maxReasoningEffort` set to `high`. Using these parameters together causes an error.
 
-###### Note
-
-Temperature, topP and topK cannot be used with `maxReasoningEffort`
-set to `high`. Using these parameters together causes an
-error.
-
-For full examples of code that utilizes extended thinking, see [Code library](code-library.md "code-library.md").
+For full examples of code that utilizes extended thinking, see [Code library](code-library.md).
 
 ### Response Structure
+<a name="extended-thinking-response-structure"></a>
 
-When you enable extended thinking, responses include `reasoningContent`
-blocks followed by `text` content blocks:
+When you enable extended thinking, responses include `reasoningContent` blocks followed by `text` content blocks:
 
 ```
-
 {
     "output": {
         "message": {
@@ -138,86 +110,61 @@ blocks followed by `text` content blocks:
     },
     "stopReason": "end_turn"
 }
-
 ```
 
-###### Note
-
-With Amazon Nova 2, reasoning content displays as `[REDACTED]`. You're
-still charged for reasoning tokens as they contribute to improved output
-quality. We include this field in the response structure now to preserve the
-option of exposing reasoning content in the future. We are actively working with
-customers to determine the best approach for surfacing the model's reasoning
-process.Reasoning content is displayed as `[REDACTED]`. You are still
-charged for reasoning tokens as they contribute to improved response
-quality.
+**Note**  
+With Amazon Nova 2, reasoning content displays as `[REDACTED]`. You're still charged for reasoning tokens as they contribute to improved output quality. We include this field in the response structure now to preserve the option of exposing reasoning content in the future. We are actively working with customers to determine the best approach for surfacing the model's reasoning process.Reasoning content is displayed as `[REDACTED]`. You are still charged for reasoning tokens as they contribute to improved response quality.
 
 ## Configuration Options
+<a name="extended-thinking-configuration"></a>
 
-Amazon Nova 2 introduces a new `reasoningConfig` parameter that you can add to
-your existing converse request structure to enable reasoning:
+Amazon Nova 2 introduces a new `reasoningConfig` parameter that you can add to your existing converse request structure to enable reasoning:
 
 ```
-
 additionalModelRequestFields={
     "reasoningConfig": {
         "type": "enabled",  # or "disabled" (default)
         "maxReasoningEffort": "high"  # "low", "medium", or "high"
     }
 }
-
 ```
 
 **Parameters:**
++ **type:** Toggle between `"enabled"` and `"disabled"` (default is `"disabled"`)
++ **`maxReasoningEffort`:** When enabled, control reasoning depth
++ **"low"":** Moderately complex tasks
++ **"medium"":** Complex problems requiring substantial analysis
++ **"high"":** Most thorough reasoning for highly complex tasks
 
-- **type:** Toggle between `"enabled"`
-  and `"disabled"` (default is `"disabled"`)
-- **`maxReasoningEffort`:** When
-  enabled, control reasoning depth
-- **"low"":** Moderately complex tasks
-- **"medium"":** Complex problems requiring
-  substantial analysis
-- **"high"":** Most thorough reasoning for highly
-  complex tasks
-
-###### Note
-
-when using `"high"`, temp, topP, and maxToken must be unset. In this
-mode, the model performs deeper analysis to find the best solution. This more
-thorough processing may generate output that exceeds 65k tokens The exact amount
-depends on your request's complexity but for some problems we have see it go up to
-128K tokens. This ensures you get complete, high-quality reasoning rather than
-truncated results.
+**Note**  
+ when using `"high"`, temp, topP, and maxToken must be unset. In this mode, the model performs deeper analysis to find the best solution. This more thorough processing may generate output that exceeds 65k tokens The exact amount depends on your request's complexity but for some problems we have see it go up to 128K tokens. This ensures you get complete, high-quality reasoning rather than truncated results. 
 
 ## Supported models
+<a name="extended-thinking-supported-models"></a>
 
-Extended thinking is currently available in: Amazon Nova 2 Lite
-(us.amazon.nova-2-lite-v1:0)
+Extended thinking is currently available in: Amazon Nova 2 Lite (us.amazon.nova-2-lite-v1:0)
 
 ## Extended thinking with tool use
+<a name="extended-thinking-with-tools"></a>
 
-Extended thinking works seamlessly with tool calling, allowing Amazon Nova to reason about
-which tools to use and how to interpret their results.
+Extended thinking works seamlessly with tool calling, allowing Amazon Nova to reason about which tools to use and how to interpret their results.
 
 ## Understanding Reasoning Tokens and Pricing
+<a name="reasoning-tokens-pricing"></a>
 
 ### Token types
+<a name="reasoning-token-types"></a>
 
 Extended thinking tokens are billed as output tokens:
-
-- **Input tokens**: Your original request
-  content (standard input pricing)
-- **Output tokens**: This includes reasoning
-  tokens and the final visible response content (standard output pricing)
++ **Input tokens**: Your original request content (standard input pricing) 
++ **Output tokens**: This includes reasoning tokens and the final visible response content (standard output pricing) 
 
 ### Usage breakdown
+<a name="reasoning-usage-breakdown"></a>
 
-All three token types are included in your usage metrics and billing. Reasoning
-tokens are priced the same as output tokens and will appear as "REDACTED" in the
-model response".
+All three token types are included in your usage metrics and billing. Reasoning tokens are priced the same as output tokens and will appear as "REDACTED" in the model response".
 
 ```
-
   {
   "usage": {
     "inputTokens": 45,
@@ -225,33 +172,17 @@ model response".
     "totalTokens": 1285
   }
 }
-
 ```
 
 ## Frequently Asked Questions
+<a name="reasoning-faq"></a>
 
-Why does Amazon Nova 2 Lite show "[REDACTED]" for reasoning content instead of
-displaying the model's thinking process?
+Why does Amazon Nova 2 Lite show "[REDACTED]" for reasoning content instead of displaying the model's thinking process?  
+ Our primary focus for this launch is ensuring Nova 2 delivers best in class intelligence for your tasks, and you'll see this reflected in the improved accuracy.  
+ We recognize that visibility into the reasoning process is valuable, and we've heard strong customer interest in understanding how the model thinks through problems.  
+ We are looking at ways to make this available soon.  
+**You are still billed for reasoning tokens**, as they represent actual work that improves your output quality   
+which will be captured in the `outputTokens` along with the answer tokens. 
 
-Our primary focus for this launch is ensuring Nova 2 delivers best in
-class intelligence for your tasks, and you'll see this reflected in the
-improved accuracy.
-
-We recognize that visibility into the reasoning process is valuable, and
-we've heard strong customer interest in understanding how the model thinks
-through problems.
-
-We are looking at ways to make this available soon.
-
-**You are still billed for reasoning
-tokens**, as they represent actual work that improves your output
-quality
-
-which will be captured in the `outputTokens` along with the
-answer tokens.
-
-How do I know if extended thinking is working if reasoning is redacted?
-
-You can confirm extended thinking is working by checking the output for
-`reasoningContent` blocks in the response (these only appear
-when reasoning is enabled)
+How do I know if extended thinking is working if reasoning is redacted?  
+You can confirm extended thinking is working by checking the output for `reasoningContent` blocks in the response (these only appear when reasoning is enabled)

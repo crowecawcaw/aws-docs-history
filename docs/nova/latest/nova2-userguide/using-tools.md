@@ -1,50 +1,34 @@
-# Using tools (function calling)
 
-Tools extend Amazon Nova capabilities by connecting the model to external functionality such as
-APIs, databases and code execution environments. Tool use enables Amazon Nova to access real-time
-information, perform calculations and interact with external systems.
+
+# Using tools (function calling)
+<a name="using-tools"></a>
+
+Tools extend Amazon Nova capabilities by connecting the model to external functionality such as APIs, databases and code execution environments. Tool use enables Amazon Nova to access real-time information, perform calculations and interact with external systems.
 
 ## Understanding the tool use workflow
+<a name="tool-workflow"></a>
 
 Tool use with Amazon Nova involves three key phases:
 
-User Query and Tool Definition
+User Query and Tool Definition  
+Define tools by providing JSON schemas that describe each tool's functionality and input requirements. The tool configuration must include explicit details about when and how to use each tool.
 
-Define tools by providing JSON schemas that describe each tool's
-functionality and input requirements. The tool configuration must include
-explicit details about when and how to use each tool.
+Tool Selection  
+When a user sends a message, Amazon Nova analyzes it to determine if a tool is necessary. This automatic tool choice examines the context and decides which tool (if any) to invoke. If Amazon Nova identifies a suitable tool, it returns the tool name and required parameters.  
+You are responsible for executing the tool based on the model's request. This means writing code that invokes the tool's functionality and processes the input parameters provided by the model.
 
-Tool Selection
-
-When a user sends a message, Amazon Nova analyzes it to determine if a tool is
-necessary. This automatic tool choice examines the context and decides which
-tool (if any) to invoke. If Amazon Nova identifies a suitable tool, it returns
-the tool name and required parameters.
-
-You are responsible for executing the tool based on the model's request.
-This means writing code that invokes the tool's functionality and processes
-the input parameters provided by the model.
-
-Return Results
-
-After executing the tool, send the results back to Amazon Nova in a structured
-format using JSON or a combination of text and images. Amazon Nova incorporates
-the tool's output into the final response. If errors occur during execution,
-denote this in the tool response to allow Amazon Nova to adjust
-accordingly.
+Return Results  
+After executing the tool, send the results back to Amazon Nova in a structured format using JSON or a combination of text and images. Amazon Nova incorporates the tool's output into the final response. If errors occur during execution, denote this in the tool response to allow Amazon Nova to adjust accordingly.
 
 ## Create a tool
+<a name="create-tool"></a>
 
-Define tools using a tool configuration that includes an array of tools and optionally
-a tool choice parameter. Each tool specification must include:
+Define tools using a tool configuration that includes an array of tools and optionally a tool choice parameter. Each tool specification must include:
++ **Name:** Clear identifier for the tool
++ **Description:** Concise explanation of the tool's functionality
++ **Input Schema:** JSON schema defining required and optional parameters
 
-- **Name:** Clear identifier for the tool
-- **Description:** Concise explanation of the
-  tool's functionality
-- **Input Schema:** JSON schema defining required
-  and optional parameters
-
-###### Example Tool configuration example
+**Example Tool configuration example**  
 
 ```
 tool_config = {
@@ -72,23 +56,21 @@ tool_config = {
 ```
 
 ### Best practices for tool definitions
-
-- Ensure the name and description explicitly convey the tool's exact functionality; avoid tools that are overly semantically similar
-- Include key differentiators in the description to help the model distinguish between similar tools
-- Limit JSON schemas to two layers of nesting for best performance
-- Constrain inputs using schema types (e.g., enum, int, float) rather than describing structure in plain text
-- Denote required vs. optional parameters using JSON schema notation (e.g., "required": ["param1", "param2"])
-- Validate your JSON schema using a standard validator before submitting
-- Place long string arguments last in the schema and avoid nesting them
+<a name="tool-best-practices"></a>
++ Ensure the name and description explicitly convey the tool's exact functionality; avoid tools that are overly semantically similar
++ Include key differentiators in the description to help the model distinguish between similar tools
++ Limit JSON schemas to two layers of nesting for best performance
++ Constrain inputs using schema types (e.g., enum, int, float) rather than describing structure in plain text
++ Denote required vs. optional parameters using JSON schema notation (e.g., "required": ["param1", "param2"])
++ Validate your JSON schema using a standard validator before submitting
++ Place long string arguments last in the schema and avoid nesting them
 
 ### Structured output with constrained decoding
+<a name="structured-output"></a>
 
-Amazon Nova models leverage constrained decoding to ensure high reliability in
-generated outputs. This technique uses grammar to constrain possible tokens at each
-generation step, preventing invalid keys and enforcing correct data types based on
-your defined schema.
+Amazon Nova models leverage constrained decoding to ensure high reliability in generated outputs. This technique uses grammar to constrain possible tokens at each generation step, preventing invalid keys and enforcing correct data types based on your defined schema.
 
-###### Example Structured output example
+**Example Structured output example**  
 
 ```
 tool_config = {
@@ -138,35 +120,28 @@ tool_config = {
 ```
 
 ### Tool choice options
+<a name="tool-choice-options"></a>
 
 Amazon Nova supports three tool choice parameters:
 
-Tool
+Tool  
+The specified tool will be called once, ideal for structured output use cases
 
-The specified tool will be called once, ideal for structured output
-use cases
+Any  
+One of the provided tools will be called at least once, useful for API selection scenarios
 
-Any
-
-One of the provided tools will be called at least once, useful for API
-selection scenarios
-
-Auto
-
-The model decides whether to call a tool and how many tools to call
-(default behavior)
+Auto  
+The model decides whether to call a tool and how many tools to call (default behavior)
 
 ## Call a tool
+<a name="call-tool"></a>
 
-When Amazon Nova decides to call a tool, it returns a tool use block as part of the
-assistant message with stopReason set to "tool\_use". The tool block contains the tool
-name and its inputs.
+When Amazon Nova decides to call a tool, it returns a tool use block as part of the assistant message with stopReason set to "tool\_use". The tool block contains the tool name and its inputs.
 
-###### Note
-
+**Note**  
 Run following code sections sequentially (Calling a tool → Processing tool call → Returning tool results) in a single Python session. To run the examples again, restart your Python session.
 
-###### Example Calling a tool
+**Example Calling a tool**  
 
 ```
 import boto3
@@ -224,6 +199,7 @@ print(f"Expression: {tool['input']['expression']}")
 ```
 
 ### Processing tool calls
+<a name="process-tool-calls"></a>
 
 Extract the tool name and arguments from the message, then invoke the tool:
 
@@ -246,6 +222,7 @@ if stop_reason == "tool_use":
 ```
 
 ### Returning tool results
+<a name="return-tool-results"></a>
 
 Return tool results using the ToolResultBlock schema:
 
@@ -282,6 +259,7 @@ print(f"\nFinal Response:\n{final_text}")
 ```
 
 ### Error handling
+<a name="tool-error-handling"></a>
 
 Report errors back to Amazon Nova to allow request modification and retry:
 
@@ -301,26 +279,24 @@ tool_result_message = {
 ```
 
 ### Security considerations
-
-- Validate that tools exist before invoking them
-- Ensure inputs are formatted correctly
-- Verify appropriate permissions are in place before tool execution
-- Rely on session details rather than allowing Amazon Nova to inject user
-  information into tool calls
-- Remember that LLMs can hallucinate tool calls; always validate before
-  execution
+<a name="tool-security"></a>
++ Validate that tools exist before invoking them
++ Ensure inputs are formatted correctly
++ Verify appropriate permissions are in place before tool execution
++ Rely on session details rather than allowing Amazon Nova to inject user information into tool calls
++ Remember that LLMs can hallucinate tool calls; always validate before execution
 
 ## Built-in system tools
+<a name="builtin-tools"></a>
 
-Amazon Nova 2.0 models include fully managed built-in tools that require no custom
-implementation. Enable these tools with a simple toggle in the Converse API.
+Amazon Nova 2.0 models include fully managed built-in tools that require no custom implementation. Enable these tools with a simple toggle in the Converse API.
 
 ### Code Interpreter
+<a name="code-interpreter"></a>
 
 Code Interpreter allows Nova to securely execute Python code in isolated sandbox environments. This tool is designed for mathematical computations, logical operations, and iterative algorithms.
 
-###### Note
-
+**Note**  
 Code Interpreter is available in the IAD, PDX, and NRT AWS Regions. To ensure your requests are routed to a supported Region, use Global CRIS. When using Bedrock API keys, you'll need to manually add `InvokeTool` permissions to the policy definitions. The default Bedrock role does not allow the `InvokeTool` action.
 
 Enable Code Interpreter by specifying the systemTool parameter:
@@ -357,7 +333,7 @@ for block in response["output"]["message"]["content"]:
         print("=== Tool Use ===")
         print(f"Tool: {block['toolUse']['name']}")
         print(f"Code:\n{block['toolUse']['input']['snippet']}\n")
-
+    
     elif "toolResult" in block:
         print("=== Tool Result ===")
         result = block['toolResult']['content'][0]['json']
@@ -365,14 +341,13 @@ for block in response["output"]["message"]["content"]:
         if result['stdErr']:
             print(f"Error: {result['stdErr']}")
         print(f"Exit Code: {result['exitCode']}\n")
-
+    
     elif "text" in block:
         print("=== Final Answer ===")
         print(block["text"])
 ```
 
-The interpreter runs code in a sandbox and returns results in a standard
-schema:
+The interpreter runs code in a sandbox and returns results in a standard schema:
 
 ```
 {
@@ -384,10 +359,9 @@ schema:
 ```
 
 ### Web Grounding
+<a name="web-grounding-tool"></a>
 
-Web grounding enables Amazon Nova to access real-time information from the internet,
-providing up-to-date responses and reducing hallucinations. Enable by specifying the
-nova\_grounding system tool:
+Web grounding enables Amazon Nova to access real-time information from the internet, providing up-to-date responses and reducing hallucinations. Enable by specifying the nova\_grounding system tool:
 
 ```
 tool_config = {
@@ -397,16 +371,11 @@ tool_config = {
 }
 ```
 
-For detailed information about Web Grounding, see [Web Grounding](web-grounding.md "web-grounding.md").
+For detailed information about Web Grounding, see [Web Grounding](web-grounding.md).
 
 ### Model Context Protocol (MCP)
+<a name="mcp-protocol"></a>
 
-The Model Context Protocol (MCP) is an open standard that enables secure, two-way
-connections between data sources and AI-powered tools. Instead of writing custom
-adapters for each API or service, run an MCP server and let Amazon Nova discover its
-tools automatically through a client bridge.
+The Model Context Protocol (MCP) is an open standard that enables secure, two-way connections between data sources and AI-powered tools. Instead of writing custom adapters for each API or service, run an MCP server and let Amazon Nova discover its tools automatically through a client bridge.
 
-Once connected, Amazon Nova treats MCP tools like any other external integration: it
-decides when to call them, sends required parameters and incorporates results into
-responses. Using Amazon Nova with Strands makes this easier with a built-in MCPClient
-that manages discovery, connection and result mapping automatically.
+Once connected, Amazon Nova treats MCP tools like any other external integration: it decides when to call them, sends required parameters and incorporates results into responses. Using Amazon Nova with Strands makes this easier with a built-in MCPClient that manages discovery, connection and result mapping automatically.

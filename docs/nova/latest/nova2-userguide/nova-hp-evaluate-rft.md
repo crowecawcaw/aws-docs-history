@@ -1,73 +1,52 @@
+
+
 # RFT evaluation
+<a name="nova-hp-evaluate-rft"></a>
 
-###### Note
+**Note**  
+Evaluation via remote reward functions in your own AWS environment is only available if you are Amazon Nova Forge customer.
 
-Evaluation via remote reward functions in your own AWS environment is only available
-if you are Amazon Nova Forge customer.
+**Important**  
+The `rl_env` configuration field is used exclusively for evaluation, not for training. During training, you configure reward functions using `reward_lambda_arn` (single-turn) or BYOO infrastructure with `rollout.delegate: true` (multi-turn).
 
-###### Important
+**What is RFT Evaluation?**  
+RFT Evaluation allows you to assess your model's performance using custom reward functions before, during, or after reinforcement learning training. Unlike standard evaluations that use pre-defined metrics, RFT Evaluation lets you define your own success criteria through a Lambda function that scores model outputs based on your specific requirements.
 
-The `rl_env` configuration field is used exclusively for evaluation, not
-for training. During training, you configure reward functions using
-`reward_lambda_arn` (single-turn) or BYOO infrastructure with
-`rollout.delegate: true` (multi-turn).
-
-###### What is RFT Evaluation?
-
-RFT Evaluation allows you to assess your model's performance using custom reward
-functions before, during, or after reinforcement learning training. Unlike standard
-evaluations that use pre-defined metrics, RFT Evaluation lets you define your own success
-criteria through a Lambda function that scores model outputs based on your specific
-requirements.
-
-###### Why Evaluate with RFT?
-
+**Why Evaluate with RFT?**  
 Evaluation is crucial to determine whether the RL fine-tuning process has:
++ Improved model alignment with your specific use case and human values
++ Maintained or improved model capabilities on key tasks
++ Avoided unintended side effects such as reduced factuality, increased verbosity, or degraded performance on other tasks
++ Met your custom success criteria as defined by your reward function
 
-- Improved model alignment with your specific use case and human values
-- Maintained or improved model capabilities on key tasks
-- Avoided unintended side effects such as reduced factuality, increased verbosity, or
-  degraded performance on other tasks
-- Met your custom success criteria as defined by your reward function
-
-###### When to Use RFT Evaluation
-
+**When to Use RFT Evaluation**  
 Use RFT Evaluation in these scenarios:
++ Before RFT Training: Establish baseline metrics on your evaluation dataset
++ During RFT Training: Monitor training progress with intermediate checkpoints
++ After RFT Training: Validate that the final model meets your requirements
++ Comparing Models: Evaluate multiple model versions using consistent reward criteria
 
-- Before RFT Training: Establish baseline metrics on your evaluation dataset
-- During RFT Training: Monitor training progress with intermediate checkpoints
-- After RFT Training: Validate that the final model meets your requirements
-- Comparing Models: Evaluate multiple model versions using consistent reward
-  criteria
+**Note**  
+Use RFT Evaluation when you need custom, domain-specific metrics. For general-purpose evaluation (accuracy, perplexity, BLEU), use standard evaluation methods.
 
-###### Note
-
-Use RFT Evaluation when you need custom, domain-specific metrics. For general-purpose
-evaluation (accuracy, perplexity, BLEU), use standard evaluation methods.
-
-###### Topics
-
-- [Data format requirements](#nova-hp-evaluate-rft-data-format "#nova-hp-evaluate-rft-data-format")
-- [Preparing your evaluation recipe](#nova-hp-evaluate-rft-recipe "#nova-hp-evaluate-rft-recipe")
-- [Preset reward functions](#nova-hp-evaluate-rft-preset "#nova-hp-evaluate-rft-preset")
-- [Creating your reward function](#nova-hp-evaluate-rft-create-function "#nova-hp-evaluate-rft-create-function")
-- [IAM permissions](#nova-hp-evaluate-rft-iam "#nova-hp-evaluate-rft-iam")
-- [Executing the evaluation job](#nova-hp-evaluate-rft-execution "#nova-hp-evaluate-rft-execution")
-- [Understanding evaluation results](#nova-hp-evaluate-rft-results "#nova-hp-evaluate-rft-results")
+**Topics**
++ [Data format requirements](#nova-hp-evaluate-rft-data-format)
++ [Preparing your evaluation recipe](#nova-hp-evaluate-rft-recipe)
++ [Preset reward functions](#nova-hp-evaluate-rft-preset)
++ [Creating your reward function](#nova-hp-evaluate-rft-create-function)
++ [IAM permissions](#nova-hp-evaluate-rft-iam)
++ [Executing the evaluation job](#nova-hp-evaluate-rft-execution)
++ [Understanding evaluation results](#nova-hp-evaluate-rft-results)
 
 ## Data format requirements
+<a name="nova-hp-evaluate-rft-data-format"></a>
 
-###### Input data structure
+**Input data structure**  
+RFT evaluation input data must follow the OpenAI Reinforcement Fine-Tuning format. Each example is a JSON object containing:
++ `messages`: Array of conversational turns with `system` and `user` roles
++ Optional other metadata, e.g. reference\_answer
 
-RFT evaluation input data must follow the OpenAI Reinforcement Fine-Tuning format.
-Each example is a JSON object containing:
-
-- `messages`: Array of conversational turns with `system` and
-  `user` roles
-- Optional other metadata, e.g. reference\_answer
-
-###### Data format example
-
+**Data format example**  
 The following example shows the required format:
 
 ```
@@ -89,21 +68,17 @@ The following example shows the required format:
 }
 ```
 
-###### Current limitations
-
+**Current limitations**  
 The following limitations apply to RFT evaluation:
-
-- Text only: No multimodal inputs (images, audio, video) are supported
-- Single-turn conversations: Only supports single user message (no multi-turn
-  dialogues)
-- JSON format: Input data must be in JSONL format (one JSON object per line)
-- Model outputs: Evaluation is performed on generated completions from the specified
-  model
++ Text only: No multimodal inputs (images, audio, video) are supported
++ Single-turn conversations: Only supports single user message (no multi-turn dialogues)
++ JSON format: Input data must be in JSONL format (one JSON object per line)
++ Model outputs: Evaluation is performed on generated completions from the specified model
 
 ## Preparing your evaluation recipe
+<a name="nova-hp-evaluate-rft-recipe"></a>
 
-###### Sample recipe configuration
-
+**Sample recipe configuration**  
 The following example shows a complete RFT evaluation recipe:
 
 ```
@@ -134,49 +109,42 @@ rl_env:
 ```
 
 ## Preset reward functions
+<a name="nova-hp-evaluate-rft-preset"></a>
 
 Two preset reward functions (`prime_code` and `prime_math`) are available as a Lambda layer for easy integration with your RFT Lambda functions.
 
-###### Overview
-
+**Overview**  
 These preset functions provide out-of-the-box evaluation capabilities for:
++ **prime\_code**: Code generation and correctness evaluation
++ **prime\_math**: Mathematical reasoning and problem-solving evaluation
 
-- **prime\_code**: Code generation and correctness
-  evaluation
-- **prime\_math**: Mathematical reasoning and
-  problem-solving evaluation
-
-###### Quick setup
-
+**Quick setup**  
 To use preset reward functions:
 
-1. Download the Lambda layer from the [nova-custom-eval-sdk
-   releases](https://github.com/aws/nova-custom-eval-sdk/releases "https://github.com/aws/nova-custom-eval-sdk/releases")
-2. Publish Lambda layer using AWS CLI:
+1. Download the Lambda layer from the [nova-custom-eval-sdk releases](https://github.com/aws/nova-custom-eval-sdk/releases)
 
-```
-aws lambda publish-layer-version \
-    --layer-name preset-function-layer \
-    --description "Preset reward function layer with dependencies" \
-    --zip-file fileb://universal_reward_layer.zip \
-    --compatible-runtimes python3.9 python3.10 python3.11 python3.12 \
-    --compatible-architectures x86_64 arm64
-```
+1. Publish Lambda layer using AWS CLI:
 
-3. Add the layer to your Lambda function in AWS Console (Select the
-   preset-function-layer from custom layer and also add AWSSDKPandas-Python312 for numpy
-   dependencies)
-4. Import and use in your Lambda code:
+   ```
+   aws lambda publish-layer-version \
+       --layer-name preset-function-layer \
+       --description "Preset reward function layer with dependencies" \
+       --zip-file fileb://universal_reward_layer.zip \
+       --compatible-runtimes python3.9 python3.10 python3.11 python3.12 \
+       --compatible-architectures x86_64 arm64
+   ```
 
-```
-from prime_code import compute_score  # For code evaluation
-from prime_math import compute_score  # For math evaluation
-```
+1. Add the layer to your Lambda function in AWS Console (Select the preset-function-layer from custom layer and also add AWSSDKPandas-Python312 for numpy dependencies)
 
-###### prime\_code function
+1. Import and use in your Lambda code:
 
-**Purpose**: Evaluates Python code generation tasks by
-executing code against test cases and measuring correctness.
+   ```
+   from prime_code import compute_score  # For code evaluation
+   from prime_math import compute_score  # For math evaluation
+   ```
+
+**prime\_code function**  
+**Purpose**: Evaluates Python code generation tasks by executing code against test cases and measuring correctness.
 
 **Example input dataset format from evaluation**:
 
@@ -186,17 +154,14 @@ executing code against test cases and measuring correctness.
 ```
 
 **Key features**:
++ Automatic code extraction from markdown code blocks
++ Function detection and call-based testing
++ Test case execution with timeout protection
++ Syntax validation and compilation checks
++ Detailed error reporting with tracebacks
 
-- Automatic code extraction from markdown code blocks
-- Function detection and call-based testing
-- Test case execution with timeout protection
-- Syntax validation and compilation checks
-- Detailed error reporting with tracebacks
-
-###### prime\_math function
-
-**Purpose**: Evaluates mathematical reasoning and
-problem-solving capabilities with symbolic math support.
+**prime\_math function**  
+**Purpose**: Evaluates mathematical reasoning and problem-solving capabilities with symbolic math support.
 
 **Input format**:
 
@@ -205,44 +170,37 @@ problem-solving capabilities with symbolic math support.
 ```
 
 **Key features**:
++ Symbolic math evaluation using SymPy
++ Multiple answer formats (LaTeX, plain text, symbolic)
++ Mathematical equivalence checking
++ Expression normalization and simplification
 
-- Symbolic math evaluation using SymPy
-- Multiple answer formats (LaTeX, plain text, symbolic)
-- Mathematical equivalence checking
-- Expression normalization and simplification
-
-###### Best practices
-
+**Best practices**  
 Follow these best practices when using preset reward functions:
-
-- Use proper data types in test cases (integers vs strings, booleans vs
-  "True")
-- Provide clear function signatures in code problems
-- Include edge cases in test inputs (zero, negative numbers, empty inputs)
-- Format math expressions consistently in reference answers
-- Test your reward function with sample data before deployment
++ Use proper data types in test cases (integers vs strings, booleans vs "True")
++ Provide clear function signatures in code problems
++ Include edge cases in test inputs (zero, negative numbers, empty inputs)
++ Format math expressions consistently in reference answers
++ Test your reward function with sample data before deployment
 
 ## Creating your reward function
+<a name="nova-hp-evaluate-rft-create-function"></a>
 
-###### Lambda ARN
-
+**Lambda ARN**  
 You must refer to the following format for the Lambda ARN:
 
 ```
 "arn:aws:lambda:*:*:function:*SageMaker*"
 ```
 
-If the Lambda does not have this naming scheme, the job will fail with this
-error:
+If the Lambda does not have this naming scheme, the job will fail with this error:
 
 ```
 [ERROR] Unexpected error: lambda_arn must contain one of: ['SageMaker', 'sagemaker', 'Sagemaker'] when running on SMHP platform (Key: lambda_arn)
 ```
 
-###### Lambda function structure
-
-Your Lambda function receives batches of model outputs and returns reward scores.
-Below is a sample implementation:
+**Lambda function structure**  
+Your Lambda function receives batches of model outputs and returns reward scores. Below is a sample implementation:
 
 ```
 from typing import List, Any
@@ -421,8 +379,7 @@ def _calculate_fluency(text: str) -> float:
     return fluency_score
 ```
 
-###### Lambda request format
-
+**Lambda request format**  
 Your Lambda function receives data in this format:
 
 ```
@@ -457,14 +414,10 @@ Your Lambda function receives data in this format:
 ]
 ```
 
-###### Note
+**Note**  
+The message structure includes the nested `content` array, matching the input data format. The last message with role `nova_assistant` contains the model's generated response.
 
-The message structure includes the nested `content` array, matching the
-input data format. The last message with role `nova_assistant` contains the
-model's generated response.
-
-###### Lambda response format
-
+**Lambda response format**  
 Your Lambda function must return data in this format:
 
 ```
@@ -489,26 +442,22 @@ Your Lambda function must return data in this format:
 ```
 
 **Response fields**:
-
-- `id`: Must match the input sample ID
-- `aggregate_reward_score`: Overall score (typically 0.0 to 1.0)
-- `metrics_list`: Array of individual metrics with:
-
-  - `name`: Metric identifier (e.g., "accuracy", "fluency")
-  - `value`: Metric score (typically 0.0 to 1.0)
-  - `type`: Either "Metric" (for reporting) or "Reward" (used in
-    training)
++ `id`: Must match the input sample ID
++ `aggregate_reward_score`: Overall score (typically 0.0 to 1.0)
++ `metrics_list`: Array of individual metrics with:
+  + `name`: Metric identifier (e.g., "accuracy", "fluency")
+  + `value`: Metric score (typically 0.0 to 1.0)
+  + `type`: Either "Metric" (for reporting) or "Reward" (used in training)
 
 ## IAM permissions
+<a name="nova-hp-evaluate-rft-iam"></a>
 
-###### Required permissions
-
-Your SageMaker AI execution role must have permissions to invoke your Lambda function. Add
-this policy to your SageMaker AI execution role:
+**Required permissions**  
+Your SageMaker AI execution role must have permissions to invoke your Lambda function. Add this policy to your SageMaker AI execution role:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -521,14 +470,12 @@ this policy to your SageMaker AI execution role:
 }
 ```
 
-###### Lambda execution role
-
-Your Lambda function's execution role needs basic Lambda execution
-permissions:
+**Lambda execution role**  
+Your Lambda function's execution role needs basic Lambda execution permissions:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -543,43 +490,41 @@ permissions:
 }
 ```
 
-**Additional permissions**: If your Lambda function
-accesses other AWS services (e.g., Amazon S3 for reference data, DynamoDB for logging), add
-those permissions to the Lambda execution role.
+**Additional permissions**: If your Lambda function accesses other AWS services (e.g., Amazon S3 for reference data, DynamoDB for logging), add those permissions to the Lambda execution role.
 
 ## Executing the evaluation job
+<a name="nova-hp-evaluate-rft-execution"></a>
 
 1. **Prepare your data**
+   + Format your evaluation data according to the data format requirements
+   + Upload your JSONL file to Amazon S3: `s3://your-bucket/eval-data/eval_data.jsonl`
 
-   - Format your evaluation data according to the data format requirements
-   - Upload your JSONL file to Amazon S3:
-     `s3://your-bucket/eval-data/eval_data.jsonl`
+1. **Configure your recipe**
 
-2. **Configure your recipe**
+   Update the sample recipe with your configuration:
+   + Set `model_name_or_path` to your model location
+   + Set `lambda_arn` to your reward function ARN
+   + Set `output_s3_path` to your desired output location
+   + Adjust `inference` parameters as needed
 
-Update the sample recipe with your configuration:
+   Save the recipe as `rft_eval_recipe.yaml`
 
-    * Set `model_name_or_path` to your model location
-    * Set `lambda_arn` to your reward function ARN
-    * Set `output_s3_path` to your desired output location
-    * Adjust `inference` parameters as needed
+1. **Run the evaluation**
 
-Save the recipe as `rft_eval_recipe.yaml` 3. **Run the evaluation**
+   Execute the evaluation job using the provided notebook: [Nova model evaluation notebook](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-model-evaluation.html#nova-model-evaluation-notebook)
 
-Execute the evaluation job using the provided notebook: [Nova model evaluation notebook](../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook "../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook") 4. **Monitor progress**
+1. **Monitor progress**
 
-Monitor your evaluation job through:
-
-    * SageMaker AI Console: Check job status and logs
-    * CloudWatch Logs: View detailed execution logs
-    * Lambda Logs: Debug reward function issues
+   Monitor your evaluation job through:
+   + SageMaker AI Console: Check job status and logs
+   + CloudWatch Logs: View detailed execution logs
+   + Lambda Logs: Debug reward function issues
 
 ## Understanding evaluation results
+<a name="nova-hp-evaluate-rft-results"></a>
 
-###### Output format
-
-The evaluation job outputs results to your specified Amazon S3 location in JSONL format.
-Each line contains the evaluation results for one sample:
+**Output format**  
+The evaluation job outputs results to your specified Amazon S3 location in JSONL format. Each line contains the evaluation results for one sample:
 
 ```
 {
@@ -600,41 +545,30 @@ Each line contains the evaluation results for one sample:
 }
 ```
 
-###### Note
+**Note**  
+The RFT Evaluation Job Output is identical to the Lambda Response format. The evaluation service passes through your Lambda function's response without modification, ensuring consistency between your reward calculations and the final results.
 
-The RFT Evaluation Job Output is identical to the Lambda Response format. The
-evaluation service passes through your Lambda function's response without modification,
-ensuring consistency between your reward calculations and the final results.
-
-###### Interpreting results
-
+**Interpreting results**  
 **Aggregate Reward Score**:
-
-- Range: Typically 0.0 (worst) to 1.0 (best), but depends on your
-  implementation
-- Purpose: Single number summarizing overall performance
-- Usage: Compare models, track improvement over training
++ Range: Typically 0.0 (worst) to 1.0 (best), but depends on your implementation
++ Purpose: Single number summarizing overall performance
++ Usage: Compare models, track improvement over training
 
 **Individual Metrics**:
++ Metric Type: Informational metrics for analysis
++ Reward Type: Metrics used during RFT training
++ Interpretation: Higher values generally indicate better performance (unless you design inverse metrics)
 
-- Metric Type: Informational metrics for analysis
-- Reward Type: Metrics used during RFT training
-- Interpretation: Higher values generally indicate better performance (unless you
-  design inverse metrics)
-
-###### Performance benchmarks
-
+**Performance benchmarks**  
 What constitutes "good" performance depends on your use case:
 
-| Score Range  | Interpretation | Action                                   |
-| ------------ | -------------- | ---------------------------------------- |
-| 0.8<br>• 1.0 | Excellent      | Model ready for deployment               |
-| 0.6<br>• 0.8 | Good           | Minor improvements may be beneficial     |
-| 0.4<br>• 0.6 | Fair           | Significant improvement needed           |
-| 0.0<br>• 0.4 | Poor           | Review training data and reward function |
 
-###### Important
+| Score Range | Interpretation | Action | 
+| --- |--- |--- |
+| 0.8 - 1.0 | Excellent | Model ready for deployment | 
+| 0.6 - 0.8 | Good | Minor improvements may be beneficial | 
+| 0.4 - 0.6 | Fair | Significant improvement needed | 
+| 0.0 - 0.4 | Poor | Review training data and reward function | 
 
-These are general guidelines. Define your own thresholds based on business
-requirements, baseline model performance, domain-specific constraints, and cost-benefit
-analysis of further training.
+**Important**  
+These are general guidelines. Define your own thresholds based on business requirements, baseline model performance, domain-specific constraints, and cost-benefit analysis of further training.

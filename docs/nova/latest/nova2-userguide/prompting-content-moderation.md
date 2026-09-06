@@ -1,58 +1,60 @@
-# Content moderation
 
-This guide provides best practices for prompting Amazon Nova models to perform content moderation
-using the [MLCommons® AILuminate Assessment Standard](https://mlcommons.org/ailuminate/safety-resources/ "https://mlcommons.org/ailuminate/safety-resources/") — a comprehensive framework with 12 hazard
-categories for AI safety. While this guide uses the MLCommons standard as an example to illustrate
-best practices, the prompting techniques work with any free-form or customizable content moderation
-categories and definitions you specify.
+
+# Content moderation
+<a name="prompting-content-moderation"></a>
+
+This guide provides best practices for prompting Amazon Nova models to perform content moderation using the [MLCommons® AILuminate Assessment Standard](https://mlcommons.org/ailuminate/safety-resources/) — a comprehensive framework with 12 hazard categories for AI safety. While this guide uses the MLCommons standard as an example to illustrate best practices, the prompting techniques work with any free-form or customizable content moderation categories and definitions you specify.
 
 ## Key principles
-
-- Use structured (XML, JSON) or free-form prompts based on your use case
-- Moderate any text content: conversations, articles, social media posts, comments, reviews,
-  and more
-- Provide clear policy definitions
-- Request explanations for transparency
+<a name="cm-key-principles"></a>
++ Use structured (XML, JSON) or free-form prompts based on your use case
++ Moderate any text content: conversations, articles, social media posts, comments, reviews, and more
++ Provide clear policy definitions
++ Request explanations for transparency
 
 ## Recommended configuration
+<a name="cm-recommended-configuration"></a>
 
 For content moderation tasks, we recommend the following inference configuration:
-
-- **Temperature** — Use the default value of
-  0.7.
-- **Top P** — Use the default value of 0.9.
-- **Reasoning** — Disable reasoning for content moderation
-  to reduce latency.
++ **Temperature** — Use the default value of 0.7.
++ **Top P** — Use the default value of 0.9.
++ **Reasoning** — Disable reasoning for content moderation to reduce latency.
 
 ## MLCommons universal taxonomy
+<a name="cm-mlcommons-taxonomy"></a>
 
 The standard defines 12 hazard categories:
 
-MLCommons AILuminate hazard categories| Category | Definition | Key subcategories |
-| --- | --- | --- |
-| Violent Crimes | Content that enables, encourages, or endorses commission of violent crimes | Mass violence, Murder, Physical assault, Domestic abuse, Terror, Animal abuse |
-| Non-Violent Crimes | Content that enables, encourages, or endorses non-violent criminal activity | Labor trafficking, Fraud, Theft, Arson, Drug crimes, Weapons crimes, Cyber crimes |
-| Sex-Related Crimes | Content that enables, encourages, or endorses sex-related crimes | Sex trafficking, Sexual assault, Sexual harassment, Non-consensual intimate content,<br>Bestiality |
-| Child Sexual Exploitation | Content that contains, describes, enables, encourages, or endorses sexual abuse of<br>minors | Inappropriate relationships with children, Sexual abuse of children, CSAM |
-| CBRNE | Content that enables, encourages, or endorses creation of weapons of mass<br>destruction | Chemical weapons, Biological weapons, Radiological weapons, Nuclear weapons, High-yield<br>explosives |
-| Suicide and Self-Harm | Content that enables, encourages, or endorses intentional self-harm | Suicide, Self-injury, Disordered eating, Dangerous challenges |
-| Hate | Content that demeans or dehumanizes people based on protected characteristics | Demeaning remarks, Inflicting physical/emotional harm, Exclusion and isolation |
-| Specialized Advice | Unqualified advice in sensitive domains without appropriate disclaimers | Financial advice, Medical advice, Legal advice, Electoral advice, Safety claims |
-| Privacy | Content containing sensitive non-public personal information | Physical security (addresses), Digital security (credentials), Financial security<br>(account numbers) |
-| Intellectual Property | Content that violates or encourages violation of IP rights | Copyright infringement, Trademark infringement, Patent infringement |
-| Defamation | Content that is verifiably false and likely to injure someone's reputation | Libel, Slander, Disparagement |
-| Sexual Content | Erotic content including pornography and cybersex | Pornography (graphic sexual descriptions), Direct erotic chat |
+
+**MLCommons AILuminate hazard categories**  
+
+| Category | Definition | Key subcategories | 
+| --- | --- | --- | 
+| Violent Crimes | Content that enables, encourages, or endorses commission of violent crimes | Mass violence, Murder, Physical assault, Domestic abuse, Terror, Animal abuse | 
+| Non-Violent Crimes | Content that enables, encourages, or endorses non-violent criminal activity | Labor trafficking, Fraud, Theft, Arson, Drug crimes, Weapons crimes, Cyber crimes | 
+| Sex-Related Crimes | Content that enables, encourages, or endorses sex-related crimes | Sex trafficking, Sexual assault, Sexual harassment, Non-consensual intimate content, Bestiality | 
+| Child Sexual Exploitation | Content that contains, describes, enables, encourages, or endorses sexual abuse of minors | Inappropriate relationships with children, Sexual abuse of children, CSAM | 
+| CBRNE | Content that enables, encourages, or endorses creation of weapons of mass destruction | Chemical weapons, Biological weapons, Radiological weapons, Nuclear weapons, High-yield explosives | 
+| Suicide and Self-Harm | Content that enables, encourages, or endorses intentional self-harm | Suicide, Self-injury, Disordered eating, Dangerous challenges | 
+| Hate | Content that demeans or dehumanizes people based on protected characteristics | Demeaning remarks, Inflicting physical/emotional harm, Exclusion and isolation | 
+| Specialized Advice | Unqualified advice in sensitive domains without appropriate disclaimers | Financial advice, Medical advice, Legal advice, Electoral advice, Safety claims | 
+| Privacy | Content containing sensitive non-public personal information | Physical security (addresses), Digital security (credentials), Financial security (account numbers) | 
+| Intellectual Property | Content that violates or encourages violation of IP rights | Copyright infringement, Trademark infringement, Patent infringement | 
+| Defamation | Content that is verifiably false and likely to injure someone's reputation | Libel, Slander, Disparagement | 
+| Sexual Content | Erotic content including pornography and cybersex | Pornography (graphic sexual descriptions), Direct erotic chat | 
 
 Source: MLCommons® AILuminate Assessment Standard (Documentation)
 
 ## Prompting examples
+<a name="cm-prompting-examples"></a>
 
-Best for automated systems requiring parseable output. These examples use few-shot
-learning, where you provide example input-output pairs in the prompt to guide the model's
-responses. The examples below include a single demonstration, but you can include multiple
-examples to improve accuracy for your specific use case.
+### Structured format
+<a name="cm-structured-format"></a>
+
+Best for automated systems requiring parseable output. These examples use few-shot learning, where you provide example input-output pairs in the prompt to guide the model's responses. The examples below include a single demonstration, but you can include multiple examples to improve accuracy for your specific use case.
 
 #### Structure (XML)
+<a name="cm-structured-format-structure"></a>
 
 `User:`
 
@@ -103,6 +105,7 @@ Now, please moderate the following input policy and text.
 ```
 
 #### Structure (JSON)
+<a name="cm-structured-format-json"></a>
 
 `User:`
 
@@ -159,6 +162,7 @@ Now, please moderate the following input.
 ```
 
 #### Sample content moderation prompt and response
+<a name="cm-structured-few-shot"></a>
 
 `User:`
 
@@ -213,16 +217,16 @@ subcategory) as it enables dangerous weapons creation with actionable technical 
 </EXPLAIN>
 ```
 
-Free-form prompts can take many diverse structures beyond the examples below. The following
-examples intentionally use different formatting styles to illustrate the flexibility of
-free-form prompting. You can adapt the structure, phrasing, and format to suit your specific
-use case.
+### Free-form content moderation
+<a name="cm-free-form"></a>
+
+Free-form prompts can take many diverse structures beyond the examples below. The following examples intentionally use different formatting styles to illustrate the flexibility of free-form prompting. You can adapt the structure, phrasing, and format to suit your specific use case.
 
 #### Example 1: Yes/No question (Suicide & Self-Harm)
+<a name="cm-free-form-yes-no"></a>
 
-###### Example Yes/No content moderation
-
-`User:`
+**Example Yes/No content moderation**  
+`User:`  
 
 ```
 Please stick to the following policy for content moderation. {{user_policy}}
@@ -231,8 +235,7 @@ Does this text promote harmful activities?
 Best way to hurt yourself without leaving marks?
 Asking for tips on methods that work.
 ```
-
-`Assistant:`
+`Assistant:`  
 
 ```
 Yes. This text explicitly requests methods for self-harm,
@@ -242,10 +245,10 @@ harmful behavior.
 ```
 
 #### Example 2: Category identification and reasoning (Hate)
+<a name="cm-free-form-category"></a>
 
-###### Example Category identification content moderation
-
-`User:`
+**Example Category identification content moderation**  
+`User:`  
 
 ```
 You are a professional content moderator. Please stick to the
@@ -256,8 +259,7 @@ Text: "Women are naturally worse at mathematics than men,
 according to my personal observations. They should stick to
 arts and humanities."
 ```
-
-`Assistant:`
+`Assistant:`  
 
 ```
 Hate. This text makes demeaning generalizations about women
@@ -267,10 +269,10 @@ harmful stereotypes.
 ```
 
 #### Example 3: Severity rating (Privacy)
+<a name="cm-free-form-severity"></a>
 
-###### Example Severity rating content moderation
-
-`User:`
+**Example Severity rating content moderation**  
+`User:`  
 
 ```
 Content moderation task
@@ -283,8 +285,7 @@ and identify any violated categories.
 Content: "John Smith lives at 742 Evergreen Terrace, Springfield.
 His SSN is 123-45-6789 and his bank account number is 9876543210."
 ```
-
-`Assistant:`
+`Assistant:`  
 
 ```
 Severity: High

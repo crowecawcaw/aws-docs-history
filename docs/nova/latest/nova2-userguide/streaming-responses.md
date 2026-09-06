@@ -1,10 +1,12 @@
-# Streaming responses
 
-Streaming allows you to receive model responses incrementally as they are generated,
-providing a more interactive user experience. Both the Converse API and Invoke API
-support streaming.
+
+# Streaming responses
+<a name="streaming-responses"></a>
+
+Streaming allows you to receive model responses incrementally as they are generated, providing a more interactive user experience. Both the Converse API and Invoke API support streaming.
 
 ## Streaming with ConverseStream
+<a name="streaming-converse"></a>
 
 Use `ConverseStream` to receive responses as a stream of events:
 
@@ -31,9 +33,9 @@ for event in response['stream']:
 ```
 
 ## Streaming with InvokeModelWithResponseStream
+<a name="streaming-invoke"></a>
 
-Use `InvokeModelWithResponseStream` for streaming with the Invoke
-API:
+Use `InvokeModelWithResponseStream` for streaming with the Invoke API:
 
 ```
 import boto3
@@ -64,14 +66,12 @@ for event in response['body']:
 ```
 
 ## Stream event types
+<a name="streaming-events"></a>
 
 Streaming responses include several event types:
-
-- `messageStart`: Indicates the start of a message
-- `contentBlockStart`: Indicates the start of a content
-  block
-- `contentBlockDelta`: Contains incremental text or data
-- `contentBlockStop`: Indicates the end of a content block
-- `messageStop`: Indicates the end of the message with stop
-  reason
-- `metadata`: Contains usage information (token counts)
++ `messageStart`: Indicates the start of a message
++ `contentBlockStart`: Indicates the start of a content block
++ `contentBlockDelta`: Contains incremental text or data
++ `contentBlockStop`: Indicates the end of a content block
++ `messageStop`: Indicates the end of the message with stop reason
++ `metadata`: Contains usage information (token counts)

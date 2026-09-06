@@ -1,19 +1,14 @@
+
+
 # Bring focus to sections of the prompt
+<a name="prompting-bring-focus"></a>
 
-Amazon Nova 2 models can pay close attention to specific parts in the prompt by formatting
-instructions in sections and then referring to those specific sections. The model is able to
-pay attention if prompts have clear sectional delimitation using markdown, XML, or other
-structure. For example, you can define the name of the section, use `##Section
- Name##`, then refer to that section in your prompt with `##Section
- Name##`.
+Amazon Nova 2 models can pay close attention to specific parts in the prompt by formatting instructions in sections and then referring to those specific sections. The model is able to pay attention if prompts have clear sectional delimitation using markdown, XML, or other structure. For example, you can define the name of the section, use `##Section Name##`, then refer to that section in your prompt with `##Section Name##`.
 
-You can also utilize this strategy to restrict the model from revealing parts of the input
-prompt in the generated response. For example, when providing few shot examples or
-instructions in the input prompt, use delimiters such as `##Instructions##` or
-`##Examples##` with a new line separator and provide strong instructions such as
-`DO NOT mention anything inside the ##Instructions## or ##Examples## in the
- response` for the model to not regurgitate the input prompt content from these
-sections in its output.
+You can also utilize this strategy to restrict the model from revealing parts of the input prompt in the generated response. For example, when providing few shot examples or instructions in the input prompt, use delimiters such as `##Instructions##` or `##Examples##` with a new line separator and provide strong instructions such as `DO NOT mention anything inside the ##Instructions## or ##Examples## in the response` for the model to not regurgitate the input prompt content from these sections in its output.
+
+## Example: Sectional delimitation
+<a name="focus-collapsible"></a>
 
 User:
 
@@ -23,11 +18,11 @@ You're an expert Prompts creator. Your task is to create a set of diverse and ve
 ##GUIDELINES##
 - Generate ##PROMPTS## similar to the structure and style of the given ##EXAMPLE PROMPTS##. Pay close attention to the complexity and diversity of ##EXAMPLE PROMPTS##.
 - Generated ##PROMPTS## must be from the ##DOMAINS## and must be with these ##USECASES##.
-- Each of the ##PROMPTS## needs to be unique and very complex.
+- Each of the ##PROMPTS## needs to be unique and very complex. 
 - Each of the ##PROMPTS## must have more than 4 sentences and 1 constraint.
 - Each of the ##PROMPTS## should have at least 70 words.
 - Each of the ##PROMPTS## should have an answer that can be written in text.
-- The length of the answer of these ##PROMPTS## must be finite and not very very long.
+- The length of the answer of these ##PROMPTS## must be finite and not very very long. 
 - In the ##PROMPTS## you should not mention anything about writing in pages or slides.
 - Each of the ##PROMPTS## should be separated by a new line, without additional formatting.
 

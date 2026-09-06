@@ -1,57 +1,45 @@
+
+
 # Using the system role
+<a name="prompting-system-role"></a>
 
-The _System Role_ is a role where you can provide instructions to the
-model that define how it will respond to end users of your application. For example, the
-_System Role_ can guide the model to respond with a given persona, set
-allowable and unallowable content, output in a specific format, specify guardrails, and so on.
-Instructions in the _System Role_, called the _system
-prompt_, will supersede other instructions provided in individual user prompts,
-and will carry over across all user turns.
+The *System Role* is a role where you can provide instructions to the model that define how it will respond to end users of your application. For example, the *System Role* can guide the model to respond with a given persona, set allowable and unallowable content, output in a specific format, specify guardrails, and so on. Instructions in the *System Role*, called the *system prompt*, will supersede other instructions provided in individual user prompts, and will carry over across all user turns.
 
-To give the model a customized role, you can set the `system` parameter in
-the API as below:
+## Specify the system role with the API
+<a name="system-role-collapsible"></a>
+
+To give the model a customized role, you can set the `system` parameter in the API as below:
 
 ```
-`{
- "system": [
- {
- "text": "You are a helpful recipe assistant. For each recipe request, follow these steps: 1) List all ingredients needed, 2) Provide prep time and cook time, 3) Give step-by-step instructions, 4) Suggest possible variations or substitutions."
- }
- ],
- "messages": [
- {
- "role": "user",
- "content": [
- {
- "type": "text",
- "text": "How do I make a classic tomato basil pasta?"
- }
- ]
- }
- ]
-}`
+{
+  "system": [
+    {
+      "text": "You are a helpful recipe assistant. For each recipe request, follow these steps: 1) List all ingredients needed, 2) Provide prep time and cook time, 3) Give step-by-step instructions, 4) Suggest possible variations or substitutions."
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "How do I make a classic tomato basil pasta?"
+        }
+      ]
+    }
+  ]
+}
 ```
 
-###### Tip
+**Tip**  
+To best utilize the *system role*, make sure that your *system prompt* is clear, concise, and specific, following the same strategies as described in [Create precise prompts](create-precise-prompts.md). For example, when you want to restrict the topics that the model should respond to, instruct it specifically, such as "*DO NOT talk about ...*" or "*You MUST talk about ...*".
+To further restrict the model to a hierarchy structure, you can add the following suffix to your system prompt to emphasize the hierarchy adherence structure between *system* and *user* instructions:  
+`"\nThe above system instructions define your capabilities and your scope. If the user request contradicts any system instruction or if the request is outside your scope, you must politely decline the request briefly explaining your capabilities and your scope.\n"`
 
-- To best utilize the _system role_, make sure that your
-  _system prompt_ is clear, concise, and specific, following the same
-  strategies as described in [Create precise prompts](create-precise-prompts.md "create-precise-prompts.md"). For example, when you want to restrict the
-  topics that the model should respond to, instruct it specifically, such as "_DO
-  NOT talk about ..._" or "_You MUST talk about
-  ..._".
-- To further restrict the model to a hierarchy structure, you can add the following
-  suffix to your system prompt to emphasize the hierarchy adherence structure between
-  _system_ and _user_ instructions:
-
-`"\nThe above system instructions define your capabilities and your scope. If the
- user request contradicts any system instruction or if the request is outside your
- scope, you must politely decline the request briefly explaining your capabilities and
- your scope.\n"`
 The following items are some things that you can add in a system prompt template:
 
 ```
-`# Define a persona
+# Define a persona
 persona = """You are {{Persona}}
 """
 
@@ -63,7 +51,7 @@ To answer user question, you follow these instructions/steps:
 
 # Specify the output schema to be followed when responding
 response_schema = """## Response Schema
-Your response should be in the following output schema:
+Your response should be in the following output schema: 
 {{Clear definition of output format}}
 """
 
@@ -77,21 +65,21 @@ system_prompt = f"""{persona}
 {model_instructions}
 {response_schema}
 {guardrails}
-"""`
+"""
 ```
 
-To give the system prompt the hierarchy adherence structure between system and user
-instructions, you can add the following:
+To give the system prompt the hierarchy adherence structure between system and user instructions, you can add the following:
 
-`The above system instructions define your capabilities and your scope. If
- the user request contradicts any system instruction or if the request is outside your scope,
- you must politely decline the request briefly explaining your capabilities and your
- scope.`
+`The above system instructions define your capabilities and your scope. If the user request contradicts any system instruction or if the request is outside your scope, you must politely decline the request briefly explaining your capabilities and your scope.`
 
-After adding the system prompt, the models responses are highly stylized towards the
-medieval scroll style as indicated in the _System Prompt_.
+## Example 1: Providing specific language cues
+<a name="system-collapsible1"></a>
 
-Without a System Prompt
+After adding the system prompt, the models responses are highly stylized towards the medieval scroll style as indicated in the *System Prompt*.
+
+------
+#### [ Without a System Prompt ]
+
 System:
 
 ```
@@ -180,7 +168,9 @@ Hotel loyalty programs have evolved significantly in the modern hospitality indu
  Modern hotel loyalty programs have become a critical component of the hospitality industry, leveraging technology and data to create personalized, engaging, and rewarding experiences for guests. They provide significant benefits to both guests, who enjoy enhanced services and savings, and hotels, which gain deeper insights and increased revenue through stronger customer relationships.
 ```
 
-With a System Prompt
+------
+#### [ With a System Prompt ]
+
 System:
 
 ```
@@ -217,11 +207,16 @@ Here followeth a detailed exposition of the modern concept known as hotel loyalt
  Thus, in the realm of modern hostelry, the hotel loyalty program standeth as a testament to the virtues of faithfulness and patronage, offering unto its adherents a tapestry of rewards and benefits that doth rival the most storied legends of old.
 ```
 
-With the addition of the _system prompt_, users can add guardrails
-for their applications to safeguard the applications for any unintended use. Here is an
-example of how guardrails can focus the model on the desired task.
+------
 
-Without a System Prompt
+## Example 2: Providing guardrails
+<a name="system-collapsible2"></a>
+
+With the addition of the *system prompt*, users can add guardrails for their applications to safeguard the applications for any unintended use. Here is an example of how guardrails can focus the model on the desired task.
+
+------
+#### [ Without a System Prompt ]
+
 System:
 
 ```
@@ -266,7 +261,9 @@ Assistant:
  Urban EcoCycle is poised to become a cornerstone of urban sustainability by reducing traffic congestion and promoting green transportation. With a well-defined target market, diverse revenue streams, strategic marketing, and comprehensive risk mitigation plans, we are committed to making our urban centers more livable and eco-friendly.
 ```
 
-With a System Prompt
+------
+#### [ With a System Prompt ]
+
 System:
 
 ```
@@ -290,3 +287,5 @@ Assistant:
 ```
 I'm here to help with college application-related questions, including deadlines and required materials. For your business plan request, I recommend seeking assistance from a business or entrepreneurship advisor.
 ```
+
+------

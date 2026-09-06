@@ -1,47 +1,30 @@
-# Security use cases
 
-This guide provides best practices for prompting Nova 2 Lite to perform
-security operations tasks focused on analysis use cases. It covers two examples:
-[converting
-a threat intelligence report into a structured hunt plan](#sec-threat-intelligence "#sec-threat-intelligence") for a
-Security Operations Center (SOC) team, and
-[reviewing
-source code for security vulnerabilities](#sec-secure-code-review "#sec-secure-code-review"). Nova 2 Lite is not designed to generate malicious code or
-perform offensive security operations. The prompting techniques shown here
-produce structured, repeatable output that integrates into existing security
-workflows.
+
+# Security use cases
+<a name="prompting-security"></a>
+
+This guide provides best practices for prompting Nova 2 Lite to perform security operations tasks focused on analysis use cases. It covers two examples: [converting a threat intelligence report into a structured hunt plan](#sec-threat-intelligence) for a Security Operations Center (SOC) team, and [reviewing source code for security vulnerabilities](#sec-secure-code-review). Nova 2 Lite is not designed to generate malicious code or perform offensive security operations. The prompting techniques shown here produce structured, repeatable output that integrates into existing security workflows.
 
 ## Key principles
-
-- Assign the model a specific security role (software engineer, security engineer)
-  to focus its output
-- Define the output structure explicitly — sections, tables, and formats the
-  model must follow
-- Include rules that prevent hallucination of indicators, techniques, or
-  vulnerabilities not present in the input
-- Use iterative refinement to adapt output to your environment, tooling,
-  and constraints
+<a name="sec-key-principles"></a>
++ Assign the model a specific security role (software engineer, security engineer) to focus its output
++ Define the output structure explicitly — sections, tables, and formats the model must follow
++ Include rules that prevent hallucination of indicators, techniques, or vulnerabilities not present in the input
++ Use iterative refinement to adapt output to your environment, tooling, and constraints
 
 ## Threat intelligence hunt planner
+<a name="sec-threat-intelligence"></a>
 
-This prompt template converts a threat intelligence report into a structured
-hunt plan. The model maps adversary behaviors to
-[MITRE ATT&CK](https://attack.mitre.org/ "https://attack.mitre.org/"), a public
-knowledge base of adversary tactics and techniques used as a common vocabulary in
-threat intelligence. It then generates huntable hypotheses, identifies which techniques are
-not huntable through Security Information and Event Management (SIEM) telemetry,
-and produces a consolidated log source checklist. The output is SIEM-agnostic by
-default. Analysts can request detection queries for a specific platform (SPL, KQL,
-Sigma) as a follow-up.
+This prompt template converts a threat intelligence report into a structured hunt plan. The model maps adversary behaviors to [MITRE ATT&CK](https://attack.mitre.org/), a public knowledge base of adversary tactics and techniques used as a common vocabulary in threat intelligence. It then generates huntable hypotheses, identifies which techniques are not huntable through Security Information and Event Management (SIEM) telemetry, and produces a consolidated log source checklist. The output is SIEM-agnostic by default. Analysts can request detection queries for a specific platform (SPL, KQL, Sigma) as a follow-up.
 
-The model assumes the threat intelligence report has already been vetted for
-relevance by your team and does not perform its own applicability assessment.
+The model assumes the threat intelligence report has already been vetted for relevance by your team and does not perform its own applicability assessment.
 
-**Recommended model configuration:**
-Nova 2 Lite with medium reasoning.
+### System prompt
+<a name="sec-ti-system-prompt"></a>
 
-Use the following system prompt to configure the model for threat intelligence
-analysis.
+**Recommended model configuration:** Nova 2 Lite with medium reasoning.
+
+Use the following system prompt to configure the model for threat intelligence analysis.
 
 ```
 IMPORTANT: Write all output as readable markdown. Do not wrap the entire
@@ -167,8 +150,10 @@ EXAMPLE (classification reasoning)
   telemetry.
 ```
 
-The following example demonstrates the full output structure. The input is a
-short vendor blog post summary. Longer reports produce more extensive plans.
+### Example
+<a name="sec-ti-example"></a>
+
+The following example demonstrates the full output structure. The input is a short vendor blog post summary. Longer reports produce more extensive plans.
 
 `User:`
 
@@ -261,86 +246,49 @@ report**; indicator-based hunts therefore require that report.
 ```
 
 ### Iterative refinement
+<a name="sec-ti-refinement"></a>
 
-After the initial output, use follow-up prompts to extend or adapt the
-plan.
-
-- **Extend the plan:**
-
-  - "Add an executive summary"
-  - "Add response and containment guidance"
-  - "Write detection queries for [SIEM platform]"
-
-- **Refine based on your environment:**
-
-  - "We don't have DNS logging, remove those hypotheses and focus on proxy
-    and endpoint telemetry"
-  - "Our partner org runs Sentinel, give me the detections in KQL so we
-    can share"
+After the initial output, use follow-up prompts to extend or adapt the plan.
++ **Extend the plan:**
+  + "Add an executive summary"
+  + "Add response and containment guidance"
+  + "Write detection queries for [SIEM platform]"
++ **Refine based on your environment:**
+  + "We don't have DNS logging, remove those hypotheses and focus on proxy and endpoint telemetry"
+  + "Our partner org runs Sentinel, give me the detections in KQL so we can share"
 
 The model revises the plan based on updated context.
 
 ### Considerations
+<a name="sec-ti-considerations"></a>
 
-The following considerations apply when using this prompt to generate hunt
-plans from threat intelligence reports.
-
-- **Verify technical identifiers.** Large language
-  models can generate inaccurate technical specifics. Verify these values against
-  authoritative sources before acting on them.
-- **Validate telemetry requirements against your
-  environment.** The model proposes log sources based on the techniques
-  described in the report, not on the telemetry your organization collects. Treat
-  the telemetry checklist as a set of requirements to evaluate, not an inventory
-  of available data.
-- **Assess the quality of the source report.** The
-  hunt plan reflects the content of the input report. If the source intelligence is
-  incomplete, inaccurate, or ambiguous, the output inherits those limitations. The
-  model does not validate the accuracy of the report.
-- **Use hunt plans as input to detection
-  engineering.** Hunt plans are hypotheses for analysts to validate, tune,
-  and operationalize. They are not finished detection rules.
-- **Mitigate prompt injection risk.** Threat
-  intelligence reports provided as input can contain instructions intended to
-  manipulate the model. Treat the report as untrusted data rather than as trusted
-  instructions. For more information, see
-  [Prompt injection](../../../bedrock/latest/userguide/prompt-injection.md "../../../bedrock/latest/userguide/prompt-injection.md").
+The following considerations apply when using this prompt to generate hunt plans from threat intelligence reports.
++ **Verify technical identifiers.** Large language models can generate inaccurate technical specifics. Verify these values against authoritative sources before acting on them.
++ **Validate telemetry requirements against your environment.** The model proposes log sources based on the techniques described in the report, not on the telemetry your organization collects. Treat the telemetry checklist as a set of requirements to evaluate, not an inventory of available data.
++ **Assess the quality of the source report.** The hunt plan reflects the content of the input report. If the source intelligence is incomplete, inaccurate, or ambiguous, the output inherits those limitations. The model does not validate the accuracy of the report.
++ **Use hunt plans as input to detection engineering.** Hunt plans are hypotheses for analysts to validate, tune, and operationalize. They are not finished detection rules.
++ **Mitigate prompt injection risk.** Threat intelligence reports provided as input can contain instructions intended to manipulate the model. Treat the report as untrusted data rather than as trusted instructions. For more information, see [Prompt injection](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-injection.html).
 
 ## Secure code review
+<a name="sec-secure-code-review"></a>
 
-This prompt template reviews source code for security vulnerabilities.
-The model traces data flow through the code, identifies where
-attacker-controlled input reaches dangerous operations, rates severity based on
-three factors: attacker control of the input, exploitation prerequisites,
-and impact, and provides a fix for
-each finding. The output is language-agnostic and works on any source
-file.
+This prompt template reviews source code for security vulnerabilities. The model traces data flow through the code, identifies where attacker-controlled input reaches dangerous operations, rates severity based on three factors: attacker control of the input, exploitation prerequisites, and impact, and provides a fix for each finding. The output is language-agnostic and works on any source file.
 
-The model assumes the code provided is the complete scope for review and
-does not speculate about vulnerabilities in code it cannot see.
+The model assumes the code provided is the complete scope for review and does not speculate about vulnerabilities in code it cannot see.
 
 **Recommended model configuration:**
-
-- Temperature — 0
-- Top P — 0.9
-- Reasoning — Low
++ Temperature — 0
++ Top P — 0.9
++ Reasoning — Low
 
 Two prompt variants are provided for different audiences:
++ **Software Development Engineer (SDE) prompt** — For developers reviewing their own code or a teammate’s pull request. Output includes plain language explanations, a code snippet fix for every finding, and a priority tag (Fix Now, Fix Before Merge, or Track For Later).
++ **Security Engineer prompt** — For AppSec reviews, audits, and writing up findings for engineering teams. Includes everything in the SDE output, plus vulnerability class, attack scenario, likely [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/) classification, remediation alternatives with tradeoffs, and a prioritized remediation roadmap.
 
-- **Software Development Engineer (SDE)
-  prompt** — For developers reviewing their own code or a
-  teammate’s pull request. Output includes plain language explanations, a code
-  snippet fix for every finding, and a priority tag (Fix Now, Fix Before
-  Merge, or Track For Later).
-- **Security Engineer prompt** — For
-  AppSec reviews, audits, and writing up findings for engineering teams.
-  Includes everything in the SDE output, plus vulnerability class, attack
-  scenario, likely [Common Weakness
-  Enumeration (CWE)](https://cwe.mitre.org/ "https://cwe.mitre.org/") classification, remediation alternatives with
-  tradeoffs, and a prioritized remediation roadmap.
+### SDE system prompt
+<a name="sec-cr-sde-prompt"></a>
 
-Use the following system prompt to configure the model for developer-focused
-security code review.
+Use the following system prompt to configure the model for developer-focused security code review.
 
 ```
 You are a senior software engineer performing a code review focused
@@ -405,8 +353,10 @@ SEVERITY SCALE
   less-trusted context. Defense-in-depth improvement only.
 ```
 
-Use the following system prompt to configure the model for AppSec-focused
-security code review.
+### Security Engineer system prompt
+<a name="sec-cr-security-engineer-prompt"></a>
+
+Use the following system prompt to configure the model for AppSec-focused security code review.
 
 ```
 You are a senior application security engineer performing a security
@@ -488,8 +438,10 @@ SEVERITY SCALE
   less-trusted context. Defense-in-depth improvement only.
 ```
 
-The following example demonstrates the full output structure. The input
-is a Flask user management API with multiple vulnerability classes.
+### Example — SDE persona
+<a name="sec-cr-sde-example"></a>
+
+The following example demonstrates the full output structure. The input is a Flask user management API with multiple vulnerability classes.
 
 `User:`
 
@@ -502,7 +454,7 @@ Review the following code for security issues:
 
 `Assistant:`
 
-````
+```
 ### Security Findings Report
 
 #### 1. **SQL Injection in User Search & Report Export**
@@ -538,12 +490,11 @@ else:
         "SELECT name, department FROM users WHERE department = ?",
         (department,)
     )
-````
+```
 
 ---
 
 #### 2. **Insecure Password Hashing**
-
 **Location**: `user_api.py` (`create_user`)
 **What is wrong**:
 Passwords are hashed using `hashlib.md5()` without salts. MD5 is cryptographically broken and vulnerable to precomputed rainbow table attacks.
@@ -577,7 +528,6 @@ def create_user():
 ---
 
 #### 3. **Path Traversal in Avatar Download**
-
 **Location**: `user_api.py` (`get_avatar`)
 **What is wrong**:
 The `filename` parameter from the user is directly concatenated to `UPLOAD_DIR` without validation. This allows directory traversal attacks.
@@ -609,7 +559,7 @@ def get_avatar(user_id):
 ### Summary Table of Findings
 
 | Severity | Count |
-| -------- | ----- |
+|----------|-------|
 | Critical | 1     |
 | High     | 2     |
 | Medium   | 0     |
@@ -620,34 +570,30 @@ def get_avatar(user_id):
 1. **Fix SQL Injection (Critical)** - Prevents total database compromise.
 2. **Fix Insecure Password Hashing (High)** - Protects user accounts from credential theft.
 3. **Fix Path Traversal (High)** - Stops unauthorized file access on the server.
-
 ```
 
-The following example demonstrates the full output structure. The input
- is a Flask user management API with multiple vulnerability classes.
+### Example — Security Engineer persona
+<a name="sec-cr-security-engineer-example"></a>
+
+The following example demonstrates the full output structure. The input is a Flask user management API with multiple vulnerability classes.
 
 `User:`
 
-
 ```
-
 Review the following code for security issues:
 --- FILE: user_api.py ---
 {file_content}
 --- END: user_api.py ---
-
 ```
+
 `Assistant:`
 
-
 ```
-
 ### Security Code Review Findings
 
 ---
 
 #### **Finding 1: SQL Injection in User Search and Report Export**
-
 - **Location**: `user_api.py` ('search_users'), (`export_report`)
 - **What is wrong**:
   The code constructs SQL queries using string interpolation with untrusted user input. This allows attackers to manipulate the query structure.
@@ -684,7 +630,6 @@ Review the following code for security issues:
 ---
 
 #### **Finding 2: Path Traversal in Avatar Download**
-
 - **Location**: `user_api.py` (`get_avatar`)
 - **What is wrong**:
   The `filename` parameter is directly concatenated to `UPLOAD_DIR` without validation, allowing directory traversal attacks.
@@ -717,7 +662,6 @@ Review the following code for security issues:
 ---
 
 #### **Finding 3: Insecure Password Hashing**
-
 - **Location**: `user_api.py` (`create_user`)
 - **What is wrong**:
   Passwords are hashed using `hashlib.md5`, which is fast and vulnerable to brute-force attacks.
@@ -745,7 +689,6 @@ Review the following code for security issues:
 ---
 
 #### **Finding 4: Hardcoded Secret Key**
-
 - **Location**: `user_api.py` (`SECRET_KEY` assignment)
 - **What is wrong**:
   The secret key is hardcoded, exposing CSRF protection and session management to risk.
@@ -770,7 +713,6 @@ Review the following code for security issues:
 ---
 
 #### **Finding 5: Debug Mode Enabled in Production**
-
 - **Location**: `user_api.py` (`app.run` call)
 - **What is wrong**:
   `debug=True` exposes stack traces, sensitive variables, and enables interactive debuggers.
@@ -796,14 +738,12 @@ Review the following code for security issues:
 ---
 
 ### Attack Surface Summary
-
 - **Critical**: 1 finding (SQL Injection)
 - **High**: 1 finding (Path Traversal)
 - **Medium**: 1 finding (Insecure Password Hashing)
 - **Low**: 2 findings (Hardcoded Secret Key, Debug Mode)
 
 ### Vulnerability Class Distribution
-
 - **SQL Injection**: 1
 - **Path Traversal**: 1
 - **Inadequate Password Protection**: 1
@@ -811,7 +751,6 @@ Review the following code for security issues:
 - **Improper Default Configuration**: 1
 
 ### Recommended Additional Testing
-
 1. **Fuzzing targets**:
    - `/api/users/search?q=<MALICIOUS_INPUT>`
    - `/api/users/<user_id>/avatar?file=<TRAVERSAL_PAYLOAD>`
@@ -823,74 +762,32 @@ Review the following code for security issues:
    - Database permission checks.
 
 ### Prioritized Remediation Roadmap
-
 1. **Critical**: Fix SQL injection (parameterized queries).
 2. **High**: Mitigate path traversal (filename sanitization).
 3. **Medium**: Upgrade password hashing to `bcrypt`.
 4. **Low**: Remove hardcoded secret key and disable debug mode.
-
 ```
 
 ### Iterative refinement
+<a name="sec-cr-refinement"></a>
 
-
-After the initial output, use follow-up prompts to adapt the review to
- your needs.
-
-
-
-* **Add context:**
-
-
-
-
-	+ “This runs as a Lambda function behind API Gateway with IAM auth”
-	+ “The environment variables are set at deploy time by our CI pipeline”
-* **Adjust scope:**
-
-
-
-
-	+ “Focus only on Critical and High findings”
-	+ “Also check for logging and monitoring gaps”
+After the initial output, use follow-up prompts to adapt the review to your needs.
++ **Add context:**
+  + “This runs as a Lambda function behind API Gateway with IAM auth”
+  + “The environment variables are set at deploy time by our CI pipeline”
++ **Adjust scope:**
+  + “Focus only on Critical and High findings”
+  + “Also check for logging and monitoring gaps”
 
 The model revises the review based on updated context.
 
-
 ### Considerations
+<a name="sec-cr-considerations"></a>
 
-
-The following considerations apply when using these prompts to perform
- security code review.
-
-
-
-* **Verify CWE classifications.** The model
- suggests likely CWE mappings based on the vulnerability pattern. Verify
- these against the CWE specification before including them in formal
- documentation or compliance reports.
-* **Treat fixes as starting points.** Code
- snippets provided by the model demonstrate the correct remediation approach
- but may require adaptation to your codebase’s conventions, error handling
- patterns, and testing requirements.
-* **Provide project context for improved severity
- accuracy.** Without context about the deployment environment, the
- model states its assumptions. Providing details about network exposure,
- authentication requirements, and data sensitivity produces more accurate
- severity ratings.
-* **Severity ratings may differ between
- personas.** The Security Engineer persona rates findings based
- strictly on attacker reachability (whether exploitation requires a separate
- prerequisite such as database compromise), while the SDE persona emphasizes
- immediate remediation priority. The same vulnerability may receive different
- severity ratings depending on the persona used.
-* **Review scope is limited to provided
- code.** The model does not speculate about vulnerabilities in code
- it cannot see. If a vulnerability spans multiple files, provide all
- relevant files in the same request.
-* **Mitigate prompt injection risk.** Source
- code provided as input can contain instructions intended to manipulate the
- model. Treat code under review as untrusted data rather than as trusted
- instructions. For more information, see
- [Prompt injection](../../../bedrock/latest/userguide/prompt-injection.md "../../../bedrock/latest/userguide/prompt-injection.md").
-```
+The following considerations apply when using these prompts to perform security code review.
++ **Verify CWE classifications.** The model suggests likely CWE mappings based on the vulnerability pattern. Verify these against the CWE specification before including them in formal documentation or compliance reports.
++ **Treat fixes as starting points.** Code snippets provided by the model demonstrate the correct remediation approach but may require adaptation to your codebase’s conventions, error handling patterns, and testing requirements.
++ **Provide project context for improved severity accuracy.** Without context about the deployment environment, the model states its assumptions. Providing details about network exposure, authentication requirements, and data sensitivity produces more accurate severity ratings.
++ **Severity ratings may differ between personas.** The Security Engineer persona rates findings based strictly on attacker reachability (whether exploitation requires a separate prerequisite such as database compromise), while the SDE persona emphasizes immediate remediation priority. The same vulnerability may receive different severity ratings depending on the persona used.
++ **Review scope is limited to provided code.** The model does not speculate about vulnerabilities in code it cannot see. If a vulnerability spans multiple files, provide all relevant files in the same request.
++ **Mitigate prompt injection risk.** Source code provided as input can contain instructions intended to manipulate the model. Treat code under review as untrusted data rather than as trusted instructions. For more information, see [Prompt injection](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-injection.html).

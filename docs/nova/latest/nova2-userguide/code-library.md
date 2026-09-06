@@ -1,14 +1,20 @@
+
+
 # Code library
+<a name="code-library"></a>
 
 This section provides code examples for common Amazon Nova operations using either the Converse API or the InvokeModel API.
 
 ## Converse API Examples
+<a name="converse-api-examples"></a>
 
 ### Basic request
+<a name="basic-request-converse"></a>
 
 Send a basic text request to Amazon Nova models using the Converse API.
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import boto3
@@ -52,7 +58,8 @@ for content in content_list:
         print(content["text"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import boto3
@@ -96,12 +103,16 @@ for event in response["stream"]:
         if "text" in delta:
             print(delta["text"], end="", flush=True)
 ```
+
+------
 
 ### Multimodal input using embedded asset
+<a name="multimodal-input-embedded"></a>
 
-Process multimodal content by embedding document, image, video, or audio data directly in the request. This example uses image data. For details on the content structure for other modalities, see the [ContentBlock details in the Amazon Bedrock API documentation.](../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md")
+Process multimodal content by embedding document, image, video, or audio data directly in the request. This example uses image data. For details on the content structure for other modalities, see the [ContentBlock details in the Amazon Bedrock API documentation.](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html)
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import boto3
@@ -151,7 +162,8 @@ for content in content_list:
         print(content["text"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import boto3
@@ -201,12 +213,16 @@ for event in response["stream"]:
         if "text" in delta:
             print(delta["text"], end="", flush=True)
 ```
+
+------
 
 ### Multimodal input using S3 URI
+<a name="multimodal-input-s3"></a>
 
-Process multimodal content by referencing documents, images, videos, or audio files stored in S3. This example uses an image reference. For details on the content structure for other modalities, see the [ContentBlock details in the Amazon Bedrock API documentation.](../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md")
+Process multimodal content by referencing documents, images, videos, or audio files stored in S3. This example uses an image reference. For details on the content structure for other modalities, see the [ContentBlock details in the Amazon Bedrock API documentation.](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html)
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import boto3
@@ -254,7 +270,8 @@ for content in content_list:
         print(content["text"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import boto3
@@ -303,11 +320,15 @@ for event in response["stream"]:
             print(delta["text"], end="", flush=True)
 ```
 
+------
+
 ### Extended thinking (reasoning)
+<a name="extended-thinking-example"></a>
 
 Enable extended thinking for complex problem-solving tasks.
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import boto3
@@ -355,7 +376,8 @@ for content in content_list:
         print(content["text"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import boto3
@@ -412,11 +434,15 @@ for event in response["stream"]:
             text_output += text_chunk
 ```
 
+------
+
 ### Built-in tool: Nova Grounding with citations
+<a name="nova-grounding"></a>
 
 Use Nova Grounding to retrieve real-time information from the web with citations.
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import boto3
@@ -463,7 +489,8 @@ for content in content_list:
 print(output_with_citations)
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import boto3
@@ -507,11 +534,15 @@ for event in response["stream"]:
             print(f"[{url}]", end="", flush=True)
 ```
 
+------
+
 ### Built-in tool: Code Interpreter
+<a name="code-interpreter"></a>
 
 Use the Code Interpreter tool to execute Python code for calculations and data analysis.
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import boto3
@@ -556,7 +587,8 @@ for content in content_list:
         print(content["toolUse"]["input"]["snippet"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import boto3
@@ -622,11 +654,15 @@ for event in response["stream"]:
             print(text, end="", flush=True)
 ```
 
+------
+
 ### Tool use
+<a name="tool-use"></a>
 
 Define custom tools for the model to use during conversation.
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import boto3
@@ -745,7 +781,8 @@ else:
             print(content["text"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import boto3
@@ -887,15 +924,20 @@ if stop_reason == "tool_use":
                     print(delta["text"], end="", flush=True)
 ```
 
+------
+
 ## InvokeModel API Examples
+<a name="invoke-model-api"></a>
 
 The examples below focus on the few key areas where the Invoke API's request and response structures differ slightly from those of the Converse API. In most other ways, the two APIs are compatible, so you should be able to easily adapt the Converse API examples above to work with the InvokeModel API.
 
 ### Basic request
+<a name="basic-request-invoke"></a>
 
 Send a basic text request to Amazon Nova 2 models using the InvokeModel API.
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import json
@@ -940,7 +982,8 @@ for content in content_list:
         print(content["text"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import json
@@ -986,11 +1029,15 @@ for event in response["body"]:
             print(delta["text"], end="", flush=True)
 ```
 
+------
+
 ### InvokeModel API with reasoning
+<a name="invoke-model-reasoning"></a>
 
 Use the InvokeModel API with reasoning enabled for complex problem-solving.
 
-Non-streaming
+------
+#### [ Non-streaming ]
 
 ```
 import json
@@ -1041,7 +1088,8 @@ for content in content_list:
         print(content["text"])
 ```
 
-Streaming
+------
+#### [ Streaming ]
 
 ```
 import json
@@ -1095,3 +1143,5 @@ for event in response["body"]:
             print("\n== Text ==")
             print(delta["text"], end="", flush=True)
 ```
+
+------

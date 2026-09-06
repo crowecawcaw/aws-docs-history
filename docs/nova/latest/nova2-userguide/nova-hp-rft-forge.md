@@ -1,60 +1,55 @@
+
+
 # Reinforcement Learning
+<a name="nova-hp-rft-forge"></a>
 
-###### Note
-
+**Note**  
 Detailed documentation is provided once subscribed
 
 Nova Forge provides advanced reinforcement learning capabilities with the option to use remote reward functions in your own environment. Customers can choose to integrate their own endpoint to execute validation for immediate real-world feedback, or even use their own orchestrator to coordinate agentic multi-turn evaluations in your environment.
 
 ## Bring your own orchestrator for agentic multi-turn evaluations
+<a name="nova-hp-rft-forge-byoo"></a>
 
-For Forge users requiring multi-turn conversations or reward functions exceeding
-15-minute timeouts, Nova Forge provides Bring Your Own Orchestration (BYOO)
-capabilities. This allows you to coordinate agentic multi-turn evaluations in your environment (e.g., using chemistry tools to score molecular designs, or robotics simulations that reward efficient task completion and penalize collisions).
+For Forge users requiring multi-turn conversations or reward functions exceeding 15-minute timeouts, Nova Forge provides Bring Your Own Orchestration (BYOO) capabilities. This allows you to coordinate agentic multi-turn evaluations in your environment (e.g., using chemistry tools to score molecular designs, or robotics simulations that reward efficient task completion and penalize collisions).
 
-###### Topics
-
-- [Architecture overview](#nova-hp-rft-forge-architecture "#nova-hp-rft-forge-architecture")
-- [Setup and execution](#nova-hp-rft-forge-setup "#nova-hp-rft-forge-setup")
+**Topics**
++ [Architecture overview](#nova-hp-rft-forge-architecture)
++ [Setup and execution](#nova-hp-rft-forge-setup)
 
 ### Architecture overview
+<a name="nova-hp-rft-forge-architecture"></a>
 
-The BYOO architecture provides full control over the rollout and generation
-process through customer-managed infrastructure.
+The BYOO architecture provides full control over the rollout and generation process through customer-managed infrastructure.
 
 **Training VPC:**
-
-- **Rollout**: Coordinates training by
-  delegating rollout generation to customer infrastructure
-- **Trainer**: Performs model weight
-  updates based on received rollouts
++ **Rollout**: Coordinates training by delegating rollout generation to customer infrastructure
++ **Trainer**: Performs model weight updates based on received rollouts
 
 **Customer VPC (such as ECS on EC2):**
-
-- **Proxy Lambda**: Receives rollout
-  requests and coordinates with customer infrastructure
-- **Rollout Response SQS**: Queue for
-  returning completed rollouts to training infrastructure
-- **Generate Request SQS**: Queue for model
-  generation requests
-- **Generate Response SQS**: Queue for
-  model generation responses
-- **Customer Container**: Implements custom
-  orchestration logic (can use provided starter kit)
-- **DynamoDB**: Stores and retrieves state
-  across the orchestration process
++ **Proxy Lambda**: Receives rollout requests and coordinates with customer infrastructure
++ **Rollout Response SQS**: Queue for returning completed rollouts to training infrastructure
++ **Generate Request SQS**: Queue for model generation requests
++ **Generate Response SQS**: Queue for model generation responses
++ **Customer Container**: Implements custom orchestration logic (can use provided starter kit)
++ **DynamoDB**: Stores and retrieves state across the orchestration process
 
 **Workflow:**
 
 1. Rollout delegates rollout generation to Proxy Lambda
-2. Proxy Lambda pushes rollout API request to Generate Request SQS
-3. Customer container processes requests, manages multi-turn
-   interactions, and calls reward functions
-4. Container stores and retrieves state from DynamoDB as needed
-5. Container pushes rollout responses to Rollout Response SQS
-6. Rollout sends completed rollouts to Trainer for weight updates
+
+1. Proxy Lambda pushes rollout API request to Generate Request SQS
+
+1. Customer container processes requests, manages multi-turn interactions, and calls reward functions
+
+1. Container stores and retrieves state from DynamoDB as needed
+
+1. Container pushes rollout responses to Rollout Response SQS
+
+1. Rollout sends completed rollouts to Trainer for weight updates
 
 ### Setup and execution
+<a name="nova-hp-rft-forge-setup"></a>
 
 For detailed setup instructions, recipe configurations, request and response formats, and environment examples, refer to the confidential documentation provided to Nova Forge subscribers. To get the Nova Forge documents follow the below steps:
 

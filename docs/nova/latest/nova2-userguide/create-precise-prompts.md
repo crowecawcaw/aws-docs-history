@@ -1,20 +1,19 @@
-# Create precise prompts
 
-Crafting specific user queries is crucial in prompt engineering. Well-crafted queries
-direct Amazon Nova text understanding models to generate accurate and pertinent responses. To
-craft such queries, it is essential to start by providing contextual information in the query.
-The context provided helps situate the model better by aligning to clear target-user
-scenarios, thereby enhancing the relevance and coherence of the output.
+
+# Create precise prompts
+<a name="create-precise-prompts"></a>
+
+Crafting specific user queries is crucial in prompt engineering. Well-crafted queries direct Amazon Nova text understanding models to generate accurate and pertinent responses. To craft such queries, it is essential to start by providing contextual information in the query. The context provided helps situate the model better by aligning to clear target-user scenarios, thereby enhancing the relevance and coherence of the output.
 
 ## Providing contextual, specific information
+<a name="prompting-specific-info"></a>
 
-Models work best if the instructions are clear, well structured, short, and specific.
-This prompt template guidance applies to both the user prompt and the system prompt.
+Models work best if the instructions are clear, well structured, short, and specific. This prompt template guidance applies to both the user prompt and the system prompt.
 
 **Prompt template**
 
 ```
-`# Use this to clearly define the task and job needed by the model
+# Use this to clearly define the task and job needed by the model
 task_summary = f"""
 ## Task Summary:
 {{Task summary}}
@@ -47,14 +46,17 @@ response_style = f"""
 final_prompt = f"""{task_summary}
 {context_information}
 {model_instructions}
-{response_style}"""`
+{response_style}"""
 ```
 
-Here is an example of a prompt that is rewritten with specific and contextual
-information. Adding more contextual information helps the model ground towards the
-desired behavior.
+### Example: Specific and contextual information
+<a name="specific-collapsible"></a>
 
-Unclear prompt
+Here is an example of a prompt that is rewritten with specific and contextual information. Adding more contextual information helps the model ground towards the desired behavior.
+
+------
+#### [ Unclear prompt ]
+
 `User:`
 
 ```
@@ -70,9 +72,9 @@ Certainly! Here's a sample meeting invite for your project team:
 
  **Subject:** Project Team Meeting - [Project Name]
 
- **Date:** [Insert Date]
- **Time:** [Insert Time]
- **Duration:** [Insert Duration]
+ **Date:** [Insert Date] 
+ **Time:** [Insert Time] 
+ **Duration:** [Insert Duration] 
  **Location:** [Insert Location] / [Zoom/Teams Link if Online]
 
  **Agenda:**
@@ -117,8 +119,8 @@ Certainly! Here's a sample meeting invite for your project team:
 
  Best regards,
 
- [Your Full Name]
- [Your Position]
+ [Your Full Name] 
+ [Your Position] 
  [Your Contact Information]
 
  ---
@@ -126,11 +128,13 @@ Certainly! Here's a sample meeting invite for your project team:
  Feel free to customize this template to better fit your specific project and team needs!
 ```
 
-Clear prompt
+------
+#### [ Clear prompt ]
+
 `User:`
 
 ```
-Write me a meeting invite to the project team. **The meeting is about project planning, and should be held on October 16th, from 10 AM to 11 AM in Conference Room B. Please include an agenda that covers our progress on the project thus far, as well as any upcoming milestones and deadlines.**
+Write me a meeting invite to the project team. The meeting is about project planning, and should be held on October 16th, from 10 AM to 11 AM in Conference Room B. Please include an agenda that covers our progress on the project thus far, as well as any upcoming milestones and deadlines.
 ```
 
 `Assistant:`
@@ -138,68 +142,60 @@ Write me a meeting invite to the project team. **The meeting is about project pl
 ```
 **Meeting Invitation: Project Planning Session**
 
- **Date:** October 16th
- **Time:** 10:00 AM - 11:00 AM
+ **Date:** October 16th 
+ **Time:** 10:00 AM - 11:00 AM 
  **Location:** Conference Room B
 
  **Agenda:**
 
- 1. **Welcome and Introduction (10:00 AM - 10:05 AM)**
+ 1. **Welcome and Introduction (10:00 AM - 10:05 AM)** 
  - Brief overview by the meeting facilitator.
 
- 2. **Project Progress Update (10:05 AM - 10:30 AM)**
- - Review of completed tasks and achievements to date.
+ 2. **Project Progress Update (10:05 AM - 10:30 AM)** 
+ - Review of completed tasks and achievements to date. 
  - Detailed discussion on current project status and any challenges encountered.
 
- 3. **Upcoming Milestones and Deadlines (10:30 AM - 10:50 AM)**
- - Overview of the next phase of the project.
+ 3. **Upcoming Milestones and Deadlines (10:30 AM - 10:50 AM)** 
+ - Overview of the next phase of the project. 
  - Identification of key milestones and deadlines.
 
- 4. **Action Items and Responsibilities (10:50 AM - 11:00 AM)**
- - Assignment of tasks for the upcoming period.
+ 4. **Action Items and Responsibilities (10:50 AM - 11:00 AM)** 
+ - Assignment of tasks for the upcoming period. 
  - Confirmation of individual responsibilities and follow-up items.
 
- 5. **Q&A Session (11:00 AM)**
+ 5. **Q&A Session (11:00 AM)** 
  - Open floor for any questions or concerns from team members.
 
  Please ensure your attendance to discuss and finalize our project planning for the next phase. Your insights and contributions are highly valued.
 
  Best regards,
 
- [Your Name]
- [Your Position]
+ [Your Name] 
+ [Your Position] 
  [Your Contact Information]
 ```
 
-- Be clear: When prompting the model, try to keep instructions as clear as
-  possible in a way a human would understand it versus a machine (for instance, a
-  JSON-style list).
-- Be specific: Give the model specific instructions about what the task is, what
-  the expected output is, and any additional context to help the model respond the way
-  you want.
+------
++ Be clear: When prompting the model, try to keep instructions as clear as possible in a way a human would understand it versus a machine (for instance, a JSON-style list).
++ Be specific: Give the model specific instructions about what the task is, what the expected output is, and any additional context to help the model respond the way you want.
 
 ## Specify the output format and style
+<a name="prompting-style"></a>
 
-If you want Amazon Nova 2 to generate responses that are tailored to your specific needs,
-you can specify the format and style of the output. For example, if you want to generate
-responses only in JSON or constrain the response length to a maximum number of words, bullet
-points, or paragraphs. This enables Amazon Nova 2 to better understand your requirements and
-produce output that is more relevant and easier to parse.
+If you want Amazon Nova 2 to generate responses that are tailored to your specific needs, you can specify the format and style of the output. For example, if you want to generate responses only in JSON or constrain the response length to a maximum number of words, bullet points, or paragraphs. This enables Amazon Nova 2 to better understand your requirements and produce output that is more relevant and easier to parse.
 
-Use capitalization and strong wordings such as DO, DO NOT, MUST to emphasize the rules
-you want the model to strictly obey. For example, if you want only one JSON object in the
-response, you can instruct the model by saying "You MUST answer in JSON format only. DO NOT
-use any other format while answering the question."
+Use capitalization and strong wordings such as DO, DO NOT, MUST to emphasize the rules you want the model to strictly obey. For example, if you want only one JSON object in the response, you can instruct the model by saying "You MUST answer in JSON format only. DO NOT use any other format while answering the question."
 
-Here are some example prompts that are rewritten with specific and contextual
-information. Adding more contextual information helps the model ground towards the desired
-behavior.
+Here are some example prompts that are rewritten with specific and contextual information. Adding more contextual information helps the model ground towards the desired behavior.
 
-Adding extra details on the response formatting can help the model accomplish the
-desired result. Some of the other commonly used response format include CSV, Markdown,
-YAML, and XML
+### Example 1: Provide extra details
+<a name="style-collapsible1"></a>
 
-Prompt without style constraints
+Adding extra details on the response formatting can help the model accomplish the desired result. Some of the other commonly used response format include CSV, Markdown, YAML, and XML
+
+------
+#### [ Prompt without style constraints ]
+
 `User:`
 
 ```
@@ -307,16 +303,18 @@ In a typical 4-star hotel, you'll find a range of room types, each designed to c
  Each room type in a 4-star hotel is designed to provide comfort, convenience, and luxury tailored to different guest needs, ensuring a pleasant stay for all types of travelers.
 ```
 
-Prompt with style contraints
+------
+#### [ Prompt with style contraints ]
+
 `User:`
 
 ```
-Outline the different types of rooms available in a typical 4-star hotel, including their features. **All responses MUST be in YAML format.**
+Outline the different types of rooms available in a typical 4-star hotel, including their features. All responses MUST be in YAML format.
 ```
 
 `Assistant:`
 
-````
+```
 ```yaml
  hotel_rooms:
  - room_type: Standard Room
@@ -379,303 +377,254 @@ Outline the different types of rooms available in a typical 4-star hotel, includ
  - mini_fridge: Available
  - tea_and_coffee_making_facilities: Yes
  - business_center_access: Available
-````
-
+ ```
 ```
 
+------
 
-In this case, the prompt with style constraints provides comprehensive information
- on the constraints to follow and the desired response format. As observed in the
- response, the optimized prompt aligns more closely with the requested brevity and
- bulleted list structure.
+### Example 2: Provide style constraints
+<a name="style-collapsible2"></a>
 
+In this case, the prompt with style constraints provides comprehensive information on the constraints to follow and the desired response format. As observed in the response, the optimized prompt aligns more closely with the requested brevity and bulleted list structure.
 
-Prompt without style constraints
+------
+#### [ Prompt without style constraints ]
+
 `User:`
 
-
 ```
-
 Explain the process of checking in a guest at a luxury resort.
-
 ```
 
 `Assistant:`
 
-
 ```
-
 Checking in a guest at a luxury resort involves a meticulous and personalized process designed to ensure a seamless and memorable start to their stay. Here’s a detailed overview of the steps involved:
 
-### Pre-Arrival Preparation
+ ### Pre-Arrival Preparation
 
-1.  **Pre-Arrival Communication:**
+ 1. **Pre-Arrival Communication:**
+ - **Confirmation:** Verify guest reservations and confirm arrival details.
+ - **Special Requests:** Collect any special requests (dietary restrictions, room preferences, etc.) and ensure they are noted in the guest profile.
+ - **Documentation:** Ensure all necessary documentation is ready, such as welcome letters, room keys, and any special amenities.
 
-- **Confirmation:** Verify guest reservations and confirm arrival details.
-- **Special Requests:** Collect any special requests (dietary restrictions, room preferences, etc.) and ensure they are noted in the guest profile.
-- **Documentation:** Ensure all necessary documentation is ready, such as welcome letters, room keys, and any special amenities.
+ 2. **Room Preparation:**
+ - **Cleaning:** Conduct a thorough cleaning and preparation of the guest room.
+ - **Amenities:** Stock the room with high-end toiletries, fresh linens, and any requested amenities.
+ - **Personal Touches:** Add personalized touches such as a welcome note, fresh flowers, or locally sourced treats.
 
-2.  **Room Preparation:**
+ ### Arrival and Initial Interaction
 
-- **Cleaning:** Conduct a thorough cleaning and preparation of the guest room.
-- **Amenities:** Stock the room with high-end toiletries, fresh linens, and any requested amenities.
-- **Personal Touches:** Add personalized touches such as a welcome note, fresh flowers, or locally sourced treats.
+ 3. **Guest Arrival:**
+ - **Greeting:** Have staff ready to greet guests as they arrive. This may include a warm welcome at the entrance or a meet-and-greet in the lobby.
+ - **Transport:** Provide luxury transport options like a chauffeured car service to escort guests to the check-in desk.
 
-### Arrival and Initial Interaction
+ 4. **Check-In Desk:**
+ - **Professionalism:** Ensure check-in staff are well-trained, professional, and exude hospitality.
+ - **Technology:** Utilize sophisticated check-in technology (like tablet kiosks) to streamline the process.
+ - **Personalized Welcome:** Greet guests with a warm welcome, acknowledge their special requests, and present them with a personalized welcome kit.
 
-3.  **Guest Arrival:**
+ ### Documentation and Formalities
 
-- **Greeting:** Have staff ready to greet guests as they arrive. This may include a warm welcome at the entrance or a meet-and-greet in the lobby.
-- **Transport:** Provide luxury transport options like a chauffeured car service to escort guests to the check-in desk.
+ 5. **Document Verification:**
+ - **Identification:** Verify identification and payment methods.
+ - **Membership Cards:** If applicable, verify any loyalty or membership cards for additional benefits.
 
-4.  **Check-In Desk:**
+ 6. **Registration:**
+ - **Form Filling:** Assist guests with any required paperwork.
+ - **Special Benefits:** Clearly explain any special resort benefits, upgrades, or exclusive access to amenities that the guest is entitled to.
 
-- **Professionalism:** Ensure check-in staff are well-trained, professional, and exude hospitality.
-- **Technology:** Utilize sophisticated check-in technology (like tablet kiosks) to streamline the process.
-- **Personalized Welcome:** Greet guests with a warm welcome, acknowledge their special requests, and present them with a personalized welcome kit.
+ ### Room Assignment
 
-### Documentation and Formalities
+ 7. **Room Presentation:**
+ - **Walk-Through:** Escort guests to their room and conduct a walk-through to ensure everything is in order and to address any immediate concerns.
+ - **Upgrades:** Present any room upgrades and explain the features and services available in the upgraded room.
 
-5.  **Document Verification:**
+ 8. **Key Delivery:**
+ - **Room Key:** Provide the room key, often a high-end key card or a luxury key fob.
+ - **Access Information:** Explain how to use the key card, including access to other amenities like the spa, pool, and gym.
 
-- **Identification:** Verify identification and payment methods.
-- **Membership Cards:** If applicable, verify any loyalty or membership cards for additional benefits.
+ ### Additional Services
 
-6.  **Registration:**
+ 9. **Welcome Amenities:**
+ - **Amenity Kits:** Deliver welcome amenity kits (like a bottle of champagne, local delicacies, etc.).
+ - **Itinerary:** Provide a detailed resort map and itinerary, highlighting all available services and activities.
 
-- **Form Filling:** Assist guests with any required paperwork.
-- **Special Benefits:** Clearly explain any special resort benefits, upgrades, or exclusive access to amenities that the guest is entitled to.
+ 10. **Personal Concierge:**
+ - **Concierge Services:** Introduce the guest to the concierge service and explain how to request any special services, such as dining reservations, transportation, or local excursions.
+ - **Contact Information:** Provide contact information for key staff members.
 
-### Room Assignment
+ ### Final Touches
 
-7.  **Room Presentation:**
+ 11. **Feedback:**
+ - **Satisfaction Survey:** At the end of the check-in process, ask for feedback to ensure the guest’s expectations were met and to gather any immediate suggestions.
 
-- **Walk-Through:** Escort guests to their room and conduct a walk-through to ensure everything is in order and to address any immediate concerns.
-- **Upgrades:** Present any room upgrades and explain the features and services available in the upgraded room.
+ 12. **Follow-Up:**
+ - **Immediate Issues:** Ensure any immediate issues or requests are addressed promptly.
+ - **Comfort Check:** Make follow-up calls or send messages to ensure the guest is settling in comfortably.
 
-8.  **Key Delivery:**
-
-- **Room Key:** Provide the room key, often a high-end key card or a luxury key fob.
-- **Access Information:** Explain how to use the key card, including access to other amenities like the spa, pool, and gym.
-
-### Additional Services
-
-9.  **Welcome Amenities:**
-
-- **Amenity Kits:** Deliver welcome amenity kits (like a bottle of champagne, local delicacies, etc.).
-- **Itinerary:** Provide a detailed resort map and itinerary, highlighting all available services and activities.
-
-10. **Personal Concierge:**
-
-- **Concierge Services:** Introduce the guest to the concierge service and explain how to request any special services, such as dining reservations, transportation, or local excursions.
-- **Contact Information:** Provide contact information for key staff members.
-
-### Final Touches
-
-11. **Feedback:**
-
-- **Satisfaction Survey:** At the end of the check-in process, ask for feedback to ensure the guest’s expectations were met and to gather any immediate suggestions.
-
-12. **Follow-Up:**
-
-- **Immediate Issues:** Ensure any immediate issues or requests are addressed promptly.
-- **Comfort Check:** Make follow-up calls or send messages to ensure the guest is settling in comfortably.
-
-By following these steps, a luxury resort aims to provide an exceptional check-in experience that sets the tone for an unforgettable stay.
-
+ By following these steps, a luxury resort aims to provide an exceptional check-in experience that sets the tone for an unforgettable stay.
 ```
 
+------
+#### [ Prompt with style contraints ]
 
-Prompt with style contraints
 `User:`
 
-
 ```
-
-Explain the process of checking in a guest at a luxury resort. **Provide all answers in a numbered list format, with each point containing no more than 15 words, and no more than 6 bullet points.**
-
+Explain the process of checking in a guest at a luxury resort. Provide all answers in a numbered list format, with each point containing no more than 15 words, and no more than 6 bullet points.
 ```
 
 `Assistant:`
 
-
 ```
-
 1. Greet guest warmly with a smile and offer assistance.
 2. Verify reservation details and check guest's identification.
 3. Confirm room assignment and amenities provided.
 4. Explain resort services and amenities available.
 5. Present room key and offer directions to guest's suite.
 6. Wish guest a pleasant stay and be available for queries.
-
 ```
 
+------
 
-Here, the prompt with the response format forces the model to respond only with the
- category number and limit it to be between 1-10, instead of being highly verbose.
+### Example 3: Limit the response format
+<a name="style-collapsible3"></a>
 
+Here, the prompt with the response format forces the model to respond only with the category number and limit it to be between 1-10, instead of being highly verbose.
 
-Prompt without response format
+------
+#### [ Prompt without response format ]
+
 `User:`
 
-
 ```
-
-In this task, you are given a text which is the body of a document. Your job is to classify the topic of the document into these categories: 1)Company, 2)Educational Institution, 3)Artist, 4)Athlete, 5)Office Holder, 6)Mean of transportation, 7)Building, 8)Natural place, 9)Village, 10)Animal.
+In this task, you are given a text which is the body of a document. Your job is to classify the topic of the document into these categories: 1)Company, 2)Educational Institution, 3)Artist, 4)Athlete, 5)Office Holder, 6)Mean of transportation, 7)Building, 8)Natural place, 9)Village, 10)Animal. 
 Text: Johangsan is a mountain of South Korea. It has an elevation of 954 metres.
-
 ```
 
 `Assistant:`
 
-
 ```
-
 To classify the topic of the given text, let's analyze the content step-by-step:
 
-1.  The text mentions "Johangsan," which appears to be a specific name.
-2.  The text states that "Johangsan is a mountain," which provides a clear indication of its nature.
-3.  It is further specified that it is located in "South Korea" and has an elevation of "954 metres."
+ 1. The text mentions "Johangsan," which appears to be a specific name.
+ 2. The text states that "Johangsan is a mountain," which provides a clear indication of its nature.
+ 3. It is further specified that it is located in "South Korea" and has an elevation of "954 metres."
 
-Based on the information provided, the text describes a geographical feature, specifically a mountain. From the given categories, the most appropriate classification for this document is:
+ Based on the information provided, the text describes a geographical feature, specifically a mountain. From the given categories, the most appropriate classification for this document is:
 
-8.  Natural place
+ 8) Natural place
 
-The text does not mention any company, educational institution, artist, athlete, office holder, means of transportation, building, village, or animal. Therefore, the classification as a "Natural place" is the most fitting choice.
-
+ The text does not mention any company, educational institution, artist, athlete, office holder, means of transportation, building, village, or animal. Therefore, the classification as a "Natural place" is the most fitting choice.
 ```
 
+------
+#### [ Prompt with response format ]
 
-Prompt with response format
 `User:`
 
-
 ```
-
-In this task, you are given a text which is the body of a document. Your job is to classify the topic of the document into these categories: 1)Company, 2)Educational Institution, 3)Artist, 4)Athlete, 5)Office Holder, 6)Mean of transportation, 7)Building, 8)Natural place, 9)Village, 10)Animal. **Your output should be the category number. DO NOT generate anything apart from numbers 1-10.**
+In this task, you are given a text which is the body of a document. Your job is to classify the topic of the document into these categories: 1)Company, 2)Educational Institution, 3)Artist, 4)Athlete, 5)Office Holder, 6)Mean of transportation, 7)Building, 8)Natural place, 9)Village, 10)Animal. Your output should be the category number. DO NOT generate anything apart from numbers 1-10.
 Text: Johangsan is a mountain of South Korea. It has an elevation of 954 metres.
-
 ```
 
 `Assistant:`
 
-
 ```
-
 8
-
 ```
 
-
+------
 
 ## Provide clear prompt sections
+<a name="prompting-clear-section"></a>
 
+Beyond the initial context, a structured query format plays a significant role in optimizing interactions with the language model. Separating distinct parts of the input with delimiters ensures clarity and enhances Amazon Nova 2 models' ability to understand the query's structure. Another effective way is to use numbered lists or bullet points, which can help to break down the task into manageable steps and provide a clear outline of the actions that need to be taken. This structured approach aids in reducing ambiguity and improving the accuracy of the responses generated.
 
-Beyond the initial context, a structured query format plays a significant role in
- optimizing interactions with the language model. Separating distinct parts of the input with
- delimiters ensures clarity and enhances Amazon Nova 2 models' ability to understand the query's
- structure. Another effective way is to use numbered lists or bullet points, which can help
- to break down the task into manageable steps and provide a clear outline of the actions that
- need to be taken. This structured approach aids in reducing ambiguity and improving the
- accuracy of the responses generated.
+### Example: Create a sectioned prompt
+<a name="section-collapsible1"></a>
 
+Notice how in the Sectioned Prompt column, the prompt is clearer and has delineated sections for different entities like Tasks, Context, Requirements, and the rest when compared to the instructions in the Unsectioned Prompt column.
 
-Notice how in the Sectioned Prompt column, the prompt is clearer and has delineated
- sections for different entities like Tasks, Context, Requirements, and the rest when
- compared to the instructions in the Unsectioned Prompt column.
+------
+#### [ Unsectioned Prompt ]
 
-
-Unsectioned Prompt
 `User:`
 
-
 ```
-
 Write an article about climate change for high school students explaining basic concepts, current impacts, and individual actions to mitigate it. Make it informative and engaging with simple language, including statistics and real-world examples.
-
 ```
 
 `Assistant:`
 
-
 ```
-
 ### Understanding Climate Change: What It Is, What It’s Doing, and What You Can Do About It
 
-#### Introduction
+ #### Introduction
+ Climate change might sound like a big, complicated topic, but it’s really about the way our planet’s weather is changing over time. This change is mostly happening because humans are doing things that are making our Earth warmer. Let’s break it down so you can understand what’s going on and what you can do to help.
 
-Climate change might sound like a big, complicated topic, but it’s really about the way our planet’s weather is changing over time. This change is mostly happening because humans are doing things that are making our Earth warmer. Let’s break it down so you can understand what’s going on and what you can do to help.
+ #### What Is Climate Change?
+ Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of rapid climate change.
 
-#### What Is Climate Change?
+ **Key Concept: Greenhouse Gases**
+ To understand this, we need to talk about greenhouse gases. These gases, like carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O), trap heat in our atmosphere. Without these gases, Earth would be too cold for most life forms. But when we burn fossil fuels (like coal, oil, and natural gas) and cut down forests, we release too much CO2 and other greenhouse gases, trapping more heat and making the planet warmer.
 
-Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of rapid climate change.
+ #### Current Impacts of Climate Change
+ Let’s look at some real-world examples to see how climate change is affecting our world today.
 
-**Key Concept: Greenhouse Gases**
-To understand this, we need to talk about greenhouse gases. These gases, like carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O), trap heat in our atmosphere. Without these gases, Earth would be too cold for most life forms. But when we burn fossil fuels (like coal, oil, and natural gas) and cut down forests, we release too much CO2 and other greenhouse gases, trapping more heat and making the planet warmer.
+ **1. Rising Temperatures**
+ Since the late 19th century, Earth’s average surface temperature has risen about 2 degrees Fahrenheit (1 degree Celsius). Scientists predict that if we don’t change our ways, it could rise by 3.6 to 4.3 degrees Fahrenheit (2 to 2.4 degrees Celsius) by the end of this century.
 
-#### Current Impacts of Climate Change
+ **2. More Extreme Weather**
+ Climate change is making extreme weather events more frequent and severe. For example:
+ - **Hurricanes:** In the U.S., hurricane seasons are getting longer and more destructive. In 2020, there were 30 named storms, the most ever recorded.
+ - **Droughts:** Parts of California have experienced some of the worst droughts in history, affecting agriculture and water supplies.
 
-Let’s look at some real-world examples to see how climate change is affecting our world today.
+ **3. Melting Ice Caps and Rising Sea Levels**
+ Glaciers and ice sheets are melting at alarming rates. This not only affects wildlife but also leads to rising sea levels. Since 1901, global sea levels have risen by about 8 inches (20 centimeters). By 2100, they could rise by another 1 to 4 feet (0.3 to 1.2 meters).
 
-**1. Rising Temperatures**
-Since the late 19th century, Earth’s average surface temperature has risen about 2 degrees Fahrenheit (1 degree Celsius). Scientists predict that if we don’t change our ways, it could rise by 3.6 to 4.3 degrees Fahrenheit (2 to 2.4 degrees Celsius) by the end of this century.
+ **4. Ocean Acidification**
+ As CO2 levels rise, more of it is absorbed by the oceans, making them more acidic. This is particularly harmful to marine life, including coral reefs. Coral reefs are crucial for marine biodiversity but are now dying at an alarming rate.
 
-**2. More Extreme Weather**
-Climate change is making extreme weather events more frequent and severe. For example:
+ #### Individual Actions to Mitigate Climate Change
+ You might think that since climate change is a huge problem, one person can’t make a difference. But even small actions can add up to make a big impact.
 
-- **Hurricanes:** In the U.S., hurricane seasons are getting longer and more destructive. In 2020, there were 30 named storms, the most ever recorded.
-- **Droughts:** Parts of California have experienced some of the worst droughts in history, affecting agriculture and water supplies.
+ **1. Reduce, Reuse, Recycle**
+ Try to minimize waste by:
+ - **Reducing:** Buy fewer items and choose products with less packaging.
+ - **Reusing:** Use reusable bags, bottles, and containers.
+ - **Recycling:** Make sure to recycle paper, plastic, and glass properly.
 
-**3. Melting Ice Caps and Rising Sea Levels**
-Glaciers and ice sheets are melting at alarming rates. This not only affects wildlife but also leads to rising sea levels. Since 1901, global sea levels have risen by about 8 inches (20 centimeters). By 2100, they could rise by another 1 to 4 feet (0.3 to 1.2 meters).
+ **2. Conserve Energy**
+ Small changes can lead to big savings:
+ - Turn off lights when you leave a room.
+ - Unplug devices that you’re not using.
+ - Use energy-efficient bulbs and appliances.
 
-**4. Ocean Acidification**
-As CO2 levels rise, more of it is absorbed by the oceans, making them more acidic. This is particularly harmful to marine life, including coral reefs. Coral reefs are crucial for marine biodiversity but are now dying at an alarming rate.
+ **3. Use Less Meat**
+ Livestock farming is a major contributor to greenhouse gas emissions. By eating less meat, especially beef, you can reduce your carbon footprint.
 
-#### Individual Actions to Mitigate Climate Change
+ **4. Support Renewable Energy**
+ If possible, support or switch to renewable energy sources like solar or wind power. Even advocating for these options in your community can make a difference.
 
-You might think that since climate change is a huge problem, one person can’t make a difference. But even small actions can add up to make a big impact.
+ **5. Educate Yourself and Others**
+ Knowledge is power. The more you know about climate change, the more you can help others understand it. Share facts and encourage your friends and family to take action too.
 
-**1. Reduce, Reuse, Recycle**
-Try to minimize waste by:
+ #### Conclusion
+ Climate change is a pressing issue that affects everyone on the planet. By understanding its basics, recognizing its current impacts, and taking individual actions, you can play a crucial role in mitigating its effects. Remember, every small step counts, and together, we can make a big difference for our planet.
 
-- **Reducing:** Buy fewer items and choose products with less packaging.
-- **Reusing:** Use reusable bags, bottles, and containers.
-- **Recycling:** Make sure to recycle paper, plastic, and glass properly.
-
-**2. Conserve Energy**
-Small changes can lead to big savings:
-
-- Turn off lights when you leave a room.
-- Unplug devices that you’re not using.
-- Use energy-efficient bulbs and appliances.
-
-**3. Use Less Meat**
-Livestock farming is a major contributor to greenhouse gas emissions. By eating less meat, especially beef, you can reduce your carbon footprint.
-
-**4. Support Renewable Energy**
-If possible, support or switch to renewable energy sources like solar or wind power. Even advocating for these options in your community can make a difference.
-
-**5. Educate Yourself and Others**
-Knowledge is power. The more you know about climate change, the more you can help others understand it. Share facts and encourage your friends and family to take action too.
-
-#### Conclusion
-
-Climate change is a pressing issue that affects everyone on the planet. By understanding its basics, recognizing its current impacts, and taking individual actions, you can play a crucial role in mitigating its effects. Remember, every small step counts, and together, we can make a big difference for our planet.
-
-Let’s start today and build a sustainable future!
-
+ Let’s start today and build a sustainable future!
 ```
 
+------
+#### [ Sectioned Prompt ]
 
-Sectioned Prompt
 `User:`
 
-
 ```
-
 **Task:**
-Write an article
+Write an article 
 
 **Context Section:**
 Topic: Climate Change
@@ -683,78 +632,72 @@ Target Audience: High School Students
 Purpose: Educational Article
 
 **Content Requirements:**
-
 - Explanation of basic concepts related to climate change.
 - Examples of current impacts on ecosystems and human populations.
 - Suggestions for individual actions to mitigate climate change.
 
 **Tone and Style:**
-
 - Informative and engaging
 - Use simple language
 - Include statistics and real-world examples
-
 ```
 
 `Assistant:`
 
-
 ```
-
 # Understanding Climate Change: A Guide for High School Students
 
-## Introduction
+ ## Introduction
 
-Climate change is one of the most pressing issues of our time. It affects our planet, our ecosystems, and our daily lives. Understanding what climate change is and how it impacts us can help us take action to make a difference. This article will explain the basic concepts of climate change, provide examples of its current impacts, and suggest actions you can take to help mitigate it.
+ Climate change is one of the most pressing issues of our time. It affects our planet, our ecosystems, and our daily lives. Understanding what climate change is and how it impacts us can help us take action to make a difference. This article will explain the basic concepts of climate change, provide examples of its current impacts, and suggest actions you can take to help mitigate it.
 
-## What is Climate Change?
+ ## What is Climate Change?
 
-**Climate change** refers to long-term changes in global temperatures and weather patterns. These changes are primarily caused by human activities, especially the burning of fossil fuels like coal, oil, and natural gas. When we burn these fuels, we release large amounts of greenhouse gases, such as carbon dioxide (CO2) and methane (CH4), into the atmosphere. These gases trap heat from the sun, causing the Earth's temperature to rise. This is often referred to as the **greenhouse effect**.
+ **Climate change** refers to long-term changes in global temperatures and weather patterns. These changes are primarily caused by human activities, especially the burning of fossil fuels like coal, oil, and natural gas. When we burn these fuels, we release large amounts of greenhouse gases, such as carbon dioxide (CO2) and methane (CH4), into the atmosphere. These gases trap heat from the sun, causing the Earth's temperature to rise. This is often referred to as the **greenhouse effect**.
 
-### Basic Concepts:
+ ### Basic Concepts:
 
-1.  **Greenhouse Gases**: These gases include carbon dioxide, methane, nitrous oxide, and fluorinated gases. They trap heat in the Earth’s atmosphere.
+ 1. **Greenhouse Gases**: These gases include carbon dioxide, methane, nitrous oxide, and fluorinated gases. They trap heat in the Earth’s atmosphere.
+ 
+ 2. **Global Warming**: This is the increase in Earth's average surface temperature due to rising levels of greenhouse gases.
 
-2.  **Global Warming**: This is the increase in Earth's average surface temperature due to rising levels of greenhouse gases.
+ 3. **Climate Change**: Refers to the broader set of changes in the Earth’s climate system, including global warming.
 
-3.  **Climate Change**: Refers to the broader set of changes in the Earth’s climate system, including global warming.
+ ## Current Impacts of Climate Change
 
-## Current Impacts of Climate Change
+ ### On Ecosystems:
 
-### On Ecosystems:
+ 1. **Melting Ice Caps and Glaciers**: The polar ice caps and glaciers are melting at an alarming rate. For example, the Arctic sea ice is shrinking, which affects polar bears and other Arctic animals.
 
-1.  **Melting Ice Caps and Glaciers**: The polar ice caps and glaciers are melting at an alarming rate. For example, the Arctic sea ice is shrinking, which affects polar bears and other Arctic animals.
+ 2. **Rising Sea Levels**: As ice melts, sea levels rise. This can lead to the loss of coastal habitats and increased flooding in coastal areas.
 
-2.  **Rising Sea Levels**: As ice melts, sea levels rise. This can lead to the loss of coastal habitats and increased flooding in coastal areas.
+ 3. **Changing Weather Patterns**: Climate change can lead to more frequent and severe weather events such as hurricanes, droughts, and heatwaves. For example, the 2020 Australian bushfires were more intense and lasted longer than usual due to climate change.
 
-3.  **Changing Weather Patterns**: Climate change can lead to more frequent and severe weather events such as hurricanes, droughts, and heatwaves. For example, the 2020 Australian bushfires were more intense and lasted longer than usual due to climate change.
+ ### On Human Populations:
 
-### On Human Populations:
+ 1. **Health Issues**: Rising temperatures can lead to more heat-related illnesses and the spread of diseases like malaria and dengue fever.
 
-1.  **Health Issues**: Rising temperatures can lead to more heat-related illnesses and the spread of diseases like malaria and dengue fever.
+ 2. **Food Security**: Changes in climate can affect crop yields, leading to food shortages. For example, droughts in Sub-Saharan Africa have caused significant food insecurity.
 
-2.  **Food Security**: Changes in climate can affect crop yields, leading to food shortages. For example, droughts in Sub-Saharan Africa have caused significant food insecurity.
+ 3. **Displacement**: Rising sea levels and extreme weather events can force people to leave their homes, becoming climate refugees. For instance, communities in Bangladesh are being displaced by rising sea levels.
 
-3.  **Displacement**: Rising sea levels and extreme weather events can force people to leave their homes, becoming climate refugees. For instance, communities in Bangladesh are being displaced by rising sea levels.
+ ## Actions You Can Take
 
-## Actions You Can Take
+ Even though climate change is a massive issue, there are many actions you can take to help mitigate its effects. Here are some simple steps you can start with today:
 
-Even though climate change is a massive issue, there are many actions you can take to help mitigate its effects. Here are some simple steps you can start with today:
+ 1. **Reduce, Reuse, Recycle**: By reducing waste, reusing items, and recycling, you can decrease the amount of trash that ends up in landfills and reduce greenhouse gas emissions.
 
-1.  **Reduce, Reuse, Recycle**: By reducing waste, reusing items, and recycling, you can decrease the amount of trash that ends up in landfills and reduce greenhouse gas emissions.
+ 2. **Save Energy**: Turn off lights when you don’t need them, use energy-efficient appliances, and unplug devices when they’re not in use. These small actions can make a big difference.
 
-2.  **Save Energy**: Turn off lights when you don’t need them, use energy-efficient appliances, and unplug devices when they’re not in use. These small actions can make a big difference.
+ 3. **Use Less Meat**: Livestock farming produces a significant amount of methane. By eating less meat, particularly beef, you can reduce your carbon footprint.
 
-3.  **Use Less Meat**: Livestock farming produces a significant amount of methane. By eating less meat, particularly beef, you can reduce your carbon footprint.
+ 4. **Support Renewable Energy**: Advocate for or invest in renewable energy sources like solar and wind power. These sources produce energy without greenhouse gas emissions.
 
-4.  **Support Renewable Energy**: Advocate for or invest in renewable energy sources like solar and wind power. These sources produce energy without greenhouse gas emissions.
+ 5. **Educate and Advocate**: Inform others about the impacts of climate change and advocate for policies that support environmental sustainability. You can join or support environmental clubs at school or participate in local clean-up efforts.
 
-5.  **Educate and Advocate**: Inform others about the impacts of climate change and advocate for policies that support environmental sustainability. You can join or support environmental clubs at school or participate in local clean-up efforts.
+ ## Conclusion
 
-## Conclusion
-
-Climate change is a complex issue with far-reaching impacts. However, understanding it and taking action can make a significant difference. By learning about the basic concepts, recognizing the current impacts, and implementing simple changes in our daily lives, we can all contribute to mitigating climate change. Remember, every small action counts, and together, we can create a more sustainable future for our planet.
-
+ Climate change is a complex issue with far-reaching impacts. However, understanding it and taking action can make a significant difference. By learning about the basic concepts, recognizing the current impacts, and implementing simple changes in our daily lives, we can all contribute to mitigating climate change. Remember, every small action counts, and together, we can create a more sustainable future for our planet.
 ```
 
-```
+------

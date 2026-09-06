@@ -1,29 +1,28 @@
+
+
 # Getting Started
+<a name="nova-sagemaker-inference-getting-started"></a>
 
 This guide shows you how to deploy customized Amazon Nova models on SageMaker real-time endpoints, configure inference parameters, and invoke your models for testing.
 
 ## Prerequisites
+<a name="nova-sagemaker-inference-prerequisites"></a>
 
 The following are prerequisites to deploy Amazon Nova models on SageMaker inference:
++ Create an AWS account - If you don't have one already, see [Creating an AWS account](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-set-up.html#sign-up-for-aws).
++ Required IAM permissions - Ensure your IAM user or role has the following managed policies attached:
+  + `AmazonSageMakerFullAccess`
+  + `AmazonS3FullAccess`
++ Required SDKs/CLI versions - The following SDK versions have been tested and validated with Amazon Nova models on SageMaker inference:
+  + SageMaker Python SDK v3.0.0\+ (`sagemaker>=3.0.0`) for resource-based API approach
+  + Boto3 version 1.35.0\+ (`boto3>=1.35.0`) for direct API calls. The examples in this guide use this approach.
++ Service quota increase - Request an Amazon SageMaker service quota increase for the ML instance type you plan to use for your SageMaker Inference endpoint (for example, `ml.p5.48xlarge for endpoint usage`). For a list of supported instance types, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported). To request an increase, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html). For information about SageMaker instance quotas, see [SageMaker endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sagemaker.html).
 
-- Create an AWS account - If you don't have one already, see [Creating an AWS account](../../../sagemaker/latest/dg/gs-set-up.md#sign-up-for-aws "../../../sagemaker/latest/dg/gs-set-up.md#sign-up-for-aws").
-- Required IAM permissions - Ensure your IAM user or role has the following managed policies attached:
-
-  - `AmazonSageMakerFullAccess`
-  - `AmazonS3FullAccess`
-
-- Required SDKs/CLI versions - The following SDK versions have been tested and validated with Amazon Nova models on SageMaker inference:
-
-  - SageMaker Python SDK v3.0.0+ (`sagemaker>=3.0.0`) for resource-based API approach
-  - Boto3 version 1.35.0+ (`boto3>=1.35.0`) for direct API calls. The examples in this guide use this approach.
-
-- Service quota increase - Request an Amazon SageMaker service quota increase for the ML instance type you plan to use for your SageMaker Inference endpoint (for example, `ml.p5.48xlarge for endpoint usage`). For a list of supported instance types, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported"). To request an increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"). For information about SageMaker instance quotas, see [SageMaker endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md").
-
-###### Tip
-
-For a quick end-to-end deployment, you can run the [Custom Nova Model SageMaker Inference notebook](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/Nova_2.0/05_deployment/Custom-Nova-Model-SageMaker-Inference.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/Nova_2.0/05_deployment/Custom-Nova-Model-SageMaker-Inference.ipynb") to deploy a customized Amazon Nova model on SageMaker inference in a single notebook.
+**Tip**  
+For a quick end-to-end deployment, you can run the [Custom Nova Model SageMaker Inference notebook](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/Nova_2.0/05_deployment/Custom-Nova-Model-SageMaker-Inference.ipynb) to deploy a customized Amazon Nova model on SageMaker inference in a single notebook.
 
 ## Step 1: Configure AWS credentials
+<a name="nova-sagemaker-inference-step1"></a>
 
 Configure your AWS credentials using one of the following methods:
 
@@ -52,9 +51,8 @@ export AWS_ACCESS_KEY_ID=your_access_key
 export AWS_SECRET_ACCESS_KEY=your_secret_key
 ```
 
-###### Note
-
-For more information about AWS credentials, see [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md").
+**Note**  
+For more information about AWS credentials, see [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
 **Initialize AWS clients**
 
@@ -75,7 +73,7 @@ sts = boto3.client('sts')
 try:
     identity = sts.get_caller_identity()
     print(f"Successfully authenticated to AWS Account: {identity['Account']}")
-
+    
     if identity['Account'] != AWS_ACCOUNT_ID:
         print(f"Warning: Connected to account {identity['Account']}, expected {AWS_ACCOUNT_ID}")
 
@@ -87,13 +85,13 @@ except Exception as e:
 If the authentication is successful, you should see output confirming your AWS account ID.
 
 ## Step 2: Create a SageMaker execution role
+<a name="nova-sagemaker-inference-step2"></a>
 
 A SageMaker execution role is an IAM role that grants SageMaker permissions to access AWS resources on your behalf, such as Amazon S3 buckets for model artifacts and CloudWatch for logging.
 
 **Creating the execution role**
 
-###### Note
-
+**Note**  
 Creating IAM roles requires `iam:CreateRole` and `iam:AttachRolePolicy` permissions. Ensure your IAM user or role has these permissions before proceeding.
 
 The following code creates an IAM role with the necessary permissions for deploying Amazon Nova customized models:
@@ -105,7 +103,7 @@ import json
 role_name = f"SageMakerInference-ExecutionRole-{AWS_ACCOUNT_ID}"
 
 trust_policy = {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -158,21 +156,20 @@ for role in sagemaker_roles:
     print(f"{role['RoleName']}: {role['Arn']}")
 ```
 
-###### Important
-
+**Important**  
 The execution role must have trust relationship with `sagemaker.amazonaws.com` and permissions to access Amazon S3 and SageMaker resources.
 
-For more information about SageMaker execution roles, see [SageMaker Roles](../../../sagemaker/latest/dg/sagemaker-roles.md "../../../sagemaker/latest/dg/sagemaker-roles.md").
+For more information about SageMaker execution roles, see [SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html).
 
 ## Step 3: Configure model parameters
+<a name="nova-sagemaker-inference-step3"></a>
 
-Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics. For a list of supported instance types and supported CONTEXT\_LENGTH and MAX\_CONCURRENCY values for each, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported"). For a complete list of additional container features such as sampling defaults, speculative decoding, and quantization, see [Inference Container Features](nova-sagemaker-inference-container-features.md "nova-sagemaker-inference-container-features.md").
+Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics. For a list of supported instance types and supported CONTEXT\_LENGTH and MAX\_CONCURRENCY values for each, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported). For a complete list of additional container features such as sampling defaults, speculative decoding, and quantization, see [Inference Container Features](nova-sagemaker-inference-container-features.md).
 
 **Required parameters**
-
-- `IMAGE`: The Docker container image URI for Amazon Nova inference container. This will be provided by AWS.
-- `CONTEXT_LENGTH`: Model context length.
-- `MAX_CONCURRENCY`: Maximum number of sequences per iteration; sets the limit on how many individual user requests (prompts) can be processed concurrently within a single batch on the GPU. Range: integer greater than 0.
++ `IMAGE`: The Docker container image URI for Amazon Nova inference container. This will be provided by AWS.
++ `CONTEXT_LENGTH`: Model context length.
++ `MAX_CONCURRENCY`: Maximum number of sequences per iteration; sets the limit on how many individual user requests (prompts) can be processed concurrently within a single batch on the GPU. Range: integer greater than 0.
 
 **Configure your deployment**
 
@@ -255,19 +252,19 @@ print(f"Endpoint Name: {ENDPOINT_NAME}")
 **Naming conventions**
 
 The code automatically generates consistent names for AWS resources:
-
-- Model Name: `{JOB_NAME}-{model}-{instance-type}`
-- Endpoint Config: `{MODEL_NAME}-Config`
-- Endpoint Name: `{MODEL_NAME}-Endpoint`
++ Model Name: `{JOB_NAME}-{model}-{instance-type}`
++ Endpoint Config: `{MODEL_NAME}-Config`
++ Endpoint Name: `{MODEL_NAME}-Endpoint`
 
 ## Step 4: Create SageMaker resources and deploy the endpoint
+<a name="nova-sagemaker-inference-step4"></a>
 
 SageMaker offers two approaches for deploying models to real-time endpoints. Choose the approach that fits your use case:
-
-- **Inference components** (Recommended): Deploys models as inference components on an endpoint. This approach enables you to host multiple models on a single endpoint, scale models independently, and optimize resource utilization.
-- **Single model endpoints**: Deploys a single model directly to an endpoint using a model object and endpoint configuration. This approach is simpler to set up and suitable for development, testing, or workloads that require only one model per endpoint.
++ **Inference components** (Recommended): Deploys models as inference components on an endpoint. This approach enables you to host multiple models on a single endpoint, scale models independently, and optimize resource utilization.
++ **Single model endpoints**: Deploys a single model directly to an endpoint using a model object and endpoint configuration. This approach is simpler to set up and suitable for development, testing, or workloads that require only one model per endpoint.
 
 ### Option A: Creating with inference components
+<a name="nova-sagemaker-inference-step4-ic"></a>
 
 With inference components, you first create an endpoint, then deploy your model as an inference component on that endpoint. This decouples the model from the endpoint infrastructure, giving you more flexibility.
 
@@ -329,7 +326,7 @@ while True:
     try:
         response = sagemaker.describe_endpoint(EndpointName=ENDPOINT_NAME)
         status = response['EndpointStatus']
-
+        
         if status == 'Creating':
             print(f"⏳ Status: {status} - Provisioning infrastructure...")
         elif status == 'InService':
@@ -345,7 +342,7 @@ while True:
     except Exception as e:
         print(f"Error checking endpoint status: {e}")
         break
-
+    
     time.sleep(30)
 ```
 
@@ -383,16 +380,15 @@ except sagemaker.exceptions.ClientError as e:
 ```
 
 Key parameters:
-
-- `InferenceComponentName`: Unique identifier for your inference component
-- `EndpointName`: The endpoint to deploy the component on
-- `Image`: Docker container image URI for Amazon Nova inference
-- `ArtifactUrl`: Amazon S3 location of your model artifacts
-- `Environment`: Environment variables configured in Step 3
-- `NumberOfCpuCoresRequired`: Number of CPU cores required per model copy
-- `NumberOfAcceleratorDevicesRequired`: Number of accelerator devices (GPUs) required per model copy
-- `MinMemoryRequiredInMb`: Minimum memory in MB required per model copy
-- `CopyCount`: Number of model copies to deploy
++ `InferenceComponentName`: Unique identifier for your inference component
++ `EndpointName`: The endpoint to deploy the component on
++ `Image`: Docker container image URI for Amazon Nova inference
++ `ArtifactUrl`: Amazon S3 location of your model artifacts
++ `Environment`: Environment variables configured in Step 3
++ `NumberOfCpuCoresRequired`: Number of CPU cores required per model copy
++ `NumberOfAcceleratorDevicesRequired`: Number of accelerator devices (GPUs) required per model copy
++ `MinMemoryRequiredInMb`: Minimum memory in MB required per model copy
++ `CopyCount`: Number of model copies to deploy
 
 **Monitor inference component deployment**
 
@@ -407,7 +403,7 @@ while True:
             InferenceComponentName=INFERENCE_COMPONENT_NAME
         )
         ic_status = ic_desc['InferenceComponentStatus']
-
+        
         if ic_status == 'Creating':
             print(f"⏳ Status: {ic_status} - Loading model artifacts...")
         elif ic_status == 'InService':
@@ -423,15 +419,15 @@ while True:
     except Exception as e:
         print(f"Error checking inference component status: {e}")
         break
-
+    
     time.sleep(30)
 ```
 
-###### Note
-
+**Note**  
 When invoking the endpoint in Step 5, you must include the `InferenceComponentName` parameter in your invoke calls. See Step 5 for details.
 
 ### Option B: Creating with single model endpoints
+<a name="nova-sagemaker-inference-step4-single"></a>
 
 With single model endpoints, you create a SageMaker model object, an endpoint configuration, and then deploy the endpoint. This approach packages the model directly into the endpoint configuration.
 
@@ -459,19 +455,18 @@ try:
     )
     print("Model created successfully!")
     print(f"Model ARN: {model_response['ModelArn']}")
-
+    
 except sagemaker.exceptions.ClientError as e:
     print(f"Error creating model: {e}")
 ```
 
 Key parameters:
-
-- `ModelName`: Unique identifier for your model
-- `Image`: Docker container image URI for Amazon Nova inference
-- `ModelDataSource`: Amazon S3 location of your model artifacts
-- `Environment`: Environment variables configured in Step 3
-- `ExecutionRoleArn`: IAM role from Step 2
-- `EnableNetworkIsolation`: Set to True for enhanced security (prevents container from making outbound network calls)
++ `ModelName`: Unique identifier for your model
++ `Image`: Docker container image URI for Amazon Nova inference
++ `ModelDataSource`: Amazon S3 location of your model artifacts
++ `Environment`: Environment variables configured in Step 3
++ `ExecutionRoleArn`: IAM role from Step 2
++ `EnableNetworkIsolation`: Set to True for enhanced security (prevents container from making outbound network calls)
 
 **Create the endpoint configuration**
 
@@ -486,24 +481,23 @@ try:
         'InitialInstanceCount': 1,
         'InstanceType': INSTANCE_TYPE,
     }
-
+    
     config_response = sagemaker.create_endpoint_config(
         EndpointConfigName=ENDPOINT_CONFIG_NAME,
         ProductionVariants=[production_variant]
     )
     print("Endpoint configuration created successfully!")
     print(f"Config ARN: {config_response['EndpointConfigArn']}")
-
+    
 except sagemaker.exceptions.ClientError as e:
     print(f"Error creating endpoint configuration: {e}")
 ```
 
 Key parameters:
-
-- `VariantName`: Identifier for this model variant (use 'primary' for single-model deployments)
-- `ModelName`: References the model created above
-- `InitialInstanceCount`: Number of instances to deploy (start with 1, scale later if needed)
-- `InstanceType`: ML instance type selected in Step 3
++ `VariantName`: Identifier for this model variant (use 'primary' for single-model deployments)
++ `ModelName`: References the model created above
++ `InitialInstanceCount`: Number of instances to deploy (start with 1, scale later if needed)
++ `InstanceType`: ML instance type selected in Step 3
 
 **Deploy the endpoint**
 
@@ -534,7 +528,7 @@ while True:
     try:
         response = sagemaker.describe_endpoint(EndpointName=ENDPOINT_NAME)
         status = response['EndpointStatus']
-
+        
         if status == 'Creating':
             print(f"⏳ Status: {status} - Provisioning infrastructure and loading model...")
         elif status == 'InService':
@@ -551,11 +545,11 @@ while True:
             break
         else:
             print(f"Status: {status}")
-
+        
     except Exception as e:
         print(f"Error checking endpoint status: {e}")
         break
-
+    
     time.sleep(30)  # Check every 30 seconds
 ```
 
@@ -607,32 +601,24 @@ for variant in endpoint_info['ProductionVariants']:
 **Troubleshooting endpoint creation failures**
 
 Common failure reasons:
++ **Insufficient capacity**: The requested instance type is not available in your region
+  + Solution: Try a different instance type or request a quota increase
++ **IAM permissions**: The execution role lacks necessary permissions
+  + Solution: Verify the role has access to Amazon S3 model artifacts and necessary SageMaker permissions
++ **Model artifacts not found**: The Amazon S3 URI is incorrect or inaccessible
+  + Solution: Verify the Amazon S3 URI and check bucket permissions, make sure you're in the correct region
++ **Resource limits**: Account limits exceeded for endpoints or instances
+  + Solution: Request a service quota increase through Service Quotas or AWS Support
 
-- **Insufficient capacity**: The requested instance type is not available in your region
-
-  - Solution: Try a different instance type or request a quota increase
-
-- **IAM permissions**: The execution role lacks necessary permissions
-
-  - Solution: Verify the role has access to Amazon S3 model artifacts and necessary SageMaker permissions
-
-- **Model artifacts not found**: The Amazon S3 URI is incorrect or inaccessible
-
-  - Solution: Verify the Amazon S3 URI and check bucket permissions, make sure you're in the correct region
-
-- **Resource limits**: Account limits exceeded for endpoints or instances
-
-  - Solution: Request a service quota increase through Service Quotas or AWS Support
-
-###### Note
-
-If you need to delete a failed endpoint and start over:
+**Note**  
+If you need to delete a failed endpoint and start over:  
 
 ```
 sagemaker.delete_endpoint(EndpointName=ENDPOINT_NAME)
 ```
 
 ## Step 5: Invoke the endpoint
+<a name="nova-sagemaker-inference-step5"></a>
 
 Once your endpoint is InService, you can send inference requests to generate predictions from your Amazon Nova model. SageMaker supports synchronous endpoints (real-time with streaming/non-streaming modes) and asynchronous endpoints (Amazon S3-based for batch processing).
 
@@ -669,34 +655,34 @@ def invoke_nova_endpoint(request_body):
     """
     Invoke Nova endpoint with automatic streaming detection.
     Supports both inference component and single model endpoint deployments.
-
+    
     Args:
         request_body (dict): Request payload containing prompt and parameters
-
+    
     Returns:
         dict: Response from the model (for non-streaming requests)
         None: For streaming requests (prints output directly)
     """
     body = json.dumps(request_body)
     is_streaming = request_body.get("stream", False)
-
+    
     # Build invoke parameters
     invoke_params = {
         'EndpointName': ENDPOINT_NAME,
         'ContentType': 'application/json',
         'Body': body
     }
-
+    
     # Add InferenceComponentName if using inference components
     if INFERENCE_COMPONENT_NAME:
         invoke_params['InferenceComponentName'] = INFERENCE_COMPONENT_NAME
-
+    
     try:
         print(f"Invoking endpoint ({'streaming' if is_streaming else 'non-streaming'})...")
-
+        
         if is_streaming:
             response = runtime_client.invoke_endpoint_with_response_stream(**invoke_params)
-
+            
             event_stream = response['Body']
             for event in event_stream:
                 if 'PayloadPart' in event:
@@ -708,12 +694,12 @@ def invoke_nova_endpoint(request_body):
             # Non-streaming inference
             invoke_params['Accept'] = 'application/json'
             response = runtime_client.invoke_endpoint(**invoke_params)
-
+            
             response_body = response['Body'].read().decode('utf-8')
             result = json.loads(response_body)
             print("✅ Response received successfully")
             return result
-
+    
     except ClientError as e:
         error_code = e.response['Error']['Code']
         error_message = e.response['Error']['Message']
@@ -931,11 +917,11 @@ response = invoke_nova_endpoint(multimodal_request)
 ```
 
 ## Step 6: Clean up resources (Optional)
+<a name="nova-sagemaker-inference-step6"></a>
 
 To avoid incurring unnecessary charges, delete the AWS resources you created during this tutorial. SageMaker endpoints incur charges while they're running, even if you're not actively making inference requests.
 
-###### Important
-
+**Important**  
 Deleting resources is permanent and cannot be undone. Ensure you no longer need these resources before proceeding.
 
 **Initialize the cleanup client**
@@ -988,9 +974,8 @@ except Exception as e:
     print(f"❌ Error deleting endpoint: {e}")
 ```
 
-###### Note
-
-The endpoint deletion is asynchronous. You can monitor the deletion status:
+**Note**  
+The endpoint deletion is asynchronous. You can monitor the deletion status:  
 
 ```
 import time
