@@ -1,43 +1,40 @@
+
+
 # Identify Infrastructure Composer resources and related information in a VPC
+<a name="using-composer-services-vpc-tag"></a>
 
-To integrate Infrastructure Composer with Amazon VPC, you must first identify resources in a VPC and the information needed to complete an integration.
-This also includes configuration information related to security groups, subnet identifiers, parameter types, SSM types, static value types.
+To integrate Infrastructure Composer with Amazon VPC, you must first identify resources in a VPC and the information needed to complete an integration. This also includes configuration information related to security groups, subnet identifiers, parameter types, SSM types, static value types.
 
-Infrastructure Composer visualizes resources in a VPC using a **VPC** tag. This tag is applied to cards on the canvas. The following is an example of a
-Lambda function with a VPC tag:
+Infrastructure Composer visualizes resources in a VPC using a **VPC** tag. This tag is applied to cards on the canvas. The following is an example of a Lambda function with a VPC tag:
 
-![A VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](images/aac_use_vpc_01.png)
+![A VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_01.png)
+
+
 VPC tags are applied to cards on the canvas when you do the following:
-
-- Configure a Lambda function with a VPC in Infrastructure Composer.
-- Import a template that contains resources configured with a VPC.
++ Configure a Lambda function with a VPC in Infrastructure Composer.
++ Import a template that contains resources configured with a VPC.
 
 ## Security group and subnet identifiers
+<a name="using-composer-services-vpc-configure-ids"></a>
 
-A Lambda function can be configured with multiple security groups and subnets. To configure a security group or subnet for a
-Lambda function, provide a value and type.
-
-- **Value** – An identifier for the security group or subnet. Accepted values will vary
-  based on the **type**.
-- **Type** – The following types of values are allowed:
-
-  - Parameter name
-  - AWS Systems Manager (SSM) Parameter Store
-  - Static value
+A Lambda function can be configured with multiple security groups and subnets. To configure a security group or subnet for a Lambda function, provide a value and type.
++ **Value** – An identifier for the security group or subnet. Accepted values will vary based on the **type**.
++ **Type** – The following types of values are allowed:
+  + Parameter name
+  + AWS Systems Manager (SSM) Parameter Store
+  + Static value
 
 ## Parameter type
+<a name="using-composer-services-vpc-configure-parameter"></a>
 
-The `Parameters` section of an AWS CloudFormation template can be used to store resource information across multiple
-templates. For more information on parameters, see [Parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md") in the
-_AWS CloudFormation User Guide_.
+The `Parameters` section of an AWS CloudFormation template can be used to store resource information across multiple templates. For more information on parameters, see [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) in the *AWS CloudFormation User Guide*.
 
-For the **Parameter** type, you can provide a parameter name. In the following example, we provide a
-`PrivateSubnet1` parameter name value:
+For the **Parameter** type, you can provide a parameter name. In the following example, we provide a `PrivateSubnet1` parameter name value:
 
-![A PrivateSubnet1 value being provided for the Parameter type of a subnet ID field.](images/aac_use_vpc_07.png)
+![A PrivateSubnet1 value being provided for the Parameter type of a subnet ID field.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_07.png)
 
-When you provide a parameter name, Infrastructure Composer defines it in the `Parameters` section of your template. Then,
-Infrastructure Composer references the parameter in your Lambda function resource. The following is an example:
+
+When you provide a parameter name, Infrastructure Composer defines it in the `Parameters` section of your template. Then, Infrastructure Composer references the parameter in your Lambda function resource. The following is an example:
 
 ```
 ...
@@ -56,20 +53,18 @@ Parameters:
 ```
 
 ## SSM type
+<a name="using-composer-services-vpc-configure-ssm"></a>
 
-The SSM Parameter Store provides a secure, hierarchical storage for configuration data management and secrets management.
-For more information, see [AWS Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") in the _AWS Systems Manager User Guide_.
+The SSM Parameter Store provides a secure, hierarchical storage for configuration data management and secrets management. For more information, see [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) in the *AWS Systems Manager User Guide*.
 
 For the **SSM** type, you can provide the following values:
-
-- Dynamic reference to a value from the SSM Parameter Store.
-- Logical ID of an `AWS::SSM::Parameter` resource defined in your template.
++ Dynamic reference to a value from the SSM Parameter Store.
++ Logical ID of an `AWS::SSM::Parameter` resource defined in your template.
 
 ### Dynamic reference
+<a name="using-composer-services-vpc-configure-ssm-dynamic"></a>
 
-You can reference a value from the SSM Parameter Store using a dynamic reference in the following format: `{{resolve:ssm:reference-key}}`. For more information,
-see [SSM parameters](../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md#dynamic-references-ssm "../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md#dynamic-references-ssm") in the
-_AWS CloudFormation User Guide_.
+You can reference a value from the SSM Parameter Store using a dynamic reference in the following format: `{{resolve:ssm:reference-key}}`. For more information, see [SSM parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-ssm) in the *AWS CloudFormation User Guide*.
 
 Infrastructure Composer creates the infrastructure code to configure your Lambda function with the value from the SSM Parameter Store. The following is an example:
 
@@ -87,11 +82,11 @@ Resources:
 ```
 
 ### Logical ID
+<a name="using-composer-services-vpc-configure-ssm-logical"></a>
 
 You can reference an `AWS::SSM::Parameter` resource in the same template by logical ID.
 
-The following is an example of an `AWS::SSM::Parameter` resource named `PrivateSubnet1Parameter` that stores the subnet ID for
-`PrivateSubnet1`:
+The following is an example of an `AWS::SSM::Parameter` resource named `PrivateSubnet1Parameter` that stores the subnet ID for `PrivateSubnet1`:
 
 ```
 ...
@@ -107,7 +102,8 @@ Resources:
 
 The following is an example of this resource value being provided by logical ID for the Lambda function:
 
-![A PrivateSubnet1Parameter value being provided for the SSM type of a subnet ID field.](images/aac_use_vpc_08.png)
+![A PrivateSubnet1Parameter value being provided for the SSM type of a subnet ID field.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_08.png)
+
 
 Infrastructure Composer creates the infrastructure code to configure your Lambda function with the SSM parameter:
 
@@ -129,15 +125,13 @@ Resources:
 ```
 
 ## Static value type
+<a name="using-composer-services-vpc-configure-static"></a>
 
 When a security group or subnet is deployed to CloudFormation, an ID value is created. You can provide this ID as a static value.
 
 For the **static value** type, the following are valid values:
-
-- For security groups, provide the `GroupId`. For more information, see [Return values](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.md#aws-properties-ec2-security-group-return-values "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.md#aws-properties-ec2-security-group-return-values") in the
-  _AWS CloudFormation User Guide_. The following is an example: `sg-0b61d5c742dc2c773`.
-- For subnets, provide the `SubnetId`. For more information, see [Return values](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.md#aws-resource-ec2-subnet-return-values "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.md#aws-resource-ec2-subnet-return-values") in the _AWS CloudFormation User Guide_. The
-  following is an example: `subnet-01234567890abcdef`.
++ For security groups, provide the `GroupId`. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#aws-properties-ec2-security-group-return-values) in the *AWS CloudFormation User Guide*. The following is an example: `sg-0b61d5c742dc2c773`.
++ For subnets, provide the `SubnetId`. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#aws-resource-ec2-subnet-return-values) in the *AWS CloudFormation User Guide*. The following is an example: `subnet-01234567890abcdef`.
 
 Infrastructure Composer creates the infrastructure code to configure your Lambda function with the static value. The following is an example:
 
@@ -157,11 +151,12 @@ Resources:
 ```
 
 ## Using multiple types
+<a name="using-composer-services-vpc-configure-multiple"></a>
 
-For security groups and subnets, you can use multiple types together. The following is an example that configures three security groups for a Lambda function by providing values
-of different types:
+For security groups and subnets, you can use multiple types together. The following is an example that configures three security groups for a Lambda function by providing values of different types:
 
-![Three different value types being used to provide identifiers for the security group ID field of a Lambda function.](images/aac_use_vpc_09.png)
+![Three different value types being used to provide identifiers for the security group ID field of a Lambda function.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_09.png)
+
 
 Infrastructure Composer references all three values under the `SecurityGroupIds` property:
 

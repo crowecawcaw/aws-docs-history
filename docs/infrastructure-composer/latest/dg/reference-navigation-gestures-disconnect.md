@@ -1,19 +1,24 @@
-# Disconnect cards in Infrastructure Composer
 
-In Infrastructure Composer, you connect and disconnect AWS resources using _enhanced component cards_ and _standard component cards_. This section describes how to disconnect both types of cards.
+
+# Disconnect cards in Infrastructure Composer
+<a name="reference-navigation-gestures-disconnect"></a>
+
+In Infrastructure Composer, you connect and disconnect AWS resources using *enhanced component cards* and *standard component cards*. This section describes how to disconnect both types of cards.
 
 ## Enhanced component cards
+<a name="using-composer-connecting-enhanced-disconnect"></a>
 
 To disconnect enhanced component cards, select the line and choose **Disconnect**.
 
-![An API Gateway card being disconnected from a Lambda function.](images/aac_use_con_03.png)
+![An API Gateway card being disconnected from a Lambda function.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_con_03.png)
+
 
 Infrastructure Composer will automatically modify your template to remove the event-driven relationship from your application.
 
 ## Standard component cards
+<a name="w2aac17c31b7"></a>
 
-Standard component cards do not include ports to create connections with other resources. During [card configuration](using-composer-standard-cards.md "using-composer-standard-cards.md"), you specify event-driven relationships in the
-template of your application, Infrastructure Composer will automatically detect these connections and visualize them with a dotted line between your cards. To disconnect a standard component card, remove the event-driven relationship in the template of your application.
+Standard component cards do not include ports to create connections with other resources. During [card configuration](using-composer-standard-cards.md), you specify event-driven relationships in the template of your application, Infrastructure Composer will automatically detect these connections and visualize them with a dotted line between your cards. To disconnect a standard component card, remove the event-driven relationship in the template of your application.
 
 The following example shows a Lambda function that is connected with an Amazon API Gateway rest API:
 

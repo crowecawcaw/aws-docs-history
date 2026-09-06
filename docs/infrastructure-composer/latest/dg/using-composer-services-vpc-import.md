@@ -1,7 +1,9 @@
-# Parameters in imported templates for an external VPC with Infrastructure Composer
 
-When you import an existing template with parameters defined for the security groups and subnets of an external VPC, Infrastructure Composer provides a dropdown list to select your
-parameters from.
+
+# Parameters in imported templates for an external VPC with Infrastructure Composer
+<a name="using-composer-services-vpc-import"></a>
+
+When you import an existing template with parameters defined for the security groups and subnets of an external VPC, Infrastructure Composer provides a dropdown list to select your parameters from.
 
 The following is an example of the `Parameters` section of an imported template:
 
@@ -22,15 +24,15 @@ Parameters:
 
 When configuring an external VPC for a new Lambda function on the canvas, these parameters will be available from a dropdown list. The following is an example:
 
-![A dropdown list of values being offered for the Parameter type of the Subnet ID field for a Lambda function card.](images/aac_use_vpc_10.png)
+![A dropdown list of values being offered for the Parameter type of the Subnet ID field for a Lambda function card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_10.png)
+
 
 ## Limitations when importing list parameter types
+<a name="using-composer-services-vpc-import-list"></a>
 
-Normally, you can specify multiple security group and subnet identifiers for each Lambda function. If your existing template contains list parameter types, such as
-`List<AWS::EC2::SecurityGroup::Id>` or `List<AWS::EC2::Subnet::Id>`, you can only specify one identifier.
+Normally, you can specify multiple security group and subnet identifiers for each Lambda function. If your existing template contains list parameter types, such as `List<AWS::EC2::SecurityGroup::Id>` or `List<AWS::EC2::Subnet::Id>`, you can only specify one identifier.
 
-For more information on parameter lists type, see [Supported AWS-specific parameter types](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md#aws-specific-parameter-types "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md#aws-specific-parameter-types") in the
-_AWS CloudFormation User Guide_.
+For more information on parameter lists type, see [Supported AWS-specific parameter types](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-specific-parameter-types) in the *AWS CloudFormation User Guide*.
 
 The following is an example of a template that defines `VPCSecurityGroups` as a list parameter type:
 
@@ -45,10 +47,10 @@ Parameters:
 
 In Infrastructure Composer, if you select the `VPCSecurityGroups` value as a security group identifier for a Lambda function, you will see the following message:
 
-![A list parameter type named VPCSecurityGroups being provided for the Parameter type of the security group ID field of a Lambda function card.](images/aac_use_vpc_11.png)
+![A list parameter type named VPCSecurityGroups being provided for the Parameter type of the security group ID field of a Lambda function card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_11.png)
 
-This limitation occurs because the `SecurityGroupIds` and `SubnetIds` properties of an `AWS::Lambda::Function VpcConfig` object both accept
-only a list of string values. Since a single list parameter type contains a list of strings, it can be the only object provided when specified.
+
+This limitation occurs because the `SecurityGroupIds` and `SubnetIds` properties of an `AWS::Lambda::Function VpcConfig` object both accept only a list of string values. Since a single list parameter type contains a list of strings, it can be the only object provided when specified.
 
 For list parameter types, the following is an example of how they are defined in the template when configured with a Lambda function:
 

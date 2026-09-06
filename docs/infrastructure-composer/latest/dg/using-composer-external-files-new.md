@@ -1,33 +1,30 @@
+
+
 # Create an external file reference in Infrastructure Composer
+<a name="using-composer-external-files-new"></a>
 
-You can create an external file reference from the **resource
-properties** panel of supported resources.
+You can create an external file reference from the **resource properties** panel of supported resources.
 
-###### To create an external file reference
+**To create an external file reference**
 
-1. From an **API Gateway** or **Step Functions** enhanced component card, select **Details** to bring up the **resource properties**  
-   panel.
-2. Locate and select the **Use external file**
-   option.
-3. Specify the relative path to the external file. This is the path
-   from your `template.yaml` file to the external
-   file.
+1. From an **API Gateway** or **Step Functions** enhanced component card, select **Details** to bring up the **resource properties ** panel.
 
-For example, to reference the `api-spec.yaml`
-external file from the following project’s structure, specify
-`./api-spec.yaml` as your relative path.
+1. Locate and select the **Use external file** option.
 
-```
-demo
-├── api-spec.yaml
-├── src
-│ └── Function
-│ ├── index.js
-│ └── package.json
-└── template.yaml
-```
+1. Specify the relative path to the external file. This is the path from your `template.yaml` file to the external file.
 
-###### Note
+   For example, to reference the `api-spec.yaml` external file from the following project’s structure, specify `./api-spec.yaml` as your relative path.
 
-If the external file and its specified path does not exist,
-Infrastructure Composer will create it. 4. **Save** your changes.
+   ```
+   demo
+   ├── api-spec.yaml
+   ├── src
+   │ └── Function
+   │ ├── index.js
+   │ └── package.json
+   └── template.yaml
+   ```
+**Note**  
+If the external file and its specified path does not exist, Infrastructure Composer will create it.
+
+1. **Save** your changes.
