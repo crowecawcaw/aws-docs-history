@@ -1,12 +1,9 @@
-# Setting complex attributes in your Lex V2 bot
 
-Session and request attributes are string-to-string maps of
-attributes and values. In many cases, you can use the string map to
-transfer attribute values between your client application and a bot.
-In some cases, however, you might need to transfer binary data or a
-complex structure that can't be easily converted to a string map.
-For example, the following JSON object represents an array of the
-three most populous cities in the United States:
+
+# Setting complex attributes in your Lex V2 bot
+<a name="context-mgmt-complex-attributes"></a>
+
+Session and request attributes are string-to-string maps of attributes and values. In many cases, you can use the string map to transfer attribute values between your client application and a bot. In some cases, however, you might need to transfer binary data or a complex structure that can't be easily converted to a string map. For example, the following JSON object represents an array of the three most populous cities in the United States:
 
 ```
 {
@@ -36,43 +33,27 @@ three most populous cities in the United States:
 }
 ```
 
-This array of data doesn't translate well to a string-to-string
-map. In such a case, you can transform an object to a simple string
-so that you can send it to your bot with the
-[RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") and [RecognizeUtterance](../APIReference/API_runtime_RecognizeUtterance.md "../APIReference/API_runtime_RecognizeUtterance.md") operations.
+This array of data doesn't translate well to a string-to-string map. In such a case, you can transform an object to a simple string so that you can send it to your bot with the [RecognizeText](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html) and [RecognizeUtterance](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html) operations. 
 
-For example, if you are using JavaScript, you can use the
-`JSON.stringify` operation to convert an object to
-JSON, and the `JSON.parse` operation to convert JSON text
-to a JavaScript object:
+For example, if you are using JavaScript, you can use the `JSON.stringify` operation to convert an object to JSON, and the `JSON.parse` operation to convert JSON text to a JavaScript object:
 
 ```
-
 // To convert an object to a string.
-var jsonString = JSON.stringify(`object`, null, 2);
+var jsonString = JSON.stringify({{object}}, null, 2);
 // To convert a string to an object.
-var `obj` = JSON.parse(`JSON string`);
-
+var {{obj}} = JSON.parse({{JSON string}});
 ```
 
-To send attributes with the `RecognizeUtterance`
-operation, you must base64 encode the attributes before you add them
-to the request header, as shown in the following JavaScript
-code:
+To send attributes with the `RecognizeUtterance` operation, you must base64 encode the attributes before you add them to the request header, as shown in the following JavaScript code:
 
 ```
-
-var `encodedAttributes` = new Buffer(`attributeString`).toString("base64");
-
+var {{encodedAttributes}} = new Buffer({{attributeString}}).toString("base64");
 ```
 
-You can send binary data to the `RecognizeText` and
-`RecognizeUtterance` operations by first converting
-the data to a base64-encoded string, and then sending the string as
-the value in the session attributes:
+You can send binary data to the `RecognizeText` and `RecognizeUtterance` operations by first converting the data to a base64-encoded string, and then sending the string as the value in the session attributes:
 
 ```
 "sessionAttributes" : {
-   "binaryData": "`base64 encoded data`"
+   "binaryData": "{{base64 encoded data}}"
 }
 ```

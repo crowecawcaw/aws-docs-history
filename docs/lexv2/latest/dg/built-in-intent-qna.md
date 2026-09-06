@@ -1,86 +1,68 @@
+
+
 # AMAZON.QnAIntent
+<a name="built-in-intent-qna"></a>
 
-###### Note
+**Note**  
+Before you can take advantage of the generative AI features, you must fulfill the following prerequisites  
+For information about pricing for using Amazon Bedrock, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/).
+Turn on the generative AI capabilities for your bot locale. To do so, follow the steps at [Optimize Lex V2 bot creation and performance by using generative AI](generative-features.md). 
 
-Before you can take advantage of the generative AI features, you must fulfill the following prerequisites
+Responds to customer questions by using an Amazon Bedrock FM to search and summarize FAQ responses. This intent is activated when an utterance is not classified into any of the other intents present in the bot. Note that this intent will not be activated for missed utterances when eliciting a slot value. Once recognized, the `AMAZON.QnAIntent`, uses the specified Amazon Bedrock model to search the configured Amazon Bedrock Knowledge Base and respond to the customer question.
 
-1. For information
-   about pricing for using Amazon Bedrock, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
-2. Turn on the
-   generative AI capabilities for your bot locale. To do so, follow the steps at [Optimize Lex V2 bot creation and performance by using generative AI](generative-features.md "generative-features.md").
-   Responds to customer questions by using an Amazon Bedrock FM to search and summarize FAQ responses. This intent is activated when an utterance is not classified into any of the other intents present in the bot. Note that this intent will not be activated for missed utterances when eliciting a slot value. Once recognized, the `AMAZON.QnAIntent`, uses the specified Amazon Bedrock model to search the configured Amazon Bedrock Knowledge Base and respond to the customer question.
-
-###### Warning
-
+**Warning**  
 You can't use the `AMAZON.QnAIntent` and the `AMAZON.KendraSearchIntent` in the same bot locale.
 
 The following knowledge store options are available. You must have already created the knowledge store and indexed the documents within it.
++ OpenSearch Service domain – Contains indexed documents. To create a domain, follow the steps at [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
++ Amazon Kendra index – Contains indexed FAQ documents. To create a Amazon Kendra index, follow the steps at [Creating an index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html).
++ Amazon Bedrock Knowledge Base – Contains indexed data sources. To set up a Amazon Bedrock Knowledge Base, follow the steps at [Building a Knowledge Base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html).
 
-- OpenSearch Service domain – Contains indexed documents. To create a domain, follow the steps at [Creating and managing Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/createupdatedomains.md "../../../opensearch-service/latest/developerguide/createupdatedomains.md").
-- Amazon Kendra index – Contains indexed FAQ documents. To create a Amazon Kendra index, follow the steps at [Creating an index](../../../kendra/latest/dg/create-index.md "../../../kendra/latest/dg/create-index.md").
-- Amazon Bedrock Knowledge Base – Contains indexed data sources. To set up a Amazon Bedrock Knowledge Base, follow the steps at [Building a Knowledge Base](../../../bedrock/latest/userguide/knowledge-base.md "../../../bedrock/latest/userguide/knowledge-base.md").
-  If you select this intent, you configure the following fields and then select **Add** to add the intent.
+If you select this intent, you configure the following fields and then select **Add** to add the intent.
++ **Bedrock model** – Choose the provider and foundation model to use for this intent. Make sure to check the latest available models and the deprecation schedule and plan migrations accordingly. For more information, see [Model lifecycle](https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html#versions-for-eol). 
++ **Knowledge store** – Choose the source from which you want the model pull information from to answer customer questions. The following sources are available.
+  + **OpenSearch** – Configure the following fields.
+    + **Domain endpoint** – Provide the domain endpoint that you made for the domain or that was provided to you after domain creation.
+    + **Index name** – Provide the index to search. For more information, see [Indexing data in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/indexing.html).
+    + Choose how you want to return the response to the customer.
+      + **Exact response** – When this option is enabled, the value in the Answer field is used as is for the bot response. The configured Amazon Bedrock foundation model is used to select the exact answer content as-is, without any content synthesis or summarization. Specify the name of the question and answer fields that were configured in the OpenSearch database.
+      + **Include fields** – Returns an answer generated by the model using the fields you specify. Specify the name of up to five fields that were configured in the OpenSearch database. Use a semicolon (;) to separate fields.
+  + **Amazon Kendra** – Configure the following fields.
+    + **Amazon Kendra index** – Select the Amazon Kendra index that you want your bot to search.
+    + **Amazon Kendra filter** – To create a filter, select this checkbox. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering).
+    + **Exact response** – To let your bot return the exact response returned by Amazon Kendra, select this checkbox. Otherwise, the Amazon Bedrock model you select generates a response based on the results.
+**Note**  
+To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html).
+  + **Amazon Bedrock Knowledge Base** – If you choose this option, specify the ID of the Amazon Bedrock Knowledge Base. You can find the ID by checking the details page of the Amazon Bedrock Knowledge Base in the console, or by sending a [GetKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html) request.
+    + **Exact response** – When this option is enabled, the value in the Answer field is used as is for the bot response. The configured Amazon Bedrock foundation model is used to select the exact answer content as-is, without any content synthesis or summarization. To use exact response for Amazon Bedrock Knowledge Base you need to do the following:
+      + Create individual JSON files with each file containing an answer field that contains the exact response that needs to be returned to end-user.
+      + When indexing these documents in Bedrock Knowledge Base, select **Chunking strategy** as **No Chunking**..
+      + Define the answer field in Amazon Lex V2, as the Answer field in the Bedrock Knowledge Base.
 
-- **Bedrock model** – Choose the provider and foundation model to use for this intent. Make sure to check the latest available models and the deprecation schedule and plan migrations accordingly. For more information, see [Model lifecycle](../../../bedrock/latest/userguide/model-lifecycle.md#versions-for-eol "../../../bedrock/latest/userguide/model-lifecycle.md#versions-for-eol").
-- **Knowledge store** – Choose the source from which you want the model pull information from to answer customer questions. The following sources are available.
+The responses from the QnAIntent will be stored into the request attributes as shown below:
++ `x-amz-lex:qnA-search-response` – The response from the QnAIntent to the question or utterance.
++ `x-amz-lex:qnA-search-response-source` – Points to the document or list of documents used to generate the response.
++ `x-amz-lex:qna-additional-context` – The additional context used by the QnAIntent to generate the response.
 
-  - **OpenSearch** – Configure the following fields.
+**Additional model configurations**
 
-    - **Domain endpoint** – Provide the domain endpoint that you made for the domain or that was provided to you after domain creation.
-    - **Index name** – Provide the index to search. For more information, see [Indexing data in Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/indexing.md "../../../opensearch-service/latest/developerguide/indexing.md").
-    - Choose how you want to return the response to the customer.
-
-      - **Exact response** – When this option is enabled, the value in the Answer field is used as is for the bot response. The configured Amazon Bedrock foundation model is used to select the exact answer content as-is, without any content synthesis or summarization. Specify the name of the question and answer fields that were configured in the OpenSearch database.
-      - **Include fields** – Returns an answer generated by the model using the fields you specify. Specify the name of up to five fields that were configured in the OpenSearch database. Use a semicolon (;) to separate fields.
-
-  - **Amazon Kendra** – Configure the following fields.
-
-    - **Amazon Kendra index** – Select the Amazon Kendra index that you want your bot to search.
-    - **Amazon Kendra filter** – To create a filter, select this checkbox. For more information on the Amazon Kendra search filter JSON format, see [Using document attributes to filter search results](../../../kendra/latest/dg/filtering.md#search-filtering "../../../kendra/latest/dg/filtering.md#search-filtering").
-    - **Exact response** – To let your bot return the exact response returned by Amazon Kendra, select this checkbox. Otherwise, the Amazon Bedrock model you select generates a response based on the results.
-
-    ###### Note
-
-    To use this feature, you must first add FAQ questions to your index by following the steps at [Adding frequently asked questions (FAQs) to an index](../../../kendra/latest/dg/in-creating-faq.md "../../../kendra/latest/dg/in-creating-faq.md").
-
-  - **Amazon Bedrock Knowledge Base** – If you choose this option, specify the ID of the Amazon Bedrock Knowledge Base. You can find the ID by checking the details page of the Amazon Bedrock Knowledge Base in the console, or by sending a [GetKnowledgeBase](../../../bedrock/latest/APIReference/API_agent_GetKnowledgeBase.md "../../../bedrock/latest/APIReference/API_agent_GetKnowledgeBase.md") request.
-
-    - **Exact response** – When this option is enabled, the value in the Answer field is
-      used as is for the bot response. The configured Amazon Bedrock foundation model
-      is used to select the exact answer content as-is, without any content synthesis
-      or summarization. To use exact response for Amazon Bedrock Knowledge Base you need
-      to do the following:
-
-      - Create individual JSON files with each file containing an answer field that contains the exact response that needs to be returned to end-user.
-      - When indexing these documents in Bedrock Knowledge Base, select **Chunking strategy** as **No Chunking**..
-      - Define the answer field in Amazon Lex V2, as the Answer field in the Bedrock Knowledge Base.
-        The responses from the QnAIntent will be stored into the request attributes as shown below:
-
-- `x-amz-lex:qnA-search-response` – The response from the QnAIntent to the question or utterance.
-- `x-amz-lex:qnA-search-response-source` – Points to the document or list of documents used to generate the response.
-- `x-amz-lex:qna-additional-context` – The additional context used by the QnAIntent to generate the response.
-  **Additional model configurations**
-
-When AMAZON.QnAIntent is invoked it uses a default prompt template that combines instructions and context with the user query to construct the
-prompt that’s sent to the model for response generation. You can also provide a custom prompt or update the default prompt to match your requirements.
+When AMAZON.QnAIntent is invoked it uses a default prompt template that combines instructions and context with the user query to construct the prompt that’s sent to the model for response generation. You can also provide a custom prompt or update the default prompt to match your requirements.
 
 You can engineer the prompt template with the following tools:
 
-**Prompt placeholders** – Pre-defined variables in AMAZON.QnAIntent for Amazon Bedrock that are dynamically
-filled in at runtime during the bedrock call. In the system prompt, you can see these placeholders surrounded by the `$` symbol. The following
-list describes the placeholders you can use:
+**Prompt placeholders** – Pre-defined variables in AMAZON.QnAIntent for Amazon Bedrock that are dynamically filled in at runtime during the bedrock call. In the system prompt, you can see these placeholders surrounded by the `$` symbol. The following list describes the placeholders you can use:
 
-| Variable              | Replaced by                                                                                                                                                                                        | Model                  | Required? |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------- |
-| $query\_results$      | The retrieved results for the user query from the Knowledge Store                                                                                                                                  | Selected Bedrock Model | Yes       |
-| $output\_instruction$ | Underlying instructions for formatting the response generation and citations.<br>Differs by model. If you define your own formatting instructions, we suggest that<br>you remove this placeholder. | Selected Bedrock Model | No        |
-| $additional\_context$ | The additional context used by the QnAIntent to generate the response                                                                                                                              | Selected Bedrock Model | No        |
-| $locale$              | The language in which the bot will answer customer queries                                                                                                                                         | Selected Bedrock Model | No        |
+
+| Variable | Replaced by | Model | Required? | 
+| --- | --- | --- | --- | 
+| $query\_results$ | The retrieved results for the user query from the Knowledge Store | Selected Bedrock Model | Yes | 
+| $output\_instruction$ | Underlying instructions for formatting the response generation and citations. Differs by model. If you define your own formatting instructions, we suggest that you remove this placeholder.  | Selected Bedrock Model | No | 
+| $additional\_context$ | The additional context used by the QnAIntent to generate the response | Selected Bedrock Model | No | 
+| $locale$ | The language in which the bot will answer customer queries | Selected Bedrock Model | No | 
 
 **Default prompt** being used is:
 
 ```
-
 $query_results$
 
 $additional_context$
@@ -95,7 +77,6 @@ Given the conversation history, <additional_context> and <Context>:
 </instruction>
 
 $output_instruction$
-
 ```
 
 **$output\_instruction$** is replaced with:
@@ -108,29 +89,20 @@ Give your final response in the following form:
 <passage_id>passage_id or CANNOTANSWER</passage_id>
 <confidence>LOW or MID or HIGH</confidence>
 </answer>
-
 ```
 
-###### Note
-
-If you decide not to use the default instructions, then whatever output the LLM provides will
-be returned as-is back to the end user.
-
+**Note**  
+If you decide not to use the default instructions, then whatever output the LLM provides will be returned as-is back to the end user.  
 The output instructions need to contain <text></text> and <passageId></passageId> tags and instructions for the LLM to return the passageIds to provide the response and source attribution.
 
 **Additional context support through session attributes**
 
-You can pass additional context to the `AMAZON.QnAIntent` at runtime through the session attribute
-`x-amz-lex:qna-additional-context`. This allows you to provide supplementary information that the model
-can use alongside the knowledge store results when generating a response. The additional context is inserted into
-the prompt template through the `$additional_context$` placeholder.
+You can pass additional context to the `AMAZON.QnAIntent` at runtime through the session attribute `x-amz-lex:qna-additional-context`. This allows you to provide supplementary information that the model can use alongside the knowledge store results when generating a response. The additional context is inserted into the prompt template through the `$additional_context$` placeholder.
 
 **Example:**
 
 ```
-
 {"sessionAttributes": {"x-amz-lex:qna-additional-context":"Our support hours are Monday through Friday, 8AM-8PM EST"}}
-
 ```
 
 **Amazon Bedrock Knowledge Base metadata filtering support through session attributes**
@@ -138,33 +110,27 @@ the prompt template through the `$additional_context$` placeholder.
 You can pass the Amazon Bedrock Knowledge Base metadata filters as part of session attribute `x-amz-lex:bkb-retrieval-filter`.
 
 ```
-
-             {"sessionAttributes":{"x-amz-lex:bkb-retrieval-filter":"{\"equals\":{\"key\":\"insurancetype\",\"value\":\"farmers\"}}
-
+             {"sessionAttributes":{"x-amz-lex:bkb-retrieval-filter":"{\"equals\":{\"key\":\"insurancetype\",\"value\":\"farmers\"}}      
 ```
 
-###### Note
-
-You need to use the Amazon Bedrock Knowledge Base as the Data store for the QnAIntent to use this filter. For more
-information, see [Metadata filtering](../../../bedrock/latest/userguide/kb-test-config.md#:~:text=Metadata%20and%20filtering "../../../bedrock/latest/userguide/kb-test-config.md#:~:text=Metadata%20and%20filtering")
+**Note**  
+You need to use the Amazon Bedrock Knowledge Base as the Data store for the QnAIntent to use this filter. For more information, see [Metadata filtering](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#:~:text=Metadata%20and%20filtering)
 
 **Inference configurations**
 
 You can define the inference configurations that will be used when making the call to LLM using session attribute:
++ temperature: type Integer
++ topP
++ maxTokens
 
-- temperature: type Integer
-- topP
-- maxTokens
-  **Example:**
+**Example:**
 
 ```
-
-         {"sessionAttributes":{"x-amz-lex:llm-text-inference-config":"{\"temperature\":0,\"topP\":1,\"maxTokens\":200}"}}
-
+         {"sessionAttributes":{"x-amz-lex:llm-text-inference-config":"{\"temperature\":0,\"topP\":1,\"maxTokens\":200}"}}      
 ```
 
 **Bedrock Guardrails support through build-time and session attributes**
++ By using the Console at Buildtime – Provide the GuardrailsIdentifier and the GuardrailsVersion. Learn more under the Additional Model Configurations section.
++ By using Session attributes – You can also define the Guardrails configuration using the session attributes: `x-amz-lex:bedrock-guardrails-identifier` and `x-amz-lex:bedrock-guardrails-version`.
 
-- By using the Console at Buildtime – Provide the GuardrailsIdentifier and the GuardrailsVersion. Learn more under the Additional Model Configurations section.
-- By using Session attributes – You can also define the Guardrails configuration using the session attributes: `x-amz-lex:bedrock-guardrails-identifier` and `x-amz-lex:bedrock-guardrails-version`.
-  For more information on using Bedrock Guardrails, see [Guardrails](../../../bedrock/latest/userguide/guardrails.md "../../../bedrock/latest/userguide/guardrails.md").
+For more information on using Bedrock Guardrails, see [ Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html).

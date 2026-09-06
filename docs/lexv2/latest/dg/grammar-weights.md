@@ -1,36 +1,20 @@
+
+
 # Weights
+<a name="grammar-weights"></a>
 
-You can add the _weight_ attribute to an
-element. Weight is a positive floating point value that represents
-the degree to which the phrase in the item is boosted during speech
-recognition. For more information, see
-[Weights](https://www.w3.org/TR/speech-grammar/ "https://www.w3.org/TR/speech-grammar/") in
-the Speech recognition grammar specification version 1 W3C
-recommendation.
+You can add the *weight* attribute to an element. Weight is a positive floating point value that represents the degree to which the phrase in the item is boosted during speech recognition. For more information, see [Weights](https://www.w3.org/TR/speech-grammar/) in the Speech recognition grammar specification version 1 W3C recommendation.
 
-Weights must be greater than 0 and less than or equal to 10, and
-can have only one decimal place. If the weight is greater than 0 and
-less than 1, the phrase is negatively boosted. If the weight is
-greater than 1 and less than or equal to 10, the phrase is positively
-boosted. A weight of 1 is equivalent to giving no weight at all, and
-there is no boosting for the phrase.
+Weights must be greater than 0 and less than or equal to 10, and can have only one decimal place. If the weight is greater than 0 and less than 1, the phrase is negatively boosted. If the weight is greater than 1 and less than or equal to 10, the phrase is positively boosted. A weight of 1 is equivalent to giving no weight at all, and there is no boosting for the phrase.
 
-Assigning appropriate weights to items for improving speech
-recognition performance is a difficult task. Here are some tips you
-can follow for assigning weights:
+Assigning appropriate weights to items for improving speech recognition performance is a difficult task. Here are some tips you can follow for assigning weights:
++ Start with a grammar without item weights assigned.
++ Determine which patterns in the speech are frequently misidentified.
++ Apply different values for weights until you notice an improvement in the speech recognition performance, and there are no regressions.
 
-- Start with a grammar without item weights assigned.
-- Determine which patterns in the speech are frequently
-  misidentified.
-- Apply different values for weights until you notice an
-  improvement in the speech recognition performance, and there
-  are no regressions.
-  **Example 1**
+**Example 1**
 
-For example, if you have a grammar for airports, and you observe
-that _New York_ is frequently misidentified as
-_Newark_, you can
-positively boost New York by assigning it a weight of 5.
+For example, if you have a grammar for airports, and you observe that *New York* is frequently misidentified as *Newark*, you can positively boost New York by assigning it a weight of 5.
 
 ```
 <rule> id="airport">
@@ -49,16 +33,11 @@ positively boost New York by assigning it a weight of 5.
         </item>
     </one-of>
 </rule>
-
 ```
 
 **Example 2**
 
-For example, you have a grammar for the airline reservation code
-starting with an English alphabet followed by three digits. The
-reservation code most likely starts with B or D, but you observe that
-B is frequently misidentified as P, and D as T. You can positively
-boost B and D.
+For example, you have a grammar for the airline reservation code starting with an English alphabet followed by three digits. The reservation code most likely starts with B or D, but you observe that B is frequently misidentified as P, and D as T. You can positively boost B and D.
 
 ```
 <rule> id="alphabet">
@@ -91,5 +70,4 @@ boost B and D.
         <item>Z<tag>out.letters+='Z';</tag></item>
     </one-of>
 </rule>
-
 ```

@@ -1,145 +1,80 @@
-# Amazon Lex V2 core concepts
 
-Amazon Lex V2 enables you to build chat applications (bots) to elicit information from
-users to accomplish a task. For example, you can create a chatbot to provide customer support,
-answer frequently asked questions, or book appointments. Following are the typical steps for working with Amazon Lex V2:
+
+# Amazon Lex V2 core concepts
+<a name="how-it-works"></a>
+
+Amazon Lex V2 enables you to build chat applications (bots) to elicit information from users to accomplish a task. For example, you can create a chatbot to provide customer support, answer frequently asked questions, or book appointments. Following are the typical steps for working with Amazon Lex V2:
 
 ## Quick Start Learning Path
+<a name="quick-start-path"></a>
 
 New to Amazon Lex V2? Follow this progressive learning path to get started quickly:
 
 1. **Start with a Template** (5 minutes) – Choose from pre-built chatbot templates like Customer Support FAQ, Appointment Booking, or Order Status. Templates include pre-configured intents, slots, and sample utterances.
-2. **Customize Your Chatbot** (15 minutes) – Modify the template to match your specific use case. Add your own intents, update sample utterances, and configure slot types for your domain.
-3. **Test and Refine** (10 minutes) – Use the built-in test console to have conversations with your chatbot. Enable Assisted NLU for improved understanding with minimal training data.
-4. **Deploy and Integrate** (20 minutes) – Publish your chatbot and integrate it with your preferred platform (Slack, web app, or mobile application).
 
-**Total time to working chatbot: ~50 minutes**
+1. **Customize Your Chatbot** (15 minutes) – Modify the template to match your specific use case. Add your own intents, update sample utterances, and configure slot types for your domain.
+
+1. **Test and Refine** (10 minutes) – Use the built-in test console to have conversations with your chatbot. Enable Assisted NLU for improved understanding with minimal training data.
+
+1. **Deploy and Integrate** (20 minutes) – Publish your chatbot and integrate it with your preferred platform (Slack, web app, or mobile application).
+
+**Total time to working chatbot: \~50 minutes**
 
 For a more comprehensive understanding, continue with the detailed development process below.
 
 ## Detailed Development Process
+<a name="detailed-development-process"></a>
 
 For more complex bots or when building from scratch, follow this comprehensive development process:
 
-1. Create a bot and add one or more languages. Configure the bot
-   so that it understands the user's goal, engages in conversation
-   with the user to elicit information, and fulfills the user's
-   intent.
-2. Test the bot. You can use the test window client provided by
-   the Amazon Lex V2 console.
-3. Publish a version and create an alias.
-4. Deploy the bot. You can deploy the bot on your own
-   applications or messaging platforms such as Facebook Messenger
-   or Slack
+1. Create a bot and add one or more languages. Configure the bot so that it understands the user's goal, engages in conversation with the user to elicit information, and fulfills the user's intent.
+
+1. Test the bot. You can use the test window client provided by the Amazon Lex V2 console.
+
+1. Publish a version and create an alias.
+
+1. Deploy the bot. You can deploy the bot on your own applications or messaging platforms such as Facebook Messenger or Slack
 
 ## Core Concepts and Terminology
+<a name="core-concepts"></a>
 
-Before you get started, familiarize yourself with the following Amazon Lex V2
-core concepts and terminology:
+Before you get started, familiarize yourself with the following Amazon Lex V2 core concepts and terminology:
++ **Bot** – A bot performs automated tasks such as ordering a pizza, booking a hotel, ordering flowers, and so on. An Amazon Lex V2 bot is powered by automatic speech recognition (ASR) and natural language understanding (NLU) capabilities.
 
-- **Bot** – A bot performs
-  automated tasks such as ordering a pizza, booking a hotel,
-  ordering flowers, and so on. An Amazon Lex V2 bot is powered by
-  automatic speech recognition (ASR) and natural language
-  understanding (NLU) capabilities.
+  Amazon Lex V2 bots can understand user input provided with text or speech and converse natural language.
++ **Language** – An Amazon Lex V2 bot can converse in one or more languages. Each language is independent of the others, you can configure Amazon Lex V2 to converse with a user using native words and phrases. For more information, see [Languages and locales supported by Amazon Lex V2](how-languages.md).
++ **Intent** – An intent represents an action that the user wants to perform. You create a bot to support one or more related intents. For example, you might create an intent that orders pizzas and drinks. For each intent, you provide the following required information:
+  + **Intent name** – A descriptive name for the intent. For example, **OrderPizza**.
+  + **Sample utterances** – How a user might convey the intent. For example, a user might say "Can I order a pizza" or "I want to order a pizza."
+  + **How to fulfill the intent** – How you want to fulfill the intent after the user provides the necessary information. We recommend that you create a Lambda function to fulfill the intent.
 
-Amazon Lex V2 bots can understand user input provided with text or
-speech and converse natural language.
+    You can optionally configure the intent so Amazon Lex V2 returns the information back to the client application for the necessary fulfillment.
 
-- **Language** – An Amazon Lex V2
-  bot can converse in one or more languages. Each language is
-  independent of the others, you can configure Amazon Lex V2 to converse
-  with a user using native words and phrases. For more
-  information, see [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
-- **Intent** – An intent
-  represents an action that the user wants to perform. You create
-  a bot to support one or more related intents. For example, you
-  might create an intent that orders pizzas and drinks. For each
-  intent, you provide the following required information:
+  In addition to custom intents, Amazon Lex V2 provides built-in intents to quickly set up your bot. For more information, see [Built-in intents](built-in-intents.md).
 
-  - **Intent name** – A
-    descriptive name for the intent. For example,
-    `OrderPizza`.
-  - **Sample utterances**
-    – How a user might convey the intent. For example,
-    a user might say "Can I order a pizza" or "I want to
-    order a pizza."
-  - **How to fulfill the
-    intent** – How you want to fulfill
-    the intent after the user provides the necessary
-    information. We recommend that you create a Lambda
-    function to fulfill the intent.
+  Amazon Lex always includes a fallback intent for each bot. The fallback intent is used whenever Amazon Lex can't deduce the user's intent. For more information, see [AMAZON.FallbackIntent](built-in-intent-fallback.md).
++ **Slot** – An intent can require zero or more slots, or parameters. You add slots as part of the intent configuration. At runtime, Amazon Lex V2 prompts the user for specific slot values. The user must provide values for all required slots before Amazon Lex V2 can fulfill the intent.
 
-  You can optionally configure the intent so Amazon Lex V2
-  returns the information back to the client application
-  for the necessary fulfillment.
-  In addition to custom intents, Amazon Lex V2 provides built-in
-  intents to quickly set up your bot. For more information, see
-  [Built-in intents](built-in-intents.md "built-in-intents.md").
+  For example the `OrderPizza` intent requires slots such as size, crust type, and number of pizzas. For each slot, you provide the slot type and one or more prompts that Amazon Lex V2 sends to the client to elicit values from the user. A user can reply with a slot value that contains additional words, such as "large pizza please" or "let's stick with small." Amazon Lex V2 still understands the slot value.
++ **Slot type** – Each slot has a type. You can create your own slot type, or you can use built-in slot types. For example, you might create and use the following slot types for the `OrderPizza` intent:
+  + Size – With enumeration values `Small`, `Medium`, and `Large`.
+  + Crust – With enumeration values `Thick` and `Thin`.
 
-Amazon Lex always includes a fallback intent for each bot. The
-fallback intent is used whenever Amazon Lex can't deduce the user's
-intent. For more information, see [AMAZON.FallbackIntent](built-in-intent-fallback.md "built-in-intent-fallback.md").
-
-- **Slot** – An intent can
-  require zero or more slots, or parameters. You add slots as part
-  of the intent configuration. At runtime, Amazon Lex V2 prompts the user
-  for specific slot values. The user must provide values for all
-  required slots before Amazon Lex V2 can fulfill the intent.
-
-For example the `OrderPizza` intent requires slots
-such as size, crust type, and number of pizzas. For each slot,
-you provide the slot type and one or more prompts that Amazon Lex V2
-sends to the client to elicit values from the user. A user can
-reply with a slot value that contains additional words, such as
-"large pizza please" or "let's stick with small." Amazon Lex V2 still
-understands the slot value.
-
-- **Slot type** – Each slot
-  has a type. You can create your own slot type, or you can use
-  built-in slot types. For example, you might create and use the
-  following slot types for the `OrderPizza`
-  intent:
-
-  - Size – With enumeration values
-    `Small`, `Medium`, and
-    `Large`.
-  - Crust – With enumeration values
-    `Thick` and `Thin`.
-    Amazon Lex V2 also provides built-in slot types. For example,
-    `AMAZON.Number` is a built-in slot type that you
-    can use for the number of pizzas ordered. For more information,
-    see [Built-in intents](built-in-intents.md "built-in-intents.md").
-
-- **Version** – A version is
-  a numbered snapshot of your work that you can publish for use in
-  different parts of your workflow, such as development, beta
-  deployment, and production. Once you create a version, you can
-  use a bot as it existed when the version was made. After you
-  create a version, it stays the same while you continue to work
-  on your application.
-- **Alias** – An alias is a
-  pointer to a specific version of a bot. With an alias, you can
-  update the version the your client applications are using. For
-  example, you can point an alias to version 1 of your bot. When
-  you are ready to update the bot, you publish version 2 and
-  change the alias to point to the new version. Because your
-  applications use the alias instead of a specific version, all of
-  your clients get the new functionality without needing to be
-  updated.
+  Amazon Lex V2 also provides built-in slot types. For example, `AMAZON.Number` is a built-in slot type that you can use for the number of pizzas ordered. For more information, see [Built-in intents](built-in-intents.md).
++ **Version** – A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production. Once you create a version, you can use a bot as it existed when the version was made. After you create a version, it stays the same while you continue to work on your application.
++ **Alias** – An alias is a pointer to a specific version of a bot. With an alias, you can update the version the your client applications are using. For example, you can point an alias to version 1 of your bot. When you are ready to update the bot, you publish version 2 and change the alias to point to the new version. Because your applications use the alias instead of a specific version, all of your clients get the new functionality without needing to be updated.
 
 ## Advanced Amazon Lex V2 Features
+<a name="advanced-features"></a>
 
 In addition to the core concepts above, Amazon Lex V2 includes advanced features that enhance bot capabilities:
-
-- **Assisted NLU** – Uses Large Language Models (LLMs) to improve intent classification and slot resolution. This feature helps your bot understand user requests more accurately, even when they use different phrasing than your training examples. Assisted NLU works within your configured intents and slots, providing better understanding without requiring extensive training data.
-- **Multi-turn Conversations** – Amazon Lex V2 can maintain context across multiple conversation turns, allowing for natural back-and-forth interactions. Users can provide information gradually, change their mind, or ask clarifying questions without losing the conversation context.
-- **Context Switching** – Advanced bots can handle topic changes within a conversation. For example, a user might start asking about account information, then switch to placing an order, and return to the original topic. Amazon Lex V2 can manage these context switches gracefully.
-- **Fallback Strategies** – When Amazon Lex V2 doesn't understand a user's request, you can configure sophisticated fallback behaviors including clarifying questions, suggestion prompts, or escalation to human agents. This ensures users always have a path forward in the conversation.
-- **Conversation Flow Management** – Use conditional branching and conversation flow controls to create complex dialog patterns without writing code. You can route conversations based on user responses, slot values, or external data.
++ **Assisted NLU** – Uses Large Language Models (LLMs) to improve intent classification and slot resolution. This feature helps your bot understand user requests more accurately, even when they use different phrasing than your training examples. Assisted NLU works within your configured intents and slots, providing better understanding without requiring extensive training data.
++ **Multi-turn Conversations** – Amazon Lex V2 can maintain context across multiple conversation turns, allowing for natural back-and-forth interactions. Users can provide information gradually, change their mind, or ask clarifying questions without losing the conversation context.
++ **Context Switching** – Advanced bots can handle topic changes within a conversation. For example, a user might start asking about account information, then switch to placing an order, and return to the original topic. Amazon Lex V2 can manage these context switches gracefully.
++ **Fallback Strategies** – When Amazon Lex V2 doesn't understand a user's request, you can configure sophisticated fallback behaviors including clarifying questions, suggestion prompts, or escalation to human agents. This ensures users always have a path forward in the conversation.
++ **Conversation Flow Management** – Use conditional branching and conversation flow controls to create complex dialog patterns without writing code. You can route conversations based on user responses, slot values, or external data.
 
 ## Regional Availability
+<a name="regional-availability"></a>
 
-For a list of the AWS Regions where Amazon Lex V2 is available, see [Amazon Lex V2
-endpoints and quotas](../../../general/latest/gr/lex.md "../../../general/latest/gr/lex.md") in the _Amazon Web Services
-General Reference_.
+For a list of the AWS Regions where Amazon Lex V2 is available, see [Amazon Lex V2 endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/lex.html) in the *Amazon Web Services General Reference*.

@@ -1,13 +1,11 @@
-# AMAZON.RepeatIntent
 
-Responds to words and phrases that enable the user to repeat
-the previous message. Your application needs to use a Lambda
-function to save the previous intent information in session
-variables, or you need to use the [GetSession](../APIReference/API_runtime_GetSession.md "../APIReference/API_runtime_GetSession.md") operation to get
-the previous intent information.
+
+# AMAZON.RepeatIntent
+<a name="built-in-intent-repeat"></a>
+
+Responds to words and phrases that enable the user to repeat the previous message. Your application needs to use a Lambda function to save the previous intent information in session variables, or you need to use the [GetSession](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_GetSession.html) operation to get the previous intent information.
 
 Common utterances:
-
-- repeat
-- say that again
-- repeat that
++ repeat
++ say that again
++ repeat that

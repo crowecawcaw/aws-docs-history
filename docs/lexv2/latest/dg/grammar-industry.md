@@ -1,24 +1,19 @@
+
+
 # Industry grammars
+<a name="grammar-industry"></a>
 
-_Industry grammars_ are a set of XML files to
-use with the [grammar slot
-type](building-srgs.md "building-srgs.md"). You can use these to quickly deliver a consistent
-end-user experience as you migrate interactive voice response work
-flows to Amazon Lex V2. You can select from a range of pre-built grammars
-across three domains: financial services, insurance, and telecom.
-There is also a generic set of grammars that you can use as a
-starting point for your own grammars.
+*Industry grammars* are a set of XML files to use with the [grammar slot type](https://docs.aws.amazon.com/lexv2/latest/dg/building-srgs.html). You can use these to quickly deliver a consistent end-user experience as you migrate interactive voice response work flows to Amazon Lex V2. You can select from a range of pre-built grammars across three domains: financial services, insurance, and telecom. There is also a generic set of grammars that you can use as a starting point for your own grammars. 
 
-The grammars contain the rules to collect the information and the
-[ECMAScript
-tags](grammar-ecmascript-spec.md "grammar-ecmascript-spec.md") for semantic interpretation.
+ The grammars contain the rules to collect the information and the [ECMAScript tags](https://docs.aws.amazon.com/lexv2/latest/dg/grammar-ecmascript-spec.html) for semantic interpretation.
 
-## Grammars for financial services ([download](samples/financial-grammars.zip.md "samples/financial-grammars.zip.md"))
+## Grammars for financial services ([download](samples/financial-grammars.zip))
+<a name="financial-services-grammars"></a>
 
-The following grammars are supported for financial services:
-account and routing numbers, credit card and loan numbers,
-credit score, account opening and closing dates, and Social
-Security number.
+The following grammars are supported for financial services: account and routing numbers, credit card and loan numbers, credit score, account opening and closing dates, and Social Security number.
+
+### Account number
+<a name="financial-account"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -141,8 +136,10 @@ Security number.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Routing number
+<a name="financial-routing"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -220,8 +217,10 @@ Security number.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Credit card number
+<a name="financial-ccn"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -298,8 +297,10 @@ Security number.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Loan ID
+<a name="financial-loan"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -413,8 +414,10 @@ Security number.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Credit score
+<a name="financial-score"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -535,8 +538,10 @@ Security number.
         </rule>
 
 </grammar>
-
 ```
+
+### Account opening date
+<a name="financial-opening"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -669,8 +674,10 @@ Security number.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Automatic pay date
+<a name="financial-autopay"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -817,8 +824,10 @@ Security number.
             <item repeat="0-1"><ruleref uri="#currency"/></item>
         </rule>
 </grammar>
-
 ```
+
+### Credit card expiration date
+<a name="financial-ccnex"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -986,8 +995,10 @@ Security number.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Statement date
+<a name="financial-statement"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1123,8 +1134,10 @@ Security number.
              <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
          </rule>
  </grammar>
-
 ```
+
+### Transaction date
+<a name="financial-transaction"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1274,8 +1287,10 @@ Security number.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Transfer amount
+<a name="financial-transfer"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1421,8 +1436,10 @@ Security number.
             <item repeat="0-1"><ruleref uri="#currency"/></item>
         </rule>
 </grammar>
-
 ```
+
+### Social Security number
+<a name="generic-ssn"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1469,15 +1486,15 @@ Security number.
              </item>
          </rule>
 </grammar>
-
 ```
 
-## Grammars for insurance ([download](samples/insurance-grammars.zip.md "samples/insurance-grammars.zip.md"))
+## Grammars for insurance ([download](samples/insurance-grammars.zip))
+<a name="insurance-grammers"></a>
 
-The following grammars are supported for insurance domain:
-claim and policy numbers, driver's license and license plate
-numbers, expiration dates, start dates and renewal dates, claim
-and policy amounts.
+The following grammars are supported for insurance domain: claim and policy numbers, driver's license and license plate numbers, expiration dates, start dates and renewal dates, claim and policy amounts.
+
+### Claim ID
+<a name="insurance-claim-id"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1555,8 +1572,10 @@ and policy amounts.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Policy ID
+<a name="insurance-policy-id"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1687,8 +1706,10 @@ and policy amounts.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Driver's license number
+<a name="insurance-dl"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1766,8 +1787,10 @@ and policy amounts.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### License plate number
+<a name="insurance-license-plate"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1794,7 +1817,7 @@ and policy amounts.
                 Output: ABC1234
 
             Scenario 3:
-                Input: my plates say A F G K 9 8 7 6 Thanks
+                Input: my plates say A F G K 9 8 7 6 Thanks 
                 Output: AFGK9876
         -->
 
@@ -1803,7 +1826,7 @@ and policy amounts.
             <item><ruleref uri="#alphabets"/><tag>out.licenseNum += rules.alphabets.letters;</tag></item>
             <item repeat="0-1"><ruleref uri="#thanks"/></item>
         </rule>
-
+	
         <rule id="text">
             <item repeat="0-1"><ruleref uri="#hesitation"/></item>
             <one-of>
@@ -1884,8 +1907,10 @@ and policy amounts.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Credit card expiration date
+<a name="insurance-cce"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2060,8 +2085,10 @@ and policy amounts.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Policy expiration date, day/month/year
+<a name="insurance-policy-DMY"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2197,8 +2224,10 @@ and policy amounts.
              <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
          </rule>
  </grammar>
-
 ```
+
+### Policy renewal date, month/year
+<a name="insurance-renewal"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2247,7 +2276,7 @@ and policy amounts.
                 <item repeat="0-1">I renewed my policy on</item>
             </one-of>
         </rule>
-
+        
         <rule id="hesitation">
             <one-of>
                <item>Hmm</item>
@@ -2334,8 +2363,10 @@ and policy amounts.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Policy start date
+<a name="insurance-start"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2487,8 +2518,10 @@ and policy amounts.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Claim amount
+<a name="insurance-claim-amount"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2643,8 +2676,10 @@ and policy amounts.
             <item repeat="0-1"><ruleref uri="#currency"/></item>
         </rule>
 </grammar>
-
 ```
+
+### Premium amount
+<a name="insurance-premium"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2800,8 +2835,10 @@ and policy amounts.
             <item repeat="0-1"><ruleref uri="#currency"/></item>
         </rule>
 </grammar>
-
 ```
+
+### Policy quantity
+<a name="insurance-policy-quantity"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2928,15 +2965,15 @@ and policy amounts.
         </rule>
 
 </grammar>
-
 ```
 
-## Grammars for telecom ([download](samples/telecom-grammars.zip.md "samples/telecom-grammars.zip.md"))
+## Grammars for telecom ([download](samples/telecom-grammars.zip))
+<a name="telecom-grammers"></a>
 
-The following grammars are supported for telecom: Phone
-number, serial number, SIM number, US Zip code, credit card
-expiration date, plan start, renewal and expiration dates,
-service start date, equipment quantity and bill amount.
+The following grammars are supported for telecom: Phone number, serial number, SIM number, US Zip code, credit card expiration date, plan start, renewal and expiration dates, service start date, equipment quantity and bill amount.
+
+### Phone number
+<a name="telecom-phone"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3017,8 +3054,10 @@ service start date, equipment quantity and bill amount.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Serial number
+<a name="telecom-serial"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3097,8 +3136,10 @@ service start date, equipment quantity and bill amount.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### SIM number
+<a name="telecom-sim"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3214,8 +3255,10 @@ service start date, equipment quantity and bill amount.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### US Zip code
+<a name="telecom-zip"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3294,8 +3337,10 @@ service start date, equipment quantity and bill amount.
             </item>
         </rule>
 </grammar>
-
 ```
+
+### Credit card expiration date
+<a name="telecom-credit"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3462,8 +3507,10 @@ service start date, equipment quantity and bill amount.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Plan expiration date, day/month/year
+<a name="telecom-ex"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3601,8 +3648,10 @@ service start date, equipment quantity and bill amount.
              <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
          </rule>
  </grammar>
-
 ```
+
+### Plan renewal date, month/year
+<a name="telecom-renew"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3737,8 +3786,10 @@ service start date, equipment quantity and bill amount.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Plan start date, month/day
+<a name="telecom-start"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3786,7 +3837,7 @@ service start date, equipment quantity and bill amount.
                 <item repeat="0-1">I paid bill for</item>
              </one-of>
           </rule>
-
+ 
           <rule id="hesitation">
              <one-of>
                 <item>Hmm</item>
@@ -3891,8 +3942,10 @@ service start date, equipment quantity and bill amount.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Service start date, month/day
+<a name="telecom-service"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4049,8 +4102,10 @@ service start date, equipment quantity and bill amount.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Equipment quantity
+<a name="telecom-equipment"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4188,8 +4243,10 @@ service start date, equipment quantity and bill amount.
         </rule>
 
 </grammar>
-
 ```
+
+### Bill amount
+<a name="telecom-bill"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4340,14 +4397,15 @@ service start date, equipment quantity and bill amount.
             <item repeat="0-1"><ruleref uri="#currency"/></item>
         </rule>
 </grammar>
-
 ```
 
-## Generic grammars ([download](samples/generic-grammars.zip.md "samples/generic-grammars.zip.md"))
+## Generic grammars ([download](samples/generic-grammars.zip))
+<a name="generic-grammars"></a>
 
-We provide the following generic grammars: alphanumeric,
-currency, date (mm/dd/yy), numbers, greeting, hesitation, and
-agent.
+We provide the following generic grammars: alphanumeric, currency, date (mm/dd/yy), numbers, greeting, hesitation, and agent.
+
+### Alphanumeric
+<a name="generic-alpha"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4365,16 +4423,16 @@ agent.
 
             Scenario 1:
                 Input: A B C 1 2 3 4
-                Output: ABC1234
+                Output: ABC1234 
 
             Scenario 2:
-                Input: 1 2 3 4 A B C
+                Input: 1 2 3 4 A B C 
                 Output: 1234ABC
 
             Scenario 3:
                 Input: 1 2 3 4 A B C 1
                 Output: 123ABC1
-        -->
+        --> 
 
         <rule id="main" scope="public">
             <tag>out=""</tag>
@@ -4388,13 +4446,13 @@ agent.
             <item><ruleref uri="#alphabets"/><tag>out.alphanum += rules.alphabets.letters;</tag></item>
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out.alphanum += rules.digits.numbers</tag></item>
         </rule>
-
-        <rule id="alphabets">
+        
+        <rule id="alphabets">   
             <tag>out.letters=""</tag>
             <tag>out.firstOccurence=""</tag>
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out.firstOccurence += rules.digits.numbers; out.letters += out.firstOccurence;</tag></item>
             <item repeat="1-">
-                <one-of>
+                <one-of> 
                     <item>A<tag>out.letters+='A';</tag></item>
                     <item>B<tag>out.letters+='B';</tag></item>
                     <item>C<tag>out.letters+='C';</tag></item>
@@ -4423,12 +4481,12 @@ agent.
                     <item>Z<tag>out.letters+='Z';</tag></item>
                 </one-of>
             </item>
-        </rule>
+        </rule> 
 
-        <rule id="digits">
+        <rule id="digits">   
             <tag>out.numbers=""</tag>
             <item repeat="1-10">
-                <one-of>
+                <one-of> 
                     <item>0<tag>out.numbers+=0;</tag></item>
                     <item>1<tag>out.numbers+=1;</tag></item>
                     <item>2<tag>out.numbers+=2;</tag></item>
@@ -4441,9 +4499,12 @@ agent.
                     <item>9<tag>out.numbers+=9;</tag></item>
                 </one-of>
             </item>
-        </rule>
+        </rule> 
 </grammar>
 ```
+
+### Currency
+<a name="generic-currency"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4459,7 +4520,7 @@ agent.
         <rule id="main" scope="public">
             <tag>out="$"</tag>
             <one-of>
-                <item><ruleref uri="#sub_hundred"/><tag>out += rules.sub_hundred.sh;</tag></item>
+                <item><ruleref uri="#sub_hundred"/><tag>out += rules.sub_hundred.sh;</tag></item> 
                 <item><ruleref uri="#subThousands"/><tag>out += rules.subThousands;</tag></item>
             </one-of>
         </rule>
@@ -4552,8 +4613,10 @@ agent.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits.num;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Date, dd/mm
+<a name="generic-ddmm"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4669,8 +4732,10 @@ agent.
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
         </rule>
 </grammar>
-
 ```
+
+### Date, mm/yy
+<a name="generic-mmyy"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4761,8 +4826,8 @@ agent.
                 <tag>out = (1000 * rules.digits);</tag>
                 thousand
             </item> -->
-            <item>two thousand<tag>out=2000;</tag></item>
-            <item repeat="0-1">and</item>
+            <item>two thousand<tag>out=2000;</tag></item> 
+            <item repeat="0-1">and</item> 
             <item repeat="0-1"><ruleref uri="#digits"/><tag>out += rules.digits;</tag></item>
             <item repeat="0-1"><ruleref uri="#teens"/><tag>out += rules.teens;</tag></item>
             <item repeat="0-1"><ruleref uri="#above_twenty"/><tag>out += rules.above_twenty;</tag></item>
@@ -4783,8 +4848,10 @@ agent.
         </rule>
 
 </grammar>
-
 ```
+
+### Date, dd/mm/yyyy
+<a name="generic-ddmmyyyy"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4893,8 +4960,10 @@ agent.
          </rule>
 
  </grammar>
-
 ```
+
+### Numbers, digits
+<a name="generic-digits"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -4907,15 +4976,15 @@ agent.
          mode="voice"
          tag-format="semantics/1.0">
 
-        <rule id="digits">
+        <rule id="digits">  
             <tag>out=""</tag>
             <item><ruleref uri="#singleDigit"/><tag>out += rules.singleDigit.digit;</tag></item>
         </rule>
 
-        <rule id="singleDigit">
+        <rule id="singleDigit"> 
             <tag>out.digit=""</tag>
             <item repeat="1-10">
-                <one-of>
+                <one-of> 
                     <item>0<tag>out.digit+=0;</tag></item>
                     <item>zero<tag>out.digit+=0;</tag></item>
                     <item>1<tag>out.digit+=1;</tag></item>
@@ -4938,9 +5007,12 @@ agent.
                     <item>nine<tag>out.digit+=9;</tag></item>
                 </one-of>
             </item>
-        </rule>
+        </rule> 
 </grammar>
 ```
+
+### Numbers, ordinal
+<a name="generic-ordinal"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -5034,8 +5106,10 @@ agent.
         </rule>
 
 </grammar>
-
 ```
+
+### Agent
+<a name="generic-agent"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -5060,8 +5134,10 @@ agent.
            </one-of>
          </rule>
 </grammar>
-
 ```
+
+### Greeting
+<a name="generic-greeting"></a>
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -5092,6 +5168,9 @@ agent.
 </grammar>
 ```
 
+### Hesitation
+<a name="generic-hesitation"></a>
+
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <grammar xmlns="http://www.w3.org/2001/06/grammar"
@@ -5116,5 +5195,4 @@ agent.
            </one-of>
          </rule>
 </grammar>
-
 ```

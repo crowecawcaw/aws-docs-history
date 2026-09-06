@@ -1,28 +1,17 @@
+
+
 # Language
+<a name="srgs-language"></a>
 
-The following discussion applies to language identifiers
-applied to grammars. For more information, see [Language](https://www.w3.org/TR/speech-grammar/#S2.7 "https://www.w3.org/TR/speech-grammar/#S2.7") in the _Speech recognition
-grammar specification version 1_ W3C
-recommendation.
+The following discussion applies to language identifiers applied to grammars. For more information, see [Language](https://www.w3.org/TR/speech-grammar/#S2.7) in the *Speech recognition grammar specification version 1* W3C recommendation. 
 
-By default a grammar is a single language document with a
-[language identifier](https://www.w3.org/TR/speech-grammar/#term-language "https://www.w3.org/TR/speech-grammar/#term-language") provided in the language
-declaration in the [grammar
-header](https://www.w3.org/TR/speech-grammar/#S4.1 "https://www.w3.org/TR/speech-grammar/#S4.1"). All tokens within that grammar, unless
-otherwise declared, **will be handled
-according to the grammar's language**.
-Grammar-level language declarations **are
-not supported**.
+By default a grammar is a single language document with a [language identifier](https://www.w3.org/TR/speech-grammar/#term-language) provided in the language declaration in the [grammar header](https://www.w3.org/TR/speech-grammar/#S4.1). All tokens within that grammar, unless otherwise declared, **will be handled according to the grammar's language**. Grammar-level language declarations **are not supported**.
 
 In the following example:
 
-1. The grammar header declaration for the language
-   "en-US" **is supported** by
-   Amazon Lex V2.
-2. Item-level language attachment (highlighted in
-   `red`) **is not supported**. Amazon Lex V2
-   throws a validation error if a language attachment is
-   different from the header declaration.
+1. The grammar header declaration for the language "en-US" **is supported** by Amazon Lex V2.
+
+1. Item-level language attachment (highlighted in {{red}}) **is not supported**. Amazon Lex V2 throws a validation error if a language attachment is different from the header declaration.
 
 ```
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -45,17 +34,16 @@ In the following example:
   <rule id="yes">
     <one-of>
       <item>yes</item>
-      <item xml:lang="`fr-CA`">oui</item>
+      <item xml:lang="{{fr-CA}}">oui</item>
     </one-of>
   </rule>
 
   <!-- Single language attachment to an expansion -->
   <rule id="people1">
-    <one-of xml:lang="`fr-CA`">
+    <one-of xml:lang="{{fr-CA}}">
       <item>Michel Tremblay</item>
       <item>André Roy</item>
     </one-of>
   </rule>
 </grammar>
-
 ```

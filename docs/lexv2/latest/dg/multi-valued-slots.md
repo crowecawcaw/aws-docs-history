@@ -1,34 +1,24 @@
+
+
 # Using multiple values in a slot
+<a name="multi-valued-slots"></a>
 
-###### Note
+**Note**  
+Multiple value slots are only supported in the English (US) language.
 
-Multiple value slots are only supported in the English (US)
-language.
-
-For some intents, you might want to capture multiple values for
-a single slot. For example, a pizza ordering bot might have an intent with
-the following utterance:
+For some intents, you might want to capture multiple values for a single slot. For example, a pizza ordering bot might have an intent with the following utterance:
 
 ```
 I want a pizza with {toppings}
 ```
 
-The intent expects that the `{toppings}` slot contains
-a list of the toppings that the customer wants on their pizza, for example "pepperoni and pineapple".
+The intent expects that the `{toppings}` slot contains a list of the toppings that the customer wants on their pizza, for example "pepperoni and pineapple".
 
-To configure a slot to capture multiple values, you set the
-`allowMultipleValues` field on the slot to true. You can
-set the field using the console or with the
-[CreateSlot](../APIReference/API_CreateSlot.md "../APIReference/API_CreateSlot.md") or [UpdateSlot](../APIReference/API_UpdateSlot.md "../APIReference/API_UpdateSlot.md") operation.
+To configure a slot to capture multiple values, you set the `allowMultipleValues` field on the slot to true. You can set the field using the console or with the [CreateSlot](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateSlot.html) or [UpdateSlot](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_UpdateSlot.html) operation.
 
-You can only mark slots with custom slot types as multi-value
-slots.
+You can only mark slots with custom slot types as multi-value slots.
 
-For a multi-value slot, Amazon Lex V2 returns a list of slot values in the
-response to the [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md")
-or [RecognizeUtterance](../APIReference/API_runtime_RecognizeUtterance.md "../APIReference/API_runtime_RecognizeUtterance.md") operation. The
-following is the slot information returned for the utterance "I want a
-pizza with pepperoni and pineapple" from the OrderPizza bot.
+For a multi-value slot, Amazon Lex V2 returns a list of slot values in the response to the [RecognizeText](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html) or [RecognizeUtterance](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html) operation. The following is the slot information returned for the utterance "I want a pizza with pepperoni and pineapple" from the OrderPizza bot.
 
 ```
     "slots": {
@@ -65,33 +55,20 @@ pizza with pepperoni and pineapple" from the OrderPizza bot.
             ]
         }
     }
-
 ```
 
-Multi-valued slots always return a list of values. When the
-utterance only contains one value, the list of values returned only contains
-one response.
+Multi-valued slots always return a list of values. When the utterance only contains one value, the list of values returned only contains one response. 
 
-Amazon Lex V2 recognizes multiple values separated by spaces, commas (,),
-and the conjunction "and". Multi-value slots work with both text
-and voice input.
+Amazon Lex V2 recognizes multiple values separated by spaces, commas (,), and the conjunction "and". Multi-value slots work with both text and voice input.
 
-You can use multi-valued slots in prompts. For example, you can set
-the confirmation prompt for an intent to
+You can use multi-valued slots in prompts. For example, you can set the confirmation prompt for an intent to
 
 ```
 Would you like me to order your {toppings} pizza?
 ```
 
-When Amazon Lex V2 sends the prompt to the user, it sends "Would you like
-me to order your pepperoni and pineapple pizza?"
+When Amazon Lex V2 sends the prompt to the user, it sends "Would you like me to order your pepperoni and pineapple pizza?"
 
-Multi-valued slots support single default values. If multiple default values are
-provided, Amazon Lex V2 populates the slot with only the first available value.
-For more information, see
-[Using default slot values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md").
+Multi-valued slots support single default values. If multiple default values are provided, Amazon Lex V2 populates the slot with only the first available value. For more information, see [Using default slot values in intents for your Lex V2 bot](context-mgmt-default.md).
 
-You can use slot obfuscation to mask the values of
-a multi-value slot in conversation logs. When you obfuscate slot values, the value
-of each of the slot values is replaced with the name of the slot. For
-more information, see [Obscuring slot values in conversation logs from Lex V2](monitoring-obfuscate.md "monitoring-obfuscate.md").
+You can use slot obfuscation to mask the values of a multi-value slot in conversation logs. When you obfuscate slot values, the value of each of the slot values is replaced with the name of the slot. For more information, see [Obscuring slot values in conversation logs from Lex V2](monitoring-obfuscate.md).

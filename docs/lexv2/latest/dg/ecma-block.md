@@ -1,4 +1,7 @@
+
+
 # Block statement
+<a name="ecma-block"></a>
 
 You can add statement blocks to perform functions in Amazon Lex V2. This example shows the syntax that can be used in SRGS expressions.
 
@@ -14,9 +17,6 @@ You can add statement blocks to perform functions in Amazon Lex V2. This example
      console.log("greater than 10");
    }
 }
-
 ```
 
-**Note:** In the preceding
-example, `statements` provided in the block must be
-one of the supported ones from this document.
+**Note:** In the preceding example, `statements` provided in the block must be one of the supported ones from this document.

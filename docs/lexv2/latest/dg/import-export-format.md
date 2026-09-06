@@ -1,116 +1,102 @@
+
+
 # JSON format for importing and exporting bots in Lex V2
+<a name="import-export-format"></a>
 
-You import and export bots, bot locales, or custom vocabularies
-from Amazon Lex V2 using a .zip file that contains JSON structures that
-describe the parts of the resource. When you export a resource,
-Amazon Lex V2 creates the .zip file and makes it available to you using an
-Amazon S3 pre-signed URL. When you import a resource, you must create a
-.zip file that contains the JSON structures and upload it to an S3
-pre-signed URL.
+You import and export bots, bot locales, or custom vocabularies from Amazon Lex V2 using a .zip file that contains JSON structures that describe the parts of the resource. When you export a resource, Amazon Lex V2 creates the .zip file and makes it available to you using an Amazon S3 pre-signed URL. When you import a resource, you must create a .zip file that contains the JSON structures and upload it to an S3 pre-signed URL. 
 
-Amazon Lex creates the following directory structure in the .zip file
-when you export a bot. When you export a bot locale, only the
-structure under the locale is exported. When you export a custom
-vocabulary, only the structure under the custom vocabulary is
-exported.
+Amazon Lex creates the following directory structure in the .zip file when you export a bot. When you export a bot locale, only the structure under the locale is exported. When you export a custom vocabulary, only the structure under the custom vocabulary is exported.
 
 ```
-`BotName`_`BotVersion`_`ExportID`_LexJson.zip
+{{BotName}}_{{BotVersion}}_{{ExportID}}_LexJson.zip
             -or-
-`BotName`_`BotVersion`_`LocaleId`_`ExportId`_LEX_JSON.zip
+{{BotName}}_{{BotVersion}}_{{LocaleId}}_{{ExportId}}_LEX_JSON.zip
         --> manifest.json
-        --> `BotName`
+        --> {{BotName}}
         ----> Bot.json
         ----> BotLocales
-        ------> `Locale_A`
+        ------> {{Locale_A}}
         --------> BotLocale.json
         --------> Intents
-        ----------> `Intent_A`
+        ----------> {{Intent_A}}
         ------------> Intent.json
         ------------> Slots
-        --------------> `Slot_A`
+        --------------> {{Slot_A}}
         ----------------> Slot.json
-        --------------> `Slot_B`
+        --------------> {{Slot_B}}
         ----------------> Slot.json
-        ----------> `Intent_B`
+        ----------> {{Intent_B}}
                        ...
         --------> SlotTypes
-        ----------> `SlotType_A`
+        ----------> {{SlotType_A}}
         ------------> SlotType.json
-        ----------> `SlotType_B`
+        ----------> {{SlotType_B}}
                         ...
         --------> CustomVocabulary
         ------------> CustomVocabulary.json
 
-        ------> `Locale_B`
+        ------> {{Locale_B}}
                         ...
-
 ```
 
 ## Manifest file structure
+<a name="json-manifest"></a>
 
-The manifest file contains metadata for the export
-file.
+The manifest file contains metadata for the export file.
 
 ```
 {
     "metadata": {
         "schemaVersion": "1.0",
         "fileFormat": "LexJson",
-        "resourceType": "`Bot` | `BotLocale` | `CustomVocabulary`"
+        "resourceType": "{{Bot}} | {{BotLocale}} | {{CustomVocabulary}}"
     }
 }
 ```
 
 ## Bot file structure
+<a name="json-bot"></a>
 
-The bot file contains the configuration information for the
-bot.
+The bot file contains the configuration information for the bot.
 
 ```
 {
-    "name": "`BotName`",
-    "identifier": "`identifier`",
-    "version": "`number`",
-    "description": "`description`",
+    "name": "{{BotName}}",
+    "identifier": "{{identifier}}",
+    "version": "{{number}}",
+    "description": "{{description}}",
     "dataPrivacy": {
-        "childDirected": `true` | `false`
+        "childDirected": {{true}} | {{false}}
     },
-    "idleSessionTTLInSeconds": `seconds`
+    "idleSessionTTLInSeconds": {{seconds}}
 }
 ```
 
 ## Bot locale file structure
+<a name="json-bot-locale"></a>
 
-The bot locale file contains a description of the locale or
-language of a bot. When you export a bot, there can be more than
-one bot locale file in the .zip file. When you export a bot
-locale, there is only one locale in the zip file.
+The bot locale file contains a description of the locale or language of a bot. When you export a bot, there can be more than one bot locale file in the .zip file. When you export a bot locale, there is only one locale in the zip file.
 
 ```
 {
-    "name": "`locale name`",
-    "identifier": "`locale ID`",
-    "version": "`number`",
-    "description": "`description`",
+    "name": "{{locale name}}",
+    "identifier": "{{locale ID}}",
+    "version": "{{number}}",
+    "description": "{{description}}",
     "voiceSettings": {
-        "voiceId": "`voice`",
-        "engine": "`standard | neural`
+        "voiceId": "{{voice}}",
+        "engine": "{{standard | neural}}
     },
-    "nluConfidenceThreshold": `number`
+    "nluConfidenceThreshold": {{number}}
 }
 ```
 
 ## Intent file structure
+<a name="json-intent"></a>
 
-The intent file contains the configuration information for an
-intent. There is one intent file in the .zip file for each
-intent in a specific locale.
+The intent file contains the configuration information for an intent. There is one intent file in the .zip file for each intent in a specific locale.
 
-The following is an example of a JSON structure for the
-BookCar intent in the sample BookTrip bot. For a complete
-example of the JSON structure for an intent, see the
-[CreateIntent](../APIReference/API_CreateIntent.md "../APIReference/API_CreateIntent.md") operation.
+The following is an example of a JSON structure for the BookCar intent in the sample BookTrip bot. For a complete example of the JSON structure for an intent, see the [CreateIntent](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html) operation.
 
 ```
 {
@@ -194,16 +180,11 @@ example of the JSON structure for an intent, see the
 ```
 
 ## Slot file structure
+<a name="json-slot"></a>
 
-The slot file contains the configuration information for a
-slot in an intent. There is one slot file in the .zip file for
-each slot defined for an intent in a specific locale.
+The slot file contains the configuration information for a slot in an intent. There is one slot file in the .zip file for each slot defined for an intent in a specific locale.
 
-The following example is the JSON structure of a slot that
-enables the customer to choose the type of car they wish to rent
-in the BookCar intent in the BookTrip example bot. For a
-complete example of the JSON structure for an slot, see the
-[CreateSlot](../APIReference/API_CreateSlot.md "../APIReference/API_CreateSlot.md") operation.
+The following example is the JSON structure of a slot that enables the customer to choose the type of car they wish to rent in the BookCar intent in the BookTrip example bot. For a complete example of the JSON structure for an slot, see the [CreateSlot](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateSlot.html) operation.
 
 ```
 {
@@ -346,16 +327,11 @@ The following example shows the JSON structure of a composite slot.
 ```
 
 ## Slot type file structure
+<a name="json-slot-type"></a>
 
-The slot type file contains the configuration information for
-a custom slot type used in a language or locale. There is one
-slot type file in the .zip file for each custom slot type in a
-specific locale.
+The slot type file contains the configuration information for a custom slot type used in a language or locale. There is one slot type file in the .zip file for each custom slot type in a specific locale.
 
-The following is the JSON structure for the slot type that
-lists the types of cars available in the BookTrip example bot.
-For a complete example of the JSON structure for a slot type,
-see the [CreateSlotType](../APIReference/API_CreateSlotType.md "../APIReference/API_CreateSlotType.md") operation.
+The following is the JSON structure for the slot type that lists the types of cars available in the BookTrip example bot. For a complete example of the JSON structure for a slot type, see the [CreateSlotType](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateSlotType.html) operation.
 
 ```
 {
@@ -440,9 +416,7 @@ The following example shows the JSON structure for a composite slot type.
 }
 ```
 
-The following is a slot type that uses a custom grammar to
-understand the customer's utterances. For more information,
-see [Grammar slot type](building-srgs.md "building-srgs.md").
+The following is a slot type that uses a custom grammar to understand the customer's utterances. For more information, see [Grammar slot type](building-srgs.md).
 
 ```
 {
@@ -455,7 +429,7 @@ see [Grammar slot type](building-srgs.md "building-srgs.md").
   "externalSourceSetting": {
     "grammarSlotTypeSetting": {
       "source": {
-        "kmsKeyArn": "arn:aws:kms:`Region`:`123456789012`:alias/customer-grxml-key",
+        "kmsKeyArn": "arn:aws:kms:{{Region}}:{{123456789012}}:alias/customer-grxml-key",
         "s3BucketName": "grxml-test",
         "s3ObjectKey": "grxml_files/grammar.grxml"
       }
@@ -465,15 +439,11 @@ see [Grammar slot type](building-srgs.md "building-srgs.md").
 ```
 
 ## Custom vocabulary file structure
+<a name="json-custom-vocab"></a>
 
-The custom vocabulary file contains the entries in a custom
-vocabulary for single language or locale. There is one custom
-vocabulary file in the .zip file for each locale that has a
-custom vocabulary.
+The custom vocabulary file contains the entries in a custom vocabulary for single language or locale. There is one custom vocabulary file in the .zip file for each locale that has a custom vocabulary.
 
-The following is a custom vocabulary file for a bot that takes
-restaurant orders. There is one file per locale in the
-bot.
+The following is a custom vocabulary file for a bot that takes restaurant orders. There is one file per locale in the bot.
 
 ```
 {

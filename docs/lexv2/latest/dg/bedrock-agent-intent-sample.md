@@ -1,4 +1,7 @@
+
+
 # Sample request with session attributes
+<a name="bedrock-agent-intent-sample"></a>
 
 The following example shows how to invoke the AMAZON.BedrockAgentIntent and demonstrates the session and request attributes that are populated in the response. These attributes contain the Bedrock Agent's response data and can be used to access the agent's output, Amazon Bedrock Knowledge Base sources, and action group invocation details.
 

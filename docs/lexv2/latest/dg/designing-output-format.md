@@ -1,11 +1,9 @@
-# Output transcript format
 
-The output transcript format is nearly the same as the input
-transcript format. However it also includes some customer metadata
-and a field listing segments that influenced the suggestion of
-intents and slot types. You can download the output transcript from
-the **Review** page in the console or using the
-Amazon Lex V2 API. For more information, see [Input transcript format](designing-input-format.md "designing-input-format.md").
+
+# Output transcript format
+<a name="designing-output-format"></a>
+
+The output transcript format is nearly the same as the input transcript format. However it also includes some customer metadata and a field listing segments that influenced the suggestion of intents and slot types. You can download the output transcript from the **Review** page in the console or using the Amazon Lex V2 API. For more information, see [Input transcript format](designing-input-format.md).
 
 ```
 {
@@ -17,7 +15,7 @@ Amazon Lex V2 API. For more information, see [Input transcript format](designing
     ],
     "Version": "1.1.0",
     "ContentMetadata": {
-
+ 
         "RedactionTypes": [
             "PII"
         ],
@@ -61,7 +59,7 @@ Amazon Lex V2 API. For more information, see [Input transcript format](designing
     ],
     "Transcript": [
         {
-
+ 
             "ParticipantId": "string",
             "Id": "string",
             "Content": "string"
@@ -69,14 +67,5 @@ Amazon Lex V2 API. For more information, see [Input transcript format](designing
     ]
 }
 ```
-
-- **CustomerMetadata** –
-  There are two fields added to the
-  `CustomerMetadata` field, the name of the
-  input file that contains the conversation and the input
-  format, which is always "Lex".
-- **InfluencingSegments**
-  – Identifies the segments of the conversation that
-  influenced the suggestion of an intent or slot type. The ID
-  of the intent or slot type identifies the specific one
-  influenced by the conversation.
++ **CustomerMetadata** – There are two fields added to the `CustomerMetadata` field, the name of the input file that contains the conversation and the input format, which is always "Lex".
++ **InfluencingSegments** – Identifies the segments of the conversation that influenced the suggestion of an intent or slot type. The ID of the intent or slot type identifies the specific one influenced by the conversation.

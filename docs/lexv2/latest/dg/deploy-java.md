@@ -1,14 +1,11 @@
+
+
 # Using a Java application to interact with an Amazon Lex V2 bot
+<a name="deploy-java"></a>
 
-The [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2 "https://github.com/aws/aws-sdk-java-v2") provides an interface that you can use from your Java
-applications to interact with your bots. Use the SDK for Java to build client
-applications for users.
+The [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2) provides an interface that you can use from your Java applications to interact with your bots. Use the SDK for Java to build client applications for users. 
 
-The following application interacts with the OrderFlowers bot that you
-created in [Exercise 1: Create a chatbot from a template](exercise-1.md "exercise-1.md"). It
-uses the `LexRuntimeV2Client` from the SDK for Java SDK to call
-the [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") operation to conduct a
-conversation with the bot.
+The following application interacts with the OrderFlowers bot that you created in [Exercise 1: Create a chatbot from a template](exercise-1.md). It uses the `LexRuntimeV2Client` from the SDK for Java SDK to call the [RecognizeText](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html) operation to conduct a conversation with the bot. 
 
 The output from the conversation looks like this:
 
@@ -23,39 +20,21 @@ User : 5 in the evening
 Bot  : Okay, your dozen roses will be ready for pickup by 17:00 on 2021-01-04.  Does this sound okay?
 User : Yes
 Bot  : Thanks.
-
 ```
 
-For the JSON structures that are sent between the client application
-and the Amazon Lex V2 bot, see [Exercise 2: Review the conversation flow](exercise-2.md "exercise-2.md").
+For the JSON structures that are sent between the client application and the Amazon Lex V2 bot, see [Exercise 2: Review the conversation flow](exercise-2.md).
 
-To run the application, you must provide the following
-information:
+To run the application, you must provide the following information:
++ botId – The identifier assigned to the bot when you created it. You can see the bot ID in the Amazon Lex V2 console on the bot **Settings** page.
++ botAliasId – The identifier assigned to the bot alias when you created it. You can see the bot alias ID in the Amazon Lex V2 console on the **Aliases** page. If you can't see the alias ID in the list, choose the gear icon on the upper right and turn on **Alias ID**.
++ localeId – The identifier of the locale that you used for your bot. For a list of locales, see [Languages and locales supported by Amazon Lex V2](how-languages.md).
++ accessKey and secretKey – The authentication keys for your account. If you don't have a set of keys, create them using the AWS Identity and Access Management console.
++ sessionId – An identifier for the session with the Amazon Lex V2 bot. In this case, the code uses a random UUID.
++ region – If your bot is not in the US East (N. Virginia) Region, make sure that you change the Region.
 
-- botId – The identifier assigned to the bot when you
-  created it. You can see the bot ID in the Amazon Lex V2 console on the
-  bot **Settings** page.
-- botAliasId – The identifier assigned to the bot alias
-  when you created it. You can see the bot alias ID in the Amazon Lex V2
-  console on the **Aliases** page. If you can't
-  see the alias ID in the list, choose the gear icon on the upper
-  right and turn on **Alias ID**.
-- localeId – The identifier of the locale that you used
-  for your bot. For a list of locales, see [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
-- accessKey and secretKey – The authentication keys for
-  your account. If you don't have a set of keys, create them using
-  the AWS Identity and Access Management console.
-- sessionId – An identifier for the session with the
-  Amazon Lex V2 bot. In this case, the code uses a random UUID.
-- region – If your bot is not in the US East (N. Virginia) Region, make
-  sure that you change the Region.
-  The applications uses a function called
-  `getRecognizeTextRequest` to create individual requests
-  to the bot. The function builds a request with the required parameters
-  to send to Amazon Lex V2.
+The applications uses a function called `getRecognizeTextRequest` to create individual requests to the bot. The function builds a request with the required parameters to send to Amazon Lex V2.
 
 ```
-
 package com.lex.recognizetext.sample;
 
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
@@ -155,6 +134,4 @@ public class OrderFlowersSampleApplication {
         return recognizeTextRequest;
     }
 }
-
-
 ```

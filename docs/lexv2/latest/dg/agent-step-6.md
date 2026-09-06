@@ -1,27 +1,28 @@
+
+
 # Step 6: Use the Bot
+<a name="agent-step-6"></a>
 
-For demo purposes, you provide input to the bot as the customer and as the agent. To
-differentiate between the two, questions asked by the customer begin with “Customer:”
-and answers provided by the agent begin with “Agent:”. You can choose from a menu of
-suggested inputs.
+For demo purposes, you provide input to the bot as the customer and as the agent. To differentiate between the two, questions asked by the customer begin with “Customer:” and answers provided by the agent begin with “Agent:”. You can choose from a menu of suggested inputs. 
 
-Run your web application by opening `index.html` to engage in a
-conversation with your bot like this:.
+Run your web application by opening `index.html` to engage in a conversation with your bot like this:.
 
-![An example conversation between a call center bot and the Agent Assistant.](images/agent-tutorial-ss.png)
+![An example conversation between a call center bot and the Agent Assistant.](http://docs.aws.amazon.com/lexv2/latest/dg/images/agent-tutorial-ss.png)
+
+
 The `pushChat()` function in the index.html file is explained below.
 
 ```
-
-            var endConversationStatement = "Customer: I have no more questions. Thank you."
+            
+            var endConversationStatement = "Customer: I have no more questions. Thank you." 
             // If the agent has to send a message, start the message with 'Agent'
             var inputText = document.getElementById('input');
-            if (inputText && inputText.value && inputText.value.trim().length > 0 && inputText.value[0]=='Agent') {
+            if (inputText && inputText.value && inputText.value.trim().length > 0 && inputText.value[0]=='Agent') {               
                 showMessage(inputText.value, 'agentRequest','conversation');
                 inputText.value = "";
             }
             // If the customer has to send a message, start the message with 'Customer'
-            if(inputText && inputText.value && inputText.value.trim().length > 0 && inputText.value[0]=='Customer') {
+            if(inputText && inputText.value && inputText.value.trim().length > 0 && inputText.value[0]=='Customer') {  
                 // disable input to show we're sending it
                 var input = inputText.value.trim();
                 inputText.value = '...';
@@ -50,7 +51,7 @@ The `pushChat()` function in the index.html file is explained below.
                     if (data &&input!=endConversationStatement) {
                         // capture the sessionAttributes for the next cycle
                         sessionAttributes = data.sessionAttributes;
-
+                        
                             showMessage(data, 'lexResponse', 'conversation1');
                     }
                     // re-enable input
@@ -62,12 +63,8 @@ The `pushChat()` function in the index.html file is explained below.
             return false;
 ```
 
-When you provide input as a customer, the Amazon Lex V2 runtime API sends it to Amazon Lex V2.
+ When you provide input as a customer, the Amazon Lex V2 runtime API sends it to Amazon Lex V2.
 
-The `showMessage(daText, senderRequest, displayWindow)` fuction displays
-the conversation between the agent and the customer in the chat window. Responses
-suggested by Amazon Kendra are shown in an adjacent window. The conversation ends when customer
-says `“I have no more questions. Thank you.”`
+The `showMessage(daText, senderRequest, displayWindow)` fuction displays the conversation between the agent and the customer in the chat window. Responses suggested by Amazon Kendra are shown in an adjacent window. The conversation ends when customer says **“I have no more questions. Thank you.”**
 
-**Note:** Please delete your Amazon Kendra index when not in
-use.
+**Note: **Please delete your Amazon Kendra index when not in use.

@@ -1,3 +1,6 @@
-# API reference
 
-The [API Reference](../APIReference/welcome.md "../APIReference/welcome.md") is now a separate document.
+
+# API reference
+<a name="api_ref"></a>
+
+The [API Reference](https://docs.aws.amazon.com/lexv2/latest/APIReference/welcome.html) is now a separate document.
