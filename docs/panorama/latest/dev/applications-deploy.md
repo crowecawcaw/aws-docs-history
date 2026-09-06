@@ -1,87 +1,75 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Deploy an application
+<a name="applications-deploy"></a>
 
-To deploy an application, you use the AWS Panorama Application CLI import it to your account, build the container, upload and
-register assets, and create an application instance. This topic goes into each of these steps in detail and
-describes what goes on in the background.
+To deploy an application, you use the AWS Panorama Application CLI import it to your account, build the container, upload and register assets, and create an application instance. This topic goes into each of these steps in detail and describes what goes on in the background.
 
-If you have not deployed an application yet, see [Getting started with AWS Panorama](panorama-gettingstarted.md "panorama-gettingstarted.md") for a walkthrough.
+If you have not deployed an application yet, see [Getting started with AWS Panorama](panorama-gettingstarted.md) for a walkthrough.
 
-For more information on customizing and extending the sample application, see [Building AWS Panorama applications](panorama-development.md "panorama-development.md").
+For more information on customizing and extending the sample application, see [Building AWS Panorama applications](panorama-development.md).
 
-###### Sections
-
-- [Install the AWS Panorama Application CLI](#applications-deploy-install "#applications-deploy-install")
-- [Import an application](#applications-deploy-import "#applications-deploy-import")
-- [Build a container image](#applications-deploy-build "#applications-deploy-build")
-- [Import a model](#applications-deploy-model "#applications-deploy-model")
-- [Upload application assets](#applications-deploy-package "#applications-deploy-package")
-- [Deploy an application with the AWS Panorama console](#applications-manage-deploy "#applications-manage-deploy")
-- [Automate application deployment](#applications-deploy-automate "#applications-deploy-automate")
+**Topics**
++ [Install the AWS Panorama Application CLI](#applications-deploy-install)
++ [Import an application](#applications-deploy-import)
++ [Build a container image](#applications-deploy-build)
++ [Import a model](#applications-deploy-model)
++ [Upload application assets](#applications-deploy-package)
++ [Deploy an application with the AWS Panorama console](#applications-manage-deploy)
++ [Automate application deployment](#applications-deploy-automate)
 
 ## Install the AWS Panorama Application CLI
+<a name="applications-deploy-install"></a>
 
 To install the AWS Panorama Application CLI and AWS CLI, use pip.
 
 ```
-$ `pip3 install --upgrade awscli panoramacli`
+$ pip3 install --upgrade awscli panoramacli
 ```
 
-To build application images with the AWS Panorama Application CLI, you need Docker. On Linux, `qemu` and related
-system libraries are required as well. For more information on installing and configuring the AWS Panorama Application CLI, see the
-README file in the project's GitHub repository.
+To build application images with the AWS Panorama Application CLI, you need Docker. On Linux, `qemu` and related system libraries are required as well. For more information on installing and configuring the AWS Panorama Application CLI, see the README file in the project's GitHub repository.
++ [github.com/aws/aws-panorama-cli](https://github.com/aws/aws-panorama-cli)
 
-######
-
-- [github.com/aws/aws-panorama-cli](https://github.com/aws/aws-panorama-cli "https://github.com/aws/aws-panorama-cli")
-
-For instructions on setting up a build environment in Windows with WSL2, see [Setting up a development environment in Windows](applications-devenvwindows.md "applications-devenvwindows.md").
+For instructions on setting up a build environment in Windows with WSL2, see [Setting up a development environment in Windows](applications-devenvwindows.md).
 
 ## Import an application
+<a name="applications-deploy-import"></a>
 
-If you are working with a sample application or an application provided by a third party, use the AWS Panorama Application CLI to
-import the application.
+If you are working with a sample application or an application provided by a third party, use the AWS Panorama Application CLI to import the application. 
 
 ```
-my-app$ `panorama-cli import-application`
+my-app$ panorama-cli import-application
 ```
 
-This command renames application packages with your account ID. Package names start with the account ID of the
-account to which they are deployed. When you deploy an application to multiple accounts, you must import and
-package the application separately for each account.
+This command renames application packages with your account ID. Package names start with the account ID of the account to which they are deployed. When you deploy an application to multiple accounts, you must import and package the application separately for each account.
 
-For example, this guide's sample application a code package and a model package, each named with a placeholder
-account ID. The `import-application` command renames these to use the account ID that the CLI infers
-from your workspace's AWS credentials.
+For example, this guide's sample application a code package and a model package, each named with a placeholder account ID. The `import-application` command renames these to use the account ID that the CLI infers from your workspace's AWS credentials.
 
 ```
 /aws-panorama-sample
 ├── assets
 ├── graphs
 │   └── my-app
-│       └── graph.json
+│       └── [graph.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/graphs/my-app/graph.json)
 └── packages
-    ├── 123456789012-SAMPLE_CODE-1.0
+    ├── [123456789012-SAMPLE\_CODE-1.0](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0)
     │   ├── Dockerfile
     │   ├── application.py
     │   ├── descriptor.json
     │   ├── package.json
     │   ├── requirements.txt
     │   └── squeezenet_classes.json
-    └── 123456789012-SQUEEZENET_PYTORCH-1.0
+    └── [123456789012-SQUEEZENET\_PYTORCH-1.0](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SQUEEZENET_PYTORCH-1.0)
         ├── descriptor.json
         └── package.json
 ```
 
-`123456789012` is replaced with your account ID in the package directory names, and in the
-application manifest (`graph.json`), which refers to them. You can confirm your account ID by calling
-`aws sts get-caller-identity` with the AWS CLI.
+`123456789012` is replaced with your account ID in the package directory names, and in the application manifest (`graph.json`), which refers to them. You can confirm your account ID by calling `aws sts get-caller-identity` with the AWS CLI.
 
 ```
-$ `aws sts get-caller-identity`
+$ aws sts get-caller-identity
 {
     "UserId": "AIDAXMPL7W66UC3GFXMPL",
     "Account": "210987654321",
@@ -90,13 +78,12 @@ $ `aws sts get-caller-identity`
 ```
 
 ## Build a container image
+<a name="applications-deploy-build"></a>
 
-Your application code is packaged in a Docker container image, which includes the application code and
-libraries that you install in your Dockerfile. Use the AWS Panorama Application CLI `build-container` command to build a
-Docker image and export a filesystem image.
+Your application code is packaged in a Docker container image, which includes the application code and libraries that you install in your Dockerfile. Use the AWS Panorama Application CLI `build-container` command to build a Docker image and export a filesystem image.
 
 ```
-my-app$ `panorama-cli build-container --container-asset-name code_asset --package-path packages/`210987654321-SAMPLE_CODE-1.0``
+my-app$ panorama-cli build-container --container-asset-name code_asset --package-path packages/{{210987654321-SAMPLE_CODE-1.0}}
 {
     "name": "code_asset",
     "implementations": [
@@ -110,16 +97,11 @@ my-app$ `panorama-cli build-container --container-asset-name code_asset --packag
 Container asset for the package has been succesfully built at assets/5fa5xmplbc8c16bf8182a5cb97d626767868d3f4d9958a4e49830e1551d227c5.tar.gz
 ```
 
-This command creates a Docker image named `code_asset` and exports a filesystem to a
-`.tar.gz` archive in the `assets` folder. The CLI pulls the application base image from
-Amazon Elastic Container Registry (Amazon ECR), as specified in the application's Dockerfile.
+This command creates a Docker image named `code_asset` and exports a filesystem to a `.tar.gz` archive in the `assets` folder. The CLI pulls the application base image from Amazon Elastic Container Registry (Amazon ECR), as specified in the application's Dockerfile.
 
-In addition to the container archive, the CLI creates an asset for the package descriptor
-(`descriptor.json`). Both files are renamed with a unique identifier that reflects a hash of the
-original file. The AWS Panorama Application CLI also adds a block to the package configuration that records the names of the two
-assets. These names are used by the appliance during the deployment process.
+In addition to the container archive, the CLI creates an asset for the package descriptor (`descriptor.json`). Both files are renamed with a unique identifier that reflects a hash of the original file. The AWS Panorama Application CLI also adds a block to the package configuration that records the names of the two assets. These names are used by the appliance during the deployment process.
 
-###### Example [packages/123456789012-SAMPLE\_CODE-1.0/package.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/package.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/package.json") – with asset block
+**Example [packages/123456789012-SAMPLE\_CODE-1.0/package.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/package.json) – with asset block**  
 
 ```
 {
@@ -129,22 +111,22 @@ assets. These names are used by the appliance during the deployment process.
         "version": "1.0",
         "description": "Computer vision application code.",
         "assets": [
-            `{
- "name": "code_asset",
- "implementations": [
- {
- "type": "container",
- "assetUri": "5fa5xmplbc8c16bf8182a5cb97d626767868d3f4d9958a4e49830e1551d227c5.tar.gz",
- "descriptorUri": "1872xmpl129481ed053c52e66d6af8b030f9eb69b1168a29012f01c7034d7a8f.json"
- }
- ]
- }`
+            {
+                "name": "code_asset",
+                "implementations": [
+                    {
+                        "type": "container",
+                        "assetUri": "5fa5xmplbc8c16bf8182a5cb97d626767868d3f4d9958a4e49830e1551d227c5.tar.gz",
+                        "descriptorUri": "1872xmpl129481ed053c52e66d6af8b030f9eb69b1168a29012f01c7034d7a8f.json"
+                    }
+                ]
+            }
         ],
         "interfaces": [
             {
                 "name": "interface",
                 "category": "business_logic",
-                "asset": "`code_asset`",
+                "asset": "code_asset",
                 "inputs": [
                     {
                         "name": "video_in",
@@ -152,28 +134,23 @@ assets. These names are used by the appliance during the deployment process.
                     },
 ```
 
-The name of the code asset, specified in the `build-container` command, must match the value of the
-`asset` field in the package configuration. In the preceding example, both values are
-`code_asset`.
+The name of the code asset, specified in the `build-container` command, must match the value of the `asset` field in the package configuration. In the preceding example, both values are `code_asset`.
 
 ## Import a model
+<a name="applications-deploy-model"></a>
 
-Your application might have a model archive in its assets folder or that you download separately. If you have
-a new model, an updated model, or updated model descriptor file, use the `add-raw-model` command to
-import it.
+Your application might have a model archive in its assets folder or that you download separately. If you have a new model, an updated model, or updated model descriptor file, use the `add-raw-model` command to import it.
 
 ```
-my-app$ `panorama-cli add-raw-model --model-asset-name model_asset \
- --model-local-path `my-model`.tar.gz \
- --descriptor-path packages/`210987654321-SQUEEZENET_PYTORCH-1.0`/descriptor.json \
- --packages-path packages/`210987654321-SQUEEZENET_PYTORCH-1.0``
+my-app$ panorama-cli add-raw-model --model-asset-name model_asset \
+      --model-local-path {{my-model}}.tar.gz \
+      --descriptor-path packages/{{210987654321-SQUEEZENET_PYTORCH-1.0}}/descriptor.json \
+      --packages-path packages/{{210987654321-SQUEEZENET_PYTORCH-1.0}}
 ```
 
-If you just need to update the descriptor file, you can reuse the existing model in the assets directory. You
-might need to update the descriptor file to configure features such as floating point precision mode. For example,
-the following script shows how to do this with the sample app.
+If you just need to update the descriptor file, you can reuse the existing model in the assets directory. You might need to update the descriptor file to configure features such as floating point precision mode. For example, the following script shows how to do this with the sample app.
 
-###### Example [util-scripts/update-model-config.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/update-model-config.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/update-model-config.sh")
+**Example [util-scripts/update-model-config.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/update-model-config.sh)**  
 
 ```
 #!/bin/bash
@@ -185,17 +162,15 @@ panorama-cli add-raw-model --model-asset-name model_asset --model-local-path ass
 cp packages/${ACCOUNT_ID}-${MODEL_PACKAGE}-1.0/package.json packages/${ACCOUNT_ID}-${MODEL_PACKAGE}-1.0/package.json.bup
 ```
 
-Changes to the descriptor file in the model package directory are not applied until you reimport it with the
-CLI. The CLI updates the model package configuration with the new asset names in-place, similar to how it updates
-the configuration for the application code package when you rebuild a container.
+Changes to the descriptor file in the model package directory are not applied until you reimport it with the CLI. The CLI updates the model package configuration with the new asset names in-place, similar to how it updates the configuration for the application code package when you rebuild a container.
 
 ## Upload application assets
+<a name="applications-deploy-package"></a>
 
-To upload and register the application's assets, which include the model archive, container filesystem
-archive, and their descriptor files, use the `package-application` command.
+To upload and register the application's assets, which include the model archive, container filesystem archive, and their descriptor files, use the `package-application` command.
 
 ```
-my-app$ `panorama-cli package-application`
+my-app$ panorama-cli package-application
 Uploading package SQUEEZENET_PYTORCH
 Patch version for the package 5d3cxmplb7113faa1d130f97f619655d8ca12787c751851a0e155e50eb5e3e96
 Deregistering previous patch version e845xmpl8ea0361eb345c313a8dded30294b3a46b486dc8e7c174ee7aab29362
@@ -215,45 +190,44 @@ Register patch version complete for SAMPLE_CODE with patch version ca91xmplca526
 All packages uploaded and registered successfully
 ```
 
-The CLI uploads the assets for each package to an Amazon S3 access point that is specific to your account. AWS Panorama
-manages the access point for you, and provides information about it through the [DescribePackage](../api/API_DescribePackage.md "../api/API_DescribePackage.md") API. The CLI
-uploads the assets for each package to the location provided for that package, and registers them with the AWS Panorama
-service with the settings described by the package configuration.
+The CLI uploads the assets for each package to an Amazon S3 access point that is specific to your account. AWS Panorama manages the access point for you, and provides information about it through the [DescribePackage](https://docs.aws.amazon.com/panorama/latest/api/API_DescribePackage.html) API. The CLI uploads the assets for each package to the location provided for that package, and registers them with the AWS Panorama service with the settings described by the package configuration.
 
 ## Deploy an application with the AWS Panorama console
+<a name="applications-manage-deploy"></a>
 
-You can deploy an application with the AWS Panorama console. During the deployment process, you choose which camera
-streams to pass to the application code, and configure options provided by the application's developer.
+You can deploy an application with the AWS Panorama console. During the deployment process, you choose which camera streams to pass to the application code, and configure options provided by the application's developer.
 
-###### To deploy an application
+**To deploy an application**
 
-1. Open the AWS Panorama console [Deployed applications page](https://console.aws.amazon.com/panorama/home#deployed-applications "https://console.aws.amazon.com/panorama/home#deployed-applications").
-2. Choose **Deploy application**.
-3. Paste the contents of the application manifest, `graph.json`, into the text editor.
-   Choose **Next**.
-4. Enter a name and descroption.
-5. Choose **Proceed to deploy**.
-6. Choose **Begin deployment**.
-7. If your application [uses a role](permissions-application.md "permissions-application.md"), choose it from the
-   drop-down menu. Choose **Next**.
-8. Choose **Select device**, and then choose your appliance. Choose
-   **Next**.
-9. On the **Select data sources** step, choose **View input(s)**, and add
-   your camera stream as a data source. Choose **Next**.
-10. On the **Configure** step, configure any application-specific settings defined by the
-    developer. Choose **Next**.
-11. Choose **Deploy**, and then choose **Done**.
-12. In the list of deployed applications, choose the application to monitor its status.
+1. Open the AWS Panorama console [Deployed applications page](https://console.aws.amazon.com/panorama/home#deployed-applications).
 
-The deployment process takes 15-20 minutes. The appliance's output can be blank for an extended period while
-the application starts. If you encounter an error, see [Troubleshooting](panorama-troubleshooting.md "panorama-troubleshooting.md").
+1. Choose **Deploy application**.
+
+1. Paste the contents of the application manifest, `graph.json`, into the text editor. Choose **Next**.
+
+1. Enter a name and descroption.
+
+1. Choose **Proceed to deploy**.
+
+1. Choose **Begin deployment**.
+
+1. If your application [uses a role](permissions-application.md), choose it from the drop-down menu. Choose **Next**.
+
+1. Choose **Select device**, and then choose your appliance. Choose **Next**.
+
+1. On the **Select data sources** step, choose **View input(s)**, and add your camera stream as a data source. Choose **Next**.
+
+1. On the **Configure** step, configure any application-specific settings defined by the developer. Choose **Next**.
+
+1. Choose **Deploy**, and then choose **Done**.
+
+1. In the list of deployed applications, choose the application to monitor its status.
+
+The deployment process takes 15-20 minutes. The appliance's output can be blank for an extended period while the application starts. If you encounter an error, see [Troubleshooting](panorama-troubleshooting.md).
 
 ## Automate application deployment
+<a name="applications-deploy-automate"></a>
 
-You can automate the application deployment process with the [CreateApplicationInstance](../api/API_CreateApplicationInstance.md "../api/API_CreateApplicationInstance.md") API. The API
-takes two configuration files as input. The application manifest specifies the packages used and their
-relationships. The second file is an overrides file that specifies deploy-time overrides of values in the
-application manifest. Using an overrides file lets you use the same application manifest to deploy the application
-with different camera streams, and configure other application-specific settings.
+You can automate the application deployment process with the [CreateApplicationInstance](https://docs.aws.amazon.com/panorama/latest/api/API_CreateApplicationInstance.html) API. The API takes two configuration files as input. The application manifest specifies the packages used and their relationships. The second file is an overrides file that specifies deploy-time overrides of values in the application manifest. Using an overrides file lets you use the same application manifest to deploy the application with different camera streams, and configure other application-specific settings.
 
-For more information, and example scripts for each of the steps in this topic, see [Automate application deployment](api-deploy.md "api-deploy.md").
+For more information, and example scripts for each of the steps in this topic, see [Automate application deployment](api-deploy.md).

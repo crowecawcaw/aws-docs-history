@@ -1,17 +1,19 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Manage applications with the AWS Panorama API
+<a name="api-applications"></a>
 
 You can monitor and manage applications with the AWS Panorama API.
 
 ## View applications
+<a name="api-applications-view"></a>
 
-To get a list of applications running on an appliance, use the [ListApplicationInstances](../api/API_ListApplicationInstances.md "../api/API_ListApplicationInstances.md") API.
+To get a list of applications running on an appliance, use the [ListApplicationInstances](https://docs.aws.amazon.com/panorama/latest/api/API_ListApplicationInstances.html) API.
 
 ```
-$ `aws panorama list-application-instances`
+$ aws panorama list-application-instances
     "ApplicationInstances": [
         {
             "Name": "aws-panorama-sample",
@@ -32,11 +34,10 @@ $ `aws panorama list-application-instances`
 }
 ```
 
-To get more details about an application instance's nodes, use the [ListApplicationInstanceNodeInstances](../api/API_ListApplicationInstanceNodeInstances.md "../api/API_ListApplicationInstanceNodeInstances.md")
-API.
+To get more details about an application instance's nodes, use the [ListApplicationInstanceNodeInstances](https://docs.aws.amazon.com/panorama/latest/api/API_ListApplicationInstanceNodeInstances.html) API.
 
 ```
-$ `aws panorama list-application-instance-node-instances --application-instance-id applicationInstance-ddaxxmpl2z7bg74ywutd7byxuq`
+$ aws panorama list-application-instance-node-instances --application-instance-id applicationInstance-ddaxxmpl2z7bg74ywutd7byxuq
 {
     "NodeInstances": [
         {
@@ -80,12 +81,13 @@ $ `aws panorama list-application-instance-node-instances --application-instance-
 ```
 
 ## Manage camera streams
+<a name="api-applications-cameras"></a>
 
-You can pause and resume camera stream nodes with the [SignalApplicationInstanceNodeInstances](../api/API_SignalApplicationInstanceNodeInstances.md "../api/API_SignalApplicationInstanceNodeInstances.md") API.
+You can pause and resume camera stream nodes with the [SignalApplicationInstanceNodeInstances](https://docs.aws.amazon.com/panorama/latest/api/API_SignalApplicationInstanceNodeInstances.html) API.
 
 ```
-$ `aws panorama signal-application-instance-node-instances --application-instance-id applicationInstance-ddaxxmpl2z7bg74ywutd7byxuq \
- --node-signals '[{"NodeInstanceId": "camera_node_override", "Signal": "PAUSE"}]'`
+$ aws panorama signal-application-instance-node-instances --application-instance-id applicationInstance-ddaxxmpl2z7bg74ywutd7byxuq \
+        --node-signals '[{"NodeInstanceId": "camera_node_override", "Signal": "PAUSE"}]'
 {
     "ApplicationInstanceId": "applicationInstance-ddaxxmpl2z7bg74ywutd7byxuq"
 }
@@ -93,10 +95,10 @@ $ `aws panorama signal-application-instance-node-instances --application-instanc
 
 In a script, you can get a list of nodes and choose one to pause or resume interactively.
 
-###### Example [pause-camera.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/pause-camera.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/pause-camera.sh") – usage
+**Example [pause-camera.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/pause-camera.sh) – usage**  
 
 ```
-my-app$ `./pause-camera.sh`
+my-app$ ./pause-camera.sh
 
 Getting nodes...
 0: SAMPLE_CODE              RUNNING
@@ -105,7 +107,7 @@ Getting nodes...
 3: entrance-north           PAUSED
 4: SQUEEZENET_PYTORCH       RUNNING
 Choose a node
-`1`
+1
 Signalling node warehouse-floor
 + aws panorama signal-application-instance-node-instances --application-instance-id applicationInstance-r3a7xmplcbmpjqeds7vj4b6pjy --node-signals '[{"NodeInstanceId": "warehouse-floor", "Signal": "PAUSE"}]'
 {
@@ -113,16 +115,11 @@ Signalling node warehouse-floor
 }
 ```
 
-By pausing and resuming camera nodes, you can cycle through a larger number of camera streams than can be
-processed simultaneously. To do this, map multiple camera streams to the same input node in your override
-manifest.
+By pausing and resuming camera nodes, you can cycle through a larger number of camera streams than can be processed simultaneously. To do this, map multiple camera streams to the same input node in your override manifest.
 
-In the following example, the override manifest maps two camera streams, `warehouse-floor` and
-`entrance-north` to the same input node (`camera_node`). The `warehouse-floor`
-stream is active when the application starts and the `entrance-north` node waits for a signal to turn
-on.
+In the following example, the override manifest maps two camera streams, `warehouse-floor` and `entrance-north` to the same input node (`camera_node`). The `warehouse-floor` stream is active when the application starts and the `entrance-north` node waits for a signal to turn on.
 
-###### Example [override-multicam.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/graphs/my-app/override-multicam.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/graphs/my-app/override-multicam.json")
+**Example [override-multicam.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/graphs/my-app/override-multicam.json)**  
 
 ```
     "nodeGraphOverrides": {
@@ -162,4 +159,4 @@ on.
             }
 ```
 
-For details on deploying with the API, see [Automate application deployment](api-deploy.md "api-deploy.md").
+For details on deploying with the API, see [Automate application deployment](api-deploy.md).

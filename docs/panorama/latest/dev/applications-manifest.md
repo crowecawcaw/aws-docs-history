@@ -1,14 +1,13 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # The AWS Panorama application manifest
+<a name="applications-manifest"></a>
 
-When you deploy an application, you provide a configuration file called an application manifest. This file
-defines the application as a graph with nodes and edges. The application manifest is part of the application's
-source code and is stored in the `graphs` directory.
+When you deploy an application, you provide a configuration file called an application manifest. This file defines the application as a graph with nodes and edges. The application manifest is part of the application's source code and is stored in the `graphs` directory.
 
-###### Example graphs/aws-panorama-sample/graph.json
+**Example graphs/aws-panorama-sample/graph.json**  
 
 ```
 {
@@ -85,15 +84,10 @@ source code and is stored in the `graphs` directory.
 }
 ```
 
-Nodes are connected by edges, which specify mappings between nodes' inputs and outputs. The output of one node
-connects to the input of another, forming a graph.
+Nodes are connected by edges, which specify mappings between nodes' inputs and outputs. The output of one node connects to the input of another, forming a graph.
 
 ## JSON schema
+<a name="applications-manifest-schema"></a>
 
-The format of application manifest and override documents is defined in a JSON schema. You can use the JSON
-schema to validate your configuration documents before deploying. The JSON schema is available in this guide's
-GitHub repository.
-
-######
-
-- **JSON schema** – [aws-panorama-developer-guide/resources](https://github.com/awsdocs/aws-panorama-developer-guide/tree/main/resources "https://github.com/awsdocs/aws-panorama-developer-guide/tree/main/resources")
+The format of application manifest and override documents is defined in a JSON schema. You can use the JSON schema to validate your configuration documents before deploying. The JSON schema is available in this guide's GitHub repository.
++ **JSON schema** – [aws-panorama-developer-guide/resources](https://github.com/awsdocs/aws-panorama-developer-guide/tree/main/resources)

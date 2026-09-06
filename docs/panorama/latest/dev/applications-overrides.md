@@ -1,18 +1,15 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Deploy-time configuration with overrides
+<a name="applications-overrides"></a>
 
-You configure parameters and abstract nodes during deployment. If you use the AWS Panorama console to deploy, you can
-specify a value for each parameter and choose a camera stream as input. If you use the AWS Panorama API to deploy
-applications, you specify these settings with an overrides document.
+You configure parameters and abstract nodes during deployment. If you use the AWS Panorama console to deploy, you can specify a value for each parameter and choose a camera stream as input. If you use the AWS Panorama API to deploy applications, you specify these settings with an overrides document.
 
-An overrides document is similar in structure to an application manifest. For parameters with basic types, you
-define a node. For camera streams, you define a node and a package that maps to a registered camera stream. Then you
-define an override for each node that specifies the node from the application manifest that it replaces.
+An overrides document is similar in structure to an application manifest. For parameters with basic types, you define a node. For camera streams, you define a node and a package that maps to a registered camera stream. Then you define an override for each node that specifies the node from the application manifest that it replaces.
 
-###### Example overrides.json
+**Example overrides.json**  
 
 ```
 {
@@ -57,6 +54,4 @@ define an override for each node that specifies the node from the application ma
 }
 ```
 
-In the preceding example, the document defines overrides for one string parameter and an abstract camera node.
-The `nodeOverrides` tells AWS Panorama which nodes in this document override which in the application
-manifest.
+In the preceding example, the document defines overrides for one string parameter and an abstract camera node. The `nodeOverrides` tells AWS Panorama which nodes in this document override which in the application manifest.

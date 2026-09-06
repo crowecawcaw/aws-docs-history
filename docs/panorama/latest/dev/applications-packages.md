@@ -1,19 +1,15 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Package configuration
+<a name="applications-packages"></a>
 
-When you use the AWS Panorama Application CLI command `panorama-cli package-application`, the CLI uploads your
-application's assets to Amazon S3 and registers them with AWS Panorama. Assets include binary files (container images and
-models) and descriptor files, which the AWS Panorama Appliance downloads during deployment. To register a package's assets, you
-provide a separate package configuration file that defines the package, its assets, and its interface.
+When you use the AWS Panorama Application CLI command `panorama-cli package-application`, the CLI uploads your application's assets to Amazon S3 and registers them with AWS Panorama. Assets include binary files (container images and models) and descriptor files, which the AWS Panorama Appliance downloads during deployment. To register a package's assets, you provide a separate package configuration file that defines the package, its assets, and its interface.
 
-The following example shows a package configuration for a code node with one input and one output. The video
-input provides access to image data from a camera stream. The output node sends processed images out to a
-display.
+The following example shows a package configuration for a code node with one input and one output. The video input provides access to image data from a camera stream. The output node sends processed images out to a display.
 
-###### Example packages/1234567890-SAMPLE\_CODE-1.0/package.json
+**Example packages/1234567890-SAMPLE\_CODE-1.0/package.json**  
 
 ```
 {
@@ -58,7 +54,4 @@ display.
 }
 ```
 
-The `assets` section specifies the names of artifacts that the AWS Panorama Application CLI uploaded to Amazon S3. If you
-import a sample application or an application from another user, this section can be empty or refer to assets that
-aren't in your account. When you run `panorama-cli package-application`, the AWS Panorama Application CLI populates this
-section with the correct values.
+The `assets` section specifies the names of artifacts that the AWS Panorama Application CLI uploaded to Amazon S3. If you import a sample application or an application from another user, this section can be empty or refer to assets that aren't in your account. When you run `panorama-cli package-application`, the AWS Panorama Application CLI populates this section with the correct values.

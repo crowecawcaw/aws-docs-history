@@ -1,14 +1,13 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Automate device registration
+<a name="api-provision"></a>
 
-To provision an appliance, use the [ProvisionDevice](../api/API_ProvisionDevice.md "../api/API_ProvisionDevice.md") API. The response includes a ZIP file with the device's
-configuration and temporary credentials. Decode the file and save it in an archive with the prefix
-`certificates-omni_`.
+To provision an appliance, use the [ProvisionDevice](https://docs.aws.amazon.com/panorama/latest/api/API_ProvisionDevice.html) API. The response includes a ZIP file with the device's configuration and temporary credentials. Decode the file and save it in an archive with the prefix `certificates-omni_`.
 
-###### Example [provision-device.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/provision-device.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/provision-device.sh")
+**Example [provision-device.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/provision-device.sh)**  
 
 ```
 if [[ $# -eq 1 ]] ; then
@@ -22,14 +21,11 @@ aws panorama provision-device --name ${DEVICE_NAME} --output text --query Certif
 echo "Created certificate bundle ${CERTIFICATE_BUNDLE}"
 ```
 
-The credentials in the configuration archive expire after 5 minutes. Transfer the archive to your appliance with
-the included USB drive.
+The credentials in the configuration archive expire after 5 minutes. Transfer the archive to your appliance with the included USB drive.
 
-To register a camera, use the [CreateNodeFromTemplateJob](../api/API_CreateNodeFromTemplateJob.md "../api/API_CreateNodeFromTemplateJob.md") API. This API takes a map of template parameters
-for the camera's username, password, and URL. You can format this map as a JSON document by using Bash string
-manipulation.
+To register a camera, use the [CreateNodeFromTemplateJob](https://docs.aws.amazon.com/panorama/latest/api/API_CreateNodeFromTemplateJob.html) API. This API takes a map of template parameters for the camera's username, password, and URL. You can format this map as a JSON document by using Bash string manipulation.
 
-###### Example [register-camera.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/register-camera.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/register-camera.sh")
+**Example [register-camera.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/register-camera.sh)**  
 
 ```
 if [[ $# -eq 3 ]] ; then
@@ -48,7 +44,6 @@ TEMPLATE=${TEMPLATE/MY_PASSWORD/$PASSWORD}
 TEMPLATE=${TEMPLATE/MY_URL/$URL}
 echo ${TEMPLATE}
 JOB_ID=$(aws panorama create-node-from-template-job --template-type RTSP_CAMERA_STREAM --output-package-name ${NAME} --output-package-version "1.0" --node-name ${NAME} --template-parameters "${TEMPLATE}" --output text)
-
 ```
 
 Alternatively, you can load the JSON configuration from a file.

@@ -1,18 +1,18 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Manage applications on an AWS Panorama Appliance
+<a name="appliance-applications"></a>
 
-An application is a combination of code, models, and configuration. From the **Devices** page
-in the AWS Panorama console, you can manage applications on the appliance.
+An application is a combination of code, models, and configuration. From the **Devices** page in the AWS Panorama console, you can manage applications on the appliance.
 
-###### To manage applications on an AWS Panorama Appliance
+**To manage applications on an AWS Panorama Appliance**
 
-1. Open the AWS Panorama console [Devices page](https://console.aws.amazon.com/panorama/home#devices "https://console.aws.amazon.com/panorama/home#devices").
-2. Choose an appliance.
-   The **Deployed applications** page shows applications that have been deployed to the appliance.
+1. Open the AWS Panorama console [Devices page](https://console.aws.amazon.com/panorama/home#devices).
 
-Use the options on this page to remove deployed applications from the appliance, or replace a running
-application with a new version. You can also clone an application (running or deleted) to deploy a new copy of
-it.
+1. Choose an appliance.
+
+The **Deployed applications** page shows applications that have been deployed to the appliance. 
+
+Use the options on this page to remove deployed applications from the appliance, or replace a running application with a new version. You can also clone an application (running or deleted) to deploy a new copy of it.

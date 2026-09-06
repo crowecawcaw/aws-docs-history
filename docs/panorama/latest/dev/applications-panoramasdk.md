@@ -1,33 +1,28 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # The AWS Panorama Application SDK
+<a name="applications-panoramasdk"></a>
 
-The AWS Panorama Application SDK is a Python library for developing AWS Panorama applications. In your [application code](gettingstarted-sample.md "gettingstarted-sample.md"), you use the AWS Panorama Application SDK to load a computer vision model,
-run inference, and output video to a monitor.
+The AWS Panorama Application SDK is a Python library for developing AWS Panorama applications. In your [application code](gettingstarted-sample.md), you use the AWS Panorama Application SDK to load a computer vision model, run inference, and output video to a monitor.
 
-###### Note
+**Note**  
+To ensure that you have access to the latest functionality of the AWS Panorama Application SDK, [upgrade the appliance software](appliance-manage.md#appliance-manage-software).
 
-To ensure that you have access to the latest functionality of the AWS Panorama Application SDK, [upgrade the appliance software](appliance-manage.md#appliance-manage-software "appliance-manage.md#appliance-manage-software").
+For details about the classes that the application SDK defines and their methods, see [Application SDK reference](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/resources/applicationsdk-reference.md).
 
-For details about the classes that the application SDK defines and their methods, see [Application SDK reference](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/resources/applicationsdk-reference.md "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/resources/applicationsdk-reference.md").
-
-###### Sections
-
-- [Adding text and boxes to output video](#applications-panoramasdk-overlays "#applications-panoramasdk-overlays")
+**Topics**
++ [Adding text and boxes to output video](#applications-panoramasdk-overlays)
 
 ## Adding text and boxes to output video
+<a name="applications-panoramasdk-overlays"></a>
 
-With the AWS Panorama SDK, you can output a video stream to a display. The video can include text and boxes that
-show output from the model, the current state of the application, or other data.
+With the AWS Panorama SDK, you can output a video stream to a display. The video can include text and boxes that show output from the model, the current state of the application, or other data.
 
-Each object in the `video_in` array is an image from a camera stream that is connected to the
-appliance. The type of this object is `panoramasdk.media`. It has methods to add text and rectangular
-boxes to the image, which you can then assign to the `video_out` array.
+Each object in the `video_in` array is an image from a camera stream that is connected to the appliance. The type of this object is `panoramasdk.media`. It has methods to add text and rectangular boxes to the image, which you can then assign to the `video_out` array.
 
-In the following example, the sample application adds a label for each of the results. Each result is
-positioned at the same left position, but at different heights.
+In the following example, the sample application adds a label for each of the results. Each result is positioned at the same left position, but at different heights.
 
 ```
         for j in range(max_results):
@@ -35,8 +30,7 @@ positioned at the same left position, but at different heights.
             stream.add_label(label, 0.1, 0.1 + 0.1*j)
 ```
 
-To add a box to the output image, use `add_rect`. This method takes 4 values between 0 and 1,
-indicating the position of the top left and bottom right corners of the box.
+To add a box to the output image, use `add_rect`. This method takes 4 values between 0 and 1, indicating the position of the top left and bottom right corners of the box.
 
 ```
         w,h,c = stream.image.shape

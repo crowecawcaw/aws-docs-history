@@ -1,26 +1,23 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Application parameters
+<a name="applications-manifest-parameters"></a>
 
-Parameters are nodes that have a basic type and can be overridden during deployment. A parameter can have a
-default value and a _decorator_, which instructs the application's user how to configure
-it.
+Parameters are nodes that have a basic type and can be overridden during deployment. A parameter can have a default value and a *decorator*, which instructs the application's user how to configure it.
 
-###### Parameter types
+**Parameter types**
++ `string` – A string. For example, `DEBUG`.
++ `int32` – An integer. For example, `20`
++ `float32` – A floating point number. For example, `47.5`
++ `boolean` – `true` or `false`.
 
-- `string` – A string. For example, `DEBUG`.
-- `int32` – An integer. For example, `20`
-- `float32` – A floating point number. For example, `47.5`
-- `boolean` – `true` or `false`.
-  The following example shows two parameters, a string and a number, which are sent to a code node as
-  inputs.
+The following example shows two parameters, a string and a number, which are sent to a code node as inputs.
 
-###### Example graph.json – Parameters
+**Example graph.json – Parameters**  
 
 ```
-
         "nodes": [
             {
                 "name": "detection_threshold",
@@ -58,5 +55,4 @@ it.
     }
 ```
 
-You can modify parameters directly in the application manifest, or provide new values at deploy-time with
-overrides. For more information, see [Deploy-time configuration with overrides](applications-overrides.md "applications-overrides.md").
+You can modify parameters directly in the application manifest, or provide new values at deploy-time with overrides. For more information, see [Deploy-time configuration with overrides](applications-overrides.md).

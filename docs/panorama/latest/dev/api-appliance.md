@@ -1,17 +1,19 @@
-End of support notice: On May 31, 2026, AWS will end support for
-AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama
-resources. For more information, see [AWS Panorama end of support](panorama-end-of-support.md "panorama-end-of-support.md").
+
+
+End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. After May 31, 2026, you will no longer be able to access the AWS Panorama console or AWS Panorama resources. For more information, see [AWS Panorama end of support](https://docs.aws.amazon.com/panorama/latest/dev/panorama-end-of-support.html). 
 
 # Manage appliances with the AWS Panorama API
+<a name="api-appliance"></a>
 
 You can automate appliance management tasks with the AWS Panorama API.
 
 ## View devices
+<a name="api-appliance-view"></a>
 
-To get a list of appliances with device IDs, use the [ListDevices](../api/API_ListDevices.md "../api/API_ListDevices.md") API.
+To get a list of appliances with device IDs, use the [ListDevices](https://docs.aws.amazon.com/panorama/latest/api/API_ListDevices.html) API.
 
 ```
-$ `aws panorama list-devices`
+$ aws panorama list-devices
     "Devices": [
         {
             "DeviceId": "device-4tafxmplhtmzabv5lsacba4ere",
@@ -25,10 +27,10 @@ $ `aws panorama list-devices`
 }
 ```
 
-To get more details about an appliance, use the [DescribeDevice](../api/API_DescribeDevice.md "../api/API_DescribeDevice.md") API.
+To get more details about an appliance, use the [DescribeDevice](https://docs.aws.amazon.com/panorama/latest/api/API_DescribeDevice.html) API.
 
 ```
-$ `aws panorama describe-device --device-id device-4tafxmplhtmzabv5lsacba4ere`
+$ aws panorama describe-device --device-id device-4tafxmplhtmzabv5lsacba4ere
 {
     "DeviceId": "device-4tafxmplhtmzabv5lsacba4ere",
     "Name": "my-appliance",
@@ -58,13 +60,13 @@ $ `aws panorama describe-device --device-id device-4tafxmplhtmzabv5lsacba4ere`
 ```
 
 ## Upgrade appliance software
+<a name="api-appliance-upgrade"></a>
 
-If the `LatestSoftware` version is newer than the `CurrentSoftware`, you can upgrade the
-device. Use the [CreateJobForDevices](../api/API_CreateJobForDevices.md "../api/API_CreateJobForDevices.md") API to create an over-the-air (OTA) update job.
+If the `LatestSoftware` version is newer than the `CurrentSoftware`, you can upgrade the device. Use the [CreateJobForDevices](https://docs.aws.amazon.com/panorama/latest/api/API_CreateJobForDevices.html) API to create an over-the-air (OTA) update job.
 
 ```
-$ `aws panorama create-job-for-devices --device-ids device-4tafxmplhtmzabv5lsacba4ere \
- --device-job-config '{"OTAJobConfig": {"ImageVersion": "`4.3.55`"}}' --job-type OTA`
+$ aws panorama create-job-for-devices --device-ids device-4tafxmplhtmzabv5lsacba4ere \
+  --device-job-config '{"OTAJobConfig": {"ImageVersion": "{{4.3.55}}"}}' --job-type OTA
 {
     "Jobs": [
         {
@@ -75,26 +77,24 @@ $ `aws panorama create-job-for-devices --device-ids device-4tafxmplhtmzabv5lsacb
 }
 ```
 
-In a script, you can populate the image version field in the job configuration file with Bash string
-manipulation.
+In a script, you can populate the image version field in the job configuration file with Bash string manipulation.
 
-###### Example [check-updates.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/check-updates.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/check-updates.sh")
+**Example [check-updates.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/check-updates.sh)**  
 
 ```
 apply_update() {
     DEVICE_ID=$1
     NEW_VERSION=$2
     CONFIG='{"OTAJobConfig": {"ImageVersion": "NEW_VERSION"}}'
-    CONFIG=`${CONFIG/NEW_VERSION/$NEW_VERSION}`
+    CONFIG=${CONFIG/NEW_VERSION/$NEW_VERSION}
     aws panorama create-job-for-devices --device-ids ${DEVICE_ID} --device-job-config "${CONFIG}" --job-type OTA
 }
 ```
 
-The appliance downloads the specified software version and updates itself. Watch the update's progress with
-the [DescribeDeviceJob](../api/API_DescribeDeviceJob.md "../api/API_DescribeDeviceJob.md") API.
+The appliance downloads the specified software version and updates itself. Watch the update's progress with the [DescribeDeviceJob](https://docs.aws.amazon.com/panorama/latest/api/API_DescribeDeviceJob.html) API.
 
 ```
-$ `aws panorama describe-device-job --job-id device-4tafxmplhtmzabv5lsacba4ere-0`
+$ aws panorama describe-device-job --job-id device-4tafxmplhtmzabv5lsacba4ere-0
 {
     "JobId": "device-4tafxmplhtmzabv5lsacba4ere-0",
     "DeviceId": "device-4tafxmplhtmzabv5lsacba4ere",
@@ -107,10 +107,10 @@ $ `aws panorama describe-device-job --job-id device-4tafxmplhtmzabv5lsacba4ere-0
 }
 ```
 
-To get a list of all running jobs, use the [ListDevicesJobs](../api/API_ListDevicesJobs.md "../api/API_ListDevicesJobs.md").
+To get a list of all running jobs, use the [ListDevicesJobs](https://docs.aws.amazon.com/panorama/latest/api/API_ListDevicesJobs.html).
 
 ```
-$ `aws panorama list-devices-jobs`
+$ aws panorama list-devices-jobs
 {
     "DeviceJobs": [
         {
@@ -123,14 +123,15 @@ $ `aws panorama list-devices-jobs`
 }
 ```
 
-For a sample script that checks for and applies updates, see [check-updates.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/check-updates.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/check-updates.sh") in this guide's GitHub repository.
+For a sample script that checks for and applies updates, see [check-updates.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/check-updates.sh) in this guide's GitHub repository.
 
 ## Reboot appliances
+<a name="api-appliance-reboot"></a>
 
-To reboot an appliance, use the [CreateJobForDevices](../api/API_CreateJobForDevices.md "../api/API_CreateJobForDevices.md") API.
+To reboot an appliance, use the [CreateJobForDevices](https://docs.aws.amazon.com/panorama/latest/api/API_CreateJobForDevices.html) API.
 
 ```
-$ `aws panorama create-job-for-devices --device-ids device-4tafxmplhtmzabv5lsacba4ere --job-type REBOOT`
+$ aws panorama create-job-for-devices --device-ids device-4tafxmplhtmzabv5lsacba4ere --job-type REBOOT
 {
     "Jobs": [
         {
@@ -143,16 +144,16 @@ $ `aws panorama create-job-for-devices --device-ids device-4tafxmplhtmzabv5lsacb
 
 In a script, you can get a list of devices and choose one to reboot interactively.
 
-###### Example [reboot-device.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/reboot-device.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/reboot-device.sh") – usage
+**Example [reboot-device.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/util-scripts/reboot-device.sh) – usage**  
 
 ```
-$ `./reboot-device.sh`
+$ ./reboot-device.sh
 Getting devices...
 0: device-53amxmplyn3gmj72epzanacniy     my-se70-1
 1: device-6talxmpl5mmik6qh5moba6jium     my-manh-24
 Choose a device
-`1`
-Reboot device device-6talxmpl5mmik6qh5moba6jium? (y/n)`y`
+1
+Reboot device device-6talxmpl5mmik6qh5moba6jium? (y/n)y
 {
     "Jobs": [
         {
