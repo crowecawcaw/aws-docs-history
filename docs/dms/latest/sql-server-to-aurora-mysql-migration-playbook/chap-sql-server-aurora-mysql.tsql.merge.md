@@ -1,16 +1,21 @@
+
+
 # MERGE for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.merge"></a>
 
 This topic provides reference information about migrating from Microsoft SQL Server 2019’s MERGE statement to equivalent functionality in Amazon Aurora MySQL. You can understand the key differences and similarities between SQL Server’s MERGE capabilities and alternatives such as REPLACE and INSERT…​ON DUPLICATE KEY UPDATE statements.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                            | Key differences                                                                            |
-| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Three star feature compatibility | No automation                      | [MERGE](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.merge "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.merge") | Rewrite to use `REPLACE` and `ON DUPLICATE KEY`, or individual constituent DML statements. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [MERGE](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.merge)  | Rewrite to use `REPLACE` and `ON DUPLICATE KEY`, or individual constituent DML statements. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.merge.sqlserver"></a>
 
-`MERGE` is a complex , hybrid DML/DQL statement for performing `INSERT`, `UPDATE`, or `DELETE` operations on a target table based on the results of a logical join of the target table and a source data set.
+ `MERGE` is a complex , hybrid DML/DQL statement for performing `INSERT`, `UPDATE`, or `DELETE` operations on a target table based on the results of a logical join of the target table and a source data set.
 
-`MERGE` can also return row sets similar to `SELECT` using the `OUTPUT` clause, which gives the calling scope access to the actual data modifications of the `MERGE` statement.
+ `MERGE` can also return row sets similar to `SELECT` using the `OUTPUT` clause, which gives the calling scope access to the actual data modifications of the `MERGE` statement.
 
 The `MERGE` statement is most efficient for non-trivial conditional DML. For example, inserting data if a row key value doesn’t exist and updating the existing row if the key value already exists.
 
@@ -19,6 +24,7 @@ You can manage additional logic such as deleting rows from the target that don�
 The SQL Server MERGE statement offers a wide range of functionality and flexibility and is compatible with ANSI standard SQL:2008. SQL Server has many extensions to MERGE that provide efficient T-SQL solutions for synchronizing data.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.merge.sqlserver.syntax"></a>
 
 ```
 MERGE [INTO] <Target Table> [AS] <Table Alias>]
@@ -35,6 +41,7 @@ OUTPUT [<Output Clause>]
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.merge.sqlserver.examples"></a>
 
 Perform a simple one-way synchronization of two tables.
 
@@ -123,21 +130,23 @@ Col1  Col2
 5     Source5
 ```
 
-For more information, see [MERGE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [MERGE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.merge.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support the `MERGE` statement. However, it provides two other statements for merging data: `REPLACE`, and `INSERT…​ ON DUPLICATE KEY UPDATE`.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support the `MERGE` statement. However, it provides two other statements for merging data: `REPLACE`, and `INSERT…​ ON DUPLICATE KEY UPDATE`.
 
-`REPLACE` deletes a row and inserts a new row if a duplicate key conflict occurs. `INSERT…​ ON DUPLICATE KEY UPDATE` performs an in-place update. Both `REPLACE` and `ON DUPLICATE KEY UPDATE` rely on an existing primary key and unique constraints. It isn’t possible to define custom `MATCH` conditions as with SQL Server `MERGE` statement.
+ `REPLACE` deletes a row and inserts a new row if a duplicate key conflict occurs. `INSERT…​ ON DUPLICATE KEY UPDATE` performs an in-place update. Both `REPLACE` and `ON DUPLICATE KEY UPDATE` rely on an existing primary key and unique constraints. It isn’t possible to define custom `MATCH` conditions as with SQL Server `MERGE` statement.
 
 ### REPLACE
+<a name="chap-sql-server-aurora-mysql.tsql.merge.mysql.replace"></a>
 
-`REPLACE` provides a function similar to `INSERT`. The difference is that `REPLACE` first deletes an existing row if a duplicate key violation for a `PRIMARY KEY` or `UNIQUE` constraint occurs.
+ `REPLACE` provides a function similar to `INSERT`. The difference is that `REPLACE` first deletes an existing row if a duplicate key violation for a `PRIMARY KEY` or `UNIQUE` constraint occurs.
 
-`REPLACE` is a MySQL extension that isn’t ANSI compliant. It either performs only an INSERT when no duplicate key violations occur, or it performs a `DELETE` and then an `INSERT` if violations occur.
+ `REPLACE` is a MySQL extension that isn’t ANSI compliant. It either performs only an INSERT when no duplicate key violations occur, or it performs a `DELETE` and then an `INSERT` if violations occur.
 
-**Syntax**
+ **Syntax** 
 
 ```
 REPLACE [INTO] <Table Name> (<Column List>)
@@ -155,10 +164,11 @@ SELECT ...
 ```
 
 ### INSERT …​ ON DUPLICATE KEY UPDATE
+<a name="chap-sql-server-aurora-mysql.tsql.merge.mysql.insert"></a>
 
 The `ON DUPLICATE KEY UPDATE` clause of the `INSERT` statement acts as a dual DML hybrid. Similar to `REPLACE`, it runs the assignments in the `SET` clause instead of raising a duplicate key error. `ON DUPLICATE KEY UPDATE` is a MySQL extension that in not ANSI compliant.
 
-**Syntax**
+ **Syntax** 
 
 ```
 INSERT [INTO] <Table Name> [<Column List>]
@@ -181,12 +191,12 @@ ON DUPLICATE KEY
 ```
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-mysql.tsql.merge.mysql.considerations"></a>
 
-`REPLACE` and `INSERT …​ ON DUPLICATE KEY UPDATE` don’t provide a full functional replacement for `MERGE` in SQL Server. The key differences are:
-
-- Key violation conditions are mandated by the primary key or unique constraints that exist on the target table. They can’t be defined using an explicit predicate.
-- There is no alternative for the WHEN NOT MATCHED BY SOURCE clause.
-- There is no alternative for the OUTPUT clause.
+ `REPLACE` and `INSERT …​ ON DUPLICATE KEY UPDATE` don’t provide a full functional replacement for `MERGE` in SQL Server. The key differences are:
++ Key violation conditions are mandated by the primary key or unique constraints that exist on the target table. They can’t be defined using an explicit predicate.
++ There is no alternative for the WHEN NOT MATCHED BY SOURCE clause.
++ There is no alternative for the OUTPUT clause.
 
 The key difference between `REPLACE` and `INSERT ON DUPLICATE KEY UPDATE` is that with `REPLACE`, the violating row is deleted or attempted to be deleted. If foreign keys are in place, the `DELETE` operation may fail, which may fail the entire transaction.
 
@@ -197,6 +207,7 @@ It should be straightforward to replace most `MERGE` statements with either `REP
 Alternatively, break down the operations into their constituent `INSERT`, `UPDATE`, and `DELETE` statements.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.merge.mysql.examples"></a>
 
 Use `REPLACE` to create a simple one-way, two-table sync.
 
@@ -308,18 +319,20 @@ Col1  Col2
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.tsql.merge.summary"></a>
 
 The following table describes similarities, differences, and key migration considerations.
 
-| SQL Server MERGE feature                                       | Migrate to Aurora MySQL                                                                 | Comments                                                                                                                                                                                                                                                                                                                              |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Define source set in `USING` clause.                           | Define source set in a `SELECT` query or in a table.                                    |                                                                                                                                                                                                                                                                                                                                       |
-| Define logical duplicate key condition with an `ON` predicate. | Duplicate key condition mandated by primary key and unique constraints on target table. |                                                                                                                                                                                                                                                                                                                                       |
-| `WHEN MATCHED THEN UPDATE`                                     | `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`                                         | When using `REPLACE`, the violating row will be deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction.<br>With `INSERT …​ ON DUPLICATE KEY UPDATE`, the updated is performed on the existing row in place, without attempting to delete it. |
-| `WHEN MATCHED THEN DELETE`                                     | `DELETE FROM Target WHERE Key IN (SELECT Key FROM Source)`                              |                                                                                                                                                                                                                                                                                                                                       |
-| `WHEN NOT MATCHED THEN INSERT`                                 | `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`                                         | See the preceding comment.                                                                                                                                                                                                                                                                                                            |
-| `WHEN NOT MATCHED BY SOURCE UPDATE`                            | `UPDATE Target SET <assignments> WHERE Key NOT IN (SELECT Key FROM Source)`             |                                                                                                                                                                                                                                                                                                                                       |
-| `WHEN NOT MATCHED BY SOURCE DELETE`                            | `DELETE FROM Target WHERE KEY NOT IN (SELECT Key FROM Source)`                          |                                                                                                                                                                                                                                                                                                                                       |
-| `OUTPUT` clause                                                | N/A                                                                                     |                                                                                                                                                                                                                                                                                                                                       |
 
-For more information, see [REPLACE Statement](https://dev.mysql.com/doc/refman/5.7/en/replace.html "https://dev.mysql.com/doc/refman/5.7/en/replace.html") and [INSERT …​ ON DUPLICATE KEY UPDATE Statement](https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html "https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html") in the _MySQL documentation_.
+| SQL Server MERGE feature | Migrate to Aurora MySQL  | Comments | 
+| --- | --- | --- | 
+| Define source set in `USING` clause. | Define source set in a `SELECT` query or in a table. |  | 
+| Define logical duplicate key condition with an `ON` predicate. | Duplicate key condition mandated by primary key and unique constraints on target table. |  | 
+|  `WHEN MATCHED THEN UPDATE`  |  `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`  | When using `REPLACE`, the violating row will be deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction.<br />With `INSERT …​ ON DUPLICATE KEY UPDATE`, the updated is performed on the existing row in place, without attempting to delete it. | 
+|  `WHEN MATCHED THEN DELETE`  |  `DELETE FROM Target WHERE Key IN (SELECT Key FROM Source)`  |  | 
+|  `WHEN NOT MATCHED THEN INSERT`  |  `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`  | See the preceding comment. | 
+|  `WHEN NOT MATCHED BY SOURCE UPDATE`  |  `UPDATE Target SET <assignments> WHERE Key NOT IN (SELECT Key FROM Source)`  |  | 
+|  `WHEN NOT MATCHED BY SOURCE DELETE`  |  `DELETE FROM Target WHERE KEY NOT IN (SELECT Key FROM Source)`  |  | 
+|  `OUTPUT` clause | N/A |  | 
+
+For more information, see [REPLACE Statement](https://dev.mysql.com/doc/refman/5.7/en/replace.html) and [INSERT …​ ON DUPLICATE KEY UPDATE Statement](https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html) in the *MySQL documentation*.

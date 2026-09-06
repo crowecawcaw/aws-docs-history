@@ -1,24 +1,31 @@
+
+
 # PIVOT and UNPIVOT for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.pivot"></a>
 
 This topic provides reference content on migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL, specifically focusing on the PIVOT and UNPIVOT operators. You can use this guidance to understand the compatibility differences between these database systems and learn how to adapt your SQL queries.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                        | Key differences                                        |
-| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Three star feature compatibility | No automation                      | [PIVOT and UNPIVOT](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.pivot "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.pivot") | Straightforward rewrite to use traditional SQL syntax. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [PIVOT and UNPIVOT](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.pivot)  | Straightforward rewrite to use traditional SQL syntax. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.sqlserver"></a>
 
-`PIVOT` and `UNPIVOT` are relational operations used to transform a set by rotating rows into columns and columns into rows.
+ `PIVOT` and `UNPIVOT` are relational operations used to transform a set by rotating rows into columns and columns into rows.
 
 ### PIVOT
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.sqlserver.pivot"></a>
 
 The `PIVOT` operator consists of several clauses and implied expressions.
 
-The _Anchor_ column is the column that isn’t be pivoted and results in a single row for each unique value, similar to `GROUP BY`.
+The *Anchor* column is the column that isn’t be pivoted and results in a single row for each unique value, similar to `GROUP BY`.
 
 The pivoted columns are derived from the `PIVOT` clause and are the row values transformed into columns. The values for these columns are derived from the source column defined in the `PIVOT` clause.
 
 #### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.sqlserver.pivot.syntax"></a>
 
 ```
 SELECT <Anchor column>,
@@ -38,6 +45,7 @@ FOR
 ```
 
 #### PIVOT Examples
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.sqlserver.pivot.examples"></a>
 
 Create and populate the `Orders` table.
 
@@ -87,11 +95,10 @@ DayOfMonth                     1  2  3  4  /*...[31]*/
 Number of Orders for Each Day  2  1  0  4
 ```
 
-###### Note
-
+**Note**  
 The result set is now oriented in rows and columns. The first column is the description of the columns to follow.
 
-`PIVOT` for number of orders for each day for each customer.
+ `PIVOT` for number of orders for each day for each customer.
 
 ```
 SELECT Customer,
@@ -118,8 +125,9 @@ Mitch     1  0  0  0
 ```
 
 ### UNPIVOT
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.sqlserver.unpivot"></a>
 
-`UNPIVOT` is similar to `PIVOT` in reverse, but spreads existing column values into rows.
+ `UNPIVOT` is similar to `PIVOT` in reverse, but spreads existing column values into rows.
 
 The source set is similar to the result of the `PIVOT` with values pertaining to particular entities listed in columns.
 
@@ -128,6 +136,7 @@ Because the result set has more rows than the source, aggregations aren’t requ
 It is less commonly used than `PIVOT` because most data in relational databases have attributes in columns; not the other way around.
 
 #### UNPIVOT Examples
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.sqlserver.unpivot.examples"></a>
 
 Create an populate the pivot-like `EmployeeSales` table. In real life, this is most likely a view or a set from an external source.
 
@@ -183,15 +192,17 @@ SaleDate    Employee  SaleAmount
 2018-01-04  Mary      100
 ```
 
-For more information, see [FROM - Using PIVOT and UNPIVOT](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?vieww=%20sql-server-ver15&view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?vieww=%20sql-server-ver15&view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [FROM - Using PIVOT and UNPIVOT](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot?vieww=%20sql-server-ver15&view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support the `PIVOT` and `UNPIVOT` relational operators.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t support the `PIVOT` and `UNPIVOT` relational operators.
 
 Functionality of both operators can be rewritten to use standard SQL syntax, as shown in the following examples.
 
 ### PIVOT Examples
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.mysql.pivotexamples"></a>
 
 Create and populate the `Orders` table.
 
@@ -235,7 +246,7 @@ DayOfMonth                     1  2  3  4  /*...[31]*/
 Number of Orders for Each Day  2  1  0  4
 ```
 
-`PIVOT` for number of orders for each day for each customer.
+ `PIVOT` for number of orders for each day for each customer.
 
 ```
 SELECT Customer,
@@ -256,6 +267,7 @@ Mitch     1  0  0  0
 ```
 
 ### UNPIVOT Examples
+<a name="chap-sql-server-aurora-mysql.tsql.pivot.mysql.examples"></a>
 
 Create an populate the pivot-like `EmployeeSales` table. In real life, this is most likely a view or a set from an external source.
 
@@ -321,4 +333,4 @@ SaleDate    Employee  SaleAmount
 2018-01-04  Mary      100
 ```
 
-For more information, see [MySQL/Pivot table](https://en.wikibooks.org/wiki/MySQL/Pivot_table "https://en.wikibooks.org/wiki/MySQL/Pivot_table") in the _MySQL documentation_.
+For more information, see [MySQL/Pivot table](https://en.wikibooks.org/wiki/MySQL/Pivot_table) in the *MySQL documentation*.

@@ -1,12 +1,17 @@
+
+
 # Data control language for Aurora MySQL
+<a name="chap-sql-server-aurora-mysql.security.datacontrollanguage"></a>
 
 This topic provides reference information foruser permissions and access control in Amazon Aurora MySQL compared to Microsoft SQL Server. You can understand the similarities and differences in how these database systems manage user privileges, including the types of permissions available, the granularity of access control, and the commands used to grant or revoke permissions.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Four star feature compatibility | No automation                      | N/A                       | Difference.     |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Difference. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.security.datacontrollanguage.sqlserver"></a>
 
 The ANSI standard specifies, and most Relational Database Management Systems (RDBMS) use `GRANT` and `REVOKE` commands to control permissions.
 
@@ -16,9 +21,10 @@ SQL Server allows granting permissions at multiple levels from lower-level objec
 
 Permissions are used in conjunction with database users and roles.
 
-For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.usersroles.md "chap-sql-server-aurora-mysql.security.usersroles.md").
+For more information, see [Users and Roles](chap-sql-server-aurora-mysql.security.usersroles.md).
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.security.datacontrollanguage.sqlserver.syntax"></a>
 
 The following examples show the simplified syntax for SQL Server DCL commands:
 
@@ -34,11 +40,12 @@ DENY { ALL [ PRIVILEGES ] } | <permission> [ ON <securable> ] TO <principal>
 REVOKE [ GRANT OPTION FOR ] {[ ALL [ PRIVILEGES ] ]|<permission>} [ ON <securable> ] { TO | FROM } <principal>
 ```
 
-For more information, see [Permissions Hierarchy (Database Engine)](https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Permissions Hierarchy (Database Engine)](https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-hierarchy-database-engine?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.security.datacontrollanguage.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the ANSI Data Control Language (DCL) commands `GRANT` and `REVOKE`.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the ANSI Data Control Language (DCL) commands `GRANT` and `REVOKE`.
 
 Administrators can grant or revoke permissions for individual objects such as a column, a stored function, or a table. Administrators can grant permissions to multiple objects using wildcards.
 
@@ -58,7 +65,7 @@ ON database.*
 FROM UserX;
 ```
 
-Aurora MySQL provides a `GRANT` permission option, which is very similar to the `WITH GRANT OPTION` clause in SQL Server. This permission gives a user permission to further grant the same permission to other users.
+ Aurora MySQL provides a `GRANT` permission option, which is very similar to the `WITH GRANT OPTION` clause in SQL Server. This permission gives a user permission to further grant the same permission to other users.
 
 ```
 GRANT EXECUTE
@@ -67,41 +74,42 @@ TO UserY
 WITH GRANT OPTION;
 ```
 
-###### Note
-
-Aurora MySQL users can have resource restrictions associated with their accounts similar to the SQL Server resource governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.resourcegovernor.md "chap-sql-server-aurora-mysql.management.resourcegovernor.md").
+**Note**  
+ Aurora MySQL users can have resource restrictions associated with their accounts similar to the SQL Server resource governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.resourcegovernor.md).
 
 The following table identifies Aurora MySQL privileges:
 
-| Permissions               | Use to                                                                                                                |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `ALL [PRIVILEGES]`        | Grant all privileges at the specified access level except `GRANT OPTION` and `PROXY`.                                 |
-| `ALTER`                   | Enable use of `ALTER TABLE`. Levels: Global, database, table.                                                         |
-| `ALTER ROUTINE`           | Enable stored routines to be altered or dropped. Levels: Global, database, procedure.                                 |
-| `CREATE`                  | Enable database and table creation. Levels: Global, database, table.                                                  |
-| `CREATE ROUTINE`          | Enable stored routine creation. Levels: Global, database.                                                             |
-| `CREATE TEMPORARY TABLES` | Enable the use of `CREATE TEMPORARY TABLE`. Levels: Global, database.                                                 |
-| `CREATE USER`             | Enable the use of `CREATE USER`, `DROP USER`, `RENAME USER`, and `REVOKE ALL PRIVILEGES`. Level: Global.              |
-| `CREATE VIEW`             | Enable views to be created or altered. Levels: Global, database, table.                                               |
-| `DELETE`                  | Enable the use of `DELETE`. Level: Global, database, table.                                                           |
-| `DROP`                    | Enable databases, tables, and views to be dropped. Levels: Global, database, table.                                   |
-| `EVENT`                   | Enable the use of events for the Event Scheduler. Levels: Global, database.                                           |
-| `EXECUTE`                 | Enable the user to run stored routines. Levels: Global, database, table.                                              |
-| `GRANT OPTION`            | Enable privileges to be granted to or removed from other accounts. Levels: Global, database, table, procedure, proxy. |
-| `INDEX`                   | Enable indexes to be created or dropped. Levels: Global, database, table.                                             |
-| `INSERT`                  | Enable the use of `INSERT`. Levels: Global, database, table, column.                                                  |
-| `LOCK TABLES`             | Enable the use of `LOCK TABLES` on tables for which you have the `SELECT` privilege. Levels: Global, database.        |
-| `PROXY`                   | Enable user proxying. Level: From user to user.                                                                       |
-| `REFERENCES`              | Enable foreign key creation. Levels: Global, database, table, column.                                                 |
-| `REPLICATION CLIENT`      | Enable the user to determine the location of primary and secondary servers. Level: Global.                            |
-| `REPLICATION SLAVE`       | Enable replication replicas to read binary log events from the primary. Level: Global.                                |
-| `SELECT`                  | Enable the use of `SELECT`. Levels: Global, database, table, column.                                                  |
-| `SHOW DATABASES`          | Enable `SHOW DATABASES` to show all databases. Level: Global.                                                         |
-| `SHOW VIEW`               | Enable the use of `SHOW CREATE VIEW`. Levels: Global, database, table.                                                |
-| `TRIGGER`                 | Enable trigger operations. Levels: Global, database, table.                                                           |
-| `UPDATE`                  | Enable the use of `UPDATE`. Levels: Global, database, table, column.                                                  |
+
+| Permissions | Use to | 
+| --- | --- | 
+|  `ALL [PRIVILEGES]`  | Grant all privileges at the specified access level except `GRANT OPTION` and `PROXY`. | 
+|  `ALTER`  | Enable use of `ALTER TABLE`. Levels: Global, database, table. | 
+|  `ALTER ROUTINE`  | Enable stored routines to be altered or dropped. Levels: Global, database, procedure. | 
+|  `CREATE`  | Enable database and table creation. Levels: Global, database, table. | 
+|  `CREATE ROUTINE`  | Enable stored routine creation. Levels: Global, database. | 
+|  `CREATE TEMPORARY TABLES`  | Enable the use of `CREATE TEMPORARY TABLE`. Levels: Global, database. | 
+|  `CREATE USER`  | Enable the use of `CREATE USER`, `DROP USER`, `RENAME USER`, and `REVOKE ALL PRIVILEGES`. Level: Global. | 
+|  `CREATE VIEW`  | Enable views to be created or altered. Levels: Global, database, table. | 
+|  `DELETE`  | Enable the use of `DELETE`. Level: Global, database, table. | 
+|  `DROP`  | Enable databases, tables, and views to be dropped. Levels: Global, database, table. | 
+|  `EVENT`  | Enable the use of events for the Event Scheduler. Levels: Global, database. | 
+|  `EXECUTE`  | Enable the user to run stored routines. Levels: Global, database, table. | 
+|  `GRANT OPTION`  | Enable privileges to be granted to or removed from other accounts. Levels: Global, database, table, procedure, proxy. | 
+|  `INDEX`  | Enable indexes to be created or dropped. Levels: Global, database, table. | 
+|  `INSERT`  | Enable the use of `INSERT`. Levels: Global, database, table, column. | 
+|  `LOCK TABLES`  | Enable the use of `LOCK TABLES` on tables for which you have the `SELECT` privilege. Levels: Global, database. | 
+|  `PROXY`  | Enable user proxying. Level: From user to user. | 
+|  `REFERENCES`  | Enable foreign key creation. Levels: Global, database, table, column. | 
+|  `REPLICATION CLIENT`  | Enable the user to determine the location of primary and secondary servers. Level: Global. | 
+|  `REPLICATION SLAVE`  | Enable replication replicas to read binary log events from the primary. Level: Global. | 
+|  `SELECT`  | Enable the use of `SELECT`. Levels: Global, database, table, column. | 
+|  `SHOW DATABASES`  | Enable `SHOW DATABASES` to show all databases. Level: Global. | 
+|  `SHOW VIEW`  | Enable the use of `SHOW CREATE VIEW`. Levels: Global, database, table. | 
+|  `TRIGGER`  | Enable trigger operations. Levels: Global, database, table. | 
+|  `UPDATE`  | Enable the use of `UPDATE`. Levels: Global, database, table, column. | 
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.security.datacontrollanguage.mysql.syntax"></a>
 
 ```
 GRANT <privilege type>...
@@ -115,11 +123,11 @@ ON [object type] <privilege level>
 FROM <user> ...
 ```
 
-###### Note
-
+**Note**  
 Table, Function, and Procedure object types can be explicitly stated but aren’t mandatory.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.security.datacontrollanguage.mysql.examples"></a>
 
 Attempt to `REVOKE` a partial permission that was granted as a wild card permission.
 
@@ -155,4 +163,4 @@ ON Demo.EmployeeReport
 FROM 'user'@'localhost';
 ```
 
-For more information, see [GRANT Statement](https://dev.mysql.com/doc/refman/5.7/en/grant.html "https://dev.mysql.com/doc/refman/5.7/en/grant.html") in the _MySQL documentation_.
+For more information, see [GRANT Statement](https://dev.mysql.com/doc/refman/5.7/en/grant.html) in the *MySQL documentation*.

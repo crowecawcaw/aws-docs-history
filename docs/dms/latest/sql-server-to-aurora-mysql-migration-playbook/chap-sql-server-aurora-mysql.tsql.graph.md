@@ -1,31 +1,34 @@
+
+
 # SQL server graph features for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.graph"></a>
 
 This topic provides reference content about graph database capabilities in Microsoft SQL Server 2019 and compares them to Amazon Aurora MySQL. You can understand the key features of graph databases in SQL Server, including nodes, edges, and their relationships.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                            |
-| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------- |
-| One star feature compatibility | No automation                      | N/A                       | Feature isn’t supported. Migration will require implementing a workaround. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Feature isn’t supported. Migration will require implementing a workaround. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.graph.sqlserver"></a>
 
 SQL Server offers graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
 
 A graph database is a collection of nodes or vertices and edges or relationships. A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). Both nodes and edges may have properties associated with them. Here are some features that make a graph database unique:
-
-- Edges or relationships are first class entities in a graph database and can have attributes or properties associated with them.
-- A single edge can flexibly connect multiple nodes in a graph database.
-- You can express pattern matching and multi-hop navigation queries easily.
-- You can express transitive closure and polymorphic queries easily.
++ Edges or relationships are first class entities in a graph database and can have attributes or properties associated with them.
++ A single edge can flexibly connect multiple nodes in a graph database.
++ You can express pattern matching and multi-hop navigation queries easily.
++ You can express transitive closure and polymorphic queries easily.
 
 A relational database can achieve anything a graph database can. However, a graph database makes it easier to express certain kinds of queries. Also, with specific optimizations, certain queries may perform better. Your decision to choose either a relational or graph database is based on following factors:
-
-- Your application has hierarchical data. The `HierarchyID` data type can be used to implement hierarchies, but it has some limitations. For example, it doesn’t allow you to store multiple parents for a node.
-- Your application has complex many-to-many relationships; as application evolves, new relationships are added.
-- You need to analyze interconnected data and relationships.
++ Your application has hierarchical data. The `HierarchyID` data type can be used to implement hierarchies, but it has some limitations. For example, it doesn’t allow you to store multiple parents for a node.
++ Your application has complex many-to-many relationships; as application evolves, new relationships are added.
++ You need to analyze interconnected data and relationships.
 
 SQL Server 2017 adds new graph database capabilities for modeling graph many-to-many relationships. They include a new `CREATE TABLE` syntax for creating node and edge tables, and the keyword `MATCH` for queries.
 
-For more information, see [Graph processing with SQL Server and Azure SQL Database](https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Graph processing with SQL Server and Azure SQL Database](https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15) in the *SQL Server documentation*.
 
 Consider the following `CREATE TABLE` example:
 
@@ -45,10 +48,11 @@ WHERE MATCH(Person1-(Friends)->Person2)
 AND Person1.Name = 'John';
 ```
 
-SQL Server 2019 adds ability to define cascaded delete actions on an edge constraint in a graph database. Edge constraints enable users to add constraints to their edge tables, thereby enforcing specific semantics and also maintaining data integrity. For more information, see [Edge constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15") in the _SQL Server documentation_.
+SQL Server 2019 adds ability to define cascaded delete actions on an edge constraint in a graph database. Edge constraints enable users to add constraints to their edge tables, thereby enforcing specific semantics and also maintaining data integrity. For more information, see [Edge constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/graph-edge-constraints?view=sql-server-ver15) in the *SQL Server documentation*.
 
-In SQL Server 2019, graph tables have support for table and index partitioning. For more information, see [Partitioned tables and indexes](https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15") in the _SQL Server documentation_.
+In SQL Server 2019, graph tables have support for table and index partitioning. For more information, see [Partitioned tables and indexes](https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.graph.mysql"></a>
 
 Currently, MySQL doesn’t provide native graph database features.

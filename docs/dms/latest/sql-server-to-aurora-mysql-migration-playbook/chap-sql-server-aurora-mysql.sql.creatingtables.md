@@ -1,52 +1,57 @@
+
+
 # Creating tables for ANSI SQL
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables"></a>
 
 This topic provides reference content comparing the creation of tables in Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the similarities and differences in table creation syntax, features, and capabilities between these two database systems.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                        | Key differences                                                                                                                    |
-| ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Creating Tables](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.tables "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.tables") | `IDENTITY` and `AUTO_INCREMENT`. Primary key is always clustered. `CREATE TEMPORARY TABLE` syntax. Unsupported `@table` variables. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Creating Tables](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.tables)  |  `IDENTITY` and `AUTO_INCREMENT`. Primary key is always clustered. `CREATE TEMPORARY TABLE` syntax. Unsupported `@table` variables. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver"></a>
 
 Tables in SQL Server are created using the `CREATE TABLE` statement and conform to the ANSI and ISO entry level standard. The basic features of `CREATE TABLE` are similar for most relational database management engines and are well defined in the ANSI and ISO standards.
 
 In its most basic form, the `CREATE TABLE` statement in SQL Server is used to define:
-
-- Table names, the containing security schema, and database.
-- Column names.
-- Column data types.
-- Column and table constraints.
-- Column default values.
-- Primary, unique, and foreign keys.
++ Table names, the containing security schema, and database.
++ Column names.
++ Column data types.
++ Column and table constraints.
++ Column default values.
++ Primary, unique, and foreign keys.
 
 ### T-SQL Extensions
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver.tsql"></a>
 
 SQL Server extends the basic syntax and provides many additional options for the `CREATE TABLE` or `ALTER TABLE` statements. The most often used options are:
++ Supporting index types for primary keys and unique constraints, clustered or non-clustered, and index properties such as `FILLFACTOR`.
++ Physical table data storage containers using the `ON <File Group>` clause.
++ Defining `IDENTITY` auto-enumerator columns.
++ Encryption.
++ Compression.
++ Indexes.
 
-- Supporting index types for primary keys and unique constraints, clustered or non-clustered, and index properties such as `FILLFACTOR`.
-- Physical table data storage containers using the `ON <File Group>` clause.
-- Defining `IDENTITY` auto-enumerator columns.
-- Encryption.
-- Compression.
-- Indexes.
-
-For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md "chap-sql-server-aurora-mysql.sql.datatypes.md"), [Column Encryption](chap-sql-server-aurora-mysql.security.columnencryption.md "chap-sql-server-aurora-mysql.security.columnencryption.md"), and [Databases and Schemas](chap-sql-server-aurora-mysql.tsql.databasesschemas.md "chap-sql-server-aurora-mysql.tsql.databasesschemas.md").
+For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md), [Column Encryption](chap-sql-server-aurora-mysql.security.columnencryption.md), and [Databases and Schemas](chap-sql-server-aurora-mysql.tsql.databasesschemas.md).
 
 ### Table Scope
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver.tablescope"></a>
 
 SQL Server provides five scopes for tables:
-
-- Standard tables are created on disk, globally visible, and persist through connection resets and server restarts.
-- Temporary tables are designated with the `#` prefix. Temporary tables are persisted in TempDB and are visible to the run scope where they were created and any sub-scope. Temporary tables are cleaned up by the server when the run scope terminates and when the server restarts.
-- Global temporary tables are designated by the `##` prefix. They are similar in scope to temporary tables, but are also visible to concurrent scopes.
-- Table variables are defined with the `DECLARE` statement, not with `CREATE TABLE`. They are visible only to the run scope where they were created.
-- Memory-Optimized tables are special types of tables used by the In-Memory Online Transaction Processing (OLTP) engine. They use a nonstandard `CREATE TABLE` syntax.
++ Standard tables are created on disk, globally visible, and persist through connection resets and server restarts.
++ Temporary tables are designated with the `#` prefix. Temporary tables are persisted in TempDB and are visible to the run scope where they were created and any sub-scope. Temporary tables are cleaned up by the server when the run scope terminates and when the server restarts.
++ Global temporary tables are designated by the `##` prefix. They are similar in scope to temporary tables, but are also visible to concurrent scopes.
++ Table variables are defined with the `DECLARE` statement, not with `CREATE TABLE`. They are visible only to the run scope where they were created.
++ Memory-Optimized tables are special types of tables used by the In-Memory Online Transaction Processing (OLTP) engine. They use a nonstandard `CREATE TABLE` syntax.
 
 ### Creating a Table Based on an Existing Table or Query
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver.existing"></a>
 
 In SQL Server, you can create new tables based on `SELECT` queries as an alternate to the `CREATE TABLE` statement. A `SELECT` statement that returns a valid set with unique column names can be used to create a new table and populate data.
 
-`SELECT INTO` is a combination of DML and DDL. The simplified syntax for `SELECT INTO` is:
+ `SELECT INTO` is a combination of DML and DDL. The simplified syntax for `SELECT INTO` is:
 
 ```
 SELECT <Expression List>
@@ -59,8 +64,9 @@ INTO <Table Name>
 When creating a new table using `SELECT INTO`, the only attributes created for the new table are column names, column order, and the data types of the expressions. Even a straight forward statement such as `SELECT * INTO <New Table> FROM <Source Table>` doesn’t copy constraints, keys, indexes, identity property, default values, or any other related objects.
 
 ### TIMESTAMP Syntax for ROWVERSION Deprecated Syntax
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver.timestamp"></a>
 
-The `TIMESTAMP` syntax synonym for `ROWVERSION` has been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+The `TIMESTAMP` syntax synonym for `ROWVERSION` has been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)) in the *SQL Server documentation*.
 
 Previously, you could use either the `TIMESTAMP` or the `ROWVERSION` keywords to denote a special data type that exposes an auto-enumerator. The auto-enumerator generates unique eight-byte binary numbers typically used to version-stamp table rows. Clients read the row, process it, and check the `ROWVERSION` value against the current row in the table before modifying it. If they are different, the row has been modified since the client read it. The client can then apply different processing logic.
 
@@ -69,6 +75,7 @@ Note that when you migrate to Amazon Aurora MySQL-Compatible Edition (Aurora MyS
 To maintain this functionality, add customer logic, potentially in the form of a trigger.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver.syntax"></a>
 
 Simplified syntax for `CREATE TABLE`.
 
@@ -105,6 +112,7 @@ INDEX <Index Name> [CLUSTERED | NONCLUSTERED]
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver.examples"></a>
 
 The following example creates a basic table.
 
@@ -139,48 +147,48 @@ CREATE TABLE MyTable
 );
 ```
 
-For more information, see [CREATE TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [CREATE TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql"></a>
 
 Like SQL Server, Aurora MySQL provides ANSI/ISO syntax entry level conformity for `CREATE TABLE` and custom extensions to support Aurora MySQL specific functionality.
 
-###### Note
-
-Unlike SQL Server that uses a single set of physical files for each database, Aurora MySQL tables are created as separate files for each table. Therefore, the SQL Server concept of File Groups doesn’t apply to Aurora MySQL. For more information, see [Databases and Schemas](chap-sql-server-aurora-mysql.tsql.databasesschemas.md "chap-sql-server-aurora-mysql.tsql.databasesschemas.md").
+**Note**  
+Unlike SQL Server that uses a single set of physical files for each database, Aurora MySQL tables are created as separate files for each table. Therefore, the SQL Server concept of File Groups doesn’t apply to Aurora MySQL. For more information, see [Databases and Schemas](chap-sql-server-aurora-mysql.tsql.databasesschemas.md).
 
 In its most basic form, and very similar to SQL Server, you can use the `CREATE TABLE` statement in Aurora MySQL to define:
-
-- Table name, containing security schema, and database.
-- Column names.
-- Column data types.
-- Column and table constraints.
-- Column default values.
-- Primary, unique, and foreign keys.
++ Table name, containing security schema, and database.
++ Column names.
++ Column data types.
++ Column and table constraints.
++ Column default values.
++ Primary, unique, and foreign keys.
 
 ### Aurora MySQL Extensions
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql.extensions"></a>
 
-Aurora MySQL extends the basic syntax and allows many additional options to be defined as part of the `CREATE TABLE` or `ALTER TABLE` statements. The most often used options are:
-
-- Defining `AUTO_INCREMENT` properties for auto-enumerator columns.
-- Encryption.
-- Compression.
-- Indexes.
+ Aurora MySQL extends the basic syntax and allows many additional options to be defined as part of the `CREATE TABLE` or `ALTER TABLE` statements. The most often used options are:
++ Defining `AUTO_INCREMENT` properties for auto-enumerator columns.
++ Encryption.
++ Compression.
++ Indexes.
 
 ### Table Scope
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql.tablescope"></a>
 
-Aurora MySQL provides two table scopes:
-
-- Standard tables are created on disk, visible globally, and persist through connection resets and server restarts.
-- Temporary tables are created using the `CREATE TEMPORARY TABLE` statement. A temporary table is visible only to the session that creates it and is dropped automatically when the session is closed.
+ Aurora MySQL provides two table scopes:
++ Standard tables are created on disk, visible globally, and persist through connection resets and server restarts.
++ Temporary tables are created using the `CREATE TEMPORARY TABLE` statement. A temporary table is visible only to the session that creates it and is dropped automatically when the session is closed.
 
 ### Creating a Table Based on an Existing Table or Query
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql.existing"></a>
 
-Aurora MySQL provides two ways to create standard or temporary tables based on existing tables and queries.
+ Aurora MySQL provides two ways to create standard or temporary tables based on existing tables and queries.
 
-`CREATE TABLE <New Table> LIKE <Source Table>` creates an empty table based on the definition of another table including any column attributes and indexes defined in the original table.
+ `CREATE TABLE <New Table> LIKE <Source Table>` creates an empty table based on the definition of another table including any column attributes and indexes defined in the original table.
 
-`CREATE TABLE …​ AS <Query Expression>` is similar to `SELECT INTO` in SQL Server. You can use this statement to create a new table and populate data in a single step. Unlike SQL Server, you can combine standard column definitions and additional columns derived from the query in Aurora MySQL. This statement doesn’t copy supporting objects or attributes from the source table, similar to SQL Server. For example:
+ `CREATE TABLE …​ AS <Query Expression>` is similar to `SELECT INTO` in SQL Server. You can use this statement to create a new table and populate data in a single step. Unlike SQL Server, you can combine standard column definitions and additional columns derived from the query in Aurora MySQL. This statement doesn’t copy supporting objects or attributes from the source table, similar to SQL Server. For example:
 
 ```
 CREATE TABLE SourceTable
@@ -222,10 +230,10 @@ NULL  1
 ```
 
 ### Converting TIMESTAMP and ROWVERSION columns
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql.timestamp"></a>
 
-###### Note
-
-Aurora MySQL has a `TIMESTAMP` data type, which is a temporal type not to be confused with `TIMESTAMP` in SQL Server. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md "chap-sql-server-aurora-mysql.sql.datatypes.md").
+**Note**  
+ Aurora MySQL has a `TIMESTAMP` data type, which is a temporal type not to be confused with `TIMESTAMP` in SQL Server. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md).
 
 SQL server provides an automatic mechanism for stamping row versions for application concurrency control.
 
@@ -281,9 +289,10 @@ ON WorkItems FOR EACH ROW
 SET NEW.VersionNumber = OLD.VersionNumber + 1;
 ```
 
-For more information, see [Triggers](chap-sql-server-aurora-mysql.tsql.triggers.md "chap-sql-server-aurora-mysql.tsql.triggers.md").
+For more information, see [Triggers](chap-sql-server-aurora-mysql.tsql.triggers.md).
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql.syntax"></a>
 
 ```
 CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
@@ -307,26 +316,27 @@ CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
 ```
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql.considerations"></a>
 
 Migrating `CREATE TABLE` statements should be mostly compatible with the SQL Server syntax when using only ANSI standard syntax.
 
-`IDENTITY` columns should be rewritten to use the Aurora MySQL syntax of `AUTO_INCREMENT`. Note that similar to SQL Server, there can be only one such column in a table, but in Aurora MySQL it also must be indexed.
+ `IDENTITY` columns should be rewritten to use the Aurora MySQL syntax of `AUTO_INCREMENT`. Note that similar to SQL Server, there can be only one such column in a table, but in Aurora MySQL it also must be indexed.
 
 Temporary table syntax should be modified to use the `CREATE TEMPORARY TABLE` statement instead of the `CREATE #Table` syntax of SQL Server. Global temporary tables and table variables aren’t supported by Aurora MySQL. For sharing data across connections, use standard tables.
 
-`SELECT INTO` queries should be rewritten to use `CREATE TABLE …​ AS` syntax. When copying tables, remember that the `CREATE TABLE …​ LIKE` syntax also retains all supporting objects such as constraints and indexes.
+ `SELECT INTO` queries should be rewritten to use `CREATE TABLE …​ AS` syntax. When copying tables, remember that the `CREATE TABLE …​ LIKE` syntax also retains all supporting objects such as constraints and indexes.
 
-Aurora MySQL doesn’t require specifying constraint names when using the CONSTRAINT keyword. Unique constraint names are created automatically. If specifying a name, the name must be unique for the database.
+ Aurora MySQL doesn’t require specifying constraint names when using the CONSTRAINT keyword. Unique constraint names are created automatically. If specifying a name, the name must be unique for the database.
 
 Unlike SQL Server `IDENTITY` columns, which require `EXPLICIT SET IDENTITY_INSERT ON` to bypass the automatic generation, Aurora MySQL allows inserting explicit values into the column. To generate an automatic value, insert a NULL or a 0 value. To reseed the automatic value, use `ALTER TABLE` as opposed to `DBCC CHECKIDENT` in SQL Server.
 
 In Aurora MySQL, you can add a comment to a column for documentation purposes, similar to SQL Server extended properties feature.
 
-###### Note
-
-Contrary to the SQL standard, foreign keys in Aurora MySQL can point to non-unique parent column values. In this case, the foreign key prohibits deletion of any of the parent rows. For more information, see [Constraints](chap-sql-server-aurora-mysql.sql.constraints.md "chap-sql-server-aurora-mysql.sql.constraints.md") and [FOREIGN KEY Constraint Differences](https://dev.mysql.com/doc/refman/5.7/en/ansi-diff-foreign-keys.html "https://dev.mysql.com/doc/refman/5.7/en/ansi-diff-foreign-keys.html") in the _MySQL documentation_.
+**Note**  
+Contrary to the SQL standard, foreign keys in Aurora MySQL can point to non-unique parent column values. In this case, the foreign key prohibits deletion of any of the parent rows. For more information, see [Constraints](chap-sql-server-aurora-mysql.sql.constraints.md) and [FOREIGN KEY Constraint Differences](https://dev.mysql.com/doc/refman/5.7/en/ansi-diff-foreign-keys.html) in the *MySQL documentation*.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.mysql.examples"></a>
 
 The following example creates a basic table.
 
@@ -363,21 +373,23 @@ CREATE TABLE MyTable
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.sql.creatingtables.summary"></a>
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| Feature                     | SQL Server                  | Aurora MySQL                                   | Comments                                                                                                                                                                                                                                           |
-| --------------------------- | --------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ANSI compliance             | Entry level                 | Entry level                                    | Basic syntax is compatible.                                                                                                                                                                                                                        |
-| Auto generated enumerator   | `IDENTITY`                  | `AUTO_INCREMENT`                               | Only one allowed for each table. In Aurora MySQL, insert NULL or 0 to generate a new value.                                                                                                                                                        |
-| Reseed auto generated value | `DBCC CHECKIDENT`           | `ALTER TABLE`                                  | For more information, see [ALTER TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html "https://dev.mysql.com/doc/refman/5.7/en/alter-table.html").                                                                            |
-| Index types                 | `CLUSTERED`, `NONCLUSTERED` | Implicit — primary keys use clustered indexes. | For more information, see [Indexes](chap-sql-server-aurora-mysql.indexes.md "chap-sql-server-aurora-mysql.indexes.md").                                                                                                                            |
-| Physical storage location   | `ON <File Group>`           | Not supported                                  | Physical storage is managed by AWS.                                                                                                                                                                                                                |
-| Temporary tables            | #TempTable                  | `CREATE TEMPORARY TABLE`                       |                                                                                                                                                                                                                                                    |
-| Global temporary tables     | `##GlobalTempTable`         | Not supported                                  | Use standard tables to share data between connections.                                                                                                                                                                                             |
-| Table variables             | `DECLARE @Table`            | Not supported                                  |                                                                                                                                                                                                                                                    |
-| Create table as query       | `SELECT…​ INTO`             | `CREATE TABLE…​ AS`                            |                                                                                                                                                                                                                                                    |
-| Copy table structure        | Not supported               | `CREATE TABLE…​ LIKE`                          |                                                                                                                                                                                                                                                    |
-| Memory-optimized tables     | Supported                   | Not supported                                  | For workloads that require memory resident tables, consider using Amazon ElastiCache (Redis OSS). For more information, see [Amazon ElastiCache for Redis](https://aws.amazon.com/elasticache/redis/ "https://aws.amazon.com/elasticache/redis/"). |
 
-For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html") in the _MySQL documentation_.
+| Feature | SQL Server |  Aurora MySQL  | Comments | 
+| --- | --- | --- | --- | 
+| ANSI compliance | Entry level | Entry level | Basic syntax is compatible. | 
+| Auto generated enumerator |  `IDENTITY`  |  `AUTO_INCREMENT`  | Only one allowed for each table. In Aurora MySQL, insert NULL or 0 to generate a new value. | 
+| Reseed auto generated value |  `DBCC CHECKIDENT`  |  `ALTER TABLE`  | For more information, see [ALTER TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html). | 
+| Index types |  `CLUSTERED`, `NONCLUSTERED`  | Implicit — primary keys use clustered indexes. | For more information, see [Indexes](chap-sql-server-aurora-mysql.indexes.md). | 
+| Physical storage location |  `ON <File Group>`  | Not supported | Physical storage is managed by AWS. | 
+| Temporary tables | \#TempTable |  `CREATE TEMPORARY TABLE`  |  | 
+| Global temporary tables |  `##GlobalTempTable`  | Not supported | Use standard tables to share data between connections. | 
+| Table variables |  `DECLARE @Table`  | Not supported |  | 
+| Create table as query |  `SELECT…​ INTO`  |  `CREATE TABLE…​ AS`  |  | 
+| Copy table structure | Not supported |  `CREATE TABLE…​ LIKE`  |  | 
+| Memory-optimized tables | Supported | Not supported | For workloads that require memory resident tables, consider using Amazon ElastiCache (Redis OSS). For more information, see [Amazon ElastiCache for Redis](https://aws.amazon.com/elasticache/redis/). | 
+
+For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html) in the *MySQL documentation*.

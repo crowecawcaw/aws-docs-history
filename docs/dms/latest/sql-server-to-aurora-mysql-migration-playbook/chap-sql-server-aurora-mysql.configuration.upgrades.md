@@ -1,18 +1,24 @@
+
+
 # Configuring upgrades
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades"></a>
 
 This topic provides reference content about upgrading database instances in Amazon Aurora MySQL. You can learn about the reasons for database upgrades, the differences between upgrading SQL Server and Aurora MySQL, and the process of performing upgrades in Aurora MySQL.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| --------------------- | ---------------------------------- | ------------------------- | --------------- |
-| N/A                   | N/A                                | N/A                       | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+| N/A | N/A | N/A | N/A | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades.sqlserver"></a>
 
 As a database administrator, from time to time a database upgrade is required, it can be either for security fix, bugs fixes, compliance, or new database features.
 
 The database upgrade approach can be planned to minimize the database downtime and risk. You can perform an upgrade in-place or migrate to a new installation.
 
 ### Upgrade In-Place
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades.sqlserver.upgrade"></a>
 
 With this approach, we are retaining the current hardware and OS version by adding the new SQL Server binaries on the same server and then upgrade the SQL Server instance.
 
@@ -20,42 +26,37 @@ Before upgrading the database engine, review the SQL Server release notes for th
 
 In general, these will be the steps to perform the upgrade:
 
-**Prerequisites steps**
+ **Prerequisites steps** 
++ Back up all SQL Server database files, so that it can be restored if required.
++ Run the appropriate Database Console Commands (DBCC CHECKDB) on databases to be upgraded to make sure that they are in a consistent state.
++ Ensure to allocate enough disk space for SQL Server components, in addition to user databases.
++ Disable all startup stored procedures as stored procedures processed at startup time might block the upgrade process.
++ Stop all applications, including all services that have SQL Server dependencies.
 
-- Back up all SQL Server database files, so that it can be restored if required.
-- Run the appropriate Database Console Commands (DBCC CHECKDB) on databases to be upgraded to make sure that they are in a consistent state.
-- Ensure to allocate enough disk space for SQL Server components, in addition to user databases.
-- Disable all startup stored procedures as stored procedures processed at startup time might block the upgrade process.
-- Stop all applications, including all services that have SQL Server dependencies.
+ **Steps for upgrade** 
++ Install new software.
+  + Fix issues raised.
+  + Set if you prefer to have automatic updates or not.
+  + Select products install to upgrade, this is the new binaries installation.
+  + Monitor the progress of downloading, extracting, and installing the Setup files.
++ Specify the instance of SQL Server to upgrade.
+  + On the Select Features page, the features to upgrade will be preselected. The prerequisites for the selected features are displayed on the right-hand pane. SQL Server Setup will install the prerequisite that aren’t already installed during the installation step described later in this procedure.
++ Review upgrade plan before the actual upgrade.
++ Monitor installation progress.
 
-**Steps for upgrade**
-
-- Install new software.
-
-  - Fix issues raised.
-  - Set if you prefer to have automatic updates or not.
-  - Select products install to upgrade, this is the new binaries installation.
-  - Monitor the progress of downloading, extracting, and installing the Setup files.
-
-- Specify the instance of SQL Server to upgrade.
-
-  - On the Select Features page, the features to upgrade will be preselected. The prerequisites for the selected features are displayed on the right-hand pane. SQL Server Setup will install the prerequisite that aren’t already installed during the installation step described later in this procedure.
-
-- Review upgrade plan before the actual upgrade.
-- Monitor installation progress.
-
-**Post upgrade tasks**
-
-- Review summary log file for the installation and other important notes.
-- Register your servers.
+ **Post upgrade tasks** 
++ Review summary log file for the installation and other important notes.
++ Register your servers.
 
 ### Migrate to a New Installation
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades.sqlserver.migrate"></a>
 
 This approach maintains the current environment while building a new SQL Server environment. This is usually done when migrating on a new hardware and with a new version of the operating system. In this approach migrate the system objects so that they are same as the existing environment, then migrate the user database either using backup and restore.
 
-For more information, see [Upgrade Database Engine](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-database-engine?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-database-engine?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Upgrade Database Engine](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/upgrade-database-engine?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades.mysql"></a>
 
 After migrating your databases to Amazon Aurora MySQL-Compatible Edition (Aurora MySQL), you will still need to upgrade your database instance from time to time, for the same reasons you have done it in the past like new features, bugs and security fixes.
 
@@ -73,9 +74,9 @@ This can also be queried from the database, using the following queries:
 SELECT AURORA_VERSION();
 ```
 
-In an Aurora MySQL version number scheme, for example 2.08.1, the first digit represents the major version. Aurora MySQL version 1 is compatible with MySQL 5.6 and Aurora MySQL version 2 is compatible with MySQL 5.7. To find all Amazon Aurora and MySQL versions mapping, see [Database engine updates for Amazon Aurora MySQL version 2](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.20Updates.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.20Updates.md").
+In an Aurora MySQL version number scheme, for example 2.08.1, the first digit represents the major version. Aurora MySQL version 1 is compatible with MySQL 5.6 and Aurora MySQL version 2 is compatible with MySQL 5.7. To find all Amazon Aurora and MySQL versions mapping, see [Database engine updates for Amazon Aurora MySQL version 2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.20Updates.html).
 
-AWS doesn’t apply major version upgrades on Amazon Aurora automatically. Major version upgrades contains new features and functionality which often involves system table and other code changes. These changes may not be backward-compatible with previous versions of the database so applications testing is highly recommended.
+ AWS doesn’t apply major version upgrades on Amazon Aurora automatically. Major version upgrades contains new features and functionality which often involves system table and other code changes. These changes may not be backward-compatible with previous versions of the database so applications testing is highly recommended.
 
 Applying automatic minor upgrades can be set by configuring the Amazon RDS instance to allow it.
 
@@ -85,8 +86,7 @@ You can use the following AWS CLI command (Linux) to determine the current autom
 aws rds describe-db-engine-versions --output=table --engine mysql --engine-version minor-version --region region
 ```
 
-###### Note
-
+**Note**  
 If no results returned, there is no automatic minor version upgrade available and scheduled.
 
 When enabled, the instance will be automatically upgraded during the scheduled maintenance window.
@@ -94,48 +94,54 @@ When enabled, the instance will be automatically upgraded during the scheduled m
 If you want to upgrade your cluster to a compatible cluster, you can do so by running an upgrade process on the cluster itself. This kind of upgrade is an in-place upgrade, in contrast to upgrades that you do by creating a new cluster. The upgrade is relatively fast because it doesn’t require copying all your data to a new cluster volume. In place upgrade preserves the endpoints and set of DB instances for your cluster.
 
 To verify application compatibility, performance and maintenance procedures for the upgraded cluster, you can perform a simulation of the upgrade by doing following
-
-- Clone a cluster.
-- Perform an in-place upgrade of the cloned cluster.
-- Test applications, performance and so on, using the cloned cluster.
-- Resolve any issues, adjust your upgrade plans to account for them.
-- Once all the testing looks good, you can perform the in-place upgrade for your production cluster.
++ Clone a cluster.
++ Perform an in-place upgrade of the cloned cluster.
++ Test applications, performance and so on, using the cloned cluster.
++ Resolve any issues, adjust your upgrade plans to account for them.
++ Once all the testing looks good, you can perform the in-place upgrade for your production cluster.
 
 For major upgrades, this is the recommended:
++ Check for open XA transactions by running the `XA RECOVER` statement. Commit or Rollback the XA transactions before starting the upgrade.
++ Check for DDL statements by running a `SHOW PROCESSLIST` statement and looking for `CREATE`, `DROP`, `ALTER`, `RENAME`, and `TRUNCATE` statements in the output. Allow all DDLs to finish before starting the upgrade.
++ Check for any uncommitted rows by querying the `INFORMATION_SCHEMA.INNODB_TRX` table. The table contains one row for each transaction. Let the transaction complete or shut down applications that are submitting these changes.
 
-- Check for open XA transactions by running the `XA RECOVER` statement. Commit or Rollback the XA transactions before starting the upgrade.
-- Check for DDL statements by running a `SHOW PROCESSLIST` statement and looking for `CREATE`, `DROP`, `ALTER`, `RENAME`, and `TRUNCATE` statements in the output. Allow all DDLs to finish before starting the upgrade.
-- Check for any uncommitted rows by querying the `INFORMATION_SCHEMA.INNODB_TRX` table. The table contains one row for each transaction. Let the transaction complete or shut down applications that are submitting these changes.
+ Aurora MySQL performs a major version upgrade in multiple steps. As each step begins, Aurora MySQL records an event. You can monitor the current status and events as they occur on the Events page in the Amazon RDS console.
 
-Aurora MySQL performs a major version upgrade in multiple steps. As each step begins, Aurora MySQL records an event. You can monitor the current status and events as they occur on the Events page in the Amazon RDS console.
+ Amazon Aurora performs a series of checks before beginning the upgrade process. If any issues are detected during these checks, resolve the issue identified in the event details and restart the upgrade process.
 
-Amazon Aurora performs a series of checks before beginning the upgrade process. If any issues are detected during these checks, resolve the issue identified in the event details and restart the upgrade process.
+ Aurora takes the cluster offline, performs a similar set of tests as in the previous step. If no new issues are identified, then Aurora moves with the next step. If any issues are detected during these checks, resolve the issue identified in the event details and restart the upgrade process again.
 
-Aurora takes the cluster offline, performs a similar set of tests as in the previous step. If no new issues are identified, then Aurora moves with the next step. If any issues are detected during these checks, resolve the issue identified in the event details and restart the upgrade process again.
+ Aurora backups up the MySQL cluster by creating a snapshot of the cluster volume.
 
-Aurora backups up the MySQL cluster by creating a snapshot of the cluster volume.
+ Aurora clones the cluster volume. If any issues are encountered during the upgrade, Aurora reverts to the original data from the cloned cluster volume and brings the cluster back online.
 
-Aurora clones the cluster volume. If any issues are encountered during the upgrade, Aurora reverts to the original data from the cloned cluster volume and brings the cluster back online.
+ Aurora performs a clean shutdown and it rolls back any uncommitted transactions.
 
-Aurora performs a clean shutdown and it rolls back any uncommitted transactions.
-
-Aurora upgrades the engine version. It installs the binary for the new engine version and uses the writer DB instance to upgrade your data to new to MySQL compatible format. During this stage, Aurora modifies the system tables and performs other conversions that affect the data in your cluster volume.
+ Aurora upgrades the engine version. It installs the binary for the new engine version and uses the writer DB instance to upgrade your data to new to MySQL compatible format. During this stage, Aurora modifies the system tables and performs other conversions that affect the data in your cluster volume.
 
 The upgrade process is completed. Aurora records a final event to indicate that the upgrade process completed successfully. Now DB cluster is running the new major version.
 
 Upgrade can be done through the AWS Console or AWS CLI.
 
 ### Console
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades.mysql.console"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at https://console.aws.amazon.com/rds/.
-2. In the navigation pane, choose **Databases**, and then choose the DB cluster that you want to upgrade.
-3. Choose **Modify**. The Modify DB cluster page appears.
-4. For DB engine version, choose the new version.
-5. Choose **Continue** and check the summary of modifications.
-6. To apply the changes immediately, choose **Apply immediately**. Choosing this option can cause an outage in some cases. For more information, see [Modifying an Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.md").
-7. On the confirmation page, review your changes. If they are correct, choose **Modify cluster** to save your changes. Choose **Back** to edit your changes or Cancel to cancel your changes.
+
+1. In the navigation pane, choose **Databases**, and then choose the DB cluster that you want to upgrade.
+
+1. Choose **Modify**. The Modify DB cluster page appears.
+
+1. For DB engine version, choose the new version.
+
+1. Choose **Continue** and check the summary of modifications.
+
+1. To apply the changes immediately, choose **Apply immediately**. Choosing this option can cause an outage in some cases. For more information, see [Modifying an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.html).
+
+1. On the confirmation page, review your changes. If they are correct, choose **Modify cluster** to save your changes. Choose **Back** to edit your changes or Cancel to cancel your changes.
 
 ### AWS CLI
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades.mysql.cli"></a>
 
 To upgrade the major version of an Aurora MySQL DB cluster, use the AWS CLI `modify-db-cluster` command with the following required parameters:
 
@@ -162,21 +168,23 @@ aws rds modify-db-cluster ^
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.configuration.upgrades.summary"></a>
 
-| Phase                 | SQL Server Step                                          | Aurora MySQL                                |
-| --------------------- | -------------------------------------------------------- | ------------------------------------------- |
-| Prerequisite          | Perform an instance backup                               | Run Amazon RDS instance backup              |
-| Prerequisite          | DBCC for consistent verification                         | N/A                                         |
-| Prerequisite          | Validate disk size and free space                        | N/A                                         |
-| Prerequisite          | Disable all startup stored procedures (if applicable)    | N/A                                         |
-| Prerequisite          | Stop application and connection                          | N/A                                         |
-| Prerequisite          | Install new software and fix prerequisites errors raised | Commit or rollback uncommitted transactions |
-| Prerequisite          | Select instances to upgrade                              | Select right Amazon RDS instance            |
-| Prerequisite          | Review pre-upgrade summary                               | N/A                                         |
-| Runtime               | Monitor upgrade progress                                 | Can be reviewed from the console            |
-| Post-upgrade          | Results                                                  | Can be reviewed from the console            |
-| Post-upgrade          | Register server                                          | N/A                                         |
-| Post-upgrade          | Test applications again the new upgraded database        | Same                                        |
-| Production deployment | Re-run all steps in a production environment             | Same                                        |
 
-For more information, see [Upgrading Amazon Aurora MySQL DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.Upgrading.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.Upgrading.md") in the _User Guide for Aurora_.
+| Phase | SQL Server Step |  Aurora MySQL  | 
+| --- | --- | --- | 
+| Prerequisite | Perform an instance backup | Run Amazon RDS instance backup | 
+| Prerequisite | DBCC for consistent verification | N/A | 
+| Prerequisite | Validate disk size and free space | N/A | 
+| Prerequisite | Disable all startup stored procedures (if applicable) | N/A | 
+| Prerequisite | Stop application and connection | N/A | 
+| Prerequisite | Install new software and fix prerequisites errors raised | Commit or rollback uncommitted transactions | 
+| Prerequisite | Select instances to upgrade | Select right Amazon RDS instance | 
+| Prerequisite | Review pre-upgrade summary | N/A | 
+| Runtime | Monitor upgrade progress | Can be reviewed from the console | 
+| Post-upgrade | Results | Can be reviewed from the console | 
+| Post-upgrade | Register server | N/A | 
+| Post-upgrade | Test applications again the new upgraded database | Same | 
+| Production deployment | Re-run all steps in a production environment | Same | 
+
+For more information, see [Upgrading Amazon Aurora MySQL DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.Upgrading.html) in the *User Guide for Aurora*.

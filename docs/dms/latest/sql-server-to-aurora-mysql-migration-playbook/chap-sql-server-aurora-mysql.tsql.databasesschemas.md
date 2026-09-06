@@ -1,28 +1,30 @@
+
+
 # Databases and schemas for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas"></a>
 
 This topic provides reference content comparing database and schema concepts between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can gain insight into how these two database systems differ in their approach to logical containers, security, and object hierarchies.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                     |
-| ------------------------------ | ---------------------------------- | ------------------------- | ----------------------------------- |
-| Two star feature compatibility | Two star automation level          | N/A                       | Schema and database are synonymous. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Two star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-2.png)  | N/A | Schema and database are synonymous. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.sqlserver"></a>
 
-Databases and schemas are logical containers for security and access control. Administrators can grant permissions collectively at both the databases and the schema levels. SQL Server instances provide security at three levels: individual objects, schemas (collections of objects), and databases (collections of schemas). For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.datacontrollanguage.md "chap-sql-server-aurora-mysql.security.datacontrollanguage.md").
+Databases and schemas are logical containers for security and access control. Administrators can grant permissions collectively at both the databases and the schema levels. SQL Server instances provide security at three levels: individual objects, schemas (collections of objects), and databases (collections of schemas). For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.datacontrollanguage.md).
 
-###### Note
-
-In previous versions of SQL server, the term _user_ was interchangeable with the term _schema_. For backward compatibility, each database has several built-in security schemas including `guest`, `dbo`,
-`db_datareaded`, `sys`, `INFORMATION_SCHEMA`, and so on. You should migrate these schemas.
+**Note**  
+In previous versions of SQL server, the term *user* was interchangeable with the term *schema*. For backward compatibility, each database has several built-in security schemas including `guest`, `dbo`, `db_datareaded`, `sys`, `INFORMATION_SCHEMA`, and so on. You should migrate these schemas.
 
 Each SQL Server instance can host and manage a collection of databases, which consist of SQL Server processes and the Master, Model, TempDB, and MSDB system databases.
 
 The most common SQL Server administrator tasks at the database level are:
-
-- **Managing Physical Files** — Add, remove, change file growth settings, and re-size files.
-- **Managing Filegroups** — Partition schemes, object distribution, and read-only protection of tables.
-- **Managing default options**.
-- **Creating database snapshots**.
++  **Managing Physical Files** — Add, remove, change file growth settings, and re-size files.
++  **Managing Filegroups** — Partition schemes, object distribution, and read-only protection of tables.
++  **Managing default options**.
++  **Creating database snapshots**.
 
 Unique object identifiers within an instance use three-part identifiers: `<Database name>.<Schema name>.<Object name>`.
 
@@ -31,6 +33,7 @@ The recommended way to view the metadata of database objects, including schemas,
 To view a list of all databases on the server, use the `sys.databases` table.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.sqlserver.syntax"></a>
 
 Simplified syntax for `CREATE DATABASE`:
 
@@ -48,6 +51,7 @@ CREATE SCHEMA <schema name> | AUTHORIZATION <owner name>;
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.sqlserver.examples"></a>
 
 Add a file to a database and create a table using the new file.
 
@@ -113,29 +117,28 @@ CREATE TABLE NewSchema.NewTable
 );
 ```
 
-###### Note
-
+**Note**  
 The preceding example uses default settings for the new database and schema.
 
-For more information, see [sys.databases (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15"), [CREATE SCHEMA (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15"), and [CREATE DATABASE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool") in the _SQL Server documentation_.
+For more information, see [sys.databases (Transact-SQL)](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver15), [CREATE SCHEMA (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver15), and [CREATE DATABASE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver15&tabs=sqlpool) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports both the `CREATE SCHEMA` and `CREATE DATABASE` statements. However, in Aurora MySQL, these statements are synonymous.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports both the `CREATE SCHEMA` and `CREATE DATABASE` statements. However, in Aurora MySQL, these statements are synonymous.
 
-Unlike SQL Server, Aurora MySQL doesn’t have the concept of an instance hosting multiple databases, which in turn contain multiple schemas. Objects in Aurora MySQL are referenced as a two part name: `<schema>.<object>`. You can use the term _database_ in place of schema, but it is conceptually the same thing.
+Unlike SQL Server, Aurora MySQL doesn’t have the concept of an instance hosting multiple databases, which in turn contain multiple schemas. Objects in Aurora MySQL are referenced as a two part name: `<schema>.<object>`. You can use the term *database* in place of schema, but it is conceptually the same thing.
 
-###### Note
-
+**Note**  
 This terminology conflict can lead to confusion for SQL Server database administrators unfamiliar with the Aurora MySQL concept of a database.
 
-###### Note
-
+**Note**  
 Each database and schema in Aurora MySQL is managed as a separate set of physical files similar to an SQL Server database.
 
-Aurora MySQL doesn’t have the concept of a schema owner. Permissions must be granted explicitly. However, Aurora MySQL supports a custom default collation at the schema level, whereas SQL Server supports it at the database level only. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.collations.md "chap-sql-server-aurora-mysql.tsql.collations.md").
+ Aurora MySQL doesn’t have the concept of a schema owner. Permissions must be granted explicitly. However, Aurora MySQL supports a custom default collation at the schema level, whereas SQL Server supports it at the database level only. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.collations.md).
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.mysql.syntax"></a>
 
 Syntax for CREATE DATABASE:
 
@@ -146,6 +149,7 @@ CREATE {DATABASE | SCHEMA} <database name>
 ```
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.mysql.considerations"></a>
 
 Similar to SQL Server, Aurora MySQL supports the USE command to specify the default database or schema for missing object qualifiers.
 
@@ -187,7 +191,7 @@ performance_schema
 sys
 ```
 
-Aurora MySQL also supports a `CREATE DATABASE` syntax reminder command.
+ Aurora MySQL also supports a `CREATE DATABASE` syntax reminder command.
 
 ```
 SHOW CREATE DATABASE Demo;
@@ -201,6 +205,7 @@ Demo      CREATE DATABASE `Demo` /*!40100 DEFAULT CHARACTER SET latin1 */
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.mysql.examples"></a>
 
 The following examples create a new table in a new database.
 
@@ -228,14 +233,16 @@ SELECT * FROM NewTable;
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.tsql.databasesschemas.summary"></a>
 
 The following table summarizes the migration path for each architecture.
 
-| Current object architecture                          | Migrate to Aurora MySQL                         | Rewrites                                                                                                                                                            |
-| ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Single database, all objects in dbo schema.          | Single instance, single database or schema.     | If the code already uses two-part object notation such as `dbo.<object>`, consider creating a `dbo` schema in Aurora MySQL to minimize code changes.                |
-| Single database, objects in multiple schemas.        | Single instance, multiple databases or schemas. | No identifier hierarchy rewrites needed. Code should be compatible with respect to the object hierarchy.                                                            |
-| Multiple databases, all objects in the `dbo` schema. | Single instance, multiple databases or schemas. | Identifier rewrite is required to remove the SQL Server schema name or the default dot. Change `SELECT<br>• FROM MyDB..MyTable` to `SELECT<br>• FROM MyDB.MyTable`. |
-| Multiple databases, objects in multiple schemas.     | Multiple instances.                             | Connectivity between the instances will need to be implemented at the application level.                                                                            |
 
-For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html "https://dev.mysql.com/doc/refman/5.7/en/create-database.html") in the _MySQL documentation_.
+| Current object architecture | Migrate to Aurora MySQL  | Rewrites | 
+| --- | --- | --- | 
+| Single database, all objects in dbo schema. | Single instance, single database or schema. | If the code already uses two-part object notation such as `dbo.<object>`, consider creating a `dbo` schema in Aurora MySQL to minimize code changes. | 
+| Single database, objects in multiple schemas. | Single instance, multiple databases or schemas. | No identifier hierarchy rewrites needed. Code should be compatible with respect to the object hierarchy. | 
+| Multiple databases, all objects in the `dbo` schema. | Single instance, multiple databases or schemas. | Identifier rewrite is required to remove the SQL Server schema name or the default dot. Change `SELECT * FROM MyDB..MyTable` to `SELECT * FROM MyDB.MyTable`. | 
+| Multiple databases, objects in multiple schemas. | Multiple instances. | Connectivity between the instances will need to be implemented at the application level. | 
+
+For more information, see [CREATE DATABASE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-database.html) in the *MySQL documentation*.

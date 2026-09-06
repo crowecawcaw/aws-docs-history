@@ -1,39 +1,41 @@
+
+
 # Flow control for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.flowcontrol"></a>
 
 This topic provides reference information about flow control in SQL Server and Amazon Aurora MySQL, comparing their respective capabilities and syntax differences. You can use this guide to understand how to adapt your existing SQL Server flow control statements when migrating to Aurora MySQL.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                               | Key differences                                       |
-| ------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | [Flow Control](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.flowcontrol "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.flowcontrol") | Syntax and option differences, similar functionality. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Flow Control](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.flowcontrol)  | Syntax and option differences, similar functionality. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.flowcontrol.sqlserver"></a>
 
 Although SQL is a mostly declarative language, it does support flow control commands, which provide run time dynamic changes in script run paths.
 
-###### Note
-
+**Note**  
 Before SQL/PSM was introduced in SQL:1999, the ANSI standard did not include flow control constructs. Therefore, there are significant syntax differences among RDBMS engines.
 
 SQL Server provides the following flow control keywords.
++  `BEGIN…​ END` — Define boundaries for a block of commands that run together.
++  `RETURN` — Exit a server code module such as stored procedure, function, and so on and return control to the calling scope. You can use `RETURN <value>` to return an `INT` value to the calling scope.
++  `BREAK` — Exit `WHILE` loop run.
++  `THROW` — Raise errors and potentially return control to the calling stack.
++  `CONTINUE` — Restart a `WHILE` loop.
++  `TRY…​ CATCH` — Error handling. For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md).
++  `GOTO label` — Moves the run point to the location of the specified label.
++  `WAITFOR` — Delay.
++  `IF…​ ELSE` — Conditional flow control.
++  `WHILE <condition>` — Continue looping while `<condition>` returns `TRUE`.
+**Note**  
+ `WHILE` loops are commonly used with cursors and use the system variable `@@FETCH_STATUS` to determine when to exit. For more information, see [Cursors](chap-sql-server-aurora-mysql.tsql.cursors.md).
 
-- `BEGIN…​ END` — Define boundaries for a block of commands that run together.
-- `RETURN` — Exit a server code module such as stored procedure, function, and so on and return control to the calling scope. You can use `RETURN <value>` to return an `INT` value to the calling scope.
-- `BREAK` — Exit `WHILE` loop run.
-- `THROW` — Raise errors and potentially return control to the calling stack.
-- `CONTINUE` — Restart a `WHILE` loop.
-- `TRY…​ CATCH` — Error handling. For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md "chap-sql-server-aurora-mysql.tsql.errorhandling.md").
-- `GOTO label` — Moves the run point to the location of the specified label.
-- `WAITFOR` — Delay.
-- `IF…​ ELSE` — Conditional flow control.
-- `WHILE <condition>` — Continue looping while `<condition>` returns `TRUE`.
-
-###### Note
-
-`WHILE` loops are commonly used with cursors and use the system variable `@@FETCH_STATUS` to determine when to exit. For more information, see [Cursors](chap-sql-server-aurora-mysql.tsql.cursors.md "chap-sql-server-aurora-mysql.tsql.cursors.md").
-
-For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md "chap-sql-server-aurora-mysql.tsql.errorhandling.md").
+For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md).
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.flowcontrol.sqlserver.examples"></a>
 
 Create and populate the `OrderItems` table.
 
@@ -55,7 +57,7 @@ VALUES
 (3, 'M8 Washer', 200);
 ```
 
-**WAITFOR**
+ **WAITFOR** 
 
 Use `WAITFOR` to introduce a one minute delay between background batches purging old data.
 
@@ -69,7 +71,7 @@ BEGIN;
 END;
 ```
 
-**GOTO**
+ **GOTO** 
 
 Use `GOTO` to skip a code section based on an input parameter in a stored procedure.
 
@@ -91,7 +93,7 @@ finish:
 END
 ```
 
-**Dynamic Procedure Run Path**
+ **Dynamic Procedure Run Path** 
 
 The following example demonstrates a solution for running different processes based on the number of items in an order.
 
@@ -142,24 +144,25 @@ EXECUTING LogSmallOrder - 2 100
 EXECUTING LogLargeOrder - 3 200
 ```
 
-For more information, see [Control-of-Flow](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/control-of-flow?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/control-of-flow?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Control-of-Flow](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/control-of-flow?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.flowcontrol.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides the following flow control constructs:
-
-- `BEGIN…​ END` — Define boundaries for a block of commands that are ran together.
-- `CASE` — Run a set of commands based on a predicate (not to be confused with `CASE` expressions).
-- `IF…​ ELSE` — Conditional flow control.
-- `ITERATE` — Restart a `LOOP`, `REPEAT`, and `WHILE` statement.
-- `LEAVE` — Exit a server code module such as stored procedure, function, and so on, and return control to the calling scope.
-- `LOOP` — Loop indefinitely.
-- `REPEAT…​ UNTIL` — Loop until the predicate is true.
-- `RETURN` — Terminate the run of the current scope and return to the calling scope.
-- `WHILE` — Continue looping while the condition returns `TRUE`.
-- `SLEEP` — Pause the run for a specified number of seconds.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) provides the following flow control constructs:
++  `BEGIN…​ END` — Define boundaries for a block of commands that are ran together.
++  `CASE` — Run a set of commands based on a predicate (not to be confused with `CASE` expressions).
++  `IF…​ ELSE` — Conditional flow control.
++  `ITERATE` — Restart a `LOOP`, `REPEAT`, and `WHILE` statement.
++  `LEAVE` — Exit a server code module such as stored procedure, function, and so on, and return control to the calling scope.
++  `LOOP` — Loop indefinitely.
++  `REPEAT…​ UNTIL` — Loop until the predicate is true.
++  `RETURN` — Terminate the run of the current scope and return to the calling scope.
++  `WHILE` — Continue looping while the condition returns `TRUE`.
++  `SLEEP` — Pause the run for a specified number of seconds.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.flowcontrol.mysql.examples"></a>
 
 Create and populate the `OrderItems` table.
 
@@ -224,7 +227,7 @@ BEGIN
 END
 ```
 
-**Dynamic Procedure Run Path**
+ **Dynamic Procedure Run Path** 
 
 The following example demonstrates a solution for running different processes based on the number of items in an order.
 
@@ -269,19 +272,21 @@ END;
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.tsql.flowcontrol.summary"></a>
 
 While there are some syntax differences between SQL Server and Aurora MySQL flow control statements, most rewrites should be straightforward. The following table summarizes the differences and identifies how to modify T-SQL code to support similar functionality in Aurora MySQL.
 
-| Feature          | SQL Server                                                                                                                   | Aurora MySQL                                 | Workaround                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BEGIN…​ END`    | Define command block boundaries.                                                                                             | Define command block boundaries.             | Compatible.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `RETURN`         | Exit the current scope and return to caller.<br>Supported for both scripts and stored code such as procedures and functions. | Exit a stored function and return to caller. | For Aurora MySQL, `RETURN` is valid only in stored or user-defined functions. It isn’t used in stored procedures, triggers, or events.<br>Rewrite the T-SQL code using the `LEAVE` keyword.<br>The `RETURN` statement can return a value in both products. However, `LEAVE` doesn’t support return parameters. Rewrite the code to use output parameters.<br>You can’t `RETURN` in Aurora MySQL for scripts that aren’t part of a stored routine.                                                                                                          |
-| `BREAK`          | Exit the `WHILE` loop run.                                                                                                   | Not supported.                               | Rewrite the logic to explicitly set a value that will render the `WHILE` condition `FALSE`. For example, `WHILE a<100 AND control = 1`. Explicitly `SET control = 0`, and use `ITERATE` to return to the beginning of the loop.                                                                                                                                                                                                                                                                                                                            |
-| `THROW`          | Raise errors and potentially return control to the calling stack.                                                            | Errors are handled by `HANDLER` objects.     | For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md "chap-sql-server-aurora-mysql.tsql.errorhandling.md").                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `TRY<br>• CATCH` | Error handling                                                                                                               | Errors are handled by `HANDLER` objects.     | For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md "chap-sql-server-aurora-mysql.tsql.errorhandling.md").                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `GOTO`           | Move run to specified label.                                                                                                 | Not supported.                               | Consider rewriting the flow logic using either `CASE` statements or nested stored procedures. You can use nested stored procedures to circumvent this limitation by separating code sections and<br>encapsulating them in sub-procedures. Use `IF <condition> CALL <stored procedure>` in place of `GOTO`.                                                                                                                                                                                                                                                 |
-| `WAITFOR`        | Delay.                                                                                                                       | Not supported.                               | Replace `WAITFOR` with Aurora MySQL<br>`SLEEP`. `SLEEP` is less flexible than `WAITFOR` and only supports delays specified in seconds. Rewrite the code using `SLEEP` to replace `WAITFOR DELAY`<br>and convert the units to seconds.<br>`WAITFOR TIME` isn’t supported in Aurora MySQL. You can calculate the difference in seconds between the desired time and current time using date and rime functions and use the result to<br>dynamically generate the `SLEEP` statement. Alternatively, consider using `CREATE EVENT` with a predefined schedule. |
-| `IF…​ ELSE`      | Conditional flow control.                                                                                                    | Conditional flow control.                    | The functionality is compatible, but the syntax differs. SQL Server uses `IF <condition> <statement> ELSE <statement>`. Aurora MySQL uses `IF <condition> THEN <statement> ELSE <statement> ENDIF`.<br>Rewrite T-SQL code to add the mandatory `THEN` and `ENDIF` keywords.                                                                                                                                                                                                                                                                                |
-| `WHILE`          | Continue running while condition is `TRUE`.                                                                                  | Continue running while condition is `TRUE`.  | The functionality is compatible, but the syntax differs. SQL Server uses `WHILE <condition> BEGIN…​END`, Aurora MySQL uses `WHILE <condition> DO…​ END WHILE`. Aurora MySQL doesn’t require a `BEGIN…​END` block.<br>Rewrite T-SQL code to use the Aurora MySQL keywords.                                                                                                                                                                                                                                                                                  |
 
-For more information, see [Flow Control Statements](https://dev.mysql.com/doc/refman/5.7/en/flow-control-statements.html "https://dev.mysql.com/doc/refman/5.7/en/flow-control-statements.html") in the _MySQL documentation_.
+| Feature | SQL Server |  Aurora MySQL  | Workaround | 
+| --- | --- | --- | --- | 
+|  `BEGIN…​ END`  | Define command block boundaries. | Define command block boundaries. | Compatible. | 
+|  `RETURN`  | Exit the current scope and return to caller.<br />Supported for both scripts and stored code such as procedures and functions. | Exit a stored function and return to caller. | For Aurora MySQL, `RETURN` is valid only in stored or user-defined functions. It isn’t used in stored procedures, triggers, or events.<br />Rewrite the T-SQL code using the `LEAVE` keyword.<br />The `RETURN` statement can return a value in both products. However, `LEAVE` doesn’t support return parameters. Rewrite the code to use output parameters.<br />You can’t `RETURN` in Aurora MySQL for scripts that aren’t part of a stored routine. | 
+|  `BREAK`  | Exit the `WHILE` loop run. | Not supported. | Rewrite the logic to explicitly set a value that will render the `WHILE` condition `FALSE`. For example, `WHILE a<100 AND control = 1`. Explicitly `SET control = 0`, and use `ITERATE` to return to the beginning of the loop. | 
+|  `THROW`  | Raise errors and potentially return control to the calling stack. | Errors are handled by `HANDLER` objects. | For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md). | 
+|  `TRY - CATCH`  | Error handling | Errors are handled by `HANDLER` objects. | For more information, see [Error Handling](chap-sql-server-aurora-mysql.tsql.errorhandling.md). | 
+|  `GOTO`  | Move run to specified label. | Not supported. | Consider rewriting the flow logic using either `CASE` statements or nested stored procedures. You can use nested stored procedures to circumvent this limitation by separating code sections and encapsulating them in sub-procedures. Use `IF <condition> CALL <stored procedure>` in place of `GOTO`. | 
+|  `WAITFOR`  | Delay. | Not supported. | Replace `WAITFOR` with Aurora MySQL `SLEEP`. `SLEEP` is less flexible than `WAITFOR` and only supports delays specified in seconds. Rewrite the code using `SLEEP` to replace `WAITFOR DELAY` and convert the units to seconds.<br /> `WAITFOR TIME` isn’t supported in Aurora MySQL. You can calculate the difference in seconds between the desired time and current time using date and rime functions and use the result to dynamically generate the `SLEEP` statement. Alternatively, consider using `CREATE EVENT` with a predefined schedule. | 
+|  `IF…​ ELSE`  | Conditional flow control. | Conditional flow control. | The functionality is compatible, but the syntax differs. SQL Server uses `IF <condition> <statement> ELSE <statement>`. Aurora MySQL uses `IF <condition> THEN <statement> ELSE <statement> ENDIF`.<br />Rewrite T-SQL code to add the mandatory `THEN` and `ENDIF` keywords. | 
+|  `WHILE`  | Continue running while condition is `TRUE`. | Continue running while condition is `TRUE`. | The functionality is compatible, but the syntax differs. SQL Server uses `WHILE <condition> BEGIN…​END`, Aurora MySQL uses `WHILE <condition> DO…​ END WHILE`. Aurora MySQL doesn’t require a `BEGIN…​END` block.<br />Rewrite T-SQL code to use the Aurora MySQL keywords. | 
+
+For more information, see [Flow Control Statements](https://dev.mysql.com/doc/refman/5.7/en/flow-control-statements.html) in the *MySQL documentation*.

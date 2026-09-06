@@ -1,12 +1,17 @@
+
+
 # Users and roles for Aurora MySQL
+<a name="chap-sql-server-aurora-mysql.security.usersroles"></a>
 
 This topic provides reference information comparing security features between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences in user management, authentication methods, and access control between these two database systems.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                  |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------ |
-| Two star feature compatibility | N/A                                | N/A                       | No native role support in the database. Use AWS IAM accounts with the AWS Authentication Plugin. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | No native role support in the database. Use AWS IAM accounts with the AWS Authentication Plugin. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.security.usersroles.sqlserver"></a>
 
 SQL Server provides two layers of security principals: Logins at the server level and Users at the database level. Logins are mapped to users in one or more databases. Administrators can grant logins server-level permissions that aren’t mapped to particular databases such as Database Creator, System Administrator and Security Administrator.
 
@@ -19,6 +24,7 @@ Logins are authenticated using either Windows Authentication, which uses the Win
 In previous versions of SQL server, the concepts of user and schema were interchangeable. For backward compatibility, each database has several existing schemas, including a default schema named dbo which is owned by the `db_owner` role. Logins with system administrator privileges are automatically mapped to the dbo user in each database. Typically, you don’t need to migrate these schemas.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.security.usersroles.sqlserver.examples"></a>
 
 The following example creates a login.
 
@@ -44,46 +50,41 @@ The following example assigns `MyUser` to the `db_datareader` role.
 ALTER ROLE db_datareader ADD MEMBER 'MyUser';
 ```
 
-For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Database-level roles](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.security.usersroles.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports only Users; Roles aren’t supported. Database administrators must specify privileges for individual users. Aurora MySQL uses database user accounts to authenticate sessions and authorize access to specific database objects.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports only Users; Roles aren’t supported. Database administrators must specify privileges for individual users. Aurora MySQL uses database user accounts to authenticate sessions and authorize access to specific database objects.
 
-###### Note
-
-When granting privileges, you have the option to use wild-card characters for specifying multiple privileges for multiple objects. For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.datacontrollanguage.md "chap-sql-server-aurora-mysql.security.datacontrollanguage.md").
+**Note**  
+When granting privileges, you have the option to use wild-card characters for specifying multiple privileges for multiple objects. For more information, see [Data Control Language](chap-sql-server-aurora-mysql.security.datacontrollanguage.md).
 
 When using Identity and Access Management (IAM) database authentication, roles are available as part of the IAM framework and can be used for authentication. This authentication method uses tokens in place of passwords. AWS Signature Version 4 generates authentication tokens with a lifetime of 15 minutes. You don’t need to store user credentials in the database because authentication is managed externally. You can use IAM in conjunction with standard database authentication.
 
-###### Note
-
+**Note**  
 In Aurora MySQL, a database is equivalent to an SQL Server schema.
 
 The AWS Authentication Plugin works seamlessly with Aurora MySQL instances. Users logged in with AWS IAM accounts use access tokens to authenticate. This mechanism is similar to the SQL Server windows authentication option.
 
 IAM database authentication provides the following benefits:
++ Supports roles for simplifying user and access management.
++ Provides a single sign on experience that is safer than using MySQL managed passwords.
++ Encrypts network traffic to and from the database using Secure Sockets Layer (SSL) protocol.
++ Provides centrally managed access to your database resources, alleviating the need to manage access individually for each database instance or database cluster.
 
-- Supports roles for simplifying user and access management.
-- Provides a single sign on experience that is safer than using MySQL managed passwords.
-- Encrypts network traffic to and from the database using Secure Sockets Layer (SSL) protocol.
-- Provides centrally managed access to your database resources, alleviating the need to manage access individually for each database instance or database cluster.
-
-###### Note
-
+**Note**  
 IAM database authentication limits the number of new connections to 20 connections/second.
 
-###### Note
-
-Amazon Relational Database Service (Amazon RDS) for MySQL 8 supports roles which are named collections of privileges. Roles can be created and dropped. Roles can have privileges granted to and revoked from them. Roles can be granted to and revoked from user accounts. The active applicable roles for an account can be selected from among those granted to the account and can be changed during sessions for that account. For more information, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html").
+**Note**  
+ Amazon Relational Database Service (Amazon RDS) for MySQL 8 supports roles which are named collections of privileges. Roles can be created and dropped. Roles can have privileges granted to and revoked from them. Roles can be granted to and revoked from user accounts. The active applicable roles for an account can be selected from among those granted to the account and can be changed during sessions for that account. For more information, see [Using Roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html).
 
 ```
 CREATE ROLE 'app_developer', 'app_read', 'app_write';
 ```
 
-###### Note
-
-Amazon RDS for MySQL 8 incorporates the concept of user account categories with system and regular users distinguished according to whether they have the `SYSTEM_USER` privilege. For more information, see [Account Categories](https://dev.mysql.com/doc/refman/8.0/en/account-categories.html "https://dev.mysql.com/doc/refman/8.0/en/account-categories.html").
+**Note**  
+ Amazon RDS for MySQL 8 incorporates the concept of user account categories with system and regular users distinguished according to whether they have the `SYSTEM_USER` privilege. For more information, see [Account Categories](https://dev.mysql.com/doc/refman/8.0/en/account-categories.html).
 
 ```
 CREATE USER u1 IDENTIFIED BY 'password';
@@ -96,6 +97,7 @@ GRANT ALL ON *.* TO u1 WITH GRANT OPTION;
 ```
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.security.usersroles.mysql.syntax"></a>
 
 Simplified syntax for `CREATE USER` in Aurora MySQL:
 
@@ -115,11 +117,11 @@ PER_HOUR | MAX_USER_CONNECTIONS count}
 <Lock options>: {ACCOUNT LOCK | ACCOUNT UNLOCK}
 ```
 
-###### Note
-
-In Aurora MySQL, you can assign resource limitations to specific users, similar to SQL Server Resource Governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.resourcegovernor.md "chap-sql-server-aurora-mysql.management.resourcegovernor.md").
+**Note**  
+In Aurora MySQL, you can assign resource limitations to specific users, similar to SQL Server Resource Governor. For more information, see [Resource Governor](chap-sql-server-aurora-mysql.management.resourcegovernor.md).
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.security.usersroles.mysql.examples"></a>
 
 The following example creates a user, forces a password change, and imposes resource limits.
 
@@ -138,18 +140,20 @@ IDENTIFIED WITH AWSAuthenticationPlugin AS 'IAMUser';
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.security.usersroles.summary"></a>
 
 The following table summarizes common security tasks and the differences between SQL Server and Aurora MySQL.
 
-| Task                       | SQL Server                                                       | Aurora MySQL                                                  |
-| -------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- |
-| View database users        | `<br>SELECT Name FROM sys.sysusers<br>`                          | `<br>SELECT User FROM mysql.user<br>`                         |
-| Create a user and password | `<br>CREATE USER <User Name> WITH<br>PASSWORD = <PassWord>;<br>` | `<br>CREATE USER <User Name><br>IDENTIFIED BY <Password><br>` |
-| Create a role              | `<br>CREATE ROLE <Role Name><br>`                                | Use AWS IAM Roles                                             |
-| Change a user’s password   | `<br>ALTER LOGIN <SQL Login> WITH<br>PASSWORD = <PassWord>;<br>` | `<br>ALTER USER <User Name><br>IDENTIFIED BY <Password><br>`  |
-| External authentication    | Windows Authentication                                           | AWS IAM (Identity and Access Management)                      |
-| Add a user to a role       | `<br>ALTER ROLE <Role Name> ADD MEMBER <User Name><br>`          | Use AWS IAM Roles                                             |
-| Lock a user                | `<br>ALTER LOGIN <Login Name><br>DISABLE<br>`                    | `<br>ALTER User <User Name><br>ACCOUNT LOCK<br>`              |
-| Grant SELECT on a schema   | `<br>GRANT SELECT ON SCHEMA::<Schema Name> to <User Name><br>`   | `<br>GRANT SELECT ON <Schema Name>.<br>• TO <User Name><br>`  |
 
-For more information, see [What is IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") and [IAM Identities (users, user groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md").
+| Task | SQL Server |  Aurora MySQL  | 
+| --- | --- | --- | 
+| View database users |  <pre>SELECT Name FROM sys.sysusers</pre>  |  <pre>SELECT User FROM mysql.user</pre>  | 
+| Create a user and password |  <pre>CREATE USER <User Name> WITH<br />PASSWORD = <PassWord>;</pre>  |  <pre>CREATE USER <User Name><br />IDENTIFIED BY <Password></pre>  | 
+| Create a role |  <pre>CREATE ROLE <Role Name></pre>  | Use AWS IAM Roles | 
+| Change a user’s password |  <pre>ALTER LOGIN <SQL Login> WITH<br />PASSWORD = <PassWord>;</pre>  |  <pre>ALTER USER <User Name><br />IDENTIFIED BY <Password></pre>  | 
+| External authentication | Windows Authentication |  AWS IAM (Identity and Access Management) | 
+| Add a user to a role |  <pre>ALTER ROLE <Role Name> ADD MEMBER <User Name></pre>  | Use AWS IAM Roles | 
+| Lock a user |  <pre>ALTER LOGIN <Login Name><br />DISABLE</pre>  |  <pre>ALTER User <User Name><br />ACCOUNT LOCK</pre>  | 
+| Grant SELECT on a schema |  <pre>GRANT SELECT ON SCHEMA::<Schema Name> to <User Name></pre>  |  <pre>GRANT SELECT ON <Schema Name>.* TO <User Name></pre>  | 
+
+For more information, see [What is IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and [IAM Identities (users, user groups, and roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html).

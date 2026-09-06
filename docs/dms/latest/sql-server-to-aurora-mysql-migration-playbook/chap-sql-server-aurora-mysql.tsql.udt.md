@@ -1,12 +1,17 @@
+
+
 # User-defined types for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.udt"></a>
 
 This topic provides reference information about user-defined types and table-valued parameters in Microsoft SQL Server and their compatibility with Amazon Aurora MySQL. It explains the differences in feature support between SQL Server and Aurora MySQL, highlighting that Aurora MySQL does not currently support user-defined types or table-valued parameters.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                     | Key differences                                                                                                                                                                                                                                                                                                                   |
-| -------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | Three star automation level        | [User-Defined Types](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udt "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udt") | Replace scalar UDT with base types. Rewrite stored procedures that use table-type input parameters to use strings with CSV, XML, or JSON, or to process row-by-row. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md "chap-sql-server-aurora-mysql.tsql.storedprocedures.md"). |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [User-Defined Types](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udt)  | Replace scalar UDT with base types. Rewrite stored procedures that use table-type input parameters to use strings with CSV, XML, or JSON, or to process row-by-row. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md). | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.udt.sqlserver"></a>
 
 SQL Server user-defined types provide a mechanism for encapsulating custom data types and for adding NULL constraints.
 
@@ -14,13 +19,13 @@ SQL Server also supports table-valued user-defined types, which you can use to p
 
 User defined types can also be associated to CLR code assemblies. Beginning with SQL Server 2014, memory-optimized types support memory optimized tables and code.
 
-###### Note
-
+**Note**  
 If your code uses custom rules bound to data types, Microsoft recommends discontinuing use of this deprecated feature.
 
 All user-defined types are based on an existing system data types. They allow developers to reuse the definition, making the code and schema more readable.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.udt.sqlserver.syntax"></a>
 
 The simplified syntax for the `CREATE TYPE` statement.
 
@@ -30,8 +35,9 @@ FROM <base type> [ NULL | NOT NULL ] | AS TABLE (<Table Definition>)}
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.udt.sqlserver.examples"></a>
 
-**User-defined types**
+ **User-defined types** 
 
 Create a `ZipCodeScalar` user-defined type.
 
@@ -62,7 +68,7 @@ column doesn't allow nulls. INSERT fails.
 The statement has been terminated.
 ```
 
-**Table-valued types**
+ **Table-valued types** 
 
 The following example demonstrates how to create and use a table valued types to pass a set of values to a stored procedure.
 
@@ -135,15 +141,17 @@ OrderID  Item       Quantity
 1        M8 Washer  200
 ```
 
-For more information, see [CREATE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [CREATE TYPE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.udt.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) 5.7 doesn’t support user defined types and user defined table valued parameters.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) 5.7 doesn’t support user defined types and user defined table valued parameters.
 
 The current documentation doesn’t indicate these features will be supported in Aurora MySQL version 8.
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-mysql.tsql.udt.mysql.considerations"></a>
 
 For scalar user-defined types, replace the type name with base type and optional NULL constraints.
 
@@ -154,8 +162,9 @@ Common solutions include using either temporary tables to hold the data or passi
 Memory-optimized engines aren’t yet supported in Aurora MySQL. You must convert memory optimized tables to disk based tables.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.udt.mysql.examples"></a>
 
-**Replacing a user-defined type**
+ **Replacing a user-defined type** 
 
 Replace the `ZipCode` user-defined type with a base type.
 
@@ -168,7 +177,7 @@ CREATE TABLE UserLocations
 );
 ```
 
-**Replacing a table-valued stored procedure parameter**
+ **Replacing a table-valued stored procedure parameter** 
 
 The following steps describe how to replace a table-valued parameter with a source table and a `LOOP` cursor.
 
@@ -206,9 +215,8 @@ VALUES
 
 Create a procedure to loop through the `SourceTable` and insert rows.
 
-###### Note
-
-There are syntax differences from T-SQL for both the `CREATE PROCEDURE` and the `CURSOR` declaration and use. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md "chap-sql-server-aurora-mysql.tsql.storedprocedures.md") and [Cursors](chap-sql-server-aurora-mysql.tsql.cursors.md "chap-sql-server-aurora-mysql.tsql.cursors.md").
+**Note**  
+There are syntax differences from T-SQL for both the `CREATE PROCEDURE` and the `CURSOR` declaration and use. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md) and [Cursors](chap-sql-server-aurora-mysql.tsql.cursors.md).
 
 ```
 CREATE PROCEDURE LoopItems()
@@ -257,10 +265,12 @@ OrderID  Item       Quantity
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.tsql.udt.summary"></a>
 
-| SQL Server                                       | Aurora MySQL  | Comments                                                                                                                                                                                              |
-| ------------------------------------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Table-valued parameters                          | Not supported | Use either temporary tables, or CSV, XML, JSON string parameters and parse the data. Alternatively, rewrite the stored procedure to accept the data one row at a time and process the data in a loop. |
-| Memory-optimized table-valued user-defined types | Not supported | Not supported.                                                                                                                                                                                        |
 
-For more information, see [Cursors](https://dev.mysql.com/doc/refman/5.7/en/cursors.html "https://dev.mysql.com/doc/refman/5.7/en/cursors.html") in the _MySQL documentation_.
+| SQL Server |  Aurora MySQL  | Comments | 
+| --- | --- | --- | 
+| Table-valued parameters | Not supported | Use either temporary tables, or CSV, XML, JSON string parameters and parse the data. Alternatively, rewrite the stored procedure to accept the data one row at a time and process the data in a loop. | 
+| Memory-optimized table-valued user-defined types | Not supported | Not supported. | 
+
+For more information, see [Cursors](https://dev.mysql.com/doc/refman/5.7/en/cursors.html) in the *MySQL documentation*.

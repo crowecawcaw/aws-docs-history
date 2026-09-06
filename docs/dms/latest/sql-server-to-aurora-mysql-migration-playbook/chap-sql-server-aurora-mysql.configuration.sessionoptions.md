@@ -1,29 +1,33 @@
+
+
 # Configuring session options
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions"></a>
 
 This topic provides reference information about session options and system variables in SQL Server and Amazon Aurora MySQL. You can use this content to understand the differences and similarities between how these two database systems handle runtime settings that control server behavior.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                    |
-| ------------------------------ | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
-| Two star feature compatibility | N/A                                | N/A                       | SET options are significantly different, except for transaction isolation control. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | SET options are significantly different, except for transaction isolation control. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.sqlserver"></a>
 
 Session options in SQL Server is a collection of run-time settings that control certain aspects of how the server handles data for individual sessions. A session is the period between a login event and a disconnect event or the `exec sp_reset_connection` command for connection pooling.
 
 Each session may have multiple run scopes, which are all the statements before the `GO` keyword used in SQL Server management Studio scripts, or any set of commands sent as a single run batch by a client application. Each run scope may contain additional sub-scopes. For example, scripts calling stored procedures or functions.
 
-You can set the global session options, which all run scopes use by default, using the `SET` T-SQL command. Server code modules such as stored procedures and functions may have their own run context settings,
-which are saved along with the code to guarantee the validity of results.
+You can set the global session options, which all run scopes use by default, using the `SET` T-SQL command. Server code modules such as stored procedures and functions may have their own run context settings, which are saved along with the code to guarantee the validity of results.
 
 Developers can explicitly use `SET` commands to change the default settings for any session or for an run scope within the session. Typically, client applications send explicit `SET` commands upon connection initiation.
 
 You can view the metadata for current sessions using the `sp_who_system` stored procedure and the `sysprocesses` system table.
 
-###### Note
-
+**Note**  
 To change the default setting for SQL Server Management Studio, choose **Tools**, **Options**, **Query Execution**, **SQL Server**, **Advanced**.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.sqlserver.syntax"></a>
 
 The following example includes categories and settings for the `SET` command:
 
@@ -49,9 +53,10 @@ IMPLICIT_TRANSACTIONS | REMOTE_PROC_TRANSACTIONS |
 TRANSACTION ISOLATION LEVEL | XACT_ABORT
 ```
 
-For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ### SET ROWCOUNT for DML Deprecated Setting
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.sqlserver.setrowcount"></a>
 
 The SET ROWCOUNT for DML statements has been deprecated as of SQL Server 2008.
 
@@ -79,9 +84,10 @@ BEGIN
 END
 ```
 
-AWS Schema Conversion Tool (AWS SCT automatically converts this example to Aurora MySQL.
+ AWS Schema Conversion Tool (AWS SCT automatically converts this example to Aurora MySQL.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.sqlserver.examples"></a>
 
 Use `SET` within a stored procedure.
 
@@ -96,15 +102,15 @@ BEGIN
 END
 ```
 
-###### Note
-
+**Note**  
 Explicit `SET` commands affect their run scope and sub scopes. After the scope terminates and the procedure code exits, the calling scope resumes its original settings used before the calling the stored procedure.
 
-For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [SET Statements (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports hundreds of Server System Variables to control server behavior and the global and session levels.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports hundreds of Server System Variables to control server behavior and the global and session levels.
 
 Use the `SHOW VARIABLES` command to view a list of all variables.
 
@@ -113,19 +119,18 @@ SHOW SESSION VARIABLES;
 -- 532 rows returned
 ```
 
-###### Note
-
-Aurora MySQL 5.7 provides additional variables that don’t exist in MySQL 5.7 standalone installations. These variables are prefixed with Amazon Aurora or AWS.
+**Note**  
+ Aurora MySQL 5.7 provides additional variables that don’t exist in MySQL 5.7 standalone installations. These variables are prefixed with Amazon Aurora or AWS.
 
 You can view Aurora MySQL variables using the MySQL command line utility, Aurora database cluster parameters, Aurora database instance parameters, or SQL interface system variables.
 
 To view all sessions, use the `SHOW PROCESSLIST` command or the `information_schema PROCESSLIST` view, which displays information such as session current status, default database, host name, and application name.
 
-###### Note
-
+**Note**  
 Unlike standalone installations of MySQL, Amazon Aurora doesn’t provide access to the configuration file containing system variable defaults. Cluster-level parameters are managed in database cluster parameter groups and instance-level parameters are managed in database parameter groups. In Aurora MySQL, some parameters from the full base set of standalone MySQL installations can’t be modified and others were removed. See Server Options for a walkthrough of creating a custom parameter group.
 
 ### Converting from SQL Server 2008 SET ROWCOUNT for DML operations
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.mysql.setrowcount"></a>
 
 The use of `SET ROWCOUNT` for DML operations is deprecated as of SQL Server 2008 R2. Code that uses the `SET ROWCOUNT` syntax can’t be converted automatically. You can either rewrite to use `TOP` before running AWS SCT, or manually change it afterward.
 
@@ -153,6 +158,7 @@ END WHILE;
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.mysql.examples"></a>
 
 View the metadata for all processes.
 
@@ -183,17 +189,19 @@ The `SET SESSION` command is the equivalent to the `SET` command in T-SQL.
 However, there are far more configurable parameters in Aurora MySQL than in SQL Server.
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.configuration.sessionoptions.summary"></a>
 
 The following table summarizes commonly used SQL Server session options and their corresponding Aurora MySQL system variables.
 
-| Category      | SQL Server                                                                         | Aurora MySQL                                                                                                                                                                                            | Comments                                                                                                                                                                                                                                                                                                               |
-| ------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Date and time | `DATEFIRST`<br>`DATEFORMAT`                                                        | `default_week_format`<br>`date_format` (deprecated)                                                                                                                                                     | `default_week_format` operates different than `DATEFIRST`. You can use only Sunday and Monday as the start of the week. It also controls what is considered week one of the year and whether returned `WEEK` value is zero<br>• based, or one-based. There is no alternative to the deprecated `date_format` variable. |
-| Locking       | `LOCK_TIMEOUT`                                                                     | `lock_wait_timeout`                                                                                                                                                                                     | Set in database parameter groups.                                                                                                                                                                                                                                                                                      |
-| ANSI          | `ANSI_NULLS`<br>`ANSI_PADDING`                                                     | N/A<br>`PAD_CHAR_TO_FULL_LENGTH`                                                                                                                                                                        | Set with the sql\_mode system variable.                                                                                                                                                                                                                                                                                |
-| Transactions  | `IMPLICIT_TRANSACTIONS`<br>`TRANSACTION ISOLATION LEVEL`                           | `autocommit`<br>`SET SESSION TRANSACTION ISOLATION LEVEL`                                                                                                                                               | The default for Aurora MySQL, as in SQL server, is to commit automatically. Syntax is compatible except the addition of the `SESSION` keyword.                                                                                                                                                                         |
-| Query run     | `IDENTITY_INSERT`<br>`LANGUAGE`<br>`QUOTED_IDENTIFIER`<br>`NOCOUNT`                | See [Identity and Sequences](chap-sql-server-aurora-mysql.tsql.identitysequences.md "chap-sql-server-aurora-mysql.tsql.identitysequences.md")<br>`lc_time_names`<br>`ANSI_QUOTES`<br>N/A and not needed | `lc_time_names` are set in a database parameter group. `lc_messages` isn’t supported in Aurora MySQL. `ANSI_QUOTES` is a value for the `sql_mode` parameter. Aurora MySQL doesn’t add row count information<br>to the errors collection.                                                                               |
-| Runtime stats | `SHOWPLAN_ALL`, `TEXT`, and `XML`<br>`STATISTICS IO`, `XML`, `PROFILE`, and `TIME` | See [Run Plans](chap-sql-server-aurora-mysql.tuning.plans.md "chap-sql-server-aurora-mysql.tuning.plans.md")                                                                                            |                                                                                                                                                                                                                                                                                                                        |
-| Miscellaneous | `CONCAT_NULL_YIELDS_NULL`<br>`ROWCOUNT`                                            | N/A<br>`sql_select_limit`                                                                                                                                                                               | Aurora MySQL always returns NULL for any NULL concatenation operation. `sql_select_limit` only affects `SELECT` statements unlike `ROWCOUNT`, which also affects all DML.                                                                                                                                              |
 
-For more information, see [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html") in the _MySQL documentation_.
+| Category | SQL Server |  Aurora MySQL  | Comments | 
+| --- | --- | --- | --- | 
+| Date and time |  `DATEFIRST` <br /> `DATEFORMAT`  |  `default_week_format` <br /> `date_format` (deprecated) |  `default_week_format` operates different than `DATEFIRST`. You can use only Sunday and Monday as the start of the week. It also controls what is considered week one of the year and whether returned `WEEK` value is zero- based, or one-based. There is no alternative to the deprecated `date_format` variable. | 
+| Locking |  `LOCK_TIMEOUT`  |  `lock_wait_timeout`  | Set in database parameter groups. | 
+| ANSI |  `ANSI_NULLS` <br /> `ANSI_PADDING`  | N/A<br /> `PAD_CHAR_TO_FULL_LENGTH`  | Set with the sql\_mode system variable. | 
+| Transactions |  `IMPLICIT_TRANSACTIONS` <br /> `TRANSACTION ISOLATION LEVEL`  |  `autocommit` <br /> `SET SESSION TRANSACTION ISOLATION LEVEL`  | The default for Aurora MySQL, as in SQL server, is to commit automatically. Syntax is compatible except the addition of the `SESSION` keyword. | 
+| Query run |  `IDENTITY_INSERT` <br /> `LANGUAGE` <br /> `QUOTED_IDENTIFIER` <br /> `NOCOUNT`  | See [Identity and Sequences](chap-sql-server-aurora-mysql.tsql.identitysequences.md) <br /> `lc_time_names` <br /> `ANSI_QUOTES` <br />N/A and not needed |  `lc_time_names` are set in a database parameter group. `lc_messages` isn’t supported in Aurora MySQL. `ANSI_QUOTES` is a value for the `sql_mode` parameter. Aurora MySQL doesn’t add row count information to the errors collection. | 
+| Runtime stats |  `SHOWPLAN_ALL`, `TEXT`, and `XML` <br /> `STATISTICS IO`, `XML`, `PROFILE`, and `TIME`  | See [Run Plans](chap-sql-server-aurora-mysql.tuning.plans.md)  |  | 
+| Miscellaneous |  `CONCAT_NULL_YIELDS_NULL` <br /> `ROWCOUNT`  | N/A<br /> `sql_select_limit`  |  Aurora MySQL always returns NULL for any NULL concatenation operation. `sql_select_limit` only affects `SELECT` statements unlike `ROWCOUNT`, which also affects all DML. | 
+
+For more information, see [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html) in the *MySQL documentation*.

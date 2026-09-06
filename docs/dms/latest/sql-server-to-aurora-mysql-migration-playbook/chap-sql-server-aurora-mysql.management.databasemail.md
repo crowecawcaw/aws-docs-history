@@ -1,38 +1,41 @@
+
+
 # Database mail features
+<a name="chap-sql-server-aurora-mysql.management.databasemail"></a>
 
 This topic provides reference information about migrating the Database Mail feature from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can understand the key differences in email functionality between these two database systems and learn about alternative approaches for sending emails from Aurora MySQL.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                             | Key differences                                                                                                                                                                                                                                                                       |
-| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| One star feature compatibility | No automation                      | [SQL Server Database Mail](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.mail "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.mail") | Use AWS Lambda integration. For more information, see [Invoking a Lambda function from an Amazon Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.md"). |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [SQL Server Database Mail](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.mail)  | Use AWS Lambda integration. For more information, see [Invoking a Lambda function from an Amazon Aurora MySQL DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html). | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.management.databasemail.sqlserver"></a>
 
 The Database Mail framework is an email client solution for sending messages directly from SQL Server. Email capabilities and APIs within the database server provide easy management of the following messages:
++ Server administration messages such as alerts, logs, status reports, and process confirmations.
++ Application messages such as user registration confirmation and action verifications.
 
-- Server administration messages such as alerts, logs, status reports, and process confirmations.
-- Application messages such as user registration confirmation and action verifications.
-
-###### Note
-
+**Note**  
 Database Mail is turned off by default.
 
 The main features of the Database Mail framework are:
-
-- Database Mail sends messages using the standard and secure Simple Mail Transfer Protocol (SMTP).
-- The email client engine runs asynchronously and sends messages in a separate process to minimize dependencies.
-- Database Mail supports multiple SMTP Servers for redundancy.
-- Full support and awareness of Windows Server Failover Cluster for high availability environments.
-- Multi-profile support with multiple failover accounts in each profile.
-- Enhanced security management with separate roles in MSDB.
-- Security is enforced for mail profiles.
-- Attachment sizes are monitored and can be capped by the administrator.
-- Attachment file types can be added to the deny list.
-- Email activity can be logged to SQL Server, the Windows application event log, and to a set of system tables in MSDB.
-- Supports full auditing capabilities with configurable retention policies.
-- Supports both plain text and HTML messages.
++ Database Mail sends messages using the standard and secure Simple Mail Transfer Protocol (SMTP).
++ The email client engine runs asynchronously and sends messages in a separate process to minimize dependencies.
++ Database Mail supports multiple SMTP Servers for redundancy.
++ Full support and awareness of Windows Server Failover Cluster for high availability environments.
++ Multi-profile support with multiple failover accounts in each profile.
++ Enhanced security management with separate roles in MSDB.
++ Security is enforced for mail profiles.
++ Attachment sizes are monitored and can be capped by the administrator.
++ Attachment file types can be added to the deny list.
++ Email activity can be logged to SQL Server, the Windows application event log, and to a set of system tables in MSDB.
++ Supports full auditing capabilities with configurable retention policies.
++ Supports both plain text and HTML messages.
 
 ### Architecture
+<a name="chap-sql-server-aurora-mysql.management.databasemail.sqlserver.architecture"></a>
 
 Database Mail is built on top of the Microsoft SQL Server Service Broker queue management framework.
 
@@ -45,12 +48,14 @@ When the SMTP servers acknowledge or reject the message, the Database Mail proce
 Database Mail records all Email attachments in the system tables. SQL Server provides a set of system views and stored procedures for troubleshooting and administration of the Database Mail queue.
 
 ### Deprecated SQL Mail Framework
+<a name="chap-sql-server-aurora-mysql.management.databasemail.sqlserver.deprecated"></a>
 
-The old SQL Mail framework using `xp_sendmail` has been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+The old SQL Mail framework using `xp_sendmail` has been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)) in the *SQL Server documentation*.
 
 The legacy mail system has been completely replaced by the greatly enhanced DB mail framework described here. The old system has been out-of-use for many years because it was prone to synchronous run issues and windows mail profile quirks.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.management.databasemail.sqlserver.syntax"></a>
 
 ```
 EXECUTE sp_send_dbmail
@@ -81,6 +86,7 @@ EXECUTE sp_send_dbmail
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.management.databasemail.sqlserver.examples"></a>
 
 Create a Database Mail account.
 
@@ -131,20 +137,22 @@ EXEC msdb.dbo.sp_send_dbmail
     @attach_query_result_as_file = 1 ;
 ```
 
-For more information, see [Database Mail](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [Database Mail](https://docs.microsoft.com/en-us/sql/relational-databases/database-mail/database-mail?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.management.databasemail.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t provide native support sending mail from the database.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) doesn’t provide native support sending mail from the database.
 
-For alerting purposes, use the event notification subscription feature to send email notifications to operators. For more information, see [Alerting](chap-sql-server-aurora-mysql.management.alerting.md "chap-sql-server-aurora-mysql.management.alerting.md").
+For alerting purposes, use the event notification subscription feature to send email notifications to operators. For more information, see [Alerting](chap-sql-server-aurora-mysql.management.alerting.md).
 
 For application email requirements, consider using a dedicated email framework. If the code generating email messages must be in the database, consider using a queue table. Replace all occurrences of `sp_send_dbmail` with an `INSERT` into the queue table. Design external applications to connect, read the queue, send email an message, and then update the status periodically. With this approach, messages can be populated with a query result similar to `sp_send_dbmail` with the query option.
 
 The only way to send email from the database, is to use the AWS Lambda integration.
 
-For more information, see [AWS Lambda](https://aws.amazon.com/lambda "https://aws.amazon.com/lambda").
+For more information, see [AWS Lambda](https://aws.amazon.com/lambda).
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.management.databasemail.mysql.examples"></a>
 
-You can send emails from Aurora MySQL using AWS Lambda integration. For more information, see [Invoking a Lambda function from an Amazon Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.md").
+You can send emails from Aurora MySQL using AWS Lambda integration. For more information, see [Invoking a Lambda function from an Amazon Aurora MySQL DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Lambda.html).

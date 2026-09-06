@@ -1,85 +1,98 @@
+
+
 # String functions for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions"></a>
 
 This topic provides reference information about string function compatibility when migrating from Microsoft SQL Server 2019 to Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in string manipulation capabilities between the two database systems.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                                                                  |
-| ------------------------------- | ---------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | Differences with the UNICODE paradigm. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.collations.md "chap-sql-server-aurora-mysql.tsql.collations.md"). Syntax and option differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A | Differences with the UNICODE paradigm. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.collations.md). Syntax and option differences. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions.sqlserver"></a>
 
 String functions are typically scalar functions that perform an operation on string input and return a string or a numeric value.
 
 ### Syntax and Examples
+<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions.sqlserver.examples"></a>
 
 The following table lists the most commonly used string functions.
 
-| Function                         | Purpose                                                                                                                     | Example                                                                                  | Result          | Comments                                   |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------------- | ------------------------------------------ |
-| `ASCII` and `UNICODE`            | Convert an ASCII or UNICODE character to its ASCII or UNICODE code.                                                         | `SELECT ASCII ('A')`                                                                     | 65              | Returns a numeric integer value.           |
-| `CHAR` and `NCHAR`               | Convert between ASCII or UNICODE code to a string character.                                                                | `SELECT CHAR(65)`                                                                        | 'A'             | Numeric integer value as input.            |
-| `CHARINDEX` and `PATINDEX`       | Find the starting position of one string expression (or string pattern) within another string expression.                   | `SELECT CHARINDEX('ab', 'xabcdy')`                                                       | 2               | Returns a numeric integer value.           |
-| `CONCAT` and `CONCAT_WS`         | Combine multiple string input expressions into a single string with, or without, a separator character (WS).                | `SELECT CONCAT('a','b'), CONCAT_WS(',','a','b')`                                         | 'ab', 'a,b'     |                                            |
-| `LEFT`, `RIGHT`, and `SUBSTRING` | Return a partial string from another string expression based on position and length.                                        | `SELECT LEFT('abs',2), SUBSTRING('abcd',2,2)`                                            | 'ab', 'bc'      |                                            |
-| `LOWER` and `UPPER`              | Return a string with all characters in lower or upper case. Use for presentation or to handle case insensitive expressions. | `SELECT LOWER('ABcd')`                                                                   | 'abcd'          |                                            |
-| `LTRIM`, `RTRIM` and `TRIM`      | Remove leading and trailing spaces.                                                                                         | `SELECT LTRIM ('abc d ')`                                                                | 'abc d '        |                                            |
-| `STR`                            | Convert a numeric value to a string.                                                                                        | `SELECT STR(3.1415927,5,3)`                                                              | 3.142           | Numeric expressions as input.              |
-| `REVERSE`                        | Return a string in reverse order.                                                                                           | `SELECT REVERSE('abcd')`                                                                 | 'dcba'          |                                            |
-| `REPLICATE`                      | Return a string that consists of zero or more concatenated copies of another string expression.                             | `SELECT REPLICATE('abc', 3)`                                                             | 'abcabcabc'     |                                            |
-| `REPLACE`                        | Replace all occurrences of a string expression with another.                                                                | `SELECT REPLACE('abcd', 'bc', 'xy')`                                                     | 'axyd'          |                                            |
-| `STRING_SPLIT`                   | Parse a list of values with a separator and return a set of all individual elements.                                        | `SELECT<br>• FROM STRING_SPLIT('1,2',',') AS X©`                                         | 1<br>2          | `STRING_SPLIT` is a table-valued function. |
-| `STRING_AGG`                     | Return a string that consists of concatenated string values in row groups.                                                  | `SELECT STRING_AGG(C, ',') FROM VALUES(1,'a'), (1, 'b'), (2,'c') AS X (ID,C) GROUP BY I` | 1 'ab'<br>2 'c' | `STRING_AGG` is an aggregate function.     |
 
-For more information, see [String Functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+| Function | Purpose | Example | Result | Comments | 
+| --- | --- | --- | --- | --- | 
+|  `ASCII` and `UNICODE`  | Convert an ASCII or UNICODE character to its ASCII or UNICODE code. |  `SELECT ASCII ('A')`  | 65 | Returns a numeric integer value. | 
+|  `CHAR` and `NCHAR`  | Convert between ASCII or UNICODE code to a string character. |  `SELECT CHAR(65)`  | 'A' | Numeric integer value as input. | 
+|  `CHARINDEX` and `PATINDEX`  | Find the starting position of one string expression (or string pattern) within another string expression. |  `SELECT CHARINDEX('ab', 'xabcdy')`  | 2 | Returns a numeric integer value. | 
+|  `CONCAT` and `CONCAT_WS`  | Combine multiple string input expressions into a single string with, or without, a separator character (WS). |  `SELECT CONCAT('a','b'), CONCAT_WS(',','a','b')`  | 'ab', 'a,b' |  | 
+|  `LEFT`, `RIGHT`, and `SUBSTRING`  | Return a partial string from another string expression based on position and length. |  `SELECT LEFT('abs',2), SUBSTRING('abcd',2,2)`  | 'ab', 'bc' |  | 
+|  `LOWER` and `UPPER`  | Return a string with all characters in lower or upper case. Use for presentation or to handle case insensitive expressions. |  `SELECT LOWER('ABcd')`  | 'abcd' |  | 
+|  `LTRIM`, `RTRIM` and `TRIM`  | Remove leading and trailing spaces. |  `SELECT LTRIM ('abc d ')`  | 'abc d ' |  | 
+|  `STR`  | Convert a numeric value to a string. |  `SELECT STR(3.1415927,5,3)`  | 3.142 | Numeric expressions as input. | 
+|  `REVERSE`  | Return a string in reverse order. |  `SELECT REVERSE('abcd')`  | 'dcba' |  | 
+|  `REPLICATE`  | Return a string that consists of zero or more concatenated copies of another string expression. |  `SELECT REPLICATE('abc', 3)`  | 'abcabcabc' |  | 
+|  `REPLACE`  | Replace all occurrences of a string expression with another. |  `SELECT REPLACE('abcd', 'bc', 'xy')`  | 'axyd' |  | 
+|  `STRING_SPLIT`  | Parse a list of values with a separator and return a set of all individual elements. |  `SELECT * FROM STRING_SPLIT('1,2',',') AS X©`  | 1<br />2 |  `STRING_SPLIT` is a table-valued function. | 
+|  `STRING_AGG`  | Return a string that consists of concatenated string values in row groups. |  `SELECT STRING_AGG(C, ',') FROM VALUES(1,'a'), (1, 'b'), (2,'c') AS X (ID,C) GROUP BY I`  | 1 'ab'<br />2 'c' |  `STRING_AGG` is an aggregate function. | 
+
+For more information, see [String Functions (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/functions/string-functions-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports a large set of string functions; far more than SQL Server. See the link at the end of this section for the full list. Some of the functions, such as regular expressions (`REGEXP`), don’t exist in SQL Server and may be useful for your application.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports a large set of string functions; far more than SQL Server. See the link at the end of this section for the full list. Some of the functions, such as regular expressions (`REGEXP`), don’t exist in SQL Server and may be useful for your application.
 
 ### Syntax and Examples
+<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions.mysql.examples"></a>
 
 The following table lists the most commonly used string functions.
 
-| Function                         | Purpose                                                                                                                     | Example                                                                  | Result               | Comments                                                                                                                                   |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ASCII` and `ORD`                | Convert an ASCII or multi-byte code to its string character.                                                                | `SELECT ASCII ('A')`                                                     | 65                   | Returns a numeric integer value.                                                                                                           |
-| `CHAR`                           | Convert between a character and its UNICODE code.                                                                           | `SELECT CHAR (65)`                                                       | 'A'                  | Numeric integer value as input.                                                                                                            |
-| `LOCATE`                         | Find the starting position of one string expression (or string pattern) within another string expression.                   | `SELECT LOCATE ('ab', 'xabcdy')`                                         | 2                    | Returns a numeric integer value.                                                                                                           |
-| `CONCAT` and `CONCAT_WS`         | Combine multiple string input expressions into a single string with or without a separator character (WS).                  | SELECT CONCAT ('a','b'), CONCAT\_WS(',','a','b')                         | 'ab', 'a,b'          |                                                                                                                                            |
-| `LEFT`, `RIGHT`, and `SUBSTRING` | Return a partial string from another string expression based on position and length                                         | `SELECT LEFT('abs',2), SUBSTRING('abcd',2,2)`                            | 'ab', 'bc'           |                                                                                                                                            |
-| `LOWER` and `UPPER`              | Return a string with all characters in lower or upper case. Use for presentation or to handle case insensitive expressions. | `SELECT LOWER ('ABcd')`                                                  | 'abcd'               | These have no effect when applied to binary collation strings. Convert the string to a non-binary string collation to convert letter case. |
-| `LTRIM`, `RTRIM`, and `TRIM`     | Remove leading and trailing spaces.                                                                                         | `SELECT LTRIM(' abc d ')`<br>`SELECT TRIM(LEADING 'x' FROM 'xxxabcxxx')` | 'abc d '<br>'abcxxx' | `TRIM` in Aurora MySQL is not limited to spaces.<br>`TRIM ([{BOTH                                                                          | LEADING | TRAILING} [<Remove String>] FROM] <String>)` |
-| `FORMAT`                         | Convert a numeric value to a string.                                                                                        | `SELECT FORMAT (3.1415927,5)`                                            | 3.14159              | Numeric expressions as input.                                                                                                              |
-| `REVERSE`                        | Return a string in reverse order.                                                                                           | `SELECT REVERSE('abcd')`                                                 | 'dcba'               |                                                                                                                                            |
-| `REPEAT`                         | Return a string that consists of zero or more concatenated copies of another string expression.                             | SELECT REPEAT('abc', 3)                                                  | 'abcabcabc'          |                                                                                                                                            |
-| `REPLACE`                        | Replace all occurrence of a string expression with another.                                                                 | `SELECT REPLACE('abcd', 'bc','xy')`                                      | 'axyd'               |                                                                                                                                            |
+
+| Function | Purpose | Example | Result | Comments | 
+| --- | --- | --- | --- | --- | 
+|  `ASCII` and `ORD`  | Convert an ASCII or multi-byte code to its string character. |  `SELECT ASCII ('A')`  | 65 | Returns a numeric integer value. | 
+|  `CHAR`  | Convert between a character and its UNICODE code. |  `SELECT CHAR (65)`  | 'A' | Numeric integer value as input. | 
+|  `LOCATE`  | Find the starting position of one string expression (or string pattern) within another string expression. |  `SELECT LOCATE ('ab', 'xabcdy')`  | 2 | Returns a numeric integer value. | 
+|  `CONCAT` and `CONCAT_WS`  | Combine multiple string input expressions into a single string with or without a separator character (WS). | SELECT CONCAT ('a','b'), CONCAT\_WS(',','a','b') | 'ab', 'a,b' |  | 
+|  `LEFT`, `RIGHT`, and `SUBSTRING`  | Return a partial string from another string expression based on position and length |  `SELECT LEFT('abs',2), SUBSTRING('abcd',2,2)`  | 'ab', 'bc' |  | 
+|  `LOWER` and `UPPER`  | Return a string with all characters in lower or upper case. Use for presentation or to handle case insensitive expressions. |  `SELECT LOWER ('ABcd')`  | 'abcd' | These have no effect when applied to binary collation strings. Convert the string to a non-binary string collation to convert letter case. | 
+|  `LTRIM`, `RTRIM`, and `TRIM`  | Remove leading and trailing spaces. |  `SELECT LTRIM(' abc d ')` <br /> `SELECT TRIM(LEADING 'x' FROM 'xxxabcxxx')`  | 'abc d '<br />'abcxxx' |  `TRIM` in Aurora MySQL is not limited to spaces.<br /> `TRIM ([{BOTH \| LEADING \| TRAILING} [<Remove String>] FROM] <String>)`  | 
+|  `FORMAT`  | Convert a numeric value to a string. |  `SELECT FORMAT (3.1415927,5)`  | 3.14159 | Numeric expressions as input. | 
+|  `REVERSE`  | Return a string in reverse order. |  `SELECT REVERSE('abcd')`  | 'dcba' |  | 
+|  `REPEAT`  | Return a string that consists of zero or more concatenated copies of another string expression. | SELECT REPEAT('abc', 3) | 'abcabcabc' |  | 
+|  `REPLACE`  | Replace all occurrence of a string expression with another. |  `SELECT REPLACE('abcd', 'bc','xy')`  | 'axyd' |  | 
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions.mysql.considerations"></a>
 
-Aurora MySQL doesn’t handle `ASCII` and `UNICODE` types separately. Any string can be either `UNICODE` or `ASCII`, depending on its collation property. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md "chap-sql-server-aurora-mysql.sql.datatypes.md").
+ Aurora MySQL doesn’t handle `ASCII` and `UNICODE` types separately. Any string can be either `UNICODE` or `ASCII`, depending on its collation property. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md).
 
 Many of the Aurora MySQL string functions that are compatible with SQL Server also support additional functionality. For example, the `TRIM` and `CHAR` functions. Aurora MySQL also supports many functions that SQL Server doesn’t support. For example, functions that deal with a delimited list set of values. Be sure to explore all options.
 
-Aurora MySQL also supports regular expressions. See the `REGEXP` and `RLIKE` functions to get started.
+ Aurora MySQL also supports regular expressions. See the `REGEXP` and `RLIKE` functions to get started.
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.tsql.stringfunctions.summary"></a>
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| SQL Server function              | Aurora MySQL function            | Comments                                                                                                                                                                                                                                        |
-| -------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ASCII` and `UNICODE`            | `ASCII` and `ORD`                | Compatible. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md "chap-sql-server-aurora-mysql.sql.datatypes.md").                                                                                              |
-| `CHAR` and `NCHAR`               | `CHAR`                           | Unlike SQL Server, `CHAR` in Aurora MySQL accepts a list of values and constructs a concatenated string. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md "chap-sql-server-aurora-mysql.sql.datatypes.md"). |
-| `CHARINDEX` and `PATINDEX`       | `LOCATE` and `POSITION`          | `LOCATE` and `POSITION` are synonymous but don’t support wildcards as `PATINDEX`.<br>Use the `FIND_IN_SET` function to extract an element position in a comma separated value string.                                                           |
-| `CONCAT` and `CONCAT_WS`         | `CONCAT` and `CONCAT_WS`         | Compatible syntax.                                                                                                                                                                                                                              |
-| `LEFT`, `RIGHT`, and `SUBSTRING` | `LEFT`, `RIGHT`, and `SUBSTRING` | Compatible syntax. Aurora MySQL supports `MID` and `SUBSTR`, which are synonymous with `SUBSTRING`.<br>Use the `SUBSTRING_INDEX` function to extract an element from a delimited list.                                                          |
-| `LOWER` and `UPPER`              | `LOWER` AND `UPPER`              | Compatible syntax. `LOWER` and `UPPER` have no effect when applied to binary collation strings.                                                                                                                                                 |
-| `LTRIM`, `RTRIM` and `TRIM`      | `LTRIM`, `RTRIM` and `TRIM`      | Compatible syntax. `TRIM` in Aurora MySQL is not limited to both ends and spaces. It can be used to trim either leading or trailing characters.<br>The syntax is shown following:<br>`TRIM ([{BOTH                                              | LEADING | TRAILING} [<Remove String>] FROM] <String>)` |
-| `STR`                            | `FORMAT`                         | `FORMAT` doesn’t support full precision and scale definition, but does support locale formatting.                                                                                                                                               |
-| `REVERSE`                        | `REVERSE`                        | Compatible syntax.                                                                                                                                                                                                                              |
-| `REPLICATE`                      | `REPEAT`                         | Compatible arguments.                                                                                                                                                                                                                           |
-| `REPLACE`                        | `REPLACE`                        | Compatible syntax.                                                                                                                                                                                                                              |
-| `STRING_SPLIT`                   | Not supported.                   | Requires iterative code to extract elements with scalar string functions.                                                                                                                                                                       |
-| `STRING_AGG`                     | Not supported                    | Requires iterative code to build a list with scalar string functions.                                                                                                                                                                           |
 
-For more information, see [String Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html "https://dev.mysql.com/doc/refman/5.7/en/string-functions.html") in the _MySQL documentation_.
+| SQL Server function |  Aurora MySQL function | Comments | 
+| --- | --- | --- | 
+|  `ASCII` and `UNICODE`  |  `ASCII` and `ORD`  | Compatible. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md). | 
+|  `CHAR` and `NCHAR`  |  `CHAR`  | Unlike SQL Server, `CHAR` in Aurora MySQL accepts a list of values and constructs a concatenated string. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.datatypes.md). | 
+|  `CHARINDEX` and `PATINDEX`  |  `LOCATE` and `POSITION`  |  `LOCATE` and `POSITION` are synonymous but don’t support wildcards as `PATINDEX`.<br />Use the `FIND_IN_SET` function to extract an element position in a comma separated value string. | 
+|  `CONCAT` and `CONCAT_WS`  |  `CONCAT` and `CONCAT_WS`  | Compatible syntax. | 
+|  `LEFT`, `RIGHT`, and `SUBSTRING`  |  `LEFT`, `RIGHT`, and `SUBSTRING`  | Compatible syntax. Aurora MySQL supports `MID` and `SUBSTR`, which are synonymous with `SUBSTRING`.<br />Use the `SUBSTRING_INDEX` function to extract an element from a delimited list. | 
+|  `LOWER` and `UPPER`  |  `LOWER` AND `UPPER`  | Compatible syntax. `LOWER` and `UPPER` have no effect when applied to binary collation strings. | 
+|  `LTRIM`, `RTRIM` and `TRIM`  |  `LTRIM`, `RTRIM` and `TRIM`  | Compatible syntax. `TRIM` in Aurora MySQL is not limited to both ends and spaces. It can be used to trim either leading or trailing characters.<br />The syntax is shown following:<br /> `TRIM ([{BOTH \| LEADING \| TRAILING} [<Remove String>] FROM] <String>)`  | 
+|  `STR`  |  `FORMAT`  |  `FORMAT` doesn’t support full precision and scale definition, but does support locale formatting. | 
+|  `REVERSE`  |  `REVERSE`  | Compatible syntax. | 
+|  `REPLICATE`  |  `REPEAT`  | Compatible arguments. | 
+|  `REPLACE`  |  `REPLACE`  | Compatible syntax. | 
+|  `STRING_SPLIT`  | Not supported. | Requires iterative code to extract elements with scalar string functions. | 
+|  `STRING_AGG`  | Not supported | Requires iterative code to build a list with scalar string functions. | 
+
+For more information, see [String Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html) in the *MySQL documentation*.

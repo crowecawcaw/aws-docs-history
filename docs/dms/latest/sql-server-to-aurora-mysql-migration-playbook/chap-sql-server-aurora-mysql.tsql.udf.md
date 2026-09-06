@@ -1,19 +1,23 @@
+
+
 # User-defined functions for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.udf"></a>
 
 This topic provides reference content comparing user-defined functions (UDFs) in Microsoft SQL Server 2019 and Amazon Aurora MySQL. It explains the capabilities, limitations, and key differences between UDFs in these two database systems. You’ll learn about the types of UDFs supported, their behavior, and important considerations when migrating from SQL Server to Aurora MySQL.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                         | Key differences                                                                                                     |
-| ------------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | Three star automation level        | [User-Defined Functions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udf "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udf") | Scalar functions only, rewrite inline TVF as views or derived tables, and multi-statement TVF as stored procedures. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [User-Defined Functions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udf)  | Scalar functions only, rewrite inline TVF as views or derived tables, and multi-statement TVF as stored procedures. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.udf.sqlserver"></a>
 
 User-defined functions (UDF) are code objects that accept input parameters and return either a scalar value or a set consisting of rows and columns.
 
 SQL Server UDFs can be implemented using T-SQL or Common Language Runtime (CLR) code.
 
-###### Note
-
+**Note**  
 This section doesn’t cover CLR code objects.
 
 Function invocations can’t have any lasting impact on the database. They must be contained and can only modify objects and data local to their scope (for example, data in local variables). Functions aren’t allowed to modify data or the structure of a database.
@@ -22,13 +26,14 @@ Functions may be deterministic or non-deterministic. Deterministic functions alw
 
 SQL Server supports three types of T-SQL UDFs: scalar functions, table-valued functions, and multi-statement table-valued functions.
 
-SQL Server 2019 adds scalar user-defined functions inlining. Inlining transforms functions into relational expressions and embeds them in the calling SQL query. This transformation improves the performance of workloads that take advantage of scalar UDFs. Scalar UDF inlining facilitates cost-based optimization of operations inside UDFs. The results are efficient, set-oriented, and parallel instead of inefficient, iterative, serial run plans. For more information, see [Scalar UDF Inlining](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15") in the _SQL Server documentation_.
+SQL Server 2019 adds scalar user-defined functions inlining. Inlining transforms functions into relational expressions and embeds them in the calling SQL query. This transformation improves the performance of workloads that take advantage of scalar UDFs. Scalar UDF inlining facilitates cost-based optimization of operations inside UDFs. The results are efficient, set-oriented, and parallel instead of inefficient, iterative, serial run plans. For more information, see [Scalar UDF Inlining](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ### Scalar User-Defined Functions
+<a name="chap-sql-server-aurora-mysql.tsql.udf.sqlserver.scalar"></a>
 
 Scalar UDFs accept zero or more parameters and return a scalar value. You can use scalar UDFs in T-SQL expressions.
 
-**Syntax**
+ **Syntax** 
 
 ```
 CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default Value>] [READONLY]} [,...n]])
@@ -40,7 +45,7 @@ RETURN <Scalar Expression>
 END[;]
 ```
 
-**Examples**
+ **Examples** 
 
 Create a scalar function to change the first character of a string to upper case.
 
@@ -60,10 +65,11 @@ Mixedcase
 ```
 
 ### User-Defined Table-Valued Functions
+<a name="chap-sql-server-aurora-mysql.tsql.udf.sqlserver.tablevalued"></a>
 
 Inline table-valued UDFs are similar to views or a Common Table Expressions (CTE) with the added benefit of parameters. They can be used in `FROM` clauses as subqueries and can be joined to other source table rows using the `APPLY` and `OUTER APPLY` operators. In-line table valued UDFs have many associated internal optimizer optimizations due to their simple, view-like characteristics.
 
-**Syntax**
+ **Syntax** 
 
 ```
 CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
@@ -73,7 +79,7 @@ RETURNS TABLE
 RETURN (<SELECT Query>)[;]
 ```
 
-**Examples**
+ **Examples** 
 
 Create a table valued function to aggregate employee orders.
 
@@ -122,6 +128,7 @@ EmployeeID  OrderYear  OrderMonth  NumOrders
 ```
 
 ### Multi-Statement User-Defined Table-Valued Functions
+<a name="chap-sql-server-aurora-mysql.tsql.udf.sqlserver.multistatement"></a>
 
 Multi-statement table valued UDFs, like inline UDFs, are also similar to views or CTEs, with the added benefit of allowing parameters. They can be used in FROM clauses as sub queries and can be joined to other source table rows using the `APPLY` and `OUTER APPLY` operators.
 
@@ -129,7 +136,7 @@ The difference between multi-statement UDFs and the inline UDFs is that multi-st
 
 The downside of using multi-statement UDFs is that there are far less optimizations possible and performance may suffer.
 
-**Syntax**
+ **Syntax** 
 
 ```
 CREATE FUNCTION <Function Name> ([{<Parameter Name> [AS] <Data Type> [= <Default
@@ -142,31 +149,27 @@ RETURN
 END[;]
 ```
 
-For more information, see [CREATE FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [CREATE FUNCTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.udf.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the creation of user-defined scalar functions only. There is no support for table-valued functions.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) supports the creation of user-defined scalar functions only. There is no support for table-valued functions.
 
 Unlike SQL Server, Aurora MySQL enables routines to read and write data using `INSERT`, `UPDATE`, and `DELETE`. It also allows DDL statements such as `CREATE` and `DROP`. Aurora MySQL doesn’t permit stored functions to contain explicit SQL transaction statements such as `COMMIT` and `ROLLBACK`.
 
 In Aurora MySQL, you can explicitly specify several options with the `CREATE FUNCTION` statement. These characteristics are saved with the function definition and are viewable with the `SHOW CREATE FUNCTION` statement.
-
-- The `DETERMINISTIC` option must be explicitly stated. Otherwise, the engine assumes it is not deterministic.
-
-###### Note
-
++ The `DETERMINISTIC` option must be explicitly stated. Otherwise, the engine assumes it is not deterministic.
+**Note**  
 The MySQL engine doesn’t check the validity of the deterministic property declaration. If you wrongly specify a function as `DETERMINISTIC` when in fact it is not, unexpected results and errors may occur.
-
-- `CONTAINS SQL` indicates the function code doesn’t contain statements that read or modify data.
-- `READS SQL DATA` indicates the function code contains statements that read data (for example, `SELECT`) but not statements that modify data (for example, `INSERT`, `DELETE`, or `UPDATE`).
-- `MODIFIES SQL DATA` indicates the function code contains statements that may modify data.
-
-###### Note
-
++  `CONTAINS SQL` indicates the function code doesn’t contain statements that read or modify data.
++  `READS SQL DATA` indicates the function code contains statements that read data (for example, `SELECT`) but not statements that modify data (for example, `INSERT`, `DELETE`, or `UPDATE`).
++  `MODIFIES SQL DATA` indicates the function code contains statements that may modify data.
+**Note**  
 The preceding options are advisory only. The server doesn’t constrain the function code based on the declaration. This feature is useful in assisting code management.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.udf.mysql.syntax"></a>
 
 ```
 CREATE FUNCTION <Function Name> ([<Function Parameter>[,...]])
@@ -182,6 +185,7 @@ COMMENT '<Comment>' | LANGUAGE SQL | [NOT] DETERMINISTIC
 ```
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-mysql.tsql.udf.mysql.considerations"></a>
 
 For scalar functions, migration should be straight forward as far as the function syntax is concerned. Note that rules in Aurora MySQL regarding functions are much more lenient than SQL Server.
 
@@ -194,6 +198,7 @@ Table-valued functions will be harder to migrate. For most in-line table valued 
 Complex multi-statement table valued functions will require rewrite as a stored procedure, which may in turn write the data to a temporary or standard table for further processing.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.udf.mysql.examples"></a>
 
 Create a scalar function to change the first character of string to upper case.
 
@@ -214,15 +219,17 @@ Mixedcase
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.tsql.udf.summary"></a>
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| SQL Server user-defined function feature | Migrate to Aurora MySQL    | Comment                                                                                                                   |
-| ---------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Scalar UDF                               | Scalar UDF                 | Use `CREATE FUNCTION` with similar syntax, remove the `AS` keyword.                                                       |
-| Inline table-valued UDF                  | N/A                        | Use views and replace parameters with `WHERE` filter predicates.                                                          |
-| Multi-statement table-valued UDF         | N/A                        | Use stored procedures to populate tables and read from the table directly.                                                |
-| UDF determinism implicit                 | Explicit declaration       | Use the `DETERMINISTIC` characteristic explicitly to denote a deterministic function, which enables engine optimizations. |
-| UDF boundaries local only                | Can change data and schema | UDF rules are more lenient, avoid unexpected changes from function invocation.                                            |
 
-For more information, see [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html "https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html") and [CREATE FUNCTION Statement for Loadable Functions](https://dev.mysql.com/doc/refman/5.7/en/create-function-loadable.html "https://dev.mysql.com/doc/refman/5.7/en/create-function-loadable.html") in the _MySQL documentation_.
+| SQL Server user-defined function feature | Migrate to Aurora MySQL  | Comment | 
+| --- | --- | --- | 
+| Scalar UDF | Scalar UDF | Use `CREATE FUNCTION` with similar syntax, remove the `AS` keyword. | 
+| Inline table-valued UDF | N/A | Use views and replace parameters with `WHERE` filter predicates. | 
+| Multi-statement table-valued UDF | N/A | Use stored procedures to populate tables and read from the table directly. | 
+| UDF determinism implicit | Explicit declaration | Use the `DETERMINISTIC` characteristic explicitly to denote a deterministic function, which enables engine optimizations. | 
+| UDF boundaries local only | Can change data and schema | UDF rules are more lenient, avoid unexpected changes from function invocation. | 
+
+For more information, see [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html) and [CREATE FUNCTION Statement for Loadable Functions](https://dev.mysql.com/doc/refman/5.7/en/create-function-loadable.html) in the *MySQL documentation*.

@@ -1,15 +1,19 @@
+
+
 # Stored procedures for T-SQL
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures"></a>
 
 This topic provides reference content comparing stored procedures in Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the key differences and similarities between these two database systems' implementations of stored procedures.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                                              | Key differences                                                        |
-| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
-| Three star feature compatibility | Four star automation level         | [Stored Procedures](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.storedprocedures "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.storedprocedures") | No support for table-valued parameters. Syntax and option differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Stored Procedures](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.storedprocedures)  | No support for table-valued parameters. Syntax and option differences. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.sqlserver"></a>
 
-Stored procedures are encapsulated, persisted code modules you can run using the `EXECUTE` T-SQL statement. They may have multiple input and output parameters. Table-valued user-defined types can
-be used as input parameters. IN is the default direction for parameters, but `OUT` must be explicitly specified. You can specify parameters as both `IN` and `OUT`.
+Stored procedures are encapsulated, persisted code modules you can run using the `EXECUTE` T-SQL statement. They may have multiple input and output parameters. Table-valued user-defined types can be used as input parameters. IN is the default direction for parameters, but `OUT` must be explicitly specified. You can specify parameters as both `IN` and `OUT`.
 
 In SQL Server, you can run stored procedures in any security context using the `EXECUTE AS` option. They can be explicitly recompiled for every run using the RECOMPILE option and can be encrypted in the database using the `ENCRYPTION` option to prevent unauthorized access to the source code.
 
@@ -18,6 +22,7 @@ SQL Server provides a unique feature that allows you to use a stored procedure a
 As part of the stored procedure syntax, SQL Server supports a default output integer parameter that can be specified along with the `RETURN` command, for example, `RETURN -1`. It’s typically used to signal status or error to the calling scope, which can use the syntax `EXEC @Parameter = <Stored Procedure Name>` to retrieve the `RETURN` value, without explicitly stating it as part of the parameter list.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.sqlserver.syntax"></a>
 
 ```
 CREATE [ OR ALTER ] { PROC | PROCEDURE } <Procedure Name>
@@ -31,6 +36,7 @@ AS {
 ```
 
 ### Creating and Running a Stored Procedure
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.sqlserver.create"></a>
 
 Create a simple parameterized stored procedure to validate the basic format of an email.
 
@@ -88,6 +94,7 @@ END
 ```
 
 ### Using a Table-Valued Input Parameter
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.sqlserver.tablevalued"></a>
 
 Create and populate the `OrderItems` table.
 
@@ -159,30 +166,30 @@ EXECUTE [InsertOrderItems]
 ```
 
 ### INSERT…​ EXEC Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.sqlserver.insert"></a>
 
 ```
 INSERT INTO <MyTable>
 EXECUTE <MyStoredProcedure>;
 ```
 
-For more information, see [CREATE PROCEDURE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+For more information, see [CREATE PROCEDURE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql?view=sql-server-ver15) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) stored procedures provide similar functionality to SQL Server stored procedures.
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) stored procedures provide similar functionality to SQL Server stored procedures.
 
 As with SQL Server, Aurora MySQL supports security run context. It also supports input, output, and bi-directional parameters.
 
-Stored procedures are typically used for:
-\* **Code reuse** — Stored procedures offer a convenient code encapsulation and reuse mechanism for multiple applications, potentially written in various languages, requiring the same database operations.
-\* **Security management** — By allowing access to base tables only through stored procedures, administrators can manage auditing and access permissions. This approach minimizes dependencies between application code and database code. Administrators can use stored procedures to process business rules and to perform auditing and logging.
-\* **Performance improvements** — Full SQL query text doesn’t need to be transferred from the client to the database.
+Stored procedures are typically used for: \* **Code reuse** — Stored procedures offer a convenient code encapsulation and reuse mechanism for multiple applications, potentially written in various languages, requiring the same database operations. \* **Security management** — By allowing access to base tables only through stored procedures, administrators can manage auditing and access permissions. This approach minimizes dependencies between application code and database code. Administrators can use stored procedures to process business rules and to perform auditing and logging. \* **Performance improvements** — Full SQL query text doesn’t need to be transferred from the client to the database.
 
-Stored procedures, triggers, and user-defined functions in Aurora MySQL are collectively referred to as _stored routines_. When binary logging is enabled, MySQL `SUPER` privilege is required to run stored routines. However, you can run stored routines with binary logging enabled without `SUPER` privilege by setting `thelog_bin_trust_function_creators` parameter to true for the DB parameter group for your MySQL instance.
+Stored procedures, triggers, and user-defined functions in Aurora MySQL are collectively referred to as *stored routines*. When binary logging is enabled, MySQL `SUPER` privilege is required to run stored routines. However, you can run stored routines with binary logging enabled without `SUPER` privilege by setting `thelog_bin_trust_function_creators` parameter to true for the DB parameter group for your MySQL instance.
 
-Aurora MySQL permits stored routines to contain control flow, DML, DDL, and transaction management statements including `START TRANSACTION`, `COMMIT`, and `ROLLBACK`.
+ Aurora MySQL permits stored routines to contain control flow, DML, DDL, and transaction management statements including `START TRANSACTION`, `COMMIT`, and `ROLLBACK`.
 
 ### Syntax
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.mysql.syntax"></a>
 
 ```
 CREATE [DEFINER = { user | CURRENT_USER }] PROCEDURE sp_name
@@ -196,6 +203,7 @@ SQL SECURITY { DEFINER | INVOKER }
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.mysql.examples"></a>
 
 Replace RETURN value parameter with standard OUTPUT parameters.
 
@@ -296,19 +304,21 @@ OrderID  Item       Quantity
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.tsql.storedprocedures.summary"></a>
 
 The following table summarizes the differences between MySQL Stored Procedures and SQL Server Stored Procedures.
 
-| Feature                             | SQL Server                                                                | Aurora MySQL                                                                        | Workaround                                                                                                                                                                      |
-| ----------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| General `CREATE` syntax differences | ```<br>CREATE PROC                                                        | PROCEDURE<br><Procedure Name><br>@Parameter1 <Type>,<br>...n<br>AS<br><Body><br>``` | `<br>CREATE PROCEDURE<br><Procedure Name><br>(Parameter1<br><Type>,...n)<br><Body><br>`                                                                                         | Rewrite stored procedure creation scripts to use `PROCEDURE` instead of `PROC`.<br>Rewrite stored procedure creation scripts to omit the `AS` keyword.<br>Rewrite stored procedure parameters to not use the `@` symbol in parameter names. Add parentheses around the parameter declaration.<br>Rewrite stored procedure parameter direction `OUTPUT` to `OUT` or `INOUT` for bidirectional parameters. `IN` is the parameter direction for both MySQL and SQL Server. |
-| Security context                    | ```<br>{ EXEC                                                             | EXECUTE } AS<br>{ CALLER                                                            | SELF                                                                                                                                                                            | OWNER                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | <br>'user_name' }<br>``` | ```<br>DEFINER = 'user' | <br>CURRENT_USER<br>`<br>in conjunction with<br>`<br>SQL SECURITY {<br>DEFINER | INVOKER }<br>``` | For stored procedures that use an explicit user name, rewrite the code from `EXECUTE AS 'user'` to `DEFINER = 'user'` and `SQL SECURITY DEFINER`.<br>For stored procedures that use the `CALLER` option, rewrite the code to include `SQL SECURITY INVOKER`.<br>For stored procedures that use the `SELF` option, rewrite the code to `DEFINER = CURRENT_USER` and `SQL SECURITY DEFINER`.<br>Unlike SQL Server, `OWNER`s can’t be specified and must be explicitly named. |
-| Encryption                          | Use the `WITH ENCRYPTION` option.                                         | Not supported in Aurora MySQL.                                                      |                                                                                                                                                                                 |
-| Parameter direction                 | `IN` and `OUT                                                             | OUTPUT`, by default `OUT`can be used as`IN` as well.                                | `IN`, `OUT`, and `INOUT`                                                                                                                                                        | Although the functionality of these parameters is the same for SQL Server and MySQL, make sure that you rewrite the code for syntax compliance.<br>Use `OUT` instead of `OUTPUT`.<br>Use `INOUT` instead of `OUT` for bidirectional parameters.                                                                                                                                                                                                                         |
-| Recompile                           | Use the `WITH RECOMPILE` option.                                          | Not supported in Aurora MySQL.                                                      |                                                                                                                                                                                 |
-| Table-valued parameters             | Use declared table type user-defined parameters.                          | Not supported in Aurora MySQL.                                                      | See the preceding example for a workaround.                                                                                                                                     |
-| `INSERT…​ EXEC`                     | Use the output of the stored procedure as input to an `INSERT` statement. | Not supported in Aurora MySQL.                                                      | Use tables to hold the data or pass string parameters formatted as CSV, XML, JSON (or any other convenient format) and then parse the parameters before the `INSERT` statement. |
-| Additional restrictions             | Use `BULK INSERT` to load data from text file.                            | The LOAD DATA statement isn’t allowed in stored procedures.                         |                                                                                                                                                                                 |
-| `RETURN` value                      | `RETURN <Integer Value>`                                                  | Not supported.                                                                      | Use a standard `OUTPUT` parameter instead.                                                                                                                                      |
 
-For more information, see [Stored Procedures and Functions](https://dev.mysql.com/doc/refman/5.7/en/faqs-stored-procs.html "https://dev.mysql.com/doc/refman/5.7/en/faqs-stored-procs.html") and [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html "https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html") in the _MySQL documentation_.
+| Feature | SQL Server |  Aurora MySQL  | Workaround | 
+| --- | --- | --- | --- | 
+| General `CREATE` syntax differences |  <pre>CREATE PROC|PROCEDURE<br /><Procedure Name><br />@Parameter1 <Type>,<br />...n<br />AS<br /><Body></pre>  |  <pre>CREATE PROCEDURE<br /><Procedure Name><br />(Parameter1<br /><Type>,...n)<br /><Body></pre>  | Rewrite stored procedure creation scripts to use `PROCEDURE` instead of `PROC`.<br />Rewrite stored procedure creation scripts to omit the `AS` keyword.<br />Rewrite stored procedure parameters to not use the `@` symbol in parameter names. Add parentheses around the parameter declaration.<br />Rewrite stored procedure parameter direction `OUTPUT` to `OUT` or `INOUT` for bidirectional parameters. `IN` is the parameter direction for both MySQL and SQL Server. | 
+| Security context |  <pre>{ EXEC | EXECUTE } AS<br />{ CALLER | SELF | OWNER |<br />'user_name' }</pre>  | <pre>DEFINER = 'user' |<br />CURRENT_USER</pre>in conjunction with<pre>SQL SECURITY {<br />DEFINER | INVOKER }</pre> | For stored procedures that use an explicit user name, rewrite the code from `EXECUTE AS 'user'` to `DEFINER = 'user'` and `SQL SECURITY DEFINER`.<br />For stored procedures that use the `CALLER` option, rewrite the code to include `SQL SECURITY INVOKER`.<br />For stored procedures that use the `SELF` option, rewrite the code to `DEFINER = CURRENT_USER` and `SQL SECURITY DEFINER`.<br />Unlike SQL Server, `OWNER`s can’t be specified and must be explicitly named. | 
+| Encryption | Use the `WITH ENCRYPTION` option. | Not supported in Aurora MySQL. |  | 
+| Parameter direction |  `IN` and `OUT\|OUTPUT`, by default `OUT` can be used as `IN` as well. |  `IN`, `OUT`, and `INOUT`  | Although the functionality of these parameters is the same for SQL Server and MySQL, make sure that you rewrite the code for syntax compliance.<br />Use `OUT` instead of `OUTPUT`.<br />Use `INOUT` instead of `OUT` for bidirectional parameters. | 
+| Recompile | Use the `WITH RECOMPILE` option. | Not supported in Aurora MySQL. |  | 
+| Table-valued parameters | Use declared table type user-defined parameters. | Not supported in Aurora MySQL. | See the preceding example for a workaround. | 
+|  `INSERT…​ EXEC`  | Use the output of the stored procedure as input to an `INSERT` statement. | Not supported in Aurora MySQL. | Use tables to hold the data or pass string parameters formatted as CSV, XML, JSON (or any other convenient format) and then parse the parameters before the `INSERT` statement. | 
+| Additional restrictions | Use `BULK INSERT` to load data from text file. | The LOAD DATA statement isn’t allowed in stored procedures. |  | 
+|  `RETURN` value |  `RETURN <Integer Value>`  | Not supported. | Use a standard `OUTPUT` parameter instead. | 
+
+For more information, see [Stored Procedures and Functions](https://dev.mysql.com/doc/refman/5.7/en/faqs-stored-procs.html) and [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html) in the *MySQL documentation*.

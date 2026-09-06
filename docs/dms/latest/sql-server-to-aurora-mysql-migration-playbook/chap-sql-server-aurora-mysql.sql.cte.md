@@ -1,18 +1,24 @@
+
+
 # Common table expressions for ANSI SQL
+<a name="chap-sql-server-aurora-mysql.sql.cte"></a>
 
 This topic provides reference information about Common Table Expressions (CTEs) and their compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the differences in CTE support between these database systems, which is crucial when migrating from SQL Server to Aurora MySQL.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                                                                 | Key differences                                                                         |
-| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Two star feature compatibility | No automation                      | [Common Table Expressions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.commontableexpressions "chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.commontableexpressions") | Rewrite non-recursive CTE to use views and derived tables. Redesign recursive CTE code. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Common Table Expressions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.commontableexpressions)  | Rewrite non-recursive CTE to use views and derived tables. Redesign recursive CTE code. | 
 
 ## SQL Server Usage
+<a name="chap-sql-server-aurora-mysql.sql.cte.sqlserver"></a>
 
 Common Table Expressions (CTE), which have been a part of the ANSI standard since SQL:1999, simplify queries and make them more readable by defining a temporary view, or derived table, that a subsequent query can reference. SQL Server CTEs can be the target of DML modification statements and have similar restrictions as updateable views.
 
 SQL Server CTEs provide recursive functionality in accordance with the ANSI 99 standard. Recursive CTEs can reference themselves and re-run queries until the data set is exhausted, or the maximum number of iterations is exceeded.
 
 ### Simplified CTE Syntax
+<a name="chap-sql-server-aurora-mysql.sql.cte.sqlserver.simplified"></a>
 
 ```
 WITH <CTE NAME>
@@ -25,6 +31,7 @@ FROM CTE
 ```
 
 ### Recursive CTE syntax
+<a name="chap-sql-server-aurora-mysql.sql.cte.sqlserver.recursive"></a>
 
 ```
 WITH <CTE NAME>
@@ -37,6 +44,7 @@ SELECT ... FROM <CTE NAME>...
 ```
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.sql.cte.sqlserver.examples"></a>
 
 Create and populate an `OrderItems` table.
 
@@ -141,17 +149,18 @@ LVL  Employee  DirectManager
 2    Fred      John
 ```
 
-For more information, see [Recursive Queries Using Common Table Expressions](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms186243(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms186243(v=sql.105)") in the _SQL Server documentation_.
+For more information, see [Recursive Queries Using Common Table Expressions](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms186243(v=sql.105)) in the *SQL Server documentation*.
 
 ## MySQL Usage
+<a name="chap-sql-server-aurora-mysql.sql.cte.mysql"></a>
 
-Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) 5.7 doesn’t support Common Table Expressions (CTE).
+ Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) 5.7 doesn’t support Common Table Expressions (CTE).
 
-###### Note
-
-Amazon Relational Database Service (Amazon RDS) for MySQL 8 supports common table expressions both nonrecursive and recursive. Common table expressions enable use of named temporary result sets implemented by permitting a `WITH` clause preceding `SELECT` statements and certain other statements. As of MySQL 8.0.19, the recursive `SELECT` part of a recursive common table expression supports a `LIMIT` clause. `LIMIT` with `OFFSET` is also supported. For more information, see [Recursive Common Table Expressions](https://dev.mysql.com/doc/refman/8.0/en/with.html#common-table-expressions-recursive "https://dev.mysql.com/doc/refman/8.0/en/with.html#common-table-expressions-recursive") in the _MySQL documentation_.
+**Note**  
+ Amazon Relational Database Service (Amazon RDS) for MySQL 8 supports common table expressions both nonrecursive and recursive. Common table expressions enable use of named temporary result sets implemented by permitting a `WITH` clause preceding `SELECT` statements and certain other statements. As of MySQL 8.0.19, the recursive `SELECT` part of a recursive common table expression supports a `LIMIT` clause. `LIMIT` with `OFFSET` is also supported. For more information, see [Recursive Common Table Expressions](https://dev.mysql.com/doc/refman/8.0/en/with.html#common-table-expressions-recursive) in the *MySQL documentation*.
 
 ### Migration Considerations
+<a name="chap-sql-server-aurora-mysql.sql.cte.mysql.considerations"></a>
 
 As a workaround, use views or derived tables in place of non-recursive CTEs.
 
@@ -189,8 +198,9 @@ When using derived tables, the derived table definition must be repeated if mult
 Converting the code for recursive CTEs isn’t straight forward, but you can achieve similar functionality using loops.
 
 ### Examples
+<a name="chap-sql-server-aurora-mysql.sql.cte.mysql.examples"></a>
 
-**Replacing non-recursive CTEs**
+ **Replacing non-recursive CTEs** 
 
 Use a derived table to replace non-recursive CTE functionality as shown following.
 
@@ -243,12 +253,11 @@ OrderID  Item       Quantity  PercentOfOrder
 3        M6 Washer  200       66.6666666600
 ```
 
-**Replacing recursive CTEs**
+ **Replacing recursive CTEs** 
 
 Use recursive SQL code in stored procedures and SQL loops to replace a recursive CTEs.
 
-###### Note
-
+**Note**  
 Stored procedure and function recursion in Aurora MySQL is turned off by default. You can set the server system variable `max_sp_recursion_depth` to a value of 1 or higher to enable recursion. However, this approach isn’t recommended because it may increase contention for the thread stack space.
 
 Create and populate an `Employees` table.
@@ -281,7 +290,7 @@ CREATE TABLE EmpHierarchy
 );
 ```
 
-Create a procedure that uses a loop to traverse the employee hierarchy. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md "chap-sql-server-aurora-mysql.tsql.storedprocedures.md") and [Flow Control](chap-sql-server-aurora-mysql.tsql.flowcontrol.md "chap-sql-server-aurora-mysql.tsql.flowcontrol.md").
+Create a procedure that uses a loop to traverse the employee hierarchy. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md) and [Flow Control](chap-sql-server-aurora-mysql.tsql.flowcontrol.md).
 
 ```
 CREATE PROCEDURE P()
@@ -341,10 +350,12 @@ Level  Employee  Manager
 ```
 
 ## Summary
+<a name="chap-sql-server-aurora-mysql.sql.cte.summary"></a>
 
-| SQL Server        | Aurora MySQL                                       | Comments                                                                                          |
-| ----------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Non recursive CTE | Derived table                                      | For multiple instances of the same table, the derived table definition subquery must be repeated. |
-| Recursive CTE     | Loop inside a stored procedure or stored function. |                                                                                                   |
 
-For more information, see [WITH (Common Table Expressions)](https://dev.mysql.com/doc/refman/8.0/en/with.html "https://dev.mysql.com/doc/refman/8.0/en/with.html") in the _MySQL documentation_.
+| SQL Server |  Aurora MySQL  | Comments | 
+| --- | --- | --- | 
+| Non recursive CTE | Derived table | For multiple instances of the same table, the derived table definition subquery must be repeated. | 
+| Recursive CTE | Loop inside a stored procedure or stored function. |  | 
+
+For more information, see [WITH (Common Table Expressions)](https://dev.mysql.com/doc/refman/8.0/en/with.html) in the *MySQL documentation*.
