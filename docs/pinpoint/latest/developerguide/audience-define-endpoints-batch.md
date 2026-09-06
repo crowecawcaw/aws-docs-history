@@ -1,51 +1,38 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Add a batch of endpoints to Amazon Pinpoint
+<a name="audience-define-endpoints-batch"></a>
 
-You can add or update multiple endpoints in a single operation by providing the endpoints
-in batches. Each batch request can include up to 100 endpoint definitions.
+You can add or update multiple endpoints in a single operation by providing the endpoints in batches. Each batch request can include up to 100 endpoint definitions.
 
-If you want to add or update more than 100 endpoints in a single operation, see [Import endpoints into Amazon Pinpoint](audience-define-import.md "audience-define-import.md")
-instead.
+If you want to add or update more than 100 endpoints in a single operation, see [Import endpoints into Amazon Pinpoint](audience-define-import.md) instead.
 
 ## Examples
+<a name="audience-define-endpoints-batch-examples"></a>
 
-The following examples show you how to add two endpoints at once by including the
-endpoints in a batch request.
+The following examples show you how to add two endpoints at once by including the endpoints in a batch request.
 
-AWS CLI You can use Amazon Pinpoint by running commands with the AWS CLI.
+------
+#### [ AWS CLI ]
 
-###### Example Update endpoints batch command
+You can use Amazon Pinpoint by running commands with the AWS CLI.
 
-To submit an endpoint batch request, use the [`update-endpoints-batch`](../../../cli/latest/reference/pinpoint/update-endpoints-batch.md "../../../cli/latest/reference/pinpoint/update-endpoints-batch.md") command:
+**Example Update endpoints batch command**  
+To submit an endpoint batch request, use the [`update-endpoints-batch`](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/update-endpoints-batch.html) command:  
 
 ```
-`$` `aws pinpoint update-endpoints-batch \`
-`>` `--application-id `application-id` \`
-`>` `--endpoint-batch-request file://`endpoint_batch_request_file.json``
+$ aws pinpoint update-endpoints-batch \
+> --application-id {{application-id}} \
+> --endpoint-batch-request file://{{endpoint_batch_request_file.json}}
 ```
+Where:  
++ {{application-id}} is the ID of the Amazon Pinpoint project in which you're adding or updating the endpoints.
++ {{endpoint\_batch\_request\_file.json}} is the file path to a local JSON file that contains the input for the `--endpoint-batch-request` parameter.
 
-Where:
-
-- `application-id` is the ID of the
-  Amazon Pinpoint project in which you're adding or updating the
-  endpoints.
-- `endpoint_batch_request_file.json` is
-  the file path to a local JSON file that contains the input for
-  the `--endpoint-batch-request` parameter.
-
-###### Example Endpoint batch request file
-
-The example `update-endpoints-batch` command uses a JSON
-file as the argument for the `--endpoint-request` parameter.
-This file contains a batch of endpoint definitions like the
-following:
+**Example Endpoint batch request file**  
+The example `update-endpoints-batch` command uses a JSON file as the argument for the `--endpoint-request` parameter. This file contains a batch of endpoint definitions like the following:  
 
 ```
 {
@@ -99,19 +86,15 @@ following:
     ]
 }
 ```
+For the attributes that you can use to define a batch of endpoints, see the [EndpointBatchRequest](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints.html#apps-application-id-endpoints-schemas) schema in the *Amazon Pinpoint API Reference*.
 
-For the attributes that you can use to define a batch of endpoints,
-see the [EndpointBatchRequest](../apireference/apps-application-id-endpoints.md#apps-application-id-endpoints-schemas "../apireference/apps-application-id-endpoints.md#apps-application-id-endpoints-schemas") schema in the _Amazon Pinpoint API Reference_.
+------
+#### [ AWS SDK for Java ]
 
-AWS SDK for Java You can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
+You can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
 
-###### Example Code
-
-To submit an endpoint batch request, initialize an `EndpointBatchRequest` object, and pass it
-to the `updateEndpointsBatch` method of the
-`AmazonPinpoint` client. The following example populates
-an `EndpointBatchRequest` object with two
-`EndpointBatchItem` objects:
+**Example Code**  
+To submit an endpoint batch request, initialize an `EndpointBatchRequest` object, and pass it to the `updateEndpointsBatch` method of the `AmazonPinpoint` client. The following example populates an `EndpointBatchRequest` object with two `EndpointBatchItem` objects:  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -127,7 +110,6 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 ```
 
 ```
@@ -260,33 +242,28 @@ public class AddExampleEndpoints {
                 }
         }
 }
-
 ```
 
-For the full SDK example, see [AddExampleEndpoints.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/AddExampleEndpoints.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/AddExampleEndpoints.java") on [GitHub](https://github.com/ "https://github.com/").
+For the full SDK example, see [AddExampleEndpoints.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/AddExampleEndpoints.java) on [GitHub](https://github.com/).
 
-HTTP You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
+------
+#### [ HTTP ]
 
-###### Example Put endpoints request
+You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
 
-To submit an endpoint batch request, issue a `PUT` request
-to the [Endpoints](../apireference/apps-application-id-endpoints.md "../apireference/apps-application-id-endpoints.md") resource at the following URI:
-
-`/v1/apps/`application-id`/endpoints`
-
-Where `application-id` is the ID of the
-Amazon Pinpoint project in which you're adding or updating the
-endpoints.
-
-In your request, include the required headers, and provide the [EndpointBatchRequest](../apireference/apps-application-id-endpoints.md#apps-application-id-endpoints-schemas "../apireference/apps-application-id-endpoints.md#apps-application-id-endpoints-schemas") JSON as the body:
+**Example Put endpoints request**  
+To submit an endpoint batch request, issue a `PUT` request to the [Endpoints](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints.html) resource at the following URI:  
+`/v1/apps/{{application-id}}/endpoints`  
+Where {{application-id}} is the ID of the Amazon Pinpoint project in which you're adding or updating the endpoints.  
+In your request, include the required headers, and provide the [EndpointBatchRequest](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints.html#apps-application-id-endpoints-schemas) JSON as the body:  
 
 ```
-PUT /v1/apps/`application_id`/endpoints HTTP/1.1
+PUT /v1/apps/{{application_id}}/endpoints HTTP/1.1
 Host: pinpoint.us-east-1.amazonaws.com
 Content-Type: application/json
 Accept: application/json
 X-Amz-Date: 20180501T184948Z
-Authorization: AWS4-HMAC-SHA256 Credential=`AKIAIOSFODNN7EXAMPLE`/20180501/`us-east-1`/mobiletargeting/aws4_request, SignedHeaders=accept;content-length;content-type;host;x-amz-date, Signature=`c25cbd6bf61bd3b3667c571ae764b9bf2d8af61b875cacced95d1e68d91b4170`
+Authorization: AWS4-HMAC-SHA256 Credential={{AKIAIOSFODNN7EXAMPLE}}/20180501/{{us-east-1}}/mobiletargeting/aws4_request, SignedHeaders=accept;content-length;content-type;host;x-amz-date, Signature={{c25cbd6bf61bd3b3667c571ae764b9bf2d8af61b875cacced95d1e68d91b4170}}
 Cache-Control: no-cache
 
 {
@@ -340,9 +317,7 @@ Cache-Control: no-cache
     ]
 }
 ```
-
-If your request succeeds, you receive a response like the
-following:
+If your request succeeds, you receive a response like the following:  
 
 ```
 {
@@ -351,8 +326,9 @@ following:
 }
 ```
 
-## Related information
+------
 
-For more information about the Endpoint resource in the Amazon Pinpoint API, including the
-supported HTTP methods and request parameters, see [Endpoint](../apireference/apps-application-id-endpoints-endpoint-id.md "../apireference/apps-application-id-endpoints-endpoint-id.md")
-in the _Amazon Pinpoint API Reference._
+## Related information
+<a name="audience-define-endpoints-batch-related"></a>
+
+For more information about the Endpoint resource in the Amazon Pinpoint API, including the supported HTTP methods and request parameters, see [Endpoint](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html) in the *Amazon Pinpoint API Reference.*

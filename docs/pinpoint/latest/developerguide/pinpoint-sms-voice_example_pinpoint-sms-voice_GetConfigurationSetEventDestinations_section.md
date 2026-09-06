@@ -1,24 +1,17 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `GetConfigurationSetEventDestinations` with an AWS SDK
+<a name="pinpoint-sms-voice_example_pinpoint-sms-voice_GetConfigurationSetEventDestinations_section"></a>
 
 The following code example shows how to use `GetConfigurationSetEventDestinations`.
 
-SAP ABAP
+------
+#### [ SAP ABAP ]
 
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/pps#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/pps#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/pps#code-examples). 
 
 ```
     TRY.
@@ -69,14 +62,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_too_many_requests_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_too_many_requests_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [GetConfigurationSetEventDestinations](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetConfigurationSetEventDestinations](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

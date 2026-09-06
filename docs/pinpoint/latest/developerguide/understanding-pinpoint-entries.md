@@ -1,23 +1,13 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # CloudTrail log entry examples showing Amazon Pinpoint API actions
+<a name="understanding-pinpoint-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source. It includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files
-aren't an ordered stack trace of the public API calls, so they don't appear in any
-specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source. It includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`GetCampaigns` and `CreateCampaign` actions of the Amazon Pinpoint
-API.
+The following example shows a CloudTrail log entry that demonstrates the `GetCampaigns` and `CreateCampaign` actions of the Amazon Pinpoint API.
 
 ```
 {
@@ -119,10 +109,7 @@ API.
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateConfigurationSet` and
-`CreateConfigurationSetEventDestination` actions in the Amazon Pinpoint SMS and
-Voice API.
+The following example shows a CloudTrail log entry that demonstrates the `CreateConfigurationSet` and `CreateConfigurationSetEventDestination` actions in the Amazon Pinpoint SMS and Voice API.
 
 ```
 {

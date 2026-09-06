@@ -1,36 +1,24 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Import segments in Amazon Pinpoint
+<a name="segments-importing"></a>
 
-With Amazon Pinpoint, you can define a user segment by importing information about the endpoints
-that belong to the segment. An _endpoint_ is a single messaging
-destination, such as a mobile push device token, a mobile phone number, or an email
-address.
+With Amazon Pinpoint, you can define a user segment by importing information about the endpoints that belong to the segment. An *endpoint* is a single messaging destination, such as a mobile push device token, a mobile phone number, or an email address.
 
-Importing segments is useful if you've already created segments of your users outside of
-Amazon Pinpoint but you want to engage your users with Amazon Pinpoint campaigns.
+Importing segments is useful if you've already created segments of your users outside of Amazon Pinpoint but you want to engage your users with Amazon Pinpoint campaigns.
 
-When you import a segment, Amazon Pinpoint gets the segment's endpoints from Amazon Simple Storage Service (Amazon S3).
-Before you import, you add the endpoints to Amazon S3, and you create an IAM role that grants
-Amazon Pinpoint access to Amazon S3. Then, you give Amazon Pinpoint the Amazon S3 location where the endpoints are
-stored, and Amazon Pinpoint adds each endpoint to the segment.
+When you import a segment, Amazon Pinpoint gets the segment's endpoints from Amazon Simple Storage Service (Amazon S3). Before you import, you add the endpoints to Amazon S3, and you create an IAM role that grants Amazon Pinpoint access to Amazon S3. Then, you give Amazon Pinpoint the Amazon S3 location where the endpoints are stored, and Amazon Pinpoint adds each endpoint to the segment.
 
-To create the IAM role, see [IAM role for importing endpoints or segments](permissions-import-segment.md "permissions-import-segment.md"). For information about importing a segment
-by using the Amazon Pinpoint console, see [Importing
-segments](../userguide/segments-importing.md "../userguide/segments-importing.md") in the _Amazon Pinpoint User Guide_.
+To create the IAM role, see [IAM role for importing endpoints or segments](permissions-import-segment.md). For information about importing a segment by using the Amazon Pinpoint console, see [Importing segments](https://docs.aws.amazon.com/pinpoint/latest/userguide/segments-importing.html) in the *Amazon Pinpoint User Guide*.
 
-For more code examples, see [Code examples](service_code_examples.md "service_code_examples.md").
+For more code examples, see [Code examples](https://docs.aws.amazon.com/pinpoint/latest/developerguide/service_code_examples.html).
 
 ## Import a segment with the AWS SDK for Java
+<a name="segments-importing-example-java"></a>
 
-The following example demonstrates how to import a segment by using the
-AWS SDK for Java.
+The following example demonstrates how to import a segment by using the AWS SDK for Java.
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -41,7 +29,6 @@ import software.amazon.awssdk.services.pinpoint.model.ImportJobRequest;
 import software.amazon.awssdk.services.pinpoint.model.Format;
 import software.amazon.awssdk.services.pinpoint.model.CreateImportJobResponse;
 import software.amazon.awssdk.services.pinpoint.model.PinpointException;
-
 ```
 
 ```
@@ -126,7 +113,6 @@ public class ImportSegment {
         return null;
     }
 }
-
 ```
 
-For the full SDK example, see [ImportingSegments.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ImportSegment.java/ "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ImportSegment.java/") on [GitHub](https://github.com/ "https://github.com/").
+For the full SDK example, see [ImportingSegments.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ImportSegment.java/) on [GitHub](https://github.com/).

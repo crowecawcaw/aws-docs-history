@@ -1,27 +1,19 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `SendVoiceMessage` with an AWS SDK
+<a name="pinpoint-sms-voice_example_pinpoint-sms-voice_SendVoiceMessage_section"></a>
 
 The following code examples show how to use `SendVoiceMessage`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples). 
 
 ```
-
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpointsmsvoice.PinpointSmsVoiceClient;
@@ -68,7 +60,7 @@ public class SendVoiceMessage {
 
         final String usage = """
                 Usage:   <originationNumber> <destinationNumber>\s
-
+                
                 Where:
                   originationNumber - The phone number or short code that you specify has to be associated with your Amazon Pinpoint account. For best results, specify long codes in E.164 format (for example, +1-555-555-5654).
                   destinationNumber - The recipient's phone number.  For best results, you should specify the phone number in E.164 format (for example, +1-555-555-5654).\s
@@ -129,26 +121,16 @@ public class SendVoiceMessage {
         }
     }
 }
+```
++  For API details, see [SendVoiceMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/pinpoint-sms-voice-2018-09-05/SendVoiceMessage) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/pinpoint-sms-voice#code-examples). 
 
 ```
-
-- For API details, see
-  [SendVoiceMessage](../../../goto/SdkForJavaV2/pinpoint-sms-voice-2018-09-05/SendVoiceMessage.md "../../../goto/SdkForJavaV2/pinpoint-sms-voice-2018-09-05/SendVoiceMessage.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/pinpoint-sms-voice#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/pinpoint-sms-voice#code-examples").
-
-```
-
 "use strict";
 
 var AWS = require("aws-sdk");
@@ -228,27 +210,16 @@ pinpointsmsvoice.sendVoiceMessage(params, function (err, data) {
     console.log("Message sent! Message ID: " + data["MessageId"]);
   }
 });
+```
++  For API details, see [SendVoiceMessage](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/pinpoint-sms-voice-2018-09-05/SendVoiceMessage) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
 
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/pinpoint-sms-voice#code-examples). 
 
 ```
-
-- For API details, see
-  [SendVoiceMessage](../../../goto/AWSJavaScriptSDK/pinpoint-sms-voice-2018-09-05/SendVoiceMessage.md "../../../goto/AWSJavaScriptSDK/pinpoint-sms-voice-2018-09-05/SendVoiceMessage.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/pinpoint-sms-voice#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/pinpoint-sms-voice#code-examples").
-
-```
-
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -337,23 +308,14 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 ```
++  For API details, see [SendVoiceMessage](https://docs.aws.amazon.com/goto/boto3/pinpoint-sms-voice-2018-09-05/SendVoiceMessage) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SendVoiceMessage](../../../goto/boto3/pinpoint-sms-voice-2018-09-05/SendVoiceMessage.md "../../../goto/boto3/pinpoint-sms-voice-2018-09-05/SendVoiceMessage.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/pps#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/pps#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/pps#code-examples). 
 
 ```
     TRY.
@@ -392,14 +354,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_too_many_requests_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_too_many_requests_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [SendVoiceMessage](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SendVoiceMessage](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

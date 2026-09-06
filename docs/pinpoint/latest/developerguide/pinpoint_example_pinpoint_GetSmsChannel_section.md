@@ -1,31 +1,25 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `GetSmsChannel` with an AWS SDK or CLI
+<a name="pinpoint_example_pinpoint_GetSmsChannel_section"></a>
 
 The following code examples show how to use `GetSmsChannel`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To retrieve information about the status and settings of the SMS channel for an application**
-
-The following `get-sms-channel` example retrieves status and settings of the sms channel for an application.
-
-```
-`aws pinpoint get-sms-channel \
- --application-id `6e0b7591a90841d2b5d93fa11143e5a7` \
- --region `us-east-1``
+**AWS CLI**  
+**To retrieve information about the status and settings of the SMS channel for an application**  
+The following `get-sms-channel` example retrieves status and settings of the sms channel for an application.  
 
 ```
-
-Output:
+aws pinpoint get-sms-channel \
+    --application-id {{6e0b7591a90841d2b5d93fa11143e5a7}} \
+    --region {{us-east-1}}
+```
+Output:  
 
 ```
 {
@@ -43,20 +37,13 @@ Output:
     }
 }
 ```
++  For API details, see [GetSmsChannel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/get-sms-channel.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetSmsChannel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/get-sms-channel.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/get-sms-channel.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -140,14 +127,9 @@ public class UpdateChannel {
         }
     }
 }
-
-
 ```
++  For API details, see [GetSmsChannel](https://docs.aws.amazon.com/goto/SdkForJavaV2/pinpoint-2016-12-01/GetSmsChannel) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetSmsChannel](../../../goto/SdkForJavaV2/pinpoint-2016-12-01/GetSmsChannel.md "../../../goto/SdkForJavaV2/pinpoint-2016-12-01/GetSmsChannel.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

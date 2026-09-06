@@ -1,75 +1,50 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Export endpoints from Amazon Pinpoint to Amazon S3 buckets
+<a name="audience-define-export"></a>
 
-To get all of the information that Amazon Pinpoint has about your audience, you can export the
-endpoint definitions that belong to a project. When you export, Amazon Pinpoint places the
-endpoint definitions in an Amazon S3 bucket that you specify. Exporting endpoints is useful when
-you want to:
+To get all of the information that Amazon Pinpoint has about your audience, you can export the endpoint definitions that belong to a project. When you export, Amazon Pinpoint places the endpoint definitions in an Amazon S3 bucket that you specify. Exporting endpoints is useful when you want to:
++ View the latest data about new and existing endpoints that your client application registered with Amazon Pinpoint.
++ Synchronize the endpoint data in Amazon Pinpoint with your own Customer Relationship Management (CRM) system.
++ Create reports about or analyze your customer data.
 
-- View the latest data about new and existing endpoints that your client application
-  registered with Amazon Pinpoint.
-- Synchronize the endpoint data in Amazon Pinpoint with your own Customer Relationship
-  Management (CRM) system.
-- Create reports about or analyze your customer data.
-
-###### Note
-
-Content delivered to Amazon S3 buckets might contain customer content. If you need to delete
-endpoint data that you exported to an Amazon S3 bucket, you must do so in Amazon S3 For more information
-about removing sensitive data, see [How Do I
-Empty an S3 Bucket?](../../../AmazonS3/latest/userguide/empty-bucket.md "../../../AmazonS3/latest/userguide/empty-bucket.md") or [How Do
-I Delete an S3 Bucket?](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md").
+**Note**  
+Content delivered to Amazon S3 buckets might contain customer content. If you need to delete endpoint data that you exported to an Amazon S3 bucket, you must do so in Amazon S3 For more information about removing sensitive data, see [How Do I Empty an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/empty-bucket.html) or [How Do I Delete an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/delete-bucket.html).
 
 ## Before you begin
+<a name="audience-define-export-before"></a>
 
-Before you can export endpoints, you need the following resources in your AWS
-account:
-
-- An Amazon S3 bucket. To create a bucket, see [Create a bucket](../../../AmazonS3/latest/userguide/creating-bucket.md "../../../AmazonS3/latest/userguide/creating-bucket.md") in the _Amazon Simple Storage Service User Guide_.
-- An AWS Identity and Access Management (IAM) role that grants Amazon Pinpoint write permissions for your Amazon S3
-  bucket. To create the role, see [IAM role for exporting endpoints or segments](permissions-export-endpoints.md "permissions-export-endpoints.md").
+Before you can export endpoints, you need the following resources in your AWS account:
++ An Amazon S3 bucket. To create a bucket, see [Create a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) in the *Amazon Simple Storage Service User Guide*.
++ An AWS Identity and Access Management (IAM) role that grants Amazon Pinpoint write permissions for your Amazon S3 bucket. To create the role, see [IAM role for exporting endpoints or segments](permissions-export-endpoints.md).
 
 ## Examples
+<a name="audience-define-export-examples"></a>
 
-The following examples demonstrate how to export endpoints from an Amazon Pinpoint project, and
-then download those endpoints from your Amazon S3 bucket.
+The following examples demonstrate how to export endpoints from an Amazon Pinpoint project, and then download those endpoints from your Amazon S3 bucket.
 
-AWS CLI You can use Amazon Pinpoint by running commands with the AWS CLI.
+------
+#### [ AWS CLI ]
 
-###### Example Create export job command
+You can use Amazon Pinpoint by running commands with the AWS CLI.
 
-To export the endpoints in your Amazon Pinpoint project, use the [`create-export-job`](../../../cli/latest/reference/pinpoint/create-export-job.md "../../../cli/latest/reference/pinpoint/create-export-job.md") command:
-
-```
-`$` `aws pinpoint create-export-job \`
-`>` `--application-id `application-id` \`
-`>` `--export-job-request \`
-`>` `S3UrlPrefix=s3://`bucket-name/prefix/`,\`
-`>` `RoleArn=`iam-export-role-arn``
+**Example Create export job command**  
+To export the endpoints in your Amazon Pinpoint project, use the [`create-export-job`](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/create-export-job.html) command:  
 
 ```
-
-Where:
-
-- `application-id` is the
-  ID of the Amazon Pinpoint project that contains the endpoints.
-- `bucket-name/prefix/` is
-  the name of your Amazon S3 bucket and, optionally, a prefix that
-  helps you organize the objects in your bucket hierarchically.
-  For example, a useful prefix might be
-  `pinpoint/exports/endpoints/`.
-- `iam-export-role-arn` is
-  the Amazon Resource Name (ARN) of an IAM role that grants
-  Amazon Pinpoint write access to the bucket.
-  The response to this command provides details about the export
-  job:
+$ aws pinpoint create-export-job \
+> --application-id {{application-id}} \
+> --export-job-request \
+> S3UrlPrefix=s3://{{bucket-name/prefix/}},\
+> RoleArn={{iam-export-role-arn}}
+```
+Where:  
++ {{`application-id`}} is the ID of the Amazon Pinpoint project that contains the endpoints.
++ {{`bucket-name/prefix/`}} is the name of your Amazon S3 bucket and, optionally, a prefix that helps you organize the objects in your bucket hierarchically. For example, a useful prefix might be `pinpoint/exports/endpoints/`.
++ {{`iam-export-role-arn`}} is the Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint write access to the bucket.
+The response to this command provides details about the export job:  
 
 ```
 {
@@ -85,30 +60,22 @@ Where:
     }
 }
 ```
+The response provides the job ID with the `Id` attribute. You can use this ID to check the current status of the export job.
 
-The response provides the job ID with the `Id` attribute.
-You can use this ID to check the current status of the export
-job.
-
-###### Example Get export job command
-
-To check the current status of an export job, use the [`get-export-job`](../../../cli/latest/reference/pinpoint/get-export-job.md "../../../cli/latest/reference/pinpoint/get-export-job.md") command:
+**Example Get export job command**  
+To check the current status of an export job, use the [`get-export-job`](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/get-export-job.html) command:  
 
 ```
-`$` `aws pinpoint get-export-job \`
-`>` `--application-id `application-id` \`
-`>` `--job-id `job-id``
+$ aws pinpoint get-export-job \
+> --application-id {{application-id}} \
+> --job-id {{job-id}}
 ```
 
 Where:
++ {{`application-id`}} is the ID the Amazon Pinpoint project that you exported the endpoints from.
++ {{`job-id`}} is the ID of the job that you're checking.
 
-- `application-id` is the ID
-  the Amazon Pinpoint project that you exported the endpoints from.
-- `job-id` is the ID of the
-  job that you're checking.
-
-The response to this command provides the current state of the export
-job:
+The response to this command provides the current state of the export job:
 
 ```
 {
@@ -129,41 +96,26 @@ job:
 }
 ```
 
-The response provides the job status with the `JobStatus`
-attribute. When the job status value is `COMPLETED`, you can get
-your exported endpoints from your Amazon S3 bucket.
+The response provides the job status with the `JobStatus` attribute. When the job status value is `COMPLETED`, you can get your exported endpoints from your Amazon S3 bucket.
 
-###### Example S3 CP command
-
-To download your exported endpoints, use the Amazon S3 [`cp`](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md")
-command:
+**Example S3 CP command**  
+To download your exported endpoints, use the Amazon S3 [`cp`](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) command:  
 
 ```
-`$` `aws s3 cp s3://`bucket-name/prefix/key.gz` `/local/directory/``
+$ aws s3 cp s3://{{bucket-name/prefix/key.gz}} {{/local/directory/}}
 ```
+Where:  
++ {{`bucket-name/prefix/key`}} is the location of the .gz file that Amazon Pinpoint added to your bucket when you exported your endpoints. This file contains the exported endpoint definitions. For example, in the URL `https://PINPOINT-EXAMPLE-BUCKET.s3.us-west-2.amazonaws.com/Exports/example.csv`, `PINPOINT-EXAMPLE-BUCKET` is the name of the bucket and `Exports/example.csv` is the key. For more information on **Keys**, see [Keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html#BasicsKeys) in the *Amazon S3 User Guide*. 
++ {{`/local/directory/`}} is the file path to the local directory that you want to download the endpoints to.
 
-Where:
+------
+#### [ AWS SDK for Java ]
 
-- `bucket-name/prefix/key`
-  is the location of the .gz file that Amazon Pinpoint added to your bucket
-  when you exported your endpoints. This file contains the
-  exported endpoint definitions. For example, in the URL `https://PINPOINT-EXAMPLE-BUCKET.s3.us-west-2.amazonaws.com/Exports/example.csv`, `PINPOINT-EXAMPLE-BUCKET` is the name of the bucket and `Exports/example.csv` is the key. For more information on **Keys**, see [Keys](../../../AmazonS3/latest/userguide/Welcome.md#BasicsKeys "../../../AmazonS3/latest/userguide/Welcome.md#BasicsKeys") in the _Amazon S3 User Guide_.
-- `/local/directory/` is
-  the file path to the local directory that you want to download
-  the endpoints to.
+You can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
 
-AWS SDK for JavaYou can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
-
-###### Example Code
-
-To export endpoints from an Amazon Pinpoint project, initialize a
-`CreateExportJobRequest` object. Then, pass this object
-to the `createExportJob` method of the
-`AmazonPinpoint` client.
-
-To download the exported endpoints from Amazon Pinpoint, use the
-`getObject` method of the `AmazonS3`
-client.
+**Example Code**  
+To export endpoints from an Amazon Pinpoint project, initialize a `CreateExportJobRequest` object. Then, pass this object to the `createExportJob` method of the `AmazonPinpoint` client.  
+To download the exported endpoints from Amazon Pinpoint, use the `getObject` method of the `AmazonS3` client.  
 
 ```
 import software.amazon.awssdk.core.ResponseBytes;
@@ -192,7 +144,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-
 ```
 
 ```
@@ -413,20 +364,20 @@ public class ExportEndpoints {
         }
     }
 }
-
 ```
 
-For the full SDK example, see [ExportEndpoints.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ExportEndpoints.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ExportEndpoints.java") on [GitHub](https://github.com/ "https://github.com/").
+For the full SDK example, see [ExportEndpoints.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ExportEndpoints.java) on [GitHub](https://github.com/).
 
-HTTP You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
+------
+#### [ HTTP ]
 
-###### Example POST export job request
+You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
 
-To export the endpoints in your Amazon Pinpoint project, issue a `POST`
-request to the [Export jobs](../apireference/apps-application-id-jobs-export.md "../apireference/apps-application-id-jobs-export.md") resource:
+**Example POST export job request**  
+To export the endpoints in your Amazon Pinpoint project, issue a `POST` request to the [Export jobs](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-export.html) resource:  
 
 ```
-POST /v1/apps/`application_id`/jobs/export HTTP/1.1
+POST /v1/apps/{{application_id}}/jobs/export HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Host: pinpoint.us-east-1.amazonaws.com
@@ -435,25 +386,15 @@ Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20180606/us-east
 Cache-Control: no-cache
 
 {
-  "S3UrlPrefix": "s3://`bucket-name/prefix`",
-  "RoleArn": "`iam-export-role-arn`"
+  "S3UrlPrefix": "s3://{{bucket-name/prefix}}",
+  "RoleArn": "{{iam-export-role-arn}}"
 }
 ```
-
-Where:
-
-- `application-id` is the
-  ID of the Amazon Pinpoint project that contains the endpoints.
-- `bucket-name/prefix` is
-  the name of your Amazon S3 bucket and, optionally, a prefix that
-  helps you organize the objects in your bucket hierarchically.
-  For example, a useful prefix might be
-  `pinpoint/exports/endpoints/`.
-- `iam-export-role-arn` is
-  the Amazon Resource Name (ARN) of an IAM role that grants
-  Amazon Pinpoint write access to the bucket.
-  The response to this request provides details about the export
-  job:
+Where:  
++ {{`application-id`}} is the ID of the Amazon Pinpoint project that contains the endpoints.
++ {{`bucket-name/prefix`}} is the name of your Amazon S3 bucket and, optionally, a prefix that helps you organize the objects in your bucket hierarchically. For example, a useful prefix might be `pinpoint/exports/endpoints/`.
++ {{`iam-export-role-arn`}} is the Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint write access to the bucket.
+The response to this request provides details about the export job:  
 
 ```
 {
@@ -467,18 +408,13 @@ Where:
     }
 }
 ```
+The response provides the job ID with the `Id` attribute. You can use this ID to check the current status of the export job.
 
-The response provides the job ID with the `Id` attribute.
-You can use this ID to check the current status of the export
-job.
-
-###### Example GET export job request
-
-To check the current status of an export job, issue a `GET`
-request to the [Export job](../apireference/apps-application-id-jobs-export-job-id.md "../apireference/apps-application-id-jobs-export-job-id.md") resource:
+**Example GET export job request**  
+To check the current status of an export job, issue a `GET` request to the [Export job](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-export-job-id.html) resource:  
 
 ```
-GET /v1/apps/`application_id`/jobs/export/`job_id` HTTP/1.1
+GET /v1/apps/{{application_id}}/jobs/export/{{job_id}} HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Host: pinpoint.us-east-1.amazonaws.com
@@ -486,16 +422,10 @@ X-Amz-Date: 20180606T002443Z
 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20180606/us-east-1/mobiletargeting/aws4_request, SignedHeaders=accept;cache-control;content-type;host;postman-token;x-amz-date, Signature=c25cbd6bf61bd3b3667c571ae764b9bf2d8af61b875cacced95d1e68d91b4170
 Cache-Control: no-cache
 ```
-
-Where:
-
-- `application-id` is the
-  ID the Amazon Pinpoint project that you exported the endpoints
-  from.
-- `job-id` is the ID of
-  the job that you're checking.
-  The response to this request provides the current state of the export
-  job:
+Where:  
++ {{`application-id`}} is the ID the Amazon Pinpoint project that you exported the endpoints from.
++ {{`job-id`}} is the ID of the job that you're checking.
+The response to this request provides the current state of the export job:  
 
 ```
 {
@@ -513,19 +443,13 @@ Where:
     "Definition": {}
 }
 ```
+The response provides the job status with the `JobStatus` attribute. When the job status value is `COMPLETED`, you can get your exported endpoints from your Amazon S3 bucket.
 
-The response provides the job status with the `JobStatus`
-attribute. When the job status value is `COMPLETED`, you can
-get your exported endpoints from your Amazon S3 bucket.
+------
 
 ## Related information
+<a name="audience-define-export-related"></a>
 
-To find the endpoint ID for a specific endpoint, you must determine which segment the endpoint
-belongs to, and then export the segment from Amazon Pinpoint. The exported data includes the
-endpoint ID for each endpoint. You can export a segment to a file by using the Amazon Pinpoint
-console. For more information about exporting segments, see
-[Exporting Segments](../userguide/segments-exporting.md "../userguide/segments-exporting.md") in the
-_Amazon Pinpoint User Guide_.
+To find the endpoint ID for a specific endpoint, you must determine which segment the endpoint belongs to, and then export the segment from Amazon Pinpoint. The exported data includes the endpoint ID for each endpoint. You can export a segment to a file by using the Amazon Pinpoint console. For more information about exporting segments, see [Exporting Segments](https://docs.aws.amazon.com/pinpoint/latest/userguide/segments-exporting.html) in the *Amazon Pinpoint User Guide*.
 
-For more information about the Export Jobs resource in the Amazon Pinpoint API, including the
-supported HTTP methods and request parameters, see [Export jobs](../apireference/apps-application-id-jobs-export.md "../apireference/apps-application-id-jobs-export.md") in the _Amazon Pinpoint API Reference_.
+For more information about the Export Jobs resource in the Amazon Pinpoint API, including the supported HTTP methods and request parameters, see [Export jobs](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-export.html) in the *Amazon Pinpoint API Reference*.

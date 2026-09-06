@@ -1,24 +1,16 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Journey event data from Amazon Pinpoint
+<a name="event-streams-data-journey"></a>
 
-When you publish a journey, Amazon Pinpoint can stream event data for email, SMS, push,
-and custom messages that you send from the journey. After you set up event streaming,
-Amazon Pinpoint retrieves the data from the destination that you specified during setup for you
-to view. For detailed information about the data that Amazon Pinpoint streams for email and SMS
-messages, see [Email event data stream from Amazon Pinpoint](event-streams-data-email.md "event-streams-data-email.md") and [SMS event data stream from Amazon Pinpoint](event-streams-data-sms.md "event-streams-data-sms.md").
-For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md").
+When you publish a journey, Amazon Pinpoint can stream event data for email, SMS, push, and custom messages that you send from the journey. After you set up event streaming, Amazon Pinpoint retrieves the data from the destination that you specified during setup for you to view. For detailed information about the data that Amazon Pinpoint streams for email and SMS messages, see [Email event data stream from Amazon Pinpoint](event-streams-data-email.md) and [SMS event data stream from Amazon Pinpoint](event-streams-data-sms.md). For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md).
 
 ## Journey event example
+<a name="event-streams-data-journey-example"></a>
 
-The JSON object for a journey event contains the data shown in the following
-sample.
+The JSON object for a journey event contains the data shown in the following sample.
 
 ```
 {
@@ -49,7 +41,7 @@ sample.
       "journey_id":"546401670c5547b08811ac6a9example",
       "journey_activity_id":"0yKexample",
       "journey_activity_type": "EMAIL",
-      "journey_send_status_message": "200",
+      "journey_send_status_message": "200", 
       "journey_send_status_code": "200"
    },
    "client_context":{
@@ -62,52 +54,58 @@ sample.
 ```
 
 ## Journey event attributes
+<a name="event-streams-data-journey-attributes"></a>
 
-This section defines the attributes that are included in the event stream data that
-Amazon Pinpoint generates for a journey.
+This section defines the attributes that are included in the event stream data that Amazon Pinpoint generates for a journey.
 
-| Attribute           | Description                                                                                                                                                                                                                                         |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `event_type`        | The type of event. For journey events, the value for this<br>attribute is always `_journey.send`, which indicates that<br>Amazon Pinpoint executed the journey.                                                                                     |
-| `event_timestamp`   | The time when the event was reported, shown as Unix time in<br>milliseconds.                                                                                                                                                                        |
-| `arrival_timestamp` | The time when the event was received by Amazon Pinpoint, shown as<br>Unix time in milliseconds.                                                                                                                                                     |
-| `event_version`     | The version of the event JSON schema.<br>TipCheck this version in your event-processing application so<br>that you know when to update the application in response to a<br>schema update.                                                           |
-| `application`       | Information about the Amazon Pinpoint project that's associated with the event. For more information,<br>see the [Application](#event-streams-data-journey-attributes-application "#event-streams-data-journey-attributes-application") table.      |
-| `client`            | Information about the endpoint that's associated with the event. For more information, see the<br>[Client](#event-streams-data-journey-attributes-client "#event-streams-data-journey-attributes-client") table.                                    |
-| `device`            | Information about the device that reported the event. For<br>journeys, this object is empty.                                                                                                                                                        |
-| `session`           | Information about the session that generated the event. For<br>journeys, this object is empty.                                                                                                                                                      |
-| `attributes`        | Attributes that are associated with the journey and journey<br>activity that generated the event. For more information, see the<br>[Attributes](#event-streams-data-journey-attributes-attrs "#event-streams-data-journey-attributes-attrs") table. |
-| `client_context`    | Contains a `custom` object, which contains an<br>`endpoint` property. The `endpoint` property<br>contains the contents of the endpoint record for the endpoint that's<br>associated with the event.                                                 |
-| `awsAccountId`      | The ID of the AWS account that was used to execute the<br>journey.                                                                                                                                                                                  |
+
+| Attribute | Description | 
+| --- | --- | 
+| event\_type | The type of event. For journey events, the value for this attribute is always `_journey.send`, which indicates that Amazon Pinpoint executed the journey. | 
+| event\_timestamp | The time when the event was reported, shown as Unix time in milliseconds. | 
+| arrival\_timestamp | The time when the event was received by Amazon Pinpoint, shown as Unix time in milliseconds. | 
+| event\_version | The version of the event JSON schema. Check this version in your event-processing application so that you know when to update the application in response to a schema update.  | 
+| application | Information about the Amazon Pinpoint project that's associated with the event. For more information, see the [Application](#event-streams-data-journey-attributes-application) table. | 
+| client | Information about the endpoint that's associated with the event. For more information, see the [Client](#event-streams-data-journey-attributes-client) table. | 
+| device | Information about the device that reported the event. For journeys, this object is empty. | 
+| session | Information about the session that generated the event. For journeys, this object is empty. | 
+| attributes | Attributes that are associated with the journey and journey activity that generated the event. For more information, see the [Attributes](#event-streams-data-journey-attributes-attrs) table. | 
+| client\_context | Contains a custom object, which contains an endpoint property. The endpoint property contains the contents of the endpoint record for the endpoint that's associated with the event. | 
+| awsAccountId | The ID of the AWS account that was used to execute the journey. | 
 
 ### Application
+<a name="event-streams-data-journey-attributes-application"></a>
 
-Includes information about the Amazon Pinpoint project that's associated with the
-event.
+Includes information about the Amazon Pinpoint project that's associated with the event.
 
-| Attribute | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
-| `app_id`  | The unique ID of the Amazon Pinpoint project that reported the<br>event. |
-| `sdk`     | The SDK that was used to report the event.                               |
+
+| Attribute | Description | 
+| --- | --- | 
+| app\_id | The unique ID of the Amazon Pinpoint project that reported the event. | 
+| sdk | The SDK that was used to report the event.  | 
 
 ### Client
+<a name="event-streams-data-journey-attributes-client"></a>
 
 Includes information about the endpoint that's associated with the event.
 
-| Attribute   | Description             |
-| ----------- | ----------------------- |
-| `client_id` | The ID of the endpoint. |
+
+| Attribute | Description | 
+| --- | --- | 
+| client\_id | The ID of the endpoint. | 
 
 ### Attributes
+<a name="event-streams-data-journey-attributes-attrs"></a>
 
 Includes information about the journey that generated the event.
 
-| Attribute                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `journey_run_id`              | The unique ID of the journey run that generated the event.<br>Amazon Pinpoint generates and assigns this ID automatically to each new<br>run of a journey.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `journey_send_status`         | Indicates the delivery status of the message that's associated<br>with the event. Possible values include:<br>• **SUCCESS** – The<br>message was successfully sent to the endpoint.<br>• **FAILURE** – The<br>message wasn't sent to the endpoint because an error<br>occurred.<br>• **CUSTOM\_DELIVERY\_FAILURE** – Custom<br>delivery failed.<br>• **FAILURE\_PERMANENT**<br>– A permanent failure occurred when sending to the<br>endpoint.<br>TipYou can filter on events with *_FAILURE\_PERMANENT_<br>• status<br>and `journey_send_status_code` set to 403<br>to determine if there is an access policy and role<br>violation. For outbound campaigns with voice, these<br>exceptions are typical to instances when the connect<br>campaign execution role binding Amazon Pinpoint journeys to<br>Connect Customer campaigns is inadvertently deleted for<br>in-flight journey executions.<br>• **THROTTLED** –<br>Sending was throttled.<br>• **UNSUPPORTED\_CHANNEL**<br>– Channel is not supported.<br>• **DAILY\_CAP** – The<br>message wasn't sent to the endpoint because sending the<br>message would exceed the maximum number of messages that<br>the journey or project can send to a single endpoint<br>during a 24-hour period.<br>• **QUIET\_TIME** –<br>The message wasn't sent because of quiet-time<br>restrictions for the journey or project.<br>• **QUIET\_TIME\_MISSING\_TIMEZONE** – The<br>message wasn't sent because time zone estimation<br>couldn't estimate a time zone for the endpoint and<br>quiet-time is enabled. |
-| `journey_id`                  | The unique ID of the journey that generated the event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `journey_activity_id`         | The unique ID of the journey activity that generated the<br>event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `journey_activity_type`       | The event's journey activity type. This can be **EMAIL**, **SMS**, **PUSH**,<br>**CONTACT\_CENTER**, or<br>**CUSTOM**.<br>Note**VOICE*<br>• is not a supported journey<br>activity type.The `journey_activity_type` field is not present when<br>`journey_send_status` is set to<br>**QUIET\_TIME\_WAIT\_FINISHED**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `journey_send_status_message` | The description of the status of the send event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `journey_send_status_code`    | The HTTP status code of the request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+| Attribute | Description | 
+| --- | --- | 
+| journey\_run\_id | The unique ID of the journey run that generated the event. Amazon Pinpoint generates and assigns this ID automatically to each new run of a journey. | 
+| journey\_send\_status | Indicates the delivery status of the message that's associated with the event. Possible values include:+  **SUCCESS** – The message was successfully sent to the endpoint.  <br />+  **FAILURE** – The message wasn't sent to the endpoint because an error occurred. <br />+  **CUSTOM\_DELIVERY\_FAILURE** – Custom delivery failed. <br />+  **FAILURE\_PERMANENT** – A permanent failure occurred when sending to the endpoint.  You can filter on events with **FAILURE\_PERMANENT** status and `journey_send_status_code` set to 403 to determine if there is an access policy and role violation. For outbound campaigns with voice, these exceptions are typical to instances when the connect campaign execution role binding Amazon Pinpoint journeys to Connect Customer campaigns is inadvertently deleted for in-flight journey executions.  <br />+  **THROTTLED** – Sending was throttled. <br />+  **UNSUPPORTED\_CHANNEL** – Channel is not supported. <br />+  **DAILY\_CAP** – The message wasn't sent to the endpoint because sending the message would exceed the maximum number of messages that the journey or project can send to a single endpoint during a 24-hour period. <br />+  **QUIET\_TIME** – The message wasn't sent because of quiet-time restrictions for the journey or project.  <br />+  **QUIET\_TIME\_MISSING\_TIMEZONE** – The message wasn't sent because time zone estimation couldn't estimate a time zone for the endpoint and quiet-time is enabled.  | 
+| journey\_id | The unique ID of the journey that generated the event. | 
+| journey\_activity\_id | The unique ID of the journey activity that generated the event. | 
+| journey\_activity\_type | The event's journey activity type. This can be **EMAIL**, **SMS**, **PUSH**, **CONTACT\_CENTER**, or **CUSTOM**.  **VOICE **is not a supported journey activity type. <br />The `journey_activity_type` field is not present when `journey_send_status` is set to **QUIET\_TIME\_WAIT\_FINISHED**.  | 
+| `journey_send_status_message` | The description of the status of the send event. | 
+| journey\_send\_status\_code | The HTTP status code of the request. | 

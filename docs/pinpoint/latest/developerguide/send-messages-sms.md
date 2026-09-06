@@ -1,34 +1,22 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Send transactional SMS messages using Amazon Pinpoint
+<a name="send-messages-sms"></a>
 
-You can use the Amazon Pinpoint API to send SMS messages (text messages) to specific phone numbers
-or endpoint IDs. This section contains complete code examples that you can use to send SMS
-messages through the Amazon Pinpoint API by using an AWS SDK. Your account has to be in production
-and you have an active origination identity that can send SMS messages.
+You can use the Amazon Pinpoint API to send SMS messages (text messages) to specific phone numbers or endpoint IDs. This section contains complete code examples that you can use to send SMS messages through the Amazon Pinpoint API by using an AWS SDK. Your account has to be in production and you have an active origination identity that can send SMS messages.
 
-For more code examples on endpoints, segments, and channels see [Code examples](service_code_examples.md "service_code_examples.md").
+For more code examples on endpoints, segments, and channels see [Code examples](https://docs.aws.amazon.com/pinpoint/latest/developerguide/service_code_examples.html).
 
-C#
-Use this example to send an SMS message by using the [AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/"). This example assumes
-that you've already installed and configured the SDK for .NET. For more information,
-see [Getting started](../../../sdk-for-net/v3/developer-guide/net-dg-config.md "../../../sdk-for-net/v3/developer-guide/net-dg-config.md") in the
-_AWS SDK for .NET Developer Guide_.
+------
+#### [ C\# ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing IAM user. For more
-information, see [Configuring
-AWS credentials](../../../sdk-for-net/v3/developer-guide/creds-idc.md "../../../sdk-for-net/v3/developer-guide/creds-idc.md") in the
-_AWS SDK for .NET Developer Guide_.
+Use this example to send an SMS message by using the [AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/). This example assumes that you've already installed and configured the SDK for .NET. For more information, see [Getting started ](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config.html) in the *AWS SDK for .NET Developer Guide*.
+
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing IAM user. For more information, see [Configuring AWS credentials](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-idc.html) in the *AWS SDK for .NET Developer Guide*.
 
 ```
-
 using Amazon;
 using Amazon.Pinpoint;
 using Amazon.Pinpoint.Model;
@@ -138,20 +126,14 @@ public class SendSmsMessageMainClass
         return response;
     }
 }
-
 ```
 
-Java
-Use this example to send an SMS message by using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"). This example assumes
-that you've already installed and configured the SDK for Java. For more information,
-see [Getting started](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md") in
-the _AWS SDK for Java Developer Guide_.
+------
+#### [ Java ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing IAM user. For more
-information, see [Set
-default credentials and Region](../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials "../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials") in the
-_AWS SDK for Java Developer Guide_.
+Use this example to send an SMS message by using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/). This example assumes that you've already installed and configured the SDK for Java. For more information, see [Getting started](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html) in the *AWS SDK for Java Developer Guide*.
+
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing IAM user. For more information, see [Set default credentials and Region](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-credentials) in the *AWS SDK for Java Developer Guide*.
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -167,7 +149,6 @@ import software.amazon.awssdk.services.pinpoint.model.MessageResponse;
 import software.amazon.awssdk.services.pinpoint.model.PinpointException;
 import java.util.HashMap;
 import java.util.Map;
-
 ```
 
 ```
@@ -285,25 +266,18 @@ public class SendMessage {
                 }
         }
 }
-
 ```
 
-For the full SDK example, see [SendMessage.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendMessage.java/ "https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendMessage.java/") on [GitHub](https://github.com/ "https://github.com/").
+For the full SDK example, see [SendMessage.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendMessage.java/) on [GitHub](https://github.com/).
 
-JavaScript (Node.js)
-Use this example to send an SMS message by using the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-javascript/ "https://aws.amazon.com/sdk-for-javascript/"). This example
-assumes that you've already installed and configured the SDK for JavaScript in Node.js. For more
-information, see [Getting started](../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md") in the
-_AWS SDK for JavaScript in Node.js Developer Guide_.
+------
+#### [ JavaScript (Node.js) ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing IAM user. For more
-information, see [Setting
-credentials](../../../sdk-for-javascript/v3/developer-guide/setting-credentials.md "../../../sdk-for-javascript/v3/developer-guide/setting-credentials.md") in the _AWS SDK for JavaScript in Node.js Developer
-Guide_.
+Use this example to send an SMS message by using the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-javascript/). This example assumes that you've already installed and configured the SDK for JavaScript in Node.js. For more information, see [Getting started](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-nodejs.html) in the *AWS SDK for JavaScript in Node.js Developer Guide*.
+
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing IAM user. For more information, see [Setting credentials](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials.html) in the *AWS SDK for JavaScript in Node.js Developer Guide*.
 
 ```
-
 "use strict";
 
 var AWS = require("aws-sdk");
@@ -391,17 +365,14 @@ pinpoint.sendMessages(params, function (err, data) {
     );
   }
 });
-
-
 ```
 
-Python
-Use this example to send an SMS message by using the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/"). This example
-assumes that you've already installed and configured the SDK for Python. For more
-information, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html") in _AWS SDK for Python (Boto3) Getting Started_.
+------
+#### [ Python ]
+
+Use this example to send an SMS message by using the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/). This example assumes that you've already installed and configured the SDK for Python. For more information, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in * AWS SDK for Python (Boto3) Getting Started*.
 
 ```
-
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -479,11 +450,9 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-You can also use message templates to send SMS messages, as shown in the
-following example:
+You can also use message templates to send SMS messages, as shown in the following example:
 
 ```
 import logging
@@ -561,9 +530,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-These examples assume that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing IAM user. For more
-information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html") in the _AWS SDK for Python (Boto3) API Reference_.
+These examples assume that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing IAM user. For more information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html) in the *AWS SDK for Python (Boto3) API Reference*.
+
+------

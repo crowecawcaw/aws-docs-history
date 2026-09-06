@@ -1,33 +1,22 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Send voice messages using Amazon Pinpoint
+<a name="send-messages-voice"></a>
 
-You can use the Amazon Pinpoint API to send voice messages to specific phone numbers. This section
-contains complete code examples that you can use to send voice messages through the Amazon Pinpoint
-SMS and Voice API by using an AWS SDK. Your account has to be in production and you have
-an active origination identity that can send voice messages.
+You can use the Amazon Pinpoint API to send voice messages to specific phone numbers. This section contains complete code examples that you can use to send voice messages through the Amazon Pinpoint SMS and Voice API by using an AWS SDK. Your account has to be in production and you have an active origination identity that can send voice messages.
 
-For more code examples on endpoints, segments, and channels see [Code examples](service_code_examples.md "service_code_examples.md").
+For more code examples on endpoints, segments, and channels see [Code examples](https://docs.aws.amazon.com/pinpoint/latest/developerguide/service_code_examples.html).
 
-Java
-Use this example to send a voice message by using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"). This example assumes
-that you've already installed and configured the SDK for Java. For more information,
-see [Getting started](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md") in the
-AWS SDK for Java Developer Guide.
+------
+#### [ Java ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing user. For more information,
-see [Set up AWS credentials and Region for
-development](../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials "../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials") in the _AWS SDK for Java Developer Guide_.
+Use this example to send a voice message by using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/). This example assumes that you've already installed and configured the SDK for Java. For more information, see [Getting started ](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html) in the AWS SDK for Java Developer Guide.
+
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Set up AWS credentials and Region for development](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-credentials) in the *AWS SDK for Java Developer Guide*.
 
 ```
-
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpointsmsvoice.PinpointSmsVoiceClient;
@@ -40,11 +29,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 ```
 
 ```
-
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.pinpointsmsvoice.PinpointSmsVoiceClient;
@@ -91,7 +78,7 @@ public class SendVoiceMessage {
 
         final String usage = """
                 Usage:   <originationNumber> <destinationNumber>\s
-
+                
                 Where:
                   originationNumber - The phone number or short code that you specify has to be associated with your Amazon Pinpoint account. For best results, specify long codes in E.164 format (for example, +1-555-555-5654).
                   destinationNumber - The recipient's phone number.  For best results, you should specify the phone number in E.164 format (for example, +1-555-555-5654).\s
@@ -152,22 +139,18 @@ public class SendVoiceMessage {
         }
     }
 }
-
 ```
 
-For the full SDK example, see [SendVoiceMessage.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendVoiceMessage.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendVoiceMessage.java") on [GitHub](https://github.com/ "https://github.com/").
+For the full SDK example, see [SendVoiceMessage.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendVoiceMessage.java) on [GitHub](https://github.com/).
 
-JavaScript (Node.js)
-Use this example to send a voice message by using the AWS SDK for JavaScript in Node.js. This example
-assumes that you've already installed and configured the SDK for JavaScript in Node.js.
+------
+#### [ JavaScript (Node.js) ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing user. For more information,
-see [Setting credentials](../../../sdk-for-javascript/v3/developer-guide/setting-credentials.md "../../../sdk-for-javascript/v3/developer-guide/setting-credentials.md") in the _AWS SDK for JavaScript in Node.js
-Developer Guide_.
+Use this example to send a voice message by using the AWS SDK for JavaScript in Node.js. This example assumes that you've already installed and configured the SDK for JavaScript in Node.js.
+
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Setting credentials](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials.html) in the *AWS SDK for JavaScript in Node.js Developer Guide*.
 
 ```
-
 "use strict";
 
 var AWS = require("aws-sdk");
@@ -247,20 +230,16 @@ pinpointsmsvoice.sendVoiceMessage(params, function (err, data) {
     console.log("Message sent! Message ID: " + data["MessageId"]);
   }
 });
-
-
 ```
 
-Python
-Use this example to send a voice message by using the AWS SDK for Python (Boto3). This
-example assumes that you've already installed and configured the SDK for Python (Boto3).
+------
+#### [ Python ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing user. For more information,
-see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html") in the _AWS SDK for Python (Boto3) API Reference_.
+Use this example to send a voice message by using the AWS SDK for Python (Boto3). This example assumes that you've already installed and configured the SDK for Python (Boto3). 
+
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html) in the *AWS SDK for Python (Boto3) API Reference*.
 
 ```
-
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -349,5 +328,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
+
+------

@@ -1,35 +1,27 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `DeleteApp` with an AWS SDK or CLI
+<a name="pinpoint_example_pinpoint_DeleteApp_section"></a>
 
 The following code examples show how to use `DeleteApp`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with push notifications](pinpoint_example_pinpoint_GettingStarted_049_section.md) 
 
-- [Getting started with push notifications](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To delete an application**
-
-The following `delete-app` example deletes an application (project).
+**AWS CLI**  
+**To delete an application**  
+The following `delete-app` example deletes an application (project).  
 
 ```
-`aws pinpoint delete-app \
- --application-id `810c7aab86d42fb2b56c8c966example``
-
+aws pinpoint delete-app \
+    --application-id {{810c7aab86d42fb2b56c8c966example}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -41,22 +33,14 @@ Output:
     }
 }
 ```
++  For API details, see [DeleteApp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/delete-app.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteApp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/delete-app.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/delete-app.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples").
-
-Delete an application.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples). 
+Delete an application.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -116,23 +100,14 @@ public class DeleteApp {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteApp](https://docs.aws.amazon.com/goto/SdkForJavaV2/pinpoint-2016-12-01/DeleteApp) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteApp](../../../goto/SdkForJavaV2/pinpoint-2016-12-01/DeleteApp.md "../../../goto/SdkForJavaV2/pinpoint-2016-12-01/DeleteApp.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples). 
 
 ```
 suspend fun deletePinApp(appId: String?) {
@@ -147,14 +122,9 @@ suspend fun deletePinApp(appId: String?) {
         println("Application $appName has been deleted.")
     }
 }
-
-
 ```
++  For API details, see [DeleteApp](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteApp](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

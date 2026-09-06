@@ -1,46 +1,34 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # OTP code examples for using SDK for Python (Boto3) in Amazon Pinpoint
+<a name="send-validate-otp-examples"></a>
 
-This section contains code examples that show how to use the SDK for Python (Boto3) to send and
-verify OTP codes.
+This section contains code examples that show how to use the SDK for Python (Boto3) to send and verify OTP codes. 
 
 ## Generate a reference ID
+<a name="send-validate-otp-examples-refid"></a>
 
-The following function generates a unique reference ID for each recipient, based
-on the recipient's phone number, the product or brand that the recipient is
-receiving an OTP for, and the source of the request (which could be the name of a
-page in a site or app, for example). When you verify the OTP code, you must pass an
-identical reference ID in order for the validation to succeed. Both the sending and
-validation code examples use this utility function.
+The following function generates a unique reference ID for each recipient, based on the recipient's phone number, the product or brand that the recipient is receiving an OTP for, and the source of the request (which could be the name of a page in a site or app, for example). When you verify the OTP code, you must pass an identical reference ID in order for the validation to succeed. Both the sending and validation code examples use this utility function. 
 
-This function isn't required, but it is a useful way to scope the OTP sending and
-verification process to a specific transaction in a way that can be easily
-re-submitted during the verification step. You can use any reference ID you
-want—this is just a basic example. However, the other code examples in this
-section rely on this function.
+This function isn't required, but it is a useful way to scope the OTP sending and verification process to a specific transaction in a way that can be easily re-submitted during the verification step. You can use any reference ID you want—this is just a basic example. However, the other code examples in this section rely on this function.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier:  Apache-2.0
 
 import hashlib
-
+ 
 def generate_ref_id(destinationNumber,brandName,source):
     refId = brandName + source + destinationNumber
     return hashlib.md5(refId.encode()).hexdigest()
 ```
 
 ## Send OTP codes
+<a name="send-validate-otp-examples-send"></a>
 
-The following code example shows you how to use the SDK for Python (Boto3) to send an OTP
-code.
+The following code example shows you how to use the SDK for Python (Boto3) to send an OTP code.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -96,11 +84,9 @@ send_otp("+14255550142",6,15,"ExampleCorp","CreateAccount","en-US")
 ```
 
 ## Validate OTP codes
+<a name="send-validate-otp-examples-validate"></a>
 
-The following code example shows you how to use the SDK for Python (Boto3) to verify an OTP
-code that you've already sent. In order for the validation step to succeed, your
-request must include a reference ID that exactly matches the reference ID that was
-used to send the message.
+The following code example shows you how to use the SDK for Python (Boto3) to verify an OTP code that you've already sent. In order for the validation step to succeed, your request must include a reference ID that exactly matches the reference ID that was used to send the message.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.

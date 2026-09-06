@@ -1,49 +1,41 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Import endpoints into Amazon Pinpoint
+<a name="audience-define-import"></a>
 
-You can add or update endpoints in large numbers by importing them from an Amazon S3 bucket.
-Importing endpoints is useful if you have records about your audience outside of Amazon Pinpoint, and
-you want to add this information to an Amazon Pinpoint project. In this case, you would:
+You can add or update endpoints in large numbers by importing them from an Amazon S3 bucket. Importing endpoints is useful if you have records about your audience outside of Amazon Pinpoint, and you want to add this information to an Amazon Pinpoint project. In this case, you would:
 
 1. Create endpoint definitions that are based on your own audience data.
-2. Save these endpoint definitions in one or more files, and upload the files to an
-   Amazon S3 bucket.
-3. Add the endpoints to your Amazon Pinpoint project by importing them from the bucket.
-   Each import job can transfer up to 1 GB of data. In a typical job, where each endpoint is
-   4 KB or less, you could import around 250,000 endpoints. You can run up to two concurrent
-   import jobs per AWS account. If you need more bandwidth for your import jobs, you can
-   submit a service quota increase request to Support. For more information, see [Requesting a quota increase](quotas.md#quotas-increase "quotas.md#quotas-increase").
+
+1. Save these endpoint definitions in one or more files, and upload the files to an Amazon S3 bucket.
+
+1. Add the endpoints to your Amazon Pinpoint project by importing them from the bucket.
+
+Each import job can transfer up to 1 GB of data. In a typical job, where each endpoint is 4 KB or less, you could import around 250,000 endpoints. You can run up to two concurrent import jobs per AWS account. If you need more bandwidth for your import jobs, you can submit a service quota increase request to Support. For more information, see [Requesting a quota increase](quotas.md#quotas-increase).
 
 ## Before you begin
+<a name="audience-define-import-before"></a>
 
-Before you can import endpoints, you need the following resources in your AWS
-account:
-
-- An Amazon S3 bucket. To create a bucket, see [Create a bucket](../../../AmazonS3/latest/userguide/creating-bucket.md "../../../AmazonS3/latest/userguide/creating-bucket.md") in the _Amazon Simple Storage Service User Guide_.
-- An AWS Identity and Access Management (IAM) role that grants Amazon Pinpoint read permissions for your Amazon S3
-  bucket. To create the role, see [IAM role for importing endpoints or segments](permissions-import-segment.md "permissions-import-segment.md").
+Before you can import endpoints, you need the following resources in your AWS account:
++ An Amazon S3 bucket. To create a bucket, see [Create a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) in the *Amazon Simple Storage Service User Guide*.
++ An AWS Identity and Access Management (IAM) role that grants Amazon Pinpoint read permissions for your Amazon S3 bucket. To create the role, see [IAM role for importing endpoints or segments](permissions-import-segment.md).
 
 ## Examples
+<a name="audience-define-import-examples"></a>
 
-The following examples demonstrate how to add endpoint definitions to your Amazon S3
-bucket, and then import those endpoints into an Amazon Pinpoint project.
+The following examples demonstrate how to add endpoint definitions to your Amazon S3 bucket, and then import those endpoints into an Amazon Pinpoint project.
 
 ### Files with endpoint definitions
+<a name="audience-define-import-examples-files"></a>
 
-The files that you add to your Amazon S3 bucket can contain endpoint definitions in CSV
-or newline-delimited JSON format. For the attributes that you can use to define your
-endpoints, see the [EndpointRequest](../apireference/apps-application-id-endpoints-endpoint-id.md#apps-application-id-endpoints-endpoint-id-schemas "../apireference/apps-application-id-endpoints-endpoint-id.md#apps-application-id-endpoints-endpoint-id-schemas") JSON schema in the _Amazon Pinpoint API Reference_.
+The files that you add to your Amazon S3 bucket can contain endpoint definitions in CSV or newline-delimited JSON format. For the attributes that you can use to define your endpoints, see the [EndpointRequest](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html#apps-application-id-endpoints-endpoint-id-schemas) JSON schema in the *Amazon Pinpoint API Reference*.
 
-CSV
-You can import endpoints that are defined in a CSV file, as in the
-following example:
+------
+#### [ CSV ]
+
+You can import endpoints that are defined in a CSV file, as in the following example:
 
 ```
 ChannelType,Address,Location.Country,Demographic.Platform,Demographic.Make,User.UserId
@@ -52,21 +44,18 @@ APNS,1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f,US,iOS,Apple,example-user-id-2
 EMAIL,john.stiles@example.com,US,iOS,Apple,example-user-id-2
 ```
 
-The first line is the header, which contains the endpoint attributes.
-Specify nested attributes by using dot notation, as in
-`Location.Country`.
+The first line is the header, which contains the endpoint attributes. Specify nested attributes by using dot notation, as in `Location.Country`.
 
-The subsequent lines define the endpoints by providing values for each
-of the attributes in the header.
+The subsequent lines define the endpoints by providing values for each of the attributes in the header.
 
-To include a comma or double quote in a value, enclose the value in
-double quotes, as in `"aaa,bbb"`.
+To include a comma or double quote in a value, enclose the value in double quotes, as in `"aaa,bbb"`.
 
 Line breaks are not supported within a value in the CSV.
 
-JSON
-You can import endpoints that are defined in a newline-delimited JSON
-file, as in the following example:
+------
+#### [ JSON ]
+
+You can import endpoints that are defined in a newline-delimited JSON file, as in the following example:
 
 ```
 {"ChannelType":"SMS","Address":"12065550182","Location":{"Country":"CN"},"Demographic":{"Platform":"Android","Make":"LG"},"User":{"UserId":"example-user-id-1"}}
@@ -74,79 +63,52 @@ file, as in the following example:
 {"ChannelType":"EMAIL","Address":"john.stiles@example.com","Location":{"Country":"US"},"Demographic":{"Platform":"iOS","Make":"Apple"},"User":{"UserId":"example-user-id-2"}}
 ```
 
-In this format, each line is a complete JSON object that contains an
-individual endpoint definition.
+In this format, each line is a complete JSON object that contains an individual endpoint definition.
+
+------
 
 ### Import job requests
+<a name="audience-define-import-examples-jobs"></a>
 
-The following examples show you how to add endpoint definitions to Amazon S3 by uploading a
-local file to a bucket. Then, the examples import the endpoint definitions into an Amazon Pinpoint
-project.
+The following examples show you how to add endpoint definitions to Amazon S3 by uploading a local file to a bucket. Then, the examples import the endpoint definitions into an Amazon Pinpoint project.
 
-AWS CLI You can use Amazon Pinpoint by running commands with the AWS CLI.
+------
+#### [ AWS CLI ]
 
-###### Example S3 CP command
+You can use Amazon Pinpoint by running commands with the AWS CLI.
 
-To upload a local file to an Amazon S3 bucket, use the Amazon S3 [`cp`](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md")
-command:
-
-```
-`$` `aws s3 cp `./endpoints-file` s3://`bucket-name/prefix/``
-```
-
-Where:
-
-- _./endpoints-file_ is the file
-  path to a local file that contains the endpoint definitions.
-- _bucket-name/prefix/_ is the name
-  of your Amazon S3 bucket and, optionally, a prefix that helps you
-  organize the objects in your bucket hierarchically. For example, a
-  useful prefix might be
-  `pinpoint/imports/endpoints/`.
-
-###### Example Create import job command
-
-To import endpoint definitions from an Amazon S3 bucket, use the [`create-import-job`](../../../cli/latest/reference/pinpoint/create-import-job.md "../../../cli/latest/reference/pinpoint/create-import-job.md") command:
+**Example S3 CP command**  
+To upload a local file to an Amazon S3 bucket, use the Amazon S3 [`cp`](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) command:  
 
 ```
-`$` `aws pinpoint create-import-job \`
-`>` `--application-id `application-id` \`
-`>` `--import-job-request \`
-`>` `S3Url=s3://`bucket-name/prefix/key`,\`
-`>` `RoleArn=`iam-import-role-arn`,\`
-`>` `Format=`format`,\`
-`>` `RegisterEndpoints=true`
+$ aws s3 cp {{./endpoints-file}} s3://{{bucket-name/prefix/}}
 ```
 
 Where:
++ *./endpoints-file* is the file path to a local file that contains the endpoint definitions.
++ *bucket-name/prefix/* is the name of your Amazon S3 bucket and, optionally, a prefix that helps you organize the objects in your bucket hierarchically. For example, a useful prefix might be `pinpoint/imports/endpoints/`.
 
-- _application-id_ is the ID of
-  the Amazon Pinpoint project that you're importing endpoints for.
-- _bucket-name/prefix/key_ is
-  the location in Amazon S3 that contains one or more objects to
-  import. The location can end with the key for an individual
-  object, or it can end with a prefix that qualifies multiple
-  objects.
-- _iam-import-role-arn_ is the
-  Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint
-  read access to the bucket.
-- _format_ can be either
-  `JSON` or `CSV`, depending on which
-  format you used to define your endpoints. If the Amazon S3 location
-  includes multiple objects of mixed formats, Amazon Pinpoint imports only
-  the objects that match the specified format.
-- _RegisterEndpoints_ can be
-  either `true` or `false`. When set to true
-  the import job registers the endpoints with Amazon Pinpoint, when the
-  endpoint definitions are imported.
+**Example Create import job command**  
+To import endpoint definitions from an Amazon S3 bucket, use the [`create-import-job`](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/create-import-job.html) command:  
 
-RegisterEndpoints and DefineSegments combinations| RegisterEndpoints | DefineSegments | Description |
-| --- | --- | --- |
-| true | true | Amazon Pinpoint will import the endpoints and create a<br>segment that contain the endpoints. |
-| true | false | Amazon Pinpoint will import the endpoints and not<br>create a segment. |
-| false | true | Amazon Pinpoint will import the endpoints and create a<br>segment that contain the endpoints. The endpoints<br>will not be saved and will not overwrite existing<br>endpoints. |
-| false | false | Amazon Pinpoint will reject this request. |
-The response includes details about the import job:
+```
+$ aws pinpoint create-import-job \
+> --application-id {{application-id}} \
+> --import-job-request \
+> S3Url=s3://{{bucket-name/prefix/key}},\
+> RoleArn={{iam-import-role-arn}},\
+> Format={{format}},\
+> RegisterEndpoints=true
+```
+Where:  
++ *application-id* is the ID of the Amazon Pinpoint project that you're importing endpoints for.
++ *bucket-name/prefix/key* is the location in Amazon S3 that contains one or more objects to import. The location can end with the key for an individual object, or it can end with a prefix that qualifies multiple objects.
++ *iam-import-role-arn* is the Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint read access to the bucket.
++ *format* can be either `JSON` or `CSV`, depending on which format you used to define your endpoints. If the Amazon S3 location includes multiple objects of mixed formats, Amazon Pinpoint imports only the objects that match the specified format.
++ *RegisterEndpoints* can be either `true` or `false`. When set to true the import job registers the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.  
+**RegisterEndpoints and DefineSegments combinations**    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/pinpoint/latest/developerguide/audience-define-import.html)
+The response includes details about the import job:  
 
 ```
 {
@@ -166,30 +128,20 @@ The response includes details about the import job:
     }
 }
 ```
+The response provides the job ID with the `Id` attribute. You can use this ID to check the current status of the import job.
 
-The response provides the job ID with the `Id` attribute.
-You can use this ID to check the current status of the import
-job.
-
-###### Example Get import job command
-
-To check the current status of an import job, use the
-`get-import-job` command:
+**Example Get import job command**  
+To check the current status of an import job, use the `get-import-job` command:  
 
 ```
-`$` `aws pinpoint get-import-job \`
-`>` `--application-id `application-id` \`
-`>` `--job-id `job-id``
+$ aws pinpoint get-import-job \
+> --application-id {{application-id}} \
+> --job-id {{job-id}}
 ```
-
-Where:
-
-- _application-id_ is the ID of
-  the Amazon Pinpoint project that the import job was initiated for.
-- _job-id_ is the ID of the
-  import job that you're checking.
-  The response to this command provides the current state of the import
-  job:
+Where:  
++ *application-id* is the ID of the Amazon Pinpoint project that the import job was initiated for.
++ *job-id* is the ID of the import job that you're checking.
+The response to this command provides the current state of the import job:  
 
 ```
 {
@@ -216,24 +168,18 @@ Where:
     }
 }
 ```
+The response provides the job status with the `JobStatus` attribute.
 
-The response provides the job status with the `JobStatus`
-attribute.
+------
+#### [ AWS SDK for Java ]
 
-AWS SDK for Java You can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
+You can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
 
-###### Example Code
-
-To upload a file with endpoint definitions to Amazon S3, use the
-`putObject` method of the `AmazonS3` client.
-
-To import the endpoints into an Amazon Pinpoint project, initialize a
-`CreateImportJobRequest` object. Then, pass this object
-to the `createImportJob` method of the
-`AmazonPinpoint` client.
+**Example Code**  
+To upload a file with endpoint definitions to Amazon S3, use the `putObject` method of the `AmazonS3` client.   
+To import the endpoints into an Amazon Pinpoint project, initialize a `CreateImportJobRequest` object. Then, pass this object to the `createImportJob` method of the `AmazonPinpoint` client.  
 
 ```
-
 package com.amazonaws.examples.pinpoint;
 
 import com.amazonaws.AmazonServiceException;
@@ -389,21 +335,21 @@ public class ImportEndpoints {
     }
 
 }
-
 ```
 
-HTTP You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
+------
+#### [ HTTP ]
 
-###### Example S3 PUT object request
+You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
 
-To add your endpoint definitions to a bucket, use the Amazon S3 [PUT object](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") operation, and provide the endpoint definitions
-as the body:
+**Example S3 PUT object request**  
+To add your endpoint definitions to a bucket, use the Amazon S3 [PUT object](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) operation, and provide the endpoint definitions as the body:  
 
 ```
-PUT `/prefix/key` HTTP/1.1
+PUT {{/prefix/key}} HTTP/1.1
 Content-Type: text/plain
 Accept: application/json
-Host: `bucket-name`.s3.amazonaws.com
+Host: {{bucket-name}}.s3.amazonaws.com
 X-Amz-Content-Sha256: c430dc094b0cec2905bc88d96314914d058534b14e2bc6107faa9daa12fdff2d
 X-Amz-Date: 20180605T184132Z
 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20180605/us-east-1/s3/aws4_request, SignedHeaders=accept;cache-control;content-length;content-type;host;postman-token;x-amz-content-sha256;x-amz-date, Signature=c25cbd6bf61bd3b3667c571ae764b9bf2d8af61b875cacced95d1e68d91b4170
@@ -412,28 +358,17 @@ Cache-Control: no-cache
 {"ChannelType":"SMS","Address":"2065550182","Location":{"Country":"CAN"},"Demographic":{"Platform":"Android","Make":"LG"},"User":{"UserId":"example-user-id-1"}}
 {"ChannelType":"APNS","Address":"1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f","Location":{"Country":"USA"},"Demographic":{"Platform":"iOS","Make":"Apple"},"User":{"UserId":"example-user-id-2"}}
 {"ChannelType":"EMAIL","Address":"john.stiles@example.com","Location":{"Country":"USA"},"Demographic":{"Platform":"iOS","Make":"Apple"},"User":{"UserId":"example-user-id-2"}}
-
 ```
 
 Where:
++ */prefix/key* is the prefix and key name for the object that will contain the endpoint definitions after the upload. You can use the prefix to organize your objects hierarchically. For example, a useful prefix might be `pinpoint/imports/endpoints/`.
++ *bucket-name* is the name of the Amazon S3 bucket that you're adding the endpoint definitions to.
 
-- _/prefix/key_ is the prefix and
-  key name for the object that will contain the endpoint definitions
-  after the upload. You can use the prefix to organize your objects
-  hierarchically. For example, a useful prefix might be
-  `pinpoint/imports/endpoints/`.
-- _bucket-name_ is the name of the
-  Amazon S3 bucket that you're adding the endpoint definitions to.
-
-###### Example POST import job request
-
-To import endpoint definitions from an Amazon S3 bucket, issue a POST
-request to the [Import jobs](../apireference/apps-application-id-jobs-import.md "../apireference/apps-application-id-jobs-import.md") resource. In your request,
-include the required headers and provide the [ImportJobRequest](../apireference/apps-application-id-jobs-import.md#apps-application-id-jobs-import-schemas "../apireference/apps-application-id-jobs-import.md#apps-application-id-jobs-import-schemas") JSON as the
-body:
+**Example POST import job request**  
+To import endpoint definitions from an Amazon S3 bucket, issue a POST request to the [Import jobs](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import.html) resource. In your request, include the required headers and provide the [ImportJobRequest](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import.html#apps-application-id-jobs-import-schemas) JSON as the body:  
 
 ```
-POST /v1/apps/`application_id`/jobs/import HTTP/1.1
+POST /v1/apps/{{application_id}}/jobs/import HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Host: pinpoint.us-east-1.amazonaws.com
@@ -442,32 +377,18 @@ Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20180605/us-east
 Cache-Control: no-cache
 
 {
-  "S3Url": "s3://`bucket-name/prefix/key`",
-  "RoleArn": "`iam-import-role-arn`",
-  "Format": "`format`",
+  "S3Url": "s3://{{bucket-name/prefix/key}}",
+  "RoleArn": "{{iam-import-role-arn}}",
+  "Format": "{{format}}",
   "RegisterEndpoints": true
 }
 ```
-
-Where:
-
-- _application-id_ is the ID of
-  the Amazon Pinpoint project that you're importing endpoints for.
-- _bucket-name/prefix/key_ is
-  the location in Amazon S3 that contains one or more objects to
-  import. The location can end with the key for an individual
-  object, or it can end with a prefix that qualifies multiple
-  objects.
-- _iam-import-role-arn_ is the
-  Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint
-  read access to the bucket.
-- _format_ can be either
-  `JSON` or `CSV`, depending on which
-  format you used to define your endpoints. If the Amazon S3 location
-  includes multiple files of mixed formats, Amazon Pinpoint imports only the
-  files that match the specified format.
-  If your request succeeds, you receive a response like the
-  following:
+Where:  
++ *application-id* is the ID of the Amazon Pinpoint project that you're importing endpoints for.
++ *bucket-name/prefix/key* is the location in Amazon S3 that contains one or more objects to import. The location can end with the key for an individual object, or it can end with a prefix that qualifies multiple objects.
++ *iam-import-role-arn* is the Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint read access to the bucket.
++ *format* can be either `JSON` or `CSV`, depending on which format you used to define your endpoints. If the Amazon S3 location includes multiple files of mixed formats, Amazon Pinpoint imports only the files that match the specified format.
+If your request succeeds, you receive a response like the following:  
 
 ```
 {
@@ -485,18 +406,13 @@ Where:
     }
 }
 ```
+The response provides the job ID with the `Id` attribute. You can use this ID to check the current status of the import job.
 
-The response provides the job ID with the `Id` attribute.
-You can use this ID to check the current status of the import
-job.
-
-###### Example GET import job request
-
-To check the current status of an import job, issue a `GET`
-request to the [Import job](../apireference/apps-application-id-jobs-import-job-id.md "../apireference/apps-application-id-jobs-import-job-id.md") resource:
+**Example GET import job request**  
+To check the current status of an import job, issue a `GET` request to the [Import job](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import-job-id.html) resource:  
 
 ```
-GET /v1/apps/`application_id`/jobs/import/`job_id` HTTP/1.1
+GET /v1/apps/{{application_id}}/jobs/import/{{job_id}} HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 Host: pinpoint.us-east-1.amazonaws.com
@@ -504,15 +420,10 @@ X-Amz-Date: 20180605T220744Z
 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20180605/us-east-1/mobiletargeting/aws4_request, SignedHeaders=accept;cache-control;content-type;host;postman-token;x-amz-date, Signature=c25cbd6bf61bd3b3667c571ae764b9bf2d8af61b875cacced95d1e68d91b4170
 Cache-Control: no-cache
 ```
-
-Where:
-
-- _application\_id_ is the ID of
-  the Amazon Pinpoint project for which the import job was initiated.
-- _job\_id_ is the ID of the
-  import job that you're checking.
-  If your request succeeds, you receive a response like the
-  following:
+Where:  
++ *application\_id* is the ID of the Amazon Pinpoint project for which the import job was initiated.
++ *job\_id* is the ID of the import job that you're checking.
+If your request succeeds, you receive a response like the following:  
 
 ```
 {
@@ -537,11 +448,11 @@ Where:
     }
 }
 ```
+The response provides the job status with the `JobStatus` attribute.
 
-The response provides the job status with the `JobStatus`
-attribute.
+------
 
 ## Related information
+<a name="audience-define-import-related"></a>
 
-For more information about the Import Jobs resource in the Amazon Pinpoint API, including the
-supported HTTP methods and request parameters, see [Import jobs](../apireference/apps-application-id-jobs-import.md "../apireference/apps-application-id-jobs-import.md") in the _Amazon Pinpoint API Reference_.
+For more information about the Import Jobs resource in the Amazon Pinpoint API, including the supported HTTP methods and request parameters, see [Import jobs](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import.html) in the *Amazon Pinpoint API Reference*.

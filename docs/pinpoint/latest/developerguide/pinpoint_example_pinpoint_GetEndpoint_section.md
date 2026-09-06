@@ -1,32 +1,26 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Use `GetEndpoint` with an AWS SDK or CLI
+<a name="pinpoint_example_pinpoint_GetEndpoint_section"></a>
 
 The following code examples show how to use `GetEndpoint`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To retrieve information about the settings and attributes of a specific endpoint for an application**
-
-The following `get-endpoint` example retrieves information about the settings and attributes of a specific endpoint for an application.
-
-```
-`aws pinpoint get-endpoint \
- --application-id `611e3e3cdd47474c9c1399a505665b91` \
- --endpoint-id `testendpoint` \
- --region `us-east-1``
+**AWS CLI**  
+**To retrieve information about the settings and attributes of a specific endpoint for an application**  
+The following `get-endpoint` example retrieves information about the settings and attributes of a specific endpoint for an application.  
 
 ```
-
-Output:
+aws pinpoint get-endpoint \
+    --application-id {{611e3e3cdd47474c9c1399a505665b91}} \
+    --endpoint-id {{testendpoint}} \
+    --region {{us-east-1}}
+```
+Output:  
 
 ```
 {
@@ -59,20 +53,13 @@ Output:
     }
 }
 ```
++  For API details, see [GetEndpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/get-endpoint.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetEndpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/get-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/get-endpoint.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#code-examples). 
 
 ```
 import com.google.gson.FieldNamingPolicy;
@@ -146,23 +133,14 @@ public class LookUpEndpoint {
         System.out.println("Done");
     }
 }
-
-
 ```
++  For API details, see [GetEndpoint](https://docs.aws.amazon.com/goto/SdkForJavaV2/pinpoint-2016-12-01/GetEndpoint) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetEndpoint](../../../goto/SdkForJavaV2/pinpoint-2016-12-01/GetEndpoint.md "../../../goto/SdkForJavaV2/pinpoint-2016-12-01/GetEndpoint.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/pinpoint#code-examples). 
 
 ```
 suspend fun lookupPinpointEndpoint(
@@ -190,14 +168,9 @@ suspend fun lookupPinpointEndpoint(
         println(endpointJson)
     }
 }
-
-
 ```
++  For API details, see [GetEndpoint](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [GetEndpoint](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

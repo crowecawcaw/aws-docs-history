@@ -1,33 +1,22 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Send email by using the Amazon Pinpoint API
+<a name="send-messages-sdk"></a>
 
-This section contains complete code examples that you can use to send email through the
-Amazon Pinpoint API by using an AWS SDK. You need to have verified either an email address or domain
-before you can send a message.
+This section contains complete code examples that you can use to send email through the Amazon Pinpoint API by using an AWS SDK. You need to have verified either an email address or domain before you can send a message.
 
-C#
-Use this example to send email by using the [AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/"). This example assumes
-that you've already installed and configured the SDK for .NET. For more information,
-see [Getting started with the AWS SDK for .NET](../../../sdk-for-net/v3/developer-guide/net-dg-config.md "../../../sdk-for-net/v3/developer-guide/net-dg-config.md") in the
-_AWS SDK for .NET Developer Guide_.
+------
+#### [ C\# ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing user. For more information,
-see [Configuring AWS credentials](../../../sdk-for-net/v3/developer-guide/creds-idc.md "../../../sdk-for-net/v3/developer-guide/creds-idc.md") in the
-_AWS SDK for .NET Developer Guide_.
+Use this example to send email by using the [AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/). This example assumes that you've already installed and configured the SDK for .NET. For more information, see [Getting started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config.html) in the *AWS SDK for .NET Developer Guide*.
 
-This code example was tested using the AWS SDK for .NET version 3.3.29.13 and .NET
-Core runtime version 2.1.2.
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Configuring AWS credentials](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-idc.html) in the *AWS SDK for .NET Developer Guide*.
+
+This code example was tested using the AWS SDK for .NET version 3.3.29.13 and .NET Core runtime version 2.1.2.
 
 ```
-
 using Amazon;
 using Amazon.Pinpoint;
 using Amazon.Pinpoint.Model;
@@ -47,16 +36,16 @@ public class SendEmailMainClass
         .Build();
 
         // The AWS Region that you want to use to send the email. For a list of
-        // AWS Regions where the Amazon Pinpoint API is available, see
+        // AWS Regions where the Amazon Pinpoint API is available, see 
         // https://docs.aws.amazon.com/pinpoint/latest/apireference/
         string region = "us-east-1";
 
-        // The "From" address. This address has to be verified in Amazon Pinpoint
+        // The "From" address. This address has to be verified in Amazon Pinpoint 
         // in the region you're using to send email.
         string senderAddress = configuration["SenderAddress"]!;
 
         // The address on the "To" line. If your Amazon Pinpoint account is in
-        // the sandbox, this address also has to be verified.
+        // the sandbox, this address also has to be verified. 
         string toAddress = configuration["ToAddress"]!;
 
         // The Amazon Pinpoint project/application ID to use when you send this message.
@@ -82,7 +71,7 @@ public class SendEmailMainClass
         // The subject line of the email.
         string subject = "Amazon Pinpoint Email test";
 
-        // The body of the email for recipients whose email clients don't
+        // The body of the email for recipients whose email clients don't 
         // support HTML content.
         string textBody = @"Amazon Pinpoint Email Test (.NET)"
                           + "\n---------------------------------"
@@ -153,24 +142,16 @@ public class SendEmailMainClass
         return response.MessageResponse;
     }
 }
-
-
 ```
 
-Java
-Use this example to send email by using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"). This example assumes
-that you've already installed and configured the AWS SDK for Java 2.x. For more
-information, see [Getting started](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md") in the
-_AWS SDK for Java 2.x Developer Guide_.
+------
+#### [ Java ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing user. For more
-information, see [Set
-default credentials and Region](../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials "../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials") in the
-_AWS SDK for Java Developer Guide_.
+Use this example to send email by using the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/). This example assumes that you've already installed and configured the AWS SDK for Java 2.x. For more information, see [Getting started](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html) in the *AWS SDK for Java 2.x Developer Guide*.
 
-This code example was tested using the AWS SDK for Java version 2.3.1 and OpenJDK
-version 11.0.1.
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Set default credentials and Region](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-credentials) in the *AWS SDK for Java Developer Guide*.
+
+This code example was tested using the AWS SDK for Java version 2.3.1 and OpenJDK version 11.0.1.
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -194,7 +175,6 @@ import software.amazon.awssdk.services.pinpointemail.model.SendEmailRequest;
 
 import java.util.HashMap;
 import java.util.Map;
-
 ```
 
 ```
@@ -237,9 +217,9 @@ public class SendEmailMessage {
     // The body of the email for recipients whose email clients support HTML content.
     static final String body = """
         Amazon Pinpoint test (AWS SDK for Java 2.x)
-
+                
         This email was sent through the Amazon Pinpoint Email API using the AWS SDK for Java 2.x
-
+                
         """;
 
         public static void main(String[] args) {
@@ -309,28 +289,20 @@ public class SendEmailMessage {
         }
     }
 }
-
 ```
 
-For the full SDK example, see [SendEmailMessage.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendEmailMessage.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendEmailMessage.java") on [GitHub](https://github.com/ "https://github.com/").
+For the full SDK example, see [SendEmailMessage.java](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendEmailMessage.java) on [GitHub](https://github.com/).
 
-JavaScript (Node.js)
-Use this example to send email by using the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-javascript/ "https://aws.amazon.com/sdk-for-javascript/"). This example
-assumes that you've already installed and configured the SDK for JavaScript in Node.js. For more
-information, see [Getting started](../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md") in the
-_AWS SDK for JavaScript in Node.js Developer Guide_.
+------
+#### [ JavaScript (Node.js) ]
 
-This example assumes that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing user. For more
-information, see [Setting
-credentials](../../../sdk-for-javascript/v3/developer-guide/setting-credentials.md "../../../sdk-for-javascript/v3/developer-guide/setting-credentials.md") in the _AWS SDK for JavaScript in Node.js Developer
-Guide_.
+Use this example to send email by using the [AWS SDK for JavaScript in Node.js](https://aws.amazon.com/sdk-for-javascript/). This example assumes that you've already installed and configured the SDK for JavaScript in Node.js. For more information, see [Getting started](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-nodejs.html) in the *AWS SDK for JavaScript in Node.js Developer Guide*.
 
-This code example was tested using the SDK for JavaScript in Node.js version 2.388.0 and Node.js
-version 11.7.0.
+This example assumes that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Setting credentials](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials.html) in the *AWS SDK for JavaScript in Node.js Developer Guide*.
+
+This code example was tested using the SDK for JavaScript in Node.js version 2.388.0 and Node.js version 11.7.0.
 
 ```
-
 "use strict";
 
 const AWS = require("aws-sdk");
@@ -431,17 +403,14 @@ pinpoint.sendMessages(params, function (err, data) {
     );
   }
 });
-
-
 ```
 
-Python
-Use this example to send email by using the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/"). This example
-assumes that you've already installed and configured the SDK for Python (Boto3). For more
-information, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html") in the _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Python ]
+
+Use this example to send email by using the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/). This example assumes that you've already installed and configured the SDK for Python (Boto3). For more information, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in the *AWS SDK for Python (Boto3) API Reference*.
 
 ```
-
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -545,11 +514,9 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-You can also use message templates to send email messages, as shown in the
-following example:
+You can also use message templates to send email messages, as shown in the following example:
 
 ```
 import logging
@@ -623,9 +590,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-These examples assume that you're using a shared credentials file to specify
-the Access Key and Secret Access Key for an existing user. For more
-information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html") in the _AWS SDK for Python (Boto3) API Reference_.
+These examples assume that you're using a shared credentials file to specify the Access Key and Secret Access Key for an existing user. For more information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html) in the *AWS SDK for Python (Boto3) API Reference*.
+
+------

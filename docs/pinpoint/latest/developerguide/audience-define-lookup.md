@@ -1,46 +1,36 @@
-**End of support notice:** On October
-30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
-longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
-segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
-support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
-mobile push, OTP, and phone number validate are not impacted by this change and are
-supported by AWS End User Messaging.
+
+
+**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Look up endpoints in an Amazon Pinpoint project
+<a name="audience-define-lookup"></a>
 
-You can look up the details for any individual endpoint that was added to an Amazon Pinpoint
-project. These details can include the destination address for your messages, the messaging
-channel, data about the user's device, data about the user's location, and any custom
-attributes that you record in your endpoints.
+You can look up the details for any individual endpoint that was added to an Amazon Pinpoint project. These details can include the destination address for your messages, the messaging channel, data about the user's device, data about the user's location, and any custom attributes that you record in your endpoints.
 
-To look up an endpoint, you need the endpoint ID. If you don't know the ID, you can get
-the endpoint data by exporting instead. To export endpoints, see [Export endpoints from Amazon Pinpoint to Amazon S3 buckets](audience-define-export.md "audience-define-export.md").
+To look up an endpoint, you need the endpoint ID. If you don't know the ID, you can get the endpoint data by exporting instead. To export endpoints, see [Export endpoints from Amazon Pinpoint to Amazon S3 buckets](audience-define-export.md).
 
 ## Examples
+<a name="audience-define-lookup-examples"></a>
 
-The following examples show you how to look up an individual endpoint by specifying
-its ID.
+The following examples show you how to look up an individual endpoint by specifying its ID. 
 
-AWS CLI You can use Amazon Pinpoint by running commands with the AWS CLI.
+------
+#### [ AWS CLI ]
 
-###### Example Get endpoint command
+You can use Amazon Pinpoint by running commands with the AWS CLI.
 
-To look up an endpoint, use the [`get-endpoint`](../../../cli/latest/reference/pinpoint/get-endpoint.md "../../../cli/latest/reference/pinpoint/get-endpoint.md") command:
+**Example Get endpoint command**  
+To look up an endpoint, use the [`get-endpoint`](https://docs.aws.amazon.com/cli/latest/reference/pinpoint/get-endpoint.html) command:  
 
 ```
-`$` `aws pinpoint get-endpoint \`
-`>` `--application-id `application-id` \`
-`>` `--endpoint-id `endpoint-id``
+$ aws pinpoint get-endpoint \
+> --application-id {{application-id}} \
+> --endpoint-id {{endpoint-id}}
 ```
-
-Where:
-
-- `application-id` is the
-  ID of the Amazon Pinpoint project that contains the endpoint.
-- `endpoint-id` is the ID
-  of the endpoint that you're looking up.
-  The response to this command is the JSON definition of the endpoint,
-  as in the following example:
+Where:  
++ `{{application-id}}` is the ID of the Amazon Pinpoint project that contains the endpoint.
++ `{{endpoint-id}}` is the ID of the endpoint that you're looking up.
+The response to this command is the JSON definition of the endpoint, as in the following example:  
 
 ```
 {
@@ -96,13 +86,13 @@ Where:
 }
 ```
 
-AWS SDK for JavaYou can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
+------
+#### [ AWS SDK for Java ]
 
-###### Example Code
+You can use the Amazon Pinpoint API in your Java applications by using the client that's provided by the AWS SDK for Java.
 
-To look up an endpoint, initialize a `GetEndpointRequest` object. Then, pass this
-object to the `getEndpoint` method of the
-`AmazonPinpoint` client:
+**Example Code**  
+To look up an endpoint, initialize a `GetEndpointRequest` object. Then, pass this object to the `getEndpoint` method of the `AmazonPinpoint` client:  
 
 ```
 import com.google.gson.FieldNamingPolicy;
@@ -114,7 +104,6 @@ import software.amazon.awssdk.services.pinpoint.model.EndpointResponse;
 import software.amazon.awssdk.services.pinpoint.model.GetEndpointResponse;
 import software.amazon.awssdk.services.pinpoint.model.PinpointException;
 import software.amazon.awssdk.services.pinpoint.model.GetEndpointRequest;
-
 ```
 
 ```
@@ -189,36 +178,28 @@ public class LookUpEndpoint {
         System.out.println("Done");
     }
 }
+```
+To print the endpoint data in a readable format, this example uses the Google GSON library to convert the `EndpointResponse` object to a JSON string.
+
+------
+#### [ HTTP ]
+
+You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
+
+**Example GET endpoint request**  
+To look up an endpoint, issue a `GET` request to the [Endpoint](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html) resource:  
 
 ```
-
-To print the endpoint data in a readable format, this example uses the
-Google GSON library to convert the `EndpointResponse` object
-to a JSON string.
-
-HTTP You can use Amazon Pinpoint by making HTTP requests directly to the REST API.
-
-###### Example GET endpoint request
-
-To look up an endpoint, issue a `GET` request to the [Endpoint](../apireference/apps-application-id-endpoints-endpoint-id.md "../apireference/apps-application-id-endpoints-endpoint-id.md")
-resource:
-
-```
-GET /v1/apps/`application_id`/endpoints/`endpoint_id` HTTP/1.1
+GET /v1/apps/{{application_id}}/endpoints/{{endpoint_id}} HTTP/1.1
 Host: pinpoint.us-east-1.amazonaws.com
 Content-Type: application/json
 Accept: application/json
 Cache-Control: no-cache
 ```
-
-Where:
-
-- `application-id` is the
-  ID of the Amazon Pinpoint project that contains the endpoint.
-- `endpoint-id` is the ID
-  of the endpoint that you're looking up.
-  The response to this request is the JSON definition of the endpoint,
-  as in the following example:
+Where:  
++ `{{application-id}}` is the ID of the Amazon Pinpoint project that contains the endpoint.
++ `{{endpoint-id}}` is the ID of the endpoint that you're looking up.
+The response to this request is the JSON definition of the endpoint, as in the following example:  
 
 ```
 {
@@ -264,6 +245,9 @@ Where:
 }
 ```
 
-## Related information
+------
 
-For more information about the Endpoint resource in the Amazon Pinpoint API, see [Endpoint](../apireference/rest-api-endpoint.md "../apireference/rest-api-endpoint.md") in the _Amazon Pinpoint API Reference._
+## Related information
+<a name="audience-define-lookup-related"></a>
+
+For more information about the Endpoint resource in the Amazon Pinpoint API, see [Endpoint](https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-endpoint.html) in the *Amazon Pinpoint API Reference.*
