@@ -1,186 +1,82 @@
+
+
 # AGENTOPS02-BP03 Implement agent behavior versioning and rollback capabilities
+<a name="agentops02-bp03"></a>
 
-Teams with versioned behavior and tested rollback can recover in
-minutes when an agent behaves unexpectedly, while teams without
-spend hours debugging under pressure. Rapid reversibility improves
-your organization's ability to confidently iterate on an agentic
-system.
+ Teams with versioned behavior and tested rollback can recover in minutes when an agent behaves unexpectedly, while teams without spend hours debugging under pressure. Rapid reversibility improves your organization's ability to confidently iterate on an agentic system. 
 
-**Desired outcome:**
+ **Desired outcome:** 
++  Every agent behavioral configuration (system prompts, reasoning instructions, tool permissions, and decision boundaries) is versioned with a complete change history. 
++  You can roll back to any previous behavioral version within minutes when a change produces undesired outcomes. 
++  Rollback procedures are automated and tested regularly, not improvised during incidents. 
++  Staged rollouts limit the scope of impact of behavioral changes, and A/B testing supports data-driven comparison of variants before full deployment. 
 
-- Every agent behavioral configuration (system prompts, reasoning
-  instructions, tool permissions, and decision boundaries) is
-  versioned with a complete change history.
-- You can roll back to any previous behavioral version within
-  minutes when a change produces undesired outcomes.
-- Rollback procedures are automated and tested regularly, not
-  improvised during incidents.
-- Staged rollouts limit the scope of impact of behavioral changes,
-  and A/B testing supports data-driven comparison of variants
-  before full deployment.
+ **Common anti-patterns:** 
++  Deploying behavioral changes to 100% of traffic immediately without staged rollout, maximizing the scope of impact when a change produces undesired outcomes. 
++  Operating without a defined behavioral baseline, the last known-good configuration, so rollback becomes a manual search for which previous version was stable. 
++  Treating prompt changes as low-risk because they don't involve code changes, skipping evaluation and staged rollout for modifications that can fundamentally alter agent behavior. 
++  Running A/B tests without statistical discipline, making deployment decisions from noise rather than signal. 
 
-**Common anti-patterns:**
+ **Benefits of establishing this best practice:** 
++  Systematic versioning and rollback create a safety net that lets teams iterate on agent behavior confidently, knowing any change can be reversed quickly. 
++  A/B testing frameworks and behavioral baselines provide the empirical foundation for continuous improvement, validating that each iteration produces measurable gains. 
++  Staged rollouts limit the users affected by a regression, giving the team detection and correction time before full exposure. 
++  Change impact assessment ties quality metric shifts to specific behavioral versions, making attribution direct instead of inferred. 
 
-- Deploying behavioral changes to 100% of traffic immediately
-  without staged rollout, maximizing the scope of impact when a
-  change produces undesired outcomes.
-- Operating without a defined behavioral baseline, the last
-  known-good configuration, so rollback becomes a manual search
-  for which previous version was stable.
-- Treating prompt changes as low-risk because they don't involve
-  code changes, skipping evaluation and staged rollout for
-  modifications that can fundamentally alter agent behavior.
-- Running A/B tests without statistical discipline, making
-  deployment decisions from noise rather than signal.
-
-**Benefits of establishing this best
-practice:**
-
-- Systematic versioning and rollback create a safety net that lets
-  teams iterate on agent behavior confidently, knowing any change
-  can be reversed quickly.
-- A/B testing frameworks and behavioral baselines provide the
-  empirical foundation for continuous improvement, validating that
-  each iteration produces measurable gains.
-- Staged rollouts limit the users affected by a regression, giving
-  the team detection and correction time before full exposure.
-- Change impact assessment ties quality metric shifts to specific
-  behavioral versions, making attribution direct instead of
-  inferred.
-
-**Level of risk exposed if this best practice
-is not established:** High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-[Amazon
-Bedrock Prompt Management](../../../bedrock/latest/userguide/prompt-management.md "../../../bedrock/latest/userguide/prompt-management.md") handles prompt-based
-configurations with built-in semantic versioning, metadata, and
-integration with evaluation. Non-prompt configurations (tool
-permissions, decision boundaries, and escalation thresholds)
-should be stored in a versioned configuration store with change
-tracking. Each version should carry a semantic version number, a
-change description, an author, and a reference to its evaluation
-results.
+ [Amazon Bedrock Prompt Management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html) handles prompt-based configurations with built-in semantic versioning, metadata, and integration with evaluation. Non-prompt configurations (tool permissions, decision boundaries, and escalation thresholds) should be stored in a versioned configuration store with change tracking. Each version should carry a semantic version number, a change description, an author, and a reference to its evaluation results. 
 
-A behavioral baseline is a version that the team has explicitly
-designated as known-good, not just the previous version, because
-the previous version might have been shipped an hour ago and never
-proven stable. Rollback should restore the baseline, not the last
-change, unless the team has explicitly promoted that change to
-baseline status. Without a designated baseline, rollback requires
-searching through multiple versions to find a stable
-configuration.
+ A behavioral baseline is a version that the team has explicitly designated as known-good, not just the previous version, because the previous version might have been shipped an hour ago and never proven stable. Rollback should restore the baseline, not the last change, unless the team has explicitly promoted that change to baseline status. Without a designated baseline, rollback requires searching through multiple versions to find a stable configuration. 
 
-Rollback itself should be automated and rehearsed. Design rollback
-as an automated workflow triggered by either manual approval or by
-automated quality threshold violations from
-[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") alarms. The target time-to-restore should be
-under five minutes for behavioral changes. Anything longer means
-the workflow has too many manual steps or too many dependencies
-that aren't pre-staged. Exercise the rollback quarterly so the
-procedure stays current with the runtime. For example, a rollback
-that was written six months ago and never run is a rollback that
-may not work.
+ Rollback itself should be automated and rehearsed. Design rollback as an automated workflow triggered by either manual approval or by automated quality threshold violations from [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) alarms. The target time-to-restore should be under five minutes for behavioral changes. Anything longer means the workflow has too many manual steps or too many dependencies that aren't pre-staged. Exercise the rollback quarterly so the procedure stays current with the runtime. For example, a rollback that was written six months ago and never run is a rollback that may not work. 
 
-Staged rollout limits the scope of impact before rollback is ever
-needed.
-[Amazon
-Bedrock AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md "../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md") endpoint-based weighted routing
-makes this straightforward. Start a new behavioral version at
-5–10% of traffic, monitor quality metrics, and promote only when
-the signal is clean. A/B testing uses the same machinery for
-different ends, splitting traffic between variants to measure
-which performs better. The critical additions are per-variant
-metrics in CloudWatch and statistical significance testing before
-deployment decisions. Document the evaluation criteria and results
-alongside the behavioral version record so the comparison is
-reproducible.
+ Staged rollout limits the scope of impact before rollback is ever needed. [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html) endpoint-based weighted routing makes this straightforward. Start a new behavioral version at 5–10% of traffic, monitor quality metrics, and promote only when the signal is clean. A/B testing uses the same machinery for different ends, splitting traffic between variants to measure which performs better. The critical additions are per-variant metrics in CloudWatch and statistical significance testing before deployment decisions. Document the evaluation criteria and results alongside the behavioral version record so the comparison is reproducible. 
 
-Perform impact assessments where you correlate version deployment
-timestamps with changes in quality metrics to attribute metric
-shifts to specific behavioral updates. When a metric moves, the
-team should quickly determine which version caused the issue as
-opposed to pattern-matching different dashboards to find the
-problematic version.
+ Perform impact assessments where you correlate version deployment timestamps with changes in quality metrics to attribute metric shifts to specific behavioral updates. When a metric moves, the team should quickly determine which version caused the issue as opposed to pattern-matching different dashboards to find the problematic version. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. **Enable semantic versioning for
-   prompts:** Configure
-   [Amazon
-   Bedrock Prompt Management](../../../bedrock/latest/userguide/prompt-management.md "../../../bedrock/latest/userguide/prompt-management.md") with metadata fields for
-   change description, author, and evaluation results on every
-   version.
-2. **Version non-prompt
-   configurations:** Store tool permissions, decision
-   boundaries, and escalation thresholds in a versioned
-   configuration store with change tracking and notifications.
-3. **Designate behavioral
-   baselines:** Tag and document the last known-good
-   configuration for each agent as the rollback target,
-   distinct from the most recent version.
-4. **Automate rollback:** Build
-   workflows that restore baselines within five minutes,
-   triggered by manual approval or automated quality threshold
-   violations from
-   [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md") alarms.
-5. **Configure staged rollout:**
-   Use
-   [Amazon
-   Bedrock AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md "../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md") endpoint-based weighted
-   routing starting at 5–10% traffic for new behavioral
-   versions, with automated promotion gates.
-6. **Set up A/B testing
-   infrastructure:** Capture per-variant metrics in
-   [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md") with statistical significance tracking
-   before deployment decisions.
-7. **Correlate deployments to metric
-   shifts:** Record deployment timestamps alongside
-   quality metric trends so changes can be attributed to
-   specific versions.
+1.  **Enable semantic versioning for prompts:** Configure [Amazon Bedrock Prompt Management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html) with metadata fields for change description, author, and evaluation results on every version. 
+
+1.  **Version non-prompt configurations:** Store tool permissions, decision boundaries, and escalation thresholds in a versioned configuration store with change tracking and notifications. 
+
+1.  **Designate behavioral baselines:** Tag and document the last known-good configuration for each agent as the rollback target, distinct from the most recent version. 
+
+1.  **Automate rollback:** Build workflows that restore baselines within five minutes, triggered by manual approval or automated quality threshold violations from [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) alarms. 
+
+1.  **Configure staged rollout:** Use [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html) endpoint-based weighted routing starting at 5–10% traffic for new behavioral versions, with automated promotion gates. 
+
+1.  **Set up A/B testing infrastructure:** Capture per-variant metrics in [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) with statistical significance tracking before deployment decisions. 
+
+1.  **Correlate deployments to metric shifts:** Record deployment timestamps alongside quality metric trends so changes can be attributed to specific versions. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [AGENTOPS02-BP01 Evolve agent prompts, tool calls, and configurations to reflect evolving business needs](agentops02-bp01.html) 
++  [AGENTOPS02-BP02 Implement configuration drift detection and remediation](agentops02-bp02.html) 
++  [AGENTOPS03-BP02 Implement CI/CD pipelines tailored to agentic system deployment (AgentOps)](agentops03-bp02.html) 
 
-- [AGENTOPS02-BP01 Evolve
-  agent prompts, tool calls, and configurations to reflect
-  evolving business needs](agentops02-bp01.md "agentops02-bp01.md")
-- [AGENTOPS02-BP02
-  Implement configuration drift detection and remediation](agentops02-bp02.md "agentops02-bp02.md")
-- [AGENTOPS03-BP02
-  Implement CI/CD pipelines tailored to agentic system
-  deployment (AgentOps)](agentops03-bp02.md "agentops03-bp02.md")
+ **Related documents:** 
++  [Operationalizing agentic AI on AWS](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/introduction.html) 
++  [Evolving software delivery for agentic AI](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/software-delivery.html) 
++  [Deploy AI agents on Amazon Bedrock AgentCore using GitHub Actions](https://aws.amazon.com/blogs/machine-learning/deploy-ai-agents-on-amazon-bedrock-agentcore-using-github-actions/) 
 
-**Related documents:**
+ **Related videos:** 
++  [AWS re:Invent 2024 - Architecting scalable and secure agentic AI with AgentCore (AIM431)](https://www.youtube.com/watch?v=wqmeZOT6mmc) 
++  [AWS re:Invent 2024 - Amazon Bedrock Agents and AgentCore Design Patterns (TNC322)](https://www.youtube.com/watch?v=GYlPFmrATjU) 
 
-- [Operationalizing
-  agentic AI on AWS](../../../prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/introduction.md "../../../prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/introduction.md")
-- [Evolving
-  software delivery for agentic AI](../../../prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/software-delivery.md "../../../prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/software-delivery.md")
-- [Deploy
-  AI agents on Amazon Bedrock AgentCore using GitHub
-  Actions](https://aws.amazon.com/blogs/machine-learning/deploy-ai-agents-on-amazon-bedrock-agentcore-using-github-actions/ "https://aws.amazon.com/blogs/machine-learning/deploy-ai-agents-on-amazon-bedrock-agentcore-using-github-actions/")
+ **Related examples:** 
++  [GitHub: Sample Agentic Platform on AWS](https://github.com/aws-samples/sample-agentic-platform) 
++  [GitHub: Amazon Bedrock Samples, GenAI Quick-Start PoCs](https://github.com/aws-samples/genai-quickstart-pocs) 
 
-**Related videos:**
-
-- [AWS re:Invent 2024 - Architecting scalable and secure agentic AI
-  with AgentCore (AIM431)](https://www.youtube.com/watch?v=wqmeZOT6mmc "https://www.youtube.com/watch?v=wqmeZOT6mmc")
-- [AWS re:Invent 2024 - Amazon Bedrock Agents and AgentCore Design
-  Patterns (TNC322)](https://www.youtube.com/watch?v=GYlPFmrATjU "https://www.youtube.com/watch?v=GYlPFmrATjU")
-
-**Related examples:**
-
-- [GitHub:
-  Sample Agentic Platform on AWS](https://github.com/aws-samples/sample-agentic-platform "https://github.com/aws-samples/sample-agentic-platform")
-- [GitHub:
-  Amazon Bedrock Samples, GenAI Quick-Start PoCs](https://github.com/aws-samples/genai-quickstart-pocs "https://github.com/aws-samples/genai-quickstart-pocs")
-
-**Related services:**
-
-- [Amazon
-  Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")
-- [Amazon
-  Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/ "https://aws.amazon.com/bedrock/agentcore/")
-- [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/")
+ **Related services:** 
++  [Amazon Bedrock](https://aws.amazon.com/bedrock/) 
++  [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) 
++  [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) 

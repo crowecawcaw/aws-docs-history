@@ -1,317 +1,106 @@
+
+
 # AGENTPERF03-BP01 Implement tiered memory management systems
+<a name="agentperf03-bp01"></a>
 
-Agents that carry context across turns and sessions deliver more
-personalized and accurate responses, but only when memory retrieval
-doesn't become the latency bottleneck on every reasoning iteration.
-A tiered memory architecture separates fast, transient session state
-from durable cross-session knowledge so each tier's storage
-technology, access pattern, and lifecycle can be optimized
-independently rather than forced through a single store.
+ Agents that carry context across turns and sessions deliver more personalized and accurate responses, but only when memory retrieval doesn't become the latency bottleneck on every reasoning iteration. A tiered memory architecture separates fast, transient session state from durable cross-session knowledge so each tier's storage technology, access pattern, and lifecycle can be optimized independently rather than forced through a single store. 
 
-**Desired outcome:**
+ **Desired outcome:** 
++  You have agent memory separated into a short-term tier for in-session context and a long-term tier for cross-session knowledge, each backed by storage matched to its access pattern. 
++  You have automated lifecycle policies that extract durable insights from short-term memory into long-term strategies (semantic, episodic, summary, and user preference) and evict stale short-term state without manual intervention. 
++  You have per-tier retrieval latency tracked as a first-class KPI, with budgets that keep memory access from dominating the reasoning loop. 
++  You have long-term memory scoped and namespaced per user, session, or tenant so retrievals return only the records relevant to the current actor. 
 
-- You have agent memory separated into a short-term tier for
-  in-session context and a long-term tier for cross-session
-  knowledge, each backed by storage matched to its access pattern.
-- You have automated lifecycle policies that extract durable
-  insights from short-term memory into long-term strategies
-  (semantic, episodic, summary, and user preference) and evict
-  stale short-term state without manual intervention.
-- You have per-tier retrieval latency tracked as a first-class
-  KPI, with budgets that keep memory access from dominating the
-  reasoning loop.
-- You have long-term memory scoped and namespaced per user,
-  session, or tenant so retrievals return only the records
-  relevant to the current actor.
+ **Common anti-patterns:** 
++  Storing all agent memory in a single database regardless of access pattern, forcing sub-second session reads and large-scale semantic searches through the same storage layer. 
++  Persisting every turn of short-term memory indefinitely without extraction into long-term strategies or eviction, allowing session stores to grow without bounds and retrieval latency to degrade over time. 
++  Treating long-term memory as a single bag of records rather than differentiating between semantic facts, episodic events, conversation summaries, and user preferences, which forces every query to search all record types. 
++  Scoping long-term memory globally rather than per user, session, or tenant, so retrievals return cross-actor records that inflate context and leak information. 
++  Building custom tiered memory infrastructure from scratch instead of evaluating managed services that provide session stores, extraction strategies, and vector retrieval as primitives. 
 
-**Common anti-patterns:**
+ **Benefits of establishing this best practice:** 
++  Fast in-memory stores serve session reads in single-digit milliseconds while vector stores handle long-term semantic queries without coupling the two. 
++  Automated extraction and eviction policies keep each tier's footprint and retrieval latency stable as usage scales. 
++  Separating long-term memory into distinct strategies, semantic, episodic, summary, preference, lets the agent query only the record type relevant to its current reasoning step. 
++  Namespacing long-term memory by user, session, or tenant helps prevent cross-actor retrievals and keeps context relevant. 
++  Managed memory primitives remove the need to operate session stores, extraction pipelines, and vector indexes as bespoke infrastructure. 
 
-- Storing all agent memory in a single database regardless of
-  access pattern, forcing sub-second session reads and large-scale
-  semantic searches through the same storage layer.
-- Persisting every turn of short-term memory indefinitely without
-  extraction into long-term strategies or eviction, allowing
-  session stores to grow without bounds and retrieval latency to
-  degrade over time.
-- Treating long-term memory as a single bag of records rather than
-  differentiating between semantic facts, episodic events,
-  conversation summaries, and user preferences, which forces every
-  query to search all record types.
-- Scoping long-term memory globally rather than per user, session,
-  or tenant, so retrievals return cross-actor records that inflate
-  context and leak information.
-- Building custom tiered memory infrastructure from scratch
-  instead of evaluating managed services that provide session
-  stores, extraction strategies, and vector retrieval as
-  primitives.
-
-**Benefits of establishing this best
-practice:**
-
-- Fast in-memory stores serve session reads in single-digit
-  milliseconds while vector stores handle long-term semantic
-  queries without coupling the two.
-- Automated extraction and eviction policies keep each tier's
-  footprint and retrieval latency stable as usage scales.
-- Separating long-term memory into distinct strategies, semantic,
-  episodic, summary, preference, lets the agent query only the
-  record type relevant to its current reasoning step.
-- Namespacing long-term memory by user, session, or tenant helps
-  prevent cross-actor retrievals and keeps context relevant.
-- Managed memory primitives remove the need to operate session
-  stores, extraction pipelines, and vector indexes as bespoke
-  infrastructure.
-
-**Level of risk exposed if this best practice
-is not established:** High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Memory access sits on the hot path of every reasoning iteration.
-An agent that reads session context and retrieves relevant
-long-term knowledge at every step pays that retrieval latency
-multiplied by the iteration count, which makes memory one of the
-largest use points in the reasoning loop.
+ Memory access sits on the hot path of every reasoning iteration. An agent that reads session context and retrieves relevant long-term knowledge at every step pays that retrieval latency multiplied by the iteration count, which makes memory one of the largest use points in the reasoning loop. 
 
-The root cause of poor memory performance is typically an
-access-pattern mismatch. Using a single storage layer for both
-sub-millisecond session reads and large-scale semantic searches
-forces one pattern to carry cost and latency characteristics
-suited to the other. Tiering resolves the mismatch by splitting
-memory into a short-term tier for in-session context and a
-long-term tier for cross-session knowledge, then matching each
-tier to storage with the right latency, durability, and query
-model.
+ The root cause of poor memory performance is typically an access-pattern mismatch. Using a single storage layer for both sub-millisecond session reads and large-scale semantic searches forces one pattern to carry cost and latency characteristics suited to the other. Tiering resolves the mismatch by splitting memory into a short-term tier for in-session context and a long-term tier for cross-session knowledge, then matching each tier to storage with the right latency, durability, and query model. 
 
-Short-term memory holds the turn-by-turn state an agent reads and
-writes within a single session: the last N turns, intermediate
-reasoning, tool outputs, and transient user-provided context.
-[Amazon
-Bedrock AgentCore Memory](../../../bedrock-agentcore/latest/devguide/memory.md "../../../bedrock-agentcore/latest/devguide/memory.md") provides a managed short-term tier
-that stores session events and integrates with extraction into the
-long-term tier, removing the need to operate a separate session
-store or extraction pipeline.
+ Short-term memory holds the turn-by-turn state an agent reads and writes within a single session: the last N turns, intermediate reasoning, tool outputs, and transient user-provided context. [Amazon Bedrock AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html) provides a managed short-term tier that stores session events and integrates with extraction into the long-term tier, removing the need to operate a separate session store or extraction pipeline. 
 
-For workloads that need sub-millisecond short-term reads or prefer
-to own the extraction pipeline,
-[Amazon ElastiCache (Valkey)](../../../AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.md "../../../AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.md") provides in-memory reads, TTL-based
-expiration, and native structures (hashes, lists, sorted sets)
-that map well to session data. Durability requirements for
-short-term memory are typically low, state can be regenerated or
-discarded on session end, so the tier should be sized for latency,
-not for archival.
+ For workloads that need sub-millisecond short-term reads or prefer to own the extraction pipeline, [Amazon ElastiCache (Valkey)](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.html) provides in-memory reads, TTL-based expiration, and native structures (hashes, lists, sorted sets) that map well to session data. Durability requirements for short-term memory are typically low, state can be regenerated or discarded on session end, so the tier should be sized for latency, not for archival. 
 
-Long-term memory holds durable knowledge that persists across
-sessions: user preferences, domain facts, past-interaction
-summaries, and episodic records of past task outcomes. Access is
-less frequent but operates over a much larger corpus and typically
-relies on semantic similarity rather than key lookup. AgentCore
-Memory provides a managed long-term tier with
-[four
-built-in strategies](../../../bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.md "../../../bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.md"), semantic, episodic, summary, and user
-preference, each extracted from session events and indexed
-separately, so the agent can query only the store relevant to its
-current reasoning step.
+ Long-term memory holds durable knowledge that persists across sessions: user preferences, domain facts, past-interaction summaries, and episodic records of past task outcomes. Access is less frequent but operates over a much larger corpus and typically relies on semantic similarity rather than key lookup. AgentCore Memory provides a managed long-term tier with [four built-in strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.html), semantic, episodic, summary, and user preference, each extracted from session events and indexed separately, so the agent can query only the store relevant to its current reasoning step. 
 
-For teams that prefer to own the long-term store directly,
-[agentic
-memory in Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/application-agentic-memory.md "../../../opensearch-service/latest/developerguide/application-agentic-memory.md") provides dense and
-hybrid retrieval over long-term records, and
-[Amazon Neptune Analytics](../../../neptune-analytics/latest/userguide/what-is-neptune-analytics.md "../../../neptune-analytics/latest/userguide/what-is-neptune-analytics.md") provides a graph-based alternative for
-domains where long-term memory is defined by relationships between
-entities, enabling multi-hop queries that vector similarity can't
-answer on its own. Separating strategies (managed or self-indexed)
-matters for performance, as every irrelevant record retrieved is
-latency and context budget spent on noise.
+ For teams that prefer to own the long-term store directly, [agentic memory in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-agentic-memory.html) provides dense and hybrid retrieval over long-term records, and [Amazon Neptune Analytics](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html) provides a graph-based alternative for domains where long-term memory is defined by relationships between entities, enabling multi-hop queries that vector similarity can't answer on its own. Separating strategies (managed or self-indexed) matters for performance, as every irrelevant record retrieved is latency and context budget spent on noise. 
 
-Tiers are only high-performing when their lifecycle is automated.
-Short-term state that isn't evicted grows until reads slow and
-session stores run out of memory, while long-term records that are
-not extracted from short-term events represent knowledge the agent
-has to relearn every session.
+ Tiers are only high-performing when their lifecycle is automated. Short-term state that isn't evicted grows until reads slow and session stores run out of memory, while long-term records that are not extracted from short-term events represent knowledge the agent has to relearn every session. 
 
-Managed services handle both movements: AgentCore Memory extracts
-long-term strategies from short-term events asynchronously and
-applies TTLs to short-term records, while self-managed stacks must
-build extraction and eviction explicitly, either by adopting an
-open source orchestration layer such as Mem0 or by writing bespoke
-pipelines on top of primitives like ElastiCache, OpenSearch, or
-Neptune Analytics.
+ Managed services handle both movements: AgentCore Memory extracts long-term strategies from short-term events asynchronously and applies TTLs to short-term records, while self-managed stacks must build extraction and eviction explicitly, either by adopting an open source orchestration layer such as Mem0 or by writing bespoke pipelines on top of primitives like ElastiCache, OpenSearch, or Neptune Analytics. 
 
-Long-term memory must also be namespaced by actor (user, session,
-or tenant), because unscoped retrievals return records from other
-actors that inflate context and, depending on the deployment, leak
-information across isolation boundaries. Scoping is both a
-performance control (a smaller search space per query returns
-faster) and a correctness control.
+ Long-term memory must also be namespaced by actor (user, session, or tenant), because unscoped retrievals return records from other actors that inflate context and, depending on the deployment, leak information across isolation boundaries. Scoping is both a performance control (a smaller search space per query returns faster) and a correctness control. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. **Inventory the memory the agent reads
-   and writes:** List the distinct pieces of state the
-   agent maintains, last-N-turn context, intermediate
-   reasoning, tool outputs, user preferences, past-interaction
-   summaries, domain facts, and for each note the access
-   pattern (read per iteration, read per session, read per task
-   class), retention requirement (session-scoped or durable),
-   and query shape (key lookup or semantic search). This
-   inventory is the input to tier selection, as without it,
-   tier boundaries are drawn by guess and either fragment
-   naturally grouped data or collapse patterns that should be
-   separated. Record the inventory alongside the workload's
-   performance budgets so tiering decisions can be audited and
-   revisited.
-2. **Assign each inventoried item to a
-   short-term or long-term tier:** Place
-   session-scoped, high-frequency, latency-critical items in
-   the short-term tier and durable, cross-session items queried
-   semantically in the long-term tier. Avoid intermediate
-   "working memory" tiers unless a concrete access
-   pattern justifies one, most "working memory" is
-   either active short-term state or a long-term record that
-   has not been extracted. Document the tier boundary so every
-   new memory item has a clear home.
-3. **Choose storage for each tier based
-   on the tier's access pattern:** For the short-term
-   tier, select
-   [Amazon
-   Bedrock AgentCore Memory](../../../bedrock-agentcore/latest/devguide/memory.md "../../../bedrock-agentcore/latest/devguide/memory.md") if you also want managed
-   long-term extraction, or
-   [Amazon ElastiCache (Valkey)](../../../AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.md "../../../AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.md") if you prefer to own the
-   extraction pipeline. For the long-term tier, use AgentCore
-   Memory's built-in strategies or
-   [Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/application-agentic-memory.md "../../../opensearch-service/latest/developerguide/application-agentic-memory.md") for dense and hybrid retrieval.
-   Resist using one storage layer for both tiers. It is the
-   single most common cause of memory-bound latency
-   regressions.
-4. **Configure long-term memory with
-   strategies that match what the agent retrieves:**
-   Enable the subset of
-   [AgentCore's
-   built-in long-term strategies](../../../bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.md "../../../bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.md"), semantic, episodic,
-   summary, and user preference, that correspond to the
-   retrieval patterns in the inventory. Each strategy extracts
-   a different shape of record from short-term events and
-   indexes it separately, so the agent can query only the store
-   relevant to its current step. In self-managed stacks, create
-   equivalent per-strategy indexes rather than a single
-   general-purpose corpus.
-5. **Namespace every memory record to its
-   actor (user, session, or tenant):** Attach an actor
-   identifier to every short-term and long-term record and
-   filter every retrieval by that identifier using AgentCore
-   Memory's
-   [actor
-   and session scoping](../../../bedrock-agentcore/latest/devguide/memory-organization.md "../../../bedrock-agentcore/latest/devguide/memory-organization.md") or an equivalent filter in
-   self-managed stacks. Scoping reduces the search space (lower
-   retrieval latency) and helps prevent cross-actor context
-   leakage (correctness and isolation). Align the actor key
-   with the authentication identity used by the agent so
-   scoping can't be bypassed by a missing filter in application
-   code.
-6. **Automate extraction from short-term
-   to long-term and eviction of stale short-term
-   state:** Configure the managed extraction pipeline,
-   AgentCore Memory's asynchronous strategy extraction, or
-   build an equivalent job in self-managed stacks that reads
-   session events, derives long-term records per enabled
-   strategy, and writes them to the long-term index. Apply TTLs
-   or sliding-window eviction to short-term state so session
-   stores don't grow without bounds. Both movements must run
-   without manual intervention. If either requires human
-   action, memory growth and extraction lag will exceed design
-   targets.
-7. **Emit per-tier retrieval latency as a
-   first-class performance metric and set budgets:**
-   Publish short-term read latency and long-term query latency
-   as distinct time-series through
-   [Amazon CloudWatch generative AI observability](../../../AmazonCloudWatch/latest/monitoring/GenAI-observability.md "../../../AmazonCloudWatch/latest/monitoring/GenAI-observability.md") or an
-   equivalent pipeline, alongside tier size, hit rate, and
-   extraction lag. Allocate each tier an explicit portion of
-   the per-iteration latency budget so memory can't silently
-   consume time reserved for inference or tool calls. Treat
-   per-tier latency as an early indicator: sustained growth in
-   long-term query latency usually signals index size or scope
-   drift before it registers on end-to-end metrics.
-8. **Review tier sizing, strategies, and
-   budgets against production telemetry on a defined
-   cadence:** Schedule reviews of short-term tier size
-   distributions, long-term strategy growth rates, extraction
-   lag, and per-tier latency against budget. Tighten TTLs on
-   short-term stores that are consistently oversized, disable
-   long-term strategies that are never queried, and re-scope
-   memory if retrievals are returning more cross-actor records
-   than the scope intended. Tiering parameters set at launch
-   rarely match production traffic unless they are reviewed on
-   an ongoing basis.
+1.  **Inventory the memory the agent reads and writes:** List the distinct pieces of state the agent maintains, last-N-turn context, intermediate reasoning, tool outputs, user preferences, past-interaction summaries, domain facts, and for each note the access pattern (read per iteration, read per session, read per task class), retention requirement (session-scoped or durable), and query shape (key lookup or semantic search). This inventory is the input to tier selection, as without it, tier boundaries are drawn by guess and either fragment naturally grouped data or collapse patterns that should be separated. Record the inventory alongside the workload's performance budgets so tiering decisions can be audited and revisited. 
+
+1.  **Assign each inventoried item to a short-term or long-term tier:** Place session-scoped, high-frequency, latency-critical items in the short-term tier and durable, cross-session items queried semantically in the long-term tier. Avoid intermediate "working memory" tiers unless a concrete access pattern justifies one, most "working memory" is either active short-term state or a long-term record that has not been extracted. Document the tier boundary so every new memory item has a clear home. 
+
+1.  **Choose storage for each tier based on the tier's access pattern:** For the short-term tier, select [Amazon Bedrock AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html) if you also want managed long-term extraction, or [Amazon ElastiCache (Valkey)](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.html) if you prefer to own the extraction pipeline. For the long-term tier, use AgentCore Memory's built-in strategies or [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-agentic-memory.html) for dense and hybrid retrieval. Resist using one storage layer for both tiers. It is the single most common cause of memory-bound latency regressions. 
+
+1.  **Configure long-term memory with strategies that match what the agent retrieves:** Enable the subset of [AgentCore's built-in long-term strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.html), semantic, episodic, summary, and user preference, that correspond to the retrieval patterns in the inventory. Each strategy extracts a different shape of record from short-term events and indexes it separately, so the agent can query only the store relevant to its current step. In self-managed stacks, create equivalent per-strategy indexes rather than a single general-purpose corpus. 
+
+1.  **Namespace every memory record to its actor (user, session, or tenant):** Attach an actor identifier to every short-term and long-term record and filter every retrieval by that identifier using AgentCore Memory's [actor and session scoping](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-organization.html) or an equivalent filter in self-managed stacks. Scoping reduces the search space (lower retrieval latency) and helps prevent cross-actor context leakage (correctness and isolation). Align the actor key with the authentication identity used by the agent so scoping can't be bypassed by a missing filter in application code. 
+
+1.  **Automate extraction from short-term to long-term and eviction of stale short-term state:** Configure the managed extraction pipeline, AgentCore Memory's asynchronous strategy extraction, or build an equivalent job in self-managed stacks that reads session events, derives long-term records per enabled strategy, and writes them to the long-term index. Apply TTLs or sliding-window eviction to short-term state so session stores don't grow without bounds. Both movements must run without manual intervention. If either requires human action, memory growth and extraction lag will exceed design targets. 
+
+1.  **Emit per-tier retrieval latency as a first-class performance metric and set budgets:** Publish short-term read latency and long-term query latency as distinct time-series through [Amazon CloudWatch generative AI observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GenAI-observability.html) or an equivalent pipeline, alongside tier size, hit rate, and extraction lag. Allocate each tier an explicit portion of the per-iteration latency budget so memory can't silently consume time reserved for inference or tool calls. Treat per-tier latency as an early indicator: sustained growth in long-term query latency usually signals index size or scope drift before it registers on end-to-end metrics. 
+
+1.  **Review tier sizing, strategies, and budgets against production telemetry on a defined cadence:** Schedule reviews of short-term tier size distributions, long-term strategy growth rates, extraction lag, and per-tier latency against budget. Tighten TTLs on short-term stores that are consistently oversized, disable long-term strategies that are never queried, and re-scope memory if retrievals are returning more cross-actor records than the scope intended. Tiering parameters set at launch rarely match production traffic unless they are reviewed on an ongoing basis. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [AGENTPERF03-BP02 Optimize context window utilization and prompt management](agentperf03-bp02.html) 
++  [AGENTPERF03-BP03 Optimize RAG retrieval pipelines for latency and precision](agentperf03-bp03.html) 
++  [AGENTPERF03-BP04 Establish efficient agent caching and data access patterns](agentperf03-bp04.html) 
++  [AGENTPERF03-BP05 Implement agentic retrieval patterns for dynamic, agent-driven knowledge access](agentperf03-bp05.html) 
 
-- [AGENTPERF03-BP02
-  Optimize context window utilization and prompt
-  management](agentperf03-bp02.md "agentperf03-bp02.md")
-- [AGENTPERF03-BP03
-  Optimize RAG retrieval pipelines for latency and
-  precision](agentperf03-bp03.md "agentperf03-bp03.md")
-- [AGENTPERF03-BP04
-  Establish efficient agent caching and data access
-  patterns](agentperf03-bp04.md "agentperf03-bp04.md")
-- [AGENTPERF03-BP05
-  Implement agentic retrieval patterns for dynamic, agent-driven
-  knowledge access](agentperf03-bp05.md "agentperf03-bp05.md")
+ **Related documents:** 
++  [Amazon Bedrock AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html) 
++  [AgentCore Memory, memory organization](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-organization.html) 
++  [AgentCore Memory, long-term built-in strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.html) 
++  [Agentic memory in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-agentic-memory.html) 
++  [Why use ElastiCache for agentic memory](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.html) 
++  [Foundations of agentic AI on AWS](https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-foundations/introduction.html) 
++  [Blog: Amazon Bedrock AgentCore Memory, Building context-aware agents](https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-memory-building-context-aware-agents/) 
++  [Blog: Building smarter AI agents, AgentCore long-term memory deep dive](https://aws.amazon.com/blogs/machine-learning/building-smarter-ai-agents-agentcore-long-term-memory-deep-dive/) 
++  [Blog: Build agents to learn from experiences using AgentCore episodic memory](https://aws.amazon.com/blogs/machine-learning/build-agents-to-learn-from-experiences-using-amazon-bedrock-agentcore-episodic-memory/) 
++  [Blog: Build persistent memory for agentic AI applications with Mem0, ElastiCache for Valkey, and Neptune Analytics](https://aws.amazon.com/blogs/database/build-persistent-memory-for-agentic-ai-applications-with-mem0-open-source-amazon-elasticache-for-valkey-and-amazon-neptune-analytics/) 
 
-**Related documents:**
+ **Related videos:** 
++  [AWS re:Invent 2024 - Make agents remember with Amazon Bedrock AgentCore Memory (AIM331)](https://www.youtube.com/watch?v=Sh0Ro00_rpA) 
++  [AgentCore Deep Dive: Memory](https://www.youtube.com/watch?v=-N4v6-kJgwA) 
++  [Solving LLM Amnesia: Cross Session Memory](https://www.youtube.com/watch?v=ZY5WXDDp9g8) 
 
-- [Amazon
-  Bedrock AgentCore Memory](../../../bedrock-agentcore/latest/devguide/memory.md "../../../bedrock-agentcore/latest/devguide/memory.md")
-- [AgentCore
-  Memory, memory organization](../../../bedrock-agentcore/latest/devguide/memory-organization.md "../../../bedrock-agentcore/latest/devguide/memory-organization.md")
-- [AgentCore
-  Memory, long-term built-in strategies](../../../bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.md "../../../bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.md")
-- [Agentic
-  memory in Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/application-agentic-memory.md "../../../opensearch-service/latest/developerguide/application-agentic-memory.md")
-- [Why
-  use ElastiCache for agentic memory](../../../AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.md "../../../AmazonElastiCache/latest/dg/agentic-memory-why-elasticache.md")
-- [Foundations
-  of agentic AI on AWS](../../../prescriptive-guidance/latest/agentic-ai-foundations/introduction.md "../../../prescriptive-guidance/latest/agentic-ai-foundations/introduction.md")
-- [Blog:
-  Amazon Bedrock AgentCore Memory, Building context-aware
-  agents](https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-memory-building-context-aware-agents/ "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-memory-building-context-aware-agents/")
-- [Blog:
-  Building smarter AI agents, AgentCore long-term memory deep
-  dive](https://aws.amazon.com/blogs/machine-learning/building-smarter-ai-agents-agentcore-long-term-memory-deep-dive/ "https://aws.amazon.com/blogs/machine-learning/building-smarter-ai-agents-agentcore-long-term-memory-deep-dive/")
-- [Blog:
-  Build agents to learn from experiences using AgentCore
-  episodic memory](https://aws.amazon.com/blogs/machine-learning/build-agents-to-learn-from-experiences-using-amazon-bedrock-agentcore-episodic-memory/ "https://aws.amazon.com/blogs/machine-learning/build-agents-to-learn-from-experiences-using-amazon-bedrock-agentcore-episodic-memory/")
-- [Blog:
-  Build persistent memory for agentic AI applications with Mem0,
-  ElastiCache for Valkey, and Neptune Analytics](https://aws.amazon.com/blogs/database/build-persistent-memory-for-agentic-ai-applications-with-mem0-open-source-amazon-elasticache-for-valkey-and-amazon-neptune-analytics/ "https://aws.amazon.com/blogs/database/build-persistent-memory-for-agentic-ai-applications-with-mem0-open-source-amazon-elasticache-for-valkey-and-amazon-neptune-analytics/")
+ **Related examples:** 
++  [GitHub: Amazon Bedrock AgentCore samples, Memory tutorials](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/04-AgentCore-memory) 
 
-**Related videos:**
+ **Related workshops:** 
++  [Diving Deep into Bedrock AgentCore, Memory](https://catalog.workshops.aws/agentcore-deep-dive/en-US/50-agentcore-memory) 
 
-- [AWS re:Invent 2024 - Make agents remember with Amazon Bedrock
-  AgentCore Memory (AIM331)](https://www.youtube.com/watch?v=Sh0Ro00_rpA "https://www.youtube.com/watch?v=Sh0Ro00_rpA")
-- [AgentCore
-  Deep Dive: Memory](https://www.youtube.com/watch?v=-N4v6-kJgwA "https://www.youtube.com/watch?v=-N4v6-kJgwA")
-- [Solving
-  LLM Amnesia: Cross Session Memory](https://www.youtube.com/watch?v=ZY5WXDDp9g8 "https://www.youtube.com/watch?v=ZY5WXDDp9g8")
-
-**Related examples:**
-
-- [GitHub:
-  Amazon Bedrock AgentCore samples, Memory tutorials](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/04-AgentCore-memory "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-tutorials/04-AgentCore-memory")
-
-**Related workshops:**
-
-- [Diving
-  Deep into Bedrock AgentCore, Memory](https://catalog.workshops.aws/agentcore-deep-dive/en-US/50-agentcore-memory "https://catalog.workshops.aws/agentcore-deep-dive/en-US/50-agentcore-memory")
-
-**Related services:**
-
-- [Amazon
-  Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/ "https://aws.amazon.com/bedrock/agentcore/")
-- [Amazon ElastiCache](https://aws.amazon.com/elasticache/ "https://aws.amazon.com/elasticache/")
-- [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")
-- [Amazon Neptune Analytics](../../../neptune-analytics/latest/userguide/what-is-neptune-analytics.md "../../../neptune-analytics/latest/userguide/what-is-neptune-analytics.md")
+ **Related services:** 
++  [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) 
++  [Amazon ElastiCache](https://aws.amazon.com/elasticache/) 
++  [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/) 
++  [Amazon Neptune Analytics](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html) 

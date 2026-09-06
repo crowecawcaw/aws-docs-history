@@ -1,177 +1,106 @@
+
+
 # Agentic AI Lens - AWS Well-Architected
+<a name="agentic-ai-lens"></a>
 
-Publication date: **June 10, 2026** ([Document revisions](document-revisions.md "document-revisions.md"))
+Publication date: **June 10, 2026** ([Document revisions](document-revisions.md))
 
-Organizations deploying agentic AI are moving from asking "can we build an agent?" to "can we
-run agents reliably, securely, and cost-effectively at scale?" The AWS Well-Architected Agentic
-AI Lens answers this question by extending the AWS Well-Architected Framework with best
-practices specific to the design, deployment, and operation of agentic AI systems on AWS,
-providing architectural guidance from agent prototypes to production-grade agent systems.
+Organizations deploying agentic AI are moving from asking "can we build an agent?" to "can we run agents reliably, securely, and cost-effectively at scale?" The AWS Well-Architected Agentic AI Lens answers this question by extending the AWS Well-Architected Framework with best practices specific to the design, deployment, and operation of agentic AI systems on AWS, providing architectural guidance from agent prototypes to production-grade agent systems.
 
 This lens covers the full spectrum of agentic AI architecture, from the foundational infrastructure that supports agent compute and memory, to the orchestration patterns that coordinate multi-agent workflows, to the operational practices that help agents remain reliable, secure, and cost-effective in production. Whether agents serve end users through conversational interfaces, automate internal workflows, or operate on production infrastructure alongside human engineers, the architectural principles in this lens apply across the full range of agentic use cases.
 
 ## What makes this lens unique
+<a name="agentic-ai-lens-unique"></a>
 
-Agentic AI systems introduce architectural dimensions that existing cloud and generative AI
-guidance doesn't address:
-
-- **Agents reason, not only respond:** A single user request
-  might trigger multiple LLM inference calls, tool invocations, memory retrievals, and
-  inter-agent communications, each adding latency, cost, and failure surface. Traditional
-  request-response optimization doesn't address iterative reasoning loops.
-- **Agents act autonomously:** Agents invoke tools, modify
-  data, and interact with external systems without explicit human instruction at each step. This
-  autonomy demands security controls, permission boundaries, and human oversight patterns
-  purpose-built for autonomous operations.
-- **Agent behavior is stochastic:** LLM-powered decisions are
-  inherently non-deterministic, the same input might produce different outputs across
-  invocations. Reliability strategies must account for this through behavioral monitoring,
-  evaluation frameworks, and graceful degradation rather than deterministic testing alone.
-- **Agents collaborate:** Multi-agent systems introduce
-  coordination overhead, handoff complexity, and distributed failure modes. Orchestration
-  patterns, communication protocols, and conflict resolution mechanisms become first-class
-  architectural concerns.
-- **Agents remember:** Persistent memory across sessions
-  enables personalization and learning, but introduces data integrity, privacy, and cost
-  management challenges that stateless applications don't face.
+Agentic AI systems introduce architectural dimensions that existing cloud and generative AI guidance doesn't address:
++ **Agents reason, not only respond:** A single user request might trigger multiple LLM inference calls, tool invocations, memory retrievals, and inter-agent communications, each adding latency, cost, and failure surface. Traditional request-response optimization doesn't address iterative reasoning loops.
++ **Agents act autonomously:** Agents invoke tools, modify data, and interact with external systems without explicit human instruction at each step. This autonomy demands security controls, permission boundaries, and human oversight patterns purpose-built for autonomous operations.
++ **Agent behavior is stochastic:** LLM-powered decisions are inherently non-deterministic, the same input might produce different outputs across invocations. Reliability strategies must account for this through behavioral monitoring, evaluation frameworks, and graceful degradation rather than deterministic testing alone.
++ **Agents collaborate:** Multi-agent systems introduce coordination overhead, handoff complexity, and distributed failure modes. Orchestration patterns, communication protocols, and conflict resolution mechanisms become first-class architectural concerns.
++ **Agents remember:** Persistent memory across sessions enables personalization and learning, but introduces data integrity, privacy, and cost management challenges that stateless applications don't face.
 
 ## Responsible agentic AI
+<a name="agentic-ai-lens-responsible"></a>
 
-Agents that take actions in the real world carry greater responsibility than systems that
-only generate text. This lens embeds responsible AI principles throughout its best practices
-rather than treating them as a separate concern:
-
-- **Bounded autonomy:** Every agent operates within explicitly
-  defined scope boundaries, with guardrails that constrain behavior regardless of inputs received
-  (see [AGENTSEC04](agentsec04.md "agentsec04.md")).
-- **Transparency and explainability:** Agent decisions are
-  logged, traced, and auditable, enabling teams to reconstruct exactly what happened during any
-  execution (see [AGENTOPS05](agentops05.md "agentops05.md")).
-- **Human oversight:** Tiered oversight models match the level
-  of human review to the risk and reversibility of each agent action, preserving human judgment
-  where it matters most (see [AGENTREL02-BP05](agentrel02-bp05.md "agentrel02-bp05.md")).
-- **Goal alignment:** Evaluation frameworks continually assess
-  whether agents achieve intended objectives rather than pursuing misaligned goals (see
-  [AGENTOPS06](agentops06.md "agentops06.md")).
-- **Organizational sustainability:** Agent adoption preserves
-  critical human expertise and institutional knowledge rather than creating dependencies on
-  systems that only original developers understand (see [AGENTSUS03](agentsus03.md "agentsus03.md")).
+Agents that take actions in the real world carry greater responsibility than systems that only generate text. This lens embeds responsible AI principles throughout its best practices rather than treating them as a separate concern:
++ **Bounded autonomy:** Every agent operates within explicitly defined scope boundaries, with guardrails that constrain behavior regardless of inputs received (see [AGENTSEC04](agentsec04.html)).
++ **Transparency and explainability:** Agent decisions are logged, traced, and auditable, enabling teams to reconstruct exactly what happened during any execution (see [AGENTOPS05](agentops05.html)).
++ **Human oversight:** Tiered oversight models match the level of human review to the risk and reversibility of each agent action, preserving human judgment where it matters most (see [AGENTREL02-BP05](agentrel02-bp05.html)).
++ **Goal alignment:** Evaluation frameworks continually assess whether agents achieve intended objectives rather than pursuing misaligned goals (see [AGENTOPS06](agentops06.html)).
++ **Organizational sustainability:** Agent adoption preserves critical human expertise and institutional knowledge rather than creating dependencies on systems that only original developers understand (see [AGENTSUS03](agentsus03.html)).
 
 ## The agentic AI technology landscape on AWS
+<a name="agentic-ai-lens-landscape"></a>
 
-This lens is built around the AWS services and open source frameworks that form the
-foundation for production agentic AI:
-
-- **Amazon Bedrock** provides access to foundation models from
-  multiple providers, Anthropic, OpenAI, Meta, Amazon, Mistral, NVIDIA, and others, with built-in
-  capabilities for guardrails, knowledge bases, prompt management, and model evaluation.
-- **Amazon Bedrock AgentCore** provides purpose-built
-  infrastructure for deploying and operating agents at scale. AgentCore is framework-agnostic and
-  model-agnostic. It is designed to support agentic frameworks such as Strands Agents, LangGraph,
-  CrewAI, or your own, alongside major model providers. Its capabilities include Runtime for
-  serverless agent hosting, Gateway for MCP-compatible tool integration, Memory for managed agent
-  state, Identity for agent authentication, Observability for distributed tracing, Evaluations
-  for quality assessment, and Policy for Cedar-based access control.
-- **Strands Agents** is an open source, model-driven framework
-  for building agents with native support for MCP tools, A2A protocol, and multi-agent patterns
-  (Graph, Swarm, and Workflow). Strands supports multiple model providers including Amazon
-  Bedrock, Anthropic, OpenAI, Ollama, and others.
-- **MCP and A2A** are open protocols for agent-to-tool and
-  agent-to-agent communication that enable interoperability across frameworks, platforms, and the
-  broader agent ecosystem.
-- **Kiro** is an agentic IDE that accelerates agent development
-  through spec-driven workflows, steering files for team standards, and hooks for automated
-  quality checks.
+This lens is built around the AWS services and open source frameworks that form the foundation for production agentic AI:
++ **Amazon Bedrock** provides access to foundation models from multiple providers, Anthropic, OpenAI, Meta, Amazon, Mistral, NVIDIA, and others, with built-in capabilities for guardrails, knowledge bases, prompt management, and model evaluation.
++ **Amazon Bedrock AgentCore** provides purpose-built infrastructure for deploying and operating agents at scale. AgentCore is framework-agnostic and model-agnostic. It is designed to support agentic frameworks such as Strands Agents, LangGraph, CrewAI, or your own, alongside major model providers. Its capabilities include Runtime for serverless agent hosting, Gateway for MCP-compatible tool integration, Memory for managed agent state, Identity for agent authentication, Observability for distributed tracing, Evaluations for quality assessment, and Policy for Cedar-based access control.
++ **Strands Agents** is an open source, model-driven framework for building agents with native support for MCP tools, A2A protocol, and multi-agent patterns (Graph, Swarm, and Workflow). Strands supports multiple model providers including Amazon Bedrock, Anthropic, OpenAI, Ollama, and others.
++ **MCP and A2A** are open protocols for agent-to-tool and agent-to-agent communication that enable interoperability across frameworks, platforms, and the broader agent ecosystem.
++ **Kiro** is an agentic IDE that accelerates agent development through spec-driven workflows, steering files for team standards, and hooks for automated quality checks.
 
 ## About this lens
+<a name="agentic-ai-lens-about"></a>
 
-This lens is organized around the six pillars of the AWS Well-Architected Framework, each
-adapted to address the unique characteristics of agentic AI systems:
-
-- **Operational excellence:** Running and improving autonomous
-  agent systems through systematic operational practices, including prompt lifecycle management,
-  behavioral monitoring, and human-in-the-loop governance.
-- **Security:** Securing agent identities, tool access, and
-  data flows while protecting against prompt injection, privilege escalation, and manipulation of
-  autonomous operations.
-- **Reliability:** Building agent systems that execute tasks
-  predictably, recover from failures automatically, and maintain partial functionality under
-  adverse conditions.
-- **Performance efficiency:** Optimizing cognitive pipelines,
-  model selection, memory access, and multi-agent coordination to deliver responsive and scalable
-  agent performance.
-- **Cost optimization:** Designing agents with cost as a
-  primary consideration, right-sizing model and memory capabilities, and implementing full cost
-  visibility.
-- **Sustainability:** Building agent systems with modular,
-  reusable architectures that maximize resource efficiency and maintain sustainable adoption
-  patterns.
+This lens is organized around the six pillars of the AWS Well-Architected Framework, each adapted to address the unique characteristics of agentic AI systems:
++ **Operational excellence:** Running and improving autonomous agent systems through systematic operational practices, including prompt lifecycle management, behavioral monitoring, and human-in-the-loop governance.
++ **Security:** Securing agent identities, tool access, and data flows while protecting against prompt injection, privilege escalation, and manipulation of autonomous operations.
++ **Reliability:** Building agent systems that execute tasks predictably, recover from failures automatically, and maintain partial functionality under adverse conditions.
++ **Performance efficiency:** Optimizing cognitive pipelines, model selection, memory access, and multi-agent coordination to deliver responsive and scalable agent performance.
++ **Cost optimization:** Designing agents with cost as a primary consideration, right-sizing model and memory capabilities, and implementing full cost visibility.
++ **Sustainability:** Building agent systems with modular, reusable architectures that maximize resource efficiency and maintain sustainable adoption patterns.
 
 ## How to use this lens
+<a name="agentic-ai-lens-how-to-use"></a>
 
-This lens is intended to be used alongside the [AWS
-Well-Architected Framework](../framework/welcome.md "../framework/welcome.md"). Each pillar in this lens contains focus areas with guiding
-questions, best practices, implementation guidance, and code examples specific to agentic AI
-workloads.
+This lens is intended to be used alongside the [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html). Each pillar in this lens contains focus areas with guiding questions, best practices, implementation guidance, and code examples specific to agentic AI workloads.
 
 Use this lens when:
-
-- Designing a new agentic AI system or adding agentic capabilities to an existing
-  application
-- Reviewing an existing agentic AI deployment for architectural improvements
-- Evaluating the reliability, security, or cost profile of an agent-based workflow
-- Establishing organizational standards for agentic AI development and operations
++ Designing a new agentic AI system or adding agentic capabilities to an existing application
++ Reviewing an existing agentic AI deployment for architectural improvements
++ Evaluating the reliability, security, or cost profile of an agent-based workflow
++ Establishing organizational standards for agentic AI development and operations
 
 ## Lens roadmap
+<a name="agentic-ai-lens-roadmap"></a>
 
-Not every team needs every best practice. Use these reading paths based on where you are in
-your agentic AI journey:
+Not every team needs every best practice. Use these reading paths based on where you are in your agentic AI journey:
 
 **Building your first agent**
 
-Start with the foundational practices that establish agent scope, security boundaries, and
-predictable behavior:
-
-- [AGENTOPS01: Define agent roles, success criteria, and handoff procedures](agentops01.md "agentops01.md")
-- [AGENTREL02: Design for atomic tasks, least-privilege permissions, and clear instruction
-  protocols](agentrel02.md "agentrel02.md")
-- [AGENTSEC03: Establish agent identity, least-privilege access, and strong
-  authentication](agentsec03.md "agentsec03.md")
-- [AGENTSEC08: Validate inputs and filter outputs before going to production](agentsec08.md "agentsec08.md")
+ Start with the foundational practices that establish agent scope, security boundaries, and predictable behavior:
++ [AGENTOPS01: Define agent roles, success criteria, and handoff procedures](agentops01.html)
++ [AGENTREL02: Design for atomic tasks, least-privilege permissions, and clear instruction protocols](agentrel02.html)
++ [AGENTSEC03: Establish agent identity, least-privilege access, and strong authentication](agentsec03.html)
++ [AGENTSEC08: Validate inputs and filter outputs before going to production](agentsec08.html)
 
 **Moving to production**
 
-Add observability, evaluation, cost controls, and cognitive pipeline optimization:
-
-- [AGENTOPS05: Implement tracing, anomaly detection, and operational dashboards](agentops05.md "agentops05.md")
-- [AGENTOPS06: Establish testing and evaluation frameworks with LLM-as-judge](agentops06.md "agentops06.md")
-- [AGENTPERF02: Optimize cognitive pipelines, model selection, and execution paths](agentperf02.md "agentperf02.md")
-- [AGENTCOST01: Control reasoning loop costs and multi-agent coordination overhead](agentcost01.md "agentcost01.md")
-- [AGENTCOST02: Right-size model selection and optimize token consumption](agentcost02.md "agentcost02.md")
+ Add observability, evaluation, cost controls, and cognitive pipeline optimization:
++ [AGENTOPS05: Implement tracing, anomaly detection, and operational dashboards](agentops05.html)
++ [AGENTOPS06: Establish testing and evaluation frameworks with LLM-as-judge](agentops06.html)
++ [AGENTPERF02: Optimize cognitive pipelines, model selection, and execution paths](agentperf02.html)
++ [AGENTCOST01: Control reasoning loop costs and multi-agent coordination overhead](agentcost01.html)
++ [AGENTCOST02: Right-size model selection and optimize token consumption](agentcost02.html)
 
 **Scaling to multi-agent systems**
 
-Address orchestration reliability, coordination security, and workflow performance:
-
-- [AGENTREL04: Implement arbiter patterns, capability taxonomies, and fallback
-  mechanisms](agentrel04.md "agentrel04.md")
-- [AGENTPERF05: Optimize orchestration patterns and multi-agent collaboration models](agentperf05.md "agentperf05.md")
-- [AGENTSEC06: Secure inter-agent communication, trust boundaries, and coordination](agentsec06.md "agentsec06.md")
-- [AGENTCOST05: Implement cost attribution across multi-agent workflows](agentcost05.md "agentcost05.md")
+ Address orchestration reliability, coordination security, and workflow performance:
++ [AGENTREL04: Implement arbiter patterns, capability taxonomies, and fallback mechanisms](agentrel04.html)
++ [AGENTPERF05: Optimize orchestration patterns and multi-agent collaboration models](agentperf05.html)
++ [AGENTSEC06: Secure inter-agent communication, trust boundaries, and coordination](agentsec06.html)
++ [AGENTCOST05: Implement cost attribution across multi-agent workflows](agentcost05.html)
 
 **Hardening an existing deployment**
 
-Strengthen security controls, resilience, and human oversight:
-
-- [AGENTSEC04: Implement guardrails and human-in-the-loop for critical decisions](agentsec04.md "agentsec04.md")
-- [AGENTSEC07: Protect human oversight and detect rogue agents](agentsec07.md "agentsec07.md")
-- [AGENTREL06: Integrate with legacy systems reliably with fallbacks and idempotency](agentrel06.md "agentrel06.md")
+ Strengthen security controls, resilience, and human oversight:
++ [AGENTSEC04: Implement guardrails and human-in-the-loop for critical decisions](agentsec04.html)
++ [AGENTSEC07: Protect human oversight and detect rogue agents](agentsec07.html)
++ [AGENTREL06: Integrate with legacy systems reliably with fallbacks and idempotency](agentrel06.html)
 
 ## Lens availability
+<a name="agentic-ai-lens-availability"></a>
 
-Custom lenses extend the best practice guidance provided by AWS Well-Architected Tool. AWS WA Tool allows you to
-create your own [custom
-lenses](../userguide/lenses-custom.md "../userguide/lenses-custom.md"), or to use lenses created by others that have been shared with you.
+Custom lenses extend the best practice guidance provided by AWS Well-Architected Tool. AWS WA Tool allows you to create your own [custom lenses](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-custom.html), or to use lenses created by others that have been shared with you.
 
-To begin reviewing your agentic AI workload, download and import the [Agentic AI Lens](https://github.com/aws-samples/sample-well-architected-custom-lens/blob/main/agentic-ai-lens/agentic-ai-lens.json "https://github.com/aws-samples/sample-well-architected-custom-lens/blob/main/agentic-ai-lens/agentic-ai-lens.json") into AWS WA Tool from the public [AWS Well-Architected
-custom lens GitHub repository](https://github.com/aws-samples/sample-well-architected-custom-lens "https://github.com/aws-samples/sample-well-architected-custom-lens").
+To begin reviewing your agentic AI workload, download and import the [ Agentic AI Lens](https://github.com/aws-samples/sample-well-architected-custom-lens/blob/main/agentic-ai-lens/agentic-ai-lens.json) into AWS WA Tool from the public [AWS Well-Architected custom lens GitHub repository](https://github.com/aws-samples/sample-well-architected-custom-lens).

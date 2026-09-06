@@ -1,136 +1,64 @@
+
+
 # AGENTREL01-BP03 Design specialized agents following actor model principles
+<a name="agentrel01-bp03"></a>
 
-Multi-purpose agents concentrate risk. A single failure in one
-function affects every other function in the same process.
-Specialized agents that encapsulate one atomic capability, own their
-state, and communicate through messages keep the impact proportional
-to the scope of the failing component.
+ Multi-purpose agents concentrate risk. A single failure in one function affects every other function in the same process. Specialized agents that encapsulate one atomic capability, own their state, and communicate through messages keep the impact proportional to the scope of the failing component. 
 
-**Desired outcome:**
+ **Desired outcome:** 
++  You have each agent scoped to a single atomic function with explicit input and output schemas. 
++  Your agents maintain their own state and exchange information through explicit message passing, not shared memory. 
++  You can scale, replace, or upgrade any one agent without disturbing the others. 
 
-- You have each agent scoped to a single atomic function with
-  explicit input and output schemas.
-- Your agents maintain their own state and exchange information
-  through explicit message passing, not shared memory.
-- You can scale, replace, or upgrade any one agent without
-  disturbing the others.
+ **Common anti-patterns:** 
++  Building multi-purpose agents that combine disparate functions in one component, reducing the ability for independent scaling and widening the failure impact. 
++  Coupling agents through shared in-memory state rather than explicit message passing, so a crash in one process corrupts another. 
++  Designing agents as general-purpose processors with overlapping capabilities, making issue reproduction and remediation harder than it needs to be. 
 
-**Common anti-patterns:**
+ **Benefits of establishing this best practice:** 
++  A failure stays contained to the agent that encountered it, preserving overall workflow integrity. 
++  Single-responsibility agents are simpler to test deterministically because the input-output contract is small. 
++  Each agent scales, deploys, and is replaced on its own schedule, which keeps the rest of the system stable during change. 
 
-- Building multi-purpose agents that combine disparate functions
-  in one component, reducing the ability for independent scaling
-  and widening the failure impact.
-- Coupling agents through shared in-memory state rather than
-  explicit message passing, so a crash in one process corrupts
-  another.
-- Designing agents as general-purpose processors with overlapping
-  capabilities, making issue reproduction and remediation harder
-  than it needs to be.
-
-**Benefits of establishing this best
-practice:**
-
-- A failure stays contained to the agent that encountered it,
-  preserving overall workflow integrity.
-- Single-responsibility agents are simpler to test
-  deterministically because the input-output contract is small.
-- Each agent scales, deploys, and is replaced on its own schedule,
-  which keeps the rest of the system stable during change.
-
-**Level of risk exposed if this best practice
-is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-The actor model is a discipline, not a runtime feature. A managed
-runtime can give you isolated execution.
-[Amazon
-Bedrock AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md "../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md") runs each agent in its own
-microVM with dedicated tool permissions. But whether your agents
-actually follow actor principles depends on how you scope the
-system prompt, how narrowly you define the tool set, and whether
-inter-agent calls go through messages or shared state.
+ The actor model is a discipline, not a runtime feature. A managed runtime can give you isolated execution. [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html) runs each agent in its own microVM with dedicated tool permissions. But whether your agents actually follow actor principles depends on how you scope the system prompt, how narrowly you define the tool set, and whether inter-agent calls go through messages or shared state. 
 
-Give each agent a single, well-scoped system prompt that
-constrains it to one domain. Use Strands Agents or another agentic
-framework, but the test is framework-independent. Can you describe
-the agent's job in a single sentence without using
-"and"? If not, the agent carries more than one
-responsibility and should be split.
+ Give each agent a single, well-scoped system prompt that constrains it to one domain. Use Strands Agents or another agentic framework, but the test is framework-independent. Can you describe the agent's job in a single sentence without using "and"? If not, the agent carries more than one responsibility and should be split. 
 
-Communication pattern follows interaction shape. Use
-[Amazon
-Bedrock AgentCore Gateway](../../../bedrock-agentcore/latest/devguide/gateway.md "../../../bedrock-agentcore/latest/devguide/gateway.md") to expose agents as discoverable
-MCP tools when the caller treats the specialized agent as a
-capability it invokes on demand. Use the
-[Agent-to-Agent
-(A2A) protocol](../../../bedrock-agentcore/latest/devguide/runtime-a2a.md "../../../bedrock-agentcore/latest/devguide/runtime-a2a.md") when agents need peer collaboration with
-streaming responses or multi-turn exchanges. Monitor each agent
-individually. Track task success rate, processing latency, and
-error rate through
-[Amazon
-Bedrock AgentCore Observability](../../../bedrock-agentcore/latest/devguide/observability.md "../../../bedrock-agentcore/latest/devguide/observability.md") so one agent's issues don't
-hide under aggregate fleet metrics.
+ Communication pattern follows interaction shape. Use [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) to expose agents as discoverable MCP tools when the caller treats the specialized agent as a capability it invokes on demand. Use the [Agent-to-Agent (A2A) protocol](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html) when agents need peer collaboration with streaming responses or multi-turn exchanges. Monitor each agent individually. Track task success rate, processing latency, and error rate through [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) so one agent's issues don't hide under aggregate fleet metrics. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. **Decompose the workflow into
-   specialized agents:** Define each agent around a
-   single atomic function with explicit input and output
-   schemas.
-2. **Deploy each agent on AgentCore
-   Runtime with a dedicated IAM role:** Run each agent
-   on
-   [Amazon
-   Bedrock AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md "../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md") with an execution role
-   scoped to only the resources required for that agent's
-   function.
-3. **Choose the inter-agent communication
-   pattern:** Use
-   [Amazon
-   Bedrock AgentCore Gateway](../../../bedrock-agentcore/latest/devguide/gateway.md "../../../bedrock-agentcore/latest/devguide/gateway.md") for loosely coupled
-   tool-style invocation, or the
-   [A2A
-   protocol](../../../bedrock-agentcore/latest/devguide/runtime-a2a.md "../../../bedrock-agentcore/latest/devguide/runtime-a2a.md") for peer-to-peer collaboration with richer
-   interaction patterns.
-4. **Monitor each agent
-   independently:** Configure
-   [Amazon
-   Bedrock AgentCore Observability](../../../bedrock-agentcore/latest/devguide/observability.md "../../../bedrock-agentcore/latest/devguide/observability.md") with per-agent
-   metrics and alarms so one agent's issues are not masked by
-   fleet-level aggregates.
+1.  **Decompose the workflow into specialized agents:** Define each agent around a single atomic function with explicit input and output schemas. 
+
+1.  **Deploy each agent on AgentCore Runtime with a dedicated IAM role:** Run each agent on [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html) with an execution role scoped to only the resources required for that agent's function. 
+
+1.  **Choose the inter-agent communication pattern:** Use [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) for loosely coupled tool-style invocation, or the [A2A protocol](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html) for peer-to-peer collaboration with richer interaction patterns. 
+
+1.  **Monitor each agent independently:** Configure [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) with per-agent metrics and alarms so one agent's issues are not masked by fleet-level aggregates. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [AGENTREL01-BP01 Implement a resilient messaging layer](agentrel01-bp01.html) 
++  [AGENTREL01-BP02 Establish modular, fault-isolated layers](agentrel01-bp02.html) 
++  [AGENTREL01-BP04 Standardize communication protocols](agentrel01-bp04.html) 
++  [AGENTSUS01-BP01 Design specialized agents with explicit resource boundaries](agentsus01-bp01.html) 
 
-- [AGENTREL01-BP01
-  Implement a resilient messaging layer](agentrel01-bp01.md "agentrel01-bp01.md")
-- [AGENTREL01-BP02
-  Establish modular, fault-isolated layers](agentrel01-bp02.md "agentrel01-bp02.md")
-- [AGENTREL01-BP04
-  Standardize communication protocols](agentrel01-bp04.md "agentrel01-bp04.md")
-- [AGENTSUS01-BP01
-  Design specialized agents with explicit resource
-  boundaries](agentsus01-bp01.md "agentsus01-bp01.md")
+ **Related documents:** 
++  [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html) 
++  [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) 
++  [Deploy A2A servers in AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html) 
++  [Introducing Amazon Bedrock AgentCore Gateway](https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-agentcore-gateway-transforming-enterprise-ai-agent-tool-development/) 
 
-**Related documents:**
+ **Related tools:** 
++  [Strands Agents](https://strandsagents.com/) 
 
-- [Amazon
-  Bedrock AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md "../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md")
-- [Amazon
-  Bedrock AgentCore Gateway](../../../bedrock-agentcore/latest/devguide/gateway.md "../../../bedrock-agentcore/latest/devguide/gateway.md")
-- [Deploy
-  A2A servers in AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/runtime-a2a.md "../../../bedrock-agentcore/latest/devguide/runtime-a2a.md")
-- [Introducing
-  Amazon Bedrock AgentCore Gateway](https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-agentcore-gateway-transforming-enterprise-ai-agent-tool-development/ "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-agentcore-gateway-transforming-enterprise-ai-agent-tool-development/")
-
-**Related tools:**
-
-- [Strands
-  Agents](https://strandsagents.com/ "https://strandsagents.com/")
-
-**Related services:**
-
-- [Amazon
-  Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/ "https://aws.amazon.com/bedrock/agentcore/")
+ **Related services:** 
++  [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) 
