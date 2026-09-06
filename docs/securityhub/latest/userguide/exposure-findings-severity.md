@@ -14,16 +14,25 @@ purely on likelihood.
 
 The following table shows how likelihood and impact combine to produce the final
 severity of an exposure finding. Likelihood establishes a baseline severity, and
-impact adjusts it: high impact increases severity by one level (capped at Critical),
-medium impact leaves severity unchanged, and low impact decreases severity by one
-level (floored at Low).
+impact adjusts it: high impact increases severity by one level (capped at
+`CRITICAL`), medium impact leaves severity unchanged, and low impact
+decreases severity by one level (floored at `INFORMATIONAL`). Impact only
+adjusts the severity that likelihood establishes. Impact alone doesn't generate an
+exposure finding.
 
 Severity risk matrix| Likelihood ↓ / Impact → | Low | Medium | High |
 | --- | --- | --- | --- |
 | **Very High** | HIGH | CRITICAL | CRITICAL |
 | **High** | MEDIUM | HIGH | CRITICAL |
 | **Moderate** | LOW | MEDIUM | HIGH |
-| **Low** | LOW | LOW | MEDIUM |
+| **Low** | INFORMATIONAL | LOW | MEDIUM |
+
+###### Note
+
+Low likelihood combined with low impact results in a severity of
+`INFORMATIONAL`. Security Hub doesn't publish exposure findings with
+this severity, so they don't appear on the **Exposures** page or
+in [GetFindingsV2](../../1.0/APIReference/API_GetFindingsV2.md "../../1.0/APIReference/API_GetFindingsV2.md") results.
 
 ## Likelihood
 
