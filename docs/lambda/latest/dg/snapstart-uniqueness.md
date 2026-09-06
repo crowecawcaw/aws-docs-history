@@ -88,14 +88,51 @@ public class SnapstartExample
 
 ## Use cryptographically secure pseudorandom number generators (CSPRNGs)
 
+When SnapStart is enabled, Lambda takes a snapshot of your function's execution environment including all
+application and system memory. This means the internal state of every random number generator (RNG) is preserved
+exactly as it was at snapshot time, along with any random bytes that your application or its dependencies have
+already generated and stored in memory buffers.
+
+When Lambda restores an execution environment from a snapshot, it reseeds the kernel random number generator
+from `/dev/random` and `/dev/urandom` with fresh entropy. Software that reads random numbers
+directly from these devices maintains randomness with SnapStart.
+
 If your application depends on randomness, we recommend that you use cryptographically secure random number
-generators (CSPRNGs). In addition to OpenSSL 1.0.2, the Lambda managed runtimes also include the following built-in CSPRNGs:
+generators (CSPRNGs). In addition to the AL provided OpenSSL, the Lambda managed runtimes that support SnapStart
+(Java version 11+, Python version 3.12+, and .NET version 8+), include the following built-in CSPRNGs:
 
 - **Java:** `java.security.SecureRandom`
 - **Python:** `random.SystemRandom`
 - **.NET:** `System.Security.Cryptography.RandomNumberGenerator`
 
-Software that always gets random numbers from `/dev/random` or `/dev/urandom` also maintains randomness with SnapStart.
+###### Note
+
+For [Go Lambda runtime](lambda-golang.md "lambda-golang.md") no
+changes are required if your functions use the standard library's `crypto/rand`, which is
+snapstart-compatible by default.
+
+When you package your function as a container image, your base image determines uniqueness compatibility with
+SnapStart:
+
+- **A Lambda base image for a managed runtime** (Java version 11+, Python
+  version 3.12+, and .NET version 8+) – Compatible with SnapStart as described above.
+- **The provided.al2023 base image** – Compatible if your programming
+  language runtime obtains entropy from `/dev/random`, `/dev/urandom`, or the
+  SnapStart-compatible build of OpenSSL (openssl-snapsafe-libs) listed in the
+  [Amazon Linux 2023 package list](../../../linux/al2023/release-notes/all-packages.md "../../../linux/al2023/release-notes/all-packages.md").
+  If your runtime relies on other entropy sources, follow the steps described in the "Your own base image"
+  section below.
+- **Your own base image** – Audit your cryptographic libraries and use a post-restore
+  [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md") to
+  discard any cached random number generator (RNG) state or buffered random bytes, ensuring the library reads
+  fresh entropy from the system after restore. For example, Rust functions that use
+  `rand::rngs::ThreadRng` must call `reseed()` after restore. We recommend that you build
+  using a Lambda base image whenever possible. In particular, if your base image includes its own version of
+  OpenSSL or an OpenSSL fork (such as BoringSSL or LibreSSL), either switch to the provided.al2023 base image,
+  which includes a SnapStart-compatible build of OpenSSL (openssl-snapsafe-libs), or use
+  [AWS libcrypto (AWS-LC)](#snapstart-csprng-minimum-versions "#snapstart-csprng-minimum-versions").
+
+### Minimum supported library versions
 
 AWS cryptography libraries automatically maintain randomness with SnapStart beginning with the minimum versions specified in the following table. If you use these libraries with your Lambda functions, make sure that you use the following minimum versions or later versions:
 

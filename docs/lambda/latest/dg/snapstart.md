@@ -44,15 +44,20 @@ SnapStart is particularly beneficial for two main types of applications:
 
 ## Supported features and limitations
 
-SnapStart is available for the following [Lambda managed runtimes](lambda-runtimes.md "lambda-runtimes.md"):
+SnapStart supports the following [Lambda managed runtimes](lambda-runtimes.md "lambda-runtimes.md") and the
+corresponding AWS Lambda base images across ZIP and container image deployment format:
 
 - Java 11 and later
 - Python 3.12 and later
 - .NET 8 and later. If you're using the [Lambda Annotations framework for .NET](csharp-handler.md#csharp-handler-annotations "csharp-handler.md#csharp-handler-annotations"), upgrade to [Amazon.Lambda.Annotations](https://www.nuget.org/packages/Amazon.Lambda.Annotations "https://www.nuget.org/packages/Amazon.Lambda.Annotations") version 1.6.0 or later to ensure compatibility with SnapStart.
 
-Other managed runtimes (such as `nodejs24.x` and `ruby4.0`), [OS-only runtimes](runtimes-provided.md "runtimes-provided.md"), and [container images](images-create.md "images-create.md") are not supported.
+For container images built on AWS Lambda base images or custom base images, refer to
+[Implementing SnapStart hooks for container images](snapstart-runtime-hooks-custom.md "snapstart-runtime-hooks-custom.md") and validate your
+function code for handling SnapStart [uniqueness requirements](snapstart-uniqueness.md "snapstart-uniqueness.md").
 
-SnapStart does not support [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"), [Amazon Elastic File System (Amazon EFS)](../../../efs/latest/ug/accessing-fs.md "../../../efs/latest/ug/accessing-fs.md"), [Amazon S3 Files](../../../AmazonS3/latest/userguide/s3-files.md "../../../AmazonS3/latest/userguide/s3-files.md"), or ephemeral
+Other managed runtimes (such as `nodejs24.x` and `ruby4.0`) and
+[OS-only runtimes](runtimes-provided.md "runtimes-provided.md") are not supported. SnapStart does not
+support [provisioned concurrency](provisioned-concurrency.md "provisioned-concurrency.md"), [Amazon Elastic File System (Amazon EFS)](../../../efs/latest/ug/accessing-fs.md "../../../efs/latest/ug/accessing-fs.md"), [Amazon S3 Files](../../../AmazonS3/latest/userguide/s3-files.md "../../../AmazonS3/latest/userguide/s3-files.md"), or ephemeral
 storage greater than 512 MB.
 
 ###### Note

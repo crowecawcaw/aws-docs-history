@@ -31,6 +31,8 @@ curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/next"
 - [Invocation response](#runtimes-api-response "#runtimes-api-response")
 - [Initialization error](#runtimes-api-initerror "#runtimes-api-initerror")
 - [Invocation error](#runtimes-api-invokeerror "#runtimes-api-invokeerror")
+- [After-Restore (only applicable for SnapStart)](#runtimes-api-after-restore "#runtimes-api-after-restore")
+- [Restore error (only applicable for SnapStart)](#runtimes-api-restore-error "#runtimes-api-restore-error")
 
 ## Next invocation
 
@@ -69,12 +71,8 @@ For example,
   the client application and device.
 - `Lambda-Runtime-Cognito-Identity` – For invocations from the AWS Mobile SDK, data about
   the Amazon Cognito identity provider.
-- `Lambda-Runtime-Invocation-Id` – A unique identifier for this invocation attempt.
-  A single request ID might result in multiple invocation attempts (for example, retries), each with a different
-  invocation ID. Lambda uses each invocation ID exactly once and never reuses it. Echo this value back when calling
-  `/response` or `/error`. Omitting the header is accepted
-  for backward compatibility; only a present header with a mismatched value results in
-  `400 InvalidInvocationId`.
+- `Lambda-Runtime-Invocation-Id` – A unique identifier for this invocation
+  attempt.
 
 Do not set a timeout on the `GET` request as the response may be delayed. Between when Lambda bootstraps the runtime and
 when the runtime has an event to return, the runtime process might be frozen for several seconds.
@@ -131,16 +129,19 @@ this method to report the error to Lambda.
 
 **Headers**
 
-`Lambda-Runtime-Function-Error-Type` – Error type that the runtime encountered. Required:
-no.
+`Lambda-Runtime-Function-Error-Type` – The error type that the runtime encountered. This
+header is optional. Lambda accepts any string value; we recommend using the format
+`<Category.Reason>`, where Category is `Runtime` or `Function` and Reason
+starts with an uppercase letter. For example:
 
-This header consists of a string value. Lambda accepts any string, but we recommend a format of
-<category.reason>. For example:
+- `Runtime.NoSuchHandler`
+- `Runtime.APIKeyNotFound`
+- `Runtime.ConfigInvalid`
+- `Runtime.BeforeSnapshotError` (for SnapStart)
+- `Runtime.UnknownReason`
 
-- Runtime.NoSuchHandler
-- Runtime.APIKeyNotFound
-- Runtime.ConfigInvalid
-- Runtime.UnknownReason
+Values that do not match this pattern are normalized to `Runtime.Unknown` or
+`Function.Unknown`.
 
 **Body parameters**
 
@@ -267,4 +268,94 @@ provided in the invocation.
 REQUEST_ID=156cb537-e2d4-11e8-9b34-d36013741fb9
 ERROR="{\"errorMessage\" : \"Error parsing event data.\", \"errorType\" : \"InvalidEventDataException\"}"
 curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/error" -d "$ERROR" --header "Lambda-Runtime-Function-Error-Type: Unhandled"
+```
+
+## After-Restore (only applicable for SnapStart)
+
+**Path** – `/runtime/restore/next`
+
+**Method** – **GET**
+
+After the pre-snapshot hooks complete, the runtime calls `GET /runtime/restore/next`. This is an
+iterator-style blocking call, similar to `/runtime/invocation/next`, that signals to Lambda that the
+runtime is ready for the execution environment to be snapshotted. The request blocks until Lambda restores the
+execution environment from a snapshot, then returns an HTTP 200 response with an empty body.
+
+**Headers**
+
+No headers required.
+
+###### Response codes
+
+- 200 – Lambda restored the execution environment. Run after-restore hooks. The response body is
+  empty.
+- 403 – Forbidden. The runtime is not in a state that allows `/restore/next` (for example,
+  the runtime has already called `/invocation/next` or `/restore/next`).
+- 404 – SnapStart is not enabled for this function.
+- 500 – Container error. The execution environment is in a non-recoverable state. Exit the runtime
+  process.
+
+###### Request syntax
+
+```
+GET /2018-06-01/runtime/restore/next HTTP/1.1
+Host: ${AWS_LAMBDA_RUNTIME_API}
+```
+
+###### Response syntax
+
+```
+HTTP/1.1 200 OK
+Content-Length: 0
+```
+
+###### Note
+
+Do not set a client-side socket or read timeout on this (or any other) Runtime API request. This is an
+iterator-style blocking call; Lambda freezes the execution environment while the request is open. The request can
+remain open for the entire lifetime of the snapshot (potentially days, weeks, or longer) without the connection
+being considered idle from the Lambda service.
+
+## Restore error (only applicable for SnapStart)
+
+If an after-restore hook fails or the runtime encounters an error during restore, the runtime uses this method
+to report the error to Lambda. Lambda fails the in-flight invocation and tears down the execution environment.
+
+**Path** – `/runtime/restore/error`
+
+**Method** – **POST**
+
+**Headers**
+
+`Lambda-Runtime-Function-Error-Type` – The error type that the runtime encountered. This
+header is optional. Lambda accepts any string value; we recommend using the format
+`<Category.Reason>`, where Category is `Runtime` or `Function` and Reason
+starts with an uppercase letter (for example, `Runtime.AfterRestoreError`). Values that do not match this
+pattern are normalized to `Runtime.Unknown` or `Function.Unknown`.
+
+###### Response codes
+
+- 202 – Accepted. The response body is `{"status":"OK"}`. The runtime should exit the
+  process.
+- 403 – Forbidden. The runtime is not in a state that allows `/restore/error` (for example,
+  `/restore/next` has not been called).
+- 404 – SnapStart is not enabled for this function.
+- 500 – Container error. The execution environment is in a non-recoverable state. Exit the runtime
+  process.
+
+###### Example request
+
+```
+POST /2018-06-01/runtime/restore/error HTTP/1.1
+Host: ${AWS_LAMBDA_RUNTIME_API}
+Lambda-Runtime-Function-Error-Type: Runtime.AfterRestoreError
+```
+
+###### Example response
+
+```
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+
+{"status":"OK"}
 ```

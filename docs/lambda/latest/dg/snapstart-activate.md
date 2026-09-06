@@ -85,6 +85,13 @@ The **cli-binary-format** option is required if you're using AWS CLI version 2. 
 1. Create a function by running the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html") command with the **--snap-start** option. For
    **--role**, specify the Amazon Resource Name (ARN) of your [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 
+###### Note
+
+If you are using SnapStart with an OCI-based function that uses base images other than Lambda's AWS base
+images for Java (version 11+), Python (version 3.12+), and .NET (version 8+), follow the instructions at
+[Implementing SnapStart hooks for container images](snapstart-runtime-hooks-custom.md "snapstart-runtime-hooks-custom.md") to make your
+image compatible with SnapStart.
+
 ```
 `aws lambda create-function \
  --function-name `my-function` \
