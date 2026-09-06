@@ -29,7 +29,7 @@ specific workload to ensure optimal performance with your chosen bandwidth weigh
   limit, especially with larger I/O sizes. For example, an instance type that typically supports
   240,000 IOPS with 16 KiB I/O size might achieve fewer IOPS when using `vpc-1` bandwidth
   weight due to the decreased EBS bandwidth.
-- Always test your specific workload to ensure that your chosen bandwidth weighting meets your
+- Always test your specific workload to make sure that your chosen bandwidth weighting meets your
   performance needs.
 - You can configure the bandwidth weighting during instance launch or modify it for stopped
   instances. For more information see [Configure

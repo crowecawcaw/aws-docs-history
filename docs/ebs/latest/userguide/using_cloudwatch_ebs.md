@@ -6,9 +6,9 @@ the operational behavior of your volumes.
 Data is available automatically in 1-minute periods at no charge.
 
 When you get data from CloudWatch, you can include a `Period` request parameter to
-specify the granularity of the returned data. This is different than the period that we use
-when we collect the data (1-minute periods). We recommend that you specify a period in your
-request that is equal to or greater than the collection period to ensure that the returned
+specify the granularity of the returned data. This is different than the period that EBS uses
+to collect the data (1-minute periods). We recommend that you specify a period in your
+request that is equal to or greater than the collection period to make sure that the returned
 data is valid.
 
 You can get the data using either the CloudWatch API or the Amazon EC2 console. The console takes

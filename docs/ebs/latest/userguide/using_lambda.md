@@ -95,14 +95,14 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
-To ensure that your Lambda function is available from the EventBridge console,
+To make sure that your Lambda function is available from the EventBridge console,
 create it in the Region where the EventBridge event will occur. For more information,
 see the [AWS Lambda Developer Guide](../../../lambda/latest/dg.md "../../../lambda/latest/dg.md"). 3. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/"). 4. In the navigation pane, choose **Rules**, and then choose
 **Create rule**. 5. For **Step 1: Define rule detail**, do the following:
 
     1. Enter values for **Name** and **Description**.
     2. For **Event bus**, keep **default**.
-    3. Ensure that **Enable the rule on the selected event bus** is toggled on.
+    3. Make sure that **Enable the rule on the selected event bus** is toggled on.
     4. For **Event type**, select **Rule with an event pattern**.
     5. Choose **Next**.
 
@@ -110,7 +110,7 @@ see the [AWS Lambda Developer Guide](../../../lambda/latest/dg.md "../../../lamb
 
     1. For **Event source**, select **AWS events or EventBridge partner events**.
     2. In the **Event pattern** section, for **Event source**,
-     ensure that **AWS service** is selected, and for **AWS service**,
+     make sure that **AWS service** is selected, and for **AWS service**,
      select **EC2**.
     3. For **Event type**, select **EBS Snapshot Notification**, select
      **Specific event(s)**, and then choose **createSnapshot**.

@@ -269,7 +269,7 @@ schedule that you add, do the following:
 
     ###### Note
 
-    You must ensure that you do not exceed the number of concurrent snapshot copies per Region.
+    You must make sure that you do not exceed the number of concurrent snapshot copies per Region.
 
 
      If the policy creates snapshots on an Outpost, then you can't copy the snapshots to a Region or to another

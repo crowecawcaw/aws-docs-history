@@ -295,7 +295,7 @@ Restore.
 
 ###### Important
 
-`completionTime` reflects when we generated the event. Because the event is
+`completionTime` reflects when the event was generated. Because the event is
 generated within 5 minutes after initialization completes, the `completionTime`
 can be up to five minutes after the initialization completed.
 

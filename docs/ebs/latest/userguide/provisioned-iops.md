@@ -109,5 +109,5 @@ The following graph illustrates these performance characteristics:
 ![Throughput limits for io1 volumes](images/io1_throughput.png)
 
 Your per-I/O latency experience depends on the provisioned IOPS and on your workload
-profile. For the best I/O latency experience, ensure that you provision IOPS to meet the
+profile. For the best I/O latency experience, make sure that you provision IOPS to meet the
 I/O profile of your workload.

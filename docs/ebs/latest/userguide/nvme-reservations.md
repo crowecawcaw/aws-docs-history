@@ -3,8 +3,8 @@
 Multi-Attach enabled `io2` volumes support NVMe reservations, which is a set of
 industry-standard storage fencing protocols. These protocols enable you to create
 and manage reservations that control and coordinate access from multiple instances
-to a shared volume. Reservations are used by shared storage applications to ensure
-data consistency.
+to a shared volume. Shared storage applications use reservations to make sure
+that data remains consistent.
 
 ###### Contents
 

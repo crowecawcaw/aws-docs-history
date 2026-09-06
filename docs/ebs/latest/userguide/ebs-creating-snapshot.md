@@ -14,7 +14,7 @@ that has been cached by applications or the operating system.
 
 ###### Tip
 
-To ensure consistent and complete snapshots, we recommend that you pause writes to the volume
+To make sure that the snapshots are consistent and complete, we recommend that you pause writes to the volume
 before you create the snapshot. If you can't pause writes to the volume, we recommend that you
 unmount the volume, from within the instance, before you create the snapshot. You can remount
 and resume writes once the snapshot enters the `pending` state.

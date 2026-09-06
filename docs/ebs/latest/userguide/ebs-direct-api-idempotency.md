@@ -12,7 +12,7 @@ same client token, but change one or more of the request parameters, the
 `ConflictException` error is returned.
 
 If you do not specify your own client token, the AWS SDKs automatically generates a
-client token for the request to ensure that it is idempotent.
+client token for the request to make sure that it is idempotent.
 
 A client token can be any string that includes up to 64 ASCII characters. You should
 not reuse the same client tokens for different requests.

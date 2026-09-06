@@ -6,7 +6,7 @@ Snapshots of EBS volumes in an AWS Local Zone can be stored in Amazon S3 in the 
 in the parent Region of that Local Zone. Storing snapshots in a Local Zone can help you meet data
 residency needs by ensuring that snapshot data is processed and stored in a specific country,
 state, or municipality. You can also set up data residency enforcement policies using IAM
-to ensure that snapshot data does not leave the Local Zone.
+to make sure that snapshot data does not leave the Local Zone.
 
 Local Zones are ideal for applications that require single-digit millisecond latency or local
 data processing by bringing AWS infrastructure closer to your end users and business centers.

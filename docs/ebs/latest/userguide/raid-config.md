@@ -154,7 +154,7 @@ Consistency Policy : none
 Depending on the requirements of your application or the limitations of your operating
 system, you can use a different file system type, such as ext3 or XFS (consult
 your file system documentation for the corresponding file system creation
-command). 6. To ensure that the RAID array is reassembled automatically on boot, create a
+command). 6. To make sure that the RAID array is reassembled automatically on boot, create a
 configuration file to contain the RAID information:
 
 ```
@@ -389,7 +389,7 @@ disks to dynamic disks and to delete any existing volumes.
     6. Repeat [Step 6](#windows_raid_disk_step "#windows_raid_disk_step") for each disk you want
      to use in your array.
 
-7. Verify that the disks you want to use are now dynamic. In this case, we're using
+7. Verify that the disks you want to use are now dynamic. In this case, this example uses
 disks 1 and 2 for the RAID volume.
 
 ```
@@ -458,7 +458,7 @@ Volume 1 is a `stripe` volume. 10. Select and format your volume so that you can
 ## Create snapshots of volumes in a RAID array
 
 If you want to back up the data on the EBS volumes in a RAID array using snapshots,
-you must ensure that the snapshots are consistent. This is because the snapshots of
+you must make sure that the snapshots are consistent. This is because the snapshots of
 these volumes are created independently. To restore EBS volumes in a RAID array from
 snapshots that are out of sync would degrade the integrity of the array.
 
@@ -466,6 +466,6 @@ To create a consistent set of snapshots for your RAID array, use [EBS
 multi-volume snapshots](../../../AWSEC2/latest/APIReference/API_CreateSnapshots.md "../../../AWSEC2/latest/APIReference/API_CreateSnapshots.md"). Multi-volume snapshots allow you to take
 point-in-time, data coordinated, and crash-consistent snapshots across multiple EBS
 volumes attached to an EC2 instance. You do not have to stop your instance to coordinate
-between volumes to ensure consistency because snapshots are automatically taken across
+between volumes to ensure consistency, because snapshots are automatically taken across
 multiple EBS volumes. For more information, see the steps for creating multi-volume
 snapshots under [Create Amazon EBS snapshots](ebs-creating-snapshot.md "ebs-creating-snapshot.md").

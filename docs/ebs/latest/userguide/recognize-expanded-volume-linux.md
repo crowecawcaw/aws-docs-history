@@ -10,7 +10,7 @@ do this as soon as the volume enters the `optimizing` state.
   information, see [Create Amazon EBS snapshots](ebs-creating-snapshot.md "ebs-creating-snapshot.md").
 - Confirm that the volume modification succeeded and that it is in the`optimizing`
   or `completed` state. For more information, see [Monitor the progress of Amazon EBS volume modifications](monitoring-volume-modifications.md "monitoring-volume-modifications.md").
-- Ensure that the volume is attached to the instance and that it is formatted and mounted.
+- Make sure that the volume is attached to the instance and that it is formatted and mounted.
   For more information, see [Format and mount an attached volume](ebs-using-volumes.md#ebs-format-mount-volume "ebs-using-volumes.md#ebs-format-mount-volume").
 - (_Linux instances only_) If you are using logical volumes
   on the Amazon EBS volume, you must use Logical Volume Manager (LVM) to extend the logical volume.
@@ -71,7 +71,7 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
 
    ###### Troubleshooting tip
 
-   If you do not see the volume in the command output, ensure that the volume is
+   If you do not see the volume in the command output, make sure that the volume is
    [attached to the instance](ebs-attaching-volume.md "ebs-attaching-volume.md"), and that it is
    [formatted and mounted](ebs-using-volumes.md#ebs-format-mount-volume "ebs-using-volumes.md#ebs-format-mount-volume"). 2. Check whether the partition needs to be extended. In the **lsblk** command
    output from the previous step, compare the partition size and the volume size.
@@ -122,7 +122,7 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
          for growpart to create the temporary directory it needs to perform the resize. Free up some disk
          space and then try again.
         * `must supply partition-number`: Indicates that you specified an incorrect partition.
-         Use the **lsblk** command to confirm the partition name, and ensure that you enter
+         Use the **lsblk** command to confirm the partition name, and make sure that you enter
          a space between the device name and the partition number.
         * `NOCHANGE: partition 1 is size 16773087. it cannot be grown`: Indicates that the
          partition already extends the entire volume and can't be extended.
@@ -222,7 +222,7 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
         	 point and file system type, use the **df -hT** command.
         	+ `data size unchanged, skipping`: Indicates that the file system already
         	 extends the entire volume. If the volume has no partitions, [confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions,
-        	 ensure that the partition was extended as described in step 2.
+        	 make sure that the partition was extended as described in step 2.
         * **[Ext4 file system]** Use the **resize2fs**
          command and specify the name of the file system that you noted in the previous step.
 
@@ -264,7 +264,7 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
         	+ `The filesystem is already 3932160 blocks long. Nothing to
         	 do!`: Indicates that the file system already extends the entire
         	 volume. If the volume has no partitions, [confirm that the volume
-        	 modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions, ensure that
+        	 modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions, make sure that
         	 the partition was extended, as described in step 2.
         * **[Other file system]** See the documentation
          for your file system for instructions.

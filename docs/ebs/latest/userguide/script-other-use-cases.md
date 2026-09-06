@@ -30,7 +30,7 @@ for **uses cases other than application-consistent snapshots**.
    - (Linux instances) [Manually installing SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md")
    - (Windows instances) [Working with SSM Agent on EC2 instances for Windows Server](../../../systems-manager/latest/userguide/ssm-agent-windows.md "../../../systems-manager/latest/userguide/ssm-agent-windows.md")
 
-2. Ensure that the SSM Agent is running. For more information, see
+2. Make sure that the SSM Agent is running. For more information, see
    [Checking SSM Agent status and starting the agent](../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md "../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md").
 3. Set up Systems Manager for Amazon EC2 instances. For more information, see [Setting up Systems Manager
    for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") in the _AWS Systems Manager User Guide_.
@@ -42,7 +42,7 @@ add your pre and post script commands in the appropriate document sections.
 
 ###### Note the following:
 
-- It is your responsibility to ensure that the SSM document performs the
+- It is your responsibility to make sure that the SSM document performs the
   correct and required actions for your workload.
 - The SSM document must include required fields for `allowedValues`,
   including `pre-script`, `post-script`, and
@@ -167,22 +167,22 @@ This step is needed if:
   snapshot policy that uses the default.
   If you use the console to create or update a pre/post script-enabled snapshot policy
   that uses the default role for managing snapshots (**AWSDataLifecycleManagerDefaultRole**), skip
-  this step. In this case, we automatically attach the **AWSDataLifecycleManagerSSMFullAccess**
-  policy to that role.
+  this step. In this case, the **AWSDataLifecycleManagerSSMFullAccess**
+  policy is automatically attached to that role.
 
-You must ensure that that IAM role that you use for the policy grants Amazon Data Lifecycle Manager permission to
+You must make sure that the IAM role that you use for the policy grants Amazon Data Lifecycle Manager permission to
 perform the SSM actions required to run pre and post scripts on instances targeted by the
 policy.
 
 Amazon Data Lifecycle Manager provides a managed policy (**AWSDataLifecycleManagerSSMFullAccess**)
 that includes the required permissions. You can attach this policy to your
-IAM role for managing snapshots to ensure that it includes the permissions.
+IAM role for managing snapshots to make sure that it includes the permissions.
 
 ###### Important
 
 The AWSDataLifecycleManagerSSMFullAccess managed policy uses the `aws:ResourceTag`
 condition key to restrict access to specific SSM documents when using pre and post scripts.
-To allow Amazon Data Lifecycle Manager to access the SSM documents, you must ensure that your SSM documents
+To allow Amazon Data Lifecycle Manager to access the SSM documents, you must make sure that your SSM documents
 are tagged with `DLMScriptsAccess:true`.
 
 Alternatively, you can manually create a custom policy or assign the required

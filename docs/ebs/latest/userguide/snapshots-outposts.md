@@ -78,11 +78,11 @@ local snapshots?**
 Amazon S3 storage capacity becomes available within 72 hours after deleting local snapshots and the volumes that
 reference them.
 
-**8. How can I ensure that I do not run out of Amazon S3 capacity on my Outpost?**
+**8. How can I make sure that I do not run out of Amazon S3 capacity on my Outpost?**
 
 We recommend that you use Amazon CloudWatch alarms to monitor your Amazon S3 storage capacity, and delete snapshots
 and volumes that you no longer need to avoid running out of storage capacity. If you are using Amazon Data Lifecycle Manager to
-automate the lifecycle of local snapshots, ensure that your snapshot retention policies do not retain
+automate the lifecycle of local snapshots, make sure that your snapshot retention policies do not retain
 snapshots for longer than is needed.
 
 **9. What happens if I run out of local Amazon S3 capacity on an Outpost?**
@@ -140,7 +140,7 @@ Keep the following in mind when working with local snapshots.
   over the service link. Copying multiple snapshots simultaneously could impact other
   services running on the Outpost.
 - You can't share local snapshots.
-- You must use IAM policies to ensure that your data residency requirements are met. For
+- You must use IAM policies to make sure that your data residency requirements are met. For
   more information, see [Controlling access with IAM](#iam "#iam").
 - Local snapshots are incremental backups. Only the blocks in the volume
   that have changed after your most recent snapshot are saved. Each local snapshot

@@ -49,13 +49,13 @@ From your Windows instance, unmount the volume as follows.
 
 1. Start the Disk Management utility.
 
-   - (Windows Server 2012 and later) On the taskbar, right-click the Windows logo
+   - (Windows Server 2012 and later) On the taskbar, choose (right-click) the Windows logo
      and choose **Disk Management**.
    - Windows Server 2008) Choose **Start**,
      **Administrative Tools**, **Computer
      Management**, **Disk Management**.
 
-2. Right-click the disk (for example, right-click **Disk 1**) and
+2. Choose the disk (for example, choose (right-click) **Disk 1**) and
    then choose **Offline**. Wait for the disk status to change to
    **Offline** before opening the Amazon EC2 console.
 
@@ -101,7 +101,7 @@ When you unmount and detach a volume from an instance, Windows flags the device 
 as offline. The device location remains offline after rebooting, and stopping and restarting
 the instance. When you restart the instance, Windows might mount one of the remaining volumes
 to the offline device location. This causes the volume to be unavailable in Windows. To
-prevent this from happening and to ensure that all volumes are attached to online device
+prevent this from happening and to make sure that all volumes are attached to online device
 locations the next time Windows starts, perform the following steps:
 
 1. On the instance, open the Device Manager.
@@ -111,7 +111,7 @@ locations the next time Windows starts, perform the following steps:
    node.
 
 The device locations to which the detached volumes were mounted are named `AWS 
- NVMe Elastic Block Storage Adapter` and they should appear greyed out. 4. Right-click each greyed out device location named `AWS NVMe Elastic Block Storage 
+ NVMe Elastic Block Storage Adapter` and they should appear greyed out. 4. Choose (right-click) each greyed out device location named `AWS NVMe Elastic Block Storage 
  Adapter`, select **Uninstall device** and choose
 **Uninstall**.
 

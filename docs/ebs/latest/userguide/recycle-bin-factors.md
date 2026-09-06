@@ -92,7 +92,7 @@ the AMI itself, as this would make the AMI unrecoverable.
   the Recycle Bin. If you restore the AMI, all of the previous sharing permissions are
   automatically restored.
 - Before you can restore an AMI from the Recycle Bin, you must first restore all of its
-  associated snapshots from the Recycle Bin and ensure that they are in the `available`
+  associated snapshots from the Recycle Bin and make sure that they are in the `available`
   state.
 - If the snapshots that are associated with the AMI are deleted from the Recycle Bin, the
   AMI is no longer recoverable. The AMI will be deleted when the retention period expires.

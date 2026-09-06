@@ -67,7 +67,7 @@ hit using one of the following options:
 - Access each block prior to putting the volume into production. This process is
   called _initialization_ (formerly known as pre-warming). For more
   information, see [Manually initialize the volumes after creation](initalize-volume.md#ebs-initialize "initalize-volume.md#ebs-initialize").
-- Enable fast snapshot restore on a snapshot to ensure that the EBS volumes
+- Enable fast snapshot restore on a snapshot to make sure that the EBS volumes
   created from it are fully-initialized at creation and instantly deliver all
   of their provisioned performance. For more information, see [Amazon EBS fast snapshot restore](ebs-fast-snapshot-restore.md "ebs-fast-snapshot-restore.md").
 

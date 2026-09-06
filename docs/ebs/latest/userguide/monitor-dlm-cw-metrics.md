@@ -225,7 +225,7 @@ alarm when the number of targeted resources is below or above an expected thresh
 For example, if you expect your daily policy to create backups of no more than `50`
 volumes, you can create an alarm that sends an email notification when the `sum` for
 `ResourcesTargeted` is greater than `50` over a `1`
-hour period. In this way, you can ensure that no snapshots have been unexpectedly created from
+hour period. In this way, you can make sure that no snapshots have been unexpectedly created from
 volumes that have been incorrectly tagged.
 
 You can use the following command to create this alarm:
@@ -253,7 +253,7 @@ snapshots as per the policy's snapshot retention rule.
 For example, if you've created a policy that should automatically delete snapshots every twelve
 hours, you can create an alarm that notifies your engineering team when the `sum` of
 `SnapshotDeletionFailed` is greater than `0` over a `1` hour
-period. This could help to investigate improper snapshot retention and to ensure that your storage
+period. This could help to investigate improper snapshot retention and to make sure that your storage
 costs are not increased by unnecessary snapshots.
 
 You can use the following command to create this alarm:

@@ -47,7 +47,7 @@ minutes.
 
 Yes. Encrypted snapshots can be accessed using the EBS direct APIs.
 
-To access an encrypted snapshot, the user must have access to the KMS key used to
+To access an encrypted snapshot, you must have access to the KMS key used to
 encrypt the snapshot, and the AWS KMS decrypt action. See the [Control access to EBS direct APIs using IAM](ebsapi-permissions.md "ebsapi-permissions.md") section earlier in
 this guide for the AWS KMS policy to assign to a user.
 

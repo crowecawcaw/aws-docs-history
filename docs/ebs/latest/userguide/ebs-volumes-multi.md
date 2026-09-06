@@ -47,8 +47,8 @@ recommend that you use `io2` volumes.
   the Nitro System](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md") that support the Scalable Reliable Datagram (SRD) networking
   protocol only. To use Multi-Attach with these instance types, you must use `io2`.
 - Standard file systems, such as XFS and EXT4, are not designed to be accessed simultaneously
-  by multiple servers, such as EC2 instances. You should use a clustered file system to ensure
-  data resiliency and reliability for your production workloads.
+  by multiple servers, such as EC2 instances. You should use a clustered file system to make sure
+  that your data is resilient and reliable for your production workloads.
 - Multi-Attach enabled `io2` volumes support I/O fencing. I/O fencing protocols control write
   access in a shared storage environment to maintain data consistency. Your applications must
   provide write ordering for the attached instances to maintain data consistency. For more

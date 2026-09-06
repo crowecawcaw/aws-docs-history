@@ -40,7 +40,7 @@ following steps:
 In the source account, create an EBS snapshot policy that will create the snapshots and share them
 with the required target accounts.
 
-When you create the policy, ensure that you enable cross-account sharing and that you specify the
+When you create the policy, make sure that you enable cross-account sharing and that you specify the
 target AWS accounts with which to share the snapshots. These are the accounts with which the snapshots
 are to be shared. If you are sharing encrypted snapshots, then you must give the selected target
 accounts permission to use the KMS key used to encrypt the source volume. For more information, see
@@ -106,7 +106,7 @@ Open the key policy using your preferred text editor. Add the ARN of the IAM rol
 that you specified when you created the snapshot policy and the ARNs
 of the target accounts with which to share the KMS key.
 
-For example, in the following policy, we added the ARN of the default IAM role, and
+For example, in the following policy, the ARN of the default IAM role is specified, along with
 the ARN of the root account for target account
 `222222222222.`
 

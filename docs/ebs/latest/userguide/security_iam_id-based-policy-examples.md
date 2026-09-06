@@ -62,7 +62,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that they're trying to perform.
 
-To ensure that users and roles can still use the Amazon EBS console, also attach the
+To make sure that users and roles can still use the Amazon EBS console, also attach the
 Amazon EBS `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
@@ -302,7 +302,7 @@ instances on the **Instances** page in the console, so you can
 omit this action.
 
 In the first statement, the `ec2:DescribeAvailabilityZones` action is necessary
-to ensure that a user can select an Availability Zone when creating a volume.
+to make sure that a user can select an Availability Zone when creating a volume.
 
 Users cannot tag the volumes that they create (either during or after volume
 creation).

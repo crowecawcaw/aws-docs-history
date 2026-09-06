@@ -37,7 +37,7 @@ snapshot that has 225,000 MiB (0.214 TiB) of data, and you request a completion 
 When you initiate a **time-based AMI copy operation**, the
 completion duration you specify applies to each snapshot associated with the AMI. Because
 each snapshot can have a different size, each snapshot is copied at a different throughput
-to ensure that all snapshots are copied within the completion duration. For example, say you
+to make sure that all snapshots are copied within the completion duration. For example, say you
 have an AMI with the following associated snapshots:
 
 - Snapshot 1: 200,000 MiB
@@ -52,7 +52,7 @@ minutes, the request uses the following throughput:
 - Snapshot 3: 125 MiB/s (450,000 MiB ÷ 60 minutes = 125 MiB/s)
 
 This means that the request uses 319.45 MiB/s of your cumulative snapshot copy throughput
-quota to ensure that the copy completes in 60 minutes.
+quota to make sure that the copy completes in 60 minutes.
 
 If you initiate a time-based snapshot or EBS-backed AMI copy request and your
 available cumulative snapshot copy throughput quota is:

@@ -95,12 +95,12 @@ If your workload uses sequential I/Os on HDD-backed `st1` and `sc1` volumes, you
 experience a higher than expected number of IOPS as measured from inside your instance. This
 happens when the instance operating system merges sequential I/Os and counts them in 1,024
 KiB-sized units. If your workload uses small or random I/Os, you may experience a lower
-throughput than you expect. This is because we count each random, non-sequential I/O toward
+throughput than you expect. This is because each random, non-sequential I/O counts toward
 the total IOPS count, which can cause you to hit the volume's IOPS limit sooner than
 expected.
 
 Whatever your EBS volume type, if you are not experiencing the IOPS or throughput you
-expect in your configuration, ensure that your EC2 instance bandwidth is not the limiting
+expect in your configuration, make sure that your EC2 instance bandwidth is not the limiting
 factor. You should always use a current-generation, EBS-optimized instance (or one that
 includes 10 Gb/s network connectivity) for optimal performance. Another possible cause for
 not experiencing the expected IOPS is that you are not driving enough I/O to the EBS

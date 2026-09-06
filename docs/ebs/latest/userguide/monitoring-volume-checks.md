@@ -17,7 +17,7 @@ that it disables I/O to the volume from any attached EC2 instances, which helps 
 prevent data corruption. After I/O is disabled, the next volume status check fails, and
 the volume status is `impaired`. In addition, you'll see an event that lets
 you know that I/O is disabled, and that you can resolve the impaired status of the
-volume by enabling I/O to the volume. We wait until you enable I/O to give you the
+volume by enabling I/O to the volume. EBS waits until you enable I/O to give you the
 opportunity to decide whether to continue to let your instances use the volume, or to
 run a consistency check using a command, such as **fsck** (Linux instances)
 or **chkdsk** (Windows instances), before doing so.
@@ -58,12 +58,12 @@ them. For more information, see [Manually initialize the volumes after creation]
 
 The following table lists statuses for Amazon EBS volumes.
 
-| Volume status       | I/O enabled status                                                                                                                          | I/O performance status (`io1`, `io2`, and `gp3` volumes only)                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `ok`                | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                                   | Normal (Volume performance is as expected)                                                                                          |
-| `warning`           | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                                   | Degraded (Volume performance is below expectations)<br>Severely Degraded (Volume performance is well below<br>expectations)         |
-| `impaired`          | Enabled (I/O Enabled or I/O Auto-Enabled)<br>Disabled (Volume is offline and pending recovery, or is waiting<br>for the user to enable I/O) | Stalled (Volume performance is severely impacted)<br>Not Available (Unable to determine I/O performance because I/O is<br>disabled) |
-| `insufficient-data` | Enabled (I/O Enabled or I/O Auto-Enabled)<br>Insufficient Data                                                                              | Insufficient Data                                                                                                                   |
+| Volume status       | I/O enabled status                                                                                                                     | I/O performance status (`io1`, `io2`, and `gp3` volumes only)                                                                       |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `ok`                | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                              | Normal (Volume performance is as expected)                                                                                          |
+| `warning`           | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                              | Degraded (Volume performance is below expectations)<br>Severely Degraded (Volume performance is well below<br>expectations)         |
+| `impaired`          | Enabled (I/O Enabled or I/O Auto-Enabled)<br>Disabled (Volume is offline and pending recovery, or is waiting<br>for you to enable I/O) | Stalled (Volume performance is severely impacted)<br>Not Available (Unable to determine I/O performance because I/O is<br>disabled) |
+| `insufficient-data` | Enabled (I/O Enabled or I/O Auto-Enabled)<br>Insufficient Data                                                                         | Insufficient Data                                                                                                                   |
 
 Console
 

@@ -41,7 +41,7 @@ to list your EBS volumes across all Regions.
 1. Open the Amazon EC2 Global View console at [https://console.aws.amazon.com/ec2globalview/home](https://console.aws.amazon.com/ec2globalview/home "https://console.aws.amazon.com/ec2globalview/home").
 2. On the **Region explorer** tab, under **Summary**,
    check the resource count for **Volumes**, which includes
-   the number of volumes and the number of Regions. Click the underlined text
+   the number of volumes and the number of Regions. Choose the underlined text
    to see how the volume count is spread across Regions.
 3. On the **Global search** tab, select the client filter
    **Resource type = Volume**. You can filter the results

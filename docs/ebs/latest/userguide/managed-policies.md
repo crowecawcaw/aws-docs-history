@@ -151,7 +151,7 @@ scripts on all Amazon EC2 instances.
 
 The policy uses the `aws:ResourceTag` condition key to restrict access
 to specific SSM documents when using pre and post scripts. To allow Amazon Data Lifecycle Manager to access
-the SSM documents, you must ensure that your SSM documents are tagged with
+the SSM documents, you must make sure that your SSM documents are tagged with
 `DLMScriptsAccess:true`.
 
 JSON

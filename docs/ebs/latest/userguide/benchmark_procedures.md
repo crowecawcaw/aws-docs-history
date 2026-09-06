@@ -188,7 +188,7 @@ $current_scheme = powercfg /getactivescheme
 powercfg /setacvalueindex `<power_scheme_guid>` `<power_setting_subgroup_guid>` `<power_setting_guid>` 1
 ```
 
-6. Set active scheme to ensure the settings are saved.
+6. Set active scheme to make sure the settings are saved.
 
 ```
 powercfg /setactive `<power_scheme_guid>`

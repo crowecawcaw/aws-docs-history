@@ -48,7 +48,7 @@ summarizes the possible encryption outcomes.
 - To use a volume with an instance running on an outpost, you must create the volume on
   the same outpost as the instance.
 - If you create a volume for use with a Windows instance, and it's larger than 2048 GiB,
-  ensure that you configure the volume to use GPT partition tables. For more information, see
+  make sure that you configure the volume to use GPT partition tables. For more information, see
   [Amazon EBS volume constraints](volume_constraints.md "volume_constraints.md") and [Windows support for disks larger than 2 TB.](https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/support-for-hard-disks-exceeding-2-tb "https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/support-for-hard-disks-exceeding-2-tb").
 - Volumes are also created indirectly by launching an Amazon EC2 instance. Either the AMI
   used to launch the instance, or the instance launch request itself could include block

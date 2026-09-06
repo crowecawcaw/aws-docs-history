@@ -90,7 +90,7 @@ instances with encrypted volumes, or using encrypted AMIs or snapshots.
 
 If you are creating an SCP or key policy that denies access based on network location using
 the `aws:SourceIp`, `aws:VpcSourceIp`, `aws:SourceVpc`, or
-`aws:SourceVpce` AWS global condition keys, then you must ensure that these policy
+`aws:SourceVpce` AWS global condition keys, then you must make sure that these policy
 statements do not apply to instance-only roles. For example policies, see
 [Data
 Perimeter Policy Examples](https://github.com/aws-samples/data-perimeter-policy-examples/tree/main "https://github.com/aws-samples/data-perimeter-policy-examples/tree/main").

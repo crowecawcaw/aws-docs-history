@@ -42,7 +42,7 @@ volumes restored from unencrypted snapshots, and no encryption parameters are
 required for your default KMS key to be used. The following diagram shows this
 simple default case:
 
-![When you create a volume from an unencrypted snapshot but encryption by default is enabled, we use the default KMS key to create an encrypted volume.](images/volume-encrypt-account-on.png)
+![When you create a volume from an unencrypted snapshot but encryption by default is enabled, EBS uses the default KMS key to create an encrypted volume.](images/volume-encrypt-account-on.png)
 
 If you want to encrypt the restored volume to a symmetric customer managed encryption key,
 you must supply both the `Encrypted` and `KmsKeyId` parameters

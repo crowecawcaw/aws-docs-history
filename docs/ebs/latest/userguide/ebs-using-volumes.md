@@ -221,11 +221,11 @@ For Ubuntu 18.04 use the lsblk command.
    information about the required fields, run `man fstab` to open the
    **fstab** manual.
 
-In the following example, we mount the device with UUID
+The following example mounts the device with UUID
 `aebf131c-6957-451e-8d34-ec978d9581ae` to mount point `/data`
-and we use the `xfs` file system. We also use the `defaults` and
-`nofail` flags. We specify `0` to prevent the file system from
-being dumped, and we specify `2` to indicate that it is a non-root
+and uses the `xfs` file system. It also uses the `defaults` and
+`nofail` flags. It specifies `0` to prevent the file system from
+being dumped, and specifies `2` to indicate that it is a non-root
 device.
 
 ```
@@ -309,7 +309,7 @@ DiskPart command line tool
 
    1. Open the Start menu, and select **File Explorer**.
    2. Navigate to a directory, such as C:\, to store the script file.
-   3. Choose or right-click an empty space within the folder to open the dialog
+   3. Choose (right-click) an empty space within the folder to open the dialog
       box, position the cursor over **New** to access the context
       menu, and then choose **Text Document**.
    4. Name the text file `diskpart.txt`.

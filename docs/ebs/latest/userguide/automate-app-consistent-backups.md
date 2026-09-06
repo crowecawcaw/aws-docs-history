@@ -54,9 +54,9 @@ Prepare for VSS Backups
 1. Install the SSM Agent on your target instances, if it is not already installed.
    If SSM Agent is already installed on your target instances, skip this step.
 
-For more information, see [Working with SSM Agent on EC2 instances for Windows server](../../../systems-manager/latest/userguide/ssm-agent-windows.md "../../../systems-manager/latest/userguide/ssm-agent-windows.md"). 2. Ensure that the SSM Agent is running. For more information, see
+For more information, see [Working with SSM Agent on EC2 instances for Windows server](../../../systems-manager/latest/userguide/ssm-agent-windows.md "../../../systems-manager/latest/userguide/ssm-agent-windows.md"). 2. Make sure that the SSM Agent is running. For more information, see
 [Checking SSM Agent status and starting the agent](../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md "../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md"). 3. Set up Systems Manager for Amazon EC2 instances. For more information, see [Setting up Systems Manager
-for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") in the _AWS Systems Manager User Guide_. 4. [Ensure the system requirements for VSS backups are met](../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-prereqs.md "../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-prereqs.md"). 5. [Attach a VSS-enabled instance profile to the target instances](../../../AWSEC2/latest/UserGuide/vss-iam-reqs.md "../../../AWSEC2/latest/UserGuide/vss-iam-reqs.md"). 6. [Install the VSS components](../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-getting-started.md "../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-getting-started.md").
+for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") in the _AWS Systems Manager User Guide_. 4. [Make sure the system requirements for VSS backups are met](../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-prereqs.md "../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-prereqs.md"). 5. [Attach a VSS-enabled instance profile to the target instances](../../../AWSEC2/latest/UserGuide/vss-iam-reqs.md "../../../AWSEC2/latest/UserGuide/vss-iam-reqs.md"). 6. [Install the VSS components](../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-getting-started.md "../../../AWSEC2/latest/UserGuide/application-consistent-snapshots-getting-started.md").
 
 Prepare for SAP HANA backups
 
@@ -111,7 +111,7 @@ Prepare for SAP HANA backups
 2. Install the SSM Agent on your target instances, if it is not already installed.
    If SSM Agent is already installed on your target instances, skip this step.
 
-For more information, see [Manually installing SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md"). 3. Ensure that the SSM Agent is running. For more information, see
+For more information, see [Manually installing SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md"). 3. Make sure that the SSM Agent is running. For more information, see
 [Checking SSM Agent status and starting the agent](../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md "../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md"). 4. Set up Systems Manager for Amazon EC2 instances. For more information, see [Setting up Systems Manager
 for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") in the _AWS Systems Manager User Guide_.
 
@@ -125,7 +125,7 @@ Prepare for custom SSM documents
    - (Linux instances) [Manually installing SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md")
    - (Windows instances) [Working with SSM Agent on EC2 instances for Windows Server](../../../systems-manager/latest/userguide/ssm-agent-windows.md "../../../systems-manager/latest/userguide/ssm-agent-windows.md")
 
-2. Ensure that the SSM Agent is running. For more information, see
+2. Make sure that the SSM Agent is running. For more information, see
    [Checking SSM Agent status and starting the agent](../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md "../../../systems-manager/latest/userguide/ssm-agent-status-and-restart.md").
 3. Set up Systems Manager for Amazon EC2 instances. For more information, see [Setting up Systems Manager
    for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") in the _AWS Systems Manager User Guide_.
@@ -151,7 +151,7 @@ your pre and post commands in the appropriate document sections.
 
 ###### Note the following:
 
-- It is your responsibility to ensure that the SSM document performs the
+- It is your responsibility to make sure that the SSM document performs the
   correct and required actions for your database configuration.
 - Snapshots are guaranteed to be application-consistent only if the pre
   and post scripts in your SSM document can successfully freeze, flush, and
@@ -1035,22 +1035,22 @@ This step is needed if:
   snapshot policy that uses the default.
   If you use the console to create or update a pre/post script-enabled snapshot policy
   that uses the default role for managing snapshots (**AWSDataLifecycleManagerDefaultRole**), skip
-  this step. In this case, we automatically attach the **AWSDataLifecycleManagerSSMFullAccess**
-  policy to that role.
+  this step. In this case, the **AWSDataLifecycleManagerSSMFullAccess**
+  policy is automatically attached to that role.
 
-You must ensure that the IAM role that you use for policy grants Amazon Data Lifecycle Manager permission to
+You must make sure that the IAM role that you use for policy grants Amazon Data Lifecycle Manager permission to
 perform the SSM actions required to run pre and post scripts on instances targeted by the
 policy.
 
 Amazon Data Lifecycle Manager provides a managed policy (**AWSDataLifecycleManagerSSMFullAccess**)
 that includes the required permissions. You can attach this policy to your
-IAM role for managing snapshots to ensure that it includes the permissions.
+IAM role for managing snapshots to make sure that it includes the permissions.
 
 ###### Important
 
 The AWSDataLifecycleManagerSSMFullAccess managed policy uses the `aws:ResourceTag`
 condition key to restrict access to specific SSM documents when using pre and post scripts.
-To allow Amazon Data Lifecycle Manager to access the SSM documents, you must ensure that your SSM documents
+To allow Amazon Data Lifecycle Manager to access the SSM documents, you must make sure that your SSM documents
 are tagged with `DLMScriptsAccess:true`.
 
 Alternatively, you can manually create a custom policy or assign the required
@@ -1316,7 +1316,7 @@ You might need to manually delete these snapshots.
 
 ## Shared responsibility for application-consistent snapshots
 
-###### You must ensure that:
+###### You must make sure that:
 
 - The SSM Agent is installed, up-to-date, and running on your target instances
 - Systems Manager has permissions to perform the required actions on the target instances

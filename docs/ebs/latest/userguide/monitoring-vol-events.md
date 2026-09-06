@@ -53,7 +53,7 @@ If you have a volume where I/O is disabled, see [Work with an impaired Amazon EB
 is below normal, this might be a temporary condition due to an action you have taken
 (for example, creating a snapshot of a volume during peak usage, running the volume on
 an instance that cannot support the I/O bandwidth required, accessing data on the volume
-for the first time, etc.).
+for the first time, and so on).
 
 Console
 
