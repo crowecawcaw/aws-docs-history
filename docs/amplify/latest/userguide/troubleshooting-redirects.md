@@ -1,20 +1,18 @@
+
+
 # Troubleshooting redirects and rewrites
+<a name="troubleshooting-redirects"></a>
 
-If you encounter issues when setting up redirects and rewrites for an Amplify
-application, consult the topics in this section for help.
+If you encounter issues when setting up redirects and rewrites for an Amplify application, consult the topics in this section for help.
 
-###### Topics
-
-- [Access is denied for certain routes even with the SPA redirect rule.](#spa-redirect-access-denied "#spa-redirect-access-denied")
-- [I want to set up a reverse proxy to an API](#reverse-proxy-api "#reverse-proxy-api")
+**Topics**
++ [Access is denied for certain routes even with the SPA redirect rule.](#spa-redirect-access-denied)
++ [I want to set up a reverse proxy to an API](#reverse-proxy-api)
 
 ## Access is denied for certain routes even with the SPA redirect rule.
+<a name="spa-redirect-access-denied"></a>
 
-If you are getting an access denied error for certain routes with an SPA redirect
-rule, the `baseDirectory` might not be set correctly in the app's build
-settings. For example, if your app's frontend is built to the `build`
-directory, your build settings must also point to the `build` directory.
-The following build specification example demonstrates this setting.
+If you are getting an access denied error for certain routes with an SPA redirect rule, the `baseDirectory` might not be set correctly in the app's build settings. For example, if your app's frontend is built to the `build` directory, your build settings must also point to the `build` directory. The following build specification example demonstrates this setting.
 
 ```
 frontend:
@@ -24,13 +22,12 @@ frontend:
         - "**/*"
 ```
 
-For a full example of the build specification settings for an Amplify app, see
-[Build specification YAML syntax reference](yml-specification-syntax.md#build-yaml-syntax "yml-specification-syntax.md#build-yaml-syntax")
+For a full example of the build specification settings for an Amplify app, see [Build specification YAML syntax reference](yml-specification-syntax.md#build-yaml-syntax)
 
 ## I want to set up a reverse proxy to an API
+<a name="reverse-proxy-api"></a>
 
-You can use the following JSON to set up a reverse proxy to a dynamic
-endpoint.
+You can use the following JSON to set up a reverse proxy to a dynamic endpoint.
 
 ```
 [
@@ -43,5 +40,4 @@ endpoint.
 ]
 ```
 
-For a basic example of creating a reverse proxy for your Amplify app to a
-third-party API, see [Reverse proxy rewrite](redirect-rewrite-examples.md#reverse-proxy-rewrite "redirect-rewrite-examples.md#reverse-proxy-rewrite").
+For a basic example of creating a reverse proxy for your Amplify app to a third-party API, see [Reverse proxy rewrite](redirect-rewrite-examples.md#reverse-proxy-rewrite).

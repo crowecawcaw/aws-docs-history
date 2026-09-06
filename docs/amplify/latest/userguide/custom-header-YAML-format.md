@@ -1,57 +1,54 @@
+
+
 # Custom header YAML reference
+<a name="custom-header-YAML-format"></a>
 
 Specify custom headers using the following YAML format:
 
 ```
 customHeaders:
-  - pattern: `'*.json'`
+  - pattern: {{'*.json'}}
     headers:
-    - key: `'custom-header-name-1'`
-      value: `'custom-header-value-1'`
-    - key: `'custom-header-name-2'`
-      value: `'custom-header-value-2'`
-  - pattern: `'/path/*'`
+    - key: {{'custom-header-name-1'}}
+      value: {{'custom-header-value-1'}}
+    - key: {{'custom-header-name-2'}}
+      value: {{'custom-header-value-2'}}
+  - pattern: {{'/path/*'}}
     headers:
-    - key: `'custom-header-name-1'`
-      value: `'custom-header-value-2'`
+    - key: {{'custom-header-name-1'}}
+      value: {{'custom-header-value-2'}}
 ```
 
 For a monorepo, use the following YAML format:
 
 ```
 applications:
-  - appRoot: `app1`
+  - appRoot: {{app1}}
     customHeaders:
-    - pattern: `'**/*'`
+    - pattern: {{'**/*'}}
       headers:
-      - key: `'custom-header-name-1'`
-        value: `'custom-header-value-1'`
-  - appRoot: `app2`
+      - key: {{'custom-header-name-1'}}
+        value: {{'custom-header-value-1'}}
+  - appRoot: {{app2}}
     customHeaders:
-    - pattern: `'/path/*.json'`
+    - pattern: {{'/path/*.json'}}
       headers:
-      - key: `'custom-header-name-2'`
-        value: `'custom-header-value-2'`
-
+      - key: {{'custom-header-name-2'}}
+        value: {{'custom-header-value-2'}}
 ```
 
-When you add custom headers to your app, you will specify your own values for the
-following:
+When you add custom headers to your app, you will specify your own values for the following:
 
-**pattern**
-
+**pattern**  
 Custom headers are applied to all URL file paths that match the pattern.
 
-**headers**
-
+**headers**  
 Defines the headers that match the file pattern.
 
-**key**
-
+**key**  
 The name of the custom header.
 
-**value**
-
+**value**  
 The value of the custom header.
 
-To learn more about HTTP headers, see Mozilla's list of [HTTP Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers").
+To learn more about HTTP headers, see Mozilla's list of [HTTP Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers).

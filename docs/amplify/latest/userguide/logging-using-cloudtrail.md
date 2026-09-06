@@ -1,64 +1,38 @@
+
+
 # Logging Amplify API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-AWS Amplify is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service in Amplify. CloudTrail captures all API calls for Amplify as
-events. The calls captured include calls from the Amplify console and code calls to the
-Amplify API operations. If you create a trail, you can enable continuous delivery of CloudTrail
-events to an Amazon S3 bucket, including events for Amplify. If you don't configure a trail, you
-can still view the most recent events in the CloudTrail console in **Event history**.
-Using the information that CloudTrail collects, you can determine the request that was made to
-Amplify, the IP address from which the request was made, who made the request, when it was
-made, and additional details.
+AWS Amplify is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amplify. CloudTrail captures all API calls for Amplify as events. The calls captured include calls from the Amplify console and code calls to the Amplify API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amplify. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information that CloudTrail collects, you can determine the request that was made to Amplify, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Amplify information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account by default. When activity occurs in
-Amplify, that activity is recorded in a CloudTrail event along with other AWS service events in
-**Event history**. You can view, search, and download recent events in your
-AWS account. For more information, see [Viewing events with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+CloudTrail is enabled on your AWS account by default. When activity occurs in Amplify, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*.
 
-For an ongoing record of events in your AWS account, including events for Amplify,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3
-bucket. By default, when you create a trail in the console, the trail applies to all AWS
-Regions. The trail logs events from all Regions in the AWS partition and delivers the log
-files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS
-services to further analyze and act upon the event data collected in CloudTrail logs. For more
-information, see the following in the _AWS CloudTrail User Guide_:
+For an ongoing record of events in your AWS account, including events for Amplify, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following in the *AWS CloudTrail User Guide*:
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Amplify operations are logged by CloudTrail and are documented in the [AWS Amplify Console API Reference](https://docs.aws.amazon.com/amplify/latest/APIReference/Welcome.html), the [AWS Amplify Admin UI API Reference](https://docs.aws.amazon.com/amplify-admin-ui/latest/APIReference/what-is-admin-ui.html), and the [Amplify UI Builder API Reference](https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/Welcome.html). For example, calls to the `CreateApp`, `DeleteApp` and `DeleteBackendEnvironment` operations generate entries in the CloudTrail log files.
 
-All Amplify operations are logged by CloudTrail and are documented in the [AWS Amplify Console API
-Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"), the [AWS Amplify Admin UI API Reference](../../../amplify-admin-ui/latest/APIReference/what-is-admin-ui.md "../../../amplify-admin-ui/latest/APIReference/what-is-admin-ui.md"), and the [Amplify UI Builder API
-Reference](../../../amplifyuibuilder/latest/APIReference/Welcome.md "../../../amplifyuibuilder/latest/APIReference/Welcome.md").
-For example, calls to the `CreateApp`, `DeleteApp` and
-`DeleteBackendEnvironment` operations generate entries in the CloudTrail log files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Was the request made with root or AWS Identity and Access Management (IAM) user credentials.
++ Was the request made with temporary security credentials for a role or federated user.
++ Was the request made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Was the request made with root or AWS Identity and Access Management (IAM) user credentials.
-- Was the request made with temporary security credentials for a role or
-  federated user.
-- Was the request made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the
-_AWS CloudTrail User Guide_.
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## Understanding Amplify log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following example shows a CloudTrail log entry that demonstrates the AWS Amplify Console API
-Reference [`ListApps`](../APIReference/API_ListApps.md "../APIReference/API_ListApps.md") operation.
+The following example shows a CloudTrail log entry that demonstrates the AWS Amplify Console API Reference [`ListApps`](https://docs.aws.amazon.com/amplify/latest/APIReference/API_ListApps.html) operation.
 
 ```
 {
@@ -99,7 +73,7 @@ Reference [`ListApps`](../APIReference/API_ListApps.md "../APIReference/API_List
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the AWS Amplify Admin UI API Reference [`ListBackendJobs`](../../../amplify-admin-ui/latest/APIReference/backend-appid-job-backendenvironmentname.md#backend-appid-job-backendenvironmentnamepost "../../../amplify-admin-ui/latest/APIReference/backend-appid-job-backendenvironmentname.md#backend-appid-job-backendenvironmentnamepost") operation.
+The following example shows a CloudTrail log entry that demonstrates the AWS Amplify Admin UI API Reference [`ListBackendJobs`](https://docs.aws.amazon.com/amplify-admin-ui/latest/APIReference/backend-appid-job-backendenvironmentname.html#backend-appid-job-backendenvironmentnamepost) operation.
 
 ```
 {
