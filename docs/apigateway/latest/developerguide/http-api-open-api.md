@@ -1,33 +1,28 @@
-# Use OpenAPI definitions for HTTP APIs in API Gateway
 
-You can define your HTTP API by using an OpenAPI 3.0 definition file. Then you can
-import the definition into API Gateway to create an API. To learn more about API Gateway extensions to
-OpenAPI, see [OpenAPI extensions for API Gateway](api-gateway-swagger-extensions.md "api-gateway-swagger-extensions.md").
+
+# Use OpenAPI definitions for HTTP APIs in API Gateway
+<a name="http-api-open-api"></a>
+
+You can define your HTTP API by using an OpenAPI 3.0 definition file. Then you can import the definition into API Gateway to create an API. To learn more about API Gateway extensions to OpenAPI, see [OpenAPI extensions for API Gateway](api-gateway-swagger-extensions.md).
 
 ## Importing an HTTP API
+<a name="http-api-import"></a>
 
 You can create an HTTP API by importing an OpenAPI 3.0 definition file.
 
-To migrate from a REST API to an HTTP API, you can export your REST API as an
-OpenAPI 3.0 definition file. Then import the API definition as an HTTP API. To learn more
-about exporting a REST API, see [Export a REST API from API Gateway](api-gateway-export-api.md "api-gateway-export-api.md").
+To migrate from a REST API to an HTTP API, you can export your REST API as an OpenAPI 3.0 definition file. Then import the API definition as an HTTP API. To learn more about exporting a REST API, see [Export a REST API from API Gateway](api-gateway-export-api.md). 
 
-###### Note
-
-HTTP APIs support the same AWS variables as REST APIs. To learn more, see
-[AWS variables for OpenAPI import](import-api-aws-variables.md "import-api-aws-variables.md").
+**Note**  
+HTTP APIs support the same AWS variables as REST APIs. To learn more, see [AWS variables for OpenAPI import](import-api-aws-variables.md).
 
 ### Import validation information
+<a name="http-api-import.validation"></a>
 
 As you import an API, API Gateway provides three categories of validation information.
 
-**Info**
-
-A property is valid according to the OpenAPI specification, but that
-property isn’t supported for HTTP APIs.
-
-For example, the following OpenAPI 3.0 snippet produces info on import because HTTP APIs don't support request validation. API Gateway ignores
-the `requestBody` and `schema` fields.
+**Info**  
+A property is valid according to the OpenAPI specification, but that property isn’t supported for HTTP APIs.  
+For example, the following OpenAPI 3.0 snippet produces info on import because HTTP APIs don't support request validation. API Gateway ignores the `requestBody` and `schema` fields.  
 
 ```
 "paths": {
@@ -68,14 +63,9 @@ the `requestBody` and `schema` fields.
 }
 ```
 
-**Warning**
-
-A property or structure is invalid according to the OpenAPI specification,
-but it doesn’t block API creation. You can specify whether API Gateway should
-ignore these warnings and continue creating the API, or stop creating the
-API on warnings.
-
-The following OpenAPI 3.0 document produces warnings on import because HTTP APIs support only Lambda proxy and HTTP proxy integrations.
+**Warning**  
+A property or structure is invalid according to the OpenAPI specification, but it doesn’t block API creation. You can specify whether API Gateway should ignore these warnings and continue creating the API, or stop creating the API on warnings.  
+The following OpenAPI 3.0 document produces warnings on import because HTTP APIs support only Lambda proxy and HTTP proxy integrations.  
 
 ```
 "x-amazon-apigateway-integration": {
@@ -86,14 +76,9 @@ The following OpenAPI 3.0 document produces warnings on import because HTTP APIs
 }
 ```
 
-**Error**
-
-The OpenAPI specification is invalid or malformed. API Gateway can’t
-create any resources from the malformed document. You must fix the errors,
-and then try again.
-
-The following API definition produces errors on import because HTTP APIs
-support only the OpenAPI 3.0 specification.
+**Error**  
+The OpenAPI specification is invalid or malformed. API Gateway can’t create any resources from the malformed document. You must fix the errors, and then try again.  
+The following API definition produces errors on import because HTTP APIs support only the OpenAPI 3.0 specification.  
 
 ```
 {
@@ -106,26 +91,21 @@ support only the OpenAPI 3.0 specification.
   ...
 }
 ```
-
-As another example, while OpenAPI allows users to define an API with multiple security requirements
-attached to a particular operation, API Gateway does not support this. Each operation can have only one of
-IAM authorization, a Lambda authorizer, or a JWT authorizer. Attempting to model multiple security
-requirements results in an error.
+As another example, while OpenAPI allows users to define an API with multiple security requirements attached to a particular operation, API Gateway does not support this. Each operation can have only one of IAM authorization, a Lambda authorizer, or a JWT authorizer. Attempting to model multiple security requirements results in an error.
 
 ### Import an API by using the AWS CLI
+<a name="http-api-import.example"></a>
 
-The following
-[import-api](../../../cli/latest/reference/apigatewayv2/import-api.md "../../../cli/latest/reference/apigatewayv2/import-api.md") command imports the OpenAPI 3.0 definition file `api-definition.json` as an HTTP API:
+The following [import-api](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/import-api.html) command imports the OpenAPI 3.0 definition file `api-definition.json` as an HTTP API:
 
-###### Example
+**Example**  
 
 ```
 aws apigatewayv2 import-api --body file://api-definition.json
 ```
 
-###### Example
-
-You can import the following example OpenAPI 3.0 definition to create an HTTP API.
+**Example**  
+You can import the following example OpenAPI 3.0 definition to create an HTTP API.  
 
 ```
 {
@@ -251,7 +231,7 @@ You can import the following example OpenAPI 3.0 definition to create an HTTP AP
               }
             }
           }
-        },
+        },        
         "x-amazon-apigateway-integration": {
           "type": "HTTP_PROXY",
           "httpMethod": "GET",
@@ -339,5 +319,4 @@ You can import the following example OpenAPI 3.0 definition to create an HTTP AP
     }
   }
 }
-
 ```

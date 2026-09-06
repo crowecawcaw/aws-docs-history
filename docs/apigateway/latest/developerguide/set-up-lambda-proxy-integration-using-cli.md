@@ -1,11 +1,11 @@
+
+
 # Set up Lambda proxy integration for API Gateway using the AWS CLI
+<a name="set-up-lambda-proxy-integration-using-cli"></a>
 
-In this section, we show how to set up an API with the Lambda proxy
-integration using the AWS CLI. For detailed instructions for using the API Gateway console to configure a proxy
-resource with the Lambda proxy integration, see [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md").
+In this section, we show how to set up an API with the Lambda proxy integration using the AWS CLI. For detailed instructions for using the API Gateway console to configure a proxy resource with the Lambda proxy integration, see [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md).
 
-As an example, we use the following sample Lambda function as the backend of the
-API:
+As an example, we use the following sample Lambda function as the backend of the API:
 
 ```
 export const handler = async(event, context) => {
@@ -30,166 +30,143 @@ export const handler = async(event, context) => {
         greeter = event.multiValueHeaders.greeter.join(" and ");
     } else if (event.headers && event.headers.greeter && event.headers.greeter != "") {
         greeter = event.headers.greeter;
-    }
+    } 
     res.body = "Hello, " + greeter + "!";
     return res
 };
 ```
 
-Comparing this to the Lambda custom integration setup in [Set up Lambda custom integrations in API Gateway](set-up-lambda-custom-integrations.md "set-up-lambda-custom-integrations.md"), the input to this Lambda function can be expressed
-in the request parameters and body. You have more latitude to allow the client to pass the same input data.
-Here, the client can pass the greeter's name in as a query string parameter, a header, or a body property. The
-function can also support the Lambda custom integration. The API setup is simpler. You do not configure the
-method response or integration response at all.
+Comparing this to the Lambda custom integration setup in [Set up Lambda custom integrations in API Gateway](set-up-lambda-custom-integrations.md), the input to this Lambda function can be expressed in the request parameters and body. You have more latitude to allow the client to pass the same input data. Here, the client can pass the greeter's name in as a query string parameter, a header, or a body property. The function can also support the Lambda custom integration. The API setup is simpler. You do not configure the method response or integration response at all.
 
-###### To set up a Lambda proxy integration using the AWS CLI
+**To set up a Lambda proxy integration using the AWS CLI**
 
-1. Use the following [create-rest-api](../../../cli/latest/reference/apigateway/create-rest-api.md "../../../cli/latest/reference/apigateway/create-rest-api.md")
-   command to create an API:
+1. Use the following [create-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-rest-api.html) command to create an API:
 
-```
-aws apigateway create-rest-api --name 'HelloWorld (AWS CLI)'
-```
+   ```
+   aws apigateway create-rest-api --name 'HelloWorld (AWS CLI)'
+   ```
 
-The output will look like the following:
+   The output will look like the following:
 
-```
-{
-    "name": "HelloWorldProxy (AWS CLI)",
-    "id": "te6si5ach7",
-    "rootResourceId" : "krznpq9xpg",
-    "createdDate": 1508461860
-}
-```
+   ```
+   {
+       "name": "HelloWorldProxy (AWS CLI)", 
+       "id": "te6si5ach7",
+       "rootResourceId" : "krznpq9xpg",
+       "createdDate": 1508461860
+   }
+   ```
 
-You use the API `id` (`te6si5ach7`) and the `rootResourceId` (
-`krznpq9xpg`) throughout this example. 2. Use the following
-[create-resource](../../../cli/latest/reference/apigateway/create-resource.md "../../../cli/latest/reference/apigateway/create-resource.md") command to create an API Gateway [Resource](../api/API_Resource.md "../api/API_Resource.md") of
-`/greeting`:
+   You use the API `id` (`te6si5ach7`) and the `rootResourceId` ( `krznpq9xpg`) throughout this example.
 
-```
-aws apigateway create-resource \
-      --rest-api-id te6si5ach7 \
-      --parent-id krznpq9xpg \
-      --path-part {proxy+}
-```
+1. Use the following [create-resource](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-resource.html) command to create an API Gateway [Resource](https://docs.aws.amazon.com/apigateway/latest/api/API_Resource.html) of `/greeting`:
 
-The output will look like the following:
+   ```
+   aws apigateway create-resource \
+         --rest-api-id te6si5ach7 \
+         --parent-id krznpq9xpg \
+         --path-part {proxy+}
+   ```
 
-```
-{
-    "path": "/{proxy+}",
-    "pathPart": "{proxy+}",
-    "id": "2jf6xt",
-    "parentId": "krznpq9xpg"
-}
-```
+   The output will look like the following:
 
-You use the `{proxy+}` resource's `id` value
-(`2jf6xt`) to create a method on the
-`/{proxy+}` resource in the next step. 3. Use the following
-[put-method](../../../cli/latest/reference/apigateway/put-method.md "../../../cli/latest/reference/apigateway/put-method.md") to create an `ANY` method request
-of `ANY /{proxy+}`:
+   ```
+   {
+       "path": "/{proxy+}", 
+       "pathPart": "{proxy+}", 
+       "id": "2jf6xt", 
+       "parentId": "krznpq9xpg"
+   }
+   ```
 
-```
-aws apigateway put-method --rest-api-id te6si5ach7 \
-       --resource-id 2jf6xt \
-       --http-method ANY \
-       --authorization-type "NONE"
-```
+   You use the `{proxy+}` resource's `id` value (`2jf6xt`) to create a method on the `/{proxy+}` resource in the next step.
 
-The output will look like the following:
+1. Use the following [put-method](https://docs.aws.amazon.com/cli/latest/reference/apigateway/put-method.html) to create an `ANY` method request of `ANY /{proxy+}`:
 
-```
-{
-    "apiKeyRequired": false,
-    "httpMethod": "ANY",
-    "authorizationType": "NONE"
-}
-```
+   ```
+   aws apigateway put-method --rest-api-id te6si5ach7 \
+          --resource-id 2jf6xt \
+          --http-method ANY \
+          --authorization-type "NONE"
+   ```
 
-This API method allows the client to receive or send greetings from the
-Lambda function at the backend. 4. Use the following [put-integration](../../../cli/latest/reference/apigateway/put-integration.md "../../../cli/latest/reference/apigateway/put-integration.md")
-command to set up the integration of the `ANY /{proxy+}`
-method with a Lambda function, named `HelloWorld`. This function responds to the request with a
-message of `"Hello, {name}!"`, if the `greeter` parameter is provided, or
-`"Hello, World!"`, if the query string parameter is not set.
+   The output will look like the following:
 
-```
-aws apigateway put-integration \
-      --rest-api-id te6si5ach7 \
-      --resource-id 2jf6xt \
-      --http-method ANY \
-      --type AWS_PROXY \
-      --integration-http-method POST \
-      --uri arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:HelloWorld/invocations \
-      --credentials arn:aws:iam::123456789012:role/apigAwsProxyRole
-```
+   ```
+   {
+       "apiKeyRequired": false, 
+       "httpMethod": "ANY", 
+       "authorizationType": "NONE"
+   }
+   ```
 
-###### Important
+   This API method allows the client to receive or send greetings from the Lambda function at the backend. 
 
-For Lambda integrations, you must use the HTTP method of
-`POST` for the integration request, according to the
-[specification of the Lambda
-service action for function invocations](../../../lambda/latest/api/API_Invoke.md "../../../lambda/latest/api/API_Invoke.md"). The IAM role of
-`apigAwsProxyRole` must have policies allowing the
-`apigateway` service to invoke Lambda functions. For more
-information about IAM permissions, see [API Gateway permissions model for invoking an API](permissions.md#api-gateway-control-access-iam-permissions-model-for-calling-api "permissions.md#api-gateway-control-access-iam-permissions-model-for-calling-api").
+1. Use the following [put-integration](https://docs.aws.amazon.com/cli/latest/reference/apigateway/put-integration.html) command to set up the integration of the `ANY /{proxy+}` method with a Lambda function, named `HelloWorld`. This function responds to the request with a message of `"Hello, {name}!"`, if the `greeter` parameter is provided, or `"Hello, World!"`, if the query string parameter is not set.
 
-The output will look like the following:
+   ```
+   aws apigateway put-integration \
+         --rest-api-id te6si5ach7 \
+         --resource-id 2jf6xt \
+         --http-method ANY \
+         --type AWS_PROXY \
+         --integration-http-method POST \
+         --uri arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:HelloWorld/invocations \
+         --credentials arn:aws:iam::123456789012:role/apigAwsProxyRole
+   ```
+**Important**  
+For Lambda integrations, you must use the HTTP method of `POST` for the integration request, according to the [specification of the Lambda service action for function invocations](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html). The IAM role of `apigAwsProxyRole` must have policies allowing the `apigateway` service to invoke Lambda functions. For more information about IAM permissions, see [API Gateway permissions model for invoking an API](permissions.md#api-gateway-control-access-iam-permissions-model-for-calling-api).
 
-```
-{
-    "passthroughBehavior": "WHEN_NO_MATCH",
-    "cacheKeyParameters": [],
-    "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:1234567890:function:HelloWorld/invocations",
-    "httpMethod": "POST",
-    "cacheNamespace": "vvom7n",
-    "credentials": "arn:aws:iam::1234567890:role/apigAwsProxyRole",
-    "type": "AWS_PROXY"
-}
-```
+   The output will look like the following:
 
-Instead of supplying an IAM role for `credentials`, you can
-use the [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command to add resource-based permissions. This
-is what the API Gateway console does. 5. Use the following [create-deployment](../../../cli/latest/reference/apigateway/create-deployment.md "../../../cli/latest/reference/apigateway/create-deployment.md")
-command to deploy the API to a `test` stage:
+   ```
+   {
+       "passthroughBehavior": "WHEN_NO_MATCH", 
+       "cacheKeyParameters": [], 
+       "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:1234567890:function:HelloWorld/invocations", 
+       "httpMethod": "POST", 
+       "cacheNamespace": "vvom7n", 
+       "credentials": "arn:aws:iam::1234567890:role/apigAwsProxyRole", 
+       "type": "AWS_PROXY"
+   }
+   ```
 
-```
-aws apigateway create-deployment  \
-      --rest-api-id te6si5ach7 \
-      --stage-name test
-```
+   Instead of supplying an IAM role for `credentials`, you can use the [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) command to add resource-based permissions. This is what the API Gateway console does. 
 
-6. Test the API using the following cURL commands in a terminal.
+1. Use the following [create-deployment](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-deployment.html) command to deploy the API to a `test` stage:
 
-Calling the API with the query string parameter of
-`?greeter=jane`:
+   ```
+   aws apigateway create-deployment  \
+         --rest-api-id te6si5ach7 \
+         --stage-name test
+   ```
 
-```
-curl -X GET 'https://te6si5ach7.execute-api.us-west-2.amazonaws.com/test/greeting?greeter=jane'
-```
+1. Test the API using the following cURL commands in a terminal.
 
-Calling the API with a header parameter of
-`greeter:jane`:
+   Calling the API with the query string parameter of `?greeter=jane`:
 
-```
-curl -X GET https://te6si5ach7.execute-api.us-west-2.amazonaws.com/test/hi \
-  -H 'content-type: application/json' \
-  -H 'greeter: jane'
-```
+   ```
+   curl -X GET 'https://te6si5ach7.execute-api.us-west-2.amazonaws.com/test/greeting?greeter=jane'
+   ```
 
-Calling the API with a body of `{"greeter":"jane"}`:
+   Calling the API with a header parameter of `greeter:jane`:
 
-```
-curl -X POST https://te6si5ach7.execute-api.us-west-2.amazonaws.com/test/hi \
-  -H 'content-type: application/json' \
-  -d '{ "greeter": "jane" }'
-```
+   ```
+   curl -X GET https://te6si5ach7.execute-api.us-west-2.amazonaws.com/test/hi \
+     -H 'content-type: application/json' \
+     -H 'greeter: jane'
+   ```
 
-In all the cases, the output is a 200 response with the following response
-body:
+   Calling the API with a body of `{"greeter":"jane"}`:
 
-```
-Hello, jane!
-```
+   ```
+   curl -X POST https://te6si5ach7.execute-api.us-west-2.amazonaws.com/test/hi \
+     -H 'content-type: application/json' \
+     -d '{ "greeter": "jane" }'
+   ```
+
+   In all the cases, the output is a 200 response with the following response body:
+
+   ```
+   Hello, jane!
+   ```

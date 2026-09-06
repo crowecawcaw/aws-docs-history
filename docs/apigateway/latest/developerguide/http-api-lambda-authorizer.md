@@ -1,25 +1,21 @@
-# Control access to HTTP APIs with AWS Lambda authorizers
 
-You use a Lambda authorizer to use a Lambda function to control access to your
-HTTP API. Then, when a client calls your API, API Gateway invokes your Lambda function. API Gateway
-uses the response from your Lambda function to determine whether the client can access your
-API.
+
+# Control access to HTTP APIs with AWS Lambda authorizers
+<a name="http-api-lambda-authorizer"></a>
+
+You use a Lambda authorizer to use a Lambda function to control access to your HTTP API. Then, when a client calls your API, API Gateway invokes your Lambda function. API Gateway uses the response from your Lambda function to determine whether the client can access your API.
 
 ## Payload format version
+<a name="http-api-lambda-authorizer.payload-format"></a>
 
-The authorizer payload format version specifies the format of the data that API Gateway
-sends to a Lambda authorizer, and how API Gateway interprets the response from Lambda. If you
-don't specify a payload format version, the AWS Management Console uses the latest version by
-default. If you create a Lambda authorizer by using the AWS CLI, CloudFormation, or an SDK, you must
-specify an `authorizerPayloadFormatVersion`. The supported values are
-`1.0` and `2.0`.
+The authorizer payload format version specifies the format of the data that API Gateway sends to a Lambda authorizer, and how API Gateway interprets the response from Lambda. If you don't specify a payload format version, the AWS Management Console uses the latest version by default. If you create a Lambda authorizer by using the AWS CLI, CloudFormation, or an SDK, you must specify an `authorizerPayloadFormatVersion`. The supported values are `1.0` and `2.0`. 
 
-If you need compatibility with REST APIs, use version
-`1.0`.
+ If you need compatibility with REST APIs, use version `1.0`.
 
 The following examples show the structure of each payload format version.
 
-2.0
+------
+#### [ 2.0 ]
 
 ```
 {
@@ -72,10 +68,10 @@ The following examples show the structure of each payload format version.
   "pathParameters": { "parameter1": "value1" },
   "stageVariables": { "stageVariable1": "value1", "stageVariable2": "value2" }
 }
-
 ```
 
-1.0
+------
+#### [ 1.0 ]
 
 ```
 {
@@ -131,57 +127,47 @@ The following examples show the structure of each payload format version.
 }
 ```
 
-## Lambda authorizer response format
+------
 
-The payload format version also determines the structure of the response that you must
-return from your Lambda function.
+## Lambda authorizer response format
+<a name="http-api-lambda-authorizer.payload-format-response"></a>
+
+The payload format version also determines the structure of the response that you must return from your Lambda function.
 
 ### Lambda function response for format 1.0
+<a name="http-api-lambda-authorizer.v1"></a>
 
-If you choose the `1.0` format version, Lambda authorizers must return an IAM policy that allows
-or denies access to your API route. You can use standard IAM policy syntax in the policy. For examples of
-IAM policies, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md"). You can pass
-context properties to Lambda integrations or access logs by using
-`$context.authorizer.`property``. The `context` object is
-optional and `claims` is a reserved placeholder and cannot be used as the context object. To learn
-more, see [Customize HTTP API access logs](http-api-logging-variables.md "http-api-logging-variables.md").
+If you choose the `1.0` format version, Lambda authorizers must return an IAM policy that allows or denies access to your API route. You can use standard IAM policy syntax in the policy. For examples of IAM policies, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md). You can pass context properties to Lambda integrations or access logs by using `$context.authorizer.{{property}}`. The `context` object is optional and `claims` is a reserved placeholder and cannot be used as the context object. To learn more, see [Customize HTTP API access logs](http-api-logging-variables.md).
 
-###### Example
-
-JSON
+**Example**    
+****  
 
 ```
-`{
- "principalId": "abcdef",
- "policyDocument": {
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": "execute-api:Invoke",
- "Effect": "Allow|Deny",
- "Resource": "arn:aws:execute-api:{regionId}:{accountId}:{apiId}/{stage}/{httpVerb}/[{resource}/[{child-resources}]]"
- }
- ]
- },
- "context": {
- "exampleKey": "exampleValue"
- }
-}`
-
+{
+  "principalId": "abcdef", 
+  "policyDocument": {
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Action": "execute-api:Invoke",
+        "Effect": "Allow|Deny",
+        "Resource": "arn:aws:execute-api:{regionId}:{accountId}:{apiId}/{stage}/{httpVerb}/[{resource}/[{child-resources}]]"
+      }
+    ]
+  },
+  "context": {
+    "exampleKey": "exampleValue"
+  }
+}
 ```
 
 ### Lambda function response for format 2.0
+<a name="http-api-lambda-authorizer.v2"></a>
 
-If you choose the `2.0` format version, you can return a Boolean value
-or an IAM policy that uses standard IAM policy syntax from your Lambda function.
-To return a Boolean value, enable simple responses for the authorizer. The following
-examples demonstrate the format that you must code your Lambda function to return.
-The `context` object is optional. You can pass context properties to
-Lambda integrations or access logs by using
-`$context.authorizer.`property``. To
-learn more, see [Customize HTTP API access logs](http-api-logging-variables.md "http-api-logging-variables.md").
+If you choose the `2.0` format version, you can return a Boolean value or an IAM policy that uses standard IAM policy syntax from your Lambda function. To return a Boolean value, enable simple responses for the authorizer. The following examples demonstrate the format that you must code your Lambda function to return. The `context` object is optional. You can pass context properties to Lambda integrations or access logs by using `$context.authorizer.{{property}}`. To learn more, see [Customize HTTP API access logs](http-api-logging-variables.md).
 
-Simple response
+------
+#### [ Simple response ]
 
 ```
 {
@@ -192,35 +178,39 @@ Simple response
 }
 ```
 
-IAM policy
+------
+#### [ IAM policy ]
+
+****  
 
 ```
-`{
- "principalId": "abcdef",
- "policyDocument": {
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": "execute-api:Invoke",
- "Effect": "Allow|Deny",
- "Resource": "arn:aws:execute-api:{regionId}:{accountId}:{apiId}/{stage}/{httpVerb}/[{resource}/[{child-resources}]]"
- }
- ]
- },
- "context": {
- "exampleKey": "exampleValue"
- }
-}`
-
+{
+  "principalId": "abcdef", 
+  "policyDocument": {
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Action": "execute-api:Invoke",
+        "Effect": "Allow|Deny",
+        "Resource": "arn:aws:execute-api:{regionId}:{accountId}:{apiId}/{stage}/{httpVerb}/[{resource}/[{child-resources}]]"
+      }
+    ]
+  },
+  "context": {
+    "exampleKey": "exampleValue"
+  }
+}
 ```
+
+------
 
 ## Example Lambda authorizer functions
+<a name="http-api-lambda-authorizer.example-code"></a>
 
-The following example Node.js Lambda functions demonstrate the required response
-formats you need to return from your Lambda function for the `2.0` payload
-format version.
+The following example Node.js Lambda functions demonstrate the required response formats you need to return from your Lambda function for the `2.0` payload format version.
 
-Simple response - Node.js
+------
+#### [ Simple response - Node.js ]
 
 ```
 export const handler = async(event) => {
@@ -234,7 +224,7 @@ export const handler = async(event) => {
             "mapKey": {"value1": "value2"}
         }
     };
-
+    
     if (event.headers.authorization === "secretToken") {
         console.log("allowed");
         response = {
@@ -252,10 +242,10 @@ export const handler = async(event) => {
     return response;
 
 };
-
 ```
 
-Simple response - Python
+------
+#### [ Simple response - Python ]
 
 ```
 import json
@@ -295,7 +285,8 @@ def lambda_handler(event, context):
         return response
 ```
 
-IAM policy - Node.js
+------
+#### [ IAM policy - Node.js ]
 
 ```
 export const handler = async(event) => {
@@ -304,7 +295,7 @@ export const handler = async(event) => {
     return {
       "principalId": "abcdef", // The principal user identification associated with the token sent by the client.
       "policyDocument": {
-        "Version": "2012-10-17",
+        "Version": "2012-10-17",		 	 	 
         "Statement": [{
           "Action": "execute-api:Invoke",
           "Effect": "Allow",
@@ -325,7 +316,7 @@ export const handler = async(event) => {
     return {
       "principalId": "abcdef", // The principal user identification associated with the token sent by the client.
       "policyDocument": {
-        "Version": "2012-10-17",
+        "Version": "2012-10-17",		 	 	 
         "Statement": [{
           "Action": "execute-api:Invoke",
           "Effect": "Deny",
@@ -342,10 +333,10 @@ export const handler = async(event) => {
     };
   }
 };
-
 ```
 
-IAM policy - Python
+------
+#### [ IAM policy - Python ]
 
 ```
 import json
@@ -357,7 +348,7 @@ def lambda_handler(event, context):
         # the client.
         "principalId": "abcdef",
         "policyDocument": {
-            "Version": "2012-10-17",
+            "Version": "2012-10-17",		 	 	 
             "Statement": [{
                 "Action": "execute-api:Invoke",
                 "Effect": "Deny",
@@ -380,7 +371,7 @@ def lambda_handler(event, context):
                 # sent by the client.
                 "principalId": "abcdef",
                 "policyDocument": {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [{
                         "Action": "execute-api:Invoke",
                         "Effect": "Allow",
@@ -405,101 +396,80 @@ def lambda_handler(event, context):
         return response
 ```
 
+------
+
 ## Identity sources
+<a name="http-api-lambda-authorizer.identity-sources"></a>
 
-You can optionally specify identity sources for a Lambda authorizer. Identity sources specify the location of
-data that's required to authorize a request. For example, you can specify header or query string values as
-identity sources. If you specify identity sources, clients must include them in the request. If the client's
-request doesn't include the identity sources, API Gateway doesn't invoke your Lambda authorizer, and the client receives
-a `401` error.
+You can optionally specify identity sources for a Lambda authorizer. Identity sources specify the location of data that's required to authorize a request. For example, you can specify header or query string values as identity sources. If you specify identity sources, clients must include them in the request. If the client's request doesn't include the identity sources, API Gateway doesn't invoke your Lambda authorizer, and the client receives a `401` error.
 
-The following table describes the supported identity sources for a Lambda
-authorizer.
+The following table describes the supported identity sources for a Lambda authorizer.
 
-| **Type**           | **Example**                    | **Notes**                                                                                                    |
-| ------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| Header value       | $request.header.`name`         | Header names are case-insensitive.                                                                           |
-| Query string value | $request.querystring.`name`    | Query string names are case-sensitive.                                                                       |
-| Context variable   | $context.`variableName`        | The value of a supported [context variable](http-api-logging-variables.md "http-api-logging-variables.md").  |
-| Stage variable     | $stageVariables.`variableName` | The value of a [stage<br>variable](http-api-stages.stage-variables.md "http-api-stages.stage-variables.md"). |
 
-You can also directly return `{"errorMessage" : "Unauthorized"}` from your Lambda
-function to return a `401` error to your clients. If you directly return a `401` error from
-your Lambda function to your clients, don't specify any identity sources when you create your Lambda authorizer.
+| **Type** | **Example** | **Notes** | 
+| --- | --- | --- | 
+| Header value | $request.header.{{name}} | Header names are case-insensitive. | 
+| Query string value | $request.querystring.{{name}} | Query string names are case-sensitive. | 
+| Context variable | $context.{{variableName}} | The value of a supported [context variable](http-api-logging-variables.md). | 
+| Stage variable | $stageVariables.{{variableName}} | The value of a [stage variable](http-api-stages.stage-variables.md). | 
+
+You can also directly return ` {"errorMessage" : "Unauthorized"}` from your Lambda function to return a `401` error to your clients. If you directly return a `401` error from your Lambda function to your clients, don't specify any identity sources when you create your Lambda authorizer.
 
 ## Caching authorizer responses
+<a name="http-api-lambda-authorizer.caching"></a>
 
-You can enable caching for a Lambda authorizer by specifying an [authorizerResultTtlInSeconds](../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds "../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds"). When caching is enabled for an authorizer,
-API Gateway uses the authorizer's identity sources as the cache key. If a client specifies the
-same parameters in identity sources within the configured TTL, API Gateway uses the cached
-authorizer result, rather than invoking your Lambda function.
+You can enable caching for a Lambda authorizer by specifying an [authorizerResultTtlInSeconds](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-authorizers.html#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds). When caching is enabled for an authorizer, API Gateway uses the authorizer's identity sources as the cache key. If a client specifies the same parameters in identity sources within the configured TTL, API Gateway uses the cached authorizer result, rather than invoking your Lambda function.
 
 To enable caching, your authorizer must have at least one identity source.
 
-If you enable simple responses for an authorizer, the authorizer's response fully allows or denies all API
-requests that match the cached identity source values. For more granular permissions, disable simple responses and
-return an IAM policy. Depending on your authorizer, your IAM policy might need to control access to multiple.
+If you enable simple responses for an authorizer, the authorizer's response fully allows or denies all API requests that match the cached identity source values. For more granular permissions, disable simple responses and return an IAM policy. Depending on your authorizer, your IAM policy might need to control access to multiple.
 
-By default, API Gateway uses the cached authorizer response for all routes of an API that
-use the authorizer. To cache responses per route, add `$context.routeKey` to
-your authorizer's identity sources.
+By default, API Gateway uses the cached authorizer response for all routes of an API that use the authorizer. To cache responses per route, add `$context.routeKey` to your authorizer's identity sources.
 
 ## Create a Lambda authorizer
+<a name="http-api-lambda-authorizer.example-create"></a>
 
-When you create a Lambda authorizer, you specify the Lambda function for API Gateway to use. You must grant API Gateway
-permission to invoke the Lambda function by using either the function's resource policy or an IAM role. The
-following [create-authorizer](../../../cli/latest/reference/apigatewayv2/create-authorizer.md "../../../cli/latest/reference/apigatewayv2/create-authorizer.md") command creates a Lambda
-authorizer:
+When you create a Lambda authorizer, you specify the Lambda function for API Gateway to use. You must grant API Gateway permission to invoke the Lambda function by using either the function's resource policy or an IAM role. The following [create-authorizer](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-authorizer.html) command creates a Lambda authorizer:
 
 ```
 aws apigatewayv2 create-authorizer \
-    --api-id `abcdef123` \
+    --api-id {{abcdef123}} \
     --authorizer-type REQUEST \
-    --identity-source '`$request.header.Authorization`' \
-    --name lambda-authorizer \
-    --authorizer-uri 'arn:aws:apigateway:`us-west-2`:lambda:path/2015-03-31/functions/`arn:aws:lambda:us-west-2:123456789012:function:my-function`/invocations' \
-    --authorizer-payload-format-version '`2.0`' \
+    --identity-source '{{$request.header.Authorization}}' \
+    --name lambda-authorizer \ 
+    --authorizer-uri 'arn:aws:apigateway:{{us-west-2}}:lambda:path/2015-03-31/functions/{{arn:aws:lambda:us-west-2:123456789012:function:my-function}}/invocations' \
+    --authorizer-payload-format-version '{{2.0}}' \
     --enable-simple-responses
 ```
 
-The following [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") command updates the
-Lambda function's resource policy to grant API Gateway permission to invoke the function. If API Gateway doesn't have
-permission to invoke your function, clients receive a `500 Internal Server Error`.
+The following [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) command updates the Lambda function's resource policy to grant API Gateway permission to invoke the function. If API Gateway doesn't have permission to invoke your function, clients receive a `500 Internal Server Error`.
 
 ```
 aws lambda add-permission \
-    --function-name `my-authorizer-function` \
-    --statement-id apigateway-invoke-permissions-abc123 \
+    --function-name {{my-authorizer-function}} \
+    --statement-id apigateway-invoke-permissions-abc123 \ 
     --action lambda:InvokeFunction \
     --principal apigateway.amazonaws.com \
-    --source-arn "arn:aws:execute-api:us-west-2:123456789012:`api-id/`authorizers/`authorizer-id`"
+    --source-arn "arn:aws:execute-api:us-west-2:123456789012:{{api-id/}}authorizers/{{authorizer-id}}"
 ```
 
-After you've created an authorizer and granted API Gateway permission to invoke it, update your route to use the
-authorizer. The following [update-route](../../../cli/latest/reference/apigatewayv2/update-route.md "../../../cli/latest/reference/apigatewayv2/update-route.md") command
-adds the Lambda authorizer to the route. If your Lambda authorizer uses policy caching, make sure you update the
-policy to control access for the additional route.
+After you've created an authorizer and granted API Gateway permission to invoke it, update your route to use the authorizer. The following [update-route](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-route.html) command adds the Lambda authorizer to the route. If your Lambda authorizer uses policy caching, make sure you update the policy to control access for the additional route.
 
 ```
 aws apigatewayv2 update-route \
-    --api-id `abcdef123` \
-    --route-id `abc123` \
+    --api-id {{abcdef123}} \
+    --route-id {{abc123}} \
     --authorization-type CUSTOM \
-    --authorizer-id `def123`
+    --authorizer-id {{def123}}
 ```
 
 ## Troubleshooting Lambda authorizers
+<a name="http-api-lambda-authorizer.troubleshooting"></a>
 
-If API Gateway can't invoke your Lambda authorizer, or your Lambda authorizer returns a
-response in an invalid format, clients receive a `500 Internal Server
- Error`.
+If API Gateway can't invoke your Lambda authorizer, or your Lambda authorizer returns a response in an invalid format, clients receive a `500 Internal Server Error`.
 
-To troubleshoot errors, [enable access logging](http-api-logging.md "http-api-logging.md")
-for your API stage. Include the `$context.authorizer.error` logging variable
-in your log format.
+To troubleshoot errors, [enable access logging](http-api-logging.md) for your API stage. Include the `$context.authorizer.error` logging variable in your log format.
 
-If the logs indicate that API Gateway doesn't have permission to invoke your function,
-update your function's resource policy or provide an IAM role to grant API Gateway
-permission to invoke your authorizer.
+If the logs indicate that API Gateway doesn't have permission to invoke your function, update your function's resource policy or provide an IAM role to grant API Gateway permission to invoke your authorizer.
 
-If the logs indicate that your Lambda function returns an invalid response, verify that your Lambda function returns a response in the [required format](#http-api-lambda-authorizer.payload-format-response "#http-api-lambda-authorizer.payload-format-response").
+If the logs indicate that your Lambda function returns an invalid response, verify that your Lambda function returns a response in the [required format](#http-api-lambda-authorizer.payload-format-response).

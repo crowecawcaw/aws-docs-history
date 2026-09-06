@@ -1,12 +1,12 @@
+
+
 # Simple calculator API OpenAPI definition
+<a name="simple-calc-lambda-api-swagger-definition"></a>
 
-The following is the OpenAPI definition of the simple calculator API. You can import it
-into your account. However, you need to reset the resource-based permissions on the [Lambda function](simple-calc-nodejs-lambda-function.md "simple-calc-nodejs-lambda-function.md") after the import. To do so,
-re-select the Lambda function that you created in your account from the **Integration
-Request** in the API Gateway console. This will cause the API Gateway console to reset the
-required permissions. Alternatively, you can use AWS Command Line Interface for Lambda command of [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md").
+The following is the OpenAPI definition of the simple calculator API. You can import it into your account. However, you need to reset the resource-based permissions on the [Lambda function](simple-calc-nodejs-lambda-function.md) after the import. To do so, re-select the Lambda function that you created in your account from the **Integration Request** in the API Gateway console. This will cause the API Gateway console to reset the required permissions. Alternatively, you can use AWS Command Line Interface for Lambda command of [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html).
 
-OpenAPI 2.0
+------
+#### [ OpenAPI 2.0 ]
 
 ```
 {
@@ -61,7 +61,7 @@ OpenAPI 2.0
           "requestTemplates": {
             "application/json": "#set($inputRoot = $input.path('$'))\n{\n  \"a\" : $input.params('a'),\n  \"b\" : $input.params('b'),\n  \"op\" : \"$input.params('op')\"\n}"
           },
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:`123456789012`:function:Calc/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{{123456789012}}:function:Calc/invocations",
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
           "responses": {
@@ -101,7 +101,7 @@ OpenAPI 2.0
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:`123456789012`:function:Calc/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{{123456789012}}:function:Calc/invocations",
           "passthroughBehavior": "when_no_match",
           "httpMethod": "POST",
           "responses": {
@@ -238,7 +238,7 @@ OpenAPI 2.0
           "requestTemplates": {
             "application/json": "#set($inputRoot = $input.path('$'))\n{\n  \"a\" : $input.params('a'),\n  \"b\" : $input.params('b'),\n  \"op\" : \"$input.params('op')\"\n}"
           },
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:`123456789012`:function:Calc/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{{123456789012}}:function:Calc/invocations",
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
           "responses": {
@@ -295,7 +295,8 @@ OpenAPI 2.0
 }
 ```
 
-OpenAPI 3.0
+------
+#### [ OpenAPI 3.0 ]
 
 ```
 {
@@ -392,7 +393,7 @@ OpenAPI 3.0
         "x-amazon-apigateway-integration" : {
           "type" : "aws",
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:`111122223333`:function:Calc/invocations",
+          "uri" : "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{{111122223333}}:function:Calc/invocations",
           "responses" : {
             "default" : {
               "statusCode" : "200",
@@ -444,7 +445,7 @@ OpenAPI 3.0
         "x-amazon-apigateway-integration" : {
           "type" : "aws",
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:`111122223333`:function:Calc/invocations",
+          "uri" : "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{{111122223333}}:function:Calc/invocations",
           "responses" : {
             "default" : {
               "statusCode" : "200",
@@ -485,7 +486,7 @@ OpenAPI 3.0
         "x-amazon-apigateway-integration" : {
           "type" : "aws",
           "httpMethod" : "POST",
-          "uri" : "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:`111122223333`:function:Calc/invocations",
+          "uri" : "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{{111122223333}}:function:Calc/invocations",
           "responses" : {
             "default" : {
               "statusCode" : "200",
@@ -574,3 +575,5 @@ OpenAPI 3.0
   }
 }
 ```
+
+------

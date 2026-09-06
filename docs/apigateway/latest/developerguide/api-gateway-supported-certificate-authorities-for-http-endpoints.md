@@ -1,7 +1,9 @@
-# API Gateway-supported certificate authorities for HTTP and HTTP proxy integrations in API Gateway
 
-The following list shows the certificate authorities supported by API Gateway for HTTP, HTTP proxy, and private
-integrations.
+
+# API Gateway-supported certificate authorities for HTTP and HTTP proxy integrations in API Gateway
+<a name="api-gateway-supported-certificate-authorities-for-http-endpoints"></a>
+
+ The following list shows the certificate authorities supported by API Gateway for HTTP, HTTP proxy, and private integrations. 
 
 ```
 Alias name: accvraiz1
@@ -1198,5 +1200,4 @@ Alias name: xrampglobalca
 Alias name: xrampglobalcaroot
 	 SHA1: B8:01:86:D1:EB:9C:86:A5:41:04:CF:30:54:F3:4C:52:B7:E5:58:C6
 	 SHA256: CE:CD:DC:90:50:99:D8:DA:DF:C5:B1:D2:09:B7:37:CB:E2:C1:8C:FB:2C:10:C0:FF:0B:CF:0D:32:86:FC:1A:A2
-
 ```

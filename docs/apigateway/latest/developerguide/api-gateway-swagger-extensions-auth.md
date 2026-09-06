@@ -1,17 +1,22 @@
+
+
 # x-amazon-apigateway-auth object
+<a name="api-gateway-swagger-extensions-auth"></a>
 
-Defines an authorization type to be applied for authorization of method invocations in
-API Gateway.
+Defines an authorization type to be applied for authorization of method invocations in API Gateway.
 
-| Property name | Type     | Description                                                                                                                                        |
-| ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`        | `string` | Specifies the authorization type. Specify `"NONE"` for<br>open access. Specify `"AWS_IAM"` to use IAM permissions.<br>Values are case insensitive. |
+
+| Property name | Type | Description | 
+| --- | --- | --- | 
+| type | string | Specifies the authorization type. Specify "NONE" for open access. Specify "AWS\_IAM" to use IAM permissions. Values are case insensitive. | 
 
 ## x-amazon-apigateway-auth example
+<a name="api-gateway-swagger-extensions-auth-example"></a>
 
 The following example sets the authorization type for an API method.
 
-OpenAPI 3.0.1
+------
+#### [ OpenAPI 3.0.1 ]
 
 ```
 {
@@ -31,3 +36,5 @@ OpenAPI 3.0.1
   }
 }
 ```
+
+------

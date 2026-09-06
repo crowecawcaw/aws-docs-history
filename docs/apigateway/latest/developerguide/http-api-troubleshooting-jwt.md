@@ -1,18 +1,19 @@
-# Troubleshooting issues with HTTP API JWT authorizers
 
-The following provides troubleshooting advice for errors and issues that you might
-encounter when using JSON Web Token (JWT) authorizers with HTTP APIs.
+
+# Troubleshooting issues with HTTP API JWT authorizers
+<a name="http-api-troubleshooting-jwt"></a>
+
+The following provides troubleshooting advice for errors and issues that you might encounter when using JSON Web Token (JWT) authorizers with HTTP APIs.
 
 ## Issue: My API returns `401 {"message":"Unauthorized"}`
+<a name="http-api-troubleshooting-jwt.unauthorized"></a>
 
 Check the `www-authenticate` header in the response from the API.
 
-The following command uses `curl` to send a request to an API with a JWT
-authorizer that uses `$request.header.Authorization` as its identity
-source.
+The following command uses `curl` to send a request to an API with a JWT authorizer that uses `$request.header.Authorization` as its identity source.
 
 ```
-`$`curl -v -H "Authorization: `token`" https://`api-id`.execute-api.us-west-2.amazonaws.com/`route`
+$curl -v -H "Authorization: {{token}}" https://{{api-id}}.execute-api.us-west-2.amazonaws.com/{{route}}
 ```
 
 The response from the API includes a `www-authenticate` header.
@@ -30,15 +31,8 @@ The response from the API includes a `www-authenticate` header.
 {"message":"Unauthorized"}}
 ```
 
-In this case, the `www-authenticate` header shows that the token wasn't
-issued for a valid audience. For API Gateway to authorize a request, the JWT's
-`aud` or `client_id` claim must match one of the audience entries that's configured for
-the authorizer. API Gateway validates `client_id`
-only if `aud` is not present. When both `aud` and
-`client_id` are present, API Gateway evaluates `aud`.
+In this case, the `www-authenticate` header shows that the token wasn't issued for a valid audience. For API Gateway to authorize a request, the JWT's `aud` or `client_id` claim must match one of the audience entries that's configured for the authorizer. API Gateway validates `client_id` only if `aud` is not present. When both `aud` and `client_id` are present, API Gateway evaluates `aud`. 
 
-You can also decode a JWT and verify that it matches the issuer, audience, and scopes
-that your API requires. The website [jwt.io](https://jwt.io/ "https://jwt.io/") can
-debug JWTs in the browser. The OpenID Foundation maintains a [list of libraries for working with JWTs](https://openid.net/developers/jwt-jws-jwe-jwk-and-jwa-implementations/ "https://openid.net/developers/jwt-jws-jwe-jwk-and-jwa-implementations/").
+You can also decode a JWT and verify that it matches the issuer, audience, and scopes that your API requires. The website [jwt.io](https://jwt.io/) can debug JWTs in the browser. The OpenID Foundation maintains a [list of libraries for working with JWTs](https://openid.net/developers/jwt-jws-jwe-jwk-and-jwa-implementations/). 
 
-To learn more about JWT authorizers, see [Control access to HTTP APIs with JWT authorizers in API Gateway](http-api-jwt-authorizer.md "http-api-jwt-authorizer.md").
+To learn more about JWT authorizers, see [Control access to HTTP APIs with JWT authorizers in API Gateway](http-api-jwt-authorizer.md).

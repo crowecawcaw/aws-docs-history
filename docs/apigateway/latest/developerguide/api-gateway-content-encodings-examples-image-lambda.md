@@ -1,27 +1,24 @@
+
+
 # Access binary files in Lambda using an API Gateway API
+<a name="api-gateway-content-encodings-examples-image-lambda"></a>
 
-The following OpenAPI example demonstrates how to access a binary file in AWS Lambda through an API Gateway API.
-This API exposes the `GET /lambda?key={file-name}` and the `PUT /lambda?key={file-name}`
-methods for downloading and uploading a specified image file. The `GET` method
-returns the image file as a base64-encoded string as part of a JSON output, following the supplied mapping
-template, in a 200 OK response. The `PUT` method takes a raw binary blob as input
-and returns a 200 OK response with an empty payload.
+The following OpenAPI example demonstrates how to access a binary file in AWS Lambda through an API Gateway API. This API exposes the `GET /lambda?key={file-name}` and the `PUT /lambda?key={file-name}` methods for downloading and uploading a specified image file. The `GET` method returns the image file as a base64-encoded string as part of a JSON output, following the supplied mapping template, in a 200 OK response. The `PUT` method takes a raw binary blob as input and returns a 200 OK response with an empty payload.
 
-You create the Lambda function that your API calls, and it
-must return a base64-encoded string with the `Content-Type` header of `application/json`.
+You create the Lambda function that your API calls, and it must return a base64-encoded string with the `Content-Type` header of `application/json`. 
 
-###### Topics
-
-- [OpenAPI file of a sample API to access images in Lambda](#api-gateway-content-encodings-example-image-lambda-swagger-file "#api-gateway-content-encodings-example-image-lambda-swagger-file")
-- [Download an image from Lambda](#api-gateway-content-encodings-example-download-image-from-lambda "#api-gateway-content-encodings-example-download-image-from-lambda")
-- [Upload an image to Lambda](#api-gateway-content-encodings-example-upload-image-to-lambda "#api-gateway-content-encodings-example-upload-image-to-lambda")
+**Topics**
++ [OpenAPI file of a sample API to access images in Lambda](#api-gateway-content-encodings-example-image-lambda-swagger-file)
++ [Download an image from Lambda](#api-gateway-content-encodings-example-download-image-from-lambda)
++ [Upload an image to Lambda](#api-gateway-content-encodings-example-upload-image-to-lambda)
 
 ## OpenAPI file of a sample API to access images in Lambda
+<a name="api-gateway-content-encodings-example-image-lambda-swagger-file"></a>
 
-The following OpenAPI file shows an example API that illustrates downloading an image file from Lambda and
-uploading an image file to Lambda.
+The following OpenAPI file shows an example API that illustrates downloading an image file from Lambda and uploading an image file to Lambda.
 
-OpenAPI 3.0
+------
+#### [ OpenAPI 3.0 ]
 
 ```
 {
@@ -154,10 +151,10 @@ OpenAPI 3.0
       }
    }
 }
-
 ```
 
-OpenAPI 2.0
+------
+#### [ OpenAPI 2.0 ]
 
 ```
 {
@@ -271,7 +268,10 @@ OpenAPI 2.0
 }
 ```
 
+------
+
 ## Download an image from Lambda
+<a name="api-gateway-content-encodings-example-download-image-from-lambda"></a>
 
 To download an image file (`image.jpg`) as a binary blob from Lambda:
 
@@ -280,7 +280,6 @@ GET /v1/lambda?key=image.jpg HTTP/1.1
 Host: abcdefghi.execute-api.us-east-1.amazonaws.com
 Content-Type: application/json
 Accept: application/octet-stream
-
 ```
 
 The successful response looks like the following:
@@ -291,15 +290,13 @@ The successful response looks like the following:
 [raw bytes]
 ```
 
-To download an image file (`image.jpg`) as a base64-encoded string
-(formatted as a JSON property) from Lambda:
+To download an image file (`image.jpg`) as a base64-encoded string (formatted as a JSON property) from Lambda:
 
 ```
 GET /v1/lambda?key=image.jpg HTTP/1.1
 Host: abcdefghi.execute-api.us-east-1.amazonaws.com
 Content-Type: application/json
 Accept: application/json
-
 ```
 
 The successful response looks like the following:
@@ -313,6 +310,7 @@ The successful response looks like the following:
 ```
 
 ## Upload an image to Lambda
+<a name="api-gateway-content-encodings-example-upload-image-to-lambda"></a>
 
 To upload an image file (`image.jpg`) as a binary blob to Lambda:
 
@@ -328,11 +326,10 @@ Accept: application/json
 The successful response looks like the following:
 
 ```
-200 OK
+200 OK            
 ```
 
-To upload an image file (`image.jpg`) as a base64-encoded string to
-Lambda:
+To upload an image file (`image.jpg`) as a base64-encoded string to Lambda:
 
 ```
 PUT /v1/lambda?key=image.jpg HTTP/1.1
@@ -346,5 +343,5 @@ W3JhdyBieXRlc10=
 The successful response looks like the following:
 
 ```
-200 OK
+200 OK           
 ```

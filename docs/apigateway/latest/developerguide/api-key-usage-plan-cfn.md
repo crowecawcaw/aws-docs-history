@@ -1,15 +1,15 @@
+
+
 # Create and configure API keys and usage plans with CloudFormation
+<a name="api-key-usage-plan-cfn"></a>
 
-You can use CloudFormation to require API keys on API methods and create a usage plan for an API. The example CloudFormation template does the following:
-
-- Creates an API Gateway API with `GET` and `POST` methods.
-- Requires an API key for the `GET` and `POST` methods. This API receives keys from the `X-API-KEY` header of each incoming request.
-- Creates an API key.
-- Creates a usage plan to specify a monthly quota of 1,000 request each month, a throttling rate limit of 100
-  request each second, and a throttling burst limit of 200 request each second.
-- Specifies a method-level throttling rate limit of 50 requests each second and a method-level throttling
-  burst limit of 100 requests per second for the `GET` method.
-- Associates the API stage and API key with the usage plan.
+ You can use CloudFormation to require API keys on API methods and create a usage plan for an API. The example CloudFormation template does the following:
++ Creates an API Gateway API with `GET` and `POST` methods.
++ Requires an API key for the `GET` and `POST` methods. This API receives keys from the `X-API-KEY` header of each incoming request. 
++ Creates an API key.
++ Creates a usage plan to specify a monthly quota of 1,000 request each month, a throttling rate limit of 100 request each second, and a throttling burst limit of 200 request each second. 
++ Specifies a method-level throttling rate limit of 50 requests each second and a method-level throttling burst limit of 100 requests per second for the `GET` method.
++ Associates the API stage and API key with the usage plan. 
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -70,12 +70,12 @@ Resources:
     DependsOn:
       - ApiDeployment
     Properties:
-      Description: Example usage plan with a monthly quota of 1000 calls and method-level throttling for /pets GET
+      Description: Example usage plan with a monthly quota of 1000 calls and method-level throttling for /pets GET 
       ApiStages:
         - ApiId: !Ref Api
           Stage: !Sub '${StageName}'
           Throttle:
-            "/pets/GET":
+            "/pets/GET": 
               RateLimit: 50.0
               BurstLimit: 100
       Quota:
@@ -87,7 +87,7 @@ Resources:
       UsagePlanName: "My Usage Plan"
   ApiKey:
     Type: AWS::ApiGateway::ApiKey
-    Properties:
+    Properties: 
       Description: API Key
       Name: !Sub '${KeyName}'
       Enabled: True

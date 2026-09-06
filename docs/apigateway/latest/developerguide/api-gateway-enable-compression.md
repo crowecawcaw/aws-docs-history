@@ -1,44 +1,45 @@
+
+
 # Enable payload compression for an API in API Gateway
+<a name="api-gateway-enable-compression"></a>
 
-You can enable compression for an API using the API Gateway console, the AWS CLI, or an AWS
-SDK.
+You can enable compression for an API using the API Gateway console, the AWS CLI, or an AWS SDK.
 
-For an existing API, you must deploy the API after enabling the compression in order
-for the change to take effect. For a new API, you can deploy the API after the API setup
-is complete.
+For an existing API, you must deploy the API after enabling the compression in order for the change to take effect. For a new API, you can deploy the API after the API setup is complete.
 
-###### Note
+**Note**  
+The highest-priority content encoding must be one supported by API Gateway. If it is not, compression is not applied to the response payload.
 
-The highest-priority content encoding must be one supported by API Gateway. If it is
-not, compression is not applied to the response payload.
-
-###### Topics
-
-- [Enable payload compression for an API using the API Gateway console](#api-gateway-enable-compression-console "#api-gateway-enable-compression-console")
-- [Enable payload compression for an API using the AWS CLI](#api-gateway-enable-compression-cli "#api-gateway-enable-compression-cli")
-- [Content codings supported by API Gateway](#api-gateway-supported-content-encodings "#api-gateway-supported-content-encodings")
+**Topics**
++ [Enable payload compression for an API using the API Gateway console](#api-gateway-enable-compression-console)
++ [Enable payload compression for an API using the AWS CLI](#api-gateway-enable-compression-cli)
++ [Content codings supported by API Gateway](#api-gateway-supported-content-encodings)
 
 ## Enable payload compression for an API using the API Gateway console
+<a name="api-gateway-enable-compression-console"></a>
 
-The following procedure describes how to enable payload compression for an API.
+The following procedure describes how to enable payload compression for an API. 
 
-###### To enable payload compression by using the API Gateway console
+**To enable payload compression by using the API Gateway console**
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose an existing API or create a new one.
-3. In the main navigation pane, choose **API settings**.
-4. In the
-   **API details** section, choose **Edit**.
-5. Turn on **Content
-   encoding** to enable payload compression. For **Minimum body size**, enter
-   a number for the minimum compression size (in bytes). To turn off
-   compression, turn off the **Content
-   encoding** option.
-6. Choose **Save changes**.
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
+
+1. Choose an existing API or create a new one.
+
+1. In the main navigation pane, choose **API settings**. 
+
+1. In the **API details** section, choose **Edit**.
+
+1. Turn on **Content encoding** to enable payload compression. For **Minimum body size**, enter a number for the minimum compression size (in bytes). To turn off compression, turn off the **Content encoding** option.
+
+1. Choose **Save changes**.
 
 ## Enable payload compression for an API using the AWS CLI
+<a name="api-gateway-enable-compression-cli"></a>
 
-The following [create-rest-api](../../../cli/latest/reference/apigateway/create-rest-api.md "../../../cli/latest/reference/apigateway/create-rest-api.md") command creates an API with payload compression:
+
+
+The following [create-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-rest-api.html) command creates an API with payload compression:
 
 ```
 aws apigateway create-rest-api \
@@ -46,8 +47,7 @@ aws apigateway create-rest-api \
     --minimum-compression-size 0
 ```
 
-The following [update-rest-api](../../../cli/latest/reference/apigateway/update-rest-api.md "../../../cli/latest/reference/apigateway/update-rest-api.md") command
-enables payload compression for an existing API:
+The following [update-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-rest-api.html) command enables payload compression for an existing API:
 
 ```
 aws apigateway update-rest-api \
@@ -55,13 +55,9 @@ aws apigateway update-rest-api \
     --patch-operations op=replace,path=/minimumCompressionSize,value=0
 ```
 
-The `minimumCompressionSize` property has a non-negative integer value
-between 0 and 10485760 (10M bytes). It measures the compression threshold. If the
-payload size is smaller than this value, compression or decompression are not
-applied on the payload. Setting it to zero allows compression for any payload
-size.
+The `minimumCompressionSize` property has a non-negative integer value between 0 and 10485760 (10M bytes). It measures the compression threshold. If the payload size is smaller than this value, compression or decompression are not applied on the payload. Setting it to zero allows compression for any payload size.
 
-The following [update-rest-api](../../../cli/latest/reference/apigateway/update-rest-api.md "../../../cli/latest/reference/apigateway/update-rest-api.md") command turns off payload compression:
+The following [update-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-rest-api.html) command turns off payload compression:
 
 ```
 aws apigateway update-rest-api \
@@ -69,23 +65,19 @@ aws apigateway update-rest-api \
     --patch-operations op=replace,path=/minimumCompressionSize,value=
 ```
 
-You can also set `value` to an empty string `""` or omit the
-`value` property altogether in the preceding call.
+You can also set `value` to an empty string `""` or omit the `value` property altogether in the preceding call.
 
 ## Content codings supported by API Gateway
+<a name="api-gateway-supported-content-encodings"></a>
 
 API Gateway supports the following content codings:
++ `deflate`
++ `gzip`
++ `identity`
 
-- `deflate`
-- `gzip`
-- `identity`
-
-API Gateway also supports the following `Accept-Encoding` header format,
-according to the [RFC
-7231](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3.4 "https://datatracker.ietf.org/doc/html/rfc7231#section-5.3.4") specification:
-
-- `Accept-Encoding:deflate,gzip`
-- `Accept-Encoding:`
-- `Accept-Encoding:*`
-- `Accept-Encoding:deflate;q=0.5,gzip;q=1.0`
-- `Accept-Encoding:gzip;q=1.0,identity;q=0.5,*;q=0`
+API Gateway also supports the following `Accept-Encoding` header format, according to the [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3.4) specification:
++ `Accept-Encoding:deflate,gzip`
++ `Accept-Encoding:`
++ `Accept-Encoding:*`
++ `Accept-Encoding:deflate;q=0.5,gzip;q=1.0`
++ `Accept-Encoding:gzip;q=1.0,identity;q=0.5,*;q=0`

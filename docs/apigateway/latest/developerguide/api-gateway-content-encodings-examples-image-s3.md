@@ -1,25 +1,22 @@
+
+
 # Access binary files in Amazon S3 through an API Gateway API
+<a name="api-gateway-content-encodings-examples-image-s3"></a>
 
-The following examples show the OpenAPI file used to access images in Amazon S3, how to
-download an image from Amazon S3, and how to upload an image to Amazon S3.
+The following examples show the OpenAPI file used to access images in Amazon S3, how to download an image from Amazon S3, and how to upload an image to Amazon S3. 
 
-###### Topics
-
-- [OpenAPI file of a sample API to access images in Amazon S3](#api-gateway-content-encodings-example-image-s3-swagger-file "#api-gateway-content-encodings-example-image-s3-swagger-file")
-- [Download an image from Amazon S3](#api-gateway-content-encodings-example-download-image-from-s3 "#api-gateway-content-encodings-example-download-image-from-s3")
-- [Upload an image to Amazon S3](#api-gateway-content-encodings-example-upload-image-to-s3 "#api-gateway-content-encodings-example-upload-image-to-s3")
+**Topics**
++ [OpenAPI file of a sample API to access images in Amazon S3](#api-gateway-content-encodings-example-image-s3-swagger-file)
++ [Download an image from Amazon S3](#api-gateway-content-encodings-example-download-image-from-s3)
++ [Upload an image to Amazon S3](#api-gateway-content-encodings-example-upload-image-to-s3)
 
 ## OpenAPI file of a sample API to access images in Amazon S3
+<a name="api-gateway-content-encodings-example-image-s3-swagger-file"></a>
 
-The following OpenAPI file shows a sample API that illustrates downloading an
-image file from Amazon S3 and uploading an image file to Amazon S3. This API exposes the
-`GET /s3?key={file-name}` and `PUT /s3?key={file-name}` methods for downloading
-and uploading a specified image file. The `GET`
-method returns the image file as a base64-encoded string as part of a JSON
-output, following the supplied mapping template, in a 200 OK response. The `PUT` method takes a raw binary blob as input and
-returns a 200 OK response with an empty payload.
+The following OpenAPI file shows a sample API that illustrates downloading an image file from Amazon S3 and uploading an image file to Amazon S3. This API exposes the `GET /s3?key={file-name}` and `PUT /s3?key={file-name}` methods for downloading and uploading a specified image file. The `GET` method returns the image file as a base64-encoded string as part of a JSON output, following the supplied mapping template, in a 200 OK response. The `PUT` method takes a raw binary blob as input and returns a 200 OK response with an empty payload.
 
-OpenAPI 3.0
+------
+#### [ OpenAPI 3.0 ]
 
 ```
 {
@@ -151,10 +148,10 @@ OpenAPI 3.0
       }
    }
 }
-
 ```
 
-OpenAPI 2.0
+------
+#### [ OpenAPI 2.0 ]
 
 ```
 {
@@ -266,17 +263,18 @@ OpenAPI 2.0
 }
 ```
 
-## Download an image from Amazon S3
+------
 
-To download an image file (`image.jpg`) as a
-binary blob from Amazon S3:
+## Download an image from Amazon S3
+<a name="api-gateway-content-encodings-example-download-image-from-s3"></a>
+
+To download an image file (`image.jpg`) as a binary blob from Amazon S3:
 
 ```
 GET /v1/s3?key=image.jpg HTTP/1.1
 Host: abcdefghi.execute-api.us-east-1.amazonaws.com
 Content-Type: application/json
 Accept: application/octet-stream
-
 ```
 
 The successful response looks like this:
@@ -287,12 +285,9 @@ The successful response looks like this:
 [raw bytes]
 ```
 
-The raw bytes are returned because the `Accept`
-header is set to a binary media type of `application/octet-stream` and binary support is enabled for the API.
+The raw bytes are returned because the `Accept` header is set to a binary media type of `application/octet-stream` and binary support is enabled for the API. 
 
-Alternatively, to download an image file (`image.jpg`) as a base64-encoded string (formatted as a JSON property)
-from Amazon S3, add a response template to the 200 integration response, as shown in
-the following bold-faced OpenAPI definition block:
+Alternatively, to download an image file (`image.jpg`) as a base64-encoded string (formatted as a JSON property) from Amazon S3, add a response template to the 200 integration response, as shown in the following bold-faced OpenAPI definition block:
 
 ```
         "x-amazon-apigateway-integration": {
@@ -302,10 +297,10 @@ the following bold-faced OpenAPI definition block:
               "statusCode": "500"
             },
             "2\\d{2}": {
-              "statusCode": "200"**,
- "responseTemplates": {
- "application/json": "{\n \"image\": \"$input.body\"\n}"
- }**
+              "statusCode": "200",
+              "responseTemplates": {
+                "application/json": "{\n   \"image\": \"$input.body\"\n}"
+              }
             }
           },
 ```
@@ -317,7 +312,6 @@ GET /v1/s3?key=image.jpg HTTP/1.1
 Host: abcdefghi.execute-api.us-east-1.amazonaws.com
 Content-Type: application/json
 Accept: application/json
-
 ```
 
 The successful response looks like the following:
@@ -331,9 +325,9 @@ The successful response looks like the following:
 ```
 
 ## Upload an image to Amazon S3
+<a name="api-gateway-content-encodings-example-upload-image-to-s3"></a>
 
-To upload an image file (`image.jpg`) as a
-binary blob to Amazon S3:
+To upload an image file (`image.jpg`) as a binary blob to Amazon S3:
 
 ```
 PUT /v1/s3?key=image.jpg HTTP/1.1
@@ -347,11 +341,10 @@ Accept: application/json
 The successful response looks like the following:
 
 ```
-200 OK HTTP/1.1
+200 OK HTTP/1.1        
 ```
 
-To upload an image file (`image.jpg`) as a
-base64-encoded string to Amazon S3:
+To upload an image file (`image.jpg`) as a base64-encoded string to Amazon S3:
 
 ```
 PUT /v1/s3?key=image.jpg HTTP/1.1
@@ -362,8 +355,7 @@ Accept: application/json
 W3JhdyBieXRlc10=
 ```
 
-The input payload must be a base64-encoded string because the `Content-Type` header value is set to `application/json`. The successful response looks
-like the following:
+The input payload must be a base64-encoded string because the `Content-Type` header value is set to `application/json`. The successful response looks like the following:
 
 ```
 200 OK HTTP/1.1

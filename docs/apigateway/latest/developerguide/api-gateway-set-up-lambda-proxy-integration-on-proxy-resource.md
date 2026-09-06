@@ -1,19 +1,14 @@
+
+
 # Set up a proxy resource with Lambda proxy integration with an OpenAPI definition
+<a name="api-gateway-set-up-lambda-proxy-integration-on-proxy-resource"></a>
 
-To set up a proxy resource with the Lambda proxy integration type, create an API
-resource with a greedy path parameter (for example, `/parent/{proxy+}`)
-and integrate this resource with a Lambda function backend (for example,
-`arn:aws:lambda:us-west-2:123456789012:function:SimpleLambda4ProxyResource`)
-on the `ANY` method. The greedy path parameter must be at the end of the
-API resource path. As with a non-proxy resource, you can set up the proxy resource
-by using the API Gateway console, importing an OpenAPI definition file, or calling the
-API Gateway REST API directly.
+To set up a proxy resource with the Lambda proxy integration type, create an API resource with a greedy path parameter (for example, `/parent/{proxy+}`) and integrate this resource with a Lambda function backend (for example, `arn:aws:lambda:us-west-2:123456789012:function:SimpleLambda4ProxyResource`) on the `ANY` method. The greedy path parameter must be at the end of the API resource path. As with a non-proxy resource, you can set up the proxy resource by using the API Gateway console, importing an OpenAPI definition file, or calling the API Gateway REST API directly.
 
-The following OpenAPI API definition file shows an example of an API with a proxy
-resource that is integrated with a Lambda function named
-`SimpleLambda4ProxyResource`.
+The following OpenAPI API definition file shows an example of an API with a proxy resource that is integrated with a Lambda function named `SimpleLambda4ProxyResource`.
 
-OpenAPI 3.0
+------
+#### [ OpenAPI 3.0 ]
 
 ```
 {
@@ -67,7 +62,8 @@ OpenAPI 3.0
 }
 ```
 
-OpenAPI 2.0
+------
+#### [ OpenAPI 2.0 ]
 
 ```
 {
@@ -117,17 +113,8 @@ OpenAPI 2.0
 }
 ```
 
-In Lambda proxy integration, at run time, API Gateway maps an incoming request into the
-input `event` parameter of the Lambda function. The input includes the
-request method, path, headers, any query string parameters, any payload, associated
-context, and any defined stage variables. The input format is explained in [Input format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format"). For API Gateway to
-map the Lambda output to HTTP responses successfully, the Lambda function must output
-the result in the format described in [Output format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-output-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-output-format").
+------
 
-In Lambda proxy integration of a proxy resource through the `ANY`
-method, the single backend Lambda function serves as the event handler for all
-requests through the proxy resource. For example, to log traffic patterns, you can
-have a mobile device send its location information of state, city, street, and
-building by submitting a request with `/state/city/street/house` in the
-URL path for the proxy resource. The backend Lambda function can then parse the URL
-path and insert the location tuples into a DynamoDB table.
+In Lambda proxy integration, at run time, API Gateway maps an incoming request into the input `event` parameter of the Lambda function. The input includes the request method, path, headers, any query string parameters, any payload, associated context, and any defined stage variables. The input format is explained in [Input format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format). For API Gateway to map the Lambda output to HTTP responses successfully, the Lambda function must output the result in the format described in [Output format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-output-format). 
+
+In Lambda proxy integration of a proxy resource through the `ANY` method, the single backend Lambda function serves as the event handler for all requests through the proxy resource. For example, to log traffic patterns, you can have a mobile device send its location information of state, city, street, and building by submitting a request with `/state/city/street/house` in the URL path for the proxy resource. The backend Lambda function can then parse the URL path and insert the location tuples into a DynamoDB table.

@@ -1,19 +1,24 @@
+
+
 # AWS variables for OpenAPI import
+<a name="import-api-aws-variables"></a>
 
-You can use the following AWS variables in OpenAPI definitions. API Gateway resolves the variables when the API is imported. To specify a variable,
-use `${`variable-name`}`. The following table describes the available AWS variables.
+You can use the following AWS variables in OpenAPI definitions. API Gateway resolves the variables when the API is imported. To specify a variable, use `${{{variable-name}}}`. The following table describes the available AWS variables. 
 
-| Variable name    | Description                                                                                       |
-| ---------------- | ------------------------------------------------------------------------------------------------- |
-| `AWS::AccountId` | The AWS account ID that imports the API. For example, 123456789012.                               |
-| `AWS::Partition` | The AWS partition in which the API is imported. For standard AWS Regions, the partition is `aws`. |
-| `AWS::Region`    | The AWS Region in which the API is imported. For example, `us-east-2`.                            |
+
+| Variable name | Description | 
+| --- | --- | 
+| AWS::AccountId | The AWS account ID that imports the API. For example, 123456789012. | 
+| AWS::Partition | The AWS partition in which the API is imported. For standard AWS Regions, the partition is aws. | 
+| AWS::Region | The AWS Region in which the API is imported. For example, us-east-2. | 
 
 ## AWS variables example
+<a name="import-api-aws-variables-example"></a>
 
 The following example uses AWS variables to specify an AWS Lambda function for an integration.
 
-OpenAPI 3.0
+------
+#### [ OpenAPI 3.0 ]
 
 ```
 openapi: "3.0.1"
@@ -39,7 +44,7 @@ paths:
           content: {}
       x-amazon-apigateway-integration:
         uri:
-          arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:`LambdaFunctionName`/invocations
+          arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:{{LambdaFunctionName}}/invocations
         responses:
           default:
             statusCode: "200"
@@ -59,3 +64,5 @@ components:
         description:
           type: string
 ```
+
+------

@@ -1,17 +1,19 @@
+
+
 # x-amazon-apigateway-integrations object
+<a name="api-gateway-extensions-integrations"></a>
 
-Defines a collection of integrations. You can define integrations in the
-components section of your OpenAPI definition, and reuse the integrations for multiple
-routes. Supported only for HTTP APIs.
+Defines a collection of integrations. You can define integrations in the components section of your OpenAPI definition, and reuse the integrations for multiple routes. Supported only for HTTP APIs.
 
-| Property name | Type                                                                                                                                    | Description                          |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| `integration` | [x-amazon-apigateway-integration object](api-gateway-swagger-extensions-integration.md "api-gateway-swagger-extensions-integration.md") | A collection of integration objects. |
+
+| Property name | Type | Description | 
+| --- | --- | --- | 
+| {{integration}} | [x-amazon-apigateway-integration object](api-gateway-swagger-extensions-integration.md) | A collection of integration objects. | 
 
 ## x-amazon-apigateway-integrations example
+<a name="api-gateway-swagger-extensions-integrations-example"></a>
 
-The following example creates an HTTP API that defines two integrations, and
-references the integrations by using `$ref": "#/components/x-amazon-apigateway-integrations/`integration-name``.
+ The following example creates an HTTP API that defines two integrations, and references the integrations by using `$ref": "#/components/x-amazon-apigateway-integrations/{{integration-name}}`.
 
 ```
 {
@@ -76,7 +78,7 @@ references the integrations by using `$ref": "#/components/x-amazon-apigateway-i
             {
               "type": "aws_proxy",
               "httpMethod": "POST",
-              "uri": "arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:123456789012:function:`my-function`/invocations",
+              "uri": "arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:123456789012:function:{{my-function}}/invocations",
               "passthroughBehavior": "when_no_templates",
               "payloadFormatVersion": "1.0"
             },
@@ -84,13 +86,11 @@ references the integrations by using `$ref": "#/components/x-amazon-apigateway-i
             {
               "type": "aws_proxy",
               "httpMethod": "POST",
-              "uri": "arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:123456789012:function:`example-function`/invocations",
+              "uri": "arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:123456789012:function:{{example-function}}/invocations",
               "passthroughBehavior": "when_no_templates",
               "payloadFormatVersion" : "1.0"
             }
         }
     }
 }
-
-
 ```

@@ -1,11 +1,12 @@
-# Test CORS for an API Gateway API
 
-You can test your API's CORS configuration by invoking your API, and checking the CORS
-headers in the response. The following `curl` command sends an OPTIONS
-request to a deployed API.
+
+# Test CORS for an API Gateway API
+<a name="apigateway-test-cors"></a>
+
+You can test your API's CORS configuration by invoking your API, and checking the CORS headers in the response. The following `curl` command sends an OPTIONS request to a deployed API. 
 
 ```
-curl -v -X `OPTIONS` https://`{restapi_id}`.execute-api.`{region}`.amazonaws.com/`{stage_name}`
+curl -v -X {{OPTIONS}} https://{{{restapi_id}}}.execute-api.{{{region}}}.amazonaws.com/{{{stage_name}}}
 ```
 
 ```
@@ -21,7 +22,4 @@ curl -v -X `OPTIONS` https://`{restapi_id}`.execute-api.`{region}`.amazonaws.com
 < Access-Control-Allow-Methods: DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT
 ```
 
-The `Access-Control-Allow-Origin`,
-`Access-Control-Allow-Headers`, and
-`Access-Control-Allow-Methods` headers in the response show that the API
-supports CORS. For more information, see [CORS for REST APIs in API Gateway](how-to-cors.md "how-to-cors.md").
+The `Access-Control-Allow-Origin`, `Access-Control-Allow-Headers`, and `Access-Control-Allow-Methods` headers in the response show that the API supports CORS. For more information, see [CORS for REST APIs in API Gateway](how-to-cors.md).

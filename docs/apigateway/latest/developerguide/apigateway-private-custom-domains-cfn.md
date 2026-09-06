@@ -1,32 +1,29 @@
+
+
 # Create a custom domain name for private APIs using CloudFormation
+<a name="apigateway-private-custom-domains-cfn"></a>
 
-The following example CloudFormation template creates a private API and a private custom domain name, maps the private
-API to the custom domain name, and then creates a domain name access association. You need to provide your own VPC
-endpoint, domain name, and certificate ARN.
+The following example CloudFormation template creates a private API and a private custom domain name, maps the private API to the custom domain name, and then creates a domain name access association. You need to provide your own VPC endpoint, domain name, and certificate ARN.
 
-The following considerations might impact your use of CloudFormation to create a private
-custom domain name:
-
-- You can't reject a domain name access association using CloudFormation. To reject a domain name access association,
-  use the AWS CLI.
-- Use the `AWS::ApiGateway::DomainNameV2` CloudFormation property to create a private custom domain
-  name.
-- Use the `AWS::ApiGateway:BasePathMappingV2` CloudFormation property to create a base path mapping.
+The following considerations might impact your use of CloudFormation to create a private custom domain name:
++ You can't reject a domain name access association using CloudFormation. To reject a domain name access association, use the AWS CLI.
++ Use the `AWS::ApiGateway::DomainNameV2` CloudFormation property to create a private custom domain name.
++ Use the `AWS::ApiGateway:BasePathMappingV2` CloudFormation property to create a base path mapping.
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   EndpointID:
     Type: String
-    Default: `vpce-abcd1234567efg`
+    Default: {{vpce-abcd1234567efg}}
     Description: A VPC endpoint with enableDnsHostnames and enableDnsSupport set to true.
   DomainName:
     Type: String
-    Default: `private.example.com`
+    Default: {{private.example.com}}
     Description: A domain name that you own.
   CertificateArn:
     Type: String
-    Default: `arn:aws:acm:us-west-2:123456789:certificate/abcd-000-1234-0000-000000abcd`
+    Default: {{arn:aws:acm:us-west-2:123456789:certificate/abcd-000-1234-0000-000000abcd}}
     Description: An ACM certificate that covers the domain name.
 Resources:
   PrivateApi:
@@ -51,7 +48,7 @@ Resources:
             Effect: Deny
             Principal: '*'
             Resource: 'execute-api:/*'
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
   PrivateApiDeployment:
     Type: 'AWS::ApiGateway::Deployment'
     Properties:
@@ -65,7 +62,7 @@ Resources:
       RestApiId: !Ref PrivateApi
       DeploymentId: !Ref PrivateApiDeployment
       StageName: prod
-  PrivateApiMethod:
+  PrivateApiMethod: 
     Type: 'AWS::ApiGateway::Method'
     Properties:
       HttpMethod: ANY
@@ -102,7 +99,7 @@ Resources:
               Effect: Deny
               Principal: '*'
               Resource: 'execute-api:/*'
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
   PrivateBasePathMapping:
     Type: AWS::ApiGateway::BasePathMappingV2
     DependsOn:
@@ -112,7 +109,7 @@ Resources:
       DomainNameArn: !GetAtt PrivateDomainName.DomainNameArn
       RestApiId: !Ref PrivateApi
       Stage: prod
-  DomainNameAccessAssociation:
+  DomainNameAccessAssociation: 
     Type: AWS::ApiGateway::DomainNameAccessAssociation
     Properties:
       DomainNameArn: !GetAtt PrivateDomainName.DomainNameArn

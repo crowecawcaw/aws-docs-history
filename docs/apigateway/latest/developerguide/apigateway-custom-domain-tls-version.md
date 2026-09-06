@@ -1,75 +1,69 @@
+
+
 # Choose a security policy for your custom domain in API Gateway
+<a name="apigateway-custom-domain-tls-version"></a>
 
-A _security policy_ is a predefined combination of minimum TLS version and cipher suites
-offered by API Gateway. When your clients establish a TLS handshake to your API or custom domain name, the security
-policy enforces the TLS version and cipher suite accepted by API Gateway. Security policies protect your APIs and custom
-domain names from network security problems such as tampering and eavesdropping between a client and server.
+A *security policy* is a predefined combination of minimum TLS version and cipher suites offered by API Gateway. When your clients establish a TLS handshake to your API or custom domain name, the security policy enforces the TLS version and cipher suite accepted by API Gateway. Security policies protect your APIs and custom domain names from network security problems such as tampering and eavesdropping between a client and server.
 
-API Gateway supports legacy security policies and enhanced security policies. `TLS_1_0` and
-`TLS_1_2` are legacy security policies. Use these security policies for generalized workloads, or to
-get started creating an API. Any policy that starts with `SecurityPolicy_` is an enhanced security
-policy. Use these policies for regulated workloads, advanced governance, or to use post-quantum cryptography. When
-you use an enhanced security policy, you must also set the endpoint access mode for additional governance. For more
-information, see [Endpoint access mode](apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode "apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode").
+API Gateway supports legacy security policies and enhanced security policies. `TLS_1_0` and `TLS_1_2` are legacy security policies. Use these security policies for generalized workloads, or to get started creating an API. Any policy that starts with `SecurityPolicy_` is an enhanced security policy. Use these policies for regulated workloads, advanced governance, or to use post-quantum cryptography. When you use an enhanced security policy, you must also set the endpoint access mode for additional governance. For more information, see [Endpoint access mode](apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode).
 
 ## Considerations
+<a name="apigateway-custom-domain-tls-version-considerations"></a>
 
 The following are considerations for security policies for custom domain names for REST APIs in API Gateway:
-
-- You can't enable mutual TLS on a domain name that uses an enhanced security policy.
-- You can't map an HTTP API to a domain name that uses an enhanced security policy.
-- If you enable multi-level base path mapping to a REST API that uses an enhanced security policy, you
-  can’t create a base path mapping to an HTTP API for the same domain name.
-- Your API can be mapped to a custom domain name with a different security policy than your API. When you
-  invoke that custom domain name, API Gateway uses the security policy of the custom domain to negotiate the TLS handshake. If
-  you disable your default API endpoint, this might affect how callers can invoke your API.
-- API Gateway supports security policies on all APIs. However, you can only choose a security policy for REST
-  APIs. API Gateway only supports the `TLS_1_2` security policy for HTTP or WebSocket APIs.
-- API Gateway doesn't support updating a security policy for a domain name with multiple endpoint types. If you
-  have multiple endpoint types for a domain name, delete one of them to update the security policy.
++ You can't enable mutual TLS on a domain name that uses an enhanced security policy.
++ You can't map an HTTP API to a domain name that uses an enhanced security policy.
++ If you enable multi-level base path mapping to a REST API that uses an enhanced security policy, you can’t create a base path mapping to an HTTP API for the same domain name.
++ Your API can be mapped to a custom domain name with a different security policy than your API. When you invoke that custom domain name, API Gateway uses the security policy of the custom domain to negotiate the TLS handshake. If you disable your default API endpoint, this might affect how callers can invoke your API.
++ API Gateway supports security policies on all APIs. However, you can only choose a security policy for REST APIs. API Gateway only supports the `TLS_1_2` security policy for HTTP or WebSocket APIs.
++ API Gateway doesn't support updating a security policy for a domain name with multiple endpoint types. If you have multiple endpoint types for a domain name, delete one of them to update the security policy.
 
 ## How API Gateway applies security policies
+<a name="apigateway-custom-domain-tls-version-understanding"></a>
 
-The following example shows how API Gateway applies security policies using the
-`SecurityPolicy_TLS13_1_3_2025_09` security policy as an example.
+The following example shows how API Gateway applies security policies using the `SecurityPolicy_TLS13_1_3_2025_09` security policy as an example.
 
-The `SecurityPolicy_TLS13_1_3_2025_09` security policy accepts TLS 1.3 traffic and rejects TLS 1.2
-and TLS 1.0 traffic. For TLS 1.3 traffic, the security policy accepts the following cipher suites:
+The `SecurityPolicy_TLS13_1_3_2025_09` security policy accepts TLS 1.3 traffic and rejects TLS 1.2 and TLS 1.0 traffic. For TLS 1.3 traffic, the security policy accepts the following cipher suites:
++ `TLS_AES_128_GCM_SHA256`
++ `TLS_AES_256_GCM_SHA384`
++ `TLS_CHACHA20_POLY1305_SHA256`
 
-- `TLS_AES_128_GCM_SHA256`
-- `TLS_AES_256_GCM_SHA384`
-- `TLS_CHACHA20_POLY1305_SHA256`
+API Gateway does not accept any other cipher suites. For instance, the security policy would reject any TLS 1.3 traffic that uses the `AES128-SHA` cipher suite.
 
-API Gateway does not accept any other cipher suites. For instance, the security
-policy would reject any TLS 1.3 traffic that uses the `AES128-SHA` cipher suite.
+To monitor which TLS protocol and ciphers clients used to access your API Gateway, you can use the `$context.tlsVersion` and `$context.cipherSuite` context variables in your access logs. For more information, see [Monitor REST APIs in API Gateway](rest-api-monitor.md).
 
-To monitor which TLS protocol and ciphers clients used to access your API Gateway, you can use the `$context.tlsVersion` and
-`$context.cipherSuite` context variables in your access logs. For more information, see [Monitor REST APIs in API Gateway](rest-api-monitor.md "rest-api-monitor.md").
-
-To see the default security policies for all REST APIs and custom domain names, see [Default security policies](apigateway-security-policies-list.md#apigateway-security-policies-default "apigateway-security-policies-list.md#apigateway-security-policies-default"). To see the supported security policies for all REST APIs and
-custom domain names, see [Supported security policies](apigateway-security-policies-list.md "apigateway-security-policies-list.md").
+To see the default security policies for all REST APIs and custom domain names, see [Default security policies](apigateway-security-policies-list.md#apigateway-security-policies-default). To see the supported security policies for all REST APIs and custom domain names, see [Supported security policies](apigateway-security-policies-list.md).
 
 ## Change your custom domain name's security policy
+<a name="apigateway-security-policies-update-custom-domain-name"></a>
 
-If you change your security policy, it takes about 15 minutes for the update to complete. You can monitor the
-`lastUpdateStatus` of your custom domain name. As your custom domain name updates, the
-`lastUpdateStatus` is `PENDING` and when it completes, it will be `AVAILABLE`.
+If you change your security policy, it takes about 15 minutes for the update to complete. You can monitor the `lastUpdateStatus` of your custom domain name. As your custom domain name updates, the `lastUpdateStatus` is `PENDING` and when it completes, it will be `AVAILABLE`.
 
-When you use a security policy that starts with `SecurityPolicy_`, you must also turn on
-endpoint access mode. For more information, see
-[Endpoint access mode](apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode "apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode").
+When you use a security policy that starts with `SecurityPolicy_`, you must also turn on endpoint access mode. For more information, see [Endpoint access mode](apigateway-security-policies.md#apigateway-security-policies-endpoint-access-mode).
 
-AWS Management Console###### To change the security policy of a custom domain name
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose a custom domain name that sends traffic to REST APIs.
+**To change the security policy of a custom domain name**
 
-Make sure there is only one endpoint type associated with your custom domain name. 3. Choose **Custom domain name settings**, and then choose
-**Edit**. 4. For **Security policy**, select a new policy. 5. For **Endpoint access mode**, choose **Strict**. 6. Choose **Save changes**.
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
 
-AWS CLI
-The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md") command
-updates a domain name to use the `SecurityPolicy_TLS13_1_3_2025_09` security policy:
+1. Choose a custom domain name that sends traffic to REST APIs.
+
+   Make sure there is only one endpoint type associated with your custom domain name.
+
+1. Choose **Custom domain name settings**, and then choose **Edit**.
+
+1. For **Security policy**, select a new policy.
+
+1. For **Endpoint access mode**, choose **Strict**.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+The following [update-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-domain-name.html) command updates a domain name to use the `SecurityPolicy_TLS13_1_3_2025_09` security policy:
 
 ```
 aws apigateway update-domain-name \
@@ -79,7 +73,7 @@ aws apigateway update-domain-name \
             "op": "replace",
             "path": "/securityPolicy",
             "value": "SecurityPolicy_TLS13_1_3_2025_09"
-        },
+        }, 
         {
             "op": "replace",
             "path": "/endpointAccessMode",
@@ -93,9 +87,9 @@ The output will look like the following:
 ```
 {
    "domainName": "example.com",
-   "endpointConfiguration": {
-      "types": [ "REGIONAL" ],
-      "ipAddressType": "dualstack"
+   "endpointConfiguration": { 
+      "types": [ "REGIONAL" ], 
+      "ipAddressType": "dualstack" 
    },
    "regionalCertificateArn": "arn:aws:acm:us-west-2:111122223333:certificate/a1b2c3d4-5678-90ab-cdef",
    "securityPolicy": "SecurityPolicy_TLS13_1_3_2025_09",
@@ -103,7 +97,9 @@ The output will look like the following:
 }
 ```
 
-## Information about HTTP APIs and WebSocket APIs
+------
 
-For more information about HTTP APIs and WebSocket APIs, see [Security policy for HTTP APIs in API Gateway](http-api-ciphers.md "http-api-ciphers.md")
-and [Security policy for WebSocket APIs in API Gateway](websocket-api-ciphers.md "websocket-api-ciphers.md").
+## Information about HTTP APIs and WebSocket APIs
+<a name="apigateway-rest-additional-apis"></a>
+
+For more information about HTTP APIs and WebSocket APIs, see [Security policy for HTTP APIs in API Gateway](http-api-ciphers.md) and [Security policy for WebSocket APIs in API Gateway](websocket-api-ciphers.md).

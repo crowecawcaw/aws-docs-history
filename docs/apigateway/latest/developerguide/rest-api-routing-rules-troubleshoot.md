@@ -1,50 +1,53 @@
+
+
 # Troubleshooting issues with routing rules
+<a name="rest-api-routing-rules-troubleshoot"></a>
 
 The following troubleshooting guidance might help resolve issues with your routing rules.
 
 ## I can't tell how API Gateway sent traffic to my APIs
+<a name="rest-api-routing-rules-logging"></a>
 
-You can use access logs for your REST API stage to log and troubleshoot your routing rules. You can view the
-routing rule ID that API Gateway used to send traffic to your API using the
-`$context.customDomain.routingRuleIdMatched` variable. To view the API mapping that API Gateway used to
-send traffic to your API, use the `$context.customDomain.basePathMatched` variable.
+You can use access logs for your REST API stage to log and troubleshoot your routing rules. You can view the routing rule ID that API Gateway used to send traffic to your API using the `$context.customDomain.routingRuleIdMatched` variable. To view the API mapping that API Gateway used to send traffic to your API, use the `$context.customDomain.basePathMatched` variable. 
 
-To log your routing rules, you need to configure [an appropriate CloudWatch Logs
-role](set-up-logging.md#set-up-access-logging-permissions "set-up-logging.md#set-up-access-logging-permissions") ARN
-for your account and create a log group.
+ To log your routing rules, you need to configure [an appropriate CloudWatch Logs role](set-up-logging.md#set-up-access-logging-permissions) ARN for your account and create a log group.
 
-The following example access log group can retrieve the relevant information for troubleshooting routing rules
-and API mappings. API Gateway only populates the context variable for the routing mechanism it used, otherwise the context
-variable is `-`.
+The following example access log group can retrieve the relevant information for troubleshooting routing rules and API mappings. API Gateway only populates the context variable for the routing mechanism it used, otherwise the context variable is `-`. 
 
-CLF
+------
+#### [ CLF ]
 
 ```
 $context.path $context.customDomain.routingRuleIdMatched $context.customDomain.basePathMatched $context.requestId $context.extendedRequestId
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {"requestPath": "$context.path", "routingRuleId" : "$context.customDomain.routingRuleIdMatched", "API mapping" : "$context.customDomain.basePathMatched", "requestId":"$context.requestId", "extendedRequestId":"$context.extendedRequestId"}
 ```
 
-XML
+------
+#### [ XML ]
 
 ```
 <request id="$context.requestId"> <requestPath>$context.path</requestPath> <ruleId>$context.customDomain.routingRuleIdMatched</ruleId> <ApiMapping>$context.customDomain.basePathMatched</ApiMapping> <extendedRequestId>$context.extendedRequestId</extendedRequestId> </request>
 ```
 
-CSV
+------
+#### [ CSV ]
 
 ```
 $context.path,$context.customDomain.routingRuleIdMatched,$context.customDomain.basePathMatched,$context.requestId,$context.extendedRequestId
 ```
 
-We also recommend that you confirm the routing mode for your custom domain name. For more information, see
-[Set the routing mode for your custom domain name](set-routing-mode.md "set-routing-mode.md").
+------
+
+We also recommend that you confirm the routing mode for your custom domain name. For more information, see [Set the routing mode for your custom domain name](set-routing-mode.md).
 
 ## I can't enable routing rules on my custom domain name
+<a name="rest-routing-rules-access-denied"></a>
 
 You might receive the following error from API Gateway:
 
@@ -56,10 +59,7 @@ This will impact any existing IAM policies that deny access to BasePathMapping o
 See API Gateway documentation for further details.
 ```
 
-You'll receive this error if have or had an IAM policy that denies access to [BasePathMapping](../../../service-authorization/latest/reference/list_amazonapigatewaymanagement.md#amazonapigatewaymanagement-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonapigatewaymanagement.md#amazonapigatewaymanagement-resources-for-iam-policies") or [ApiMapping](../../../service-authorization/latest/reference/list_amazonapigatewaymanagementv2.md#amazonapigatewaymanagementv2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonapigatewaymanagementv2.md#amazonapigatewaymanagementv2-resources-for-iam-policies"). When you enable routing rules for a custom domain name, although your policy will
-continue to deny access to `BasePathMapping` or `ApiMapping`, the same policy can be used
-to access `RoutingRule`. This might allow a user to change the routing behavior of your custom domain
-name.
+You'll receive this error if have or had an IAM policy that denies access to [BasePathMapping](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonapigatewaymanagement.html#amazonapigatewaymanagement-resources-for-iam-policies) or [ApiMapping](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonapigatewaymanagementv2.html#amazonapigatewaymanagementv2-resources-for-iam-policies). When you enable routing rules for a custom domain name, although your policy will continue to deny access to `BasePathMapping` or `ApiMapping`, the same policy can be used to access `RoutingRule`. This might allow a user to change the routing behavior of your custom domain name.
 
 For example, if you had a policy like the following:
 
@@ -74,11 +74,9 @@ For example, if you had a policy like the following:
 }
 ```
 
-When you enable routing rules for `example.com`, this policy will continue to deny access to
-creating an `ApiMapping` but will not deny access to creating a `RoutingRule`.
+When you enable routing rules for `example.com`, this policy will continue to deny access to creating an `ApiMapping` but will not deny access to creating a `RoutingRule`.
 
-We recommend that you audit the IAM policies in your account. The following example policy will deny
-access to creating `ApiMapping`, `BasePathMapping`, and `RoutingRule`:
+We recommend that you audit the IAM policies in your account. The following example policy will deny access to creating `ApiMapping`, `BasePathMapping`, and `RoutingRule`:
 
 ```
 {
@@ -100,15 +98,12 @@ access to creating `ApiMapping`, `BasePathMapping`, and `RoutingRule`:
 }
 ```
 
-After you have confirmed all your policies have been updated, you can update your API's account-level
-settings to enable routing rules for a Region.
+After you have confirmed all your policies have been updated, you can update your API's account-level settings to enable routing rules for a Region.
 
-Use the following [update-account](../../../cli/latest/reference/apigateway/update-account.md "../../../cli/latest/reference/apigateway/update-account.md") command to update the settings for your API's account-level settings for a Region:
+Use the following [update-account](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-account.html) command to update the settings for your API's account-level settings for a Region:
 
 ```
-aws apigateway update-account --patch-operations 'op=remove,path=/features,value=BlockedForRoutingRules' --region `us-west-2`
+aws apigateway update-account --patch-operations 'op=remove,path=/features,value=BlockedForRoutingRules' --region {{us-west-2}}
 ```
 
-After you update your API's account-level settings, you can change the routing mode of your custom domain
-name. You can also continue to use IAM policies to deny access to `RoutingRules`,
-`ApiMapping` or `BasePathMapping`.
+After you update your API's account-level settings, you can change the routing mode of your custom domain name. You can also continue to use IAM policies to deny access to `RoutingRules`, `ApiMapping` or `BasePathMapping`.

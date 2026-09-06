@@ -1,120 +1,87 @@
+
+
 # Use API Gateway Lambda authorizers
+<a name="apigateway-use-lambda-authorizer"></a>
 
-Use a _Lambda authorizer_ (formerly known as a _custom authorizer_) to
-control access to your API. When a client makes a request to your API's method, API Gateway calls your Lambda
-authorizer. The Lambda authorizer takes the caller's identity as the input and returns an IAM policy as the output.
+Use a *Lambda authorizer* (formerly known as a *custom authorizer*) to control access to your API. When a client makes a request to your API's method, API Gateway calls your Lambda authorizer. The Lambda authorizer takes the caller's identity as the input and returns an IAM policy as the output.
 
-Use a Lambda authorizer to implement a custom authorization scheme. Your scheme can use request parameters to
-determine the caller's identity or use a bearer token authentication strategy such as OAuth or SAML. Create
-a Lambda authorizer in the API Gateway REST API console, using the AWS CLI, or an AWS SDK.
+Use a Lambda authorizer to implement a custom authorization scheme. Your scheme can use request parameters to determine the caller's identity or use a bearer token authentication strategy such as OAuth or SAML. Create a Lambda authorizer in the API Gateway REST API console, using the AWS CLI, or an AWS SDK.
 
 ## Lambda authorizer authorization workflow
+<a name="api-gateway-lambda-authorizer-flow"></a>
 
 The following diagram shows the authorization workflow for a Lambda authorizer.
 
-![API Gateway Lambda authorization workflow](images/custom-auth-workflow.png)
+![API Gateway Lambda authorization workflow](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-workflow.png)
 
-###### API Gateway Lambda authorization workflow
+
+**API Gateway Lambda authorization workflow**
 
 1. The client calls a method on an API Gateway API, passing a bearer token or request parameters.
-2. API Gateway checks if the method request is configured with a Lambda authorizer. If it is, API Gateway calls the Lambda
-   function.
-3. The Lambda function authenticates the caller. The function can authenticate in the following ways:
 
-   - By calling out to an OAuth provider to get an OAuth access token.
-   - By calling out to a SAML provider to get a SAML assertion.
-   - By generating an IAM policy based on the request parameter values.
-   - By retrieving credentials from a database.
+1. API Gateway checks if the method request is configured with a Lambda authorizer. If it is, API Gateway calls the Lambda function.
 
-4. The Lambda function returns an IAM policy and a principal identifier. If the Lambda function does not
-   return that information, the call fails.
-5. API Gateway evaluates the IAM policy.
+1. The Lambda function authenticates the caller. The function can authenticate in the following ways:
+   + By calling out to an OAuth provider to get an OAuth access token.
+   + By calling out to a SAML provider to get a SAML assertion.
+   + By generating an IAM policy based on the request parameter values.
+   + By retrieving credentials from a database.
 
-   - If access is denied, API Gateway returns a suitable HTTP status code, such as `403
-  ACCESS_DENIED`.
-   - If access is allowed, API Gateway invokes the method.
+1. The Lambda function returns an IAM policy and a principal identifier. If the Lambda function does not return that information, the call fails. 
 
-   If you enable authorization caching, API Gateway caches the policy so that the Lambda authorizer
-   function isn’t invoked again. Ensure that your policy is applicable to all resources and methods across
-   your API.
+1. API Gateway evaluates the IAM policy.
+   + If access is denied, API Gateway returns a suitable HTTP status code, such as `403 ACCESS_DENIED`.
+   + If access is allowed, API Gateway invokes the method. 
 
-You can customize the `403
- ACCESS_DENIED` or the `401 UNAUTHORIZED` gateway responses. To learn more, see [Gateway responses for REST APIs in API Gateway](api-gateway-gatewayResponse-definition.md "api-gateway-gatewayResponse-definition.md").
+     If you enable authorization caching, API Gateway caches the policy so that the Lambda authorizer function isn’t invoked again. Ensure that your policy is applicable to all resources and methods across your API.
+
+You can customize the `403 ACCESS_DENIED` or the `401 UNAUTHORIZED` gateway responses. To learn more, see [Gateway responses for REST APIs in API Gateway](api-gateway-gatewayResponse-definition.md).
 
 ## Choosing a type of Lambda authorizer
+<a name="api-gateway-lambda-authorizer-choose"></a>
 
 There are two types of Lambda authorizers:
 
-**Request parameter-based Lambda authorizer (`REQUEST` authorizer)**
+**Request parameter-based Lambda authorizer (`REQUEST` authorizer)**  
+A `REQUEST` authorizer receives the caller's identity in a combination of headers, query string parameters, [`stageVariables`](api-gateway-mapping-template-reference.md#stagevariables-template-reference), and [`$context`](api-gateway-mapping-template-reference.md#context-variable-reference) variables. You can use a `REQUEST` authorizer to create fine-grained policies based on the information from multiple identity sources, such as the `$context.path` and `$context.httpMethod` context variables.  
+If you turn on authorization caching for a `REQUEST` authorizer, API Gateway verifies that all specified identity sources are present in the request. If a specified identify source is missing, null, or empty, API Gateway returns a `401 Unauthorized` HTTP response without calling the Lambda authorizer function. When multiple identity sources are defined, they are all used to derive the authorizer's cache key, with the order preserved. You can define a fine-grained cache key by using multiple identity sources.  
+If you change any of the cache key parts, and redeploy your API, the authorizer discards the cached policy document and generates a new one.  
+If you turn off authorization caching for a `REQUEST` authorizer, API Gateway directly passes the request to the Lambda function. 
 
-A `REQUEST` authorizer receives the caller's identity in a combination of headers, query
-string parameters, [stageVariables](api-gateway-mapping-template-reference.md#stagevariables-template-reference "api-gateway-mapping-template-reference.md#stagevariables-template-reference"), and
-[$context](api-gateway-mapping-template-reference.md#context-variable-reference "api-gateway-mapping-template-reference.md#context-variable-reference") variables. You can use a
- `REQUEST` authorizer to create fine-grained policies based on the information from multiple
- identity sources, such as the `$context.path`and 
-`$context.httpMethod` context variables.
+**Token-based Lambda authorizer (`TOKEN` authorizer)**  
+A `TOKEN` authorizer receives the caller's identity in a bearer token, such as a JSON Web Token (JWT) or an OAuth token.  
+If you turn on authorization caching for a `TOKEN` authorizer, the header name specified in the token source becomes the cache key.   
+Additionally, you can use token validation to enter a RegEx statement. API Gateway performs initial validation of the input token against this expression and invokes the Lambda authorizer function upon successful validation. This helps reduce calls to your API.   
+The `IdentityValidationExpression` property is supported for `TOKEN` authorizers only. For more information, see [x-amazon-apigateway-authorizer object](api-gateway-swagger-extensions-authorizer.md).
 
-If you turn on authorization caching for a `REQUEST` authorizer, API Gateway verifies that all
-specified identity sources are present in the request. If a specified identify source is missing, null, or
-empty, API Gateway returns a `401 Unauthorized` HTTP response without calling the Lambda authorizer
-function. When multiple identity sources are defined, they are all used to derive the authorizer's cache
-key, with the order preserved. You can define a fine-grained cache key by using multiple identity
-sources.
-
-If you change any of the cache key parts, and redeploy your API, the authorizer discards the cached policy document and
-generates a new one.
-
-If you turn off authorization caching for a `REQUEST` authorizer, API Gateway directly passes the
-request to the Lambda function.
-
-**Token-based Lambda authorizer (`TOKEN` authorizer)**
-
-A `TOKEN` authorizer receives the caller's identity in a bearer
-token, such as a JSON Web Token (JWT) or an OAuth token.
-
-If you turn on authorization caching for a `TOKEN` authorizer, the header name specified in
-the token source becomes the cache key.
-
-Additionally, you can use token validation to enter a RegEx statement. API Gateway performs initial validation
-of the input token against this expression and invokes the Lambda authorizer function upon successful
-validation. This helps reduce calls to your API.
-
-The `IdentityValidationExpression` property is supported for `TOKEN` authorizers
-only. For more information, see [x-amazon-apigateway-authorizer object](api-gateway-swagger-extensions-authorizer.md "api-gateway-swagger-extensions-authorizer.md").
-
-###### Note
-
-We recommend that you use a `REQUEST` authorizer to control access to your API. You can control
-access to your API based on multiple identity sources when using a `REQUEST` authorizer, compared to
-a single identity source when using a `TOKEN` authorizer. In addition, you can separate cache keys using
-multiple identity sources for a `REQUEST` authorizer.
+**Note**  
+We recommend that you use a `REQUEST` authorizer to control access to your API. You can control access to your API based on multiple identity sources when using a `REQUEST` authorizer, compared to a single identity source when using a `TOKEN` authorizer. In addition, you can separate cache keys using multiple identity sources for a `REQUEST` authorizer.
 
 ## Example `REQUEST` authorizer Lambda function
+<a name="api-gateway-lambda-authorizer-request-lambda-function-create"></a>
 
-The following example code creates a Lambda authorizer function that allows a request if the client-supplied
-`HeaderAuth1` header, `QueryString1` query parameter, and stage variable of
-`StageVar1` all match the specified values of `headerValue1`, `queryValue1`, and
-`stageValue1`, respectively.
+The following example code creates a Lambda authorizer function that allows a request if the client-supplied `HeaderAuth1` header, `QueryString1` query parameter, and stage variable of `StageVar1` all match the specified values of `headerValue1`, `queryValue1`, and `stageValue1`, respectively. 
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
-// A simple request-based authorizer example to demonstrate how to use request
-// parameters to allow or deny a request. In this example, a request is
+// A simple request-based authorizer example to demonstrate how to use request 
+// parameters to allow or deny a request. In this example, a request is  
 // authorized if the client-supplied HeaderAuth1 header, QueryString1
 // query parameter, and stage variable of StageVar1 all match
 // specified values of 'headerValue1', 'queryValue1', and 'stageValue1',
 // respectively.
-
+    
 export const handler = function(event, context, callback) {
     console.log('Received event:', JSON.stringify(event, null, 2));
-
+    
     // Retrieve request parameters from the Lambda function input:
     var headers = event.headers;
     var queryStringParameters = event.queryStringParameters;
     var pathParameters = event.pathParameters;
     var stageVariables = event.stageVariables;
-
+        
     // Parse the input for the parameter values
     var tmp = event.methodArn.split(':');
     var apiGatewayArnTmp = tmp[5].split('/');
@@ -127,11 +94,11 @@ export const handler = function(event, context, callback) {
     if (apiGatewayArnTmp[3]) {
         resource += apiGatewayArnTmp[3];
     }
-
-    // Perform authorization to return the Allow policy for correct parameters and
+        
+    // Perform authorization to return the Allow policy for correct parameters and 
     // the 'Unauthorized' error, otherwise.
 
-
+     
     if (headers.HeaderAuth1 === "headerValue1"
         && queryStringParameters.QueryString1 === "queryValue1"
         && stageVariables.StageVar1 === "stageValue1") {
@@ -140,7 +107,7 @@ export const handler = function(event, context, callback) {
         callback(null, generateDeny('me', event.methodArn));
     }
 }
-
+     
 // Help function to generate an IAM policy
 var generatePolicy = function(principalId, effect, resource) {
     // Required output:
@@ -165,17 +132,18 @@ var generatePolicy = function(principalId, effect, resource) {
     };
     return authResponse;
 }
-
+     
 var generateAllow = function(principalId, resource) {
     return generatePolicy(principalId, 'Allow', resource);
 }
-
+     
 var generateDeny = function(principalId, resource) {
     return generatePolicy(principalId, 'Deny', resource);
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 # A simple request-based authorizer example to demonstrate how to use request
@@ -252,56 +220,51 @@ def generateDeny(principalId, resource):
     return generatePolicy(principalId, 'Deny', resource)
 ```
 
+------
+
 In this example, the Lambda authorizer function checks the input parameters and acts as follows:
++ If all the required parameter values match the expected values, the authorizer function returns a `200 OK` HTTP response and an IAM policy that looks like the following, and the method request succeeds:
 
-- If all the required parameter values match the expected values, the authorizer function returns a
-  `200 OK` HTTP response and an IAM policy that looks like the following, and the method
-  request succeeds:
+------
+#### [ JSON ]
 
-JSON
+****  
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": "execute-api:Invoke",
- "Effect": "Allow",
- "Resource": "arn:aws:execute-api:us-east-1:123456789012:ivdtdhp7b5/ESTestInvoke-stage/GET/"
- }
- ]
-}`
+  ```
+  {
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Action": "execute-api:Invoke",
+        "Effect": "Allow",
+        "Resource": "arn:aws:execute-api:us-east-1:123456789012:ivdtdhp7b5/ESTestInvoke-stage/GET/"
+      }
+    ]
+  }
+  ```
 
-```
+------
++ Otherwise, the authorizer function returns a `401 Unauthorized` HTTP response, and the method request fails.
 
-- Otherwise, the authorizer function returns a `401 Unauthorized` HTTP response, and the method
-  request fails.
+In addition to returning an IAM policy, the Lambda authorizer function must also return the caller's principal identifier. Optionally, it can return a `context` object containing additional information that can be passed into the integration backend. For more information, see [Output from an API Gateway Lambda authorizer](api-gateway-lambda-authorizer-output.md).
 
-In addition to returning an IAM policy, the Lambda authorizer function must also return the caller's
-principal identifier. Optionally, it can return a `context` object containing additional
-information that can be passed into the integration backend. For more information, see [Output from an API Gateway Lambda authorizer](api-gateway-lambda-authorizer-output.md "api-gateway-lambda-authorizer-output.md").
-
-In production code, you might need to authenticate the user before granting authorization. You can
-add authentication logic in the Lambda function by calling an authentication provider as directed in
-the documentation for that provider.
+In production code, you might need to authenticate the user before granting authorization. You can add authentication logic in the Lambda function by calling an authentication provider as directed in the documentation for that provider.
 
 ## Example `TOKEN` authorizer Lambda function
+<a name="api-gateway-lambda-authorizer-token-lambda-function-create"></a>
 
-The following example code creates a `TOKEN` Lambda authorizer function that allows a caller to invoke a
-method if the client-supplied token value is `allow`. The caller is not allowed to invoke the request if the token
-value is `deny`. If the token value is
-`unauthorized` or an empty string, the authorizer function returns an `401 UNAUTHORIZED`
-response.
+The following example code creates a `TOKEN` Lambda authorizer function that allows a caller to invoke a method if the client-supplied token value is `allow`. The caller is not allowed to invoke the request if the token value is `deny`. If the token value is `unauthorized` or an empty string, the authorizer function returns an `401 UNAUTHORIZED` response.
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
-// A simple token-based authorizer example to demonstrate how to use an authorization token
-// to allow or deny a request. In this example, the caller named 'user' is allowed to invoke
-// a request if the client-supplied token value is 'allow'. The caller is not allowed to invoke
+// A simple token-based authorizer example to demonstrate how to use an authorization token 
+// to allow or deny a request. In this example, the caller named 'user' is allowed to invoke 
+// a request if the client-supplied token value is 'allow'. The caller is not allowed to invoke 
 // the request if the token value is 'deny'. If the token value is 'unauthorized' or an empty
-// string, the authorizer function returns an HTTP 401 status code. For any other token value,
-// the authorizer returns an HTTP 500 status code.
+// string, the authorizer function returns an HTTP 401 status code. For any other token value, 
+// the authorizer returns an HTTP 500 status code. 
 // Note that token values are case-sensitive.
 
 export const handler =  function(event, context, callback) {
@@ -324,20 +287,20 @@ export const handler =  function(event, context, callback) {
 // Help function to generate an IAM policy
 var generatePolicy = function(principalId, effect, resource) {
     var authResponse = {};
-
+    
     authResponse.principalId = principalId;
     if (effect && resource) {
         var policyDocument = {};
-        policyDocument.Version = '2012-10-17';
+        policyDocument.Version = '2012-10-17'; 
         policyDocument.Statement = [];
         var statementOne = {};
-        statementOne.Action = 'execute-api:Invoke';
+        statementOne.Action = 'execute-api:Invoke'; 
         statementOne.Effect = effect;
         statementOne.Resource = resource;
         policyDocument.Statement[0] = statementOne;
         authResponse.policyDocument = policyDocument;
     }
-
+    
     // Optional output with custom properties of the String, Number or Boolean type.
     authResponse.context = {
         "stringKey": "stringval",
@@ -348,7 +311,8 @@ var generatePolicy = function(principalId, effect, resource) {
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 # A simple token-based authorizer example to demonstrate how to use an authorization token
@@ -403,83 +367,69 @@ def generatePolicy(principalId, effect, resource):
     return authResponse_JSON
 ```
 
-In this example, when the API receives a method request, API Gateway passes the source token to this Lambda
-authorizer function in the `event.authorizationToken` attribute. The Lambda authorizer function reads
-the token and acts as follows:
+------
 
-- If the token value is `allow`, the authorizer function returns a `200 OK` HTTP
-  response and an IAM policy that looks like the following, and the method request succeeds:
+In this example, when the API receives a method request, API Gateway passes the source token to this Lambda authorizer function in the `event.authorizationToken` attribute. The Lambda authorizer function reads the token and acts as follows:
++ If the token value is `allow`, the authorizer function returns a `200 OK` HTTP response and an IAM policy that looks like the following, and the method request succeeds:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": "execute-api:Invoke",
- "Effect": "Allow",
- "Resource": "arn:aws:execute-api:us-east-1:123456789012:ivdtdhp7b5/ESTestInvoke-stage/GET/"
- }
- ]
-}`
+****  
 
-```
+  ```
+  {
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Action": "execute-api:Invoke",
+        "Effect": "Allow",
+        "Resource": "arn:aws:execute-api:us-east-1:123456789012:ivdtdhp7b5/ESTestInvoke-stage/GET/"
+      }
+    ]
+  }
+  ```
 
-- If the token value is `deny`, the authorizer function returns a `200
- OK` HTTP response and a `Deny` IAM policy that looks
-  like the following, and the method request fails:
+------
++ If the token value is `deny`, the authorizer function returns a `200 OK` HTTP response and a `Deny` IAM policy that looks like the following, and the method request fails:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": "execute-api:Invoke",
- "Effect": "Deny",
- "Resource": "arn:aws:execute-api:us-east-1:123456789012:ivdtdhp7b5/ESTestInvoke-stage/GET/"
- }
- ]
-}`
+****  
 
-```
+  ```
+  {
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Action": "execute-api:Invoke",
+        "Effect": "Deny",
+        "Resource": "arn:aws:execute-api:us-east-1:123456789012:ivdtdhp7b5/ESTestInvoke-stage/GET/"
+      }
+    ]
+  }
+  ```
 
-###### Note
+------
+**Note**  
+Outside of the test environment, API Gateway returns a `403 Forbidden` HTTP response and the method request fails.
++ If the token value is `unauthorized` or an empty string, the authorizer function returns a `401 Unauthorized` HTTP response, and the method call fails.
++ If the token is anything else, the client receives a `500 Invalid token` response, and the method call fails.
 
-Outside of the test environment, API Gateway returns a
-`403 Forbidden` HTTP response and the method request fails.
+In addition to returning an IAM policy, the Lambda authorizer function must also return the caller's principal identifier. Optionally, it can return a `context` object containing additional information that can be passed into the integration backend. For more information, see [Output from an API Gateway Lambda authorizer](api-gateway-lambda-authorizer-output.md).
 
-- If the token value is `unauthorized` or an empty string, the authorizer function returns a
-  `401 Unauthorized` HTTP response, and the method call fails.
-- If the token is anything else, the client receives a `500 Invalid token` response, and the
-  method call fails.
-
-In addition to returning an IAM policy, the Lambda authorizer function must also return the caller's
-principal identifier. Optionally, it can return a `context` object containing additional
-information that can be passed into the integration backend. For more information, see [Output from an API Gateway Lambda authorizer](api-gateway-lambda-authorizer-output.md "api-gateway-lambda-authorizer-output.md").
-
-In production code, you might need to authenticate the user before granting authorization. You can
-add authentication logic in the Lambda function by calling an authentication provider as directed in
-the documentation for that provider.
+In production code, you might need to authenticate the user before granting authorization. You can add authentication logic in the Lambda function by calling an authentication provider as directed in the documentation for that provider.
 
 ## Additional examples of Lambda authorizer functions
+<a name="api-gateway-lambda-authorizer-lambda-function-create"></a>
 
-The following list shows additional examples of Lambda authorizer functions. You can create a Lambda function in
-the same account, or a different account, from where you created your API.
+The following list shows additional examples of Lambda authorizer functions. You can create a Lambda function in the same account, or a different account, from where you created your API.
 
-For the previous example Lambda functions, you can use the built-in [AWSLambdaBasicExecutionRole](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md"), as these functions
-don't call other AWS services. If your Lambda function calls other AWS services, you'll need to assign an IAM
-execution role to the Lambda function. To create the role, follow the instructions in [AWS Lambda Execution Role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md").
+For the previous example Lambda functions, you can use the built-in [AWSLambdaBasicExecutionRole](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html), as these functions don't call other AWS services. If your Lambda function calls other AWS services, you'll need to assign an IAM execution role to the Lambda function. To create the role, follow the instructions in [AWS Lambda Execution Role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html).
 
-###### Additional examples of Lambda authorizer functions
-
-- For an example application, see [Open Banking Brazil - Authorization
-  Samples](https://github.com/aws-samples/openbanking-brazilian-auth-samples "https://github.com/aws-samples/openbanking-brazilian-auth-samples") on GitHub.
-- For more example Lambda functions, see [aws-apigateway-lambda-authorizer-blueprints](https://github.com/awslabs/aws-apigateway-lambda-authorizer-blueprints "https://github.com/awslabs/aws-apigateway-lambda-authorizer-blueprints") on GitHub.
-- You can create a Lambda authorizer that authenticates users using Amazon Cognito user pools and authorizes callers
-  based on a policy store using Verified Permissions. For more information, see [Control access based on an identity’s attributes with Verified Permissions](apigateway-lambda-authorizer-verified-permissions.md "apigateway-lambda-authorizer-verified-permissions.md").
-- The Lambda console provides a Python blueprint, which you
-  can use by choosing **Use a blueprint** and choosing the
-  **api-gateway-authorizer-python** blueprint.
+**Additional examples of Lambda authorizer functions**
++  For an example application, see [Open Banking Brazil - Authorization Samples](https://github.com/aws-samples/openbanking-brazilian-auth-samples) on GitHub. 
++  For more example Lambda functions, see [ aws-apigateway-lambda-authorizer-blueprints](https://github.com/awslabs/aws-apigateway-lambda-authorizer-blueprints) on GitHub. 
++ You can create a Lambda authorizer that authenticates users using Amazon Cognito user pools and authorizes callers based on a policy store using Verified Permissions. For more information, see [Control access based on an identity’s attributes with Verified Permissions](apigateway-lambda-authorizer-verified-permissions.md).
++ The Lambda console provides a Python blueprint, which you can use by choosing **Use a blueprint** and choosing the **api-gateway-authorizer-python** blueprint.

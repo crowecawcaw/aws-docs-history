@@ -1,40 +1,32 @@
-# Create AWS Lambda proxy integrations for HTTP APIs in API Gateway
 
-A Lambda proxy integration enables you to integrate an API route with a Lambda function. When a client calls your
-API, API Gateway sends the request to the Lambda function and returns the function's response to the client. For examples
-of creating an HTTP API, see [Create an HTTP API](http-api-develop.md#http-api-examples "http-api-develop.md#http-api-examples").
+
+# Create AWS Lambda proxy integrations for HTTP APIs in API Gateway
+<a name="http-api-develop-integrations-lambda"></a>
+
+A Lambda proxy integration enables you to integrate an API route with a Lambda function. When a client calls your API, API Gateway sends the request to the Lambda function and returns the function's response to the client. For examples of creating an HTTP API, see [Create an HTTP API](http-api-develop.md#http-api-examples).
 
 ## Payload format version
+<a name="http-api-develop-integrations-lambda.proxy-format"></a>
 
-The payload format version specifies the format of the event that API Gateway sends to a Lambda integration, and how
-API Gateway interprets the response from Lambda. If you don't specify a payload format version, the AWS Management Console uses the
-latest version by default. If you create a Lambda integration by using the AWS CLI, CloudFormation, or an SDK, you must
-specify a `payloadFormatVersion`. The supported values are `1.0` and `2.0`.
+The payload format version specifies the format of the event that API Gateway sends to a Lambda integration, and how API Gateway interprets the response from Lambda. If you don't specify a payload format version, the AWS Management Console uses the latest version by default. If you create a Lambda integration by using the AWS CLI, CloudFormation, or an SDK, you must specify a `payloadFormatVersion`. The supported values are `1.0` and `2.0`.
 
-For more information about how to set the `payloadFormatVersion`, see
-[create-integration](../../../cli/latest/reference/apigatewayv2/create-integration.md "../../../cli/latest/reference/apigatewayv2/create-integration.md"). For more information about
-how to determine the `payloadFormatVersion` of an existing integration, see [get-integration](../../../cli/latest/reference/apigatewayv2/get-integration.md "../../../cli/latest/reference/apigatewayv2/get-integration.md")
+For more information about how to set the `payloadFormatVersion`, see [create-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-integration.html). For more information about how to determine the `payloadFormatVersion` of an existing integration, see [get-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/get-integration.html)
 
 ### Payload format differences
+<a name="http-api-develop-integrations-lambda.proxy-format-differences"></a>
 
 The following list shows differences between the `1.0` and `2.0` payload format versions:
-
-- Format `2.0` doesn't have `multiValueHeaders` or
-  `multiValueQueryStringParameters` fields. Duplicate headers are combined with commas and included
-  in the `headers` field. Duplicate query strings are combined with commas and included in the
-  `queryStringParameters` field.
-- Format `2.0` has `rawPath`. If you use an API mapping to connect your stage to a
-  custom domain name, `rawPath` won't provide the API mapping value. Use format
-  `1.0` and `path` to access the API mapping for your custom domain name.
-- Format `2.0` includes a new `cookies` field. All cookie headers in the request are
-  combined with commas and added to the `cookies` field. In the response to the client, each cookie
-  becomes a `set-cookie` header.
++ Format `2.0` doesn't have `multiValueHeaders` or `multiValueQueryStringParameters` fields. Duplicate headers are combined with commas and included in the `headers` field. Duplicate query strings are combined with commas and included in the `queryStringParameters` field.
++ Format `2.0` has `rawPath`. If you use an API mapping to connect your stage to a custom domain name, `rawPath` won't provide the API mapping value. Use format `1.0` and `path` to access the API mapping for your custom domain name.
++ Format `2.0` includes a new `cookies` field. All cookie headers in the request are combined with commas and added to the `cookies` field. In the response to the client, each cookie becomes a `set-cookie` header.
 
 ### Payload format structure
+<a name="http-api-develop-integrations-lambda.proxy-format-structure"></a>
 
 The following examples show the structure of each payload format version. All headernames are lowercased.
 
-2.0
+------
+#### [ 2.0 ]
 
 ```
 {
@@ -108,7 +100,8 @@ The following examples show the structure of each payload format version. All he
 }
 ```
 
-1.0
+------
+#### [ 1.0 ]
 
 ```
 {
@@ -193,17 +186,19 @@ The following examples show the structure of each payload format version. All he
 }
 ```
 
-## Lambda function response format
+------
 
-The payload format version determines the structure of the response that your Lambda function must
-return.
+## Lambda function response format
+<a name="http-api-develop-integrations-lambda.response"></a>
+
+The payload format version determines the structure of the response that your Lambda function must return.
 
 ### Lambda function response for format 1.0
+<a name="http-api-develop-integrations-lambda.v1"></a>
 
-With the `1.0` format version, Lambda integrations must return a response in the following
-JSON format:
+With the `1.0` format version, Lambda integrations must return a response in the following JSON format:
 
-###### Example
+**Example**  
 
 ```
 {
@@ -216,31 +211,30 @@ JSON format:
 ```
 
 ### Lambda function response for format 2.0
+<a name="http-api-develop-integrations-lambda.v2"></a>
 
-With the `2.0` format version, API Gateway can infer the response format for you. API Gateway makes the
-following assumptions if your Lambda function returns valid JSON and doesn't return a
-`statusCode`:
-
-- `isBase64Encoded` is `false`.
-- `statusCode` is `200`.
-- `content-type` is `application/json`.
-- `body` is the function's response.
+With the `2.0` format version, API Gateway can infer the response format for you. API Gateway makes the following assumptions if your Lambda function returns valid JSON and doesn't return a `statusCode`:
++ `isBase64Encoded` is `false`.
++ `statusCode` is `200`.
++ `content-type` is `application/json`.
++ `body` is the function's response.
 
 The following examples show the output of a Lambda function and API Gateway's interpretation.
 
-| Lambda function output                        | API Gateway interpretation                                                                                                                                                           |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<br>"Hello from Lambda!"<br>`                | `<br>{<br>"isBase64Encoded": false,<br>"statusCode": 200,<br>"body": "Hello from Lambda!",<br>"headers": {<br>"content-type": "application/json"<br>}<br>}<br>`                      |
-| `<br>{ "message": "Hello from Lambda!" }<br>` | `<br>{<br>"isBase64Encoded": false,<br>"statusCode": 200,<br>"body": "{ \"message\": \"Hello from Lambda!\" }",<br>"headers": {<br>"content-type": "application/json"<br>}<br>}<br>` |
+
+| Lambda function output | API Gateway interpretation | 
+| --- | --- | 
+|  <pre>"Hello from Lambda!"</pre>  |  <pre>{<br />  "isBase64Encoded": false,<br />  "statusCode": 200,<br />  "body": "Hello from Lambda!",<br />  "headers": {<br />    "content-type": "application/json"<br />  }<br />}</pre>  | 
+|  <pre>{ "message": "Hello from Lambda!" }</pre>  |  <pre>{<br />  "isBase64Encoded": false,<br />  "statusCode": 200,<br />  "body": "{ \"message\": \"Hello from Lambda!\" }",<br />  "headers": {<br />    "content-type": "application/json"<br />  }<br />}</pre>  | 
 
 To customize the response, your Lambda function should return a response with the following format.
 
 ```
 {
-    "cookies" : ["`cookie1`", "`cookie2`"],
+    "cookies" : ["{{cookie1}}", "{{cookie2}}"],
     "isBase64Encoded": true|false,
-    "statusCode": `httpStatusCode`,
-    "headers": { "`headername`": "`headervalue`", ... },
-    "body": "`Hello from Lambda!`"
+    "statusCode": {{httpStatusCode}},
+    "headers": { "{{headername}}": "{{headervalue}}", ... },
+    "body": "{{Hello from Lambda!}}"
 }
 ```

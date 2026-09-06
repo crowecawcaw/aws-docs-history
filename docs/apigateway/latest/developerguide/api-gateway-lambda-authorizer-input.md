@@ -1,44 +1,34 @@
+
+
 # Input to an API Gateway Lambda authorizer
+<a name="api-gateway-lambda-authorizer-input"></a>
 
 The following section explains the format of the input from API Gateway to a Lambda authorizer.
 
 ## `TOKEN` input format
+<a name="w2aac15b9c23c25c19b5"></a>
 
-For a Lambda authorizer (formerly known as a custom authorizer) of the `TOKEN` type, you must
-specify a custom header as the **Token Source** when you configure the authorizer for your API.
-The API client must pass the required authorization token in that header in the incoming request. Upon receiving
-the incoming method request, API Gateway extracts the token from the custom header. It then passes the token as the
-`authorizationToken` property of the `event` object of the Lambda function, in addition to
-the method ARN as the `methodArn` property:
+ For a Lambda authorizer (formerly known as a custom authorizer) of the `TOKEN` type, you must specify a custom header as the **Token Source** when you configure the authorizer for your API. The API client must pass the required authorization token in that header in the incoming request. Upon receiving the incoming method request, API Gateway extracts the token from the custom header. It then passes the token as the `authorizationToken` property of the `event` object of the Lambda function, in addition to the method ARN as the `methodArn` property: 
 
 ```
 {
     "type":"TOKEN",
-    "authorizationToken":"`{caller-supplied-token}`",
-    "methodArn":"arn:aws:execute-api:`{regionId}`:`{accountId}`:`{apiId}`/`{stage}`/`{httpVerb}`/[`{resource}`/[`{child-resources}`]]"
+    "authorizationToken":"{{{caller-supplied-token}}}",
+    "methodArn":"arn:aws:execute-api:{{{regionId}}}:{{{accountId}}}:{{{apiId}}}/{{{stage}}}/{{{httpVerb}}}/[{{{resource}}}/[{{{child-resources}}}]]"
 }
 ```
 
-In this example, the `type` property specifies the authorizer type, which is a `TOKEN`
-authorizer. The `{caller-supplied-token}` originates from the authorization
-header in a client request, and can be any string value. The `methodArn` is the ARN of the incoming method request and is populated
-by API Gateway in accordance with the Lambda authorizer configuration.
+ In this example, the `type` property specifies the authorizer type, which is a `TOKEN` authorizer. The `{{{caller-supplied-token}}}` originates from the authorization header in a client request, and can be any string value. The `methodArn` is the ARN of the incoming method request and is populated by API Gateway in accordance with the Lambda authorizer configuration. 
 
 ## `REQUEST` input format
+<a name="w2aac15b9c23c25c19b7"></a>
 
-For a Lambda authorizer of the `REQUEST` type, API Gateway passes request parameters to the authorizer
-Lambda function as part of the `event` object. The request parameters include headers, path parameters,
-query string parameters, stage variables, and some of request context variables. The API caller can set the path
-parameters, headers, and query string parameters. The API developer must set the stage variables during the API
-deployment and API Gateway provides the request context at run time.
+For a Lambda authorizer of the `REQUEST` type, API Gateway passes request parameters to the authorizer Lambda function as part of the `event` object. The request parameters include headers, path parameters, query string parameters, stage variables, and some of request context variables. The API caller can set the path parameters, headers, and query string parameters. The API developer must set the stage variables during the API deployment and API Gateway provides the request context at run time. 
 
-###### Note
+**Note**  
+Path parameters can be passed as request parameters to the Lambda authorizer function, but they cannot be used as identity sources.
 
-Path parameters can be passed as request parameters to the Lambda authorizer function, but they cannot be
-used as identity sources.
-
-The following example shows an input to a `REQUEST` authorizer for an API method (`GET
- /request`) with a proxy integration:
+ The following example shows an input to a `REQUEST` authorizer for an API method (`GET /request`) with a proxy integration: 
 
 ```
 {
@@ -91,7 +81,6 @@ The following example shows an input to a `REQUEST` authorizer for an API method
 }
 ```
 
-The `requestContext` is a map of key-value pairs and corresponds to the [$context](api-gateway-mapping-template-reference.md#context-variable-reference "api-gateway-mapping-template-reference.md#context-variable-reference") variable. Its outcome is API-dependent.
+ The `requestContext` is a map of key-value pairs and corresponds to the [$context](api-gateway-mapping-template-reference.md#context-variable-reference) variable. Its outcome is API-dependent.
 
-API Gateway might add new
-keys to the map. For more information about Lambda function input in Lambda proxy integration, see [Input format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format").
+ API Gateway might add new keys to the map. For more information about Lambda function input in Lambda proxy integration, see [Input format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format). 

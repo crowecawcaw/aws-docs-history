@@ -1,16 +1,19 @@
+
+
 # x-amazon-apigateway-gateway-responses object
+<a name="api-gateway-swagger-extensions-gateway-responses"></a>
 
-Defines the gateway responses for an API as a string-to-[GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") map of key-value pairs. The extension applies to the root-level OpenAPI structure.
+Defines the gateway responses for an API as a string-to-[GatewayResponse](https://docs.aws.amazon.com/apigateway/latest/api/API_GatewayResponse.html) map of key-value pairs. The extension applies to the root-level OpenAPI structure.
 
-| Property name  | Type                                                                                                                                                                                               | Description                                           |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| `responseType` | [x-amazon-apigateway-gateway-responses.gatewayResponse](api-gateway-swagger-extensions-gateway-responses.gatewayResponse.md "api-gateway-swagger-extensions-gateway-responses.gatewayResponse.md") | A `GatewayResponse` for the specified `responseType`. |
+
+| Property name | Type | Description | 
+| --- | --- | --- | 
+| {{responseType}} | [x-amazon-apigateway-gateway-responses.gatewayResponse](api-gateway-swagger-extensions-gateway-responses.gatewayResponse.md) | A `GatewayResponse` for the specified {{responseType}}. | 
 
 ## x-amazon-apigateway-gateway-responses example
+<a name="api-gateway-swagger-extensions-gateway-responses-example"></a>
 
-The following API Gateway extension to OpenAPI example defines a [GatewayResponses](../api/API_GetGatewayResponses.md "../api/API_GetGatewayResponses.md") map that
-contains two [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") instances—one for the `DEFAULT_4XX`
-type and another for the `INVALID_API_KEY` type.
+ The following API Gateway extension to OpenAPI example defines a [GatewayResponses](https://docs.aws.amazon.com/apigateway/latest/api/API_GetGatewayResponses.html) map that contains two [GatewayResponse](https://docs.aws.amazon.com/apigateway/latest/api/API_GatewayResponse.html) instances—one for the `DEFAULT_4XX` type and another for the `INVALID_API_KEY` type. 
 
 ```
 {

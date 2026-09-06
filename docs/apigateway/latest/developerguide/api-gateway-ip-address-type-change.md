@@ -1,24 +1,31 @@
+
+
 # Change the IP address type of a REST API
+<a name="api-gateway-ip-address-type-change"></a>
 
-You can change the IP address type by updating the API’s configuration. You can update the API's configuration
-by using the AWS Management Console, the AWS CLI, CloudFormation, or an AWS SDK. If you change the API’s IP address type, you don't redeploy
-your API for the changes to take effect. Before you change the IP address type, confirm that any policies
-controlling access to your APIs have been updated to account for IPv6 calls.
+You can change the IP address type by updating the API’s configuration. You can update the API's configuration by using the AWS Management Console, the AWS CLI, CloudFormation, or an AWS SDK. If you change the API’s IP address type, you don't redeploy your API for the changes to take effect. Before you change the IP address type, confirm that any policies controlling access to your APIs have been updated to account for IPv6 calls.
 
-AWS Management Console###### To change the IP address type of a REST API
+------
+#### [ AWS Management Console ]
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose a REST API.
-3. Choose **API settings**, and then choose
-   **Edit**.
-4. For IP address type, select either **IPv4** or **Dualstack**.
-5. Choose **Save changes**.
+**To change the IP address type of a REST API**
 
-The change to your API's configuration will take effect immediately.
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
 
-AWS CLI
-The following [update-rest-api](../../../cli/latest/reference/apigateway/update-rest-api.md "../../../cli/latest/reference/apigateway/update-rest-api.md")
-command updates an API to have an IP address type of dualstack:
+1. Choose a REST API.
+
+1. Choose **API settings**, and then choose **Edit**.
+
+1. For IP address type, select either **IPv4** or **Dualstack**.
+
+1. Choose **Save changes**.
+
+   The change to your API's configuration will take effect immediately.
+
+------
+#### [ AWS CLI ]
+
+The following [update-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-rest-api.html) command updates an API to have an IP address type of dualstack:
 
 ```
 aws apigateway update-rest-api \
@@ -46,3 +53,5 @@ The output will look like the following:
     "rootResourceId": "efg456"
 }
 ```
+
+------

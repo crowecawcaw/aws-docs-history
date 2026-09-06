@@ -1,19 +1,19 @@
+
+
 # x-amazon-apigateway-request-validator property
+<a name="api-gateway-swagger-extensions-request-validator"></a>
 
-Specifies a request validator, by referencing a
-`request_validator_name` of the [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") map, to enable
-request validation on the containing API or a method. The value of this extension is a
-JSON string.
+ Specifies a request validator, by referencing a `{{request_validator_name}}` of the [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md) map, to enable request validation on the containing API or a method. The value of this extension is a JSON string.
 
-This extension can be specified at the API level or at the method level. The API-level
-validator applies to all of the methods unless it is overridden by the method-level
-validator.
+This extension can be specified at the API level or at the method level. The API-level validator applies to all of the methods unless it is overridden by the method-level validator. 
 
 ## `x-amazon-apigateway-request-validator` example
+<a name="api-gateway-swagger-extensions-request-validator-example"></a>
 
-The following example applies the `basic` request validator at the API level while applying the `parameter-only` request validator on the `POST /validation` request.
+The following example applies the `basic` request validator at the API level while applying the `parameter-only` request validator on the `POST /validation` request. 
 
-OpenAPI 2.0
+------
+#### [ OpenAPI 2.0 ]
 
 ```
 {
@@ -37,3 +37,6 @@ OpenAPI 2.0
      }
 }
 ```
+
+------
+

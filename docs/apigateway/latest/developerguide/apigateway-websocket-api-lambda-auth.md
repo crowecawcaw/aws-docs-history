@@ -1,23 +1,19 @@
+
+
 # Control access to WebSocket APIs with AWS Lambda REQUEST authorizers
+<a name="apigateway-websocket-api-lambda-auth"></a>
 
-A Lambda authorizer function in WebSocket APIs is similar to that for [REST APIs](apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-lambda-function-create "apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-lambda-function-create"),
-with the following exceptions:
+A Lambda authorizer function in WebSocket APIs is similar to that for [REST APIs](apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-lambda-function-create), with the following exceptions:
++  You can only use a Lambda authorizer function for the `$connect` route. 
++ You cannot use path variables (`event.pathParameters`), because the path is fixed.
++ `event.methodArn` is different from its REST API equivalent, because it has no HTTP method. In the case of `$connect`, `methodArn` ends with `"$connect"`:
 
-- You can only use a Lambda authorizer function for the `$connect` route.
-- You cannot use path variables (`event.pathParameters`), because the
-  path is fixed.
-- `event.methodArn` is different from its REST API equivalent,
-  because it has no HTTP method. In the case of `$connect`,
-  `methodArn` ends with `"$connect"`:
+  ```
+  arn:aws:execute-api:{{region}}:{{account-id}}:{{api-id}}/{{stage-name}}/$connect
+  ```
++ The context variables in `event.requestContext` are different from those for REST APIs.
 
-```
-arn:aws:execute-api:`region`:`account-id`:`api-id`/`stage-name`/$connect
-```
-
-- The context variables in `event.requestContext` are different from
-  those for REST APIs.
-
-The following example shows an input to a `REQUEST` authorizer for a WebSocket API:
+ The following example shows an input to a `REQUEST` authorizer for a WebSocket API:
 
 ```
 {
@@ -104,14 +100,14 @@ The following example shows an input to a `REQUEST` authorizer for a WebSocket A
 }
 ```
 
-The following example Lambda authorizer function is a WebSocket version of the Lambda
-authorizer function for REST APIs in [Additional examples of Lambda authorizer functions](apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-lambda-function-create "apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-lambda-function-create"):
+The following example Lambda authorizer function is a WebSocket version of the Lambda authorizer function for REST APIs in [Additional examples of Lambda authorizer functions](apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-lambda-function-create):
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
-   // A simple REQUEST authorizer example to demonstrate how to use request
-   // parameters to allow or deny a request. In this example, a request is
+   // A simple REQUEST authorizer example to demonstrate how to use request 
+   // parameters to allow or deny a request. In this example, a request is  
    // authorized if the client-supplied HeaderAuth1 header and QueryString1 query parameter
    // in the request context match the specified values of
    // of 'headerValue1' and 'queryValue1' respectively.
@@ -123,7 +119,7 @@ Node.js
    var queryStringParameters = event.queryStringParameters;
    var stageVariables = event.stageVariables;
    var requestContext = event.requestContext;
-
+       
    // Parse the input for the parameter values
    var tmp = event.methodArn.split(':');
    var apiGatewayArnTmp = tmp[5].split('/');
@@ -132,21 +128,21 @@ Node.js
    var ApiId = apiGatewayArnTmp[0];
    var stage = apiGatewayArnTmp[1];
    var route = apiGatewayArnTmp[2];
-
-   // Perform authorization to return the Allow policy for correct parameters and
+       
+   // Perform authorization to return the Allow policy for correct parameters and 
    // the 'Unauthorized' error, otherwise.
    var authResponse = {};
    var condition = {};
     condition.IpAddress = {};
-
+    
    if (headers.HeaderAuth1 === "headerValue1"
        && queryStringParameters.QueryString1 === "queryValue1") {
         callback(null, generateAllow('me', event.methodArn));
     }  else {
-        callback(null, generateDeny('me', event.methodArn));
+        callback(null, generateDeny('me', event.methodArn)); 
     }
 }
-
+    
 // Helper function to generate an IAM policy
 var generatePolicy = function(principalId, effect, resource) {
    // Required output:
@@ -154,7 +150,7 @@ var generatePolicy = function(principalId, effect, resource) {
     authResponse.principalId = principalId;
    if (effect && resource) {
        var policyDocument = {};
-        policyDocument.Version = '2012-10-17'; // default version
+        policyDocument.Version = '2012-10-17		 	 	 '; // default version
        policyDocument.Statement = [];
        var statementOne = {};
         statementOne.Action = 'execute-api:Invoke'; // default action
@@ -171,17 +167,18 @@ var generatePolicy = function(principalId, effect, resource) {
     };
    return authResponse;
 }
-
+    
 var generateAllow = function(principalId, resource) {
    return generatePolicy(principalId, 'Allow', resource);
 }
-
+    
 var generateDeny = function(principalId, resource) {
    return generatePolicy(principalId, 'Deny', resource);
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 # A simple REQUEST authorizer example to demonstrate how to use request
@@ -236,7 +233,7 @@ def generatePolicy(principalId, effect, resource):
     authResponse['principalId'] = principalId
     if (effect and resource):
         policyDocument = {}
-        policyDocument['Version'] = '2012-10-17'
+        policyDocument['Version'] = '2012-10-17		 	 	 '
         policyDocument['Statement'] = []
         statementOne = {}
         statementOne['Action'] = 'execute-api:Invoke'
@@ -264,26 +261,19 @@ def generateDeny(principalId, resource):
     return generatePolicy(principalId, 'Deny', resource)
 ```
 
-To configure the preceding Lambda function as a `REQUEST` authorizer
-function for a WebSocket API, follow the same procedure as for [REST
-APIs](configure-api-gateway-lambda-authorization.md#configure-api-gateway-lambda-authorization-with-console "configure-api-gateway-lambda-authorization.md#configure-api-gateway-lambda-authorization-with-console").
+------
 
-To configure the `$connect` route to use this Lambda authorizer in the console, select or create the
-`$connect` route. In the **Route request settings** section, choose **Edit**. Select your authorizer in the **Authorization** dropdown
-menu, and then choose **Save changes**.
+To configure the preceding Lambda function as a `REQUEST` authorizer function for a WebSocket API, follow the same procedure as for [REST APIs](configure-api-gateway-lambda-authorization.md#configure-api-gateway-lambda-authorization-with-console).
 
-To test the authorizer, you need to create a new connection. Changing authorizer in
-`$connect` doesn't affect the already connected client. When you connect
-to your WebSocket API, you need to provide values for any configured identity sources.
-For example, you can connect by sending a valid query string and header using
-`wscat` as in the following example:
+To configure the `$connect` route to use this Lambda authorizer in the console, select or create the `$connect` route. In the **Route request settings** section, choose **Edit**. Select your authorizer in the **Authorization** dropdown menu, and then choose **Save changes**.
+
+To test the authorizer, you need to create a new connection. Changing authorizer in `$connect` doesn't affect the already connected client. When you connect to your WebSocket API, you need to provide values for any configured identity sources. For example, you can connect by sending a valid query string and header using `wscat` as in the following example:
 
 ```
 wscat -c 'wss://myapi.execute-api.us-east-1.amazonaws.com/beta?QueryString1=queryValue1' -H HeaderAuth1:headerValue1
 ```
 
-If you attempt to connect without a valid identity value, you'll receive a
-`401` response:
+If you attempt to connect without a valid identity value, you'll receive a `401` response:
 
 ```
 wscat -c wss://myapi.execute-api.us-east-1.amazonaws.com/beta

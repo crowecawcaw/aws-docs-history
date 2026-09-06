@@ -1,15 +1,17 @@
+
+
 # Simple calculator Lambda function
+<a name="simple-calc-nodejs-lambda-function"></a>
 
-As an illustration, we will use a Node.js Lambda function that performs the binary
-operations of addition, subtraction, multiplication and division.
+As an illustration, we will use a Node.js Lambda function that performs the binary operations of addition, subtraction, multiplication and division. 
 
-###### Topics
-
-- [Simple calculator Lambda function input format](#simple-calc-lambda-function-input-format "#simple-calc-lambda-function-input-format")
-- [Simple calculator Lambda function output format](#simple-calc-lambda-function-output-format "#simple-calc-lambda-function-output-format")
-- [Simple calculator Lambda function implementation](#simple-calc-lambda-function-implementation "#simple-calc-lambda-function-implementation")
+**Topics**
++ [Simple calculator Lambda function input format](#simple-calc-lambda-function-input-format)
++ [Simple calculator Lambda function output format](#simple-calc-lambda-function-output-format)
++ [Simple calculator Lambda function implementation](#simple-calc-lambda-function-implementation)
 
 ## Simple calculator Lambda function input format
+<a name="simple-calc-lambda-function-input-format"></a>
 
 This function takes an input of the following format:
 
@@ -20,6 +22,7 @@ This function takes an input of the following format:
 where `op` can be any of `(+, -, *, /, add, sub, mul, div)`.
 
 ## Simple calculator Lambda function output format
+<a name="simple-calc-lambda-function-output-format"></a>
 
 When an operation succeeds, it returns the result of the following format:
 
@@ -30,6 +33,7 @@ When an operation succeeds, it returns the result of the following format:
 where `c` holds the result of the calculation.
 
 ## Simple calculator Lambda function implementation
+<a name="simple-calc-lambda-function-implementation"></a>
 
 The implementation of the Lambda function is as follows:
 

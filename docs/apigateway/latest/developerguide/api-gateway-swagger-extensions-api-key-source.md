@@ -1,21 +1,25 @@
-# x-amazon-apigateway-api-key-source property
 
-Specify the source to receive an API key to throttle API methods that require a key. This API-level property
-is a `String` type. For more information about configuring a method to require an API key, see [Configure a method to use API keys with an OpenAPI definition](api-key-usage-plan-oas.md "api-key-usage-plan-oas.md").
+
+# x-amazon-apigateway-api-key-source property
+<a name="api-gateway-swagger-extensions-api-key-source"></a>
+
+ Specify the source to receive an API key to throttle API methods that require a key. This API-level property is a `String` type. For more information about configuring a method to require an API key, see [Configure a method to use API keys with an OpenAPI definition](api-key-usage-plan-oas.md).
 
 Specify the source of the API key for requests. Valid values are:
++  `HEADER` for receiving the API key from the `X-API-Key` header of a request. 
++ `AUTHORIZER` for receiving the API key from the `UsageIdentifierKey` from a Lambda authorizer (formerly known as a custom authorizer).
 
-- `HEADER` for receiving the API key from the `X-API-Key`
-  header of a request.
-- `AUTHORIZER` for receiving the API key from the
-  `UsageIdentifierKey` from a Lambda authorizer (formerly known as a custom authorizer).
+
+
+ 
 
 ## x-amazon-apigateway-api-key-source example
+<a name="api-gateway-swagger-extensions-api-key-source-example"></a>
 
-The following example sets the `X-API-Key` header as the API key
-source.
+The following example sets the `X-API-Key` header as the API key source.
 
-OpenAPI 2.0
+------
+#### [ OpenAPI 2.0 ]
 
 ```
 {
@@ -32,7 +36,8 @@ OpenAPI 2.0
 }
 ```
 
-OpenAPI 3.0.1
+------
+#### [ OpenAPI 3.0.1 ]
 
 ```
 {
@@ -54,3 +59,5 @@ OpenAPI 3.0.1
    .
 }
 ```
+
+------

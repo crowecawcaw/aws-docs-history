@@ -1,9 +1,12 @@
-# OpenAPI definitions of sample API integrated with a Lambda function
 
-OpenAPI 2.0
+
+# OpenAPI definitions of sample API integrated with a Lambda function
+<a name="api-as-lambda-proxy-export-swagger-with-extensions"></a>
+
+------
+#### [ OpenAPI 2.0 ]
 
 ```
-
 {
   "swagger": "2.0",
   "info": {
@@ -244,5 +247,6 @@ OpenAPI 2.0
     }
   }
 }
-
 ```
+
+------

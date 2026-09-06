@@ -1,28 +1,22 @@
-# Configure a Lambda proxy integration with payload response streaming in API Gateway
 
-When you set up response payload streaming, you specify the transfer mode in the integration request of your
-resource. You configure these settings in the integration request to control how API Gateway behaves before and during
-the integration response.
+
+# Configure a Lambda proxy integration with payload response streaming in API Gateway
+<a name="response-streaming-lambda-configure"></a>
+
+When you set up response payload streaming, you specify the transfer mode in the integration request of your resource. You configure these settings in the integration request to control how API Gateway behaves before and during the integration response.
 
 ## Example Lambda functions for response streaming
+<a name="response-streaming-lambda-example"></a>
 
-Your Lambda function must adhere to the [Lambda proxy integration format for response streaming](response-transfer-mode-lambda.md#response-transfer-mode-lambda-format "response-transfer-mode-lambda.md#response-transfer-mode-lambda-format"). We recommend you use
-one of the three example Lambda functions to test out response streaming. When you create your Lambda
-function, make sure to do the following:
+Your Lambda function must adhere to the [Lambda proxy integration format for response streaming](response-transfer-mode-lambda.md#response-transfer-mode-lambda-format). We recommend you use one of the three example Lambda functions to test out response streaming. When you create your Lambda function, make sure to do the following:
++ Provide an adequate timeout for your function. We recommend you configure a timeout of at least 1 minute to learn about response streaming. When you create your production resources, make sure your Lambda function timeout covers the full request cycle. For more information, see [Configure Lambda function timeout](https://docs.aws.amazon.com/lambda/latest/dg/configuration-timeout.html).
++ Use the latest Node.js runtime.
++ Use a Region where Lambda response streaming is available.
 
-- Provide an adequate timeout for your function. We recommend you configure a timeout of at least 1 minute
-  to learn about response streaming. When you create your production resources, make sure your Lambda function
-  timeout covers the full request cycle. For more information, see
-  [Configure Lambda function
-  timeout](../../../lambda/latest/dg/configuration-timeout.md "../../../lambda/latest/dg/configuration-timeout.md").
-- Use the latest Node.js runtime.
-- Use a Region where Lambda response streaming is available.
+------
+#### [ Using HttpResponseStream.from ]
 
-Using HttpResponseStream.from
-The following code example streams the JSON metadata objects and payloads back to the client using the
-`awslambda.HttpResponseStream()` method without using the pipeline method. You don't need to
-create the delimiter. For more information, see [Writing response streaming-enabled Lambda
-functions](../../../lambda/latest/dg/config-rs-write-functions.md "../../../lambda/latest/dg/config-rs-write-functions.md").
+The following code example streams the JSON metadata objects and payloads back to the client using the `awslambda.HttpResponseStream()` method without using the pipeline method. You don't need to create the delimiter. For more information, see [Writing response streaming-enabled Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/config-rs-write-functions.html).
 
 ```
 export const handler = awslambda.streamifyResponse(
@@ -49,15 +43,12 @@ export const handler = awslambda.streamifyResponse(
 });
 ```
 
-Using the pipeline method
-Lambda recommends that when you write response streaming-enabled functions, you use the
-`awslambda.streamifyResponse()` decorator that the native Node.js runtimes provide, and the
-`pipeline()` method. When you use the pipeline method, you don't need to create the
-delimiter, Lambda does this for you. For more information, see [Writing response streaming-enabled Lambda
-functions](../../../lambda/latest/dg/config-rs-write-functions.md "../../../lambda/latest/dg/config-rs-write-functions.md").
+------
+#### [ Using the pipeline method ]
 
-The following code example streams the JSON metadata objects and three payloads back
-to the client.
+Lambda recommends that when you write response streaming-enabled functions, you use the `awslambda.streamifyResponse()` decorator that the native Node.js runtimes provide, and the `pipeline()` method. When you use the pipeline method, you don't need to create the delimiter, Lambda does this for you. For more information, see [Writing response streaming-enabled Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/config-rs-write-functions.html).
+
+The following code example streams the JSON metadata objects and three payloads back to the client.
 
 ```
 import { pipeline } from 'node:stream/promises';
@@ -89,11 +80,10 @@ export const handler = awslambda.streamifyResponse(
 );
 ```
 
-Without using the pipeline method
-The following code example streams the JSON metadata objects and three payloads back to the client
-without using the `awslambda.HttpResponseStream()` method. Without the
-`awslambda.HttpResponseStream()` method, you must include a delimiter of 8 null
-bytes between the metadata and the payload.
+------
+#### [ Without using the pipeline method ]
+
+The following code example streams the JSON metadata objects and three payloads back to the client without using the `awslambda.HttpResponseStream()` method. Without the `awslambda.HttpResponseStream()` method, you must include a delimiter of 8 null bytes between the metadata and the payload. 
 
 ```
 export const handler = awslambda.streamifyResponse(async (event, response, ctx) => {
@@ -112,138 +102,167 @@ export const handler = awslambda.streamifyResponse(async (event, response, ctx) 
 });
 ```
 
+------
+
 ## Create a Lambda proxy integration with payload response streaming
+<a name="response-streaming-lambda-create"></a>
 
-The following procedure shows how to create a Lambda proxy integration with payload response streaming.
-Use the example Lambda function or create your own.
+The following procedure shows how to create a Lambda proxy integration with payload response streaming. Use the example Lambda function or create your own.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
 
-###### To create a Lambda proxy integration with payload response streaming
+**To create a Lambda proxy integration with payload response streaming**
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose a REST API.
-3. Choose **Create resource**.
-4. For **Resource name**, enter `streaming`.
-5. Choose **Create resource**.
-6. With the **/streaming** resource selected, choose **Create method**.
-7. For **Method type**, choose **ANY**.
-8. For **Integration type**, choose **Lambda**.
-9. Choose **Lambda proxy integration**.
-10. For **Response transfer mode**, choose **Stream**.
-11. For **Lambda function**, choose the name of your Lambda function.
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
 
-The API Gateway console automatically uses [InvokeWithResponseStream](../../../lambda/latest/api/API_InvokeWithResponseStream.md "../../../lambda/latest/api/API_InvokeWithResponseStream.md") API to
-invoke the Lambda function. You are responsible for writing a response streaming-enabled
-Lambda function. For an example, see [Example Lambda functions for response streaming](#response-streaming-lambda-example "#response-streaming-lambda-example"). 12. Choose **Create method**.
+1. Choose a REST API.
+
+1. Choose **Create resource**.
+
+1. For **Resource name**, enter **streaming**.
+
+1. Choose **Create resource**.
+
+1. With the **/streaming** resource selected, choose **Create method**.
+
+1. For **Method type**, choose **ANY**.
+
+1. For **Integration type**, choose **Lambda**.
+
+1. Choose **Lambda proxy integration**.
+
+1. For **Response transfer mode**, choose **Stream**.
+
+1. For **Lambda function**, choose the name of your Lambda function.
+
+   The API Gateway console automatically uses [InvokeWithResponseStream](https://docs.aws.amazon.com/lambda/latest/api/API_InvokeWithResponseStream.html) API to invoke the Lambda function. You are responsible for writing a response streaming-enabled Lambda function. For an example, see [Example Lambda functions for response streaming](#response-streaming-lambda-example).
+
+1. Choose **Create method**.
 
 After you create your method, deploy your API.
 
-###### To deploy your API
+**To deploy your API**
 
 1. Choose **Deploy API**.
-2. For **Stage**, select **New stage**.
-3. For **Stage name**, enter `prod`.
-4. (Optional) For **Description**, enter a description.
-5. Choose **Deploy**.
 
-AWS CLI
-The following procedure shows you how to import a new API with the `responseTransferMode` set
-to `STREAM`. If you have an existing integration API and want to modify the `responseTransferMode`,
-see [Update the response transfer mode for a Lambda proxy integration](#response-streaming-lambda-update "#response-streaming-lambda-update").
+1. For **Stage**, select **New stage**.
 
-###### To create a new API with payload response streaming
+1. For **Stage name**, enter **prod**.
 
-1. Copy the following Open API file, and then save it as `ResponseStreamDemoSwagger.yaml`.
-   In this file, `responseTransferMode` is set to `STREAM`, and the integration URI
-   is set to
-   `arn:aws:apigateway:us-west-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-west-1:111122223333:function:my-function-name/response-streaming-invocations`.
+1. (Optional) For **Description**, enter a description.
 
-Replace the function name from `my-function` with a streaming-enabled function and
-replace the credentials with an IAM role that has policies allowing the `apigateway`
-service to invoke Lambda functions.
+1. Choose **Deploy**.
 
-```
-openapi: "3.0.1"
-info:
-  title: "ResponseStreamingDemo"
-  version: "2025-04-28T17:28:25Z"
-servers:
-- url: "{basePath}"
-  variables:
-    basePath:
-      default: "prod"
-paths:
-  /lambda:
-    get:
-      x-amazon-apigateway-integration:
-        httpMethod: "POST"
-        uri: "arn:aws:apigateway:us-west-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-west-1:111122223333:function:my-function-name/response-streaming-invocations"
-        type: "aws_proxy"
-        timeoutInMillis: 90000
-        responseTransferMode: "STREAM"
-        credentials: "arn:aws:iam::111122223333:role/`apigateway-lambda-role`"
-```
+------
+#### [ AWS CLI ]
 
-Instead of supplying an IAM role for credentials, you can use the `add-permission`
-command for Lambda to add resource-based permissions. 2. Use the following `import-rest-api` command to import your OpenAPI definition:
+The following procedure shows you how to import a new API with the `responseTransferMode` set to `STREAM`. If you have an existing integration API and want to modify the `responseTransferMode`, see [Update the response transfer mode for a Lambda proxy integration](#response-streaming-lambda-update).
 
-```
-aws apigateway import-rest-api \
-  --body 'fileb://~/ResponseStreamDemoSwagger.yaml' \
-  --parameters endpointConfigurationTypes=REGIONAL \
-  --region us-west-1
-```
+**To create a new API with payload response streaming**
 
-3. Use the following `create-deployment` command to deploy your new API to a stage:
+1. Copy the following Open API file, and then save it as `ResponseStreamDemoSwagger.yaml`. In this file, `responseTransferMode` is set to `STREAM`, and the integration URI is set to `arn:aws:apigateway:us-west-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-west-1:111122223333:function:my-function-name/response-streaming-invocations`.
 
-```
-aws apigateway create-deployment \
-  --rest-api-id `a1b2c2` \
-  --stage-name prod \
-  --region us-west-1
-```
+   Replace the function name from `my-function` with a streaming-enabled function and replace the credentials with an IAM role that has policies allowing the `apigateway` service to invoke Lambda functions.
+
+   ```
+   openapi: "3.0.1"
+   info:
+     title: "ResponseStreamingDemo"
+     version: "2025-04-28T17:28:25Z"
+   servers:
+   - url: "{basePath}"
+     variables:
+       basePath:
+         default: "prod"
+   paths:
+     /lambda:
+       get:
+         x-amazon-apigateway-integration:
+           httpMethod: "POST"
+           uri: "arn:aws:apigateway:us-west-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-west-1:111122223333:function:my-function-name/response-streaming-invocations"
+           type: "aws_proxy"
+           timeoutInMillis: 90000
+           responseTransferMode: "STREAM"
+           credentials: "arn:aws:iam::111122223333:role/{{apigateway-lambda-role}}"
+   ```
+
+   Instead of supplying an IAM role for credentials, you can use the `add-permission` command for Lambda to add resource-based permissions.
+
+1. Use the following `import-rest-api` command to import your OpenAPI definition:
+
+   ```
+   aws apigateway import-rest-api \
+     --body 'fileb://~/ResponseStreamDemoSwagger.yaml' \
+     --parameters endpointConfigurationTypes=REGIONAL \
+     --region us-west-1
+   ```
+
+1. Use the following `create-deployment` command to deploy your new API to a stage:
+
+   ```
+   aws apigateway create-deployment \
+     --rest-api-id {{a1b2c2}} \
+     --stage-name prod \
+     --region us-west-1
+   ```
+
+------
 
 ### Update the response transfer mode for a Lambda proxy integration
+<a name="response-streaming-lambda-update"></a>
 
-The following procedure shows how to update the response transfer mode for a Lambda proxy integration. When you
-change the response transfer mode to streaming, update your Lambda function so it adheres to the
-requirements for response streaming. Use the example Lambda function or create your own.
+The following procedure shows how to update the response transfer mode for a Lambda proxy integration. When you change the response transfer mode to streaming, update your Lambda function so it adheres to the requirements for response streaming. Use the example Lambda function or create your own.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
 
-###### To update the response transfer mode for a Lambda proxy integration
+**To update the response transfer mode for a Lambda proxy integration**
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose a REST API.
-3. Choose a method.
-4. On the **Integration request** tab, under **Integration request settings**, choose **Edit**.
-5. For **Response transfer mode**, choose **Stream**.
-6. For **Lambda function**, choose the name of your Lambda function.
-7. Choose **Save**.
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
+
+1. Choose a REST API.
+
+1. Choose a method.
+
+1. On the **Integration request** tab, under **Integration request settings**, choose **Edit**.
+
+1. For **Response transfer mode**, choose **Stream**.
+
+1. For **Lambda function**, choose the name of your Lambda function.
+
+1. Choose **Save**.
 
 After you update your method, deploy your API.
 
-###### To deploy your API
+**To deploy your API**
 
 1. Choose **Deploy API**.
-2. For **Stage**, select **New stage**.
-3. For **Stage name**, enter `prod`.
-4. (Optional) For **Description**, enter a description.
-5. Choose **Deploy**.
 
-AWS CLI
+1. For **Stage**, select **New stage**.
+
+1. For **Stage name**, enter **prod**.
+
+1. (Optional) For **Description**, enter a description.
+
+1. Choose **Deploy**.
+
+------
+#### [ AWS CLI ]
 
 1. Update your Lambda function to be streaming-enabled.
-2. Use the following AWS CLI command to update the integration URI and response transfer mode of your integration:
 
-```
-aws apigateway update-integration \
- --rest-api-id `a1b2c3` \
- --resource-id `aaa111` \
- --http-method ANY \
- --patch-operations "[{\"op\":\"replace\",\"path\":\"/uri\",\"value\":\"arn:aws:apigateway:us-west-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-west-1:111122223333:function:my-function-name/response-streaming-invocations\"}, {\"op\":\"replace\",\"path\":\"/responseTransferMode\",\"value\":\"STREAM\"}]" \
- --region us-west-1
-```
+1. Use the following AWS CLI command to update the integration URI and response transfer mode of your integration:
 
-3. Redeploy your API for the changes to take effect.
+   ```
+   aws apigateway update-integration \
+    --rest-api-id {{a1b2c3}} \
+    --resource-id {{aaa111}} \
+    --http-method ANY \
+    --patch-operations "[{\"op\":\"replace\",\"path\":\"/uri\",\"value\":\"arn:aws:apigateway:us-west-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-west-1:111122223333:function:my-function-name/response-streaming-invocations\"}, {\"op\":\"replace\",\"path\":\"/responseTransferMode\",\"value\":\"STREAM\"}]" \
+    --region us-west-1
+   ```
+
+1. Redeploy your API for the changes to take effect.
+
+------

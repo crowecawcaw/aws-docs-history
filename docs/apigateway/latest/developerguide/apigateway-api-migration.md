@@ -1,83 +1,92 @@
-# Change a public or private API endpoint type in API Gateway
 
-Changing an API endpoint type requires you to update the API's configuration. You can change an existing API
-type using the API Gateway console, the AWS CLI, or an AWS SDK for API Gateway. The endpoint type cannot be changed again until the
-current change is completed, but your API will be available.
+
+# Change a public or private API endpoint type in API Gateway
+<a name="apigateway-api-migration"></a>
+
+Changing an API endpoint type requires you to update the API's configuration. You can change an existing API type using the API Gateway console, the AWS CLI, or an AWS SDK for API Gateway. The endpoint type cannot be changed again until the current change is completed, but your API will be available. 
 
 The following endpoint type changes are supported:
++ From edge-optimized to Regional or private
++ From Regional to edge-optimized or private
++ From private to Regional
 
-- From edge-optimized to Regional or private
-- From Regional to edge-optimized or private
-- From private to Regional
-  You cannot change a private API into an edge-optimized API.
+You cannot change a private API into an edge-optimized API.
 
-If you are changing a public API from edge-optimized to Regional or vice versa, note that
-an edge-optimized API may have different behaviors than a Regional API. For example, an
-edge-optimized API removes the `Content-MD5` header. Any MD5 hash value passed to
-the backend can be expressed in a request string parameter or a body property. However, the
-Regional API passes this header through, although it may remap the header name to some other
-name. Understanding the differences helps you decide how to update an edge-optimized API to
-a Regional one or from a Regional API to an edge-optimized one.
+If you are changing a public API from edge-optimized to Regional or vice versa, note that an edge-optimized API may have different behaviors than a Regional API. For example, an edge-optimized API removes the `Content-MD5` header. Any MD5 hash value passed to the backend can be expressed in a request string parameter or a body property. However, the Regional API passes this header through, although it may remap the header name to some other name. Understanding the differences helps you decide how to update an edge-optimized API to a Regional one or from a Regional API to an edge-optimized one. 
 
-###### Topics
-
-- [Use the API Gateway console to change an API endpoint type](#migrate-api-using-console "#migrate-api-using-console")
-- [Use the AWS CLI to change an API endpoint type](#migrate-api-using-aws-cli "#migrate-api-using-aws-cli")
+**Topics**
++ [Use the API Gateway console to change an API endpoint type](#migrate-api-using-console)
++ [Use the AWS CLI to change an API endpoint type](#migrate-api-using-aws-cli)
 
 ## Use the API Gateway console to change an API endpoint type
+<a name="migrate-api-using-console"></a>
 
-To change the API endpoint type of your API, perform one of the following sets of
-steps:
+To change the API endpoint type of your API, perform one of the following sets of steps:
 
-###### To convert a public endpoint from Regional or edge-optimized and vice versa
+**To convert a public endpoint from Regional or edge-optimized and vice versa**
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose a REST API.
-3. Choose **API settings**.
-4. In the **API details** section, choose **Edit**.
-5. For **API endpoint type**, select either **Edge-optimized** or
-   **Regional**.
-6. Choose **Save changes**.
-7. Redeploy your API so that the changes will take effect.
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
 
-###### To convert a private endpoint to a Regional endpoint
+1. Choose a REST API.
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose a REST API.
-3. Edit the resource policy for your API to remove any mention of VPCs or VPC
-   endpoints so that API calls from outside your VPC as well as inside your VPC
-   will succeed.
-4. Choose **API settings**.
-5. In the **API details** section, choose **Edit**.
-6. For **API endpoint type**, select
-   **Regional**.
-7. Choose **Save changes**.
-8. Remove the resource policy from your API.
-9. Redeploy your API so that the changes will take effect.
+1. Choose **API settings**.
 
-Because you're migrating the endpoint type from private to Regional, API Gateway changes the IP address type to
-IPv4. For more information, see [IP address types for REST APIs in API Gateway](api-gateway-ip-address-type.md "api-gateway-ip-address-type.md").
+1. In the **API details** section, choose **Edit**.
 
-###### To convert a Regional endpoint to a private endpoint
+1. For **API endpoint type**, select either **Edge-optimized** or **Regional**.
 
-1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
-2. Choose a REST API.
-3. Create a resource policy that grants access to your VPC or VPC endpoint. For more information, see [Step 3: Set up a resource policy for a private API](apigateway-private-api-create.md#apigateway-private-api-set-up-resource-policy "apigateway-private-api-create.md#apigateway-private-api-set-up-resource-policy").
-4. Choose **API settings**.
-5. In the **API details** section, choose **Edit**.
-6. For **API endpoint type**, select
-   **Private**.
-7. (Optional) For **VPC endpoint IDs**, select the VPC endpoint IDs that you want to associate with your private API.
-8. Choose **Save changes**.
-9. Redeploy your API so that the changes will take effect.
+1. Choose **Save changes**.
 
-Because you're migrating the endpoint type from Regional to private, API Gateway changes the IP address type to
-dualstack. For more information, see [IP address types for REST APIs in API Gateway](api-gateway-ip-address-type.md "api-gateway-ip-address-type.md").
+1. Redeploy your API so that the changes will take effect.
+
+**To convert a private endpoint to a Regional endpoint**
+
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
+
+1. Choose a REST API.
+
+1. Edit the resource policy for your API to remove any mention of VPCs or VPC endpoints so that API calls from outside your VPC as well as inside your VPC will succeed.
+
+1. Choose **API settings**.
+
+1. In the **API details** section, choose **Edit**.
+
+1. For **API endpoint type**, select **Regional**.
+
+1. Choose **Save changes**.
+
+1. Remove the resource policy from your API.
+
+1. Redeploy your API so that the changes will take effect.
+
+   Because you're migrating the endpoint type from private to Regional, API Gateway changes the IP address type to IPv4. For more information, see [IP address types for REST APIs in API Gateway](api-gateway-ip-address-type.md).
+
+**To convert a Regional endpoint to a private endpoint**
+
+1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
+
+1. Choose a REST API.
+
+1. Create a resource policy that grants access to your VPC or VPC endpoint. For more information, see [Step 3: Set up a resource policy for a private API](apigateway-private-api-create.md#apigateway-private-api-set-up-resource-policy).
+
+1. Choose **API settings**.
+
+1. In the **API details** section, choose **Edit**.
+
+1. For **API endpoint type**, select **Private**.
+
+1. (Optional) For **VPC endpoint IDs**, select the VPC endpoint IDs that you want to associate with your private API. 
+
+1. Choose **Save changes**.
+
+1. Redeploy your API so that the changes will take effect.
+
+   Because you're migrating the endpoint type from Regional to private, API Gateway changes the IP address type to dualstack. For more information, see [IP address types for REST APIs in API Gateway](api-gateway-ip-address-type.md).
 
 ## Use the AWS CLI to change an API endpoint type
+<a name="migrate-api-using-aws-cli"></a>
 
-The following [update-rest-api](../../../cli/latest/reference/apigateway/update-rest-api.md "../../../cli/latest/reference/apigateway/update-rest-api.md") command
-updates an edge-optimized API to a Regional API:
+The following [update-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-rest-api.html) command updates an edge-optimized API to a Regional API: 
 
 ```
 aws apigateway update-rest-api \
@@ -85,8 +94,7 @@ aws apigateway update-rest-api \
     --patch-operations op=replace,path=/endpointConfiguration/types/EDGE,value=REGIONAL
 ```
 
-The successful response has a status code of `200 OK` and a payload similar
-to the following:
+The successful response has a status code of `200 OK` and a payload similar to the following:
 
 ```
 {
@@ -100,8 +108,7 @@ to the following:
 }
 ```
 
-The following [update-rest-api](../../../cli/latest/reference/apigateway/update-rest-api.md "../../../cli/latest/reference/apigateway/update-rest-api.md") command
-updates a Regional API to an edge-optimized API:
+The following [update-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-rest-api.html) command updates a Regional API to an edge-optimized API:
 
 ```
 aws apigateway update-rest-api \
@@ -109,6 +116,4 @@ aws apigateway update-rest-api \
     --patch-operations op=replace,path=/endpointConfiguration/types/REGIONAL,value=EDGE
 ```
 
-Because [put-rest-api](../../../cli/latest/reference/apigateway/put-rest-api.md "../../../cli/latest/reference/apigateway/put-rest-api.md") is
-for updating API definitions, it is not applicable to updating an API endpoint
-type.
+Because [put-rest-api](https://docs.aws.amazon.com/cli/latest/reference/apigateway/put-rest-api.html) is for updating API definitions, it is not applicable to updating an API endpoint type.

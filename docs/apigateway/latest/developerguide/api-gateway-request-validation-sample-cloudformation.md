@@ -1,24 +1,17 @@
+
+
 # AWS CloudFormation template of a sample API with basic request validation
+<a name="api-gateway-request-validation-sample-cloudformation"></a>
 
-The following CloudFormation example template definition defines a sample API with request validation
-enabled. The API is a subset of the [PetStore
-API](http://petstore-demo-endpoint.execute-api.com/petstore/pets "http://petstore-demo-endpoint.execute-api.com/petstore/pets"). It exposes a `POST` method to add a pet to the
-`pets` collection and a `GET` method to query pets by a
-specified type.
+ The following CloudFormation example template definition defines a sample API with request validation enabled. The API is a subset of the [PetStore API](http://petstore-demo-endpoint.execute-api.com/petstore/pets). It exposes a `POST` method to add a pet to the `pets` collection and a `GET` method to query pets by a specified type. 
 
-There are two request validators declared:
+ There are two request validators declared:
 
-**`GETValidator`**
-This validator is enabled on the `GET` method. It allows API Gateway to verify that the required
-query parameter (`q1`) is included and not blank in the incoming request.
+**`GETValidator`**  
+This validator is enabled on the `GET` method. It allows API Gateway to verify that the required query parameter (`q1`) is included and not blank in the incoming request. 
 
-**`POSTValidator`**
-
-This validator is enabled on the `POST` method. It allows API Gateway to verify that payload
-request format adheres to the specified `RequestBodyModel` when the content type is
-`application/json` if no matching content type is found, request validation is not performed.
-To use the same model regardless of the content type, specify `$default`.
-`RequestBodyModel` contains an additional model, `RequestBodyModelId`, to define the pet ID.
+**`POSTValidator`**  
+This validator is enabled on the `POST` method. It allows API Gateway to verify that payload request format adheres to the specified `RequestBodyModel` when the content type is `application/json` if no matching content type is found, request validation is not performed. To use the same model regardless of the content type, specify `$default`. `RequestBodyModel` contains an additional model, `RequestBodyModelId`, to define the pet ID.
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -44,7 +37,7 @@ Resources:
         properties:
             id:
               type: integer
-  RequestBodyModel:
+  RequestBodyModel: 
     Type: 'AWS::ApiGateway::Model'
     Properties:
       RestApiId: !Ref Api
@@ -60,11 +53,11 @@ Resources:
         type: object
         properties:
             id:
-              "$ref": !Sub
+              "$ref": !Sub 
                 - 'https://apigateway.amazonaws.com/restapis/${Api}/models/${RequestBodyModelId}'
                 - Api: !Ref Api
                   RequestBodyModelId: !Ref RequestBodyModelId
-            price:
+            price: 
               type: number
               minimum: 25
               maximum: 500
@@ -82,7 +75,7 @@ Resources:
       Name: params-only
       RestApiId: !Ref Api
       ValidateRequestBody: False
-      ValidateRequestParameters: True
+      ValidateRequestParameters: True 
   POSTValidator:
     Type: AWS::ApiGateway::RequestValidator
     Properties:
@@ -119,7 +112,7 @@ Resources:
       AuthorizationType: NONE
       RequestValidatorId: !Ref POSTValidator
       RequestModels:
-        application/json : !Ref RequestBodyModel
+        application/json : !Ref RequestBodyModel 
       Integration:
         Type: HTTP_PROXY
         IntegrationHttpMethod: POST
@@ -128,7 +121,7 @@ Resources:
     Type: 'AWS::ApiGateway::Deployment'
     DependsOn:
       - ValidationMethodGet
-      - RequestBodyModel
+      - RequestBodyModel 
     Properties:
       RestApiId: !Ref Api
       StageName: !Sub '${StageName}'
@@ -136,5 +129,4 @@ Outputs:
   ApiRootUrl:
     Description: Root Url of the API
     Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.amazonaws.com/${StageName}'
-
 ```

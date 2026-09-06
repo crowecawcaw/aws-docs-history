@@ -1,9 +1,9 @@
-# Set up gateway response customization in OpenAPI
 
-You can use the `x-amazon-apigateway-gateway-responses` extension at the
-API root level to customize gateway responses in OpenAPI. The following OpenAPI
-definition shows an example for customizing the [GatewayResponse](../api/API_GatewayResponse.md "../api/API_GatewayResponse.md") of the
-`MISSING_AUTHENTICATION_TOKEN` type.
+
+# Set up gateway response customization in OpenAPI
+<a name="set-up-gateway-responses-in-swagger"></a>
+
+ You can use the `x-amazon-apigateway-gateway-responses` extension at the API root level to customize gateway responses in OpenAPI. The following OpenAPI definition shows an example for customizing the [GatewayResponse](https://docs.aws.amazon.com/apigateway/latest/api/API_GatewayResponse.html) of the `MISSING_AUTHENTICATION_TOKEN` type. 
 
 ```
   "x-amazon-apigateway-gateway-responses": {
@@ -19,10 +19,6 @@ definition shows an example for customizing the [GatewayResponse](../api/API_Gat
         "application/json": "{\n     \"message\": $context.error.messageString,\n     \"type\":  \"$context.error.responseType\",\n     \"stage\":  \"$context.stage\",\n     \"resourcePath\":  \"$context.resourcePath\",\n     \"stageVariables.a\":  \"$stageVariables.a\",\n     \"statusCode\": \"'404'\"\n}"
       }
     }
-
 ```
 
-In this example, the customization changes the status code from the default
-(`403`) to `404`. It also adds to the gateway response four
-header parameters and one body mapping template for the `application/json`
-media type.
+In this example, the customization changes the status code from the default (`403`) to `404`. It also adds to the gateway response four header parameters and one body mapping template for the `application/json` media type.

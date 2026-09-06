@@ -1,17 +1,22 @@
+
+
 # x-amazon-apigateway-cors object
+<a name="api-gateway-swagger-extensions-cors-configuration"></a>
 
-Specifies the cross-origin resource sharing (CORS) configuration for an HTTP API. The extension applies to the root-level OpenAPI structure. To learn more, see [Configure CORS for HTTP APIs in API Gateway](http-api-cors.md "http-api-cors.md").
+Specifies the cross-origin resource sharing (CORS) configuration for an HTTP API. The extension applies to the root-level OpenAPI structure. To learn more, see [Configure CORS for HTTP APIs in API Gateway](http-api-cors.md).
 
-| Property name      | Type      | Description                                                                              |
-| ------------------ | --------- | ---------------------------------------------------------------------------------------- |
-| `allowOrigins`     | `Array`   | Specifies the allowed origins.                                                           |
-| `allowCredentials` | `Boolean` | Specifies whether credentials are included in the CORS<br>request.                       |
-| `exposeHeaders`    | `Array`   | Specifies the headers that are exposed.                                                  |
-| `maxAge`           | `Integer` | Specifies the number of seconds that the browser should cache preflight request results. |
-| `allowMethods`     | `Array`   | Specifies the allowed HTTP methods.                                                      |
-| `allowHeaders`     | `Array`   | Specifies the allowed headers.                                                           |
+
+| Property name | Type | Description | 
+| --- | --- | --- | 
+| allowOrigins | Array | Specifies the allowed origins. | 
+| allowCredentials | Boolean | Specifies whether credentials are included in the CORS request. | 
+| exposeHeaders | Array | Specifies the headers that are exposed.  | 
+| maxAge | Integer | Specifies the number of seconds that the browser should cache preflight request results. | 
+| allowMethods | Array | Specifies the allowed HTTP methods. | 
+| allowHeaders | Array | Specifies the allowed headers. | 
 
 ## x-amazon-apigateway-cors example
+<a name="api-gateway-swagger-extensions-cors-configuration"></a>
 
 The following is an example CORS configuration for an HTTP API.
 
