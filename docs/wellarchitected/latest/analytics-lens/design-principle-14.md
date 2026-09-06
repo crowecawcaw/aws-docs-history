@@ -1,67 +1,28 @@
+
+
 # 14 – Use optimal pricing models based on infrastructure usage patterns
+<a name="design-principle-14"></a>
 
-**How do you choose the
-financially-optimal pricing models of the
-infrastructure?** Consult with your finance team and
-choose optimal purchasing options, such as On-Demand
-Instances, Reserved Instances, or Spot Instances. Understand
-the infrastructure usage patterns of the analytics workload.
-You can optimize the cost by purchasing reserved capacity with
-upfront payment by using Spot Instances, or by paying Amazon EC2 usage via On-Demand Instance pricing models. Evaluate the
-available purchasing models of the analytics infrastructure of
-your choice and determine the optimal payment models.
+ **How do you choose the financially-optimal pricing models of the infrastructure?** Consult with your finance team and choose optimal purchasing options, such as On-Demand Instances, Reserved Instances, or Spot Instances. Understand the infrastructure usage patterns of the analytics workload. You can optimize the cost by purchasing reserved capacity with upfront payment by using Spot Instances, or by paying Amazon EC2 usage via On-Demand Instance pricing models. Evaluate the available purchasing models of the analytics infrastructure of your choice and determine the optimal payment models. 
 
-| **ID**       | **Priority** | **Best practice**                                                                      |
-| ------------ | ------------ | -------------------------------------------------------------------------------------- |
-| ☐<br>BP 14.1 | Recommended  | Evaluate the infrastructure usage patterns then choose<br>payment options accordingly. |
-| ☐<br>BP 14.2 | Recommended  | Consult with your finance team and determine optimal<br>payment models.                |
 
-For more details, refer to the following information:
+|  **ID**  |  **Priority**  |  **Best practice**  | 
+| --- | --- | --- | 
+| ☐ BP 14.1  |  Recommended  |  Evaluate the infrastructure usage patterns then choose payment options accordingly.  | 
+| ☐ BP 14.2  |  Recommended  |  Consult with your finance team and determine optimal payment models.  | 
 
-- AWS Cloud Enterprise Strategy Blog:
-  [Managing
-  Your Cost Savings with Amazon Reserved Instances](https://aws.amazon.com/blogs/enterprise-strategy/managing-your-cost-savings-with-amazon-reserved-instances/ "https://aws.amazon.com/blogs/enterprise-strategy/managing-your-cost-savings-with-amazon-reserved-instances/").
-- AWS Big Data Blog:
-  [How
-  Goodreads oﬄoads Amazon DynamoDB tables to Amazon S3 and
-  queries](https://aws.amazon.com/blogs/big-data/how-goodreads-offloads-amazon-dynamodb-tables-to-amazon-s3-and-queries-them-using-amazon-athena/ "https://aws.amazon.com/blogs/big-data/how-goodreads-offloads-amazon-dynamodb-tables-to-amazon-s3-and-queries-them-using-amazon-athena/")
-  [them
-  using Amazon Athena](https://aws.amazon.com/blogs/big-data/how-goodreads-offloads-amazon-dynamodb-tables-to-amazon-s3-and-queries-them-using-amazon-athena/ "https://aws.amazon.com/blogs/big-data/how-goodreads-offloads-amazon-dynamodb-tables-to-amazon-s3-and-queries-them-using-amazon-athena/").
-- AWS Big Data Blog:
-  [Best
-  practices for resizing and automatic scaling in Amazon EMR](https://aws.amazon.com/blogs/big-data/best-practices-for-resizing-and-automatic-scaling-in-amazon-emr/ "https://aws.amazon.com/blogs/big-data/best-practices-for-resizing-and-automatic-scaling-in-amazon-emr/").
-- AWS Big Data Blog:
-  [Work
-  with partitioned data in AWS Glue](https://aws.amazon.com/blogs/big-data/work-with-partitioned-data-in-aws-glue/ "https://aws.amazon.com/blogs/big-data/work-with-partitioned-data-in-aws-glue/").
-- AWS Big Data Blog:
-  [Using
-  Amazon Redshift Spectrum, Amazon Athena, and AWS Glue with
-  Node.js in](https://aws.amazon.com/blogs/big-data/using-amazon-redshift-spectrum-amazon-athena-and-aws-glue-with-node-js-in-production/ "https://aws.amazon.com/blogs/big-data/using-amazon-redshift-spectrum-amazon-athena-and-aws-glue-with-node-js-in-production/")
-  [Production](https://aws.amazon.com/blogs/big-data/using-amazon-redshift-spectrum-amazon-athena-and-aws-glue-with-node-js-in-production/ "https://aws.amazon.com/blogs/big-data/using-amazon-redshift-spectrum-amazon-athena-and-aws-glue-with-node-js-in-production/").
-- AWS Compute Blog:
-  [10
-  things you can do today to reduce AWS costs](https://aws.amazon.com/blogs/compute/10-things-you-can-do-today-to-reduce-aws-costs/ "https://aws.amazon.com/blogs/compute/10-things-you-can-do-today-to-reduce-aws-costs/").
-- AWS Billing and Cost Management and Cost Management User Guide:
-  [Using
-  Cost Allocation Tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md").
-- AWS Well-Architected Framework:
-  [Cost
-  Optimization Pillar](../cost-optimization-pillar/welcome.md "../cost-optimization-pillar/welcome.md").
-- AWS Whitepaper:
-  [Laying
-  the Foundation: Setting Up Your Environment for Cost
-  Optimization](../../../whitepapers/latest/cost-optimization-laying-the-foundation/introduction.md "../../../whitepapers/latest/cost-optimization-laying-the-foundation/introduction.md").
-- AWS Whitepaper:
-  [Amazon EC2 Reserved Instances and Other AWS Reservation
-  Models](../../../whitepapers/latest/cost-optimization-reservation-models/introduction.md "../../../whitepapers/latest/cost-optimization-reservation-models/introduction.md").
-- AWS Whitepaper:
-  [Overview
-  of Amazon EC2 Spot Instances](../../../whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.md "../../../whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.md").
-- AWS Whitepaper:
-  [Right
-  Sizing: Provisioning Instances to Match Workloads](../../../whitepapers/latest/cost-optimization-right-sizing/cost-optimization-right-sizing.md "../../../whitepapers/latest/cost-optimization-right-sizing/cost-optimization-right-sizing.md").
-- AWS Whitepaper:
-  [AWS Storage Optimization](../../../whitepapers/latest/cost-optimization-storage-optimization/cost-optimization-storage-optimization.md "../../../whitepapers/latest/cost-optimization-storage-optimization/cost-optimization-storage-optimization.md").
-- Amazon Redshift:
-  [Purchasing
-  Amazon Redshift reserved nodes](../../../redshift/latest/mgmt/purchase-reserved-node-instance.md "../../../redshift/latest/mgmt/purchase-reserved-node-instance.md").
+ For more details, refer to the following information: 
++  AWS Cloud Enterprise Strategy Blog: [Managing Your Cost Savings with Amazon Reserved Instances](https://aws.amazon.com/blogs/enterprise-strategy/managing-your-cost-savings-with-amazon-reserved-instances/). 
++  AWS Big Data Blog: [How Goodreads oﬄoads Amazon DynamoDB tables to Amazon S3 and queries](https://aws.amazon.com/blogs/big-data/how-goodreads-offloads-amazon-dynamodb-tables-to-amazon-s3-and-queries-them-using-amazon-athena/) [them using Amazon Athena](https://aws.amazon.com/blogs/big-data/how-goodreads-offloads-amazon-dynamodb-tables-to-amazon-s3-and-queries-them-using-amazon-athena/). 
++  AWS Big Data Blog: [Best practices for resizing and automatic scaling in Amazon EMR](https://aws.amazon.com/blogs/big-data/best-practices-for-resizing-and-automatic-scaling-in-amazon-emr/). 
++  AWS Big Data Blog: [Work with partitioned data in AWS Glue](https://aws.amazon.com/blogs/big-data/work-with-partitioned-data-in-aws-glue/). 
++  AWS Big Data Blog: [Using Amazon Redshift Spectrum, Amazon Athena, and AWS Glue with Node.js in](https://aws.amazon.com/blogs/big-data/using-amazon-redshift-spectrum-amazon-athena-and-aws-glue-with-node-js-in-production/) [Production](https://aws.amazon.com/blogs/big-data/using-amazon-redshift-spectrum-amazon-athena-and-aws-glue-with-node-js-in-production/). 
++  AWS Compute Blog: [10 things you can do today to reduce AWS costs](https://aws.amazon.com/blogs/compute/10-things-you-can-do-today-to-reduce-aws-costs/). 
++  AWS Billing and Cost Management and Cost Management User Guide: [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html). 
++  AWS Well-Architected Framework: [Cost Optimization Pillar](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html). 
++  AWS Whitepaper: [Laying the Foundation: Setting Up Your Environment for Cost Optimization](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-laying-the-foundation/introduction.html). 
++  AWS Whitepaper: [Amazon EC2 Reserved Instances and Other AWS Reservation Models](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/introduction.html). 
++  AWS Whitepaper: [Overview of Amazon EC2 Spot Instances](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.html). 
++  AWS Whitepaper: [Right Sizing: Provisioning Instances to Match Workloads](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-right-sizing/cost-optimization-right-sizing.html). 
++  AWS Whitepaper: [AWS Storage Optimization](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-storage-optimization/cost-optimization-storage-optimization.html). 
++  Amazon Redshift: [Purchasing Amazon Redshift reserved nodes](https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html). 
