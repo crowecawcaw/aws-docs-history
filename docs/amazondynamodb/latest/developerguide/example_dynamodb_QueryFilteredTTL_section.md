@@ -1,12 +1,15 @@
+
+
 # Query a DynamoDB table for TTL items using an AWS SDK
+<a name="example_dynamodb_QueryFilteredTTL_section"></a>
 
 The following code examples show how to query for TTL items.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -47,19 +50,14 @@ import java.util.Optional;
             System.err.println(e.getMessage());
             throw e;
         }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for JavaScript.  
 
 ```
 import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb";
@@ -101,19 +99,14 @@ export const queryFiltered = async (tableName, primaryKey, region = 'us-east-1')
 
 // Example usage (commented out for testing)
 // queryFiltered('your-table-name', 'your-partition-key-value');
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Python (Boto3).  
 
 ```
 from datetime import datetime
@@ -158,14 +151,9 @@ def query_dynamodb_items(table_name, partition_key):
 
 # Call the function with your values
 query_dynamodb_items("Music", "your-partition-key-value")
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

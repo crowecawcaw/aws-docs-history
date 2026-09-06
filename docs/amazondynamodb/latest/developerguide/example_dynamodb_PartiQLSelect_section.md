@@ -1,15 +1,17 @@
+
+
 # Query DynamoDB data using PartiQL SELECT statements with an AWS SDK
+<a name="example_dynamodb_PartiQLSelect_section"></a>
 
 The following code example shows how to query data using PartiQL SELECT statements.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-Query items from a DynamoDB table using PartiQL SELECT statements with AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query items from a DynamoDB table using PartiQL SELECT statements with AWS SDK for JavaScript.  
 
 ```
-
 /**
  * This example demonstrates how to query items from a DynamoDB table using PartiQL.
  * It shows different ways to select data with various index types.
@@ -24,7 +26,7 @@ import {
 /**
  * Select all items from a DynamoDB table using PartiQL.
  * Note: This should be used with caution on large tables.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @returns The response from the ExecuteStatementCommand
  */
@@ -48,7 +50,7 @@ export const selectAllItems = async (tableName: string) => {
 
 /**
  * Select an item by its primary key using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -79,7 +81,7 @@ export const selectItemByPartitionKey = async (
 
 /**
  * Select an item by its composite key (partition key + sort key) using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -114,7 +116,7 @@ export const selectItemByCompositeKey = async (
 
 /**
  * Select items using a filter condition with PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param filterAttribute - The attribute to filter on
  * @param filterValue - The value to filter by
@@ -146,7 +148,7 @@ export const selectItemsWithFilter = async (
 /**
  * Select items using a begins_with function for prefix matching.
  * This is useful for querying hierarchical data.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param attributeName - The attribute to check for prefix
  * @param prefix - The prefix to match
@@ -177,7 +179,7 @@ export const selectItemsByPrefix = async (
 
 /**
  * Select items using a between condition for range queries.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param attributeName - The attribute to check for range
  * @param startValue - The start value of the range
@@ -230,15 +232,11 @@ export const selectExamples = async () => {
   // Select items within a range (useful for numeric or date ranges)
   await selectItemsByRange("OrdersTable", "orderDate", "2023-01-01", "2023-12-31");
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [BatchExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand)
+  + [ExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
 
-  - [BatchExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md")
-  - [ExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

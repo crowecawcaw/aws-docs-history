@@ -1,67 +1,55 @@
+
+
 # Enable point-in-time recovery in DynamoDB
+<a name="PointInTimeRecovery_Howitworks"></a>
 
-Amazon DynamoDB point-in-time recovery (PITR) provides automatic backups of your DynamoDB table
-data. This section provides an overview of how the process works in DynamoDB.
+Amazon DynamoDB point-in-time recovery (PITR) provides automatic backups of your DynamoDB table data. This section provides an overview of how the process works in DynamoDB.
 
-###### Note
+**Note**  
+DynamoDB charges for PITR based on the size of each DynamoDB table, including table data and local secondary indexes. Changing the recovery window (for example, from 35 days to 1 day) doesn't reduce the price. The cost remains the same regardless of the recovery period you choose. The configured maximum recovery period doesn't impact the price you're charged for turning on PITR. To determine your backup charges, DynamoDB continuously monitors the size of the tables that have PITR turned on. You're billed for PITR usage until you turn off PITR for each table.
 
-DynamoDB charges for PITR based on the size of each DynamoDB table, including table data and
-local secondary indexes. Changing the recovery window (for example, from 35 days to 1
-day) doesn't reduce the price. The cost remains the same regardless of the recovery
-period you choose. The configured maximum recovery period doesn't impact the price
-you're charged for turning on PITR. To determine your backup charges, DynamoDB continuously
-monitors the size of the tables that have PITR turned on. You're billed for PITR usage
-until you turn off PITR for each table.
-
-###### Topics
-
-- [Enabling point-in-time recovery](#howitworks_enabling "#howitworks_enabling")
-- [Enable PITR (console)](#howitworks-enable-pitr-console "#howitworks-enable-pitr-console")
-- [Enable PITR (AWS CLI)](#howitworks-enable-pitr-cli "#howitworks-enable-pitr-cli")
-- [Enable PITR (CloudFormation)](#howitworks-enable-pitr-cfn "#howitworks-enable-pitr-cfn")
-- [Enable PITR (API)](#howitworks-enable-pitr-api "#howitworks-enable-pitr-api")
-- [Recovery Period](#howitworks-pitr-recovery-period "#howitworks-pitr-recovery-period")
-- [Edit PITR](#howitworks-pitr-editing "#howitworks-pitr-editing")
-- [Delete a table with PITR enabled](#howitworks-pitr-deleting-table "#howitworks-pitr-deleting-table")
+**Topics**
++ [Enabling point-in-time recovery](#howitworks_enabling)
++ [Enable PITR (console)](#howitworks-enable-pitr-console)
++ [Enable PITR (AWS CLI)](#howitworks-enable-pitr-cli)
++ [Enable PITR (CloudFormation)](#howitworks-enable-pitr-cfn)
++ [Enable PITR (API)](#howitworks-enable-pitr-api)
++ [Recovery Period](#howitworks-pitr-recovery-period)
++ [Edit PITR](#howitworks-pitr-editing)
++ [Delete a table with PITR enabled](#howitworks-pitr-deleting-table)
 
 ## Enabling point-in-time recovery
+<a name="howitworks_enabling"></a>
 
-You can enable point-in-time recovery using the AWS Management Console, AWS Command Line Interface (AWS CLI), or the
-DynamoDB API. When enabled, point-in-time recovery provides continuous backups until you
-explicitly turn it off.
+You can enable point-in-time recovery using the AWS Management Console, AWS Command Line Interface (AWS CLI), or the DynamoDB API. When enabled, point-in-time recovery provides continuous backups until you explicitly turn it off.
 
-After you enable point-in-time recovery, you can restore to any point in time within
-`EarliestRestorableDateTime` and `LatestRestorableDateTime`.
-`LatestRestorableDateTime` is typically five minutes before the current
-time. For more information, see [Restoring a DynamoDB table to a point in time](PointInTimeRecovery.Tutorial.md "PointInTimeRecovery.Tutorial.md").
+After you enable point-in-time recovery, you can restore to any point in time within `EarliestRestorableDateTime` and `LatestRestorableDateTime`. `LatestRestorableDateTime` is typically five minutes before the current time. For more information, see [Restoring a DynamoDB table to a point in time](PointInTimeRecovery.Tutorial.md).
 
-###### Note
-
+**Note**  
 The point-in-time recovery process always restores to a new table.
 
 ## Enable PITR (console)
+<a name="howitworks-enable-pitr-console"></a>
 
-###### To enable PITR using the DynamoDB console
+**To enable PITR using the DynamoDB console**
 
 1. Navigate to the DynamoDB console.
-2. Choose **Tables** from the left navigation and select your
-   DynamoDB table.
-3. From the **Backups** tab, for the **Point in Time
-   Recovery** option, choose **Edit**.
-4. Choose **Turn on point-in-time recovery**.
-5. Choose a value between 1 and 35 for your backup recovery period. This
-   indicates the maximum time period for which the continuous backup is
-   recoverable.
+
+1. Choose **Tables** from the left navigation and select your DynamoDB table.
+
+1. From the **Backups** tab, for the **Point in Time Recovery** option, choose **Edit**.
+
+1. Choose **Turn on point-in-time recovery**.
+
+1. Choose a value between 1 and 35 for your backup recovery period. This indicates the maximum time period for which the continuous backup is recoverable.
 
 ## Enable PITR (AWS CLI)
+<a name="howitworks-enable-pitr-cli"></a>
 
-###### Note
+**Note**  
+If you receive errors when running AWS CLI commands, see [Troubleshoot AWS CLI errors](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-troubleshooting.html). Make sure you're using the most recent AWS CLI version.
 
-If you receive errors when running AWS CLI commands, see [Troubleshoot AWS CLI errors](../../../cli/latest/userguide/cli-chap-troubleshooting.md "../../../cli/latest/userguide/cli-chap-troubleshooting.md"). Make sure you're using the most recent AWS CLI
-version.
-
-Run the [update-continuous-backups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-continuous-backups.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-continuous-backups.html") command with the
-**point-in-time-recovery-specification** setting turned on:
+Run the [update-continuous-backups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-continuous-backups.html) command with the **point-in-time-recovery-specification** setting turned on:
 
 ```
 aws dynamodb update-continuous-backups \
@@ -70,9 +58,9 @@ aws dynamodb update-continuous-backups \
 ```
 
 ## Enable PITR (CloudFormation)
+<a name="howitworks-enable-pitr-cfn"></a>
 
-Use the [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") resource with the
-`PointInTimeRecoverySpecification` property turned on:
+Use the [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html) resource with the `PointInTimeRecoverySpecification` property turned on:
 
 ```
 Resources:
@@ -89,7 +77,7 @@ Resources:
 
 ```
 {
-   "PointInTimeRecoverySpecification": {
+   "PointInTimeRecoverySpecification": { 
       "PointInTimeRecoveryEnabled": boolean,
       "RecoveryPeriodInDays: number
    },
@@ -98,15 +86,15 @@ Resources:
 ```
 
 ## Enable PITR (API)
+<a name="howitworks-enable-pitr-api"></a>
 
-Run the [UpdateContinuousBackups](../APIReference/API_UpdateContinuousBackups.md "../APIReference/API_UpdateContinuousBackups.md") API operation with the
-`PointInTimeRecoverySpecification` parameter turned on.
+Run the [UpdateContinuousBackups](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateContinuousBackups.html) API operation with the `PointInTimeRecoverySpecification` parameter turned on.
 
 **Request syntax example:**
 
 ```
 {
-   "PointInTimeRecoverySpecification": {
+   "PointInTimeRecoverySpecification": { 
       "PointInTimeRecoveryEnabled": boolean,
       "RecoveryPeriodInDays" : number
    },
@@ -118,9 +106,9 @@ Run the [UpdateContinuousBackups](../APIReference/API_UpdateContinuousBackups.md
 
 ```
 {
-   "ContinuousBackupsDescription": {
+   "ContinuousBackupsDescription": { 
       "ContinuousBackupsStatus": "string",
-      "PointInTimeRecoveryDescription": {
+      "PointInTimeRecoveryDescription": { 
          "PointInTimeRecoveryStatus": "string",
          "EarliestRestorableDateTime": number,
          "RecoveryPeriodInDays": number,
@@ -130,16 +118,8 @@ Run the [UpdateContinuousBackups](../APIReference/API_UpdateContinuousBackups.md
 }
 ```
 
-###### Note
-
-`ContinuousBackupsStatus` is always `ENABLED` for a DynamoDB
-table and can't be disabled. An `ENABLED` value doesn't mean that
-point-in-time recovery is turned on. Whether you can restore the table to a point in
-time is controlled separately by `PointInTimeRecoveryStatus`, which is
-`DISABLED` by default until you enable PITR. A newly created table
-therefore reports `ContinuousBackupsStatus` as `ENABLED`
-together with `PointInTimeRecoveryStatus` as
-`DISABLED`.
+**Note**  
+`ContinuousBackupsStatus` is always `ENABLED` for a DynamoDB table and can't be disabled. An `ENABLED` value doesn't mean that point-in-time recovery is turned on. Whether you can restore the table to a point in time is controlled separately by `PointInTimeRecoveryStatus`, which is `DISABLED` by default until you enable PITR. A newly created table therefore reports `ContinuousBackupsStatus` as `ENABLED` together with `PointInTimeRecoveryStatus` as `DISABLED`.
 
 **Python**
 
@@ -158,36 +138,22 @@ response = dynamodb.update_continuous_backups(
 ```
 
 ## Recovery Period
+<a name="howitworks-pitr-recovery-period"></a>
 
 You can set the recovery period for continuous backups to be any number between 1 and 35 days. This `RecoveryPeriodInDays` determines the time period for which your continuous backups are maintained. For example, if you set this value to be 30 days, you'll only have the ability to restore your table to any point in time from the past 30 days.
 
-###### Note
-
-DynamoDB charges for PITR based on the size of each DynamoDB table, including table data and local secondary indexes. The configured maximum recovery period doesn't impact the price you're charged for turning on PITR. For details on pricing, see [DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/on-demand/ "https://aws.amazon.com/dynamodb/pricing/on-demand/").
+**Note**  
+DynamoDB charges for PITR based on the size of each DynamoDB table, including table data and local secondary indexes. The configured maximum recovery period doesn't impact the price you're charged for turning on PITR. For details on pricing, see [DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/on-demand/).
 
 ## Edit PITR
+<a name="howitworks-pitr-editing"></a>
 
-You can edit the PITR setting on your table and change the recovery period. If you
-change the recovery period and increase it to a value higher than previously set, your
-`EarliestRestorePoint` will not change immediately. Since the recovery
-period is a rolling window, DynamoDB will continue to take automatic backups until the new
-increased period is reached. If you change the recovery period and decrease it to a value
-lower than previously set, your `EarliestRestorePoint` will immediately
-decrease to match your recovery period, and any continuous backups that fall outside of
-the new set value will not be recoverable.
+You can edit the PITR setting on your table and change the recovery period. If you change the recovery period and increase it to a value higher than previously set, your `EarliestRestorePoint` will not change immediately. Since the recovery period is a rolling window, DynamoDB will continue to take automatic backups until the new increased period is reached. If you change the recovery period and decrease it to a value lower than previously set, your `EarliestRestorePoint` will immediately decrease to match your recovery period, and any continuous backups that fall outside of the new set value will not be recoverable.
 
 ## Delete a table with PITR enabled
+<a name="howitworks-pitr-deleting-table"></a>
 
-When you delete a table that has point-in-time recovery enabled, DynamoDB automatically
-creates a backup snapshot called a _system backup_ and retains it for
-35 days (at no additional cost). You can use the system backup to restore the deleted
-table to the state it was in before deletion. All system backups follow a standard
-naming convention of
-`table-name``$DeletedTableBackup`.
+When you delete a table that has point-in-time recovery enabled, DynamoDB automatically creates a backup snapshot called a *system backup* and retains it for 35 days (at no additional cost). You can use the system backup to restore the deleted table to the state it was in before deletion. All system backups follow a standard naming convention of {{table-name}}`$DeletedTableBackup`.
 
-###### Note
-
-Once a table with point-in-time recovery enabled is deleted, you can use system
-backup to restore that table to a single point in time. The system backup will be
-created upon table deletion, and is a snapshot of the table right before the table
-is deleted.
+**Note**  
+Once a table with point-in-time recovery enabled is deleted, you can use system backup to restore that table to a single point in time. The system backup will be created upon table deletion, and is a snapshot of the table right before the table is deleted.

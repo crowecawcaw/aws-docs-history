@@ -1,15 +1,13 @@
+
+
 # Querying global secondary indexes with SDK for Java 1.x
+<a name="DAX.client.QueryGSI.java-sdk-v1"></a>
 
-You can use Amazon DynamoDB Accelerator (DAX) to query [global secondary indexes](GSI.md "GSI.md")
-using DynamoDB [programmatic
-interfaces](Programming.SDKs.Interfaces.md "Programming.SDKs.Interfaces.md").
+You can use Amazon DynamoDB Accelerator (DAX) to query [global secondary indexes](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html) using DynamoDB [programmatic interfaces](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.SDKs.Interfaces.html).
 
-The following example demonstrates how to use DAX to query the
-`CreateDateIndex` global secondary index that is created in [Example:
-Global secondary indexes using the AWS SDK for Java document API](GSIJavaDocumentAPI.Example.md "GSIJavaDocumentAPI.Example.md").
+The following example demonstrates how to use DAX to query the `CreateDateIndex` global secondary index that is created in [Example: Global secondary indexes using the AWS SDK for Java document API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSIJavaDocumentAPI.Example.html). 
 
-The `DAXClient` class instantiates the client objects that are needed to
-interact with the DynamoDB programming interfaces.
+The `DAXClient` class instantiates the client objects that are needed to interact with the DynamoDB programming interfaces.
 
 ```
 import com.amazon.dax.client.dynamodbv2.AmazonDaxClientBuilder;
@@ -44,17 +42,9 @@ public class DaxClient {
 }
 ```
 
-You can query a global secondary index in the following ways:
-
-- Use the `queryIndex` method on the `QueryIndexDax` class
-  defined in the following example. The `QueryIndexDax` takes as a
-  parameter the client object that is returned by the `getDaxDocClient`
-  method on the `DaxClient` class.
-- If you are using the [object persistence interface](Programming.SDKs.Interfaces.Mapper.md "Programming.SDKs.Interfaces.Mapper.md"), use the `queryIndexMapper`
-  method on the `QueryIndexDax` class defined in the following example. The
-  `queryIndexMapper` takes as a parameter the client object that is
-  returned by the `getDaxMapperClient` method defined on the
-  `DaxClient` class.
+You can query a global secondary index in the following ways: 
++ Use the `queryIndex` method on the `QueryIndexDax` class defined in the following example. The `QueryIndexDax` takes as a parameter the client object that is returned by the `getDaxDocClient` method on the `DaxClient` class.
++ If you are using the [object persistence interface](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.SDKs.Interfaces.Mapper.html), use the `queryIndexMapper` method on the `QueryIndexDax` class defined in the following example. The `queryIndexMapper` takes as a parameter the client object that is returned by the `getDaxMapperClient` method defined on the `DaxClient` class.
 
 ```
 import java.util.Iterator;
@@ -131,8 +121,7 @@ public class QueryIndexDax {
 }
 ```
 
-The class definition below represents the Issues table and is used in the
-`queryIndexMapper` method.
+The class definition below represents the Issues table and is used in the `queryIndexMapper` method.
 
 ```
 import software.amazon.dynamodb.datamodeling.DynamoDBTable;

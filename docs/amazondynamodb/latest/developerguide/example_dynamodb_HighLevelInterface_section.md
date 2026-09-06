@@ -1,23 +1,20 @@
+
+
 # Use a high-level object persistence model for DynamoDB using an AWS SDK
+<a name="example_dynamodb_HighLevelInterface_section"></a>
 
 The following code example shows how to perform Create, Read, Update, and Delete (CRUD) and batch operations using an object persistence model for DynamoDB and an AWS SDK.
 
-For more information, see [Object persistence model](DotNetSDKHighLevel.md "DotNetSDKHighLevel.md").
+For more information, see [Object persistence model](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DotNetSDKHighLevel.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb/high-level-api#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb/high-level-api#code-examples").
-
-Perform CRUD operations using a high-level object persistence model.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb/high-level-api#code-examples). 
+Perform CRUD operations using a high-level object persistence model.  
 
 ```
-
     /// <summary>
     /// Shows how to perform high-level CRUD operations on an Amazon DynamoDB
     /// table.
@@ -77,15 +74,10 @@ Perform CRUD operations using a high-level object persistence model.
             }
         }
     }
-
-
+```
+Perform batch write operations using a high-level object persistence model.  
 
 ```
-
-Perform batch write operations using a high-level object persistence model.
-
-```
-
     /// <summary>
     /// Performs high-level batch write operations to an Amazon DynamoDB table.
     /// This example was written using the AWS SDK for .NET version 3.7 and .NET
@@ -165,15 +157,10 @@ Perform batch write operations using a high-level object persistence model.
             await MultiTableBatchWrite(context);
         }
     }
-
-
+```
+Map arbitrary data to a table using a high-level object persistence model.  
 
 ```
-
-Map arbitrary data to a table using a high-level object persistence model.
-
-```
-
     /// <summary>
     /// Shows how to map arbitrary data to an Amazon DynamoDB table.
     /// </summary>
@@ -227,15 +214,10 @@ Map arbitrary data to a table using a high-level object persistence model.
             await AddRetrieveUpdateBook(context);
         }
     }
-
-
+```
+Query and scan a table using a high-level object persistence model.  
 
 ```
-
-Query and scan a table using a high-level object persistence model.
-
-```
-
     /// <summary>
     /// Shows how to perform high-level query and scan operations to Amazon
     /// DynamoDB tables.
@@ -376,11 +358,8 @@ Query and scan a table using a high-level object persistence model.
             }
         }
     }
-
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

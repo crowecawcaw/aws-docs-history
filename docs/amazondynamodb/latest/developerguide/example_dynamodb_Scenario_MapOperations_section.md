@@ -1,16 +1,18 @@
+
+
 # Perform map operations in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_MapOperations_section"></a>
 
 The following code examples show how to perform map operations in DynamoDB.
++ Add and update nested attributes in map structures.
++ Remove specific fields from maps.
++ Work with deeply nested map attributes.
 
-- Add and update nested attributes in map structures.
-- Remove specific fields from maps.
-- Work with deeply nested map attributes.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate map operations using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate map operations using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -241,11 +243,8 @@ import java.util.Map;
                 .build();
         }
     }
-
-
 ```
-
-Example usage of map operations with AWS SDK for Java 2.x.
+Example usage of map operations with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -327,42 +326,36 @@ Example usage of map operations with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
+```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v3)**  
+Demonstrate map operations using AWS SDK for JavaScript.  
 
 ```
-
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate map operations using AWS SDK for JavaScript.
-
-```
-
 /**
  * Example of updating map attributes in DynamoDB.
- *
+ * 
  * This module demonstrates how to update map attributes that may not exist,
  * how to update nested attributes, and how to handle various map update scenarios.
  */
 
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   GetCommand
 } = require("@aws-sdk/lib-dynamodb");
 
 /**
  * Update a map attribute safely, handling the case where the map might not exist.
- *
+ * 
  * This function demonstrates using the if_not_exists function to safely update
  * a map attribute that might not exist yet.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -382,7 +375,7 @@ async function updateMapAttributeSafe(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using SET with if_not_exists
   const params = {
     TableName: tableName,
@@ -393,16 +386,16 @@ async function updateMapAttributeSafe(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   try {
     // Perform the update operation
     const response = await docClient.send(new UpdateCommand(params));
     return response;
   } catch (error) {
     // If the error is because the map doesn't exist, create it
-    if (error.name === "ValidationException" &&
+    if (error.name === "ValidationException" && 
         error.message.includes("The document path provided in the update expression is invalid")) {
-
+      
       // Create the map with the specified key-value pair
       const createParams = {
         TableName: tableName,
@@ -413,10 +406,10 @@ async function updateMapAttributeSafe(
         },
         ReturnValues: "UPDATED_NEW"
       };
-
+      
       return await docClient.send(new UpdateCommand(createParams));
     }
-
+    
     // Re-throw other errors
     throw error;
   }
@@ -424,10 +417,10 @@ async function updateMapAttributeSafe(
 
 /**
  * Update a map attribute using the if_not_exists function.
- *
+ * 
  * This function demonstrates a more elegant approach using if_not_exists
  * to handle the case where the map doesn't exist yet.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -447,7 +440,7 @@ async function updateMapAttributeWithIfNotExists(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // A single UpdateExpression can't reference both a map and a path inside that
   // same map (for example `${mapName}` and `${mapName}.${mapKey}`): DynamoDB
   // rejects overlapping document paths with a ValidationException. Instead,
@@ -473,19 +466,19 @@ async function updateMapAttributeWithIfNotExists(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Add a value to a deeply nested map, creating parent maps if they don't exist.
- *
+ * 
  * This function demonstrates how to update a deeply nested attribute,
  * creating any parent maps that don't exist along the way.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -503,27 +496,27 @@ async function addToNestedMap(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Build the update expression and expression attribute values
   let updateExpression = "SET";
   const expressionAttributeValues = {};
-
+  
   // For each level in the path, create a map if it doesn't exist
   for (let i = 0; i < path.length; i++) {
     const currentPath = path.slice(0, i + 1).join(".");
     const parentPath = i > 0 ? path.slice(0, i).join(".") : null;
-
+    
     if (parentPath) {
       updateExpression += ` ${parentPath} = if_not_exists(${parentPath}, :emptyMap${i}),`;
       expressionAttributeValues[`:emptyMap${i}`] = {};
     }
   }
-
+  
   // Set the final value
   const fullPath = path.join(".");
   updateExpression += ` ${fullPath} = :value`;
   expressionAttributeValues[":value"] = value;
-
+  
   // Define the update parameters
   const params = {
     TableName: tableName,
@@ -532,19 +525,19 @@ async function addToNestedMap(
     ExpressionAttributeValues: expressionAttributeValues,
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Update multiple fields in a map attribute in a single operation.
- *
+ * 
  * This function demonstrates how to update multiple fields in a map
  * in a single DynamoDB operation.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -562,19 +555,19 @@ async function updateMultipleMapFields(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Build the update expression and expression attribute values
   let updateExpression = `SET ${mapName} = if_not_exists(${mapName}, :emptyMap)`;
   const expressionAttributeValues = {
     ":emptyMap": {}
   };
-
+  
   // Add each update to the expression
   Object.entries(updates).forEach(([field, value], index) => {
     updateExpression += `, ${mapName}.${field} = :val${index}`;
     expressionAttributeValues[`:val${index}`] = value;
   });
-
+  
   // Define the update parameters
   const params = {
     TableName: tableName,
@@ -583,18 +576,18 @@ async function updateMultipleMapFields(
     ExpressionAttributeValues: expressionAttributeValues,
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Get the current value of an item.
- *
+ * 
  * Helper function to retrieve the current value of an item.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to get
@@ -608,16 +601,16 @@ async function getItem(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the get parameters
   const params = {
     TableName: tableName,
     Key: key
   };
-
+  
   // Perform the get operation
   const response = await docClient.send(new GetCommand(params));
-
+  
   // Return the item if it exists, otherwise null
   return response.Item || null;
 }
@@ -630,9 +623,9 @@ async function exampleUsage() {
   const config = { region: "us-west-2" };
   const tableName = "Users";
   const key = { UserId: "U12345" };
-
+  
   console.log("Demonstrating different approaches to update map attributes in DynamoDB");
-
+  
   try {
     // Example 1: Update a map attribute that might not exist (two-step approach)
     console.log("\nExample 1: Updating a map attribute that might not exist (two-step approach)");
@@ -644,9 +637,9 @@ async function exampleUsage() {
       "Theme",
       "Dark"
     );
-
+    
     console.log("Updated preferences:", response1.Attributes);
-
+    
     // Example 2: Update a map attribute using if_not_exists (elegant approach)
     console.log("\nExample 2: Updating a map attribute using if_not_exists (elegant approach)");
     const response2 = await updateMapAttributeWithIfNotExists(
@@ -657,9 +650,9 @@ async function exampleUsage() {
       "NotificationsEnabled",
       true
     );
-
+    
     console.log("Updated settings:", response2.Attributes);
-
+    
     // Example 3: Update a deeply nested attribute
     console.log("\nExample 3: Updating a deeply nested attribute");
     const response3 = await addToNestedMap(
@@ -669,9 +662,9 @@ async function exampleUsage() {
       ["Profile", "Address", "City"],
       "Seattle"
     );
-
+    
     console.log("Updated nested attribute:", response3.Attributes);
-
+    
     // Example 4: Update multiple fields in a map
     console.log("\nExample 4: Updating multiple fields in a map");
     const response4 = await updateMultipleMapFields(
@@ -685,14 +678,14 @@ async function exampleUsage() {
         PreferredContact: "Email"
       }
     );
-
+    
     console.log("Updated multiple fields:", response4.Attributes);
-
+    
     // Get the final state of the item
     console.log("\nFinal state of the item:");
     const item = await getItem(config, tableName, key);
     console.log(JSON.stringify(item, null, 2));
-
+    
     // Explain the benefits of different approaches
     console.log("\nKey points about updating map attributes:");
     console.log("1. Use if_not_exists to handle maps that might not exist");
@@ -700,7 +693,7 @@ async function exampleUsage() {
     console.log("3. Deeply nested attributes require creating parent maps");
     console.log("4. DynamoDB expressions are atomic - the entire update succeeds or fails");
     console.log("5. Using a single operation is more efficient than multiple separate updates");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
@@ -720,22 +713,16 @@ module.exports = {
 if (require.main === module) {
   exampleUsage();
 }
+```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Demonstrate map operations using AWS SDK for Python (Boto3).  
 
 ```
-
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate map operations using AWS SDK for Python (Boto3).
-
-```
-
 """
 Example of updating map attributes in DynamoDB.
 
@@ -1011,14 +998,9 @@ def example_usage():
 
 if __name__ == "__main__":
     example_usage()
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

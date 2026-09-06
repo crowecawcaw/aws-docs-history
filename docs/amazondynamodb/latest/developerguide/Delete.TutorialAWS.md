@@ -1,4 +1,7 @@
+
+
 # Deleting a backup of a DynamoDB table with AWS Backup
+<a name="Delete.TutorialAWS"></a>
 
 This section describes how to delete a backup of a DynamoDB table with AWS Backup.
 
@@ -6,10 +9,12 @@ A DynamoDB backup created through AWS Backup features is stored in an AWS Backup
 
 In order to delete this kind of backup, do the following:
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. In the navigation pane on the left side of the console, choose **Backups**.
-3. On the screen that follows, choose **Continue to AWS Backup**.
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-The AWS Backup console opens. For more information about deleting backups in the AWS Backup console, see [Deleting backups](../../../aws-backup/latest/devguide/deleting-backups.md "../../../aws-backup/latest/devguide/deleting-backups.md") in the AWS Backup Developer Guide.
+1. In the navigation pane on the left side of the console, choose **Backups**.
 
-For more information about AWS Backup see [Backup and recovery using AWS Backup](../../../prescriptive-guidance/latest/backup-recovery/aws-backup.md "../../../prescriptive-guidance/latest/backup-recovery/aws-backup.md") in the _AWS Prescriptive Guidance_.
+1. On the screen that follows, choose **Continue to AWS Backup**.
+
+   The AWS Backup console opens. For more information about deleting backups in the AWS Backup console, see [Deleting backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html) in the AWS Backup Developer Guide.
+
+   For more information about AWS Backup see [Backup and recovery using AWS Backup](https://docs.aws.amazon.com/prescriptive-guidance/latest/backup-recovery/aws-backup.html) in the *AWS Prescriptive Guidance*.

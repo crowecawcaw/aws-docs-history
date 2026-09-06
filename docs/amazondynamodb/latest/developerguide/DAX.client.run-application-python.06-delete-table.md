@@ -1,8 +1,9 @@
-# 06-delete-table.py
 
-The `06-delete-table.py` program deletes
-`TryDaxTable`. Run this program after you have finished
-testing Amazon DynamoDB Accelerator (DAX) functionality.
+
+# 06-delete-table.py
+<a name="DAX.client.run-application-python.06-delete-table"></a>
+
+The `06-delete-table.py` program deletes `TryDaxTable`. Run this program after you have finished testing Amazon DynamoDB Accelerator (DAX) functionality.
 
 ```
 import boto3
@@ -27,5 +28,4 @@ def delete_dax_table(dyn_resource=None):
 if __name__ == "__main__":
     delete_dax_table()
     print("Table deleted!")
-
 ```

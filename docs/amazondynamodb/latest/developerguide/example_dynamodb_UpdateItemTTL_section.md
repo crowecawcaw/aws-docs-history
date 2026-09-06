@@ -1,12 +1,15 @@
+
+
 # Update a DynamoDB item with a TTL using an AWS SDK
+<a name="example_dynamodb_UpdateItemTTL_section"></a>
 
 The following code examples show how to update an item's TTL.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Update TTL on an existing DynamoDB item in a table.
+**SDK for Java 2.x**  
+Update TTL on an existing DynamoDB item in a table.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -60,17 +63,13 @@ import java.util.Optional;
             throw e;
         }
     }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
@@ -111,18 +110,13 @@ export const updateItem = async (tableName, partitionKey, sortKey, region = 'us-
 
 // Example usage (commented out for testing)
 // updateItem('your-table-name', 'your-partition-key-value', 'your-sort-key-value');
-
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 from datetime import datetime, timedelta
@@ -165,14 +159,9 @@ def update_dynamodb_item(table_name, region, primary_key, sort_key):
 update_dynamodb_item(
     "your-table-name", "us-west-2", "your-partition-key-value", "your-sort-key-value"
 )
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

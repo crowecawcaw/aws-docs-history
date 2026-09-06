@@ -1,164 +1,164 @@
+
+
 # Create a new DynamoDB table with higher warm throughput
+<a name="create-table-warm-throughput"></a>
 
-You can adjust the warm throughput values when you create your DynamoDB table by
-following the steps below. These steps also apply when creating a [global table](GlobalTables.md "GlobalTables.md") or [secondary index](SecondaryIndexes.md "SecondaryIndexes.md").
+You can adjust the warm throughput values when you create your DynamoDB table by following the steps below. These steps also apply when creating a [global table](GlobalTables.md) or [secondary index](SecondaryIndexes.md).
 
-To create a DynamoDB table and adjust the warm throughput values through the
-console:
+## AWS Management Console
+<a name="warm-throughput-create-console"></a>
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. Select **Create table**.
-3. Choose a **Table name**, **Partition key**, and **Sort key (optional)**.
-4. For **Table settings**, choose
-   **Customize settings**.
-5. In the **Warm throughput** field,
-   choose **Increase warm
-   throughput.**
-6. Adjust the **read units per second**
-   and **write units pers second**. These
-   two settings define the maximum throughput your table can instantly
-   handle.
-7. Continue adding any remaining table details and then select
-   **Create table**.
-   The following AWS CLI example shows you how to create a DynamoDB table with
-   customized warm throughput values.
+To create a DynamoDB table and adjust the warm throughput values through the console:
 
-8. Run the `create-table` operation to create the
-   following DynamoDB table.
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-```
-aws dynamodb create-table \
-    --table-name GameScores \
-    --attribute-definitions AttributeName=UserId,AttributeType=S \
-                            AttributeName=GameTitle,AttributeType=S \
-                            AttributeName=TopScore,AttributeType=N  \
-    --key-schema AttributeName=UserId,KeyType=HASH \
-                 AttributeName=GameTitle,KeyType=RANGE \
-    --provisioned-throughput ReadCapacityUnits=20,WriteCapacityUnits=10 \
-    --global-secondary-indexes \
-        "[
-            {
-                \"IndexName\": \"GameTitleIndex\",
-                \"KeySchema\": [{\"AttributeName\":\"GameTitle\",\"KeyType\":\"HASH\"},
-                                {\"AttributeName\":\"TopScore\",\"KeyType\":\"RANGE\"}],
-                \"Projection\":{
-                    \"ProjectionType\":\"INCLUDE\",
-                    \"NonKeyAttributes\":[\"UserId\"]
-                },
-                \"ProvisionedThroughput\": {
-                    \"ReadCapacityUnits\": 50,
-                    \"WriteCapacityUnits\": 25
-                },\"WarmThroughput\": {
-                    \"ReadUnitsPerSecond\": 1987,
-                    \"WriteUnitsPerSecond\": 543
-                }
-            }
-        ]" \
-    --warm-throughput ReadUnitsPerSecond=12345,WriteUnitsPerSecond=4567 \
-    --region us-east-1
-```
+1. Select **Create table**.
 
-2. You’ll receive a response similar to the one below. Your
-   `WarmThroughput` settings will be displayed as
-   `ReadUnitsPerSecond` and
-   `WriteUnitsPerSecond`. The `Status` will
-   be `UPDATING` when the warm throughput value is being
-   updated, and `ACTIVE` when the new warm throughput value
-   is set.
+1. Choose a **Table name**, **Partition key**, and **Sort key (optional)**.
 
-```
-{
-    "TableDescription": {
-        "AttributeDefinitions": [
-            {
-                "AttributeName": "GameTitle",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "TopScore",
-                "AttributeType": "N"
-            },
-            {
-                "AttributeName": "UserId",
-                "AttributeType": "S"
-            }
-        ],
-        "TableName": "GameScores",
-        "KeySchema": [
-            {
-                "AttributeName": "UserId",
-                "KeyType": "HASH"
-            },
-            {
-                "AttributeName": "GameTitle",
-                "KeyType": "RANGE"
-            }
-        ],
-        "TableStatus": "CREATING",
-        "CreationDateTime": 1730241788.779,
-        "ProvisionedThroughput": {
-            "NumberOfDecreasesToday": 0,
-            "ReadCapacityUnits": 20,
-            "WriteCapacityUnits": 10
-        },
-        "TableSizeBytes": 0,
-        "ItemCount": 0,
-        "TableArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores",
-        "TableId": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-        "GlobalSecondaryIndexes": [
-            {
-                "IndexName": "GameTitleIndex",
-                "KeySchema": [
-                    {
-                        "AttributeName": "GameTitle",
-                        "KeyType": "HASH"
-                    },
-                    {
-                        "AttributeName": "TopScore",
-                        "KeyType": "RANGE"
-                    }
-                ],
-                "Projection": {
-                    "ProjectionType": "INCLUDE",
-                    "NonKeyAttributes": [
-                        "UserId"
-                    ]
-                },
-                "IndexStatus": "CREATING",
-                "ProvisionedThroughput": {
-                    "NumberOfDecreasesToday": 0,
-                    "ReadCapacityUnits": 50,
-                    "WriteCapacityUnits": 25
-                },
-                "IndexSizeBytes": 0,
-                "ItemCount": 0,
-                "IndexArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores/index/GameTitleIndex",
-                "WarmThroughput": {
-                    "ReadUnitsPerSecond": 1987,
-                    "WriteUnitsPerSecond": 543,
-                    "Status": "UPDATING"
-                }
-            }
-        ],
-        "DeletionProtectionEnabled": false,
-        "WarmThroughput": {
-            "ReadUnitsPerSecond": 12345,
-            "WriteUnitsPerSecond": 4567,
-            "Status": "UPDATING"
-        }
-    }
-}
-```
+1. For **Table settings**, choose **Customize settings**.
 
-The following SDK examples shows you how to create a DynamoDB table with
-customized warm throughput values.
+1. In the **Warm throughput **field, choose **Increase warm throughput.**
 
-Java
+1. Adjust the **read units per second** and **write units pers second**. These two settings define the maximum throughput your table can instantly handle.
 
-**SDK for Java 2.x**
+1. Continue adding any remaining table details and then select **Create table**.
 
-Create DynamoDB table with warm throughput setting using AWS SDK for Java 2.x.
+## AWS CLI
+<a name="warm-throughput-create-CLI"></a>
+
+The following AWS CLI example shows you how to create a DynamoDB table with customized warm throughput values.
+
+1. Run the `create-table` operation to create the following DynamoDB table.
+
+   ```
+   aws dynamodb create-table \
+       --table-name GameScores \
+       --attribute-definitions AttributeName=UserId,AttributeType=S \
+                               AttributeName=GameTitle,AttributeType=S \
+                               AttributeName=TopScore,AttributeType=N  \
+       --key-schema AttributeName=UserId,KeyType=HASH \
+                    AttributeName=GameTitle,KeyType=RANGE \
+       --provisioned-throughput ReadCapacityUnits=20,WriteCapacityUnits=10 \
+       --global-secondary-indexes \
+           "[
+               {
+                   \"IndexName\": \"GameTitleIndex\",
+                   \"KeySchema\": [{\"AttributeName\":\"GameTitle\",\"KeyType\":\"HASH\"},
+                                   {\"AttributeName\":\"TopScore\",\"KeyType\":\"RANGE\"}],
+                   \"Projection\":{
+                       \"ProjectionType\":\"INCLUDE\",
+                       \"NonKeyAttributes\":[\"UserId\"]
+                   },
+                   \"ProvisionedThroughput\": {
+                       \"ReadCapacityUnits\": 50,
+                       \"WriteCapacityUnits\": 25
+                   },\"WarmThroughput\": {
+                       \"ReadUnitsPerSecond\": 1987,
+                       \"WriteUnitsPerSecond\": 543
+                   }
+               }
+           ]" \
+       --warm-throughput ReadUnitsPerSecond=12345,WriteUnitsPerSecond=4567 \
+       --region us-east-1
+   ```
+
+1. You’ll receive a response similar to the one below. Your `WarmThroughput` settings will be displayed as `ReadUnitsPerSecond` and `WriteUnitsPerSecond`. The `Status` will be `UPDATING` when the warm throughput value is being updated, and `ACTIVE` when the new warm throughput value is set.
+
+   ```
+   {
+       "TableDescription": {
+           "AttributeDefinitions": [
+               {
+                   "AttributeName": "GameTitle",
+                   "AttributeType": "S"
+               },
+               {
+                   "AttributeName": "TopScore",
+                   "AttributeType": "N"
+               },
+               {
+                   "AttributeName": "UserId",
+                   "AttributeType": "S"
+               }
+           ],
+           "TableName": "GameScores",
+           "KeySchema": [
+               {
+                   "AttributeName": "UserId",
+                   "KeyType": "HASH"
+               },
+               {
+                   "AttributeName": "GameTitle",
+                   "KeyType": "RANGE"
+               }
+           ],
+           "TableStatus": "CREATING",
+           "CreationDateTime": 1730241788.779,
+           "ProvisionedThroughput": {
+               "NumberOfDecreasesToday": 0,
+               "ReadCapacityUnits": 20,
+               "WriteCapacityUnits": 10
+           },
+           "TableSizeBytes": 0,
+           "ItemCount": 0,
+           "TableArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores",
+           "TableId": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+           "GlobalSecondaryIndexes": [
+               {
+                   "IndexName": "GameTitleIndex",
+                   "KeySchema": [
+                       {
+                           "AttributeName": "GameTitle",
+                           "KeyType": "HASH"
+                       },
+                       {
+                           "AttributeName": "TopScore",
+                           "KeyType": "RANGE"
+                       }
+                   ],
+                   "Projection": {
+                       "ProjectionType": "INCLUDE",
+                       "NonKeyAttributes": [
+                           "UserId"
+                       ]
+                   },
+                   "IndexStatus": "CREATING",
+                   "ProvisionedThroughput": {
+                       "NumberOfDecreasesToday": 0,
+                       "ReadCapacityUnits": 50,
+                       "WriteCapacityUnits": 25
+                   },
+                   "IndexSizeBytes": 0,
+                   "ItemCount": 0,
+                   "IndexArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores/index/GameTitleIndex",
+                   "WarmThroughput": {
+                       "ReadUnitsPerSecond": 1987,
+                       "WriteUnitsPerSecond": 543,
+                       "Status": "UPDATING"
+                   }
+               }
+           ],
+           "DeletionProtectionEnabled": false,
+           "WarmThroughput": {
+               "ReadUnitsPerSecond": 12345,
+               "WriteUnitsPerSecond": 4567,
+               "Status": "UPDATING"
+           }
+       }
+   }
+   ```
+
+## AWS SDK
+<a name="warm-throughput-create-SDK"></a>
+
+The following SDK examples shows you how to create a DynamoDB table with customized warm throughput values.
+
+------
+#### [ Java ]
+
+**SDK for Java 2.x**  
+Create DynamoDB table with warm throughput setting using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -322,19 +322,14 @@ import software.amazon.awssdk.services.dynamodb.model.WarmThroughput;
         final CreateTableResponse response = ddb.createTable(request);
         System.out.println(response);
     }
-
-
 ```
++  For API details, see [CreateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Create DynamoDB table with warm throughput setting using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Create DynamoDB table with warm throughput setting using AWS SDK for JavaScript.  
 
 ```
 import { DynamoDBClient, CreateTableCommand } from "@aws-sdk/client-dynamodb";
@@ -421,22 +416,16 @@ createDynamoDBTableWithWarmThroughput(
   5, 5, 2, 2
 );
 */
+```
++  For API details, see [CreateTable](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/CreateTableCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+Create DynamoDB table with warm throughput setting using AWS SDK for Python (Boto3).  
 
 ```
-
-- For API details, see
-  [CreateTable](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/CreateTableCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/CreateTableCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-Create DynamoDB table with warm throughput setting using AWS SDK for Python (Boto3).
-
-```
-
 from boto3 import client
 from botocore.exceptions import ClientError
 
@@ -544,10 +533,7 @@ def create_dynamodb_table_warm_throughput(
     except ClientError as e:
         print(f"Error creating table: {e}")
         raise e
-
-
 ```
++  For API details, see [CreateTable](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/CreateTable) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateTable](../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md "../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------

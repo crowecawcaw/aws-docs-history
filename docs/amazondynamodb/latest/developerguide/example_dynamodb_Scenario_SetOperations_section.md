@@ -1,16 +1,18 @@
+
+
 # Perform set operations in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_SetOperations_section"></a>
 
 The following code examples show how to perform set operations in DynamoDB.
++ Add elements to a set attribute.
++ Remove elements from a set attribute.
++ Use ADD and DELETE operations with sets.
 
-- Add elements to a set attribute.
-- Remove elements from a set attribute.
-- Use ADD and DELETE operations with sets.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate set operations using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate set operations using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -340,11 +342,8 @@ import java.util.Set;
                 .build();
         }
     }
-
-
 ```
-
-Example usage of set operations with AWS SDK for Java 2.x.
+Example usage of set operations with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -454,33 +453,28 @@ Example usage of set operations with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate set operations using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Demonstrate set operations using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   GetCommand
 } = require("@aws-sdk/lib-dynamodb");
 
 /**
  * Add elements to a set attribute.
- *
+ * 
  * This function demonstrates using the ADD operation to add elements to a set.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -500,7 +494,7 @@ async function addToSet(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Create the appropriate set type
   let setValues;
   if (setType === 'string') {
@@ -512,7 +506,7 @@ async function addToSet(
   } else {
     throw new Error(`Unsupported set type: ${setType}`);
   }
-
+  
   // Define the update parameters using ADD
   const params = {
     TableName: tableName,
@@ -523,18 +517,18 @@ async function addToSet(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Remove elements from a set attribute.
- *
+ * 
  * This function demonstrates using the DELETE operation to remove elements from a set.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -554,7 +548,7 @@ async function removeFromSet(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Create the appropriate set type
   let setValues;
   if (setType === 'string') {
@@ -566,7 +560,7 @@ async function removeFromSet(
   } else {
     throw new Error(`Unsupported set type: ${setType}`);
   }
-
+  
   // Define the update parameters using DELETE
   const params = {
     TableName: tableName,
@@ -577,18 +571,18 @@ async function removeFromSet(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Create a new set attribute with initial values.
- *
+ * 
  * This function demonstrates using the SET operation to create a new set attribute.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -608,7 +602,7 @@ async function createSet(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Create the appropriate set type
   let setValues;
   if (setType === 'string') {
@@ -620,7 +614,7 @@ async function createSet(
   } else {
     throw new Error(`Unsupported set type: ${setType}`);
   }
-
+  
   // Define the update parameters using SET
   const params = {
     TableName: tableName,
@@ -631,18 +625,18 @@ async function createSet(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Replace an entire set attribute with a new set of values.
- *
+ * 
  * This function demonstrates using the SET operation to replace an entire set.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -665,9 +659,9 @@ async function replaceSet(
 
 /**
  * Remove the last element from a set and handle the empty set case.
- *
+ * 
  * This function demonstrates what happens when you delete the last element of a set.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -683,10 +677,10 @@ async function removeLastElementFromSet(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // First, get the current item to check the set
   const currentItem = await getItem(config, tableName, key);
-
+  
   // Check if the set exists and has elements
   if (!currentItem || !currentItem[setName] || currentItem[setName].size === 0) {
     return {
@@ -695,10 +689,10 @@ async function removeLastElementFromSet(
       item: currentItem
     };
   }
-
+  
   // Get the set values
   const setValues = Array.from(currentItem[setName]);
-
+  
   // If there's only one element left, remove the attribute entirely
   if (setValues.length === 1) {
     // Define the update parameters to remove the attribute
@@ -708,10 +702,10 @@ async function removeLastElementFromSet(
       UpdateExpression: `REMOVE ${setName}`,
       ReturnValues: "UPDATED_NEW"
     };
-
+    
     // Perform the update operation
     await docClient.send(new UpdateCommand(params));
-
+    
     return {
       success: true,
       message: "Last element removed, attribute has been deleted",
@@ -722,7 +716,7 @@ async function removeLastElementFromSet(
     // Create a set with just the last element
     const lastElement = setValues[setValues.length - 1];
     const setType = typeof lastElement === 'number' ? 'number' : 'string';
-
+    
     // Remove the last element
     const response = await removeFromSet(
       config,
@@ -732,7 +726,7 @@ async function removeLastElementFromSet(
       [lastElement],
       setType
     );
-
+    
     return {
       success: true,
       message: "Last element removed, set still contains elements",
@@ -744,9 +738,9 @@ async function removeLastElementFromSet(
 
 /**
  * Get the current value of an item.
- *
+ * 
  * Helper function to retrieve the current value of an item.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to get
@@ -760,24 +754,21 @@ async function getItem(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the get parameters
   const params = {
     TableName: tableName,
     Key: key
   };
-
+  
   // Perform the get operation
   const response = await docClient.send(new GetCommand(params));
-
+  
   // Return the item if it exists, otherwise null
   return response.Item || null;
 }
-
-
 ```
-
-Example usage of set operations with AWS SDK for JavaScript.
+Example usage of set operations with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -788,9 +779,9 @@ async function exampleUsage() {
   const config = { region: "us-west-2" };
   const tableName = "Users";
   const key = { UserId: "U12345" };
-
+  
   console.log("Demonstrating set operations in DynamoDB");
-
+  
   try {
     // Example 1: Create a string set
     console.log("\nExample 1: Creating a string set");
@@ -802,9 +793,9 @@ async function exampleUsage() {
       ["Reading", "Hiking", "Cooking"],
       "string"
     );
-
+    
     console.log("Created set:", response1.Attributes);
-
+    
     // Example 2: Add elements to a set
     console.log("\nExample 2: Adding elements to a set");
     const response2 = await addToSet(
@@ -815,9 +806,9 @@ async function exampleUsage() {
       ["Photography", "Travel"],
       "string"
     );
-
+    
     console.log("Updated set after adding elements:", response2.Attributes);
-
+    
     // Example 3: Remove elements from a set
     console.log("\nExample 3: Removing elements from a set");
     const response3 = await removeFromSet(
@@ -828,9 +819,9 @@ async function exampleUsage() {
       ["Cooking"],
       "string"
     );
-
+    
     console.log("Updated set after removing elements:", response3.Attributes);
-
+    
     // Example 4: Create a number set
     console.log("\nExample 4: Creating a number set");
     const response4 = await createSet(
@@ -841,9 +832,9 @@ async function exampleUsage() {
       [7, 42, 99],
       "number"
     );
-
+    
     console.log("Created number set:", response4.Attributes);
-
+    
     // Example 5: Replace an entire set
     console.log("\nExample 5: Replacing an entire set");
     const response5 = await replaceSet(
@@ -854,12 +845,12 @@ async function exampleUsage() {
       ["Gaming", "Movies", "Music"],
       "string"
     );
-
+    
     console.log("Replaced set:", response5.Attributes);
-
+    
     // Example 6: Remove the last element from a set
     console.log("\nExample 6: Removing the last element from a set");
-
+    
     // First, create a set with just one element
     await createSet(
       config,
@@ -869,7 +860,7 @@ async function exampleUsage() {
       ["LastTag"],
       "string"
     );
-
+    
     // Then, remove the last element
     const response6 = await removeLastElementFromSet(
       config,
@@ -877,18 +868,18 @@ async function exampleUsage() {
       { UserId: "U67890" },
       "Tags"
     );
-
+    
     console.log(response6.message);
     console.log("Removed value:", response6.removedValue);
-
+    
     // Get the final state of the items
     console.log("\nFinal state of the items:");
     const item1 = await getItem(config, tableName, key);
     console.log("User U12345:", JSON.stringify(item1, null, 2));
-
+    
     const item2 = await getItem(config, tableName, { UserId: "U67890" });
     console.log("User U67890:", JSON.stringify(item2, null, 2));
-
+    
     // Explain set operations
     console.log("\nKey points about set operations in DynamoDB:");
     console.log("1. Use ADD to add elements to a set (duplicates are automatically removed)");
@@ -899,24 +890,19 @@ async function exampleUsage() {
     console.log("6. To remove an empty set, use the REMOVE operation");
     console.log("7. Sets automatically maintain unique values (no duplicates)");
     console.log("8. You cannot mix data types within a set");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate set operations using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Demonstrate set operations using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -1181,13 +1167,8 @@ def work_with_number_set(
         "remove_response": remove_response,
         "final_state": get_response.get("Item", {}),
     }
-
-
-
-
 ```
-
-Example usage of set operations with AWS SDK for Python (Boto3).
+Example usage of set operations with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -1273,16 +1254,9 @@ def example_usage():
     print("6. Empty sets are not allowed in DynamoDB")
     print("7. Sets are unordered collections")
     print("8. The ADD operation is atomic for sets")
-
-
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

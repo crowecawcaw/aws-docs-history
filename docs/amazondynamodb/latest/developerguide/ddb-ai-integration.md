@@ -1,90 +1,50 @@
+
+
 # Using agentic AI with DynamoDB
+<a name="ddb-ai-integration"></a>
 
-Amazon DynamoDB is a serverless, fully managed, distributed NoSQL database with single-digit millisecond performance at any scale. DynamoDB is optimized for high-throughput workloads and you can extend its
-capabilities by integrating with generative AI models. Using generative AI models, you can
-work with data stored in DynamoDB tables in real-time and build applications that are
-contextually aware and highly personalized. You can also enhance the end user experience by
-fully leveraging your business, user, and application data to customize your generative AI
-solutions.
+Amazon DynamoDB is a serverless, fully managed, distributed NoSQL database with single-digit millisecond performance at any scale. DynamoDB is optimized for high-throughput workloads and you can extend its capabilities by integrating with generative AI models. Using generative AI models, you can work with data stored in DynamoDB tables in real-time and build applications that are contextually aware and highly personalized. You can also enhance the end user experience by fully leveraging your business, user, and application data to customize your generative AI solutions.
 
-For more information about gen AI and the solutions AWS provides to build gen AI
-applications, see [Transform your business
-with generative AI](https://aws.amazon.com/ai/generative-ai/ "https://aws.amazon.com/ai/generative-ai/").
+For more information about gen AI and the solutions AWS provides to build gen AI applications, see [Transform your business with generative AI](https://aws.amazon.com/ai/generative-ai/).
 
-DynamoDB also provides native vector search through
-vector indexes, so you can store vector embeddings alongside your operational data and run
-similarity searches with the `SearchVectors` API, without a separate vector
-database. For more information, see [Using vector indexes in DynamoDB](VectorSearch.md "VectorSearch.md").
+DynamoDB also provides native vector search through vector indexes, so you can store vector embeddings alongside your operational data and run similarity searches with the `SearchVectors` API, without a separate vector database. For more information, see [Using vector indexes in DynamoDB](VectorSearch.md).
 
-###### Topics
-
-- [Generative AI use cases for DynamoDB](#gen-ai-use-case-ddb "#gen-ai-use-case-ddb")
-- [Vector search for RAG and agent memory](#gen-ai-vector-search "#gen-ai-vector-search")
-- [AI framework connectors for DynamoDB](gen-ai-framework-connectors.md "gen-ai-framework-connectors.md")
-- [Generative AI blogs for DynamoDB](#gen-ai-blogs "#gen-ai-blogs")
-- [Leveraging DynamoDB Zero-ETL integration with OpenSearch Service](ddb-and-amazon-bedrock.md "ddb-and-amazon-bedrock.md")
+**Topics**
++ [Generative AI use cases for DynamoDB](#gen-ai-use-case-ddb)
++ [Vector search for RAG and agent memory](#gen-ai-vector-search)
++ [AI framework connectors for DynamoDB](gen-ai-framework-connectors.md)
++ [Generative AI blogs for DynamoDB](#gen-ai-blogs)
++ [Leveraging DynamoDB Zero-ETL integration with OpenSearch Service](ddb-and-amazon-bedrock.md)
 
 ## Generative AI use cases for DynamoDB
+<a name="gen-ai-use-case-ddb"></a>
 
-DynamoDB is widely used in AI powered conversational applications, such as chatbots and
-call centers built with a [Foundation Model (FM)](https://aws.amazon.com/what-is/foundation-models/ "https://aws.amazon.com/what-is/foundation-models/"). You can access FMs through Amazon Bedrock, Amazon SageMaker AI, or
-other model providers. Such applications commonly use DynamoDB to improve personalization
-and enhance the user experience across three data patterns: application data, business
-data, and user data. Some examples of these data patterns are as follows:
+DynamoDB is widely used in AI powered conversational applications, such as chatbots and call centers built with a [Foundation Model (FM)](https://aws.amazon.com/what-is/foundation-models/). You can access FMs through Amazon Bedrock, Amazon SageMaker AI, or other model providers. Such applications commonly use DynamoDB to improve personalization and enhance the user experience across three data patterns: application data, business data, and user data. Some examples of these data patterns are as follows:
++ Storage of application data, such as chat message history, through integrations with [LangChain](https://reference.langchain.com/python/langchain-community/chat_message_histories/dynamodb/DynamoDBChatMessageHistory), [LlamaIndex](https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/), or a custom code. This context enhances the user experience by allowing the model to *converse* back and forth with the user. For more DynamoDB integrations with agentic AI frameworks, see [AI framework connectors for DynamoDB](gen-ai-framework-connectors.md).
++ Creation of a customized user experience by leveraging business data, such as inventory, pricing, and documentation.
++ Application of user data, such as web history, past orders, and user preferences, to provide personalized answers.
 
-- Storage of application data, such as chat message history, through
-  integrations with [LangChain](https://reference.langchain.com/python/langchain-community/chat_message_histories/dynamodb/DynamoDBChatMessageHistory "https://reference.langchain.com/python/langchain-community/chat_message_histories/dynamodb/DynamoDBChatMessageHistory"), [LlamaIndex](https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/ "https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/"), or a custom code. This context enhances the user
-  experience by allowing the model to _converse_ back and forth
-  with the user. For more DynamoDB integrations with agentic AI frameworks, see [AI framework connectors for DynamoDB](gen-ai-framework-connectors.md "gen-ai-framework-connectors.md").
-- Creation of a customized user experience by leveraging business data, such as
-  inventory, pricing, and documentation.
-- Application of user data, such as web history, past orders, and user
-  preferences, to provide personalized answers.
+For instance, an insurance company can build a chatbot using DynamoDB to provide their [Retrieval-Augmented Generation (RAG)](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html) based gen AI model access to near real-time data. Examples of such data are real-time mortgage rates, product pricing, compliant/standard contract copy, user web history, and user preferences. Combining DynamoDB with RAG adds in-depth and updated information about insurance products and the user data. This enriches the prompts and answers to provide end users with an accurate, personalized, and near real-time experience.
 
-For instance, an insurance company can build a chatbot using DynamoDB to provide their
-[Retrieval-Augmented Generation (RAG)](../../../sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.md "../../../sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.md") based gen AI model access to near
-real-time data. Examples of such data are real-time mortgage rates, product pricing,
-compliant/standard contract copy, user web history, and user preferences. Combining
-DynamoDB with RAG adds in-depth and updated information about insurance products and the
-user data. This enriches the prompts and answers to provide end users with an accurate,
-personalized, and near real-time experience.
-
-Similarly, financial services industry customers use DynamoDB, [Amazon Bedrock
-knowledge bases](../../../bedrock/latest/userguide/knowledge-base.md "../../../bedrock/latest/userguide/knowledge-base.md"), and [Amazon Bedrock
-agents](https://aws.amazon.com/bedrock/agents/ "https://aws.amazon.com/bedrock/agents/") to build RAG-based gen AI applications. These applications can use
-open-source earnings reports and call transcripts. They can also use user-specific
-portfolio and transaction history to generate an on-demand summary of portfolio
-including an outlook for the future.
+Similarly, financial services industry customers use DynamoDB, [Amazon Bedrock knowledge bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html), and [Amazon Bedrock agents](https://aws.amazon.com/bedrock/agents/) to build RAG-based gen AI applications. These applications can use open-source earnings reports and call transcripts. They can also use user-specific portfolio and transaction history to generate an on-demand summary of portfolio including an outlook for the future.
 
 ## Vector search for RAG and agent memory
+<a name="gen-ai-vector-search"></a>
 
-Generative AI applications retrieve context by meaning: a RAG application finds the
-documents most relevant to a prompt, and an AI agent recalls memories similar to the
-current conversation. Vector indexes bring this capability natively to DynamoDB. You store
-vector embeddings as attributes on your table items, and the `SearchVectors`
-API returns the items most similar to a query vector, ranked by similarity score. The
-data an application writes is the data it searches, so there is no separate vector
-database to provision and no replication pipeline to manage.
+Generative AI applications retrieve context by meaning: a RAG application finds the documents most relevant to a prompt, and an AI agent recalls memories similar to the current conversation. Vector indexes bring this capability natively to DynamoDB. You store vector embeddings as attributes on your table items, and the `SearchVectors` API returns the items most similar to a query vector, ranked by similarity score. The data an application writes is the data it searches, so there is no separate vector database to provision and no replication pipeline to manage.
 
-You can also define a partition key in a vector index's search schema. Each
-similarity search is then scoped to a single partition key value, such as a tenant ID,
-user ID, or agent session ID. This makes vector indexes a natural fit for multi-tenant
-RAG and per-user agent memory.
+You can also define a partition key in a vector index's search schema. Each similarity search is then scoped to a single partition key value, such as a tenant ID, user ID, or agent session ID. This makes vector indexes a natural fit for multi-tenant RAG and per-user agent memory.
 
 To get started with vector indexes, see the following topics:
-
-- [Using vector indexes in DynamoDB](VectorSearch.md "VectorSearch.md")
-- [Tutorial: Your first vector search](VectorSearchTutorial.md "VectorSearchTutorial.md")
-- [Creating and searching vector indexes](VectorSearchWorkingWith.md "VectorSearchWorkingWith.md")
-- [Best practices for vector indexes](VectorSearchBestPractices.md "VectorSearchBestPractices.md")
++ [Using vector indexes in DynamoDB](VectorSearch.md)
++ [Tutorial: Your first vector search](VectorSearchTutorial.md)
++ [Creating and searching vector indexes](VectorSearchWorkingWith.md)
++ [Best practices for vector indexes](VectorSearchBestPractices.md)
 
 ## Generative AI blogs for DynamoDB
+<a name="gen-ai-blogs"></a>
 
-The following articles offer detailed use cases, best practices, and step-by-step
-guides to help you leverage DynamoDB's capabilities in building advanced AI-powered
-applications.
-
-- [Amazon DynamoDB data models for generative AI chatbots](https://aws.amazon.com/blogs/database/amazon-dynamodb-data-models-for-generative-ai-chatbots/ "https://aws.amazon.com/blogs/database/amazon-dynamodb-data-models-for-generative-ai-chatbots/")
-- [Build a scalable, context-aware chatbot with Amazon DynamoDB, Amazon Bedrock, and
-  LangChain](https://aws.amazon.com/blogs/database/build-a-scalable-context-aware-chatbot-with-amazon-dynamodb-amazon-bedrock-and-langchain/ "https://aws.amazon.com/blogs/database/build-a-scalable-context-aware-chatbot-with-amazon-dynamodb-amazon-bedrock-and-langchain/")
-- [Build durable AI agents with LangGraph and Amazon DynamoDB](https://aws.amazon.com/blogs/database/build-durable-ai-agents-with-langgraph-and-amazon-dynamodb/ "https://aws.amazon.com/blogs/database/build-durable-ai-agents-with-langgraph-and-amazon-dynamodb/")
+The following articles offer detailed use cases, best practices, and step-by-step guides to help you leverage DynamoDB's capabilities in building advanced AI-powered applications.
++ [Amazon DynamoDB data models for generative AI chatbots ](https://aws.amazon.com/blogs/database/amazon-dynamodb-data-models-for-generative-ai-chatbots/) 
++ [Build a scalable, context-aware chatbot with Amazon DynamoDB, Amazon Bedrock, and LangChain](https://aws.amazon.com/blogs/database/build-a-scalable-context-aware-chatbot-with-amazon-dynamodb-amazon-bedrock-and-langchain/) 
++ [Build durable AI agents with LangGraph and Amazon DynamoDB](https://aws.amazon.com/blogs/database/build-durable-ai-agents-with-langgraph-and-amazon-dynamodb/) 

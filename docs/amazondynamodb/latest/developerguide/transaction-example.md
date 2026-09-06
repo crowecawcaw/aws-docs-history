@@ -1,38 +1,32 @@
-# DynamoDB transactions example
 
-As an example of a situation in which Amazon DynamoDB transactions can be useful,
-consider this sample Java application for an online marketplace.
+
+# DynamoDB transactions example
+<a name="transaction-example"></a>
+
+As an example of a situation in which Amazon DynamoDB transactions can be useful, consider this sample Java application for an online marketplace.
 
 The application has three DynamoDB tables in the backend:
-
-- `Customers` — This table stores details about the marketplace
-  customers. Its primary key is a `CustomerId` unique identifier.
-- `ProductCatalog` — This table stores details such as price and
-  availability about the products for sale in the marketplace. Its primary key is a
-  `ProductId` unique identifier.
-- `Orders` — This table stores details about orders from the
-  marketplace. Its primary key is an `OrderId` unique identifier.
++ `Customers` — This table stores details about the marketplace customers. Its primary key is a `CustomerId` unique identifier.
++ `ProductCatalog` — This table stores details such as price and availability about the products for sale in the marketplace. Its primary key is a `ProductId` unique identifier.
++ `Orders` — This table stores details about orders from the marketplace. Its primary key is an `OrderId` unique identifier.
 
 ## Making an order
+<a name="transaction-example-write-order"></a>
 
-The following code snippets illustrate how to use DynamoDB transactions to coordinate the
-multiple steps that are required to create and process an order. Using a single all-or-nothing
-operation ensures that if any part of the transaction fails, no actions in the transaction are
-run and no changes are made.
+The following code snippets illustrate how to use DynamoDB transactions to coordinate the multiple steps that are required to create and process an order. Using a single all-or-nothing operation ensures that if any part of the transaction fails, no actions in the transaction are run and no changes are made.
 
-In this example, you set up an order from a customer whose `customerId` is
-`09e8e9c8-ec48`. You then run it as a single transaction using the following
-simple order-processing workflow:
+In this example, you set up an order from a customer whose `customerId` is `09e8e9c8-ec48`. You then run it as a single transaction using the following simple order-processing workflow:
 
 1. Determine that the customer ID is valid.
-2. Make sure that the product is `IN_STOCK`, and update the product status to
-   `SOLD`.
-3. Make sure that the order does not already exist, and create the order.
+
+1. Make sure that the product is `IN_STOCK`, and update the product status to `SOLD`.
+
+1. Make sure that the order does not already exist, and create the order.
 
 ### Validate the customer
+<a name="transaction-example-order-part-a"></a>
 
-First, define an action to verify that a customer with `customerId` equal to
-`09e8e9c8-ec48` exists in the customer table.
+First, define an action to verify that a customer with `customerId` equal to `09e8e9c8-ec48` exists in the customer table.
 
 ```
 final String CUSTOMER_TABLE_NAME = "Customers";
@@ -48,12 +42,9 @@ ConditionCheck checkCustomerValid = new ConditionCheck()
 ```
 
 ### Update the product status
+<a name="transaction-example-order-part-b"></a>
 
-Next, define an action to update the product status to `SOLD` if the
-condition that the product status is currently set to `IN_STOCK` is
-`true`. Setting the `ReturnValuesOnConditionCheckFailure` parameter
-returns the item if the item's product status attribute was not equal to
-`IN_STOCK`.
+Next, define an action to update the product status to `SOLD` if the condition that the product status is currently set to `IN_STOCK` is `true`. Setting the `ReturnValuesOnConditionCheckFailure` parameter returns the item if the item's product status attribute was not equal to `IN_STOCK`.
 
 ```
 final String PRODUCT_TABLE_NAME = "ProductCatalog";
@@ -75,9 +66,9 @@ Update markItemSold = new Update()
 ```
 
 ### Create the order
+<a name="transaction-example-order-part-c"></a>
 
-Lastly, create the order as long as an order with that `OrderId` does not
-already exist.
+Lastly, create the order as long as an order with that `OrderId` does not already exist.
 
 ```
 final String ORDER_PARTITION_KEY = "OrderId";
@@ -98,9 +89,9 @@ Put createOrder = new Put()
 ```
 
 ### Run the transaction
+<a name="transaction-example-order-part-d"></a>
 
-The following example illustrates how to run the actions defined previously as a
-single all-or-nothing operation.
+The following example illustrates how to run the actions defined previously as a single all-or-nothing operation.
 
 ```
     Collection<TransactWriteItem> actions = Arrays.asList(
@@ -127,9 +118,9 @@ single all-or-nothing operation.
 ```
 
 ## Reading the order details
+<a name="transaction-example-read-order"></a>
 
-The following example shows how to read the completed order transactionally across the
-`Orders` and `ProductCatalog` tables.
+The following example shows how to read the completed order transactionally across the `Orders` and `ProductCatalog` tables.
 
 ```
 HashMap<String, AttributeValue> productItemKey = new HashMap<>();

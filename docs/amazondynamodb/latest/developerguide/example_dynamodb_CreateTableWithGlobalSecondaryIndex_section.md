@@ -1,12 +1,15 @@
+
+
 # Create a DynamoDB table with a Global Secondary Index using the AWS SDK
+<a name="example_dynamodb_CreateTableWithGlobalSecondaryIndex_section"></a>
 
 The following code example shows how to create a table with global secondary index.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Create DynamoDB table with Global Secondary Index using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Create DynamoDB table with Global Secondary Index using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
@@ -165,14 +168,9 @@ import java.util.Map;
             e.printStackTrace();
         }
     }
-
-
 ```
++  For API details, see [CreateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

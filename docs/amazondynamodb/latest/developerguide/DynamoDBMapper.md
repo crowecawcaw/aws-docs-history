@@ -1,46 +1,34 @@
+
+
 # Java 1.x: DynamoDBMapper
+<a name="DynamoDBMapper"></a>
 
-###### Note
+**Note**  
+The SDK for Java has two versions: 1.x and 2.x. The end-of-support for 1.x was [announced](https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-java-v1-x-on-december-31-2025/) on January 12, 2024. It will and its end-of-support is due on December 31, 2025. For new development, we highly recommend that you use 2.x.
 
-The SDK for Java has two versions: 1.x and 2.x. The end-of-support for 1.x was [announced](https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-java-v1-x-on-december-31-2025/ "https://aws.amazon.com/blogs/developer/announcing-end-of-support-for-aws-sdk-for-java-v1-x-on-december-31-2025/") on January 12, 2024. It will and its end-of-support is due on
-December 31, 2025. For new development, we highly recommend that you use 2.x.
+The AWS SDK for Java provides a `DynamoDBMapper` class, allowing you to map your client-side classes to Amazon DynamoDB tables. To use `DynamoDBMapper`, you define the relationship between items in a DynamoDB table and their corresponding object instances in your code. The `DynamoDBMapper` class enables you to perform various create, read, update, and delete (CRUD) operations on items, and run queries and scans against tables.
 
-The AWS SDK for Java provides a `DynamoDBMapper` class, allowing you to map your
-client-side classes to Amazon DynamoDB tables. To use `DynamoDBMapper`, you define the
-relationship between items in a DynamoDB table and their corresponding object instances in your
-code. The `DynamoDBMapper` class enables you to perform various create, read,
-update, and delete (CRUD) operations on items, and run queries and scans against
-tables.
+**Topics**
++ [DynamoDBMapper Class](DynamoDBMapper.Methods.md)
++ [Supported data types for DynamoDBMapper for Java](DynamoDBMapper.DataTypes.md)
++ [Java Annotations for DynamoDB](DynamoDBMapper.Annotations.md)
++ [Optional configuration settings for DynamoDBMapper](DynamoDBMapper.OptionalConfig.md)
++ [DynamoDB and optimistic locking with version number](DynamoDBMapper.OptimisticLocking.md)
++ [Mapping arbitrary data in DynamoDB](DynamoDBMapper.ArbitraryDataMapping.md)
++ [DynamoDBMapper examples](DynamoDBMapper.Examples.md)
 
-###### Topics
+**Note**  
+The `DynamoDBMapper` class does not allow you to create, update, or delete tables. To perform those tasks, use the low-level SDK for Java interface instead.
 
-- [DynamoDBMapper Class](DynamoDBMapper.Methods.md "DynamoDBMapper.Methods.md")
-- [Supported data types for DynamoDBMapper for Java](DynamoDBMapper.DataTypes.md "DynamoDBMapper.DataTypes.md")
-- [Java Annotations for DynamoDB](DynamoDBMapper.Annotations.md "DynamoDBMapper.Annotations.md")
-- [Optional configuration settings for DynamoDBMapper](DynamoDBMapper.OptionalConfig.md "DynamoDBMapper.OptionalConfig.md")
-- [DynamoDB and optimistic locking with version number](DynamoDBMapper.OptimisticLocking.md "DynamoDBMapper.OptimisticLocking.md")
-- [Mapping arbitrary data in DynamoDB](DynamoDBMapper.ArbitraryDataMapping.md "DynamoDBMapper.ArbitraryDataMapping.md")
-- [DynamoDBMapper examples](DynamoDBMapper.Examples.md "DynamoDBMapper.Examples.md")
-
-###### Note
-
-The `DynamoDBMapper` class does not allow you to create, update, or delete
-tables. To perform those tasks, use the low-level SDK for Java interface instead.
-
-The SDK for Java provides a set of annotation types so that you can map your classes to tables.
-For example, consider a `ProductCatalog` table that has `Id` as the
-partition key.
+The SDK for Java provides a set of annotation types so that you can map your classes to tables. For example, consider a `ProductCatalog` table that has `Id` as the partition key. 
 
 ```
 ProductCatalog(Id, ...)
 ```
 
-You can map a class in your client application to the `ProductCatalog` table as
-shown in the following Java code. This code defines a plain old Java object (POJO) named
-`CatalogItem`, which uses annotations to map object fields to DynamoDB attribute
-names.
+You can map a class in your client application to the `ProductCatalog` table as shown in the following Java code. This code defines a plain old Java object (POJO) named `CatalogItem`, which uses annotations to map object fields to DynamoDB attribute names.
 
-###### Example
+**Example**  
 
 ```
 package com.amazonaws.codesamples;
@@ -83,37 +71,17 @@ public class CatalogItem {
 }
 ```
 
-In the preceding code, the `@DynamoDBTable` annotation maps the
-`CatalogItem` class to the `ProductCatalog` table. You can store
-individual class instances as items in the table. In the class definition, the
-`@DynamoDBHashKey` annotation maps the `Id` property to the
-primary key.
+In the preceding code, the `@DynamoDBTable` annotation maps the `CatalogItem` class to the `ProductCatalog` table. You can store individual class instances as items in the table. In the class definition, the `@DynamoDBHashKey` annotation maps the `Id` property to the primary key. 
 
-By default, the class properties map to the same name attributes in the table. The
-properties `Title` and `ISBN` map to the same name attributes in the
-table.
+By default, the class properties map to the same name attributes in the table. The properties `Title` and `ISBN` map to the same name attributes in the table. 
 
-The `@DynamoDBAttribute` annotation is optional when the name of the DynamoDB
-attribute matches the name of the property declared in the class. When they differ, use this
-annotation with the `attributeName` parameter to specify which DynamoDB attribute
-this property corresponds to.
+The `@DynamoDBAttribute` annotation is optional when the name of the DynamoDB attribute matches the name of the property declared in the class. When they differ, use this annotation with the `attributeName` parameter to specify which DynamoDB attribute this property corresponds to. 
 
-In the preceding example, the `@DynamoDBAttribute` annotation is added to each
-property to make sure that the property names match exactly with the tables created in a
-previous step, and to be consistent with the attribute names used in other code examples in
-this guide.
+In the preceding example, the `@DynamoDBAttribute` annotation is added to each property to make sure that the property names match exactly with the tables created in a previous step, and to be consistent with the attribute names used in other code examples in this guide. 
 
-Your class definition can have properties that don't map to any attributes in the table.
-You identify these properties by adding the `@DynamoDBIgnore` annotation. In the
-preceding example, the `SomeProp` property is marked with the
-`@DynamoDBIgnore` annotation. When you upload a `CatalogItem`
-instance to the table, your `DynamoDBMapper` instance does not include the
-`SomeProp` property. In addition, the mapper does not return this attribute
-when you retrieve an item from the table.
+Your class definition can have properties that don't map to any attributes in the table. You identify these properties by adding the `@DynamoDBIgnore` annotation. In the preceding example, the `SomeProp` property is marked with the `@DynamoDBIgnore` annotation. When you upload a `CatalogItem` instance to the table, your `DynamoDBMapper` instance does not include the `SomeProp` property. In addition, the mapper does not return this attribute when you retrieve an item from the table. 
 
-After you define your mapping class, you can use `DynamoDBMapper` methods to
-write an instance of that class to a corresponding item in the `Catalog` table.
-The following code example demonstrates this technique.
+After you define your mapping class, you can use `DynamoDBMapper` methods to write an instance of that class to a corresponding item in the `Catalog` table. The following code example demonstrates this technique.
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -130,8 +98,7 @@ item.setSomeProp("Test");
 mapper.save(item);
 ```
 
-The following code example shows how to retrieve the item and access some of its
-attributes.
+The following code example shows how to retrieve the item and access some of its attributes.
 
 ```
 CatalogItem partitionKey = new CatalogItem();
@@ -148,6 +115,4 @@ for (int i = 0; i < itemList.size(); i++) {
 }
 ```
 
-`DynamoDBMapper` offers an intuitive, natural way of working with DynamoDB data
-within Java. It also provides several built-in features, such as optimistic locking, ACID
-transactions, autogenerated partition key and sort key values, and object versioning.
+`DynamoDBMapper` offers an intuitive, natural way of working with DynamoDB data within Java. It also provides several built-in features, such as optimistic locking, ACID transactions, autogenerated partition key and sort key values, and object versioning.

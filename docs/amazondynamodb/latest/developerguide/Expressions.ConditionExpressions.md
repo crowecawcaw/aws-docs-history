@@ -1,10 +1,9 @@
-# DynamoDB condition expression CLI example
 
-The following are some AWS Command Line Interface (AWS CLI) examples of using condition expressions. These
-examples are based on the `ProductCatalog` table, which was introduced in [Referring to item attributes when using expressions in DynamoDB](Expressions.Attributes.md "Expressions.Attributes.md"). The partition
-key for this table is `Id`; there is no sort key. The following
-`PutItem` operation creates a sample `ProductCatalog` item that
-the examples refer to.
+
+# DynamoDB condition expression CLI example
+<a name="Expressions.ConditionExpressions"></a>
+
+The following are some AWS Command Line Interface (AWS CLI) examples of using condition expressions. These examples are based on the `ProductCatalog` table, which was introduced in [Referring to item attributes when using expressions in DynamoDB](Expressions.Attributes.md). The partition key for this table is `Id`; there is no sort key. The following `PutItem` operation creates a sample `ProductCatalog` item that the examples refer to.
 
 ```
 aws dynamodb put-item \
@@ -12,8 +11,7 @@ aws dynamodb put-item \
     --item file://item.json
 ```
 
-The arguments for `--item` are stored in the `item.json`
-file. (For simplicity, only a few item attributes are used.)
+The arguments for `--item` are stored in the `item.json` file. (For simplicity, only a few item attributes are used.)
 
 ```
 {
@@ -23,35 +21,21 @@ file. (For simplicity, only a few item attributes are used.)
 }
 ```
 
-###### Topics
-
-- [Conditional put](#Expressions.ConditionExpressions.PreventingOverwrites "#Expressions.ConditionExpressions.PreventingOverwrites")
-- [Conditional deletes](#Expressions.ConditionExpressions.AdvancedComparisons "#Expressions.ConditionExpressions.AdvancedComparisons")
-- [Conditional updates](#Expressions.ConditionExpressions.SimpleComparisons "#Expressions.ConditionExpressions.SimpleComparisons")
-- [Conditional expression examples](#Expressions.ConditionExpressions.ConditionalExamples "#Expressions.ConditionExpressions.ConditionalExamples")
+**Topics**
++ [Conditional put](#Expressions.ConditionExpressions.PreventingOverwrites)
++ [Conditional deletes](#Expressions.ConditionExpressions.AdvancedComparisons)
++ [Conditional updates](#Expressions.ConditionExpressions.SimpleComparisons)
++ [Conditional expression examples](#Expressions.ConditionExpressions.ConditionalExamples)
 
 ## Conditional put
+<a name="Expressions.ConditionExpressions.PreventingOverwrites"></a>
 
-The `PutItem` operation overwrites an item with the same primary key (if it
-exists). If you want to avoid this, use a condition expression. This allows the write to
-proceed only if the item in question does not already have the same primary key.
+The `PutItem` operation overwrites an item with the same primary key (if it exists). If you want to avoid this, use a condition expression. This allows the write to proceed only if the item in question does not already have the same primary key.
 
-The following example uses `attribute_not_exists()` to check whether an
-item with the same primary key already exists before attempting the write. DynamoDB
-evaluates a condition expression on a write operation against the item identified by the
-request's key, so `attribute_not_exists(Id)` is true only when no item with
-that `Id` value already exists. When it is true, the write proceeds; when an
-item with that key already exists, the condition is false and DynamoDB rejects the
-write, which prevents an overwrite.
+The following example uses `attribute_not_exists()` to check whether an item with the same primary key already exists before attempting the write. DynamoDB evaluates a condition expression on a write operation against the item identified by the request's key, so `attribute_not_exists(Id)` is true only when no item with that `Id` value already exists. When it is true, the write proceeds; when an item with that key already exists, the condition is false and DynamoDB rejects the write, which prevents an overwrite.
 
-###### Note
-
-For a table with a composite primary key (a partition key and a sort key), DynamoDB
-still evaluates the condition against the single item identified by both key values.
-Testing `attribute_not_exists()` on a key attribute—for example
-`attribute_not_exists(pk)`—is true only when no item with that
-partition key and sort key already exists, so it prevents overwriting that
-item.
+**Note**  
+For a table with a composite primary key (a partition key and a sort key), DynamoDB still evaluates the condition against the single item identified by both key values. Testing `attribute_not_exists()` on a key attribute—for example `attribute_not_exists(pk)`—is true only when no item with that partition key and sort key already exists, so it prevents overwriting that item.
 
 ```
 aws dynamodb put-item \
@@ -60,28 +44,21 @@ aws dynamodb put-item \
     --condition-expression "attribute_not_exists(Id)"
 ```
 
-If the condition expression evaluates to false, DynamoDB returns the following error
-message: **`The conditional request failed`**.
+If the condition expression evaluates to false, DynamoDB returns the following error message: The conditional request failed.
 
-###### Note
-
-For more information about `attribute_not_exists` and other functions,
-see [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md "Expressions.OperatorsAndFunctions.md").
+**Note**  
+For more information about `attribute_not_exists` and other functions, see [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md).
 
 ## Conditional deletes
+<a name="Expressions.ConditionExpressions.AdvancedComparisons"></a>
 
-To perform a conditional delete, you use a `DeleteItem` operation with a
-condition expression. The condition expression must evaluate to true in order for the
-operation to succeed; otherwise, the operation fails.
+To perform a conditional delete, you use a `DeleteItem` operation with a condition expression. The condition expression must evaluate to true in order for the operation to succeed; otherwise, the operation fails.
 
 Consider the item defined above.
 
-Suppose that you wanted to delete the item, but only under the following
-conditions:
-
-- The `ProductCategory` is either "Sporting Goods" or "Gardening
-  Supplies."
-- The `Price` is between 500 and 600.
+Suppose that you wanted to delete the item, but only under the following conditions:
++  The `ProductCategory` is either "Sporting Goods" or "Gardening Supplies."
++  The `Price` is between 500 and 600.
 
 The following example tries to delete the item.
 
@@ -93,8 +70,7 @@ aws dynamodb delete-item \
     --expression-attribute-values file://values.json
 ```
 
-The arguments for `--expression-attribute-values` are stored in the
-`values.json` file.
+The arguments for `--expression-attribute-values` are stored in the `values.json` file.
 
 ```
 {
@@ -105,37 +81,23 @@ The arguments for `--expression-attribute-values` are stored in the
 }
 ```
 
-###### Note
+**Note**  
+In the condition expression, the `:` (colon character) indicates an *expression attribute value*—a placeholder for an actual value. For more information, see [Using expression attribute values in DynamoDB](Expressions.ExpressionAttributeValues.md).  
+For more information about `IN`, `AND`, and other keywords, see [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md).
 
-In the condition expression, the `:` (colon character) indicates an
-_expression attribute value_—a placeholder for an
-actual value. For more information, see [Using expression attribute values in DynamoDB](Expressions.ExpressionAttributeValues.md "Expressions.ExpressionAttributeValues.md").
-
-For more information about `IN`, `AND`, and other keywords,
-see [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md "Expressions.OperatorsAndFunctions.md").
-
-In this example, the `ProductCategory` comparison evaluates to true, but
-the `Price` comparison evaluates to false. This causes the condition
-expression to evaluate to false and the `DeleteItem` operation to
-fail.
+In this example, the `ProductCategory` comparison evaluates to true, but the `Price` comparison evaluates to false. This causes the condition expression to evaluate to false and the `DeleteItem` operation to fail.
 
 ## Conditional updates
+<a name="Expressions.ConditionExpressions.SimpleComparisons"></a>
 
-To perform a conditional update, you use an `UpdateItem` operation with a
-condition expression. The condition expression must evaluate to true in order for the
-operation to succeed; otherwise, the operation fails.
+To perform a conditional update, you use an `UpdateItem` operation with a condition expression. The condition expression must evaluate to true in order for the operation to succeed; otherwise, the operation fails.
 
-###### Note
-
-`UpdateItem` also supports _update expressions_,
-where you specify the modifications you want to make to an item. For more
-information, see [Using update expressions in DynamoDB](Expressions.UpdateExpressions.md "Expressions.UpdateExpressions.md").
+**Note**  
+`UpdateItem` also supports *update expressions*, where you specify the modifications you want to make to an item. For more information, see [Using update expressions in DynamoDB](Expressions.UpdateExpressions.md).
 
 Suppose that you started with the item defined above.
 
-The following example performs an `UpdateItem` operation. It tries to
-reduce the `Price` of a product by 75—but the condition expression
-prevents the update if the current `Price` is less than or equal to 500.
+The following example performs an `UpdateItem` operation. It tries to reduce the `Price` of a product by 75—but the condition expression prevents the update if the current `Price` is less than or equal to 500.
 
 ```
 aws dynamodb update-item \
@@ -146,8 +108,7 @@ aws dynamodb update-item \
     --expression-attribute-values file://values.json
 ```
 
-The arguments for `--expression-attribute-values` are stored in the
-`values.json` file.
+The arguments for `--expression-attribute-values` are stored in the `values.json` file.
 
 ```
 {
@@ -156,33 +117,23 @@ The arguments for `--expression-attribute-values` are stored in the
 }
 ```
 
-If the starting `Price` is 650, the `UpdateItem` operation
-reduces the `Price` to 575. If you run the `UpdateItem` operation
-again, the `Price` is reduced to 500. If you run it a third time, the
-condition expression evaluates to false, and the update fails.
+If the starting `Price` is 650, the `UpdateItem` operation reduces the `Price` to 575. If you run the `UpdateItem` operation again, the `Price` is reduced to 500. If you run it a third time, the condition expression evaluates to false, and the update fails.
 
-###### Note
-
-In the condition expression, the `:` (colon character) indicates an
-_expression attribute value_—a placeholder for an
-actual value. For more information, see [Using expression attribute values in DynamoDB](Expressions.ExpressionAttributeValues.md "Expressions.ExpressionAttributeValues.md").
-
-For more information about "_>_" and other operators, see
-[Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md "Expressions.OperatorsAndFunctions.md").
+**Note**  
+In the condition expression, the `:` (colon character) indicates an *expression attribute value*—a placeholder for an actual value. For more information, see [Using expression attribute values in DynamoDB](Expressions.ExpressionAttributeValues.md).  
+For more information about "*>*" and other operators, see [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md).
 
 ## Conditional expression examples
+<a name="Expressions.ConditionExpressions.ConditionalExamples"></a>
 
-For more information about the functions used in the following examples, see [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md "Expressions.OperatorsAndFunctions.md"). If you want to know more about
-how to specify different attribute types in an expression, see [Referring to item attributes when using expressions in DynamoDB](Expressions.Attributes.md "Expressions.Attributes.md").
+For more information about the functions used in the following examples, see [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.OperatorsAndFunctions.md). If you want to know more about how to specify different attribute types in an expression, see [Referring to item attributes when using expressions in DynamoDB](Expressions.Attributes.md). 
 
 ### Checking for attributes in an item
+<a name="Expressions.ConditionExpressions.CheckingForAttributes"></a>
 
-You can check for the existence (or nonexistence) of any attribute. If the
-condition expression evaluates to true, the operation succeeds; otherwise, it
-fails.
+You can check for the existence (or nonexistence) of any attribute. If the condition expression evaluates to true, the operation succeeds; otherwise, it fails.
 
-The following example uses `attribute_not_exists` to delete a product
-only if it does not have a `Price` attribute.
+The following example uses `attribute_not_exists` to delete a product only if it does not have a `Price` attribute.
 
 ```
 aws dynamodb delete-item \
@@ -191,8 +142,7 @@ aws dynamodb delete-item \
     --condition-expression "attribute_not_exists(Price)"
 ```
 
-DynamoDB also provides an `attribute_exists` function. The following
-example deletes a product only if it has received poor reviews.
+DynamoDB also provides an `attribute_exists` function. The following example deletes a product only if it has received poor reviews.
 
 ```
 aws dynamodb delete-item \
@@ -202,13 +152,11 @@ aws dynamodb delete-item \
 ```
 
 ### Checking for attribute type
+<a name="Expressions.ConditionExpressions.CheckingForAttributeType"></a>
 
-You can check the data type of an attribute value by using the
-`attribute_type` function. If the condition expression evaluates to
-true, the operation succeeds; otherwise, it fails.
+You can check the data type of an attribute value by using the `attribute_type` function. If the condition expression evaluates to true, the operation succeeds; otherwise, it fails.
 
-The following example uses `attribute_type` to delete a product only if
-it has a `Color` attribute of type String Set.
+The following example uses `attribute_type` to delete a product only if it has a `Color` attribute of type String Set. 
 
 ```
 aws dynamodb delete-item \
@@ -218,8 +166,7 @@ aws dynamodb delete-item \
     --expression-attribute-values file://expression-attribute-values.json
 ```
 
-The arguments for `--expression-attribute-values` are stored in the
-expression-attribute-values.json file.
+The arguments for `--expression-attribute-values` are stored in the expression-attribute-values.json file.
 
 ```
 {
@@ -228,14 +175,11 @@ expression-attribute-values.json file.
 ```
 
 ### Checking string starting value
+<a name="Expressions.ConditionExpressions.CheckingBeginsWith"></a>
 
-You can check if a String attribute value begins with a particular substring by
-using the `begins_with` function. If the condition expression evaluates
-to true, the operation succeeds; otherwise, it fails.
+You can check if a String attribute value begins with a particular substring by using the `begins_with` function. If the condition expression evaluates to true, the operation succeeds; otherwise, it fails. 
 
-The following example uses `begins_with` to delete a product only if
-the `FrontView` element of the `Pictures` map starts with a
-specific value.
+The following example uses `begins_with` to delete a product only if the `FrontView` element of the `Pictures` map starts with a specific value.
 
 ```
 aws dynamodb delete-item \
@@ -245,8 +189,7 @@ aws dynamodb delete-item \
     --expression-attribute-values file://expression-attribute-values.json
 ```
 
-The arguments for `--expression-attribute-values` are stored in the
-expression-attribute-values.json file.
+The arguments for `--expression-attribute-values` are stored in the expression-attribute-values.json file.
 
 ```
 {
@@ -255,13 +198,11 @@ expression-attribute-values.json file.
 ```
 
 ### Checking for an element in a set
+<a name="Expressions.ConditionExpressions.CheckingForContains"></a>
 
-You can check for an element in a set or look for a substring within a string by
-using the `contains` function. If the condition expression evaluates to
-true, the operation succeeds; otherwise, it fails.
+You can check for an element in a set or look for a substring within a string by using the `contains` function. If the condition expression evaluates to true, the operation succeeds; otherwise, it fails. 
 
-The following example uses `contains` to delete a product only if the
-`Color` String Set has an element with a specific value.
+The following example uses `contains` to delete a product only if the `Color` String Set has an element with a specific value. 
 
 ```
 aws dynamodb delete-item \
@@ -271,8 +212,7 @@ aws dynamodb delete-item \
     --expression-attribute-values file://expression-attribute-values.json
 ```
 
-The arguments for `--expression-attribute-values` are stored in the
-expression-attribute-values.json file.
+The arguments for `--expression-attribute-values` are stored in the expression-attribute-values.json file.
 
 ```
 {
@@ -281,14 +221,11 @@ expression-attribute-values.json file.
 ```
 
 ### Checking the size of an attribute value
+<a name="Expressions.ConditionExpressions.CheckingForSize"></a>
 
-You can check for the size of an attribute value by using the `size`
-function. If the condition expression evaluates to true, the operation succeeds;
-otherwise, it fails.
+You can check for the size of an attribute value by using the `size` function. If the condition expression evaluates to true, the operation succeeds; otherwise, it fails. 
 
-The following example uses `size` to delete a product only if the size
-of the `VideoClip` Binary attribute is greater than `64000`
-bytes.
+The following example uses `size` to delete a product only if the size of the `VideoClip` Binary attribute is greater than `64000` bytes. 
 
 ```
 aws dynamodb delete-item \
@@ -298,8 +235,7 @@ aws dynamodb delete-item \
     --expression-attribute-values file://expression-attribute-values.json
 ```
 
-The arguments for `--expression-attribute-values` are stored in the
-expression-attribute-values.json file.
+The arguments for `--expression-attribute-values` are stored in the expression-attribute-values.json file.
 
 ```
 {

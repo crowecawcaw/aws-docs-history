@@ -1,24 +1,22 @@
+
+
 # Querying data in DynamoDB
+<a name="EMRforDynamoDB.Querying"></a>
 
-The following examples show some ways that you can use HiveQL to query data stored in
-DynamoDB.
+The following examples show some ways that you can use HiveQL to query data stored in DynamoDB.
 
-These examples refer to the _ddb\_features_ table in the tutorial
-([Step 5: Copy data to DynamoDB](EMRforDynamoDB.Tutorial.CopyDataToDDB.md "EMRforDynamoDB.Tutorial.CopyDataToDDB.md")).
+These examples refer to the *ddb\_features* table in the tutorial ([Step 5: Copy data to DynamoDB](EMRforDynamoDB.Tutorial.CopyDataToDDB.md)).
 
-###### Topics
-
-- [Using aggregate functions](#EMRforDynamoDB.Querying.AggregateFunctions "#EMRforDynamoDB.Querying.AggregateFunctions")
-- [Using the GROUP BY and HAVING clauses](#EMRforDynamoDB.Querying.GroupByAndHaving "#EMRforDynamoDB.Querying.GroupByAndHaving")
-- [Joining two DynamoDB tables](#EMRforDynamoDB.Querying.JoiningTwoTables "#EMRforDynamoDB.Querying.JoiningTwoTables")
-- [Joining tables from different sources](#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources "#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources")
+**Topics**
++ [Using aggregate functions](#EMRforDynamoDB.Querying.AggregateFunctions)
++ [Using the GROUP BY and HAVING clauses](#EMRforDynamoDB.Querying.GroupByAndHaving)
++ [Joining two DynamoDB tables](#EMRforDynamoDB.Querying.JoiningTwoTables)
++ [Joining tables from different sources](#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources)
 
 ## Using aggregate functions
+<a name="EMRforDynamoDB.Querying.AggregateFunctions"></a>
 
-HiveQL provides built-in functions for summarizing data values. For example, you
-can use the `MAX` function to find the largest value for a selected
-column. The following example returns the elevation of the highest feature in the
-state of Colorado.
+HiveQL provides built-in functions for summarizing data values. For example, you can use the `MAX` function to find the largest value for a selected column. The following example returns the elevation of the highest feature in the state of Colorado.
 
 ```
 SELECT MAX(elev_in_ft)
@@ -27,15 +25,11 @@ WHERE state_alpha = 'CO';
 ```
 
 ## Using the GROUP BY and HAVING clauses
+<a name="EMRforDynamoDB.Querying.GroupByAndHaving"></a>
 
-You can use the `GROUP BY` clause to collect data across multiple
-records. This is often used with an aggregate function such as `SUM`,
-`COUNT`, `MIN`, or `MAX`. You can also use the
-`HAVING` clause to discard any results that do not meet certain
-criteria.
+You can use the `GROUP BY` clause to collect data across multiple records. This is often used with an aggregate function such as `SUM`, `COUNT`, `MIN`, or `MAX`. You can also use the `HAVING` clause to discard any results that do not meet certain criteria.
 
-The following example returns a list of the highest elevations from states that
-have more than five features in the _ddb\_features_ table.
+The following example returns a list of the highest elevations from states that have more than five features in the *ddb\_features* table.
 
 ```
 SELECT state_alpha, max(elev_in_ft)
@@ -45,17 +39,14 @@ HAVING count(*) >= 5;
 ```
 
 ## Joining two DynamoDB tables
+<a name="EMRforDynamoDB.Querying.JoiningTwoTables"></a>
 
-The following example maps another Hive table
-(_east\_coast\_states_) to a table in DynamoDB. The
-`SELECT` statement is a join across these two tables. The join is
-computed on the cluster and returned. The join does not take place in DynamoDB.
+The following example maps another Hive table (*east\_coast\_states*) to a table in DynamoDB. The `SELECT` statement is a join across these two tables. The join is computed on the cluster and returned. The join does not take place in DynamoDB. 
 
-Consider a DynamoDB table named EastCoastStates that contains the following
-data:
+Consider a DynamoDB table named EastCoastStates that contains the following data:
 
 ```
-**StateName StateAbbrev**
+StateName       StateAbbrev
 
 Maine           ME
 New Hampshire   NH
@@ -73,18 +64,16 @@ Georgia         GA
 Florida         FL
 ```
 
-Let's assume the table is available as a Hive external table named
-east\_coast\_states:
+Let's assume the table is available as a Hive external table named east\_coast\_states:
 
 ```
-CREATE EXTERNAL TABLE ddb_east_coast_states (state_name STRING, state_alpha STRING)
-STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
-TBLPROPERTIES ("dynamodb.table.name" = "EastCoastStates",
-"dynamodb.column.mapping" = "state_name:StateName,state_alpha:StateAbbrev");
+1. CREATE EXTERNAL TABLE ddb_east_coast_states (state_name STRING, state_alpha STRING)
+2. STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
+3. TBLPROPERTIES ("dynamodb.table.name" = "EastCoastStates",
+4. "dynamodb.column.mapping" = "state_name:StateName,state_alpha:StateAbbrev");
 ```
 
-The following join returns the states on the East Coast of the United States that
-have at least three features:
+The following join returns the states on the East Coast of the United States that have at least three features:
 
 ```
 SELECT ecs.state_name, f.feature_class, COUNT(*)
@@ -95,16 +84,14 @@ HAVING COUNT(*) >= 3;
 ```
 
 ## Joining tables from different sources
+<a name="EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources"></a>
 
-In the following example, s3\_east\_coast\_states is a Hive table associated with a
-CSV file stored in Amazon S3. The _ddb\_features_ table is associated
-with data in DynamoDB. The following example joins these two tables, returning the
-geographic features from states whose names begin with "New."
+In the following example, s3\_east\_coast\_states is a Hive table associated with a CSV file stored in Amazon S3. The *ddb\_features* table is associated with data in DynamoDB. The following example joins these two tables, returning the geographic features from states whose names begin with "New."
 
 ```
-create external table s3_east_coast_states (state_name STRING, state_alpha STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LOCATION 's3://`bucketname`/`path`/`subpath`/';
+1. create external table s3_east_coast_states (state_name STRING, state_alpha STRING)
+2. ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+3. LOCATION 's3://{{bucketname}}/{{path}}/{{subpath}}/';
 ```
 
 ```

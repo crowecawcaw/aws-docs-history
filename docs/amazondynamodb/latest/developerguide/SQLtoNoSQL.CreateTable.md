@@ -1,23 +1,20 @@
+
+
 # Differences between a relational (SQL) database and DynamoDB when creating a table
+<a name="SQLtoNoSQL.CreateTable"></a>
 
-Tables are the fundamental data structures in relational databases and in Amazon DynamoDB. A
-relational database management system (RDBMS) requires you to define the table's schema
-when you create it. In contrast, DynamoDB tables are schemaless—other than the
-primary key, you do not need to define any extra attributes or data types when you
-create a table.
+Tables are the fundamental data structures in relational databases and in Amazon DynamoDB. A relational database management system (RDBMS) requires you to define the table's schema when you create it. In contrast, DynamoDB tables are schemaless—other than the primary key, you do not need to define any extra attributes or data types when you create a table.
 
-The following section compares how you would create a table with SQL to how you would
-create it with DynamoDB.
+The following section compares how you would create a table with SQL to how you would create it with DynamoDB.
 
-###### Topics
-
-- [Creating a table with SQL](#SQLtoNoSQL.CreateTable.SQL "#SQLtoNoSQL.CreateTable.SQL")
-- [Creating a table with DynamoDB](#SQLtoNoSQL.CreateTable.DynamoDB "#SQLtoNoSQL.CreateTable.DynamoDB")
+**Topics**
++ [Creating a table with SQL](#SQLtoNoSQL.CreateTable.SQL)
++ [Creating a table with DynamoDB](#SQLtoNoSQL.CreateTable.DynamoDB)
 
 ## Creating a table with SQL
+<a name="SQLtoNoSQL.CreateTable.SQL"></a>
 
-With SQL you would use the `CREATE TABLE` statement to create a table,
-as shown in the following example.
+With SQL you would use the `CREATE TABLE` statement to create a table, as shown in the following example.
 
 ```
 CREATE TABLE Music (
@@ -32,22 +29,16 @@ CREATE TABLE Music (
 );
 ```
 
-The primary key for this table consists of _Artist_ and
-_SongTitle_.
+The primary key for this table consists of *Artist* and *SongTitle*.
 
-You must define all of the table's columns and data types, and the table's primary
-key. (You can use the `ALTER TABLE` statement to change these definitions
-later, if necessary.)
+You must define all of the table's columns and data types, and the table's primary key. (You can use the `ALTER TABLE` statement to change these definitions later, if necessary.)
 
-Many SQL implementations let you define storage specifications for your table, as
-part of the `CREATE TABLE` statement. Unless you indicate otherwise, the
-table is created with default storage settings. In a production environment, a
-database administrator can help determine the optimal storage parameters.
+Many SQL implementations let you define storage specifications for your table, as part of the `CREATE TABLE` statement. Unless you indicate otherwise, the table is created with default storage settings. In a production environment, a database administrator can help determine the optimal storage parameters.
 
 ## Creating a table with DynamoDB
+<a name="SQLtoNoSQL.CreateTable.DynamoDB"></a>
 
-Use the `CreateTable` operation to create a provisioned mode table,
-specifying parameters as shown following:
+Use the `CreateTable` operation to create a provisioned mode table, specifying parameters as shown following:
 
 ```
 {
@@ -79,20 +70,10 @@ specifying parameters as shown following:
 }
 ```
 
-The primary key for this table consists of _Artist_ (partition
-key) and _SongTitle_ (sort key).
+The primary key for this table consists of *Artist* (partition key) and *SongTitle* (sort key).
 
 You must provide the following parameters to `CreateTable`:
-
-- `TableName` – Name of the table.
-- `KeySchema` – Attributes that are used for the primary
-  key. For more information, see [Tables, items, and attributes](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.TablesItemsAttributes "HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.TablesItemsAttributes") and
-  [Primary key](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
-- `AttributeDefinitions` – Data types for the key schema
-  attributes.
-- `ProvisionedThroughput (for provisioned tables)` – Number
-  of reads and writes per second that you need for this table. DynamoDB reserves
-  sufficient storage and system resources so that your throughput requirements
-  are always met. You can use the `UpdateTable` operation to change
-  these later, if necessary. You do not need to specify a table's storage
-  requirements because storage allocation is managed entirely by DynamoDB.
++ `TableName` – Name of the table.
++ `KeySchema` – Attributes that are used for the primary key. For more information, see [Tables, items, and attributes](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.TablesItemsAttributes) and [Primary key](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey).
++ `AttributeDefinitions` – Data types for the key schema attributes.
++ `ProvisionedThroughput (for provisioned tables)` – Number of reads and writes per second that you need for this table. DynamoDB reserves sufficient storage and system resources so that your throughput requirements are always met. You can use the `UpdateTable` operation to change these later, if necessary. You do not need to specify a table's storage requirements because storage allocation is managed entirely by DynamoDB.

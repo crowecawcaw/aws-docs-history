@@ -1,15 +1,17 @@
+
+
 # Insert DynamoDB data using PartiQL INSERT statements with an AWS SDK
+<a name="example_dynamodb_PartiQLInsert_section"></a>
 
 The following code example shows how to insert data using PartiQL INSERT statements.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-Insert items into a DynamoDB table using PartiQL INSERT statements with AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Insert items into a DynamoDB table using PartiQL INSERT statements with AWS SDK for JavaScript.  
 
 ```
-
 /**
  * This example demonstrates how to insert items into a DynamoDB table using PartiQL.
  * It shows different ways to insert documents with various index types.
@@ -23,7 +25,7 @@ import {
 
 /**
  * Insert a single item into a DynamoDB table using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param item - The item to insert
  * @returns The response from the ExecuteStatementCommand
@@ -52,7 +54,7 @@ export const insertItem = async (tableName: string, item: Record<string, any>) =
 /**
  * Insert multiple items into a DynamoDB table using PartiQL batch operation.
  * This is more efficient than inserting items one by one.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param items - Array of items to insert
  * @returns The response from the BatchExecuteStatementCommand
@@ -86,7 +88,7 @@ export const batchInsertItems = async (tableName: string, items: Record<string, 
 /**
  * Insert an item with a condition to prevent overwriting existing items.
  * This is useful for ensuring you don't accidentally overwrite data.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param item - The item to insert
  * @param partitionKeyName - The name of the partition key attribute
@@ -175,15 +177,11 @@ export const insertExamples = async () => {
   ];
   await batchInsertItems("UsersTable", batchItems);
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [BatchExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand)
+  + [ExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
 
-  - [BatchExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md")
-  - [ExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

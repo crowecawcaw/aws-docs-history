@@ -1,111 +1,100 @@
+
+
 # Tutorials: Creating global tables
+<a name="V2globaltables.tutorial"></a>
 
-This section provides step-by-step instructions for creating DynamoDB global tables
-configured for your preferred consistency mode. Choose either Multi-Region Eventual
-Consistency (MREC) or Multi-Region Strong Consistency (MRSC) modes based on your
-application's requirements.
+This section provides step-by-step instructions for creating DynamoDB global tables configured for your preferred consistency mode. Choose either Multi-Region Eventual Consistency (MREC) or Multi-Region Strong Consistency (MRSC) modes based on your application's requirements.
 
-MREC global tables provide lower write latency with eventual consistency across
-AWS Regions. MRSC global tables provide strongly consistent reads across Regions with
-slightly higher write latencies than MREC. Choose the consistency mode that best meets your
-application's needs for data consistency, latency, and availability.
+MREC global tables provide lower write latency with eventual consistency across AWS Regions. MRSC global tables provide strongly consistent reads across Regions with slightly higher write latencies than MREC. Choose the consistency mode that best meets your application's needs for data consistency, latency, and availability.
 
-###### Topics
-
-- [Creating a global table configured for MREC](#V2creategt_mrec "#V2creategt_mrec")
-- [Creating a global table configured for MRSC](#create-gt-mrsc "#create-gt-mrsc")
+**Topics**
++ [Creating a global table configured for MREC](#V2creategt_mrec)
++ [Creating a global table configured for MRSC](#create-gt-mrsc)
 
 ## Creating a global table configured for MREC
+<a name="V2creategt_mrec"></a>
 
-This section shows how to create a global table with Multi-Region Eventual Consistency
-(MREC) mode. MREC is the default consistency mode for global tables and provides
-low-latency writes with asynchronous replication across AWS Regions. Changes made to
-an item in one region are typically replicated to all other regions within a second.
-This makes MREC ideal for applications that prioritize low write latency and can
-tolerate brief periods where different Regions might return slightly different versions of
-data.
+This section shows how to create a global table with Multi-Region Eventual Consistency (MREC) mode. MREC is the default consistency mode for global tables and provides low-latency writes with asynchronous replication across AWS Regions. Changes made to an item in one region are typically replicated to all other regions within a second. This makes MREC ideal for applications that prioritize low write latency and can tolerate brief periods where different Regions might return slightly different versions of data.
 
-You can create MREC global tables with replicas in any AWS Region where DynamoDB is
-available and add or remove replicas at any time. The following examples show how to
-create an MREC global table with replicas in multiple regions.
+You can create MREC global tables with replicas in any AWS Region where DynamoDB is available and add or remove replicas at any time. The following examples show how to create an MREC global table with replicas in multiple regions.
 
-Follow these steps to create a global table using the AWS Management Console. The
-following example creates a global table with replica tables in the United
-States and Europe.
+### Creating a MREC global table using the DynamoDB Console
+<a name="mrec-console"></a>
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. For this example, choose **US East (Ohio)** from
-   the Region selector in the navigation bar.
-3. In the navigation pane on the left side of the console, choose
-   **Tables**.
-4. Choose **Create Table**.
-5. On the **Create table** page:
+Follow these steps to create a global table using the AWS Management Console. The following example creates a global table with replica tables in the United States and Europe.
 
-   1. For **Table name**, enter
-      `Music`.
-   2. For **Partition key**, enter
-      `Artist`.
-   3. For **Sort key**, enter
-      `SongTitle`.
-   4. Keep the other default settings and choose **Create
-      table**.
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-   This new table serves as the first replica table in a new
-   global table. It is the prototype for other replica tables that
-   you add later.
+1. For this example, choose **US East (Ohio)** from the Region selector in the navigation bar.
 
-6. After the table becomes active:
+1. In the navigation pane on the left side of the console, choose **Tables**.
 
-   1. Select the **Music** table from the tables
-      list.
-   2. Choose the **Global tables** tab.
-   3. Choose **Create replica**.
+1. Choose **Create Table**.
 
-7. From the **Available replication Regions** dropdown
-   list, choose **US West (Oregon) us-west-2**.
+1. On the **Create table** page:
 
-The console ensures that a table with the same name doesn't exist in
-the selected Region. If a table with the same name does exist, you must
-delete the existing table before you can create a new replica table in
-that Region. 8. Choose **Create replica**. This starts the table
-creation process in the US West (Oregon) us-west-2 Region.
+   1. For **Table name**, enter **Music**.
 
-The **Global tables** tab for the
-**Music** table (and for any other replica tables)
-shows that the table has been replicated in multiple Regions. 9. Add another region by repeating the previous steps, but choose
-**Europe (Frankfurt) eu-central-1** as the
-region. 10. To test replication:
+   1. For **Partition key**, enter **Artist**.
 
-    1. Make sure you're using the AWS Management Console in the US East (Ohio)
-     Region.
-    2. Choose **Explore table items**.
-    3. Choose **Create item**.
-    4. Enter `item_1` for
-     **Artist** and `Song Value
-     1` for **SongTitle**.
-    5. Choose **Create item**.
+   1. For **Sort key**, enter **SongTitle**.
 
-11. Verify replication by switching to the other regions:
+   1. Keep the other default settings and choose **Create table**.
 
-    1. From the Region selector in the upper-right corner, choose
-     **Europe (Frankfurt)**.
-    2. Verify that the **Music** table contains the
-     item you created.
-    3. Repeat the verification for
-     **US West (Oregon)**.
+      This new table serves as the first replica table in a new global table. It is the prototype for other replica tables that you add later.
 
-CLI
+1. After the table becomes active:
+
+   1. Select the **Music** table from the tables list.
+
+   1. Choose the **Global tables** tab.
+
+   1. Choose **Create replica**.
+
+1. From the **Available replication Regions** dropdown list, choose **US West (Oregon) us-west-2**.
+
+   The console ensures that a table with the same name doesn't exist in the selected Region. If a table with the same name does exist, you must delete the existing table before you can create a new replica table in that Region.
+
+1. Choose **Create replica**. This starts the table creation process in the US West (Oregon) us-west-2 Region.
+
+   The **Global tables** tab for the **Music** table (and for any other replica tables) shows that the table has been replicated in multiple Regions.
+
+1. Add another region by repeating the previous steps, but choose **Europe (Frankfurt) eu-central-1** as the region.
+
+1. To test replication:
+
+   1. Make sure you're using the AWS Management Console in the US East (Ohio) Region.
+
+   1. Choose **Explore table items**.
+
+   1. Choose **Create item**.
+
+   1. Enter **item\_1** for **Artist** and **Song Value 1** for **SongTitle**.
+
+   1. Choose **Create item**.
+
+1. Verify replication by switching to the other regions:
+
+   1. From the Region selector in the upper-right corner, choose **Europe (Frankfurt)**.
+
+   1. Verify that the **Music** table contains the item you created.
+
+   1. Repeat the verification for **US West (Oregon)**.
+
+### Creating a MREC global table using the AWS CLI or Java
+<a name="mrec-cli-java"></a>
+
+------
+#### [ CLI ]
+
 The following code example shows how to manage DynamoDB global tables with multi-Region replication with eventual consistency (MREC).
++ Create a table with multi-Region replication (MREC).
++ Put and get items from replica tables.
++ Remove replicas one-by-one.
++ Clean up by deleting the table.
 
-- Create a table with multi-Region replication (MREC).
-- Put and get items from replica tables.
-- Remove replicas one-by-one.
-- Clean up by deleting the table.
-
-**AWS CLI with Bash script**
-
-Create a table with multi-Region replication.
+**AWS CLI with Bash script**  
+Create a table with multi-Region replication.  
 
 ```
 # Step 1: Create a new table (MusicTable) in US East (Ohio), with DynamoDB Streams enabled (NEW_AND_OLD_IMAGES)
@@ -148,11 +137,8 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
   ]
 }' \
 --region us-east-2
-
-
 ```
-
-Describe the multi-Region table.
+Describe the multi-Region table.  
 
 ```
 # Step 4: View the list of replicas created using describe-table
@@ -160,11 +146,8 @@ aws dynamodb describe-table \
     --table-name MusicTable \
     --region us-east-2 \
     --query 'Table.{TableName:TableName,TableStatus:TableStatus,MultiRegionConsistency:MultiRegionConsistency,Replicas:Replicas[*].{Region:RegionName,Status:ReplicaStatus}}'
-
-
 ```
-
-Put items in a replica table.
+Put items in a replica table.  
 
 ```
 # Step 5: To verify that replication is working, add a new item to the Music table in US East (Ohio)
@@ -172,14 +155,11 @@ aws dynamodb put-item \
     --table-name MusicTable \
     --item '{"Artist": {"S":"item_1"},"SongTitle": {"S":"Song Value 1"}}' \
     --region us-east-2
-
+```
+Get items from replica tables.  
 
 ```
-
-Get items from replica tables.
-
-```
-# Step 6: Wait for a few seconds, and then check to see whether the item has been
+# Step 6: Wait for a few seconds, and then check to see whether the item has been 
 # successfully replicated to US East (N. Virginia) and Europe (Ireland)
 aws dynamodb get-item \
     --table-name MusicTable \
@@ -190,11 +170,8 @@ aws dynamodb get-item \
     --table-name MusicTable \
     --key '{"Artist": {"S":"item_1"},"SongTitle": {"S":"Song Value 1"}}' \
     --region eu-west-1
-
-
 ```
-
-Remove replicas.
+Remove replicas.  
 
 ```
 # Step 7: Delete the replica table in Europe (Ireland) Region
@@ -224,42 +201,35 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
   ]
 }' \
 --region us-east-2
-
-
 ```
-
-Clean up by deleting the table.
+Clean up by deleting the table.  
 
 ```
 # Clean up: Delete the primary table
 aws dynamodb delete-table --table-name MusicTable --region us-east-2
 
 echo "Global table demonstration complete."
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DeleteTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DescribeTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
-  - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
-  - [GetItem](../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateTable](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md")
-
-Java
 The following code example shows how to create and manage DynamoDB global tables with replicas across multiple Regions.
++ Create a table with Global Secondary Index and DynamoDB Streams.
++ Add replicas in different Regions to create a global table.
++ Remove replicas from a global table.
++ Add test items to verify replication across Regions.
++ Describe global table configuration and replica status.
 
-- Create a table with Global Secondary Index and DynamoDB Streams.
-- Add replicas in different Regions to create a global table.
-- Remove replicas from a global table.
-- Add test items to verify replication across Regions.
-- Describe global table configuration and replica status.
-
-**SDK for Java 2.x**
-
-Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK for Java 2.x.  
 
 ```
     public static CreateTableResponse createTableWithGSI(
@@ -325,11 +295,8 @@ Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK fo
             throw e;
         }
     }
-
-
 ```
-
-Wait for a table to become active using AWS SDK for Java 2.x.
+Wait for a table to become active using AWS SDK for Java 2.x.  
 
 ```
     public static void waitForTableActive(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -358,11 +325,8 @@ Wait for a table to become active using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Add a replica to create or extend a global table using AWS SDK for Java 2.x.
+Add a replica to create or extend a global table using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse addReplica(
@@ -418,11 +382,8 @@ Add a replica to create or extend a global table using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Remove a replica from a global table using AWS SDK for Java 2.x.
+Remove a replica from a global table using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse removeReplica(
@@ -461,11 +422,8 @@ Remove a replica from a global table using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Add test items to verify replication using AWS SDK for Java 2.x.
+Add test items to verify replication using AWS SDK for Java 2.x.  
 
 ```
     public static PutItemResponse putTestItem(
@@ -512,11 +470,8 @@ Add test items to verify replication using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Describe global table configuration and replicas using AWS SDK for Java 2.x.
+Describe global table configuration and replicas using AWS SDK for Java 2.x.  
 
 ```
     public static DescribeTableResponse describeTable(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -556,11 +511,8 @@ Describe global table configuration and replicas using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Complete example of global table operations using AWS SDK for Java 2.x.
+Complete example of global table operations using AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(final Region sourceRegion, final Region replicaRegion) {
@@ -616,153 +568,137 @@ Complete example of global table operations using AWS SDK for Java 2.x.
             }
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable)
+  + [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
-  - [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md")
-  - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md")
+------
 
 ## Creating a global table configured for MRSC
+<a name="create-gt-mrsc"></a>
 
-This section shows you how to create a Multi-Region Strong Consistency (MRSC) global
-table. MRSC global tables synchronously replicate item changes across Regions, ensuring
-that strongly consistent read operations on any replica always return the latest version
-of an item. When converting a single-Region table to a MRSC global table, you must
-make sure that the table is empty. Converting a single-Region table to a MRSC global table
-with existing items is not supported. Make sure that no data is written into the table
-during the conversion process.
+This section shows you how to create a Multi-Region Strong Consistency (MRSC) global table. MRSC global tables synchronously replicate item changes across Regions, ensuring that strongly consistent read operations on any replica always return the latest version of an item. When converting a single-Region table to a MRSC global table, you must make sure that the table is empty. Converting a single-Region table to a MRSC global table with existing items is not supported. Make sure that no data is written into the table during the conversion process.
 
-You can configure a MRSC global table with three replicas, or two replicas and one
-witness. When creating a MRSC global table, you choose the Regions where replicas and an
-optional witness are deployed. The following example creates an MRSC global table with
-replicas in the US East (N. Virginia) and US East (Ohio) Regions, with a witness in the
-US West (Oregon) Region.
+You can configure a MRSC global table with three replicas, or two replicas and one witness. When creating a MRSC global table, you choose the Regions where replicas and an optional witness are deployed. The following example creates an MRSC global table with replicas in the US East (N. Virginia) and US East (Ohio) Regions, with a witness in the US West (Oregon) Region.
 
-###### Note
+**Note**  
+Before creating a global table, verify that the Service Quota throughput limits are consistent across all target Regions, as this is required to create a global table. For more information about global table throughput limits, see [Global tables quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html#gt-limits-throughput).
 
-Before creating a global table, verify that the Service Quota throughput limits
-are consistent across all target Regions, as this is required to create a global
-table. For more information about global table throughput limits, see [Global tables quotas](ServiceQuotas.md#gt-limits-throughput "ServiceQuotas.md#gt-limits-throughput").
+### Creating a MRSC global table using the DynamoDB Console
+<a name="mrsc_console"></a>
 
-Follow these steps to create about MRSC global table using the
-AWS Management Console.
+Follow these steps to create about MRSC global table using the AWS Management Console.
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. From the Region selector in the navigation bar, choose a Region where
-   global tables with MRSC is [supported](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes"), such as
-   `us-east-2`.
-3. In the navigation pane, choose **Tables**.
-4. Choose **Create table**.
-5. On the **Create table** page:
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-   1. For **Table name**, enter
-      `Music`.
-   2. For **Partition key**, enter
-      `Artist` and keep the default
-      **String** type.
-   3. For **Sort key**, enter
-      `SongTitle` and keep the default
-      **String** type.
-   4. Keep the other default settings and choose **Create
-      table**
+1. From the Region selector in the navigation bar, choose a Region where global tables with MRSC is [supported](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes), such as **us-east-2**.
 
-   This new table serves as the first replica table in a new
-   global table. It is the prototype for other replica tables that
-   you add later.
+1. In the navigation pane, choose **Tables**.
 
-6. Wait for the table to become active, then select it from the tables
-   list.
-7. Choose the **Global tables** tab, then choose
-   **Create replica**.
-8. On the **Create replica** page:
+1. Choose **Create table**.
 
-   1. Under **Multi-Region Consistency**, choose
-      **Strong consistency**.
-   2. For **Replication Region 1**, choose
-      `US East (N. Virginia)
-  us-east-1`.
-   3. For **Replication Region 2**, choose
-      `US West (Oregon) us-west-2`.
-   4. Check **Configure as Witness** for the US
-      West (Oregon) region.
-   5. Choose **Create replicas**.
+1. On the **Create table** page:
 
-9. Wait for the replica and witness creation process to complete. The
-   replica status will show as **Active** when the table
-   is ready to use.
+   1. For **Table name**, enter **Music**.
 
-Before you start, make sure that your IAM principal has the required
-permissions to create a MRSC global table with a witness Region.
+   1. For **Partition key**, enter **Artist** and keep the default **String** type.
 
-The following sample IAM policy allows you to create a DynamoDB table
-(`MusicTable`) in US East (Ohio) with a replica in
-US East (N. Virginia) and a witness Region in US West (Oregon):
+   1. For **Sort key**, enter **SongTitle** and keep the default **String** type.
 
-JSON
+   1. Keep the other default settings and choose **Create table**
+
+      This new table serves as the first replica table in a new global table. It is the prototype for other replica tables that you add later.
+
+1. Wait for the table to become active, then select it from the tables list.
+
+1. Choose the **Global tables** tab, then choose **Create replica**.
+
+1. On the **Create replica** page:
+
+   1. Under **Multi-Region Consistency**, choose **Strong consistency**.
+
+   1. For **Replication Region 1**, choose **US East (N. Virginia) us-east-1**.
+
+   1. For **Replication Region 2**, choose **US West (Oregon) us-west-2**.
+
+   1. Check **Configure as Witness** for the US West (Oregon) region.
+
+   1. Choose **Create replicas**.
+
+1. Wait for the replica and witness creation process to complete. The replica status will show as **Active** when the table is ready to use.
+
+### Creating a MRSC global table using the AWS CLI or Java
+<a name="mrsc-cli-java"></a>
+
+Before you start, make sure that your IAM principal has the required permissions to create a MRSC global table with a witness Region.
+
+The following sample IAM policy allows you to create a DynamoDB table (`MusicTable`) in US East (Ohio) with a replica in US East (N. Virginia) and a witness Region in US West (Oregon):
+
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "dynamodb:CreateTable",
- "dynamodb:CreateTableReplica",
- "dynamodb:CreateGlobalTableWitness",
- "dynamodb:DescribeTable",
- "dynamodb:UpdateTable",
- "dynamodb:DeleteTable",
- "dynamodb:DeleteTableReplica",
- "dynamodb:DeleteGlobalTableWitness",
- "dynamodb:Scan",
- "dynamodb:Query",
- "dynamodb:UpdateItem",
- "dynamodb:PutItem",
- "dynamodb:GetItem",
- "dynamodb:DeleteItem",
- "dynamodb:BatchWriteItem"
- ],
- "Resource": [
- "arn:aws:dynamodb:`us-east-1:123456789012`:table/`MusicTable`",
- "arn:aws:dynamodb:`us-east-2:123456789012`:table/`MusicTable`",
- "arn:aws:dynamodb:`us-west-2:123456789012`:table/`MusicTable`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::*:role/aws-service-role/replication.dynamodb.amazonaws.com/AWSServiceRoleForDynamoDBReplication",
- "Condition": {
- "StringLike": {
- "iam:AWSServiceName": "replication.dynamodb.amazonaws.com"
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:CreateTable",
+                "dynamodb:CreateTableReplica",
+                "dynamodb:CreateGlobalTableWitness",
+                "dynamodb:DescribeTable",
+                "dynamodb:UpdateTable",
+                "dynamodb:DeleteTable",
+                "dynamodb:DeleteTableReplica",
+                "dynamodb:DeleteGlobalTableWitness",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:UpdateItem",
+                "dynamodb:PutItem",
+                "dynamodb:GetItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:BatchWriteItem"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:{{us-east-1:123456789012}}:table/{{MusicTable}}",
+                "arn:aws:dynamodb:{{us-east-2:123456789012}}:table/{{MusicTable}}",
+                "arn:aws:dynamodb:{{us-west-2:123456789012}}:table/{{MusicTable}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/replication.dynamodb.amazonaws.com/AWSServiceRoleForDynamoDBReplication",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "replication.dynamodb.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
 ```
+
+------
 
 The following code examples show how to create and manage DynamoDB global tables with Multi-Region Strong Consistency (MRSC).
++ Create a table with Multi-Region Strong Consistency.
++ Verify MRSC configuration and replica status.
++ Test strong consistency across Regions with immediate reads.
++ Perform conditional writes with MRSC guarantees.
++ Clean up MRSC global table resources.
 
-- Create a table with Multi-Region Strong Consistency.
-- Verify MRSC configuration and replica status.
-- Test strong consistency across Regions with immediate reads.
-- Perform conditional writes with MRSC guarantees.
-- Clean up MRSC global table resources.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create a table with Multi-Region Strong Consistency.
+**AWS CLI with Bash script**  
+Create a table with Multi-Region Strong Consistency.  
 
 ```
 # Step 1: Create a new table in us-east-2 (primary region for MRSC)
@@ -789,11 +725,8 @@ aws dynamodb update-table \
     --global-table-witness-updates '[{"Create": {"RegionName": "us-west-2"}}]' \
     --multi-region-consistency STRONG \
     --region us-east-2
-
-
 ```
-
-Verify MRSC configuration and replica status.
+Verify MRSC configuration and replica status.  
 
 ```
 # Verify the global table configuration and MRSC setting
@@ -801,11 +734,8 @@ aws dynamodb describe-table \
     --table-name MusicTable \
     --region us-east-2 \
     --query 'Table.{TableName:TableName,TableStatus:TableStatus,MultiRegionConsistency:MultiRegionConsistency,Replicas:Replicas[*],GlobalTableWitnesses:GlobalTableWitnesses[*].{Region:RegionName,Status:ReplicaStatus}}'
-
-
 ```
-
-Test strong consistency with immediate reads across Regions.
+Test strong consistency with immediate reads across Regions.  
 
 ```
 # Write an item to the primary region
@@ -822,11 +752,8 @@ aws dynamodb get-item \
     --key '{"Artist": {"S":"The Beatles"},"SongTitle": {"S":"Hey Jude"}}' \
     --consistent-read \
     --region us-east-1
-
-
 ```
-
-Perform conditional writes with MRSC guarantees.
+Perform conditional writes with MRSC guarantees.  
 
 ```
 # Perform a conditional update from a different region
@@ -839,11 +766,8 @@ aws dynamodb update-item \
     --expression-attribute-names '{"#rating": "Rating"}' \
     --expression-attribute-values '{":rating": {"N":"5"}}' \
     --region us-east-1
-
-
 ```
-
-Clean up MRSC global table resources.
+Clean up MRSC global table resources.  
 
 ```
 # Remove replica tables (must be done before deleting the primary table)
@@ -861,25 +785,21 @@ sleep 30
 aws dynamodb delete-table \
     --table-name MusicTable \
     --region us-east-2
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DeleteTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DescribeTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
-  - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
-  - [GetItem](../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateItem](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateItem.md")
-  - [UpdateTable](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md")
-
-Java
-
-**SDK for Java 2.x**
-
-Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.  
 
 ```
     public static CreateTableResponse createRegionalTable(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -931,11 +851,8 @@ Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Convert a regional table to MRSC with replicas and witness using AWS SDK for Java 2.x.
+Convert a regional table to MRSC with replicas and witness using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse convertToMRSCWithWitness(
@@ -996,11 +913,8 @@ Convert a regional table to MRSC with replicas and witness using AWS SDK for Jav
                 .build();
         }
     }
-
-
 ```
-
-Describe an MRSC global table configuration using AWS SDK for Java 2.x.
+Describe an MRSC global table configuration using AWS SDK for Java 2.x.  
 
 ```
     public static DescribeTableResponse describeMRSCTable(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -1058,11 +972,8 @@ Describe an MRSC global table configuration using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.
+Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.  
 
 ```
     public static PutItemResponse putTestItem(
@@ -1116,11 +1027,8 @@ Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.
+Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.  
 
 ```
     public static GetItemResponse getItemWithConsistentRead(
@@ -1170,11 +1078,8 @@ Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.
+Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateItemResponse performConditionalUpdate(
@@ -1239,11 +1144,8 @@ Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x.
+Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x.  
 
 ```
     public static void waitForMRSCReplicasActive(
@@ -1357,11 +1259,8 @@ Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x
             throw e;
         }
     }
-
-
 ```
-
-Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.
+Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse cleanupMRSCReplicas(
@@ -1419,11 +1318,8 @@ Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Complete MRSC workflow demonstration using AWS SDK for Java 2.x.
+Complete MRSC workflow demonstration using AWS SDK for Java 2.x.  
 
 ```
     public static void demonstrateCompleteMRSCWorkflow(
@@ -1534,16 +1430,14 @@ Complete MRSC workflow demonstration using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md")
-  - [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md")
-  - [GetItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  - [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md")
+------

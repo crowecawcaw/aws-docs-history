@@ -1,17 +1,19 @@
+
+
 # Work with advanced DynamoDB Global Secondary Index scenarios using AWS Command Line Interface v2
+<a name="example_dynamodb_Scenario_GSIAdvanced_section"></a>
 
 The following code example shows how to work with advanced Global Secondary Index configurations.
++ Create a table with multiple GSIs.
++ Create a table with on-demand capacity and GSI.
++ Put items into a table with multiple GSIs.
++ Query multiple GSIs with different conditions.
 
-- Create a table with multiple GSIs.
-- Create a table with on-demand capacity and GSI.
-- Put items into a table with multiple GSIs.
-- Query multiple GSIs with different conditions.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create a table with multiple GSIs.
+**AWS CLI with Bash script**  
+Create a table with multiple GSIs.  
 
 ```
 # Create a table with multiple GSIs
@@ -43,11 +45,8 @@ aws dynamodb create-table \
                 \"Projection\": {\"ProjectionType\":\"INCLUDE\",\"NonKeyAttributes\":[\"Artist\",\"SongTitle\"]}
             }
         ]"
-
-
 ```
-
-Create a table with on-demand capacity and GSI.
+Create a table with on-demand capacity and GSI.  
 
 ```
 # Create a table with on-demand capacity and GSI
@@ -69,11 +68,8 @@ aws dynamodb create-table \
                 \"Projection\": {\"ProjectionType\":\"ALL\"}
             }
         ]"
-
-
 ```
-
-Put items into a table with multiple GSIs.
+Put items into a table with multiple GSIs.  
 
 ```
 # Add items to MusicLibrary table
@@ -96,11 +92,8 @@ aws dynamodb put-item \
         "Genre": {"S": "Jazz"},
         "Year": {"N": "1959"}
     }'
-
-
 ```
-
-Query items from a table with multiple GSIs.
+Query items from a table with multiple GSIs.  
 
 ```
 # Query the AlbumIndex GSI
@@ -119,16 +112,12 @@ aws dynamodb query \
     --key-condition-expression "Genre = :genre AND #yr > :year" \
     --expression-attribute-names '{"#yr": "Year"}' \
     --expression-attribute-values '{":genre":{"S":"Rock"},":year":{"N":"1965"}}'
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [PutItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
+  + [Query](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/Query)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [PutItem](../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md")
-  - [Query](../../../goto/aws-cli/dynamodb-2012-08-10/Query.md "../../../goto/aws-cli/dynamodb-2012-08-10/Query.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,15 +1,17 @@
+
+
 # Delete DynamoDB data using PartiQL DELETE statements with an AWS SDK
+<a name="example_dynamodb_PartiQLDelete_section"></a>
 
 The following code example shows how to delete data using PartiQL DELETE statements.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-Delete items from a DynamoDB table using PartiQL DELETE statements with AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Delete items from a DynamoDB table using PartiQL DELETE statements with AWS SDK for JavaScript.  
 
 ```
-
 /**
  * This example demonstrates how to delete items from a DynamoDB table using PartiQL.
  * It shows different ways to delete documents with various index types.
@@ -23,7 +25,7 @@ import {
 
 /**
  * Delete a single item by its partition key using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -54,7 +56,7 @@ export const deleteItemByPartitionKey = async (
 
 /**
  * Delete an item by its composite key (partition key + sort key) using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -89,7 +91,7 @@ export const deleteItemByCompositeKey = async (
 
 /**
  * Delete an item with a condition to ensure the delete only happens if a condition is met.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -124,7 +126,7 @@ export const deleteItemWithCondition = async (
 
 /**
  * Batch delete multiple items using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param keys - Array of objects containing key information
  * @returns The response from the BatchExecuteStatementCommand
@@ -173,7 +175,7 @@ export const batchDeleteItems = async (
 /**
  * Delete multiple items that match a filter condition.
  * Note: This performs a scan operation which can be expensive on large tables.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param filterAttribute - The attribute to filter on
  * @param filterValue - The value to filter by
@@ -252,15 +254,11 @@ export const deleteExamples = async () => {
   // Delete items by filter (use with caution)
   await deleteItemsByFilter("UsersTable", "userStatus", "deleted");
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [BatchExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand)
+  + [ExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
 
-  - [BatchExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md")
-  - [ExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

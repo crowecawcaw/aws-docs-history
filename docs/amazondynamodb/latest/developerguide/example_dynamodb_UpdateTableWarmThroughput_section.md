@@ -1,12 +1,15 @@
+
+
 # Update a DynamoDB table setting with warm throughput using an AWS SDK
+<a name="example_dynamodb_UpdateTableWarmThroughput_section"></a>
 
 The following code examples show how to update a table's warm throughput setting.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Update warm throughput setting on an existing DynamoDB table using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Update warm throughput setting on an existing DynamoDB table using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -70,19 +73,14 @@ import software.amazon.awssdk.services.dynamodb.model.WarmThroughput;
 
         System.out.println(SUCCESS_MESSAGE);
     }
-
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Update warm throughput setting on an existing DynamoDB table using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Update warm throughput setting on an existing DynamoDB table using AWS SDK for JavaScript.  
 
 ```
 import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb";
@@ -138,20 +136,14 @@ updateDynamoDBTableWarmThroughput(
   2, 2
 );
 */
-
-
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTableCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateTable](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTableCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTableCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Update warm throughput setting on an existing DynamoDB table using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Update warm throughput setting on an existing DynamoDB table using AWS SDK for Python (Boto3).  
 
 ```
 from boto3 import client
@@ -213,14 +205,9 @@ def update_dynamodb_table_warm_throughput(
     except ClientError as e:
         print(f"Error updating table: {e}")
         raise e
-
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateTable) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateTable](../../../goto/boto3/dynamodb-2012-08-10/UpdateTable.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateTable.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

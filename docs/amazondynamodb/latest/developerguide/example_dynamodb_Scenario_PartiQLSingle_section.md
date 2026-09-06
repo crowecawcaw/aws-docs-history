@@ -1,21 +1,19 @@
+
+
 # Query a DynamoDB table using PartiQL and an AWS SDK
+<a name="example_dynamodb_Scenario_PartiQLSingle_section"></a>
 
 The following code examples show how to:
++ Get an item by running a SELECT statement.
++ Add an item by running an INSERT statement.
++ Update an item by running an UPDATE statement.
++ Delete an item by running a DELETE statement.
 
-- Get an item by running a SELECT statement.
-- Add an item by running an INSERT statement.
-- Update an item by running an UPDATE statement.
-- Delete an item by running a DELETE statement.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb#code-examples). 
 
 ```
 namespace PartiQL_Basics_Scenario
@@ -385,24 +383,14 @@ namespace PartiQL_Basics_Scenario
 
             return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
-
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/goto/DotNetSDKV3/dynamodb-2012-08-10/ExecuteStatement) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../goto/DotNetSDKV3/dynamodb-2012-08-10/ExecuteStatement.md "../../../goto/DotNetSDKV3/dynamodb-2012-08-10/ExecuteStatement.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 
 ```
         //  1. Create a table. (CreateTable)
@@ -756,28 +744,17 @@ bool AwsDoc::DynamoDB::waitTableActive(const Aws::String &tableName,
     }
     return false;
 }
+```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/ExecuteStatement) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples). 
+Run a scenario that creates a table and runs PartiQL queries.  
 
 ```
-
-- For API details, see
-  [ExecuteStatement](../../../goto/SdkForCpp/dynamodb-2012-08-10/ExecuteStatement.md "../../../goto/SdkForCpp/dynamodb-2012-08-10/ExecuteStatement.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples").
-
-Run a scenario that creates a table and runs PartiQL queries.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -890,15 +867,10 @@ func RunPartiQLSingleScenario(ctx context.Context, sdkConfig aws.Config, tableNa
 	log.Println("Thanks for watching!")
 	log.Println(strings.Repeat("-", 88))
 }
-
-
+```
+Define a Movie struct that is used in this example.  
 
 ```
-
-Define a Movie struct that is used in this example.
-
-```
-
 import (
 	"archive/zip"
 	"bytes"
@@ -940,15 +912,10 @@ func (movie Movie) String() string {
 	return fmt.Sprintf("%v\n\tReleased: %v\n\tRating: %v\n\tPlot: %v\n",
 		movie.Title, movie.Year, movie.Info["rating"], movie.Info["plot"])
 }
-
-
+```
+Create a struct and methods that run PartiQL statements.  
 
 ```
-
-Create a struct and methods that run PartiQL statements.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -1055,24 +1022,14 @@ func (runner PartiQLRunner) DeleteMovie(ctx context.Context, movie Movie) error 
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [ExecuteStatement](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.ExecuteStatement) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.ExecuteStatement "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.ExecuteStatement")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples). 
 
 ```
 public class ScenarioPartiQ {
@@ -1343,25 +1300,15 @@ public class ScenarioPartiQ {
         System.out.println("ExecuteStatement successful: " + executeStatementResult.toString());
     }
 }
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/ExecuteStatement) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/ExecuteStatement.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/ExecuteStatement.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples").
-
-Execute single PartiQL statements.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples). 
+Execute single PartiQL statements.  
 
 ```
 import {
@@ -1518,23 +1465,14 @@ this table, the scenario cannot continue. Delete it?`,
   await client.send(deleteTableCommand);
   log("Table deleted.");
 };
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples). 
 
 ```
 suspend fun main() {
@@ -1701,23 +1639,14 @@ suspend fun executeStatementPartiQL(
 
     return ddb.executeStatement(request)
 }
-
-
 ```
++  For API details, see [ExecuteStatement](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ExecuteStatement](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples). 
 
 ```
 namespace DynamoDb\PartiQL_Basics;
@@ -1899,25 +1828,15 @@ class GettingStartedWithPartiQL
             'Parameters' => $parameters,
         ]);
     }
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/ExecuteStatement) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../goto/SdkForPHPV3/dynamodb-2012-08-10/ExecuteStatement.md "../../../goto/SdkForPHPV3/dynamodb-2012-08-10/ExecuteStatement.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples").
-
-Create a class that can run PartiQL statements.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples). 
+Create a class that can run PartiQL statements.  
 
 ```
 from datetime import datetime
@@ -1977,13 +1896,8 @@ class PartiQLWrapper:
             raise
         else:
             return output
-
-
-
-
 ```
-
-Run a scenario that creates a table and runs PartiQL queries.
+Run a scenario that creates a table and runs PartiQL queries.  
 
 ```
 def run_scenario(scaffold, wrapper, table_name):
@@ -2060,25 +1974,15 @@ if __name__ == "__main__":
         run_scenario(scaffold, movies, "doc-example-table-partiql-movies")
     except Exception as e:
         print(f"Something went wrong with the demo! Here's what: {e}")
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/ExecuteStatement) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../goto/boto3/dynamodb-2012-08-10/ExecuteStatement.md "../../../goto/boto3/dynamodb-2012-08-10/ExecuteStatement.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples").
-
-Run a scenario that creates a table and runs PartiQL queries.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples). 
+Run a scenario that creates a table and runs PartiQL queries.  
 
 ```
   table_name = "doc-example-table-movies-partiql-#{rand(10**8)}"
@@ -2127,23 +2031,14 @@ Run a scenario that creates a table and runs PartiQL queries.
 
   scaffold.delete_table
 end
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/goto/SdkForRubyV3/dynamodb-2012-08-10/ExecuteStatement) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../goto/SdkForRubyV3/dynamodb-2012-08-10/ExecuteStatement.md "../../../goto/SdkForRubyV3/dynamodb-2012-08-10/ExecuteStatement.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples). 
 
 ```
 async fn make_table(
@@ -2251,14 +2146,9 @@ async fn remove_table(client: &Client, table: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb/client/struct.Client.html#method.execute_statement) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ExecuteStatement](https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb/client/struct.Client.html#method.execute_statement "https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb/client/struct.Client.html#method.execute_statement")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

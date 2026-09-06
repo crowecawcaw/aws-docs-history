@@ -1,16 +1,18 @@
+
+
 # Query a DynamoDB table with a dynamic filter expression with an AWS SDK
+<a name="example_dynamodb_Scenarios_QueryWithDynamicFilter_section"></a>
 
 The following code examples show how to query a table with a dynamic filter expression.
++ Build filter expressions dynamically at runtime.
++ Construct filter conditions based on user input or application state.
++ Add or remove filter criteria conditionally.
 
-- Build filter expressions dynamically at runtime.
-- Construct filter conditions based on user input or application state.
-- Add or remove filter criteria conditionally.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Query a DynamoDB table with a dynamically constructed filter expression using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query a DynamoDB table with a dynamically constructed filter expression using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -60,11 +62,8 @@ import java.util.Map;
             }
         }
     }
-
-
 ```
-
-Demonstrates how to use dynamic filter expressions with AWS SDK for Java 2.x.
+Demonstrates how to use dynamic filter expressions with AWS SDK for Java 2.x.  
 
 ```
     public static void main(String[] args) {
@@ -141,19 +140,14 @@ Demonstrates how to use dynamic filter expressions with AWS SDK for Java 2.x.
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query a DynamoDB table with a dynamically constructed filter expression using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query a DynamoDB table with a dynamically constructed filter expression using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
@@ -223,19 +217,14 @@ async function queryWithDynamicFilter(
     throw error;
   }
 }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query a DynamoDB table with a dynamically constructed filter expression using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query a DynamoDB table with a dynamically constructed filter expression using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -312,13 +301,8 @@ def query_with_dynamic_filter(
 
     response = table.query(**query_params)
     return response
-
-
-
-
 ```
-
-Demonstrates how to use dynamic filter expressions with AWS SDK for Python (Boto3).
+Demonstrates how to use dynamic filter expressions with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -356,16 +340,9 @@ def example_usage():
 
     for item in items:
         print(f"Product: {item}")
-
-
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

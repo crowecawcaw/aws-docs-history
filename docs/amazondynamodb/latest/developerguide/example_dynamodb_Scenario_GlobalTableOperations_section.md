@@ -1,18 +1,20 @@
+
+
 # Create and manage DynamoDB global tables demonstrating MREC using an AWS SDK
+<a name="example_dynamodb_Scenario_GlobalTableOperations_section"></a>
 
 The following code example shows how to create and manage DynamoDB global tables with replicas across multiple Regions.
++ Create a table with Global Secondary Index and DynamoDB Streams.
++ Add replicas in different Regions to create a global table.
++ Remove replicas from a global table.
++ Add test items to verify replication across Regions.
++ Describe global table configuration and replica status.
 
-- Create a table with Global Secondary Index and DynamoDB Streams.
-- Add replicas in different Regions to create a global table.
-- Remove replicas from a global table.
-- Add test items to verify replication across Regions.
-- Describe global table configuration and replica status.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK for Java 2.x.  
 
 ```
     public static CreateTableResponse createTableWithGSI(
@@ -78,11 +80,8 @@ Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK fo
             throw e;
         }
     }
-
-
 ```
-
-Wait for a table to become active using AWS SDK for Java 2.x.
+Wait for a table to become active using AWS SDK for Java 2.x.  
 
 ```
     public static void waitForTableActive(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -111,11 +110,8 @@ Wait for a table to become active using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Add a replica to create or extend a global table using AWS SDK for Java 2.x.
+Add a replica to create or extend a global table using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse addReplica(
@@ -171,11 +167,8 @@ Add a replica to create or extend a global table using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Remove a replica from a global table using AWS SDK for Java 2.x.
+Remove a replica from a global table using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse removeReplica(
@@ -214,11 +207,8 @@ Remove a replica from a global table using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Add test items to verify replication using AWS SDK for Java 2.x.
+Add test items to verify replication using AWS SDK for Java 2.x.  
 
 ```
     public static PutItemResponse putTestItem(
@@ -265,11 +255,8 @@ Add test items to verify replication using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Describe global table configuration and replicas using AWS SDK for Java 2.x.
+Describe global table configuration and replicas using AWS SDK for Java 2.x.  
 
 ```
     public static DescribeTableResponse describeTable(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -309,11 +296,8 @@ Describe global table configuration and replicas using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
-
-Complete example of global table operations using AWS SDK for Java 2.x.
+Complete example of global table operations using AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(final Region sourceRegion, final Region replicaRegion) {
@@ -369,17 +353,13 @@ Complete example of global table operations using AWS SDK for Java 2.x.
             }
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable)
+  + [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
-  - [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md")
-  - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

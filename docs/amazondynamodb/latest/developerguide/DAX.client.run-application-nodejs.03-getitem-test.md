@@ -1,7 +1,9 @@
-# 03-getitem-test.js
 
-The `03-getitem-test.js` program performs `GetItem`
-operations on `TryDaxTable`.
+
+# 03-getitem-test.js
+<a name="DAX.client.run-application-nodejs.03-getitem-test"></a>
+
+The `03-getitem-test.js` program performs `GetItem` operations on `TryDaxTable`.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -66,6 +68,4 @@ for (var i = 0; i < iterations; i++) {
     "ms"
   );
 }
-
-
 ```

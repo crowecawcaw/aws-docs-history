@@ -1,42 +1,34 @@
+
+
 # PutItem
+<a name="API_PutItem_v20111205"></a>
 
-###### Important
-
-**`This section refers to API version 2011-12-05,
- which is deprecated and should not be used for new
- applications.`**
-
-**For documentation on the current low-level API, see the
-[Amazon DynamoDB API Reference](../APIReference.md "../APIReference.md").**
+**Important**  
+**{{This section refers to API version 2011-12-05, which is deprecated and should not be used for new applications.}}**  
+ **For documentation on the current low-level API, see the [Amazon DynamoDB API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/).**
 
 ## Description
+<a name="API_PutItem_Description"></a>
 
-Creates a new item, or replaces an old item with a new item (including all the attributes).
-If an item already exists in the specified table with the same primary key, the new item
-completely replaces the existing item. You can perform a conditional put (insert a new
-item if one with the specified primary key doesn't exist), or replace an existing item
-if it has certain attribute values.
+Creates a new item, or replaces an old item with a new item (including all the attributes). If an item already exists in the specified table with the same primary key, the new item completely replaces the existing item. You can perform a conditional put (insert a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. 
 
-Attribute values may not be null; string and binary type attributes must have lengths
-greater than zero; and set type attributes must not be empty. Requests with empty values
-will be rejected with a `ValidationException`.
+Attribute values may not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests with empty values will be rejected with a `ValidationException`.
 
-###### Note
+**Note**  
+To ensure that a new item does not replace an existing item, use a conditional put operation with `Exists` set to `false` for the primary key attribute, or attributes.
 
-To ensure that a new item does not replace an existing item, use a conditional put
-operation with `Exists` set to `false` for
-the primary key attribute, or attributes.
-
-For more information about using `PutItem`, see [Working with items and attributes in DynamoDB](WorkingWithItems.md "WorkingWithItems.md").
+For more information about using `PutItem`, see [Working with items and attributes in DynamoDB](WorkingWithItems.md).
 
 ## Requests
+<a name="API_PutItem_RequestParameters"></a>
 
 ### Syntax
+<a name="API_PutItem_RequestParameters.syntax"></a>
 
 ```
 // This header is abbreviated.
 // For a sample of a complete header, see DynamoDB low-level API.
-POST / HTTP/1.1
+POST / HTTP/1.1 
 x-amz-target: DynamoDB_20111205.PutItem
 content-type: application/x-amz-json-1.0
 
@@ -50,27 +42,28 @@ content-type: application/x-amz-json-1.0
     "ReturnValues":"ReturnValuesConstant"}
 ```
 
-| Name                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Required |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `TableName`                                      | The name of the table to contain the item.<br>Type: String                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Yes      |
-| `Item`                                           | A map of the attributes for the item, and must include the primary key values that<br>define the item. Other attribute name-value pairs can be provided for<br>the item. For more information about primary keys, see [Primary key](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").Type: Map of attribute<br>names to attribute values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes      |
-| `Expected`                                       | Designates an attribute for a conditional put. The `Expected`<br>parameter allows you to provide an attribute name, and whether<br>or not DynamoDB should check to see if the attribute value already<br>exists; or if the attribute value exists and has a particular<br>value before changing it.Type: Map of an attribute<br>names to an attribute value, and whether it exists.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No       |
-| `Expected:AttributeName`                         | The name of the attribute for the conditional put.Type: String                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | No       |
-| `Expected:AttributeName: ExpectedAttributeValue` | Use this parameter to specify whether or not a value already exists for the attribute<br>name-value pair. The following JSON notation replaces the<br>item if the "Color" attribute doesn't already exist for that<br>item:<br>`<br>"Expected" :<br>{"Color":{"Exists":false}}<br>`<br>The<br>following JSON notation checks to see if the attribute with name<br>"Color" has an existing value of "Yellow" before replacing the<br>item:<br>`<br>"Expected" :<br>{"Color":{"Exists":true,{"Value":{"S":"Yellow"}}}<br>`<br>By<br>default, if you use the `Expected`<br>parameter and provide a `Value`, DynamoDB<br>assumes the attribute exists and has a current value to be<br>replaced. So you don't have to specify<br>`{"Exists":true}`, because it is implied. You can<br>shorten the request to:<br>`<br>"Expected" :<br>{"Color":{"Value":{"S":"Yellow"}}}<br>`<br>NoteIf you specify `{"Exists":true}` without an<br>attribute value to check, DynamoDB returns an error. | No       |
-| `ReturnValues`                                   | Use this parameter if you want to get the attribute name-value pairs<br>before they were updated with the `PutItem`<br>request. Possible parameter values are `NONE`<br>(default) or `ALL_OLD`. If<br>`ALL_OLD` is specified, and<br>`PutItem` overwrote an attribute name-value<br>pair, the content of the old item is returned. If this parameter is not<br>provided or is `NONE`, nothing is returned.Type: String                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No       |
+
+
+|  Name  |  Description  |  Required | 
+| --- | --- | --- | 
+|  TableName  | The name of the table to contain the item.<br />Type: String |  Yes  | 
+|  Item  | A map of the attributes for the item, and must include the primary key values that define the item. Other attribute name-value pairs can be provided for the item. For more information about primary keys, see [Primary key](HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey).<br />Type: Map of attribute names to attribute values. | Yes | 
+| Expected  | Designates an attribute for a conditional put. The `Expected` parameter allows you to provide an attribute name, and whether or not DynamoDB should check to see if the attribute value already exists; or if the attribute value exists and has a particular value before changing it.<br />Type: Map of an attribute names to an attribute value, and whether it exists. | No | 
+| Expected:AttributeName  | The name of the attribute for the conditional put.<br />Type: String | No | 
+| Expected:AttributeName: ExpectedAttributeValue | Use this parameter to specify whether or not a value already exists for the attribute name-value pair. The following JSON notation replaces the item if the "Color" attribute doesn't already exist for that item:<pre>"Expected" :<br />	{"Color":{"Exists":false}}</pre><br />The following JSON notation checks to see if the attribute with name "Color" has an existing value of "Yellow" before replacing the item: <pre>"Expected" : <br />	{"Color":{"Exists":true,{"Value":{"S":"Yellow"}}}</pre><br />By default, if you use the `Expected` parameter and provide a `Value`, DynamoDB assumes the attribute exists and has a current value to be replaced. So you don't have to specify `{"Exists":true}`, because it is implied. You can shorten the request to:<pre>"Expected" : <br />	{"Color":{"Value":{"S":"Yellow"}}}</pre> If you specify `{"Exists":true}` without an attribute value to check, DynamoDB returns an error.  | No | 
+| ReturnValues  | Use this parameter if you want to get the attribute name-value pairs before they were updated with the `PutItem` request. Possible parameter values are `NONE` (default) or `ALL_OLD`. If `ALL_OLD` is specified, and `PutItem` overwrote an attribute name-value pair, the content of the old item is returned. If this parameter is not provided or is `NONE`, nothing is returned.<br />Type: String | No | 
 
 ## Responses
+<a name="API_PutItem_CommonResponseElements"></a>
 
 ### Syntax
+<a name="API_PutItem_CommonResponseElements.syntax"></a>
 
-The following syntax example assumes the request specified a
-`ReturnValues` parameter of `ALL_OLD`;
-otherwise, the response has only the `ConsumedCapacityUnits`
-element.
+The following syntax example assumes the request specified a `ReturnValues` parameter of `ALL_OLD`; otherwise, the response has only the `ConsumedCapacityUnits` element.
 
 ```
-HTTP/1.1 200
-x-amzn-RequestId: 8966d095-71e9-11e0-a498-71d736f27375
+HTTP/1.1 200 
+x-amzn-RequestId: 8966d095-71e9-11e0-a498-71d736f27375 
 content-type: application/x-amz-json-1.0
 content-length: 85
 
@@ -83,28 +76,35 @@ content-length: 85
 }
 ```
 
-| Name                    | Description                                                                                                                                                                                                                                                                             |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Attributes`            | Attribute values before the put operation, but only if the<br>`ReturnValues` parameter is specified<br>as `ALL_OLD` in the request.Type: Map of attribute name-value pairs.                                                                                                             |
-| `ConsumedCapacityUnits` | The number of write capacity units consumed by the operation. This value shows the number<br>applied toward your provisioned throughput. For more information<br>see [DynamoDB provisioned capacity mode](provisioned-capacity-mode.md "provisioned-capacity-mode.md").<br>Type: Number |
+
+
+|  Name  |  Description  | 
+| --- | --- | 
+|  Attributes  | Attribute values before the put operation, but only if the `ReturnValues` parameter is specified as `ALL_OLD` in the request.<br />Type: Map of attribute name-value pairs. | 
+| ConsumedCapacityUnits | The number of write capacity units consumed by the operation. This value shows the number applied toward your provisioned throughput. For more information see [DynamoDB provisioned capacity mode](provisioned-capacity-mode.md).<br />Type: Number | 
 
 ## Special errors
+<a name="API_PutItem_SpecialErrors"></a>
 
-| Error                             | Description                                                          |
-| --------------------------------- | -------------------------------------------------------------------- |
-| `ConditionalCheckFailedException` | Conditional check failed. An expected attribute value was not found. |
-| `ResourceNotFoundException`       | The specified item or attribute was not found.                       |
+
+
+|  Error  |  Description  | 
+| --- | --- | 
+|  ConditionalCheckFailedException  | Conditional check failed. An expected attribute value was not found.  | 
+| ResourceNotFoundException  | The specified item or attribute was not found. | 
 
 ## Examples
+<a name="API_PutItem_Examples"></a>
 
-For examples using the AWS SDK, see [Working with items and attributes in DynamoDB](WorkingWithItems.md "WorkingWithItems.md").
+For examples using the AWS SDK, see [Working with items and attributes in DynamoDB](WorkingWithItems.md).
 
 ### Sample request
+<a name="API_PutItem_Examples_Request"></a>
 
 ```
 // This header is abbreviated. For a sample of a complete header, see DynamoDB low-level API.
-POST / HTTP/1.1
-x-amz-target: DynamoDB_20111205.PutItem
+POST / HTTP/1.1 
+x-amz-target: DynamoDB_20111205.PutItem 
 content-type: application/x-amz-json-1.0
 
 {"TableName":"comp5",
@@ -120,10 +120,11 @@ content-type: application/x-amz-json-1.0
 ```
 
 ### Sample response
+<a name="API_PutItem_Examples_Response"></a>
 
 ```
-HTTP/1.1 200
-x-amzn-RequestId: 8952fa74-71e9-11e0-a498-71d736f27375
+HTTP/1.1 200 
+x-amzn-RequestId: 8952fa74-71e9-11e0-a498-71d736f27375 
 content-type: application/x-amz-json-1.0
 content-length: 84
 
@@ -136,8 +137,8 @@ content-length: 84
 ```
 
 ## Related actions
-
-- [UpdateItem](API_UpdateItem_v20111205.md "API_UpdateItem_v20111205.md")
-- [DeleteItem](API_DeleteItem_v20111205.md "API_DeleteItem_v20111205.md")
-- [GetItem](API_GetItem_v20111205.md "API_GetItem_v20111205.md")
-- [BatchGetItem](API_BatchGetItem_v20111205.md "API_BatchGetItem_v20111205.md")
+<a name="API_PutItem_Related_Actions"></a>
++  [UpdateItem](API_UpdateItem_v20111205.md) 
++  [DeleteItem](API_DeleteItem_v20111205.md) 
++  [GetItem](API_GetItem_v20111205.md) 
++  [BatchGetItem](API_BatchGetItem_v20111205.md) 

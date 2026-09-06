@@ -1,61 +1,48 @@
+
+
 # Distributed locking with the DynamoDB Lock Client
+<a name="BestPractices_DistributedLocking"></a>
 
-For applications that require traditional lock-acquire-release semantics, the DynamoDB Lock
-Client is an open-source library that implements distributed locking using a DynamoDB table as the
-lock store. This approach is useful when you need to coordinate access to an external resource
-(such as an S3 object or a shared configuration) across multiple application instances.
+For applications that require traditional lock-acquire-release semantics, the DynamoDB Lock Client is an open-source library that implements distributed locking using a DynamoDB table as the lock store. This approach is useful when you need to coordinate access to an external resource (such as an S3 object or a shared configuration) across multiple application instances.
 
-The lock client is available as an open-source [Java library](https://github.com/awslabs/amazon-dynamodb-lock-client "https://github.com/awslabs/amazon-dynamodb-lock-client").
+The lock client is available as an open-source [Java library](https://github.com/awslabs/amazon-dynamodb-lock-client).
 
 ## How it works
+<a name="BestPractices_DistributedLocking_HowItWorks"></a>
 
-The lock client uses a dedicated DynamoDB table to track locks. Each lock is represented as an
-item with the following key attributes:
+The lock client uses a dedicated DynamoDB table to track locks. Each lock is represented as an item with the following key attributes:
++ A partition key that identifies the resource being locked.
++ A lease duration that specifies how long the lock is valid. If the lock holder crashes or becomes unresponsive, the lock automatically expires after the lease duration.
++ A heartbeat that the lock holder sends periodically to extend the lease. This prevents the lock from expiring while the holder is still actively processing.
 
-- A partition key that identifies the resource being locked.
-- A lease duration that specifies how long the lock is valid. If the lock holder
-  crashes or becomes unresponsive, the lock automatically expires after the lease
-  duration.
-- A heartbeat that the lock holder sends periodically to extend the lease. This
-  prevents the lock from expiring while the holder is still actively processing.
-
-The lock client uses conditional writes to make sure that only one process can acquire a lock
-at a time. If a lock is already held, the caller can choose to wait and retry or fail
-immediately.
+The lock client uses conditional writes to make sure that only one process can acquire a lock at a time. If a lock is already held, the caller can choose to wait and retry or fail immediately.
 
 ## When to use the lock client
+<a name="BestPractices_DistributedLocking_WhenToUse"></a>
 
 The lock client is a good fit when:
++ You need to coordinate access to a shared resource across multiple application instances or microservices.
++ The critical section is long-running (seconds to minutes) and retrying the entire operation on conflict would be expensive.
++ You need automatic lock expiry to handle process failures gracefully.
 
-- You need to coordinate access to a shared resource across multiple application
-  instances or microservices.
-- The critical section is long-running (seconds to minutes) and retrying the
-  entire operation on conflict would be expensive.
-- You need automatic lock expiry to handle process failures
-  gracefully.
-
-Common examples include orchestrating distributed workflows, coordinating cron jobs across
-multiple instances, and managing access to shared external resources.
+Common examples include orchestrating distributed workflows, coordinating cron jobs across multiple instances, and managing access to shared external resources.
 
 ## Tradeoffs
+<a name="BestPractices_DistributedLocking_Tradeoffs"></a>
 
-**Additional infrastructure**
-Requires a dedicated DynamoDB table for lock management, with additional read and
-write capacity for lock operations and heartbeats.
+**Additional infrastructure**  
+Requires a dedicated DynamoDB table for lock management, with additional read and write capacity for lock operations and heartbeats.
 
-**Clock dependency**
-Lock expiry relies on timestamps. Significant clock skew between clients can
-cause unexpected behavior, particularly for short lease durations.
+**Clock dependency**  
+Lock expiry relies on timestamps. Significant clock skew between clients can cause unexpected behavior, particularly for short lease durations.
 
-**Deadlock risk**
-If your application acquires locks on multiple resources, you must acquire them
-in a consistent order to avoid deadlocks. The lease duration provides a safety net by
-automatically releasing locks from unresponsive holders.
+**Deadlock risk**  
+If your application acquires locks on multiple resources, you must acquire them in a consistent order to avoid deadlocks. The lease duration provides a safety net by automatically releasing locks from unresponsive holders.
 
 ## Implementation
+<a name="BestPractices_DistributedLocking_Implementation"></a>
 
-The following example shows how to use the DynamoDB Lock Client to acquire and release a
-lock:
+The following example shows how to use the DynamoDB Lock Client to acquire and release a lock:
 
 ```
 import java.io.IOException;
@@ -94,15 +81,10 @@ if (lock.isPresent()) {
 lockClient.close();
 ```
 
-###### Important
+**Important**  
+Always release locks in a `finally` block to make sure locks are released even if your processing logic throws an exception. Unreleased locks block other processes until the lease expires.
 
-Always release locks in a `finally` block to make sure locks are released even if
-your processing logic throws an exception. Unreleased locks block other processes until the
-lease expires.
-
-You can also implement a simple locking mechanism without the lock client library by using
-conditional writes directly. The following example uses `UpdateItem` with a condition
-expression to acquire a lock, and `DeleteItem` to release it:
+You can also implement a simple locking mechanism without the lock client library by using conditional writes directly. The following example uses `UpdateItem` with a condition expression to acquire a lock, and `DeleteItem` to release it:
 
 ```
 from datetime import datetime, timedelta
@@ -136,7 +118,4 @@ def release_lock(table, resource_name, owner_id):
         return False
 ```
 
-This approach uses a condition expression to make sure that a lock can only be acquired if it
-doesn't exist or has expired, and can only be released by the process that acquired it. Consider
-enabling [Time to Live (TTL)](TTL.md "TTL.md") on the lock table to automatically clean
-up expired lock items.
+This approach uses a condition expression to make sure that a lock can only be acquired if it doesn't exist or has expired, and can only be released by the process that acquired it. Consider enabling [Time to Live (TTL)](TTL.md) on the lock table to automatically clean up expired lock items.

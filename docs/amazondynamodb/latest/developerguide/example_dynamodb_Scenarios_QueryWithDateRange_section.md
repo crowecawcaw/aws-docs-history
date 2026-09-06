@@ -1,15 +1,17 @@
+
+
 # Query a DynamoDB table using a date range in the sort key with an AWS SDK
+<a name="example_dynamodb_Scenarios_QueryWithDateRange_section"></a>
 
 The following code examples show how to query a table using a date range in the sort key.
++ Query items within a specific date range.
++ Use comparison operators on date-formatted sort keys.
 
-- Query items within a specific date range.
-- Use comparison operators on date-formatted sort keys.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Query a DynamoDB table for items within a date range with AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query a DynamoDB table for items within a date range with AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -84,11 +86,8 @@ import java.util.logging.Logger;
             throw e;
         }
     }
-
-
 ```
-
-Demonstrates how to query a DynamoDB table with date range filtering.
+Demonstrates how to query a DynamoDB table with date range filtering.  
 
 ```
     public static void main(String[] args) {
@@ -186,26 +185,21 @@ Demonstrates how to query a DynamoDB table with date range filtering.
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query a DynamoDB table for items within a date range with AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query a DynamoDB table for items within a date range with AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
  * Queries a DynamoDB table for items within a specific date range on the sort key
- *
+ * 
  * @param {Object} config - AWS SDK configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} partitionKeyName - The name of the partition key
@@ -255,19 +249,14 @@ async function queryByDateRangeOnSortKey(
     throw error;
   }
 }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query a DynamoDB table for items within a date range with AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query a DynamoDB table for items within a date range with AWS SDK for Python (Boto3).  
 
 ```
 from datetime import datetime, timedelta
@@ -363,16 +352,9 @@ def query_with_date_range_by_month(
     response = table.query(KeyConditionExpression=key_condition)
 
     return response
-
-
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

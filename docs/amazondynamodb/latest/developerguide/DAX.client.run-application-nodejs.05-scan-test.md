@@ -1,7 +1,9 @@
-# 05-scan-test.js
 
-The `05-scan-test.js` program performs `Scan` operations
-on `TryDaxTable`.
+
+# 05-scan-test.js
+<a name="DAX.client.run-application-nodejs.05-scan-test"></a>
+
+The `05-scan-test.js` program performs `Scan` operations on `TryDaxTable`.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -54,6 +56,4 @@ console.log(
   (endTime - startTime) / iterations,
   "ms"
 );
-
-
 ```

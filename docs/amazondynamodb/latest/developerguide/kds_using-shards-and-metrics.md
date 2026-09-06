@@ -1,126 +1,57 @@
+
+
 # Using shards and metrics with DynamoDB Streams and Kinesis Data Streams
+<a name="kds_using-shards-and-metrics"></a>
 
 ## Shard management considerations for Kinesis Data Streams
+<a name="kds_using-shards-and-metrics.shardmanagment"></a>
 
-A Kinesis data stream counts its throughput in [shards](../../../streams/latest/dev/key-concepts.md "../../../streams/latest/dev/key-concepts.md"). In Amazon Kinesis Data
-streams, you can choose between an **on-demand** mode and a
-**provisioned** mode for your data streams.
+A Kinesis data stream counts its throughput in [shards](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html). In Amazon Kinesis Data streams, you can choose between an **on-demand** mode and a **provisioned** mode for your data streams. 
 
-We recommend using on-demand mode for your Kinesis Data Stream if your DynamoDB write
-workload is highly variable and unpredictable. With on-demand mode, there is no capacity
-planning required as Kinesis Data Streams automatically manages the shards in order to
-provide the necessary throughput.
+We recommend using on-demand mode for your Kinesis Data Stream if your DynamoDB write workload is highly variable and unpredictable. With on-demand mode, there is no capacity planning required as Kinesis Data Streams automatically manages the shards in order to provide the necessary throughput.
 
-For predictable workloads, you can use provisioned mode for your Kinesis Data Stream.
-With provisioned mode, you must specify the number of shards for the data stream to
-accommodate the change data capture records from DynamoDB. To determine the number of
-shards that the Kinesis data stream will need to support your DynamoDB table, you need
-the following input values:
+For predictable workloads, you can use provisioned mode for your Kinesis Data Stream. With provisioned mode, you must specify the number of shards for the data stream to accommodate the change data capture records from DynamoDB. To determine the number of shards that the Kinesis data stream will need to support your DynamoDB table, you need the following input values:
++ The average size of your DynamoDB table’s record in bytes (`average_record_size_in_bytes`).
++ The maximum number of write operations that your DynamoDB table will perform per second. This includes create, delete, and update operations performed by your applications, as well as automatically generated operations like Time to Live generated delete operations(`write_throughput`).
++ The percentage of update and overwrite operations that you perform on your table, as compared to create or delete operations (`percentage_of_updates`). Keep in mind that update and overwrite operations replicate both the old and new images of the modified item to the stream. This generates twice the DynamoDB item size.
 
-- The average size of your DynamoDB table’s record in bytes
-  (`average_record_size_in_bytes`).
-- The maximum number of write operations that your DynamoDB table will perform per
-  second. This includes create, delete, and update operations performed by your
-  applications, as well as automatically generated operations like Time to Live
-  generated delete operations(`write_throughput`).
-- The percentage of update and overwrite operations that you perform on your
-  table, as compared to create or delete operations
-  (`percentage_of_updates`). Keep in mind that update and overwrite
-  operations replicate both the old and new images of the modified item to the
-  stream. This generates twice the DynamoDB item size.
-
-You can calculate the number of shards (`number_of_shards`) that your
-Kinesis data stream needs by using the input values in the following formula:
+You can calculate the number of shards (`number_of_shards`) that your Kinesis data stream needs by using the input values in the following formula:
 
 ```
 number_of_shards = ceiling( max( ((write_throughput * (4+percentage_of_updates) * average_record_size_in_bytes) / 1024 / 1024), (write_throughput/1000), 1) )
-
 ```
 
-For example, you might have a maximum throughput of 1040 write operations per second
-(`write_throughput`) with an average record size of 800 bytes
-(`average_record_size_in_bytes)`. If 25 percent of those write operations
-are update operations (`percentage_of_updates`), then you will need two
-shards (`number_of_shards`) to accommodate your DynamoDB streaming
-throughput:
+For example, you might have a maximum throughput of 1040 write operations per second (`write_throughput`) with an average record size of 800 bytes (`average_record_size_in_bytes)`. If 25 percent of those write operations are update operations (`percentage_of_updates`), then you will need two shards (`number_of_shards`) to accommodate your DynamoDB streaming throughput:
 
 ```
 ceiling( max( ((1040 * (4+25/100) * 800)/ 1024 / 1024), (1040/1000), 1) ).
 ```
 
-Consider the following before using the formula to calculate the number of
-shards required with provisioned mode for Kinesis data streams:
+Consider the following before using the formula to calculate the number of shards required with provisioned mode for Kinesis data streams:
++ This formula helps estimate the number of shards that will be required to accommodate your DynamoDB change data records. It doesn't represent the total number of shards needed in your Kinesis data stream, such as the number of shards required to support additional Kinesis data stream consumers.
++ You might still experience read and write throughput exceptions in the provisioned mode if you don't configure your data stream to handle your peak throughput. In this case, you must manually scale your data stream to accommodate your data traffic. 
++ This formula takes into consideration the additional bloat generated by DynamoDB before streaming the change logs data records to Kinesis Data Stream.
 
-- This formula helps estimate the number of shards that will be required to
-  accommodate your DynamoDB change data records. It doesn't represent
-  the total number of shards needed in your Kinesis data stream, such as the
-  number of shards required to support additional Kinesis data stream
-  consumers.
-- You might still experience read and write throughput exceptions in the
-  provisioned mode if you don't configure your data stream to handle your peak
-  throughput. In this case, you must manually scale your data stream to
-  accommodate your data traffic.
-- This formula takes into consideration the additional bloat generated by DynamoDB
-  before streaming the change logs data records to Kinesis Data Stream.
-
-To learn more about capacity modes on Kinesis Data Stream see [Choosing
-the Data Stream Capacity Mode](../../../streams/latest/dev/how-do-i-size-a-stream.md "../../../streams/latest/dev/how-do-i-size-a-stream.md"). To learn more about pricing difference
-between different capacity modes, see [Amazon Kinesis Data Streams pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/") .
+To learn more about capacity modes on Kinesis Data Stream see [Choosing the Data Stream Capacity Mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html). To learn more about pricing difference between different capacity modes, see [Amazon Kinesis Data Streams pricing](https://aws.amazon.com/kinesis/data-streams/pricing/) .
 
 ## Monitoring change data capture with Kinesis Data Streams
+<a name="kds_using-shards-and-metrics.monitoring"></a>
 
-DynamoDB provides several Amazon CloudWatch metrics to help you monitor the replication of change
-data capture to Kinesis. For a full list of CloudWatch metrics, see [DynamoDB Metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md").
+DynamoDB provides several Amazon CloudWatch metrics to help you monitor the replication of change data capture to Kinesis. For a full list of CloudWatch metrics, see [DynamoDB Metrics and dimensions](metrics-dimensions.md).
 
-To determine whether your stream has sufficient capacity, we recommend that you
-monitor the following items both during stream enabling and in production:
+To determine whether your stream has sufficient capacity, we recommend that you monitor the following items both during stream enabling and in production:
++ `ThrottledPutRecordCount`: The number of records that were throttled by your Kinesis data stream because of insufficient Kinesis data stream capacity. You might experience some throttling during exceptional usage peaks, but the `ThrottledPutRecordCount` should remain as low as possible. DynamoDB retries sending throttled records to the Kinesis data stream, but this might result in higher replication latency. 
 
-- `ThrottledPutRecordCount`: The number of records that were
-  throttled by your Kinesis data stream because of insufficient Kinesis data stream
-  capacity. You might experience some throttling during exceptional usage peaks,
-  but the `ThrottledPutRecordCount` should remain as low as possible.
-  DynamoDB retries sending throttled records to the Kinesis data stream, but this
-  might result in higher replication latency.
+  If you experience excessive and regular throttling, you might need to increase the number of Kinesis stream shards proportionally to the observed write throughput of your table. To learn more about determining the size of a Kinesis data stream, see [Determining the Initial Size of a Kinesis Data Stream](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html#how-do-i-size-a-stream).
++ `AgeOfOldestUnreplicatedRecord`: The elapsed time since the oldest item-level change yet to replicate to the Kinesis data stream appeared in the DynamoDB table. Under normal operation, `AgeOfOldestUnreplicatedRecord` should be in the order of milliseconds. This number grows based on unsuccessful replication attempts when these are caused by customer-controlled configuration choices.
 
-If you experience excessive and regular throttling, you might need to increase
-the number of Kinesis stream shards proportionally to the observed write throughput
-of your table. To learn more about determining the size of a Kinesis data stream,
-see [Determining the Initial Size of a Kinesis Data Stream](../../../streams/latest/dev/amazon-kinesis-streams.md#how-do-i-size-a-stream "../../../streams/latest/dev/amazon-kinesis-streams.md#how-do-i-size-a-stream").
+   If `AgeOfOldestUnreplicatedRecord` metric exceeds 168 hours, replication of item-level changes from the DynamoDB table to Kinesis data stream will be automatically disabled.
 
-- `AgeOfOldestUnreplicatedRecord`: The elapsed time since the oldest
-  item-level change yet to replicate to the Kinesis data stream appeared in the DynamoDB
-  table. Under normal operation, `AgeOfOldestUnreplicatedRecord` should
-  be in the order of milliseconds. This number grows based on unsuccessful
-  replication attempts when these are caused by customer-controlled configuration
-  choices.
+  Customer-controlled configuration examples that leads to unsuccessful replication attempts are an under-provisioned Kinesis data stream capacity that leads to excessive throttling, or a manual update to your Kinesis data stream’s access policies that prevents DynamoDB from adding data to your data stream. To keep this metric as low as possible, you might need to make sure the right provisioning of your Kinesis data stream capacity, and make sure that DynamoDB’s permissions are unchanged. 
++ `FailedToReplicateRecordCount`: The number of records that DynamoDB failed to replicate to your Kinesis data stream. DynamoDB can't replicate change data records that are larger than the maximum record size of your Kinesis data stream. The maximum record size is 1 MB by default, and you can increase it to up to 10 MB. For more information, see [Quotas and limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) in the *Amazon Kinesis Data Streams Developer Guide*. 
 
-If `AgeOfOldestUnreplicatedRecord` metric exceeds 168 hours,
-replication of item-level changes from the DynamoDB table to Kinesis data stream will
-be automatically disabled.
+  Change data records can be larger than the items they describe. Update operations replicate both the old and new images of the item, which roughly doubles the record size. Boolean and empty attribute values are stored as 1 byte in DynamoDB, but expand up to 5 bytes when they're serialized using standard JSON for Kinesis Data Streams replication. For example, certain items larger than 34 KB might expand into change data records larger than the default 1 MB maximum record size. DynamoDB skips change data records that exceed your stream's maximum record size, and automatically continues replicating subsequent records. 
 
-Customer-controlled configuration examples that leads to unsuccessful
-replication attempts are an under-provisioned Kinesis data stream capacity that
-leads to excessive throttling, or a manual update to your Kinesis data stream’s
-access policies that prevents DynamoDB from adding data to your data stream. To
-keep this metric as low as possible, you might need to make sure the right
-provisioning of your Kinesis data stream capacity, and make sure that DynamoDB’s
-permissions are unchanged.
+   
 
-- `FailedToReplicateRecordCount`: The number of records that DynamoDB
-  failed to replicate to your Kinesis data stream. DynamoDB can't replicate change data
-  records that are larger than the maximum record size of your Kinesis data stream.
-  The maximum record size is 1 MB by default, and you can increase it to up to 10
-  MB. For more information, see [Quotas and
-  limits](../../../streams/latest/dev/service-sizes-and-limits.md "../../../streams/latest/dev/service-sizes-and-limits.md") in the _Amazon Kinesis Data Streams Developer Guide_.
-
-Change data records can be larger than the items they describe. Update
-operations replicate both the old and new images of the item, which roughly
-doubles the record size. Boolean and empty attribute values are stored as 1 byte
-in DynamoDB, but expand up to 5 bytes when they're serialized using standard JSON
-for Kinesis Data Streams replication. For example, certain items larger than 34 KB might expand
-into change data records larger than the default 1 MB maximum record size. DynamoDB
-skips change data records that exceed your stream's maximum record size, and
-automatically continues replicating subsequent records.
-
-You can create Amazon CloudWatch alarms that send an Amazon Simple Notification Service (Amazon SNS) message for notification
-when any of the preceding metrics exceed a specific threshold.
+You can create Amazon CloudWatch alarms that send an Amazon Simple Notification Service (Amazon SNS) message for notification when any of the preceding metrics exceed a specific threshold. 

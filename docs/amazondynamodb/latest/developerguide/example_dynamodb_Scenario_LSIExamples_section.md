@@ -1,16 +1,18 @@
+
+
 # Work with DynamoDB Local Secondary Indexes using AWS Command Line Interface v2
+<a name="example_dynamodb_Scenario_LSIExamples_section"></a>
 
 The following code example shows how to create and query tables with Local Secondary Indexes.
++ Create a table with a Local Secondary Index (LSI).
++ Create a table with multiple LSIs with different projection types.
++ Query data using LSIs.
 
-- Create a table with a Local Secondary Index (LSI).
-- Create a table with multiple LSIs with different projection types.
-- Query data using LSIs.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create a table with a Local Secondary Index.
+**AWS CLI with Bash script**  
+Create a table with a Local Secondary Index.  
 
 ```
 # Create a table with a Local Secondary Index
@@ -28,11 +30,8 @@ aws dynamodb create-table \
         KeySchema=[{AttributeName=CustomerID,KeyType=HASH},{AttributeName=OrderDate,KeyType=RANGE}],\
         Projection={ProjectionType=ALL}" \
     --billing-mode PAY_PER_REQUEST
-
-
 ```
-
-Create a table with multiple LSIs.
+Create a table with multiple LSIs.  
 
 ```
 # Create a table with multiple Local Secondary Indexes
@@ -66,11 +65,8 @@ aws dynamodb create-table \
             }
         ]" \
     --billing-mode PAY_PER_REQUEST
-
-
 ```
-
-Query data using LSIs.
+Query data using LSIs.  
 
 ```
 # Query the OrderDateIndex LSI
@@ -94,15 +90,11 @@ aws dynamodb query \
         ":custId": {"S": "C1"},
         ":amount": {"N": "150"}
     }'
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [Query](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/Query)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [Query](../../../goto/aws-cli/dynamodb-2012-08-10/Query.md "../../../goto/aws-cli/dynamodb-2012-08-10/Query.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

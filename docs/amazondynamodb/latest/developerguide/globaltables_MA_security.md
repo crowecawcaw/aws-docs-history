@@ -1,304 +1,301 @@
+
+
 # DynamoDB global tables security
+<a name="globaltables_MA_security"></a>
 
-Global tables replicas are DynamoDB tables, so you use the same methods for controlling access to replicas that you do
-for single-Region tables, including AWS Identity and Access Management (IAM) identity policies and resource-based policies. This topic covers how to
-secure DynamoDB multi-account global tables using IAM permissions and AWS Key Management Service (AWS KMS) encryption. You learn about the resource
-based policies and service-linked roles (SLR) that allow cross-Region cross-account replication and auto-scaling, the IAM permissions
-needed to create, update, and delete global tables, for a multi-Region eventual consistency (MREC) tables. You also learn about AWS KMS encryption
-keys to manage cross-Region replication securely.
+Global tables replicas are DynamoDB tables, so you use the same methods for controlling access to replicas that you do for single-Region tables, including AWS Identity and Access Management (IAM) identity policies and resource-based policies. This topic covers how to secure DynamoDB multi-account global tables using IAM permissions and AWS Key Management Service (AWS KMS) encryption. You learn about the resource based policies and service-linked roles (SLR) that allow cross-Region cross-account replication and auto-scaling, the IAM permissions needed to create, update, and delete global tables, for a multi-Region eventual consistency (MREC) tables. You also learn about AWS KMS encryption keys to manage cross-Region replication securely.
 
-It provides detailed information about the resource-based policies and permissions required to establish cross-account and cross-region
-table replication. Understanding this security model is crucial for customers who need to implement secure, cross-account data replication solutions.
+It provides detailed information about the resource-based policies and permissions required to establish cross-account and cross-region table replication. Understanding this security model is crucial for customers who need to implement secure, cross-account data replication solutions.
 
 ## Service principal authorization for replication
+<a name="globaltables_MA_service_principal"></a>
 
-DynamoDB's multi-account global tables use a distinct authorization approach because replication is performed across
-account boundaries. This is done using DynamoDB's replication service principal: `replication.dynamodb.amazonaws.com`.
-Each participating account must explicitly allow that principal in the replica table's resource policy, giving it permissions that can be
-constrained to specific replicas by source context conditions on keys like `aws:SourceAccount`, `aws:SourceArn`, etc.
-— see [AWS global condition keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") for more details.
-Permissions are bi-directional, which means that all replicas must explicitly grant permissions to each other before replication can be established
-across any particular pair of replicas.
+DynamoDB's multi-account global tables use a distinct authorization approach because replication is performed across account boundaries. This is done using DynamoDB's replication service principal: `replication.dynamodb.amazonaws.com`. Each participating account must explicitly allow that principal in the replica table's resource policy, giving it permissions that can be constrained to specific replicas by source context conditions on keys like `aws:SourceAccount`, `aws:SourceArn`, etc. — see [AWS global condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) for more details. Permissions are bi-directional, which means that all replicas must explicitly grant permissions to each other before replication can be established across any particular pair of replicas.
 
 The following service principal permissions are essential for cross-account replication:
++ `dynamodb:ReadDataForReplication` grants the ability to read data for replication purposes. This permission allows changes in one replica to be read and propagated to other replicas.
++ `dynamodb:WriteDataForReplication` permits the writing of replicated data to destination tables. This permission allows changes to be synchronized across all replicas in the global table.
++ `dynamodb:ReplicateSettings` enables the synchronization of table settings across replicas, providing consistent configuration across all participating tables.
 
-- `dynamodb:ReadDataForReplication` grants the ability to read data for replication purposes.
-  This permission allows changes in one replica to be read and propagated to other replicas.
-- `dynamodb:WriteDataForReplication` permits the writing of replicated data to destination tables.
-  This permission allows changes to be synchronized across all replicas in the global table.
-- `dynamodb:ReplicateSettings` enables the synchronization of table settings across replicas, providing
-  consistent configuration across all participating tables.
-
-Each replica must give the above permissions to all other replicas and to itself — i.e. the source context conditions must include
-the full set of replicas that comprises the global table. These permission are verified for each new replica when it is added to a multi-account
-global table. This verifies that replication operations are performed only by the authorized DynamoDB service and only between the intended tables.
+Each replica must give the above permissions to all other replicas and to itself — i.e. the source context conditions must include the full set of replicas that comprises the global table. These permission are verified for each new replica when it is added to a multi-account global table. This verifies that replication operations are performed only by the authorized DynamoDB service and only between the intended tables.
 
 ## Service-linked roles for multi-account global tables
+<a name="globaltables_MA_service_linked_roles"></a>
 
-DynamoDB multi-account global tables replicate settings across all replicas so that each replica is set up identically with consistent throughput
-and provides a seamless fail-over experience. Replication of settings is controlled through the `ReplicateSettings` permission on the service
-principal, but DynamoDB also relies on service-linked roles (SLRs) to manage certain cross-account cross-Region replication and auto-scaling capabilities. These roles
-are set up only once per AWS account. Once created, the same roles serve all global tables in your account. For more information about service-linked roles,
-see [Using service-linked roles](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md") in the IAM User Guide.
+DynamoDB multi-account global tables replicate settings across all replicas so that each replica is set up identically with consistent throughput and provides a seamless fail-over experience. Replication of settings is controlled through the `ReplicateSettings` permission on the service principal, but DynamoDB also relies on service-linked roles (SLRs) to manage certain cross-account cross-Region replication and auto-scaling capabilities. These roles are set up only once per AWS account. Once created, the same roles serve all global tables in your account. For more information about service-linked roles, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create-service-linked-role.html) in the IAM User Guide.
 
 ### Settings management service-linked role
+<a name="globaltables_MA_settings_management_slr"></a>
 
-Amazon DynamoDB automatically creates the AWSServiceRoleForDynamoDBGlobalTableSettingsManagement service-linked role (SLR) when you create your first multi-account
-global table replica in the account. This role manages cross-account cross-Region replication of settings for you.
+Amazon DynamoDB automatically creates the AWSServiceRoleForDynamoDBGlobalTableSettingsManagement service-linked role (SLR) when you create your first multi-account global table replica in the account. This role manages cross-account cross-Region replication of settings for you.
 
-When applying resource-based policies to replicas, confirm that you do not deny any of the permissions defined in the `AWSServiceRoleForDynamoDBGlobalTableSettingsManagement`
-to the SLR principal, as this could interfere with settings management and may impair replication if throughput does not match across replicas or GSIs. If you deny required SLR
-permissions, replication to and from affected replicas may stop, and the replica table status will change to `REPLICATION_NOT_AUTHORIZED`. For multi-account global tables,
-if a replica remains in the `REPLICATION_NOT_AUTHORIZED` state for more than 20 hours, the replica is irreversibly converted to a single-Region DynamoDB table. The SLR
-has the following permissions:
-
-- `application-autoscaling:DeleteScalingPolicy`
-- `application-autoscaling:DescribeScalableTargets`
-- `application-autoscaling:DescribeScalingPolicies`
-- `application-autoscaling:DeregisterScalableTarget`
-- `application-autoscaling:PutScalingPolicy`
-- `application-autoscaling:RegisterScalableTarget`
+When applying resource-based policies to replicas, confirm that you do not deny any of the permissions defined in the `AWSServiceRoleForDynamoDBGlobalTableSettingsManagement` to the SLR principal, as this could interfere with settings management and may impair replication if throughput does not match across replicas or GSIs. If you deny required SLR permissions, replication to and from affected replicas may stop, and the replica table status will change to `REPLICATION_NOT_AUTHORIZED`. For multi-account global tables, if a replica remains in the `REPLICATION_NOT_AUTHORIZED` state for more than 20 hours, the replica is irreversibly converted to a single-Region DynamoDB table. The SLR has the following permissions:
++ `application-autoscaling:DeleteScalingPolicy`
++ `application-autoscaling:DescribeScalableTargets`
++ `application-autoscaling:DescribeScalingPolicies`
++ `application-autoscaling:DeregisterScalableTarget`
++ `application-autoscaling:PutScalingPolicy`
++ `application-autoscaling:RegisterScalableTarget`
 
 ### Auto scaling service-linked role
+<a name="globaltables_MA_autoscaling_slr"></a>
 
-When configuring a global table for provisioned capacity mode, auto scaling must be configured for the global table. DynamoDB auto scaling
-uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your global table replicas. The Application Auto Scaling
-service creates a service-linked role (SLR) named [AWSServiceRoleForApplicationAutoScaling\_DynamoDBTable](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md").
-This service-linked role is automatically created in your AWS account when you first configure auto scaling for a DynamoDB table. It allows Application Auto Scaling to manage provisioned
-table capacity and create CloudWatch alarms.
+When configuring a global table for provisioned capacity mode, auto scaling must be configured for the global table. DynamoDB auto scaling uses the AWS Application Auto Scaling service to dynamically adjust provisioned throughput capacity on your global table replicas. The Application Auto Scaling service creates a service-linked role (SLR) named [AWSServiceRoleForApplicationAutoScaling\_DynamoDBTable](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html). This service-linked role is automatically created in your AWS account when you first configure auto scaling for a DynamoDB table. It allows Application Auto Scaling to manage provisioned table capacity and create CloudWatch alarms.
 
-When applying resource-based policies to replicas, verify that you do not deny any permissions defined in the
-[AWSApplicationAutoscalingDynamoDBTablePolicy](../../../aws-managed-policy/latest/reference/AWSApplicationAutoscalingDynamoDBTablePolicy.md "../../../aws-managed-policy/latest/reference/AWSApplicationAutoscalingDynamoDBTablePolicy.md") to
-the Application Auto Scaling SLR principal, as this will interrupt auto-scaling functionality.
+When applying resource-based policies to replicas, verify that you do not deny any permissions defined in the [AWSApplicationAutoscalingDynamoDBTablePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSApplicationAutoscalingDynamoDBTablePolicy.html) to the Application Auto Scaling SLR principal, as this will interrupt auto-scaling functionality.
 
 ## How global tables use AWS IAM
+<a name="globaltables_MA_iam"></a>
 
 The following sections describe the required permissions for different global table operations and provide policy examples to help you configure the appropriate access for your users and applications.
 
-###### Note
-
+**Note**  
 All permissions described must be applied to the specific table resource ARN in the affected Region(s). The table resource ARN follows the format `arn:aws:dynamodb:region:account-id:table/table-name`, where you need to specify your actual Region, account ID, and table name values.
 
 The following sections cover these step-by-step topics:
-
-- Creating multi-account global tables and adding replicas
-- Updating a multi-account global table
-- Deleting global tables and removing replicas
++ Creating multi-account global tables and adding replicas
++ Updating a multi-account global table
++ Deleting global tables and removing replicas
 
 ### Creating global tables and adding replicas
+<a name="globaltables_MA_creating"></a>
 
 #### Permissions for creating global tables
+<a name="globaltables_MA_creating_permissions"></a>
 
 When a new replica is added to a regional table to form a multi-account global table or to an existing multi-account global table, the IAM principal performing the action must be authorized by all existing members. All existing members needs to give the following permission in their table policy for the replica addition to succeed:
-
-- `dynamodb:AssociateTableReplica` - This permission allows tables to be joined into a global table setup. This is the foundational permission that enables the initial establishment of the replication relationship.
++ `dynamodb:AssociateTableReplica` - This permission allows tables to be joined into a global table setup. This is the foundational permission that enables the initial establishment of the replication relationship.
 
 This precise control allows only authorized accounts to participate in the global table setup.
 
 #### Example IAM policies for creating global tables
+<a name="globaltables_MA_creating_examples"></a>
+
+##### Example IAM policies for a 2-replica setup
+<a name="globaltables_MA_2replica_example"></a>
 
 The setup of multi-account global tables follows a specific authorization flow that provides secure replication. Let's examine how this works in practice by walking through a practical scenario where a customer wants to establish a global table with two replicas. The first replica (ReplicaA) resides in Account A in the ap-east-1 region, while the second replica (ReplicaB) is in Account B in the eu-south-1 region.
++ In the source account (Account A), the process begins with creating the primary replica table. The account administrator must attach a resource-based policy to this table that explicitly grants necessary permissions to the destination account (Account B) to perform the association. This policy also authorizes the DynamoDB replication service to perform essential replication actions.
++ The destination account (Account B) follows a similar process by attaching a corresponding resource-based policy while creating the replica and referencing the source table ARN to be used to create the replica. This policy mirrors the permissions granted by Account A, creating a trusted bi-directional relationship. Before establishing replication, DynamoDB validates these cross-account permissions to verify proper authorization is in place.
 
-- In the source account (Account A), the process begins with creating the primary replica table. The account administrator must attach a resource-based policy to this table that explicitly grants necessary permissions to the destination account (Account B) to perform the association. This policy also authorizes the DynamoDB replication service to perform essential replication actions.
-- The destination account (Account B) follows a similar process by attaching a corresponding resource-based policy while creating the replica and referencing the source table ARN to be used to create the replica. This policy mirrors the permissions granted by Account A, creating a trusted bi-directional relationship. Before establishing replication, DynamoDB validates these cross-account permissions to verify proper authorization is in place.
-  To establish this setup:
+To establish this setup:
++ The administrator of Account A must first attach the resource-based policy to ReplicaA. This policy explicitly grants the necessary permissions to Account B and the DynamoDB replication service.
++ Similarly, the administrator of Account B must attach a matching policy to ReplicaB, with account references reversed to grant corresponding permissions to Account A, in the create table call to create replica B referencing replica A as source table.
 
-- The administrator of Account A must first attach the resource-based policy to ReplicaA. This policy explicitly grants the necessary permissions to Account B and the DynamoDB replication service.
-- Similarly, the administrator of Account B must attach a matching policy to ReplicaB, with account references reversed to grant corresponding permissions to Account A, in the create table call to create replica B referencing replica A as source table.
+------
+#### [ JSON ]
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
- "Effect": "Allow",
- "Action": [
- "dynamodb:ReadDataForReplication",
- "dynamodb:WriteDataForReplication",
- "dynamodb:ReplicateSettings"
- ],
- "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
- "aws:SourceArn": [
- "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
- ]
- }
- }
- },
- {
- "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
- "Effect": "Allow",
- "Action": [
- "dynamodb:AssociateTableReplica"
- ],
- "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "Principal": {"AWS": ["`444455556666`"]}
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:ReadDataForReplication",
+                "dynamodb:WriteDataForReplication",
+                "dynamodb:ReplicateSettings"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": [ "{{111122223333}}", "{{444455556666}}" ],
+                    "aws:SourceArn": [
+                        "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+                        "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:AssociateTableReplica"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+            "Principal": {"AWS": ["{{444455556666}}"]}
+        }
+    ]
+}
+```
 
-JSON
+------
+
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
- "Effect": "Allow",
- "Action": [
- "dynamodb:ReadDataForReplication",
- "dynamodb:WriteDataForReplication",
- "dynamodb:ReplicateSettings"
- ],
- "Resource": "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
- "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
- "aws:SourceArn": [
- "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
- ]
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:ReadDataForReplication",
+                "dynamodb:WriteDataForReplication",
+                "dynamodb:ReplicateSettings"
+            ],
+            "Resource": "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB",
+            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": [ "{{111122223333}}", "{{444455556666}}" ],
+                    "aws:SourceArn": [
+                        "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+                        "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB"
+                    ]
+                }
+            }
+        }
+    ]
+}
 ```
+
+------
+
+##### Example IAM policies for a 3-replica setup
+<a name="globaltables_MA_3replica_example"></a>
 
 In this setup, there are 3 replicas ReplicaA, ReplicaB, and ReplicaC in Account A, Account B, and Account C, respectively. Replica A is the first replica, which starts as a regional table, and then ReplicaB and ReplicaC are added to it.
++ The administrator of Account A must first attach the resource-based policy to ReplicaA allowing replication with all members, and allowing the IAM principals of Account B and Account C to add replicas.
 
-- The administrator of Account A must first attach the resource-based policy to ReplicaA allowing replication with all members, and allowing the IAM principals of Account B and Account C to add replicas.
+------
+#### [ JSON ]
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
- "Effect": "Allow",
- "Action": [
- "dynamodb:ReadDataForReplication",
- "dynamodb:WriteDataForReplication",
- "dynamodb:ReplicateSettings"
- ],
- "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": [ "`111122223333`", "`444455556666`", "`123456789012`" ],
- "aws:SourceArn": [
- "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
- "arn:aws:dynamodb:us-east-1:`123456789012`:table/ReplicaC"
- ]
- }
- }
- },
- {
- "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
- "Effect": "Allow",
- "Action": [
- "dynamodb:AssociateTableReplica"
- ],
- "Resource": "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "Principal": { "AWS": [ "`444455556666`", "`123456789012`" ] }
- }
- ]
-}`
+****  
 
 ```
-
-- The administrator of Account B must add a replica (Replica B) pointing to ReplicaA as a source. Replica B has the following policy allowing replication between all members, and allowing Account C to add a replica:
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
- "Effect": "Allow",
- "Action": [
- "dynamodb:ReadDataForReplication",
- "dynamodb:WriteDataForReplication",
- "dynamodb:ReplicateSettings"
- ],
- "Resource": "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
- "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": [ "`111122223333`", "`444455556666`", "`123456789012`" ],
- "aws:SourceArn": [
- "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
- "arn:aws:dynamodb:us-east-1:`123456789012`:table/ReplicaC"
- ]
- }
- }
- },
- {
- "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
- "Effect": "Allow",
- "Action": [
- "dynamodb:AssociateTableReplica"
- ],
- "Resource": "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB",
- "Principal": { "AWS": [ "`123456789012`" ] }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:ReadDataForReplication",
+                "dynamodb:WriteDataForReplication",
+                "dynamodb:ReplicateSettings"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": [ "{{111122223333}}", "{{444455556666}}", "{{123456789012}}" ],
+                    "aws:SourceArn": [
+                        "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+                        "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB",
+                        "arn:aws:dynamodb:us-east-1:{{123456789012}}:table/ReplicaC"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:AssociateTableReplica"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+            "Principal": { "AWS": [ "{{444455556666}}", "{{123456789012}}" ] }
+        }
+    ]
+}
 ```
 
-- Finally, the administrator of Account C creates a replica with the following policy allowing replication permissions between all members. The policy doesn't allow any further replicas to be added.
+------
++ The administrator of Account B must add a replica (Replica B) pointing to ReplicaA as a source. Replica B has the following policy allowing replication between all members, and allowing Account C to add a replica:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
- "Effect": "Allow",
- "Action": [
- "dynamodb:ReadDataForReplication",
- "dynamodb:WriteDataForReplication",
- "dynamodb:ReplicateSettings"
- ],
- "Resource": "arn:aws:dynamodb:us-east-1:`123456789012`:table/ReplicaC",
- "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
- "aws:SourceArn": [
- "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
- ]
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:ReadDataForReplication",
+                "dynamodb:WriteDataForReplication",
+                "dynamodb:ReplicateSettings"
+            ],
+            "Resource": "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB",
+            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": [ "{{111122223333}}", "{{444455556666}}", "{{123456789012}}" ],
+                    "aws:SourceArn": [
+                        "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+                        "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB",
+                        "arn:aws:dynamodb:us-east-1:{{123456789012}}:table/ReplicaC"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowTrustedAccountsToJoinThisGlobalTable",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:AssociateTableReplica"
+            ],
+            "Resource": "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB",
+            "Principal": { "AWS": [ "{{123456789012}}" ] }
+        }
+    ]
+}
+```
+
+------
++ Finally, the administrator of Account C creates a replica with the following policy allowing replication permissions between all members. The policy doesn't allow any further replicas to be added.
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "DynamoDBActionsNeededForSteadyStateReplication",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:ReadDataForReplication",
+                "dynamodb:WriteDataForReplication",
+                "dynamodb:ReplicateSettings"
+            ],
+            "Resource": "arn:aws:dynamodb:us-east-1:{{123456789012}}:table/ReplicaC",
+            "Principal": {"Service": ["replication.dynamodb.amazonaws.com"]},
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": [ "{{111122223333}}", "{{444455556666}}" ],
+                    "aws:SourceArn": [
+                        "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+                        "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+------
 
 ### Updating a multi-account global table
+<a name="globaltables_MA_updating"></a>
 
 To modify replica settings for an existing global table using the UpdateTable API, you need the following permission on the table resource in the Region where you're making the API call: `dynamodb:UpdateTable`
 
@@ -307,52 +304,47 @@ You can additionally update other global table configurations, such as auto scal
 To update Time to Live settings with the `UpdateTimeToLive` API, you must have the following permission on the table resource in all Regions containing replicas: `dynamodb:UpdateTimeToLive`
 
 To update a replica auto scaling policy with the `UpdateTableReplicaAutoScaling` API, you must have the following permissions on the table resource in all Regions containing replicas:
++ `application-autoscaling:DeleteScalingPolicy`
++ `application-autoscaling:DeleteScheduledAction`
++ `application-autoscaling:DeregisterScalableTarget`
++ `application-autoscaling:DescribeScalableTargets`
++ `application-autoscaling:DescribeScalingActivities`
++ `application-autoscaling:DescribeScalingPolicies`
++ `application-autoscaling:DescribeScheduledActions`
++ `application-autoscaling:PutScalingPolicy`
++ `application-autoscaling:PutScheduledAction`
++ `application-autoscaling:RegisterScalableTarget`
 
-- `application-autoscaling:DeleteScalingPolicy`
-- `application-autoscaling:DeleteScheduledAction`
-- `application-autoscaling:DeregisterScalableTarget`
-- `application-autoscaling:DescribeScalableTargets`
-- `application-autoscaling:DescribeScalingActivities`
-- `application-autoscaling:DescribeScalingPolicies`
-- `application-autoscaling:DescribeScheduledActions`
-- `application-autoscaling:PutScalingPolicy`
-- `application-autoscaling:PutScheduledAction`
-- `application-autoscaling:RegisterScalableTarget`
-
-###### Note
-
-You need to provide `dynamodb:ReplicateSettings` permissions across all replica regions and accounts
-for the update table to succeed. If any replica does not provide permissions to replicate settings to any replica in
-the multi-account global table, all Update operations across all replicas will fail with `AccessDeniedException`
-till the permissions are fixed.
+**Note**  
+You need to provide `dynamodb:ReplicateSettings` permissions across all replica regions and accounts for the update table to succeed. If any replica does not provide permissions to replicate settings to any replica in the multi-account global table, all Update operations across all replicas will fail with `AccessDeniedException` till the permissions are fixed.
 
 ### Deleting global tables and removing replicas
+<a name="globaltables_MA_deleting"></a>
 
 To delete a global table, you must remove all replicas. Unlike same-account Global Table, you cannot use `UpdateTable` to delete a replica table in a remote region and each replica must be deleted through the `DeleteTable` API from the account that controls it.
 
 #### Permissions for deleting global tables and removing replicas
+<a name="globaltables_MA_deleting_permissions"></a>
 
 The following permissions are required both for removing individual replicas and for completely deleting global tables. Deleting a global table configuration only removes the replication relationship between tables in different Regions. It does not delete the underlying DynamoDB table in the last remaining Region. The table in the last Region continues to exist as a standard DynamoDB table with the same data and settings.
 
 You need the following permissions on the table resource in each Region where you're removing a replica:
-
-- `dynamodb:DeleteTable`
-- `dynamodb:DeleteTableReplica`
++ `dynamodb:DeleteTable`
++ `dynamodb:DeleteTableReplica`
 
 ## How global tables use AWS KMS
+<a name="globaltables_MA_kms"></a>
 
 Like all DynamoDB tables, global table replicas always encrypt data at rest using encryption keys stored in AWS Key Management Service (AWS KMS).
 
-###### Note
-
+**Note**  
 Unlike same-account global table, different replicas in a multi-account global table can be configured with the different type of AWS KMS key (AWS owned key, or Customer managed key). Multi-account global tables do not support AWS Managed Keys.
 
 Multi-account global tables that use CMKs requires each replica's keys policy to give permissions to the DynamoDB replication service principal (`replication.dynamodb.amazonaws.com`) to access the key for replication and settings management. The following permissions are required:
-
-- `kms:Decrypt`
-- `kms:ReEncrypt*`
-- `kms:GenerateDataKey*`
-- `kms:DescribeKey`
++ `kms:Decrypt`
++ `kms:ReEncrypt*`
++ `kms:GenerateDataKey*`
++ `kms:DescribeKey`
 
 **Important**
 
@@ -361,37 +353,41 @@ DynamoDB requires access to the replica's encryption key to delete a replica. If
 If you disable or revoke DynamoDB's access to a customer managed key used to encrypt a replica, replication to and from the replica will stop and the replica status will change to `INACCESSIBLE_ENCRYPTION_CREDENTIALS`. If a replica remains in the `INACCESSIBLE_ENCRYPTION_CREDENTIALS` state for more than 20 hours, the replica is irreversibly converted to a single-Region DynamoDB table.
 
 ### Example AWS KMS policy
+<a name="globaltables_MA_kms_example"></a>
 
-The AWS KMS policy allows DynamoDB to access both AWS KMS keys for replication between replicas A an B.
-The AWS KMS keys attached to the DynamoDB replica in each account needs to be updated with the following policy:
+The AWS KMS policy allows DynamoDB to access both AWS KMS keys for replication between replicas A an B. The AWS KMS keys attached to the DynamoDB replica in each account needs to be updated with the following policy:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": { "Service": "replication.dynamodb.amazonaws.com" },
- "Action": [
- "kms:Decrypt",
- "kms:ReEncrypt*",
- "kms:GenerateDataKey*",
- "kms:DescribeKey"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": [ "`111122223333`", "`444455556666`" ],
- "aws:SourceArn": [
- "arn:aws:dynamodb:ap-east-1:`111122223333`:table/ReplicaA",
- "arn:aws:dynamodb:eu-south-1:`444455556666`:table/ReplicaB"
- ]
- }
- }
- }
- ]
- }`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": { "Service": "replication.dynamodb.amazonaws.com" },
+        "Action": [
+            "kms:Decrypt",
+            "kms:ReEncrypt*",
+            "kms:GenerateDataKey*",
+            "kms:DescribeKey"
+        ],
+        "Resource": "*",
+        "Condition": {
+            "StringEquals": {
+                "aws:SourceAccount": [ "{{111122223333}}", "{{444455556666}}" ],
+                "aws:SourceArn": [
+                    "arn:aws:dynamodb:ap-east-1:{{111122223333}}:table/ReplicaA",
+                    "arn:aws:dynamodb:eu-south-1:{{444455556666}}:table/ReplicaB"
+                ]
+            }
+        }
+      }
+   ]
+ }
+```
+
+------

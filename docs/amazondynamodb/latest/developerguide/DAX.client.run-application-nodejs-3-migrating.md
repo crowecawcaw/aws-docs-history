@@ -1,12 +1,12 @@
-# Migrating to DAX Node.js SDK V3
 
-This migration guide will help you transition your existing DAX Node.js
-applications. The new SDK requires Node.js 18 or higher and introduces several
-important changes in how you'll structure your DynamoDB Accelerator code. This
-guide will walk you through the key differences, including syntax changes, new
-import methods, and updated asynchronous programming patterns.
+
+# Migrating to DAX Node.js SDK V3
+<a name="DAX.client.run-application-nodejs-3-migrating"></a>
+
+This migration guide will help you transition your existing DAX Node.js applications. The new SDK requires Node.js 18 or higher and introduces several important changes in how you'll structure your DynamoDB Accelerator code. This guide will walk you through the key differences, including syntax changes, new import methods, and updated asynchronous programming patterns.
 
 ## V2 Node.js DAX usage
+<a name="DAX.client.run-application-nodejs-3-migrating-V2-usage"></a>
 
 ```
 const AmazonDaxClient = require('amazon-dax-client');
@@ -47,9 +47,9 @@ client.get(params, function (err, data) {
 ```
 
 ## V3 Node.js DAX usage
+<a name="DAX.client.run-application-nodejs-3-migrating-V3-dax-usage"></a>
 
-For Using DAX Node.js V3 Node version 18 or above is the preferred
-version. To move to Node 18, use the following:
+For Using DAX Node.js V3 Node version 18 or above is the preferred version. To move to Node 18, use the following:
 
 ```
 import { DaxDocument } from '@amazon-dax-sdk/lib-dax';

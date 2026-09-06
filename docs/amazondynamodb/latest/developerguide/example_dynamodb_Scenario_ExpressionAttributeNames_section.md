@@ -1,16 +1,18 @@
+
+
 # Use expression attribute names in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_ExpressionAttributeNames_section"></a>
 
 The following code examples show how to use expression attribute names in DynamoDB.
++ Work with reserved words in DynamoDB expressions.
++ Use expression attribute name placeholders.
++ Handle special characters in attribute names.
 
-- Work with reserved words in DynamoDB expressions.
-- Use expression attribute name placeholders.
-- Handle special characters in attribute names.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate expression attribute names using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate expression attribute names using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -244,11 +246,8 @@ import java.util.Map;
         // Perform the scan operation
         return dynamoDbClient.scan(request);
     }
-
-
 ```
-
-Example usage of expression attribute names with AWS SDK for Java 2.x.
+Example usage of expression attribute names with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -337,25 +336,21 @@ Example usage of expression attribute names with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  - [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate expression attribute names using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Demonstrate expression attribute names using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   GetCommand,
   QueryCommand,
@@ -364,10 +359,10 @@ const {
 
 /**
  * Update an attribute that is a reserved word in DynamoDB.
- *
+ * 
  * This function demonstrates how to use expression attribute names to update
  * attributes that are reserved words in DynamoDB.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -385,7 +380,7 @@ async function updateReservedWordAttribute(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using expression attribute names
   const params = {
     TableName: tableName,
@@ -399,19 +394,19 @@ async function updateReservedWordAttribute(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Update an attribute that contains special characters.
- *
+ * 
  * This function demonstrates how to use expression attribute names to update
  * attributes that contain special characters.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -429,7 +424,7 @@ async function updateSpecialCharacterAttribute(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using expression attribute names
   const params = {
     TableName: tableName,
@@ -443,19 +438,19 @@ async function updateSpecialCharacterAttribute(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Query items using an attribute that is a reserved word.
- *
+ * 
  * This function demonstrates how to use expression attribute names in a query
  * when the attribute is a reserved word.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} partitionKeyName - The name of the partition key attribute
@@ -475,7 +470,7 @@ async function queryWithReservedWordAttribute(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the query parameters using expression attribute names
   const params = {
     TableName: tableName,
@@ -490,19 +485,19 @@ async function queryWithReservedWordAttribute(
       ":value": value
     }
   };
-
+  
   // Perform the query operation
   const response = await docClient.send(new QueryCommand(params));
-
+  
   return response;
 }
 
 /**
  * Update a nested attribute with a path that contains reserved words.
- *
+ * 
  * This function demonstrates how to use expression attribute names to update
  * nested attributes where the path contains reserved words.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -520,18 +515,18 @@ async function updateNestedReservedWordAttribute(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Create expression attribute names for each part of the path
   const expressionAttributeNames = {};
   for (let i = 0; i < attributePath.length; i++) {
     expressionAttributeNames[`#attr${i}`] = attributePath[i];
   }
-
+  
   // Build the attribute path using the expression attribute names
   const attributePathExpression = attributePath
     .map((_, i) => `#attr${i}`)
     .join(".");
-
+  
   // Define the update parameters
   const params = {
     TableName: tableName,
@@ -543,19 +538,19 @@ async function updateNestedReservedWordAttribute(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Scan a table with multiple attribute name placeholders.
- *
+ * 
  * This function demonstrates how to use multiple expression attribute names
  * in a complex filter expression.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} filters - Object mapping attribute names to filter values
@@ -569,25 +564,25 @@ async function scanWithMultipleAttributeNames(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Create expression attribute names and values
   const expressionAttributeNames = {};
   const expressionAttributeValues = {};
   const filterConditions = [];
-
+  
   // Build the filter expression
   Object.entries(filters).forEach(([attrName, value], index) => {
     const nameKey = `#attr${index}`;
     const valueKey = `:val${index}`;
-
+    
     expressionAttributeNames[nameKey] = attrName;
     expressionAttributeValues[valueKey] = value;
     filterConditions.push(`${nameKey} = ${valueKey}`);
   });
-
+  
   // Join the filter conditions with AND
   const filterExpression = filterConditions.join(" AND ");
-
+  
   // Define the scan parameters
   const params = {
     TableName: tableName,
@@ -595,18 +590,18 @@ async function scanWithMultipleAttributeNames(
     ExpressionAttributeNames: expressionAttributeNames,
     ExpressionAttributeValues: expressionAttributeValues
   };
-
+  
   // Perform the scan operation
   const response = await docClient.send(new ScanCommand(params));
-
+  
   return response;
 }
 
 /**
  * Get the current value of an item.
- *
+ * 
  * Helper function to retrieve the current value of an item.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to get
@@ -620,24 +615,21 @@ async function getItem(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the get parameters
   const params = {
     TableName: tableName,
     Key: key
   };
-
+  
   // Perform the get operation
   const response = await docClient.send(new GetCommand(params));
-
+  
   // Return the item if it exists, otherwise null
   return response.Item || null;
 }
-
-
 ```
-
-Example usage of expression attribute names with AWS SDK for JavaScript.
+Example usage of expression attribute names with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -648,9 +640,9 @@ async function exampleUsage() {
   const config = { region: "us-west-2" };
   const tableName = "Products";
   const key = { ProductId: "P12345" };
-
+  
   console.log("Demonstrating expression attribute names in DynamoDB");
-
+  
   try {
     // Example 1: Update an attribute that is a reserved word
     console.log("\nExample 1: Updating an attribute that is a reserved word");
@@ -661,9 +653,9 @@ async function exampleUsage() {
       "Size", // "SIZE" is a reserved word in DynamoDB
       "Large"
     );
-
+    
     console.log("Updated attribute:", response1.Attributes);
-
+    
     // Example 2: Update an attribute with special characters
     console.log("\nExample 2: Updating an attribute with special characters");
     const response2 = await updateSpecialCharacterAttribute(
@@ -673,9 +665,9 @@ async function exampleUsage() {
       "Product-Type", // Contains a hyphen, which is a special character
       "Electronics"
     );
-
+    
     console.log("Updated attribute:", response2.Attributes);
-
+    
     // Example 3: Query with a reserved word attribute
     console.log("\nExample 3: Querying with a reserved word attribute");
     const response3 = await queryWithReservedWordAttribute(
@@ -686,9 +678,9 @@ async function exampleUsage() {
       "Count", // "COUNT" is a reserved word in DynamoDB
       10
     );
-
+    
     console.log(`Found ${response3.Items.length} items`);
-
+    
     // Example 4: Update a nested attribute with reserved words in the path
     console.log("\nExample 4: Updating a nested attribute with reserved words in the path");
     const response4 = await updateNestedReservedWordAttribute(
@@ -698,9 +690,9 @@ async function exampleUsage() {
       ["Dimensions", "Size", "Height"], // "SIZE" is a reserved word
       30
     );
-
+    
     console.log("Updated nested attribute:", response4.Attributes);
-
+    
     // Example 5: Scan with multiple attribute name placeholders
     console.log("\nExample 5: Scanning with multiple attribute name placeholders");
     const response5 = await scanWithMultipleAttributeNames(
@@ -712,14 +704,14 @@ async function exampleUsage() {
         "Product-Type": "Electronics"
       }
     );
-
+    
     console.log(`Found ${response5.Items.length} items`);
-
+    
     // Get the final state of the item
     console.log("\nFinal state of the item:");
     const item = await getItem(config, tableName, key);
     console.log(JSON.stringify(item, null, 2));
-
+    
     // Show some common reserved words
     console.log("\nSome common DynamoDB reserved words:");
     const commonReservedWords = [
@@ -733,7 +725,7 @@ async function exampleUsage() {
       "VIEW", "WHERE"
     ];
     console.log(commonReservedWords.join(", "));
-
+    
     // Explain expression attribute names
     console.log("\nKey points about expression attribute names:");
     console.log("1. Use expression attribute names (#name) for reserved words");
@@ -743,25 +735,21 @@ async function exampleUsage() {
     console.log("5. You can use multiple expression attribute names in a single expression");
     console.log("6. Expression attribute names are case-sensitive");
     console.log("7. Expression attribute names are only used in expressions, not in the actual data");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand)
+  + [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  - [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate expression attribute names using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Demonstrate expression attribute names using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -1016,13 +1004,8 @@ def demonstrate_attribute_name_requirements(table_name: str, key: Dict[str, Any]
             results[example_type] = {"attribute_name": attr_name, "success": False, "error": str(e)}
 
     return results
-
-
-
-
 ```
-
-Example usage of expression attribute names with AWS SDK for Python (Boto3).
+Example usage of expression attribute names with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -1121,17 +1104,11 @@ def example_usage():
     print("3. Are case-sensitive")
     print("4. No length restrictions, but practical limits apply")
     print("5. Cannot be a DynamoDB reserved word if used directly in expressions")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  - [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

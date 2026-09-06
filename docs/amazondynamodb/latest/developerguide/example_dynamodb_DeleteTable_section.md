@@ -1,26 +1,23 @@
+
+
 # Use `DeleteTable` with an AWS SDK or CLI
+<a name="example_dynamodb_DeleteTable_section"></a>
 
 The following code examples show how to use `DeleteTable`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_dynamodb_Scenario_GettingStartedMovies_section.md) 
++  [Accelerate reads with DAX](example_dynamodb_Usage_DaxDemo_section.md) 
++  [Create and manage MRSC global tables](example_dynamodb_Scenario_MRSCGlobalTables_section.md) 
++  [Getting started with NoSQL databases](example_dynamodb_GettingStarted_070_section.md) 
++  [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md) 
++  [Work with global tables and multi-Region replication eventual consistency (MREC)](example_dynamodb_Scenario_MultiRegionReplication_section.md) 
 
-- [Learn the basics](example_dynamodb_Scenario_GettingStartedMovies_section.md "example_dynamodb_Scenario_GettingStartedMovies_section.md")
-- [Accelerate reads with DAX](example_dynamodb_Usage_DaxDemo_section.md "example_dynamodb_Usage_DaxDemo_section.md")
-- [Create and manage MRSC global tables](example_dynamodb_Scenario_MRSCGlobalTables_section.md "example_dynamodb_Scenario_MRSCGlobalTables_section.md")
-- [Getting started with NoSQL databases](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
-- [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md "example_dynamodb_Scenario_GSILifecycle_section.md")
-- [Work with global tables and multi-Region replication eventual consistency (MREC)](example_dynamodb_Scenario_MultiRegionReplication_section.md "example_dynamodb_Scenario_MultiRegionReplication_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/DynamoDB#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/DynamoDB#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/DynamoDB#code-examples). 
 
 ```
     /// <summary>
@@ -59,24 +56,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/DotNetSDKV4/dynamodb-2012-08-10/DeleteTable) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteTable](../../../goto/DotNetSDKV4/dynamodb-2012-08-10/DeleteTable.md "../../../goto/DotNetSDKV4/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples). 
 
 ```
 ###############################################################################
@@ -143,11 +130,8 @@ function dynamodb_delete_table() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -206,23 +190,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DeleteTable) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 
 ```
 //! Delete an Amazon DynamoDB table.
@@ -253,29 +228,21 @@ bool AwsDoc::DynamoDB::deleteTable(const Aws::String &tableName,
 
     return result.IsSuccess();
 }
+```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/DeleteTable) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete a table**  
+The following `delete-table` example deletes the `MusicCollection` table.  
 
 ```
-
-- For API details, see
-  [DeleteTable](../../../goto/SdkForCpp/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForCpp/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a table**
-
-The following `delete-table` example deletes the `MusicCollection` table.
-
+aws dynamodb delete-table \
+    --table-name {{MusicCollection}}
 ```
-`aws dynamodb delete-table \
- --table-name `MusicCollection``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -292,25 +259,16 @@ Output:
     }
 }
 ```
+For more information, see [Deleting a Table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeleteTable) in the *Amazon DynamoDB Developer Guide*.  
++  For API details, see [DeleteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/delete-table.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Deleting a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeleteTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.DeleteTable") in the _Amazon DynamoDB Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [DeleteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/delete-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/delete-table.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -342,24 +300,14 @@ func (basics TableBasics) DeleteTable(ctx context.Context) error {
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteTable](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.DeleteTable) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteTable](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.DeleteTable "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.DeleteTable")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -420,23 +368,14 @@ public class DeleteTable {
         System.out.println(tableName + " was successfully deleted!");
     }
 }
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples). 
 
 ```
 import { DeleteTableCommand, DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -452,21 +391,11 @@ export const main = async () => {
   console.log(response);
   return response;
 };
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteTableCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteTable](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteTableCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteTableCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -491,24 +420,15 @@ ddb.deleteTable(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/dynamodb-examples-using-tables.html#dynamodb-examples-using-tables-deleting-a-table). 
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/DeleteTable) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/dynamodb-examples-using-tables.md#dynamodb-examples-using-tables-deleting-a-table "../../../sdk-for-javascript/v2/developer-guide/dynamodb-examples-using-tables.md#dynamodb-examples-using-tables-deleting-a-table").
-- For API details, see
-  [DeleteTable](../../../goto/AWSJavaScriptSDK/dynamodb-2012-08-10/DeleteTable.md "../../../goto/AWSJavaScriptSDK/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples). 
 
 ```
 suspend fun deleteDynamoDBTable(tableNameVal: String) {
@@ -522,23 +442,14 @@ suspend fun deleteDynamoDBTable(tableNameVal: String) {
         println("$tableNameVal was deleted")
     }
 }
-
-
 ```
++  For API details, see [DeleteTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples). 
 
 ```
     public function deleteTable(string $TableName)
@@ -549,65 +460,43 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             ]);
         });
     }
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/DeleteTable) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DeleteTable](../../../goto/SdkForPHPV3/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForPHPV3/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Deletes the specified table. You are prompted for confirmation before the operation proceeds.**
+**Tools for PowerShell V4**  
+**Example 1: Deletes the specified table. You are prompted for confirmation before the operation proceeds.**  
 
 ```
 Remove-DDBTable -TableName "myTable"
-
 ```
-
-**Example 2: Deletes the specified table. You are not prompted for confirmation before the operation proceeds.**
+**Example 2: Deletes the specified table. You are not prompted for confirmation before the operation proceeds.**  
 
 ```
 Remove-DDBTable -TableName "myTable" -Force
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteTable](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Deletes the specified table. You are prompted for confirmation before the operation proceeds.**
+**Tools for PowerShell V5**  
+**Example 1: Deletes the specified table. You are prompted for confirmation before the operation proceeds.**  
 
 ```
 Remove-DDBTable -TableName "myTable"
-
 ```
-
-**Example 2: Deletes the specified table. You are not prompted for confirmation before the operation proceeds.**
+**Example 2: Deletes the specified table. You are not prompted for confirmation before the operation proceeds.**  
 
 ```
 Remove-DDBTable -TableName "myTable" -Force
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteTable](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples). 
 
 ```
 class Movies:
@@ -657,24 +546,14 @@ class Movies:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/DeleteTable) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteTable](../../../goto/boto3/dynamodb-2012-08-10/DeleteTable.md "../../../goto/boto3/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples). 
 
 ```
 # Encapsulates an Amazon DynamoDB table of movie data.
@@ -699,23 +578,14 @@ class Scaffold
     puts("\t#{e.code}: #{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/goto/SdkForRubyV3/dynamodb-2012-08-10/DeleteTable) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteTable](../../../goto/SdkForRubyV3/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForRubyV3/dynamodb-2012-08-10/DeleteTable.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples). 
 
 ```
 pub async fn delete_table(client: &Client, table: &str) -> Result<DeleteTableOutput, Error> {
@@ -729,23 +599,14 @@ pub async fn delete_table(client: &Client, table: &str) -> Result<DeleteTableOut
         Err(e) => Err(Error::Unhandled(e.into())),
     }
 }
-
-
 ```
++  For API details, see [DeleteTable](https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb/client/struct.Client.html#method.delete_table) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteTable](https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb/client/struct.Client.html#method.delete_table "https://docs.rs/aws-sdk-dynamodb/latest/aws_sdk_dynamodb/client/struct.Client.html#method.delete_table")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/dyn#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/dyn#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/dyn#code-examples). 
 
 ```
     TRY.
@@ -760,23 +621,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_dynresourceinuseex.
         MESSAGE 'The table cannot be deleted since it is in use' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteTable](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteTable](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb#code-examples). 
 
 ```
 import AWSDynamoDB
@@ -800,15 +652,9 @@ import AWSDynamoDB
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [DeleteTable](https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/deletetable(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteTable](<https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/deletetable(input:)> "https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/deletetable(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

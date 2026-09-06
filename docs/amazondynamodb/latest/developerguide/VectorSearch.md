@@ -1,351 +1,167 @@
+
+
 # Using vector indexes in DynamoDB
+<a name="VectorSearch"></a>
 
-Vector indexes are a type of index in Amazon DynamoDB that enable similarity search on vector
-embeddings stored in your table items. Unlike global secondary indexes and local secondary indexes, which support exact-match
-and range queries using `Query` and `Scan` operations, vector indexes
-use approximate nearest neighbor (ANN) search to find items whose vectors are most similar
-to a query vector that you provide. You perform these similarity searches by calling the
-[SearchVectors](../APIReference/API_SearchVectors.md "../APIReference/API_SearchVectors.md") API, which returns the most similar items ranked by a
-similarity score.
+Vector indexes are a type of index in Amazon DynamoDB that enable similarity search on vector embeddings stored in your table items. Unlike global secondary indexes and local secondary indexes, which support exact-match and range queries using `Query` and `Scan` operations, vector indexes use approximate nearest neighbor (ANN) search to find items whose vectors are most similar to a query vector that you provide. You perform these similarity searches by calling the [SearchVectors](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_SearchVectors.html) API, which returns the most similar items ranked by a similarity score.
 
-With vector indexes, you can store vector embeddings alongside your operational data in
-DynamoDB and perform similarity searches without needing a separate vector database. This
-eliminates the need for complex data replication pipelines between DynamoDB and external
-vector stores.
+With vector indexes, you can store vector embeddings alongside your operational data in DynamoDB and perform similarity searches without needing a separate vector database. This eliminates the need for complex data replication pipelines between DynamoDB and external vector stores.
 
-Vector indexes are managed through the same `CreateTable` and
-`UpdateTable` APIs that you already use, with the
-`VectorIndexes` parameter (for `CreateTable`) and the
-`VectorIndexUpdates` parameter (for `UpdateTable`).
+Vector indexes are managed through the same `CreateTable` and `UpdateTable` APIs that you already use, with the `VectorIndexes` parameter (for `CreateTable`) and the `VectorIndexUpdates` parameter (for `UpdateTable`).
 
-###### Topics
-
-- [Use cases for vector indexes](#VectorSearch.UseCases "#VectorSearch.UseCases")
-- [Comparing vector indexes with secondary indexes](#VectorSearch.WhatAre "#VectorSearch.WhatAre")
-- [Distance functions](#VectorSearch.DistanceFunctions "#VectorSearch.DistanceFunctions")
-- [How distance functions rank results](#VectorSearchWorkingWith.Ranking "#VectorSearchWorkingWith.Ranking")
-- [SearchSchema](#VectorSearch.SearchSchema "#VectorSearch.SearchSchema")
-- [Projections](#VectorSearch.Projections "#VectorSearch.Projections")
-- [Using vector indexes with other DynamoDB features](#VectorSearch.FeatureInteractions "#VectorSearch.FeatureInteractions")
-- [Creating and searching vector indexes](VectorSearchWorkingWith.md "VectorSearchWorkingWith.md")
-- [Requirements and limitations](VectorSearch.Requirements.md "VectorSearch.Requirements.md")
-- [Security and access control](VectorSearch.Security.md "VectorSearch.Security.md")
-- [Tutorial: Your first vector search](VectorSearchTutorial.md "VectorSearchTutorial.md")
-- [Data synchronization between tables and vector indexes](VectorSearchDataSync.md "VectorSearchDataSync.md")
-- [Best practices for vector indexes](VectorSearchBestPractices.md "VectorSearchBestPractices.md")
-- [Storage considerations for vector indexes](VectorSearchStorage.md "VectorSearchStorage.md")
-- [Monitoring vector index capacity](VectorSearchMonitoring.md "VectorSearchMonitoring.md")
-- [Troubleshooting vector indexes](VectorSearchTroubleshooting.md "VectorSearchTroubleshooting.md")
-- [Using vector indexes with global tables](VectorSearchGlobalTables.md "VectorSearchGlobalTables.md")
+**Topics**
++ [Use cases for vector indexes](#VectorSearch.UseCases)
++ [Comparing vector indexes with secondary indexes](#VectorSearch.WhatAre)
++ [Distance functions](#VectorSearch.DistanceFunctions)
++ [How distance functions rank results](#VectorSearchWorkingWith.Ranking)
++ [SearchSchema](#VectorSearch.SearchSchema)
++ [Projections](#VectorSearch.Projections)
++ [Using vector indexes with other DynamoDB features](#VectorSearch.FeatureInteractions)
++ [Creating and searching vector indexes](VectorSearchWorkingWith.md)
++ [Requirements and limitations](VectorSearch.Requirements.md)
++ [Security and access control](VectorSearch.Security.md)
++ [Tutorial: Your first vector search](VectorSearchTutorial.md)
++ [Data synchronization between tables and vector indexes](VectorSearchDataSync.md)
++ [Best practices for vector indexes](VectorSearchBestPractices.md)
++ [Storage considerations for vector indexes](VectorSearchStorage.md)
++ [Monitoring vector index capacity](VectorSearchMonitoring.md)
++ [Troubleshooting vector indexes](VectorSearchTroubleshooting.md)
++ [Using vector indexes with global tables](VectorSearchGlobalTables.md)
 
 ## Use cases for vector indexes
+<a name="VectorSearch.UseCases"></a>
 
-Vector indexes support a variety of use cases that involve finding similar items
-based on vector representations:
-
-- **Semantic search** – Build search
-  engines that understand the meaning of queries rather than matching keywords.
-  Store text embeddings generated by machine learning models and find
-  semantically similar content.
-- **Retrieval Augmented Generation (RAG)**
-  – Connect large language models (LLMs) with relevant knowledge bases.
-  Store document embeddings in DynamoDB and retrieve the most relevant context for
-  LLM prompts.
-- **Recommendation systems** – Find
-  similar products, content, or users based on vector representations of their
-  features or behavior.
-- **AI agent memory** – Store conversation
-  embeddings to maintain context between sessions and improve AI agent
-  performance.
-- **Anomaly and fraud detection** – Compare
-  new events against embeddings of known-normal behavior to flag outliers,
-  such as unusual transactions or fraudulent activity.
+Vector indexes support a variety of use cases that involve finding similar items based on vector representations:
++ **Semantic search** – Build search engines that understand the meaning of queries rather than matching keywords. Store text embeddings generated by machine learning models and find semantically similar content.
++ **Retrieval Augmented Generation (RAG)** – Connect large language models (LLMs) with relevant knowledge bases. Store document embeddings in DynamoDB and retrieve the most relevant context for LLM prompts.
++ **Recommendation systems** – Find similar products, content, or users based on vector representations of their features or behavior.
++ **AI agent memory** – Store conversation embeddings to maintain context between sessions and improve AI agent performance.
++ **Anomaly and fraud detection** – Compare new events against embeddings of known-normal behavior to flag outliers, such as unusual transactions or fraudulent activity.
 
 ## Comparing vector indexes with secondary indexes
+<a name="VectorSearch.WhatAre"></a>
 
 The following table compares vector indexes with global secondary indexes and local secondary indexes.
 
-| Feature           | Vector index                                                                 | Global secondary index                    | Local secondary index                  |
-| ----------------- | ---------------------------------------------------------------------------- | ----------------------------------------- | -------------------------------------- |
-| Query type        | Similarity search                                                            | Exact match and range                     | Exact match and range                  |
-| Read API          | `SearchVectors`                                                              | `Query`, `Scan`                           | `Query`, `Scan`                        |
-| Schema            | Vector attribute, plus optional SearchSchema (partition key, inline filters) | Partition key(s) and optional sort key(s) | Same partition key, different sort key |
-| Maximum per table | 5                                                                            | 20                                        | 5                                      |
-| Capacity mode     | On-demand only                                                               | On-demand or provisioned                  | On-demand or provisioned               |
+
+| Feature | Vector index | Global secondary index | Local secondary index | 
+| --- | --- | --- | --- | 
+| Query type | Similarity search | Exact match and range | Exact match and range | 
+| Read API | SearchVectors | Query, Scan | Query, Scan | 
+| Schema | Vector attribute, plus optional SearchSchema (partition key, inline filters) | Partition key(s) and optional sort key(s) | Same partition key, different sort key | 
+| Maximum per table | 5 | 20 | 5 | 
+| Capacity mode | On-demand only | On-demand or provisioned | On-demand or provisioned | 
 
 ## Distance functions
+<a name="VectorSearch.DistanceFunctions"></a>
 
-When you create a vector index, you choose a distance function. The distance
-function determines how DynamoDB measures similarity between vectors. Your choice
-affects ranking quality and search accuracy. Amazon DynamoDB supports three distance
-functions.
+When you create a vector index, you choose a distance function. The distance function determines how DynamoDB measures similarity between vectors. Your choice affects ranking quality and search accuracy. Amazon DynamoDB supports three distance functions.
 
-| Distance function | Score interpretation                                                                                                                                                                               | Best match      |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `COSINE`          | Lower scores indicate greater similarity. Measures the cosine<br>distance (1 minus cosine similarity) between two vectors. Values range<br>from 0 (identical direction) to 2 (opposite direction). | Smallest scores |
-| `DOT_PRODUCT`     | Higher scores indicate greater similarity. Measures the dot product<br>between two vectors.                                                                                                        | Highest scores  |
-| `EUCLIDEAN`       | Lower scores indicate greater similarity. Measures the straight-line<br>distance between two vectors.                                                                                              | Smallest scores |
 
-To compare how distance functions rank the same query vector, see
-[How distance functions rank results](#VectorSearchWorkingWith.Ranking "#VectorSearchWorkingWith.Ranking").
+| Distance function | Score interpretation | Best match | 
+| --- | --- | --- | 
+| COSINE | Lower scores indicate greater similarity. Measures the cosine distance (1 minus cosine similarity) between two vectors. Values range from 0 (identical direction) to 2 (opposite direction). | Smallest scores | 
+| DOT\_PRODUCT | Higher scores indicate greater similarity. Measures the dot product between two vectors. | Highest scores | 
+| EUCLIDEAN | Lower scores indicate greater similarity. Measures the straight-line distance between two vectors. | Smallest scores | 
 
-The following guidance helps you choose the right distance function for your
-workload.
+To compare how distance functions rank the same query vector, see [How distance functions rank results](#VectorSearchWorkingWith.Ranking).
 
-`COSINE`
+The following guidance helps you choose the right distance function for your workload.
 
-Compares direction and ignores magnitude. Use
-`COSINE` for semantic similarity with text embedding models.
-These models encode meaning in direction, and vector length can vary.
-Examples include Amazon Titan Text Embeddings and Cohere Embed.
+`COSINE`  
+Compares direction and ignores magnitude. Use `COSINE` for semantic similarity with text embedding models. These models encode meaning in direction, and vector length can vary. Examples include Amazon Titan Text Embeddings and Cohere Embed.  
+`COSINE` is well suited for the following use cases:  
++ Semantic search over product descriptions or documents
++ Retrieval Augmented Generation (RAG)
++ FAQ matching
+`COSINE` is the safe default when you are unsure which function to use.
 
-`COSINE` is well suited for the following use
-cases:
+`DOT_PRODUCT`  
+`DOT_PRODUCT` is sensitive to both direction and magnitude (the length of a vector). Choose `DOT_PRODUCT` when your embedding model's documentation recommends dot product as the similarity measure, or when you want vector length to influence ranking.  
+`DOT_PRODUCT` is well suited for the following use cases:  
++ Recommendation systems that use popularity or confidence scores to scale embeddings and influence ranking
++ Models whose documentation specifically recommends dot product as the similarity measure
++ Magnitude-sensitive ranking where vector length carries meaningful signal
+We recommend normalizing your embeddings to unit length. When normalized, `DOT_PRODUCT` ranks results the same way as `COSINE`. Skip normalization only if you want magnitude to affect ranking.  
+Example use case: a product recommendation system where you scale each product embedding by its popularity score. More popular products get longer vectors and rank higher in search results.
 
-- Semantic search over product descriptions or documents
-- Retrieval Augmented Generation (RAG)
-- FAQ matching
+`EUCLIDEAN`  
+Measures straight-line distance between two vectors. `EUCLIDEAN` is sensitive to magnitude. Use it when absolute position in the embedding space matters.  
+`EUCLIDEAN` is well suited for the following use cases:  
++ Image or audio embeddings where spatial distance matters
++ Near-duplicate detection
++ Clustering and anomaly detection
+Example use case: finding near-duplicate images from image embeddings.
 
-`COSINE` is the safe default when you are unsure which
-function to use.
-
-`DOT_PRODUCT`
-
-`DOT_PRODUCT` is sensitive to both direction and
-magnitude (the length of a vector). Choose `DOT_PRODUCT`
-when your embedding model's documentation recommends dot product as
-the similarity measure, or when you want vector length to influence
-ranking.
-
-`DOT_PRODUCT` is well suited for the following use
-cases:
-
-- Recommendation systems that use popularity or confidence
-  scores to scale embeddings and influence ranking
-- Models whose documentation specifically recommends dot
-  product as the similarity measure
-- Magnitude-sensitive ranking where vector length carries
-  meaningful signal
-
-We recommend normalizing your embeddings to unit length. When
-normalized, `DOT_PRODUCT` ranks results the same way as
-`COSINE`. Skip normalization only if you want magnitude
-to affect ranking.
-
-Example use case: a product recommendation system where you scale
-each product embedding by its popularity score. More popular products
-get longer vectors and rank higher in search results.
-
-`EUCLIDEAN`
-
-Measures straight-line distance between two vectors.
-`EUCLIDEAN` is sensitive to magnitude. Use it when absolute
-position in the embedding space matters.
-
-`EUCLIDEAN` is well suited for the following use
-cases:
-
-- Image or audio embeddings where spatial distance matters
-- Near-duplicate detection
-- Clustering and anomaly detection
-
-Example use case: finding near-duplicate images from image
-embeddings.
-
-###### Choose a distance function that matches your embedding model
-
-If you are unsure which function to use, check your embedding model's
-documentation. Validate your choice against a representative dataset. You
-cannot change the distance function after index creation. For more
-information, see
-[Match the distance function to your embeddings](VectorSearchBestPractices.md#VectorSearchBestPractices.DistanceFunction "VectorSearchBestPractices.md#VectorSearchBestPractices.DistanceFunction").
+**Choose a distance function that matches your embedding model**  
+If you are unsure which function to use, check your embedding model's documentation. Validate your choice against a representative dataset. You cannot change the distance function after index creation. For more information, see [Match the distance function to your embeddings](VectorSearchBestPractices.md#VectorSearchBestPractices.DistanceFunction).
 
 ## How distance functions rank results
+<a name="VectorSearchWorkingWith.Ranking"></a>
 
-The distance function you choose when you create the index determines both the
-`Score` value and the sort order of results. The same query can rank the
-same items differently under different distance functions. The following example uses
-the query vector `[1, 0, 0, 0]` against four stored vectors.
+The distance function you choose when you create the index determines both the `Score` value and the sort order of results. The same query can rank the same items differently under different distance functions. The following example uses the query vector `[1, 0, 0, 0]` against four stored vectors.
 
-| Stored vector            | `COSINE` (lower is more similar) | `EUCLIDEAN` (lower is more similar) | `DOT_PRODUCT` (higher is more similar) |
-| ------------------------ | -------------------------------- | ----------------------------------- | -------------------------------------- |
-| `[1, 0, 0, 0]`           | 0.0                              | 0.0                                 | 1.0                                    |
-| `[10, 0, 0, 0]`          | 0.0                              | 9.0                                 | 10.0                                   |
-| `[0.7071, 0.7071, 0, 0]` | 0.29                             | 0.77                                | 0.71                                   |
-| `[-1, 0, 0, 0]`          | 2.0                              | 2.0                                 | -1.0                                   |
+
+| Stored vector | `COSINE` (lower is more similar) | `EUCLIDEAN` (lower is more similar) | `DOT_PRODUCT` (higher is more similar) | 
+| --- | --- | --- | --- | 
+| [1, 0, 0, 0] | 0.0 | 0.0 | 1.0 | 
+| [10, 0, 0, 0] | 0.0 | 9.0 | 10.0 | 
+| [0.7071, 0.7071, 0, 0] | 0.29 | 0.77 | 0.71 | 
+| [-1, 0, 0, 0] | 2.0 | 2.0 | -1.0 | 
 
 Two behaviors are worth noting:
-
-- `COSINE` ignores magnitude. It scores `[1, 0, 0, 0]`
-  and `[10, 0, 0, 0]` identically (both `0.0`) because they
-  point in the same direction. `EUCLIDEAN` ranks
-  `[10, 0, 0, 0]` last for the same query because it measures absolute
-  distance, which increases with a vector's magnitude.
-- `DOT_PRODUCT` scores can be negative. A vector pointing in the
-  opposite direction (`[-1, 0, 0, 0]`) scores `-1.0`. Do
-  not assume scores are always non-negative when you sort or apply thresholds to
-  results.
++ `COSINE` ignores magnitude. It scores `[1, 0, 0, 0]` and `[10, 0, 0, 0]` identically (both `0.0`) because they point in the same direction. `EUCLIDEAN` ranks `[10, 0, 0, 0]` last for the same query because it measures absolute distance, which increases with a vector's magnitude.
++ `DOT_PRODUCT` scores can be negative. A vector pointing in the opposite direction (`[-1, 0, 0, 0]`) scores `-1.0`. Do not assume scores are always non-negative when you sort or apply thresholds to results.
 
 ## SearchSchema
+<a name="VectorSearch.SearchSchema"></a>
 
-When you create a vector index, you can optionally define a SearchSchema that
-specifies vector index partition keys and inline filter attributes.
+When you create a vector index, you can optionally define a SearchSchema that specifies vector index partition keys and inline filter attributes.
 
-`HASH` (vector index partition key)
+`HASH` (vector index partition key)  
+A vector index partition key scopes each search to the vectors that share the same value for an attribute you choose. Items with the same partition key value are stored together, so the search reads only that subset instead of scanning the whole index. At high scale, a vector index partition key lowers search latency because the search examines only a subset of the vector space. Use attributes with low-to-medium cardinality, such as `Category` or `Country`. You can specify at most one vector index partition key.  
+If you define a vector index partition key in the SearchSchema, you must provide its value in the `SearchConditionExpression` when you call `SearchVectors`.  
+**Use a partition key to scale search throughput**  
+Define a vector index partition key when you expect a large index or high search volume. Because each `SearchVectors` call is scoped to a single partition key value, distributing your data across many partition key values lets you run more search operations per second and reduces the amount of data each search examines. See [Choose a partition key that matches your query patterns](VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey).
 
-A vector index partition key scopes each search to the vectors that share the
-same value for an attribute you choose. Items with the same partition
-key value are stored together, so the search reads only that subset instead
-of scanning the whole index. At high scale, a
-vector index partition key lowers search latency because the search examines
-only a subset of the vector space. Use attributes
-with low-to-medium cardinality, such as `Category` or
-`Country`. You can specify at most one vector index partition
-key.
+`INLINE_FILTER`  
+An inline filter attribute is a regular, non-vector attribute whose value DynamoDB stores in the vector index next to each vector. Because the value sits with the vector, DynamoDB skips vectors that don't match your filter as it searches the index. This avoids searching the full index first and then discarding results that don't match.  
+For example, if you define a `Language` attribute as an inline filter, a search that filters on `Language` considers only the vectors whose `Language` value matches.  
+Inline filters support the equality operator (`=`) in `SearchConditionExpression`. Comparison, range, and set-membership operators (`<>`, `<`, `<=`, `>`, `>=`, `IN`) are not yet available. Unlike vector index partition keys, inline filters are optional during search.
 
-If you define a vector index partition key in the SearchSchema, you must provide its
-value in the `SearchConditionExpression` when you call
-`SearchVectors`.
-
-###### Use a partition key to scale search throughput
-
-Define a vector index partition key when you expect a large index
-or high search volume. Because each `SearchVectors` call is
-scoped to a single partition key value, distributing your data across
-many partition key values lets you run more search operations per
-second and reduces the amount of data each search examines. See
-[Choose a partition key that matches your query patterns](VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey "VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey").
-
-`INLINE_FILTER`
-
-An inline filter attribute is a regular, non-vector attribute whose value
-DynamoDB stores in the vector index next to each vector. Because the value sits
-with the vector, DynamoDB skips vectors that don't match your filter as it
-searches the index. This avoids searching the full index first and then
-discarding results that don't match.
-
-For example, if you define a `Language` attribute as an inline
-filter, a search that filters on `Language` considers only the
-vectors whose `Language` value matches.
-
-Inline filters support the equality operator (`=`) in
-`SearchConditionExpression`. Comparison, range, and set-membership
-operators (`<>`, `<`, `<=`,
-`>`, `>=`, `IN`) are not yet
-available. Unlike vector index partition keys, inline filters are optional during
-search.
-
-You can create a vector index without defining a partition key in the SearchSchema.
-In this case, every `SearchVectors` call searches the entire index. This
-is simpler because you don't need a `SearchConditionExpression`. However,
-because each search examines the entire index, the work each search does—and
-therefore its latency and cost—grows as your index grows. You also can't spread
-search throughput across multiple partition key values. If your workload requires high
-throughput or your index contains a large number of vectors, define a partition key to
-distribute data across partitions and scale independently. See
-[Choose a partition key that matches your query patterns](VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey "VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey").
+You can create a vector index without defining a partition key in the SearchSchema. In this case, every `SearchVectors` call searches the entire index. This is simpler because you don't need a `SearchConditionExpression`. However, because each search examines the entire index, the work each search does—and therefore its latency and cost—grows as your index grows. You also can't spread search throughput across multiple partition key values. If your workload requires high throughput or your index contains a large number of vectors, define a partition key to distribute data across partitions and scale independently. See [Choose a partition key that matches your query patterns](VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey).
 
 ## Projections
+<a name="VectorSearch.Projections"></a>
 
-Like global secondary indexes, vector indexes support projections that control which attributes from
-the base table are copied into the index. You specify the projection when you create
-the vector index.
+Like global secondary indexes, vector indexes support projections that control which attributes from the base table are copied into the index. You specify the projection when you create the vector index.
++ `KEYS_ONLY` — Only the base table primary key attributes, the vector attribute, and any inline filter attributes defined in the SearchSchema are projected into the index.
++ `INCLUDE` — In addition to `KEYS_ONLY` attributes, you specify additional non-key attributes to project. You cannot change the set of included attributes after the vector index is created. To project a different set of attributes, delete the index and re-create it with the projection you want.
++ `ALL` — All attributes from the base table are projected into the index.
 
-- `KEYS_ONLY` — Only the base table primary key attributes,
-  the vector attribute, and any inline filter attributes defined in the
-  SearchSchema are projected into the index.
-- `INCLUDE` — In addition to `KEYS_ONLY`
-  attributes, you specify additional non-key attributes to project. You cannot
-  change the set of included attributes after the vector index is created. To
-  project a different set of attributes, delete the index and re-create it with
-  the projection you want.
-- `ALL` — All attributes from the base table are projected
-  into the index.
-
-###### Projection limits what SearchVectors can return
-
-Attributes that are not projected into the vector index cannot be returned in
-`SearchVectors` responses. If you need specific attributes in search
-results, include them in the projection or use `ALL`.
+**Projection limits what SearchVectors can return**  
+Attributes that are not projected into the vector index cannot be returned in `SearchVectors` responses. If you need specific attributes in search results, include them in the projection or use `ALL`.
 
 ## Using vector indexes with other DynamoDB features
+<a name="VectorSearch.FeatureInteractions"></a>
 
-DynamoDB Streams
+DynamoDB Streams  
+You can enable DynamoDB Streams on a table that has a vector index, either with the `StreamSpecification` parameter when you create the table or through `UpdateTable`. The stream captures item-level changes to the base table, and operates independently of the vector index.
 
-You can enable DynamoDB Streams on a table that has a vector index, either
-with the `StreamSpecification` parameter when you create the
-table or through `UpdateTable`. The stream captures item-level
-changes to the base table, and operates independently of the vector
-index.
+Global tables  
+You can add a vector index to a global table, and you can convert a table that has a vector index into a global table by adding a replica with `UpdateTable`. The vector index definition, including its dimensions, distance function, SearchSchema, and projection, is replicated automatically to each new replica Region. You do not create the vector index separately in the replica Region.  
+Items that you write in any replica Region are replicated to the other Regions and indexed there. After replication completes, `SearchVectors` in each Region searches the same set of vectors. Because vector search uses approximate nearest neighbor (ANN), separate searches in different Regions might return slightly different results or ordering for the same query, even over identical data. Table replication between Regions follows the consistency guarantee of the global table, including strong consistency for multi-Region strong consistency (MRSC) global tables. Vector indexing, however, always happens asynchronously after a write is applied to the table, in every Region—including the Region you wrote to. The MRSC guarantee covers the table, not the vector index. As a result, a delay occurs between the time a write is acknowledged and the time that vector becomes searchable through `SearchVectors`. This delay applies locally as well as across Regions.  
+**On-demand capacity required**  
+Vector indexes use on-demand capacity mode only, and they require a table that also uses on-demand capacity mode. You cannot mix the two capacity modes. Global tables support on-demand capacity mode. Create the vector index and the replica on a table that already uses on-demand capacity.
 
-Global tables
+Point-in-time recovery (PITR) and backups  
+When you restore a table from a point-in-time recovery or an on-demand backup, DynamoDB restores the base table data and the vector index definition. As with global secondary indexes, DynamoDB rebuilds the vector index from the restored base table data rather than copying it byte-for-byte, so the index goes through backfilling before it is ready for search. Wait until `IndexStatus` is `ACTIVE` and `Backfilling` is not `true` on the restored index before you run `SearchVectors`.
 
-You can add a vector index to a global table, and you can convert a
-table that has a vector index into a global table by adding a replica with
-`UpdateTable`. The vector index definition, including its
-dimensions, distance function, SearchSchema, and projection, is replicated
-automatically to each new replica Region. You do not create the vector index
-separately in the replica Region.
+Time to Live (TTL)  
+You can use DynamoDB TTL on a table that has a vector index. When TTL deletes an expired item from the base table, DynamoDB removes the corresponding entry from the vector index, the same way a manual delete does. Expired items therefore stop appearing in `SearchVectors` results after the deletion propagates to the index.
 
-Items that you write in any replica Region are replicated to the other
-Regions and indexed there. After replication completes,
-`SearchVectors` in each Region searches the same set of vectors.
-Because vector search uses approximate nearest neighbor (ANN), separate
-searches in different Regions might return slightly different results or
-ordering for the same query, even over identical data. Table replication
-between Regions follows the consistency guarantee of the global table,
-including strong consistency for multi-Region strong consistency (MRSC)
-global tables. Vector indexing, however, always happens asynchronously after
-a write is applied to the table, in every Region—including the Region
-you wrote to. The MRSC guarantee covers the table, not the vector index. As a
-result, a delay occurs between the time a write is acknowledged and the time
-that vector becomes searchable through `SearchVectors`. This
-delay applies locally as well as across Regions.
+Importing and exporting table data  
+You can export a table that has a vector index to Amazon S3; the export contains the base table items, including the vector attributes stored on them. When you import data from Amazon S3 into a new table, define the vector index in the import request the same way you would with `CreateTable`. DynamoDB indexes the imported items as they are written, and the vector index becomes available after the import completes.
 
-###### On-demand capacity required
-
-Vector indexes use on-demand capacity mode only, and they require a
-table that also uses on-demand capacity mode. You cannot mix the two
-capacity modes. Global tables support on-demand capacity mode. Create the
-vector index and the replica on a table that already uses on-demand
-capacity.
-
-Point-in-time recovery (PITR) and backups
-
-When you restore a table from a point-in-time recovery or an on-demand
-backup, DynamoDB restores the base table data and the vector index definition.
-As with global secondary indexes, DynamoDB rebuilds the vector index from the restored base
-table data rather than copying it byte-for-byte, so the index goes through
-backfilling before it is ready for search. Wait until
-`IndexStatus` is `ACTIVE` and `Backfilling`
-is not `true` on the restored index before you run
-`SearchVectors`.
-
-Time to Live (TTL)
-
-You can use DynamoDB TTL on a table that has a vector index. When TTL
-deletes an expired item from the base table, DynamoDB removes the
-corresponding entry from the vector index, the same way a manual delete
-does. Expired items therefore stop appearing in `SearchVectors`
-results after the deletion propagates to the index.
-
-Importing and exporting table data
-
-You can export a table that has a vector index to Amazon S3; the export
-contains the base table items, including the vector attributes stored on
-them. When you import data from Amazon S3 into a new table, define the
-vector index in the import request the same way you would with
-`CreateTable`. DynamoDB indexes the imported items as they are
-written, and the vector index becomes available after the import
-completes.
-
-DAX
-
-DynamoDB Accelerator (DAX) does not support the `SearchVectors`
-operation. Send `SearchVectors` requests directly to DynamoDB, even
-when your application uses DAX for other read operations. DAX caching of
-base table reads is unaffected by the presence of a vector index. If you need
-a caching layer for vector search results, you can cache
-`SearchVectors` responses in an external cache, such as
-Amazon ElastiCache for Valkey. You are responsible for populating and
-invalidating that cache.
+DAX  
+DynamoDB Accelerator (DAX) does not support the `SearchVectors` operation. Send `SearchVectors` requests directly to DynamoDB, even when your application uses DAX for other read operations. DAX caching of base table reads is unaffected by the presence of a vector index. If you need a caching layer for vector search results, you can cache `SearchVectors` responses in an external cache, such as Amazon ElastiCache for Valkey. You are responsible for populating and invalidating that cache.

@@ -1,161 +1,155 @@
+
+
 # Increase your existing DynamoDB table's warm throughput
+<a name="update-warm-throughput"></a>
 
-After you've checked your DynamoDB table's current warm throughput value, you can
-update it with the following steps:
+After you've checked your DynamoDB table's current warm throughput value, you can update it with the following steps:
 
-To check your DynamoDB table's warm throughput value using the DynamoDB
-console:
+## AWS Management Console
+<a name="warm-throughput-update-console"></a>
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. In the left navigation pane, choose Tables.
-3. On the **Tables** page, choose your
-   desired table.
-4. In the **Warm throughput** field,
-   select **Edit**.
-5. On the **Edit warm throughput** page,
-   choose **Increase warm
-   throughput**.
-6. Adjust the **read units per second**
-   and **write units pers second**. These
-   two settings define the throughput your table can instantly
-   handle.
-7. Select **Save**.
-8. Your **read units per second** and
-   **write units per second** will be
-   updated in the **Warm throughput**
-   field when the request finishes processing.
+To check your DynamoDB table's warm throughput value using the DynamoDB console:
 
-###### Note
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-Updating your warm throughput value is an asynchronous task.
-The `Status` will change from `UPDATING`
-to `ACTIVE` when the update is complete.
-The following AWS CLI example shows you how to update your DynamoDB table's
-warm throughput value.
+1. In the left navigation pane, choose Tables.
 
-1. Run the `update-table` operation on your DynamoDB
-   table.
+1. On the **Tables** page, choose your desired table.
 
-```
-aws dynamodb update-table \
-    --table-name GameScores \
-    --warm-throughput ReadUnitsPerSecond=12345,WriteUnitsPerSecond=4567 \
-    --global-secondary-index-updates \
-        "[
-            {
-                \"Update\": {
-                    \"IndexName\": \"GameTitleIndex\",
-                    \"WarmThroughput\": {
-                        \"ReadUnitsPerSecond\": 88,
-                        \"WriteUnitsPerSecond\": 77
-                    }
-                }
-            }
-        ]" \
-    --region us-east-1
-```
+1. In the **Warm throughput** field, select **Edit**.
 
-2. You’ll receive a response similar to the one below. Your
-   `WarmThroughput` settings will be displayed as
-   `ReadUnitsPerSecond` and
-   `WriteUnitsPerSecond`. The `Status` will
-   be `UPDATING` when the warm throughput value is being
-   updated, and `ACTIVE` when the new warm throughput value
-   is set.
+1. On the **Edit warm throughput** page, choose **Increase warm throughput**.
 
-```
-{
-    "TableDescription": {
-        "AttributeDefinitions": [
-            {
-                "AttributeName": "GameTitle",
-                "AttributeType": "S"
-            },
-            {
-                "AttributeName": "TopScore",
-                "AttributeType": "N"
-            },
-            {
-                "AttributeName": "UserId",
-                "AttributeType": "S"
-            }
-        ],
-        "TableName": "GameScores",
-        "KeySchema": [
-            {
-                "AttributeName": "UserId",
-                "KeyType": "HASH"
-            },
-            {
-                "AttributeName": "GameTitle",
-                "KeyType": "RANGE"
-            }
-        ],
-        "TableStatus": "ACTIVE",
-        "CreationDateTime": 1730242189.965,
-        "ProvisionedThroughput": {
-            "NumberOfDecreasesToday": 0,
-            "ReadCapacityUnits": 20,
-            "WriteCapacityUnits": 10
-        },
-        "TableSizeBytes": 0,
-        "ItemCount": 0,
-        "TableArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores",
-        "TableId": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-        "GlobalSecondaryIndexes": [
-            {
-                "IndexName": "GameTitleIndex",
-                "KeySchema": [
-                    {
-                        "AttributeName": "GameTitle",
-                        "KeyType": "HASH"
-                    },
-                    {
-                        "AttributeName": "TopScore",
-                        "KeyType": "RANGE"
-                    }
-                ],
-                "Projection": {
-                    "ProjectionType": "INCLUDE",
-                    "NonKeyAttributes": [
-                        "UserId"
-                    ]
-                },
-                "IndexStatus": "ACTIVE",
-                "ProvisionedThroughput": {
-                    "NumberOfDecreasesToday": 0,
-                    "ReadCapacityUnits": 50,
-                    "WriteCapacityUnits": 25
-                },
-                "IndexSizeBytes": 0,
-                "ItemCount": 0,
-                "IndexArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores/index/GameTitleIndex",
-                "WarmThroughput": {
-                    "ReadUnitsPerSecond": 50,
-                    "WriteUnitsPerSecond": 25,
-                    "Status": "UPDATING"
-                }
-            }
-        ],
-        "DeletionProtectionEnabled": false,
-        "WarmThroughput": {
-            "ReadUnitsPerSecond": 12300,
-            "WriteUnitsPerSecond": 4500,
-            "Status": "UPDATING"
-        }
-    }
-}
-```
+1. Adjust the **read units per second** and **write units pers second**. These two settings define the throughput your table can instantly handle.
 
-The following SDK examples shows you how to update your DynamoDB table's warm
-throughput value.
+1. Select **Save**.
 
-Java
+1. Your **read units per second** and **write units per second** will be updated in the **Warm throughput** field when the request finishes processing.
+**Note**  
+Updating your warm throughput value is an asynchronous task. The `Status` will change from `UPDATING` to `ACTIVE` when the update is complete.
 
-**SDK for Java 2.x**
+## AWS CLI
+<a name="warm-throughput-update-CLI"></a>
 
-Update warm throughput setting on an existing DynamoDB table using AWS SDK for Java 2.x.
+The following AWS CLI example shows you how to update your DynamoDB table's warm throughput value.
+
+1. Run the `update-table` operation on your DynamoDB table.
+
+   ```
+   aws dynamodb update-table \
+       --table-name GameScores \
+       --warm-throughput ReadUnitsPerSecond=12345,WriteUnitsPerSecond=4567 \
+       --global-secondary-index-updates \
+           "[
+               {
+                   \"Update\": {
+                       \"IndexName\": \"GameTitleIndex\",
+                       \"WarmThroughput\": {
+                           \"ReadUnitsPerSecond\": 88,
+                           \"WriteUnitsPerSecond\": 77
+                       }
+                   }
+               }
+           ]" \
+       --region us-east-1
+   ```
+
+1. You’ll receive a response similar to the one below. Your `WarmThroughput` settings will be displayed as `ReadUnitsPerSecond` and `WriteUnitsPerSecond`. The `Status` will be `UPDATING` when the warm throughput value is being updated, and `ACTIVE` when the new warm throughput value is set.
+
+   ```
+   {
+       "TableDescription": {
+           "AttributeDefinitions": [
+               {
+                   "AttributeName": "GameTitle",
+                   "AttributeType": "S"
+               },
+               {
+                   "AttributeName": "TopScore",
+                   "AttributeType": "N"
+               },
+               {
+                   "AttributeName": "UserId",
+                   "AttributeType": "S"
+               }
+           ],
+           "TableName": "GameScores",
+           "KeySchema": [
+               {
+                   "AttributeName": "UserId",
+                   "KeyType": "HASH"
+               },
+               {
+                   "AttributeName": "GameTitle",
+                   "KeyType": "RANGE"
+               }
+           ],
+           "TableStatus": "ACTIVE",
+           "CreationDateTime": 1730242189.965,
+           "ProvisionedThroughput": {
+               "NumberOfDecreasesToday": 0,
+               "ReadCapacityUnits": 20,
+               "WriteCapacityUnits": 10
+           },
+           "TableSizeBytes": 0,
+           "ItemCount": 0,
+           "TableArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores",
+           "TableId": "XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+           "GlobalSecondaryIndexes": [
+               {
+                   "IndexName": "GameTitleIndex",
+                   "KeySchema": [
+                       {
+                           "AttributeName": "GameTitle",
+                           "KeyType": "HASH"
+                       },
+                       {
+                           "AttributeName": "TopScore",
+                           "KeyType": "RANGE"
+                       }
+                   ],
+                   "Projection": {
+                       "ProjectionType": "INCLUDE",
+                       "NonKeyAttributes": [
+                           "UserId"
+                       ]
+                   },
+                   "IndexStatus": "ACTIVE",
+                   "ProvisionedThroughput": {
+                       "NumberOfDecreasesToday": 0,
+                       "ReadCapacityUnits": 50,
+                       "WriteCapacityUnits": 25
+                   },
+                   "IndexSizeBytes": 0,
+                   "ItemCount": 0,
+                   "IndexArn": "arn:aws:dynamodb:us-east-1:XXXXXXXXXXXX:table/GameScores/index/GameTitleIndex",
+                   "WarmThroughput": {
+                       "ReadUnitsPerSecond": 50,
+                       "WriteUnitsPerSecond": 25,
+                       "Status": "UPDATING"
+                   }
+               }
+           ],
+           "DeletionProtectionEnabled": false,
+           "WarmThroughput": {
+               "ReadUnitsPerSecond": 12300,
+               "WriteUnitsPerSecond": 4500,
+               "Status": "UPDATING"
+           }
+       }
+   }
+   ```
+
+## AWS SDK
+<a name="warm-throughput-update-SDK"></a>
+
+The following SDK examples shows you how to update your DynamoDB table's warm throughput value.
+
+------
+#### [ Java ]
+
+**SDK for Java 2.x**  
+Update warm throughput setting on an existing DynamoDB table using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -219,19 +213,14 @@ import software.amazon.awssdk.services.dynamodb.model.WarmThroughput;
 
         System.out.println(SUCCESS_MESSAGE);
     }
-
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Update warm throughput setting on an existing DynamoDB table using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Update warm throughput setting on an existing DynamoDB table using AWS SDK for JavaScript.  
 
 ```
 import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb";
@@ -287,20 +276,14 @@ updateDynamoDBTableWarmThroughput(
   2, 2
 );
 */
-
-
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTableCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateTable](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTableCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTableCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Update warm throughput setting on an existing DynamoDB table using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Update warm throughput setting on an existing DynamoDB table using AWS SDK for Python (Boto3).  
 
 ```
 from boto3 import client
@@ -362,10 +345,7 @@ def update_dynamodb_table_warm_throughput(
     except ClientError as e:
         print(f"Error updating table: {e}")
         raise e
-
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateTable) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateTable](../../../goto/boto3/dynamodb-2012-08-10/UpdateTable.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateTable.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------

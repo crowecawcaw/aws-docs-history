@@ -1,7 +1,9 @@
-# 02-write-data.js
 
-The `02-write-data.js` program writes test data to
-`TryDaxTable`.
+
+# 02-write-data.js
+<a name="DAX.client.run-application-nodejs.02-write-data"></a>
+
+The `02-write-data.js` program writes test data to `TryDaxTable`.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -44,6 +46,4 @@ for (var ipk = 1; ipk <= pkmax; ipk++) {
     });
   }
 }
-
-
 ```

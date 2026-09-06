@@ -1,16 +1,18 @@
+
+
 # Query a DynamoDB table with pagination using an AWS SDK
+<a name="example_dynamodb_Scenarios_QueryWithPagination_section"></a>
 
 The following code examples show how to query a table with pagination.
++ Implement pagination for DynamoDB query results.
++ Use the LastEvaluatedKey to retrieve subsequent pages.
++ Control the number of items per page with the Limit parameter.
 
-- Implement pagination for DynamoDB query results.
-- Use the LastEvaluatedKey to retrieve subsequent pages.
-- Control the number of items per page with the Limit parameter.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Query a DynamoDB table with pagination using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query a DynamoDB table with pagination using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -96,11 +98,8 @@ import java.util.Map;
             throw e;
         }
     }
-
-
 ```
-
-Demonstrates how to query a DynamoDB table with pagination.
+Demonstrates how to query a DynamoDB table with pagination.  
 
 ```
     public static void main(String[] args) {
@@ -168,25 +167,19 @@ Demonstrates how to query a DynamoDB table with pagination.
             System.exit(1);
         }
     }
+```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v3)**  
+Query a DynamoDB table with pagination using AWS SDK for JavaScript.  
 
 ```
-
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query a DynamoDB table with pagination using AWS SDK for JavaScript.
-
-```
-
 /**
  * Example demonstrating how to handle large query result sets in DynamoDB using pagination
- *
+ * 
  * This example shows:
  * - How to use pagination to handle large result sets
  * - How to use LastEvaluatedKey to retrieve the next page of results
@@ -196,7 +189,7 @@ const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
  * Queries a DynamoDB table with pagination to handle large result sets
- *
+ * 
  * @param {Object} config - AWS SDK configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} partitionKeyName - The name of the partition key
@@ -214,12 +207,12 @@ async function queryWithPagination(
   try {
     // Create DynamoDB client
     const client = new DynamoDBClient(config);
-
+    
     // Initialize variables for pagination
     let lastEvaluatedKey = undefined;
     const allItems = [];
     let pageCount = 0;
-
+    
     // Loop until all pages are retrieved
     do {
       // Construct the query input
@@ -234,30 +227,30 @@ async function queryWithPagination(
           ":pkValue": { S: partitionKeyValue }
         }
       };
-
+      
       // Add ExclusiveStartKey if we have a LastEvaluatedKey from a previous query
       if (lastEvaluatedKey) {
         input.ExclusiveStartKey = lastEvaluatedKey;
       }
-
+      
       // Execute the query
       const command = new QueryCommand(input);
       const response = await client.send(command);
-
+      
       // Process the current page of results
       pageCount++;
       console.log(`Processing page ${pageCount} with ${response.Items.length} items`);
-
+      
       // Add the items from this page to our collection
       if (response.Items && response.Items.length > 0) {
         allItems.push(...response.Items);
       }
-
+      
       // Get the LastEvaluatedKey for the next page
       lastEvaluatedKey = response.LastEvaluatedKey;
-
+      
     } while (lastEvaluatedKey); // Continue until there are no more pages
-
+    
     console.log(`Query complete. Retrieved ${allItems.length} items in ${pageCount} pages.`);
     return allItems;
   } catch (error) {
@@ -268,7 +261,7 @@ async function queryWithPagination(
 
 /**
  * Example usage:
- *
+ * 
  * // Query all items in the "AWS DynamoDB" forum with pagination
  * const allItems = await queryWithPagination(
  *   { region: "us-west-2" },
@@ -277,9 +270,9 @@ async function queryWithPagination(
  *   "AWS DynamoDB",
  *   25 // 25 items per page
  * );
- *
+ * 
  * console.log(`Total items retrieved: ${allItems.length}`);
- *
+ * 
  * // Notes on pagination:
  * // - LastEvaluatedKey contains the primary key of the last evaluated item
  * // - When LastEvaluatedKey is undefined/null, there are no more items to retrieve
@@ -289,19 +282,14 @@ async function queryWithPagination(
  */
 
 module.exports = { queryWithPagination };
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query a DynamoDB table with pagination using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query a DynamoDB table with pagination using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -427,16 +415,9 @@ def query_with_pagination_generator(
         # If there's no LastEvaluatedKey, we've reached the end of the results
         if is_last_page:
             break
-
-
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,7 +1,9 @@
-# 04-query-test.js
 
-The `04-query-test.js` program performs `Query`
-operations on `TryDaxTable`.
+
+# 04-query-test.js
+<a name="DAX.client.run-application-nodejs.04-query-test"></a>
+
+The `04-query-test.js` program performs `Query` operations on `TryDaxTable`.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -65,6 +67,4 @@ for (var i = 0; i < iterations; i++) {
     "ms"
   );
 }
-
-
 ```

@@ -1,10 +1,11 @@
-# 05-Scan-Test.cs
 
-The `05-Scan-Test.cs` program performs `Scan` operations
-on `TryDaxTable`.
+
+# 05-Scan-Test.cs
+<a name="DAX.client.run-application-dotnet.05-Scan-Test"></a>
+
+The `05-Scan-Test.cs` program performs `Scan` operations on `TryDaxTable`.
 
 ```
-
 using System;
 using System.Threading.Tasks;
 using Amazon.Runtime;
@@ -51,6 +52,4 @@ namespace ClientTest
         }
     }
 }
-
-
 ```

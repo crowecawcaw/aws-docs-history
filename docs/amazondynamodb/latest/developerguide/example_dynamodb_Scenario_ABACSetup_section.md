@@ -1,22 +1,24 @@
+
+
 # Set up Attribute-Based Access Control for DynamoDB using AWS Command Line Interface v2
+<a name="example_dynamodb_Scenario_ABACSetup_section"></a>
 
 The following code example shows how to implement Attribute-Based Access Control (ABAC) for DynamoDB.
++ Create an IAM policy for ABAC.
++ Create tables with tags for different departments.
++ List and filter tables based on tags.
 
-- Create an IAM policy for ABAC.
-- Create tables with tags for different departments.
-- List and filter tables based on tags.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create an IAM policy for ABAC.
+**AWS CLI with Bash script**  
+Create an IAM policy for ABAC.  
 
 ```
 # Step 1: Create a policy document for ABAC
 cat > abac-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -57,11 +59,8 @@ EOF
 aws iam create-policy \
     --policy-name DynamoDBDepartmentBasedAccess \
     --policy-document file://abac-policy.json
-
-
 ```
-
-Create tables with tags for different departments.
+Create tables with tags for different departments.  
 
 ```
 # Create a DynamoDB table with tags for ABAC
@@ -87,11 +86,8 @@ aws dynamodb create-table \
     --tags \
         Key=Department,Value=Marketing \
         Key=Environment,Value=Production
-
-
 ```
-
-List and filter tables based on tags.
+List and filter tables based on tags.  
 
 ```
 # List all DynamoDB tables
@@ -119,16 +115,12 @@ for ARN in $TABLE_ARNS; do
         echo "Table with Production tag: $TABLE_NAME"
     fi
 done
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreatePolicy)
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [ListTables](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/ListTables)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [ListTables](../../../goto/aws-cli/dynamodb-2012-08-10/ListTables.md "../../../goto/aws-cli/dynamodb-2012-08-10/ListTables.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

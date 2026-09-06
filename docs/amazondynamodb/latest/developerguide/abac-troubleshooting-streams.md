@@ -1,6 +1,12 @@
+
+
 # Troubleshooting common ABAC errors for DynamoDB Streams
+<a name="abac-troubleshooting-streams"></a>
 
 If you receive an `AccessDeniedException` or your tag-based conditions don't behave as expected after you enable ABAC for DynamoDB Streams, use this topic to diagnose and resolve the most common causes.
+
+## Service-specific condition keys in policies result in an error
+<a name="abac-troubleshooting-streams-service-specific-keys"></a>
 
 Service-specific condition keys aren't considered as valid condition keys. If you've used such keys in your policies, these keys result in an error. You must replace the service-specific condition keys with an appropriate condition key to implement ABAC for DynamoDB Streams.
 
@@ -48,7 +54,13 @@ To fix this issue, replace the `dynamodb:ResourceTag` condition key with `aws:Re
 }
 ```
 
+## Streams ABAC is enabled but tag conditions are not evaluated
+<a name="abac-troubleshooting-streams-not-evaluated"></a>
+
 If you recently enabled Streams ABAC, the change might not have propagated yet. Updating the status of Streams ABAC is an asynchronous operation. Wait a few minutes and retry your request.
+
+## Unable to tag a stream after parent table is deleted
+<a name="abac-troubleshooting-streams-tag-deleted-table"></a>
 
 After a parent table is deleted, the stream continues to exist for 24 hours before being removed. During this 24-hour window, you can manage stream tags using the CLI or SDK commands (`tag-resource`, `untag-resource`, and `list-tags-of-resource`) with the stream ARN. You can't use the console or CloudFormation to modify tags on a stream whose parent table no longer exists.
 
@@ -69,11 +81,17 @@ aws dynamodb list-tags-of-resource \
 
 If you receive a `ResourceNotFoundException`, the 24-hour retention period has expired and the stream no longer exists.
 
-You can opt out of Streams ABAC yourself only if the following are true:
+## Unable to opt out of Streams ABAC
+<a name="abac-troubleshooting-streams-unable-opt-out"></a>
 
-- You used the self-service way of opting in through the DynamoDB console.
-- You're opting out within seven calendar days of opting in.
-  If Streams ABAC was enabled for your account through Support, you won't be able to opt out through the DynamoDB console. To opt out, contact Support.
+You can opt out of Streams ABAC yourself only if the following are true:
++ You used the self-service way of opting in through the DynamoDB console.
++ You're opting out within seven calendar days of opting in.
+
+If Streams ABAC was enabled for your account through Support, you won't be able to opt out through the DynamoDB console. To opt out, contact Support.
+
+## CloudFormation deployments fail when tagging streams
+<a name="abac-troubleshooting-streams-cfn-tagging"></a>
 
 CloudFormation deployments that create or update a table with a stream might fail if the IAM role is missing required permissions. Specifically, the role must have `dynamodb:TagResource` and `dynamodb:UntagResource` permissions for stream resources. This applies to both `AWS::DynamoDB::Table` and `AWS::DynamoDB::GlobalTable` resource types, and affects both explicit stream tags and inherited stack-level tags.
 

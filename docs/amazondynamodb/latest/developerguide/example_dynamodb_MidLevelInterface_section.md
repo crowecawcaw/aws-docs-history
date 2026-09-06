@@ -1,23 +1,20 @@
+
+
 # Use a document model for DynamoDB using an AWS SDK
+<a name="example_dynamodb_MidLevelInterface_section"></a>
 
 The following code example shows how to perform Create, Read, Update, and Delete (CRUD) and batch operations using a document model for DynamoDB and an AWS SDK.
 
-For more information, see [Document model](DotNetSDKMidLevel.md "DotNetSDKMidLevel.md").
+For more information, see [Document model](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DotNetSDKMidLevel.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb/mid-level-api#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb/mid-level-api#code-examples").
-
-Perform CRUD operations using a document model.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb/mid-level-api#code-examples). 
+Perform CRUD operations using a document model.  
 
 ```
-
     /// <summary>
     /// Performs CRUD operations on an Amazon DynamoDB table.
     /// </summary>
@@ -238,15 +235,10 @@ Perform CRUD operations using a document model.
             }
         }
     }
-
-
+```
+Perform batch write operations using a document model.  
 
 ```
-
-Perform batch write operations using a document model.
-
-```
-
     /// <summary>
     /// Shows how to use mid-level Amazon DynamoDB API calls to perform batch
     /// operations.
@@ -334,15 +326,10 @@ Perform batch write operations using a document model.
             await superBatch.ExecuteAsync();
         }
     }
-
-
+```
+Scan a table using a document model.  
 
 ```
-
-Scan a table using a document model.
-
-```
-
     /// <summary>
     /// Shows how to use mid-level Amazon DynamoDB API calls to scan a DynamoDB
     /// table for values.
@@ -446,15 +433,10 @@ Scan a table using a document model.
             }
         }
     }
-
-
+```
+Query and scan a table using a document model.  
 
 ```
-
-Query and scan a table using a document model.
-
-```
-
     /// <summary>
     /// Shows how to perform mid-level query procedures on an Amazon DynamoDB
     /// table.
@@ -651,11 +633,8 @@ Query and scan a table using a document model.
             }
         }
     }
-
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,21 +1,19 @@
+
+
 # Getting started with NoSQL databases
+<a name="example_dynamodb_GettingStarted_070_section"></a>
 
 The following code example shows how to:
++ Create a table in DynamoDB
++ Update data in a DynamoDB table
++ Query data in a DynamoDB table
++ Delete your DynamoDB table
 
-- Create a table in DynamoDB
-- Update data in a DynamoDB table
-- Query data in a DynamoDB table
-- Delete your DynamoDB table
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/070-amazon-dynamodb-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/070-amazon-dynamodb-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/070-amazon-dynamodb-gs) repository. 
 
 ```
 #!/bin/bash
@@ -59,7 +57,7 @@ fi
 check_error() {
     local output=$1
     local cmd_name=$2
-
+    
     if echo "$output" | grep -qi "error\|failed"; then
         echo "ERROR detected in $cmd_name command:" >&2
         echo "$output" >&2
@@ -74,21 +72,21 @@ wait_for_table_active() {
     local max_attempts=60
     local attempt=0
     local status=""
-
+    
     echo "Waiting for table $table_name to become ACTIVE..."
-
+    
     while [[ "$status" != "ACTIVE" && $attempt -lt $max_attempts ]]; do
         sleep 5
         status=$(aws dynamodb describe-table --table-name "$table_name" --query "Table.TableStatus" --output text 2>/dev/null || echo "UNKNOWN")
         echo "Current status: $status"
         ((attempt++))
     done
-
+    
     if [[ "$status" != "ACTIVE" ]]; then
         echo "ERROR: Table $table_name did not become ACTIVE within timeout period" >&2
         return 1
     fi
-
+    
     echo "Table $table_name is now ACTIVE"
     return 0
 }
@@ -99,11 +97,11 @@ declare -a RESOURCES=()
 # Cleanup function
 cleanup() {
     local exit_code=$?
-
+    
     if [[ $exit_code -ne 0 ]]; then
         echo "Script encountered an error (exit code: $exit_code)" >&2
     fi
-
+    
     echo ""
     echo "==========================================="
     echo "CLEANUP"
@@ -113,10 +111,10 @@ cleanup() {
         echo "- $resource"
     done
     echo ""
-
+    
     if [[ ${#RESOURCES[@]} -gt 0 ]]; then
         echo "Proceeding with cleanup of all created resources..."
-
+        
         for resource in "${RESOURCES[@]+"${RESOURCES[@]}"}"; do
             if [[ "$resource" == Table:* ]]; then
                 local table_name="${resource#Table:}"
@@ -129,10 +127,10 @@ cleanup() {
                 fi
             fi
         done
-
+        
         echo "Cleanup completed."
     fi
-
+    
     return $exit_code
 }
 
@@ -267,21 +265,18 @@ echo "$QUERY_OUTPUT"
 
 echo "DynamoDB Getting Started Tutorial completed successfully at $(date)"
 echo "Log file: $LOG_FILE"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DeleteTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DescribeTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
+  + [Query](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/Query)
+  + [UpdateContinuousBackups](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateContinuousBackups)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateItem)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
-  - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
-  - [GetItem](../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md")
-  - [Query](../../../goto/aws-cli/dynamodb-2012-08-10/Query.md "../../../goto/aws-cli/dynamodb-2012-08-10/Query.md")
-  - [UpdateContinuousBackups](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateContinuousBackups.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateContinuousBackups.md")
-  - [UpdateItem](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateItem.md")
-  - [Wait](../../../goto/aws-cli/dynamodb-2012-08-10/Wait.md "../../../goto/aws-cli/dynamodb-2012-08-10/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

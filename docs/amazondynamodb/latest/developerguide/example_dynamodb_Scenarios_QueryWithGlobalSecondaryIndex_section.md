@@ -1,16 +1,18 @@
+
+
 # Query a DynamoDB table using a Global Secondary Index with an AWS SDK
+<a name="example_dynamodb_Scenarios_QueryWithGlobalSecondaryIndex_section"></a>
 
 The following code examples show how to query a table using a Global Secondary Index.
++ Query a DynamoDB table using its primary key.
++ Query a Global Secondary Index (GSI) for alternate access patterns.
++ Compare table queries and GSI queries.
 
-- Query a DynamoDB table using its primary key.
-- Query a Global Secondary Index (GSI) for alternate access patterns.
-- Compare table queries and GSI queries.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Query a DynamoDB table using its primary key and a Global Secondary Index (GSI) with AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query a DynamoDB table using its primary key and a Global Secondary Index (GSI) with AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -109,11 +111,8 @@ import java.util.Map;
             throw new DynamoDbQueryException("Failed to execute query on GSI", e);
         }
     }
-
-
 ```
-
-Compare querying a table directly versus querying a GSI with AWS SDK for Java 2.x.
+Compare querying a table directly versus querying a GSI with AWS SDK for Java 2.x.  
 
 ```
     public static void main(String[] args) {
@@ -185,26 +184,21 @@ Compare querying a table directly versus querying a GSI with AWS SDK for Java 2.
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query a DynamoDB table using the primary key with AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query a DynamoDB table using the primary key with AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
  * Queries a DynamoDB table using the primary key
- *
+ * 
  * @param {Object} config - AWS SDK configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} userId - The user ID to query by (partition key)
@@ -236,16 +230,13 @@ async function queryTable(
     throw error;
   }
 }
-
-
 ```
-
-Query a DynamoDB Global Secondary Index (GSI) with AWS SDK for JavaScript.
+Query a DynamoDB Global Secondary Index (GSI) with AWS SDK for JavaScript.  
 
 ```
 /**
  * Queries a DynamoDB Global Secondary Index (GSI)
- *
+ * 
  * @param {Object} config - AWS SDK configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} indexName - The name of the GSI to query
@@ -280,19 +271,14 @@ async function queryGSI(
     throw error;
   }
 }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query a DynamoDB table using its primary key and a Global Secondary Index (GSI) with AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query a DynamoDB table using its primary key and a Global Secondary Index (GSI) with AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -344,16 +330,9 @@ def query_gsi(table_name, index_name, partition_key_name, partition_key_value):
     )
 
     return response
-
-
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,27 +1,25 @@
+
+
 # Use `DescribeTimeToLive` with an AWS SDK or CLI
+<a name="example_dynamodb_DescribeTimeToLive_section"></a>
 
 The following code examples show how to use `DescribeTimeToLive`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Work with Streams and Time-to-Live](example_dynamodb_Scenario_StreamsAndTTL_section.md) 
 
-- [Work with Streams and Time-to-Live](example_dynamodb_Scenario_StreamsAndTTL_section.md "example_dynamodb_Scenario_StreamsAndTTL_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To view Time to Live settings for a table**
-
-The following `describe-time-to-live` example displays Time to Live settings for the `MusicCollection` table.
+**AWS CLI**  
+**To view Time to Live settings for a table**  
+The following `describe-time-to-live` example displays Time to Live settings for the `MusicCollection` table.  
 
 ```
-`aws dynamodb describe-time-to-live \
- --table-name `MusicCollection``
-
+aws dynamodb describe-time-to-live \
+    --table-name {{MusicCollection}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -31,18 +29,14 @@ Output:
     }
 }
 ```
+For more information, see [Time to Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in the *Amazon DynamoDB Developer Guide*.  
++  For API details, see [DescribeTimeToLive](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/describe-time-to-live.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Time to Live](TTL.md "TTL.md") in the _Amazon DynamoDB Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeTimeToLive](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/describe-time-to-live.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/describe-time-to-live.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-Describe TTL configuration on an existing DynamoDB table using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Describe TTL configuration on an existing DynamoDB table using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -71,19 +65,14 @@ import java.util.logging.Logger;
             throw e;
         }
     }
-
-
 ```
++  For API details, see [DescribeTimeToLive](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTimeToLive) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeTimeToLive](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTimeToLive.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTimeToLive.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Describe TTL configuration on an existing DynamoDB table using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Describe TTL configuration on an existing DynamoDB table using AWS SDK for JavaScript.  
 
 ```
 import { DynamoDBClient, DescribeTimeToLiveCommand } from "@aws-sdk/client-dynamodb";
@@ -112,18 +101,14 @@ export const describeTTL = async (tableName, region) => {
 
 // Example usage (commented out for testing)
 // describeTTL('your-table-name', 'us-east-1');
-
 ```
++  For API details, see [DescribeTimeToLive](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DescribeTimeToLiveCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeTimeToLive](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DescribeTimeToLiveCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DescribeTimeToLiveCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Describe TTL configuration on an existing DynamoDB table using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Describe TTL configuration on an existing DynamoDB table using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -152,14 +137,9 @@ def describe_ttl(table_name, region):
 
 # Enter your own table name and AWS region
 describe_ttl("your-table-name", "us-east-1")
-
-
 ```
++  For API details, see [DescribeTimeToLive](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/DescribeTimeToLive) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeTimeToLive](../../../goto/boto3/dynamodb-2012-08-10/DescribeTimeToLive.md "../../../goto/boto3/dynamodb-2012-08-10/DescribeTimeToLive.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

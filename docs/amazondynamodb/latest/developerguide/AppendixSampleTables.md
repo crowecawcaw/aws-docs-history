@@ -1,46 +1,44 @@
+
+
 # Example tables and data for use in DynamoDB
+<a name="AppendixSampleTables"></a>
 
-The _Amazon DynamoDB Developer Guide_ uses sample tables to
-illustrate various aspects of DynamoDB.
+The *Amazon DynamoDB Developer Guide* uses sample tables to illustrate various aspects of DynamoDB.
 
-| Table name       | Primary key                                                              |
-| ---------------- | ------------------------------------------------------------------------ |
-| _ProductCatalog_ | Simple primary key:<br>• `Id` (Number)                                   |
-| _Forum_          | Simple primary key:<br>• `Name` (String)                                 |
-| _Thread_         | Composite primary key:<br>• `ForumName` (String)<br>• `Subject` (String) |
-| _Reply_          | Composite primary key:<br>• `Id` (String)<br>• `ReplyDateTime` (String)  |
 
-The _Reply_ table has a global secondary index named
-_PostedBy-Message-Index_. This index will
-facilitate queries on two non-key attributes of the
-_Reply_ table.
 
-| Index name               | Primary key                                                             |
-| ------------------------ | ----------------------------------------------------------------------- |
-| _PostedBy-Message-Index_ | Composite primary key:<br>• `PostedBy` (String)<br>• `Message` (String) |
+| Table name | Primary key | 
+| --- | --- | 
+| ProductCatalog | Simple primary key:+  `Id` (Number)  | 
+| Forum | Simple primary key:+  `Name` (String)  | 
+| Thread | Composite primary key:+  `ForumName` (String) <br />+  `Subject` (String)  | 
+| Reply | Composite primary key:+  `Id` (String) <br />+   `ReplyDateTime` (String)  | 
 
-For more information about these tables, see [Step 1: Create a table in DynamoDB](getting-started-step-1.md "getting-started-step-1.md") and [Step 2: Write data to a DynamoDB table](getting-started-step-2.md "getting-started-step-2.md").
+The *Reply* table has a global secondary index named *PostedBy-Message-Index*. This index will facilitate queries on two non-key attributes of the *Reply* table.
+
+
+
+| Index name | Primary key | 
+| --- | --- | 
+| PostedBy-Message-Index | Composite primary key:+  `PostedBy` (String) <br />+  `Message` (String)  | 
+
+For more information about these tables, see [Step 1: Create a table in DynamoDB](getting-started-step-1.md) and [Step 2: Write data to a DynamoDB table](getting-started-step-2.md).
 
 ## Sample data files
+<a name="AppendixSampleData"></a>
 
-###### Topics
+**Topics**
++ [*ProductCatalog* sample data](#AppendixSampleData.ProductCatalog)
++ [*Forum* sample data](#AppendixSampleData.Forum)
++ [*Thread* sample data](#AppendixSampleData.Thread)
++ [*Reply* sample data](#AppendixSampleDataProductCatalog)
 
-- [ProductCatalog sample data](#AppendixSampleData.ProductCatalog "#AppendixSampleData.ProductCatalog")
-- [Forum sample data](#AppendixSampleData.Forum "#AppendixSampleData.Forum")
-- [Thread sample data](#AppendixSampleData.Thread "#AppendixSampleData.Thread")
-- [Reply sample data](#AppendixSampleDataProductCatalog "#AppendixSampleDataProductCatalog")
+The following sections show the sample data files that are used for loading the *ProductCatalog*, *Forum*, *Thread* and *Reply* tables.
 
-The following sections show the sample data files that are used
-for loading the _ProductCatalog_,
-_Forum_, _Thread_ and
-_Reply_ tables.
+Each data file contains multiple `PutRequest` elements, each of which contain a single item. These `PutRequest` elements are used as input to the `BatchWriteItem` operation, using the AWS Command Line Interface (AWS CLI).
 
-Each data file contains multiple `PutRequest` elements,
-each of which contain a single item. These `PutRequest`
-elements are used as input to the `BatchWriteItem`
-operation, using the AWS Command Line Interface (AWS CLI).
-
-### _ProductCatalog_ sample data
+### *ProductCatalog* sample data
+<a name="AppendixSampleData.ProductCatalog"></a>
 
 ```
 {
@@ -349,10 +347,10 @@ operation, using the AWS Command Line Interface (AWS CLI).
         }
     ]
 }
-
 ```
 
-### _Forum_ sample data
+### *Forum* sample data
+<a name="AppendixSampleData.Forum"></a>
 
 ```
 {
@@ -378,10 +376,10 @@ operation, using the AWS Command Line Interface (AWS CLI).
         }
     ]
 }
-
 ```
 
-### _Thread_ sample data
+### *Thread* sample data
+<a name="AppendixSampleData.Thread"></a>
 
 ```
 {
@@ -514,10 +512,10 @@ operation, using the AWS Command Line Interface (AWS CLI).
         }
     ]
 }
-
 ```
 
-### _Reply_ sample data
+### *Reply* sample data
+<a name="AppendixSampleDataProductCatalog"></a>
 
 ```
 {

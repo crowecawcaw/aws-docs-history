@@ -1,10 +1,11 @@
-# 03-GetItem-Test.cs
 
-The `03-GetItem-Test.cs` program performs `GetItem`
-operations on `TryDaxTable`.
+
+# 03-GetItem-Test.cs
+<a name="DAX.client.run-application-dotnet.03-GetItem-Test"></a>
+
+The `03-GetItem-Test.cs` program performs `GetItem` operations on `TryDaxTable`.
 
 ```
-
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -64,6 +65,4 @@ namespace ClientTest
         }
     }
 }
-
-
 ```

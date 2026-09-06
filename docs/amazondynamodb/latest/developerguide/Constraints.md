@@ -1,491 +1,334 @@
+
+
 # Constraints in Amazon DynamoDB
+<a name="Constraints"></a>
 
-This section describes current constraints, formerly referred to as limits, within Amazon DynamoDB.
+This section describes current constraints, formerly referred to as limits, within Amazon DynamoDB. 
 
-###### Note
-
+**Note**  
 All size measurements in DynamoDB use binary-based units. DynamoDB denotes 1 KB = 1024 bytes, 1 MB = 1024 KB, 1 GB = 1024 MB, 1 TB = 1024 GB.
 
-###### Topics
-
-- [Read/write capacity mode](#default-limits-capacity-modes "#default-limits-capacity-modes")
-- [Secondary indexes](#limits-secondary-indexes "#limits-secondary-indexes")
-- [Partition keys and sort keys](#limits-partition-sort-keys "#limits-partition-sort-keys")
-- [Naming rules](#limits-naming-rules "#limits-naming-rules")
-- [Data types](#limits-data-types "#limits-data-types")
-- [Items](#limits-items "#limits-items")
-- [Attributes](#limits-attributes "#limits-attributes")
-- [Expression parameters](#limits-expression-parameters "#limits-expression-parameters")
-- [DynamoDB transactions](#limits-dynamodb-transactions "#limits-dynamodb-transactions")
-- [DynamoDB Streams](#constraints-dynamodb-streams "#constraints-dynamodb-streams")
-- [DynamoDB Accelerator (DAX)](#limits-dax "#limits-dax")
-- [API-specific constraints](#limits-api "#limits-api")
-- [DynamoDB encryption at rest](#limits-dynamodb-encryption "#limits-dynamodb-encryption")
+**Topics**
++ [Read/write capacity mode](#default-limits-capacity-modes)
++ [Secondary indexes](#limits-secondary-indexes)
++ [Partition keys and sort keys](#limits-partition-sort-keys)
++ [Naming rules](#limits-naming-rules)
++ [Data types](#limits-data-types)
++ [Items](#limits-items)
++ [Attributes](#limits-attributes)
++ [Expression parameters](#limits-expression-parameters)
++ [DynamoDB transactions](#limits-dynamodb-transactions)
++ [DynamoDB Streams](#constraints-dynamodb-streams)
++ [DynamoDB Accelerator (DAX)](#limits-dax)
++ [API-specific constraints](#limits-api)
++ [DynamoDB encryption at rest](#limits-dynamodb-encryption)
 
 ## Read/write capacity mode
+<a name="default-limits-capacity-modes"></a>
 
-You can switch tables from provisioned capacity mode to on-demand mode up to four times in a 24-hour rolling window.
-You can switch tables from on-demand mode to provisioned capacity mode at any time.
+You can switch tables from provisioned capacity mode to on-demand mode up to four times in a 24-hour rolling window. You can switch tables from on-demand mode to provisioned capacity mode at any time. 
 
-For more information about switching between read and write capacity modes, see [Considerations when switching capacity modes in DynamoDB](bp-switching-capacity-modes.md "bp-switching-capacity-modes.md").
+For more information about switching between read and write capacity modes, see [Considerations when switching capacity modes in DynamoDB](bp-switching-capacity-modes.md).
 
 ### Capacity unit sizes (for provisioned tables)
+<a name="limits-capacity-units"></a>
 
-One read capacity unit = one strongly consistent read per second, or two eventually
-consistent reads per second, for items up to 4 KB in size.
+One read capacity unit = one strongly consistent read per second, or two eventually consistent reads per second, for items up to 4 KB in size.
 
-One write capacity unit = one write per second, for items up to 1 KB in
-size.
+One write capacity unit = one write per second, for items up to 1 KB in size.
 
-Transactional read requests require two read capacity units to perform one read per second
-for items up to 4 KB.
+Transactional read requests require two read capacity units to perform one read per second for items up to 4 KB.
 
-Transactional write requests require two write capacity units to perform one write per
-second for items up to 1 KB.
+Transactional write requests require two write capacity units to perform one write per second for items up to 1 KB.
 
 ### Request unit sizes (for on-demand tables)
+<a name="limits-request-units"></a>
 
-One read request unit = one strongly consistent read per second, or two eventually
-consistent reads per second, for items up to 4 KB in size.
+One read request unit = one strongly consistent read per second, or two eventually consistent reads per second, for items up to 4 KB in size.
 
 One write request unit = one write per second, for items up to 1 KB in size.
 
-Transactional read requests require two read request units to perform one read per second
-for items up to 4 KB.
+Transactional read requests require two read request units to perform one read per second for items up to 4 KB.
 
-Transactional write requests require two write request units to perform one write per
-second for items up to 1 KB.
+Transactional write requests require two write request units to perform one write per second for items up to 1 KB.
 
 ## Secondary indexes
+<a name="limits-secondary-indexes"></a>
 
 ### Projected Secondary Index attributes per table
+<a name="limits-tables-projected-secondary-index-attributes"></a>
 
-You can project a total of up to 100 attributes into all of a table's local and global
-secondary indexes. This only applies to user-specified projected attributes.
+You can project a total of up to 100 attributes into all of a table's local and global secondary indexes. This only applies to user-specified projected attributes.
 
-In a `CreateTable` operation, if you specify a `ProjectionType` of
-`INCLUDE`, the total count of attributes specified in `NonKeyAttributes`,
-summed across all of the secondary indexes, must not exceed 100. If
-you project the same attribute name into two different indexes, this counts as two distinct
-attributes when determining the total.
+In a `CreateTable` operation, if you specify a `ProjectionType` of `INCLUDE`, the total count of attributes specified in `NonKeyAttributes`, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute name into two different indexes, this counts as two distinct attributes when determining the total.
 
-This limit does not apply for secondary indexes with a `ProjectionType` of
-`KEYS_ONLY` or `ALL`.
+This limit does not apply for secondary indexes with a `ProjectionType` of `KEYS_ONLY` or `ALL`. 
 
 ## Partition keys and sort keys
+<a name="limits-partition-sort-keys"></a>
 
 ### Partition key length
+<a name="limits-partition-key-length"></a>
 
-The minimum length of a partition key value is 1 byte. The maximum length is
-2048 bytes.
+The minimum length of a partition key value is 1 byte. The maximum length is 2048 bytes.
 
 ### Partition key values
+<a name="limits-partition-key-values"></a>
 
-There is no practical limit on the number of distinct partition key values, for
-tables or for secondary indexes.
+There is no practical limit on the number of distinct partition key values, for tables or for secondary indexes.
 
 ### Sort key length
+<a name="limits-sort-key-length"></a>
 
-The minimum length of a sort key value is 1 byte. The maximum length is
-1024 bytes.
+The minimum length of a sort key value is 1 byte. The maximum length is 1024 bytes.
 
 ### Sort key values
+<a name="limits-sort-key-values"></a>
 
-In general, there is no practical limit on the number of distinct sort key values
-per partition key value.
+In general, there is no practical limit on the number of distinct sort key values per partition key value.
 
-The exception is for tables with secondary indexes. An item collection is the set
-of items which have the same value of partition key attribute. In a global secondary index the item
-collection is independent of the base table (and can have a different partition key
-attribute), but in a local secondary index the indexed view is colocated in the same partition as
-the item in the table and shares the same partition key attribute. As a result of
-this locality, when a table has one or more LSIs, the item collection cannot be
-distributed to multiple partitions.
+The exception is for tables with secondary indexes. An item collection is the set of items which have the same value of partition key attribute. In a global secondary index the item collection is independent of the base table (and can have a different partition key attribute), but in a local secondary index the indexed view is colocated in the same partition as the item in the table and shares the same partition key attribute. As a result of this locality, when a table has one or more LSIs, the item collection cannot be distributed to multiple partitions.
 
-For a table with one or more LSIs, item collections cannot exceed 10GB in size.
-This includes all base table items and all projected LSI views which have the same
-value of the partition key attribute. 10GB is the maximum size of a partition. For
-more detailed information, see [Item collection size limit](LSI.md#LSI.ItemCollections.SizeLimit "LSI.md#LSI.ItemCollections.SizeLimit").
+For a table with one or more LSIs, item collections cannot exceed 10GB in size. This includes all base table items and all projected LSI views which have the same value of the partition key attribute. 10GB is the maximum size of a partition. For more detailed information, see [Item collection size limit](LSI.md#LSI.ItemCollections.SizeLimit).
 
 ## Naming rules
+<a name="limits-naming-rules"></a>
 
 ### Table names and Secondary Index names
+<a name="limits-naming-rules-tables-secondary-indexes"></a>
 
-Names for tables and secondary indexes must be at least 3 characters long, but no
-greater than 255 characters long. The following are the allowed characters:
-
-- `A-Z`
-- `a-z`
-- `0-9`
-- `_` (underscore)
-- `-` (hyphen)
-- `.` (dot)
+Names for tables and secondary indexes must be at least 3 characters long, but no greater than 255 characters long. The following are the allowed characters:
++ `A-Z`
++ `a-z`
++ `0-9`
++ `_` (underscore)
++ `-` (hyphen)
++ `.` (dot)
 
 ### Attribute names
+<a name="limits-naming-rules-attributes"></a>
 
-In general, an attribute name must be at least one character long, but no greater
-than 64 KB long.
+In general, an attribute name must be at least one character long, but no greater than 64 KB long.
 
-The following are the exceptions. These attribute names must be no greater than
-255 characters long:
+The following are the exceptions. These attribute names must be no greater than 255 characters long:
++ Secondary index partition key names.
++ Secondary index sort key names.
++ The names of any user-specified projected attributes (applicable only to local secondary indexes). In a `CreateTable` operation, if you specify a `ProjectionType` of `INCLUDE`, the names of the attributes in the `NonKeyAttributes` parameter are length-restricted. The `KEYS_ONLY` and `ALL` projection types are not affected. 
 
-- Secondary index partition key names.
-- Secondary index sort key names.
-- The names of any user-specified projected attributes (applicable only to
-  local secondary indexes). In a `CreateTable` operation, if you specify a
-  `ProjectionType` of `INCLUDE`, the names of the
-  attributes in the `NonKeyAttributes` parameter are
-  length-restricted. The `KEYS_ONLY` and `ALL`
-  projection types are not affected.
-
-These attribute names must be encoded using UTF-8, and the total size of each name
-(after encoding) cannot exceed 255 bytes.
+These attribute names must be encoded using UTF-8, and the total size of each name (after encoding) cannot exceed 255 bytes.
 
 ## Data types
+<a name="limits-data-types"></a>
 
 ### String
+<a name="limits-data-types-strings"></a>
 
-The length of a String is constrained by the maximum item size of
-400 KB.
+The length of a String is constrained by the maximum item size of 400 KB.
 
-Strings are Unicode with UTF-8 binary encoding. Because UTF-8 is a variable width
-encoding, DynamoDB determines the length of a String using its UTF-8 bytes.
+Strings are Unicode with UTF-8 binary encoding. Because UTF-8 is a variable width encoding, DynamoDB determines the length of a String using its UTF-8 bytes. 
 
 ### Number
+<a name="limits-data-types-numbers"></a>
 
-A Number can have up to 38 digits of precision, and can be positive, negative, or
-zero.
+A Number can have up to 38 digits of precision, and can be positive, negative, or zero.
++ Positive range: `1E-130` to `9.9999999999999999999999999999999999999E+125`
++ Negative range: `-9.9999999999999999999999999999999999999E+125` to `-1E-130`
 
-- Positive range: `1E-130` to
-  `9.9999999999999999999999999999999999999E+125`
-- Negative range: `-9.9999999999999999999999999999999999999E+125`
-  to `-1E-130`
+DynamoDB uses JSON strings to represent Number data in requests and replies. For more information, see [DynamoDB low-level API](Programming.LowLevelAPI.md).
 
-DynamoDB uses JSON strings to represent Number data in requests and replies. For more
-information, see [DynamoDB low-level API](Programming.LowLevelAPI.md "Programming.LowLevelAPI.md").
-
-If number precision is important, you should pass numbers to DynamoDB using strings
-that you convert from a number type.
+If number precision is important, you should pass numbers to DynamoDB using strings that you convert from a number type.
 
 ### Binary
+<a name="limits-data-types-binary"></a>
 
-The length of a Binary is constrained by the maximum item size of
-400 KB.
+The length of a Binary is constrained by the maximum item size of 400 KB.
 
-Applications that work with Binary attributes must encode the data in base64
-format before sending it to DynamoDB. Upon receipt of the data, DynamoDB decodes it into
-an unsigned byte array and uses that as the length of the attribute.
+Applications that work with Binary attributes must encode the data in base64 format before sending it to DynamoDB. Upon receipt of the data, DynamoDB decodes it into an unsigned byte array and uses that as the length of the attribute. 
 
 ## Items
+<a name="limits-items"></a>
 
 ### Item size
+<a name="limits-items-size"></a>
 
-The maximum item size in DynamoDB is 400 KB, which includes both attribute
-name binary length (UTF-8 length) and attribute value lengths (again binary length).
-The attribute name counts towards the size limit.
+The maximum item size in DynamoDB is 400 KB, which includes both attribute name binary length (UTF-8 length) and attribute value lengths (again binary length). The attribute name counts towards the size limit.
 
-For example, consider an item with two attributes: one attribute named
-"shirt-color" with value "R" and another attribute named "shirt-size" with value
-"M". The total size of that item is 23 bytes.
+For example, consider an item with two attributes: one attribute named "shirt-color" with value "R" and another attribute named "shirt-size" with value "M". The total size of that item is 23 bytes.
 
 ### Item size for tables with Local Secondary Indexes
+<a name="limits-items-size-secondary-indexes"></a>
 
-For each local secondary index on a table, there is a 400 KB limit on the total of the
-following:
-
-- The size of an item's data in the table.
-- The size of corresponding entries (including key values and projected
-  attributes) in all local secondary indexes.
+For each local secondary index on a table, there is a 400 KB limit on the total of the following:
++ The size of an item's data in the table.
++ The size of corresponding entries (including key values and projected attributes) in all local secondary indexes. 
 
 ## Attributes
+<a name="limits-attributes"></a>
 
 ### Attribute name-value pairs per item
+<a name="limits-attributes-name-value-pairs"></a>
 
-The cumulative size of attributes per item must fit within the maximum DynamoDB item
-size (400 KB).
+The cumulative size of attributes per item must fit within the maximum DynamoDB item size (400 KB).
 
 ### Number of values in list, map, or set
+<a name="limits-attributes-number"></a>
 
-There is no limit on the number of values in a List, a Map, or a Set, as long as
-the item containing the values fits within the 400 KB item size
-limit.
+There is no limit on the number of values in a List, a Map, or a Set, as long as the item containing the values fits within the 400 KB item size limit.
 
 ### Attribute values
+<a name="limits-attributes-values"></a>
 
-Empty String and Binary attribute values are allowed, if the attribute is not used
-as a key attribute for a table or index. Empty String and Binary values are allowed
-inside Set, List, and Map types. An attribute value cannot be an an empty Set
-(String Set, Number Set, or Binary Set). However, empty Lists and Maps are
-allowed.
+Empty String and Binary attribute values are allowed, if the attribute is not used as a key attribute for a table or index. Empty String and Binary values are allowed inside Set, List, and Map types. An attribute value cannot be an an empty Set (String Set, Number Set, or Binary Set). However, empty Lists and Maps are allowed.
 
 ### Nested attribute depth
+<a name="limits-attributes-nested-depth"></a>
 
-DynamoDB supports nested attributes up to 32 levels
-deep.
+DynamoDB supports nested attributes up to 32 levels deep.
 
 ## Expression parameters
+<a name="limits-expression-parameters"></a>
 
-Expression parameters include `ProjectionExpression`,
-`ConditionExpression`, `UpdateExpression`, and
-`FilterExpression`.
+Expression parameters include `ProjectionExpression`, `ConditionExpression`, `UpdateExpression`, and `FilterExpression`.
 
 ### Lengths
+<a name="limits-expression-parameters-lengths"></a>
 
-The maximum length of any expression string is 4 KB. For example, the size of the
-`ConditionExpression`
-`a=b` is 3 bytes.
+The maximum length of any expression string is 4 KB. For example, the size of the `ConditionExpression` `a=b` is 3 bytes.
 
-The maximum length of any single expression attribute name or expression attribute
-value is 255 bytes. For example, `#name` is 5 bytes; `:val` is
-4 bytes.
+The maximum length of any single expression attribute name or expression attribute value is 255 bytes. For example, `#name` is 5 bytes; `:val` is 4 bytes.
 
-The maximum length of all substitution variables in an expression is 2 MB. This is
-the sum of the lengths of all `ExpressionAttributeNames` and
-`ExpressionAttributeValues`.
+The maximum length of all substitution variables in an expression is 2 MB. This is the sum of the lengths of all `ExpressionAttributeNames` and `ExpressionAttributeValues`.
 
 ### Operators and operands
+<a name="limits-expression-parameters-operators"></a>
 
-The maximum number of operators or functions allowed in a single expression is 300. This limit applies to all expression types, including
-`ConditionExpression`, `FilterExpression`, and
-`UpdateExpression`.
+The maximum number of operators or functions allowed in a single expression is 300. This limit applies to all expression types, including `ConditionExpression`, `FilterExpression`, and `UpdateExpression`.
 
 Each of the following counts as one operator toward this limit:
++ A comparator in a condition or filter expression, for example `=`, `<>`, `<`, `<=`, `>`, or `>=`.
++ A logical keyword (`AND`, `OR`, `NOT`) or the `BETWEEN` or `IN` keyword.
++ A function, for example `attribute_exists`, `begins_with`, `contains`, or `size`.
++ An arithmetic operator (`+` or `-`) in an `UpdateExpression`.
 
-- A comparator in a condition or filter expression, for example
-  `=`, `<>`, `<`,
-  `<=`, `>`, or `>=`.
-- A logical keyword (`AND`, `OR`, `NOT`) or
-  the `BETWEEN` or `IN` keyword.
-- A function, for example `attribute_exists`,
-  `begins_with`, `contains`, or `size`.
-- An arithmetic operator (`+` or `-`) in an
-  `UpdateExpression`.
+In an `UpdateExpression`, the `=` in a `SET` action is assignment syntax and is *not* counted as an operator. In a condition or filter expression, the `=` comparator *is* counted. For example, the filter expression `#a = :val OR #b = :val` contains three operators (two `=` comparators and one `OR`), whereas the update expression `SET Price = Price + :val` contains one operator (the `+`).
 
-In an `UpdateExpression`, the `=` in a `SET`
-action is assignment syntax and is _not_ counted as an operator.
-In a condition or filter expression, the `=` comparator
-_is_ counted. For example, the filter expression `#a = :val
- OR #b = :val` contains three operators (two `=` comparators and
-one `OR`), whereas the update expression `SET Price = Price +
- :val` contains one operator (the `+`).
-
-###### Note
-
-When an expression exceeds the 300-operator limit, DynamoDB returns a
-`ValidationException` with a message in the form `The expression
- contains too many operators; operator count: 301`. The reported count
-is always `301` and does not reflect the actual number of operators in
-the expression.
+**Note**  
+When an expression exceeds the 300-operator limit, DynamoDB returns a `ValidationException` with a message in the form `The expression contains too many operators; operator count: 301`. The reported count is always `301` and does not reflect the actual number of operators in the expression.
 
 The maximum number of operands for the `IN` comparator is 100.
 
 ### Reserved words
+<a name="limits-expression-parameters-reserved-words"></a>
 
-DynamoDB does not prevent you from using names that conflict with reserved words.
-(For a complete list, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").)
+DynamoDB does not prevent you from using names that conflict with reserved words. (For a complete list, see [Reserved words in DynamoDB](ReservedWords.md).)
 
-However, if you use a reserved word in an expression parameter, you must also
-specify `ExpressionAttributeNames`. For more information, see [Expression attribute names (aliases) in DynamoDB](Expressions.ExpressionAttributeNames.md "Expressions.ExpressionAttributeNames.md").
+However, if you use a reserved word in an expression parameter, you must also specify `ExpressionAttributeNames`. For more information, see [Expression attribute names (aliases) in DynamoDB](Expressions.ExpressionAttributeNames.md).
 
 ## DynamoDB transactions
+<a name="limits-dynamodb-transactions"></a>
 
 DynamoDB transactional API operations have the following constraints:
-
-- A transaction cannot contain more than 100 unique items.
-- A transaction cannot contain more than 4 MB of data.
-- No two actions in a transaction can work against the same item in the same
-  table. For example, you cannot both `ConditionCheck` and
-  `Update` the same item in one transaction.
-- A transaction cannot operate on tables in more than one AWS account or
-  Region.
-- Transactional operations provide atomicity, consistency, isolation, and
-  durability (ACID) guarantees only within the AWS Region where the write is
-  made originally. Transactions are not supported across Regions in global tables.
-  For example, suppose that you have a global table with replicas in the US East
-  (Ohio) and US West (Oregon) Regions and you perform a
-  `TransactWriteItems` operation in the US East (N. Virginia)
-  Region. In this case, you might observe partially completed transactions in the
-  US West (Oregon) Region as changes are replicated. Changes are replicated to
-  other Regions only after they have been committed in the source Region.
++ A transaction cannot contain more than 100 unique items.
++ A transaction cannot contain more than 4 MB of data.
++ No two actions in a transaction can work against the same item in the same table. For example, you cannot both `ConditionCheck` and `Update` the same item in one transaction.
++ A transaction cannot operate on tables in more than one AWS account or Region.
++ Transactional operations provide atomicity, consistency, isolation, and durability (ACID) guarantees only within the AWS Region where the write is made originally. Transactions are not supported across Regions in global tables. For example, suppose that you have a global table with replicas in the US East (Ohio) and US West (Oregon) Regions and you perform a `TransactWriteItems` operation in the US East (N. Virginia) Region. In this case, you might observe partially completed transactions in the US West (Oregon) Region as changes are replicated. Changes are replicated to other Regions only after they have been committed in the source Region. 
 
 ## DynamoDB Streams
+<a name="constraints-dynamodb-streams"></a>
 
 ### Simultaneous readers of a shard in DynamoDB Streams
+<a name="limits-dynamodb-streams-simultaneous-shard-readers"></a>
 
-For single-Region tables that are not global tables, you can design for up
-to two processes to read from the same DynamoDB Streams shard at the same time. Exceeding this limit can
-result in request throttling. For global tables, we recommend you limit the number of
-simultaneous readers to one to avoid request throttling.
+For single-Region tables that are not global tables, you can design for up to two processes to read from the same DynamoDB Streams shard at the same time. Exceeding this limit can result in request throttling. For global tables, we recommend you limit the number of simultaneous readers to one to avoid request throttling.
 
 ## DynamoDB Accelerator (DAX)
+<a name="limits-dax"></a>
 
 ### AWS Region availability
+<a name="limits-dax-regions"></a>
 
-For a list of AWS Regions in which DAX is available, see [DynamoDB Accelerator (DAX)](../../../general/latest/gr/rande.md#ddb_dax_region "../../../general/latest/gr/rande.md#ddb_dax_region") in the
-_AWS General Reference_.
+For a list of AWS Regions in which DAX is available, see [DynamoDB Accelerator (DAX)](https://docs.aws.amazon.com/general/latest/gr/rande.html#ddb_dax_region) in the *AWS General Reference*.
 
 ### Nodes
+<a name="limits-dax-nodes"></a>
 
-A DAX cluster consists of exactly one primary node, and between zero and ten
-read replica nodes.
+A DAX cluster consists of exactly one primary node, and between zero and ten read replica nodes.
 
-The total number of nodes (per AWS account) cannot exceed 50 in a single AWS
-Region.
+The total number of nodes (per AWS account) cannot exceed 50 in a single AWS Region.
 
 ### Parameter groups
+<a name="limits-dax-parameter-groups"></a>
 
 You can create up to 20 DAX parameter groups per Region.
 
 ### Subnet groups
+<a name="limits-dax-subnet-groups"></a>
 
 You can create up to 50 DAX subnet groups per Region.
 
 Within a subnet group, you can define up to 20 subnets.
 
-###### Important
-
-A DAX cluster supports a maximum of 500 DynamoDB tables. After you go beyond 500 DynamoDB tables, your cluster
-might experience degradation in availability and performance.
+**Important**  
+A DAX cluster supports a maximum of 500 DynamoDB tables. After you go beyond 500 DynamoDB tables, your cluster might experience degradation in availability and performance.
 
 ## API-specific constraints
+<a name="limits-api"></a>
 
-**`CreateTable`/`UpdateTable`/`DeleteTable`/`PutResourcePolicy`/`DeleteResourcePolicy`**
+**`CreateTable`/`UpdateTable`/`DeleteTable`/`PutResourcePolicy`/`DeleteResourcePolicy`**  
+In general, you can have up to 500 [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html), [UpdateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html), [DeleteTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html), [PutResourcePolicy](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html), and [DeleteResourcePolicy](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteResourcePolicy.html) requests running simultaneously in any combination. As a result, the total number of tables in the `CREATING`, `UPDATING`, or `DELETING` state cannot exceed 500.  
+You can submit up to 2,500 requests per second of mutable (`CreateTable`, `DeleteTable`, `UpdateTable`, `PutResourcePolicy`, and `DeleteResourcePolicy`) control plane API requests across a group of tables. However, the `PutResourcePolicy` and `DeleteResourcePolicy` requests have lower individual limits. For more information, see the following quotas details for `PutResourcePolicy` and `DeleteResourcePolicy`.  
+`CreateTable` and `PutResourcePolicy` requests which include a resource-based policy will count as two additional requests for each KB of the policy. For example, a `CreateTable` or `PutResourcePolicy` request with a policy of size 5 KB will count as 11 requests. 1 for the `CreateTable` request and 10 for the resource-based policy (2 x 5 KB). Similarly, a policy of size 20 KB will count as 41 requests. 1 for the `CreateTable` request and and 40 for the resource-based policy (2 x 20 KB).    
+`PutResourcePolicy`  
+You can submit up to 25 `PutResourcePolicy` API requests per second across a group of tables. After a successful request for an individual table, no new `PutResourcePolicy` requests are supported for the following 15 seconds.  
+The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.  
+`DeleteResourcePolicy`  
+You can submit up to 50 `DeleteResourcePolicy` API requests per second across a group of tables. After a successful `PutResourcePolicy` request for an individual table, no `DeleteResourcePolicy` requests are supported for the following 15 seconds.
 
-In general, you can have up to
-500 [CreateTable](../APIReference/API_CreateTable.md "../APIReference/API_CreateTable.md"), [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md"), [DeleteTable](../APIReference/API_DeleteTable.md "../APIReference/API_DeleteTable.md"), [PutResourcePolicy](../APIReference/API_PutResourcePolicy.md "../APIReference/API_PutResourcePolicy.md"), and [DeleteResourcePolicy](../APIReference/API_DeleteResourcePolicy.md "../APIReference/API_DeleteResourcePolicy.md") requests running simultaneously in any
-combination. As a result, the total number of tables in the
-`CREATING`, `UPDATING`, or `DELETING`
-state cannot exceed 500.
+**`BatchGetItem`**  
+A single `BatchGetItem` operation can retrieve a maximum of 100 items. The total size of all the items retrieved cannot exceed 16 MB.
 
-You can submit up to 2,500 requests per second of mutable
-(`CreateTable`, `DeleteTable`,
-`UpdateTable`, `PutResourcePolicy`, and
-`DeleteResourcePolicy`) control plane API requests across a
-group of tables. However, the `PutResourcePolicy` and
-`DeleteResourcePolicy` requests have lower individual limits.
-For more information, see the following quotas details for
-`PutResourcePolicy` and
-`DeleteResourcePolicy`.
+**`BatchWriteItem`**  
+A single `BatchWriteItem` operation can contain up to 25 `PutItem` or `DeleteItem` requests. The total size of all the items written cannot exceed 16 MB.
 
-`CreateTable` and `PutResourcePolicy` requests which
-include a resource-based policy will count as two additional requests for
-each KB of the policy. For example, a `CreateTable` or
-`PutResourcePolicy` request with a policy of size 5 KB will
-count as 11 requests. 1 for the `CreateTable` request and 10 for
-the resource-based policy (2 x 5 KB). Similarly, a policy of size 20 KB will
-count as 41 requests. 1 for the `CreateTable` request and and 40
-for the resource-based policy (2 x 20 KB).
+**`DescribeStream`**  
+You can call `DescribeStream` at a maximum rate of 10 times per second.
 
-`PutResourcePolicy`
+**`DescribeTableReplicaAutoScaling`**  
+`DescribeTableReplicaAutoScaling` method supports only 10 requests per second.
 
-You can submit up to 25 `PutResourcePolicy` API
-requests per second across a group of tables. After a successful
-request for an individual table, no new
-`PutResourcePolicy` requests are supported for
-the following 15 seconds.
+**`DescribeLimits`**  
+`DescribeLimits` should be called only periodically. You can expect throttling errors if you call it more than once in a minute.
 
-The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
+**`DescribeContributorInsights`/`ListContributorInsights`/`UpdateContributorInsights`**  
+`DescribeContributorInsights`, `ListContributorInsights` and `UpdateContributorInsights` should be called only periodically. DynamoDB supports up to five requests per second for each of these APIs. 
 
-`DeleteResourcePolicy`
+**`DescribeTable`/`ListTables`/`GetResourcePolicy`**  
+You can submit up to 2,500 requests per second of a combination of read-only (`DescribeTable`, `ListTables`, and `GetResourcePolicy`) control plane API requests. The `GetResourcePolicy` API has a lower individual limit of 100 requests per second.
 
-You can submit up to 50 `DeleteResourcePolicy` API
-requests per second across a group of tables. After a successful
-`PutResourcePolicy` request for an individual
-table, no `DeleteResourcePolicy` requests are
-supported for the following 15 seconds.
+**`DescribeTimeToLive`**  
+The `DescribeTimeToLive` operation is throttled at 10 read request units per second. If you exceed this limit, DynamoDB returns a `ThrottlingException` error.
 
-**`BatchGetItem`**
+**`Query`**  
+The result set from a `Query` is limited to 1 MB per call. You can use the `LastEvaluatedKey` from the query response to retrieve more results.
 
-A single `BatchGetItem` operation can retrieve a maximum of
-100 items. The total size of all the items
-retrieved cannot exceed 16 MB.
+**`Scan`**  
+The result set from a `Scan` is limited to 1 MB per call. You can use the `LastEvaluatedKey` from the scan response to retrieve more results.
 
-**`BatchWriteItem`**
+**`UpdateKinesisStreamingDestination`**  
+When performing `UpdateKinesisStreamingDestination` operations, you can set `ApproximateCreationDateTimePrecision` to a new value a maximum of 3 times in a 24 hour period.
 
-A single `BatchWriteItem` operation can contain up to
-25 `PutItem` or
-`DeleteItem` requests. The total size of all the items
-written cannot exceed 16 MB.
+**`UpdateTableReplicaAutoScaling`**  
+`UpdateTableReplicaAutoScaling` method supports only ten requests per second.
 
-**`DescribeStream`**
-
-You can call `DescribeStream` at a maximum rate of 10 times per
-second.
-
-**`DescribeTableReplicaAutoScaling`**
-
-`DescribeTableReplicaAutoScaling` method supports only 10
-requests per second.
-
-**`DescribeLimits`**
-
-`DescribeLimits` should be called only periodically. You can
-expect throttling errors if you call it more than once in a minute.
-
-**`DescribeContributorInsights`/`ListContributorInsights`/`UpdateContributorInsights`**
-
-`DescribeContributorInsights`,
-`ListContributorInsights` and
-`UpdateContributorInsights` should be called only
-periodically. DynamoDB supports up to five requests per second for each of
-these APIs.
-
-**`DescribeTable`/`ListTables`/`GetResourcePolicy`**
-
-You can submit up to 2,500 requests per second of a combination of
-read-only (`DescribeTable`, `ListTables`, and
-`GetResourcePolicy`) control plane API requests. The
-`GetResourcePolicy` API has a lower individual limit of 100
-requests per second.
-
-**`DescribeTimeToLive`**
-
-The `DescribeTimeToLive` operation is throttled at 10 read
-request units per second. If you exceed this limit, DynamoDB returns a
-`ThrottlingException` error.
-
-**`Query`**
-
-The result set from a `Query` is limited to 1 MB
-per call. You can use the `LastEvaluatedKey` from the query
-response to retrieve more results.
-
-**`Scan`**
-
-The result set from a `Scan` is limited to 1 MB
-per call. You can use the `LastEvaluatedKey` from the scan
-response to retrieve more results.
-
-**`UpdateKinesisStreamingDestination`**
-
-When performing `UpdateKinesisStreamingDestination` operations,
-you can set `ApproximateCreationDateTimePrecision` to a new value
-a maximum of 3 times in a 24 hour period.
-
-**`UpdateTableReplicaAutoScaling`**
-
-`UpdateTableReplicaAutoScaling` method supports only ten
-requests per second.
-
-**`UpdateTableTimeToLive`**
-
-The `UpdateTableTimeToLive` method supports only one request to
-enable or disable `Time to Live (TTL)` per specified table per
-hour. This change can take up to one hour to fully process. Any additional
-`UpdateTimeToLive` calls for the same table during this one
-hour duration result in a ValidationException.
+**`UpdateTableTimeToLive`**  
+The `UpdateTableTimeToLive` method supports only one request to enable or disable `Time to Live (TTL)` per specified table per hour. This change can take up to one hour to fully process. Any additional `UpdateTimeToLive` calls for the same table during this one hour duration result in a ValidationException. 
 
 ## DynamoDB encryption at rest
+<a name="limits-dynamodb-encryption"></a>
 
-You can switch between an AWS owned key, an AWS managed key, and a customer managed key up
-to four times, anytime per 24-hour window, on a per table basis, starting from when the
-table was created. If there was no change in the past six hours, an additional change is
-allowed. This effectively brings the maximum number of changes in a day to eight (four
-changes in the first six hours, and one change for each of the subsequent six hour
-windows in a day).
+You can switch between an AWS owned key, an AWS managed key, and a customer managed key up to four times, anytime per 24-hour window, on a per table basis, starting from when the table was created. If there was no change in the past six hours, an additional change is allowed. This effectively brings the maximum number of changes in a day to eight (four changes in the first six hours, and one change for each of the subsequent six hour windows in a day).
 
-You can switch encryption keys to use an AWS owned key as often as necessary, even
-if the above quota has been exhausted.
+You can switch encryption keys to use an AWS owned key as often as necessary, even if the above quota has been exhausted.
 
-These are the quotas unless you request a higher amount. To request a service quota
-increase, see [https://aws.amazon.com/support](https://aws.amazon.com/support "https://aws.amazon.com/support").
+These are the quotas unless you request a higher amount. To request a service quota increase, see [https://aws.amazon.com/support](https://aws.amazon.com/support).

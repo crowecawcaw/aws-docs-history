@@ -1,16 +1,18 @@
+
+
 # Count expression operators in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_ExpressionOperatorCounting_section"></a>
 
 The following code examples show how to count expression operators in DynamoDB.
++ Understand DynamoDB's 300 operator limit.
++ Count operators in complex expressions.
++ Optimize expressions to stay within limits.
 
-- Understand DynamoDB's 300 operator limit.
-- Count operators in complex expressions.
-- Optimize expressions to stay within limits.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate expression operator counting using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate expression operator counting using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -418,11 +420,8 @@ import java.util.regex.Pattern;
         }
         return count;
     }
-
-
 ```
-
-Example usage of expression operator counting with AWS SDK for Java 2.x.
+Example usage of expression operator counting with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -500,34 +499,29 @@ Example usage of expression operator counting with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate expression operator counting using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Demonstrate expression operator counting using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   QueryCommand
 } = require("@aws-sdk/lib-dynamodb");
 
 /**
  * Create a complex filter expression with a specified number of conditions.
- *
+ * 
  * This function demonstrates how to generate a complex expression with
  * a specific number of operators to test the 300 operator limit.
- *
+ * 
  * @param {number} conditionsCount - Number of conditions to include
  * @param {boolean} useAnd - Whether to use AND (true) or OR (false) between conditions
  * @returns {Object} - Object containing the filter expression and attribute values
@@ -536,13 +530,13 @@ function createComplexFilterExpression(conditionsCount, useAnd = true) {
   // Initialize the expression parts and attribute values
   const conditions = [];
   const expressionAttributeValues = {};
-
+  
   // Generate the specified number of conditions
   for (let i = 0; i < conditionsCount; i++) {
     // Alternate between different comparison operators for variety
     let condition;
     const valueKey = `:val${i}`;
-
+    
     switch (i % 5) {
       case 0:
         condition = `attribute${i} = ${valueKey}`;
@@ -564,19 +558,19 @@ function createComplexFilterExpression(conditionsCount, useAnd = true) {
         condition = `attribute_exists(attribute${i})`;
         break;
     }
-
+    
     conditions.push(condition);
   }
-
+  
   // Join the conditions with AND or OR
   const operator = useAnd ? " AND " : " OR ";
   const filterExpression = conditions.join(operator);
-
+  
   // Calculate the operator count
   // Each condition has 1 operator (=, >, <, contains, attribute_exists)
   // Each AND or OR between conditions is 1 operator
   const operatorCount = conditionsCount + (conditionsCount > 0 ? conditionsCount - 1 : 0);
-
+  
   return {
     filterExpression,
     expressionAttributeValues,
@@ -586,10 +580,10 @@ function createComplexFilterExpression(conditionsCount, useAnd = true) {
 
 /**
  * Create a complex update expression with a specified number of operations.
- *
+ * 
  * This function demonstrates how to generate a complex update expression with
  * a specific number of operators to test the 300 operator limit.
- *
+ * 
  * @param {number} operationsCount - Number of operations to include
  * @returns {Object} - Object containing the update expression and attribute values
  */
@@ -597,13 +591,13 @@ function createComplexUpdateExpression(operationsCount) {
   // Initialize the expression parts and attribute values
   const setOperations = [];
   const expressionAttributeValues = {};
-
+  
   // Generate the specified number of SET operations
   for (let i = 0; i < operationsCount; i++) {
     // Alternate between different types of SET operations
     let operation;
     const valueKey = `:val${i}`;
-
+    
     switch (i % 3) {
       case 0:
         // Simple assignment (1 operator: =)
@@ -621,20 +615,20 @@ function createComplexUpdateExpression(operationsCount) {
         expressionAttributeValues[valueKey] = i * 10;
         break;
     }
-
+    
     setOperations.push(operation);
   }
-
+  
   // Create the update expression
   const updateExpression = `SET ${setOperations.join(", ")}`;
-
+  
   // Calculate the operator count
   // Each operation has 1-2 operators as noted above
   let operatorCount = 0;
   for (let i = 0; i < operationsCount; i++) {
     operatorCount += (i % 3 === 0) ? 1 : 2;
   }
-
+  
   return {
     updateExpression,
     expressionAttributeValues,
@@ -644,10 +638,10 @@ function createComplexUpdateExpression(operationsCount) {
 
 /**
  * Test the operator limit by attempting an operation with a complex expression.
- *
+ * 
  * This function demonstrates what happens when an expression approaches or
  * exceeds the 300 operator limit.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -663,13 +657,13 @@ async function testOperatorLimit(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Create a complex update expression with the specified operator count
-  const { updateExpression, expressionAttributeValues, operatorCount: actualCount } =
+  const { updateExpression, expressionAttributeValues, operatorCount: actualCount } = 
     createComplexUpdateExpression(Math.ceil(operatorCount / 1.5)); // Adjust to get close to target count
-
+  
   console.log(`Generated update expression with approximately ${actualCount} operators`);
-
+  
   // Define the update parameters
   const params = {
     TableName: tableName,
@@ -678,7 +672,7 @@ async function testOperatorLimit(
     ExpressionAttributeValues: expressionAttributeValues,
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   try {
     // Attempt the update operation
     const response = await docClient.send(new UpdateCommand(params));
@@ -689,7 +683,7 @@ async function testOperatorLimit(
     };
   } catch (error) {
     // Check if the error is due to exceeding the operator limit
-    if (error.name === "ValidationException" &&
+    if (error.name === "ValidationException" && 
         error.message.includes("too many operators")) {
       return {
         success: false,
@@ -697,7 +691,7 @@ async function testOperatorLimit(
         operatorCount: actualCount
       };
     }
-
+    
     // Return other errors
     return {
       success: false,
@@ -709,10 +703,10 @@ async function testOperatorLimit(
 
 /**
  * Break down a complex expression into multiple simpler operations.
- *
+ * 
  * This function demonstrates how to handle expressions that would exceed
  * the 300 operator limit by breaking them into multiple operations.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -728,29 +722,29 @@ async function breakDownComplexExpression(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Calculate how many operations we can safely include in each batch
   // Using 150 as a conservative limit (well below 300)
   const operationsPerBatch = 100;
   const batchCount = Math.ceil(totalOperations / operationsPerBatch);
-
+  
   console.log(`Breaking down ${totalOperations} operations into ${batchCount} batches`);
-
+  
   const results = [];
-
+  
   // Process each batch
   for (let batch = 0; batch < batchCount; batch++) {
     // Calculate the operations for this batch
     const batchStart = batch * operationsPerBatch;
     const batchEnd = Math.min(batchStart + operationsPerBatch, totalOperations);
     const batchSize = batchEnd - batchStart;
-
+    
     console.log(`Processing batch ${batch + 1}/${batchCount} with ${batchSize} operations`);
-
+    
     // Create an update expression for this batch
-    const { updateExpression, expressionAttributeValues, operatorCount } =
+    const { updateExpression, expressionAttributeValues, operatorCount } = 
       createComplexUpdateExpression(batchSize);
-
+    
     // Define the update parameters
     const params = {
       TableName: tableName,
@@ -759,11 +753,11 @@ async function breakDownComplexExpression(
       ExpressionAttributeValues: expressionAttributeValues,
       ReturnValues: "UPDATED_NEW"
     };
-
+    
     try {
       // Perform the update operation for this batch
       const response = await docClient.send(new UpdateCommand(params));
-
+      
       results.push({
         batch: batch + 1,
         success: true,
@@ -777,12 +771,12 @@ async function breakDownComplexExpression(
         operatorCount,
         error: error.message
       });
-
+      
       // Stop processing if an error occurs
       break;
     }
   }
-
+  
   return {
     totalBatches: batchCount,
     results
@@ -791,10 +785,10 @@ async function breakDownComplexExpression(
 
 /**
  * Count operators in a DynamoDB expression based on the rules in the documentation.
- *
+ * 
  * This function demonstrates how operators are counted according to the
  * DynamoDB documentation.
- *
+ * 
  * @param {string} expression - The DynamoDB expression to analyze
  * @returns {Object} - Breakdown of operator counts
  */
@@ -808,49 +802,46 @@ function countOperatorsInExpression(expression) {
     specialOperators: 0,
     total: 0
   };
-
+  
   // Count comparison operators (=, <>, <, <=, >, >=)
   const comparisonRegex = /[^<>]=[^=]|<>|<=|>=|[^<]>[^=]|[^>]<[^=]/g;
   const comparisonMatches = expression.match(comparisonRegex) || [];
   counts.comparisonOperators = comparisonMatches.length;
-
+  
   // Count logical operators (AND, OR, NOT)
   const andMatches = expression.match(/\bAND\b/g) || [];
   const orMatches = expression.match(/\bOR\b/g) || [];
   const notMatches = expression.match(/\bNOT\b/g) || [];
   counts.logicalOperators = andMatches.length + orMatches.length + notMatches.length;
-
+  
   // Count functions (attribute_exists, attribute_not_exists, attribute_type, begins_with, contains, size)
   const functionRegex = /\b(attribute_exists|attribute_not_exists|attribute_type|begins_with|contains|size|if_not_exists)\(/g;
   const functionMatches = expression.match(functionRegex) || [];
   counts.functions = functionMatches.length;
-
+  
   // Count arithmetic operators (+ and -)
   const arithmeticMatches = expression.match(/[a-zA-Z0-9_)\]]\s*[\+\-]\s*[a-zA-Z0-9_(:]/g) || [];
   counts.arithmeticOperators = arithmeticMatches.length;
-
+  
   // Count special operators (BETWEEN, IN)
   const betweenMatches = expression.match(/\bBETWEEN\b/g) || [];
   const inMatches = expression.match(/\bIN\b/g) || [];
   counts.specialOperators = betweenMatches.length + inMatches.length;
-
+  
   // Add extra operators for BETWEEN (each BETWEEN includes an AND)
   counts.logicalOperators += betweenMatches.length;
-
+  
   // Calculate total
-  counts.total = counts.comparisonOperators +
-                 counts.logicalOperators +
-                 counts.functions +
-                 counts.arithmeticOperators +
+  counts.total = counts.comparisonOperators + 
+                 counts.logicalOperators + 
+                 counts.functions + 
+                 counts.arithmeticOperators + 
                  counts.specialOperators;
-
+  
   return counts;
 }
-
-
 ```
-
-Example usage of expression operator counting with AWS SDK for JavaScript.
+Example usage of expression operator counting with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -861,15 +852,15 @@ async function exampleUsage() {
   const config = { region: "us-west-2" };
   const tableName = "Products";
   const key = { ProductId: "P12345" };
-
+  
   console.log("Demonstrating DynamoDB expression operator counting and the 300 operator limit");
-
+  
   try {
     // Example 1: Analyze a simple expression
     console.log("\nExample 1: Analyzing a simple expression");
     const simpleExpression = "Price = :price AND Rating > :rating AND Category IN (:cat1, :cat2, :cat3)";
     const simpleCount = countOperatorsInExpression(simpleExpression);
-
+    
     console.log(`Expression: ${simpleExpression}`);
     console.log("Operator count breakdown:");
     console.log(`- Comparison operators: ${simpleCount.comparisonOperators}`);
@@ -878,15 +869,15 @@ async function exampleUsage() {
     console.log(`- Arithmetic operators: ${simpleCount.arithmeticOperators}`);
     console.log(`- Special operators: ${simpleCount.specialOperators}`);
     console.log(`- Total operators: ${simpleCount.total}`);
-
+    
     // Example 2: Analyze a complex expression
     console.log("\nExample 2: Analyzing a complex expression");
-    const complexExpression =
+    const complexExpression = 
       "(attribute_exists(Category) AND Size BETWEEN :min AND :max) OR " +
       "(Price > :price AND contains(Description, :keyword) AND " +
       "(Rating >= :minRating OR Reviews > :minReviews))";
     const complexCount = countOperatorsInExpression(complexExpression);
-
+    
     console.log(`Expression: ${complexExpression}`);
     console.log("Operator count breakdown:");
     console.log(`- Comparison operators: ${complexCount.comparisonOperators}`);
@@ -895,22 +886,22 @@ async function exampleUsage() {
     console.log(`- Arithmetic operators: ${complexCount.arithmeticOperators}`);
     console.log(`- Special operators: ${complexCount.specialOperators}`);
     console.log(`- Total operators: ${complexCount.total}`);
-
+    
     // Example 3: Test approaching the operator limit
     console.log("\nExample 3: Testing an expression approaching the operator limit");
     const approachingLimit = await testOperatorLimit(config, tableName, key, 290);
     console.log(approachingLimit.message);
-
+    
     // Example 4: Test exceeding the operator limit
     console.log("\nExample 4: Testing an expression exceeding the operator limit");
     const exceedingLimit = await testOperatorLimit(config, tableName, key, 310);
     console.log(exceedingLimit.message);
-
+    
     // Example 5: Breaking down a complex expression
     console.log("\nExample 5: Breaking down a complex expression into multiple operations");
     const breakdownResult = await breakDownComplexExpression(config, tableName, key, 500);
     console.log(`Processed ${breakdownResult.results.length} of ${breakdownResult.totalBatches} batches`);
-
+    
     // Explain the operator counting rules
     console.log("\nKey points about DynamoDB expression operator counting:");
     console.log("1. The maximum number of operators in any expression is 300");
@@ -923,24 +914,19 @@ async function exampleUsage() {
     console.log("8. Parentheses for grouping and attribute paths don't count as operators");
     console.log("9. When you exceed the limit, the error always reports '301 operators'");
     console.log("10. For complex operations, break them into multiple smaller operations");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate expression operator counting using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Demonstrate expression operator counting using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -1231,13 +1217,8 @@ def _test_expression_limit(
         else:
             # Other error occurred
             raise
-
-
-
-
 ```
-
-Example usage of expression operator counting with AWS SDK for Python (Boto3).
+Example usage of expression operator counting with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -1302,16 +1283,9 @@ def example_usage():
     print("3. Optimize data model to reduce query complexity")
     print("4. Use application-side filtering for less critical filters")
     print("5. Consider using IN operator instead of multiple OR conditions")
-
-
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

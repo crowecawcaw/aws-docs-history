@@ -1,15 +1,17 @@
+
+
 # Conditionally update a DynamoDB item with a TTL using an AWS SDK
+<a name="example_dynamodb_UpdateItemConditionalTTL_section"></a>
 
 The following code examples show how to conditionally update an item's TTL.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Update TTL on on an existing DynamoDB Item in a table, with a condition.
+**SDK for Java 2.x**  
+Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
 ```
-
 package com.amazon.samplelib.ttl;
 
 import com.amazon.samplelib.CodeSampleUtils;
@@ -148,19 +150,14 @@ public class UpdateTTLConditional {
         }
     }
 }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Update TTL on on an existing DynamoDB Item in a table, with a condition.
+**SDK for JavaScript (v3)**  
+Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
 ```
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
@@ -206,19 +203,14 @@ export const updateItemConditional = async (tableName, partitionKey, sortKey, re
 
 // Example usage (commented out for testing)
 // updateItemConditional('your-table-name', 'your-partition-key-value', 'your-sort-key-value');
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Update TTL on on an existing DynamoDB Item in a table, with a condition.
+**SDK for Python (Boto3)**  
+Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
 ```
 from datetime import datetime, timedelta
@@ -280,14 +272,9 @@ update_dynamodb_item_ttl(
     "your-sort-key-value",
     "your-ttl-attribute-value",
 )
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

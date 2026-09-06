@@ -1,22 +1,28 @@
+
+
 # DynamoDB Streams low-level API: Java example
+<a name="Streams.LowLevel.Walkthrough"></a>
 
-###### Note
+**Note**  
+The code on this page is not exhaustive and does not handle all scenarios for consuming Amazon DynamoDB Streams. The recommended way to consume stream records from DynamoDB is through the Amazon Kinesis Adapter using the Kinesis Client Library (KCL), as described in [Using the DynamoDB Streams Kinesis adapter to process stream records](Streams.KCLAdapter.md).
 
-The code on this page is not exhaustive and does not handle all scenarios for
-consuming Amazon DynamoDB Streams. The recommended way to consume stream records from DynamoDB is through
-the Amazon Kinesis Adapter using the Kinesis Client Library (KCL), as described in [Using the DynamoDB Streams Kinesis adapter to process stream records](Streams.KCLAdapter.md "Streams.KCLAdapter.md").
-
-This section contains a Java program that shows DynamoDB Streams in action. The program does the
-following:
+This section contains a Java program that shows DynamoDB Streams in action. The program does the following:
 
 1. Creates a DynamoDB table with a stream enabled.
-2. Describes the stream settings for this table.
-3. Modifies data in the table.
-4. Describes the shards in the stream.
-5. Reads the stream records from the shards.
-6. Fetches child shards and continues reading records.
-7. Cleans up.
-   When you run the program, you will see output similar to the following.
+
+1. Describes the stream settings for this table.
+
+1. Modifies data in the table.
+
+1. Describes the shards in the stream.
+
+1. Reads the stream records from the shards.
+
+1. Fetches child shards and continues reading records.
+
+1. Cleans up.
+
+When you run the program, you will see output similar to the following.
 
 ```
 Testing Streams Demo
@@ -43,7 +49,7 @@ Table StreamsDemoTable deleted.
 Demo complete
 ```
 
-###### Example
+**Example**  
 
 ```
 import java.util.HashMap;
@@ -118,7 +124,7 @@ public class StreamsLowLevelDemo {
 
             // Print the stream settings for the table
             String streamArn = tableDescription.latestStreamArn();
-
+           
             StreamSpecification streamSpec = tableDescription.streamSpecification();
             System.out.println("Current stream ARN for " + tableDescription.tableName() + ": " +
                    streamArn);
@@ -300,7 +306,7 @@ public class StreamsLowLevelDemo {
             DescribeTableRequest tableRequest = DescribeTableRequest.builder()
                     .tableName(tableName)
                     .build();
-
+                    
             System.out.println("Waiting for " + tableName + " to be created...");
 
             // Wait until the Amazon DynamoDB table is created.

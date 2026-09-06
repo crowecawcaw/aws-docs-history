@@ -1,18 +1,20 @@
+
+
 # Create and manage DynamoDB global tables with Multi-Region Strong Consistency using an AWS SDK
+<a name="example_dynamodb_Scenario_MRSCGlobalTables_section"></a>
 
 The following code examples show how to create and manage DynamoDB global tables with Multi-Region Strong Consistency (MRSC).
++ Create a table with Multi-Region Strong Consistency.
++ Verify MRSC configuration and replica status.
++ Test strong consistency across Regions with immediate reads.
++ Perform conditional writes with MRSC guarantees.
++ Clean up MRSC global table resources.
 
-- Create a table with Multi-Region Strong Consistency.
-- Verify MRSC configuration and replica status.
-- Test strong consistency across Regions with immediate reads.
-- Perform conditional writes with MRSC guarantees.
-- Clean up MRSC global table resources.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create a table with Multi-Region Strong Consistency.
+**AWS CLI with Bash script**  
+Create a table with Multi-Region Strong Consistency.  
 
 ```
 # Step 1: Create a new table in us-east-2 (primary region for MRSC)
@@ -39,11 +41,8 @@ aws dynamodb update-table \
     --global-table-witness-updates '[{"Create": {"RegionName": "us-west-2"}}]' \
     --multi-region-consistency STRONG \
     --region us-east-2
-
-
 ```
-
-Verify MRSC configuration and replica status.
+Verify MRSC configuration and replica status.  
 
 ```
 # Verify the global table configuration and MRSC setting
@@ -51,11 +50,8 @@ aws dynamodb describe-table \
     --table-name MusicTable \
     --region us-east-2 \
     --query 'Table.{TableName:TableName,TableStatus:TableStatus,MultiRegionConsistency:MultiRegionConsistency,Replicas:Replicas[*],GlobalTableWitnesses:GlobalTableWitnesses[*].{Region:RegionName,Status:ReplicaStatus}}'
-
-
 ```
-
-Test strong consistency with immediate reads across Regions.
+Test strong consistency with immediate reads across Regions.  
 
 ```
 # Write an item to the primary region
@@ -72,11 +68,8 @@ aws dynamodb get-item \
     --key '{"Artist": {"S":"The Beatles"},"SongTitle": {"S":"Hey Jude"}}' \
     --consistent-read \
     --region us-east-1
-
-
 ```
-
-Perform conditional writes with MRSC guarantees.
+Perform conditional writes with MRSC guarantees.  
 
 ```
 # Perform a conditional update from a different region
@@ -89,11 +82,8 @@ aws dynamodb update-item \
     --expression-attribute-names '{"#rating": "Rating"}' \
     --expression-attribute-values '{":rating": {"N":"5"}}' \
     --region us-east-1
-
-
 ```
-
-Clean up MRSC global table resources.
+Clean up MRSC global table resources.  
 
 ```
 # Remove replica tables (must be done before deleting the primary table)
@@ -111,25 +101,21 @@ sleep 30
 aws dynamodb delete-table \
     --table-name MusicTable \
     --region us-east-2
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DeleteTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DescribeTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
-  - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
-  - [GetItem](../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateItem](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateItem.md")
-  - [UpdateTable](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md")
-
-Java
-
-**SDK for Java 2.x**
-
-Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.  
 
 ```
     public static CreateTableResponse createRegionalTable(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -181,11 +167,8 @@ Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Convert a regional table to MRSC with replicas and witness using AWS SDK for Java 2.x.
+Convert a regional table to MRSC with replicas and witness using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse convertToMRSCWithWitness(
@@ -246,11 +229,8 @@ Convert a regional table to MRSC with replicas and witness using AWS SDK for Jav
                 .build();
         }
     }
-
-
 ```
-
-Describe an MRSC global table configuration using AWS SDK for Java 2.x.
+Describe an MRSC global table configuration using AWS SDK for Java 2.x.  
 
 ```
     public static DescribeTableResponse describeMRSCTable(final DynamoDbClient dynamoDbClient, final String tableName) {
@@ -308,11 +288,8 @@ Describe an MRSC global table configuration using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.
+Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.  
 
 ```
     public static PutItemResponse putTestItem(
@@ -366,11 +343,8 @@ Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.
+Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.  
 
 ```
     public static GetItemResponse getItemWithConsistentRead(
@@ -420,11 +394,8 @@ Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.
+Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateItemResponse performConditionalUpdate(
@@ -489,11 +460,8 @@ Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x.
+Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x.  
 
 ```
     public static void waitForMRSCReplicasActive(
@@ -607,11 +575,8 @@ Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x
             throw e;
         }
     }
-
-
 ```
-
-Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.
+Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.  
 
 ```
     public static UpdateTableResponse cleanupMRSCReplicas(
@@ -669,11 +634,8 @@ Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.
                 .build();
         }
     }
-
-
 ```
-
-Complete MRSC workflow demonstration using AWS SDK for Java 2.x.
+Complete MRSC workflow demonstration using AWS SDK for Java 2.x.  
 
 ```
     public static void demonstrateCompleteMRSCWorkflow(
@@ -784,20 +746,16 @@ Complete MRSC workflow demonstration using AWS SDK for Java 2.x.
             throw e;
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md")
-  - [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md")
-  - [GetItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  - [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

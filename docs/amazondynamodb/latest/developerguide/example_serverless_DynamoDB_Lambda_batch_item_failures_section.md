@@ -1,18 +1,16 @@
+
+
 # Reporting batch item failures for Lambda functions with a DynamoDB trigger
+<a name="example_serverless_DynamoDB_Lambda_batch_item_failures_section"></a>
 
 The following code examples show how to implement partial batch response for Lambda functions that receive events from a DynamoDB stream. The function reports the batch item failures in the response, signaling to Lambda to retry those messages later.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -59,20 +57,14 @@ public class Function
         return streamsEventResponse;
     }
 }
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -105,7 +97,7 @@ func HandleRequest(ctx context.Context, event events.DynamoDBEvent) (*BatchResul
 	if curRecordSequenceNumber != "" {
 		batchItemFailures = append(batchItemFailures, BatchItemFailure{ItemIdentifier: curRecordSequenceNumber})
 	}
-
+	
 	batchResult := BatchResult{
 		BatchItemFailures: batchItemFailures,
 	}
@@ -116,21 +108,14 @@ func HandleRequest(ctx context.Context, event events.DynamoDBEvent) (*BatchResul
 func main() {
 	lambda.Start(HandleRequest)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -157,7 +142,7 @@ public class ProcessDynamodbRecords implements RequestHandler<DynamodbEvent, Str
                 //Process your record
                 StreamRecord dynamodbRecord = dynamodbStreamRecord.getDynamodb();
                 curRecordSequenceNumber = dynamodbRecord.getSequenceNumber();
-
+                
             } catch (Exception e) {
                 /* Since we are working with streams, we can return the failed item immediately.
                    Lambda will immediately begin to retry processing from this failed item onwards. */
@@ -165,25 +150,18 @@ public class ProcessDynamodbRecords implements RequestHandler<DynamodbEvent, Str
                 return new StreamsEventResponse(batchItemFailures);
             }
         }
-
-       return new StreamsEventResponse();
+       
+       return new StreamsEventResponse();   
     }
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using JavaScript.  
 
 ```
 export const handler = async (event) => {
@@ -202,11 +180,8 @@ export const handler = async (event) => {
 
   return { batchItemFailures: [] };
 };
-
-
 ```
-
-Reporting DynamoDB batch item failures with Lambda using TypeScript.
+Reporting DynamoDB batch item failures with Lambda using TypeScript.  
 
 ```
 import {
@@ -233,21 +208,14 @@ export const handler = async (
 
   return { batchItemFailures: batchItemFailures };
 };
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using PHP.  
 
 ```
 <?php
@@ -308,21 +276,14 @@ class Handler implements StdHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -330,7 +291,7 @@ Reporting DynamoDB batch item failures with Lambda using Python.
 def handler(event, context):
     records = event.get("Records")
     curRecordSequenceNumber = ""
-
+    
     for record in records:
         try:
             # Process your record
@@ -340,27 +301,20 @@ def handler(event, context):
             return {"batchItemFailures":[{"itemIdentifier": curRecordSequenceNumber}]}
 
     return {"batchItemFailures":[]}
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using Ruby.  
 
 ```
 def lambda_handler(event:, context:)
     records = event["Records"]
     cur_record_sequence_number = ""
-
+  
     records.each do |record|
       begin
         # Process your record
@@ -370,23 +324,17 @@ def lambda_handler(event:, context:)
         return {"batchItemFailures" => [{"itemIdentifier" => cur_record_sequence_number}]}
       end
     end
-
+  
     {"batchItemFailures" => []}
   end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting DynamoDB batch item failures with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda-with-batch-item-handling) repository. 
+Reporting DynamoDB batch item failures with Lambda using Rust.  
 
 ```
 use aws_lambda_events::{
@@ -457,10 +405,8 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

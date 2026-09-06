@@ -1,36 +1,33 @@
+
+
 # Working with items: Java
+<a name="JavaDocumentAPIItemCRUD"></a>
 
-You can use the AWS SDK for Java Document API to perform typical create, read, update, and delete
-(CRUD) operations on Amazon DynamoDB items in a table.
+You can use the AWS SDK for Java Document API to perform typical create, read, update, and delete (CRUD) operations on Amazon DynamoDB items in a table.
 
-###### Note
+**Note**  
+The SDK for Java also provides an object persistence model, allowing you to map your client-side classes to DynamoDB tables. This approach can reduce the amount of code that you have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapper.md).
 
-The SDK for Java also provides an object persistence model, allowing you to map your client-side
-classes to DynamoDB tables. This approach can reduce the amount of code that you have to write.
-For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md").
+This section contains Java examples to perform several Java Document API item actions and several complete working examples.
 
-This section contains Java examples to perform several Java Document API item actions and
-several complete working examples.
-
-###### Topics
-
-- [Putting an item](#PutDocumentAPIJava "#PutDocumentAPIJava")
-- [Getting an item](#JavaDocumentAPIGetItem "#JavaDocumentAPIGetItem")
-- [Batch write: Putting and deleting multiple items](#BatchWriteDocumentAPIJava "#BatchWriteDocumentAPIJava")
-- [Batch get: Getting multiple items](#JavaDocumentAPIBatchGetItem "#JavaDocumentAPIBatchGetItem")
-- [Updating an item](#JavaDocumentAPIItemUpdate "#JavaDocumentAPIItemUpdate")
-- [Deleting an item](#DeleteMidLevelJava "#DeleteMidLevelJava")
-- [Example: CRUD operations using the AWS SDK for Java document API](JavaDocumentAPICRUDExample.md "JavaDocumentAPICRUDExample.md")
-- [Example: Batch operations using AWS SDK for Java document API](batch-operation-document-api-java.md "batch-operation-document-api-java.md")
-- [Example: Handling binary type attributes using the AWS SDK for Java document API](JavaDocumentAPIBinaryTypeExample.md "JavaDocumentAPIBinaryTypeExample.md")
+**Topics**
++ [Putting an item](#PutDocumentAPIJava)
++ [Getting an item](#JavaDocumentAPIGetItem)
++ [Batch write: Putting and deleting multiple items](#BatchWriteDocumentAPIJava)
++ [Batch get: Getting multiple items](#JavaDocumentAPIBatchGetItem)
++ [Updating an item](#JavaDocumentAPIItemUpdate)
++ [Deleting an item](#DeleteMidLevelJava)
++ [Example: CRUD operations using the AWS SDK for Java document API](JavaDocumentAPICRUDExample.md)
++ [Example: Batch operations using AWS SDK for Java document API](batch-operation-document-api-java.md)
++ [Example: Handling binary type attributes using the AWS SDK for Java document API](JavaDocumentAPIBinaryTypeExample.md)
 
 ## Putting an item
+<a name="PutDocumentAPIJava"></a>
 
-The `putItem` method stores an item in a table. If the item exists, it replaces
-the entire item. Instead of replacing the entire item, if you want to update only specific
-attributes, you can use the `updateItem` method. For more information, see [Updating an item](#JavaDocumentAPIItemUpdate "#JavaDocumentAPIItemUpdate").
+The `putItem` method stores an item in a table. If the item exists, it replaces the entire item. Instead of replacing the entire item, if you want to update only specific attributes, you can use the `updateItem` method. For more information, see [Updating an item](#JavaDocumentAPIItemUpdate). 
 
-Java v2
+------
+#### [ Java v2 ]
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -137,24 +134,24 @@ public class PutItem {
         }
     }
 }
-
 ```
 
-Java v1
-Follow these steps:
+------
+#### [ Java v1 ]
+
+Follow these steps: 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class to represent the table you
-   want to work with.
-3. Create an instance of the `Item` class to represent the new item. You
-   must specify the new item's primary key and its attributes.
-4. Call the `putItem` method of the `Table` object, using the
-   `Item` that you created in the preceding step.
 
-The following Java code example demonstrates the preceding tasks. The code writes a
-new item to the `ProductCatalog` table.
+1. Create an instance of the `Table` class to represent the table you want to work with.
 
-###### Example
+1. Create an instance of the `Item` class to represent the new item. You must specify the new item's primary key and its attributes.
+
+1. Call the `putItem` method of the `Table` object, using the `Item` that you created in the preceding step.
+
+The following Java code example demonstrates the preceding tasks. The code writes a new item to the `ProductCatalog` table.
+
+**Example**  
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -206,30 +203,20 @@ Item item = new Item()
 PutItemOutcome outcome = table.putItem(item);
 ```
 
-In the preceding example, the item has attributes that are scalars
-(`String`, `Number`, `Boolean`, `Null`),
-sets (`String Set`), and document types (`List`,
-`Map`).
+In the preceding example, the item has attributes that are scalars (`String`, `Number`, `Boolean`, `Null`), sets (`String Set`), and document types (`List`, `Map`).
+
+------
 
 ### Specifying optional parameters
+<a name="PutItemJavaDocumentAPIOptions"></a>
 
-Along with the required parameters, you can also specify optional parameters to the
-`putItem` method. For example, the following Java code example uses an optional
-parameter to specify a condition for uploading the item. If the condition you specify is not
-met, the AWS SDK for Java throws a `ConditionalCheckFailedException`. The code example
-specifies the following optional parameters in the `putItem` method:
-
-- A `ConditionExpression` that defines the conditions for the request. The
-  code defines the condition that the existing item with the same primary key is replaced
-  only if it has an ISBN attribute that equals a specific value.
-- A map for `ExpressionAttributeValues` that is used in the condition. In
-  this case, there is only one substitution required: The placeholder `:val` in
-  the condition expression is replaced at runtime with the actual ISBN value to be
-  checked.
+Along with the required parameters, you can also specify optional parameters to the `putItem` method. For example, the following Java code example uses an optional parameter to specify a condition for uploading the item. If the condition you specify is not met, the AWS SDK for Java throws a `ConditionalCheckFailedException`. The code example specifies the following optional parameters in the `putItem` method:
++ A `ConditionExpression` that defines the conditions for the request. The code defines the condition that the existing item with the same primary key is replaced only if it has an ISBN attribute that equals a specific value. 
++ A map for `ExpressionAttributeValues` that is used in the condition. In this case, there is only one substitution required: The placeholder `:val` in the condition expression is replaced at runtime with the actual ISBN value to be checked.
 
 The following example adds a new book item using these optional parameters.
 
-###### Example
+**Example**  
 
 ```
 Item item = new Item()
@@ -251,15 +238,13 @@ PutItemOutcome outcome = table.putItem(
 ```
 
 ### PutItem and JSON documents
+<a name="PutItemJavaDocumentAPI.JSON"></a>
 
-You can store a JSON document as an attribute in a DynamoDB table. To do this, use the
-`withJSON` method of `Item`. This method parses the JSON document
-and maps each element to a native DynamoDB data type.
+You can store a JSON document as an attribute in a DynamoDB table. To do this, use the `withJSON` method of `Item`. This method parses the JSON document and maps each element to a native DynamoDB data type.
 
-Suppose that you wanted to store the following JSON document, containing vendors that
-can fulfill orders for a particular product.
+Suppose that you wanted to store the following JSON document, containing vendors that can fulfill orders for a particular product.
 
-###### Example
+**Example**  
 
 ```
 {
@@ -280,10 +265,7 @@ can fulfill orders for a particular product.
 }
 ```
 
-You can use the `withJSON` method to store this in the
-`ProductCatalog` table, in a `Map` attribute named
-`VendorInfo`. The following Java code example demonstrates how to do
-this.
+You can use the `withJSON` method to store this in the `ProductCatalog` table, in a `Map` attribute named `VendorInfo`. The following Java code example demonstrates how to do this.
 
 ```
 // Convert the document into a String.  Must escape all double-quotes.
@@ -313,18 +295,17 @@ PutItemOutcome outcome = table.putItem(item);
 ```
 
 ## Getting an item
+<a name="JavaDocumentAPIGetItem"></a>
 
-To retrieve a single item, use the `getItem` method of a `Table`
-object. Follow these steps:
+To retrieve a single item, use the `getItem` method of a `Table` object. Follow these steps: 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class to represent the table you want to
-   work with.
-3. Call the `getItem` method of the `Table` instance. You must
-   specify the primary key of the item that you want to retrieve.
 
-The following Java code example demonstrates the preceding steps. The code gets the item
-that has the specified partition key.
+1. Create an instance of the `Table` class to represent the table you want to work with.
+
+1. Call the `getItem` method of the `Table` instance. You must specify the primary key of the item that you want to retrieve.
+
+The following Java code example demonstrates the preceding steps. The code gets the item that has the specified partition key.
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -336,23 +317,15 @@ Item item = table.getItem("Id", 210);
 ```
 
 ### Specifying optional parameters
+<a name="GetItemJavaDocumentAPIOptions"></a>
 
-Along with the required parameters, you can also specify optional parameters for the
-`getItem` method. For example, the following Java code example uses an optional
-method to retrieve only a specific list of attributes and to specify strongly consistent
-reads. (To learn more about read consistency, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md "HowItWorks.ReadConsistency.md").)
+Along with the required parameters, you can also specify optional parameters for the `getItem` method. For example, the following Java code example uses an optional method to retrieve only a specific list of attributes and to specify strongly consistent reads. (To learn more about read consistency, see [DynamoDB read consistency](HowItWorks.ReadConsistency.md).)
 
-You can use a `ProjectionExpression` to retrieve only specific attributes or
-elements, rather than an entire item. A `ProjectionExpression` can specify
-top-level or nested attributes using document paths. For more information, see [Using projection expressions in DynamoDB](Expressions.ProjectionExpressions.md "Expressions.ProjectionExpressions.md").
+You can use a `ProjectionExpression` to retrieve only specific attributes or elements, rather than an entire item. A `ProjectionExpression` can specify top-level or nested attributes using document paths. For more information, see [Using projection expressions in DynamoDB](Expressions.ProjectionExpressions.md).
 
-The parameters of the `getItem` method don't let you specify read
-consistency. However, you can create a `GetItemSpec`, which provides full access
-to all of the inputs to the low-level `GetItem` operation. The following code
-example creates a `GetItemSpec` and uses that spec as input to the
-`getItem` method.
+The parameters of the `getItem` method don't let you specify read consistency. However, you can create a `GetItemSpec`, which provides full access to all of the inputs to the low-level `GetItem` operation. The following code example creates a `GetItemSpec` and uses that spec as input to the `getItem` method.
 
-###### Example
+**Example**  
 
 ```
 GetItemSpec spec = new GetItemSpec()
@@ -365,28 +338,23 @@ Item item = table.getItem(spec);
 System.out.println(item.toJSONPretty());
 ```
 
-To print an `Item` in a human-readable format, use the
-`toJSONPretty` method. The output from the previous example looks like the
-following.
+ To print an `Item` in a human-readable format, use the `toJSONPretty` method. The output from the previous example looks like the following.
 
 ```
-`{
- "RelatedItems" : [ 341 ],
- "Reviews" : {
- "FiveStar" : [ "Excellent! Can't recommend it highly enough! Buy it!", "Do yourself a favor and buy this" ]
- },
- "Id" : 123,
- "Title" : "20-Bicycle 123"
-}`
+{
+  "RelatedItems" : [ 341 ],
+  "Reviews" : {
+    "FiveStar" : [ "Excellent! Can't recommend it highly enough! Buy it!", "Do yourself a favor and buy this" ]
+  },
+  "Id" : 123,
+  "Title" : "20-Bicycle 123"
+}
 ```
 
 ### GetItem and JSON documents
+<a name="GetItemJavaDocumentAPI.JSON"></a>
 
-In the [PutItem and JSON documents](#PutItemJavaDocumentAPI.JSON "#PutItemJavaDocumentAPI.JSON") section, you store a JSON document in a
-`Map` attribute named `VendorInfo`. You can use the
-`getItem` method to retrieve the entire document in JSON format. Or you can use
-document path notation to retrieve only some of the elements in the document. The following
-Java code example demonstrates these techniques.
+In the [PutItem and JSON documents](#PutItemJavaDocumentAPI.JSON) section, you store a JSON document in a `Map` attribute named `VendorInfo`. You can use the `getItem` method to retrieve the entire document in JSON format. Or you can use document path notation to retrieve only some of the elements in the document. The following Java code example demonstrates these techniques.
 
 ```
 GetItemSpec spec = new GetItemSpec()
@@ -403,7 +371,6 @@ System.out.println(table.getItem(spec).toJSON());
 System.out.println("First office location for this vendor:");
 spec.withProjectionExpression("VendorInfo.V03.Offices[0]");
 System.out.println(table.getItem(spec).toJSON());
-
 ```
 
 The output from the previous example looks like the following.
@@ -415,14 +382,10 @@ A single vendor:
 {"VendorInfo":{"V03":{"Name":"Better Buy Books","Offices":["Tokyo","Los Angeles","Sydney"]}}}
 First office location for a single vendor:
 {"VendorInfo":{"V03":{"Offices":["Tokyo"]}}}
-
 ```
 
-###### Note
-
-You can use the `toJSON` method to convert any item (or its attributes) to
-a JSON-formatted string. The following code retrieves several top-level and nested
-attributes and prints the results as JSON.
+**Note**  
+You can use the `toJSON` method to convert any item (or its attributes) to a JSON-formatted string. The following code retrieves several top-level and nested attributes and prints the results as JSON.  
 
 ```
 GetItemSpec spec = new GetItemSpec()
@@ -432,41 +395,28 @@ GetItemSpec spec = new GetItemSpec()
 Item item = table.getItem(spec);
 System.out.println(item.toJSON());
 ```
-
-The output looks like the following.
+The output looks like the following.  
 
 ```
 {"VendorInfo":{"V01":{"Name":"Acme Books","Offices":["Seattle"]}},"Price":30,"Title":"Book 210 Title"}
-
 ```
 
 ## Batch write: Putting and deleting multiple items
+<a name="BatchWriteDocumentAPIJava"></a>
 
-_Batch write_ refers to putting and deleting multiple items in a batch.
-The `batchWriteItem` method enables you to put and delete multiple items from one
-or more tables in a single call. The following are the steps to put or delete multiple items
-using the AWS SDK for Java Document API.
+*Batch write* refers to putting and deleting multiple items in a batch. The `batchWriteItem` method enables you to put and delete multiple items from one or more tables in a single call. The following are the steps to put or delete multiple items using the AWS SDK for Java Document API.
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `TableWriteItems` class that describes all the
-   put and delete operations for a table. If you want to write to multiple tables in a single
-   batch write operation, you must create one `TableWriteItems` instance per
-   table.
-3. Call the `batchWriteItem` method by providing the
-   `TableWriteItems` objects that you created in the preceding step.
-4. Process the response. You should check if there were any unprocessed request items
-   returned in the response. This could happen if you reach the provisioned throughput quota
-   or some other transient error. Also, DynamoDB limits the request size and the number of
-   operations you can specify in a request. If you exceed these limits, DynamoDB rejects the
-   request. For more information, see [Quotas in Amazon DynamoDB](ServiceQuotas.md "ServiceQuotas.md").
 
-The following Java code example demonstrates the preceding steps. The example performs a
-`batchWriteItem` operation on two tables: `Forum` and
-`Thread`. The corresponding `TableWriteItems` objects define the
-following actions:
+1. Create an instance of the `TableWriteItems` class that describes all the put and delete operations for a table. If you want to write to multiple tables in a single batch write operation, you must create one `TableWriteItems` instance per table.
 
-- Put an item in the `Forum` table.
-- Put and delete an item in the `Thread` table.
+1. Call the `batchWriteItem` method by providing the `TableWriteItems` objects that you created in the preceding step. 
+
+1. Process the response. You should check if there were any unprocessed request items returned in the response. This could happen if you reach the provisioned throughput quota or some other transient error. Also, DynamoDB limits the request size and the number of operations you can specify in a request. If you exceed these limits, DynamoDB rejects the request. For more information, see [Quotas in Amazon DynamoDB](ServiceQuotas.md). 
+
+The following Java code example demonstrates the preceding steps. The example performs a `batchWriteItem` operation on two tables: `Forum` and `Thread`. The corresponding `TableWriteItems` objects define the following actions:
++ Put an item in the `Forum` table.
++ Put and delete an item in the `Thread` table.
 
 The code then calls `batchWriteItem` to perform the operation.
 
@@ -491,27 +441,22 @@ BatchWriteItemOutcome outcome = dynamoDB.batchWriteItem(forumTableWriteItems, th
 // Code for checking unprocessed items is omitted in this example
 ```
 
-For a working example, see [Example: Batch write operation using the AWS SDK for Java document API](batch-operation-document-api-java.md#JavaDocumentAPIBatchWrite "batch-operation-document-api-java.md#JavaDocumentAPIBatchWrite").
+For a working example, see [Example: Batch write operation using the AWS SDK for Java document API](batch-operation-document-api-java.md#JavaDocumentAPIBatchWrite). 
 
 ## Batch get: Getting multiple items
+<a name="JavaDocumentAPIBatchGetItem"></a>
 
-The `batchGetItem` method enables you to retrieve multiple items from one or
-more tables. To retrieve a single item, you can use the `getItem` method.
+The `batchGetItem` method enables you to retrieve multiple items from one or more tables. To retrieve a single item, you can use the `getItem` method. 
 
-Follow these steps:
+Follow these steps: 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `TableKeysAndAttributes` class that describes a
-   list of primary key values to retrieve from a table. If you want to read from multiple
-   tables in a single batch get operation, you must create one
-   `TableKeysAndAttributes` instance per table.
-3. Call the `batchGetItem` method by providing the
-   `TableKeysAndAttributes` objects that you created in the preceding
-   step.
 
-The following Java code example demonstrates the preceding steps. The example retrieves
-two items from the `Forum` table and three items from the `Thread`
-table.
+1. Create an instance of the `TableKeysAndAttributes` class that describes a list of primary key values to retrieve from a table. If you want to read from multiple tables in a single batch get operation, you must create one `TableKeysAndAttributes` instance per table.
+
+1. Call the `batchGetItem` method by providing the `TableKeysAndAttributes` objects that you created in the preceding step.
+
+The following Java code example demonstrates the preceding steps. The example retrieves two items from the `Forum` table and three items from the `Thread` table.
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -541,18 +486,13 @@ for (String tableName : outcome.getTableItems().keySet()) {
 ```
 
 ### Specifying optional parameters
+<a name="BatchGetItemJavaDocumentAPIOptions"></a>
 
-Along with the required parameters, you can also specify optional parameters when using
-`batchGetItem`. For example, you can provide a
-`ProjectionExpression` with each `TableKeysAndAttributes` you
-define. This allows you to specify the attributes that you want to retrieve from the
-table.
+Along with the required parameters, you can also specify optional parameters when using `batchGetItem`. For example, you can provide a `ProjectionExpression` with each `TableKeysAndAttributes` you define. This allows you to specify the attributes that you want to retrieve from the table.
 
-The following code example retrieves two items from the `Forum` table. The
-`withProjectionExpression` parameter specifies that only the
-`Threads` attribute is to be retrieved.
+The following code example retrieves two items from the `Forum` table. The `withProjectionExpression` parameter specifies that only the `Threads` attribute is to be retrieved.
 
-###### Example
+**Example**  
 
 ```
 TableKeysAndAttributes forumTableKeysAndAttributes = new TableKeysAndAttributes("Forum")
@@ -566,48 +506,27 @@ BatchGetItemOutcome outcome = dynamoDB.batchGetItem(forumTableKeysAndAttributes)
 ```
 
 ## Updating an item
+<a name="JavaDocumentAPIItemUpdate"></a>
 
-The `updateItem` method of a `Table` object can update existing
-attribute values, add new attributes, or delete attributes from an existing item.
+The `updateItem` method of a `Table` object can update existing attribute values, add new attributes, or delete attributes from an existing item. 
 
 The `updateItem` method behaves as follows:
++ If an item does not exist (no item in the table with the specified primary key), `updateItem` adds a new item to the table.
++ If an item exists, `updateItem` performs the update as specified by the `UpdateExpression` parameter.
 
-- If an item does not exist (no item in the table with the specified primary key),
-  `updateItem` adds a new item to the table.
-- If an item exists, `updateItem` performs the update as specified by the
-  `UpdateExpression` parameter.
+**Note**  
+It is also possible to "update" an item using `putItem`. For example, if you call `putItem` to add an item to the table, but there is already an item with the specified primary key, `putItem` replaces the entire item. If there are attributes in the existing item that are not specified in the input, `putItem` removes those attributes from the item.  
+In general, we recommend that you use `updateItem` whenever you want to modify any item attributes. The `updateItem` method only modifies the item attributes that you specify in the input, and the other attributes in the item remain unchanged.
 
-###### Note
+Follow these steps: 
 
-It is also possible to "update" an item using `putItem`. For example, if you
-call `putItem` to add an item to the table, but there is already an item with the
-specified primary key, `putItem` replaces the entire item. If there are
-attributes in the existing item that are not specified in the input, `putItem`
-removes those attributes from the item.
+1. Create an instance of the `Table` class to represent the table that you want to work with.
 
-In general, we recommend that you use `updateItem` whenever you want to
-modify any item attributes. The `updateItem` method only modifies the item
-attributes that you specify in the input, and the other attributes in the item remain
-unchanged.
+1. Call the `updateTable` method of the `Table` instance. You must specify the primary key of the item that you want to retrieve, along with an `UpdateExpression` that describes the attributes to modify and how to modify them.
 
-Follow these steps:
+The following Java code example demonstrates the preceding tasks. The code updates a book item in the `ProductCatalog` table. It adds a new author to the set of `Authors` and deletes the existing `ISBN` attribute. It also reduces the price by one.
 
-1. Create an instance of the `Table` class to represent the table that you
-   want to work with.
-2. Call the `updateTable` method of the `Table` instance. You must
-   specify the primary key of the item that you want to retrieve, along with an
-   `UpdateExpression` that describes the attributes to modify and how to modify
-   them.
-
-The following Java code example demonstrates the preceding tasks. The code updates a book
-item in the `ProductCatalog` table. It adds a new author to the set of
-`Authors` and deletes the existing `ISBN` attribute. It also reduces
-the price by one.
-
-An `ExpressionAttributeValues` map is used in the
-`UpdateExpression`. The placeholders `:val1` and `:val2` are
-replaced at runtime with the actual values for `Authors` and
-`Price`.
+An `ExpressionAttributeValues` map is used in the `UpdateExpression`. The placeholders `:val1` and `:val2` are replaced at runtime with the actual values for `Authors` and `Price`.
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -634,16 +553,11 @@ UpdateItemOutcome outcome =  table.updateItem(
 ```
 
 ### Specifying optional parameters
+<a name="UpdateItemJavaDocumentAPIOptions"></a>
 
-Along with the required parameters, you can also specify optional parameters for the
-`updateItem` method, including a condition that must be met in order for the
-update is to occur. If the condition you specify is not met, the AWS SDK for Java throws a
-`ConditionalCheckFailedException`. For example, the following Java code example
-conditionally updates a book item price to 25. It specifies a
-`ConditionExpression` stating that the price should be updated only if the
-existing price is 20.
+Along with the required parameters, you can also specify optional parameters for the `updateItem` method, including a condition that must be met in order for the update is to occur. If the condition you specify is not met, the AWS SDK for Java throws a `ConditionalCheckFailedException`. For example, the following Java code example conditionally updates a book item price to 25. It specifies a `ConditionExpression` stating that the price should be updated only if the existing price is 20.
 
-###### Example
+**Example**  
 
 ```
 Table table = dynamoDB.getTable("ProductCatalog");
@@ -664,16 +578,11 @@ UpdateItemOutcome outcome = table.updateItem(
 ```
 
 ### Atomic counter
+<a name="AtomicCounterJavaDocumentAPI"></a>
 
-You can use `updateItem` to implement an atomic counter, where you increment
-or decrement the value of an existing attribute without interfering with other write
-requests. To increment an atomic counter, use an `UpdateExpression` with a
-`set` action to add a numeric value to an existing attribute of type
-`Number`.
+You can use `updateItem` to implement an atomic counter, where you increment or decrement the value of an existing attribute without interfering with other write requests. To increment an atomic counter, use an `UpdateExpression` with a `set` action to add a numeric value to an existing attribute of type `Number`.
 
-The following example demonstrates this, incrementing the `Quantity`
-attribute by one. It also demonstrates the use of the `ExpressionAttributeNames`
-parameter in an `UpdateExpression`.
+The following example demonstrates this, incrementing the `Quantity` attribute by one. It also demonstrates the use of the `ExpressionAttributeNames` parameter in an `UpdateExpression`.
 
 ```
 Table table = dynamoDB.getTable("ProductCatalog");
@@ -692,19 +601,19 @@ UpdateItemOutcome outcome = table.updateItem(
 ```
 
 ## Deleting an item
+<a name="DeleteMidLevelJava"></a>
 
-The `deleteItem` method deletes an item from a table. You must provide the
-primary key of the item that you want to delete.
+The `deleteItem` method deletes an item from a table. You must provide the primary key of the item that you want to delete.
 
-Follow these steps:
+Follow these steps: 
 
 1. Create an instance of the `DynamoDB` client.
-2. Call the `deleteItem` method by providing the key of the item you want to
-   delete.
+
+1. Call the `deleteItem` method by providing the key of the item you want to delete. 
 
 The following Java example demonstrates these tasks.
 
-###### Example
+**Example**  
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -716,13 +625,11 @@ DeleteItemOutcome outcome = table.deleteItem("Id", 101);
 ```
 
 ### Specifying optional parameters
+<a name="DeleteItemJavaDocumentAPIOptions"></a>
 
-You can specify optional parameters for `deleteItem`. For example, the
-following Java code example specifies a `ConditionExpression`, stating that a
-book item in `ProductCatalog` can only be deleted if the book is no longer in
-publication (the `InPublication` attribute is false).
+You can specify optional parameters for `deleteItem`. For example, the following Java code example specifies a `ConditionExpression`, stating that a book item in `ProductCatalog` can only be deleted if the book is no longer in publication (the `InPublication` attribute is false).
 
-###### Example
+**Example**  
 
 ```
 Map<String,Object> expressionAttributeValues = new HashMap<String,Object>();

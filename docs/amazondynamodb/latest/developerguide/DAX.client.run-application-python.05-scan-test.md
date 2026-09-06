@@ -1,7 +1,9 @@
-# 05-scan-test.py
 
-The `05-scan-test.py` program performs `Scan` operations
-on `TryDaxTable`.
+
+# 05-scan-test.py
+<a name="DAX.client.run-application-python.05-scan-test"></a>
+
+The `05-scan-test.py` program performs `Scan` operations on `TryDaxTable`.
 
 ```
 import argparse
@@ -58,5 +60,4 @@ if __name__ == "__main__":
         f"Total time: {test_end - test_start:.4f} sec. Average time: "
         f"{(test_end - test_start)/test_iterations}."
     )
-
 ```

@@ -1,46 +1,33 @@
+
+
 # Example: Batch operations using AWS SDK for Java document API
+<a name="batch-operation-document-api-java"></a>
 
-This section provides examples of batch write and batch get operations in Amazon DynamoDB using
-the AWS SDK for Java Document API.
+This section provides examples of batch write and batch get operations in Amazon DynamoDB using the AWS SDK for Java Document API.
 
-###### Note
+**Note**  
+The SDK for Java also provides an object persistence model, enabling you to map your client-side classes to DynamoDB tables. This approach can reduce the amount of code that you have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapper.md).
 
-The SDK for Java also provides an object persistence model, enabling you to map your
-client-side classes to DynamoDB tables. This approach can reduce the amount of code that you
-have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md").
-
-###### Topics
-
-- [Example: Batch write operation using the AWS SDK for Java document API](#JavaDocumentAPIBatchWrite "#JavaDocumentAPIBatchWrite")
-- [Example: Batch get operation using the AWS SDK for Java document API](#JavaDocumentAPIBatchGet "#JavaDocumentAPIBatchGet")
+**Topics**
++ [Example: Batch write operation using the AWS SDK for Java document API](#JavaDocumentAPIBatchWrite)
++ [Example: Batch get operation using the AWS SDK for Java document API](#JavaDocumentAPIBatchGet)
 
 ## Example: Batch write operation using the AWS SDK for Java document API
+<a name="JavaDocumentAPIBatchWrite"></a>
 
-The following Java code example uses the `batchWriteItem` method to perform
-the following put and delete operations:
+The following Java code example uses the `batchWriteItem` method to perform the following put and delete operations:
++ Put one item in the `Forum` table.
++ Put one item and delete one item from the `Thread` table. 
 
-- Put one item in the `Forum` table.
-- Put one item and delete one item from the `Thread` table.
+You can specify any number of put and delete requests against one or more tables when creating your batch write request. However, `batchWriteItem` limits the size of a batch write request and the number of put and delete operations in a single batch write operation. If your request exceeds these limits, your request is rejected. If your table does not have sufficient provisioned throughput to serve this request, the unprocessed request items are returned in the response. 
 
-You can specify any number of put and delete requests against one or more tables when
-creating your batch write request. However, `batchWriteItem` limits the size of a
-batch write request and the number of put and delete operations in a single batch write
-operation. If your request exceeds these limits, your request is rejected. If your table
-does not have sufficient provisioned throughput to serve this request, the unprocessed
-request items are returned in the response.
+The following example checks the response to see if it has any unprocessed request items. If it does, it loops back and resends the `batchWriteItem` request with unprocessed items in the request. If you followed the examples in this guide, you should already have created the `Forum` and `Thread` tables. You can also create these tables and upload sample data programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md).
 
-The following example checks the response to see if it has any unprocessed request
-items. If it does, it loops back and resends the `batchWriteItem` request with
-unprocessed items in the request. If you followed the examples in this guide, you should
-already have created the `Forum` and `Thread` tables. You can also
-create these tables and upload sample data programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
+For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md). 
 
-For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
-
-###### Example
+**Example**  
 
 ```
-
 package com.amazonaws.codesamples.document;
 
 import java.io.IOException;
@@ -115,27 +102,20 @@ public class DocumentAPIBatchWrite {
     }
 
 }
-
-
 ```
 
 ## Example: Batch get operation using the AWS SDK for Java document API
+<a name="JavaDocumentAPIBatchGet"></a>
 
-The following Java code example uses the `batchGetItem` method to retrieve
-multiple items from the `Forum` and the `Thread` tables. The
-`BatchGetItemRequest` specifies the table names and a list of keys for each
-item to get. The example processes the response by printing the items retrieved.
+The following Java code example uses the `batchGetItem` method to retrieve multiple items from the `Forum` and the `Thread` tables. The `BatchGetItemRequest` specifies the table names and a list of keys for each item to get. The example processes the response by printing the items retrieved.
 
-###### Note
+**Note**  
+This code example assumes that you have already loaded data into DynamoDB for your account by following the instructions in the [Creating tables and loading data for code examples in DynamoDB](SampleData.md) section.  
+For step-by-step instructions to run the following example, see [Java code examples](CodeSamples.Java.md).
 
-This code example assumes that you have already loaded data into DynamoDB for your account by following the instructions in the [Creating tables and loading data for code examples in DynamoDB](SampleData.md "SampleData.md") section.
-
-For step-by-step instructions to run the following example, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
-
-###### Example
+**Example**  
 
 ```
-
 package com.amazonaws.codesamples.document;
 
 import java.io.IOException;
@@ -212,6 +192,4 @@ public class DocumentAPIBatchGet {
     }
 
 }
-
-
 ```

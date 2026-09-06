@@ -1,22 +1,20 @@
+
+
 # Accelerate DynamoDB reads with DAX using an AWS SDK
+<a name="example_dynamodb_Usage_DaxDemo_section"></a>
 
 The following code example shows how to:
++ Create and write data to a table with both the DAX and SDK clients.
++ Get, query, and scan the table with both clients and compare their performance.
 
-- Create and write data to a table with both the DAX and SDK clients.
-- Get, query, and scan the table with both clients and compare their performance.
-  For more information, see [Developing with the DynamoDB Accelerator Client](DAX.client.md "DAX.client.md").
+For more information, see [Developing with the DynamoDB Accelerator Client](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.client.html).
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb/TryDax#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb/TryDax#code-examples").
-
-Create a table with either the DAX or Boto3 client.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb/TryDax#code-examples). 
+Create a table with either the DAX or Boto3 client.  
 
 ```
 import boto3
@@ -54,11 +52,8 @@ def create_dax_table(dyn_resource=None):
 if __name__ == "__main__":
     dax_table = create_dax_table()
     print(f"Created table.")
-
-
 ```
-
-Write test data to the table.
+Write test data to the table.  
 
 ```
 import boto3
@@ -99,11 +94,8 @@ if __name__ == "__main__":
         f"Each item is {write_item_size} characters."
     )
     write_data_to_dax_table(write_key_count, write_item_size)
-
-
 ```
-
-Get items for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.
+Get items for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.  
 
 ```
 import argparse
@@ -174,11 +166,8 @@ if __name__ == "__main__":
         f"Total time: {test_end - test_start:.4f} sec. Average time: "
         f"{(test_end - test_start)/ test_iterations}."
     )
-
-
 ```
-
-Query the table for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.
+Query the table for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.  
 
 ```
 import argparse
@@ -251,11 +240,8 @@ if __name__ == "__main__":
         f"Total time: {test_end - test_start:.4f} sec. Average time: "
         f"{(test_end - test_start)/test_iterations}."
     )
-
-
 ```
-
-Scan the table for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.
+Scan the table for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.  
 
 ```
 import argparse
@@ -312,11 +298,8 @@ if __name__ == "__main__":
         f"Total time: {test_end - test_start:.4f} sec. Average time: "
         f"{(test_end - test_start)/test_iterations}."
     )
-
-
 ```
-
-Delete the table.
+Delete the table.  
 
 ```
 import boto3
@@ -341,19 +324,15 @@ def delete_dax_table(dyn_resource=None):
 if __name__ == "__main__":
     delete_dax_table()
     print("Table deleted!")
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/DeleteTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem)
+  + [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query)
+  + [Scan](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Scan)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateTable](../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md "../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/boto3/dynamodb-2012-08-10/DeleteTable.md "../../../goto/boto3/dynamodb-2012-08-10/DeleteTable.md")
-  - [GetItem](../../../goto/boto3/dynamodb-2012-08-10/GetItem.md "../../../goto/boto3/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/boto3/dynamodb-2012-08-10/PutItem.md "../../../goto/boto3/dynamodb-2012-08-10/PutItem.md")
-  - [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  - [Scan](../../../goto/boto3/dynamodb-2012-08-10/Scan.md "../../../goto/boto3/dynamodb-2012-08-10/Scan.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

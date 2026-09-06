@@ -1,16 +1,18 @@
+
+
 # Query a DynamoDB table with strongly consistent reads using an AWS SDK
+<a name="example_dynamodb_Scenarios_QueryWithStronglyConsistentReads_section"></a>
 
 The following code examples show how to query a table with strongly consistent reads.
++ Configure the consistency level for DynamoDB queries.
++ Use strongly consistent reads to get the most up-to-date data.
++ Understand the tradeoffs between eventual consistency and strong consistency.
 
-- Configure the consistency level for DynamoDB queries.
-- Use strongly consistent reads to get the most up-to-date data.
-- Understand the tradeoffs between eventual consistency and strong consistency.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Query a DynamoDB table with configurable read consistency using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query a DynamoDB table with configurable read consistency using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -64,26 +66,21 @@ import java.util.logging.Logger;
             throw e;
         }
     }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query a DynamoDB table with configurable read consistency using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query a DynamoDB table with configurable read consistency using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
  * Queries a DynamoDB table with configurable read consistency
- *
+ * 
  * @param {Object} config - AWS SDK configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} partitionKeyName - The name of the partition key
@@ -123,19 +120,14 @@ async function queryWithConsistentRead(
     throw error;
   }
 }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query a DynamoDB table with the option for strongly consistent reads using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query a DynamoDB table with the option for strongly consistent reads using AWS SDK for Python (Boto3).  
 
 ```
 import time
@@ -180,16 +172,9 @@ def query_with_consistent_read(
     response = table.query(KeyConditionExpression=key_condition, ConsistentRead=consistent_read)
 
     return response
-
-
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

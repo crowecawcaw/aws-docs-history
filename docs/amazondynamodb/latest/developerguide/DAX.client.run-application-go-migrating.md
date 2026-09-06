@@ -1,9 +1,12 @@
-# Migrating to DAX Go SDK V2
 
-This migration guide will help you transition your existing DAX Go
-applications.
+
+# Migrating to DAX Go SDK V2
+<a name="DAX.client.run-application-go-migrating"></a>
+
+This migration guide will help you transition your existing DAX Go applications.
 
 ## V1 DAX Go SDK usage
+<a name="DAX.client.run-application-go-V1-usage"></a>
 
 ```
 package main
@@ -21,7 +24,7 @@ import (
 func main() {
     region := "us-west-2"
     endpoint := "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-
+    
     // Create session
     sess, err := session.NewSession(&aws.Config{
         Region: aws.String(region),
@@ -30,10 +33,10 @@ func main() {
         fmt.Printf("Failed to create session: %v\n", err)
         os.Exit(1)
     }
-
+    
     // Configure DAX client
     cfg := dax.DefaultConfig()
-    cfg.HostPorts = []string{endpoint}
+    cfg.HostPorts = []string{endpoint} 
     cfg.Region = region
 
     // Create DAX client
@@ -70,6 +73,7 @@ func main() {
 ```
 
 ## V2 DAX Go SDK usage
+<a name="DAX.client.run-application-go-V2-usage"></a>
 
 ```
 package main
@@ -91,7 +95,7 @@ func main() {
     ctx := context.Background()
     region := "us-west-2"
     endpoint := "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-
+   
     // Create DAX config
     config := dax.DefaultConfig()
     // Specify Endpoint and Region
@@ -100,7 +104,7 @@ func main() {
     // Enabling logging
     config.LogLevel = utils.LogDebug
     // Create DAX client
-    daxClient, err := dax.New(config)
+    daxClient, err := dax.New(config) 
     if err != nil {
         fmt.Printf("Failed to create DAX client: %v\n", err)
         os.Exit(1)
@@ -116,7 +120,7 @@ func main() {
     if err != nil {
         return fmt.Errorf("error marshaling sk: %v", err)
     }
-
+                
     // Create GetItem input
     input := &dynamodb.GetItemInput{
         TableName: aws.String("TryDaxTable"),
@@ -138,5 +142,4 @@ func main() {
 }
 ```
 
-For more API usage details, see [AWS
-samples](https://github.com/aws-samples/sample-aws-dax-go-v2 "https://github.com/aws-samples/sample-aws-dax-go-v2").
+For more API usage details, see [AWS samples](https://github.com/aws-samples/sample-aws-dax-go-v2).

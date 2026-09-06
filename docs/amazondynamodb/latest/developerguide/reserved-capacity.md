@@ -1,43 +1,18 @@
+
+
 # DynamoDB reserved capacity
+<a name="reserved-capacity"></a>
 
-For provisioned capacity tables that use the Standard [table class](HowItWorks.TableClasses.md "HowItWorks.TableClasses.md"), DynamoDB offers the ability
-to purchase reserved capacity for your read and write capacity. A reserved capacity
-purchase is an agreement to pay for a minimum amount of provisioned throughput
-capacity, for the duration of the term of the agreement, in exchange for discounted
-pricing.
+For provisioned capacity tables that use the Standard [table class](HowItWorks.TableClasses.md), DynamoDB offers the ability to purchase reserved capacity for your read and write capacity. A reserved capacity purchase is an agreement to pay for a minimum amount of provisioned throughput capacity, for the duration of the term of the agreement, in exchange for discounted pricing.
 
-###### Note
+**Note**  
+You can't purchase reserved capacity for replicated write capacity units (rWCUs). Reserved capacity is applied only to the Region in which it was purchased. Reserved capacity is also not available for tables using the DynamoDB Standard-IA table class or on-demand capacity mode.
 
-You can't purchase reserved capacity for replicated write capacity units
-(rWCUs). Reserved capacity is applied only to the Region in which it was
-purchased. Reserved capacity is also not available for tables using the DynamoDB
-Standard-IA table class or on-demand capacity mode.
+Reserved capacity is purchased in allocations of 100 WCUs or 100 RCUs. The smallest reserved capacity offering is 100 capacity units (reads or writes). DynamoDB reserved capacity is offered as either a one-year commitment or in select Regions as a three-year commitment. You can save up to 54% off standard rates for a one-year term and 77% off standard rates for a three-year term. For more information about how and when you should purchase, see [Amazon DynamoDB Reserved Capacity](https://aws.amazon.com/dynamodb/reserved-capacity/).
 
-Reserved capacity is purchased in allocations of 100 WCUs or 100 RCUs. The
-smallest reserved capacity offering is 100 capacity units (reads or writes). DynamoDB
-reserved capacity is offered as either a one-year commitment or in select Regions as
-a three-year commitment. You can save up to 54% off standard rates for a one-year
-term and 77% off standard rates for a three-year term. For more information about
-how and when you should purchase, see [Amazon DynamoDB Reserved Capacity](https://aws.amazon.com/dynamodb/reserved-capacity/ "https://aws.amazon.com/dynamodb/reserved-capacity/").
+**Note**  
+You can purchase up to a combined 1,000,000 reserved capacity units for write capacity units (WCUs) and read capacity units (RCUs) using the AWS Management Console. If you want to purchase more than 1,000,000 provisioned capacity units in a single purchase, or have active reserved capacity and want to purchase additional reserved capacity that would result in more than 1,000,000 active provisioned capacity units, follow the process mentioned in "How to purchase reserved capacity" section in [Amazon DynamoDB Reserved Capacity](https://aws.amazon.com/dynamodb/reserved-capacity/).
 
-###### Note
+When you purchase DynamoDB reserved capacity, you pay a one-time partial upfront payment and receive a discounted hourly rate for the committed provisioned usage. You pay for the entire committed provisioned usage, regardless of actual usage, so your cost savings are closely tied to use. Any capacity that you provision in excess of the purchased reserved capacity is billed at standard provisioned capacity rates. By reserving your read and write capacity units ahead of time, you realize significant cost savings on your provisioned capacity costs.
 
-You can purchase up to a combined 1,000,000 reserved capacity units for
-write capacity units (WCUs) and read capacity units (RCUs) using the AWS
-Management Console. If you want to purchase more than 1,000,000 provisioned
-capacity units in a single purchase, or have active reserved capacity and want
-to purchase additional reserved capacity that would result in more than
-1,000,000 active provisioned capacity units, follow the process mentioned in
-"How to purchase reserved capacity" section in [Amazon DynamoDB Reserved
-Capacity](https://aws.amazon.com/dynamodb/reserved-capacity/ "https://aws.amazon.com/dynamodb/reserved-capacity/").
-
-When you purchase DynamoDB reserved capacity, you pay a one-time partial upfront
-payment and receive a discounted hourly rate for the committed provisioned usage.
-You pay for the entire committed provisioned usage, regardless of actual usage, so
-your cost savings are closely tied to use. Any capacity that you provision in excess
-of the purchased reserved capacity is billed at standard provisioned capacity rates.
-By reserving your read and write capacity units ahead of time, you realize
-significant cost savings on your provisioned capacity costs.
-
-You can't sell, cancel, or transfer reserved capacity to another Region or
-account.
+You can't sell, cancel, or transfer reserved capacity to another Region or account.

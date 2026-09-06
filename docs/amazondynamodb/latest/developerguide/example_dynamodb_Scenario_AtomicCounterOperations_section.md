@@ -1,16 +1,18 @@
+
+
 # Use atomic counter operations in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_AtomicCounterOperations_section"></a>
 
 The following code examples show how to use atomic counter operations in DynamoDB.
++ Increment counters atomically using ADD and SET operations.
++ Safely increment counters that might not exist.
++ Implement optimistic locking for counter operations.
 
-- Increment counters atomically using ADD and SET operations.
-- Safely increment counters that might not exist.
-- Implement optimistic locking for counter operations.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate atomic counter operations using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate atomic counter operations using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -262,11 +264,8 @@ import java.util.Map;
 
         return null;
     }
-
-
 ```
-
-Example usage of atomic counter operations with AWS SDK for Java 2.x.
+Example usage of atomic counter operations with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -338,34 +337,29 @@ Example usage of atomic counter operations with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate atomic counter operations using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Demonstrate atomic counter operations using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   GetCommand
 } = require("@aws-sdk/lib-dynamodb");
 
 /**
  * Increment a counter using the ADD operation.
- *
+ * 
  * This function demonstrates using the ADD operation for atomic increments.
  * The ADD operation is atomic and is the recommended way to increment counters.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -383,7 +377,7 @@ async function incrementCounterWithAdd(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using ADD
   const params = {
     TableName: tableName,
@@ -394,19 +388,19 @@ async function incrementCounterWithAdd(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Increment a counter using the SET operation with an expression.
- *
+ * 
  * This function demonstrates using the SET operation with an expression for increments.
  * While this approach works, it's less idiomatic for simple increments than using ADD.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -424,7 +418,7 @@ async function incrementCounterWithSet(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using SET with an expression
   const params = {
     TableName: tableName,
@@ -435,19 +429,19 @@ async function incrementCounterWithSet(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Increment a counter safely, handling the case where the counter might not exist.
- *
+ * 
  * This function demonstrates using the if_not_exists function with SET to safely
  * increment a counter that might not exist yet.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -467,7 +461,7 @@ async function incrementCounterSafely(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using SET with if_not_exists
   const params = {
     TableName: tableName,
@@ -479,20 +473,20 @@ async function incrementCounterSafely(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Increment a counter with optimistic locking to prevent race conditions.
- *
+ * 
  * This function demonstrates using a condition expression to implement optimistic
  * locking, which prevents race conditions when multiple processes try to update
  * the same counter.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -512,7 +506,7 @@ async function incrementCounterWithLocking(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters with a condition expression
   const params = {
     TableName: tableName,
@@ -525,7 +519,7 @@ async function incrementCounterWithLocking(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   try {
     // Perform the update operation
     const response = await docClient.send(new UpdateCommand(params));
@@ -548,9 +542,9 @@ async function incrementCounterWithLocking(
 
 /**
  * Get the current value of a counter.
- *
+ * 
  * Helper function to retrieve the current value of a counter attribute.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to get
@@ -566,26 +560,23 @@ async function getCounterValue(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the get parameters
   const params = {
     TableName: tableName,
     Key: key
   };
-
+  
   // Perform the get operation
   const response = await docClient.send(new GetCommand(params));
-
+  
   // Return the counter value if it exists, otherwise null
   return response.Item && counterName in response.Item
     ? response.Item[counterName]
     : null;
 }
-
-
 ```
-
-Example usage of atomic counter operations with AWS SDK for JavaScript.
+Example usage of atomic counter operations with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -598,9 +589,9 @@ async function exampleUsage() {
   const key = { ProductId: "P12345" };
   const counterName = "ViewCount";
   const incrementValue = 1;
-
+  
   console.log("Demonstrating different approaches to increment counters in DynamoDB");
-
+  
   try {
     // Example 1: Using ADD operation (recommended for simple increments)
     console.log("\nExample 1: Incrementing counter with ADD operation");
@@ -611,9 +602,9 @@ async function exampleUsage() {
       counterName,
       incrementValue
     );
-
+    
     console.log(`Counter incremented to: ${response1.Attributes[counterName]}`);
-
+    
     // Example 2: Using SET operation with an expression
     console.log("\nExample 2: Incrementing counter with SET operation");
     const response2 = await incrementCounterWithSet(
@@ -623,9 +614,9 @@ async function exampleUsage() {
       counterName,
       incrementValue
     );
-
+    
     console.log(`Counter incremented to: ${response2.Attributes[counterName]}`);
-
+    
     // Example 3: Safely incrementing a counter that might not exist
     console.log("\nExample 3: Safely incrementing counter that might not exist");
     const newKey = { ProductId: "P67890" };
@@ -637,16 +628,16 @@ async function exampleUsage() {
       incrementValue,
       0
     );
-
+    
     console.log(`Counter initialized and incremented to: ${response3.Attributes[counterName]}`);
-
+    
     // Example 4: Incrementing with optimistic locking
     console.log("\nExample 4: Incrementing with optimistic locking");
-
+    
     // First, get the current counter value
     const currentValue = await getCounterValue(config, tableName, key, counterName);
     console.log(`Current counter value: ${currentValue}`);
-
+    
     // Then, try to increment with optimistic locking
     const response4 = await incrementCounterWithLocking(
       config,
@@ -656,13 +647,13 @@ async function exampleUsage() {
       incrementValue,
       currentValue
     );
-
+    
     if (response4.success) {
       console.log(`Counter successfully incremented to: ${response4.data.Attributes[counterName]}`);
     } else {
       console.log(response4.error);
     }
-
+    
     // Explain the differences between ADD and SET
     console.log("\nKey differences between ADD and SET for counter operations:");
     console.log("1. ADD is more concise and idiomatic for simple increments");
@@ -670,24 +661,19 @@ async function exampleUsage() {
     console.log("3. Both operations are atomic and safe for concurrent updates");
     console.log("4. SET with if_not_exists is required when the attribute might not exist");
     console.log("5. Optimistic locking can be added to either approach for additional safety");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate atomic counter operations using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Demonstrate atomic counter operations using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -849,13 +835,8 @@ def atomic_conditional_increment(
         else:
             # Other error occurred
             raise
-
-
-
-
 ```
-
-Example usage of atomic counter operations with AWS SDK for Python (Boto3).
+Example usage of atomic counter operations with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -937,16 +918,9 @@ def example_usage():
     print("4. ADD is more concise for simple increments")
     print("5. SET with if_not_exists() is recommended when the attribute might not exist")
     print("6. For counters, ADD is generally preferred for clarity and simplicity")
-
-
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

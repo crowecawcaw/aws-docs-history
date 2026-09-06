@@ -1,16 +1,18 @@
+
+
 # Query a DynamoDB table with a filter expression and limit with an AWS SDK
+<a name="example_dynamodb_Scenarios_QueryWithFilterAndLimit_section"></a>
 
 The following code examples show how to query a table with a filter expression and limit.
++ Apply filter expressions to query results with a limit on items evaluated.
++ Understand how limit affects filtered query results.
++ Control the maximum number of items processed in a query.
 
-- Apply filter expressions to query results with a limit on items evaluated.
-- Understand how limit affects filtered query results.
-- Control the maximum number of items processed in a query.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Query a DynamoDB table with a filter expression and limit using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query a DynamoDB table with a filter expression and limit using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -80,19 +82,14 @@ import java.util.logging.Logger;
             throw e;
         }
     }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query a DynamoDB table with a filter expression and limit using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query a DynamoDB table with a filter expression and limit using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -139,13 +136,8 @@ def query_with_filter_and_limit(
     # Execute the query
     response = table.query(**query_params)
     return response
-
-
-
-
 ```
-
-Demonstrates how to use filter expressions with limits in AWS SDK for Python (Boto3).
+Demonstrates how to use filter expressions with limits in AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -181,16 +173,9 @@ def example_usage():
         print("\nThere are more results available. Use the LastEvaluatedKey for pagination.")
     else:
         print("\nAll matching results have been retrieved.")
-
-
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

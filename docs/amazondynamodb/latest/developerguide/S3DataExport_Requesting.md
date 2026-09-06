@@ -1,257 +1,168 @@
+
+
 # Requesting a table export in DynamoDB
+<a name="S3DataExport_Requesting"></a>
 
-DynamoDB table exports allow you to export table data to an Amazon S3 bucket, enabling you to
-perform analytics and complex queries on your data using other AWS services such as Athena,
-AWS Glue, Amazon SageMaker AI, Amazon EMR, and AWS Lake Formation. You can request a table export using the AWS Management Console,
-the AWS CLI, or the DynamoDB API.
+DynamoDB table exports allow you to export table data to an Amazon S3 bucket, enabling you to perform analytics and complex queries on your data using other AWS services such as Athena, AWS Glue, Amazon SageMaker AI, Amazon EMR, and AWS Lake Formation. You can request a table export using the AWS Management Console, the AWS CLI, or the DynamoDB API.
 
-###### Note
-
+**Note**  
 Requester pays Amazon S3 buckets aren't supported.
 
 DynamoDB supports both full export and incremental export:
++ With **full exports**, you can export a full snapshot of your table from any point in time within the point-in-time recovery (PITR) window to your Amazon S3 bucket.
++ With **incremental exports**, you can export data from your DynamoDB table that was changed, updated, or deleted between a specified time period, within your PITR window, to your Amazon S3 bucket. 
 
-- With **full exports**, you can export a full snapshot
-  of your table from any point in time within the point-in-time recovery (PITR) window
-  to your Amazon S3 bucket.
-- With **incremental exports**, you can export data
-  from your DynamoDB table that was changed, updated, or deleted between a specified time
-  period, within your PITR window, to your Amazon S3 bucket.
-
-###### Topics
-
-- [Prerequisites](#S3DataExport_Requesting_Permissions "#S3DataExport_Requesting_Permissions")
-- [Requesting an export using the AWS Management Console](#S3DataExport_Requesting_Console "#S3DataExport_Requesting_Console")
-- [Getting details about past exports in the AWS Management Console](#S3DataExport_Requesting_Console_Details "#S3DataExport_Requesting_Console_Details")
-- [Requesting an export using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI "#S3DataExport_Requesting_CLI")
-- [Getting details about past exports using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI_Details "#S3DataExport_Requesting_CLI_Details")
+**Topics**
++ [Prerequisites](#S3DataExport_Requesting_Permissions)
++ [Requesting an export using the AWS Management Console](#S3DataExport_Requesting_Console)
++ [Getting details about past exports in the AWS Management Console](#S3DataExport_Requesting_Console_Details)
++ [Requesting an export using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI)
++ [Getting details about past exports using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI_Details)
 
 ## Prerequisites
+<a name="S3DataExport_Requesting_Permissions"></a>
 
 **Enable PITR**
 
-To use the export to S3 feature, you must enable PITR on your table. For details about how to enable PITR, see [Point-in-time
-recovery](PointInTimeRecovery_Howitworks.md "PointInTimeRecovery_Howitworks.md"). If you request an export for a table that doesn't have PITR enabled, your request will fail with an exception message: “An error occurred (PointInTimeRecoveryUnavailableException) when calling the `ExportTableToPointInTime` operation: Point in time recovery is not enabled for table 'my-dynamodb-table”. You can only request and export from a point in time that is within your configured PITR `RecoveryPeriodInDays`.
+To use the export to S3 feature, you must enable PITR on your table. For details about how to enable PITR, see [Point-in-time recovery](PointInTimeRecovery_Howitworks.md). If you request an export for a table that doesn't have PITR enabled, your request will fail with an exception message: “An error occurred (PointInTimeRecoveryUnavailableException) when calling the `ExportTableToPointInTime` operation: Point in time recovery is not enabled for table 'my-dynamodb-table”. You can only request and export from a point in time that is within your configured PITR `RecoveryPeriodInDays`.
 
 **Set up S3 permissions**
 
-You can export your table data to any Amazon S3 bucket you have permission to write to. The
-destination bucket doesn't need to be in the same AWS Region or have the same owner as
-the source table owner. Your AWS Identity and Access Management (IAM) policy needs to allow you to be able to
-perform S3 actions (`s3:AbortMultipartUpload`, `s3:PutObject`, and
-`s3:PutObjectAcl`) and the DynamoDB export action
-(`dynamodb:ExportTableToPointInTime`). Here's an example of a sample
-policy that will grant your user permissions to perform exports to an S3 bucket.
+You can export your table data to any Amazon S3 bucket you have permission to write to. The destination bucket doesn't need to be in the same AWS Region or have the same owner as the source table owner. Your AWS Identity and Access Management (IAM) policy needs to allow you to be able to perform S3 actions (`s3:AbortMultipartUpload`, `s3:PutObject`, and `s3:PutObjectAcl`) and the DynamoDB export action (`dynamodb:ExportTableToPointInTime`). Here's an example of a sample policy that will grant your user permissions to perform exports to an S3 bucket.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowDynamoDBExportAction",
- "Effect": "Allow",
- "Action": "dynamodb:ExportTableToPointInTime",
- "Resource": "arn:aws:dynamodb:us-east-1:`111122223333`:table/my-table"
- },
- {
- "Sid": "AllowS3BucketWrites",
- "Effect": "Allow",
- "Action": [
- "s3:AbortMultipartUpload",
- "s3:PutObject",
- "s3:PutObjectAcl"
- ],
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowDynamoDBExportAction",
+            "Effect": "Allow",
+            "Action": "dynamodb:ExportTableToPointInTime",
+            "Resource": "arn:aws:dynamodb:us-east-1:{{111122223333}}:table/my-table"
+        },
+        {
+            "Sid": "AllowS3BucketWrites",
+            "Effect": "Allow",
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*"
+        }
+    ]
+}
 ```
 
-If you need to write to an Amazon S3 bucket that is in another account or you don't have
-permissions to write to, the Amazon S3 bucket owner must add a bucket policy to allow you to
-export from DynamoDB to that bucket. Here's an example policy on the target Amazon S3
-bucket.
+------
 
-JSON
+If you need to write to an Amazon S3 bucket that is in another account or you don't have permissions to write to, the Amazon S3 bucket owner must add a bucket policy to allow you to export from DynamoDB to that bucket. Here's an example policy on the target Amazon S3 bucket.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ExampleStatement",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::123456789012:user/Dave"
- },
- "Action": [
- "s3:AbortMultipartUpload",
- "s3:PutObject",
- "s3:PutObjectAcl"
- ],
- "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*"
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "ExampleStatement",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::123456789012:user/Dave"
+            },
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*"
+        }
+    ]
+}
+```
 
-Revoking these permissions while an export is in progress will result in partial
-files.
+------
 
-###### Note
+Revoking these permissions while an export is in progress will result in partial files.
 
-You must call `ExportTableToPointInTime` as a principal in the same
-AWS account as the source table. Although the destination bucket can belong to a
-different account (as described earlier), the export request itself must originate
-from the table's account. A request made from a different account fails with a
-`ValidationException`: "This action is only supported by accounts that
-match the resource owner's account." To export a table that is owned by another
-account, assume an IAM role in the table's account and make the export request with
-that role's credentials. When that role writes to a bucket in a different account,
-include the bucket owner and grant the role write access in the bucket policy as
-described above.
+**Note**  
+You must call `ExportTableToPointInTime` as a principal in the same AWS account as the source table. Although the destination bucket can belong to a different account (as described earlier), the export request itself must originate from the table's account. A request made from a different account fails with a `ValidationException`: "This action is only supported by accounts that match the resource owner's account." To export a table that is owned by another account, assume an IAM role in the table's account and make the export request with that role's credentials. When that role writes to a bucket in a different account, include the bucket owner and grant the role write access in the bucket policy as described above.
 
-###### Note
-
-If the table or bucket you're exporting to is encrypted with customer managed keys, that
-KMS key's policies must give DynamoDB permission to use it. This permission is given
-through the IAM User/Role that triggers the export job. For more information on
-encryption including best practices, see [How DynamoDB uses
-AWS KMS](encryption.howitworks.md "encryption.howitworks.md") and [Using a custom KMS key](encryption.howitworks.md#managed-key-customer-managed "encryption.howitworks.md#managed-key-customer-managed").
+**Note**  
+If the table or bucket you're exporting to is encrypted with customer managed keys, that KMS key's policies must give DynamoDB permission to use it. This permission is given through the IAM User/Role that triggers the export job. For more information on encryption including best practices, see [How DynamoDB uses AWS KMS](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/encryption.howitworks.html) and [Using a custom KMS key](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/encryption.howitworks.html#managed-key-customer-managed).
 
 ## Requesting an export using the AWS Management Console
+<a name="S3DataExport_Requesting_Console"></a>
 
-The following example demonstrates how to use the DynamoDB console to export an existing
-table named `MusicCollection`.
+The following example demonstrates how to use the DynamoDB console to export an existing table named `MusicCollection`.
 
-###### Note
+**Note**  
+This procedure assumes that you have enabled point-in-time recovery. To enable it for the `MusicCollection` table, on the table's **Overview** tab, in the **Table details** section, choose **Enable** for **Point-in-time recovery**.
 
-This procedure assumes that you have enabled point-in-time recovery. To enable it
-for the `MusicCollection` table, on the table's
-**Overview** tab, in the **Table details**
-section, choose **Enable** for **Point-in-time
-recovery**.
+**To request a table export**
 
-###### To request a table export
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. In the navigation pane on the left side of the console, choose
-   **Exports to S3**.
-3. Select the **Export to S3** button.
-4. Choose a source table and destination S3 bucket. If the destination bucket is
-   owned by your account, you can use the **Browse S3** button
-   to find it. Otherwise, enter the URL of the bucket using the
-   `s3://`bucketname`/`prefix`
- format.` the `prefix` is an optional folder to
-   help keep your destination bucket organized.
-5. Choose **Full export** or **Incremental export**. A **full
-   export** outputs the full table snapshot of your table as it was at
-   the point in time you specify. An **incremental export** outputs the changes made to your table during the specified export
-   period. Your output is compacted so it only contains the final state of the item
-   from the export period. The item will only appear once in the export even if it
-   has multiple updates within the same export period.
+1. In the navigation pane on the left side of the console, choose **Exports to S3**.
 
-Full export
+1. Select the **Export to S3** button.
 
-    1. Select the point in time you want to export the full table
-     snapshot from. This can be any point in time within the PITR
-     window. Alternatively, you can select **Current time** to export the latest
-     snapshot.
-    2. For **Exported file format**,
-     choose between **DynamoDB JSON**
-     and **Amazon Ion**. By default,
-     your table will be exported in DynamoDB JSON format from the
-     latest restorable time in the point in time recovery window
-     and encrypted using an Amazon S3 key (SSE-S3). You can
-     change these export settings if necessary.
+1. Choose a source table and destination S3 bucket. If the destination bucket is owned by your account, you can use the **Browse S3** button to find it. Otherwise, enter the URL of the bucket using the `s3://bucketname/prefix format.` the **prefix** is an optional folder to help keep your destination bucket organized.
 
+1. Choose **Full export** or **Incremental export**. A **full export** outputs the full table snapshot of your table as it was at the point in time you specify. An **incremental export **outputs the changes made to your table during the specified export period. Your output is compacted so it only contains the final state of the item from the export period. The item will only appear once in the export even if it has multiple updates within the same export period.
 
-    ###### Note
+------
+#### [ Full export ]
 
-    If you choose to encrypt your export using a key
-     protected by AWS Key Management Service (AWS KMS), the key must be in the
-     same Region as the destination S3 bucket.
+   1. Select the point in time you want to export the full table snapshot from. This can be any point in time within the PITR window. Alternatively, you can select **Current time** to export the latest snapshot.
 
-Incremental export
+   1. For **Exported file format**, choose between **DynamoDB JSON** and **Amazon Ion**. By default, your table will be exported in DynamoDB JSON format from the latest restorable time in the point in time recovery window and encrypted using an Amazon S3 key (SSE-S3). You can change these export settings if necessary. 
+**Note**  
+If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS), the key must be in the same Region as the destination S3 bucket.
 
-    1. Select the **Export period**
-     you want to export the incremental data for. Pick a start
-     time within the PITR window. The export period duration must
-     be at least 15 minutes and be no longer than 24 hours. The
-     export period's start time is inclusive and the end time is
-     exclusive.
-    2. Choose between **Absolute
-     mode** or **Relative
-     mode**.
+------
+#### [ Incremental export ]
 
+   1. Select the **Export period** you want to export the incremental data for. Pick a start time within the PITR window. The export period duration must be at least 15 minutes and be no longer than 24 hours. The export period's start time is inclusive and the end time is exclusive.
 
-    	1. **Absolute mode**
-    	 will export incremental data for the time period you
-    	 specify.
-    	2. **Relative mode**
-    	 will export incremental data for an export period
-    	 that is relative to your export job submission
-    	 time.
-    3. For **Exported file format**,
-     choose between **DynamoDB JSON**
-     and **Amazon Ion**. By default,
-     your table will be exported in DynamoDB JSON format from the
-     latest restorable time in the point in time recovery window
-     and encrypted using an Amazon S3 key (SSE-S3). You can change
-     these export settings if necessary.
+   1. Choose between **Absolute mode** or **Relative mode**.
 
+      1. **Absolute mode** will export incremental data for the time period you specify.
 
-    ###### Note
+      1. **Relative mode** will export incremental data for an export period that is relative to your export job submission time.
 
-    If you choose to encrypt your export using a key
-     protected by AWS Key Management Service (AWS KMS), the key must be in the
-     same Region as the destination S3 bucket.
-    4. For **Export view type**,
-     select either **New and old
-     images** or **New images
-     only**. New image provides the latest state of
-     the item. Old image provides the state of the item right
-     before the specified “start date and time”. The default
-     setting is **New and old
-     images**. For more information on new images
-     and old images, see [Incremental export output](S3DataExport.Output.md#incremental-export-output "S3DataExport.Output.md#incremental-export-output").
+   1. For **Exported file format**, choose between **DynamoDB JSON** and **Amazon Ion**. By default, your table will be exported in DynamoDB JSON format from the latest restorable time in the point in time recovery window and encrypted using an Amazon S3 key (SSE-S3). You can change these export settings if necessary.
+**Note**  
+If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS), the key must be in the same Region as the destination S3 bucket.
 
-6. Choose **Export** to begin.
+   1. For **Export view type**, select either **New and old images** or **New images only**. New image provides the latest state of the item. Old image provides the state of the item right before the specified “start date and time”. The default setting is **New and old images**. For more information on new images and old images, see [Incremental export output](S3DataExport.Output.md#incremental-export-output).
 
-Exported data isn't transactionally consistent. Your transaction operations can be
-torn between two export outputs. A subset of items can be modified by a transaction
-operation reflected in the export, while another subset of modifications in the same
-transaction isn't reflected in the same export request. However, exports are eventually
-consistent. If a transaction is torn during an export, you'll have the remaining
-transaction in your next contiguous export, without duplicates. The time periods used
-for exports are based on an internal system clock and can vary by one minute of your
-application’s local clock.
+------
+
+1. Choose **Export** to begin.
+
+Exported data isn't transactionally consistent. Your transaction operations can be torn between two export outputs. A subset of items can be modified by a transaction operation reflected in the export, while another subset of modifications in the same transaction isn't reflected in the same export request. However, exports are eventually consistent. If a transaction is torn during an export, you'll have the remaining transaction in your next contiguous export, without duplicates. The time periods used for exports are based on an internal system clock and can vary by one minute of your application’s local clock.
 
 ## Getting details about past exports in the AWS Management Console
+<a name="S3DataExport_Requesting_Console_Details"></a>
 
-You can find information about export tasks you've run in the past by choosing the
-**Exports to S3** section in the navigation sidebar. This section
-contains a list of all exports you've created in the past 90 days. Select the ARN of a
-task listed in the **Exports** tab to retrieve information about that
-export, including any advanced configuration settings you chose. Note that although
-export task metadata expires after 90 days and jobs older than that are no longer found
-in this list, the objects in your S3 bucket remain as long as their bucket policies
-allow. DynamoDB never deletes any of the objects it creates in your S3 bucket during an
-export.
+You can find information about export tasks you've run in the past by choosing the **Exports to S3** section in the navigation sidebar. This section contains a list of all exports you've created in the past 90 days. Select the ARN of a task listed in the **Exports** tab to retrieve information about that export, including any advanced configuration settings you chose. Note that although export task metadata expires after 90 days and jobs older than that are no longer found in this list, the objects in your S3 bucket remain as long as their bucket policies allow. DynamoDB never deletes any of the objects it creates in your S3 bucket during an export.
 
 ## Requesting an export using the AWS CLI and AWS SDKs
+<a name="S3DataExport_Requesting_CLI"></a>
 
-The following examples show how to export an existing table to an S3 bucket.
+The following examples show how to export an existing table to an S3 bucket. 
 
-###### Note
-
-This procedure assumes that you have enabled point-in-time recovery. To enable it
-for the `MusicCollection` table, run the following command.
+**Note**  
+This procedure assumes that you have enabled point-in-time recovery. To enable it for the `MusicCollection` table, run the following command.  
 
 ```
 aws dynamodb update-continuous-backups \
@@ -261,12 +172,11 @@ aws dynamodb update-continuous-backups \
 
 **Full export**
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### Note
-
-If requesting a cross-account table export, make sure to include the
-`--s3-bucket-owner` option.
+**Note**  
+If requesting a cross-account table export, make sure to include the `--s3-bucket-owner` option.
 
 ```
 aws dynamodb export-table-to-point-in-time \
@@ -279,7 +189,8 @@ aws dynamodb export-table-to-point-in-time \
   --s3-sse-algorithm AES256
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -297,7 +208,8 @@ client.export_table_to_point_in_time(
 )
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 DynamoDbClient client = DynamoDbClient.create();
@@ -311,7 +223,8 @@ client.exportTableToPointInTime(b -> b
     .exportFormat(ExportFormat.DYNAMODB_JSON));
 ```
 
-.NET
+------
+#### [ .NET ]
 
 ```
 var client = new AmazonDynamoDBClient();
@@ -327,7 +240,8 @@ await client.ExportTableToPointInTimeAsync(new ExportTableToPointInTimeRequest
 });
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb";
@@ -344,7 +258,8 @@ await client.send(new ExportTableToPointInTimeCommand({
 }));
 ```
 
-Go
+------
+#### [ Go ]
 
 ```
 cfg, _ := config.LoadDefaultConfig(context.TODO())
@@ -361,9 +276,12 @@ client.ExportTableToPointInTime(context.TODO(), &dynamodb.ExportTableToPointInTi
 })
 ```
 
+------
+
 **Incremental export**
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws dynamodb export-table-to-point-in-time \
@@ -373,7 +291,8 @@ aws dynamodb export-table-to-point-in-time \
   --export-type INCREMENTAL_EXPORT
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -396,7 +315,8 @@ client.export_table_to_point_in_time(
 )
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 DynamoDbClient client = DynamoDbClient.create();
@@ -414,7 +334,8 @@ client.exportTableToPointInTime(b -> b
     .exportFormat(ExportFormat.DYNAMODB_JSON));
 ```
 
-.NET
+------
+#### [ .NET ]
 
 ```
 var client = new AmazonDynamoDBClient();
@@ -436,7 +357,8 @@ await client.ExportTableToPointInTimeAsync(new ExportTableToPointInTimeRequest
 });
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb";
@@ -458,7 +380,8 @@ await client.send(new ExportTableToPointInTimeCommand({
 }));
 ```
 
-Go
+------
+#### [ Go ]
 
 ```
 cfg, _ := config.LoadDefaultConfig(context.TODO())
@@ -481,36 +404,30 @@ client.ExportTableToPointInTime(context.TODO(), &dynamodb.ExportTableToPointInTi
 })
 ```
 
-###### Note
+------
 
-If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS),
-the key must be in the same Region as the destination S3 bucket.
+**Note**  
+If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS), the key must be in the same Region as the destination S3 bucket.
 
 ## Getting details about past exports using the AWS CLI and AWS SDKs
+<a name="S3DataExport_Requesting_CLI_Details"></a>
 
-You can find information about export requests you've run in the past by using the
-`list-exports` command. This command returns a list of all exports you've
-created in the past 90 days. Note that although export task metadata expires after 90
-days and jobs older than that are no longer returned by the `list-exports`
-command, the objects in your S3 bucket remain as long as their bucket policies allow.
-DynamoDB never deletes any of the objects it creates in your S3 bucket during an
-export.
+You can find information about export requests you've run in the past by using the `list-exports` command. This command returns a list of all exports you've created in the past 90 days. Note that although export task metadata expires after 90 days and jobs older than that are no longer returned by the `list-exports` command, the objects in your S3 bucket remain as long as their bucket policies allow. DynamoDB never deletes any of the objects it creates in your S3 bucket during an export.
 
-Exports have a status of `PENDING` until they either succeed or fail. If
-they succeed, the status changes to `COMPLETED`. If they fail, the status
-changes to `FAILED` with a `failure_message` and
-`failure_reason`.
+Exports have a status of `PENDING` until they either succeed or fail. If they succeed, the status changes to `COMPLETED`. If they fail, the status changes to `FAILED` with a `failure_message` and `failure_reason`.
 
 **List exports**
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws dynamodb list-exports \
     --table-arn arn:aws:dynamodb:us-east-1:111122223333:table/ProductCatalog
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -524,7 +441,8 @@ print(
 )
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 DynamoDbClient client = DynamoDbClient.create();
@@ -535,7 +453,8 @@ ListExportsResponse response = client.listExports(b -> b
 response.exportSummaries().forEach(System.out::println);
 ```
 
-.NET
+------
+#### [ .NET ]
 
 ```
 var client = new AmazonDynamoDBClient();
@@ -548,7 +467,8 @@ var response = await client.ListExportsAsync(new ListExportsRequest
 response.ExportSummaries.ForEach(Console.WriteLine);
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 import { DynamoDBClient, ListExportsCommand } from "@aws-sdk/client-dynamodb";
@@ -562,7 +482,8 @@ const response = await client.send(new ListExportsCommand({
 console.log(response.ExportSummaries);
 ```
 
-Go
+------
+#### [ Go ]
 
 ```
 cfg, _ := config.LoadDefaultConfig(context.TODO())
@@ -575,16 +496,20 @@ response, _ := client.ListExports(context.TODO(), &dynamodb.ListExportsInput{
 fmt.Println(response.ExportSummaries)
 ```
 
+------
+
 **Describe export**
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws dynamodb describe-export \
     --export-arn arn:aws:dynamodb:us-east-1:111122223333:table/ProductCatalog/export/01695353076000-a1b2c3d4
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -598,7 +523,8 @@ print(
 )
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 DynamoDbClient client = DynamoDbClient.create();
@@ -609,7 +535,8 @@ DescribeExportResponse response = client.describeExport(b -> b
 System.out.println(response.exportDescription());
 ```
 
-.NET
+------
+#### [ .NET ]
 
 ```
 var client = new AmazonDynamoDBClient();
@@ -622,7 +549,8 @@ var response = await client.DescribeExportAsync(new DescribeExportRequest
 Console.WriteLine(response.ExportDescription);
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 import { DynamoDBClient, DescribeExportCommand } from "@aws-sdk/client-dynamodb";
@@ -636,7 +564,8 @@ const response = await client.send(new DescribeExportCommand({
 console.log(response.ExportDescription);
 ```
 
-Go
+------
+#### [ Go ]
 
 ```
 cfg, _ := config.LoadDefaultConfig(context.TODO())
@@ -648,3 +577,5 @@ response, _ := client.DescribeExport(context.TODO(), &dynamodb.DescribeExportInp
 
 fmt.Println(response.ExportDescription)
 ```
+
+------

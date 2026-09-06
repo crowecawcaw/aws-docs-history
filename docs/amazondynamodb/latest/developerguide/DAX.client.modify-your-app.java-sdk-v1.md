@@ -1,18 +1,14 @@
+
+
 # Modifying an existing SDK for Java 1.x application to use DAX
+<a name="DAX.client.modify-your-app.java-sdk-v1"></a>
 
-If you already have a Java application that uses Amazon DynamoDB, you have to modify it so that
-it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire
-application because the DAX Java client is similar to the DynamoDB low-level client included
-in the AWS SDK for Java.
+If you already have a Java application that uses Amazon DynamoDB, you have to modify it so that it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire application because the DAX Java client is similar to the DynamoDB low-level client included in the AWS SDK for Java.
 
-###### Note
+**Note**  
+These instructions are for applications using AWS SDK for Java 1.x. For applications using AWS SDK for Java 2.x, see [Modifying an existing application to use DAX](DAX.client.modify-your-app.md).
 
-These instructions are for applications using AWS SDK for Java 1.x. For applications using
-AWS SDK for Java 2.x, see [Modifying an existing application to use DAX](DAX.client.modify-your-app.md "DAX.client.modify-your-app.md").
-
-Suppose that you have a DynamoDB table named `Music`. The partition key for the
-table is `Artist`, and its sort key is `SongTitle`. The following
-program reads an item directly from the `Music` table.
+Suppose that you have a DynamoDB table named `Music`. The partition key for the table is `Artist`, and its sort key is `SongTitle`. The following program reads an item directly from the `Music` table.
 
 ```
 import java.util.HashMap;
@@ -83,13 +79,11 @@ public class GetMusicItem {
 ```
 
 ## Using the DynamoDB document API
+<a name="DAX.client.modify-your-app.document-api"></a>
 
-The AWS SDK for Java provides a document interface for DynamoDB. The document API acts as a
-wrapper around the low-level DynamoDB client. For more information, see [Document
-interfaces](Programming.SDKs.Interfaces.Document.md "Programming.SDKs.Interfaces.Document.md").
+The AWS SDK for Java provides a document interface for DynamoDB. The document API acts as a wrapper around the low-level DynamoDB client. For more information, see [Document interfaces](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.SDKs.Interfaces.Document.html).
 
-The document interface can also be used with the low-level DAX client, as shown in
-the following example.
+The document interface can also be used with the low-level DAX client, as shown in the following example.
 
 ```
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -130,15 +124,11 @@ public class GetMusicItemWithDocumentApi {
 ```
 
 ## DAX async client
+<a name="DAX.client.async"></a>
 
-The `AmazonDaxClient` is synchronous. For a long-running DAX API
-operation, such as a `Scan` of a large table, this can block program
-execution until the operation is complete. If your program needs to perform other work
-while a DAX API operation is in progress, you can use
-`ClusterDaxAsyncClient` instead.
+The `AmazonDaxClient` is synchronous. For a long-running DAX API operation, such as a `Scan` of a large table, this can block program execution until the operation is complete. If your program needs to perform other work while a DAX API operation is in progress, you can use `ClusterDaxAsyncClient` instead.
 
-The following program shows how to use `ClusterDaxAsyncClient`, along with
-Java `Future`, to implement a non-blocking solution.
+The following program shows how to use `ClusterDaxAsyncClient`, along with Java `Future`, to implement a non-blocking solution.
 
 ```
 import java.util.concurrent.ExecutionException;
@@ -210,6 +200,4 @@ public class DaxAsyncClientDemo {
 
 	}
 }
-
-
 ```

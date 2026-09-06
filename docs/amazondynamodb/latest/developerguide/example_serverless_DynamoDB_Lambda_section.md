@@ -1,18 +1,16 @@
+
+
 # Invoke a Lambda function from a DynamoDB trigger
+<a name="example_serverless_DynamoDB_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that receives an event triggered by receiving records from a DynamoDB stream. The function retrieves the DynamoDB payload and logs the record contents.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -44,21 +42,14 @@ public class Function
         context.Logger.LogInformation("Stream processing complete.");
     }
 }
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -94,20 +85,14 @@ func LogDynamoDBRecord(record events.DynamoDBEventRecord){
 	fmt.Println(record.EventName)
 	fmt.Printf("%+v\n", record.Change)
 }
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using Java.  
 
 ```
 import com.amazonaws.services.lambda.runtime.Context;
@@ -134,20 +119,14 @@ public class example implements RequestHandler<DynamodbEvent, Void> {
         System.out.println("DynamoDB Record: " + GSON.toJson(record.getDynamodb()));
     }
 }
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using JavaScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -164,11 +143,8 @@ const logDynamoDBRecord = (record) => {
     console.log(record.eventName);
     console.log(`DynamoDB Record: ${JSON.stringify(record.dynamodb)}`);
 };
-
-
 ```
-
-Consuming a DynamoDB event with Lambda using TypeScript.
+Consuming a DynamoDB event with Lambda using TypeScript.  
 
 ```
 export const handler = async (event, context) => {
@@ -182,20 +158,14 @@ const logDynamoDBRecord = (record) => {
     console.log(record.eventName);
     console.log(`DynamoDB Record: ${JSON.stringify(record.dynamodb)}`);
 };
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using PHP.  
 
 ```
 <?php
@@ -232,12 +202,12 @@ class Handler extends DynamoDbHandler
             $keys = $record->getKeys();
             $old = $record->getOldImage();
             $new = $record->getNewImage();
-
+            
             $this->logger->info("Event Name:".$eventName."\n");
             $this->logger->info("Keys:". json_encode($keys)."\n");
             $this->logger->info("Old Image:". json_encode($old)."\n");
             $this->logger->info("New Image:". json_encode($new));
-
+            
             // TODO: Do interesting work based on the new data
 
             // Any exception thrown will be logged and the invocation will be marked as failed
@@ -250,23 +220,16 @@ class Handler extends DynamoDbHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using Python.  
 
 ```
-
 import json
 
 def lambda_handler(event, context):
@@ -279,57 +242,41 @@ def log_dynamodb_record(record):
     print(record['eventID'])
     print(record['eventName'])
     print(f"DynamoDB Record: {json.dumps(record['dynamodb'])}")
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using Ruby.  
 
 ```
-
 def lambda_handler(event:, context:)
     return 'received empty event' if event['Records'].empty?
-
+  
     event['Records'].each do |record|
       log_dynamodb_record(record)
     end
-
+  
     "Records processed: #{event['Records'].length}"
   end
-
+  
   def log_dynamodb_record(record)
     puts record['eventID']
     puts record['eventName']
     puts "DynamoDB Record: #{JSON.generate(record['dynamodb'])}"
   end
-
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda")
-repository.
-
-Consuming a DynamoDB event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-ddb-to-lambda) repository. 
+Consuming a DynamoDB event with Lambda using Rust.  
 
 ```
-
 use lambda_runtime::{service_fn, tracing, Error, LambdaEvent};
 use aws_lambda_events::{
     event::dynamodb::{Event, EventRecord},
@@ -345,7 +292,7 @@ use aws_lambda_events::{
 //aws_lambda_events = "0.15.0"
 
 async fn function_handler(event: LambdaEvent<Event>) ->Result<(), Error> {
-
+    
     let records = &event.payload.records;
     tracing::info!("event payload: {:?}",records);
     if records.is_empty() {
@@ -383,12 +330,10 @@ async fn main() -> Result<(), Error> {
     let func = service_fn(function_handler);
     lambda_runtime::run(func).await?;
     Ok(())
-
+    
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

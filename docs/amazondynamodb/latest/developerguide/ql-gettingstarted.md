@@ -1,137 +1,144 @@
+
+
 # Getting started with PartiQL for DynamoDB
+<a name="ql-gettingstarted"></a>
 
-This section describes how to use PartiQL for DynamoDB from the Amazon DynamoDB console, the
-AWS Command Line Interface (AWS CLI), and DynamoDB APIs.
+This section describes how to use PartiQL for DynamoDB from the Amazon DynamoDB console, the AWS Command Line Interface (AWS CLI), and DynamoDB APIs.
 
-In the following examples, the DynamoDB table that is defined in the [Getting started with DynamoDB](GettingStartedDynamoDB.md "GettingStartedDynamoDB.md") tutorial is a pre-requisite.
+In the following examples, the DynamoDB table that is defined in the [Getting started with DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html) tutorial is a pre-requisite.
 
-For information about using the DynamoDB console, AWS Command Line Interface, or DynamoDB APIs to access DynamoDB,
-see [Accessing
-DynamoDB](AccessingDynamoDB.md "AccessingDynamoDB.md").
+For information about using the DynamoDB console, AWS Command Line Interface, or DynamoDB APIs to access DynamoDB, see [Accessing DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AccessingDynamoDB.html).
 
-To [download](workbench.settingup.md "workbench.settingup.md") and use the [NoSQL workbench](workbench.md "workbench.md") to build [PartiQL for DynamoDB](ql-reference.md "ql-reference.md") statements
-choose **PartiQL operations** at the top right corner of the NoSQL Workbench for DynamoDB [Operation builder](workbench.querybuilder.operationbuilder.md "workbench.querybuilder.operationbuilder.md").
+To [download](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.settingup.html) and use the [NoSQL workbench](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.html) to build [PartiQL for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.html) statements choose **PartiQL operations** at the top right corner of the NoSQL Workbench for DynamoDB [Operation builder](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.querybuilder.operationbuilder.html).
 
-Console
+------
+#### [ Console ]
 
-![PartiQL editor interface that shows the result of running the Query operation on the Music table.](images/partiqlgettingstarted.png)
+![PartiQL editor interface that shows the result of running the Query operation on the Music table.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/partiqlgettingstarted.png)
 
-1. Sign in to the AWS Management Console and open the DynamoDB console at
-   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
-2. In the navigation pane on the left side of the console, choose
-   **PartiQL editor**.
-3. Choose the **Music** table.
-4. Choose **Query table**. This action generates a query that
-   will not result in a full table scan.
-5. Replace `partitionKeyValue` with the string value `Acme
- Band`. Replace `sortKeyValue` with the string value
-   `Happy Day`.
-6. Choose the **Run** button.
-7. You can view the results of the query by choosing the **Table view** or the **JSON view** buttons.
 
-NoSQL workbench
+1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
 
-![NoSQL workbench interface. It shows a PartiQL SELECT statement that you can run on the Music table.](images/workbench/partiql.single.png)
+1. In the navigation pane on the left side of the console, choose **PartiQL editor**.
+
+1. Choose the **Music** table.
+
+1. Choose **Query table**. This action generates a query that will not result in a full table scan.
+
+1. Replace `partitionKeyValue` with the string value `Acme Band`. Replace `sortKeyValue` with the string value `Happy Day`.
+
+1. Choose the **Run** button. 
+
+1. You can view the results of the query by choosing the **Table view** or the **JSON view** buttons. 
+
+------
+#### [ NoSQL workbench ]
+
+![NoSQL workbench interface. It shows a PartiQL SELECT statement that you can run on the Music table.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/workbench/partiql.single.png)
+
 
 1. Choose **PartiQL statement**.
-2. Enter the following PartiQL [SELECT statement](ql-reference.select.md "ql-reference.select.md")
 
-```
-SELECT *
-FROM Music
-WHERE Artist=? and SongTitle=?
-```
+1. Enter the following PartiQL [SELECT statement](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.select.html) 
 
-3. To specify a value for the `Artist` and `SongTitle` parameters:
+   ```
+   SELECT *                                         
+   FROM Music  
+   WHERE Artist=? and SongTitle=?
+   ```
+
+1. To specify a value for the `Artist` and `SongTitle` parameters:
 
    1. Choose **Optional request parameters**.
-   2. Choose **Add new parameters**.
-   3. Choose the attribute type **string** and value `Acme Band`.
-   4. Repeat steps b and c, and choose type **string** and value `PartiQL Rocks`.
 
-4. If you want to generate code, choose **Generate
-   code**.
+   1. Choose **Add new parameters**.
 
-Select your desired language from the displayed tabs. You can now copy this code and use it in your application. 5. If you want the operation to be run immediately, choose
-**Run**.
+   1. Choose the attribute type **string** and value `Acme Band`.
 
-AWS CLI
+   1. Repeat steps b and c, and choose type **string** and value `PartiQL Rocks`. 
 
-1. Create an item in the `Music` table using the INSERT
-   PartiQL statement.
+1. If you want to generate code, choose **Generate code**.
 
-```
-aws dynamodb execute-statement --statement "INSERT INTO Music  \
-					    VALUE  \
-					    {'Artist':'Acme Band','SongTitle':'PartiQL Rocks'}"
-```
+   Select your desired language from the displayed tabs. You can now copy this code and use it in your application.
 
-2. Retrieve an item from the Music table using the SELECT PartiQL statement.
+1. If you want the operation to be run immediately, choose **Run**.
 
-```
-aws dynamodb execute-statement --statement "SELECT * FROM Music   \
-                                            WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+------
+#### [ AWS CLI ]
 
-3. Update an item in the `Music` table using the UPDATE PartiQL statement.
+1. Create an item in the `Music` table using the INSERT PartiQL statement. 
 
-```
-aws dynamodb execute-statement --statement "UPDATE Music  \
-                                            SET AwardsWon=1  \
-                                            SET AwardDetail={'Grammys':[2020, 2018]}  \
-                                            WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+   ```
+   aws dynamodb execute-statement --statement "INSERT INTO Music  \
+   					    VALUE  \
+   					    {'Artist':'Acme Band','SongTitle':'PartiQL Rocks'}"
+   ```
 
-Add a list value for an item in the `Music` table.
+1. Retrieve an item from the Music table using the SELECT PartiQL statement.
 
-```
-aws dynamodb execute-statement --statement "UPDATE Music  \
-                                            SET AwardDetail.Grammys =list_append(AwardDetail.Grammys,[2016])  \
-                                            WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+   ```
+   aws dynamodb execute-statement --statement "SELECT * FROM Music   \
+                                               WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
 
-Remove a list value for an item in the `Music` table.
+1. Update an item in the `Music` table using the UPDATE PartiQL statement.
 
-```
-aws dynamodb execute-statement --statement "UPDATE Music  \
-                                            REMOVE AwardDetail.Grammys[2]  \
-                                            WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+   ```
+   aws dynamodb execute-statement --statement "UPDATE Music  \
+                                               SET AwardsWon=1  \
+                                               SET AwardDetail={'Grammys':[2020, 2018]}  \
+                                               WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
 
-Add a new map member for an item in the `Music` table.
+   Add a list value for an item in the `Music` table. 
 
-```
-aws dynamodb execute-statement --statement "UPDATE Music  \
-                                            SET AwardDetail.BillBoard=[2020]  \
-                                            WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+   ```
+   aws dynamodb execute-statement --statement "UPDATE Music  \
+                                               SET AwardDetail.Grammys =list_append(AwardDetail.Grammys,[2016])  \
+                                               WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
 
-Add a new string set attribute for an item in the `Music` table.
+   Remove a list value for an item in the `Music` table. 
 
-```
-aws dynamodb execute-statement --statement "UPDATE Music  \
-                                            SET BandMembers =<<'member1', 'member2'>>  \
-                                            WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+   ```
+   aws dynamodb execute-statement --statement "UPDATE Music  \
+                                               REMOVE AwardDetail.Grammys[2]  \
+                                               WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
 
-Update a string set attribute for an item in the
-`Music` table.
+   Add a new map member for an item in the `Music` table. 
 
-```
-aws dynamodb execute-statement --statement "UPDATE Music  \
-                                            SET BandMembers =set_add(BandMembers, <<'newmember'>>)  \
-                                            WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+   ```
+   aws dynamodb execute-statement --statement "UPDATE Music  \
+                                               SET AwardDetail.BillBoard=[2020]  \
+                                               WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
 
-4. Delete an item from the `Music` table using the DELETE
-   PartiQL statement.
+   Add a new string set attribute for an item in the `Music` table. 
 
-```
-aws dynamodb execute-statement --statement "DELETE  FROM Music  \
-    WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-```
+   ```
+   aws dynamodb execute-statement --statement "UPDATE Music  \
+                                               SET BandMembers =<<'member1', 'member2'>>  \
+                                               WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
 
-Java
+   Update a string set attribute for an item in the `Music` table. 
+
+   ```
+   aws dynamodb execute-statement --statement "UPDATE Music  \
+                                               SET BandMembers =set_add(BandMembers, <<'newmember'>>)  \
+                                               WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
+
+1. Delete an item from the `Music` table using the DELETE PartiQL statement.
+
+   ```
+   aws dynamodb execute-statement --statement "DELETE  FROM Music  \
+       WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+   ```
+
+------
+#### [ Java ]
 
 ```
 import java.util.ArrayList;
@@ -269,26 +276,21 @@ public class DynamoDBPartiQGettingStarted {
 }
 ```
 
+------
+
 ## Using parameterized statements
+<a name="ql-gettingstarted.parameterized"></a>
 
-Instead of embedding values directly in a PartiQL statement string, you can use
-question mark (`?`) placeholders and supply the values separately in the
-`Parameters` field. Each `?` is replaced by the corresponding
-parameter value, in the order they are provided.
+Instead of embedding values directly in a PartiQL statement string, you can use question mark (`?`) placeholders and supply the values separately in the `Parameters` field. Each `?` is replaced by the corresponding parameter value, in the order they are provided.
 
-Using parameterized statements is a best practice because it separates the statement
-structure from the data values, making statements easier to read and reuse. It also
-avoids the need to manually format and escape attribute values in the statement
-string.
+Using parameterized statements is a best practice because it separates the statement structure from the data values, making statements easier to read and reuse. It also avoids the need to manually format and escape attribute values in the statement string.
 
-Parameterized statements are supported in `ExecuteStatement`,
-`BatchExecuteStatement`, and `ExecuteTransaction`
-operations.
+Parameterized statements are supported in `ExecuteStatement`, `BatchExecuteStatement`, and `ExecuteTransaction` operations.
 
-The following examples retrieve an item from the `Music` table using
-parameterized values for the partition key and sort key.
+The following examples retrieve an item from the `Music` table using parameterized values for the partition key and sort key.
 
-AWS CLI parameterized
+------
+#### [ AWS CLI parameterized ]
 
 ```
 aws dynamodb execute-statement \
@@ -296,7 +298,8 @@ aws dynamodb execute-statement \
     --parameters '[{"S": "Acme Band"}, {"S": "PartiQL Rocks"}]'
 ```
 
-Java parameterized
+------
+#### [ Java parameterized ]
 
 ```
 List<AttributeValue> parameters = new ArrayList<>();
@@ -310,7 +313,8 @@ ExecuteStatementRequest request = new ExecuteStatementRequest()
 ExecuteStatementResult result = dynamoDB.executeStatement(request);
 ```
 
-Python parameterized
+------
+#### [ Python parameterized ]
 
 ```
 response = dynamodb_client.execute_statement(
@@ -322,9 +326,7 @@ response = dynamodb_client.execute_statement(
 )
 ```
 
-###### Note
+------
 
-The Java example in the preceding getting started section uses parameterized
-statements throughout. The `getPartiQLParameters()` method builds the
-parameter list, and each statement uses `?` placeholders instead of
-inline values.
+**Note**  
+The Java example in the preceding getting started section uses parameterized statements throughout. The `getPartiQLParameters()` method builds the parameter list, and each statement uses `?` placeholders instead of inline values.

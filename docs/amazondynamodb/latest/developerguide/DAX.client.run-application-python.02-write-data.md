@@ -1,7 +1,9 @@
-# 02-write-data.py
 
-The `02-write-data.py` program writes test data to
-`TryDaxTable`.
+
+# 02-write-data.py
+<a name="DAX.client.run-application-python.02-write-data"></a>
+
+The `02-write-data.py` program writes test data to `TryDaxTable`.
 
 ```
 import boto3
@@ -42,5 +44,4 @@ if __name__ == "__main__":
         f"Each item is {write_item_size} characters."
     )
     write_data_to_dax_table(write_key_count, write_item_size)
-
 ```

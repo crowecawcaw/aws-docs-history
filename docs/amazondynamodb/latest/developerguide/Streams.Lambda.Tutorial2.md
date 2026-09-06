@@ -1,21 +1,17 @@
-# Tutorial #2: Using filters to process some events with DynamoDB and Lambda
 
-In this tutorial, you will create an AWS Lambda trigger to process only some events in
-a stream from a DynamoDB table.
 
-###### Topics
+# Tutorial \#2: Using filters to process some events with DynamoDB and Lambda
+<a name="Streams.Lambda.Tutorial2"></a>
 
-- [Putting it all together - CloudFormation](#Streams.Lambda.Tutorial2.Cloudformation "#Streams.Lambda.Tutorial2.Cloudformation")
-- [Putting it all together - CDK](#Streams.Lambda.Tutorial2.CDK "#Streams.Lambda.Tutorial2.CDK")
-  With [Lambda event filtering](../../../lambda/latest/dg/invocation-eventfiltering.md "../../../lambda/latest/dg/invocation-eventfiltering.md") you can use filter expressions to control which
-  events Lambda sends to your function for processing. You can configure up to 5 different
-  filters per DynamoDB streams. If you are using batching windows, Lambda applies the
-  filter criteria to each new event to see if it should be included in the current
-  batch.
+In this tutorial, you will create an AWS Lambda trigger to process only some events in a stream from a DynamoDB table.
 
-Filters are applied through structures called `FilterCriteria`. The 3 main
-attributes of `FilterCriteria` are `metadata properties`,
-`data properties` and `filter patterns`.
+**Topics**
++ [Putting it all together - CloudFormation](#Streams.Lambda.Tutorial2.Cloudformation)
++ [Putting it all together - CDK](#Streams.Lambda.Tutorial2.CDK)
+
+With [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) you can use filter expressions to control which events Lambda sends to your function for processing. You can configure up to 5 different filters per DynamoDB streams. If you are using batching windows, Lambda applies the filter criteria to each new event to see if it should be included in the current batch.
+
+Filters are applied through structures called `FilterCriteria`. The 3 main attributes of `FilterCriteria` are `metadata properties`, `data properties` and `filter patterns`. 
 
 Here is an example structure of a DynamoDB Streams event:
 
@@ -52,58 +48,39 @@ Here is an example structure of a DynamoDB Streams event:
 }
 ```
 
-The `metadata properties` are the fields of the event object. In the case
-of DynamoDB Streams, the `metadata properties` are fields like `dynamodb` or
-`eventName`.
+The `metadata properties` are the fields of the event object. In the case of DynamoDB Streams, the `metadata properties` are fields like `dynamodb` or `eventName`. 
 
-The `data properties` are the fields of the event body. To filter on
-`data properties`, make sure to contain them in
-`FilterCriteria` within the proper key. For DynamoDB event sources, the data
-key is `NewImage` or `OldImage`.
+The `data properties` are the fields of the event body. To filter on `data properties`, make sure to contain them in `FilterCriteria` within the proper key. For DynamoDB event sources, the data key is `NewImage` or `OldImage`.
 
-Finally, the filter rules will define the filter expression that you want to apply to
-a specific property. Here are some examples:
+Finally, the filter rules will define the filter expression that you want to apply to a specific property. Here are some examples:
 
-| Comparison operator | Example                                                     | Rule syntax (Partial)                                                   |
-| ------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Null                | Product Type is null                                        | `{ "product_type": { "S": null } }`                                     |
-| Empty               | Product name is empty                                       | `{ "product_name": { "S": [ ""] } }`                                    |
-| Equals              | State equals Florida                                        | `{ "state": { "S": ["FL"] } }`                                          |
-| And                 | Product state equals Florida and product category Chocolate | `{ "state": { "S": ["FL"] } , "category": { "S": [<br>"CHOCOLATE"] } }` |
-| Or                  | Product state is Florida or California                      | `{ "state": { "S": ["FL","CA"] } }`                                     |
-| Not                 | Product state is not Florida                                | `{"state": {"S": [{"anything-but": ["FL"]}]}}`                          |
-| Exists              | Product Homemade exists                                     | `{"homemade": {"S": [{"exists": true}]}}`                               |
-| Does not exist      | Product Homemade does not exist                             | `{"homemade": {"S": [{"exists": false}]}}`                              |
-| Begins with         | PK begins with COMPANY                                      | `{"PK": {"S": [{"prefix": "COMPANY"}]}}`                                |
 
-You can specify up to 5 event filtering patterns for a Lambda function. Notice that
-each one of those 5 events will be evaluated as a logical OR. So if you configure two
-filters named `Filter_One` and `Filter_Two`, the Lambda function
-will execute `Filter_One` OR `Filter_Two`.
+| Comparison operator | Example | Rule syntax (Partial) | 
+| --- | --- | --- | 
+| Null | Product Type is null | `{ "product_type": { "S": null } } ` | 
+| Empty | Product name is empty | `{ "product_name": { "S": [ ""] } } ` | 
+| Equals | State equals Florida | `{ "state": { "S": ["FL"] } } ` | 
+| And | Product state equals Florida and product category Chocolate | `{ "state": { "S": ["FL"] } , "category": { "S": [ "CHOCOLATE"] } } ` | 
+| Or | Product state is Florida or California | `{ "state": { "S": ["FL","CA"] } } ` | 
+| Not | Product state is not Florida | `{"state": {"S": [{"anything-but": ["FL"]}]}}` | 
+| Exists | Product Homemade exists | `{"homemade": {"S": [{"exists": true}]}}` | 
+| Does not exist | Product Homemade does not exist | `{"homemade": {"S": [{"exists": false}]}}` | 
+| Begins with | PK begins with COMPANY | `{"PK": {"S": [{"prefix": "COMPANY"}]}}` | 
 
-###### Note
+You can specify up to 5 event filtering patterns for a Lambda function. Notice that each one of those 5 events will be evaluated as a logical OR. So if you configure two filters named `Filter_One` and `Filter_Two`, the Lambda function will execute `Filter_One` OR `Filter_Two`.
 
-In the [Lambda event
-filtering](../../../lambda/latest/dg/invocation-eventfiltering.md "../../../lambda/latest/dg/invocation-eventfiltering.md") page there are some options to filter and compare numeric
-values, however in the case of DynamoDB filter events it doesn’t apply because numbers
-in DynamoDB are stored as strings. For example `"quantity": { "N": "50"
- }`, you know it's a number because of the `"N"` property.
+**Note**  
+In the [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) page there are some options to filter and compare numeric values, however in the case of DynamoDB filter events it doesn’t apply because numbers in DynamoDB are stored as strings. For example ` "quantity": { "N": "50" }`, you know it's a number because of the `"N"` property.
 
 ## Putting it all together - CloudFormation
+<a name="Streams.Lambda.Tutorial2.Cloudformation"></a>
 
-To show event filtering functionality in practice, here is a sample CloudFormation
-template. This template will generate a Simple DynamoDB table with a Partition Key
-PK and a Sort Key SK with Amazon DynamoDB Streams enabled. It will create a lambda
-function and a simple Lambda Execution role that will allow write logs to Amazon
-Cloudwatch, and read the events from the Amazon DynamoDB Stream. It will also add
-the event source mapping between the DynamoDB Streams and the Lambda function, so
-the function can be executed every time there is an event in the Amazon DynamoDB
-Stream.
+To show event filtering functionality in practice, here is a sample CloudFormation template. This template will generate a Simple DynamoDB table with a Partition Key PK and a Sort Key SK with Amazon DynamoDB Streams enabled. It will create a lambda function and a simple Lambda Execution role that will allow write logs to Amazon Cloudwatch, and read the events from the Amazon DynamoDB Stream. It will also add the event source mapping between the DynamoDB Streams and the Lambda function, so the function can be executed every time there is an event in the Amazon DynamoDB Stream.
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: Sample application that presents AWS Lambda event source filtering
+Description: Sample application that presents AWS Lambda event source filtering 
 with Amazon DynamoDB Streams.
 
 Resources:
@@ -130,7 +107,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17",
+        Version: "2012-10-17",		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -142,7 +119,7 @@ Resources:
       Policies:
         - PolicyName: root
           PolicyDocument:
-            Version: "2012-10-17",
+            Version: "2012-10-17",		 	 	 
             Statement:
               - Effect: Allow
                 Action:
@@ -195,8 +172,7 @@ Outputs:
     Value: !GetAtt StreamsSampleDDBTable.StreamArn
 ```
 
-After you deploy this cloud formation template you can insert the following Amazon
-DynamoDB Item:
+After you deploy this cloud formation template you can insert the following Amazon DynamoDB Item:
 
 ```
 {
@@ -212,9 +188,7 @@ DynamoDB Item:
 }
 ```
 
-Thanks to the simple lambda function included inline in this cloud formation
-template, you will see the events in the Amazon CloudWatch log groups for the lambda
-function as follows:
+Thanks to the simple lambda function included inline in this cloud formation template, you will see the events in the Amazon CloudWatch log groups for the lambda function as follows:
 
 ```
 {
@@ -250,12 +224,9 @@ function as follows:
 ```
 
 **Filter Examples**
++ **Only products that matches a given state**
 
-- **Only products that matches a given
-  state**
-
-This example modifies the CloudFormation template to include a filter to match all
-products which come from Florida, with the abbreviation “FL”.
+This example modifies the CloudFormation template to include a filter to match all products which come from Florida, with the abbreviation “FL”.
 
 ```
 EventSourceDDBTableStream:
@@ -271,9 +242,7 @@ EventSourceDDBTableStream:
       StartingPosition: LATEST
 ```
 
-Once you redeploy the stack, you can add the following DynamoDB item to the table.
-Note that it will not appear in the Lambda function logs, because the product in
-this example is from California.
+Once you redeploy the stack, you can add the following DynamoDB item to the table. Note that it will not appear in the Lambda function logs, because the product in this example is from California.
 
 ```
 {
@@ -289,12 +258,9 @@ this example is from California.
  "type": ""
 }
 ```
++ **Only the items that starts with some values in the PK and SK**
 
-- **Only the items that starts with some values in the
-  PK and SK**
-
-This example modifies the CloudFormation template to include the following
-condition:
+This example modifies the CloudFormation template to include the following condition:
 
 ```
 EventSourceDDBTableStream:
@@ -310,13 +276,11 @@ EventSourceDDBTableStream:
       StartingPosition: LATEST
 ```
 
-Notice the AND condition requires the condition to be inside the pattern, where
-Keys PK and SK are in the same expression separated by comma.
+Notice the AND condition requires the condition to be inside the pattern, where Keys PK and SK are in the same expression separated by comma.
 
 Either start with some values on PK and SK or is from certain state.
 
-This example modifies the CloudFormation template to include the following
-conditions:
+This example modifies the CloudFormation template to include the following conditions:
 
 ```
   EventSourceDDBTableStream:
@@ -333,20 +297,16 @@ conditions:
       StartingPosition: LATEST
 ```
 
-Notice the OR condition is added by introducing new patterns in the filter
-section.
+Notice the OR condition is added by introducing new patterns in the filter section.
 
 ## Putting it all together - CDK
+<a name="Streams.Lambda.Tutorial2.CDK"></a>
 
-The following sample CDK project formation template walks through event
-filtering functionality. Before working with this CDK project, you must
-[install the
-prerequisites](../../../cdk/v2/guide/work-with.md "../../../cdk/v2/guide/work-with.md") including [running preparation scripts](../../../cdk/v2/guide/work-with-cdk-python.md "../../../cdk/v2/guide/work-with-cdk-python.md").
+The following sample CDK project formation template walks through event filtering functionality. Before working with this CDK project, you must [install the prerequisites](https://docs.aws.amazon.com/cdk/v2/guide/work-with.html) including [ running preparation scripts](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-python.html).
 
 **Create a CDK project**
 
-First create a new AWS CDK project, by invoking `cdk init` in an empty
-directory.
+First create a new AWS CDK project, by invoking `cdk init` in an empty directory.
 
 ```
 mkdir ddb_filters
@@ -354,51 +314,27 @@ cd ddb_filters
 cdk init app --language python
 ```
 
-The `cdk init` command uses the name of the project folder to name
-various elements of the project, including classes, subfolders, and files. Any
-hyphens in the folder name are converted to underscores. The name should otherwise
-follow the form of a Python identifier. For example, it should not start with a
-number or contain spaces.
+The `cdk init` command uses the name of the project folder to name various elements of the project, including classes, subfolders, and files. Any hyphens in the folder name are converted to underscores. The name should otherwise follow the form of a Python identifier. For example, it should not start with a number or contain spaces.
 
-To work with the new project, activate its virtual environment. This allows the
-project's dependencies to be installed locally in the project folder, instead of
-globally.
+To work with the new project, activate its virtual environment. This allows the project's dependencies to be installed locally in the project folder, instead of globally.
 
 ```
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-###### Note
-
-You may recognize this as the Mac/Linux command to activate a virtual
-environment. The Python templates include a batch file, `source.bat`,
-that allows the same command to be used on Windows. The traditional Windows
-command `.venv\Scripts\activate.bat` works too. If you initialized
-your AWS CDK project using AWS CDK Toolkit v1.70.0 or earlier, your virtual
-environment is in the `.env` directory instead of `.venv`.
+**Note**  
+You may recognize this as the Mac/Linux command to activate a virtual environment. The Python templates include a batch file, `source.bat`, that allows the same command to be used on Windows. The traditional Windows command `.venv\Scripts\activate.bat` works too. If you initialized your AWS CDK project using AWS CDK Toolkit v1.70.0 or earlier, your virtual environment is in the `.env` directory instead of `.venv`. 
 
 **Base Infrastructure**
 
-Open the file `./ddb_filters/ddb_filters_stack.py` with your preferred
-text editor. This file was auto generated when you created the AWS CDK project.
+Open the file `./ddb_filters/ddb_filters_stack.py` with your preferred text editor. This file was auto generated when you created the AWS CDK project. 
 
-Next, add the functions `_create_ddb_table` and
-`_set_ddb_trigger_function`. These functions will create a DynamoDB
-table with partition key PK and sort key SK in provision mode on-demand mode, with
-Amazon DynamoDB Streams enabled by default to show New and Old images.
+Next, add the functions `_create_ddb_table` and `_set_ddb_trigger_function`. These functions will create a DynamoDB table with partition key PK and sort key SK in provision mode on-demand mode, with Amazon DynamoDB Streams enabled by default to show New and Old images.
 
-The Lambda function will be stored in the folder `lambda` under the
-file `app.py`. This file will be created later. It will include an
-environment variable `APP_TABLE_NAME`, which will be the name of the
-Amazon DynamoDB Table created by this stack. In the same function, the code grants
-stream read permissions to the Lambda function. Finally, it will subscribe to the
-DynamoDB Streams as the event source for the lambda function.
+The Lambda function will be stored in the folder `lambda` under the file `app.py`. This file will be created later. It will include an environment variable `APP_TABLE_NAME`, which will be the name of the Amazon DynamoDB Table created by this stack. In the same function, the code grants stream read permissions to the Lambda function. Finally, it will subscribe to the DynamoDB Streams as the event source for the lambda function. 
 
-At the end of the file in the `__init__` method, you will call the
-respective constructs to initialize them in the stack. For bigger projects that
-require additional components and services, it might be best to define these
-constructs outside the base stack.
+At the end of the file in the `__init__` method, you will call the respective constructs to initialize them in the stack. For bigger projects that require additional components and services, it might be best to define these constructs outside the base stack. 
 
 ```
 import os
@@ -463,17 +399,14 @@ class DdbFiltersStack(Stack):
         self._set_ddb_trigger_function(ddb_table)
 ```
 
-Now create a simple Lambda function that prints the logs to
-Amazon CloudWatch. To do this, create a new folder called
-`lambda`.
+Now create a simple Lambda function that prints the logs to Amazon CloudWatch. To do this, create a new folder called `lambda`.
 
 ```
 mkdir lambda
 touch app.py
 ```
 
-Using your favorite text editor, add the following content to the
-`app.py` file:
+Using your favorite text editor, add the following content to the `app.py` file:
 
 ```
 import logging
@@ -488,15 +421,13 @@ def handler(event, context):
         LOGGER.info('Record: %s', rec)
 ```
 
-Ensuring you are in the `/ddb_filters/` folder, type the following
-command to create the sample application:
+Ensuring you are in the `/ddb_filters/` folder, type the following command to create the sample application:
 
 ```
 cdk deploy
 ```
 
-At some point you will be asked to confirm if you want to deploy the solution.
-Accept the changes by typing `Y`.
+At some point you will be asked to confirm if you want to deploy the solution. Accept the changes by typing `Y`.
 
 ```
 ├───┼──────────────────────────────┼────────────────────────────────────────────────────────────────────────────────┤
@@ -515,8 +446,7 @@ Stack ARN:
 arn:aws:cloudformation:us-east-2:111122223333:stack/DdbFiltersStack/66873140-40f3-11ed-8e93-0a74f296a8f6
 ```
 
-Once the changes are deployed, open your AWS console and add one item to your
-table.
+Once the changes are deployed, open your AWS console and add one item to your table. 
 
 ```
 {
@@ -532,16 +462,12 @@ table.
 }
 ```
 
-The CloudWatch logs should now contain all the information from this entry.
+The CloudWatch logs should now contain all the information from this entry. 
 
 **Filter Examples**
++ **Only products that matches a given state**
 
-- **Only products that matches a given
-  state**
-
-Open the file `ddb_filters/ddb_filters/ddb_filters_stack.py`, and
-modify it to include the filter that matches all the products that are equals to
-“FL”. This can be revised just below the `event_subscription` in line 45.
+Open the file `ddb_filters/ddb_filters/ddb_filters_stack.py`, and modify it to include the filter that matches all the products that are equals to “FL”. This can be revised just below the `event_subscription` in line 45.
 
 ```
 event_subscription.add_property_override(
@@ -557,9 +483,7 @@ event_subscription.add_property_override(
     },
 )
 ```
-
-- **Only the items that starts with some values in the
-  PK and SK**
++ **Only the items that starts with some values in the PK and SK**
 
 Modify the python script to include the following condition:
 
@@ -585,9 +509,7 @@ event_subscription.add_property_override(
         ]
     },
 ```
-
-- **Either start with some values on PK and SK or is
-  from certain state.**
++ **Either start with some values on PK and SK or is from certain state.**
 
 Modify the python script to include the following conditions:
 
@@ -620,14 +542,11 @@ event_subscription.add_property_override(
 )
 ```
 
-Notice that the OR condition is added by adding more elements to the Filters
-array.
+Notice that the OR condition is added by adding more elements to the Filters array.
 
 **Cleanup**
 
-Locate the filter stack in the base of your working directory, and execute
-`cdk destroy`. You will be asked to confirm the resource
-deletion:
+Locate the filter stack in the base of your working directory, and execute `cdk destroy`. You will be asked to confirm the resource deletion:
 
 ```
 cdk destroy

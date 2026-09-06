@@ -1,26 +1,21 @@
+
+
 # Use `BatchWriteItem` with an AWS SDK or CLI
+<a name="example_dynamodb_BatchWriteItem_section"></a>
 
 The following code examples show how to use `BatchWriteItem`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_dynamodb_Scenario_GettingStartedMovies_section.md) 
 
-- [Learn the basics](example_dynamodb_Scenario_GettingStartedMovies_section.md "example_dynamodb_Scenario_GettingStartedMovies_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/DynamoDB#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/DynamoDB#code-examples").
-
-Writes a batch of items to the movie table.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/DynamoDB#code-examples). 
+Writes a batch of items to the movie table.  
 
 ```
-
     /// <summary>
     /// Loads the contents of a JSON file into a list of movies to be
     /// added to the DynamoDB table.
@@ -105,24 +100,14 @@ Writes a batch of items to the movie table.
             throw;
         }
     }
-
-
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/DotNetSDKV4/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [BatchWriteItem](../../../goto/DotNetSDKV4/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/DotNetSDKV4/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples). 
 
 ```
 ##############################################################################
@@ -190,11 +175,8 @@ function dynamodb_batch_write_item() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -253,23 +235,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/BatchWriteItem) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [BatchWriteItem](../../../goto/aws-cli/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 
 ```
 //! Batch write items from a JSON file.
@@ -428,31 +401,23 @@ AwsDoc::DynamoDB::getAttributeObjectsMap(const Aws::Utils::Json::JsonView &jsonV
 
     return true;
 }
+```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To add multiple items to a table**  
+The following `batch-write-item` example adds three new items to the `MusicCollection` table using a batch of three `PutItem` requests. It also requests information about the number of write capacity units consumed by the operation and any item collections modified by the operation.  
 
 ```
-
-- For API details, see
-  [BatchWriteItem](../../../goto/SdkForCpp/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForCpp/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To add multiple items to a table**
-
-The following `batch-write-item` example adds three new items to the `MusicCollection` table using a batch of three `PutItem` requests. It also requests information about the number of write capacity units consumed by the operation and any item collections modified by the operation.
-
+aws dynamodb batch-write-item \
+    --request-items {{file://request-items.json}} \
+    --return-consumed-capacity {{INDEXES}} \
+    --return-item-collection-metrics {{SIZE}}
 ```
-`aws dynamodb batch-write-item \
- --request-items `file://request-items.json` \
- --return-consumed-capacity `INDEXES` \
- --return-item-collection-metrics `SIZE``
-
-```
-
-Contents of `request-items.json`:
+Contents of `request-items.json`:  
 
 ```
 {
@@ -487,8 +452,7 @@ Contents of `request-items.json`:
     ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -535,25 +499,16 @@ Output:
     ]
 }
 ```
+For more information, see [Batch Operations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html#WorkingWithItems.BatchOperations) in the *Amazon DynamoDB Developer Guide*.  
++  For API details, see [BatchWriteItem](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/batch-write-item.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Batch Operations](WorkingWithItems.md#WorkingWithItems.BatchOperations "WorkingWithItems.md#WorkingWithItems.BatchOperations") in the _Amazon DynamoDB Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [BatchWriteItem](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/batch-write-item.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/batch-write-item.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -615,15 +570,10 @@ func (basics TableBasics) AddMovieBatch(ctx context.Context, movies []Movie, max
 
 	return written, err
 }
-
-
+```
+Define a Movie struct that is used in this example.  
 
 ```
-
-Define a Movie struct that is used in this example.
-
-```
-
 import (
 	"archive/zip"
 	"bytes"
@@ -665,26 +615,15 @@ func (movie Movie) String() string {
 	return fmt.Sprintf("%v\n\tReleased: %v\n\tRating: %v\n\tPlot: %v\n",
 		movie.Title, movie.Year, movie.Info["rating"], movie.Info["plot"])
 }
-
-
-
 ```
++  For API details, see [BatchWriteItem](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.BatchWriteItem) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [BatchWriteItem](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.BatchWriteItem "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.BatchWriteItem")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb/#code-examples").
-
-Inserts many items into a table by using the service client.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb/#code-examples). 
+Inserts many items into a table by using the service client.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -712,7 +651,7 @@ public class BatchWriteItems {
         final String usage = """
 
                 Usage:
-                    <tableName>
+                    <tableName> 
 
                 Where:
                     tableName - The Amazon DynamoDB table (for example, Music).\s
@@ -765,11 +704,8 @@ public class BatchWriteItems {
         }
     }
 }
-
-
 ```
-
-Inserts many items into a table by using the enhanced client.
+Inserts many items into a table by using the enhanced client.  
 
 ```
 import com.example.dynamodb.Customer;
@@ -873,25 +809,15 @@ public class EnhancedBatchWriteItems {
                 }
         }
 }
-
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [BatchWriteItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples").
-
-This example uses the document client to simplify working with items in DynamoDB. For API details see [BatchWrite](../../../AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-lib-dynamodb/Class/BatchWriteCommand.md "../../../AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-lib-dynamodb/Class/BatchWriteCommand.md").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples). 
+This example uses the document client to simplify working with items in DynamoDB. For API details see [BatchWrite](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-lib-dynamodb/Class/BatchWriteCommand/).  
 
 ```
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -942,21 +868,11 @@ export const main = async () => {
     await docClient.send(command);
   }
 };
-
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchWriteItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [BatchWriteItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchWriteItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchWriteItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -999,24 +915,15 @@ ddb.batchWriteItem(params, function (err, data) {
     console.log("Success", data);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/dynamodb-example-table-read-write-batch.html#dynamodb-example-table-read-write-batch-writing). 
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/dynamodb-example-table-read-write-batch.md#dynamodb-example-table-read-write-batch-writing "../../../sdk-for-javascript/v2/developer-guide/dynamodb-example-table-read-write-batch.md#dynamodb-example-table-read-write-batch-writing").
-- For API details, see
-  [BatchWriteItem](../../../goto/AWSJavaScriptSDK/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/AWSJavaScriptSDK/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples). 
 
 ```
     public function writeBatch(string $TableName, array $Batch, int $depth = 2)
@@ -1046,19 +953,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             }
         }
     }
-
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/SdkForPHPV3/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [BatchWriteItem](../../../goto/SdkForPHPV3/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForPHPV3/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Creates a new item, or replaces an existing item with a new item in the DynamoDB tables Music and Songs.**
+**Tools for PowerShell V4**  
+**Example 1: Creates a new item, or replaces an existing item with a new item in the DynamoDB tables Music and Songs.**  
 
 ```
 $item = @{
@@ -1079,16 +981,11 @@ $requestItem = @{
 }
 
 Set-DDBBatchItem -RequestItem $requestItem
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [BatchWriteItem](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Creates a new item, or replaces an existing item with a new item in the DynamoDB tables Music and Songs.**
+**Tools for PowerShell V5**  
+**Example 1: Creates a new item, or replaces an existing item with a new item in the DynamoDB tables Music and Songs.**  
 
 ```
 $item = @{
@@ -1109,22 +1006,14 @@ $requestItem = @{
 }
 
 Set-DDBBatchItem -RequestItem $requestItem
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [BatchWriteItem](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples). 
 
 ```
 class Movies:
@@ -1185,24 +1074,14 @@ class Movies:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [BatchWriteItem](../../../goto/boto3/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/boto3/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples). 
 
 ```
 class DynamoDBBasics
@@ -1238,23 +1117,14 @@ class DynamoDBBasics
     puts("\t#{e.code}: #{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/SdkForRubyV3/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [BatchWriteItem](../../../goto/SdkForRubyV3/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForRubyV3/dynamodb-2012-08-10/BatchWriteItem.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb/#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb/#code-examples). 
 
 ```
 import AWSDynamoDB
@@ -1319,15 +1189,9 @@ import AWSDynamoDB
             throw error
         }
     }
-
-
-
 ```
++  For API details, see [BatchWriteItem](https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/batchwriteitem(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [BatchWriteItem](<https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/batchwriteitem(input:)> "https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/batchwriteitem(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

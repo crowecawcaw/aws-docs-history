@@ -1,11 +1,11 @@
-# 03-getitem-test.py
 
-The `03-getitem-test.py` program performs `GetItem`
-operations on `TryDaxTable`. This example is given for the
-Region eu-west-1.
+
+# 03-getitem-test.py
+<a name="DAX.client.run-application-python.03-getitem-test"></a>
+
+The `03-getitem-test.py` program performs `GetItem` operations on `TryDaxTable`. This example is given for the Region eu-west-1. 
 
 ```
-
 import argparse
 import sys
 import time
@@ -66,5 +66,4 @@ if __name__ == '__main__':
             test_key_count, test_iterations)
     print(f"Total time: {test_end - test_start:.4f} sec. Average time: "
           f"{(test_end - test_start)/ test_iterations}.")
-
 ```

@@ -1,32 +1,23 @@
+
+
 # Example: Local Secondary Indexes using the Java document API
+<a name="LSIJavaDocumentAPI.Example"></a>
 
-The following Java code example shows how to work with local secondary indexes in
-Amazon DynamoDB. The example creates a table named `CustomerOrders` with a
-partition key of `CustomerId` and a sort key of `OrderId`. There
-are two local secondary indexes on this table:
+The following Java code example shows how to work with local secondary indexes in Amazon DynamoDB. The example creates a table named `CustomerOrders` with a partition key of `CustomerId` and a sort key of `OrderId`. There are two local secondary indexes on this table:
++ `OrderCreationDateIndex` — The sort key is `OrderCreationDate`, and the following attributes are projected into the index:
+  + `ProductCategory`
+  + `ProductName`
+  + `OrderStatus`
+  + `ShipmentTrackingId`
++ `IsOpenIndex` — The sort key is `IsOpen`, and all of the table attributes are projected into the index.
 
-- `OrderCreationDateIndex` — The sort key is
-  `OrderCreationDate`, and the following attributes are projected
-  into the index:
+After the `CustomerOrders` table is created, the program loads the table with data representing customer orders. It then queries the data using the local secondary indexes. Finally, the program deletes the `CustomerOrders` table.
 
-  - `ProductCategory`
-  - `ProductName`
-  - `OrderStatus`
-  - `ShipmentTrackingId`
+For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md).
 
-- `IsOpenIndex` — The sort key is `IsOpen`, and all
-  of the table attributes are projected into the index.
-  After the `CustomerOrders` table is created, the program loads the table
-  with data representing customer orders. It then queries the data using the local
-  secondary indexes. Finally, the program deletes the `CustomerOrders`
-  table.
-
-For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
-
-###### Example
+**Example**  
 
 ```
-
 package com.example.dynamodb;
 
 import software.amazon.awssdk.core.waiters.WaiterResponse;
@@ -263,6 +254,4 @@ public class DocumentAPILocalSecondaryIndexExample {
         client.putItem(PutItemRequest.builder().tableName(tableName).item(item).build());
     }
 }
-
-
 ```

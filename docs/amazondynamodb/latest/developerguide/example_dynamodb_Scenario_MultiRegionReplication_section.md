@@ -1,17 +1,19 @@
+
+
 # Work with DynamoDB global tables and multi-Region replication with eventual consistency (MREC) using AWS Command Line Interface v2
+<a name="example_dynamodb_Scenario_MultiRegionReplication_section"></a>
 
 The following code example shows how to manage DynamoDB global tables with multi-Region replication with eventual consistency (MREC).
++ Create a table with multi-Region replication (MREC).
++ Put and get items from replica tables.
++ Remove replicas one-by-one.
++ Clean up by deleting the table.
 
-- Create a table with multi-Region replication (MREC).
-- Put and get items from replica tables.
-- Remove replicas one-by-one.
-- Clean up by deleting the table.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create a table with multi-Region replication.
+**AWS CLI with Bash script**  
+Create a table with multi-Region replication.  
 
 ```
 # Step 1: Create a new table (MusicTable) in US East (Ohio), with DynamoDB Streams enabled (NEW_AND_OLD_IMAGES)
@@ -54,11 +56,8 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
   ]
 }' \
 --region us-east-2
-
-
 ```
-
-Describe the multi-Region table.
+Describe the multi-Region table.  
 
 ```
 # Step 4: View the list of replicas created using describe-table
@@ -66,11 +65,8 @@ aws dynamodb describe-table \
     --table-name MusicTable \
     --region us-east-2 \
     --query 'Table.{TableName:TableName,TableStatus:TableStatus,MultiRegionConsistency:MultiRegionConsistency,Replicas:Replicas[*].{Region:RegionName,Status:ReplicaStatus}}'
-
-
 ```
-
-Put items in a replica table.
+Put items in a replica table.  
 
 ```
 # Step 5: To verify that replication is working, add a new item to the Music table in US East (Ohio)
@@ -78,14 +74,11 @@ aws dynamodb put-item \
     --table-name MusicTable \
     --item '{"Artist": {"S":"item_1"},"SongTitle": {"S":"Song Value 1"}}' \
     --region us-east-2
-
+```
+Get items from replica tables.  
 
 ```
-
-Get items from replica tables.
-
-```
-# Step 6: Wait for a few seconds, and then check to see whether the item has been
+# Step 6: Wait for a few seconds, and then check to see whether the item has been 
 # successfully replicated to US East (N. Virginia) and Europe (Ireland)
 aws dynamodb get-item \
     --table-name MusicTable \
@@ -96,11 +89,8 @@ aws dynamodb get-item \
     --table-name MusicTable \
     --key '{"Artist": {"S":"item_1"},"SongTitle": {"S":"Song Value 1"}}' \
     --region eu-west-1
-
-
 ```
-
-Remove replicas.
+Remove replicas.  
 
 ```
 # Step 7: Delete the replica table in Europe (Ireland) Region
@@ -130,30 +120,23 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
   ]
 }' \
 --region us-east-2
-
-
 ```
-
-Clean up by deleting the table.
+Clean up by deleting the table.  
 
 ```
 # Clean up: Delete the primary table
 aws dynamodb delete-table --table-name MusicTable --region us-east-2
 
 echo "Global table demonstration complete."
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DeleteTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DescribeTable)
+  + [GetItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/GetItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/PutItem)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
-  - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
-  - [GetItem](../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/GetItem.md")
-  - [PutItem](../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateTable](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

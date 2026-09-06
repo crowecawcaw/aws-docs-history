@@ -1,26 +1,23 @@
+
+
 # Use `UpdateTable` with an AWS SDK or CLI
+<a name="example_dynamodb_UpdateTable_section"></a>
 
 The following code examples show how to use `UpdateTable`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create and manage global tables demonstrating MREC](example_dynamodb_Scenario_GlobalTableOperations_section.md) 
++  [Create and manage MRSC global tables](example_dynamodb_Scenario_MRSCGlobalTables_section.md) 
++  [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md) 
++  [Update a table's warm throughput setting](example_dynamodb_UpdateTableWarmThroughput_section.md) 
++  [Work with global tables and multi-Region replication eventual consistency (MREC)](example_dynamodb_Scenario_MultiRegionReplication_section.md) 
++  [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md) 
 
-- [Create and manage global tables demonstrating MREC](example_dynamodb_Scenario_GlobalTableOperations_section.md "example_dynamodb_Scenario_GlobalTableOperations_section.md")
-- [Create and manage MRSC global tables](example_dynamodb_Scenario_MRSCGlobalTables_section.md "example_dynamodb_Scenario_MRSCGlobalTables_section.md")
-- [Manage Global Secondary Indexes](example_dynamodb_Scenario_GSILifecycle_section.md "example_dynamodb_Scenario_GSILifecycle_section.md")
-- [Update a table's warm throughput setting](example_dynamodb_UpdateTableWarmThroughput_section.md "example_dynamodb_UpdateTableWarmThroughput_section.md")
-- [Work with global tables and multi-Region replication eventual consistency (MREC)](example_dynamodb_Scenario_MultiRegionReplication_section.md "example_dynamodb_Scenario_MultiRegionReplication_section.md")
-- [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md "example_dynamodb_Scenario_EncryptionExamples_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 
 ```
 //! Update a DynamoDB table.
@@ -65,11 +62,8 @@ bool AwsDoc::DynamoDB::updateTable(const Aws::String &tableName,
 
     return waitTableActive(tableName, dynamoClient);
 }
-
-
 ```
-
-Code that waits for the table to become active.
+Code that waits for the table to become active.  
 
 ```
 //! Query a newly created DynamoDB table until it is active.
@@ -110,31 +104,23 @@ bool AwsDoc::DynamoDB::waitTableActive(const Aws::String &tableName,
     }
     return false;
 }
+```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/goto/SdkForCpp/dynamodb-2012-08-10/UpdateTable) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To modify a table's billing mode**  
+The following `update-table` example increases the provisioned read and write capacity on the `MusicCollection` table.  
 
 ```
-
-- For API details, see
-  [UpdateTable](../../../goto/SdkForCpp/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForCpp/dynamodb-2012-08-10/UpdateTable.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To modify a table's billing mode**
-
-The following `update-table` example increases the provisioned read and write capacity on the `MusicCollection` table.
-
+aws dynamodb update-table \
+    --table-name {{MusicCollection}} \
+    --billing-mode {{PROVISIONED}} \
+    --provisioned-throughput {{ReadCapacityUnits=15,WriteCapacityUnits=10}}
 ```
-`aws dynamodb update-table \
- --table-name `MusicCollection` \
- --billing-mode `PROVISIONED` \
- --provisioned-throughput `ReadCapacityUnits=15,WriteCapacityUnits=10``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -183,22 +169,17 @@ Output:
     }
 }
 ```
-
-For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
-
-**Example 2: To create a global secondary index**
-
-The following example adds a global secondary index to the `MusicCollection` table.
+For more information, see [Updating a Table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.UpdateTable) in the *Amazon DynamoDB Developer Guide*.  
+**Example 2: To create a global secondary index**  
+The following example adds a global secondary index to the `MusicCollection` table.  
 
 ```
-`aws dynamodb update-table \
- --table-name `MusicCollection` \
- --attribute-definitions `AttributeName=AlbumTitle,AttributeType=S` \
- --global-secondary-index-updates `file://gsi-updates.json``
-
+aws dynamodb update-table \
+    --table-name {{MusicCollection}} \
+    --attribute-definitions {{AttributeName=AlbumTitle,AttributeType=S}} \
+    --global-secondary-index-updates {{file://gsi-updates.json}}
 ```
-
-Contents of `gsi-updates.json`:
+Contents of `gsi-updates.json`:  
 
 ```
 [
@@ -222,8 +203,7 @@ Contents of `gsi-updates.json`:
     }
 ]
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -296,21 +276,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
-
-**Example 3: To enable DynamoDB Streams on a table**
-
-The following command enables DynamoDB Streams on the `MusicCollection` table.
+For more information, see [Updating a Table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.UpdateTable) in the *Amazon DynamoDB Developer Guide*.  
+**Example 3: To enable DynamoDB Streams on a table**  
+The following command enables DynamoDB Streams on the `MusicCollection` table.  
 
 ```
-`aws dynamodb update-table \
- --table-name `MusicCollection` \
- --stream-specification `StreamEnabled=true,StreamViewType=NEW_IMAGE``
-
+aws dynamodb update-table \
+    --table-name {{MusicCollection}} \
+    --stream-specification {{StreamEnabled=true,StreamViewType=NEW_IMAGE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -413,21 +388,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
-
-**Example 4: To enable server-side encryption**
-
-The following example enables server-side encryption on the `MusicCollection` table.
+For more information, see [Updating a Table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.UpdateTable) in the *Amazon DynamoDB Developer Guide*.  
+**Example 4: To enable server-side encryption**  
+The following example enables server-side encryption on the `MusicCollection` table.  
 
 ```
-`aws dynamodb update-table \
- --table-name `MusicCollection` \
- --sse-specification `Enabled=true,SSEType=KMS``
-
+aws dynamodb update-table \
+    --table-name {{MusicCollection}} \
+    --sse-specification {{Enabled=true,SSEType=KMS}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -533,41 +503,28 @@ Output:
     }
 }
 ```
+For more information, see [Updating a Table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.UpdateTable) in the *Amazon DynamoDB Developer Guide*.  
++  For API details, see [UpdateTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-table.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Updating a Table](WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable "WorkingWithTables.Basics.md#WorkingWithTables.Basics.UpdateTable") in the _Amazon DynamoDB Developer Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [UpdateTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-table.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Updates the provisioned throughput for the given table.**
+**Tools for PowerShell V4**  
+**Example 1: Updates the provisioned throughput for the given table.**  
 
 ```
 Update-DDBTable -TableName "myTable" -ReadCapacity 10 -WriteCapacity 5
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateTable](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Updates the provisioned throughput for the given table.**
+**Tools for PowerShell V5**  
+**Example 1: Updates the provisioned throughput for the given table.**  
 
 ```
 Update-DDBTable -TableName "myTable" -ReadCapacity 10 -WriteCapacity 5
-
 ```
++  For API details, see [UpdateTable](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UpdateTable](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

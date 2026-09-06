@@ -1,15 +1,17 @@
+
+
 # Update DynamoDB data using PartiQL UPDATE statements with an AWS SDK
+<a name="example_dynamodb_PartiQLUpdate_section"></a>
 
 The following code example shows how to update data using PartiQL UPDATE statements.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-Update items in a DynamoDB table using PartiQL UPDATE statements with AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Update items in a DynamoDB table using PartiQL UPDATE statements with AWS SDK for JavaScript.  
 
 ```
-
 /**
  * This example demonstrates how to update items in a DynamoDB table using PartiQL.
  * It shows different ways to update documents with various index types.
@@ -23,7 +25,7 @@ import {
 
 /**
  * Update a single attribute of an item using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -58,7 +60,7 @@ export const updateSingleAttribute = async (
 
 /**
  * Update multiple attributes of an item using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -99,7 +101,7 @@ export const updateMultipleAttributes = async (
 
 /**
  * Update an item identified by a composite key (partition key + sort key) using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -138,7 +140,7 @@ export const updateItemWithCompositeKey = async (
 
 /**
  * Update an item with a condition to ensure the update only happens if a condition is met.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param partitionKeyName - The name of the partition key attribute
  * @param partitionKeyValue - The value of the partition key
@@ -177,7 +179,7 @@ export const updateItemWithCondition = async (
 
 /**
  * Batch update multiple items using PartiQL.
- *
+ * 
  * @param tableName - The name of the DynamoDB table
  * @param updates - Array of objects containing key and update information
  * @returns The response from the BatchExecuteStatementCommand
@@ -268,15 +270,11 @@ export const updateExamples = async () => {
     },
   ]);
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [BatchExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand)
+  + [ExecuteStatement](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
 
-  - [BatchExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchExecuteStatementCommand.md")
-  - [ExecuteStatement](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ExecuteStatementCommand.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

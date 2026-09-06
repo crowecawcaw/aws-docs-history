@@ -1,104 +1,90 @@
+
+
 # Performing transactions with PartiQL for DynamoDB
+<a name="ql-reference.multiplestatements.transactions"></a>
 
-This section describes how to use transactions with PartiQL for DynamoDB. PartiQL
-transactions are limited to 100 total statements (actions).
+This section describes how to use transactions with PartiQL for DynamoDB. PartiQL transactions are limited to 100 total statements (actions).
 
-For more information on DynamoDB transactions, see [Managing complex
-workflows with DynamoDB transactions](transactions.md "transactions.md").
+For more information on DynamoDB transactions, see [Managing complex workflows with DynamoDB transactions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transactions.html).
 
-###### Note
+**Note**  
+The entire transaction must consist of either read statements or write statements. You can't mix both in one transaction. The EXISTS function is an exception. You can use it to check the condition of specific attributes of the item in a similar manner to `ConditionCheck` in the [TransactWriteItems](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems) API operation.
 
-The entire transaction must consist of either read statements or write statements.
-You can't mix both in one transaction. The EXISTS function is an exception. You can
-use it to check the condition of specific attributes of the item in a similar manner
-to `ConditionCheck` in the [TransactWriteItems](transaction-apis.md#transaction-apis-txwriteitems "transaction-apis.md#transaction-apis-txwriteitems") API operation.
-
-###### Topics
-
-- [Syntax](#ql-reference.multiplestatements.transactions.syntax "#ql-reference.multiplestatements.transactions.syntax")
-- [Parameters](#ql-reference.multiplestatements.transactions.parameters "#ql-reference.multiplestatements.transactions.parameters")
-- [Return values](#ql-reference.multiplestatements.transactions.return "#ql-reference.multiplestatements.transactions.return")
-- [Examples](#ql-reference.multiplestatements.transactions.examples "#ql-reference.multiplestatements.transactions.examples")
+**Topics**
++ [Syntax](#ql-reference.multiplestatements.transactions.syntax)
++ [Parameters](#ql-reference.multiplestatements.transactions.parameters)
++ [Return values](#ql-reference.multiplestatements.transactions.return)
++ [Examples](#ql-reference.multiplestatements.transactions.examples)
 
 ## Syntax
+<a name="ql-reference.multiplestatements.transactions.syntax"></a>
 
 ```
 [
    {
-      "Statement":" `statement` ",
+      "Statement":"{{ statement }}",
       "Parameters":[
          {
-            " `parametertype` " : " `parametervalue` "
+            "{{ parametertype }}" : "{{ parametervalue }}"
          }, ...]
    } , ...
 ]
 ```
 
 ## Parameters
+<a name="ql-reference.multiplestatements.transactions.parameters"></a>
 
-**`statement`**
+**{{statement}}**  
+(Required) A PartiQL for DynamoDB supported statement.  
+The entire transaction must consist of either read statements or write statements. You can't mix both in one transaction.
 
-(Required) A PartiQL for DynamoDB supported statement.
+**{{parametertype}}**  
+(Optional) A DynamoDB type, if parameters were used when specifying the PartiQL statement.
 
-###### Note
-
-The entire transaction must consist of either read statements or
-write statements. You can't mix both in one transaction.
-
-**`parametertype`**
-
-(Optional) A DynamoDB type, if parameters were used when specifying the
-PartiQL statement.
-
-**`parametervalue`**
-
-(Optional) A parameter value if parameters were used when specifying
-the PartiQL statement.
+**{{parametervalue}}**  
+(Optional) A parameter value if parameters were used when specifying the PartiQL statement.
 
 ## Return values
+<a name="ql-reference.multiplestatements.transactions.return"></a>
 
-This statement doesn't return any values for Write operations (INSERT, UPDATE, or
-DELETE). However, it returns different values for Read operations (SELECT) based on
-the conditions specified in the WHERE clause.
+This statement doesn't return any values for Write operations (INSERT, UPDATE, or DELETE). However, it returns different values for Read operations (SELECT) based on the conditions specified in the WHERE clause.
 
-###### Note
-
-If any of the singleton INSERT, UPDATE, or DELETE operations return an error,
-the transactions are canceled with the `TransactionCanceledException`
-exception, and the cancellation reason code includes the errors from the
-individual singleton operations.
+**Note**  
+If any of the singleton INSERT, UPDATE, or DELETE operations return an error, the transactions are canceled with the `TransactionCanceledException` exception, and the cancellation reason code includes the errors from the individual singleton operations.
 
 ## Examples
+<a name="ql-reference.multiplestatements.transactions.examples"></a>
 
 The following example runs multiple statements as a transaction.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-1. Save the following JSON code to a file called
-   partiql.json.
+1. Save the following JSON code to a file called partiql.json. 
 
-```
-[
-    {
-        "Statement": "EXISTS(SELECT * FROM \"Music\" where Artist='No One You Know' and SongTitle='Call Me Today' and Awards is  MISSING)"
-    },
-    {
-        "Statement": "INSERT INTO Music value {'Artist':?,'SongTitle':'?'}",
-        "Parameters": [{\"S\": \"Acme Band\"}, {\"S\": \"Best Song\"}]
-    },
-    {
-        "Statement": "UPDATE \"Music\" SET AwardsWon=1 SET AwardDetail={'Grammys':[2020, 2018]}  where Artist='Acme Band' and SongTitle='PartiQL Rocks'"
-    }
-]
-```
+   ```
+   [
+       {
+           "Statement": "EXISTS(SELECT * FROM \"Music\" where Artist='No One You Know' and SongTitle='Call Me Today' and Awards is  MISSING)"
+       },
+       {
+           "Statement": "INSERT INTO Music value {'Artist':?,'SongTitle':'?'}",
+           "Parameters": [{\"S\": \"Acme Band\"}, {\"S\": \"Best Song\"}]
+       },
+       {
+           "Statement": "UPDATE \"Music\" SET AwardsWon=1 SET AwardDetail={'Grammys':[2020, 2018]}  where Artist='Acme Band' and SongTitle='PartiQL Rocks'"
+       }
+   ]
+   ```
 
-2. Run the following command in a command prompt.
+1. Run the following command in a command prompt.
 
-```
-aws dynamodb execute-transaction --transact-statements  file://partiql.json
-```
+   ```
+   aws dynamodb execute-transaction --transact-statements  file://partiql.json
+   ```
 
-Java
+------
+#### [ Java ]
 
 ```
 public class DynamoDBPartiqlTransaction {
@@ -106,7 +92,7 @@ public class DynamoDBPartiqlTransaction {
     public static void main(String[] args) {
         // Create the DynamoDB Client with the region you want
         AmazonDynamoDB dynamoDB = createDynamoDbClient("us-west-2");
-
+        
         try {
             // Create ExecuteTransactionRequest
             ExecuteTransactionRequest executeTransactionRequest = createExecuteTransactionRequest();
@@ -125,7 +111,7 @@ public class DynamoDBPartiqlTransaction {
 
     private static ExecuteTransactionRequest createExecuteTransactionRequest() {
         ExecuteTransactionRequest request = new ExecuteTransactionRequest();
-
+        
         // Create statements
         List<ParameterizedStatement> statements = getPartiQLTransactionStatements();
 
@@ -149,7 +135,7 @@ public class DynamoDBPartiqlTransaction {
         return statements;
     }
 
-    // Handles errors during ExecuteTransaction execution. Use recommendations in error messages below to add error handling specific to
+    // Handles errors during ExecuteTransaction execution. Use recommendations in error messages below to add error handling specific to 
     // your application use-case.
     private static void handleExecuteTransactionErrors(Exception exception) {
         try {
@@ -173,16 +159,16 @@ public class DynamoDBPartiqlTransaction {
         } catch (InternalServerErrorException isee) {
             System.out.println("Internal Server Error, generally safe to retry with exponential back-off. Error: " + isee.getErrorMessage());
         } catch (RequestLimitExceededException rlee) {
-            System.out.println("Throughput exceeds the current throughput limit for your account, increase account level throughput before " +
+            System.out.println("Throughput exceeds the current throughput limit for your account, increase account level throughput before " + 
                 "retrying. Error: " + rlee.getErrorMessage());
         } catch (ProvisionedThroughputExceededException ptee) {
             System.out.println("Request rate is too high. If you're using a custom retry strategy make sure to retry with exponential back-off. " +
-                "Otherwise consider reducing frequency of requests or increasing provisioned capacity for your table or secondary index. Error: " +
+                "Otherwise consider reducing frequency of requests or increasing provisioned capacity for your table or secondary index. Error: " + 
                 ptee.getErrorMessage());
         } catch (ResourceNotFoundException rnfe) {
             System.out.println("One of the tables was not found, verify table exists before retrying. Error: " + rnfe.getErrorMessage());
         } catch (AmazonServiceException ase) {
-            System.out.println("An AmazonServiceException occurred, indicates that the request was correctly transmitted to the DynamoDB " +
+            System.out.println("An AmazonServiceException occurred, indicates that the request was correctly transmitted to the DynamoDB " + 
                 "service, but for some reason, the service was not able to process it, and returned an error response instead. Investigate and " +
                 "configure retry strategy. Error type: " + ase.getErrorType() + ". Error message: " + ase.getErrorMessage());
         } catch (AmazonClientException ace) {
@@ -197,59 +183,62 @@ public class DynamoDBPartiqlTransaction {
 }
 ```
 
-The following example shows the different return values when DynamoDB reads items
-with different conditions specified in the WHERE clause.
+------
 
-AWS CLI
+The following example shows the different return values when DynamoDB reads items with different conditions specified in the WHERE clause.
 
-1. Save the following JSON code to a file called
-   partiql.json.
+------
+#### [ AWS CLI ]
 
-```
-[
-    // Item exists and projected attribute exists
-    {
-        "Statement": "SELECT * FROM "Music" WHERE Artist='No One You Know' and SongTitle='Call Me Today'"
-    },
-    // Item exists but projected attributes do not exist
-    {
-        "Statement": "SELECT non_existent_projected_attribute FROM "Music" WHERE Artist='No One You Know' and SongTitle='Call Me Today'"
-    },
-    // Item does not exist
-    {
-        "Statement": "SELECT * FROM "Music" WHERE Artist='No One I Know' and SongTitle='Call You Today'"
-    }
-]
-```
+1. Save the following JSON code to a file called partiql.json.
 
-2. following command in a command prompt.
+   ```
+   [
+       // Item exists and projected attribute exists
+       {
+           "Statement": "SELECT * FROM "Music" WHERE Artist='No One You Know' and SongTitle='Call Me Today'"
+       },
+       // Item exists but projected attributes do not exist
+       {
+           "Statement": "SELECT non_existent_projected_attribute FROM "Music" WHERE Artist='No One You Know' and SongTitle='Call Me Today'"
+       },
+       // Item does not exist
+       {
+           "Statement": "SELECT * FROM "Music" WHERE Artist='No One I Know' and SongTitle='Call You Today'"
+       }
+   ]
+   ```
 
-```
-aws dynamodb execute-transaction --transact-statements  file://partiql.json
-```
+1.  following command in a command prompt.
 
-3. The following response is returned:
+   ```
+   aws dynamodb execute-transaction --transact-statements  file://partiql.json
+   ```
 
-```
-{
-    "Responses": [
-        // Item exists and projected attribute exists
-        {
-            "Item": {
-                "Artist":{
-                    "S": "No One You Know"
-                },
-                "SongTitle":{
-                    "S": "Call Me Today"
-                }
-            }
-        },
-        // Item exists but projected attributes do not exist
-        {
-            "Item": {}
-        },
-        // Item does not exist
-        {}
-    ]
-}
-```
+1. The following response is returned:
+
+   ```
+   {
+       "Responses": [
+           // Item exists and projected attribute exists
+           {
+               "Item": {
+                   "Artist":{
+                       "S": "No One You Know"
+                   },
+                   "SongTitle":{
+                       "S": "Call Me Today"
+                   }    
+               }
+           },
+           // Item exists but projected attributes do not exist
+           {
+               "Item": {}
+           },
+           // Item does not exist
+           {}
+       ]
+   }
+   ```
+
+------

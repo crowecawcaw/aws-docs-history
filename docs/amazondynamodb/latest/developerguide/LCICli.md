@@ -1,23 +1,19 @@
+
+
 # Working with Local Secondary Indexes in DynamoDB AWS CLI
+<a name="LCICli"></a>
 
-You can use the AWS CLI to create an Amazon DynamoDB table with one or more
-Local Secondary Indexes, describe the indexes on the table, and perform queries using the
-indexes.
+You can use the AWS CLI to create an Amazon DynamoDB table with one or more Local Secondary Indexes, describe the indexes on the table, and perform queries using the indexes.
 
-###### Topics
-
-- [Create a table with a Local Secondary Index](#LCICli.CreateTableWithIndex "#LCICli.CreateTableWithIndex")
-- [Describe a table with a Local Secondary Index](#LCICli.DescribeTableWithIndex "#LCICli.DescribeTableWithIndex")
-- [Query a Local Secondary Index](#LCICli.QueryAnIndex "#LCICli.QueryAnIndex")
+**Topics**
++ [Create a table with a Local Secondary Index](#LCICli.CreateTableWithIndex)
++ [Describe a table with a Local Secondary Index](#LCICli.DescribeTableWithIndex)
++ [Query a Local Secondary Index](#LCICli.QueryAnIndex)
 
 ## Create a table with a Local Secondary Index
+<a name="LCICli.CreateTableWithIndex"></a>
 
-Local Secondary Indexes must be created at the same time you create a table. To do
-this, use the `create-table` parameter and provide your specifications for one or
-more Local Secondary Indexes. The following example creates a table (`Music`) to hold
-information about songs in a music collection. The partition key is `Artist`
-and the sort key is `SongTitle`. A secondary index,
-`AlbumTitleIndex` on the `AlbumTitle` attribute facilitates queries by album title.
+Local Secondary Indexes must be created at the same time you create a table. To do this, use the `create-table` parameter and provide your specifications for one or more Local Secondary Indexes. The following example creates a table (`Music`) to hold information about songs in a music collection. The partition key is `Artist` and the sort key is `SongTitle`. A secondary index, `AlbumTitleIndex` on the `AlbumTitle` attribute facilitates queries by album title. 
 
 ```
 aws dynamodb create-table \
@@ -34,32 +30,23 @@ aws dynamodb create-table \
         \"Projection\":{\"ProjectionType\":\"INCLUDE\",  \"NonKeyAttributes\":[\"Genre\", \"Year\"]}}]"
 ```
 
-You must wait until DynamoDB creates the table and sets the table status to
-`ACTIVE`. After that, you can begin putting data items into the
-table. You can use [describe-table](../../../cli/latest/reference/dynamodb/describe-table.md "../../../cli/latest/reference/dynamodb/describe-table.md")
-to determine the status of the table creation.
+You must wait until DynamoDB creates the table and sets the table status to `ACTIVE`. After that, you can begin putting data items into the table. You can use [describe-table](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) to determine the status of the table creation. 
 
 ## Describe a table with a Local Secondary Index
+<a name="LCICli.DescribeTableWithIndex"></a>
 
-To get information about local secondary indexes on a table, use the
-`describe-table` parameter. For each index, you can access its name, key
-schema, and projected attributes.
+To get information about local secondary indexes on a table, use the `describe-table` parameter. For each index, you can access its name, key schema, and projected attributes.
 
 ```
 aws dynamodb describe-table --table-name Music
 ```
 
 ## Query a Local Secondary Index
+<a name="LCICli.QueryAnIndex"></a>
 
-You can use the `query` operation on a Local Secondary Index in much the same way that you
-`query` a table. You must specify the index name, the query criteria for
-the index sort key, and the attributes that you want to return. In this example, the
-index is `AlbumTitleIndex` and the index sort key is `AlbumTitle`.
+You can use the `query` operation on a Local Secondary Index in much the same way that you `query` a table. You must specify the index name, the query criteria for the index sort key, and the attributes that you want to return. In this example, the index is `AlbumTitleIndex` and the index sort key is `AlbumTitle`. 
 
-The only attributes returned are those that have been projected into the index. You
-could modify this query to select non-key attributes too, but this would require table
-fetch activity that is relatively expensive. For more information about table fetches,
-see [Attribute projections](LSI.md#LSI.Projections "LSI.md#LSI.Projections").
+The only attributes returned are those that have been projected into the index. You could modify this query to select non-key attributes too, but this would require table fetch activity that is relatively expensive. For more information about table fetches, see [Attribute projections](LSI.md#LSI.Projections).
 
 ```
 aws dynamodb query \

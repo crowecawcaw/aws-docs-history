@@ -1,28 +1,26 @@
+
+
 # Use `UpdateTimeToLive` with an AWS SDK or CLI
+<a name="example_dynamodb_UpdateTimeToLive_section"></a>
 
 The following code examples show how to use `UpdateTimeToLive`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Work with Streams and Time-to-Live](example_dynamodb_Scenario_StreamsAndTTL_section.md) 
 
-- [Work with Streams and Time-to-Live](example_dynamodb_Scenario_StreamsAndTTL_section.md "example_dynamodb_Scenario_StreamsAndTTL_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To update Time to Live settings on a table**
-
-The following `update-time-to-live` example enables Time to Live on the specified table.
+**AWS CLI**  
+**To update Time to Live settings on a table**  
+The following `update-time-to-live` example enables Time to Live on the specified table.  
 
 ```
-`aws dynamodb update-time-to-live \
- --table-name `MusicCollection` \
- --time-to-live-specification `Enabled=true,AttributeName=ttl``
-
+aws dynamodb update-time-to-live \
+    --table-name {{MusicCollection}} \
+    --time-to-live-specification {{Enabled=true,AttributeName=ttl}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -32,18 +30,14 @@ Output:
     }
 }
 ```
+For more information, see [Time to Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in the *Amazon DynamoDB Developer Guide*.  
++  For API details, see [UpdateTimeToLive](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-time-to-live.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Time to Live](TTL.md "TTL.md") in the _Amazon DynamoDB Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [UpdateTimeToLive](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-time-to-live.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/update-time-to-live.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-Enable TTL on an existing DynamoDB table using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Enable TTL on an existing DynamoDB table using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -80,11 +74,8 @@ import java.util.logging.Logger;
             throw e;
         }
     }
-
-
 ```
-
-Disable TTL on an existing DynamoDB table using AWS SDK for Java 2.x.
+Disable TTL on an existing DynamoDB table using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -122,19 +113,14 @@ import java.util.logging.Logger;
             throw e;
         }
     }
-
-
 ```
++  For API details, see [UpdateTimeToLive](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTimeToLive) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateTimeToLive](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTimeToLive.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTimeToLive.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Enable TTL on an existing DynamoDB table.
+**SDK for JavaScript (v3)**  
+Enable TTL on an existing DynamoDB table.  
 
 ```
 import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb";
@@ -170,10 +156,8 @@ export const enableTTL = async (tableName, ttlAttribute, region = 'us-east-1') =
 
 // Example usage (commented out for testing)
 // enableTTL('ExampleTable', 'exampleTtlAttribute');
-
 ```
-
-Disable TTL on an existing DynamoDB table.
+Disable TTL on an existing DynamoDB table.  
 
 ```
 import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb";
@@ -209,18 +193,14 @@ export const disableTTL = async (tableName, ttlAttribute, region = 'us-east-1') 
 
 // Example usage (commented out for testing)
 // disableTTL('ExampleTable', 'exampleTtlAttribute');
-
 ```
++  For API details, see [UpdateTimeToLive](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTimeToLiveCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateTimeToLive](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTimeToLiveCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateTimeToLiveCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Enable TTL on an existing DynamoDB table.
+**SDK for Python (Boto3)**  
+Enable TTL on an existing DynamoDB table.  
 
 ```
 import boto3
@@ -259,11 +239,8 @@ def enable_ttl(table_name, ttl_attribute_name):
 
 # your values
 enable_ttl("your-table-name", "expireAt")
-
-
 ```
-
-Disable TTL on an existing DynamoDB table.
+Disable TTL on an existing DynamoDB table.  
 
 ```
 import boto3
@@ -301,14 +278,9 @@ def disable_ttl(table_name, ttl_attribute_name):
 
 # your values
 disable_ttl("your-table-name", "expireAt")
-
-
 ```
++  For API details, see [UpdateTimeToLive](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateTimeToLive) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateTimeToLive](../../../goto/boto3/dynamodb-2012-08-10/UpdateTimeToLive.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateTimeToLive.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

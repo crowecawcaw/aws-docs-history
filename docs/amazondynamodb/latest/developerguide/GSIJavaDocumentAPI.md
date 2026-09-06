@@ -1,56 +1,42 @@
+
+
 # Working with Global Secondary Indexes: Java
+<a name="GSIJavaDocumentAPI"></a>
 
-You can use the AWS SDK for Java Document API to create an Amazon DynamoDB table with one or more
-global secondary indexes, describe the indexes on the table, and perform queries using the
-indexes.
+You can use the AWS SDK for Java Document API to create an Amazon DynamoDB table with one or more global secondary indexes, describe the indexes on the table, and perform queries using the indexes. 
 
-The following are the common steps for table operations.
+The following are the common steps for table operations. 
 
 1. Create an instance of the `DynamoDB` class.
-2. Provide the required and optional parameters for the operation by creating the
-   corresponding request objects.
-3. Call the appropriate method provided by the client that you created in the
-   preceding step.
 
-###### Topics
+1. Provide the required and optional parameters for the operation by creating the corresponding request objects. 
 
-- [Create a table with a Global Secondary Index](#GSIJavaDocumentAPI.CreateTableWithIndex "#GSIJavaDocumentAPI.CreateTableWithIndex")
-- [Describe a table with a Global Secondary Index](#GSIJavaDocumentAPI.DescribeTableWithIndex "#GSIJavaDocumentAPI.DescribeTableWithIndex")
-- [Query a Global Secondary Index](#GSIJavaDocumentAPI.QueryAnIndex "#GSIJavaDocumentAPI.QueryAnIndex")
-- [Example: Global Secondary Indexes using the AWS SDK for Java document API](GSIJavaDocumentAPI.Example.md "GSIJavaDocumentAPI.Example.md")
+1. Call the appropriate method provided by the client that you created in the preceding step. 
+
+**Topics**
++ [Create a table with a Global Secondary Index](#GSIJavaDocumentAPI.CreateTableWithIndex)
++ [Describe a table with a Global Secondary Index](#GSIJavaDocumentAPI.DescribeTableWithIndex)
++ [Query a Global Secondary Index](#GSIJavaDocumentAPI.QueryAnIndex)
++ [Example: Global Secondary Indexes using the AWS SDK for Java document API](GSIJavaDocumentAPI.Example.md)
 
 ## Create a table with a Global Secondary Index
+<a name="GSIJavaDocumentAPI.CreateTableWithIndex"></a>
 
-You can create global secondary indexes at the same time that you create a table. To
-do this, use `CreateTable` and provide your specifications for one or more
-global secondary indexes. The following Java code example creates a table to hold
-information about weather data. The partition key is `Location` and the sort
-key is `Date`. A global secondary index named `PrecipIndex` allows fast access to
-precipitation data for various locations.
+You can create global secondary indexes at the same time that you create a table. To do this, use `CreateTable` and provide your specifications for one or more global secondary indexes. The following Java code example creates a table to hold information about weather data. The partition key is `Location` and the sort key is `Date`. A global secondary index named `PrecipIndex` allows fast access to precipitation data for various locations.
 
-The following are the steps to create a table with a global secondary index, using the DynamoDB document
-API.
+The following are the steps to create a table with a global secondary index, using the DynamoDB document API. 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `CreateTableRequest` class to provide the
-   request information.
 
-You must provide the table name, its primary key, and the provisioned
-throughput values. For the global secondary index, you must provide the index name, its
-provisioned throughput settings, the attribute definitions for the index sort
-key, the key schema for the index, and the attribute projection. 3. Call the `createTable` method by providing the request object as a
-parameter.
+1. Create an instance of the `CreateTableRequest` class to provide the request information.
 
-The following Java code example demonstrates the preceding steps. The code creates a
-table (`WeatherData`) with a global secondary index (`PrecipIndex`). The index
-partition key is `Date` and its sort key is `Precipitation`. All
-of the table attributes are projected into the index. Users can query this index to
-obtain weather data for a particular date, optionally sorting the data by precipitation
-amount.
+   You must provide the table name, its primary key, and the provisioned throughput values. For the global secondary index, you must provide the index name, its provisioned throughput settings, the attribute definitions for the index sort key, the key schema for the index, and the attribute projection.
 
-Because `Precipitation` is not a key attribute for the table, it is not
-required. However, `WeatherData` items without `Precipitation` do
-not appear in `PrecipIndex`.
+1. Call the `createTable` method by providing the request object as a parameter.
+
+The following Java code example demonstrates the preceding steps. The code creates a table (`WeatherData`) with a global secondary index (`PrecipIndex`). The index partition key is `Date` and its sort key is `Precipitation`. All of the table attributes are projected into the index. Users can query this index to obtain weather data for a particular date, optionally sorting the data by precipitation amount. 
+
+Because `Precipitation` is not a key attribute for the table, it is not required. However, `WeatherData` items without `Precipitation` do not appear in `PrecipIndex`.
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -110,26 +96,24 @@ Table table = dynamoDB.createTable(createTableRequest);
 System.out.println(table.getDescription());
 ```
 
-You must wait until DynamoDB creates the table and sets the table status to
-`ACTIVE`. After that, you can begin putting data items into the
-table.
+You must wait until DynamoDB creates the table and sets the table status to `ACTIVE`. After that, you can begin putting data items into the table.
 
 ## Describe a table with a Global Secondary Index
+<a name="GSIJavaDocumentAPI.DescribeTableWithIndex"></a>
 
-To get information about global secondary indexes on a table, use
-`DescribeTable`. For each index, you can access its name, key schema, and
-projected attributes.
+To get information about global secondary indexes on a table, use `DescribeTable`. For each index, you can access its name, key schema, and projected attributes.
 
-The following are the steps to access global secondary index information a table.
+The following are the steps to access global secondary index information a table. 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class to represent the index you
-   want to work with.
-3. Call the `describe` method on the `Table` object.
+
+1. Create an instance of the `Table` class to represent the index you want to work with.
+
+1. Call the `describe` method on the `Table` object.
 
 The following Java code example demonstrates the preceding steps.
 
-###### Example
+**Example**  
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -137,7 +121,7 @@ DynamoDB dynamoDB = new DynamoDB(client);
 
 Table table = dynamoDB.getTable("WeatherData");
 TableDescription tableDesc = table.describe();
-
+    
 
 Iterator<GlobalSecondaryIndexDescription> gsiIter = tableDesc.getGlobalSecondaryIndexes().iterator();
 while (gsiIter.hasNext()) {
@@ -161,31 +145,25 @@ while (gsiIter.hasNext()) {
 ```
 
 ## Query a Global Secondary Index
+<a name="GSIJavaDocumentAPI.QueryAnIndex"></a>
 
-You can use `Query` on a global secondary index, in much the same way you `Query`
-a table. You need to specify the index name, the query criteria for the index partition
-key and sort key (if present), and the attributes that you want to return. In this
-example, the index is `PrecipIndex`, which has a partition key of
-`Date` and a sort key of `Precipitation`. The index query
-returns all of the weather data for a particular date, where the precipitation is
-greater than zero.
+You can use `Query` on a global secondary index, in much the same way you `Query` a table. You need to specify the index name, the query criteria for the index partition key and sort key (if present), and the attributes that you want to return. In this example, the index is `PrecipIndex`, which has a partition key of `Date` and a sort key of `Precipitation`. The index query returns all of the weather data for a particular date, where the precipitation is greater than zero.
 
-The following are the steps to query a global secondary index using the AWS SDK for Java Document API.
+The following are the steps to query a global secondary index using the AWS SDK for Java Document API. 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class to represent the index you
-   want to work with.
-3. Create an instance of the `Index` class for the index you want to
-   query.
-4. Call the `query` method on the `Index` object.
 
-The attribute name `Date` is a DynamoDB reserved word. Therefore, you must use
-an expression attribute name as a placeholder in the
-`KeyConditionExpression`.
+1. Create an instance of the `Table` class to represent the index you want to work with.
+
+1. Create an instance of the `Index` class for the index you want to query.
+
+1. Call the `query` method on the `Index` object.
+
+The attribute name `Date` is a DynamoDB reserved word. Therefore, you must use an expression attribute name as a placeholder in the `KeyConditionExpression`.
 
 The following Java code example demonstrates the preceding steps.
 
-###### Example
+**Example**  
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -203,7 +181,7 @@ QuerySpec spec = new QuerySpec()
         .withNumber(":v_precip",0));
 
 ItemCollection<QueryOutcome> items = index.query(spec);
-Iterator<Item> iter = items.iterator();
+Iterator<Item> iter = items.iterator(); 
 while (iter.hasNext()) {
     System.out.println(iter.next().toJSONPretty());
 }

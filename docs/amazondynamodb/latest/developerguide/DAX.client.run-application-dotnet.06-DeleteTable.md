@@ -1,11 +1,11 @@
-# 06-DeleteTable.cs
 
-The `06-DeleteTable.cs` program deletes
-`TryDaxTable`. Run this program after you have finished
-testing.
+
+# 06-DeleteTable.cs
+<a name="DAX.client.run-application-dotnet.06-DeleteTable"></a>
+
+The `06-DeleteTable.cs` program deletes `TryDaxTable`. Run this program after you have finished testing.
 
 ```
-
 using System;
 using System.Threading.Tasks;
 using Amazon.DynamoDBv2.Model;
@@ -33,6 +33,4 @@ namespace ClientTest
         }
     }
 }
-
-
 ```

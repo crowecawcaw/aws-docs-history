@@ -1,44 +1,38 @@
+
+
 # Understanding DynamoDB log file entries
+<a name="understanding-ddb-log-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root or user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
+**Note**  
+Non key attribute values will be redacted in the CloudTrail logs of actions using the PartiQL API, and will not appear in logs of actions using the classic API.
 
-###### Note
-
-Non key attribute values will be redacted in the CloudTrail logs of actions using the
-PartiQL API, and will not appear in logs of actions using the classic API.
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 The following examples demonstrate CloudTrail logs of these event types:
 
 **Amazon DynamoDB**
++ [`UpdateTable`](#understanding-ddb-log-entries.update-table)
++ [`DeleteTable`](#understanding-ddb-log-entries.delete-table)
++ [`CreateCluster`](#understanding-ddb-log-entries.create-cluster)
++ [`PutItem` (Successful)](#understanding-ddb-log-entries.put-item)
++ [`UpdateItem` (Unsuccessful)](#understanding-ddb-log-entries.update-item)
++ [`TransactWriteItems` (Successful)](#understanding-ddb-log-entries.transact-write-items)
++ [`TransactWriteItems` (With `TransactionCanceledException`)](#understanding-ddb-log-entries.transact-write-items.exception)
++ [`ExecuteStatement`](#understanding-ddb-log-entries.execute-statement)
++ [`BatchExecuteStatement`](#understanding-ddb-log-entries.batch-execute-statement)
 
-- [UpdateTable](#understanding-ddb-log-entries.update-table "#understanding-ddb-log-entries.update-table")
-- [DeleteTable](#understanding-ddb-log-entries.delete-table "#understanding-ddb-log-entries.delete-table")
-- [CreateCluster](#understanding-ddb-log-entries.create-cluster "#understanding-ddb-log-entries.create-cluster")
-- [PutItem (Successful)](#understanding-ddb-log-entries.put-item "#understanding-ddb-log-entries.put-item")
-- [UpdateItem (Unsuccessful)](#understanding-ddb-log-entries.update-item "#understanding-ddb-log-entries.update-item")
-- [TransactWriteItems (Successful)](#understanding-ddb-log-entries.transact-write-items "#understanding-ddb-log-entries.transact-write-items")
-- [TransactWriteItems (With TransactionCanceledException)](#understanding-ddb-log-entries.transact-write-items.exception "#understanding-ddb-log-entries.transact-write-items.exception")
-- [ExecuteStatement](#understanding-ddb-log-entries.execute-statement "#understanding-ddb-log-entries.execute-statement")
-- [BatchExecuteStatement](#understanding-ddb-log-entries.batch-execute-statement "#understanding-ddb-log-entries.batch-execute-statement")
-  **DynamoDB Streams**
-
-- [GetRecords](#understanding-ddb-log-entries.get-records "#understanding-ddb-log-entries.get-records")
+**DynamoDB Streams**
++ [`GetRecords`](#understanding-ddb-log-entries.get-records)
 
 ## `UpdateTable`
+<a name="understanding-ddb-log-entries.update-table"></a>
 
 ```
 {
@@ -123,6 +117,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `DeleteTable`
+<a name="understanding-ddb-log-entries.delete-table"></a>
 
 ```
 {
@@ -182,6 +177,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `CreateCluster`
+<a name="understanding-ddb-log-entries.create-cluster"></a>
 
 ```
 {
@@ -252,6 +248,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `PutItem` (Successful)
+<a name="understanding-ddb-log-entries.put-item"></a>
 
 ```
 {
@@ -319,6 +316,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `UpdateItem` (Unsuccessful)
+<a name="understanding-ddb-log-entries.update-item"></a>
 
 ```
 {
@@ -389,6 +387,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `TransactWriteItems` (Successful)
+<a name="understanding-ddb-log-entries.transact-write-items"></a>
 
 ```
 {
@@ -507,6 +506,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `TransactWriteItems` (With `TransactionCanceledException`)
+<a name="understanding-ddb-log-entries.transact-write-items.exception"></a>
 
 ```
 {
@@ -627,6 +627,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `ExecuteStatement`
+<a name="understanding-ddb-log-entries.execute-statement"></a>
 
 ```
 {
@@ -684,6 +685,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `BatchExecuteStatement`
+<a name="understanding-ddb-log-entries.batch-execute-statement"></a>
 
 ```
 {
@@ -748,6 +750,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 ```
 
 ## `GetRecords`
+<a name="understanding-ddb-log-entries.get-records"></a>
 
 ```
 {

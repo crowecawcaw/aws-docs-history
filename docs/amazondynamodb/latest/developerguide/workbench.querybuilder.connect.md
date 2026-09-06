@@ -1,52 +1,46 @@
+
+
 # Connecting to live datasets
+<a name="workbench.querybuilder.connect"></a>
 
-To connect to your Amazon DynamoDB tables with NoSQL Workbench, you must first connect to
-your AWS account.
+To connect to your Amazon DynamoDB tables with NoSQL Workbench, you must first connect to your AWS account.
 
-###### To add a connection to your database
+**To add a connection to your database**
 
-1. In NoSQL Workbench, in the navigation pane on the left side, choose the
-   **Operation builder** icon.
-2. Choose **Add connection**.
-3. Specify the following information:
+1. In NoSQL Workbench, in the navigation pane on the left side, choose the **Operation builder** icon.
 
-   - **Connection name**
-   - **AWS Region**
-   - **Access key ID**
-   - **Secret access key**
-     For more information about how to obtain the access keys, see [Getting an AWS access key](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials").
+1. Choose **Add connection**.
 
-You can optionally, specify the following:
+1. Specify the following information:
+   + **Connection name**
+   + **AWS Region**
+   + **Access key ID**
+   + **Secret access key**
 
-    * [**Session token**](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md")
-    * [**IAM role ARN**](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns")
+   For more information about how to obtain the access keys, see [Getting an AWS access key](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SettingUp.DynamoWebService.html#SettingUp.DynamoWebService.GetCredentials).
 
-4. Choose **Connect**.
+   You can optionally, specify the following:
+   + [**Session token**](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html)
+   + [**IAM role ARN**](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns)
 
-If you don't want to sign up for a free tier account, and prefer to use
-[DynamoDB
-local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md"):
+1. Choose **Connect**.
 
-    1. Choose the **Local** tab on the connection
-     screen.
-    2. Specify the following information:
+    If you don't want to sign up for a free tier account, and prefer to use [ DynamoDB local (downloadable version)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html): 
 
+   1. Choose the **Local** tab on the connection screen.
 
+   1. Specify the following information:
+      + **Connection name**
+      + **Port**
 
+   1. Choose the **connect** button.
+**Note**  
+To connect to DynamoDB local, either manually launch DynamoDB local using your terminal (see [deploying DynamoDB local on your computer](DynamoDBLocal.DownloadingAndRunning.md)) or launch DynamoDB local directly using the DDB local toggle in the NoSQL Workbench navigation menu. Ensure the connection port is the same as your DynamoDB local port.
 
-    	* **Connection name**
-    	* **Port**
-    3. Choose the **connect** button.###### Note
+1. On the created connection, choose **Open**.
 
-To connect to DynamoDB local, either manually launch DynamoDB local using your
-terminal (see [deploying
-DynamoDB local on your computer](DynamoDBLocal.DownloadingAndRunning.md "DynamoDBLocal.DownloadingAndRunning.md")) or launch DynamoDB local directly using
-the DDB local toggle in the NoSQL Workbench navigation menu. Ensure the
-connection port is the same as your DynamoDB local port. 5. On the created connection, choose **Open**.
-After connecting to your DynamoDB database, the list of available tables appears in the
-left pane. Choose one of the tables to return a sample of the data stored in the
-table.
+After connecting to your DynamoDB database, the list of available tables appears in the left pane. Choose one of the tables to return a sample of the data stored in the table.
 
 You can now run queries against the selected table.
 
-To run queries on a table, see the next section on building operations see [Building complex operations](workbench.querybuilder.operationbuilder.md "workbench.querybuilder.operationbuilder.md").
+To run queries on a table, see the next section on building operations see [Building complex operations](workbench.querybuilder.operationbuilder.md).

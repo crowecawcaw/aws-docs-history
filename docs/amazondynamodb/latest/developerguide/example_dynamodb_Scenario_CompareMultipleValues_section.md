@@ -1,16 +1,18 @@
+
+
 # Compare multiple values with a single attribute in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_CompareMultipleValues_section"></a>
 
 The following code examples show how to compare multiple values with a single attribute in DynamoDB.
++ Use the IN operator to compare multiple values with a single attribute.
++ Compare the IN operator with multiple OR conditions.
++ Understand the performance and expression complexity benefits of using IN.
 
-- Use the IN operator to compare multiple values with a single attribute.
-- Compare the IN operator with multiple OR conditions.
-- Understand the performance and expression complexity benefits of using IN.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Compare multiple values with a single attribute in DynamoDB using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Compare multiple values with a single attribute in DynamoDB using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -284,11 +286,8 @@ import java.util.Map;
 
         return values;
     }
-
-
 ```
-
-Example usage of comparing multiple values with AWS SDK for Java 2.x.
+Example usage of comparing multiple values with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -372,35 +371,31 @@ Example usage of comparing multiple values with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query)
+  + [Scan](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Scan)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  - [Scan](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Scan.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Scan.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Compare multiple values with a single attribute using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Compare multiple values with a single attribute using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
-  ScanCommand,
-  QueryCommand
+const { 
+  DynamoDBDocumentClient, 
+  ScanCommand, 
+  QueryCommand 
 } = require("@aws-sdk/lib-dynamodb");
 
 /**
  * Query or scan a DynamoDB table to find items where an attribute matches any value from a list.
- *
+ * 
  * This function demonstrates the use of the IN operator to compare a single attribute
  * against multiple possible values, which is more efficient than using multiple OR conditions.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} attributeName - The name of the attribute to compare against the values list
@@ -420,25 +415,25 @@ async function compareMultipleValues(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Create the filter expression using the IN operator
   const filterExpression = `${attributeName} IN (${valuesList.map((_, index) => `:val${index}`).join(', ')})`;
-
+  
   // Create expression attribute values for the values list
   const expressionAttributeValues = valuesList.reduce((acc, val, index) => {
     acc[`:val${index}`] = val;
     return acc;
   }, {});
-
+  
   // If partition key is provided, perform a query operation
   if (partitionKeyName && partitionKeyValue) {
     const keyCondition = `${partitionKeyName} = :partitionKey`;
     expressionAttributeValues[':partitionKey'] = partitionKeyValue;
-
+    
     // Initialize array to collect all items
     let allItems = [];
     let lastEvaluatedKey;
-
+    
     // Use pagination to get all results
     do {
       const params = {
@@ -447,23 +442,23 @@ async function compareMultipleValues(
         FilterExpression: filterExpression,
         ExpressionAttributeValues: expressionAttributeValues
       };
-
+      
       // Add ExclusiveStartKey if we have a lastEvaluatedKey from a previous query
       if (lastEvaluatedKey) {
         params.ExclusiveStartKey = lastEvaluatedKey;
       }
-
+      
       const response = await docClient.send(new QueryCommand(params));
-
+      
       // Add the items from this page to our collection
       if (response.Items && response.Items.length > 0) {
         allItems = [...allItems, ...response.Items];
       }
-
+      
       // Get the key for the next page of results
       lastEvaluatedKey = response.LastEvaluatedKey;
     } while (lastEvaluatedKey);
-
+    
     // Return the complete result
     return {
       Items: allItems,
@@ -474,7 +469,7 @@ async function compareMultipleValues(
     // Initialize array to collect all items
     let allItems = [];
     let lastEvaluatedKey;
-
+    
     // Use pagination to get all results
     do {
       const params = {
@@ -482,23 +477,23 @@ async function compareMultipleValues(
         FilterExpression: filterExpression,
         ExpressionAttributeValues: expressionAttributeValues
       };
-
+      
       // Add ExclusiveStartKey if we have a lastEvaluatedKey from a previous scan
       if (lastEvaluatedKey) {
         params.ExclusiveStartKey = lastEvaluatedKey;
       }
-
+      
       const response = await docClient.send(new ScanCommand(params));
-
+      
       // Add the items from this page to our collection
       if (response.Items && response.Items.length > 0) {
         allItems = [...allItems, ...response.Items];
       }
-
+      
       // Get the key for the next page of results
       lastEvaluatedKey = response.LastEvaluatedKey;
     } while (lastEvaluatedKey);
-
+    
     // Return the complete result
     return {
       Items: allItems,
@@ -509,10 +504,10 @@ async function compareMultipleValues(
 
 /**
  * Alternative implementation using multiple OR conditions instead of the IN operator.
- *
+ * 
  * This function is provided for comparison to show why using the IN operator is preferable.
  * With many values, this approach becomes verbose and less efficient.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} attributeName - The name of the attribute to compare against the values list
@@ -532,7 +527,7 @@ async function compareWithOrConditions(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // If no values provided, return empty result
   if (!valuesList || valuesList.length === 0) {
     return {
@@ -540,26 +535,26 @@ async function compareWithOrConditions(
       Count: 0
     };
   }
-
+  
   // Create the filter expression using multiple OR conditions
   const filterConditions = valuesList.map((_, index) => `${attributeName} = :val${index}`);
   const filterExpression = filterConditions.join(' OR ');
-
+  
   // Create expression attribute values for the values list
   const expressionAttributeValues = valuesList.reduce((acc, val, index) => {
     acc[`:val${index}`] = val;
     return acc;
   }, {});
-
+  
   // If partition key is provided, perform a query operation
   if (partitionKeyName && partitionKeyValue) {
     const keyCondition = `${partitionKeyName} = :partitionKey`;
     expressionAttributeValues[':partitionKey'] = partitionKeyValue;
-
+    
     // Initialize array to collect all items
     let allItems = [];
     let lastEvaluatedKey;
-
+    
     // Use pagination to get all results
     do {
       const params = {
@@ -568,23 +563,23 @@ async function compareWithOrConditions(
         FilterExpression: filterExpression,
         ExpressionAttributeValues: expressionAttributeValues
       };
-
+      
       // Add ExclusiveStartKey if we have a lastEvaluatedKey from a previous query
       if (lastEvaluatedKey) {
         params.ExclusiveStartKey = lastEvaluatedKey;
       }
-
+      
       const response = await docClient.send(new QueryCommand(params));
-
+      
       // Add the items from this page to our collection
       if (response.Items && response.Items.length > 0) {
         allItems = [...allItems, ...response.Items];
       }
-
+      
       // Get the key for the next page of results
       lastEvaluatedKey = response.LastEvaluatedKey;
     } while (lastEvaluatedKey);
-
+    
     // Return the complete result
     return {
       Items: allItems,
@@ -595,7 +590,7 @@ async function compareWithOrConditions(
     // Initialize array to collect all items
     let allItems = [];
     let lastEvaluatedKey;
-
+    
     // Use pagination to get all results
     do {
       const params = {
@@ -603,23 +598,23 @@ async function compareWithOrConditions(
         FilterExpression: filterExpression,
         ExpressionAttributeValues: expressionAttributeValues
       };
-
+      
       // Add ExclusiveStartKey if we have a lastEvaluatedKey from a previous scan
       if (lastEvaluatedKey) {
         params.ExclusiveStartKey = lastEvaluatedKey;
       }
-
+      
       const response = await docClient.send(new ScanCommand(params));
-
+      
       // Add the items from this page to our collection
       if (response.Items && response.Items.length > 0) {
         allItems = [...allItems, ...response.Items];
       }
-
+      
       // Get the key for the next page of results
       lastEvaluatedKey = response.LastEvaluatedKey;
     } while (lastEvaluatedKey);
-
+    
     // Return the complete result
     return {
       Items: allItems,
@@ -627,11 +622,8 @@ async function compareWithOrConditions(
     };
   }
 }
-
-
 ```
-
-Example usage of comparing multiple values with AWS SDK for JavaScript.
+Example usage of comparing multiple values with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -643,9 +635,9 @@ async function exampleUsage() {
   const tableName = "Products";
   const attributeName = "Category";
   const valuesList = ["Electronics", "Computers", "Accessories"];
-
+  
   console.log(`Searching for products in any of these categories: ${valuesList.join(', ')}`);
-
+  
   try {
     // Using the IN operator (recommended approach)
     console.log("\nApproach 1: Using the IN operator");
@@ -655,9 +647,9 @@ async function exampleUsage() {
       attributeName,
       valuesList
     );
-
+    
     console.log(`Found ${response.Count} products in the specified categories`);
-
+    
     // Using multiple OR conditions (alternative approach)
     console.log("\nApproach 2: Using multiple OR conditions");
     const response2 = await compareWithOrConditions(
@@ -666,14 +658,14 @@ async function exampleUsage() {
       attributeName,
       valuesList
     );
-
+    
     console.log(`Found ${response2.Count} products in the specified categories`);
-
+    
     // Example with a query operation
     console.log("\nQuerying a specific manufacturer's products in multiple categories");
     const partitionKeyName = "Manufacturer";
     const partitionKeyValue = "Acme";
-
+    
     const response3 = await compareMultipleValues(
       config,
       tableName,
@@ -682,9 +674,9 @@ async function exampleUsage() {
       partitionKeyName,
       partitionKeyValue
     );
-
+    
     console.log(`Found ${response3.Count} Acme products in the specified categories`);
-
+    
     // Explain the benefits of using the IN operator
     console.log("\nBenefits of using the IN operator:");
     console.log("1. More concise expression compared to multiple OR conditions");
@@ -692,25 +684,21 @@ async function exampleUsage() {
     console.log("3. Potentially better performance with large value lists");
     console.log("4. Simpler code that's less prone to errors");
     console.log("5. Easier to modify when adding or removing values");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand)
+  + [Scan](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ScanCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  - [Scan](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ScanCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/ScanCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-Compare multiple values with a single attribute using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Compare multiple values with a single attribute using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -843,13 +831,8 @@ def compare_with_or_conditions(
 
     # Return the complete result
     return {"Items": items, "Count": len(items)}
-
-
-
-
 ```
-
-Example usage of comparing multiple values with AWS SDK for Python (Boto3).
+Example usage of comparing multiple values with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -899,17 +882,11 @@ def example_usage():
     print("3. Potentially better performance with large value lists")
     print("4. Simpler code that's less prone to errors")
     print("5. Easier to modify when adding or removing values")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query)
+  + [Scan](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Scan)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  - [Scan](../../../goto/boto3/dynamodb-2012-08-10/Scan.md "../../../goto/boto3/dynamodb-2012-08-10/Scan.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

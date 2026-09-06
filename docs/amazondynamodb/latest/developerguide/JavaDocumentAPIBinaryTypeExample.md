@@ -1,29 +1,20 @@
+
+
 # Example: Handling binary type attributes using the AWS SDK for Java document API
+<a name="JavaDocumentAPIBinaryTypeExample"></a>
 
-The following Java code example illustrates handling binary type attributes. The example
-adds an item to the `Reply` table. The item includes a binary type attribute
-(`ExtendedMessage`) that stores compressed data. The example then retrieves the
-item and prints all the attribute values. For illustration, the example uses the
-`GZIPOutputStream` class to compress a sample stream and assign it to the
-`ExtendedMessage` attribute. When the binary attribute is retrieved, it is
-decompressed using the `GZIPInputStream` class.
+The following Java code example illustrates handling binary type attributes. The example adds an item to the `Reply` table. The item includes a binary type attribute (`ExtendedMessage`) that stores compressed data. The example then retrieves the item and prints all the attribute values. For illustration, the example uses the `GZIPOutputStream` class to compress a sample stream and assign it to the `ExtendedMessage` attribute. When the binary attribute is retrieved, it is decompressed using the `GZIPInputStream` class. 
 
-###### Note
+**Note**  
+The SDK for Java also provides an object persistence model, enabling you to map your client-side classes to DynamoDB tables. This approach can reduce the amount of code that you have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapper.md).
 
-The SDK for Java also provides an object persistence model, enabling you to map your
-client-side classes to DynamoDB tables. This approach can reduce the amount of code that you
-have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md").
+If you followed the [Creating tables and loading data for code examples in DynamoDB](SampleData.md) section, you should already have created the `Reply` table. You can also create this table programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md).
 
-If you followed the [Creating tables and loading data for code examples in DynamoDB](SampleData.md "SampleData.md") section, you
-should already have created the `Reply` table. You can also create this table
-programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
+For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md). 
 
-For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.Java.md "CodeSamples.Java.md").
-
-###### Example
+**Example**  
 
 ```
-
 package com.amazonaws.codesamples.document;
 
 import java.io.ByteArrayInputStream;
@@ -161,6 +152,4 @@ public class DocumentAPIItemBinaryExample {
         return result;
     }
 }
-
-
 ```

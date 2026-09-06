@@ -1,126 +1,108 @@
+
+
 # DAX SDK for Go
+<a name="DAX.client.run-application-go"></a>
 
-Follow this procedure to run the Amazon DynamoDB Accelerator (DAX) SDK for Go sample application
-on your Amazon EC2 instance.
+Follow this procedure to run the Amazon DynamoDB Accelerator (DAX) SDK for Go sample application on your Amazon EC2 instance.
 
-###### To run the SDK for Go sample for DAX
+**To run the SDK for Go sample for DAX**
 
 1. Set up the SDK for Go on your Amazon EC2 instance:
 
    1. Install the Go programming language (`Golang`).
 
-   ```
-   sudo yum install -y golang
-   ```
-   2. Test that Golang is installed and running correctly.
+      ```
+      sudo yum install -y golang
+      ```
+
+   1. Test that Golang is installed and running correctly.
+
+      ```
+      go version
+      ```
+
+      A message like this should appear.
+
+      ```
+      go version go1.15.5 linux/amd64
+      ```
+
+      The remaining instructions rely on module support, which became the default with Go version 1.13.
+
+1. Install the sample Golang application.
 
    ```
-   go version
+   go get github.com/aws-samples/aws-dax-go-sample
    ```
 
-   A message like this should appear.
+1. Run the following Golang programs. The first program creates a DynamoDB table named `TryDaxGoTable`. The second program writes data to the table.
 
    ```
-   go version go1.15.5 linux/amd64
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command create-table
    ```
 
-   The remaining instructions rely on module support, which became
-   the default with Go version 1.13.
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command put-item
+   ```
 
-2. Install the sample Golang application.
+1. Run the following Golang programs.
 
-```
-go get github.com/aws-samples/aws-dax-go-sample
-```
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command get-item
+   ```
 
-3. Run the following Golang programs. The first program creates a DynamoDB table
-   named `TryDaxGoTable`. The second program writes data to
-   the table.
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command query
+   ```
 
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command create-table
-```
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command scan
+   ```
 
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command put-item
-```
+   Take note of the timing information—the number of milliseconds required for the `GetItem`, `Query`, and `Scan` tests.
 
-4. Run the following Golang programs.
+1. In the previous step, you ran the programs against the DynamoDB endpoint. Now, run the programs again, but this time, the `GetItem`, `Query`, and `Scan` operations are processed by your DAX cluster.
 
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command get-item
-```
+   To determine the endpoint for your DAX cluster, choose one of the following:
+   + **Using the DynamoDB console** — Choose your DAX cluster. The cluster endpoint is shown on the console, as in the following example.
 
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command query
-```
+     ```
+     dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
+     ```
+   + **Using the AWS CLI** — Enter the following command.
 
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command scan
-```
+     ```
+     aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
+     ```
 
-Take note of the timing information—the number of milliseconds required
-for the `GetItem`, `Query`, and `Scan`
-tests. 5. In the previous step, you ran the programs against the DynamoDB endpoint.
-Now, run the programs again, but this time, the `GetItem`,
-`Query`, and `Scan` operations are processed by
-your DAX cluster.
+     The cluster endpoint is shown in the output, as in the following example.
 
-To determine the endpoint for your DAX cluster, choose one of the
-following:
+     ```
+     {
+         "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
+         "Port": 8111,
+         "URL": "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+     }
+     ```
 
-    * **Using the DynamoDB console** — Choose your
-     DAX cluster. The cluster endpoint is shown on the console, as in
-     the following example.
+   Now run the programs again, but this time, specify the cluster endpoint as a command line parameter.
 
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dax -command get-item -endpoint my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com:8111
+   ```
 
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dax -command query -endpoint my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com:8111
+   ```
 
-    ```
-    dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-    ```
-    * **Using the AWS CLI** — Enter the following
-     command.
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dax -command scan -endpoint my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com:8111
+   ```
 
+   Look at the rest of the output, and take note of the timing information. The elapsed times for `GetItem`, `Query`, and `Scan` should be significantly lower with DAX than with DynamoDB.
 
+1. Run the following Golang program to delete `TryDaxGoTable`.
 
-    ```
-    aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
-    ```
-
-    The cluster endpoint is shown in the output, as in the following
-     example.
-
-
-
-    ```
-    {
-        "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
-        "Port": 8111,
-        "URL": "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-    }
-    ```
-
-Now run the programs again, but this time, specify the cluster endpoint as
-a command line parameter.
-
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dax -command get-item -endpoint my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com:8111
-```
-
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dax -command query -endpoint my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com:8111
-```
-
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dax -command scan -endpoint my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com:8111
-```
-
-Look at the rest of the output, and take note of the timing information.
-The elapsed times for `GetItem`, `Query`, and
-`Scan` should be significantly lower with DAX than with
-DynamoDB. 6. Run the following Golang program to delete
-`TryDaxGoTable`.
-
-```
-go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command delete-table
-```
+   ```
+   go run ~/go/pkg/mod/github.com/aws-samples/aws-dax-go-sample@v1.0.2/try_dax.go -service dynamodb -command delete-table
+   ```

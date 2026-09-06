@@ -1,16 +1,18 @@
+
+
 # Understand update expression order in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_UpdateExpressionOrder_section"></a>
 
 The following code examples show how to understand update expression order.
++ Learn how DynamoDB processes update expressions.
++ Understand the order of operations in update expressions.
++ Avoid unexpected results by understanding expression evaluation.
 
-- Learn how DynamoDB processes update expressions.
-- Understand the order of operations in update expressions.
-- Avoid unexpected results by understanding expression evaluation.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate update expression order using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate update expression order using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -299,11 +301,8 @@ import java.util.Map;
                 .build();
         }
     }
-
-
 ```
-
-Example usage of update expression order with AWS SDK for Java 2.x.
+Example usage of update expression order with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -389,24 +388,19 @@ Example usage of update expression order with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate update expression order using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Demonstrate update expression order using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   GetCommand,
   PutCommand
@@ -414,10 +408,10 @@ const {
 
 /**
  * Update an item with multiple actions in a single update expression.
- *
+ * 
  * This function demonstrates how to use multiple actions in a single update expression
  * and how DynamoDB processes these actions.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The primary key of the item to update
@@ -437,7 +431,7 @@ async function updateWithMultipleActions(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Prepare the update parameters
   const updateParams = {
     TableName: tableName,
@@ -445,29 +439,29 @@ async function updateWithMultipleActions(
     UpdateExpression: updateExpression,
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Add expression attribute names if provided
   if (expressionAttributeNames) {
     updateParams.ExpressionAttributeNames = expressionAttributeNames;
   }
-
+  
   // Add expression attribute values if provided
   if (expressionAttributeValues) {
     updateParams.ExpressionAttributeValues = expressionAttributeValues;
   }
-
+  
   // Execute the update
   const response = await docClient.send(new UpdateCommand(updateParams));
-
+  
   return response;
 }
 
 /**
  * Demonstrate that variables hold copies of existing values before modifications.
- *
+ * 
  * This function creates an item with initial values, then updates it with an expression
  * that uses the values of attributes before they are modified in the same expression.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The primary key of the item to create and update
@@ -481,23 +475,23 @@ async function demonstrateValueCopying(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Step 1: Create an item with initial values
   const initialItem = { ...key, a: 1, b: 2, c: 3 };
-
+  
   await docClient.send(new PutCommand({
     TableName: tableName,
     Item: initialItem
   }));
-
+  
   // Step 2: Get the item to verify initial state
   const responseBefore = await docClient.send(new GetCommand({
     TableName: tableName,
     Key: key
   }));
-
+  
   const itemBefore = responseBefore.Item || {};
-
+  
   // Step 3: Update the item with an expression that uses values before they are modified
   // This expression removes 'a', then sets 'b' to the value of 'a', and 'c' to the value of 'b'
   const updateResponse = await docClient.send(new UpdateCommand({
@@ -506,15 +500,15 @@ async function demonstrateValueCopying(
     UpdateExpression: "REMOVE a SET b = a, c = b",
     ReturnValues: "UPDATED_NEW"
   }));
-
+  
   // Step 4: Get the item to verify final state
   const responseAfter = await docClient.send(new GetCommand({
     TableName: tableName,
     Key: key
   }));
-
+  
   const itemAfter = responseAfter.Item || {};
-
+  
   // Return the results
   return {
     initialState: itemBefore,
@@ -525,11 +519,11 @@ async function demonstrateValueCopying(
 
 /**
  * Demonstrate the order in which different action types are processed.
- *
+ * 
  * This function creates an item with initial values, then updates it with an expression
  * that includes multiple action types (SET, REMOVE, ADD, DELETE) to show the order
  * in which they are processed.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The primary key of the item to create and update
@@ -543,7 +537,7 @@ async function demonstrateActionOrder(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Step 1: Create an item with initial values
   const initialItem = {
     ...key,
@@ -552,20 +546,20 @@ async function demonstrateActionOrder(
     to_remove: "This will be removed",
     to_modify: "Original value"
   };
-
+  
   await docClient.send(new PutCommand({
     TableName: tableName,
     Item: initialItem
   }));
-
+  
   // Step 2: Get the item to verify initial state
   const responseBefore = await docClient.send(new GetCommand({
     TableName: tableName,
     Key: key
   }));
-
+  
   const itemBefore = responseBefore.Item || {};
-
+  
   // Step 3: Update the item with multiple action types
   // The actions will be processed in this order: REMOVE, SET, ADD, DELETE
   const updateResponse = await docClient.send(new UpdateCommand({
@@ -579,15 +573,15 @@ async function demonstrateActionOrder(
     },
     ReturnValues: "UPDATED_NEW"
   }));
-
+  
   // Step 4: Get the item to verify final state
   const responseAfter = await docClient.send(new GetCommand({
     TableName: tableName,
     Key: key
   }));
-
+  
   const itemAfter = responseAfter.Item || {};
-
+  
   // Return the results
   return {
     initialState: itemBefore,
@@ -598,10 +592,10 @@ async function demonstrateActionOrder(
 
 /**
  * Update multiple attributes with a single SET action.
- *
+ * 
  * This function demonstrates how to update multiple attributes in a single SET action,
  * which is more efficient than using multiple separate update operations.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The primary key of the item to update
@@ -617,23 +611,23 @@ async function updateWithMultipleSetActions(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Build the update expression and expression attribute values
   let updateExpression = "SET ";
   const expressionAttributeValues = {};
-
+  
   // Add each attribute to the update expression
   Object.entries(attributes).forEach(([attrName, attrValue], index) => {
     const valuePlaceholder = `:val${index}`;
-
+    
     if (index > 0) {
       updateExpression += ", ";
     }
     updateExpression += `${attrName} = ${valuePlaceholder}`;
-
+    
     expressionAttributeValues[valuePlaceholder] = attrValue;
   });
-
+  
   // Execute the update
   const response = await docClient.send(new UpdateCommand({
     TableName: tableName,
@@ -642,16 +636,16 @@ async function updateWithMultipleSetActions(
     ExpressionAttributeValues: expressionAttributeValues,
     ReturnValues: "UPDATED_NEW"
   }));
-
+  
   return response;
 }
 
 /**
  * Update an attribute with a value from another attribute or a default value.
- *
+ * 
  * This function demonstrates how to use if_not_exists to conditionally copy a value
  * from one attribute to another, or use a default value if the source doesn't exist.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The primary key of the item to update
@@ -671,7 +665,7 @@ async function updateWithConditionalValueCopying(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Use if_not_exists to conditionally copy the value
   const response = await docClient.send(new UpdateCommand({
     TableName: tableName,
@@ -682,16 +676,16 @@ async function updateWithConditionalValueCopying(
     },
     ReturnValues: "UPDATED_NEW"
   }));
-
+  
   return response;
 }
 
 /**
  * Demonstrate complex update expressions with multiple operations on the same attribute.
- *
+ * 
  * This function shows how DynamoDB processes multiple operations on the same attribute
  * in a single update expression.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The primary key of the item to create and update
@@ -705,7 +699,7 @@ async function demonstrateMultipleOperationsOnSameAttribute(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Step 1: Create an item with initial values
   const initialItem = {
     ...key,
@@ -716,20 +710,20 @@ async function demonstrateMultipleOperationsOnSameAttribute(
       nested2: "value2"
     }
   };
-
+  
   await docClient.send(new PutCommand({
     TableName: tableName,
     Item: initialItem
   }));
-
+  
   // Step 2: Get the item to verify initial state
   const responseBefore = await docClient.send(new GetCommand({
     TableName: tableName,
     Key: key
   }));
-
+  
   const itemBefore = responseBefore.Item || {};
-
+  
   // Step 3: Update the item with multiple operations on the same attributes
   const updateResponse = await docClient.send(new UpdateCommand({
     TableName: tableName,
@@ -750,15 +744,15 @@ async function demonstrateMultipleOperationsOnSameAttribute(
     },
     ReturnValues: "UPDATED_NEW"
   }));
-
+  
   // Step 4: Get the item to verify final state
   const responseAfter = await docClient.send(new GetCommand({
     TableName: tableName,
     Key: key
   }));
-
+  
   const itemAfter = responseAfter.Item || {};
-
+  
   // Return the results
   return {
     initialState: itemBefore,
@@ -766,11 +760,8 @@ async function demonstrateMultipleOperationsOnSameAttribute(
     finalState: itemAfter
   };
 }
-
-
 ```
-
-Example usage of update expression order with AWS SDK for JavaScript.
+Example usage of update expression order with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -780,9 +771,9 @@ async function exampleUsage() {
   // Example parameters
   const config = { region: "us-west-2" };
   const tableName = "OrderProcessing";
-
+  
   console.log("Demonstrating update expression order of operations in DynamoDB");
-
+  
   try {
     // Example 1: Demonstrating value copying in update expressions
     console.log("\nExample 1: Demonstrating value copying in update expressions");
@@ -791,11 +782,11 @@ async function exampleUsage() {
       tableName,
       { OrderId: "order123" }
     );
-
+    
     console.log("Initial state:", JSON.stringify(results1.initialState, null, 2));
     console.log("Update response:", JSON.stringify(results1.updateResponse, null, 2));
     console.log("Final state:", JSON.stringify(results1.finalState, null, 2));
-
+    
     console.log("\nExplanation:");
     console.log("1. The initial state had a=1, b=2, c=3");
     console.log("2. The update expression 'REMOVE a SET b = a, c = b' did the following:");
@@ -804,7 +795,7 @@ async function exampleUsage() {
     console.log("   - Removed the attribute 'a'");
     console.log("3. The final state has b=1, c=2, and 'a' is removed");
     console.log("4. This demonstrates that DynamoDB uses the values of attributes as they were BEFORE any modifications");
-
+    
     // Example 2: Demonstrating the order of different action types
     console.log("\nExample 2: Demonstrating the order of different action types");
     const results2 = await demonstrateActionOrder(
@@ -812,11 +803,11 @@ async function exampleUsage() {
       tableName,
       { OrderId: "order456" }
     );
-
+    
     console.log("Initial state:", JSON.stringify(results2.initialState, null, 2));
     console.log("Update response:", JSON.stringify(results2.updateResponse, null, 2));
     console.log("Final state:", JSON.stringify(results2.finalState, null, 2));
-
+    
     console.log("\nExplanation:");
     console.log("1. The update expression contained multiple action types: REMOVE, SET, ADD, DELETE");
     console.log("2. DynamoDB processes these actions in this order: REMOVE, SET, ADD, DELETE");
@@ -824,7 +815,7 @@ async function exampleUsage() {
     console.log("4. Then, 'to_modify' was set to a new value");
     console.log("5. Next, 'counter' was incremented by 5");
     console.log("6. Finally, 'B' was removed from the set attribute");
-
+    
     // Example 3: Updating multiple attributes in a single SET action
     console.log("\nExample 3: Updating multiple attributes in a single SET action");
     const response3 = await updateWithMultipleSetActions(
@@ -837,9 +828,9 @@ async function exampleUsage() {
         TrackingNumber: "1Z999AA10123456784"
       }
     );
-
+    
     console.log("Multiple attributes updated successfully:", JSON.stringify(response3.Attributes, null, 2));
-
+    
     // Example 4: Conditional value copying with if_not_exists
     console.log("\nExample 4: Conditional value copying with if_not_exists");
     const response4 = await updateWithConditionalValueCopying(
@@ -850,9 +841,9 @@ async function exampleUsage() {
       "ShippingMethod",
       "Standard"
     );
-
+    
     console.log("Conditional value copying result:", JSON.stringify(response4.Attributes, null, 2));
-
+    
     // Example 5: Multiple operations on the same attribute
     console.log("\nExample 5: Multiple operations on the same attribute");
     const results5 = await demonstrateMultipleOperationsOnSameAttribute(
@@ -860,17 +851,17 @@ async function exampleUsage() {
       tableName,
       { OrderId: "order202" }
     );
-
+    
     console.log("Initial state:", JSON.stringify(results5.initialState, null, 2));
     console.log("Update response:", JSON.stringify(results5.updateResponse, null, 2));
     console.log("Final state:", JSON.stringify(results5.finalState, null, 2));
-
+    
     console.log("\nExplanation:");
     console.log("1. The counter was incremented twice (first by 5, then by 3) for a total of +8");
     console.log("2. The map attribute had one value updated and a new nested attribute added");
     console.log("3. The list attribute had values shifted (value at index 1 moved to index 0, value at index 2 moved to index 1)");
     console.log("4. All operations within the SET action are processed from left to right");
-
+    
     // Key points about update expression order of operations
     console.log("\nKey Points About Update Expression Order of Operations:");
     console.log("1. Variables in expressions hold copies of attribute values as they existed BEFORE any modifications");
@@ -880,24 +871,19 @@ async function exampleUsage() {
     console.log("5. You can use if_not_exists() to conditionally set values based on attribute existence");
     console.log("6. Using a single update expression with multiple actions is more efficient than multiple separate updates");
     console.log("7. The update expression is atomic - either all actions succeed or none do");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate update expression order using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Demonstrate update expression order using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -1142,13 +1128,8 @@ def update_with_conditional_value_copying(
     )
 
     return response
-
-
-
-
 ```
-
-Example usage of update expression order with AWS SDK for Python (Boto3).
+Example usage of update expression order with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -1244,16 +1225,9 @@ def example_usage():
         "6. Using a single update expression with multiple actions is more efficient than multiple separate updates"
     )
     print("7. The update expression is atomic - either all actions succeed or none do")
-
-
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,4 +1,7 @@
+
+
 # TryDax.js
+<a name="DAX.client.tutorial-TryDax"></a>
 
 ```
 import { DynamoDB, waitUntilTableExists, waitUntilTableNotExists } from "@aws-sdk/client-dynamodb";

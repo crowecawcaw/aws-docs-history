@@ -1,17 +1,19 @@
+
+
 # Perform list operations in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_ListOperations_section"></a>
 
 The following code examples show how to perform list operations in DynamoDB.
++ Add elements to a list attribute.
++ Remove elements from a list attribute.
++ Update specific elements in a list by index.
++ Use list append and list index functions.
 
-- Add elements to a list attribute.
-- Remove elements from a list attribute.
-- Update specific elements in a list by index.
-- Use list append and list index functions.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate list operations using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate list operations using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -222,11 +224,8 @@ import java.util.Map;
                 .build();
         }
     }
-
-
 ```
-
-Example usage of list operations with AWS SDK for Java 2.x.
+Example usage of list operations with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -304,24 +303,19 @@ Example usage of list operations with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate list operations using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Demonstrate list operations using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   GetCommand,
   PutCommand
@@ -329,10 +323,10 @@ const {
 
 /**
  * Append elements to a list attribute.
- *
+ * 
  * This function demonstrates how to use the list_append function to add elements
  * to the end of a list.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -350,7 +344,7 @@ async function appendToList(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using list_append
   const params = {
     TableName: tableName,
@@ -362,19 +356,19 @@ async function appendToList(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Prepend elements to a list attribute.
- *
+ * 
  * This function demonstrates how to use the list_append function to add elements
  * to the beginning of a list.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -392,7 +386,7 @@ async function prependToList(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using list_append
   // Note: To prepend, we put the new values first in the list_append function
   const params = {
@@ -405,19 +399,19 @@ async function prependToList(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Update a specific element in a list by index.
- *
+ * 
  * This function demonstrates how to update a specific element in a list
  * using the index notation.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -437,7 +431,7 @@ async function updateListElement(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using index notation
   const params = {
     TableName: tableName,
@@ -448,19 +442,19 @@ async function updateListElement(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Remove an element from a list by index.
- *
+ * 
  * This function demonstrates how to remove a specific element from a list
  * using the REMOVE action with index notation.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -478,7 +472,7 @@ async function removeListElement(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using REMOVE with index notation
   const params = {
     TableName: tableName,
@@ -486,18 +480,18 @@ async function removeListElement(
     UpdateExpression: `REMOVE ${listName}[${index}]`,
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Concatenate two lists.
- *
+ * 
  * This function demonstrates how to concatenate two lists using the list_append function.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -517,7 +511,7 @@ async function concatenateLists(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using list_append
   const params = {
     TableName: tableName,
@@ -528,18 +522,18 @@ async function concatenateLists(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Create a nested list structure.
- *
+ * 
  * This function demonstrates how to create and work with nested lists.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -557,7 +551,7 @@ async function createNestedList(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters to create a nested list
   const params = {
     TableName: tableName,
@@ -568,19 +562,19 @@ async function createNestedList(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Update an element in a nested list.
- *
+ * 
  * This function demonstrates how to update an element in a nested list
  * using multiple index notations.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -602,7 +596,7 @@ async function updateNestedListElement(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters using multiple index notations
   const params = {
     TableName: tableName,
@@ -613,18 +607,18 @@ async function updateNestedListElement(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Perform the update operation
   const response = await docClient.send(new UpdateCommand(params));
-
+  
   return response;
 }
 
 /**
  * Get the current value of an item.
- *
+ * 
  * Helper function to retrieve the current value of an item.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to get
@@ -638,24 +632,21 @@ async function getItem(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the get parameters
   const params = {
     TableName: tableName,
     Key: key
   };
-
+  
   // Perform the get operation
   const response = await docClient.send(new GetCommand(params));
-
+  
   // Return the item if it exists, otherwise null
   return response.Item || null;
 }
-
-
 ```
-
-Example usage of list operations with AWS SDK for JavaScript.
+Example usage of list operations with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -666,9 +657,9 @@ async function exampleUsage() {
   const config = { region: "us-west-2" };
   const tableName = "UserProfiles";
   const key = { UserId: "U12345" };
-
+  
   console.log("Demonstrating list operations in DynamoDB");
-
+  
   try {
     // Example 1: Append elements to a list
     console.log("\nExample 1: Appending elements to a list");
@@ -679,9 +670,9 @@ async function exampleUsage() {
       "RecentSearches",
       ["laptop", "headphones", "monitor"]
     );
-
+    
     console.log("Appended to list:", response1.Attributes);
-
+    
     // Example 2: Prepend elements to a list
     console.log("\nExample 2: Prepending elements to a list");
     const response2 = await prependToList(
@@ -691,13 +682,13 @@ async function exampleUsage() {
       "RecentSearches",
       ["keyboard", "mouse"]
     );
-
+    
     console.log("Prepended to list:", response2.Attributes);
-
+    
     // Get the current state of the item
     let currentItem = await getItem(config, tableName, key);
     console.log("\nCurrent state of RecentSearches:", currentItem?.RecentSearches);
-
+    
     // Example 3: Update a specific element in a list
     console.log("\nExample 3: Updating a specific element in a list");
     const response3 = await updateListElement(
@@ -708,9 +699,9 @@ async function exampleUsage() {
       0, // Update the first element
       "mechanical keyboard" // New value
     );
-
+    
     console.log("Updated list element:", response3.Attributes);
-
+    
     // Example 4: Remove an element from a list
     console.log("\nExample 4: Removing an element from a list");
     const response4 = await removeListElement(
@@ -720,12 +711,12 @@ async function exampleUsage() {
       "RecentSearches",
       2 // Remove the third element
     );
-
+    
     console.log("List after removing element:", response4.Attributes);
-
+    
     // Example 5: Create and concatenate lists
     console.log("\nExample 5: Creating and concatenating lists");
-
+    
     // First, create two separate lists
     await updateWithMultipleActions(
       config,
@@ -738,7 +729,7 @@ async function exampleUsage() {
         ":saveditems": ["smartphone", "tablet"]
       }
     );
-
+    
     // Then, concatenate them
     const response5 = await concatenateLists(
       config,
@@ -748,9 +739,9 @@ async function exampleUsage() {
       "SavedItems",
       "AllItems"
     );
-
+    
     console.log("Concatenated lists:", response5.Attributes);
-
+    
     // Example 6: Create a nested list structure
     console.log("\nExample 6: Creating a nested list structure");
     const response6 = await createNestedList(
@@ -764,9 +755,9 @@ async function exampleUsage() {
         ["Clothing", "Shoes", "Watches"]
       ]
     );
-
+    
     console.log("Created nested list:", response6.Attributes);
-
+    
     // Example 7: Update an element in a nested list
     console.log("\nExample 7: Updating an element in a nested list");
     const response7 = await updateNestedListElement(
@@ -778,13 +769,13 @@ async function exampleUsage() {
       1, // Second element in that list
       "Laptops" // New value
     );
-
+    
     console.log("Updated nested list element:", response7.Attributes);
-
+    
     // Get the final state of the item
     currentItem = await getItem(config, tableName, key);
     console.log("\nFinal state of the item:", JSON.stringify(currentItem, null, 2));
-
+    
     // Explain list operations
     console.log("\nKey points about list operations in DynamoDB:");
     console.log("1. Use list_append to add elements to a list");
@@ -796,7 +787,7 @@ async function exampleUsage() {
     console.log("7. Lists can contain elements of different types");
     console.log("8. Lists can be nested (lists of lists)");
     console.log("9. Use multiple index notations (list[0][1]) to access nested list elements");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
@@ -804,7 +795,7 @@ async function exampleUsage() {
 
 /**
  * Helper function for the examples.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -824,7 +815,7 @@ async function updateWithMultipleActions(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Prepare the update parameters
   const updateParams = {
     TableName: tableName,
@@ -832,35 +823,30 @@ async function updateWithMultipleActions(
     UpdateExpression: updateExpression,
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   // Add expression attribute names if provided
   if (expressionAttributeNames) {
     updateParams.ExpressionAttributeNames = expressionAttributeNames;
   }
-
+  
   // Add expression attribute values if provided
   if (expressionAttributeValues) {
     updateParams.ExpressionAttributeValues = expressionAttributeValues;
   }
-
+  
   // Execute the update
   const response = await docClient.send(new UpdateCommand(updateParams));
-
+  
   return response;
 }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate list operations using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Demonstrate list operations using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -1191,13 +1177,8 @@ def append_to_list_safely(
     )
 
     return response
-
-
-
-
 ```
-
-Example usage of list operations with AWS SDK for Python (Boto3).
+Example usage of list operations with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -1344,16 +1325,9 @@ def example_usage():
     print("9. Use if_not_exists() to create a list with default values if it doesn't exist")
     print("10. List indices are zero-based (the first element is at index 0)")
     print("11. Attempting to access an index beyond the list bounds will result in an error")
-
-
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

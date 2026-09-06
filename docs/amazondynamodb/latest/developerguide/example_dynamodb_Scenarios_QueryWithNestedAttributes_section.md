@@ -1,15 +1,17 @@
+
+
 # Query a DynamoDB table with nested attributes using an AWS SDK
+<a name="example_dynamodb_Scenarios_QueryWithNestedAttributes_section"></a>
 
 The following code examples show how to query a table with nested attributes.
++ Access and filter by nested attributes in DynamoDB items.
++ Use document path expressions to reference nested elements.
 
-- Access and filter by nested attributes in DynamoDB items.
-- Use document path expressions to reference nested elements.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Query a DynamoDB table with nested attributes using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query a DynamoDB table with nested attributes using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -88,11 +90,8 @@ import java.util.Map;
             throw e;
         }
     }
-
-
 ```
-
-Demonstrates how to query a DynamoDB table with nested attributes.
+Demonstrates how to query a DynamoDB table with nested attributes.  
 
 ```
     public static void main(String[] args) {
@@ -172,26 +171,21 @@ Demonstrates how to query a DynamoDB table with nested attributes.
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query a DynamoDB table with nested attributes using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query a DynamoDB table with nested attributes using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
  * Queries a DynamoDB table filtering on a nested attribute
- *
+ * 
  * @param {Object} config - AWS SDK configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {string} productId - The product ID to query by (partition key)
@@ -227,19 +221,14 @@ async function queryWithNestedAttribute(
     throw error;
   }
 }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query a DynamoDB table with nested attributes using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query a DynamoDB table with nested attributes using AWS SDK for Python (Boto3).  
 
 ```
 from typing import Any, Dict, List
@@ -373,16 +362,9 @@ def query_with_multiple_nested_attributes(
     response = table.query(KeyConditionExpression=key_condition, FilterExpression=combined_filter)
 
     return response
-
-
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

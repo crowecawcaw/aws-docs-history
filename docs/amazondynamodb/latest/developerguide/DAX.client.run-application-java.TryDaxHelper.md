@@ -1,40 +1,25 @@
+
+
 # TryDaxHelper.java
+<a name="DAX.client.run-application-java.TryDaxHelper"></a>
 
 The `TryDaxHelper.java` file contains utility methods.
 
-The `getDynamoDBClient` and `getDaxClient` methods provide
-Amazon DynamoDB and DynamoDB Accelerator (DAX) clients. For control plane operations
-(`CreateTable`, `DeleteTable`) and write operations, the
-program uses the DynamoDB client. If you specify a DAX cluster endpoint, the main program
-creates a DAX client for performing read operations (`GetItem`,
-`Query`, `Scan`).
+The `getDynamoDBClient` and `getDaxClient` methods provide Amazon DynamoDB and DynamoDB Accelerator (DAX) clients. For control plane operations (`CreateTable`, `DeleteTable`) and write operations, the program uses the DynamoDB client. If you specify a DAX cluster endpoint, the main program creates a DAX client for performing read operations (`GetItem`, `Query`, `Scan`).
 
-The other `TryDaxHelper` methods (`createTable`,
-`writeData`, `deleteTable`) are for setting up and tearing
-down the DynamoDB table and its data.
+The other `TryDaxHelper` methods (`createTable`, `writeData`, `deleteTable`) are for setting up and tearing down the DynamoDB table and its data.
 
 You can modify the program in several ways:
++ Use different provisioned throughput settings for the table.
++ Modify the size of each item written (see the `stringSize` variable in the `writeData` method).
++ Modify the number of `GetItem`, `Query`, and `Scan` tests and their parameters.
++ Comment out the lines containing `helper.CreateTable` and `helper.DeleteTable` (if you don't want to create and delete the table each time you run the program).
 
-- Use different provisioned throughput settings for the table.
-- Modify the size of each item written (see the `stringSize` variable
-  in the `writeData` method).
-- Modify the number of `GetItem`, `Query`, and
-  `Scan` tests and their parameters.
-- Comment out the lines containing `helper.CreateTable` and
-  `helper.DeleteTable` (if you don't want to create and delete the
-  table each time you run the program).
-
-###### Note
-
-To run this program, you can set up Maven to use the client for the DAX SDK for
-Java and the AWS SDK for Java as dependencies. For more information, see [Using the client as an Apache Maven dependency](DAX.client.java-sdk-v1.md#DAXClient.Maven "DAX.client.java-sdk-v1.md#DAXClient.Maven").
-
-Or, you can download and include both the DAX Java client and the AWS SDK for Java in
-your classpath. See [Java and DAX](DAX.client.run-application-java.md "DAX.client.run-application-java.md") for an example of setting your
-`CLASSPATH` variable.
+**Note**  
+ To run this program, you can set up Maven to use the client for the DAX SDK for Java and the AWS SDK for Java as dependencies. For more information, see [Using the client as an Apache Maven dependency](DAX.client.java-sdk-v1.md#DAXClient.Maven).   
+Or, you can download and include both the DAX Java client and the AWS SDK for Java in your classpath. See [Java and DAX](DAX.client.run-application-java.md) for an example of setting your `CLASSPATH` variable.
 
 ```
-
 import com.amazon.dax.client.dynamodbv2.AmazonDaxClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -132,6 +117,4 @@ public class TryDaxHelper {
     }
 
 }
-
-
 ```

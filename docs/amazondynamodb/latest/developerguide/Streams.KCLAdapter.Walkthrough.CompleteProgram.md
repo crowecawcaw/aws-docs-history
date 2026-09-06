@@ -1,7 +1,9 @@
-# Complete program: DynamoDB Streams Kinesis adapter
 
-The following is the complete Java program that performs the tasks described in [Walkthrough: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.md "Streams.KCLAdapter.Walkthrough.md"). When you run it, you should see
-output similar to the following.
+
+# Complete program: DynamoDB Streams Kinesis adapter
+<a name="Streams.KCLAdapter.Walkthrough.CompleteProgram"></a>
+
+The following is the complete Java program that performs the tasks described in [Walkthrough: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.md). When you run it, you should see output similar to the following.
 
 ```
 Creating table KCL-Demo-src
@@ -11,20 +13,15 @@ Creating worker for stream: arn:aws:dynamodb:us-west-2:111122223333:table/KCL-De
 Starting worker...
 Scan result is equal.
 Done.
-
 ```
 
-###### Important
+**Important**  
+ To run this program, make sure that the client application has access to DynamoDB and Amazon CloudWatch using policies. For more information, see [Identity-based policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies). 
 
-To run this program, make sure that the client application has access to DynamoDB and
-Amazon CloudWatch using policies. For more information, see
-[Identity-based policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+The source code consists of four `.java` files. To build this program, add the following dependency, which includes the Amazon Kinesis Client Library (KCL) 3.x and AWS SDK for Java v2 as transitive dependencies:
 
-The source code consists of four `.java` files. To build this program,
-add the following dependency, which includes the Amazon Kinesis Client Library (KCL) 3.x and
-AWS SDK for Java v2 as transitive dependencies:
-
-Maven
+------
+#### [ Maven ]
 
 ```
 <dependency>
@@ -34,20 +31,23 @@ Maven
 </dependency>
 ```
 
-Gradle
+------
+#### [ Gradle ]
 
 ```
 implementation 'com.amazonaws:dynamodb-streams-kinesis-adapter:2.1.0'
 ```
 
-The source files are:
+------
 
-- `StreamsAdapterDemo.java`
-- `StreamsRecordProcessor.java`
-- `StreamsRecordProcessorFactory.java`
-- `StreamsAdapterDemoHelper.java`
+The source files are:
++ `StreamsAdapterDemo.java`
++ `StreamsRecordProcessor.java`
++ `StreamsRecordProcessorFactory.java`
++ `StreamsAdapterDemoHelper.java`
 
 ## StreamsAdapterDemo.java
+<a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsAdapterDemo"></a>
 
 ```
 package com.amazonaws.codesamples;
@@ -205,6 +205,7 @@ public class StreamsAdapterDemo {
 ```
 
 ## StreamsRecordProcessor.java
+<a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsRecordProcessor"></a>
 
 ```
 package com.amazonaws.codesamples;
@@ -294,6 +295,7 @@ public class StreamsRecordProcessor implements DynamoDBStreamsShardRecordProcess
 ```
 
 ## StreamsRecordProcessorFactory.java
+<a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsRecordProcessorFactory"></a>
 
 ```
 package com.amazonaws.codesamples;
@@ -319,6 +321,7 @@ public class StreamsAdapterDemoProcessorFactory implements ShardRecordProcessorF
 ```
 
 ## StreamsAdapterDemoHelper.java
+<a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsAdapterDemoHelper"></a>
 
 ```
 package com.amazonaws.codesamples;

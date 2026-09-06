@@ -1,32 +1,25 @@
+
+
 # Using the AWS SDK to configure auto scaling on Amazon DynamoDB tables
+<a name="AutoScaling.HowTo.SDK"></a>
 
-In addition to using the AWS Management Console and the AWS Command Line Interface (AWS CLI), you can write applications
-that interact with Amazon DynamoDB auto scaling. This section contains two Java programs that you
-can use to test this functionality:
-
-- `EnableDynamoDBAutoscaling.java`
-- `DisableDynamoDBAutoscaling.java`
+In addition to using the AWS Management Console and the AWS Command Line Interface (AWS CLI), you can write applications that interact with Amazon DynamoDB auto scaling. This section contains two Java programs that you can use to test this functionality:
++ `EnableDynamoDBAutoscaling.java`
++ `DisableDynamoDBAutoscaling.java`
 
 ## Enabling Application Auto Scaling for a table
+<a name="AutoScaling.HowTo.SDK-enable"></a>
 
-The following program shows an example of setting up an auto scaling policy for a
-DynamoDB table (`TestTable`). It proceeds as follows:
+The following program shows an example of setting up an auto scaling policy for a DynamoDB table (`TestTable`). It proceeds as follows:
++ The program registers write capacity units as a scalable target for `TestTable`. The range for this metric is between 5 and 10 write capacity units.
++ After the scalable target is created, the program builds a target tracking configuration. The policy seeks to maintain a 50 percent target ratio between consumed write capacity and provisioned write capacity.
++ The program then creates the scaling policy, based on the target tracking configuration.
 
-- The program registers write capacity units as a scalable target for
-  `TestTable`. The range for this metric is between 5 and 10 write
-  capacity units.
-- After the scalable target is created, the program builds a target tracking
-  configuration. The policy seeks to maintain a 50 percent target ratio between
-  consumed write capacity and provisioned write capacity.
-- The program then creates the scaling policy, based on the target tracking
-  configuration.
+**Note**  
+When you manually remove a table or global table replica, you do not automatically remove any associated scalable targets, scaling policies, or CloudWatch alarms.
 
-###### Note
-
-When you manually remove a table or global table replica, you do not automatically remove any
-associated scalable targets, scaling policies, or CloudWatch alarms.
-
-Java v2
+------
+#### [ Java v2 ]
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -65,7 +58,7 @@ public class EnableDynamoDBAutoscaling {
                tableId - The table Id value (for example, table/Music).
                roleARN - The ARN of the role that has ApplicationAutoScaling permissions.
                policyName - The name of the policy to create.
-
+               
             """;
 
         if (args.length != 3) {
@@ -167,11 +160,12 @@ public class EnableDynamoDBAutoscaling {
         }
     }
 }
-
 ```
 
-Java v1
-The program requires that you provide an Amazon Resource Name (ARN) for a valid Application Auto Scaling service linked role. (For example: `arn:aws:iam::122517410325:role/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable`.) In the following program, replace `SERVICE_ROLE_ARN_GOES_HERE` with the actual ARN.
+------
+#### [ Java v1 ]
+
+The program requires that you provide an Amazon Resource Name (ARN) for a valid Application Auto Scaling service linked role. (For example: `arn:aws:iam::122517410325:role/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable`.) In the following program, replace `SERVICE_ROLE_ARN_GOES_HERE` with the actual ARN. 
 
 ```
 package com.amazonaws.codesamples.autoscaling;
@@ -279,16 +273,17 @@ public class EnableDynamoDBAutoscaling {
 	}
 
 }
-
-
 ```
 
+------
+
 ## Disabling Application Auto Scaling for a table
+<a name="AutoScaling.HowTo.SDK-disable"></a>
 
-The following program reverses the previous process. It removes the auto scaling
-policy and then deregisters the scalable target.
+The following program reverses the previous process. It removes the auto scaling policy and then deregisters the scalable target.
 
-Java v2
+------
+#### [ Java v2 ]
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -320,8 +315,8 @@ public class DisableDynamoDBAutoscaling {
 
             Where:
                tableId - The table Id value (for example, table/Music).\s
-               policyName - The name of the policy (for example, $Music5-scaling-policy).
-
+               policyName - The name of the policy (for example, $Music5-scaling-policy). 
+        
             """;
         if (args.length != 2) {
             System.out.println(usage);
@@ -401,10 +396,10 @@ public class DisableDynamoDBAutoscaling {
         System.out.println(response);
     }
 }
-
 ```
 
-Java v1
+------
+#### [ Java v1 ]
 
 ```
 package com.amazonaws.codesamples.autoscaling;
@@ -493,6 +488,6 @@ public class DisableDynamoDBAutoscaling {
 	}
 
 }
-
-
 ```
+
+------

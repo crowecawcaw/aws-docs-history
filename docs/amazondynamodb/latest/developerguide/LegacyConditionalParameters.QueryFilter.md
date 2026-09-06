@@ -1,67 +1,42 @@
+
+
 # QueryFilter (legacy)
+<a name="LegacyConditionalParameters.QueryFilter"></a>
 
-###### Note
+**Note**  
+We recommend that you use the new expression parameters instead of these legacy parameters whenever possible. For more information, see [Using expressions in DynamoDB](Expressions.md). For specific information on the new parameter replacing this one, [use *FilterExpression* instead.](#FilterExpression.instead). 
 
-We recommend that you use the new expression parameters instead of these legacy parameters whenever possible.
-For more information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
-For specific information on the new parameter replacing this one,
-[use FilterExpression instead.](#FilterExpression.instead "#FilterExpression.instead").
-
-In a `Query` operation, the legacy conditional parameter `QueryFilter` is a
-condition that evaluates the query results after the items are read and returns only
-the desired values.
+In a `Query` operation, the legacy conditional parameter `QueryFilter` is a condition that evaluates the query results after the items are read and returns only the desired values.
 
 This parameter does not support attributes of type List or Map.
 
-###### Note
+**Note**  
+A `QueryFilter` is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.
 
-A `QueryFilter` is applied after the items have already
-been read; the process of filtering does not consume any additional read
-capacity units.
+If you provide more than one condition in the `QueryFilter` map, then by default all of the conditions must evaluate to true. In other words, the conditions are combined using the `AND` operator. (You can use the [ConditionalOperator (legacy)](LegacyConditionalParameters.ConditionalOperator.md) parameter to OR the conditions instead. If you do this, then at least one of the conditions must evaluate to true, rather than all of them.)
 
-If you provide more than one condition in the `QueryFilter`
-map, then by default all of the conditions must evaluate to true. In other words,
-the conditions are combined using the `AND` operator. (You can use the
-[ConditionalOperator (legacy)](LegacyConditionalParameters.ConditionalOperator.md "LegacyConditionalParameters.ConditionalOperator.md") parameter to OR the conditions instead.
-If you do this, then at least one of the conditions must evaluate to true, rather
-than all of them.)
+Note that `QueryFilter` does not allow key attributes. You cannot define a filter condition on a partition key or a sort key.
 
-Note that `QueryFilter` does not allow key attributes. You
-cannot define a filter condition on a partition key or a sort key.
+Each `QueryFilter` element consists of an attribute name to compare, along with the following:
++  `AttributeValueList` - One or more values to evaluate against the supplied attribute. The number of values in the list depends on the operator specified in `ComparisonOperator`.
 
-Each `QueryFilter` element consists of an attribute name to
-compare, along with the following:
+  For type Number, value comparisons are numeric.
 
-- `AttributeValueList` - One or more values to evaluate
-  against the supplied attribute. The number of values in the list depends on
-  the operator specified in `ComparisonOperator`.
+  String value comparisons for greater than, equals, or less than are based on UTF-8 binary encoding. For example, `a` is greater than `A`, and `a` is greater than `B`.
 
-For type Number, value comparisons are numeric.
+  For type Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.
 
-String value comparisons for greater than, equals, or less than are based
-on UTF-8 binary encoding. For example, `a` is greater than
-`A`, and `a` is greater than
-`B`.
+  For information on specifying data types in JSON, see [DynamoDB low-level API](Programming.LowLevelAPI.md).
++  `ComparisonOperator` - A comparator for evaluating attributes. For example: equals, greater than, and less than.
 
-For type Binary, DynamoDB treats each byte of the binary data as unsigned
-when it compares binary values.
+  The following comparison operators are available:
 
-For information on specifying data types in JSON, see [DynamoDB low-level API](Programming.LowLevelAPI.md "Programming.LowLevelAPI.md").
+   `EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN` 
 
-- `ComparisonOperator` - A comparator for evaluating attributes. For
-  example: equals, greater than, and less than.
+## Use *FilterExpression* instead – Example
+<a name="FilterExpression.instead"></a>
 
-The following comparison operators are available:
-
-`EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS |
- NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN`
-
-## Use _FilterExpression_ instead – Example
-
-Suppose you wanted to query the _Music_ table and apply a
-condition to the matching items. You could use a
-`Query` request with a `QueryFilter` parameter, as in this
-AWS CLI example:
+Suppose you wanted to query the *Music* table and apply a condition to the matching items. You could use a `Query` request with a `QueryFilter` parameter, as in this AWS CLI example:
 
 ```
 aws dynamodb query \
@@ -70,15 +45,14 @@ aws dynamodb query \
         "Artist": {
             "ComparisonOperator": "EQ",
             "AttributeValueList": [ {"S": "No One You Know"} ]
-        }
+        }   
     }' \
     --query-filter '{
         "Price": {
             "ComparisonOperator": "GT",
             "AttributeValueList": [ {"N": "1.00"} ]
-        }
+        }   
     }'
-
 ```
 
 You can use a `FilterExpression` instead:
@@ -89,8 +63,7 @@ aws dynamodb query \
     --key-condition-expression 'Artist = :a' \
     --filter-expression 'Price > :p' \
     --expression-attribute-values '{
-        ":p": {"N":"1.00"},
+        ":p": {"N":"1.00"}, 
         ":a": {"S":"No One You Know"}
     }'
-
 ```

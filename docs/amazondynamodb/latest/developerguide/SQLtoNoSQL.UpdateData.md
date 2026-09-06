@@ -1,19 +1,18 @@
+
+
 # Differences between a relational (SQL) database and DynamoDB when modifying data in a table
+<a name="SQLtoNoSQL.UpdateData"></a>
 
-The SQL language provides the `UPDATE` statement for modifying data.
-Amazon DynamoDB uses the `UpdateItem` operation to accomplish similar tasks.
+The SQL language provides the `UPDATE` statement for modifying data. Amazon DynamoDB uses the `UpdateItem` operation to accomplish similar tasks.
 
-###### Topics
-
-- [Modifying data in a table with SQL](#SQLtoNoSQL.UpdateData.SQL "#SQLtoNoSQL.UpdateData.SQL")
-- [Modifying data in a table in DynamoDB](#SQLtoNoSQL.UpdateData.DynamoDB "#SQLtoNoSQL.UpdateData.DynamoDB")
+**Topics**
++ [Modifying data in a table with SQL](#SQLtoNoSQL.UpdateData.SQL)
++ [Modifying data in a table in DynamoDB](#SQLtoNoSQL.UpdateData.DynamoDB)
 
 ## Modifying data in a table with SQL
+<a name="SQLtoNoSQL.UpdateData.SQL"></a>
 
-In SQL, you would use the `UPDATE` statement to modify one or more
-rows. The `SET` clause specifies new values for one or more columns, and
-the `WHERE` clause determines which rows are modified. The following is
-an example.
+In SQL, you would use the `UPDATE` statement to modify one or more rows. The `SET` clause specifies new values for one or more columns, and the `WHERE` clause determines which rows are modified. The following is an example.
 
 ```
 UPDATE Music
@@ -21,18 +20,17 @@ SET RecordLabel = 'Global Records'
 WHERE Artist = 'No One You Know' AND SongTitle = 'Call Me Today';
 ```
 
-If no rows match the `WHERE` clause, the `UPDATE` statement
-has no effect.
+If no rows match the `WHERE` clause, the `UPDATE` statement has no effect.
 
 ## Modifying data in a table in DynamoDB
+<a name="SQLtoNoSQL.UpdateData.DynamoDB"></a>
 
-In DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
-language) to modify a single item. If you want to modify multiple items, you must
-use multiple operations.
+In DynamoDB, you can use either the DynamoDB API or [PartiQL](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.html) (a SQL-compatible query language) to modify a single item. If you want to modify multiple items, you must use multiple operations.
 
-DynamoDB API
-With the DynamoDB API, you use the `UpdateItem` operation to
-modify a single item.
+------
+#### [ DynamoDB API ]
+
+With the DynamoDB API, you use the `UpdateItem` operation to modify a single item.
 
 ```
 {
@@ -48,17 +46,9 @@ modify a single item.
 }
 ```
 
-You must specify the `Key` attributes of the item to be
-modified and an `UpdateExpression` to specify attribute
-values. `UpdateItem` behaves like an "upsert" operation. The
-item is updated if it exists in the table, but if not, a new item is
-added (inserted).
+You must specify the `Key` attributes of the item to be modified and an `UpdateExpression` to specify attribute values. `UpdateItem` behaves like an "upsert" operation. The item is updated if it exists in the table, but if not, a new item is added (inserted).
 
-`UpdateItem` supports _conditional
-writes_, where the operation succeeds only if a specific
-`ConditionExpression` evaluates to true. For example, the
-following `UpdateItem` operation does not perform the update
-unless the price of the song is greater than or equal to 2.00.
+`UpdateItem` supports *conditional writes*, where the operation succeeds only if a specific `ConditionExpression` evaluates to true. For example, the following `UpdateItem` operation does not perform the update unless the price of the song is greater than or equal to 2.00.
 
 ```
 {
@@ -67,22 +57,18 @@ unless the price of the song is greater than or equal to 2.00.
         "Artist":"No One You Know",
         "SongTitle":"Call Me Today"
     },
-    UpdateExpression: "SET RecordLabel = :label",**ConditionExpression: "Price >= :p",**
+    UpdateExpression: "SET RecordLabel = :label",
+    ConditionExpression: "Price >= :p",
     ExpressionAttributeValues: {
-        ":label": "Global Records",**":p": 2.00**
+        ":label": "Global Records",
+        ":p": 2.00
     }
 }
 ```
 
-`UpdateItem` also supports _atomic
-counters_, or attributes of type `Number` that
-can be incremented or decremented. Atomic counters are similar in many
-ways to sequence generators, identity columns, or autoincrement fields
-in SQL databases.
+`UpdateItem` also supports *atomic counters*, or attributes of type `Number` that can be incremented or decremented. Atomic counters are similar in many ways to sequence generators, identity columns, or autoincrement fields in SQL databases. 
 
-The following is an example of an `UpdateItem` operation to
-initialize a new attribute (_Plays_) to keep track of
-the number of times a song has been played.
+The following is an example of an `UpdateItem` operation to initialize a new attribute (*Plays*) to keep track of the number of times a song has been played.
 
 ```
 {
@@ -99,13 +85,9 @@ the number of times a song has been played.
 }
 ```
 
-The `ReturnValues` parameter is set to
-`UPDATED_NEW`, which returns the new values of any
-attributes that were updated. In this case, it returns 0 (zero).
+The `ReturnValues` parameter is set to `UPDATED_NEW`, which returns the new values of any attributes that were updated. In this case, it returns 0 (zero).
 
-Whenever someone plays this song, you can use the following
-`UpdateItem` operation to increment
-_Plays_ by one.
+Whenever someone plays this song, you can use the following `UpdateItem` operation to increment *Plays* by one.
 
 ```
 {
@@ -122,14 +104,12 @@ _Plays_ by one.
 }
 ```
 
-PartiQL for DynamoDB
-With PartiQL, you use the `ExecuteStatement` operation to
-modify an item in a table, using the PartiQL `Update`
-statement.
+------
+#### [ PartiQL for DynamoDB ]
 
-The primary key for this table consists of _Artist_
-and _SongTitle_. You must specify values for these
-attributes.
+With PartiQL, you use the `ExecuteStatement` operation to modify an item in a table, using the PartiQL `Update` statement.
+
+The primary key for this table consists of *Artist* and *SongTitle*. You must specify values for these attributes.
 
 ```
 UPDATE Music
@@ -137,8 +117,7 @@ SET RecordLabel ='Global Records'
 WHERE Artist='No One You Know' AND SongTitle='Call Me Today'
 ```
 
-You can also modify multiple fields at once, such as in the following
-example.
+You can also modify multiple fields at once, such as in the following example.
 
 ```
 UPDATE Music
@@ -147,15 +126,9 @@ SET AwardsWon = 10
 WHERE Artist ='No One You Know' AND SongTitle='Call Me Today'
 ```
 
-`Update` also supports _atomic
-counters_, or attributes of type `Number` that can
-be incremented or decremented. Atomic counters are similar in many ways
-to sequence generators, identity columns, or autoincrement fields in SQL
-databases.
+`Update` also supports *atomic counters*, or attributes of type `Number` that can be incremented or decremented. Atomic counters are similar in many ways to sequence generators, identity columns, or autoincrement fields in SQL databases.
 
-The following is an example of an `Update` statement to
-initialize a new attribute (_Plays_) to keep track of
-the number of times a song has been played.
+The following is an example of an `Update` statement to initialize a new attribute (*Plays*) to keep track of the number of times a song has been played.
 
 ```
 UPDATE Music
@@ -163,9 +136,7 @@ SET Plays = 0
 WHERE Artist='No One You Know' AND SongTitle='Call Me Today'
 ```
 
-Whenever someone plays this song, you can use the following
-`Update` statement to increment
-_Plays_ by one.
+Whenever someone plays this song, you can use the following `Update` statement to increment *Plays* by one.
 
 ```
 UPDATE Music
@@ -173,7 +144,7 @@ SET Plays = Plays + 1
 WHERE Artist='No One You Know' AND SongTitle='Call Me Today'
 ```
 
-###### Note
+**Note**  
+For code examples using `Update` and `ExecuteStatement`, see [PartiQL update statements for DynamoDB](ql-reference.update.md).
 
-For code examples using `Update` and
-`ExecuteStatement`, see [PartiQL update statements for DynamoDB](ql-reference.update.md "ql-reference.update.md").
+------

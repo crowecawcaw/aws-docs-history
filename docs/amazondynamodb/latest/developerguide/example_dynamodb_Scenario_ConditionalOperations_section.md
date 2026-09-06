@@ -1,16 +1,18 @@
+
+
 # Use conditional operations in DynamoDB with an AWS SDK
+<a name="example_dynamodb_Scenario_ConditionalOperations_section"></a>
 
 The following code examples show how to use conditional operations in DynamoDB.
++ Implement conditional writes to prevent overwriting data.
++ Use condition expressions to enforce business rules.
++ Handle conditional check failures gracefully.
 
-- Implement conditional writes to prevent overwriting data.
-- Use condition expressions to enforce business rules.
-- Handle conditional check failures gracefully.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-Demonstrate conditional operations using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Demonstrate conditional operations using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -343,11 +345,8 @@ import java.util.Map;
 
         return result;
     }
-
-
 ```
-
-Example usage of conditional operations with AWS SDK for Java 2.x.
+Example usage of conditional operations with AWS SDK for Java 2.x.  
 
 ```
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
@@ -436,26 +435,22 @@ Example usage of conditional operations with AWS SDK for Java 2.x.
             e.printStackTrace();
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [DeleteItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [DeleteItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteItem.md")
-  - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Demonstrate conditional operations using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Demonstrate conditional operations using AWS SDK for JavaScript.  
 
 ```
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const {
-  DynamoDBDocumentClient,
+const { 
+  DynamoDBDocumentClient, 
   UpdateCommand,
   DeleteCommand,
   GetCommand,
@@ -464,9 +459,9 @@ const {
 
 /**
  * Perform a conditional update operation.
- *
+ * 
  * This function demonstrates how to update an item only if a condition is met.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -488,7 +483,7 @@ async function conditionalUpdate(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the update parameters with a condition expression
   const params = {
     TableName: tableName,
@@ -501,11 +496,11 @@ async function conditionalUpdate(
     },
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   try {
     // Perform the update operation
     const response = await docClient.send(new UpdateCommand(params));
-
+    
     return {
       success: true,
       message: "Condition was met and update was performed",
@@ -520,7 +515,7 @@ async function conditionalUpdate(
         error: "ConditionalCheckFailedException"
       };
     }
-
+    
     // Re-throw other errors
     throw error;
   }
@@ -528,9 +523,9 @@ async function conditionalUpdate(
 
 /**
  * Perform a conditional delete operation.
- *
+ * 
  * This function demonstrates how to delete an item only if a condition is met.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to delete
@@ -548,7 +543,7 @@ async function conditionalDelete(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the delete parameters with a condition expression
   const params = {
     TableName: tableName,
@@ -559,11 +554,11 @@ async function conditionalDelete(
     },
     ReturnValues: "ALL_OLD"
   };
-
+  
   try {
     // Perform the delete operation
     const response = await docClient.send(new DeleteCommand(params));
-
+    
     return {
       success: true,
       message: "Condition was met and item was deleted",
@@ -578,7 +573,7 @@ async function conditionalDelete(
         error: "ConditionalCheckFailedException"
       };
     }
-
+    
     // Re-throw other errors
     throw error;
   }
@@ -586,10 +581,10 @@ async function conditionalDelete(
 
 /**
  * Implement optimistic locking with a version number.
- *
+ * 
  * This function demonstrates how to use a version number for optimistic locking
  * to prevent race conditions when multiple processes update the same item.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to update
@@ -607,23 +602,23 @@ async function updateWithOptimisticLocking(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Build the update expression
   const updateExpressions = [];
   const expressionAttributeValues = {
     ":expectedVersion": expectedVersion,
     ":newVersion": expectedVersion + 1
   };
-
+  
   // Add each update to the expression
   Object.entries(updates).forEach(([attribute, value], index) => {
     updateExpressions.push(`${attribute} = :val${index}`);
     expressionAttributeValues[`:val${index}`] = value;
   });
-
+  
   // Add the version update
   updateExpressions.push("version = :newVersion");
-
+  
   // Define the update parameters with a condition expression
   const params = {
     TableName: tableName,
@@ -633,11 +628,11 @@ async function updateWithOptimisticLocking(
     ExpressionAttributeValues: expressionAttributeValues,
     ReturnValues: "UPDATED_NEW"
   };
-
+  
   try {
     // Perform the update operation
     const response = await docClient.send(new UpdateCommand(params));
-
+    
     return {
       success: true,
       message: "Update succeeded with optimistic locking",
@@ -653,7 +648,7 @@ async function updateWithOptimisticLocking(
         error: "ConditionalCheckFailedException"
       };
     }
-
+    
     // Re-throw other errors
     throw error;
   }
@@ -661,10 +656,10 @@ async function updateWithOptimisticLocking(
 
 /**
  * Implement a conditional write that creates an item only if it doesn't exist.
- *
+ * 
  * This function demonstrates how to use attribute_not_exists to create an item
  * only if it doesn't already exist (similar to an "INSERT IF NOT EXISTS" operation).
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} item - The item to create
@@ -678,32 +673,32 @@ async function createIfNotExists(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Extract the primary key attributes
-  const keyAttributes = Object.keys(item).filter(attr =>
-    attr === "id" || attr === "ID" || attr === "Id" ||
-    attr.endsWith("Id") || attr.endsWith("ID") ||
+  const keyAttributes = Object.keys(item).filter(attr => 
+    attr === "id" || attr === "ID" || attr === "Id" || 
+    attr.endsWith("Id") || attr.endsWith("ID") || 
     attr.endsWith("Key")
   );
-
+  
   if (keyAttributes.length === 0) {
     throw new Error("Could not determine primary key attributes");
   }
-
+  
   // Create a condition expression that checks if the item doesn't exist
   const conditionExpression = `attribute_not_exists(${keyAttributes[0]})`;
-
+  
   // Define the put parameters with a condition expression
   const params = {
     TableName: tableName,
     Item: item,
     ConditionExpression: conditionExpression
   };
-
+  
   try {
     // Perform the put operation
     await docClient.send(new PutCommand(params));
-
+    
     return {
       success: true,
       message: "Item was created because it didn't exist",
@@ -718,7 +713,7 @@ async function createIfNotExists(
         error: "ConditionalCheckFailedException"
       };
     }
-
+    
     // Re-throw other errors
     throw error;
   }
@@ -726,9 +721,9 @@ async function createIfNotExists(
 
 /**
  * Get the current value of an item.
- *
+ * 
  * Helper function to retrieve the current value of an item.
- *
+ * 
  * @param {Object} config - AWS configuration object
  * @param {string} tableName - The name of the DynamoDB table
  * @param {Object} key - The key of the item to get
@@ -742,24 +737,21 @@ async function getItem(
   // Initialize the DynamoDB client
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
-
+  
   // Define the get parameters
   const params = {
     TableName: tableName,
     Key: key
   };
-
+  
   // Perform the get operation
   const response = await docClient.send(new GetCommand(params));
-
+  
   // Return the item if it exists, otherwise null
   return response.Item || null;
 }
-
-
 ```
-
-Example usage of conditional operations with AWS SDK for JavaScript.
+Example usage of conditional operations with AWS SDK for JavaScript.  
 
 ```
 /**
@@ -770,9 +762,9 @@ async function exampleUsage() {
   const config = { region: "us-west-2" };
   const tableName = "Products";
   const key = { ProductId: "P12345" };
-
+  
   console.log("Demonstrating conditional operations in DynamoDB");
-
+  
   try {
     // Example 1: Conditional update based on attribute value
     console.log("\nExample 1: Conditional update based on attribute value");
@@ -785,12 +777,12 @@ async function exampleUsage() {
       "Price",
       299.99
     );
-
+    
     console.log(`Result: ${updateResult.message}`);
     if (updateResult.success) {
       console.log("Updated attributes:", updateResult.updatedAttributes);
     }
-
+    
     // Example 2: Conditional delete based on attribute value
     console.log("\nExample 2: Conditional delete based on attribute value");
     const deleteResult = await conditionalDelete(
@@ -800,21 +792,21 @@ async function exampleUsage() {
       "InStock",
       false
     );
-
+    
     console.log(`Result: ${deleteResult.message}`);
     if (deleteResult.success) {
       console.log("Deleted item:", deleteResult.deletedItem);
     }
-
+    
     // Example 3: Optimistic locking with version number
     console.log("\nExample 3: Optimistic locking with version number");
-
+    
     // First, get the current item to check its version
     const currentItem = await getItem(config, tableName, { ProductId: "P67890" });
     const currentVersion = currentItem ? (currentItem.version || 0) : 0;
-
+    
     console.log(`Current version: ${currentVersion}`);
-
+    
     // Then, update with optimistic locking
     const lockingResult = await updateWithOptimisticLocking(
       config,
@@ -826,13 +818,13 @@ async function exampleUsage() {
       },
       currentVersion
     );
-
+    
     console.log(`Result: ${lockingResult.message}`);
     if (lockingResult.success) {
       console.log(`New version: ${lockingResult.newVersion}`);
       console.log("Updated attributes:", lockingResult.updatedAttributes);
     }
-
+    
     // Example 4: Create item only if it doesn't exist
     console.log("\nExample 4: Create item only if it doesn't exist");
     const createResult = await createIfNotExists(
@@ -846,12 +838,12 @@ async function exampleUsage() {
         InStock: true
       }
     );
-
+    
     console.log(`Result: ${createResult.message}`);
     if (createResult.success) {
       console.log("Created item:", createResult.item);
     }
-
+    
     // Explain conditional operations
     console.log("\nKey points about conditional operations:");
     console.log("1. Conditional operations only succeed if the condition is met");
@@ -861,26 +853,22 @@ async function exampleUsage() {
     console.log("5. Conditional operations are atomic - they either succeed completely or fail completely");
     console.log("6. You can use any valid comparison operators and functions in condition expressions");
     console.log("7. Conditional operations don't consume write capacity if the condition fails");
-
+    
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [DeleteItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteItemCommand)
+  + [PutItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand)
+  + [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [DeleteItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteItemCommand.md")
-  - [PutItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand.md")
-  - [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-Demonstrate conditional operations using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Demonstrate conditional operations using AWS SDK for Python (Boto3).  
 
 ```
 import boto3
@@ -1127,13 +1115,8 @@ def conditional_check_and_update(
         else:
             # Other error occurred
             raise
-
-
-
-
 ```
-
-Example usage of conditional operations with AWS SDK for Python (Boto3).
+Example usage of conditional operations with AWS SDK for Python (Boto3).  
 
 ```
 def example_usage():
@@ -1233,18 +1216,12 @@ def example_usage():
     print(
         "8. attribute_exists() and attribute_not_exists() are useful for checking attribute presence"
     )
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [DeleteItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/DeleteItem)
+  + [PutItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem)
+  + [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [DeleteItem](../../../goto/boto3/dynamodb-2012-08-10/DeleteItem.md "../../../goto/boto3/dynamodb-2012-08-10/DeleteItem.md")
-  - [PutItem](../../../goto/boto3/dynamodb-2012-08-10/PutItem.md "../../../goto/boto3/dynamodb-2012-08-10/PutItem.md")
-  - [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

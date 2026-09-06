@@ -1,13 +1,16 @@
+
+
 # Create a DynamoDB item with a TTL using an AWS SDK
+<a name="example_dynamodb_PutItemTTL_section"></a>
 
 The following code examples show how to create an item with TTL.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
-
 package com.amazon.samplelib.ttl;
 
 import com.amazon.samplelib.CodeSampleUtils;
@@ -157,17 +160,13 @@ public class CreateTTL {
         }
     }
 }
-
-
 ```
++  For API details, see [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
@@ -214,16 +213,13 @@ export function createDynamoDBItem(table_name, region, partition_key, sort_key) 
 
 // Example usage (commented out for testing)
 // createDynamoDBItem('your-table-name', 'us-east-1', 'your-partition-key-value', 'your-sort-key-value');
-
 ```
++  For API details, see [PutItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 from datetime import datetime, timedelta
@@ -270,14 +266,9 @@ def create_dynamodb_item(table_name, region, primary_key, sort_key):
 create_dynamodb_item(
     "your-table-name", "us-west-2", "your-partition-key-value", "your-sort-key-value"
 )
-
-
 ```
++  For API details, see [PutItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/PutItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutItem](../../../goto/boto3/dynamodb-2012-08-10/PutItem.md "../../../goto/boto3/dynamodb-2012-08-10/PutItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

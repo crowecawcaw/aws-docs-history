@@ -1,34 +1,32 @@
-# Migrating from KCL 1.x to KCL 3.5.x+
+
+
+# Migrating from KCL 1.x to KCL 3.5.x\+
+<a name="streams-migrating-kcl"></a>
 
 ## Overview
+<a name="migrating-kcl-overview"></a>
 
-This guide provides instructions for migrating your consumer application from KCL 1.x to
-KCL 3.5.x+. Due to architectural differences between KCL 1.x and KCL 3.5.x+, migration requires
-updating several components to ensure compatibility.
+This guide provides instructions for migrating your consumer application from KCL 1.x to KCL 3.5.x\+. Due to architectural differences between KCL 1.x and KCL 3.5.x\+, migration requires updating several components to ensure compatibility.
 
-KCL 1.x uses different classes and interfaces compared to KCL 3.5.x+. You must migrate the record processor, record
-processor factory, and worker classes to the KCL 3.5.x+ compatible format first, and follow the
-migration steps for KCL 1.x to KCL 3.5.x+ migration.
+KCL 1.x uses different classes and interfaces compared to KCL 3.5.x\+. You must migrate the record processor, record processor factory, and worker classes to the KCL 3.5.x\+ compatible format first, and follow the migration steps for KCL 1.x to KCL 3.5.x\+ migration.
 
-###### Note
-
-KCL 3.5.x+ is supported with [Amazon DynamoDB Streams Kinesis
-Adapter](https://github.com/awslabs/dynamodb-streams-kinesis-adapter "https://github.com/awslabs/dynamodb-streams-kinesis-adapter") version 2.4.x+ on the GitHub website.
+**Note**  
+KCL 3.5.x\+ is supported with [Amazon DynamoDB Streams Kinesis Adapter](https://github.com/awslabs/dynamodb-streams-kinesis-adapter) version 2.4.x\+ on the GitHub website.
 
 ## Migration steps
+<a name="migration-steps"></a>
 
-###### Topics
-
-- [Step 1: Migrate the record processor](#step1-record-processor "#step1-record-processor")
-- [Step 2: Migrate the record processor factory](#step2-record-processor-factory "#step2-record-processor-factory")
-- [Step 3: Migrate the worker](#step3-worker-migration "#step3-worker-migration")
-- [Step 4: KCL 3.5.x+ configuration overview and recommendations](#step4-configuration-migration "#step4-configuration-migration")
-- [Step 5: Migrate from KCL 2.x to KCL 3.5.x+](#step5-kcl2-to-kcl3 "#step5-kcl2-to-kcl3")
+**Topics**
++ [Step 1: Migrate the record processor](#step1-record-processor)
++ [Step 2: Migrate the record processor factory](#step2-record-processor-factory)
++ [Step 3: Migrate the worker](#step3-worker-migration)
++ [Step 4: KCL 3.5.x\+ configuration overview and recommendations](#step4-configuration-migration)
++ [Step 5: Migrate from KCL 2.x to KCL 3.5.x\+](#step5-kcl2-to-kcl3)
 
 ### Step 1: Migrate the record processor
+<a name="step1-record-processor"></a>
 
-The following example shows a record processor implemented for KCL 1.x DynamoDB Streams Kinesis
-adapter:
+The following example shows a record processor implemented for KCL 1.x DynamoDB Streams Kinesis adapter:
 
 ```
 package com.amazonaws.kcl;
@@ -87,83 +85,74 @@ public class StreamsRecordProcessor implements IRecordProcessor, IShutdownNotifi
 }
 ```
 
-###### To migrate the RecordProcessor class
+**To migrate the RecordProcessor class**
 
-1. Change the interfaces from
-   `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor`
-   and
-   `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware`
-   to
-   `com.amazonaws.services.dynamodbv2.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor`
-   as follows:
+1. Change the interfaces from `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor` and `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware` to `com.amazonaws.services.dynamodbv2.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor` as follows:
 
-```
-// import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
-// import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware;
+   ```
+   // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
+   // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IShutdownNotificationAware;
+   
+   import com.amazonaws.services.dynamodbv2.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor;
+   ```
 
-import com.amazonaws.services.dynamodbv2.streamsadapter.processor.DynamoDBStreamsShardRecordProcessor;
-```
+1. Update import statements for the `initialize` and `processRecords` methods:
 
-2. Update import statements for the `initialize` and
-   `processRecords` methods:
+   ```
+   // import com.amazonaws.services.kinesis.clientlibrary.types.InitializationInput;
+   import software.amazon.kinesis.lifecycle.events.InitializationInput;
+   
+   // import com.amazonaws.services.kinesis.clientlibrary.types.ProcessRecordsInput;
+   import com.amazonaws.services.dynamodbv2.streamsadapter.model.DynamoDBStreamsProcessRecordsInput;
+   ```
 
-```
-// import com.amazonaws.services.kinesis.clientlibrary.types.InitializationInput;
-import software.amazon.kinesis.lifecycle.events.InitializationInput;
+1. Replace the `shutdownRequested` method with the following new methods: `leaseLost`, `shardEnded`, and `shutdownRequested`.
 
-// import com.amazonaws.services.kinesis.clientlibrary.types.ProcessRecordsInput;
-import com.amazonaws.services.dynamodbv2.streamsadapter.model.DynamoDBStreamsProcessRecordsInput;
-```
-
-3. Replace the `shutdownRequested` method with the following new methods:
-   `leaseLost`, `shardEnded`, and
-   `shutdownRequested`.
-
-```
-//    @Override
-//    public void shutdownRequested(IRecordProcessorCheckpointer checkpointer) {
-//        //
-//        // This is moved to shardEnded(...) and shutdownRequested(ShutdownReauestedInput)
-//        //
-//        try {
-//            checkpointer.checkpoint();
-//        } catch (ShutdownException | InvalidStateException e) {
-//            //
-//            // Swallow exception
-//            //
-//            e.printStackTrace();
-//        }
-//    }
-
-    @Override
-    public void leaseLost(LeaseLostInput leaseLostInput) {
-
-    }
-
-    @Override
-    public void shardEnded(ShardEndedInput shardEndedInput) {
-        try {
-            shardEndedInput.checkpointer().checkpoint();
-        } catch (ShutdownException | InvalidStateException e) {
-            //
-            // Swallow the exception
-            //
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void shutdownRequested(ShutdownRequestedInput shutdownRequestedInput) {
-        try {
-            shutdownRequestedInput.checkpointer().checkpoint();
-        } catch (ShutdownException | InvalidStateException e) {
-            //
-            // Swallow the exception
-            //
-            e.printStackTrace();
-        }
-    }
-```
+   ```
+   //    @Override
+   //    public void shutdownRequested(IRecordProcessorCheckpointer checkpointer) {
+   //        //
+   //        // This is moved to shardEnded(...) and shutdownRequested(ShutdownReauestedInput)
+   //        //
+   //        try {
+   //            checkpointer.checkpoint();
+   //        } catch (ShutdownException | InvalidStateException e) {
+   //            //
+   //            // Swallow exception
+   //            //
+   //            e.printStackTrace();
+   //        }
+   //    }
+   
+       @Override
+       public void leaseLost(LeaseLostInput leaseLostInput) {
+   
+       }
+   
+       @Override
+       public void shardEnded(ShardEndedInput shardEndedInput) {
+           try {
+               shardEndedInput.checkpointer().checkpoint();
+           } catch (ShutdownException | InvalidStateException e) {
+               //
+               // Swallow the exception
+               //
+               e.printStackTrace();
+           }
+       }
+   
+       @Override
+       public void shutdownRequested(ShutdownRequestedInput shutdownRequestedInput) {
+           try {
+               shutdownRequestedInput.checkpointer().checkpoint();
+           } catch (ShutdownException | InvalidStateException e) {
+               //
+               // Swallow the exception
+               //
+               e.printStackTrace();
+           }
+       }
+   ```
 
 The following is the updated version of the record processor class:
 
@@ -187,7 +176,7 @@ public class StreamsRecordProcessor implements DynamoDBStreamsShardRecordProcess
 
     @Override
     public void initialize(InitializationInput initializationInput) {
-
+        
     }
 
     @Override
@@ -200,7 +189,7 @@ public class StreamsRecordProcessor implements DynamoDBStreamsShardRecordProcess
 
     @Override
     public void leaseLost(LeaseLostInput leaseLostInput) {
-
+        
     }
 
     @Override
@@ -229,18 +218,13 @@ public class StreamsRecordProcessor implements DynamoDBStreamsShardRecordProcess
 }
 ```
 
-###### Note
-
-DynamoDB Streams Kinesis Adapter now uses SDKv2 Record model. In SDKv2, complex
-`AttributeValue` objects (`BS`, `NS`, `M`,
-`L`, `SS`) never return null. Use `hasBs()`,
-`hasNs()`, `hasM()`, `hasL()`, `hasSs()`
-methods to verify if these values exist.
+**Note**  
+DynamoDB Streams Kinesis Adapter now uses SDKv2 Record model. In SDKv2, complex `AttributeValue` objects (`BS`, `NS`, `M`, `L`, `SS`) never return null. Use `hasBs()`, `hasNs()`, `hasM()`, `hasL()`, `hasSs()` methods to verify if these values exist.
 
 ### Step 2: Migrate the record processor factory
+<a name="step2-record-processor-factory"></a>
 
-The record processor factory is responsible for creating record processors when a lease
-is acquired. The following is an example of a KCL 1.x factory:
+The record processor factory is responsible for creating record processors when a lease is acquired. The following is an example of a KCL 1.x factory:
 
 ```
 package com.amazonaws.codesamples;
@@ -250,7 +234,7 @@ import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcess
 import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory;
 
 public class StreamsRecordProcessorFactory implements IRecordProcessorFactory {
-
+    
     @Override
     public IRecordProcessor createProcessor() {
         return new StreamsRecordProcessor(dynamoDBClient, tableName);
@@ -258,30 +242,26 @@ public class StreamsRecordProcessorFactory implements IRecordProcessorFactory {
 }
 ```
 
-###### To migrate the `RecordProcessorFactory`
+**To migrate the `RecordProcessorFactory`**
++ Change the implemented interface from `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory` to `software.amazon.kinesis.processor.ShardRecordProcessorFactory`, as follows:
 
-- Change the implemented interface from
-  `com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory`
-  to `software.amazon.kinesis.processor.ShardRecordProcessorFactory`, as
-  follows:
+  ```
+  // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
+  import software.amazon.kinesis.processor.ShardRecordProcessor;
+  
+  // import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory;
+  import software.amazon.kinesis.processor.ShardRecordProcessorFactory;
+  
+  // public class TestRecordProcessorFactory implements IRecordProcessorFactory {
+  public class StreamsRecordProcessorFactory implements ShardRecordProcessorFactory {
+  
+  Change the return signature for createProcessor.
+  
+  // public IRecordProcessor createProcessor() {
+  public ShardRecordProcessor shardRecordProcessor() {
+  ```
 
-```
-// import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
-import software.amazon.kinesis.processor.ShardRecordProcessor;
-
-// import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessorFactory;
-import software.amazon.kinesis.processor.ShardRecordProcessorFactory;
-
-// public class TestRecordProcessorFactory implements IRecordProcessorFactory {
-public class StreamsRecordProcessorFactory implements ShardRecordProcessorFactory {
-
-Change the return signature for createProcessor.
-
-// public IRecordProcessor createProcessor() {
-public ShardRecordProcessor shardRecordProcessor() {
-```
-
-The following is an example of the record processor factory in 3.5.x+:
+The following is an example of the record processor factory in 3.5.x\+:
 
 ```
 package com.amazonaws.codesamples;
@@ -299,9 +279,9 @@ public class StreamsRecordProcessorFactory implements ShardRecordProcessorFactor
 ```
 
 ### Step 3: Migrate the worker
+<a name="step3-worker-migration"></a>
 
-In version 3.5.x+ of the KCL, a new class, called **Scheduler**, replaces the **Worker** class. The
-following is an example of a KCL 1.x worker:
+In version 3.5.x\+ of the KCL, a new class, called **Scheduler**, replaces the **Worker** class. The following is an example of a KCL 1.x worker:
 
 ```
 final KinesisClientLibConfiguration config = new KinesisClientLibConfiguration(...)
@@ -314,215 +294,152 @@ final Worker worker = StreamsWorkerFactory.createDynamoDbStreamsWorker(
         amazonCloudWatchClient);
 ```
 
-###### To migrate the worker
+**To migrate the worker**
 
-1. Change the `import` statement for the `Worker` class to the
-   import statements for the `Scheduler` and `ConfigsBuilder`
-   classes.
+1. Change the `import` statement for the `Worker` class to the import statements for the `Scheduler` and `ConfigsBuilder` classes.
 
-```
-// import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker;
-import software.amazon.kinesis.coordinator.Scheduler;
-import software.amazon.kinesis.common.ConfigsBuilder;
-```
+   ```
+   // import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker;
+   import software.amazon.kinesis.coordinator.Scheduler;
+   import software.amazon.kinesis.common.ConfigsBuilder;
+   ```
 
-2. Import `StreamTracker` and change import of
-   `StreamsWorkerFactory` to `StreamsSchedulerFactory`.
+1. Import `StreamTracker` and change import of `StreamsWorkerFactory` to `StreamsSchedulerFactory`.
 
-```
-import software.amazon.kinesis.processor.StreamTracker;
-// import software.amazon.dynamodb.streamsadapter.StreamsWorkerFactory;
-import software.amazon.dynamodb.streamsadapter.StreamsSchedulerFactory;
-```
+   ```
+   import software.amazon.kinesis.processor.StreamTracker;
+   // import software.amazon.dynamodb.streamsadapter.StreamsWorkerFactory;
+   import software.amazon.dynamodb.streamsadapter.StreamsSchedulerFactory;
+   ```
 
-3. Choose the position from which to start the application. It can be
-   `TRIM_HORIZON` or `LATEST`.
+1. Choose the position from which to start the application. It can be `TRIM_HORIZON` or `LATEST`.
 
-```
-import software.amazon.kinesis.common.InitialPositionInStream;
-import software.amazon.kinesis.common.InitialPositionInStreamExtended;
-```
+   ```
+   import software.amazon.kinesis.common.InitialPositionInStream;
+   import software.amazon.kinesis.common.InitialPositionInStreamExtended;
+   ```
 
-4. Create a `StreamTracker` instance.
+1. Create a `StreamTracker` instance.
 
-```
-StreamTracker streamTracker = StreamsSchedulerFactory.createSingleStreamTracker(
-        streamArn,
-        InitialPositionInStreamExtended.newInitialPosition(InitialPositionInStream.TRIM_HORIZON)
-);
-```
+   ```
+   StreamTracker streamTracker = StreamsSchedulerFactory.createSingleStreamTracker(
+           streamArn,
+           InitialPositionInStreamExtended.newInitialPosition(InitialPositionInStream.TRIM_HORIZON)
+   );
+   ```
 
-5. Create the `AmazonDynamoDBStreamsAdapterClient` object.
+1. Create the `AmazonDynamoDBStreamsAdapterClient` object.
 
-```
-import software.amazon.dynamodb.streamsadapter.AmazonDynamoDBStreamsAdapterClient;
-import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
-import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+   ```
+   import software.amazon.dynamodb.streamsadapter.AmazonDynamoDBStreamsAdapterClient; 
+   import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+   import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+   
+   ...
+   
+   AwsCredentialsProvider credentialsProvider = DefaultCredentialsProvider.create();
+   
+   AmazonDynamoDBStreamsAdapterClient adapterClient = new AmazonDynamoDBStreamsAdapterClient(
+           credentialsProvider, awsRegion);
+   ```
 
-...
+1. Create the `ConfigsBuilder` object.
 
-AwsCredentialsProvider credentialsProvider = DefaultCredentialsProvider.create();
+   ```
+   import software.amazon.kinesis.common.ConfigsBuilder;
+   
+   ...
+   ConfigsBuilder configsBuilder = new ConfigsBuilder(
+                   streamTracker,
+                   applicationName,
+                   adapterClient,
+                   dynamoDbAsyncClient,
+                   cloudWatchAsyncClient,
+                   UUID.randomUUID().toString(),
+                   new StreamsRecordProcessorFactory());
+   ```
 
-AmazonDynamoDBStreamsAdapterClient adapterClient = new AmazonDynamoDBStreamsAdapterClient(
-        credentialsProvider, awsRegion);
-```
+1. Create the `Scheduler` using `ConfigsBuilder` as shown in the following example:
 
-6. Create the `ConfigsBuilder` object.
+   ```
+   import java.util.UUID;
+   
+   import software.amazon.awssdk.regions.Region;
+   import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
+   import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
+   import software.amazon.awssdk.services.kinesis.KinesisAsyncClient;
+   
+   import software.amazon.kinesis.common.KinesisClientUtil;
+   import software.amazon.kinesis.coordinator.Scheduler;
+   
+   ...
+   
+                   
+   DynamoDbAsyncClient dynamoClient = DynamoDbAsyncClient.builder().region(region).build();
+   CloudWatchAsyncClient cloudWatchClient = CloudWatchAsyncClient.builder().region(region).build();
+   
+                   
+   DynamoDBStreamsPollingConfig pollingConfig = new DynamoDBStreamsPollingConfig(adapterClient);
+   pollingConfig.idleTimeBetweenReadsInMillis(idleTimeBetweenReadsInMillis);
+   
+   // Use ConfigsBuilder to configure settings
+   RetrievalConfig retrievalConfig = configsBuilder.retrievalConfig();
+   retrievalConfig.retrievalSpecificConfig(pollingConfig);
+   
+   CoordinatorConfig coordinatorConfig = configsBuilder.coordinatorConfig();
+   coordinatorConfig.clientVersionConfig(CoordinatorConfig.ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1);
+                   
+   Scheduler scheduler = StreamsSchedulerFactory.createScheduler(
+                   configsBuilder.checkpointConfig(),
+                   coordinatorConfig,
+                   configsBuilder.leaseManagementConfig(),
+                   configsBuilder.lifecycleConfig(),
+                   configsBuilder.metricsConfig(),
+                   configsBuilder.processorConfig(),
+                   retrievalConfig,
+                   adapterClient
+           );
+   ```
 
-```
-import software.amazon.kinesis.common.ConfigsBuilder;
+**Note**  
+KCL 3.5.x\+ migration uses three phases:  
+**Phase 1** (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1`): Pure KCL 1.x compatible mode. No migration-specific metadata is written to the lease table. Safe rollback to KCL v1 by redeploying previous code. Use this phase to validate stability.
+**Phase 2** (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`): Starts the migration. Writes `WORKER_METRIC_STATS` and `Migration3.0` entries to the lease table. KCL auto-transitions to full 3.x load balancing when all workers are ready. Rollback to Phase 1 is supported (through the KCL Migration Tool). Rollback to KCL v1 is no longer possible.
+**Phase 3** (`CLIENT_VERSION_CONFIG_3X`): Full KCL 3.x functionality. Explicitly set by the customer or used as default when the config is removed. Terminal state, no rollback.
+These settings maintain compatibility between DynamoDB Streams Kinesis Adapter for KCL v3 and KCL v1, not between KCL v2 and v3.
 
-...
-ConfigsBuilder configsBuilder = new ConfigsBuilder(
-                streamTracker,
-                applicationName,
-                adapterClient,
-                dynamoDbAsyncClient,
-                cloudWatchAsyncClient,
-                UUID.randomUUID().toString(),
-                new StreamsRecordProcessorFactory());
-```
+**Important**  
+You must start the migration with `CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1` (Phase 1). Phase 1 is backward compatible with KCL v1 and does not write any migration-specific entries to the lease table, allowing safe rollback to your previous KCL version by simply redeploying your previous code. After thorough bake testing in Phase 1, you can proceed to Phase 2 (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`) to start the full migration. If you skip Phase 1 and start directly with Phase 2, non-lease entries are written to the lease table immediately, permanently preventing rollback to KCL v1 without manual DynamoDB cleanup.
 
-7. Create the `Scheduler` using `ConfigsBuilder` as shown in the
-   following example:
+### Step 4: KCL 3.5.x\+ configuration overview and recommendations
+<a name="step4-configuration-migration"></a>
 
-```
+For a detailed description of the configurations introduced post KCL 1.x that are relevant in KCL 3.5.x\+ see [KCL configurations](https://docs.aws.amazon.com/streams/latest/dev/kcl-configuration.html) and [KCL migration client configuration](https://docs.aws.amazon.com/streams/latest/dev/kcl-migration.html#client-configuration).
 
-import java.util.UUID;
+**Important**  
+Instead of directly creating objects of `checkpointConfig`, `coordinatorConfig`, `leaseManagementConfig`, `metricsConfig`, `processorConfig` and `retrievalConfig`, we recommend using `ConfigsBuilder` to set configurations in KCL 3.5.x\+ and later versions to avoid Scheduler initialization issues. `ConfigsBuilder` provides a more flexible and maintainable way to configure your KCL application.
 
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
-import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
-import software.amazon.awssdk.services.kinesis.KinesisAsyncClient;
+#### Configurations with update default value in KCL 3.5.x\+
+<a name="kcl3-configuration-overview"></a>
 
-import software.amazon.kinesis.common.KinesisClientUtil;
-import software.amazon.kinesis.coordinator.Scheduler;
+`billingMode`  
+In KCL version 1.x, the default value for `billingMode` is set to `PROVISIONED`. However, with KCL version 3.5.x\+, the default `billingMode` is `PAY_PER_REQUEST` (on-demand mode). We recommend that you use the on-demand capacity mode for your lease table to automatically adjust the capacity based on your usage. For guidance on using provisioned capacity for your lease tables, see [Best practices for the lease table with provisioned capacity mode](https://docs.aws.amazon.com/streams/latest/dev/kcl-migration-lease-table.html).
 
-...
+`idleTimeBetweenReadsInMillis`  
+In KCL version 1.x, the default value for `idleTimeBetweenReadsInMillis` is set to is 1,000 (or 1 second). KCL version 3.5.x\+ sets the default value for `idleTimeBetweenReadsInMillis` to 1,500 (or 1.5 seconds), but Amazon DynamoDB Streams Kinesis Adapter overrides the default value to 1,000 (or 1 second).
 
+#### New configurations in KCL 3.5.x\+
+<a name="kcl3-new-configs"></a>
 
-DynamoDbAsyncClient dynamoClient = DynamoDbAsyncClient.builder().region(region).build();
-CloudWatchAsyncClient cloudWatchClient = CloudWatchAsyncClient.builder().region(region).build();
+`leaseAssignmentIntervalMillis`  
+This configuration defines the time interval before newly discovered shards begin processing, and is calculated as 1.5 × `leaseAssignmentIntervalMillis`. If this setting isn't explicitly configured, the time interval defaults to 1.5 × `failoverTimeMillis`. Processing new shards involves scanning the lease table and querying a global secondary index (GSI) on the lease table. Lowering the `leaseAssignmentIntervalMillis` increases the frequency of these scan and query operations, resulting in higher DynamoDB costs. We recommend setting this value to 2000 (or 2 seconds) to minimize the delay in processing new shards.
 
+`shardConsumerDispatchPollIntervalMillis`  
+This configuration defines the interval between successive polls by the shard consumer to trigger state transitions. In KCL version 1.x, this behavior was controlled by the `idleTimeInMillis` parameter, which was not exposed as a configurable setting. With KCL version 3.5.x\+, we recommend setting this config to match the value used for` idleTimeInMillis` in your KCL version 1.x setup.
 
-DynamoDBStreamsPollingConfig pollingConfig = new DynamoDBStreamsPollingConfig(adapterClient);
-pollingConfig.idleTimeBetweenReadsInMillis(idleTimeBetweenReadsInMillis);
+### Step 5: Migrate from KCL 2.x to KCL 3.5.x\+
+<a name="step5-kcl2-to-kcl3"></a>
 
-// Use ConfigsBuilder to configure settings
-RetrievalConfig retrievalConfig = configsBuilder.retrievalConfig();
-retrievalConfig.retrievalSpecificConfig(pollingConfig);
+To ensure a smooth transition and compatibility with the latest Kinesis Client Library (KCL) version, follow steps 5-8 in the migration guide's instructions for [upgrading from KCL 2.x to KCL 3.5.x\+](https://docs.aws.amazon.com/streams/latest/dev/kcl-migration-from-2-3.html#kcl-migration-from-2-3-worker-metrics).
 
-CoordinatorConfig coordinatorConfig = configsBuilder.coordinatorConfig();
-coordinatorConfig.clientVersionConfig(CoordinatorConfig.ClientVersionConfig.CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1);
-
-Scheduler scheduler = StreamsSchedulerFactory.createScheduler(
-                configsBuilder.checkpointConfig(),
-                coordinatorConfig,
-                configsBuilder.leaseManagementConfig(),
-                configsBuilder.lifecycleConfig(),
-                configsBuilder.metricsConfig(),
-                configsBuilder.processorConfig(),
-                retrievalConfig,
-                adapterClient
-        );
-```
-
-###### Note
-
-KCL 3.5.x+ migration uses three phases:
-
-- **Phase 1**
-  (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1`): Pure KCL 1.x
-  compatible mode. No migration-specific metadata is written to the lease table.
-  Safe rollback to KCL v1 by redeploying previous code. Use this phase to validate
-  stability.
-- **Phase 2**
-  (`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`): Starts the migration.
-  Writes `WORKER_METRIC_STATS` and `Migration3.0` entries to
-  the lease table. KCL auto-transitions to full 3.x load balancing when all workers
-  are ready. Rollback to Phase 1 is supported (through the KCL Migration Tool). Rollback
-  to KCL v1 is no longer possible.
-- **Phase 3**
-  (`CLIENT_VERSION_CONFIG_3X`): Full KCL 3.x functionality. Explicitly
-  set by the customer or used as default when the config is removed. Terminal state,
-  no rollback.
-  These settings maintain compatibility between DynamoDB Streams Kinesis Adapter for KCL v3 and
-  KCL v1, not between KCL v2 and v3.
-
-###### Important
-
-You must start the migration with
-`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X_PHASE1` (Phase 1). Phase 1 is
-backward compatible with KCL v1 and does not write any migration-specific entries to the
-lease table, allowing safe rollback to your previous KCL version by simply redeploying
-your previous code. After thorough bake testing in Phase 1, you can proceed to Phase 2
-(`CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X`) to start the full migration.
-If you skip Phase 1 and start directly with Phase 2, non-lease entries are written to the
-lease table immediately, permanently preventing rollback to KCL v1 without manual
-DynamoDB cleanup.
-
-### Step 4: KCL 3.5.x+ configuration overview and recommendations
-
-For a detailed description of the configurations introduced post KCL 1.x that are
-relevant in KCL 3.5.x+ see [KCL configurations](../../../streams/latest/dev/kcl-configuration.md "../../../streams/latest/dev/kcl-configuration.md") and [KCL
-migration client configuration](../../../streams/latest/dev/kcl-migration.md#client-configuration "../../../streams/latest/dev/kcl-migration.md#client-configuration").
-
-###### Important
-
-Instead of directly creating objects of `checkpointConfig`,
-`coordinatorConfig`, `leaseManagementConfig`,
-`metricsConfig`, `processorConfig` and
-`retrievalConfig`, we recommend using `ConfigsBuilder` to set
-configurations in KCL 3.5.x+ and later versions to avoid Scheduler initialization issues.
-`ConfigsBuilder` provides a more flexible and maintainable way to configure
-your KCL application.
-
-#### Configurations with update default value in KCL 3.5.x+
-
-`**billingMode**`
-
-In KCL version 1.x, the default value for `billingMode` is set to
-`PROVISIONED`. However, with KCL version 3.5.x+, the default
-`billingMode` is `PAY_PER_REQUEST` (on-demand mode). We
-recommend that you use the on-demand capacity mode for your lease table to
-automatically adjust the capacity based on your usage. For guidance on using
-provisioned capacity for your lease tables, see [Best practices for the
-lease table with provisioned capacity mode](../../../streams/latest/dev/kcl-migration-lease-table.md "../../../streams/latest/dev/kcl-migration-lease-table.md").
-
-`**idleTimeBetweenReadsInMillis**`
-
-In KCL version 1.x, the default value for
-`idleTimeBetweenReadsInMillis` is set to is 1,000 (or 1 second). KCL
-version 3.5.x+ sets the default value for `idleTimeBetweenReadsInMillis` to
-1,500 (or 1.5 seconds), but Amazon DynamoDB Streams Kinesis Adapter overrides the default value to
-1,000 (or 1 second).
-
-#### New configurations in KCL 3.5.x+
-
-`**leaseAssignmentIntervalMillis**`
-
-This configuration defines the time interval before newly discovered shards
-begin processing, and is calculated as 1.5 ×
-`leaseAssignmentIntervalMillis`. If this setting isn't explicitly
-configured, the time interval defaults to 1.5 × `failoverTimeMillis`.
-Processing new shards involves scanning the lease table and querying a global
-secondary index (GSI) on the lease table. Lowering the
-`leaseAssignmentIntervalMillis` increases the frequency of these scan
-and query operations, resulting in higher DynamoDB costs. We recommend setting this
-value to 2000 (or 2 seconds) to minimize the delay in processing new shards.
-
-`**shardConsumerDispatchPollIntervalMillis**`
-
-This configuration defines the interval between successive polls by the shard
-consumer to trigger state transitions. In KCL version 1.x, this behavior was
-controlled by the `idleTimeInMillis` parameter, which was not exposed as
-a configurable setting. With KCL version 3.5.x+, we recommend setting this config to
-match the value used for `idleTimeInMillis` in your KCL version 1.x
-setup.
-
-### Step 5: Migrate from KCL 2.x to KCL 3.5.x+
-
-To ensure a smooth transition and compatibility with the latest Kinesis Client Library
-(KCL) version, follow steps 5-8 in the migration guide's instructions for [upgrading from KCL 2.x to KCL 3.5.x+](../../../streams/latest/dev/kcl-migration-from-2-3.md#kcl-migration-from-2-3-worker-metrics "../../../streams/latest/dev/kcl-migration-from-2-3.md#kcl-migration-from-2-3-worker-metrics").
-
-For common KCL 3.5.x+ troubleshooting issues, see [Troubleshooting KCL consumer applications](../../../streams/latest/dev/troubleshooting-consumers.md "../../../streams/latest/dev/troubleshooting-consumers.md").
+For common KCL 3.5.x\+ troubleshooting issues, see [Troubleshooting KCL consumer applications](https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html).

@@ -1,7 +1,9 @@
-# 04-query-test.py
 
-The `04-query-test.py` program performs `Query`
-operations on `TryDaxTable`.
+
+# 04-query-test.py
+<a name="DAX.client.run-application-python.04-query-test"></a>
+
+The `04-query-test.py` program performs `Query` operations on `TryDaxTable`.
 
 ```
 import argparse
@@ -74,5 +76,4 @@ if __name__ == "__main__":
         f"Total time: {test_end - test_start:.4f} sec. Average time: "
         f"{(test_end - test_start)/test_iterations}."
     )
-
 ```

@@ -1,35 +1,41 @@
+
+
 # Configuring your DAX cluster
+<a name="dax-config-considerations"></a>
 
 The DAX cluster is a managed cluster, but you can adjust its configurations to fit your application requirements. Because of its close integration with DynamoDB API operations, you should consider the following aspects when integrating your application with DAX.
 
-###### In this section
-
-- [DAX pricing](#dax-pricing "#dax-pricing")
-- [Item cache and query cache](#item-vs-query-cache "#item-vs-query-cache")
-- [Selecting TTL setting for the caches](#select-ttl-duration-caches "#select-ttl-duration-caches")
-- [Caching multiple tables with a DAX cluster](#cache-multi-tables-dax-cluster "#cache-multi-tables-dax-cluster")
-- [Data replication in DAX and DynamoDB global tables](#data-replication-dax-ddb-gt "#data-replication-dax-ddb-gt")
-- [DAX Region availability](#dax-region-availability "#dax-region-availability")
-- [DAX caching behavior](#dax-caching-behavior "#dax-caching-behavior")
+**Topics**
++ [DAX pricing](#dax-pricing)
++ [Item cache and query cache](#item-vs-query-cache)
++ [Selecting TTL setting for the caches](#select-ttl-duration-caches)
++ [Caching multiple tables with a DAX cluster](#cache-multi-tables-dax-cluster)
++ [Data replication in DAX and DynamoDB global tables](#data-replication-dax-ddb-gt)
++ [DAX Region availability](#dax-region-availability)
++ [DAX caching behavior](#dax-caching-behavior)
 
 ## DAX pricing
+<a name="dax-pricing"></a>
 
-The cost of a cluster depends on the number and size of [nodes](DAX.concepts.cluster.md#DAX.concepts.nodes "DAX.concepts.cluster.md#DAX.concepts.nodes") it has provisioned. Every node is billed for each hour it runs in the cluster. For more information, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/").
+The cost of a cluster depends on the number and size of [nodes](DAX.concepts.cluster.md#DAX.concepts.nodes) it has provisioned. Every node is billed for each hour it runs in the cluster. For more information, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/).
 
 Cache hits don't incur DynamoDB cost, but impact DAX cluster resources. Cache misses incur DynamoDB read costs and require DAX resources. Writes incur DynamoDB write costs and impact DAX cluster resources to proxy the write.
 
 ## Item cache and query cache
+<a name="item-vs-query-cache"></a>
 
-DAX maintains an [item cache](DAX.concepts.md#DAX.concepts.item-cache "DAX.concepts.md#DAX.concepts.item-cache") and a [query cache](DAX.concepts.md#DAX.concepts.query-cache "DAX.concepts.md#DAX.concepts.query-cache"). Understanding the differences between these caches can help you determine the performance and consistency characteristics they offer to your application.
+DAX maintains an [item cache](DAX.concepts.md#DAX.concepts.item-cache) and a [query cache](DAX.concepts.md#DAX.concepts.query-cache). Understanding the differences between these caches can help you determine the performance and consistency characteristics they offer to your application.
 
-| Cache characteristic   | Item cache                                                                                                                                                                                                                                                                         | Query cache                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Purpose                | Stores the results of [GetItem](../APIReference/API_GetItem.md "../APIReference/API_GetItem.md") and [BatchGetItem](../APIReference/API_BatchGetItem.md "../APIReference/API_BatchGetItem.md") API operations.                                                                     | Stores the results of [Query](../APIReference/API_Query.md "../APIReference/API_Query.md") and [Scan](../APIReference/API_Scan.md "../APIReference/API_Scan.md") API operations. These operations can return multiple items based on query conditions instead of specific item keys.                                                                                                  |
-| Access Type            | Uses key-based access.<br>When an application requests data using `GetItem` or `BatchGetItem`, DAX first checks the item cache using the primary key of the requested items. If the item is cached and unexpired, DAX returns it immediately without accessing the DynamoDB table. | Uses parameter-based access.<br>DAX caches the result set of `Query` and `Scan` API operations. DAX serves subsequent requests with the same parameters that include the same query conditions, table, index, from the cache. This significantly reduces response times and DynamoDB read throughput consumption.                                                                     |
-| Cache Invalidation     | DAX automatically replicates updated items into the item cache of the nodes in the DAX cluster in the following scenarios:<br>• You write an item update through the cache.<br>• Read an updated item version from the table.                                                      | The query cache is more challenging to invalidate than the item cache. Item updates might not directly map to cached queries or scans. You must carefully tune the query cache TTL to maintain data consistency. Writes through DAX or base table aren't reflected in query cache until the TTL expires the previously cached response and DAX performs a new query against DynamoDB. |
-| Global secondary index | Because the `GetItem` API operation isn't supported on local secondary indexes or global secondary indexes, the item cache only caches reads from the base table.                                                                                                                  | Query cache caches queries against both tables and indexes.                                                                                                                                                                                                                                                                                                                           |
+
+| Cache characteristic | Item cache | Query cache | 
+| --- | --- | --- | 
+| Purpose | Stores the results of [GetItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html) and [BatchGetItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html) API operations. | Stores the results of [Query](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html) and [Scan](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html) API operations. These operations can return multiple items based on query conditions instead of specific item keys. | 
+| Access Type | Uses key-based access.<br />When an application requests data using `GetItem` or `BatchGetItem`, DAX first checks the item cache using the primary key of the requested items. If the item is cached and unexpired, DAX returns it immediately without accessing the DynamoDB table. | Uses parameter-based access.<br />DAX caches the result set of `Query` and `Scan` API operations. DAX serves subsequent requests with the same parameters that include the same query conditions, table, index, from the cache. This significantly reduces response times and DynamoDB read throughput consumption. | 
+| Cache Invalidation | DAX automatically replicates updated items into the item cache of the nodes in the DAX cluster in the following scenarios:+  You write an item update through the cache. <br />+  Read an updated item version from the table.  | The query cache is more challenging to invalidate than the item cache. Item updates might not directly map to cached queries or scans. You must carefully tune the query cache TTL to maintain data consistency. Writes through DAX or base table aren't reflected in query cache until the TTL expires the previously cached response and DAX performs a new query against DynamoDB. | 
+| Global secondary index | Because the GetItem API operation isn't supported on local secondary indexes or global secondary indexes, the item cache only caches reads from the base table. | Query cache caches queries against both tables and indexes. | 
 
 ## Selecting TTL setting for the caches
+<a name="select-ttl-duration-caches"></a>
 
 TTL determines the period for which data is stored in the cache before it becomes stale. After this period, the data is automatically refreshed on the next request. Choosing the right TTL setting for your DAX caches involves balancing between the optimization of application performance and consistency of data. Because there doesn't exist a universal TTL setting that works for all applications, the optimal TTL setting varies based on your application's specific characteristics and requirements. We recommend that you start with a conservative TTL setting using this prescriptive guidance. Then, iteratively adjust your TTL setting based on your application's performance data and insights.
 
@@ -38,49 +44,53 @@ DAX maintains a least recently used (LRU) list for the item cache. The LRU list 
 To set a TTL duration that works for your applications, consider the following points:
 
 ### Understand your data access patterns
-
-- **Read-heavy workloads** – For applications with read-heavy workloads and infrequent data updates, set a longer TTL duration to reduce the number of cache misses. A longer TTL duration also reduces the need to access the underlying DynamoDB table.
-- **Write-heavy workloads** – For applications with frequent updates that aren't written through DAX, set a shorter TTL duration to ensure the cache stays consistent with the database. A shorter TTL duration also reduces the risk of serving stale data.
+<a name="ttl-data-access-patterns"></a>
++ **Read-heavy workloads** – For applications with read-heavy workloads and infrequent data updates, set a longer TTL duration to reduce the number of cache misses. A longer TTL duration also reduces the need to access the underlying DynamoDB table.
++ **Write-heavy workloads** – For applications with frequent updates that aren't written through DAX, set a shorter TTL duration to ensure the cache stays consistent with the database. A shorter TTL duration also reduces the risk of serving stale data.
 
 ### Evaluate your application's performance requirements
-
-- **Latency sensitivity** – If your application requires low latency over data freshness, use a longer TTL duration. A longer TTL duration maximizes cache hits, which reduces average read latency.
-- **Throughput and scalability** – A longer TTL duration reduces load on DynamoDB tables and improves throughput and scalability. However, you should balance this with the need for up-to-date data.
+<a name="ttl-evaluate-app-performance-reqs"></a>
++ **Latency sensitivity** – If your application requires low latency over data freshness, use a longer TTL duration. A longer TTL duration maximizes cache hits, which reduces average read latency.
++ **Throughput and scalability** – A longer TTL duration reduces load on DynamoDB tables and improves throughput and scalability. However, you should balance this with the need for up-to-date data.
 
 ### Analyze cache eviction and memory usage
-
-- **Cache memory limits** – Monitor your DAX cluster's memory usage. A longer TTL duration can store more data in the cache, which might reach memory limits and lead to LRU-based evictions.
+<a name="ttl-analyze-cache-evict-mem-use"></a>
++ **Cache memory limits** – Monitor your DAX cluster's memory usage. A longer TTL duration can store more data in the cache, which might reach memory limits and lead to LRU-based evictions.
 
 ### Use metrics and monitoring to adjust TTL
+<a name="ttl-adjust-use-metrics"></a>
 
-Regularly review [metrics](dax-metrics-dimensions-dax.md#dax-metrics-dimensions "dax-metrics-dimensions-dax.md#dax-metrics-dimensions"), for example, cache hits and misses, and CPU and memory utilization. Adjust your TTL setting based on these metrics to find an optimal balance between performance and data freshness. If cache misses are high and memory utilization is low, increase the TTL duration to increase the cache hit rate.
+Regularly review [metrics](dax-metrics-dimensions-dax.md#dax-metrics-dimensions), for example, cache hits and misses, and CPU and memory utilization. Adjust your TTL setting based on these metrics to find an optimal balance between performance and data freshness. If cache misses are high and memory utilization is low, increase the TTL duration to increase the cache hit rate.
 
 ### Consider business requirements and compliance
+<a name="ttl-business-reqs"></a>
 
 Data retention policies might dictate the maximum TTL duration you can set for sensitive or personal information.
 
 ### Cache behavior if you set TTL to zero
+<a name="ttl-cache-behavior-zero-value"></a>
 
 If you set TTL to 0, the item cache and query cache present the following behaviors:
-
-- **Item cache** – Items in the cache are refeshed only when an LRU eviction or a write-through operation occurs.
-- **Query cache** – Query responses aren't cached.
++ **Item cache** – Items in the cache are refeshed only when an LRU eviction or a write-through operation occurs.
++ **Query cache** – Query responses aren't cached.
 
 ## Caching multiple tables with a DAX cluster
+<a name="cache-multi-tables-dax-cluster"></a>
 
 For workloads with multiple small DynamoDB tables that don't need individual caches, a single DAX cluster caches requests for these tables. This provides more flexible and efficient use of DAX, particularly for applications that access multiple tables and require high-performance reads.
 
-Similar to the DynamoDB [data plane](HowItWorks.API.md#HowItWorks.API.DataPlane "HowItWorks.API.md#HowItWorks.API.DataPlane") APIs, DAX requests require a table name. If you use multiple tables in the same DAX cluster, you don't need any specific configuration. However, you must make sure that the cluster's security permissions allow access to all cached tables.
+Similar to the DynamoDB [data plane](HowItWorks.API.md#HowItWorks.API.DataPlane) APIs, DAX requests require a table name. If you use multiple tables in the same DAX cluster, you don't need any specific configuration. However, you must make sure that the cluster's security permissions allow access to all cached tables.
 
 ### Considerations for using DAX with multiple tables
+<a name="multi-table-dax-considerations"></a>
 
 When you use DAX with multiple DynamoDB tables, you should consider the following points:
-
-- **Memory management** – When you use DAX with multiple tables, you should consider the total size of your working data set. All the tables in your data set will share the same memory space of the node type you selected.
-- **Resource allocation** – The DAX cluster's resources are shared among all the cached tables. However, a high-traffic table can cause eviction of data from the neighboring smaller tables.
-- **Economies of scale** – Group smaller resources into a larger DAX cluster for averaging out traffic to a steadier pattern. For the total number of read resources that the DAX cluster requires, it's also economical to have three or more nodes. This also increases the availability of all the cached tables in the cluster.
++ **Memory management** – When you use DAX with multiple tables, you should consider the total size of your working data set. All the tables in your data set will share the same memory space of the node type you selected.
++ **Resource allocation** – The DAX cluster's resources are shared among all the cached tables. However, a high-traffic table can cause eviction of data from the neighboring smaller tables.
++ **Economies of scale** – Group smaller resources into a larger DAX cluster for averaging out traffic to a steadier pattern. For the total number of read resources that the DAX cluster requires, it's also economical to have three or more nodes. This also increases the availability of all the cached tables in the cluster.
 
 ## Data replication in DAX and DynamoDB global tables
+<a name="data-replication-dax-ddb-gt"></a>
 
 DAX is a Region-based service, so a cluster is only aware of the traffic within its AWS Region. Global tables write around the cache when they replicate data from another Region.
 
@@ -88,20 +98,21 @@ A longer TTL duration can cause stale data to remain in your secondary Region fo
 
 The following diagram shows data replication occurring at the global table level in the source Region A. The DAX cluster in Region B isn't immediately aware of the newly replicated data from the source Region A.
 
-![A global table replicates Item v2 from Region A to Region B. Region B DAX cluster B is unaware of Item v2.](images/dax-ddb-gt-data-replication.png)
+![A global table replicates Item v2 from Region A to Region B. Region B DAX cluster B is unaware of Item v2.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-ddb-gt-data-replication.png)
+
 
 ## DAX Region availability
+<a name="dax-region-availability"></a>
 
-Not all Regions that support DynamoDB tables support deploying DAX clusters. If your application requires low read latency through DAX, first review the list of [Regions that support DAX](../../../general/latest/gr/ddb.md#ddb_region "../../../general/latest/gr/ddb.md#ddb_region"). Then, select a Region for your DynamoDB table.
+Not all Regions that support DynamoDB tables support deploying DAX clusters. If your application requires low read latency through DAX, first review the list of [Regions that support DAX](https://docs.aws.amazon.com/general/latest/gr/ddb.html#ddb_region). Then, select a Region for your DynamoDB table.
 
 ## DAX caching behavior
+<a name="dax-caching-behavior"></a>
 
 DAX performs metadata and negative caching. Understanding these caching behaviors will help you effectively manage attribute metadata of cached items and negative cache entries.
++ **Metadata caching** – DAX clusters indefinitely maintain metadata about the attribute names of cached items. This metadata persists even after the item expires or is evicted from the cache.
 
-- **Metadata caching** – DAX clusters indefinitely maintain metadata about the attribute names of cached items. This metadata persists even after the item expires or is evicted from the cache.
+  Over time, applications that use unbounded number of attribute names can cause memory exhaustion in the DAX cluster. This limitation applies only to top-level attribute names, but not to the nested attribute names. Examples of unbounded attribute names include timestamps, UUIDs, and session IDs. Although you can use timestamps and session IDs as attribute values, we recommend to use shorter and more predictable attribute names.
++ **Negative caching** – If a cache miss occurs and the read from a DynamoDB table yields no matching items, DAX adds a negative cache entry in the respective item or query cache. This entry remains until the cache TTL duration expires or a write-through occurs. DAX continues to return this negative cache entry for future requests.
 
-Over time, applications that use unbounded number of attribute names can cause memory exhaustion in the DAX cluster. This limitation applies only to top-level attribute names, but not to the nested attribute names. Examples of unbounded attribute names include timestamps, UUIDs, and session IDs. Although you can use timestamps and session IDs as attribute values, we recommend to use shorter and more predictable attribute names.
-
-- **Negative caching** – If a cache miss occurs and the read from a DynamoDB table yields no matching items, DAX adds a negative cache entry in the respective item or query cache. This entry remains until the cache TTL duration expires or a write-through occurs. DAX continues to return this negative cache entry for future requests.
-
-If the negative caching behavior doesn't fit your application pattern, read the DynamoDB table directly when DAX returns an empty result. We also recommend that you set a lower TTL cache duration to avoid long-lasting empty results in the cache and improve consistency with the table.
+  If the negative caching behavior doesn't fit your application pattern, read the DynamoDB table directly when DAX returns an empty result. We also recommend that you set a lower TTL cache duration to avoid long-lasting empty results in the cache and improve consistency with the table.

@@ -1,51 +1,40 @@
+
+
 # Working with Local Secondary Indexes: Java
+<a name="LSIJavaDocumentAPI"></a>
 
-You can use the AWS SDK for Java Document API to create an Amazon DynamoDB table with one or more
-local secondary indexes, describe the indexes on the table, and perform queries using the
-indexes.
+You can use the AWS SDK for Java Document API to create an Amazon DynamoDB table with one or more local secondary indexes, describe the indexes on the table, and perform queries using the indexes.
 
-The following are the common steps for table operations using the AWS SDK for Java Document
-API.
+The following are the common steps for table operations using the AWS SDK for Java Document API.
 
 1. Create an instance of the `DynamoDB` class.
-2. Provide the required and optional parameters for the operation by creating the
-   corresponding request objects.
-3. Call the appropriate method provided by the client that you created in the
-   preceding step.
 
-###### Topics
+1. Provide the required and optional parameters for the operation by creating the corresponding request objects. 
 
-- [Create a table with a Local Secondary Index](#LSIJavaDocumentAPI.CreateTableWithIndex "#LSIJavaDocumentAPI.CreateTableWithIndex")
-- [Describe a table with a Local Secondary Index](#LSIJavaDocumentAPI.DescribeTableWithIndex "#LSIJavaDocumentAPI.DescribeTableWithIndex")
-- [Query a Local Secondary Index](#LSIJavaDocumentAPI.QueryAnIndex "#LSIJavaDocumentAPI.QueryAnIndex")
-- [Example: Local Secondary Indexes using the Java document API](LSIJavaDocumentAPI.Example.md "LSIJavaDocumentAPI.Example.md")
+1. Call the appropriate method provided by the client that you created in the preceding step. 
+
+**Topics**
++ [Create a table with a Local Secondary Index](#LSIJavaDocumentAPI.CreateTableWithIndex)
++ [Describe a table with a Local Secondary Index](#LSIJavaDocumentAPI.DescribeTableWithIndex)
++ [Query a Local Secondary Index](#LSIJavaDocumentAPI.QueryAnIndex)
++ [Example: Local Secondary Indexes using the Java document API](LSIJavaDocumentAPI.Example.md)
 
 ## Create a table with a Local Secondary Index
+<a name="LSIJavaDocumentAPI.CreateTableWithIndex"></a>
 
-Local secondary indexes must be created at the same time you create a table. To do
-this, use the `createTable` method and provide your specifications for one or
-more local secondary indexes. The following Java code example creates a table to hold
-information about songs in a music collection. The partition key is `Artist`
-and the sort key is `SongTitle`. A secondary index,
-`AlbumTitleIndex`, facilitates queries by album title.
+Local secondary indexes must be created at the same time you create a table. To do this, use the `createTable` method and provide your specifications for one or more local secondary indexes. The following Java code example creates a table to hold information about songs in a music collection. The partition key is `Artist` and the sort key is `SongTitle`. A secondary index, `AlbumTitleIndex`, facilitates queries by album title. 
 
-The following are the steps to create a table with a local secondary index, using the DynamoDB document
-API.
+The following are the steps to create a table with a local secondary index, using the DynamoDB document API. 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `CreateTableRequest` class to provide the
-   request information.
 
-You must provide the table name, its primary key, and the provisioned
-throughput values. For the local secondary index, you must provide the index name, the name and
-data type for the index sort key, the key schema for the index, and the
-attribute projection. 3. Call the `createTable` method by providing the request object as a
-parameter.
+1. Create an instance of the `CreateTableRequest` class to provide the request information. 
 
-The following Java code example demonstrates the preceding steps. The code creates a
-table (`Music`) with a secondary index on the `AlbumTitle`
-attribute. The table partition key and sort key, plus the index sort key, are the only
-attributes projected into the index.
+   You must provide the table name, its primary key, and the provisioned throughput values. For the local secondary index, you must provide the index name, the name and data type for the index sort key, the key schema for the index, and the attribute projection.
+
+1. Call the `createTable` method by providing the request object as a parameter.
+
+The following Java code example demonstrates the preceding steps. The code creates a table (`Music`) with a secondary index on the `AlbumTitle` attribute. The table partition key and sort key, plus the index sort key, are the only attributes projected into the index.
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -94,28 +83,24 @@ Table table = dynamoDB.createTable(createTableRequest);
 System.out.println(table.getDescription());
 ```
 
-You must wait until DynamoDB creates the table and sets the table status to
-`ACTIVE`. After that, you can begin putting data items into the
-table.
+You must wait until DynamoDB creates the table and sets the table status to `ACTIVE`. After that, you can begin putting data items into the table.
 
 ## Describe a table with a Local Secondary Index
+<a name="LSIJavaDocumentAPI.DescribeTableWithIndex"></a>
 
-To get information about local secondary indexes on a table, use the
-`describeTable` method. For each index, you can access its name, key
-schema, and projected attributes.
+To get information about local secondary indexes on a table, use the `describeTable` method. For each index, you can access its name, key schema, and projected attributes.
 
-The following are the steps to access local secondary index information of a table using the AWS SDK for Java
-Document API.
+The following are the steps to access local secondary index information of a table using the AWS SDK for Java Document API.
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class. You must provide the table
-   name.
-3. Call the `describeTable` method on the `Table`
-   object.
+
+1. Create an instance of the `Table` class. You must provide the table name.
+
+1. Call the `describeTable` method on the `Table` object.
 
 The following Java code example demonstrates the preceding steps.
 
-###### Example
+**Example**  
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -127,7 +112,7 @@ Table table = dynamoDB.getTable(tableName);
 
 TableDescription tableDescription = table.describe();
 
-List<LocalSecondaryIndexDescription> localSecondaryIndexes
+List<LocalSecondaryIndexDescription> localSecondaryIndexes 
     = tableDescription.getLocalSecondaryIndexes();
 
 // This code snippet will work for multiple indexes, even though
@@ -152,29 +137,25 @@ while (lsiIter.hasNext()) {
 ```
 
 ## Query a Local Secondary Index
+<a name="LSIJavaDocumentAPI.QueryAnIndex"></a>
 
-You can use the `Query` operation on a local secondary index in much the same way that you
-`Query` a table. You must specify the index name, the query criteria for
-the index sort key, and the attributes that you want to return. In this example, the
-index is `AlbumTitleIndex` and the index sort key is `AlbumTitle`.
+You can use the `Query` operation on a local secondary index in much the same way that you `Query` a table. You must specify the index name, the query criteria for the index sort key, and the attributes that you want to return. In this example, the index is `AlbumTitleIndex` and the index sort key is `AlbumTitle`. 
 
-The only attributes returned are those that have been projected into the index. You
-could modify this query to select non-key attributes too, but this would require table
-fetch activity that is relatively expensive. For more information about table fetches,
-see [Attribute projections](LSI.md#LSI.Projections "LSI.md#LSI.Projections").
+The only attributes returned are those that have been projected into the index. You could modify this query to select non-key attributes too, but this would require table fetch activity that is relatively expensive. For more information about table fetches, see [Attribute projections](LSI.md#LSI.Projections).
 
-The following are the steps to query a local secondary index using the AWS SDK for Java Document API.
+The following are the steps to query a local secondary index using the AWS SDK for Java Document API. 
 
 1. Create an instance of the `DynamoDB` class.
-2. Create an instance of the `Table` class. You must provide the table
-   name.
-3. Create an instance of the `Index` class. You must provide the index
-   name.
-4. Call the `query` method of the `Index` class.
+
+1. Create an instance of the `Table` class. You must provide the table name.
+
+1. Create an instance of the `Index` class. You must provide the index name.
+
+1. Call the `query` method of the `Index` class.
 
 The following Java code example demonstrates the preceding steps.
 
-###### Example
+**Example**  
 
 ```
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
@@ -202,19 +183,13 @@ while (itemsIter.hasNext()) {
 ```
 
 ### Consistent reads on a Local Secondary Index
+<a name="LSIJavaDocumentAPI.ConsistentReads"></a>
 
-Unlike global secondary indexes, which only support eventually consistent reads, a local secondary index supports
-both eventually consistent and strongly consistent reads. A strongly consistent read
-from a local secondary index always returns the latest updated values. If the query needs to fetch
-additional attributes from the base table, those fetched attributes are also
-consistent with respect to the index.
+Unlike global secondary indexes, which only support eventually consistent reads, a local secondary index supports both eventually consistent and strongly consistent reads. A strongly consistent read from a local secondary index always returns the latest updated values. If the query needs to fetch additional attributes from the base table, those fetched attributes are also consistent with respect to the index.
 
-By default, `Query` uses eventually consistent reads. To request a
-strongly consistent read, set `ConsistentRead` to `true` in
-the `QuerySpec`. The following example queries
-`AlbumTitleIndex` using a strongly consistent read:
+By default, `Query` uses eventually consistent reads. To request a strongly consistent read, set `ConsistentRead` to `true` in the `QuerySpec`. The following example queries `AlbumTitleIndex` using a strongly consistent read:
 
-###### Example
+**Example**  
 
 ```
 QuerySpec spec = new QuerySpec()
@@ -225,14 +200,5 @@ QuerySpec spec = new QuerySpec()
     .withConsistentRead(true);
 ```
 
-###### Note
-
-A strongly consistent read consumes one read capacity unit per 4 KB
-of data returned (rounded up), whereas an eventually consistent read consumes
-half of that. For example, a strongly consistent read that returns 9 KB of data
-consumes 3 read capacity units (9 KB / 4 KB = 2.25, rounded up to 3),
-while the same query using an eventually consistent read consumes 1.5 read
-capacity units. If your application can tolerate reading data that might be
-slightly stale, use eventually consistent reads to reduce your read capacity
-usage. For more information, see
-[Read capacity units](LSI.md#LSI.ThroughputConsiderations.Reads "LSI.md#LSI.ThroughputConsiderations.Reads").
+**Note**  
+A strongly consistent read consumes one read capacity unit per 4 KB of data returned (rounded up), whereas an eventually consistent read consumes half of that. For example, a strongly consistent read that returns 9 KB of data consumes 3 read capacity units (9 KB / 4 KB = 2.25, rounded up to 3), while the same query using an eventually consistent read consumes 1.5 read capacity units. If your application can tolerate reading data that might be slightly stale, use eventually consistent reads to reduce your read capacity usage. For more information, see [Read capacity units](LSI.md#LSI.ThroughputConsiderations.Reads).

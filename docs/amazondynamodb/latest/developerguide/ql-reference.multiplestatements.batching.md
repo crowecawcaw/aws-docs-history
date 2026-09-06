@@ -1,23 +1,22 @@
+
+
 # Running batch operations with PartiQL for DynamoDB
+<a name="ql-reference.multiplestatements.batching"></a>
 
 This section describes how to use batch statements with PartiQL for DynamoDB.
 
-###### Note
+**Note**  
+The entire batch must consist of either read statements or write statements; you cannot mix both in one batch.
+`BatchExecuteStatement` and `BatchWriteItem` can perform no more than 25 statements per batch.
+`BatchExecuteStatement` makes use of `BatchGetItem` which takes a list of primary keys in separate statements.
 
-- The entire batch must consist of either read statements or write
-  statements; you cannot mix both in one batch.
-- `BatchExecuteStatement` and `BatchWriteItem` can
-  perform no more than 25 statements per batch.
-- `BatchExecuteStatement` makes use of `BatchGetItem` which takes a list
-  of primary keys in separate statements.
-
-###### Topics
-
-- [Syntax](#ql-reference.multiplestatements.batching.syntax "#ql-reference.multiplestatements.batching.syntax")
-- [Parameters](#ql-reference.multiplestatements.batching.parameters "#ql-reference.multiplestatements.batching.parameters")
-- [Examples](#ql-reference.multiplestatements.batching.examples "#ql-reference.multiplestatements.batching.examples")
+**Topics**
++ [Syntax](#ql-reference.multiplestatements.batching.syntax)
++ [Parameters](#ql-reference.multiplestatements.batching.parameters)
++ [Examples](#ql-reference.multiplestatements.batching.examples)
 
 ## Syntax
+<a name="ql-reference.multiplestatements.batching.syntax"></a>
 
 ```
 [
@@ -28,70 +27,62 @@ This section describes how to use batch statements with PartiQL for DynamoDB.
     "Statement": "SELECT pk FROM ProblemSet WHERE pk = 'p#isC2ChceGbxHgESc4szoTE' AND sk = 'info'"
   }
 ]
-
 ```
 
 ```
 [
    {
-      "Statement":" `statement` ",
+      "Statement":"{{ statement }}",
       "Parameters":[
          {
-            " `parametertype` " : " `parametervalue` "
+            "{{ parametertype }}" : "{{ parametervalue }}"
          }, ...]
    } , ...
 ]
 ```
 
 ## Parameters
+<a name="ql-reference.multiplestatements.batching.parameters"></a>
 
-**`statement`**
+**{{statement}}**  
+(Required) A PartiQL for DynamoDB supported statement.  
++ The entire batch must consist of either read statements or write statements; you cannot mix both in one batch.
++ `BatchExecuteStatement` and `BatchWriteItem` can perform no more than 25 statements per batch.
 
-(Required) A PartiQL for DynamoDB supported statement.
+**{{parametertype}}**  
+(Optional) A DynamoDB type, if parameters were used when specifying the PartiQL statement.
 
-###### Note
-
-- The entire batch must consist of either read statements or
-  write statements; you cannot mix both in one batch.
-- `BatchExecuteStatement` and
-  `BatchWriteItem` can perform no more than 25
-  statements per batch.
-
-**`parametertype`**
-
-(Optional) A DynamoDB type, if parameters were used when specifying the
-PartiQL statement.
-
-**`parametervalue`**
-
-(Optional) A parameter value if parameters were used when specifying
-the PartiQL statement.
+**{{parametervalue}}**  
+(Optional) A parameter value if parameters were used when specifying the PartiQL statement.
 
 ## Examples
+<a name="ql-reference.multiplestatements.batching.examples"></a>
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 1. Save the following json to a file called partiql.json
 
-```
-[
-   {
-	 "Statement": "INSERT INTO Music VALUE {'Artist':?,'SongTitle':?}",
-	  "Parameters": [{"S": "Acme Band"}, {"S": "Best Song"}]
-	},
-	{
-	 "Statement": "UPDATE Music SET AwardsWon=1, AwardDetail={'Grammys':[2020, 2018]} WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
-    }
-]
-```
+   ```
+   [
+      {
+   	 "Statement": "INSERT INTO Music VALUE {'Artist':?,'SongTitle':?}",
+   	  "Parameters": [{"S": "Acme Band"}, {"S": "Best Song"}]
+   	},
+   	{
+   	 "Statement": "UPDATE Music SET AwardsWon=1, AwardDetail={'Grammys':[2020, 2018]} WHERE Artist='Acme Band' AND SongTitle='PartiQL Rocks'"
+       }
+   ]
+   ```
 
-2. Run the following command in a command prompt.
+1. Run the following command in a command prompt.
 
-```
-aws dynamodb batch-execute-statement  --statements  file://partiql.json
-```
+   ```
+   aws dynamodb batch-execute-statement  --statements  file://partiql.json
+   ```
 
-Java
+------
+#### [ Java ]
 
 ```
 public class DynamoDBPartiqlBatch {
@@ -99,7 +90,7 @@ public class DynamoDBPartiqlBatch {
     public static void main(String[] args) {
         // Create the DynamoDB Client with the region you want
         AmazonDynamoDB dynamoDB = createDynamoDbClient("us-west-2");
-
+        
         try {
             // Create BatchExecuteStatementRequest
             BatchExecuteStatementRequest batchExecuteStatementRequest = createBatchExecuteStatementRequest();
@@ -139,7 +130,7 @@ public class DynamoDBPartiqlBatch {
         return statements;
     }
 
-    // Handles errors during BatchExecuteStatement execution. Use recommendations in error messages below to add error handling specific to
+    // Handles errors during BatchExecuteStatement execution. Use recommendations in error messages below to add error handling specific to 
     // your application use-case.
     private static void handleBatchExecuteStatementErrors(Exception exception) {
         try {
@@ -156,16 +147,16 @@ public class DynamoDBPartiqlBatch {
         } catch (InternalServerErrorException isee) {
             System.out.println("Internal Server Error, generally safe to retry with exponential back-off. Error: " + isee.getErrorMessage());
         } catch (RequestLimitExceededException rlee) {
-            System.out.println("Throughput exceeds the current throughput limit for your account, increase account level throughput before " +
+            System.out.println("Throughput exceeds the current throughput limit for your account, increase account level throughput before " + 
                 "retrying. Error: " + rlee.getErrorMessage());
         } catch (ProvisionedThroughputExceededException ptee) {
             System.out.println("Request rate is too high. If you're using a custom retry strategy make sure to retry with exponential back-off. " +
-                "Otherwise consider reducing frequency of requests or increasing provisioned capacity for your table or secondary index. Error: " +
+                "Otherwise consider reducing frequency of requests or increasing provisioned capacity for your table or secondary index. Error: " + 
                 ptee.getErrorMessage());
         } catch (ResourceNotFoundException rnfe) {
             System.out.println("One of the tables was not found, verify table exists before retrying. Error: " + rnfe.getErrorMessage());
         } catch (AmazonServiceException ase) {
-            System.out.println("An AmazonServiceException occurred, indicates that the request was correctly transmitted to the DynamoDB " +
+            System.out.println("An AmazonServiceException occurred, indicates that the request was correctly transmitted to the DynamoDB " + 
                 "service, but for some reason, the service was not able to process it, and returned an error response instead. Investigate and " +
                 "configure retry strategy. Error type: " + ase.getErrorType() + ". Error message: " + ase.getErrorMessage());
         } catch (AmazonClientException ace) {
@@ -179,3 +170,5 @@ public class DynamoDBPartiqlBatch {
 
 }
 ```
+
+------

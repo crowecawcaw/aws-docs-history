@@ -1,29 +1,27 @@
+
+
 # Working with expired items and time to live (TTL)
+<a name="ttl-expired-items"></a>
 
-Expired items that are pending deletion can be filtered from read and write operations.
-This is useful in scenarios when expired data is no longer valid and should not be used. If
-they are not filtered, they’ll continue to show in read and write operations until they are
-deleted by the background process.
+Expired items that are pending deletion can be filtered from read and write operations. This is useful in scenarios when expired data is no longer valid and should not be used. If they are not filtered, they’ll continue to show in read and write operations until they are deleted by the background process.
 
-###### Note
-
+**Note**  
 These items still count towards storage and read costs until they are deleted.
 
-TTL deletions can be identified in DynamoDB Streams, but only in the Region where the
-deletion occurred. TTL deletions that are replicated to global table regions are not
-identifiable in DynamoDB streams in the regions the deletion is replicated to.
+TTL deletions can be identified in DynamoDB Streams, but only in the Region where the deletion occurred. TTL deletions that are replicated to global table regions are not identifiable in DynamoDB streams in the regions the deletion is replicated to.
 
 ## Filter expired items from read operations
+<a name="ttl-expired-items-filter"></a>
 
-For read operations such as [Scan](../APIReference/API_Scan.md "../APIReference/API_Scan.md") and [Query](../APIReference/API_Query.md "../APIReference/API_Query.md"), a filter expression can filter out expired items that are pending deletion. As shown in the following code snippet, the filter expression can filter out items where the TTL time is equal to or less than the current time. For example, the Python SDK code includes an assignment statement that obtains the current time as a variable (`now`), and converts it into `int` for epoch time format.
+For read operations such as [Scan](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html) and [Query](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html), a filter expression can filter out expired items that are pending deletion. As shown in the following code snippet, the filter expression can filter out items where the TTL time is equal to or less than the current time. For example, the Python SDK code includes an assignment statement that obtains the current time as a variable (`now`), and converts it into `int` for epoch time format.
 
 The following code examples show how to query for TTL items.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Java 2.x.
+**SDK for Java 2.x**  
+Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Java 2.x.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -64,19 +62,14 @@ import java.util.Optional;
             System.err.println(e.getMessage());
             throw e;
         }
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Query) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for JavaScript.
+**SDK for JavaScript (v3)**  
+Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for JavaScript.  
 
 ```
 import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb";
@@ -118,19 +111,14 @@ export const queryFiltered = async (tableName, primaryKey, region = 'us-east-1')
 
 // Example usage (commented out for testing)
 // queryFiltered('your-table-name', 'your-partition-key-value');
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Query](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/QueryCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Python (Boto3).
+**SDK for Python (Boto3)**  
+Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Python (Boto3).  
 
 ```
 from datetime import datetime
@@ -175,28 +163,25 @@ def query_dynamodb_items(table_name, partition_key):
 
 # Call the function with your values
 query_dynamodb_items("Music", "your-partition-key-value")
-
-
 ```
++  For API details, see [Query](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/Query) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Query](../../../goto/boto3/dynamodb-2012-08-10/Query.md "../../../goto/boto3/dynamodb-2012-08-10/Query.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
 ## Conditionally write to expired items
+<a name="ttl-expired-items-conditional-write"></a>
 
 A condition expression can be used to avoid writes against expired items. The code snippet below is a conditional update that checks whether the expiration time is greater than the current time. If true, the write operation will continue.
 
 The following code examples show how to conditionally update an item's TTL.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-Update TTL on on an existing DynamoDB Item in a table, with a condition.
+**SDK for Java 2.x**  
+Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
 ```
-
 package com.amazon.samplelib.ttl;
 
 import com.amazon.samplelib.CodeSampleUtils;
@@ -335,19 +320,14 @@ public class UpdateTTLConditional {
         }
     }
 }
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Update TTL on on an existing DynamoDB Item in a table, with a condition.
+**SDK for JavaScript (v3)**  
+Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
 ```
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
@@ -393,19 +373,14 @@ export const updateItemConditional = async (tableName, partitionKey, sortKey, re
 
 // Example usage (commented out for testing)
 // updateItemConditional('your-table-name', 'your-partition-key-value', 'your-sort-key-value');
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-Update TTL on on an existing DynamoDB Item in a table, with a condition.
+**SDK for Python (Boto3)**  
+Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
 ```
 from datetime import datetime, timedelta
@@ -467,19 +442,15 @@ update_dynamodb_item_ttl(
     "your-sort-key-value",
     "your-ttl-attribute-value",
 )
-
-
 ```
++  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/boto3/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
 ## Identifying deleted items in DynamoDB Streams
+<a name="ttl-expired-items-identifying"></a>
 
-The streams record contains a user identity field
-`Records[<index>].userIdentity`. Items that are deleted by the TTL
-process have the following fields:
+The streams record contains a user identity field `Records[<index>].userIdentity`. Items that are deleted by the TTL process have the following fields:
 
 ```
 Records[<index>].userIdentity.type
@@ -487,21 +458,19 @@ Records[<index>].userIdentity.type
 
 Records[<index>].userIdentity.principalId
 "dynamodb.amazonaws.com"
-
 ```
 
 The following JSON shows the relevant portion of a single streams record:
 
 ```
-"Records": [
-  {
-	...
+"Records": [ 
+  { 
+	... 
 		"userIdentity": {
-		"type": "Service",
-      	"principalId": "dynamodb.amazonaws.com"
-   	}
-   ...
-	}
+		"type": "Service", 
+      	"principalId": "dynamodb.amazonaws.com" 
+   	} 
+   ... 
+	} 
 ]
-
 ```

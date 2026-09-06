@@ -1,18 +1,20 @@
+
+
 # Work with DynamoDB resource tagging using AWS Command Line Interface v2
+<a name="example_dynamodb_Scenario_TaggingExamples_section"></a>
 
 The following code example shows how to manage tags for DynamoDB resources.
++ Create a table with tags.
++ List tags for a resource.
++ Add tags to a resource.
++ Remove tags from a resource.
++ Filter tables by tags.
 
-- Create a table with tags.
-- List tags for a resource.
-- Add tags to a resource.
-- Remove tags from a resource.
-- Filter tables by tags.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create a table with tags.
+**AWS CLI with Bash script**  
+Create a table with tags.  
 
 ```
 # Create a table with tags
@@ -27,11 +29,8 @@ aws dynamodb create-table \
         Key=Environment,Value=Production \
         Key=Project,Value=Analytics \
         Key=Owner,Value=DataTeam
-
-
 ```
-
-List tags for a resource.
+List tags for a resource.  
 
 ```
 # Get the table ARN
@@ -43,11 +42,8 @@ TABLE_ARN=$(aws dynamodb describe-table \
 # List tags for the table
 aws dynamodb list-tags-of-resource \
     --resource-arn $TABLE_ARN
-
-
 ```
-
-Add tags to a resource.
+Add tags to a resource.  
 
 ```
 # Add tags to an existing table
@@ -56,22 +52,16 @@ aws dynamodb tag-resource \
     --tags \
         Key=CostCenter,Value=12345 \
         Key=BackupSchedule,Value=Daily
-
-
 ```
-
-Remove tags from a resource.
+Remove tags from a resource.  
 
 ```
 # Remove tags from a table
 aws dynamodb untag-resource \
     --resource-arn $TABLE_ARN \
     --tag-keys Owner BackupSchedule
-
-
 ```
-
-Filter tables by tags.
+Filter tables by tags.  
 
 ```
 # Create another table with different tags
@@ -105,17 +95,13 @@ for ARN in $TABLE_ARNS; do
         echo "Table with Production tag: $TABLE_NAME"
     fi
 done
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [ListTagsOfResource](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/ListTagsOfResource)
+  + [TagResource](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/TagResource)
+  + [UntagResource](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UntagResource)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [ListTagsOfResource](../../../goto/aws-cli/dynamodb-2012-08-10/ListTagsOfResource.md "../../../goto/aws-cli/dynamodb-2012-08-10/ListTagsOfResource.md")
-  - [TagResource](../../../goto/aws-cli/dynamodb-2012-08-10/TagResource.md "../../../goto/aws-cli/dynamodb-2012-08-10/TagResource.md")
-  - [UntagResource](../../../goto/aws-cli/dynamodb-2012-08-10/UntagResource.md "../../../goto/aws-cli/dynamodb-2012-08-10/UntagResource.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
