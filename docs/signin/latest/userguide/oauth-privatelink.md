@@ -1,95 +1,57 @@
-# AWS PrivateLink
 
-AWS Sign-In OAuth APIs support AWS PrivateLink, enabling you to access OAuth
-authorization endpoints from within your Amazon VPC without traversing the public internet.
-You can configure VPC endpoints for AWS Sign-In to keep OAuth authorization traffic on
-the AWS network.
+
+# AWS PrivateLink
+<a name="oauth-privatelink"></a>
+
+AWS Sign-In OAuth APIs support AWS PrivateLink, enabling you to access OAuth authorization endpoints from within your Amazon VPC without traversing the public internet. You can configure VPC endpoints for AWS Sign-In to keep OAuth authorization traffic on the AWS network.
 
 Use VPC endpoints for AWS Sign-In OAuth when you need:
-
-- Private connectivity for OAuth authorization flows from within your Amazon VPC
-  or connected on-premises networks.
-- Network-level access controls for OAuth authorization using VPC endpoint
-  policies.
-- OAuth authorization in network-isolated environments without public internet
-  access.
++ Private connectivity for OAuth authorization flows from within your Amazon VPC or connected on-premises networks.
++ Network-level access controls for OAuth authorization using VPC endpoint policies.
++ OAuth authorization in network-isolated environments without public internet access.
 
 ## Configuring VPC endpoints for accessing Sign-In OAuth APIs
+<a name="oauth-privatelink-configuring"></a>
 
-AWS Sign-In OAuth supports operating in networks without access to the public
-internet. When you configure a VPC endpoint for AWS Sign-In, OAuth authorization
-traffic between your applications and AWS Sign-In is routed through AWS
-PrivateLink. Internet connectivity is not required for the OAuth authorization
-flow itself.
+AWS Sign-In OAuth supports operating in networks without access to the public internet. When you configure a VPC endpoint for AWS Sign-In, OAuth authorization traffic between your applications and AWS Sign-In is routed through AWS PrivateLink. Internet connectivity is not required for the OAuth authorization flow itself.
 
-The VPC endpoint required depends on your authorization model. Replace
-`region` with your own Region information.
+The VPC endpoint required depends on your authorization model. Replace `region` with your own Region information.
 
 ### Interactive mode
+<a name="oauth-privatelink-interactive"></a>
 
-Interactive OAuth authorization (browser-based) requires the following VPC
-endpoints:
-
-- `com.amazonaws.`region`.signin`
-- `com.amazonaws.`region`.signin-v2`
+Interactive OAuth authorization (browser-based) requires the following VPC endpoints:
++ `com.amazonaws.{{region}}.signin`
++ `com.amazonaws.{{region}}.signin-v2`
 
 ### Non-interactive mode
+<a name="oauth-privatelink-non-interactive"></a>
 
-Non-interactive OAuth authorization (client credentials grant using SigV4)
-requires the following VPC endpoint:
-
-- `com.amazonaws.`region`.signin-v2`
+Non-interactive OAuth authorization (client credentials grant using SigV4) requires the following VPC endpoint:
++ `com.amazonaws.{{region}}.signin-v2`
 
 ## Implementing access controls
+<a name="oauth-privatelink-access-controls"></a>
 
-You can use VPC endpoint policies to control which identities and accounts are
-permitted to use AWS Sign-In OAuth APIs through your private network. VPC endpoint
-policies are evaluated across OAuth operations.
+You can use VPC endpoint policies to control which identities and accounts are permitted to use AWS Sign-In OAuth APIs through your private network. VPC endpoint policies are evaluated across OAuth operations.
 
 ### Trusted identities
+<a name="oauth-privatelink-trusted-identities"></a>
 
-The AWS Sign-In VPC endpoint requires policies with specific Sign-In actions
-and condition keys appropriate to each authentication phase:
-
-- **Pre-authentication phase** –
-  Evaluated before the user's identity is established. Only
-  resource-based condition keys are available, because principal
-  information is not yet known.
-
-  - Supported actions:
-    `signin:Authenticate`,
-    `signin:CreateOAuth2PublicClient`
-  - Supported condition keys:
-    `aws:ResourceOrgId` or
-    `aws:ResourceAccount`
-
-###### Note
-
-`signin:CreateOAuth2PublicClient` only supports the
-`signin:OAuthRedirectUri` condition key. Other condition
-keys are not supported with this action.
-
-- **Post-authentication phase** –
-  Evaluated after authentication when the sign-in service issues session
-  credentials. Full principal information is available.
-
-  - Supported actions:
-    `signin:AuthorizeOAuth2Access`,
-    `signin:CreateOAuth2Token`,
-    `signin:IntrospectOAuth2Token`,
-    `signin:RevokeOAuth2Token`
-  - Supported condition keys:
-    `aws:PrincipalOrgId` or
-    `aws:PrincipalAccount`,
-    `aws:ResourceOrgId`,
-    `aws:ResourceAccount`
+The AWS Sign-In VPC endpoint requires policies with specific Sign-In actions and condition keys appropriate to each authentication phase:
++ **Pre-authentication phase** – Evaluated before the user's identity is established. Only resource-based condition keys are available, because principal information is not yet known.
+  + Supported actions: `signin:Authenticate`, `signin:CreateOAuth2PublicClient`
+  + Supported condition keys: `aws:ResourceOrgId` or `aws:ResourceAccount`
+**Note**  
+`signin:CreateOAuth2PublicClient` only supports the `signin:OAuthRedirectUri` condition key. Other condition keys are not supported with this action.
++ **Post-authentication phase** – Evaluated after authentication when the sign-in service issues session credentials. Full principal information is available.
+  + Supported actions: `signin:AuthorizeOAuth2Access`, `signin:CreateOAuth2Token`, `signin:IntrospectOAuth2Token`, `signin:RevokeOAuth2Token`
+  + Supported condition keys: `aws:PrincipalOrgId` or `aws:PrincipalAccount`, `aws:ResourceOrgId`, `aws:ResourceAccount`
 
 #### Example: Allow OAuth operations only for accounts in your organization
+<a name="oauth-privatelink-example-org"></a>
 
-This AWS Sign-In VPC endpoint policy uses action-specific statements to
-allow OAuth operations for AWS accounts in the specified AWS
-organization at both the pre-authentication and post-authentication
-phases.
+This AWS Sign-In VPC endpoint policy uses action-specific statements to allow OAuth operations for AWS accounts in the specified AWS organization at both the pre-authentication and post-authentication phases.
 
 ```
 {
@@ -127,10 +89,9 @@ phases.
 ```
 
 #### Example: Allow OAuth operations only for specific accounts
+<a name="oauth-privatelink-example-accounts"></a>
 
-This AWS Sign-In VPC endpoint policy uses action-specific statements to
-allow OAuth operations for a list of specific AWS accounts at both the
-pre-authentication and post-authentication phases.
+This AWS Sign-In VPC endpoint policy uses action-specific statements to allow OAuth operations for a list of specific AWS accounts at both the pre-authentication and post-authentication phases.
 
 ```
 {
@@ -168,9 +129,9 @@ pre-authentication and post-authentication phases.
 ```
 
 #### Example: Restrict Dynamic Client Registration to localhost redirect URIs
+<a name="oauth-privatelink-example-dcr"></a>
 
-This AWS Sign-In VPC endpoint policy restricts Dynamic Client Registration
-to localhost redirect URIs only.
+This AWS Sign-In VPC endpoint policy restricts Dynamic Client Registration to localhost redirect URIs only.
 
 ```
 {
@@ -193,9 +154,9 @@ to localhost redirect URIs only.
 ```
 
 #### Example: Allow token introspection and revocation for specific accounts
+<a name="oauth-privatelink-example-introspect-revoke"></a>
 
-This AWS Sign-In VPC endpoint policy allows token introspection and
-revocation for specific AWS accounts.
+This AWS Sign-In VPC endpoint policy allows token introspection and revocation for specific AWS accounts.
 
 ```
 {
@@ -221,20 +182,16 @@ revocation for specific AWS accounts.
 ```
 
 ### Expected networks
+<a name="oauth-privatelink-expected-networks"></a>
 
-For network-based access controls, see [Controlling console access with resource-based policies and resource control policies](console-access-control.md "console-access-control.md").
+For network-based access controls, see [Controlling console access with resource-based policies and resource control policies](console-access-control.md).
 
 ### Controlling account signup flows
+<a name="oauth-privatelink-signup"></a>
 
-The `signin:CreateAccount` action controls whether the AWS
-account signup flow is accessible from within your private network. This action
-uses an anonymous principal (no account exists during signup) and does not
-support condition keys.
+The `signin:CreateAccount` action controls whether the AWS account signup flow is accessible from within your private network. This action uses an anonymous principal (no account exists during signup) and does not support condition keys.
 
-When using the AWS Sign-In VPC endpoint policy format, the signup flow is
-blocked by implicit deny unless you explicitly allow it. If your organization
-requires account signup from within the private network, add the following
-statement to your AWS Sign-In VPC endpoint policy:
+When using the AWS Sign-In VPC endpoint policy format, the signup flow is blocked by implicit deny unless you explicitly allow it. If your organization requires account signup from within the private network, add the following statement to your AWS Sign-In VPC endpoint policy:
 
 ```
 {
