@@ -1,22 +1,23 @@
+
+
 # Z-Wave middleware code organization
+<a name="managedintegrations-sdk-middleware-zwave"></a>
 
 The following shows the Z-wave reference middleware code organization.
 
-###### Topics
-
-- [ACS Z-Wave DPK](#managedintegrations-sdk-middleware-zwavedpk "#managedintegrations-sdk-middleware-zwavedpk")
-- [Silicon Labs ZWare and Zip Gateway](#managedintegrations-sdk-middleware-zware "#managedintegrations-sdk-middleware-zware")
-- [ACS Z-Wave Service](#managedintegrations-sdk-middleware-zwavesvc "#managedintegrations-sdk-middleware-zwavesvc")
-- [ACS Z-Wave Adaptor](#managedintegrations-sdk-middleware-zwaveadaptor "#managedintegrations-sdk-middleware-zwaveadaptor")
+**Topics**
++ [ACS Z-Wave DPK](#managedintegrations-sdk-middleware-zwavedpk)
++ [Silicon Labs ZWare and Zip Gateway](#managedintegrations-sdk-middleware-zware)
++ [ACS Z-Wave Service](#managedintegrations-sdk-middleware-zwavesvc)
++ [ACS Z-Wave Adaptor](#managedintegrations-sdk-middleware-zwaveadaptor)
 
 ## ACS Z-Wave DPK
+<a name="managedintegrations-sdk-middleware-zwavedpk"></a>
 
-The code for Z-Wave DPK is located inside the
-`IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/ace_hal/zwave`
-folder.
+The code for Z-Wave DPK is located inside the `IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-dpk/{{example}}/dpk/ace_hal/zwave` folder.
 
 ```
-./IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/ace_hal/
+./IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-dpk/{{example}}/dpk/ace_hal/
 |— common
 |—   |— fxnDbusClient
 |—   |— include
@@ -44,13 +45,12 @@ folder.
 ```
 
 ## Silicon Labs ZWare and Zip Gateway
+<a name="managedintegrations-sdk-middleware-zware"></a>
 
-The code for the Silicon labs ZWare and Zip Gateway is located inside the
-`IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-z3-gateway` folder. This ACS
-Z-Wave DPK layer is implemented for Z-Wave C-APIs and Zip gateway.
+The code for the Silicon labs ZWare and Zip Gateway is located inside the `IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-z3-gateway` folder. This ACS Z-Wave DPK layer is implemented for Z-Wave C-APIs and Zip gateway.
 
 ```
-./IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-z3-gateway/
+./IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-z3-gateway/
 |— autogen
 |— config
 |— gecko_sdk_4.3.2
@@ -60,14 +60,12 @@ Z-Wave DPK layer is implemented for Z-Wave C-APIs and Zip gateway.
 ```
 
 ## ACS Z-Wave Service
+<a name="managedintegrations-sdk-middleware-zwavesvc"></a>
 
-The code for the Z-Wave Service is located inside the folder listed in the
-`IoTmanagedintegrationsMiddlewares/`example`iot-ace-zwave-mw/` folder. The
-`src` and `include` folders at this location contain all the files
-related to the ACS Z-Wave service.
+The code for the Z-Wave Service is located inside the folder listed in the `IoTmanagedintegrationsMiddlewares/{{example}}iot-ace-zwave-mw/` folder. The `src` and `include` folders at this location contain all the files related to the ACS Z-Wave service.
 
 ```
-IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-zwave-mw/src/
+IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-zwave-mw/src/
 |— zwave_mgr.c
 |— zwave_mgr_cc.c
 |— zwave_mgr_ipc_aipc.c
@@ -77,7 +75,7 @@ IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-zwave-mw/src/
 |— zwave_svc_ipc_aipc.c
 |— zwave_svc_main.c
 |— zwave_svc_publish.c
-IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-zwave-mw/include/
+IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-zwave-mw/include/
 |— ace
 |—   |— zwave_common_cc.h
 |—   |— zwave_common_cc_battery.h
@@ -101,14 +99,12 @@ IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-zwave-mw/include/
 ```
 
 ## ACS Z-Wave Adaptor
+<a name="managedintegrations-sdk-middleware-zwaveadaptor"></a>
 
-The code for the ACS Zigbee Adaptor is located inside the
-`IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-zwave-mw/cli/` folder. The
-`src` and `include` folder at this location contain all the files
-related to the ACS Z-Wave Adaptor library.
+The code for the ACS Zigbee Adaptor is located inside the `IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-zwave-mw/cli/` folder. The `src` and `include` folder at this location contain all the files related to the ACS Z-Wave Adaptor library.
 
 ```
-IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-zwave-mw/cli/
+IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-zwave-mw/cli/
 |— include
 |—   |— zwave_cli.h
 |— src

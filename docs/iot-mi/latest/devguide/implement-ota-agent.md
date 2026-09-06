@@ -1,18 +1,21 @@
-# Implement OTA agent
 
-When you receive the job document from managed integrations, you must have an implementation of your own
-OTA agent that processes the job document, downloads updates, and performs any installation operations.
-The OTA Agent needs to perform the following steps:
+
+# Implement OTA agent
+<a name="implement-ota-agent"></a>
+
+When you receive the job document from managed integrations, you must have an implementation of your own OTA agent that processes the job document, downloads updates, and performs any installation operations. The OTA Agent needs to perform the following steps:
 
 1. Parse job documents for firmware Amazon S3 URLs.
-2. Download firmware updates through HTTP.
-3. Verify digital signatures.
-4. Install validated updates.
-5. Call `iotmi\_JobsHandler\_updateJobStatus` with `SUCCESS` or
-   `FAILED` status.
-   When your device successfully completes the OTA operation, it must call the
-   `iotmi\_JobsHandler\_updateJobStatus` API with a status of `JobSucceeded`
-   to report a successful job.
+
+1. Download firmware updates through HTTP.
+
+1. Verify digital signatures.
+
+1. Install validated updates.
+
+1. Call `iotmi\_JobsHandler\_updateJobStatus` with `SUCCESS` or `FAILED` status.
+
+When your device successfully completes the OTA operation, it must call the `iotmi\_JobsHandler\_updateJobStatus` API with a status of `JobSucceeded` to report a successful job.
 
 ```
 /**

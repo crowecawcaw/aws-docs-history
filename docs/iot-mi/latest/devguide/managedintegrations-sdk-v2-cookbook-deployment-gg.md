@@ -1,72 +1,67 @@
+
+
 # Install the Hub SDK with AWS IoT Greengrass
+<a name="managedintegrations-sdk-v2-cookbook-deployment-gg"></a>
 
-Deploy the managed integrations Hub SDK components for your devices using AWS IoT Greengrass (Java
-Version).
+Deploy the managed integrations Hub SDK components for your devices using AWS IoT Greengrass (Java Version).
 
-###### Note
-
-You must have already set up and have an understanding of AWS IoT Greengrass. For more information,
-see [What is AWS IoT Greengrass](../../../greengrass/v2/developerguide/what-is-iot-greengrass.md "../../../greengrass/v2/developerguide/what-is-iot-greengrass.md") in the
-_AWS IoT Greengrass developer guide documentation_.
+**Note**  
+You must have already set up and have an understanding of AWS IoT Greengrass. For more information, see [What is AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html) in the *AWS IoT Greengrass developer guide documentation*.
 
 The AWS IoT Greengrass user must have permission to modify the following directories:
++ `/dev/aipc`
++ `/data/aws/iotmi/config`
++ `/data/ace/kvstorage`
 
-- `/dev/aipc`
-- `/data/aws/iotmi/config`
-- `/data/ace/kvstorage`
-
-###### Topics
-
-- [Deploy components locally](#managedintegrations-sdk-v2-cookbook-deployment-local "#managedintegrations-sdk-v2-cookbook-deployment-local")
-- [Cloud deployment](#managedintegrations-sdk-v2-cookbook-deployment-cloud "#managedintegrations-sdk-v2-cookbook-deployment-cloud")
-- [Verify hub provisioning](#managedintegrations-sdk-v2-cookbook-validation-hub "#managedintegrations-sdk-v2-cookbook-validation-hub")
-- [Verify CDMB operation](#managedintegrations-sdk-v2-cookbook-validation-cdmb "#managedintegrations-sdk-v2-cookbook-validation-cdmb")
-- [Verify LPW-Provisioner operation](#managedintegrations-sdk-v2-cookbook-validation-provisioner "#managedintegrations-sdk-v2-cookbook-validation-provisioner")
+**Topics**
++ [Deploy components locally](#managedintegrations-sdk-v2-cookbook-deployment-local)
++ [Cloud deployment](#managedintegrations-sdk-v2-cookbook-deployment-cloud)
++ [Verify hub provisioning](#managedintegrations-sdk-v2-cookbook-validation-hub)
++ [Verify CDMB operation](#managedintegrations-sdk-v2-cookbook-validation-cdmb)
++ [Verify LPW-Provisioner operation](#managedintegrations-sdk-v2-cookbook-validation-provisioner)
 
 ## Deploy components locally
+<a name="managedintegrations-sdk-v2-cookbook-deployment-local"></a>
 
-Use the [CreateDeployment](../../../greengrass/v2/APIReference/API_CreateDeployment.md "../../../greengrass/v2/APIReference/API_CreateDeployment.md") AWS IoT Greengrass API on your device to deploy the Hub SDK components. The
-version numbers are not static and can vary based on the version you use at the time. Use
-the following format for `version`:
-com.amazon.IoTManagedIntegrationsDevice.AceCommon=`0.2.0`.
+Use the [CreateDeployment](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateDeployment.html) AWS IoT Greengrass API on your device to deploy the Hub SDK components. The version numbers are not static and can vary based on the version you use at the time. Use the following format for **version**: com.amazon.IoTManagedIntegrationsDevice.AceCommon=`0.2.0`.
 
 ```
 /greengrass/v2/bin/greengrass-cli deployment create \
 --recipeDir recipes \
 --artifactDir artifacts \
--m "com.amazon.IoTManagedIntegrationsDevice.AceCommon=`version`" \
--m "com.amazon.IoTManagedIntegrationsDevice.HubOnboarding=`version`" \
--m "com.amazon.IoTManagedIntegrationsDevice.AceZigbee=`version`" \
--m "com.amazon.IoTManagedIntegrationsDevice.LPW-Provisioner=`version`" \
--m "com.amazon.IoTManagedIntegrationsDevice.Agent=`version`" \
--m "com.amazon.IoTManagedIntegrationsDevice.MQTTProxy=`version`" \
--m "com.amazon.IoTManagedIntegrationsDevice.CDMB=`version`" \
--m "com.amazon.IoTManagedIntegrationsDevice.AceZwave=`version`"
+-m "com.amazon.IoTManagedIntegrationsDevice.AceCommon=version" \
+-m "com.amazon.IoTManagedIntegrationsDevice.HubOnboarding=version" \
+-m "com.amazon.IoTManagedIntegrationsDevice.AceZigbee=version" \
+-m "com.amazon.IoTManagedIntegrationsDevice.LPW-Provisioner=version" \
+-m "com.amazon.IoTManagedIntegrationsDevice.Agent=version" \
+-m "com.amazon.IoTManagedIntegrationsDevice.MQTTProxy=version" \
+-m "com.amazon.IoTManagedIntegrationsDevice.CDMB=version" \
+-m "com.amazon.IoTManagedIntegrationsDevice.AceZwave=version"
 ```
 
 ## Cloud deployment
+<a name="managedintegrations-sdk-v2-cookbook-deployment-cloud"></a>
 
-Follow the instructions in the [AWS IoT Greengrass developer
-guide](../../../greengrass/v2/developerguide/upload-first-component.md "../../../greengrass/v2/developerguide/upload-first-component.md") to perform the following steps:
+Follow the instructions in the [AWS IoT Greengrass developer guide](https://docs.aws.amazon.com/greengrass/v2/developerguide/upload-first-component.html) to perform the following steps:
 
 1. Upload artifacts to Amazon S3.
-2. Update recipes to include the Amazon S3 artifact location.
-3. Create a cloud deployment to the device for the new components.
+
+1. Update recipes to include the Amazon S3 artifact location.
+
+1. Create a cloud deployment to the device for the new components.
 
 ## Verify hub provisioning
+<a name="managedintegrations-sdk-v2-cookbook-validation-hub"></a>
 
-Confirm successful provisioning by checking your configuration file. Open the
-`/data/aws/iotmi/config/iotmi_config.json` file and verify the state is set
-to `PROVISIONED`.
+Confirm successful provisioning by checking your configuration file. Open the `/data/aws/iotmi/config/iotmi_config.json` file and verify the state is set to `PROVISIONED`.
 
 ## Verify CDMB operation
+<a name="managedintegrations-sdk-v2-cookbook-validation-cdmb"></a>
 
-Check the logs file for CDMB startup messages and successful initialization. The
-`logs file` location can vary depending on where AWS IoT Greengrass is
-installed.
+Check the logs file for CDMB startup messages and successful initialization. The {{logs file}} location can vary depending on where AWS IoT Greengrass is installed.
 
 ```
-tail -f -n 100 `/greengrass/v2/logs/`com.amazon.IoTManagedIntegrationsDevice.CDMB.log
+tail -f -n 100 {{/greengrass/v2/logs/}}com.amazon.IoTManagedIntegrationsDevice.CDMB.log
 ```
 
 Example
@@ -77,13 +72,12 @@ Example
 ```
 
 ## Verify LPW-Provisioner operation
+<a name="managedintegrations-sdk-v2-cookbook-validation-provisioner"></a>
 
-Check the logs file for LPW-Provisioner startup messages and successful initialization.
-The `logs file` location can vary depending on where AWS IoT Greengrass is
-installed.
+Check the logs file for LPW-Provisioner startup messages and successful initialization. The {{logs file}} location can vary depending on where AWS IoT Greengrass is installed.
 
 ```
-tail -f -n 100 `/greengrass/v2/logs/`com.amazon.IoTManagedIntegrationsDevice.LPW-Provisioner.log
+tail -f -n 100 {{/greengrass/v2/logs/}}com.amazon.IoTManagedIntegrationsDevice.LPW-Provisioner.log
 ```
 
 Example

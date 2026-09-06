@@ -1,20 +1,23 @@
+
+
 # Zigbee middleware code organization
+<a name="managedintegrations-sdk-middleware-zigbee"></a>
 
 The following shows the Zigbee reference middleware code organization.
 
-###### Topics
-
-- [ACS Zigbee DPK](#managedintegrations-sdk-middleware-zigbeedpk "#managedintegrations-sdk-middleware-zigbeedpk")
-- [Silicon Labs Zigbee SDK](#managedintegrations-sdk-middleware-silabssdk "#managedintegrations-sdk-middleware-silabssdk")
-- [ACS Zigbee Service](#managedintegrations-sdk-middleware-zigbeesvc "#managedintegrations-sdk-middleware-zigbeesvc")
-- [ACS Zigbee Adaptor](#managedintegrations-sdk-middleware-zigbeeadaptor "#managedintegrations-sdk-middleware-zigbeeadaptor")
+**Topics**
++ [ACS Zigbee DPK](#managedintegrations-sdk-middleware-zigbeedpk)
++ [Silicon Labs Zigbee SDK](#managedintegrations-sdk-middleware-silabssdk)
++ [ACS Zigbee Service](#managedintegrations-sdk-middleware-zigbeesvc)
++ [ACS Zigbee Adaptor](#managedintegrations-sdk-middleware-zigbeeadaptor)
 
 ## ACS Zigbee DPK
+<a name="managedintegrations-sdk-middleware-zigbeedpk"></a>
 
 The code for Zigbee DPK is located inside the directory listed in the example below:
 
 ```
-./IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/ace_hal/
+./IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-dpk/{{example}}/dpk/ace_hal/
 |— common
 |—   |— fxnDbusClient
 |—   |— include
@@ -42,12 +45,12 @@ The code for Zigbee DPK is located inside the directory listed in the example be
 ```
 
 ## Silicon Labs Zigbee SDK
+<a name="managedintegrations-sdk-middleware-silabssdk"></a>
 
-The Silicon Labs SDK is presented inside the
-`IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-z3-gateway` folder. This ACS Zigbee DPK layer is implemented for this Silicon Labs SDK.
+The Silicon Labs SDK is presented inside the `IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-z3-gateway` folder. This ACS Zigbee DPK layer is implemented for this Silicon Labs SDK.
 
 ```
-./IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-zz3-gateway/
+./IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-zz3-gateway/
 |— autogen
 |— config
 |— gecko_sdk_4.3.2
@@ -57,14 +60,12 @@ The Silicon Labs SDK is presented inside the
 ```
 
 ## ACS Zigbee Service
+<a name="managedintegrations-sdk-middleware-zigbeesvc"></a>
 
-The code for the Zigbee Service is located inside the
-`IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/zigbee/`
-folder. The `src` and `include` subfolders at this location contain all
-the files related to the ACS Zigbee service.
+The code for the Zigbee Service is located inside the `IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-general/middleware/zigbee/` folder. The `src` and `include` subfolders at this location contain all the files related to the ACS Zigbee service.
 
 ```
-IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/zigbee/src/
+IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-general/middleware/zigbee/src/
 |— zb_alloc.c
 |— zb_callbacks.c
 |— zb_database.c
@@ -79,7 +80,7 @@ IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/
 |— zb_util.c
 |— zb_zdo.c
 |— zb_zts.c
-IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/zigbee/include/
+IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-general/middleware/zigbee/include/
 |— init.zigbeeservice.rc
 |— zb_ace_log_uml.h
 |— zb_alloc.h
@@ -100,19 +101,17 @@ IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/
 ```
 
 ## ACS Zigbee Adaptor
+<a name="managedintegrations-sdk-middleware-zigbeeadaptor"></a>
 
-The code for the ACS Zigbee Adaptor is located inside the
-`IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/zigbee/api`
-folder. The `src` and `include` subfolders at this location contain all
-the files related to the ACS Zigbee Adaptor library.
+The code for the ACS Zigbee Adaptor is located inside the `IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-general/middleware/zigbee/api` folder. The `src` and `include` subfolders at this location contain all the files related to the ACS Zigbee Adaptor library.
 
 ```
-IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/zigbee/api/src/
+IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-general/middleware/zigbee/api/src/
 |— zb_client_aipc.c
 |— zb_client_api.c
 |— zb_client_event_handler.c
 |— zb_client_zcl.c
-IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/zigbee/api/include/
+IotManagedIntegrationsDeviceSDK-Middleware/{{example}}-iot-ace-general/middleware/zigbee/api/include/
 |— ace
 |—   |— zb_adapter.h
 |—   |— zb_command.h
@@ -128,5 +127,4 @@ IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-general/middleware/
 |—   |— zb_zcl_measure_and_sensing.h
 |—   |— zb_zcl_onoff.h
 |—   |— zb_zcl_power.h
-
 ```

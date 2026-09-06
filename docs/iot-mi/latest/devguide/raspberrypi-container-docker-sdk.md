@@ -1,108 +1,96 @@
+
+
 # Managed Integrations Hub SDK Docker container on Raspberry Pi
+<a name="raspberrypi-container-docker-sdk"></a>
 
-###### Note
-
-This implementation of AWS IoT Hub SDK on Raspberry Pi is a demonstration project
-intended for learning and testing purposes only and is not intended to be used in production environments.
-For the purposes of this demo, set the following configurations for development ease:
-
-**AWS credentials storage**: For demo purposes only, credentials and certificates are
-stored in an accessible location for easier testing and development.
-Production environments must use secure storage solutions like AWS Secrets Manager, or
-Systems Manager Parameter Store. They must implement encryption at rest, and follow AWS IoT security guidelines.
-
-**Container privileges**: The demo runs with elevated privileges to allow unrestricted access to host resources
-and simplify development workflows. In production, containers should operate with minimal required privileges.
-
-**Network bridge configuration**: The demo uses a network bridge configuration that exposes internal network traffic
-for easier debugging and monitoring. In production environments, implement proper network isolation and segmentation to
-prevent unauthorized access to internal network traffic.
-
-**USB device permissions**: Unrestricted USB device access is enabled to facilitate easy
-connection of development peripherals and testing devices. For production, implement strict USB device controls and validation to prevent device spoofing attacks.
-
-These configurations enable straightforward testing and must notcbe used in production environments. When deploying to production,
-please follow security best practices to prevent host system compromise and unauthorized access to credentials.
+**Note**  
+ This implementation of AWS IoT Hub SDK on Raspberry Pi is a demonstration project intended for learning and testing purposes only and is not intended to be used in production environments. For the purposes of this demo, set the following configurations for development ease:   
+ **AWS credentials storage**: For demo purposes only, credentials and certificates are stored in an accessible location for easier testing and development. Production environments must use secure storage solutions like AWS Secrets Manager, or Systems Manager Parameter Store. They must implement encryption at rest, and follow AWS IoT security guidelines.   
+ **Container privileges**: The demo runs with elevated privileges to allow unrestricted access to host resources and simplify development workflows. In production, containers should operate with minimal required privileges.   
+ **Network bridge configuration**: The demo uses a network bridge configuration that exposes internal network traffic for easier debugging and monitoring. In production environments, implement proper network isolation and segmentation to prevent unauthorized access to internal network traffic.   
+ **USB device permissions**: Unrestricted USB device access is enabled to facilitate easy connection of development peripherals and testing devices. For production, implement strict USB device controls and validation to prevent device spoofing attacks.   
+ These configurations enable straightforward testing and must notcbe used in production environments. When deploying to production, please follow security best practices to prevent host system compromise and unauthorized access to credentials. 
 
 ## Prerequisites
+<a name="required-hardware-software"></a>
 
 The following prerequisites are required to for the docker container.
-
-- Download and install [Raspberry Pi imager](https://www.raspberrypi.com/software/ "https://www.raspberrypi.com/software/").
-- Obtain an [SD Card](https://www.amazon.com/dp/B0CWPPDS3D?ref=ppx_yo2ov_dt_b_fed_asin_title "https://www.amazon.com/dp/B0CWPPDS3D?ref=ppx_yo2ov_dt_b_fed_asin_title").
-- Set up a [Raspberry Pi 5 with 2.4Ghz 64-bit quad-core CPU (8GB RAM)](https://www.amazon.com/CanaKit-Raspberry-Starter-Kit-PRO/dp/B0CRSNCJ6Y/ "https://www.amazon.com/CanaKit-Raspberry-Starter-Kit-PRO/dp/B0CRSNCJ6Y/").
-- Connect a [Sonoff Zigbee USB Dongle](https://www.amazon.com/Plus-ZBDongle-Interface-Pre-Installed-Coordinated-Zigbee2MQTT/dp/B0B6P22YJC/ "https://www.amazon.com/Plus-ZBDongle-Interface-Pre-Installed-Coordinated-Zigbee2MQTT/dp/B0B6P22YJC/").
-- [Flash firmware to Sonoff Zigbee USB dongle](supported-raspberry.md#sonoff-zigbee-firmware-flashing "supported-raspberry.md#sonoff-zigbee-firmware-flashing").
-- Connect a [Silicon Labs SLUSB001A Dongle](https://www.digikey.com/en/products/detail/silicon-labs/SLUSB001A/9867108 "https://www.digikey.com/en/products/detail/silicon-labs/SLUSB001A/9867108").
-- [Sign up for an AWS account](setting-up.md#sign-up-for-aws "setting-up.md#sign-up-for-aws").
-- Install the latest version of [AWS CLI from the
-  Managed Integrations AWS CLI Command Reference](../../../cli/latest/reference/iot-managed-integrations.md "../../../cli/latest/reference/iot-managed-integrations.md").
-- SSH access to the Raspberry Pi with IP address or hostname.
++ Download and install [Raspberry Pi imager](https://www.raspberrypi.com/software/).
++ Obtain an [SD Card](https://www.amazon.com/dp/B0CWPPDS3D?ref=ppx_yo2ov_dt_b_fed_asin_title).
++ Set up a [Raspberry Pi 5 with 2.4Ghz 64-bit quad-core CPU (8GB RAM)](https://www.amazon.com/CanaKit-Raspberry-Starter-Kit-PRO/dp/B0CRSNCJ6Y/).
++ Connect a [Sonoff Zigbee USB Dongle](https://www.amazon.com/Plus-ZBDongle-Interface-Pre-Installed-Coordinated-Zigbee2MQTT/dp/B0B6P22YJC/).
++ [Flash firmware to Sonoff Zigbee USB dongle](supported-raspberry.md#sonoff-zigbee-firmware-flashing).
++ Connect a [Silicon Labs SLUSB001A Dongle](https://www.digikey.com/en/products/detail/silicon-labs/SLUSB001A/9867108).
++ [Sign up for an AWS account](https://docs.aws.amazon.com/iot-mi/latest/devguide/setting-up.html#sign-up-for-aws).
++ Install the latest version of [AWS CLI from the Managed Integrations AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/iot-managed-integrations/).
++ SSH access to the Raspberry Pi with IP address or hostname.
 
 ## Use Managed Integrations Hub SDK Docker container on Raspberry Pi
+<a name="docker-container-deployment"></a>
 
-1. Download [Managed Integrations Raspberry Pi Hub SDK Docker](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-Docker-v1.0.0.tar.gz "https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-Docker-v1.0.0.tar.gz").
-2. Copy the file to the Raspberry Pi using SCP:
+1. Download [ Managed Integrations Raspberry Pi Hub SDK Docker](https://d2no7dt1utuyzo.cloudfront.net/IotMI-HubSDK-RaspberryPi/1.0.0/IotMI-HubSDK-Docker-v1.0.0.tar.gz).
 
-```
-scp ~/path/to/IotMI-HubSDK-Docker-v1.0.0.tar.gz [username]@raspberrypi.local:~
-```
+1. Copy the file to the Raspberry Pi using SCP:
 
-3. Connect to the Raspberry Pi via SSH:
+   ```
+   scp ~/path/to/IotMI-HubSDK-Docker-v1.0.0.tar.gz [username]@raspberrypi.local:~
+   ```
 
-```
-ssh hub123456@raspberrypi.local
-```
+1. Connect to the Raspberry Pi via SSH:
 
-4. Install Docker if not present:
+   ```
+   ssh hub123456@raspberrypi.local
+   ```
 
-```
-# Install Docker
-cd
-curl -fsSL https://get.docker.com | sudo sh
+1. Install Docker if not present:
 
-# Add your user to docker group
-sudo usermod -aG docker $USER
-exit # exit ssh
+   ```
+   # Install Docker
+   cd
+   curl -fsSL https://get.docker.com | sudo sh
+   
+   # Add your user to docker group
+   sudo usermod -aG docker $USER
+   exit # exit ssh
+   
+   # Log in again
+   ```
 
-# Log in again
-```
+1. Install Docker Compose if not present:
 
-5. Install Docker Compose if not present:
+   ```
+   # Install Docker Compose
+   sudo apt-get update
+   sudo apt-get install -y docker-compose-plugin
+   ```
 
-```
-# Install Docker Compose
-sudo apt-get update
-sudo apt-get install -y docker-compose-plugin
-```
+1. Extract the Hub SDK files:
 
-6. Extract the Hub SDK files:
+   ```
+   # Navigate to the home directory
+   cd
+   
+   # Extract the hub-docker.tar.gz file
+   tar -xzf IotMI-HubSDK-Docker-v1.0.0.tar.gz
+   ```
 
-```
-# Navigate to the home directory
-cd
+1. Navigate to the hub-docker directory:
 
-# Extract the hub-docker.tar.gz file
-tar -xzf IotMI-HubSDK-Docker-v1.0.0.tar.gz
-```
+   ```
+   cd IotMI-HubSDK-Docker
+   ```
 
-7. Navigate to the hub-docker directory:
+1. Complete [Hub onboarding setup](https://docs.aws.amazon.com/iot-mi/latest/devguide/managedintegrations-sdk-v2-cookbook-hubsetup.html) to configure authentication and settings.
+**Note**  
+You must be on `YUL` or `DUB` region to do this step.
 
-```
-cd IotMI-HubSDK-Docker
-```
+1. Start the Docker container:
 
-8. Complete [Hub onboarding setup](managedintegrations-sdk-v2-cookbook-hubsetup.md "managedintegrations-sdk-v2-cookbook-hubsetup.md") to configure authentication and settings.
-
-###### Note
-
-You must be on `YUL` or `DUB` region to do this step. 9. Start the Docker container:
-
-```
-# The first time it's called, it will build the container
-docker compose up -d
-docker compose logs -f
-```
+   ```
+   # The first time it's called, it will build the container
+   docker compose up -d
+   docker compose logs -f
+   ```
 
 **Expected output:**
 
@@ -157,34 +145,28 @@ hubsdk-1  | Process 'iotmi_log_daemon' is running.
 hubsdk-1  | -\-\-\-\-\-Successfully Started Hub SDK-\-\-\-
 ```
 
-After successfully starting the Hub SDK, proceed with device onboarding and management at
-[User guided setup to onboard and operate
-devices](managedintegrations-sdk-v2-cookbook-ugs.md "managedintegrations-sdk-v2-cookbook-ugs.md").
+After successfully starting the Hub SDK, proceed with device onboarding and management at [User guided setup to onboard and operate devices](managedintegrations-sdk-v2-cookbook-ugs.md). 
 
-###### Note
+**Note**  
+To access the Docker container bash shell, run the following command:  
 
-- To access the Docker container bash shell, run the following command:
+  ```
+  docker compose exec hubsdk bash
+  ```
+To restart the container after reboot, run the following command:  
 
-```
-docker compose exec hubsdk bash
-```
+  ```
+  docker compose up -d
+  ```
+To update the Hub SDK, replace binaries in the following folder:  
 
-- To restart the container after reboot, run the following command:
+  ```
+  hub-docker/iotmi
+  ```
+To safely restart the container while preserving data, do:  
 
-```
-docker compose up -d
-```
-
-- To update the Hub SDK, replace binaries in the following folder:
-
-```
-hub-docker/iotmi
-```
-
-- To safely restart the container while preserving data, do:
-
-```
-docker compose down
-docker compose up -d
-docker compose logs -f
-```
+  ```
+  docker compose down
+  docker compose up -d
+  docker compose logs -f
+  ```

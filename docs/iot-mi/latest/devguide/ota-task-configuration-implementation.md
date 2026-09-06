@@ -1,8 +1,12 @@
+
+
 # OTA task configurations setup
+<a name="ota-task-configuration-implementation"></a>
 
 You can create configurations for OTA updates to control how updates are rolled out to devices, set abort conditions, and configure timeouts.
 
 ## Example: CreateOtaTaskConfiguration
+<a name="create-ota-task-configuration"></a>
 
 Use the following example to create an OTA task configuration:
 

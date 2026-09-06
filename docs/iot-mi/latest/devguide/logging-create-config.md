@@ -1,10 +1,9 @@
-# Creating event log configurations
 
-Use the [CreateEventLogConfiguration](../APIReference/API_CreateEventLogConfiguration.md "../APIReference/API_CreateEventLogConfiguration.md")
-API action to enable event logging for a resource type. We recommend creating a separate
-configuration for each resource type, using `*` as the resource identifier to
-capture logs for all resources of that type. Start at the `ERROR` log level to
-receive all failure logs without generating excessive volume or cost.
+
+# Creating event log configurations
+<a name="logging-create-config"></a>
+
+Use the [CreateEventLogConfiguration](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateEventLogConfiguration.html) API action to enable event logging for a resource type. We recommend creating a separate configuration for each resource type, using `*` as the resource identifier to capture logs for all resources of that type. Start at the `ERROR` log level to receive all failure logs without generating excessive volume or cost.
 
 ```
 aws iot-managed-integrations create-event-log-configuration \
@@ -37,7 +36,4 @@ aws iot-managed-integrations create-event-log-configuration \
     --event-log-level "ERROR"
 ```
 
-After you call `CreateEventLogConfiguration`, logs are pushed to the
-`/aws/iotmanagedintegrations/EventLog` log group in CloudWatch Logs. Use [ListEventLogConfigurations](../APIReference/API_ListEventLogConfigurations.md "../APIReference/API_ListEventLogConfigurations.md")
-to view all configurations, or [GetEventLogConfiguration](../APIReference/API_GetEventLogConfiguration.md "../APIReference/API_GetEventLogConfiguration.md")
-to retrieve a specific configuration by ID.
+After you call `CreateEventLogConfiguration`, logs are pushed to the `/aws/iotmanagedintegrations/EventLog` log group in CloudWatch Logs. Use [ListEventLogConfigurations](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_ListEventLogConfigurations.html) to view all configurations, or [GetEventLogConfiguration](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_GetEventLogConfiguration.html) to retrieve a specific configuration by ID.

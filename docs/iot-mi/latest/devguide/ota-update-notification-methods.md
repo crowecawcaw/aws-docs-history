@@ -1,16 +1,19 @@
+
+
 # Monitor OTA notifications
+<a name="ota-update-notification-methods"></a>
 
 You can monitor OTA updates using two different methods:
 
 ## Push notifications through Kinesis Data Streams
+<a name="push-notifications-kinesis"></a>
 
 When OTA notifications are enabled, update status events are automatically pushed to your Kinesis stream. This provides real-time visibility into the progress of firmware updates across devices.
 
 ## Monitor with ListOtaTaskExecutions API
+<a name="pull-method-api"></a>
 
-You can use the
-[ListOtaTaskExecutions](../APIReference/API_ListOtaTaskExecutions.md "../APIReference/API_ListOtaTaskExecutions.md")
-API to manually check the status of OTA updates for your managed things:
+You can use the [ListOtaTaskExecutions](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_ListOtaTaskExecutions.html) API to manually check the status of OTA updates for your managed things:
 
 ```
 aws iotmanagedintegrations list-ota-task-executions \

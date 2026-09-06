@@ -1,56 +1,54 @@
+
+
 # Deploy the Hub SDK with a script
+<a name="managedintegrations-sdk-v2-cookbook-deployment-nogg"></a>
 
-Deploy the managed integrations Hub SDK components manually using installation scripts, then validate the
-deployment. This section describes the script execution steps and verification process.
+Deploy the managed integrations Hub SDK components manually using installation scripts, then validate the deployment. This section describes the script execution steps and verification process.
 
-###### Topics
-
-- [Prepare your environment](#managedintegrations-sdk-v2-cookbook-runscript-prereq "#managedintegrations-sdk-v2-cookbook-runscript-prereq")
-- [Run the Hub SDK script](#managedintegrations-sdk-v2-cookbook-runscript-run "#managedintegrations-sdk-v2-cookbook-runscript-run")
-- [Verify hub provisioning](#managedintegrations-sdk-v2-cookbook-odm-validation-hub "#managedintegrations-sdk-v2-cookbook-odm-validation-hub")
-- [Verify agent operation](#managedintegrations-sdk-v2-cookbook-odm-validation-agent "#managedintegrations-sdk-v2-cookbook-odm-validation-agent")
-- [Verify LPW-Provisioner operation](#managedintegrations-sdk-v2-cookbook-odm-validation-provisioner "#managedintegrations-sdk-v2-cookbook-odm-validation-provisioner")
+**Topics**
++ [Prepare your environment](#managedintegrations-sdk-v2-cookbook-runscript-prereq)
++ [Run the Hub SDK script](#managedintegrations-sdk-v2-cookbook-runscript-run)
++ [Verify hub provisioning](#managedintegrations-sdk-v2-cookbook-odm-validation-hub)
++ [Verify agent operation](#managedintegrations-sdk-v2-cookbook-odm-validation-agent)
++ [Verify LPW-Provisioner operation](#managedintegrations-sdk-v2-cookbook-odm-validation-provisioner)
 
 ## Prepare your environment
+<a name="managedintegrations-sdk-v2-cookbook-runscript-prereq"></a>
 
 Complete these steps before running the SDK installation script:
 
-1. Create a folder named `middleware` inside the `artifacts`
-   folder.
-2. Copy your hub middleware files to the `middleware` folder.
-3. Run the initialization commands before starting the SDK.
+1. Create a folder named `middleware` inside the `artifacts` folder.
 
-###### Important
+1. Copy your hub middleware files to the `middleware` folder.
 
+1. Run the initialization commands before starting the SDK.
+**Important**  
 Repeat the initialization commands after each hub reboot.
 
-```
-#Get the current user
-_user=$(whoami)
-
-#Get the current group
-_grp=$(id -gn)
-
-#Display the user and group
-echo "Current User: $_user"
-echo "Current Group: $_grp"
-
-sudo mkdir -p /dev/aipc/
-sudo chown -R $_user:$_grp /dev/aipc
-sudo mkdir -p /data/ace/kvstorage
-sudo chown -R $_user:$_grp /data/ace/kvstorage
-```
+   ```
+   #Get the current user
+   _user=$(whoami)
+   
+   #Get the current group
+   _grp=$(id -gn)
+   
+   #Display the user and group
+   echo "Current User: $_user"
+   echo "Current Group: $_grp"
+   
+   sudo mkdir -p /dev/aipc/
+   sudo chown -R $_user:$_grp /dev/aipc
+   sudo mkdir -p /data/ace/kvstorage
+   sudo chown -R $_user:$_grp /data/ace/kvstorage
+   ```
 
 ## Run the Hub SDK script
+<a name="managedintegrations-sdk-v2-cookbook-runscript-run"></a>
 
-Navigate to the artifacts directory and run the `start_iotmi_sdk.sh`
-script. This script launches the hub SDK components in the correct sequence. Review the
-following example logs to verify successful startup:
+Navigate to the artifacts directory and run the `start_iotmi_sdk.sh` script. This script launches the hub SDK components in the correct sequence. Review the following example logs to verify successful startup:
 
-###### Note
-
-Logs for all the components running can be found inside the
-`artifacts/logs` folder.
+**Note**  
+Logs for all the components running can be found inside the `artifacts/logs` folder.
 
 ```
 hub@hub-293ea release_Oct_17$ ./start_iotmi_sdk.sh
@@ -92,12 +90,12 @@ Process 'iotmi_lpw_provisioner' is running.
 ```
 
 ## Verify hub provisioning
+<a name="managedintegrations-sdk-v2-cookbook-odm-validation-hub"></a>
 
-Check that the `iot_provisioning_state` field in
-`/data/aws/iotmi/config/iotmi_config.json` is set to `PROVISIONED`.
-.
+Check that the `iot_provisioning_state` field in `/data/aws/iotmi/config/iotmi_config.json` is set to `PROVISIONED`. .
 
 ## Verify agent operation
+<a name="managedintegrations-sdk-v2-cookbook-odm-validation-agent"></a>
 
 Check the logs file for agent startup messages and successful initialization.
 
@@ -112,15 +110,13 @@ Example
 [2024-09-06 02:31:54.513956059][Device_Agent][info] Successfully subscribed to topic: south/bF|gi_044F8821D0193608C8D5BF80858E20A56E3A8490/setup
 ```
 
-###### Note
-
-Check that the `iotmi.db` database exists in your `artifacts`
-directory.
+**Note**  
+Check that the `iotmi.db` database exists in your `artifacts` directory.
 
 ## Verify LPW-Provisioner operation
+<a name="managedintegrations-sdk-v2-cookbook-odm-validation-provisioner"></a>
 
-Check the logs file for `LPW-Provisioner` startup messages and successful
-initialization.
+Check the logs file for `LPW-Provisioner` startup messages and successful initialization.
 
 ```
 tail -f -n 100 logs/provisioner_logs.txt

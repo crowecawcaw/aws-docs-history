@@ -1,35 +1,44 @@
+
+
 # Technical reference
+<a name="managedintegrations-sdk-device-appendix"></a>
 
-###### Topics
-
-- [Reference: Supported platforms](#managedintegrations-sdk-device-appendixA "#managedintegrations-sdk-device-appendixA")
-- [Reference: Technical requirements](#managedintegrations-sdk-device-appendixB "#managedintegrations-sdk-device-appendixB")
-- [Reference: Common API](#managedintegrations-sdk-device-appendixC "#managedintegrations-sdk-device-appendixC")
+**Topics**
++ [Reference: Supported platforms](#managedintegrations-sdk-device-appendixA)
++ [Reference: Technical requirements](#managedintegrations-sdk-device-appendixB)
++ [Reference: Common API](#managedintegrations-sdk-device-appendixC)
 
 ## Reference: Supported platforms
+<a name="managedintegrations-sdk-device-appendixA"></a>
 
 The following table displays the supported platforms for the SDK.
 
-Supported platforms| Platform | Architecture | Operating system |
-| --- | --- | --- |
-| Linux x86\_64 | x86\_64 | Linux |
-| Ambarella | Armv8 (AArch64) | Linux |
-| AmebaD | Armv8-M 32 bit | FreeRTOS |
-| ESP32S3 | Xtensa LX7 32 bit | FreeRTOS |
+
+**Supported platforms**  
+
+| Platform | Architecture | Operating system | 
+| --- | --- | --- | 
+| Linux x86\_64 | x86\_64 | Linux | 
+| Ambarella | Armv8 (AArch64) | Linux | 
+| AmebaD | Armv8-M 32 bit | FreeRTOS | 
+| ESP32S3 | Xtensa LX7 32 bit | FreeRTOS | 
 
 ## Reference: Technical requirements
+<a name="managedintegrations-sdk-device-appendixB"></a>
 
-The following table shows the technical requirements for the SDK, including the RAM
-space. The End device SDK itself requires about 5 to 10 MB of ROM space when using the same
-configuration.
+The following table shows the technical requirements for the SDK, including the RAM space. The End device SDK itself requires about 5 to 10 MB of ROM space when using the same configuration.
 
-RAM space| SDK and components | Space requirements (bytes used) |
-| --- | --- |
-| End device SDK itself | 180 KB |
-| Default MQTT Agent command queue | 480 bytes (can be configured) |
-| Default MQTT Agent incoming queue | 320 bytes (can be configured) |
+
+**RAM space**  
+
+| SDK and components | Space requirements (bytes used) | 
+| --- | --- | 
+| End device SDK itself | 180 KB | 
+| Default MQTT Agent command queue | 480 bytes (can be configured) | 
+| Default MQTT Agent incoming queue | 320 bytes (can be configured) | 
 
 ## Reference: Common API
+<a name="managedintegrations-sdk-device-appendixC"></a>
 
 This section is a list of API operations that are not specific to a cluster.
 
@@ -44,7 +53,7 @@ enum iotmiDev_DMStatus
   /* The operation has not been implemented yet. */
   iotmiDev_DMStatusNotImplement = 2,
   /* The operation is to create a resource, but the resource already exists. */
-  iotmiDev_DMStatusExist = 3,
+  iotmiDev_DMStatusExist = 3, 
 }
 
 /* The opaque type to represent a instance of device agent. */

@@ -1,12 +1,14 @@
+
+
 # Implement Over-the-Air(OTA) tasks
+<a name="ota-task-types-implementation"></a>
 
 You can create OTA tasks in two ways, depending on your update requirements and device targeting strategy:
 
 ## One-Time OTA task updates
+<a name="one-time-ota-task-implementation"></a>
 
-A one-time OTA task contains a static list of targets (`ManagedThings`) to perform OTA updates.
-You can add up to 100 targets at a time. The workflow uses AWS IoT Jobs with Fleet Indexing
-while maintaining the managed integrations abstraction layer.
+A one-time OTA task contains a static list of targets (`ManagedThings`) to perform OTA updates. You can add up to 100 targets at a time. The workflow uses AWS IoT Jobs with Fleet Indexing while maintaining the managed integrations abstraction layer. 
 
 Use the following example to create a one-time OTA task:
 
@@ -15,7 +17,7 @@ aws iotmanagedintegrations create-ota-task \
   --description "One-time OTA update" \
   --s3-url "s3://test-job-document-bucket/ota-job-document.json" \
   --protocol HTTP \
-  --target ["arn:aws:iotmanagedintegrations:`region`:`account id`:managed-thing/`managed thing id`"] \
+  --target ["arn:aws:iotmanagedintegrations:{{region}}:{{account id}}:managed-thing/{{managed thing id}}"] \
   --ota-mechanism PUSH \
   --ota-type ONE_TIME \
   --client-token "foo" \
@@ -23,27 +25,20 @@ aws iotmanagedintegrations create-ota-task \
 ```
 
 ## Continuous OTA task updates
+<a name="continuous-ota-task-implementation"></a>
 
-The OTA (Over-the-Air) grouping workflow enables you to deploy firmware updates to groups of
-devices based on specific attributes,
-using AWS IoT Jobs with Fleet Indexing while maintaining the managed integrations abstraction layer.
-Continuous OTA tasks use a query string instead of specific targets.
-All devices that match the query criteria
-undergo OTA updates, and the query criteria is continually re-evaluated.
-The matching targets will have job deployments.
+The OTA (Over-the-Air) grouping workflow enables you to deploy firmware updates to groups of devices based on specific attributes, using AWS IoT Jobs with Fleet Indexing while maintaining the managed integrations abstraction layer. Continuous OTA tasks use a query string instead of specific targets. All devices that match the query criteria undergo OTA updates, and the query criteria is continually re-evaluated. The matching targets will have job deployments.
 
 ### Configure prerequisites
+<a name="continuous-ota-prerequisites"></a>
 
 Before creating continuous OTA tasks, complete these prerequisites:
 
-1. Create a managed thing by calling the
-   [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md")
-   API and perform fleet provisioning.
-2. Add metadata attributes to your managed things for query targeting.
+1. Create a managed thing by calling the [CreateManagedThing](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateManagedThing.html) API and perform fleet provisioning.
 
-Add attributes and metadata to `ManagedThing` using the
-[UpdateManagedThing](../APIReference/API_UpdateManagedThing.md "../APIReference/API_UpdateManagedThing.md")
-API:
+1. Add metadata attributes to your managed things for query targeting.
+
+Add attributes and metadata to `ManagedThing` using the [UpdateManagedThing](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_UpdateManagedThing.html) API:
 
 ```
 aws iotmanagedintegrations update-managed-thing \
@@ -66,44 +61,34 @@ aws iotmanagedintegrations create-ota-task \
 ```
 
 ### Understand continuous OTA workflow
+<a name="continuous-ota-workflow"></a>
 
 The continuous OTA update workflow follows these steps:
 
-1. You update managed things with attributes using the
-   [UpdateManagedThing](../APIReference/API_UpdateManagedThing.md "../APIReference/API_UpdateManagedThing.md")
-   API.
-2. Create an OTA job with a query string targeting specific device attributes.
-3. The OTA service creates a dynamic Thing Group in AWS IoT Core based on query attributes
-4. IoT Jobs executes updates on matching devices
-5. You monitor progress via the
-   [ListOtaTaskExecutions](../APIReference/API_ListOtaTaskExecutions.md "../APIReference/API_ListOtaTaskExecutions.md")
-   API or OTA notifications through Kinesis stream (if enabled).
+1. You update managed things with attributes using the [UpdateManagedThing](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_UpdateManagedThing.html) API.
+
+1. Create an OTA job with a query string targeting specific device attributes.
+
+1. The OTA service creates a dynamic Thing Group in AWS IoT Core based on query attributes
+
+1. IoT Jobs executes updates on matching devices
+
+1. You monitor progress via the [ListOtaTaskExecutions](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_ListOtaTaskExecutions.html) API or OTA notifications through Kinesis stream (if enabled).
 
 ## Differences between Managed Integrations OTA and IoT Jobs
+<a name="managed-integration-vs-iot-jobs"></a>
 
-The fundamental distinction between Managed Integrations OTA and IoT Jobs lies in
-**service orchestration and automation**. Managed Integrations OTA provides a
-**single-service solution** that
-abstracts away the complexity of multi-service coordination.
+The fundamental distinction between Managed Integrations OTA and IoT Jobs lies in **service orchestration and automation**. Managed Integrations OTA provides a **single-service solution** that abstracts away the complexity of multi-service coordination.
 
 What Managed Integrations OTA does automatically:
-
-- **Dynamic Thing Group creation:** Automatically generates AWS IoT Core
-  thing groups based on your query criteria.
-- **Target resolution:** Translates query strings
-  (Example: `attributes.owner=managedintegrations`) into actual device targets.
-- **Service integration:** Seamlessly coordinates between AWS IoT Core,
-  IoT Jobs, and Fleet Indexing services.
-- **Lifecycle management:** Handles the entire OTA
-  workflow from creation to execution monitoring.
++ **Dynamic Thing Group creation:** Automatically generates AWS IoT Core thing groups based on your query criteria.
++ **Target resolution:** Translates query strings (Example: `attributes.owner=managedintegrations`) into actual device targets.
++ **Service integration:** Seamlessly coordinates between AWS IoT Core, IoT Jobs, and Fleet Indexing services.
++ **Lifecycle management:** Handles the entire OTA workflow from creation to execution monitoring.
 
 What MI OTA eliminates:
++ Creating thing groups in AWS IoT Core.
++ Adding things to groups.
++ Creating IoT Jobs.
 
-- Creating thing groups in AWS IoT Core.
-- Adding things to groups.
-- Creating IoT Jobs.
-
-Managed Integrations OTA handles all three operations internally based on your query string,
-automatically discovering devices that match your criteria,
-creating IoT Jobs under the hood, and orchestrating the
-complete OTA workflow without requiring you to interact with multiple AWS services directly.
+Managed Integrations OTA handles all three operations internally based on your query string, automatically discovering devices that match your criteria, creating IoT Jobs under the hood, and orchestrating the complete OTA workflow without requiring you to interact with multiple AWS services directly.
