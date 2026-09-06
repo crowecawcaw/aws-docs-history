@@ -75,7 +75,7 @@ telemetry IAM role. Add the following policy to your user or role:
         "iam:GetRole",
         "iam:PassRole"
       ],
-      "Resource": "arn:aws:iam::`99999999999`:role/`your-stream-name`"
+      "Resource": "arn:aws:iam::`123456789012`:role/`your-stream-name`"
     }
   ]
 }

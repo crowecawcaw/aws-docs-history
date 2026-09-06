@@ -111,10 +111,25 @@ application, and create one or more dataflow endpoint groups.
           echo "Waiting for dataflow endpoint application to start"
           while netstat -lnt | awk '$4 ~ /:80$/ {exit 1}'; do sleep 10; done
 
+          OS_VERSION_ID=$([ -f /etc/os-release ] && . /etc/os-release && echo "${VERSION_ID}")
+          if [ "${OS_VERSION_ID}" = "2023" ]; then PYTHON_BIN="python3"; else PYTHON_BIN="python"; fi
+
           echo "Configuring dataflow endpoint application streams"
-          python "${GROUND_STATION_BIN_DIR}/configure_streams.py" --configFileName "${STREAM_CONFIG_PATH}"
-          sleep 2
-          python "${GROUND_STATION_BIN_DIR}/save_default_config.py"
+          streams_configured=false
+          for attempt in $(seq 1 6); do
+            if ${PYTHON_BIN} "${GROUND_STATION_BIN_DIR}/configure_streams.py" --configFileName "${STREAM_CONFIG_PATH}"; then
+              streams_configured=true
+              break
+            fi
+            echo "configure_streams attempt ${attempt} failed; retrying in 10s"
+            sleep 10
+          done
+          if [ "${streams_configured}" = "true" ]; then
+            sleep 2
+            ${PYTHON_BIN} "${GROUND_STATION_BIN_DIR}/save_default_config.py"
+          else
+            echo "ERROR: configure_streams failed after ${attempt} attempts; not saving a default config"
+          fi
 
           exit 0
 
