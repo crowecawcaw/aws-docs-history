@@ -12,13 +12,13 @@ You can attach `AmazonAppStreamServiceAccess` to your users, groups, and roles.
 
 - **Type**: Service role policy
 - **Creation time**: November 19, 2016, 04:17 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** September 03, 2026, 16:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonAppStreamServiceAccess`
 
 ## Policy version
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,7 +45,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeVpcEndpoints",
         "s3:ListAllMyBuckets",
-        "ds:DescribeDirectories"
+        "ds:DescribeDirectories",
+        "application-autoscaling:DescribeScalableTargets"
       ],
       "Resource" : "*"
     },

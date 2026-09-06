@@ -12,13 +12,13 @@ You can attach `AWSAccountSettingsManagementRole` to your users, groups, and rol
 
 - **Type**: AWS managed policy
 - **Creation time**: December 11, 2025, 17:49 UTC
-- **Edited time:** August 26, 2026, 01:07 UTC
+- **Edited time:** September 01, 2026, 15:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSAccountSettingsManagementRole`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -132,7 +132,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "support:DescribeCases",
         "support:AddCommunicationToCase",
         "support:ResolveCase",
-        "support:AddAttachmentsToSet"
+        "support:AddAttachmentsToSet",
+        "support:DescribeAttachment",
+        "support:DescribeCommunications"
       ],
       "Resource" : "*"
     }

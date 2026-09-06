@@ -12,13 +12,13 @@ You can attach `AWSManagedSettingsAdminAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: July 22, 2026, 01:27 UTC
-- **Edited time:** August 14, 2026, 20:07 UTC
+- **Edited time:** September 01, 2026, 00:37 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSManagedSettingsAdminAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -114,7 +114,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "customer-verification:CreateUploadUrls",
         "customer-verification:GetCustomerVerificationDetails",
         "customer-verification:GetCustomerVerificationEligibility",
-        "customer-verification:UpdateCustomerVerificationDetails"
+        "customer-verification:UpdateCustomerVerificationDetails",
+        "customer-verification:GetInheritanceConfig",
+        "customer-verification:PutInheritanceConfig"
       ],
       "Resource" : "*"
     },

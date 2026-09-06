@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 30, 2017, 13:44 UTC
-- **Edited time:** January 17, 2022, 14:06 UTC
+- **Edited time:** September 03, 2026, 23:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSCloud9ServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -43,13 +43,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudformation:CreateStack",
         "cloudformation:DescribeStacks",
         "cloudformation:DescribeStackEvents",
-        "cloudformation:DescribeStackResources"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : [
+        "cloudformation:DescribeStackResources",
         "ec2:TerminateInstances",
         "ec2:DeleteSecurityGroup",
         "ec2:AuthorizeSecurityGroupIngress"
@@ -122,6 +116,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringLike" : {
           "iam:PassedToService" : "ec2.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
+          ]
         }
       }
     }

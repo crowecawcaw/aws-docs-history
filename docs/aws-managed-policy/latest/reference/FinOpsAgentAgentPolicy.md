@@ -12,13 +12,13 @@ You can attach `FinOpsAgentAgentPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: June 03, 2026, 19:57 UTC
-- **Edited time:** August 19, 2026, 19:27 UTC
+- **Edited time:** September 01, 2026, 16:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/FinOpsAgentAgentPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -55,6 +55,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ce:ListCostAllocationTagBackfillHistory",
         "ce:DescribeCostCategoryDefinition",
         "ce:ListCostCategoryDefinitions",
+        "ce:StartCommitmentPurchaseAnalysis",
+        "ce:ListCommitmentPurchaseAnalyses",
+        "ce:GetCommitmentPurchaseAnalysis",
+        "ce:StartSavingsPlansPurchaseRecommendationGeneration",
+        "ce:ListSavingsPlansPurchaseRecommendationGeneration",
+        "ce:GetSavingsPlanPurchaseRecommendationDetails",
+        "budgets:DescribeBudgetActionsForAccount",
+        "budgets:DescribeBudgetActionsForBudget",
         "budgets:ViewBudget",
         "cost-optimization-hub:GetRecommendation",
         "cost-optimization-hub:ListRecommendations",
@@ -107,7 +115,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "logs:StartQuery",
         "logs:GetQueryResults",
         "billing:GetBillingView",
+        "billing:GetEnterpriseSupportChargeSummary",
+        "billing:GetEnterpriseSupportContractDetails",
         "billing:ListBillingViews",
+        "billing:ListEnterpriseSupportLinkedAccountCharges",
         "billing:ListSourceViewsForBillingView",
         "billing:GetResourcePolicy",
         "billingconductor:ListBillingGroups",
@@ -142,7 +153,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aco-automation:ListTagsForResource",
         "billing:GetCredits",
         "billing:GetCreditAllocationHistory",
-        "health:DescribeEvents"
+        "health:DescribeEvents",
+        "savingsplans:DescribeSavingsPlans",
+        "savingsplans:DescribeSavingsPlanRates",
+        "savingsplans:DescribeSavingsPlansOfferings",
+        "savingsplans:DescribeSavingsPlansOfferingRates",
+        "savingsplans:ListTagsForResource"
       ],
       "Resource" : "*"
     },

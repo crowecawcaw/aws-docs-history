@@ -12,13 +12,13 @@ You can attach `DataScientist` to your users, groups, and roles.
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:28 UTC
-- **Edited time:** December 03, 2019, 16:48 UTC
+- **Edited time:** September 02, 2026, 23:37 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/job-function/DataScientist`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -33,7 +33,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "autoscaling:*",
         "cloudwatch:*",
-        "cloudformation:CreateStack",
         "cloudformation:DescribeStackEvents",
         "datapipeline:Describe*",
         "datapipeline:ListPipelines",
@@ -84,6 +83,35 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Effect" : "Allow",
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudFormationCreateStackSameAccount",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:CreateStack"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
+          ],
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
       "Effect" : "Allow",

@@ -12,13 +12,13 @@ You can attach `AgentRegistryFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: August 06, 2026, 18:12 UTC
-- **Edited time:** August 06, 2026, 18:12 UTC
+- **Edited time:** August 31, 2026, 17:07 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AgentRegistryFullAccess`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -63,7 +63,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "bedrock-agentcore:GetResourceOauth2Token"
       ],
-      "Resource" : "arn:aws:bedrock-agentcore:*:*:credential-provider/*"
+      "Resource" : [
+        "arn:aws:bedrock-agentcore:*:*:credential-provider/*",
+        "arn:aws:bedrock-agentcore:*:*:workload-identity-directory/*",
+        "arn:aws:bedrock-agentcore:*:*:token-vault/*/oauth2credentialprovider/*"
+      ]
     },
     {
       "Sid" : "AllowListOauth2CredentialsProvidersForConsolePicker",
@@ -82,15 +86,73 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:iam::*:role/*"
     },
     {
-      "Sid" : "AgentRegistryKMSAccess",
+      "Sid" : "AgentRegistryKMSDecryptKeyForSynchronization",
       "Effect" : "Allow",
       "Action" : [
         "kms:Decrypt"
       ],
       "Resource" : "arn:aws:kms:*:*:key/*",
       "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "bedrock-agentcore.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AgentRegistryKMSDescribeKey",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:DescribeKey"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
         "StringLike" : {
           "kms:ViaService" : "agent-registry.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AgentRegistryKMSCryptoOps",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "agent-registry.*.amazonaws.com",
+          "kms:EncryptionContext:aws:agent-registry:registry-arn" : "arn:aws:agent-registry:*:*:registry/*"
+        }
+      }
+    },
+    {
+      "Sid" : "AgentRegistryKMSCreateGrant",
+      "Effect" : "Allow",
+      "Action" : "kms:CreateGrant",
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "agent-registry.*.amazonaws.com"
+        },
+        "ForAllValues:StringEquals" : {
+          "kms:GrantOperations" : [
+            "Decrypt",
+            "Encrypt",
+            "GenerateDataKey",
+            "GenerateDataKeyWithoutPlaintext",
+            "ReEncryptFrom",
+            "ReEncryptTo",
+            "DescribeKey",
+            "CreateGrant"
+          ]
+        },
+        "Null" : {
+          "kms:GrantOperations" : "false"
         }
       }
     },

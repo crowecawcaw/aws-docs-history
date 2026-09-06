@@ -12,13 +12,13 @@ You can attach `AWSForWordPressPluginPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 30, 2019, 00:27 UTC
-- **Edited time:** January 20, 2020, 23:20 UTC
+- **Edited time:** September 03, 2026, 20:17 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSForWordPressPluginPolicy`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -94,6 +94,36 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/createdBy" : "AWSForWordPressPlugin"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreateStack",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "us-east-1",
+          "cloudformation:CreateAction" : "CreateStack"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnUpdateStack",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/createdBy" : "AWSForWordPressPlugin",
+          "cloudformation:CreateAction" : "UpdateStack"
         }
       }
     }

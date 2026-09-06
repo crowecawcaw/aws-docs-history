@@ -12,13 +12,13 @@ You can attach `AWSTransformLandingZoneAgentPolicy` to your users, groups, and r
 
 - **Type**: AWS managed policy
 - **Creation time**: August 06, 2026, 15:12 UTC
-- **Edited time:** August 06, 2026, 15:12 UTC
+- **Edited time:** September 01, 2026, 10:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSTransformLandingZoneAgentPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,6 +45,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:ListBucket",
         "s3:ListBucketMultipartUploads",
         "s3:ListMultipartUploadParts",
+        "s3:PutBucketPolicy",
         "s3:PutBucketTagging",
         "s3:PutEncryptionConfiguration",
         "s3:PutObject"

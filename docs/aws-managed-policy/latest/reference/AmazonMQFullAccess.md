@@ -12,13 +12,13 @@ You can attach `AmazonMQFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2017, 15:28 UTC
-- **Edited time:** November 04, 2020, 16:34 UTC
+- **Edited time:** September 03, 2026, 22:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonMQFullAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -61,12 +61,28 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Action" : "iam:CreateServiceLinkedRole",
       "Effect" : "Allow",
-      "Resource" : "*",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/mq.amazonaws.com/AWSServiceRoleForAmazonMQ",
       "Condition" : {
         "StringLike" : {
           "iam:AWSServiceName" : "mq.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
+          ]
         }
       }
     }

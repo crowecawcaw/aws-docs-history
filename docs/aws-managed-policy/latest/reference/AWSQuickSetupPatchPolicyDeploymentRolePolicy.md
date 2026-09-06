@@ -12,13 +12,13 @@ You can attach `AWSQuickSetupPatchPolicyDeploymentRolePolicy` to your users, gro
 
 - **Type**: AWS managed policy
 - **Creation time**: June 26, 2024, 09:57 UTC
-- **Edited time:** June 26, 2024, 09:57 UTC
+- **Edited time:** September 04, 2026, 08:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSetupPatchPolicyDeploymentRolePolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -363,6 +363,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:iam::*:role/AWS-QuickSetup-*"
       ]
+    },
+    {
+      "Sid" : "CfnTagOnMutate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/StackSet-AWS-QuickSetup-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack",
+            "CreateChangeSet",
+            "ExecuteChangeSet"
+          ]
+        }
+      }
     }
   ]
 }

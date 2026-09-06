@@ -12,13 +12,13 @@ You can attach `AWSTransformNetworkMigrationAgentPolicy` to your users, groups, 
 
 - **Type**: AWS managed policy
 - **Creation time**: August 06, 2026, 15:27 UTC
-- **Edited time:** August 06, 2026, 15:27 UTC
+- **Edited time:** September 01, 2026, 10:37 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSTransformNetworkMigrationAgentPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -617,10 +617,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "LambdaViaCfnNetworkMigrationFunctionOperationsReadOnly",
+      "Sid" : "LambdaViaCfnNetworkMigrationFunctionReadOnly",
       "Effect" : "Allow",
       "Action" : [
-        "lambda:GetFunction"
+        "lambda:GetFunction",
+        "lambda:ListTags"
       ],
       "Resource" : "arn:aws:lambda:*:*:function:network-migration*",
       "Condition" : {
@@ -764,6 +765,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "mgn:ListNetworkMigrationExecutions",
         "mgn:ListNetworkMigrationMapperSegmentConstructs",
         "mgn:ListNetworkMigrationMapperSegments",
+        "mgn:ListNetworkMigrationExecutionArtifacts",
         "mgn:ListNetworkMigrationMappings"
       ],
       "Resource" : "*",
@@ -1192,9 +1194,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "ssm:DeleteParameter",
         "ssm:DeleteResourcePolicy",
-        "ssm:GetResourcePolicies",
-        "ssm:ListTagsForResource",
-        "ssm:PutResourcePolicy"
+        "ssm:ListTagsForResource"
       ],
       "Resource" : "arn:aws:ssm:*:*:parameter/network-migration/*",
       "Condition" : {
@@ -1207,6 +1207,26 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "SsmParametersViaCfnRamSharingOperations",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:GetResourcePolicies",
+        "ssm:PutResourcePolicy"
+      ],
+      "Resource" : "arn:aws:ssm:*:*:parameter/network-migration/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },

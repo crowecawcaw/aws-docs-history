@@ -12,13 +12,13 @@ You can attach `AmazonECS_FullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: November 07, 2017, 21:36 UTC
-- **Edited time:** August 13, 2024, 19:39 UTC
+- **Edited time:** September 02, 2026, 14:47 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonECS_FullAccess`
 
 ## Policy version
 
-**Policy version:** v21 (default)
+**Policy version:** v22 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -269,6 +269,23 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "CreateRule",
             "CreateListener",
             "CreateLoadBalancer"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack"
           ]
         }
       }

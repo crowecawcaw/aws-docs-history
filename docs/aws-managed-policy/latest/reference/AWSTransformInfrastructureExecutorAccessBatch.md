@@ -12,13 +12,13 @@ You can attach `AWSTransformInfrastructureExecutorAccessBatch` to your users, gr
 
 - **Type**: AWS managed policy
 - **Creation time**: July 20, 2026, 20:12 UTC
-- **Edited time:** July 28, 2026, 15:42 UTC
+- **Edited time:** September 02, 2026, 21:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSTransformInfrastructureExecutorAccessBatch`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -188,7 +188,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:cloudformation:*:*:stack/AtxInfrastructureStack-*/*",
         "arn:aws:cloudformation:*:*:stack/atx-*",
         "arn:aws:cloudformation:*:*:stack/atx-*/*",
-        "arn:aws:cloudformation:*:*:stack/AtxSecurityAgentStack-*/*"
+        "arn:aws:cloudformation:*:*:stack/AtxSecurityAgentStack-*/*",
+        "arn:aws:cloudformation:*:*:stack/AtxDispatcherStack/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -299,6 +300,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : "cloudformation:ListStacks",
       "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "SQSEnqueueToDispatcher",
+      "Effect" : "Allow",
+      "Action" : "sqs:SendMessage",
+      "Resource" : "arn:aws:sqs:*:*:atx-dispatcher-queue",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
