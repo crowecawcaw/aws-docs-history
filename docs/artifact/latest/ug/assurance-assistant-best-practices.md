@@ -43,8 +43,10 @@ most complete and accurate response:
 - **Use industry-standard terminology** –
   Where possible, align your phrasing with common compliance vocabulary to
   improve matching.
-- **For bulk uploads** – Ensure each row
-  in your XLSX file contains a complete, clearly articulated question.
+- **For bulk uploads** – Ensure each
+  question is complete and clearly articulated. In XLSX files, use one question
+  per row; in Word or PDF files, present each question as a distinct, clearly
+  delineated item.
 
 ## Additional resources
 

@@ -30,7 +30,7 @@ including:
 
 - Consensus Assessments Initiative Questionnaire (CAIQ)
 - Standardized Information Gathering questionnaire (SIG)
-- Custom due diligence questionnaires (DDQs) in XLSX format
+- Custom due diligence questionnaires (DDQs) in XLSX, Word (.docx), and PDF format
   Assurance Assistant addresses questions about AWS's security controls, compliance posture,
   and operational practices. Assurance Assistant might not respond to questions that are
   incomplete, not compliance-related, or contain inappropriate content. Questions about

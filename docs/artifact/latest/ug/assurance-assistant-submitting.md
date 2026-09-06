@@ -33,14 +33,15 @@ is well-suited for CAIQ, SIG, and custom DDQ files.
    available directly. Otherwise, choose **Ask question** to
    access the submission interface.
 3. Choose **Choose file** and select your questionnaire.
-   Supported format: Excel spreadsheet (XLSX), maximum 5 MB, up to 1,000
+   Supported formats: Excel spreadsheet (XLSX), Word (.docx), PDF, maximum 5 MB, up to 1,000
    questions.
 4. (Optional) Add tags as key-value pairs to help organize questionnaires
    and manage access.
 5. Choose **Submit**.
-6. Assurance Assistant takes you to the **Configure
+6. For Excel file upload, Assurance Assistant takes you to the **Configure
    responses** page. Select the tabs that you want to process,
-   then choose **Configure**.
+   then choose **Configure**. For Word (.docx) and PDF
+   files, this step is skipped and processing begins directly.
 7. Processing begins immediately. Assurance Assistant takes you to the
    details page where you can monitor the status of your
    questionnaire.
