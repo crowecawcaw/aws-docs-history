@@ -7,8 +7,7 @@ with email.
 
 - [Not receiving validation email](#troubleshooting-no-mail "#troubleshooting-no-mail")
 - [Persistent initial timestamp for email validation](#initial-dates "#initial-dates")
-- [Switching to DNS validation](#troubleshoot-switch-to-dns "#troubleshoot-switch-to-dns")
-- [My email-to-DNS migration timed out](#troubleshoot-migration-timeout "#troubleshoot-migration-timeout")
+- [I can't switch to DNS validation](#troubleshoot-switch-to-dns "#troubleshoot-switch-to-dns")
 
 ## Not receiving validation email
 
@@ -54,26 +53,6 @@ The timestamp of a certificate's first email-validation request persists through
 requests for validation renewal. This is not evidence of an error in ACM
 operations.
 
-## Switching to DNS validation
+## I can't switch to DNS validation
 
-You can migrate an existing email-validated public certificate to DNS validation while preserving the certificate ARN. For more information, see [Migrating from email to DNS validation](email-to-dns-migration.md "email-to-dns-migration.md").
-
-## My email-to-DNS migration timed out
-
-If you initiate an email-to-DNS migration, you must add the CNAME records to your
-DNS configuration within 72 hours. If you don't, the migration request expires. The
-certificate remains email-validated and continues to work normally.
-
-To resolve a timed-out migration:
-
-1. Make sure the CNAME records returned by `ListCertificateDomainValidations`
-   are correctly configured at your DNS provider. Use a tool such as **dig**
-   or **nslookup** to confirm that the records resolve as expected.
-2. Reinitiate the migration by calling `UpdateCertificateOptions` again,
-   or by repeating the procedure in the ACM console. A new 72-hour window
-   begins.
-3. Monitor progress with `ListCertificateDomainValidations`. Migration
-   completes when the active validation configuration for each domain shows
-   `DNS`.
-
-For more information, see [Migrating from email to DNS validation](email-to-dns-migration.md "email-to-dns-migration.md").
+After you create a certificate with email validation, you cannot switch to validating it with DNS. To use DNS validation, delete the certificate and then create a new one that uses DNS validation.

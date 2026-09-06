@@ -67,13 +67,66 @@ Before you install the provider, ensure you have the following:
 
 ## Install the provider
 
+The following table lists download links for pre-built provider binaries. Releases for
+Windows are signed. Once you have downloaded the binary for your platform, proceed to running the installer.
+
+| Platform | Architecture | Download URL                                                                                                                                                                                                                                             | Checksum (SHA-256)                                               |
+| -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Linux    | x86-64       | [Download for Linux x86-64 (3.1.1)](https://artifacts.awcp.global.on.aws/3.1.1/x86_64-unknown-linux-gnu/aws-workload-credentials-provider "https://artifacts.awcp.global.on.aws/3.1.1/x86_64-unknown-linux-gnu/aws-workload-credentials-provider")       | 471c1978f8bf63a0aeefb425e974ac3c816c7e04feb302236512eea375160de4 |
+| Linux    | Aarch64      | [Download for Linux AArch64 (3.1.1)](https://artifacts.awcp.global.on.aws/3.1.1/aarch64-unknown-linux-gnu/aws-workload-credentials-provider "https://artifacts.awcp.global.on.aws/3.1.1/aarch64-unknown-linux-gnu/aws-workload-credentials-provider")    | 8b09dc4e58b84379f580a9ae179940bcb3de0338421f638a43376bf73380ffb6 |
+| Windows  | x86-64       | [Download for Windows x86-64 (3.1.1)](https://artifacts.awcp.global.on.aws/3.1.1/x86_64-pc-windows-msvc/aws-workload-credentials-provider.exe "https://artifacts.awcp.global.on.aws/3.1.1/x86_64-pc-windows-msvc/aws-workload-credentials-provider.exe") | 5fbdac4017e630556b94b90e5ed9ed11be69ac7a47e67655e20181ce990dbe12 |
+
 Linux
+On Amazon EC2 and other Linux instances, you can install the provider using
+the RPM package (available for AL2023). You can also build and install
+from source.
 
-1. ###### Build the provider
+###### Option A: Install the RPM package (AL2023)
 
-Build the provider binary from source, or obtain the pre-built binary for your
-platform. Follow the instructions at [Install Rust](https://www.rust-lang.org/tools/install "https://www.rust-lang.org/tools/install")
-to install the Rust toolchain.
+1. ###### Install the package
+
+Install the RPM package. The package manager finds the latest
+version for you:
+
+```
+sudo dnf install aws-workload-credentials-provider
+```
+
+The RPM package installs the binary and helper scripts to
+`/opt/aws/workload-credentials-provider/`. It creates the
+`aws-wcp` service user, then installs and starts the
+AWS Secrets Manager and token services. It also stages the ACM
+certificate automation service, which you enable in a later
+step. 2. ###### Create a configuration file
+
+Create a TOML configuration file with your certificate details. For
+examples, see [Configure the provider](#acm-cert-automation-configure "#acm-cert-automation-configure"). 3. ###### Enable certificate automation
+
+Run the ACM setup script with your configuration file to install,
+enable, and start the certificate automation service:
+
+```
+sudo /opt/aws/workload-credentials-provider/bin/install-acm.sh --config /path/to/your/config.toml
+```
+
+The setup script accepts the following options:
+
+    * `--config <file>` – The
+     configuration file with ACM certificate entries.
+    * `--no-start` – Install the service but
+     don't start it.
+    * `--no-privileges` – Skip Linux
+     capabilities on the service.
+    * `--no-sudoers` – Skip sudoers generation
+     for refresh commands.
+
+###### Option B: Build and install from source
+
+1. ###### Build the provider from source
+
+Alternatively, you can build the provider from source. Follow the
+instructions at [Install Rust](https://www.rust-lang.org/tools/install "https://www.rust-lang.org/tools/install")
+on the Rust website to install the Rust toolchain.
 
 ```
 cargo build --release
@@ -113,11 +166,11 @@ sudo systemctl restart aws-workload-credentials-provider-acm
 
 Windows
 
-1. ###### Build or obtain the provider
+1. ###### Build the provider from source
 
-Build the provider binary from source for Windows, or obtain the pre-built
-binary. Follow the instructions at [Install Rust](https://www.rust-lang.org/tools/install "https://www.rust-lang.org/tools/install")
-to install the Rust toolchain.
+Alternatively, you can build the provider from source for Windows.
+Follow the instructions at [Install Rust](https://www.rust-lang.org/tools/install "https://www.rust-lang.org/tools/install")
+on the Rust website to install the Rust toolchain.
 
 ```
 cargo build --release

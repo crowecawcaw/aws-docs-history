@@ -43,11 +43,10 @@ validation.
 
 ###### Note
 
-You can migrate an existing email-validated public certificate to DNS validation while preserving the certificate ARN. For more information, see [Migrating from email to DNS validation](email-to-dns-migration.md "email-to-dns-migration.md").
+After you create a certificate with email validation, you cannot switch to validating it with DNS. To use DNS validation, delete the certificate and then create a new one that uses DNS validation.
 
 ###### Topics
 
 - [AWS Certificate Manager DNS validation](dns-validation.md "dns-validation.md")
 - [AWS Certificate Manager email validation](email-validation.md "email-validation.md")
 - [AWS Certificate Manager HTTP validation](http-validation.md "http-validation.md")
-- [Migrating from email to DNS validation](email-to-dns-migration.md "email-to-dns-migration.md")
