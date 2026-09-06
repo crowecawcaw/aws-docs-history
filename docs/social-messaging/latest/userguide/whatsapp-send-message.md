@@ -45,3 +45,4 @@ deliverability, recipient optimization, and conversion tracking.
 
 - [Example of sending a template message in AWS End User Messaging Social](send-message-text.md "send-message-text.md")
 - [Example of sending a media message in AWS End User Messaging Social](send-message-media.md "send-message-media.md")
+- [Handling transient eligibility errors (WhatsApp error code 131042)](send-message-transient-errors.md "send-message-transient-errors.md")
