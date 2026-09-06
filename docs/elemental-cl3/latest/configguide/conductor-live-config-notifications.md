@@ -1,26 +1,24 @@
+
+
 # Configuring notifications for messages
+<a name="conductor-live-config-notifications"></a>
 
-AWS Elemental Conductor Live provides status information through alerts and messages. You can configure these
-notifications so you know when the node might need attention. The following table describes the
-differences between alerts and messages and how you can access each.
+AWS Elemental Conductor Live provides status information through alerts and messages. You can configure these notifications so you know when the node might need attention. The following table describes the differences between alerts and messages and how you can access each.
 
-In the table, find a topic in the first column, then read across for
-information about alerts and about messages available for this topic.
+In the table, find a topic in the first column, then read across for information about alerts and about messages available for this topic.
 
-| Topic                                            | Alerts                                                                                                                                                                                                                                                                                            | Messages                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ways in which you can access alerts and messages | • Web interface<br>• REST API calls<br>• SNMP poll<br>• SNMP trap<br>• Email notification<br>• Web callback notification                                                                                                                                                                          | • Web interface<br>• REST API calls<br>• SNMP poll                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Information conveyed                             | Alerts are feedback on a problem that must be fixed.<br>The "Channel Error" alert informs you that a channel has moved<br>to an Error state.<br>This can be helpful when you are receiving automatic email notifications, letting<br>you know to check for related messages on the web interface. | There are three types of messages:<br>• **AuditMessage:** Informational messages that you<br>do not need to react to. Often, these messages are feedback to actions you<br>performed.<br>• **WarningMessage:** Messages that advise you that<br>there is a risk that a future activity will fail unless you take action to prevent<br>it.<br>• **ErrorMessage:** Messages that indicate that a<br>planned activity has failed or an unexpected system error has occurred. |
-| Active or inactive                               | Alerts are active until the underlying problem is resolved. When the cause of the<br>alert is no longer present, the system clears the alert, and it becomes<br>inactive.                                                                                                                         | Messages are neither active nor inactive. They are defined as *recent<br>• when they are less than 24 hours old.                                                                                                                                                                                                                                                                                                                                                          |
-| Visibility (web interface only)                  | You can toggle the visibility of active alerts on the web interface. Suppressing<br>an alert this way is similar to marking an email as read.<br>Alerts are available through the other access options, regardless of their<br>visibility in the web interface.                                   | You can toggle the visibility of recent error messages on the web interface. This<br>is similar to marking an email as read.<br>Visibility does not affect the return on SNMP and REST requests.                                                                                                                                                                                                                                                                          |
 
-The following sections describe how to set up notifications. For information about viewing
-alerts and messages on the web interface or through the API, see the _Conductor Live
-User Guide_ and _Conductor Live API Guide_.
+| Topic | Alerts | Messages | 
+| --- | --- | --- | 
+| Ways in which you can access alerts and messages  |  +  Web interface <br />+  REST API calls <br />+  SNMP poll <br />+  SNMP trap <br />+  Email notification <br />+  Web callback notification   |  +  Web interface <br />+  REST API calls <br />+  SNMP poll   | 
+| Information conveyed | Alerts are feedback on a problem that must be fixed.<br />The "Channel Error" alert informs you that a channel has moved to an Error state.<br />This can be helpful when you are receiving automatic email notifications, letting you know to check for related messages on the web interface. | There are three types of messages:+  **AuditMessage:** Informational messages that you do not need to react to. Often, these messages are feedback to actions you performed. <br />+  **WarningMessage:** Messages that advise you that there is a risk that a future activity will fail unless you take action to prevent it. <br />+  **ErrorMessage:** Messages that indicate that a planned activity has failed or an unexpected system error has occurred.  | 
+| Active or inactive | Alerts are active until the underlying problem is resolved. When the cause of the alert is no longer present, the system clears the alert, and it becomes inactive. | Messages are neither active nor inactive. They are defined as recent when they are less than 24 hours old. | 
+| Visibility (web interface only) | You can toggle the visibility of active alerts on the web interface. Suppressing an alert this way is similar to marking an email as read.<br />Alerts are available through the other access options, regardless of their visibility in the web interface. | You can toggle the visibility of recent error messages on the web interface. This is similar to marking an email as read.<br />Visibility does not affect the return on SNMP and REST requests. | 
 
-###### Topics
+The following sections describe how to set up notifications. For information about viewing alerts and messages on the web interface or through the API, see the *Conductor Live User Guide* and *Conductor Live API Guide*.
 
-- [Email notification](notification-email.md "notification-email.md")
-- [Web callback notification](notification-web.md "notification-web.md")
-- [SNMP traps](notification-trap.md "notification-trap.md")
-- [SNMP polling](notification-polling.md "notification-polling.md")
+**Topics**
++ [Email notification](notification-email.md)
++ [Web callback notification](notification-web.md)
++ [SNMP traps](notification-trap.md)
++ [SNMP polling](notification-polling.md)
