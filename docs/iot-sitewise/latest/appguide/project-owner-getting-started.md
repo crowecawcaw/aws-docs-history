@@ -64,7 +64,7 @@ create a dashboard.
 ![The "Projects" page as a project owner.](images/projects-portal-user-choose-project-console.png) 3. In the **Dashboards** section, choose **Create
 dashboard**.
 
-![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png)
+![The dashboards list on the project details page with "Create dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/project-create-dashboard-console.png)
 
 Next, you add one or more visualizations of asset properties and alarms to your
 dashboard.
@@ -155,6 +155,6 @@ viewers.
 the check boxes for the project viewers to receive an email, and then choose **Send
 invitations**.
 
-![The "Project viewers" section of the project details page.](images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
+![The "Project viewers" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-invite-viewers-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
 with details from your project. You can customize the email before you send it to the
 project viewers.
