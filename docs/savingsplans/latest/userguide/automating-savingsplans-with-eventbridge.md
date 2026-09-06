@@ -1,36 +1,32 @@
-# Automating Savings Plans with Amazon EventBridge
 
-EventBridge helps you automate your AWS services and respond automatically to system events such
-as application availability issues or resource changes. Events from AWS services are delivered
-to EventBridge in near-real time. Events are emitted on a best-effort basis. Based on the rules you
-create, EventBridge calls one or more target actions when an event matches the values that you specify in
-a rule.
+
+# Automating Savings Plans with Amazon EventBridge
+<a name="automating-savingsplans-with-eventbridge"></a>
+
+EventBridge helps you automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to EventBridge in near-real time. Events are emitted on a best-effort basis. Based on the rules you create, EventBridge calls one or more target actions when an event matches the values that you specify in a rule. 
 
 The actions that can be automatically triggered include the following:
++ Invoking an AWS Lambda function
++ Invoking Amazon EC2 Run Command
++ Relaying the event to Amazon Kinesis Data Streams
++ Activating an AWS Step Functions state machine
++ Notifying an Amazon SNS topic or an AWS SMS queue
 
-- Invoking an AWS Lambda function
-- Invoking Amazon EC2 Run Command
-- Relaying the event to Amazon Kinesis Data Streams
-- Activating an AWS Step Functions state machine
-- Notifying an Amazon SNS topic or an AWS SMS queue
-  Some examples of using CloudWatch Events with Savings Plans include:
+Some examples of using CloudWatch Events with Savings Plans include:
++ Activating a Lambda function when a Savings Plans retires.
++ Notifying an Amazon SNS topic when a Savings Plans is marked `payment-failed` or `active`.
 
-- Activating a Lambda function when a Savings Plans retires.
-- Notifying an Amazon SNS topic when a Savings Plans is marked `payment-failed` or
-  `active`.
-  For more information, see the [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md").
+For more information, see the [Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/).
 
 ## Sample events from Savings Plans
+<a name="SP-event-samples"></a>
 
-This section includes example events from Savings Plans. Savings Plans generate two types of events. State
-change events that are triggered upon state changes, and state change alerts events that notify
-an upcoming state change that will occur in one or seven days.
+This section includes example events from Savings Plans. Savings Plans generate two types of events. State change events that are triggered upon state changes, and state change alerts events that notify an upcoming state change that will occur in one or seven days.
 
 ### Savings Plans state change event
+<a name="SP-state-change"></a>
 
-Savings Plans state changes are generated when a Savings Plans transitions from one state to
-another. For example, `payment-pending` state changes to `active`, or an
-`active` state changes to `retired`.
+Savings Plans state changes are generated when a Savings Plans transitions from one state to another. For example, `payment-pending` state changes to `active`, or an `active` state changes to `retired`.
 
 ```
 {
@@ -53,27 +49,27 @@ another. For example, `payment-pending` state changes to `active`, or an
 }
 ```
 
-The state change event contains fields for resources (Savings Plans ARNs), previous state, current
-state, severity, and message.
+The state change event contains fields for resources (Savings Plans ARNs), previous state, current state, severity, and message. 
 
-Possible values for state change events| previousState | currentState | severity | message |
-| --- | --- | --- | --- |
-| queued | payment-pending | INFO | `QueuedPurchaseFulfillment` |
-| queued | payment-failed | ERROR | `LimitExceededException`<br>or<br>`SavingsPlanOfferingNotAvailableException` |
-| queued | queued-deleted | INFO | `SavingsPlanQueuedDeleted` |
-| payment-pending | active | INFO | `PaymentSuccessful` |
-| payment-pending | payment-failed | ERROR | `LimitExceededException`<br>or<br>`PaymentUnsuccessful` |
-| active | retired | INFO | `SavingsPlanExpiration` |
-| active | pending-return | INFO | `SavingsPlanReturnRequested` |
-| pending-return | returned | INFO | `SavingsPlanReturnSuccessful` |
-| pending-return | active | ERROR | `SavingsPlanReturnUnsuccessful` |
+
+**Possible values for state change events**  
+
+| previousState | currentState | severity | message | 
+| --- | --- | --- | --- | 
+| queued | payment-pending | INFO | `QueuedPurchaseFulfillment` | 
+| queued | payment-failed | ERROR | `LimitExceededException` <br />or <br />`SavingsPlanOfferingNotAvailableException` | 
+| queued | queued-deleted | INFO | `SavingsPlanQueuedDeleted` | 
+| payment-pending | active | INFO | `PaymentSuccessful` | 
+| payment-pending | payment-failed | ERROR | `LimitExceededException` <br />or <br />`PaymentUnsuccessful` | 
+| active | retired | INFO | `SavingsPlanExpiration` | 
+| active | pending-return | INFO | `SavingsPlanReturnRequested` | 
+| pending-return | returned | INFO | `SavingsPlanReturnSuccessful` | 
+| pending-return | active | ERROR | `SavingsPlanReturnUnsuccessful` | 
 
 ### Savings Plans state change alert event
+<a name="SP-state-alert"></a>
 
-Savings Plans state change alerts are generated when a Savings Plans transitions from the
-`queued` state to `active`, or `active` to `retired`
-in one or seven days. This is a proactive notification to alert you if any Savings Plans is
-retiring, or a queued state is fulfilled.
+Savings Plans state change alerts are generated when a Savings Plans transitions from the `queued` state to `active`, or `active` to `retired` in one or seven days. This is a proactive notification to alert you if any Savings Plans is retiring, or a queued state is fulfilled.
 
 ```
 {
@@ -98,12 +94,14 @@ retiring, or a queued state is fulfilled.
 }
 ```
 
-The state change alert event contains fields for resources (Savings Plans ARNs), current state, next
-state, remaining days, next state change date, and message.
+The state change alert event contains fields for resources (Savings Plans ARNs), current state, next state, remaining days, next state change date, and message.
 
-Possible values for state change alert events| currentState | nextState | remainingDays | message |
-| --- | --- | --- | --- |
-| queued | active | 1 | Queued Savings Plans will go to active state on `YYYY-MM-DD`. |
-| queued | active | 7 | Queued Savings Plans will go to active state on `YYYY-MM-DD`. |
-| active | retired | 1 | Active Savings Plans will go to retired state on `YYYY-MM-DD`. |
-| active | retired | 7 | Active Savings Plans will go to retired state on `YYYY-MM-DD`. |
+
+**Possible values for state change alert events**  
+
+| currentState | nextState | remainingDays | message | 
+| --- | --- | --- | --- | 
+| queued | active | 1 | Queued Savings Plans will go to active state on `YYYY-MM-DD`. | 
+| queued | active | 7 | Queued Savings Plans will go to active state on `YYYY-MM-DD`. | 
+| active | retired | 1 | Active Savings Plans will go to retired state on `YYYY-MM-DD`. | 
+| active | retired | 7 | Active Savings Plans will go to retired state on `YYYY-MM-DD`. | 
