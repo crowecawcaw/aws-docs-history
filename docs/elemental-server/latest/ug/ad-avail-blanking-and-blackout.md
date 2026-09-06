@@ -1,234 +1,163 @@
-This is version 2.18 of the AWS Elemental Server documentation.
-This is the latest version. For prior versions, see
-the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
+
+
+This is version 2.18 of the AWS Elemental Server documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server/).
 
 # Ad Avail Blanking and Blackout
+<a name="ad-avail-blanking-and-blackout"></a>
 
-You can turn on one or both of the following features to blank out the content
-associated with a SCTE-35 event:
+You can turn on one or both of the following features to blank out the content associated with a SCTE-35 event:
++ “Blackout”: Blank out the content for other types of SCTE-35 messages such as chapters and programs.
++ “Ad avail blanking”: Blank out the content for a SCTE-35 message that is considered an “ad avail” (according to the mode, [Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md)).
 
-- “Blackout”: Blank out the content for other types of SCTE-35 messages such as
-  chapters and programs.
-- “Ad avail blanking”: Blank out the content for a SCTE-35 message that is
-  considered an “ad avail” (according to the mode, [Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")).
-  In both features, the handling is:
-
-- Replace the video content associated with the event with an image you specify or
-  with a black image.
-- Remove the audio associated with the event.
-- Remove the closed captions associated with the event.
+In both features, the handling is:
++ Replace the video content associated with the event with an image you specify or with a black image.
++ Remove the audio associated with the event.
++ Remove the closed captions associated with the event.
 
 ## Blanking is Global
+<a name="blanking-is-global"></a>
 
-Both ad avail blanking and blackout apply to all outputs. You cannot choose to blank
-out for some outputs and not blank out for others: it is an all-or-nothing decision.
+Both ad avail blanking and blackout apply to all outputs. You cannot choose to blank out for some outputs and not blank out for others: it is an all-or-nothing decision. 
 
-###### Comparison to Manifest Decoration and Passthrough
+**Comparison to Manifest Decoration and Passthrough**  
+Manifest decoration and passthrough have a smaller scope than ad avail and blackout: they apply only to outputs that support these features. 
 
-Manifest decoration and passthrough have a smaller scope than ad avail and
-blackout: they apply only to outputs that support these features.
+ Note this important fact because, if you do *not* do passthrough and do *not* do manifest decoration in a given output (because they are not supported or you choose not to), but you do implement blanking, there are no “markers” for where the blanked content occurs.
 
-Note this important fact because, if you do _not_
-do passthrough and do _not_ do manifest decoration in a
-given output (because they are not supported or you choose not to), but you do
-implement blanking, there are no “markers” for where the blanked content occurs.
-
-The only way of identifying where this blanking is occurring is to look for the IDR
-i-frames that identify where the SCTE-35 message used to be!
+The only way of identifying where this blanking is occurring is to look for the IDR i-frames that identify where the SCTE-35 message used to be\!
 
 ## Scope of Blackout
+<a name="scope-of-blackout"></a>
 
 All SCTE-35 messages that are “Other type” are blanked out as follows:
 
-| SCTE-35 Segmentation Type | Blanking   |
-| ------------------------- | ---------- |
-| Programs                  | Always     |
-| Chapters                  | Always     |
-| Unscheduled events        | Always     |
-| Network                   | See below. |
 
-###### Network Blackout
+| SCTE-35 Segmentation Type | Blanking | 
+| --- | --- | 
+| Programs | Always | 
+| Chapters | Always | 
+| Unscheduled events | Always | 
+| Network  | See below. | 
 
-Network end blackout is different from the other events that trigger a blackout
-because:
-
-- With other events, blanking starts when the “event start” instruction is
-  encountered and ends when the “event end” instruction is encountered.
-- With Network, blanking starts when the "Network End" instruction is encountered
-  and ends when the "Network Start" instruction is encountered.
+**Network Blackout**  
+Network end blackout is different from the other events that trigger a blackout because: 
++ With other events, blanking starts when the “event start” instruction is encountered and ends when the “event end” instruction is encountered.
++ With Network, blanking starts when the "Network End" instruction is encountered and ends when the "Network Start" instruction is encountered.
 
 ## Scope of Ad Avail Blanking
+<a name="scope-of-ad-avail-blanking"></a>
 
-For Ad avail blanking (but not for Blackout), the ad avail mode you set controls
-which SCTE-35 events result in blanking of the content.
+For Ad avail blanking (but not for Blackout), the ad avail mode you set controls which SCTE-35 events result in blanking of the content. 
 
-###### Splice Insert Mode
+**Splice Insert Mode**  
+This table describes which message type/segmentation type combination is blanked by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md)) is Splice Insert mode. 
 
-This table describes which message type/segmentation type combination is blanked
-by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is Splice Insert mode.
 
-| Message Type ID                    | Segmentation Type ID               | Blanked | Not blanked |
-| ---------------------------------- | ---------------------------------- | ------- | ----------- |
-| Splice insert                      | No segmentation descriptor present | X       |             |
-| Provider advertisement             | X                                  |         |
-| Distributor advertisement          | X                                  |         |
-| Placement opportunity              | X                                  |         |
-| Other type (e.g. Chapter, Program) |                                    | X       |
-| Time signal                        | Provider advertisement             | X       |             |
-| Distributor advertisement          | X                                  |         |
-| Placement opportunity              | X                                  |         |
-| Other type (e.g. Chapter, Program) |                                    | X       |
 
-###### Timesignal APOS Mode
+- **Splice insert**
+  - **Segmentation Type ID:** No segmentation descriptor present / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Provider advertisement / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Distributor advertisement / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Placement opportunity / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Other type (e.g. Chapter, Program) / **Blanked:**   / **Not blanked:** X
 
-This table describes which message type/segmentation type combination is blanked
-by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is Timesignal with APOS
-mode.
+- **Time signal**
+  - **Segmentation Type ID:** Provider advertisement / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Distributor advertisement / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Placement opportunity / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Other type (e.g. Chapter, Program) / **Blanked:**   / **Not blanked:** X
 
-| Message Type ID                    | Segmentation Type ID   | Blanked | Not blanked |
-| ---------------------------------- | ---------------------- | ------- | ----------- |
-| Splice insert                      | Any                    |         | X           |
-| Time signal                        | Provider advertisement |         | X           |
-| Distributor advertisement          |                        | X       |
-| Placement opportunity              | X                      |         |
-| Other type (e.g. Chapter, Program) |                        | X       |
 
-###### Ad Avail Blanking and Restriction Flags: Restrictions in the Input
 
-SCTE-35 messages of type `time_signal` always contain segmentation
-descriptors.
+**Timesignal APOS Mode**  
+This table describes which message type/segmentation type combination is blanked by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md)) is Timesignal with APOS mode. 
 
-SCTE-35 messages of type `splice_insert` may or may not include
-segmentation descriptors.
 
-If the input has SCTE-35 messages that _do_ include
-segmentation descriptors, these segmentation descriptors always include two types of
-flags. These flags provide additional information as guidance for blanking in specific
-situations:
 
-- `web_delivery_allowed_flag`
+- **Splice insert**
+  - **Segmentation Type ID:** Any
+  - **Blanked:**  
+  - **Not blanked:** X
 
-  - `True` means that there is no restriction on
-    including the ad avail event’s content in a stream intended for web
-    delivery: there is no need to blank out content in streams intended for web
-    delivery.
-  - `False` means there is a restriction: the content
-    should be blanked out.
+- **Time signal**
+  - **Segmentation Type ID:** Provider advertisement / **Blanked:**   / **Not blanked:** X
+  - **Segmentation Type ID:** Distributor advertisement / **Blanked:**   / **Not blanked:** X
+  - **Segmentation Type ID:** Placement opportunity / **Blanked:** X / **Not blanked:**  
+  - **Segmentation Type ID:** Other type (e.g. Chapter, Program) / **Blanked:**   / **Not blanked:** X
 
-- `no_regional_blackout_flag`
 
-  - `True` means that there is no restriction on
-    including the ad avail event’s video in a stream intended for regional
-    markets: there is no need to blank out content in streams intended for
-    regional markets.
-  - `False` means there is a restriction: the content
-    should be blanked out.
 
-If neither flag is present (usually the case with `splice_inserts`), then
-both are considered to be false: blanking should occur.
+**Ad Avail Blanking and Restriction Flags: Restrictions in the Input**  
+SCTE-35 messages of type `time_signal` always contain segmentation descriptors. 
 
-If both flags are present (which is usually the case; it is unusual to have only one
-flag present), then a “false” for one flag takes precedence over a “true” for the other
-flag: blanking should occur.
+SCTE-35 messages of type `splice_insert` may or may not include segmentation descriptors.
 
-Typically, in any given message in the input only one of these flags would ever be
-set to `false`, so only one restriction would ever be in place.
-There would typically never be _both_ a regional
-delivery restriction and a web delivery restriction. This is because if content is
-considered restricted for regional delivery, then it would not also be considered
-restricted for web delivery (where the concept of a region makes no sense).
+If the input has SCTE-35 messages that *do* include segmentation descriptors, these segmentation descriptors always include two types of flags. These flags provide additional information as guidance for blanking in specific situations:
++ `web_delivery_allowed_flag` 
+  + **True** means that there is no restriction on including the ad avail event’s content in a stream intended for web delivery: there is no need to blank out content in streams intended for web delivery. 
+  + **False** means there is a restriction: the content should be blanked out. 
++ `no_regional_blackout_flag` 
+  + **True** means that there is no restriction on including the ad avail event’s video in a stream intended for regional markets: there is no need to blank out content in streams intended for regional markets. 
+  + **False** means there is a restriction: the content should be blanked out.
 
-To summarize, this is the blanking logic that applies to each ad avail event that is
-encountered:
+If neither flag is present (usually the case with `splice_inserts`), then both are considered to be false: blanking should occur.
 
-|     | Content of Corresponding SCTE-35 MessageWeb delivery<br>allowed? | Content of Corresponding SCTE-35 MessageRegional delivery<br>allowed? | Result                  | Comment                                                                                                                  |
-| --- | ---------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| S1  | Flag is not present                                              | Flag is not present                                                   | Blanking will occur     | This combination can occur only in a message type<br>`splice_insert` (where the segmentation descriptor is<br>optional). |
-| S2  | True                                                             | True                                                                  | Blanking will not occur |                                                                                                                          |
-| S3  | True                                                             | False                                                                 | Blanking will occur     |                                                                                                                          |
-| S4  | False                                                            | True                                                                  | Blanking will occur     |                                                                                                                          |
+If both flags are present (which is usually the case; it is unusual to have only one flag present), then a “false” for one flag takes precedence over a “true” for the other flag: blanking should occur.
 
-###### Ad Avail Blanking and Restriction Flags: AWS Elemental Handling of Restrictions
+Typically, in any given message in the input only one of these flags would ever be set to **false**, so only one restriction would ever be in place. There would typically never be *both* a regional delivery restriction and a web delivery restriction. This is because if content is considered restricted for regional delivery, then it would not also be considered restricted for web delivery (where the concept of a region makes no sense).
 
-You can modify this default blanking behavior by instructing the AWS Elemental
-software to ignore a restriction flag that is set to `false`, so that
-blanking does not occur for this ad avail event. In other words, to use this logic:
-“Even if the message indicates to blank content because a regional blackout is in
-place, do not follow this instruction. Ignore the fact that a regional blackout is in
-place and do not blank content.”
+To summarize, this is the blanking logic that applies to each ad avail event that is encountered:
+
+
+|  | Content of Corresponding SCTE-35 MessageWeb delivery allowed? | Content of Corresponding SCTE-35 MessageRegional delivery allowed? | Result | Comment | 
+| --- | --- | --- | --- | --- | 
+| S1 | Flag is not present | Flag is not present | Blanking will occur | This combination can occur only in a message type splice\_insert (where the segmentation descriptor is optional). | 
+| S2 | True | True | Blanking will not occur |   | 
+| S3 | True | False | Blanking will occur |   | 
+| S4 | False | True | Blanking will occur |   | 
+
+**Ad Avail Blanking and Restriction Flags: AWS Elemental Handling of Restrictions**  
+You can modify this default blanking behavior by instructing the AWS Elemental software to ignore a restriction flag that is set to `false`, so that blanking does not occur for this ad avail event. In other words, to use this logic: “Even if the message indicates to blank content because a regional blackout is in place, do not follow this instruction. Ignore the fact that a regional blackout is in place and do not blank content.”
 
 You modify the behavior by setting one or the other of the Ignore flags to:
++ Unchecked (default). The logic as above applies, so continue to observe the restriction.
++ Checked. Ignore the restriction and do not blank video for the ad avail event.
 
-- Unchecked (default). The logic as above applies, so continue to observe the
-  restriction.
-- Checked. Ignore the restriction and do not blank video for the ad avail
-  event.
-
-###### Warning
-
-Never set both fields to Ignore!
+**Warning**  
+Never set both fields to Ignore\! 
 
 To summarize, the Ignore flags make a difference only to these scenarios:
 
-|     | Content of Corresponding SCTE-35 MessageWeb delivery<br>allowed? | Content of Corresponding SCTE-35 MessageRegional delivery<br>allowed? | Restriction Field in AWS Elemental     | Result                        |
-| --- | ---------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------- | ----------------------------- |
-| S3  | True                                                             | False                                                                 | Ignore “regional delivery” restriction | Blanking will *not<br>• occur |
-| S4  | False                                                            | True                                                                  | Ignore “web delivery” restriction      | Blanking will *not<br>• occur |
 
-###### Ad Avail Blanking and Restriction Flags: Restriction Flags with “Splice Insert”
+|  | Content of Corresponding SCTE-35 MessageWeb delivery allowed? | Content of Corresponding SCTE-35 MessageRegional delivery allowed? | Restriction Field in AWS Elemental | Result | 
+| --- | --- | --- | --- | --- | 
+| S3 | True | False | Ignore “regional delivery” restriction | Blanking will not occur | 
+| S4 | False | True | Ignore “web delivery” restriction | Blanking will not occur | 
 
-If you selected **Splice Insert** as the Ad Avail mode, then
-there is an assumption that the SCTE-35 ad avail message will not include the two
-restriction flags described above. Avoid assuming that every SCTE-35 ad avail message
-should result in an ad avail.
+**Ad Avail Blanking and Restriction Flags: Restriction Flags with “Splice Insert”**  
+If you selected **Splice Insert** as the Ad Avail mode, then there is an assumption that the SCTE-35 ad avail message will not include the two restriction flags described above. Avoid assuming that every SCTE-35 ad avail message should result in an ad avail. 
 
-Therefore, if you know that input contains splice inserts (not time signals), you
-should leave both the fields unchecked.
+Therefore, if you know that input contains splice inserts (not time signals), you should leave both the fields unchecked.
 
 ## Procedure to Enable Ad Avail Blanking
-
-- In the Profile or Event screen, click Advanced Avail Controls (in the Input
-  section towards the top of the screen).
-- Check or uncheck the two restriction fields:
-
-  - Unchecked (default): Observe the restriction and blank the content for
-    the ad avail event.
-  - Checked: Ignore the restriction and do _not_ blank the content for the ad avail event.
-
-- Go down to the Global Processors section and complete the following
-  fields:
-
-  - **Ad Avail Blanking**: Click to turn on. The
-    **Blanking Image** field appears.
-  - **Blanking Image**: Specify a `.bmp` or
-    `.png` file to use for the blanking. If you leave this field
-    blank, a plain black image is inserted.
-
-  ![The file images/ad-avail-blanking-image.png.](images/ad-avail-blanking-image.png)
+<a name="procedure-to-enable-ad-avail-blanking"></a>
++ In the Profile or Event screen, click Advanced Avail Controls (in the Input section towards the top of the screen).
++ Check or uncheck the two restriction fields:
+  + Unchecked (default): Observe the restriction and blank the content for the ad avail event.
+  + Checked: Ignore the restriction and do *not* blank the content for the ad avail event.
++ Go down to the Global Processors section and complete the following fields:
+  + **Ad Avail Blanking**: Click to turn on. The **Blanking Image** field appears.
+  + **Blanking Image**: Specify a `.bmp` or `.png` file to use for the blanking. If you leave this field blank, a plain black image is inserted.  
+![The file images/ad-avail-blanking-image.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ad-avail-blanking-image.png)
 
 ## Procedure to Enable Blackout
-
-- In the Profile or Event screen, go down to the Global Processors section and
-  complete the following fields:
-
-  - **Blackout Image Insertion**: Click to turn on. The
-    **Blanking Image** field appears.
-  - **Blanking Image**: Specify a `.bmp` or
-    `.png` file to use for the blanking. If you leave this field
-    blank, a plain black image is inserted.
-
-![The file images/blackout-blanking-image.png.](images/blackout-blanking-image.png)
-
-- If you want to enable network end blackout (in other words, blank content when
-  network transmission has ended and remove blanking only when network transmission
-  resumes), follow these instructions:
-
-  - **Enable Network End Blackout**: Selected.
-  - **Network ID**: The EIDR ID of the network in the format
-    10.nnnn/xxxx-xxxx-xxxx-xxxx-xxxx-c (case insensitive). Only network end
-    events with this ID trigger blackout.
-  - **Network End Blackout Image**: Specify a
-    `.bmp` or `.png` file to use for the blanking. If
-    you leave this field blank, a plain black image is inserted.
-
-![The file images/network-end-blackout-blanking-image.png.](images/network-end-blackout-blanking-image.png)
+<a name="procedure-to-enable-blackout"></a>
++ In the Profile or Event screen, go down to the Global Processors section and complete the following fields:
+  + **Blackout Image Insertion**: Click to turn on. The **Blanking Image** field appears.
+  + **Blanking Image**: Specify a `.bmp` or `.png` file to use for the blanking. If you leave this field blank, a plain black image is inserted.  
+![The file images/blackout-blanking-image.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/blackout-blanking-image.png)
++ If you want to enable network end blackout (in other words, blank content when network transmission has ended and remove blanking only when network transmission resumes), follow these instructions:
+  + **Enable Network End Blackout**: Selected.
+  + **Network ID**: The EIDR ID of the network in the format 10.nnnn/xxxx-xxxx-xxxx-xxxx-xxxx-c (case insensitive). Only network end events with this ID trigger blackout. 
+  + **Network End Blackout Image**: Specify a `.bmp` or `.png` file to use for the blanking. If you leave this field blank, a plain black image is inserted.  
+![The file images/network-end-blackout-blanking-image.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/network-end-blackout-blanking-image.png)
