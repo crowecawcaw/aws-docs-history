@@ -32,7 +32,7 @@ For files, CloudFormation looks for authentication information in the following 
 ###### Topics
 
 - [Syntax](#aws-resource-cloudformation-authentication-syntax "#aws-resource-cloudformation-authentication-syntax")
-- [Properties](#w2aac19c23c15c19 "#w2aac19c23c15c19")
+- [Properties](#w2aac19c23c17c19 "#w2aac19c23c17c19")
 - [Examples](#aws-resource-authentication-examples "#aws-resource-authentication-examples")
 
 ## Syntax

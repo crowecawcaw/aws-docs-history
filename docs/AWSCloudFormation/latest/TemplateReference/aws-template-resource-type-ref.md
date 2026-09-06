@@ -216,6 +216,7 @@ Resource type identifiers always take the following form:
 - [Amazon Personalize](AWS_Personalize.md "AWS_Personalize.md")
 - [Amazon Pinpoint](AWS_Pinpoint.md "AWS_Pinpoint.md")
 - [Amazon Pinpoint Email](AWS_PinpointEmail.md "AWS_PinpointEmail.md")
+- [AWS Pricing Plan Manager](AWS_PricingPlanManager.md "AWS_PricingPlanManager.md")
 - [AWS Private Certificate Authority](AWS_ACMPCA.md "AWS_ACMPCA.md")
 - [AWS Private Certificate Authority for Active Directory](AWS_PCAConnectorAD.md "AWS_PCAConnectorAD.md")
 - [AWS Private Certificate Authority Connector for SCEP](AWS_PCAConnectorSCEP.md "AWS_PCAConnectorSCEP.md")
