@@ -1,10 +1,18 @@
+
+
 # HA for SAP Data Services
+<a name="bobi-ha-dr-win-ha-for-sap-data-services"></a>
 
 The HA architecture of SAP Data Services is very similar to the HA architecture of SAP BusinessObjects BI Platform. Before you can install SAP Data Services, you must have a working CMS server for SAP BusinessObjects BI Platform. You can install SAP Data Services on existing SAP BusinessObjects BI Platform nodes. If you do not have a SAP BusinessObjects BI Platform installation, SAP BusinessObjects Information Platform Services (IPS) can provide the basic CMS functions required by SAP Data Services. For either option, you can follow the steps in the previous sections to install the CMS server (by clustering two IPS CMS servers together), the CMS database, and a filestore with HA. You must use two Availability Zones for the CMS servers, a highly available shared file system like Amazon FSx, and a CMS database with a Read Replica in a separate Availability Zone. Here are the high-level steps:
 
 1. Create databases for the SAP Data Services repository in Amazon RDS MySQL. You can use your existing SAP BusinessObjects BI Platform or SAP BusinessObjects IPS CMS database engine to create a separate database for the repository. Alternatively, you can create a separate Amazon RDS MySQL instance for the repository.
-2. Install SAP BusinessObjects BI Platform or SAP BusinessObjects IPS with a minimum of two CMS servers in two separate Availability Zones. See the [SAP Data Services installation guide](https://help.sap.com/viewer/p/SAP_DATA_SERVICES "https://help.sap.com/viewer/p/SAP_DATA_SERVICES") for IPS installation instructions.
-3. Configure the filestore shared file system as described in [Configuring Amazon FSx for Input and Output Filestores](bobi-ha-dr-win-installing-for-ha.md#bobi-ha-dr-win-configure-filestores "bobi-ha-dr-win-installing-for-ha.md#bobi-ha-dr-win-configure-filestores").
-4. Install SAP Data Services on all SAP BusinessObjects BI Platform servers or IPS servers.
-5. Create an SAP Data Services central repository in the database created in step 1 by following the steps in the section _Repository management_ in the [SAP Data Services administrator guide](https://help.sap.com/viewer/p/SAP_DATA_SERVICES "https://help.sap.com/viewer/p/SAP_DATA_SERVICES").
-6. Configure HA for SAP Data Services batch jobs by following the instructions in [SAP Note 1938068](https://me.sap.com/notes/1938068 "https://me.sap.com/notes/1938068").
+
+1. Install SAP BusinessObjects BI Platform or SAP BusinessObjects IPS with a minimum of two CMS servers in two separate Availability Zones. See the [SAP Data Services installation guide](https://help.sap.com/viewer/p/SAP_DATA_SERVICES) for IPS installation instructions.
+
+1. Configure the filestore shared file system as described in [Configuring Amazon FSx for Input and Output Filestores](bobi-ha-dr-win-installing-for-ha.md#bobi-ha-dr-win-configure-filestores).
+
+1. Install SAP Data Services on all SAP BusinessObjects BI Platform servers or IPS servers.
+
+1. Create an SAP Data Services central repository in the database created in step 1 by following the steps in the section *Repository management* in the [SAP Data Services administrator guide](https://help.sap.com/viewer/p/SAP_DATA_SERVICES).
+
+1. Configure HA for SAP Data Services batch jobs by following the instructions in [SAP Note 1938068](https://me.sap.com/notes/1938068).

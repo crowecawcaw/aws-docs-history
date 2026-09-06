@@ -1,6 +1,10 @@
-# Document Revisions
 
-| Date         | Change                       |
-| ------------ | ---------------------------- |
-| January 2023 | Updates throughout the guide |
-| October 2019 | Initial publication          |
+
+# Document Revisions
+<a name="bobi-linux-document-revisions"></a>
+
+
+| Date | Change | 
+| --- | --- | 
+| January 2023 | Updates throughout the guide | 
+| October 2019 | Initial publication | 
