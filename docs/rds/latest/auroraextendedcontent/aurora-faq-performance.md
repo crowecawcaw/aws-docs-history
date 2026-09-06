@@ -1,37 +1,45 @@
+
+
 # Performance
+<a name="aurora-faq-performance"></a>
 
-###### Topics
-
-- [How does Amazon Aurora improve MySQL performance?](#aurora-faq-how-does-amazon-aurora-improve-mysql-performance "#aurora-faq-how-does-amazon-aurora-improve-mysql-performance")
-- [How does Amazon Aurora improve PostgreSQL performance?](#aurora-faq-how-does-amazon-aurora-improve-postgresql-performance "#aurora-faq-how-does-amazon-aurora-improve-postgresql-performance")
-- [How can I maximize throughput on Amazon Aurora MySQL?](#aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-mysql "#aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-mysql")
-- [How can I maximize throughput on Amazon Aurora PostgreSQL?](#aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-postgresql "#aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-postgresql")
-- [What is Amazon Aurora Parallel Query?](#aurora-faq-what-is-amazon-aurora-parallel-query "#aurora-faq-what-is-amazon-aurora-parallel-query")
-- [What is optimized reads for Aurora PostgreSQL?](#aurora-faq-what-is-optimized-reads-for-aurora-postgresql "#aurora-faq-what-is-optimized-reads-for-aurora-postgresql")
+**Topics**
++ [How does Amazon Aurora improve MySQL performance?](#aurora-faq-how-does-amazon-aurora-improve-mysql-performance)
++ [How does Amazon Aurora improve PostgreSQL performance?](#aurora-faq-how-does-amazon-aurora-improve-postgresql-performance)
++ [How can I maximize throughput on Amazon Aurora MySQL?](#aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-mysql)
++ [How can I maximize throughput on Amazon Aurora PostgreSQL?](#aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-postgresql)
++ [What is Amazon Aurora Parallel Query?](#aurora-faq-what-is-amazon-aurora-parallel-query)
++ [What is optimized reads for Aurora PostgreSQL?](#aurora-faq-what-is-optimized-reads-for-aurora-postgresql)
 
 ## How does Amazon Aurora improve MySQL performance?
+<a name="aurora-faq-how-does-amazon-aurora-improve-mysql-performance"></a>
 
 Amazon Aurora delivers up to 6x the throughput of stock MySQL by tightly integrating the database engine with an SSD-based virtualized storage layer purpose-built for database workloads. This reduces writes to the storage system, minimizes lock contention, and eliminates delays created by database process threads.
 
 ## How does Amazon Aurora improve PostgreSQL performance?
+<a name="aurora-faq-how-does-amazon-aurora-improve-postgresql-performance"></a>
 
 Amazon Aurora delivers up to 6x the throughput of stock PostgreSQL by tightly integrating the database engine with an SSD-based virtualized storage layer purpose-built for database workloads. Aurora decouples compute from storage, reducing writes to the storage system, minimizing lock contention, and eliminating delays created by database process threads.
 
 ## How can I maximize throughput on Amazon Aurora MySQL?
+<a name="aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-mysql"></a>
 
-Aurora is fully compatible with MySQL, so existing applications and tools run without modification. The area where Aurora excels beyond stock MySQL is [highly concurrent workloads](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Performance.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Performance.md"). To maximize throughput, design your applications to drive a large number of concurrent queries and transactions — Aurora's [storage architecture](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md") is optimized to handle high parallelism with minimal lock contention.
+Aurora is fully compatible with MySQL, so existing applications and tools run without modification. The area where Aurora excels beyond stock MySQL is [highly concurrent workloads](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Performance). To maximize throughput, design your applications to drive a large number of concurrent queries and transactions — Aurora's [storage architecture](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability) is optimized to handle high parallelism with minimal lock contention.
 
 ## How can I maximize throughput on Amazon Aurora PostgreSQL?
+<a name="aurora-faq-how-can-i-maximize-throughput-on-amazon-aurora-postgresql"></a>
 
-Aurora is fully compatible with PostgreSQL, so existing applications and tools run without modification. Aurora delivers the highest performance gains over stock PostgreSQL under high concurrency. To maximize throughput, build your applications to drive a large number of concurrent queries and transactions. Aurora's [decoupled compute and storage architecture](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.md") reduces write amplification and I/O bottlenecks, enabling consistently higher throughput as connections scale.
+Aurora is fully compatible with PostgreSQL, so existing applications and tools run without modification. Aurora delivers the highest performance gains over stock PostgreSQL under high concurrency. To maximize throughput, build your applications to drive a large number of concurrent queries and transactions. Aurora's [decoupled compute and storage architecture](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability) reduces write amplification and I/O bottlenecks, enabling consistently higher throughput as connections scale.
 
 ## What is Amazon Aurora Parallel Query?
+<a name="aurora-faq-what-is-amazon-aurora-parallel-query"></a>
 
-[Parallel Query](../../../AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.md") for Aurora MySQL pushes down and distributes the computational load of a single query across thousands of CPUs in Aurora's storage layer, speeding up analytical queries by up to two orders of magnitude. It can push down processing of more than 200 SQL functions, equijoins, and projections — no changes to query syntax are required, as the query optimizer automatically decides whether to use Parallel Query.
+[Parallel Query](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html) for Aurora MySQL pushes down and distributes the computational load of a single query across thousands of CPUs in Aurora's storage layer, speeding up analytical queries by up to two orders of magnitude. It can push down processing of more than 200 SQL functions, equijoins, and projections — no changes to query syntax are required, as the query optimizer automatically decides whether to use Parallel Query.
 
-Parallel Query is ideal for operational analytics — when you need fast analytical queries on fresh data in large tables. It is not a data warehouse replacement; for exabyte-scale analytics, consider [Amazon Redshift](https://aws.amazon.com/pm/redshift/ "https://aws.amazon.com/pm/redshift/"). Parallel Query is compatible with Aurora serverless and Backtrack, runs on R\* instance family types, and is included at no additional charge beyond standard instance, I/O, and storage pricing.
+Parallel Query is ideal for operational analytics — when you need fast analytical queries on fresh data in large tables. It is not a data warehouse replacement; for exabyte-scale analytics, consider [Amazon Redshift](https://aws.amazon.com/pm/redshift/). Parallel Query is compatible with Aurora serverless and Backtrack, runs on R\* instance family types, and is included at no additional charge beyond standard instance, I/O, and storage pricing.
 
 ## What is optimized reads for Aurora PostgreSQL?
+<a name="aurora-faq-what-is-optimized-reads-for-aurora-postgresql"></a>
 
 Optimized reads for Aurora PostgreSQL delivers up to 8x improved query latency and up to 30% cost savings compared to instances without it. It is ideal for applications with large datasets that exceed the memory capacity of a database instance. Optimized Reads is available on Intel-based R6id and Graviton-based R6gd and R8gd instances (not available on Aurora serverless).
 
@@ -45,4 +53,4 @@ For I/O intensive workloads which are read heavy, optimized reads-enabled instan
 
 How do I get started with optimized reads for Aurora PostgreSQL?
 
-Customers can get started with Amazon Aurora Optimized Reads through the AWS Management Console, CLI, and SDK. Optimized reads is available on all R6id and R6gd instances by default. To use this capability, customers can simply modify their existing Aurora database clusters to include R6id and R6gd instances or create new database clusters using these instances. See the [Amazon Aurora optimized reads documentation](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md") to get started.
+Customers can get started with Amazon Aurora Optimized Reads through the AWS Management Console, CLI, and SDK. Optimized reads is available on all R6id and R6gd instances by default. To use this capability, customers can simply modify their existing Aurora database clusters to include R6id and R6gd instances or create new database clusters using these instances. See the [Amazon Aurora optimized reads documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.optimized.reads.html) to get started.
