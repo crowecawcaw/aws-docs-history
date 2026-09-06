@@ -1,36 +1,37 @@
-This is version 2.18 of the AWS Elemental Conductor File documentation. This is the
-latest version. For prior versions, see the _Archive_ section of
-[AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
+
+
+This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Where to Work: Configuration Screens
+<a name="ready-cf-cg-where"></a>
 
 The procedures in this guide use one of three screens on the Conductor web interface. All work is done from the Conductor web interface; there is never a need to switch to the web interface for a worker.
 
 The three screens are:
++ The Node Configuration screen for a Conductor node.
++ The Node Configuration screen for a worker node.
++ The Conductor Configuration screen for a Conductor node.
 
-- The Node Configuration screen for a Conductor node.
-- The Node Configuration screen for a worker node.
-- The Conductor Configuration screen for a Conductor node.
-  These three screens cover slightly different configuration features, and are accessed in slightly different ways. The following tables provides more detail.
+These three screens cover slightly different configuration features, and are accessed in slightly different ways. The following tables provides more detail.
 
-| Screen                                  | How to Navigate to this Screen                                               | Purpose of this Screen                                                                                                                                               |
-| --------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Node Configuration screen for Conductor | From the Conductor web interface: *_Nodes_<br>• > *_Edit_<br>• (wrench icon) | Configures the Conductor node as one of several nodes in the cluster. Includes network settings, mount points, and firewall for AWS Elemental Conductor File.        |
-| Node Configuration screen for worker    | From the Conductor web interface: *_Nodes_<br>• > *_Edit_<br>• (wrench icon) | Configures the worker node as one of several nodes in the cluster. Include network settings, mount points, and firewall for AWS Elemental Server.                    |
-| Conductor Configuration screen          | From the Conductor web interface: Configuration (cog icon) in the main menu  | Configures the Conductor in its special role as the manager of the cluster. Includes failover management, authentication on the cluster, SNMP management, and so on. |
 
-###### Important
 
-Take care to go to the correct screen! Do not confuse the Node Configuration screen with the Conductor Configuration screen.
+| Screen | How to Navigate to this Screen | Purpose of this Screen | 
+| --- | --- | --- | 
+| Node Configuration screen for Conductor | From the Conductor web interface: Nodes > Edit (wrench icon) | Configures the Conductor node as one of several nodes in the cluster. Includes network settings, mount points, and firewall for AWS Elemental Conductor File. | 
+| Node Configuration screen for worker | From the Conductor web interface: Nodes > Edit (wrench icon) | Configures the worker node as one of several nodes in the cluster. Include network settings, mount points, and firewall for AWS Elemental Server. | 
+| Conductor Configuration screen | From the Conductor web interface: Configuration (cog icon) in the main menu | Configures the Conductor in its special role as the manager of the cluster. Includes failover management, authentication on the cluster, SNMP management, and so on. | 
 
-###### Node Configuration Screen
+**Important**  
+Take care to go to the correct screen\! Do not confuse the Node Configuration screen with the Conductor Configuration screen. 
 
+**Node Configuration Screen**  
 This example shows the Node Configuration screen for a Conductor node. The screen for a worker node is nearly identical.
 
-![](images/ready-node-shared-png.png)
+![](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/ready-node-shared-png.png)
 
-###### Conductor Configuration Screen
 
+**Conductor Configuration Screen**  
 This example shows the Conductor configuration screen.
 
-![](images/ready-cond-shared-png.png)
+![](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/ready-cond-shared-png.png)
