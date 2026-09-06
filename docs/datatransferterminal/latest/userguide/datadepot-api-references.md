@@ -1,207 +1,139 @@
+
+
 # Data Transfer Terminal API references: Actions and resources
+<a name="datadepot-api-references"></a>
 
 When creating AWS Identity and Access Management (IAM) policies, this page can help you understand the relationship between AWS Data Transfer Terminal API operations, the corresponding actions that you can grant permissions to perform, and the AWS resources for which you can grant the permissions.
 
 In general, here’s how you add Data Transfer Terminal permissions to your policy:
++ Specify an action in the `Action` element. The value includes a `datatransferterminal:` prefix and the API operation name. For example, `datatransferterminal:CreateTask`.
++ Specify an AWS resource related to the action in the `Resource` element.
 
-- Specify an action in the `Action` element. The value includes a `datatransferterminal:` prefix and the API operation name. For example, `datatransferterminal:CreateTask`.
-- Specify an AWS resource related to the action in the `Resource` element.
-  You can also use AWS condition keys in your Data Transfer Terminal policies. For a complete list of AWS keys, see [Available keys](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the _IAM User Guide_.
+You can also use AWS condition keys in your Data Transfer Terminal policies. For a complete list of AWS keys, see [Available keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*.
 
-Data Transfer Terminal API operations and corresponding actions
+ **Data Transfer Terminal API operations and corresponding actions** 
 
-CreateTransferTeam
+CreateTransferTeam  
++  **Action:** `datatransferterminal:CreateTransferTeam` 
 
-- **Action:**
-  `datatransferterminal:CreateTransferTeam`
+   **Resource:** `None` 
 
-**Resource:**
-`None`
+GetTransferTeam  
++  **Action:** `datatransferterminal:GetTransferTeam` 
 
-GetTransferTeam
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-- **Action:**
-  `datatransferterminal:GetTransferTeam`
+UpdateTransferTeam  
++  **Action:** `datatransferterminal:UpdateTransferTeam` 
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-UpdateTransferTeam
+DeleteTransferTeam  
++  **Action:** `datatransferterminal:DeleteTransferTeam` 
 
-- **Action:**
-  `datatransferterminal:UpdateTransferTeam`
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+ListTransferTeams  
++  **Action:** `datatransferterminal:ListTransferTeams` 
 
-DeleteTransferTeam
+   **Resource:** `None` 
 
-- **Action:**
-  `datatransferterminal:DeleteTransferTeam`
+RegisterPerson  
++  **Action:** `datatransferterminal:RegisterPerson` 
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-ListTransferTeams
+GetPerson  
++  **Action:** `datatransferterminal:GetPerson` 
 
-- **Action:**
-  `datatransferterminal:ListTransferTeams`
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
 
-**Resource:**
-`None`
+   **Dependent action:** `datatransferterminal:GetTransferTeam` 
 
-RegisterPerson
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-- **Action:**
-  `datatransferterminal:RegisterPerson`
+DeregisterPerson  
++  **Action:** `datatransferterminal:DeregisterPerson` 
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
 
-GetPerson
+   **Dependent action:** `datatransferterminal:GetTransferTeam` 
 
-- **Action:**
-  `datatransferterminal:GetPerson`
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
+ListPersons  
++  **Action:** `datatransferterminal:ListPersons` 
 
-**Dependent action:**
-`datatransferterminal:GetTransferTeam`
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+CreateReservation  
++  **Action:** `datatransferterminal:CreateReservation` 
 
-DeregisterPerson
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-- **Action:**
-  `datatransferterminal:DeregisterPerson`
+   **Dependent action:** `datatransferterminal:GetTransferTeam` 
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-**Dependent action:**
-`datatransferterminal:GetTransferTeam`
+   **Dependent action:** `datatransferterminal:GetPerson` 
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
 
-ListPersons
+   **Dependent action:** `datatransferterminal:GetFacility` 
 
-- **Action:**
-  `datatransferterminal:ListPersons`
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId````
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+GetReservation  
++  **Action:** `datatransferterminal:GetReservation` 
 
-CreateReservation
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/reservation/$[replaceable]`ReservationId````
 
-- **Action:**
-  `datatransferterminal:CreateReservation`
+   **Dependent action:** `datatransferterminal:GetTransferTeam` 
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-**Dependent action:**
-`datatransferterminal:GetTransferTeam`
+UpdateReservation  
++  **Action:** `datatransferterminal:UpdateReservation` 
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/reservation/$[replaceable]`ReservationId````
 
-**Dependent action:**
-`datatransferterminal:GetPerson`
+   **Dependent action:** `datatransferterminal:GetTransferTeam` 
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-**Dependent action:**
-`datatransferterminal:GetFacility`
+   **Dependent action:** `datatransferterminal:GetPerson` 
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId````
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
 
-GetReservation
+DeleteReservation  
++  **Action:** `datatransferterminal:DeleteReservation` 
 
-- **Action:**
-  `datatransferterminal:GetReservation`
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/reservation/$[replaceable]`ReservationId````
+   **Dependent action:** `datatransferterminal:GetTransferTeam` 
 
-**Dependent action:**
-`datatransferterminal:GetTransferTeam`
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+ListReservations  
++  **Action:** `datatransferterminal:ListReservations` 
 
-UpdateReservation
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
 
-- **Action:**
-  `datatransferterminal:UpdateReservation`
+ListFacilities  
++  **Action:** `datatransferterminal:ListFacilities` 
 
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/reservation/$[replaceable]`ReservationId````
+   **Resource:** `None` 
 
-**Dependent action:**
-`datatransferterminal:GetTransferTeam`
+GetFacility  
++  **Action:** `datatransferterminal:GetFacility` 
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId````
 
-**Dependent action:**
-`datatransferterminal:GetPerson`
+GetFacilityAvailability  
++  **Action:** `datatransferterminal:GetFacilityAvailability` 
 
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
+   **Resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId`/availability` 
 
-DeleteReservation
+   **Dependent action:** `datatransferterminal:GetFacility` 
 
-- **Action:**
-  `datatransferterminal:DeleteReservation`
-
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId`/person/$[replaceable]`PersonId````
-
-**Dependent action:**
-`datatransferterminal:GetTransferTeam`
-
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
-
-ListReservations
-
-- **Action:**
-  `datatransferterminal:ListReservations`
-
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:$[replaceable]`Region`:$[replaceable]`Account`:transfer-team/$[replaceable]`TransferTeamId````
-
-ListFacilities
-
-- **Action:**
-  `datatransferterminal:ListFacilities`
-
-**Resource:**
-`None`
-
-GetFacility
-
-- **Action:**
-  `datatransferterminal:GetFacility`
-
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId````
-
-GetFacilityAvailability
-
-- **Action:**
-  `datatransferterminal:GetFacilityAvailability`
-
-**Resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId`/availability`
-
-**Dependent action:**
-`datatransferterminal:GetFacility`
-
-**Dependent resource:**
-`arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId`/availability`
+   **Dependent resource:** `arn:aws::$[replaceable]`Partition`:datatransferterminal:::facility/$[replaceable]`FacilityId`/availability` 
