@@ -39,7 +39,7 @@ Secrets Manager generates a CloudTrail log entry when you delete a secret. For m
 
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. On the **Secrets** page, choose **Preferences** (
-   ![Gear icon representing settings or configuration options.](/images/secretsmanager/latest/userguide/images/preferences-gear.png)
+   ![Gear icon representing settings or configuration options.](images/preferences-gear.png)
    ).
 3. In the Preferences dialog box, select **Show secrets scheduled for deletion**, and
    then choose **Save**.
