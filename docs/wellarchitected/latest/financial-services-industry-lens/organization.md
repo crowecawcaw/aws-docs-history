@@ -1,5 +1,7 @@
+
+
 # Organization
+<a name="organization"></a>
 
-###### Best practice questions
-
-- [FSIOPS01: Have you defined risk management roles for the cloud?](fsiops01.md "fsiops01.md")
+**Topics**
++ [FSIOPS01: Have you defined risk management roles for the cloud?](fsiops01.md)
