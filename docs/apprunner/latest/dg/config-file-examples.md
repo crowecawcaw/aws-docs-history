@@ -1,51 +1,55 @@
-AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS App Runner availability
-change](apprunner-availability-change.md "apprunner-availability-change.md").
+
+
+AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # App Runner configuration file examples
+<a name="config-file-examples"></a>
 
-###### Note
+**Note**  
+Configuration files are applicable only to [services that are based on source code](service-source-code.md). You can't use configuration files with [image-based services](service-source-image.md).
 
-Configuration files are applicable only to [services that are based on source code](service-source-code.md "service-source-code.md"). You can't use
-configuration files with [image-based services](service-source-image.md "service-source-image.md").
-
-The following examples demonstrate AWS App Runner configuration files. Some are minimal and contain only required settings. Others are complete, including all
-configuration file sections. For an overview of App Runner configuration files, see [Setting App Runner service options using a configuration file](config-file.md "config-file.md").
+The following examples demonstrate AWS App Runner configuration files. Some are minimal and contain only required settings. Others are complete, including all configuration file sections. For an overview of App Runner configuration files, see [Setting App Runner service options using a configuration file](config-file.md).
 
 ## Configuration file examples
+<a name="config-file-examples.managed"></a>
+
+### Minimal configuration file
+<a name="config-file-examples.managed.minimal"></a>
 
 With a minimal configuration file, App Runner makes the following assumptions:
++ No custom environment variables are necessary during build or run.
++ The latest runtime version is used.
++ The default port number and port environment variable are used.
 
-- No custom environment variables are necessary during build or run.
-- The latest runtime version is used.
-- The default port number and port environment variable are used.
-
-###### Example apprunner.yaml
+**Example apprunner.yaml**  
 
 ```
 version: 1.0
-runtime: python3
+runtime: python3 
 build:
   commands:
     build:
       - pip install pipenv
-      - pipenv install
-run:
+      - pipenv install 
+run: 
   command: python app.py
 ```
 
+### Complete configuration file
+<a name="config-file-examples.managed.complete"></a>
+
 This example shows the use of all configuration keys in the `apprunner.yaml` original format with a managed runtime.
 
-###### Example apprunner.yaml
+**Example apprunner.yaml**  
 
 ```
 version: 1.0
-runtime: python3
+runtime: python3 
 build:
   commands:
     pre-build:
       - wget -c https://s3.amazonaws.com/amzn-s3-demo-bucket/test-lib.tar.gz -O - | tar -xz
-    build:
+    build:        
       - pip install pipenv
       - pipenv install
     post-build:
@@ -56,11 +60,11 @@ build:
     - name: MY_VAR_EXAMPLE
       value: "example"
 run:
-  runtime-version: `3.7.7`
+  runtime-version: {{3.7.7}}
   command: pipenv run gunicorn django_apprunner.wsgi --log-file -
-  network:
+  network: 
     port: 8000
-    env: MY_APP_PORT
+    env: MY_APP_PORT  
   env:
     - name: MY_VAR_EXAMPLE
       value: "example"
@@ -73,19 +77,17 @@ run:
       value-from: "parameter-name"
 ```
 
+### Complete configuration file — (uses revised build)
+<a name="config-file-examples.managed.complete-v2"></a>
+
 This example shows the use of all configuration keys in the `apprunner.yaml` with a managed runtime.
 
-The `pre-run` parameter is only supported by the revised App Runner build.
-Do not insert this parameter in your configuration file if your application uses runtime versions that are supported by the
-original App Runner build. For more information, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail "service-source-code.md#service-source-code.build-detail").
+The `pre-run` parameter is only supported by the revised App Runner build. Do not insert this parameter in your configuration file if your application uses runtime versions that are supported by the original App Runner build. For more information, see [Managed runtime versions and the App Runner build](service-source-code.md#service-source-code.build-detail).
 
-###### Note
+**Note**  
+Since this examples is for Python 3.11, we use the `pip3` and `python3` commands. For more information, see [Callouts for specific runtime versions](service-source-code-python.md#service-source-code-python.callouts) in the Python platform topic.
 
-Since this examples is for Python 3.11, we use the `pip3` and `python3` commands. For more information, see
-[Callouts for specific runtime versions](service-source-code-python.md#service-source-code-python.callouts "service-source-code-python.md#service-source-code-python.callouts") in the
-Python platform topic.
-
-###### Example apprunner.yaml
+**Example apprunner.yaml**  
 
 ```
 version: 1.0
@@ -94,7 +96,7 @@ build:
   commands:
     pre-build:
       - wget -c https://s3.amazonaws.com/amzn-s3-demo-bucket/test-lib.tar.gz -O - | tar -xz
-    build:
+    build:        
       - pip3 install pipenv
       - pipenv install
     post-build:
@@ -105,15 +107,15 @@ build:
     - name: MY_VAR_EXAMPLE
       value: "example"
 run:
-  runtime-version: `3.11`
-  pre-run:
+  runtime-version: {{3.11}}
+  pre-run:  
     - pip3 install pipenv
     - pipenv install
     - python3 copy-global-files.py
   command: pipenv run gunicorn django_apprunner.wsgi --log-file -
-  network:
+  network: 
     port: 8000
-    env: MY_APP_PORT
+    env: MY_APP_PORT  
   env:
     - name: MY_VAR_EXAMPLE
       value: "example"
@@ -126,4 +128,4 @@ run:
       value-from: "parameter-name"
 ```
 
-For examples of specific managed runtime configuration files, see the specific runtime subtopic under [Code-based service](service-source-code.md "service-source-code.md").
+For examples of specific managed runtime configuration files, see the specific runtime subtopic under [Code-based service](service-source-code.md).

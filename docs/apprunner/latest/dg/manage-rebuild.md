@@ -1,59 +1,67 @@
-AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS App Runner availability
-change](apprunner-availability-change.md "apprunner-availability-change.md").
+
+
+AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Rebuilding a failed App Runner service
+<a name="manage-rebuild"></a>
 
-If you receive a **Failed to create** error when creating an App Runner service, you can do one of the following.
+ If you receive a **Failed to create** error when creating an App Runner service, you can do one of the following.
++ Follow the steps in [When the service fails to create](troubleshooting-create-failure.md) to identify the cause of the error. 
++ If you find an error in the source or configuration, make the necessary changes and then rebuild your service.
++ If a temporary issue with App Runner caused your service to fail, rebuild your failed service without making any changes to the source or configuration.
 
-- Follow the steps in [When the service fails to create](troubleshooting-create-failure.md "troubleshooting-create-failure.md") to identify the cause of the error.
-- If you find an error in the source or configuration, make the necessary changes and then rebuild your service.
-- If a temporary issue with App Runner caused your service to fail, rebuild your failed service without making any changes to the source or configuration.
-  You can rebuild your failed service either through the [App Runner console](#manage-rebuild.console "#manage-rebuild.console") or the
-  [App Runner API or AWS CLI](#manage-rebuild.api "#manage-rebuild.api").
+You can rebuild your failed service either through the [App Runner console](#manage-rebuild.console) or the [App Runner API or AWS CLI](#manage-rebuild.api).
 
 ## Rebuilding a failed App Runner service using the App Runner console
+<a name="manage-rebuild.console"></a>
 
-Rebuild with updates
-Creating a service can fail for a variety of reasons. When this happens, it's important to identify and rectify the root cause of the issue
-before rebuilding your service. For more information, see [When the service fails to create](troubleshooting-create-failure.md "troubleshooting-create-failure.md").
+------
+#### [ Rebuild with updates ]
 
-###### To rebuild a failed service with updates
+Creating a service can fail for a variety of reasons. When this happens, it's important to identify and rectify the root cause of the issue before rebuilding your service. For more information, see [When the service fails to create](troubleshooting-create-failure.md). 
 
-1. Go to the **Configurations** tab on your service page and choose **Edit**.
+**To rebuild a failed service with updates**
 
-The page opens a summary panel that displays a list of all your updates. 2. Make the required changes and review them in the summary panel. 3. Choose **Save and rebuild**.
+1. Go to the **Configurations** tab on your service page and choose **Edit**. 
 
-You can monitor progress on the **Logs** tab of your service page.
+   The page opens a summary panel that displays a list of all your updates.
 
-Rebuild without updates
-If a temporary issue causes your service creation to fail, you can rebuild your service without modifying its source or configuration settings.
+1. Make the required changes and review them in the summary panel. 
 
-###### To rebuild a failed service without updates
+1. Choose **Save and rebuild**. 
 
-- Choose **Rebuild** on the top right corner of your service page.
+   You can monitor progress on the **Logs** tab of your service page.
 
-You can monitor progress on the **Logs** tab of your service page.
+------
+#### [ Rebuild without updates ]
 
-- If your service fails to create again, follow the troubleshooting instructions in [When the service fails to create](troubleshooting-create-failure.md "troubleshooting-create-failure.md"). Make the necessary changes
-  and then rebuild your service.
+If a temporary issue causes your service creation to fail, you can rebuild your service without modifying its source or configuration settings. 
+
+**To rebuild a failed service without updates**
++ Choose **Rebuild** on the top right corner of your service page.
+
+  You can monitor progress on the **Logs** tab of your service page.
++ If your service fails to create again, follow the troubleshooting instructions in [When the service fails to create](troubleshooting-create-failure.md). Make the necessary changes and then rebuild your service. 
+
+------
 
 ## Rebuilding failed App Runner service using the App Runner API or AWS CLI
+<a name="manage-rebuild.api"></a>
 
-Rebuild with updates
+------
+#### [ Rebuild with updates ]
+
 To rebuild a failed service:
 
-1. Follow the instructions in [When the service fails to create](troubleshooting-create-failure.md "troubleshooting-create-failure.md") to find the cause of the error.
-2. Make the necessary changes to the branch or the image of the source repository or the configuration that caused the error.
-3. Rebuild by calling the [UpdateService](../api/API_UpdateService.md "../api/API_UpdateService.md") API action with the new source code repository
-   or source image repository parameters. App Runner retrieves the latest commit from the source code repository.
+1. Follow the instructions in [When the service fails to create](troubleshooting-create-failure.md) to find the cause of the error. 
 
-###### Example Rebuilding with updates
+1. Make the necessary changes to the branch or the image of the source repository or the configuration that caused the error. 
 
-In the following example the source configuration of an image-based service is being updated. The value of the `Port` is changed to
-`80`.
+1. Rebuild by calling the [UpdateService](https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateService.html) API action with the new source code repository or source image repository parameters. App Runner retrieves the latest commit from the source code repository.
 
-Updating the `input.json` file for image-based App Runner service
+**Example Rebuilding with updates**  
+In the following example the source configuration of an image-based service is being updated. The value of the `Port` is changed to `80`.   
+Updating the `input.json` file for image-based App Runner service   
 
 ```
 {
@@ -61,21 +69,22 @@ Updating the `input.json` file for image-based App Runner service
   "SourceConfiguration": {
     "ImageRepository": {
       "ImageConfiguration": {
-        "Port": `"80"`
+        "Port": {{"80"}}
       }
     }
   }
 }
 ```
-
-Calling the `UpdateService` API action.
+Calling the `UpdateService` API action.  
 
 ```
-`aws apprunner update-service
---cli-input-json file:`//input.json``
+aws apprunner update-service
+--cli-input-json file:{{//input.json}}
 ```
 
-Rebuild without updates
-To rebuild your failed service using the App Runner API or AWS CLI, call the [UpdateService](../api/API_UpdateService.md "../api/API_UpdateService.md") API
-action without making any changes to source or configuration of your service. Choose to rebuild without making updates only if your service creation
-failed due a temporary issue with App Runner.
+------
+#### [ Rebuild without updates ]
+
+To rebuild your failed service using the App Runner API or AWS CLI, call the [UpdateService](https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateService.html) API action without making any changes to source or configuration of your service. Choose to rebuild without making updates only if your service creation failed due a temporary issue with App Runner.
+
+------

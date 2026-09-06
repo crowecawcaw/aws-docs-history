@@ -1,36 +1,31 @@
-AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS App Runner availability
-change](apprunner-availability-change.md "apprunner-availability-change.md").
+
+
+AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # When the service fails to create
+<a name="troubleshooting-create-failure"></a>
 
-If your attempt to create an App Runner service fails, the service enters a `CREATE_FAILED` status. This status appears as **Create
-failed** on the console. A service might fail to create because of issues that are related to one or more of the following:
+If your attempt to create an App Runner service fails, the service enters a `CREATE_FAILED` status. This status appears as **Create failed** on the console. A service might fail to create because of issues that are related to one or more of the following:
++ Your application code
++ The build process
++ Configuration
++ Resource quotas
++ Temporary issues with the underlying AWS services that your service uses
 
-- Your application code
-- The build process
-- Configuration
-- Resource quotas
-- Temporary issues with the underlying AWS services that your service uses
-  To troubleshoot a service failing to create, we recommend that you do the following.
+To troubleshoot a service failing to create, we recommend that you do the following.
 
 1. Read the service events and logs to find out what caused the service to fail to create.
-2. Make any necessary changes to your code or configuration.
-3. If you reached your service quota, delete one or more services.
-4. If you reached another resource quota, you might be able to increase it if it's adjustable.
-5. Try rebuilding the service again after completing all of the above steps. For information on how to rebuild your service, see [Rebuilding a failed App Runner service](manage-rebuild.md "manage-rebuild.md").
 
-###### Note
+1. Make any necessary changes to your code or configuration.
 
-One of the adjustable resource quotas that might be causing an issue is the _Fargate On-Demand_ vCPU resource.
+1. If you reached your service quota, delete one or more services.
 
-The vCPU resource count determines the number of instances that App Runner can provide to your service. This is an adjustable quota value for the
-_Fargate On-Demand_ vCPU resource count that resides in the AWS Fargate service. To view the vCPU quota settings for your account or
-to request a quota increase, use the Service Quotas console in the AWS Management Console. For more information, see [AWS Fargate service quotas](../../../AmazonECS/latest/developerguide/service-quotas.md#service-quotas-fargate "../../../AmazonECS/latest/developerguide/service-quotas.md#service-quotas-fargate") in the
-_Amazon Elastic Container Service Developer Guide_.
+1. If you reached another resource quota, you might be able to increase it if it's adjustable.
 
-###### Important
+1. Try rebuilding the service again after completing all of the above steps. For information on how to rebuild your service, see [Rebuilding a failed App Runner service](manage-rebuild.md).
+**Note**  
+One of the adjustable resource quotas that might be causing an issue is the *Fargate On-Demand* vCPU resource.  
+The vCPU resource count determines the number of instances that App Runner can provide to your service. This is an adjustable quota value for the *Fargate On-Demand* vCPU resource count that resides in the AWS Fargate service. To view the vCPU quota settings for your account or to request a quota increase, use the Service Quotas console in the AWS Management Console. For more information, see [AWS Fargate service quotas](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html#service-quotas-fargate) in the *Amazon Elastic Container Service Developer Guide*. 
 
-You don't incur any additional charges beyond the initial creation attempt for a failed service. Even though the failed service isn't usable, it
-still counts towards your service quota. App Runner doesn't automatically delete the failed service, so make sure that you delete it when you're done
-analyzing the failure.
+**Important**  
+You don't incur any additional charges beyond the initial creation attempt for a failed service. Even though the failed service isn't usable, it still counts towards your service quota. App Runner doesn't automatically delete the failed service, so make sure that you delete it when you're done analyzing the failure.
