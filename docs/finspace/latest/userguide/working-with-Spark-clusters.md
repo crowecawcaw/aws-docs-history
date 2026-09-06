@@ -1,35 +1,30 @@
-After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
-[Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
+
+
+After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Working with Spark clusters in Amazon FinSpace
+<a name="working-with-Spark-clusters"></a>
 
-###### Important
+**Important**  
+Amazon FinSpace Dataset Browser will be discontinued on {{March 26, 2025}}. Starting {{November 29, 2023}}, FinSpace will no longer accept the creation of new Dataset Browser environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/) will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/) or contact [AWS Support](https://aws.amazon.com/contact-us/) to assist with your transition.
 
-Amazon FinSpace Dataset Browser will be discontinued on `March 26,
- 2025`. Starting `November 29, 2023`, FinSpace will no longer accept the creation of new Dataset Browser
-environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/ "https://aws.amazon.com/finspace/features/managed-kdb-insights/") will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/ "https://aws.amazon.com/finspace/faqs/") or contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") to assist with your
-transition.
+Amazon FinSpace simplifies how to work with Spark clusters by offering easy to use cluster configuration templates that allow you to launch, connect, resize, and terminate without worrying to manage the underlying infrastructure. Every user in FinSpace with **Access Notebooks** and **Manage Clusters** permission can instantiate one cluster.
 
-Amazon FinSpace simplifies how to work with Spark clusters by offering easy to use cluster configuration templates that allow you to launch, connect, resize, and terminate without
-worrying to manage the underlying infrastructure. Every user in FinSpace with **Access Notebooks** and **Manage Clusters** permission can instantiate one cluster.
-
-###### Note
-
-In order to use notebooks and Spark clusters, you must be a superuser or a member of a group with necessary permissions - **Access Notebooks, Manage Clusters**.
+**Note**  
+In order to use notebooks and Spark clusters, you must be a superuser or a member of a group with necessary permissions - **Access Notebooks, Manage Clusters**. 
 
 You can choose one of the following cluster configuration templates:
++ Small
++ Medium
++ Large
++ XLarge
++ 2XLarge
 
-- Small
-- Medium
-- Large
-- XLarge
-- 2XLarge
-
-###### Note
-
+**Note**  
 You are charged by the minute for using the Spark clusters. Terminate your Spark cluster when you are done using it.
 
 ## Import FinSpace cluster management library
+<a name="import-finspace-cluster-management-library"></a>
 
 Use the following code to import the cluster management library in a notebook.
 
@@ -39,8 +34,9 @@ from aws.finspace.cluster import FinSpaceClusterManager
 ```
 
 ## Start a Spark cluster
+<a name="start-a-spark-cluster"></a>
 
-Use the following code to start and connect your notebook to a Spark cluster.
+****Use the following code to start and connect your notebook to a Spark cluster.
 
 ```
 %local
@@ -70,12 +66,12 @@ Persisted FinSpace cluster connection info to /home/sagemaker-user/.Sparkmagic/F
 SageMaker Studio Environment is now connected to your FinSpace Cluster: 8x6zd9cq at GMT: 2021-01-15 02:13:50.
 ```
 
-You can expect a startup time of about 5 to 8 minutes when instantiating a cluster for the first time.
-Once a cluster is created, any newly created notebook will detect and connect to the running cluster when an `auto_connect()` call is issued and this operation is instantaneous.
+You can expect a startup time of about 5 to 8 minutes when instantiating a cluster for the first time. Once a cluster is created, any newly created notebook will detect and connect to the running cluster when an `auto_connect()` call is issued and this operation is instantaneous.
 
 ## List details for Spark clusters
+<a name="list-details-for-spark-clusters"></a>
 
-**Use the following code to list the Spark cluster name and details**
+ **Use the following code to list the Spark cluster name and details** 
 
 ```
 %local
@@ -107,58 +103,60 @@ The output should be similar to the following output.
    'modifiedTimestamp': 1610514182552}]}
 ```
 
-In the output above, you can see the `clusterId`
-**8x6zd9cq** is a small cluster with state equals to **RUNNING**, and the `clusterId` **3ysaqx3g** is a small cluster with state equals to **TERMINATED**.
+In the output above, you can see the `clusterId` **8x6zd9cq** is a small cluster with state equals to **RUNNING**, and the `clusterId` **3ysaqx3g** is a small cluster with state equals to **TERMINATED**.
 
 ## Resize Spark cluster
+<a name="resize-spark-cluster"></a>
 
 Scale your Spark cluster up or down based on your compute needs and the volume of data you need to analyze.
 
-###### To resize clusters
+**To resize clusters**
 
 1. Type the following code to update your cluster to a **Large** size.
 
-```
-%local
-finspace_clusters.update('8x6zd9cq','Large')
-```
+   ```
+   %local
+   finspace_clusters.update('8x6zd9cq','Large')
+   ```
 
-The output will look like below
+   The output will look like below
 
-```
-{'clusterId': '8x6zd9cq',
- 'clusterStatus': {'state': 'UPDATING', 'reason': 'Initiated by user'}}
-```
+   ```
+   {'clusterId': '8x6zd9cq',
+    'clusterStatus': {'state': 'UPDATING', 'reason': 'Initiated by user'}}
+   ```
 
-2. Note that the `update()` operation runs asynchronous so that you can continue to work on the cluster as the update operation completes.
-3. Check the status of the update operation using the `list()` function.
+1. Note that the `update()` operation runs asynchronous so that you can continue to work on the cluster as the update operation completes.
 
-```
-{'clusters': [{'clusterId': '8x6zd9cq',
-   'clusterStatus': {'state': 'UPDATING',
-    'reason': 'Initiated by user',
-    'details': ''},
-   'name': 'hab-cluster-3e51',
-   'currentTemplate': 'Small',
-   'requestedTemplate': 'Large',
-   'clusterTerminationTime': 1610676314,
-   'createdTimestamp': 1610676374420,
-   'modifiedTimestamp': 1610682765327}}
-```
+1. Check the status of the update operation using the `list()` function.
 
-4. In the output above, the `clusterId` **8x6zd9cq** is being updated from **Small** to **Large**.
+   ```
+   {'clusters': [{'clusterId': '8x6zd9cq',
+      'clusterStatus': {'state': 'UPDATING',
+       'reason': 'Initiated by user',
+       'details': ''},
+      'name': 'hab-cluster-3e51',
+      'currentTemplate': 'Small',
+      'requestedTemplate': 'Large',
+      'clusterTerminationTime': 1610676314,
+      'createdTimestamp': 1610676374420,
+      'modifiedTimestamp': 1610682765327}}
+   ```
+
+1. In the output above, the `clusterId` **8x6zd9cq** is being updated from **Small** to **Large**.
 
 ## Terminate Spark cluster
+<a name="terminate-spark-cluster"></a>
 
 Terminate your Spark cluster once your work is done, so that you don't incur additional charges.
 
-###### To terminate your Spark cluster
+**To terminate your Spark cluster**
 
 1. Type the following code to terminate a cluster.
 
-```
-%local
-finspace_clusters.terminate('8x6zd9cq')
-```
+   ```
+   %local
+   finspace_clusters.terminate('8x6zd9cq')
+   ```
 
-2. You can check the state of the cluster using the `list()` function.
+1. You can check the state of the cluster using the `list()` function.

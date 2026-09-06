@@ -1,76 +1,48 @@
-After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see
-[Amazon FinSpace end of support](amazon-finspace-end-of-support.md "amazon-finspace-end-of-support.md").
+
+
+After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Querying AWS CloudTrail logs
+<a name="logging-cloudtrail-events"></a>
 
-###### Important
+**Important**  
+Amazon FinSpace Dataset Browser will be discontinued on {{March 26, 2025}}. Starting {{November 29, 2023}}, FinSpace will no longer accept the creation of new Dataset Browser environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/) will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/) or contact [AWS Support](https://aws.amazon.com/contact-us/) to assist with your transition.
 
-Amazon FinSpace Dataset Browser will be discontinued on `March 26,
- 2025`. Starting `November 29, 2023`, FinSpace will no longer accept the creation of new Dataset Browser
-environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/ "https://aws.amazon.com/finspace/features/managed-kdb-insights/") will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/ "https://aws.amazon.com/finspace/faqs/") or contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") to assist with your
-transition.
+Amazon FinSpace is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or AWS service in FinSpace. CloudTrail captures all API calls for FinSpace as events. The events captured include calls from the FinSpace console, web application, and code calls to the FinSpace APIs. You can use the information collected by CloudTrail to determine the request that was made to FinSpace, the IP address of the requester, who made the request, when the request was made, and additional details.
 
-Amazon FinSpace is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, role, or AWS service in FinSpace. CloudTrail captures all API calls for FinSpace as
-events. The events captured include calls from the FinSpace console, web application, and code
-calls to the FinSpace APIs. You can use the information collected by CloudTrail to determine the
-request that was made to FinSpace, the IP address of the requester, who made the request, when
-the request was made, and additional details.
+You can create a trail to enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, including events for FinSpace. If you don't configure a trail, you can still view the most recent events in the CloudTrail console.
 
-You can create a trail to enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service
-(Amazon S3) bucket, including events for FinSpace. If you don't configure a trail, you can still
-view the most recent events in the CloudTrail console.
-
-For more information about CloudTrail, see the [AWS CloudTrail User
-Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## FinSpace information in CloudTrail
+<a name="aws-finspace-information-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. In the CloudTrail
-console in **Event history**, you can view, search, and
-download recent events in your AWS account. For more information, see [Viewing events with CloudTrail event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the AWS CloudTrail User Guide.
+CloudTrail is enabled on your AWS account when you create the account. In the CloudTrail console in **Event history**, you can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the AWS CloudTrail User Guide.
 
-For an ongoing record of events in your AWS account, including events for FinSpace,
-create a trail. By default, when you create a trail in the console, the trail applies to
-all AWS Regions. The trail logs events from all Regions in the AWS partition and
-delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can
-configure other AWS services to further analyze and act upon the event data collected
-in CloudTrail logs. For more information, see the following in the _AWS CloudTrail User
-Guide_:
+For an ongoing record of events in your AWS account, including events for FinSpace, create a trail. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following in the *AWS CloudTrail User Guide*:
++  [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) 
++  [AWS service integrations with CloudTrail logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations) 
++  [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html) 
++  [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) 
++  [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html) 
 
-- [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS service integrations with CloudTrail logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+CloudTrail logs all FinSpace API operations including actions taken in the FinSpace web application. These and other operations are documented in the API references:
++  [Amazon FinSpace management API reference](https://docs.aws.amazon.com/finspace/latest/management-api/fs-api-welcome.html) 
++  [Amazon FinSpace data API reference](https://docs.aws.amazon.com/finspace/latest/data-api/fs-api-welcome.html) 
 
-CloudTrail logs all FinSpace API operations including actions taken in the FinSpace web
-application. These and other operations are documented in the API references:
+Every event or log entry contains information about who generated the request. The identity information helps you determine:
++ The details of the user that made the request.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- [Amazon FinSpace management
-  API reference](../management-api/fs-api-welcome.md "../management-api/fs-api-welcome.md")
-- [Amazon FinSpace data API reference](../data-api/fs-api-welcome.md "../data-api/fs-api-welcome.md")
-
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine:
-
-- The details of the user that made the request.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the AWS CloudTrail User Guide.
+For more information, see [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the AWS CloudTrail User Guide.
 
 ## Understanding FinSpace log file entries
+<a name="understanding-aws-finspace-log-file-entries"></a>
 
-CloudTrail delivers events as log files that contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-operation, the date and time of the operation, the request parameters, and so on.
-Because these log files aren't an ordered stack trace of the public API calls, they
-don't appear in any specific order.
+CloudTrail delivers events as log files that contain one or more log entries. An event represents a single request from any source and includes information about the requested operation, the date and time of the operation, the request parameters, and so on. Because these log files aren't an ordered stack trace of the public API calls, they don't appear in any specific order.
 
-The following example CloudTrail log entry demonstrates the `CreateEnvironment`
-operation, which creates a new FinSpace environment.
+The following example CloudTrail log entry demonstrates the `CreateEnvironment` operation, which creates a new FinSpace environment.
 
 ```
 {
@@ -110,8 +82,7 @@ operation, which creates a new FinSpace environment.
 }
 ```
 
-The following example CloudTrail log entry demonstrates the `GetEnvironment`
-operation, which describes a FinSpace environment.
+The following example CloudTrail log entry demonstrates the `GetEnvironment` operation, which describes a FinSpace environment.
 
 ```
 {
@@ -144,11 +115,9 @@ operation, which describes a FinSpace environment.
 }
 ```
 
-The following example CloudTrail log entry demonstrates the `CreateUser`
-operation, which creates a FinSpace user by using the FinSpace data API.
+The following example CloudTrail log entry demonstrates the `CreateUser` operation, which creates a FinSpace user by using the FinSpace data API.
 
-In this example, the value of the `principalId` element is the FinSpace user
-ID of the user who accesses the web application.
+In this example, the value of the `principalId` element is the FinSpace user ID of the user who accesses the web application.
 
 ```
 {
@@ -189,11 +158,9 @@ ID of the user who accesses the web application.
 }
 ```
 
-The following example CloudTrail log entry demonstrates the `CreateDataset`
-event generated by an action taken in the FinSpace web application.
+The following example CloudTrail log entry demonstrates the `CreateDataset` event generated by an action taken in the FinSpace web application.
 
-In this example, the value of the `principalId` element is the FinSpace user
-ID of the user who accesses the web application.
+In this example, the value of the `principalId` element is the FinSpace user ID of the user who accesses the web application.
 
 ```
 {
@@ -257,21 +224,13 @@ ID of the user who accesses the web application.
 ```
 
 ## FinSpace data plane events in CloudTrail
+<a name="finspace-dataplane-events"></a>
 
-Data access logging helps to log actions taken against the managed S3 bucket in your
-Amazon FinSpace environment's infrastructure account. The logging includes activity originating
-from the FinSpace managed Apache Spark clusters, FinSpace managed SageMaker AI Studio Notebook, and the
-FinSpace service itself. To enable logging of data access actions in FinSpace, you need to
-enable logging of data activity in CloudTrail. For more information, see [Logging
-data events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md").
+Data access logging helps to log actions taken against the managed S3 bucket in your Amazon FinSpace environment's infrastructure account. The logging includes activity originating from the FinSpace managed Apache Spark clusters, FinSpace managed SageMaker AI Studio Notebook, and the FinSpace service itself. To enable logging of data access actions in FinSpace, you need to enable logging of data activity in CloudTrail. For more information, see [Logging data events for trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html).
 
-The following example CloudTrail data event log entry demonstrates the event generated by
-accessing a dataset from Amazon S3 CLI.
+The following example CloudTrail data event log entry demonstrates the event generated by accessing a dataset from Amazon S3 CLI.
 
-The `principalId` element contains details about the FinSpace user ID that
-accesses a given FinSpace dataset ID. In this example, the user ID is the string _**jmiupn9hiyavwdw6pwdyva**_ with
-the prefix _**u\_**_ and the
-dataset ID is the string _**64hzb00**_ with the prefix _**ds\_**_.
+The `principalId` element contains details about the FinSpace user ID that accesses a given FinSpace dataset ID. In this example, the user ID is the string ***jmiupn9hiyavwdw6pwdyva*** with the prefix ***u\_*** and the dataset ID is the string ***64hzb00*** with the prefix ***ds\_***.
 
 ```
 {
