@@ -1,262 +1,293 @@
-AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](app-registry-availability-change.md "app-registry-availability-change.md").
+
+
+AWS Service Catalog AppRegistry is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-registry-availability-change.html).
 
 # Controlling the resources associated to applications
+<a name="control-tags"></a>
 
-This topic includes policy templates that you can use to control how tag key-value pairs are associated to applications.
+ This topic includes policy templates that you can use to control how tag key-value pairs are associated to applications. 
 
-The following policy templates are organized by scenario and include values that can be replaced with your information.
+ The following policy templates are organized by scenario and include values that can be replaced with your information. 
 
-**Sample policy: Stack only association**
+ ** Sample policy: Stack only association ** 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:*",
- "cloudformation:DescribeStacks",
- "resource-groups:*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": "servicecatalog:AssociateResource",
- "Resource": "arn:aws:servicecatalog:*:*:*",
- "Condition": {
- "StringNotEquals": {
- "servicecatalog:ResourceType": "`CFN_STACK`"
- }
- }
- }
- ]
-}`
+****  
 
 ```
-
-**Sample policy: Stack association that allows a specific stack name**
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:*",
- "cloudformation:DescribeStacks",
- "resource-groups:*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*",
- "Condition": {
- "StringNotEquals": {
- "servicecatalog:ResourceType": "`CFN_STACK`"
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:*",
+                "cloudformation:DescribeStacks",
+                "resource-groups:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": "servicecatalog:AssociateResource",
+            "Resource": "arn:aws:servicecatalog:*:*:*",
+            "Condition": {
+                "StringNotEquals": {
+                    "servicecatalog:ResourceType": "{{CFN_STACK}}"
+                }
+            }
+        }
+    ]
+}
 ```
 
-**Sample policy: Stack association that allows multiple specific stack names**
+------
 
-JSON
+ ** Sample policy: Stack association that allows a specific stack name ** 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:*",
- "cloudformation:DescribeStacks",
- "resource-groups:*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*",
- "Condition": {
- "StringNotEquals": {
- "servicecatalog:ResourceType": "`CFN_STACK`"
- }
- }
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
-
-**Sample policy: Tag value association that denies a specific tag query value while allowing other tag queries**
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:*",
- "cloudformation:DescribeStacks",
- "resource-groups:*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "servicecatalog:ResourceType": "`TAG_QUERY`"
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+       {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:*",
+                "cloudformation:DescribeStacks",
+                "resource-groups:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "servicecatalog:ResourceType": "{{CFN_STACK}}"
+                }
+            }
+        }
+    ]
+}
 ```
 
-**Sample policy: Allow tag query association only**
+------
 
-JSON
+ ** Sample policy: Stack association that allows multiple specific stack names ** 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:*",
- "cloudformation:DescribeStacks",
- "resource-groups:*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*",
- "Condition": {
- "StringNotEquals": {
- "servicecatalog:ResourceType": "`TAG_QUERY`"
- }
- }
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
-
-**Sample policy: Allow tag query association/deny specific tag query values**
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:*",
- "cloudformation:DescribeStacks",
- "resource-groups:*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "servicecatalog:ResourceType": "`CFN_STACK`"
- }
- }
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "servicecatalog:ResourceType": ["`TAG_QUERY`"]
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:*",
+                "cloudformation:DescribeStacks",
+                "resource-groups:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "servicecatalog:ResourceType": "{{CFN_STACK}}"
+                }
+            }
+        }
+    ]
+}
 ```
 
-**Sample policy: Allow specific tag query value and specific stack**
+------
 
-JSON
+ ** Sample policy: Tag value association that denies a specific tag query value while allowing other tag queries ** 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "servicecatalog:*",
- "cloudformation:DescribeStacks",
- "resource-groups:*"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Deny",
- "Action": [
- "servicecatalog:AssociateResource"
- ],
- "Resource": "*",
- "Condition": {
- "StringNotEquals": {
- "servicecatalog:ResourceType": "`CFN_STACK`"
- }
- }
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:*",
+                "cloudformation:DescribeStacks",
+                "resource-groups:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "servicecatalog:ResourceType": "{{TAG_QUERY}}"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
+
+ ** Sample policy: Allow tag query association only ** 
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:*",
+                "cloudformation:DescribeStacks",
+                "resource-groups:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "servicecatalog:ResourceType": "{{TAG_QUERY}}"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
+
+ ** Sample policy: Allow tag query association/deny specific tag query values ** 
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:*",
+                "cloudformation:DescribeStacks",
+                "resource-groups:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "servicecatalog:ResourceType": "{{CFN_STACK}}"
+                }
+            }
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "servicecatalog:ResourceType": ["{{TAG_QUERY}}"]
+                }
+            }
+        }
+    ]
+}
+```
+
+------
+
+ ** Sample policy: Allow specific tag query value and specific stack ** 
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "servicecatalog:*",
+                "cloudformation:DescribeStacks",
+                "resource-groups:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": [
+                "servicecatalog:AssociateResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "servicecatalog:ResourceType": "{{CFN_STACK}}"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
