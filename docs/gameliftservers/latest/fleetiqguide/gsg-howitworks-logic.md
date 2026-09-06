@@ -33,12 +33,12 @@ following ways:
   need it.
 - **It limits new instances to launch on viable instance
   types only.** A Amazon GameLift Servers FleetIQ game server group maintains a master
-  list of your desired instance types, The instance balancing process
+  list of your desired instance types. The instance balancing process
   continually evaluates each desired instance type on the list for game
   hosting viability, using a prediction algorithm that looks at the instance
   type's recent availability and interruption rate. As a result of this
   evaluation, Amazon GameLift Servers FleetIQ continually updates the Auto Scaling group's list of desired
-  instance types to include only currently viable instances types.
+  instance types to include only currently viable instance types.
 - **It flags existing instances that are non-viable
   instance types.** Amazon GameLift Servers FleetIQ identifies existing instances in an
   Auto Scaling group that are currently non-viable instance types. These instances are
@@ -59,7 +59,7 @@ information to determine the best placement for new game sessions and
 players.
 
 To enable Amazon GameLift Servers FleetIQ to track game servers, your game server software must report
-its status. Your custom AMI controls how new game servers processes are started and
+its status. Your custom AMI controls how new game server processes are started and
 stopped on each instance. When a new game server is started, it registers with
 Amazon GameLift Servers FleetIQ, indicating that it is ready to host a game session. After registering, the
 game server periodically reports its health and whether it is currently hosting a

@@ -9,7 +9,7 @@ provide initial property settings for the Auto Scaling group.
 The following example triggers the creation of a `GameServerGroup` that
 specifies c4.large and c5.large instance types and limits the group to Spot Instances
 only, and an Auto Scaling group that uses the specified launch template for deploying
-instances and manages group capcity within the minimum and maximum settings using a
+instances and manages group capacity within the minimum and maximum settings using a
 target-tracking automatic scaling policy. After a short provisioning period, an
 `AutoScalingGroup` resource is created, and the
 `GameServerGroup` enters an ACTIVE state.

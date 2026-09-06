@@ -1,6 +1,6 @@
 # Preparing games for Amazon GameLift Servers FleetIQ
 
-This section covers how to implement your design for hosting games on Amazon EC2 with Amazon GameLift Servers FleetIQ
+This section covers how to implement your design for hosting games on Amazon EC2 with Amazon GameLift Servers FleetIQ.
 To get your multiplayer games up and running, you need to do the following:
 
 - Adapt your game server to communicate with Amazon GameLift Servers FleetIQ.

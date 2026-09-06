@@ -30,7 +30,7 @@ When starting a game session, client or matchmaking services claim an available 
 server (by calling [ClaimGameServer()](../../../gamelift/latest/apireference/API_ClaimGameServer.md "../../../gamelift/latest/apireference/API_ClaimGameServer.md")), prompt players to connect to the game server, and
 trigger the game server to start gameplay. This process is described in [Integrate Amazon GameLift Servers FleetIQ into a game client](gsg-integrate-gameclient.md "gsg-integrate-gameclient.md"). A
 game server "claim" is valid for 60 seconds, and the game server must be able to update
-utilization status withing this window. If utilization status is not updated, Amazon GameLift Servers FleetIQ
+utilization status within this window. If utilization status is not updated, Amazon GameLift Servers FleetIQ
 removes the claim, assumes that the game server is available, and may reserve the game
 server for another client claim request.
 

@@ -10,7 +10,7 @@ For all other Auto Scaling group properties, such as `MinSize`,
 on the Auto Scaling group.
 
 In the example below, the instance type definitions are updated to switch over to
-c4.xlarge and c5.xlarge instances types.
+c4.xlarge and c5.xlarge instance types.
 
 ```
 AWS gamelift update-game-server-group \

@@ -7,7 +7,7 @@ server groups and game servers, in conjunction with Amazon EC2 and Auto Scaling 
 
 Use these operations to manage your game server deployments with FleetIQ
 optimizations. A game server group controls how your game server processes are
-launched on Amazon EC2 instances, sets up and Auto Scaling group, and defines how to apply FleetIQ
+launched on Amazon EC2 instances, sets up an Auto Scaling group, and defines how to apply FleetIQ
 optimizations.
 
 - [CreateGameServerGroup](../../../gamelift/latest/apireference/API_CreateGameServerGroup.md "../../../gamelift/latest/apireference/API_CreateGameServerGroup.md") – Create a new game server group
@@ -31,7 +31,7 @@ optimizations.
 
 Use these operations to manage your game server deployments with FleetIQ
 optimizations. A game server group controls how your game server processes are
-launched on Amazon EC2 instances, sets up and Auto Scaling group, and defines how to apply FleetIQ
+launched on Amazon EC2 instances, sets up an Auto Scaling group, and defines how to apply FleetIQ
 optimizations.
 
 - [RegisterGameServer](../../../gamelift/latest/apireference/API_RegisterGameServer.md "../../../gamelift/latest/apireference/API_RegisterGameServer.md") – Call from a new game server to

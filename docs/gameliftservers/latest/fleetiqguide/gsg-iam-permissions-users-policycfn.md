@@ -1,6 +1,6 @@
 # Additional permissions for CloudFormation
 
-If you use CloudFormationto manage your game hosting resources, add the CloudFormation permissions to the policy syntax.
+If you use CloudFormation to manage your game hosting resources, add the CloudFormation permissions to the policy syntax.
 
 ```
     {

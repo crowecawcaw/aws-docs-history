@@ -8,7 +8,7 @@ As a best practice ( [Security best practices in IAM](../../../IAM/latest/UserGu
 apply least-privilege permissions for all users. You can set permissions for individual users
 or user groups and limit user access by service, action, or resource.
 
-Use following instructions to set user permissions based on how you manage the users in
+Use the following instructions to set user permissions based on how you manage the users in
 your AWS account. If you use IAM users, as a best practice always attach permissions to
 roles or user groups, not individual users.
 

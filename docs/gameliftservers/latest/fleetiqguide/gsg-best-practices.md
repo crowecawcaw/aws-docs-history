@@ -17,7 +17,7 @@ Here are some best practices that can help you get the most benefit from Amazon 
   works best when it is constantly directing players onto instances that are least
   likely to have game session interruptions. Maintaining long-lived sessions
   interferes with the Amazon GameLift Servers FleetIQ balancing process, which increases the likelihood that
-  games sessions might be interrupted. The ideal workflow is for players to go from
+  game sessions might be interrupted. The ideal workflow is for players to go from
   matchmaking (or server selection) into gameplay. When the game ends, players go back
   to matchmaking and are routed to another game server on a new instance. We recommend
   using Amazon GameLift Servers FleetIQ for games with sessions under two hours.
@@ -66,7 +66,7 @@ Here are some best practices that can help you get the most benefit from Amazon 
   balancing activity.
 - **Test your game on EC2 before integrating it with
   Amazon GameLift Servers FleetIQ.** We recommend getting your game up and running on EC2 and
-  fine-tune your configuration first. You can then create a game server group using
+  fine-tuning your configuration first. You can then create a game server group using
   the same launch template and AMI.
 
 If you're using Kubernetes, we recommend first getting standard EC2 instances
